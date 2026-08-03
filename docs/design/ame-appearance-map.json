@@ -1,0 +1,542 @@
+[
+  {
+    "slot": 1,
+    "id": "JAZZ_AME_01",
+    "donor": "MilitiaRookie_Male_01",
+    "name": "Kwame Mensah",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Artillery_01"
+  },
+  {
+    "slot": 2,
+    "id": "JAZZ_AME_02",
+    "donor": "MilitiaRookie_Male_02",
+    "name": "Jean-Baptiste Okoro",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Demolition_02"
+  },
+  {
+    "slot": 3,
+    "id": "JAZZ_AME_03",
+    "donor": "Militia_Artillery",
+    "name": "Ibrahim Touré",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Heavy_05"
+  },
+  {
+    "slot": 4,
+    "id": "JAZZ_AME_04",
+    "donor": "Militia_Demolition",
+    "name": "Sani Abubakar",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Marksman_03"
+  },
+  {
+    "slot": 5,
+    "id": "JAZZ_AME_05",
+    "donor": "Militia_Heavy",
+    "name": "Pierre Ndongo",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Recon_06"
+  },
+  {
+    "slot": 6,
+    "id": "JAZZ_AME_06",
+    "donor": "Militia_Marksman",
+    "name": "Moussa Diop",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Shaman_09"
+  },
+  {
+    "slot": 7,
+    "id": "JAZZ_AME_07",
+    "donor": "Militia_Medic",
+    "name": "Abel Getachew",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 8,
+    "id": "JAZZ_AME_08",
+    "donor": "Militia_Officer",
+    "name": "Thabo Molefe",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Stormer_04"
+  },
+  {
+    "slot": 9,
+    "id": "JAZZ_AME_09",
+    "donor": "Militia_Recon",
+    "name": "Daniel Kiprop",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+  },
+  {
+    "slot": 10,
+    "id": "JAZZ_AME_10",
+    "donor": "Militia_Soldier",
+    "name": "Emmanuel Kabongo",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Artillery_01"
+  },
+  {
+    "slot": 11,
+    "id": "JAZZ_AME_11",
+    "donor": "GrandChien_CommanderFemale",
+    "name": "Aisha Hassan",
+    "cat": "Irregulars",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_01"
+  },
+  {
+    "slot": 12,
+    "id": "JAZZ_AME_12",
+    "donor": "Militia_Stormer",
+    "name": "Amadou Keita",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Heavy_05"
+  },
+  {
+    "slot": 13,
+    "id": "JAZZ_AME_13",
+    "donor": "Artillery_Rebels",
+    "name": "Chidi Okonkwo",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Marksman_03"
+  },
+  {
+    "slot": 14,
+    "id": "JAZZ_AME_14",
+    "donor": "Artillery_Rebels_02",
+    "name": "Lucien Mbarga",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Recon_06"
+  },
+  {
+    "slot": 15,
+    "id": "JAZZ_AME_15",
+    "donor": "Artillery_Rebels_03",
+    "name": "Kofi Asante",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Shaman_09"
+  },
+  {
+    "slot": 16,
+    "id": "JAZZ_AME_16",
+    "donor": "Commander_Rebels",
+    "name": "João Domingos",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Soldier_07"
+  },
+  {
+    "slot": 17,
+    "id": "JAZZ_AME_17",
+    "donor": "MilitiaRookie_Female_01",
+    "name": "Wanjiku Mwangi",
+    "cat": "Irregulars",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_07"
+  },
+  {
+    "slot": 18,
+    "id": "JAZZ_AME_18",
+    "donor": "Demolitions_Rebels",
+    "name": "Serge Kouassi",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+  },
+  {
+    "slot": 19,
+    "id": "JAZZ_AME_19",
+    "donor": "Demolitions_Rebels_02",
+    "name": "Bongani Dlamini",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Artillery_01"
+  },
+  {
+    "slot": 20,
+    "id": "JAZZ_AME_20",
+    "donor": "Demolitions_Rebels_03",
+    "name": "Idrissa Bah",
+    "cat": "Irregulars",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Demolition_02"
+  },
+  {
+    "slot": 21,
+    "id": "JAZZ_AME_21",
+    "donor": "Legion_Artillery",
+    "name": "Omar Diallo",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 22,
+    "id": "JAZZ_AME_22",
+    "donor": "Legion_Artillery02",
+    "name": "Bastien Lafontaine",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 23,
+    "id": "JAZZ_AME_23",
+    "donor": "Legion_Artillery03",
+    "name": "Chukwuemeka Obi",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 24,
+    "id": "JAZZ_AME_24",
+    "donor": "Legion_Demolishion",
+    "name": "Michel Kabeya",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 25,
+    "id": "JAZZ_AME_25",
+    "donor": "Legion_Demolishion02",
+    "name": "Juma Otieno",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 26,
+    "id": "JAZZ_AME_26",
+    "donor": "Legion_Demolishion03",
+    "name": "Andile Nkosi",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 27,
+    "id": "JAZZ_AME_27",
+    "donor": "Legion_Heavy",
+    "name": "Sekou Camara",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 28,
+    "id": "JAZZ_AME_28",
+    "donor": "Legion_Heavy02",
+    "name": "Pascal Ngoma",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 29,
+    "id": "JAZZ_AME_29",
+    "donor": "Legion_Heavy03",
+    "name": "Kwesi Boateng",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 30,
+    "id": "JAZZ_AME_30",
+    "donor": "Legion_Jose",
+    "name": "Tesfaye Alemu",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Heavy_05"
+  },
+  {
+    "slot": 31,
+    "id": "JAZZ_AME_31",
+    "donor": "Legion_Marksman",
+    "name": "Rafael dos Santos",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 32,
+    "id": "JAZZ_AME_32",
+    "donor": "MilitiaRookie_Female_02",
+    "name": "Awa Sow",
+    "cat": "Fighters",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_02"
+  },
+  {
+    "slot": 33,
+    "id": "JAZZ_AME_33",
+    "donor": "Legion_Marksman02",
+    "name": "Claude Mvemba",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 34,
+    "id": "JAZZ_AME_34",
+    "donor": "Legion_Marksman03",
+    "name": "Emeka Nwosu",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 35,
+    "id": "JAZZ_AME_35",
+    "donor": "Legion_Recon",
+    "name": "Samuel Cheruiyot",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 36,
+    "id": "JAZZ_AME_36",
+    "donor": "Legion_Recon02",
+    "name": "Mamadou Traoré",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 37,
+    "id": "JAZZ_AME_37",
+    "donor": "Legion_Recon03",
+    "name": "Felix Tshisekedi",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 38,
+    "id": "JAZZ_AME_38",
+    "donor": "Legion_Shaman",
+    "name": "Noah van Wyk",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 39,
+    "id": "JAZZ_AME_39",
+    "donor": "GrandChien_Artillery",
+    "name": "Joseph Mukendi",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Heavy_05"
+  },
+  {
+    "slot": 40,
+    "id": "JAZZ_AME_40",
+    "donor": "GrandChien_Demolition",
+    "name": "Abraham Tekle",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Marksman_03"
+  },
+  {
+    "slot": 41,
+    "id": "JAZZ_AME_41",
+    "donor": "GrandChien_Heavy",
+    "name": "Sipho Khumalo",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Recon_06"
+  },
+  {
+    "slot": 42,
+    "id": "JAZZ_AME_42",
+    "donor": "GrandChien_Marksman",
+    "name": "Boubacar Kane",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Shaman_09"
+  },
+  {
+    "slot": 43,
+    "id": "JAZZ_AME_43",
+    "donor": "GrandChien_Medic",
+    "name": "Didier Mbemba",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": null
+  },
+  {
+    "slot": 44,
+    "id": "JAZZ_AME_44",
+    "donor": "RebelFemaleSniper",
+    "name": "Amina Yusuf",
+    "cat": "Hardened",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_04"
+  },
+  {
+    "slot": 45,
+    "id": "JAZZ_AME_45",
+    "donor": "GrandChien_Officer",
+    "name": "Léopold Sassou",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+  },
+  {
+    "slot": 46,
+    "id": "JAZZ_AME_46",
+    "donor": "GrandChien_Recon",
+    "name": "Kofi Mensah",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Artillery_01"
+  },
+  {
+    "slot": 47,
+    "id": "JAZZ_AME_47",
+    "donor": "GrandChien_Soldier",
+    "name": "Hassan Ibrahim",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Demolition_02"
+  },
+  {
+    "slot": 48,
+    "id": "JAZZ_AME_48",
+    "donor": "GrandChien_Stormer",
+    "name": "Patrick Omondi",
+    "cat": "Hardened",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Heavy_05"
+  },
+  {
+    "slot": 49,
+    "id": "JAZZ_AME_49",
+    "donor": "RebelFemaleSniper_1",
+    "name": "Dr. Fatoumata Sy",
+    "cat": "Specialists",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_09"
+  },
+  {
+    "slot": 50,
+    "id": "JAZZ_AME_50",
+    "donor": "RebelFemaleSniper_1",
+    "name": "Grace Wanjiru",
+    "cat": "Specialists",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_10"
+  },
+  {
+    "slot": 51,
+    "id": "JAZZ_AME_51",
+    "donor": "Heavy_Rebels",
+    "name": "Dr. Emile Kabongo",
+    "cat": "Specialists",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Shaman_09"
+  },
+  {
+    "slot": 52,
+    "id": "JAZZ_AME_52",
+    "donor": "MilitiaRookie_Female_01",
+    "name": "Captain Amara Koné",
+    "cat": "Specialists",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_02"
+  },
+  {
+    "slot": 53,
+    "id": "JAZZ_AME_53",
+    "donor": "MilitiaRookie_Female_02",
+    "name": "Sgt. Nadia Okonkwo",
+    "cat": "Specialists",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_03"
+  },
+  {
+    "slot": 54,
+    "id": "JAZZ_AME_54",
+    "donor": "Heavy_Rebels_02",
+    "name": "Maj. Théodore Ngalula",
+    "cat": "Specialists",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_WitchDoctor_08"
+  },
+  {
+    "slot": 55,
+    "id": "JAZZ_AME_55",
+    "donor": "Heavy_Rebels_03",
+    "name": "Issa Camara",
+    "cat": "Specialists",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Artillery_01"
+  },
+  {
+    "slot": 56,
+    "id": "JAZZ_AME_56",
+    "donor": "GrandChien_CommanderFemale",
+    "name": "Lindiwe Mokoena",
+    "cat": "Specialists",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_06"
+  },
+  {
+    "slot": 57,
+    "id": "JAZZ_AME_57",
+    "donor": "Marksman_Rebels",
+    "name": "Bakary Diarra",
+    "cat": "Specialists",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Heavy_05"
+  },
+  {
+    "slot": 58,
+    "id": "JAZZ_AME_58",
+    "donor": "MilitiaRookie_Female_02",
+    "name": "Marie-Claire Mbala",
+    "cat": "Specialists",
+    "female": true,
+    "head_swap": "Head_F_Af_NPC_08"
+  },
+  {
+    "slot": 59,
+    "id": "JAZZ_AME_59",
+    "donor": "Marksman_Rebels_02",
+    "name": "Ousmane Fall",
+    "cat": "Specialists",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Recon_06"
+  },
+  {
+    "slot": 60,
+    "id": "JAZZ_AME_60",
+    "donor": "Marksman_Rebels_03",
+    "name": "Jean-Pierre Kalala",
+    "cat": "Specialists",
+    "female": false,
+    "head_swap": "Faction_Legion_Head_Shaman_09"
+  }
+]

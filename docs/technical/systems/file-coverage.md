@@ -68,6 +68,11 @@
 | `Camera.lua` | loaded | [Видимость](visibility-weather-appearance.md), [бой](combat-cth-actions.md) |
 | `SpecializationGiver.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_AimHiringFilters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
+| `System_AME_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME PDA filters (UNITS-005) |
+| `System_AME_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAAIMEBrowser` + tab/hire wrap (UNITS-005) |
+| `System_AME_Market.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME market tick/state (UNITS-005) |
+| `System_AME_Browser_Template.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — XTemplate `PDAAIMEBrowser` (UNITS-005) |
+| `System_AME_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME MercNationalities + flags (UNITS-005) |
 | `System_IMP_StartingGear.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — IMP hire kit (IMP-001) |
 | `System_IMP_Perks.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — Mimicry/Veteran/Sniper (IMP-001) |
 | `AimHiringScreen_Template.lua` | dormant | [Юниты](units-progression-specializations.md), [runtime](runtime-editor-integration.md) |

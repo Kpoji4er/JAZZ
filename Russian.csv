@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002001,<bullet_point> Jam chance: <chance>%,<bullet_point> Шанс клина: <chance>%,,jazz:Code/System_WeaponResourceMaintenance.lua
 990002002,Ствольные запчасти,Ствольные запчасти,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -8074,34 +8074,6 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000004822,Спасибо за свободу. Я в деле.,Hired.,,Jazz_Eskimo
 890000000004823,Контракт заканчивается. Продлеваем?,Contract ending?,,Jazz_Eskimo
 890000000004824,Остаюсь. Тюрьма научила меня терпению.,Staying.,,Jazz_Eskimo
-890000000005001,Толстокожий,Толстокожий,,Jazz_Perk_Meat
-890000000005002,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Meat
-890000000005003,Тихая тень,Тихая тень,,Jazz_Perk_Carlos
-890000000005004,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Carlos
-890000000005005,IRA,IRA,,Jazz_Perk_Devin
-890000000005006,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Devin
-890000000005007,Не трогай меня,Не трогай меня,,Jazz_Perk_Shank
-890000000005008,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,Enemies making melee attacks against Shank suffer -50 chance to hit.,,Jazz_Perk_Shank
-890000000005009,Полевой наставник,Полевой наставник,,Jazz_Perk_Vince
-890000000005010,Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД.,"Once per combat, the first heal or bandage on an ally grants them +4 AP.",,Jazz_Perk_Vince
-890000000005011,Вырубить,Вырубить,,Jazz_Perk_Hitman
-890000000005012,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Hitman
-890000000005013,Старая школа,Старая школа,,Jazz_Perk_Biggens
-890000000005014,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Biggens
-890000000005015,Оружейник старой закалки,Оружейник старой закалки,,Jazz_Perk_Kulba
-890000000005016,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Kulba
-890000000005017,Ночной автоматчик,Ночной автоматчик,,Jazz_Perk_Vilde
-890000000005018,Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания.,"At night or underground, autofire/burst gain +15 chance to hit.",,Jazz_Perk_Vilde
-890000000005019,Точный бросок,Точный бросок,,Jazz_Perk_Grace
-890000000005020,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,Jazz_Perk_Grace
-890000000005021,Ночной инструктор,Ночной инструктор,,Jazz_Perk_Steiger
-890000000005022,Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания.,"At night or underground, at turn start allies within 5 tiles gain +5 chance to hit.",,Jazz_Perk_Steiger
-890000000005023,Второе дыхание,Второе дыхание,,Jazz_Perk_Lucky
-890000000005024,Раз за бой первый промах из огнестрела становится попаданием.,"Once per combat, the first firearm miss becomes a hit.",,Jazz_Perk_Lucky
-890000000005025,Скрытный врач,Скрытный врач,,Jazz_Perk_Laura
-890000000005026,Лечение союзника не снимает с Лоры скрытность.,Healing an ally does not break Laura's Hidden status.,,Jazz_Perk_Laura
-890000000005027,Тюремная выдержка,Тюремная выдержка,,Jazz_Perk_Eskimo
-890000000005028,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,Below 50% HP he cannot be Panicked; wounds do not cut his rifle CTH.,,Jazz_Perk_Eskimo
 890000000006202,[WIP] Тортон «Мясо» Джонс,[WIP] Тортон «Мясо» Джонс,,Jazz_Meat
 890000000006203,Мясо,Мясо,,Jazz_Meat
 890000000006204,МЯСО,МЯСО,,Jazz_Meat
@@ -11445,6 +11417,9 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000010127,Moderate burn debt. Pain on exertion. Infection risk deferred.,Средний ожоговый долг. Боль при нагрузке. Инфекция — позже.,,jazz:MED-001-trauma-remap-from-890000000009253
 890000000010128,Burn Trauma (Heavy),Ожоговая травма (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009254
 890000000010129,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,Тяжёлый ожоговый долг. Боль растёт каждый ход. Инфекция/госпиталь — позже.,,jazz:MED-001-trauma-remap-from-890000000009255
+890000000010197,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,Лечение: заживает. Проверки чаще; каждая проверка улучшает травму (не ухудшится).,,jazz:MED-001-trauma-healing
+890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Следующая проверка прогресса: <em>сейчас</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
+890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Следующая проверка прогресса через <em><hours> ч</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
 890000000010200,Field Bandage,Бинт,,jazz:MED-001-JazzBandage
 890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,Наложить бинт: снижает кровотечение на один тир у себя или союзника. Без Медицины. Не восстанавливает ОЗ и не лечит травмы.,,jazz:MED-001-JazzBandage
 890000000010202,BANDAGE,БИНТ,,jazz:MED-001-JazzBandage
@@ -11654,6 +11629,571 @@ ID,Text,Translation,VoiceActor,Context
 890000000003717,Иду с вами. Фатима поймёт.
 890000000002817,Ладно... я попробую. Только пусть кто-нибудь прикроет.
 890000000003117,Уже в тени. Иду.
-890000000010197,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,Лечение: заживает. Проверки чаще; каждая проверка улучшает травму (не ухудшится).,,jazz:MED-001-trauma-healing
-890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Следующая проверка прогресса: <em>сейчас</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
-890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Следующая проверка прогресса через <em><hours> ч</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
+
+# JAZZ-UNITS-005-AME-VR-LOC-BEGIN
+890000000005800,Take that!,Есть цель!,,jazz-units:items.lua:VoiceResponse AME
+890000000005801,Die!,Бью.,,jazz-units:items.lua:VoiceResponse AME
+890000000005802,MEURS!,Держу на мушке.,,jazz-units:items.lua:VoiceResponse AME
+890000000005803,Take that!,Тихо сниму.,,jazz-units:items.lua:VoiceResponse AME
+890000000005804,Die!,Без шума.,,jazz-units:items.lua:VoiceResponse AME
+890000000005805,I have no cover here!,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse AME
+890000000005806,You won't break our spirit.,Плохой угол.,,jazz-units:items.lua:VoiceResponse AME
+890000000005807,Huh? Enemies!,Вижу их!,,jazz-units:items.lua:VoiceResponse AME
+890000000005808,Alerter! Alerter!,Контакт справа!,,jazz-units:items.lua:VoiceResponse AME
+890000000005809,They are all over me!,Их много!,,jazz-units:items.lua:VoiceResponse AME
+890000000005810,We will water the soil with the blood of you all!,Готов.,,jazz-units:items.lua:VoiceResponse AME
+890000000005811,"You will pay, foreign dogs. Now it is us that will bring the pain.",Лежит.,,jazz-units:items.lua:VoiceResponse AME
+890000000005812,I have no cover here!,Патроны кончились!,,jazz-units:items.lua:VoiceResponse AME
+890000000005813,I have no cover here!,Патроны на исходе!,,jazz-units:items.lua:VoiceResponse AME
+890000000005814,I have no cover here!,Клин!,,jazz-units:items.lua:VoiceResponse AME
+890000000005815,Je suis blessé!,Аргх!,,jazz-units:items.lua:VoiceResponse AME
+890000000005816,"Uff, that hurt!",Ух!,,jazz-units:items.lua:VoiceResponse AME
+890000000005817,Je suis blessé!,Ранен!,,jazz-units:items.lua:VoiceResponse AME
+890000000005818,Je suis blessé!,Меня подбили…,,jazz-units:items.lua:VoiceResponse AME
+890000000005819,Je suis blessé!,Плохо…,,jazz-units:items.lua:VoiceResponse AME
+890000000005820,Take that!,К бою!,,jazz-units:items.lua:VoiceResponse AME
+890000000005821,Huh? Enemies!,Контакт!,,jazz-units:items.lua:VoiceResponse AME
+890000000005822,We will water the soil with the blood of you all!,Чисто.,,jazz-units:items.lua:VoiceResponse AME
+890000000005823,"Damn, they are hard to get. We need to aim better.",Ещё остались.,,jazz-units:items.lua:VoiceResponse AME
+890000000005824,Je suis blessé!,Конец…,,jazz-units:items.lua:VoiceResponse AME
+890000000005825,"Uff, that hurt!",Агх…,,jazz-units:items.lua:VoiceResponse AME
+890000000005826,Je suis blessé!,Устал…,,jazz-units:items.lua:VoiceResponse AME
+890000000005827,(heavy breath),(пыхтит),,jazz-units:items.lua:VoiceResponse AME
+890000000005828,Keeping my head down!,В укрытие!,,jazz-units:items.lua:VoiceResponse AME
+890000000005829,Take this!,Граната!,,jazz-units:items.lua:VoiceResponse AME
+890000000005830,Suppressive fire!,Очередь!,,jazz-units:items.lua:VoiceResponse AME
+890000000005831,(climbing),(лезет),,jazz-units:items.lua:VoiceResponse AME
+890000000005832,(jumping over something),(прыжок),,jazz-units:items.lua:VoiceResponse AME
+890000000005833,They are all over me!,Что?!,,jazz-units:items.lua:VoiceResponse AME
+890000000005834,They are all over me!,Опасно!,,jazz-units:items.lua:VoiceResponse AME
+890000000005835,Keeping my head down!,Держу сектор.,,jazz-units:items.lua:VoiceResponse AME
+890000000005836,(coughing),(кашляет),,jazz-units:items.lua:VoiceResponse AME
+890000000005837,"That was a beloved pet, you bastards.",Зверь!,,jazz-units:items.lua:VoiceResponse AME
+890000000005838,Glory to Grand Chien!,Есть цель!,,jazz-units:items.lua:VoiceResponse AME
+890000000005839,Take that!,Бью.,,jazz-units:items.lua:VoiceResponse AME
+890000000005840,For Grand Chien!,Держу на мушке.,,jazz-units:items.lua:VoiceResponse AME
+890000000005841,Glory to Grand Chien!,Тихо сниму.,,jazz-units:items.lua:VoiceResponse AME
+890000000005842,Take that!,Без шума.,,jazz-units:items.lua:VoiceResponse AME
+890000000005843,They have breached my position!,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse AME
+890000000005844,Watch out. We are taking heavy fire.,Плохой угол.,,jazz-units:items.lua:VoiceResponse AME
+890000000005845,Sound the alarm!,Вижу их!,,jazz-units:items.lua:VoiceResponse AME
+890000000005846,Alert! Man your stations!,Контакт справа!,,jazz-units:items.lua:VoiceResponse AME
+890000000005847,They have me in a pincer.,Их много!,,jazz-units:items.lua:VoiceResponse AME
+890000000005848,Fear the might of the Grand Chien army!,Готов.,,jazz-units:items.lua:VoiceResponse AME
+890000000005849,They are taking casualties!,Лежит.,,jazz-units:items.lua:VoiceResponse AME
+890000000005850,They have breached my position!,Патроны кончились!,,jazz-units:items.lua:VoiceResponse AME
+890000000005851,They have breached my position!,Патроны на исходе!,,jazz-units:items.lua:VoiceResponse AME
+890000000005852,They have breached my position!,Клин!,,jazz-units:items.lua:VoiceResponse AME
+890000000005853,Agh.,Аргх!,,jazz-units:items.lua:VoiceResponse AME
+890000000005854,Ouch.,Ух!,,jazz-units:items.lua:VoiceResponse AME
+890000000005855,I'm hit!,Ранен!,,jazz-units:items.lua:VoiceResponse AME
+890000000005856,I'm hit!,Меня подбили…,,jazz-units:items.lua:VoiceResponse AME
+890000000005857,I'm hit!,Плохо…,,jazz-units:items.lua:VoiceResponse AME
+890000000005858,Glory to Grand Chien!,К бою!,,jazz-units:items.lua:VoiceResponse AME
+890000000005859,Sound the alarm!,Контакт!,,jazz-units:items.lua:VoiceResponse AME
+890000000005860,Fear the might of the Grand Chien army!,Чисто.,,jazz-units:items.lua:VoiceResponse AME
+890000000005861,Good. Now they know our might.,Ещё остались.,,jazz-units:items.lua:VoiceResponse AME
+890000000005862,Agh Ugh!,Конец…,,jazz-units:items.lua:VoiceResponse AME
+890000000005863,Hagh Agh!,Агх…,,jazz-units:items.lua:VoiceResponse AME
+890000000005864,(heavy breath),Устал…,,jazz-units:items.lua:VoiceResponse AME
+890000000005865,(heavy breath),(пыхтит),,jazz-units:items.lua:VoiceResponse AME
+890000000005866,Digging in!,В укрытие!,,jazz-units:items.lua:VoiceResponse AME
+890000000005867,Take this!,Граната!,,jazz-units:items.lua:VoiceResponse AME
+890000000005868,Suppressive fire!,Очередь!,,jazz-units:items.lua:VoiceResponse AME
+890000000005869,(climbing),(лезет),,jazz-units:items.lua:VoiceResponse AME
+890000000005870,(jumping over something),(прыжок),,jazz-units:items.lua:VoiceResponse AME
+890000000005871,Huh?,Что?!,,jazz-units:items.lua:VoiceResponse AME
+890000000005872,They have me in a pincer.,Опасно!,,jazz-units:items.lua:VoiceResponse AME
+890000000005873,Digging in!,Держу сектор.,,jazz-units:items.lua:VoiceResponse AME
+890000000005874,(coughing),(кашляет),,jazz-units:items.lua:VoiceResponse AME
+890000000005875,"That's one of our national symbols, you scum!",Зверь!,,jazz-units:items.lua:VoiceResponse AME
+890000000005876,For all we have lost!,Есть цель!,,jazz-units:items.lua:VoiceResponse AME
+890000000005877,You will all pay!,Бью.,,jazz-units:items.lua:VoiceResponse AME
+890000000005878,For Grand Chien!,Держу на мушке.,,jazz-units:items.lua:VoiceResponse AME
+890000000005879,For all we have lost!,Тихо сниму.,,jazz-units:items.lua:VoiceResponse AME
+890000000005880,You will all pay!,Без шума.,,jazz-units:items.lua:VoiceResponse AME
+890000000005881,I have no protection against the enemy's attacks!,Сложный выстрел.,,jazz-units:items.lua:VoiceResponse AME
+890000000005882,Fight harder!,Плохой угол.,,jazz-units:items.lua:VoiceResponse AME
+890000000005883,We are under attack!,Вижу их!,,jazz-units:items.lua:VoiceResponse AME
+890000000005884,Enemies!,Контакт справа!,,jazz-units:items.lua:VoiceResponse AME
+890000000005885,They come from all sides!,Их много!,,jazz-units:items.lua:VoiceResponse AME
+890000000005886,We are winning!,Готов.,,jazz-units:items.lua:VoiceResponse AME
+890000000005887,I am proud of all of you.,Лежит.,,jazz-units:items.lua:VoiceResponse AME
+890000000005888,I have no protection against the enemy's attacks!,Патроны кончились!,,jazz-units:items.lua:VoiceResponse AME
+890000000005889,I have no protection against the enemy's attacks!,Патроны на исходе!,,jazz-units:items.lua:VoiceResponse AME
+890000000005890,I have no protection against the enemy's attacks!,Клин!,,jazz-units:items.lua:VoiceResponse AME
+890000000005891,Agh.,Аргх!,,jazz-units:items.lua:VoiceResponse AME
+890000000005892,Ouch.,Ух!,,jazz-units:items.lua:VoiceResponse AME
+890000000005893,Je suis blessé!,Ранен!,,jazz-units:items.lua:VoiceResponse AME
+890000000005894,Je suis blessé!,Меня подбили…,,jazz-units:items.lua:VoiceResponse AME
+890000000005895,Je suis blessé!,Плохо…,,jazz-units:items.lua:VoiceResponse AME
+890000000005896,For all we have lost!,К бою!,,jazz-units:items.lua:VoiceResponse AME
+890000000005897,We are under attack!,Контакт!,,jazz-units:items.lua:VoiceResponse AME
+890000000005898,We are winning!,Чисто.,,jazz-units:items.lua:VoiceResponse AME
+890000000005899,We are doing well! Keep it up!,Ещё остались.,,jazz-units:items.lua:VoiceResponse AME
+890000000005900,Agh Ugh!,Конец…,,jazz-units:items.lua:VoiceResponse AME
+890000000005901,Hagh Agh!,Агх…,,jazz-units:items.lua:VoiceResponse AME
+890000000005902,(heavy breath),Устал…,,jazz-units:items.lua:VoiceResponse AME
+890000000005903,(heavy breath),(пыхтит),,jazz-units:items.lua:VoiceResponse AME
+890000000005904,Laying low!,В укрытие!,,jazz-units:items.lua:VoiceResponse AME
+890000000005905,Let's see how you like this!,Граната!,,jazz-units:items.lua:VoiceResponse AME
+890000000005906,Suppressive fire!,Очередь!,,jazz-units:items.lua:VoiceResponse AME
+890000000005907,(climbing),(лезет),,jazz-units:items.lua:VoiceResponse AME
+890000000005908,(jumping over something),(прыжок),,jazz-units:items.lua:VoiceResponse AME
+890000000005909,Huh?,Что?!,,jazz-units:items.lua:VoiceResponse AME
+890000000005910,They come from all sides!,Опасно!,,jazz-units:items.lua:VoiceResponse AME
+890000000005911,Laying low!,Держу сектор.,,jazz-units:items.lua:VoiceResponse AME
+890000000005912,(coughing),(кашляет),,jazz-units:items.lua:VoiceResponse AME
+890000000005913,You are nothing but butchers!,Зверь!,,jazz-units:items.lua:VoiceResponse AME
+# JAZZ-UNITS-005-AME-VR-LOC-END
+# JAZZ-UNITS-005-AME-LOC-BEGIN
+890000000005000,A.M.E. Exchange,Африканская биржа наёмников,,AME_UI
+890000000005001,Irregulars,Новобранцы,,AME_Filter
+890000000005002,Irregulars,Irregulars,,AME_Filter
+890000000005003,Fighters,Бойцы,,AME_Filter
+890000000005004,Fighters,Fighters,,AME_Filter
+890000000005005,Hardened,Закалённые,,AME_Filter
+890000000005006,Hardened,Hardened,,AME_Filter
+890000000005007,Specialists,Специалисты,,AME_Filter
+890000000005008,Specialists,Specialists,,AME_Filter
+890000000005009,All,Все,,AME_Filter
+890000000005010,All,All,,AME_Filter
+890000000005011,My Team [<PlayerMercCount()>],Моя команда [<PlayerMercCount()>],,AME_Filter
+890000000005012,My%20Team,My%20Team,,AME_Filter
+890000000005013,http://www.ame-exchange.net/,http://www.ame-exchange.net/,,AME_Browser
+890000000005014,http://www.ame-exchange.net/Roster/,http://www.ame-exchange.net/Roster/,,AME_Browser
+890000000005015,Low,Низкий,,AME_Potential
+890000000005016,Medium,Средний,,AME_Potential
+890000000005017,High,Высокий,,AME_Potential
+890000000005018,Category,Категория,,AME_UI
+890000000005019,Potential,Потенциал,,AME_UI
+890000000005020,African Mercenary Exchange,Африканская биржа наёмников,,AME_UI
+890000000005021,Nigeria,Нигерия,,AME_Nationality_Nigeria
+890000000005022,Kenya,Кения,,AME_Nationality_Kenya
+890000000005023,Angola,Ангола,,AME_Nationality_Angola
+890000000005024,Mali,Мали,,AME_Nationality_Mali
+890000000005025,Congo,Конго,,AME_Nationality_Congo
+890000000005026,Ghana,Гана,,AME_Nationality_Ghana
+890000000005027,Senegal,Сенегал,,AME_Nationality_Senegal
+890000000005028,Ethiopia,Эфиопия,,AME_Nationality_Ethiopia
+890000000005100,Kwame Mensah,Кваме Менса,,JAZZ_AME_01
+890000000005101,Kwame,Кваме,,JAZZ_AME_01
+890000000005102,KWAME,КВАМЕ,,JAZZ_AME_01
+890000000005103,"Kwame Mensah is a irregulars mercenary from Ghana, working as a rifle. Looking for paid contracts and steady work.","Кваме Менса вырос в Аккре и годы ходил в дружинном патруле, пока кому-то не надоело платить. Он крепкий, спокойный и внимательный — слушает больше, чем говорит, — а стрелять его учили урывками, между сменами. Теперь ищет нормальную работу: не очередной пост у склада, а дело, за которое не стыдно взять деньги.",,JAZZ_AME_01
+890000000005104,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_01
+890000000005105,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_01
+890000000005106,Contract accepted.,До связи.,,JAZZ_AME_01
+890000000005110,Jean-Baptiste Okoro,Жан-Батист Окоро,,JAZZ_AME_02
+890000000005111,Jean,Жан,,JAZZ_AME_02
+890000000005112,JEAN,ЖАН,,JAZZ_AME_02
+890000000005113,"Jean-Baptiste Okoro is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.","Жан-Батист Окоро — охотник из Гранд-Шьен. Когда зверь ушёл дальше, чем позволяла лицензия, он остался с опустевшей сумкой и привычкой считать каждый выстрел. Крадётся тихо, смотрит зорко, а про шумные автоматы говорит с недоверием. Хочет снова есть регулярно — без вопросов, откуда добыча.",,JAZZ_AME_02
+890000000005114,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_02
+890000000005115,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_02
+890000000005116,Contract accepted.,До связи.,,JAZZ_AME_02
+890000000005120,Ibrahim Touré,Ибрахим Туре,,JAZZ_AME_03
+890000000005121,Ibrahim,Ибрахим,,JAZZ_AME_03
+890000000005122,IBRAHIM,ИБРАХИМ,,JAZZ_AME_03
+890000000005123,"Ibrahim Touré is a irregulars mercenary from Mali, working as a rifle. Looking for paid contracts and steady work.","Ибрахим Туре служил постовым в Мали: разнимал драки, выписывал протоколы и умел успокоить толпу голосом, а не дубинкой. Когда участок сократили, он ушёл с привычкой перевязывать чужие ссадины и со служебным револьвером на память. Стреляет посредственно и сам это знает — зато не паникует, когда вокруг кричат.",,JAZZ_AME_03
+890000000005124,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_03
+890000000005125,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_03
+890000000005126,Contract accepted.,До связи.,,JAZZ_AME_03
+890000000005130,Sani Abubakar,Сани Абубакар,,JAZZ_AME_04
+890000000005131,Sani,Сани,,JAZZ_AME_04
+890000000005132,SANI,САНИ,,JAZZ_AME_04
+890000000005133,"Sani Abubakar is a irregulars mercenary from Nigeria, working as a rifle. Looking for paid contracts and steady work.","Сани Абубакар — новобранец без полка. Руки сильные: таскал мешки, ломал двери, помогал на стройке казармы. Нервы тоньше тела — от чужого крика сжимается раньше, чем успевает подумать. Честно говорит, что учиться придётся на ходу, и всё равно просится в дело.",,JAZZ_AME_04
+890000000005134,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_04
+890000000005135,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_04
+890000000005136,Contract accepted.,До связи.,,JAZZ_AME_04
+890000000005140,Pierre Ndongo,Пьер Ндонго,,JAZZ_AME_05
+890000000005141,Pierre,Пьер,,JAZZ_AME_05
+890000000005142,PIERRE,ПЬЕР,,JAZZ_AME_05
+890000000005143,"Pierre Ndongo is a irregulars mercenary from Congo, working as a rifle. Looking for paid contracts and steady work.","Пьер Ндонго молчал на блокпостах Конго так долго, что коллеги перестали ждать от него шуток. Голова варит быстрее рук: запоминает лица, маршруты, кто кому должен. Оружие сдал при увольнении, карманы пусты, взгляд цепкий. Лучше слушает, чем стреляет — пока.",,JAZZ_AME_05
+890000000005144,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_05
+890000000005145,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_05
+890000000005146,Contract accepted.,До связи.,,JAZZ_AME_05
+890000000005150,Moussa Diop,Мусса Диоп,,JAZZ_AME_06
+890000000005151,Moussa,Мусса,,JAZZ_AME_06
+890000000005152,MOUSSA,МУССА,,JAZZ_AME_06
+890000000005153,"Moussa Diop is a irregulars mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.","Мусса Диоп из Сенегала ходил следами лучше, чем по асфальту. Дед оставил ему старый винчестер — и Мусса бережёт его так, будто это последний родственник. Не любит шумные компании, патроны считает заранее. Говорит, что лес его ещё не отпустил — просто теперь добыча иногда ходит на двух ногах.",,JAZZ_AME_06
+890000000005154,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_06
+890000000005155,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_06
+890000000005156,Contract accepted.,До связи.,,JAZZ_AME_06
+890000000005160,Abel Getachew,Абель Гетачью,,JAZZ_AME_07
+890000000005161,Abel,Абель,,JAZZ_AME_07
+890000000005162,ABEL,АБЕЛЬ,,JAZZ_AME_07
+890000000005163,"Abel Getachew is a irregulars mercenary from Ethiopia, working as a rifle. Looking for paid contracts and steady work.","Абель Гетачью сбежал с учений в Эфиопии раньше, чем успел привыкнуть к строевой. Учится быстро: один раз покажи — и уже повторяет, пусть и криво. Попадает редко — руки ещё не поймали ритм. Упрямство у него сильнее опыта: хочет доказать, что из него выйдет солдат, а не вечный дезертир.",,JAZZ_AME_07
+890000000005164,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_07
+890000000005165,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_07
+890000000005166,Contract accepted.,До связи.,,JAZZ_AME_07
+890000000005170,Thabo Molefe,Табо Молефе,,JAZZ_AME_08
+890000000005171,Thabo,Табо,,JAZZ_AME_08
+890000000005172,THABO,ТАБО,,JAZZ_AME_08
+890000000005173,"Thabo Molefe is a irregulars mercenary from South Africa, working as a rifle. Looking for paid contracts and steady work.","Табо Молефе патрулировал фермы в Южной Африке: пугал воров, таскал мешки и спал в сарае. Корпус крепкий, шаг тяжёлый; дальше простого ружья ему ничего не выдавали — «хватит и так». У ворот стоит спокойно и от первого хлопка не бежит.",,JAZZ_AME_08
+890000000005174,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_08
+890000000005175,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_08
+890000000005176,Contract accepted.,До связи.,,JAZZ_AME_08
+890000000005180,Daniel Kiprop,Даниэль Кипроп,,JAZZ_AME_09
+890000000005181,Daniel,Даниэль,,JAZZ_AME_09
+890000000005182,DANIEL,ДАНИЭЛЬ,,JAZZ_AME_09
+890000000005183,"Daniel Kiprop is a irregulars mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.","Даниэль Кипроп — егерь из Кении: глаза замечают движение раньше звука. Тело худое, выносливость охотничья, а не казарменная. О хорошей винтовке мечтал — дали то, что было. Ему важнее увидеть первым, чем носить красивую форму.",,JAZZ_AME_09
+890000000005184,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_09
+890000000005185,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_09
+890000000005186,Contract accepted.,До связи.,,JAZZ_AME_09
+890000000005190,Emmanuel Kabongo,Эммануэль Кабонго,,JAZZ_AME_10
+890000000005191,Emmanuel,Эммануэль,,JAZZ_AME_10
+890000000005192,EMMANUEL,ЭММАНУЭЛЬ,,JAZZ_AME_10
+890000000005193,"Emmanuel Kabongo is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.","Эммануэль Кабонго водил связных по тропам Гранд-Шьен и знал, где не стоит шуметь после заката. Люди его слушают чуть-чуть — не как офицера, а как того, кто уже проводил таких же потерянных. Стрелять почти не умеет, зато тропы помнит лучше карт.",,JAZZ_AME_10
+890000000005194,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_10
+890000000005195,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_10
+890000000005196,Contract accepted.,До связи.,,JAZZ_AME_10
+890000000005200,Aisha Hassan,Аиша Хассан,,JAZZ_AME_11
+890000000005201,Aisha,Аиша,,JAZZ_AME_11
+890000000005202,AISHA,АИША,,JAZZ_AME_11
+890000000005203,"Aisha Hassan is a irregulars mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.","Аиша Хассан грузила ящики в кенийском порту, пока не поняла: спина ещё терпит, а нервы — уже нет. Хрупкая и вспыльчивая: любой резкий звук заставляет вздрагивать. Хочет уехать от порта подальше — даже если первая работа окажется самой грязной.",,JAZZ_AME_11
+890000000005204,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_11
+890000000005205,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_11
+890000000005206,Contract accepted.,До связи.,,JAZZ_AME_11
+890000000005210,Amadou Keita,Амаду Кейта,,JAZZ_AME_12
+890000000005211,Amadou,Амаду,,JAZZ_AME_12
+890000000005212,AMADOU,АМАДУ,,JAZZ_AME_12
+890000000005213,"Amadou Keita is a irregulars mercenary from Mali, working as a rifle. Looking for paid contracts and steady work.","Амаду Кейта — деревенский дружинник из Мали. Сильный, привыкший работать руками, боится взрывчатки до дрожи: однажды видел, как мина разорвала телегу, и с тех пор обходит подозрительную землю по широкой дуге. Простую работу без «сюрпризов» делает лучше многих храбрецов.",,JAZZ_AME_12
+890000000005214,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_12
+890000000005215,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_12
+890000000005216,Contract accepted.,До связи.,,JAZZ_AME_12
+890000000005220,Chidi Okonkwo,Чиди Оконкво,,JAZZ_AME_13
+890000000005221,Chidi,Чиди,,JAZZ_AME_13
+890000000005222,CHIDI,ЧИДИ,,JAZZ_AME_13
+890000000005223,"Chidi Okonkwo is a irregulars mercenary from Nigeria, working as a rifle. Looking for paid contracts and steady work.","Чиди Оконкво провалил медкомиссию армии Нигерии — сердце «не то», бумаги «не те». Зато пальцы ловкие: вскрывал ящики улик, чинил замки, однажды утащил из архива старый служебный револьвер. Чуть понимает в механизмах, больше — в том, как не попасться.",,JAZZ_AME_13
+890000000005224,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_13
+890000000005225,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_13
+890000000005226,Contract accepted.,До связи.,,JAZZ_AME_13
+890000000005230,Lucien Mbarga,Люсьен Мбарга,,JAZZ_AME_14
+890000000005231,Lucien,Люсьен,,JAZZ_AME_14
+890000000005232,LUCIEN,ЛЮСЬЕН,,JAZZ_AME_14
+890000000005233,"Lucien Mbarga is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.","Люсьен Мбарга браконьерствовал в Гранд-Шьен, пока рейнджеры не отняли ружьё и не пообещали тюрьму при следующей встрече. Осталась привычка ходить тихо. Не герой и не кается вслух — просто ищет оплату там, где никто не спрашивает про лицензии.",,JAZZ_AME_14
+890000000005234,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_14
+890000000005235,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_14
+890000000005236,Contract accepted.,До связи.,,JAZZ_AME_14
+890000000005240,Kofi Asante,Кофи Асанте,,JAZZ_AME_15
+890000000005241,Kofi,Кофи,,JAZZ_AME_15
+890000000005242,KOFI,КОФИ,,JAZZ_AME_15
+890000000005243,"Kofi Asante is a irregulars mercenary from Ghana, working as a rifle. Looking for paid contracts and steady work.","Кофи Асанте сторожил школу в Гане и читал всё, что забывали на партах. Соображает отлично — схватывает быстрее многих «настоящих» бойцов, — но руками почти не владеет. Спокойно учится на чужих ошибках, лишь бы платили и давали шанс.",,JAZZ_AME_15
+890000000005244,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_15
+890000000005245,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_15
+890000000005246,Contract accepted.,До связи.,,JAZZ_AME_15
+890000000005250,João Domingos,Жуан Домингос,,JAZZ_AME_16
+890000000005251,João,Жуан,,JAZZ_AME_16
+890000000005252,JOÃO,ЖУАН,,JAZZ_AME_16
+890000000005253,"João Domingos is a irregulars mercenary from Angola, working as a rifle. Looking for paid contracts and steady work.","Жуан Домингос из Анголы один раз видел мины — и этого хватило, чтобы навсегда обходить рыхлую землю стороной. Медленный, упрямый и честно боится взрывов. Врать про храбрость не станет — и за это его иногда ценят больше, чем за смелость.",,JAZZ_AME_16
+890000000005254,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_16
+890000000005255,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_16
+890000000005256,Contract accepted.,До связи.,,JAZZ_AME_16
+890000000005260,Wanjiku Mwangi,Ванджику Мванги,,JAZZ_AME_17
+890000000005261,Wanjiku,Ванджику,,JAZZ_AME_17
+890000000005262,WANJIKU,ВАНДЖИКУ,,JAZZ_AME_17
+890000000005263,"Wanjiku Mwangi is a irregulars mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.","Ванджику Мванги помогала егерю в Кении: чистила следы, носила воду, дежурила на опушке. Зоркая и лёгкая на ногу, без громких обещаний. Привыкла, что работа грязная, а деньги маленькие — и всё равно делает её тихо и до конца.",,JAZZ_AME_17
+890000000005264,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_17
+890000000005265,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_17
+890000000005266,Contract accepted.,До связи.,,JAZZ_AME_17
+890000000005270,Serge Kouassi,Серж Куасси,,JAZZ_AME_18
+890000000005271,Serge,Серж,,JAZZ_AME_18
+890000000005272,SERGE,СЕРЖ,,JAZZ_AME_18
+890000000005273,"Serge Kouassi is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.","Серж Куасси — сын механика из Гранд-Шьен, и отцу за него стыдно: отвёртку Серж не берёт. Голова светлая, рук нет — зато вопросы задаёт правильные. Хочет доказать, что ум тоже бывает оружием, даже если карманы пока пусты.",,JAZZ_AME_18
+890000000005274,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_18
+890000000005275,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_18
+890000000005276,Contract accepted.,До связи.,,JAZZ_AME_18
+890000000005280,Bongani Dlamini,Бонгани Дламини,,JAZZ_AME_19
+890000000005281,Bongani,Бонгани,,JAZZ_AME_19
+890000000005282,BONGANI,БОНГАНИ,,JAZZ_AME_19
+890000000005283,"Bongani Dlamini is a irregulars mercenary from South Africa, working as a rifle. Looking for paid contracts and steady work.","Бонгани Дламини работал на шахтёрской дружине в Южной Африке: таскал мешки, не бегал кроссы и спал кусками между сменами. Тяжёлый, молчаливый, привыкший к пыли. У двери стоит так, что объяснять дважды не приходится.",,JAZZ_AME_19
+890000000005284,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_19
+890000000005285,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_19
+890000000005286,Contract accepted.,До связи.,,JAZZ_AME_19
+890000000005290,Idrissa Bah,Идрисса Бах,,JAZZ_AME_20
+890000000005291,Idrissa,Идрисса,,JAZZ_AME_20
+890000000005292,IDRISSA,ИДРИССА,,JAZZ_AME_20
+890000000005293,"Idrissa Bah is a irregulars mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.","Идрисса Бах регулировал движение в Сенегале лучше, чем стрелял: жестами командовал так, что даже пьяные водители иногда слушались. Не герой перестрелок — зато умеет остановить хаос на секунду дольше, чем другие.",,JAZZ_AME_20
+890000000005294,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_20
+890000000005295,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_20
+890000000005296,Contract accepted.,До связи.,,JAZZ_AME_20
+890000000005300,Omar Diallo,Омар Диалло,,JAZZ_AME_21
+890000000005301,Omar,Омар,,JAZZ_AME_21
+890000000005302,OMAR,ОМАР,,JAZZ_AME_21
+890000000005303,"Omar Diallo is a fighters mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.","Омар Диалло дезертировал из сенегальской части, когда понял, что легион зовёт громче командования. Отказался — и ушёл с привычкой целиться один раз, но точно. Не орёт, не хвастается: делает работу и считает патроны.",,JAZZ_AME_21
+890000000005304,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_21
+890000000005305,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_21
+890000000005306,Contract accepted.,До связи.,,JAZZ_AME_21
+890000000005310,Bastien Lafontaine,Бастьен Лафонтен,,JAZZ_AME_22
+890000000005311,Bastien,Бастьен,,JAZZ_AME_22
+890000000005312,BASTIEN,БАСТЬЕН,,JAZZ_AME_22
+890000000005313,"Bastien Lafontaine is a fighters mercenary from Grand Chien, working as a autorifleman. Looking for paid contracts and steady work.",Бастьен Лафонтен служил милицейским автоматчиком в Гранд-Шьен и до сих пор пахнет машинным маслом и дешёвым табаком. Очереди для него важнее красоты ствола: улица становится тесной — и он уже на линии. Платят лучше участка — и этого ему достаточно.,,JAZZ_AME_22
+890000000005314,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_22
+890000000005315,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_22
+890000000005316,Contract accepted.,До связи.,,JAZZ_AME_22
+890000000005320,Chukwuemeka Obi,Чуквуэмека Оби,,JAZZ_AME_23
+890000000005321,Emeka,Эмека,,JAZZ_AME_23
+890000000005322,EMEKA,ЭМЕКА,,JAZZ_AME_23
+890000000005323,"Chukwuemeka Obi is a fighters mercenary from Nigeria, working as a machinegunner. Looking for paid contracts and steady work.","Чуквуэмека Оби сидел на пулемётной точке нигерийского блокпоста, пока блокпост не стёрли с карты. Крепкий, тяжёлый, бьёт по земле увереннее, чем по мишеням — и сам над этим иногда шутит. Закрыть сектор огнём для него привычнее, чем выигрывать конкурс стрелков.",,JAZZ_AME_23
+890000000005324,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_23
+890000000005325,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_23
+890000000005326,Contract accepted.,До связи.,,JAZZ_AME_23
+890000000005330,Michel Kabeya,Мишель Кабейа,,JAZZ_AME_24
+890000000005331,Michel,Мишель,,JAZZ_AME_24
+890000000005332,MICHEL,МИШЕЛЬ,,JAZZ_AME_24
+890000000005333,"Michel Kabeya is a fighters mercenary from Congo, working as a grenadier. Looking for paid contracts and steady work.","Мишель Кабейа из Конго всегда любил банки больше стволов. Настоящая работа для него начинается, когда свистит чека. Шумный в баре и тихий перед броском — и не притворяется героем.",,JAZZ_AME_24
+890000000005334,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_24
+890000000005335,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_24
+890000000005336,Contract accepted.,До связи.,,JAZZ_AME_24
+890000000005340,Juma Otieno,Джума Отиено,,JAZZ_AME_25
+890000000005341,Juma,Джума,,JAZZ_AME_25
+890000000005342,JUMA,ДЖУМА,,JAZZ_AME_25
+890000000005343,"Juma Otieno is a fighters mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.","Джума Отиено служил на кенийской границе: лёгкий на ногу, привыкший к пыли и долгим сменам. Дальнюю винтовку ему не доверили — приказали не геройствовать. Не обижается: главное — увидеть первым. Скорость ног для него важнее красивой стойки.",,JAZZ_AME_25
+890000000005344,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_25
+890000000005345,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_25
+890000000005346,Contract accepted.,До связи.,,JAZZ_AME_25
+890000000005350,Andile Nkosi,Андиле Нкоси,,JAZZ_AME_26
+890000000005351,Andile,Андиле,,JAZZ_AME_26
+890000000005352,ANDILE,АНДИЛЕ,,JAZZ_AME_26
+890000000005353,"Andile Nkosi is a fighters mercenary from South Africa, working as a autorifleman. Looking for paid contracts and steady work.","Андиле Нкоси охранял конвои в Южной Африке и научился стрелять очередями так, чтобы охраняемый груз не превращался в решето раньше времени. Спокоен, немногословен и не любит, когда новички трогают его оружие «просто посмотреть».",,JAZZ_AME_26
+890000000005354,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_26
+890000000005355,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_26
+890000000005356,Contract accepted.,До связи.,,JAZZ_AME_26
+890000000005360,Sekou Camara,Секу Камара,,JAZZ_AME_27
+890000000005361,Sekou,Секу,,JAZZ_AME_27
+890000000005362,SEKOU,СЕКУ,,JAZZ_AME_27
+890000000005363,"Sekou Camara is a fighters mercenary from Mali, working as a rifle. Looking for paid contracts and steady work.","Секу Камара патрулировал пустыню в Мали и не считал короткий ствол унижением. Подвижный, с нервами крепче, чем у многих «настоящих» стрелков, умеет смещаться и не торчать на открытом месте. Доходит туда, куда тяжёлые ребята только собираются.",,JAZZ_AME_27
+890000000005364,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_27
+890000000005365,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_27
+890000000005366,Contract accepted.,До связи.,,JAZZ_AME_27
+890000000005370,Pascal Ngoma,Паскаль Нгома,,JAZZ_AME_28
+890000000005371,Pascal,Паскаль,,JAZZ_AME_28
+890000000005372,PASCAL,ПАСКАЛЬ,,JAZZ_AME_28
+890000000005373,"Pascal Ngoma is a fighters mercenary from Grand Chien, working as a machinegunner. Looking for paid contracts and steady work.","Паскаль Нгома держал огневую точку в Гранд-Шьен с характером человека, который не любит бегать. Тяжёлый, упрямый: закрывает сектор и ждёт, пока сектор перестанет шевелиться. Под огнём не дёргается первым — и этим уже выигрывает время для остальных.",,JAZZ_AME_28
+890000000005374,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_28
+890000000005375,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_28
+890000000005376,Contract accepted.,До связи.,,JAZZ_AME_28
+890000000005380,Kwesi Boateng,Квеси Боатенг,,JAZZ_AME_29
+890000000005381,Kwesi,Квеси,,JAZZ_AME_29
+890000000005382,KWESI,КВЕСИ,,JAZZ_AME_29
+890000000005383,"Kwesi Boateng is a fighters mercenary from Ghana, working as a grenadier. Looking for paid contracts and steady work.","Квеси Боатенг из Ганы любит короткую работу и тяжёлую ладонь на банке. Взрывчатки у него немного, зато бросок уверенный — как у человека, который тренировался на пустых бутылках за складом. Улыбается редко и работает быстро: пришёл, бросил, ушёл, пока эхо ещё гуляет.",,JAZZ_AME_29
+890000000005384,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_29
+890000000005385,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_29
+890000000005386,Contract accepted.,До связи.,,JAZZ_AME_29
+890000000005390,Tesfaye Alemu,Тесфайе Алем,,JAZZ_AME_30
+890000000005391,Tesfaye,Тесфайе,,JAZZ_AME_30
+890000000005392,TESFAYE,ТЕСФАЙЕ,,JAZZ_AME_30
+890000000005393,"Tesfaye Alemu is a fighters mercenary from Ethiopia, working as a rifle. Looking for paid contracts and steady work.","Тесфайе Алем — горный стрелок из Эфиопии. Целится аккуратно, дышит ровно и не делает вид, что ему «просто забыли» выдать лучшее оружие. Хороший глаз, скромные ожидания, готов учиться на том, что дадут.",,JAZZ_AME_30
+890000000005394,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_30
+890000000005395,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_30
+890000000005396,Contract accepted.,До связи.,,JAZZ_AME_30
+890000000005400,Rafael dos Santos,Рафаэль дос Сантос,,JAZZ_AME_31
+890000000005401,Rafael,Рафаэль,,JAZZ_AME_31
+890000000005402,RAFAEL,РАФАЭЛЬ,,JAZZ_AME_31
+890000000005403,"Rafael dos Santos is a fighters mercenary from Angola, working as a autorifleman. Looking for paid contracts and steady work.","Рафаэль дос Сантос из Анголы учится медленнее иных, зато не ломается от первой тяжёлой недели. Очереди для него — ремесло, выученное кровью и пылью. Не обещает чудес. Обещает явиться трезвым и не бросить позицию без приказа.",,JAZZ_AME_31
+890000000005404,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_31
+890000000005405,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_31
+890000000005406,Contract accepted.,До связи.,,JAZZ_AME_31
+890000000005410,Awa Sow,Ава Соу,,JAZZ_AME_32
+890000000005411,Awa,Ава,,JAZZ_AME_32
+890000000005412,AWA,АВА,,JAZZ_AME_32
+890000000005413,"Awa Sow is a fighters mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.","Ава Соу из Сенегала попала в тесные коридоры не по любви, а по расписанию смен. Юркая и нервная, без армейской школы длинных очередей — зато живее многих «правильных» автоматчиков. Держится особняком и ненавидит, когда мужчины объясняют ей, как «правильно» стрелять.",,JAZZ_AME_32
+890000000005414,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_32
+890000000005415,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_32
+890000000005416,Contract accepted.,До связи.,,JAZZ_AME_32
+890000000005420,Claude Mvemba,Клод Мвемба,,JAZZ_AME_33
+890000000005421,Claude,Клод,,JAZZ_AME_33
+890000000005422,CLAUDE,КЛОД,,JAZZ_AME_33
+890000000005423,"Claude Mvemba is a fighters mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.","Клод Мвемба охранял плантации в Гранд-Шьен — привык к дроби, не к оптике. Говорит мало, курит много, считает, что хороший выстрел тот, после которого никто не спорит. Работает ближе, чем любят дальние стрелки, и дальше, чем удобно трусам.",,JAZZ_AME_33
+890000000005424,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_33
+890000000005425,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_33
+890000000005426,Contract accepted.,До связи.,,JAZZ_AME_33
+890000000005430,Emeka Nwosu,Эмека Нвосу,,JAZZ_AME_34
+890000000005431,Emeka,Эмека,,JAZZ_AME_34
+890000000005432,EMEKA,ЭМЕКА,,JAZZ_AME_34
+890000000005433,"Emeka Nwosu is a fighters mercenary from Nigeria, working as a machinegunner. Looking for paid contracts and steady work.","Эмека Нвосу — силач с нигерийским характером: здоровье и упрямство у него заметнее меткости, и он не стесняется этого. Про него шутят, что его проще нанять, чем сдвинуть. Он не возражает — лишь бы платили вовремя.",,JAZZ_AME_34
+890000000005434,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_34
+890000000005435,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_34
+890000000005436,Contract accepted.,До связи.,,JAZZ_AME_34
+890000000005440,Samuel Cheruiyot,Сэмюэл Черуйот,,JAZZ_AME_35
+890000000005441,Samuel,Сэмюэл,,JAZZ_AME_35
+890000000005442,SAMUEL,СЭМЮЭЛ,,JAZZ_AME_35
+890000000005443,"Samuel Cheruiyot is a fighters mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.","Сэмюэл Черуйот охотился в Кении раньше, чем научился читать уставы. Охотничья винтовка ему роднее любой казённой; с длинным болтом не заигрывает и без зависти. Быстрый, зоркий, с привычкой целиться перед выстрелом. Любит воздух чаще, чем порох казармы.",,JAZZ_AME_35
+890000000005444,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_35
+890000000005445,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_35
+890000000005446,Contract accepted.,До связи.,,JAZZ_AME_35
+890000000005450,Mamadou Traoré,Мамаду Траоре,,JAZZ_AME_36
+890000000005451,Mamadou,Мамаду,,JAZZ_AME_36
+890000000005452,MAMADOU,МАМАДУ,,JAZZ_AME_36
+890000000005453,"Mamadou Traoré is a fighters mercenary from Mali, working as a autorifleman. Looking for paid contracts and steady work.","Мамаду Траоре из Мали чинит стволы соседей чаще, чем хвастается своими. Отвёртка часто чужая, зато руки помнят, куда крутить. После боя ещё и собирает то, что осталось стрелять.",,JAZZ_AME_36
+890000000005454,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_36
+890000000005455,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_36
+890000000005456,Contract accepted.,До связи.,,JAZZ_AME_36
+890000000005460,Felix Tshisekedi,Феликс Чисекеди,,JAZZ_AME_37
+890000000005461,Felix,Феликс,,JAZZ_AME_37
+890000000005462,FELIX,ФЕЛИКС,,JAZZ_AME_37
+890000000005463,"Felix Tshisekedi is a fighters mercenary from Congo, working as a rifle. Looking for paid contracts and steady work.","Феликс Чисекеди — человек конголезского блокпоста: перевяжет рану, закроет сектор, не будет спрашивать, почему смена опять без воды. Не гений ни в чём — зато не провал ни в чём. Командиры любят таких именно за отсутствие сюрпризов.",,JAZZ_AME_37
+890000000005464,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_37
+890000000005465,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_37
+890000000005466,Contract accepted.,До связи.,,JAZZ_AME_37
+890000000005470,Noah van Wyk,Ноа ван Вик,,JAZZ_AME_38
+890000000005471,Noah,Ноа,,JAZZ_AME_38
+890000000005472,NOAH,НОА,,JAZZ_AME_38
+890000000005473,"Noah van Wyk is a fighters mercenary from South Africa, working as a rifle. Looking for paid contracts and steady work.","Ноа ван Вик — фермерский стрелок из Южной Африки с голосом, к которому прислушиваются даже те, кто старше. Люди его слушают не из страха — из привычки, что он говорит по делу. Меньше позы, больше работы.",,JAZZ_AME_38
+890000000005474,On the line.,Дозвонился. Слушаю.,,JAZZ_AME_38
+890000000005475,Listening. Tell me about the job.,Ищу работу. Что предлагаете?,,JAZZ_AME_38
+890000000005476,Contract accepted.,До связи.,,JAZZ_AME_38
+890000000005480,Joseph Mukendi,Жозеф Мукенди,,JAZZ_AME_39
+890000000005481,Hyena,Гиена,,JAZZ_AME_39
+890000000005482,HYENA,ГИЕНА,,JAZZ_AME_39
+890000000005483,"Joseph Mukendi is a hardened mercenary from Grand Chien, working as a autorifleman. Looking for paid contracts and steady work.","Жозефа Мукенди в Гранд-Шьен зовут «Гиена»: годами делал засады так, что жертвы узнавали кличку раньше лица. В тесноте бьёт грязно и быстро — красивой стрельбы меньше, зато чаще остаётся живым. Нервы держат. Знает себе цену и не любит, когда её занижают.",,JAZZ_AME_39
+890000000005484,On the line.,Я на линии. Говорите.,,JAZZ_AME_39
+890000000005485,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_39
+890000000005486,Contract accepted.,Контракт принят.,,JAZZ_AME_39
+890000000005490,Abraham Tekle,Абрахам Текле,,JAZZ_AME_40
+890000000005491,Abraham,Абрахам,,JAZZ_AME_40
+890000000005492,ABRAHAM,АБРАХАМ,,JAZZ_AME_40
+890000000005493,"Abraham Tekle is a hardened mercenary from Ethiopia, working as a rifle. Looking for paid contracts and steady work.","Абрахам Текле — горный ветеран из Эфиопии. Дышит ровно, ждёт, бьёт; уставы помнит хуже, чем привычку к прицелу. Корпус крепче, чем кажется по лицу. Уже видел поражение — и не сломался.",,JAZZ_AME_40
+890000000005494,On the line.,Я на линии. Говорите.,,JAZZ_AME_40
+890000000005495,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_40
+890000000005496,Contract accepted.,Контракт принят.,,JAZZ_AME_40
+890000000005500,Sipho Khumalo,Сифо Кхумало,,JAZZ_AME_41
+890000000005501,Anvil,Анвил,,JAZZ_AME_41
+890000000005502,ANVIL,АНВИЛ,,JAZZ_AME_41
+890000000005503,"Sipho Khumalo is a hardened mercenary from South Africa, working as a machinegunner. Looking for paid contracts and steady work.","Сифо Кхумало, «Наковальня», тащит тяжесть так, будто мир обязан подождать. Тяжёлый ствол и очереди делают своё дело — и меткость от этого страдает, он знает. Не спорит: его работа — давить сектор, а не выигрывать тир.",,JAZZ_AME_41
+890000000005504,On the line.,Я на линии. Говорите.,,JAZZ_AME_41
+890000000005505,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_41
+890000000005506,Contract accepted.,Контракт принят.,,JAZZ_AME_41
+890000000005510,Boubacar Kane,Бубакар Кане,,JAZZ_AME_42
+890000000005511,Boubacar,Бубакар,,JAZZ_AME_42
+890000000005512,BOUBACAR,БУБАКАР,,JAZZ_AME_42
+890000000005513,"Boubacar Kane is a hardened mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.","Бубакар Кане — офицер запаса из Сенегала со спокойным прицелом. С людьми получается чуть лучше, чем у многих ветеранов: объяснит задачу так, что даже усталые кивают. Не орёт. Не геройствует. За сутки на старшего позицию обычно оставляет целой.",,JAZZ_AME_42
+890000000005514,On the line.,Я на линии. Говорите.,,JAZZ_AME_42
+890000000005515,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_42
+890000000005516,Contract accepted.,Контракт принят.,,JAZZ_AME_42
+890000000005520,Didier Mbemba,Дидье Мбемба,,JAZZ_AME_43
+890000000005521,Smoke,Дым,,JAZZ_AME_43
+890000000005522,SMOKE,ДЫМ,,JAZZ_AME_43
+890000000005523,"Didier Mbemba is a hardened mercenary from Congo, working as a grenadier. Looking for paid contracts and steady work.","Дидье Мбемба, «Дым», из Конго приходит с банками и уходит в дыму, который сам же и ставит. Не спринтер — зато сектор задымления знает наизусть. Когда тишина уже не вариант, он как раз на месте.",,JAZZ_AME_43
+890000000005524,On the line.,Я на линии. Говорите.,,JAZZ_AME_43
+890000000005525,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_43
+890000000005526,Contract accepted.,Контракт принят.,,JAZZ_AME_43
+890000000005530,Amina Yusuf,Амина Юсуф,,JAZZ_AME_44
+890000000005531,Amina,Амина,,JAZZ_AME_44
+890000000005532,AMINA,АМИНА,,JAZZ_AME_44
+890000000005533,"Amina Yusuf is a hardened mercenary from Nigeria, working as a autorifleman. Looking for paid contracts and steady work.","Амина Юсуф бережёт хороший автомат и бинты в кармане — ветераны дольше живут, когда не стесняются собственной крови. Очереди короткие, взгляд холодный. Про неё говорят мало и уважительно — так безопаснее.",,JAZZ_AME_44
+890000000005534,On the line.,Я на линии. Говорите.,,JAZZ_AME_44
+890000000005535,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_44
+890000000005536,Contract accepted.,Контракт принят.,,JAZZ_AME_44
+890000000005540,Léopold Sassou,Леопольд Сассу,,JAZZ_AME_45
+890000000005541,Léopold,Леопольд,,JAZZ_AME_45
+890000000005542,LÉOPOLD,ЛЕОПОЛЬД,,JAZZ_AME_45
+890000000005543,"Léopold Sassou is a hardened mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.","Леопольд Сассу — сержант Гранд-Шьен с тяжёлым корпусом, ровным прицелом и чуточкой механики, достаточной, чтобы ствол соседа не клинил в самый плохой момент. Не улыбается для камеры. Улыбается, когда магазин встаёт с первого раза.",,JAZZ_AME_45
+890000000005544,On the line.,Я на линии. Говорите.,,JAZZ_AME_45
+890000000005545,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_45
+890000000005546,Contract accepted.,Контракт принят.,,JAZZ_AME_45
+890000000005550,Kofi Mensah,Кофи Менса,,JAZZ_AME_46
+890000000005551,Kofi,Кофи,,JAZZ_AME_46
+890000000005552,KOFI,КОФИ,,JAZZ_AME_46
+890000000005553,"Kofi Mensah is a hardened mercenary from Ghana, working as a machinegunner. Looking for paid contracts and steady work.","Кофи Менса из Ганы — силач: здоровье и мощь замечают раньше, чем меткость. Не догоняет — занимает место и делает его непригодным для врага. Там, где нужна тяжесть, а не грация, он уместен.",,JAZZ_AME_46
+890000000005554,On the line.,Я на линии. Говорите.,,JAZZ_AME_46
+890000000005555,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_46
+890000000005556,Contract accepted.,Контракт принят.,,JAZZ_AME_46
+890000000005560,Hassan Ibrahim,Хассан Ибрахим,,JAZZ_AME_47
+890000000005561,Scorpion,Скорпион,,JAZZ_AME_47
+890000000005562,SCORPION,СКОРПИОН,,JAZZ_AME_47
+890000000005563,"Hassan Ibrahim is a hardened mercenary from Mali, working as a grenadier. Looking for paid contracts and steady work.","Хассана Ибрахима в Мали зовут «Скорпион»: быстрее многих ветеранов, с ухмылкой человека, который любит, когда взрыв случается вовремя. Бросок уверенный, характер ядовитый. Кличка известнее имени — и он над этим не работает.",,JAZZ_AME_47
+890000000005564,On the line.,Я на линии. Говорите.,,JAZZ_AME_47
+890000000005565,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_47
+890000000005566,Contract accepted.,Контракт принят.,,JAZZ_AME_47
+890000000005570,Patrick Omondi,Патрик Омонди,,JAZZ_AME_48
+890000000005571,Patrick,Патрик,,JAZZ_AME_48
+890000000005572,PATRICK,ПАТРИК,,JAZZ_AME_48
+890000000005573,"Patrick Omondi is a hardened mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.","Патрик Омонди — ночной стрелок из Кении со спокойным голосом, к которому прислушиваются даже уставшие. Лучше видит в темноте и лучше ждёт. После заката говорит шёпотом так, что всё равно слушаются.",,JAZZ_AME_48
+890000000005574,On the line.,Я на линии. Говорите.,,JAZZ_AME_48
+890000000005575,Listening. Tell me about the job.,Работа есть — слушаю.,,JAZZ_AME_48
+890000000005576,Contract accepted.,Контракт принят.,,JAZZ_AME_48
+890000000005580,Dr. Fatoumata Sy,Доктор Фатумата Си,,JAZZ_AME_49
+890000000005581,Fatoumata,Фатумата,,JAZZ_AME_49
+890000000005582,FATOUMATA,ФАТУМАТА,,JAZZ_AME_49
+890000000005583,"Dr. Fatoumata Sy is a specialists mercenary from Senegal, working as a medic. Looking for paid contracts and steady work.","Доктор Фатумата Си — полевой хирург из Сенегала. Руки лечат, не стреляют; пистолет носит скорее для страха и редкой необходимости. В лазарете говорит тихо, режет уверенно и ненавидит, когда «герои» приходят без бинтов. Считает, что живые бойцы дороже мёртвых легенд.",,JAZZ_AME_49
+890000000005584,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_49
+890000000005585,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_49
+890000000005586,Contract accepted.,До связи.,,JAZZ_AME_49
+890000000005590,Grace Wanjiru,Грейс Ванджиру,,JAZZ_AME_50
+890000000005591,Grace,Грейс,,JAZZ_AME_50
+890000000005592,GRACE,ГРЕЙС,,JAZZ_AME_50
+890000000005593,"Grace Wanjiru is a specialists mercenary from Kenya, working as a medic. Looking for paid contracts and steady work.","Грейс Ванджиру — лазаретная медсестра из Кении. Ствола нет и не будет: её сила — набор, бинты и умение не паниковать, когда крови слишком много. Тихая и незаменимая в тылу; экономить на таких обычно заканчивается плохо.",,JAZZ_AME_50
+890000000005594,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_50
+890000000005595,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_50
+890000000005596,Contract accepted.,До связи.,,JAZZ_AME_50
+890000000005600,Dr. Emile Kabongo,Доктор Эмиль Кабонго,,JAZZ_AME_51
+890000000005601,Emile,Эмиль,,JAZZ_AME_51
+890000000005602,EMILE,ЭМИЛЬ,,JAZZ_AME_51
+890000000005603,"Dr. Emile Kabongo is a specialists mercenary from Grand Chien, working as a medic. Looking for paid contracts and steady work.","Доктор Эмиль Кабонго — травматолог из Гранд-Шьен. Учит младших перевязывать так, чтобы раненый дожил до настоящей помощи. Голос спокойный, руки точные. Выглядит старше своих лет — так бывает с теми, кто слишком часто видел, чем кончается «ещё одна небольшая царапина».",,JAZZ_AME_51
+890000000005604,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_51
+890000000005605,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_51
+890000000005606,Contract accepted.,До связи.,,JAZZ_AME_51
+890000000005610,Captain Amara Koné,Капитан Амара Коне,,JAZZ_AME_52
+890000000005611,Amara,Амара,,JAZZ_AME_52
+890000000005612,AMARA,АМАРА,,JAZZ_AME_52
+890000000005613,"Captain Amara Koné is a specialists mercenary from Mali, working as a instructor. Looking for paid contracts and steady work.","Капитан Амара Коне — инструктор из Мали с учительским характером. Учит жёстко, без театра: оставляет объяснения, которые потом спасают жизни. Считает, что один хороший учитель дешевле десяти свежих могил.",,JAZZ_AME_52
+890000000005614,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_52
+890000000005615,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_52
+890000000005616,Contract accepted.,До связи.,,JAZZ_AME_52
+890000000005620,Sgt. Nadia Okonkwo,Сержант Надия Оконкво,,JAZZ_AME_53
+890000000005621,Nadia,Надия,,JAZZ_AME_53
+890000000005622,NADIA,НАДИЯ,,JAZZ_AME_53
+890000000005623,"Sgt. Nadia Okonkwo is a specialists mercenary from Nigeria, working as a instructor. Looking for paid contracts and steady work.","Сержант Надия Оконкво из Нигерии учит прицелу так, будто это одна профессия со стрельбой: научить попадать важнее, чем самой красиво попасть на глазах у начальства. В бой идёт редко, говорит часто — и обычно по делу. Её слушают даже те, кто не любит женщин с голосом громче их собственного.",,JAZZ_AME_53
+890000000005624,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_53
+890000000005625,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_53
+890000000005626,Contract accepted.,До связи.,,JAZZ_AME_53
+890000000005630,Maj. Théodore Ngalula,Майор Теодор Нгалула,,JAZZ_AME_54
+890000000005631,Maj.,Теодор,,JAZZ_AME_54
+890000000005632,MAJ.,ТЕОДОР,,JAZZ_AME_54
+890000000005633,"Maj. Théodore Ngalula is a specialists mercenary from Grand Chien, working as a instructor. Looking for paid contracts and steady work.","Майор Теодор Нгалула помнит, как строить людей так, чтобы они не разваливались в первую же неделю. Мудрость и отвёртка у него рядом с привычкой объяснять до тех пор, пока не поймут. В Гранд-Шьен его ещё помнят по званию — и по тому, что скидок на работу он не любит.",,JAZZ_AME_54
+890000000005634,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_54
+890000000005635,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_54
+890000000005636,Contract accepted.,До связи.,,JAZZ_AME_54
+890000000005640,Issa Camara,Исса Камара,,JAZZ_AME_55
+890000000005641,Issa,Исса,,JAZZ_AME_55
+890000000005642,ISSA,ИССА,,JAZZ_AME_55
+890000000005643,"Issa Camara is a specialists mercenary from Senegal, working as a sniper. Looking for paid contracts and steady work.","Исса Камара стреляет редко и метко. Тело хрупкое: один выстрел, не спринт. Ровное дыхание и терпение — его религия; беготня — чужая. Штурмовиком себя не считает и другим не врёт.",,JAZZ_AME_55
+890000000005644,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_55
+890000000005645,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_55
+890000000005646,Contract accepted.,До связи.,,JAZZ_AME_55
+890000000005650,Lindiwe Mokoena,Линдиве Мокоена,,JAZZ_AME_56
+890000000005651,Lindiwe,Линдиве,,JAZZ_AME_56
+890000000005652,LINDIWE,ЛИНДИВЕ,,JAZZ_AME_56
+890000000005653,"Lindiwe Mokoena is a specialists mercenary from South Africa, working as a sniper. Looking for paid contracts and steady work.","Линдиве Мокоена работает ночью. Хрупкая, зоркая; темнота для неё союзник, а не чужой кошмар. Не обещает чудес и не набивает цену громкими словами. Любит, когда дело заканчивается одним тихим щелчком.",,JAZZ_AME_56
+890000000005654,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_56
+890000000005655,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_56
+890000000005656,Contract accepted.,До связи.,,JAZZ_AME_56
+890000000005660,Bakary Diarra,Бакари Диарра,,JAZZ_AME_57
+890000000005661,Bakary,Бакари,,JAZZ_AME_57
+890000000005662,BAKARY,БАКАРИ,,JAZZ_AME_57
+890000000005663,"Bakary Diarra is a specialists mercenary from Mali, working as a sapper. Looking for paid contracts and steady work.","Бакари Диарра из Мали однажды пропил пистолет на детонаторы — и не жалеет. Взрывчатку знает лучше стрельбы, и сам об этом не стесняется. Его боятся ровно настолько, насколько уважают.",,JAZZ_AME_57
+890000000005664,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_57
+890000000005665,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_57
+890000000005666,Contract accepted.,До связи.,,JAZZ_AME_57
+890000000005670,Marie-Claire Mbala,Мари-Клер Мбала,,JAZZ_AME_58
+890000000005671,Marie,Мари,,JAZZ_AME_58
+890000000005672,MARIE,МАРИ,,JAZZ_AME_58
+890000000005673,"Marie-Claire Mbala is a specialists mercenary from Congo, working as a sapper. Looking for paid contracts and steady work.","Мари-Клер Мбала ставит мины в Конго без лишней поэзии. Взрывчатка для неё важнее патронов, и она это повторяет всем новичкам. Бросок уверенный, характер сухой — сначала любопытство, потом осторожность.",,JAZZ_AME_58
+890000000005674,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_58
+890000000005675,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_58
+890000000005676,Contract accepted.,До связи.,,JAZZ_AME_58
+890000000005680,Ousmane Fall,Усман Фалл,,JAZZ_AME_59
+890000000005681,Ousmane,Усман,,JAZZ_AME_59
+890000000005682,OUSMANE,УСМАН,,JAZZ_AME_59
+890000000005683,"Ousmane Fall is a specialists mercenary from Senegal, working as a mechanic. Looking for paid contracts and steady work.","Усман Фалл из Сенегала чинит стволы лучше, чем держит их в бою. Желания геройствовать нет. В бой его не зовут, если есть хоть кто-то другой; после боя зовут первыми. Без него отряд разваливается быстрее, чем без лишнего героя.",,JAZZ_AME_59
+890000000005684,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_59
+890000000005685,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_59
+890000000005686,Contract accepted.,До связи.,,JAZZ_AME_59
+890000000005690,Jean-Pierre Kalala,Жан-Пьер Калала,,JAZZ_AME_60
+890000000005691,Jean,Жан,,JAZZ_AME_60
+890000000005692,JEAN,ЖАН,,JAZZ_AME_60
+890000000005693,"Jean-Pierre Kalala is a specialists mercenary from Grand Chien, working as a mechanic. Looking for paid contracts and steady work.","Жан-Пьер Калала — бывший гаражный мастер из Гранд-Шьен. Замок вскроет, очередь — вряд ли. Инструменты ему роднее любого автомата. Хорошие механики не любят рекламу — его обычно находят по рекомендации.",,JAZZ_AME_60
+890000000005694,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_60
+890000000005695,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_60
+890000000005696,Contract accepted.,До связи.,,JAZZ_AME_60
+# JAZZ-UNITS-005-AME-LOC-END

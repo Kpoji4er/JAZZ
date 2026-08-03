@@ -1,6 +1,6 @@
 ---
 id: JAZZ-UNITS-005
-status: draft
+status: approved
 owner: project-owner
 systems:
   - units-progression-specializations
@@ -41,7 +41,7 @@ exclusive_resources:
   - jazz-units/metadata.lua
 related_decisions:
   - none
-approved_by: pending
+approved_by: project-owner
 ---
 
 # JAZZ-UNITS-005: African Mercenary Exchange (локальный рынок наёмников)
@@ -68,7 +68,7 @@ approved_by: pending
 - Клон Legion T4 Merc\* / полный AIM Elite-пакет на AME.
 - Изменение баланса самих Legion enemy UnitData.
 - Quest-gated unlock первой вкладки AME (v1: сайт доступен с начала кампании как AIM).
-- Запись новых voice banks (reuse Legion/Army VR).
+- Запись новых neural voice banks (v1 = remesh + Legion alt `*-1.opus`).
 - Полный ISO-набор всех стран мира (только AME-пул ниже + reuse ванильных).
 - Обязательная зависимость от Workshop «all nationalities lib».
 
@@ -91,7 +91,7 @@ approved_by: pending
   3. **Hired игроком** — в My Team / эквиваленте, как у AIM;
   4. **`NotListed`** (ещё не появлялся на рынке) — **не виден** никогда, пока tick не выведет слот в Available.
   Не показывать «будущих» бойцов заранее.
-- `JAZZ-UNITS-005-REQ-008` — слот задаётся **design-roster** [`docs/design/ame-roster-60.md`](../../design/ame-roster-60.md) (или эквивалент generator→тот же контракт): имя (REQ-029), категория, CombatRole, статы, 0–2 **common** traits, specialization, `Nationality`, appearance, portrait, `VoiceResponseId`, salary, **один фиксированный** starting kit, полная игровая `Bio` RU/EN (проза карточки найма). **`Randomization` инвентаря/лута найма выключен** — один вариант на слот, без invent-roll. **Кит по `tier_label` (потолки):** **Irregulars ≤ 1-2**; **Fighters ≤ 1-3**; **Hardened ≤ 2-1**; Specialists ≤ 2-1. T2-2+ (`AK47`, `RPK`/`RPK74`, …) запрещены всем. T2-1 sidearm/ПП/carbine/SG (`HiPower`, `UZI`, `Mini14`, `Ithaca`) — Hardened/Specialists, не Fighters. **`Type56` — потолок штурмовика AME и только у Hardened** (не Fighters, не Specialists). **`SKS` и T1 bolt (`Gewehr98`) — только Sniper.** Irregulars: нож/мачете/пусто + scrap ≤1-2 (револьверы, `DoubleBarrelShotgun`, редко `Winchester1894`). Fighters: Winchester / `M1897`/`Auto5` / `STG44` / T1 ПП / `Colt1911` — без СКС/bolt и без T2-1. Machinegunner → `MAC2429` / `BAR`. **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть `PipeBomb` (+ `Detonator`). Биография объясняет ключевые статы.
+- `JAZZ-UNITS-005-REQ-008` — слот задаётся **design-roster** [`docs/design/ame-roster-60.md`](../../design/ame-roster-60.md) (или эквивалент generator→тот же контракт): имя (REQ-029), категория, CombatRole, статы, 0–2 **common** traits, specialization, `Nationality`, appearance, portrait, `VoiceResponseId`, salary, **один фиксированный** starting kit, полная игровая `Bio` RU/EN (проза карточки найма). **`Randomization` инвентаря/лута найма выключен** — один вариант на слот, без invent-roll. **Кит по `tier_label` (потолки):** **Irregulars ≤ 1-2**; **Fighters ≤ 1-3**; **Hardened ≤ 2-1**; Specialists ≤ 2-1. T2-2+ (`AK47`, `RPK`/`RPK74`, …) запрещены всем. T2-1 sidearm/carbine/SG (`HiPower`, `Mini14`, `Ithaca`) — Hardened/Specialists, не Fighters. **ПП в стартовых китах — винтаж T1:** `Thompson`, `M3GreaseGun`, `PPS43`, `PPSH`, `MP40`, `MAT49`, `Sterling` (не `UZI`/T2 compact). **`Type56` — потолок штурмовика AME и только у Hardened** (не Fighters, не Specialists). **`SKS` и T1 bolt (`Gewehr98`) — только Sniper.** Irregulars: нож/мачете/пусто + scrap ≤1-2 (револьверы, `DoubleBarrelShotgun`, редко `Winchester1894`). Fighters: Winchester / `M1897`/`Auto5` / `STG44` / T1 ПП / `Colt1911` — без СКС/bolt и без T2-1. Machinegunner → `MAC2429` / `BAR`. **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть `PipeBomb` (+ `Detonator`). Биография объясняет ключевые статы.
 - `JAZZ-UNITS-005-REQ-009` — после первого hire слот **фиксируется** (статы/имя/портрет/kit baseline) до конца кампании; ротация его не переписывает, пока `HireStatus` связан с игроком (Hired / Available после dismiss с тем же identity).
 
 ### Категории (асимметрия к Легиону)
@@ -151,7 +151,7 @@ approved_by: pending
 
 - `JAZZ-UNITS-005-REQ-016` — генератор бросает статы в диапазонах (inclusive). Primary: Health, Agility, Dexterity, Strength, Will, Marksmanship, Wisdom. Soft skills по роли.
 
-Лестница боевых статов (Agi / Dex / Marks): **медиана ≈60 / 65 / 70** для Irregulars / Fighters / Hardened. **Health и Strength** — широкий разброс (могут отклоняться сильнее медианы категории). Потолок Agi/Dex пула **70**. Perk tax: сильные комбо (`HeavyWeaponsTraining`+`AutoWeapons`, dual combat perks) режут Marks ниже медианы категории.
+Лестница боевых статов: Agi / Dex **медиана ≈60 / 65 / 70**; Marks **≈45 / 55 / 60** для Irregulars / Fighters / Hardened (novice Marks −15 от прежней лестницы, остальные −10). **Health и Strength** — широкий разброс (могут отклоняться сильнее медианы категории). Потолок Agi/Dex пула **70**. Perk tax: сильные комбо (`HeavyWeaponsTraining`+`AutoWeapons`, dual combat perks) режут Marks ниже медианы категории.
 
 **Irregulars**
 
@@ -162,7 +162,7 @@ approved_by: pending
 | Dexterity | **медиана ≈60** (band ≈50–66) |
 | Strength | **42–80** (широкий разброс) |
 | Will | 20–40 |
-| Marksmanship | **медиана ≈60** (band ≈52–64) |
+| Marksmanship | **медиана ≈45**; слабые стрелки (empty hands / «не умеет») **≈30–35**; остальные ≈41–49 |
 | Wisdom | 50–80 |
 | Leadership | 0–15 |
 | Mechanical | **обычно 0** (0–5); редкие исключения до 20 |
@@ -178,7 +178,7 @@ approved_by: pending
 | Dexterity | **медиана ≈65** (band ≈52–66) |
 | Strength | **48–80** (широкий разброс) |
 | Will | 20–40 |
-| Marksmanship | **медиана ≈65** (ниже Hardened; perk tax HW/Auto → ~56–62) |
+| Marksmanship | **медиана ≈55** (ниже Hardened; perk tax HW/Auto → ~48–54) |
 | Wisdom | 45–75 |
 | Leadership | **обычно 0–15**; в пуле Fighters+Hardened суммарно **1–2** слота с Leadership **≈50** |
 | Mechanical | **обычно 0** (0–5); в пуле Fighters+Hardened суммарно **1–2** слота с Mechanical **≈30** |
@@ -194,7 +194,7 @@ approved_by: pending
 | Dexterity | **медиана ≈70** (band ≈56–70) |
 | Strength | **64–92** (широкий разброс) |
 | Will | 45–65 |
-| Marksmanship | **медиана ≈70, потолок 70** (perk tax HW+Auto / dual → ниже; Sniper-спецы ≤80) |
+| Marksmanship | **медиана ≈60, потолок ≈60** (perk tax HW+Auto / dual → ниже; Sniper-спецы ≤70) |
 | Wisdom | 35–65 |
 | Leadership | **обычно 0–20**; делит с Fighters пул **1–2** слотов Leadership **≈50** (REQ выше) |
 | Mechanical | **обычно 0** (0–5); делит с Fighters пул **1–2** слотов Mechanical **≈30** |
@@ -208,7 +208,7 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 | Stat | Min–Max |
 |---|---|
 | Medical | **60–70** (потолок AME Medical **70**; не AIM 85+) |
-| Marksmanship | **30–40** (боевой dump) |
+| Marksmanship | **20–30** (боевой dump) |
 | Wisdom | 60–85 |
 | Will | 20–40 |
 | Leadership | 20–50 |
@@ -223,9 +223,9 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 
 | Stat | Min–Max |
 |---|---|
-| Leadership | 70–90 |
+| Leadership | **55–70** (потолок AME Leadership **70**; не AIM 85+) |
 | Wisdom | 75–95 |
-| Marksmanship | **40–50** (навыки ↑, бой ↓) |
+| Marksmanship | **30–40** (навыки ↑, бой ↓) |
 | Health | 60–75 |
 | Agility | 45–55 |
 | Dexterity | 45–55 |
@@ -239,7 +239,7 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 
 | Stat | Min–Max |
 |---|---|
-| Marksmanship | **71–80** (потолок AME Marks; не AIM 90+) |
+| Marksmanship | **61–70** (потолок AME Marks; не AIM 90+) |
 | Agility | 55–70 |
 | Dexterity | 55–65 |
 | Wisdom | 45–75 |
@@ -256,7 +256,7 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 | Stat | Min–Max |
 |---|---|
 | Explosives | **60–69** (потолок AME Explosives **<70**; не AIM 85+) |
-| Marksmanship | 40–60 |
+| Marksmanship | 20–30 |
 | Dexterity | 70–88 |
 | Wisdom | 50–80 |
 | Will | 20–40 |
@@ -267,17 +267,35 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 | Medical | 0–25 |
 | Leadership | 0–25 |
 
+**Mechanic**
+
+| Stat | Min–Max |
+|---|---|
+| Mechanical | **60–70** (потолок AME Mechanical **70**; не AIM 85+) |
+| Marksmanship | **20–30** (боевой dump) |
+| Wisdom | 50–70 |
+| Will | 20–40 |
+| Health | 60–85 |
+| Agility | 45–55 |
+| Dexterity | 45–55 |
+| Strength | 50–65 |
+| Leadership | 0–15 |
+| Explosives | 0–15 |
+| Medical | 0–15 |
+
+AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70**; Explosives **<70**. Не AIM-уровень 85–100.
+
 - `JAZZ-UNITS-005-REQ-017` — UI карточки показывает категорию и **Potential** label от Wisdom: Low (ниже 45), Medium (45–64), High (65 и выше). Отдельного UnitData-поля Potential в v1 нет.
 - `JAZZ-UNITS-005-REQ-018` — StartingLevel bands: Irregulars 1–2; Fighters 2–4; Hardened 5–10; Specialists 4–8.
 
 ### Внешность, голос, контент
 
-- `JAZZ-UNITS-005-REQ-019` — appearance: клоны/рекомпозиция пресетов **Rebels** / **Militia** / **Legion** → отдельные AME ids. **Donor на слот** зафиксирован в design-roster [`ame-roster-60.md`](../../design/ame-roster-60.md) полем `Appearance (donor)` (напр. `RebelFemaleSniper`, `GrandChien_CommanderFemale`, `Militia_*`, `Legion_*`, `*_Rebels`). **Доминанта формы — синий** (`ColorizationPropSet`). Кожа/металл/ремни не в синий. Исходные presets **не править**. Минимум **8** shared AME presets (часть female).
-- `JAZZ-UNITS-005-REQ-020` — голос:
-  - male Irregulars/Fighters → `LegionRaider` (alt takes `-1.opus` допустимы);
-  - male Hardened/Specialists → `ArmySoldier` (более опытные);
-  - **female** слоты (Rebel-derived appearance) → `VoiceResponseId = "AnneLeMitrailleur"` (ванильный/units bank «Anne la Mitrailleuse»; тот же donor, что у `RebelSniper_female` / `ArmyCommanderFemale`).
-  `FallbackMissingVR` допустим. Новых female voice banks не записывать.
+- `JAZZ-UNITS-005-REQ-019` — appearance: **уникальный клон на слот** `JAZZ_AME_01`…`60` (`ModItemAppearancePreset`, group `AME`). Donor — Rebels / Militia / Legion; Hardened/Specialists могут брать **GrandChien**. Карта слот→donor: [`ame-appearance-map.json`](../../design/ame-appearance-map.json) + поле на карточке roster. **Ровно один AME-синий акцент** (Hat → Hat2 → Shirt → BodyC2; **не** Pants/ботинки); прочий Legion-red / лишний blue → muted slate. **Кожа рук** (`BodyColor` EditableColor1) — тёмный African bank; **`HeadColor` = (0,0,0)** как vanilla. **Голова:** Ca/As/AIM/`Male_Head_*` → Legion Af / `Head_F_Af_NPC_*`. Исходные presets **не править**. Female: Af head. Tooling: `_gen_ame_appearances.py`.
+- `JAZZ-UNITS-005-REQ-020` — голос (shared Jazz banks, hireable slot coverage; не raw enemy VR):
+  - male Irregulars/Fighters → `VoiceResponseId = "Jazz_AME_Male_Low"` — фразы **LegionRaider**, аудио из alt takes `*-1.opus` (другой голос, чем у врагов Legion);
+  - male Hardened/Specialists → `Jazz_AME_Male_Hard` (remesh `ArmySoldier`);
+  - **female** → `Jazz_AME_Female` (remesh `AnneLeMitrailleur`).
+  `FallbackMissingVR` = donor UnitData (`LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur`) — **не** Ice/Fox (ванильные мерки). В runtime fallback только для `Pain`/`AiDeath`, если слота нет в Jazz-банке. Calm hireable slots (Selection / Order / CombatMovement / Idle / …) **не remesh** из `BecomeAware` («Enemies!»): нет native take → слот пустой → **тишина** (не Ice). Neural re-record вне v1; импорт alt: `_import_legion_raider_alt_voices.py`, сборка: `_gen_ame_voice_responses.py`.
 - `JAZZ-UNITS-005-REQ-021` — портреты: банк ≥ **16** уникальных лиц в `jazz-units/MercPortraits` (AME); reuse банка между слотами разрешён; специалисты стремятся к меньшей коллизии лиц на одной витрине.
 - `JAZZ-UNITS-005-REQ-022` — у каждого слота **полная игровая биография** (поле `Bio` на карточке найма) RU+EN: проза от 3-го лица (происхождение, прошлое, характер, слабость), без мета-цифр статов/тиров; тексты различаются (страна, background, тон). Design-roster держит канон RU; EN — в том же change set локализации. Hire chat — шаблонные фразы по категории/роли.
 - `JAZZ-UNITS-005-REQ-023` — background flavor tags в bio (не отдельный filter v1): ex-army / militia / police / hunter / rebel — без привязки «дешёвый = раса».
@@ -289,7 +307,7 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
   5. Flag assets — PNG (или формат, который принимает UI флагов JA3) в declared write set (`Icons/Flags/` и/или `jazz_assets`); путь зарегистрирован в nationality preset.
   6. Не-африканское меньшинство допустимо редко, не как норма витрины.
   7. Без обязательной зависимости от внешних nationality workshop-модов.
-- `JAZZ-UNITS-005-REQ-029` — **имена**: африканские first/last (или single given name) из AME name pools (можно опереться на пулы Legion/Rebels/`EliteEnemyNames`, без US/EU AIM-roster). Отображаемое `Name` — норма. **`Nick` редко**: у Irregulars / Fighters / Specialists почти всегда пусто или совпадает с именем; клички в основном у **Hardened** (ориентир **~15–30%** Hardened-слотов имеют отличный от имени Nick; вне Hardened — единицы на весь пул, не норма витрины).
+- `JAZZ-UNITS-005-REQ-029` — **имена**: африканские first/last (или single given name) из AME name pools (можно опереться на пулы Legion/Rebels/`EliteEnemyNames`, без US/EU AIM-roster). Поле **`Name`** = полное формальное имя (карточка/био). Поле **`Nick`** = короткое отображаемое в hire list / chat / URL: явная кличка если есть (Hardened), иначе **только given name** (без фамилии; титулы `Dr.`/`Captain` снимаются). Дефисные given (`Jean-Baptiste`) → первая часть (`Jean`); длина Nick **≤9** (тайл списка обрезает). **RU+EN:** Name/Nick/AllCapsNick в обеих таблицах (`docs/tools/_ame_names_ru.py` + generator); RU — кириллическая транслитерация (как в био). Owner UX 2026-08-03: не дублировать полное `Name` в `Nick`.
 
 ### Docs / loc
 
@@ -340,26 +358,27 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 
 ## Решение владельца
 
-- Статус: draft
-- Кто подтвердил: pending
-- Дата: 2026-08-02 (design lock in chat: separate site, Legion-tier categories, living market, specialist floor, stat bands)
+- Статус: approved (code+data+docs shipped; formal `-Phase Done` blocked until runtime/human AC-003/004/006/007/009/010)
+- Кто подтвердил: project-owner
+- Дата: 2026-08-03 (implement order: ship full DoD — site + 60 mercs + portraits; unique faces for all 60)
 
 ## Evidence
 
-- `JAZZ-UNITS-005-AC-001`: `BLOCKED` — draft: design companion `docs/design/ame-mercenary-exchange.md` создан; ждёт approval.
-- `JAZZ-UNITS-005-AC-002`: `BLOCKED` — implementation.
-- `JAZZ-UNITS-005-AC-003`: `BLOCKED` — runtime.
-- `JAZZ-UNITS-005-AC-004`: `BLOCKED` — runtime.
-- `JAZZ-UNITS-005-AC-005`: `BLOCKED` — static after generation.
-- `JAZZ-UNITS-005-AC-006`: `BLOCKED` — runtime.
-- `JAZZ-UNITS-005-AC-007`: `BLOCKED` — runtime/human.
-- `JAZZ-UNITS-005-AC-008`: `BLOCKED` — loc/docs.
-- `JAZZ-UNITS-005-AC-009`: `BLOCKED` — human playtest.
-- `JAZZ-UNITS-005-AC-010`: `BLOCKED` — runtime/human flags.
+- `JAZZ-UNITS-005-AC-001`: `PASS` (static) — design companion + public ids `ame`/`AME`/`JAZZ_AME_01..60` в spec/docs/code.
+- `JAZZ-UNITS-005-AC-002`: `PASS` (static/editor) — `System_AME_Browser*.lua` + metadata code; AIM `aim` path не заменён.
+- `JAZZ-UNITS-005-AC-003`: `BLOCKED` (runtime) — код market/filters готов; нужен JA3 playtest витрины.
+- `JAZZ-UNITS-005-AC-004`: `BLOCKED` (runtime) — hire wrap static-present; нужен playtest hire→squad.
+- `JAZZ-UNITS-005-AC-005`: `PASS` (static) — 60 companions/loot; categories 20/18/10/12; flags `Icons/Flags/f_*.png` + `System_AME_Nationalities.lua`; 60 unique portraits (sha1); kit audit `_audit_ame_kit_tiers.py` violations=0.
+- `JAZZ-UNITS-005-AC-006`: `BLOCKED` (runtime) — tick logic in `System_AME_Market.lua`; нужен +30d playtest.
+- `JAZZ-UNITS-005-AC-007`: `BLOCKED` (runtime/human) — roster salaries/traits static; нужен human card check.
+- `JAZZ-UNITS-005-AC-008`: `PASS` (static) — AME loc block in RU/EN CSV; wiki `african-mercenary-exchange.md`; showcase `ru|en/ame.md` + pages.json.
+- `JAZZ-UNITS-005-AC-009`: `BLOCKED` (human) — owner playtest Potential/growth.
+- `JAZZ-UNITS-005-AC-010`: `BLOCKED` (runtime/human) — flag assets wired; UI visibility needs in-game card check.
 
 ## Documentation delta
 
-- Добавить `docs/design/ame-mercenary-exchange.md` при approval/implement.
-- Обновить `docs/technical/systems/units-progression-specializations.md`, `file-coverage.md`.
-- Player-facing: `docs/wiki/` + `docs/showcase/ru|en` (mercenaries и/или новый slug AME).
-- Эта draft-spec сама — источник контракта до approval.
+- `docs/design/ame-mercenary-exchange.md`, `docs/design/ame-roster-60.md`
+- `docs/technical/systems/units-progression-specializations.md`, `file-coverage.md`
+- `docs/wiki/african-mercenary-exchange.md`
+- `docs/showcase/ru|en/ame.md`, `mercenaries.md`, `pages.json`
+- Tools: `_gen_ame_unitdata.py`, `_gen_ame_flags.py`, `_gen_ame_portrait_prompts.py`, `_process_ame_portraits.py`

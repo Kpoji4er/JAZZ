@@ -1,7 +1,8 @@
 if FirstLoad then
-	AIMScreenFilters = false
 	ChangeSpecialization()
 end
+
+AIMScreenFilters = false
 
 function GetAIMScreenFilters()
 	ChangeAIMPremiumState("active", 0)
@@ -31,6 +32,8 @@ function GetAIMScreenFilters()
 		AIMScreenFilters[#AIMScreenFilters + 1] = {
 			name = Specialization.name,
 			nameString = string.lower(Specialization.id),
+			-- ASCII path for PDA URL bar (never localized DisplayName).
+			urlName = Untranslated(Specialization.id),
 			func = function(item)
 				return IsMetAIMMerc(item) and item.Specialization == Specialization.id
 			end,
@@ -44,12 +47,13 @@ function GetAIMScreenFilters()
 	table.insert(AIMScreenFilters, {
 		name = T(470357587467, "All"),
 		nameString = "all",
+		urlName = Untranslated("All"),
 		func = function(item) return IsMetAIMMerc(item) end,
 		id = #AIMScreenFilters + 1
 	})
 	table.insert(AIMScreenFilters, {
 		name = T(521536943297, "My Team [<PlayerMercCount()>]"),
-		urlName = T(975990402542, "My%20Team"),
+		urlName = Untranslated("My%20Team"),
 		nameString = "hired",
 		func = function(item) return item.HireStatus == "Hired" end,
 		id = #AIMScreenFilters + 1,

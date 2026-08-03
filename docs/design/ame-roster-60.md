@@ -8,16 +8,17 @@
 
 | Категория (вкладка) | Кол-во | Примечание |
 | --- | ---: | --- |
-| Irregulars | 20 | A/D/Marks ≈60; HP/Str широкий разброс; высокий Wisdom |
+| Irregulars | 20 | A/D ≈60; Marks median ≈45 (weak ≈30); HP/Str wide; high Wisdom |
 | Fighters | 18 | A/D/Marks ≈65; kit ≤1-3; ≥30% autorifle/MG/GL с Hardened |
 | Hardened | 10 | A/D/Marks ≈70; Will mid; kit ≤2-1 |
 | Specialists | 12 | Medic×3, Instructor×3, Sniper×2, Sapper×2, Mechanic×2 |
 
 - Инвентарь: **1 фиксированный вариант** на слот (без `Randomization`).
-- **Appearance:** на карточке `Appearance (donor)` — preset для клона (`RebelFemaleSniper` / `GrandChien_CommanderFemale` / Militia_* / Legion_* / *_Rebels). Recolor blue; источник не править.
+- **Appearance:** на слот свой клон `JAZZ_AME_NN` (donor Rebels/Legion/Militia; Hardened/Spec — ещё GrandChien). Красное → синее; кожа с пресета. Карта: [`ame-appearance-map.json`](ame-appearance-map.json).
 - **Кит:** Irr ≤ **1-2**; Fight ≤ **1-3**; Hard/Spec ≤ **2-1**. **`Type56` — потолок AR, только Hardened.** `SKS`/bolt — только Sniper.
+- **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**
 - **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.
-- Female slots → VR `AnneLeMitrailleur`; appearance из thin female bank выше.
+- Voice: Irregulars/Fighters → `Jazz_AME_Male_Low` (Legion phrases + alt `*-1.opus`); Hardened/Specialists → `Jazz_AME_Male_Hard`; female → `Jazz_AME_Female`.
 - **Bio:** полная игровая проза карточки найма (RU); без мета-цифр статов/тиров.
 - Nick: в основном Hardened. Grand Chien: заметная доля.
 
@@ -28,11 +29,11 @@
 - **Nationality:** `Ghana`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $80
+- **Level / Salary:** 1 / $80
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Recon` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_01` ← donor `MilitiaRookie_Male_01` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -44,7 +45,7 @@
 | Wisdom | 70 |
 | Will | 28 |
 | Leadership | 5 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -59,8 +60,8 @@
 - **Level / Salary:** 1 / $88
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Recon_Rebels` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_02` ← donor `MilitiaRookie_Male_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×6 · Knife
 
 | Stat | |
@@ -72,7 +73,7 @@
 | Wisdom | 66 |
 | Will | 26 |
 | Leadership | 0 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -87,8 +88,8 @@
 - **Level / Salary:** 1 / $96
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Heavy` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_03` ← donor `Militia_Artillery` (male; blue recolor, source не править)
 - **Inventory (fixed):** SWModel10 · .38×12 · Knife
 
 | Stat | |
@@ -100,7 +101,7 @@
 | Wisdom | 72 |
 | Will | 32 |
 | Leadership | 10 |
-| Marksmanship | 58 |
+| Marksmanship | 43 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 10 |
@@ -112,11 +113,11 @@
 - **Nationality:** `Nigeria`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $104
+- **Level / Salary:** 1 / $104
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_04` ← donor `Militia_Demolition` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -128,7 +129,7 @@
 | Wisdom | 58 |
 | Will | 22 |
 | Leadership | 0 |
-| Marksmanship | 58 |
+| Marksmanship | 43 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -143,8 +144,8 @@
 - **Level / Salary:** 1 / $112
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_05` ← donor `Militia_Heavy` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -156,7 +157,7 @@
 | Wisdom | 76 |
 | Will | 30 |
 | Leadership | 8 |
-| Marksmanship | 60 |
+| Marksmanship | 30 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -171,8 +172,8 @@
 - **Level / Salary:** 1 / $120
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Soldier_Rebels_04` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_06` ← donor `Militia_Marksman` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×14 · Knife
 
 | Stat | |
@@ -184,7 +185,7 @@
 | Wisdom | 68 |
 | Will | 28 |
 | Leadership | 0 |
-| Marksmanship | 64 |
+| Marksmanship | 49 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -196,11 +197,11 @@
 - **Nationality:** `Ethiopia`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $128
+- **Level / Salary:** 1 / $128
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_07` ← donor `Militia_Medic` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -212,7 +213,7 @@
 | Wisdom | 78 |
 | Will | 34 |
 | Leadership | 5 |
-| Marksmanship | 56 |
+| Marksmanship | 30 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 8 |
@@ -227,8 +228,8 @@
 - **Level / Salary:** 1 / $136
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Marksman` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_08` ← donor `Militia_Officer` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×8 · Knife
 
 | Stat | |
@@ -240,7 +241,7 @@
 | Wisdom | 56 |
 | Will | 26 |
 | Leadership | 12 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -255,8 +256,8 @@
 - **Level / Salary:** 1 / $80
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Marksman_Rebels_03` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_09` ← donor `Militia_Recon` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×6 · Knife
 
 | Stat | |
@@ -268,7 +269,7 @@
 | Wisdom | 72 |
 | Will | 24 |
 | Leadership | 0 |
-| Marksmanship | 62 |
+| Marksmanship | 47 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -280,11 +281,11 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $88
+- **Level / Salary:** 1 / $88
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Recon_Rebels` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_10` ← donor `Militia_Soldier` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -296,7 +297,7 @@
 | Wisdom | 64 |
 | Will | 30 |
 | Leadership | 8 |
-| Marksmanship | 60 |
+| Marksmanship | 32 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -311,8 +312,8 @@
 - **Level / Salary:** 1 / $96
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `RebelFemaleSniper` (female; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_11` ← donor `GrandChien_CommanderFemale` (female; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -324,7 +325,7 @@
 | Wisdom | 74 |
 | Will | 20 |
 | Leadership | 0 |
-| Marksmanship | 56 |
+| Marksmanship | 30 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -339,8 +340,8 @@
 - **Level / Salary:** 1 / $104
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Recon` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_12` ← donor `Militia_Stormer` (male; blue recolor, source не править)
 - **Inventory (fixed):** Machete
 
 | Stat | |
@@ -352,7 +353,7 @@
 | Wisdom | 54 |
 | Will | 28 |
 | Leadership | 5 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -364,11 +365,11 @@
 - **Nationality:** `Nigeria`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $112
+- **Level / Salary:** 1 / $112
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Recon` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_13` ← donor `Artillery_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Colt38Special · .38×12 · Knife
 
 | Stat | |
@@ -380,7 +381,7 @@
 | Wisdom | 66 |
 | Will | 26 |
 | Leadership | 0 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 12 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -395,8 +396,8 @@
 - **Level / Salary:** 1 / $120
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Marksman_Rebels_03` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_14` ← donor `Artillery_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -408,7 +409,7 @@
 | Wisdom | 62 |
 | Will | 27 |
 | Leadership | 0 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -423,8 +424,8 @@
 - **Level / Salary:** 1 / $128
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Recon` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_15` ← donor `Artillery_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -436,7 +437,7 @@
 | Wisdom | 80 |
 | Will | 33 |
 | Leadership | 5 |
-| Marksmanship | 56 |
+| Marksmanship | 30 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 10 |
@@ -448,11 +449,11 @@
 - **Nationality:** `Angola`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $136
+- **Level / Salary:** 1 / $136
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Heavy` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_16` ← donor `Commander_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -464,7 +465,7 @@
 | Wisdom | 54 |
 | Will | 22 |
 | Leadership | 0 |
-| Marksmanship | 58 |
+| Marksmanship | 33 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -479,8 +480,8 @@
 - **Level / Salary:** 1 / $80
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `RebelFemaleSniper` (female; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_17` ← donor `MilitiaRookie_Female_01` (female; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×4 · Knife
 
 | Stat | |
@@ -492,7 +493,7 @@
 | Wisdom | 70 |
 | Will | 26 |
 | Leadership | 0 |
-| Marksmanship | 62 |
+| Marksmanship | 47 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -507,8 +508,8 @@
 - **Level / Salary:** 1 / $88
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Recon` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_18` ← donor `Demolitions_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -520,7 +521,7 @@
 | Wisdom | 72 |
 | Will | 29 |
 | Leadership | 5 |
-| Marksmanship | 58 |
+| Marksmanship | 30 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -532,11 +533,11 @@
 - **Nationality:** `SouthAfrica`
 - **Category / CombatRole:** Irregulars / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 2 / $96
+- **Level / Salary:** 1 / $96
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_19` ← donor `Demolitions_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** ColtM1917 · .45×12 · Knife
 
 | Stat | |
@@ -548,7 +549,7 @@
 | Wisdom | 50 |
 | Will | 30 |
 | Leadership | 10 |
-| Marksmanship | 58 |
+| Marksmanship | 43 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -563,8 +564,8 @@
 - **Level / Salary:** 1 / $104
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Marksman` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_20` ← donor `Demolitions_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** SWModel10 · .38×6 · Knife
 
 | Stat | |
@@ -576,7 +577,7 @@
 | Wisdom | 64 |
 | Will | 28 |
 | Leadership | 8 |
-| Marksmanship | 60 |
+| Marksmanship | 45 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 8 |
@@ -590,11 +591,11 @@
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 4 / $220
+- **Level / Salary:** 1 / $220
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Soldier_02` (male; clone→AME blue, source preset не править)
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_21` ← donor `Legion_Artillery` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×40 · Knife
 
 | Stat | |
@@ -606,7 +607,7 @@
 | Wisdom | 58 |
 | Will | 30 |
 | Leadership | 8 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 5 |
 | Medical | 8 |
@@ -618,11 +619,11 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Fighters / Autorifleman
 - **Specialization:** `Autoriflemen`
-- **Level / Salary:** 2 / $240
+- **Level / Salary:** 1 / $240
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_22` ← donor `Legion_Artillery02` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -634,23 +635,23 @@
 | Wisdom | 52 |
 | Will | 28 |
 | Leadership | 5 |
-| Marksmanship | 64 |
+| Marksmanship | 54 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
 
 **Биография:** Бастьен Лафонтен служил милицейским автоматчиком в Гранд-Шьен и до сих пор пахнет машинным маслом и дешёвым табаком. Очереди для него важнее красоты ствола: улица становится тесной — и он уже на линии. Платят лучше участка — и этого ему достаточно.
 
-### `JAZZ_AME_23` — Chukwuemeka Obi
+### `JAZZ_AME_23` — Chukwuemeka Obi «Emeka»
 
 - **Nationality:** `Nigeria`
 - **Category / CombatRole:** Fighters / Machinegunner
 - **Specialization:** `HeavyWeapons`
-- **Level / Salary:** 4 / $260
+- **Level / Salary:** 1 / $260
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Heavy_02` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_23` ← donor `Legion_Artillery03` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
 | Stat | |
@@ -662,7 +663,7 @@
 | Wisdom | 46 |
 | Will | 32 |
 | Leadership | 0 |
-| Marksmanship | 58 |
+| Marksmanship | 48 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -674,11 +675,11 @@
 - **Nationality:** `Congo`
 - **Category / CombatRole:** Fighters / Grenadier
 - **Specialization:** `ExplosiveExpert`
-- **Level / Salary:** 2 / $250
+- **Level / Salary:** 1 / $250
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Demolishion` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_24` ← donor `Legion_Demolishion` (male; blue recolor, source не править)
 - **Inventory (fixed):** Colt1911 · .45×24 · FragGrenade×2 · Knife · Bandage×1
 
 | Stat | |
@@ -690,7 +691,7 @@
 | Wisdom | 54 |
 | Will | 26 |
 | Leadership | 5 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 12 |
 | Medical | 5 |
@@ -702,11 +703,11 @@
 - **Nationality:** `Kenya`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 3 / $200
+- **Level / Salary:** 1 / $200
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Recon` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_25` ← donor `Legion_Demolishion02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife · Bandage×1
 
 | Stat | |
@@ -718,7 +719,7 @@
 | Wisdom | 60 |
 | Will | 30 |
 | Leadership | 8 |
-| Marksmanship | 70 |
+| Marksmanship | 60 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 8 |
@@ -730,11 +731,11 @@
 - **Nationality:** `SouthAfrica`
 - **Category / CombatRole:** Fighters / Autorifleman
 - **Specialization:** `Autoriflemen`
-- **Level / Salary:** 2 / $230
+- **Level / Salary:** 1 / $230
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_26` ← donor `Legion_Demolishion03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -746,7 +747,7 @@
 | Wisdom | 50 |
 | Will | 28 |
 | Leadership | 8 |
-| Marksmanship | 64 |
+| Marksmanship | 54 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -758,12 +759,12 @@
 - **Nationality:** `Mali`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 3 / $190
+- **Level / Salary:** 1 / $190
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `MinFreeMove`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Soldier_02` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** MP40 · 9mm×40 · Knife
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_27` ← donor `Legion_Heavy` (male; blue recolor, source не править)
+- **Inventory (fixed):** M3GreaseGun · .45×60 · Knife
 
 | Stat | |
 | --- | ---: |
@@ -774,7 +775,7 @@
 | Wisdom | 56 |
 | Will | 35 |
 | Leadership | 10 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -786,11 +787,11 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Fighters / Machinegunner
 - **Specialization:** `HeavyWeapons`
-- **Level / Salary:** 3 / $270
+- **Level / Salary:** 1 / $270
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `HeavyWeaponsTraining`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Heavy_Rebels` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_28` ← donor `Legion_Heavy02` (male; blue recolor, source не править)
 - **Inventory (fixed):** BAR · .30-06×60 · Knife · Bandage×1
 
 | Stat | |
@@ -802,7 +803,7 @@
 | Wisdom | 46 |
 | Will | 30 |
 | Leadership | 5 |
-| Marksmanship | 60 |
+| Marksmanship | 50 |
 | Mechanical | 0 |
 | Explosives | 5 |
 | Medical | 0 |
@@ -814,12 +815,12 @@
 - **Nationality:** `Ghana`
 - **Category / CombatRole:** Fighters / Grenadier
 - **Specialization:** `ExplosiveExpert`
-- **Level / Salary:** 2 / $255
+- **Level / Salary:** 1 / $255
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`, `HeavyWeaponsTraining`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Demolishion` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** MP40 · 9mm×32 · FragGrenade×2 · Knife · Bandage×1
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_29` ← donor `Legion_Heavy03` (male; blue recolor, source не править)
+- **Inventory (fixed):** PPS43 · 7.62x25×70 · FragGrenade×2 · Knife · Bandage×1
 
 | Stat | |
 | --- | ---: |
@@ -830,7 +831,7 @@
 | Wisdom | 50 |
 | Will | 24 |
 | Leadership | 0 |
-| Marksmanship | 60 |
+| Marksmanship | 50 |
 | Mechanical | 5 |
 | Explosives | 12 |
 | Medical | 0 |
@@ -842,11 +843,11 @@
 - **Nationality:** `Ethiopia`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 4 / $210
+- **Level / Salary:** 1 / $210
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Soldier_Rebels_02` (male; clone→AME blue, source preset не править)
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_30` ← donor `Legion_Jose` (male; blue recolor, source не править)
 - **Inventory (fixed):** M1897 · 12g×20 · Knife
 
 | Stat | |
@@ -858,7 +859,7 @@
 | Wisdom | 62 |
 | Will | 28 |
 | Leadership | 5 |
-| Marksmanship | 68 |
+| Marksmanship | 58 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -870,11 +871,11 @@
 - **Nationality:** `Angola`
 - **Category / CombatRole:** Fighters / Autorifleman
 - **Specialization:** `Autoriflemen`
-- **Level / Salary:** 3 / $235
+- **Level / Salary:** 1 / $235
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Soldier_Rebels` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_31` ← donor `Legion_Marksman` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -886,7 +887,7 @@
 | Wisdom | 48 |
 | Will | 30 |
 | Leadership | 5 |
-| Marksmanship | 64 |
+| Marksmanship | 54 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -898,12 +899,12 @@
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 4 / $180
+- **Level / Salary:** 1 / $180
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `RebelFemaleSniper` (female; clone→AME blue, source preset не править)
-- **Inventory (fixed):** MAT49 · 9mm×40 · Knife · Bandage×1
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_32` ← donor `MilitiaRookie_Female_02` (female; blue recolor, source не править)
+- **Inventory (fixed):** PPSH · 7.62x25×70 · Knife · Bandage×1
 
 | Stat | |
 | --- | ---: |
@@ -914,7 +915,7 @@
 | Wisdom | 54 |
 | Will | 22 |
 | Leadership | 0 |
-| Marksmanship | 68 |
+| Marksmanship | 58 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -926,11 +927,11 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 3 / $200
+- **Level / Salary:** 1 / $200
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_33` ← donor `Legion_Marksman02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×20 · Knife
 
 | Stat | |
@@ -942,7 +943,7 @@
 | Wisdom | 56 |
 | Will | 28 |
 | Leadership | 10 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 8 |
@@ -954,11 +955,11 @@
 - **Nationality:** `Nigeria`
 - **Category / CombatRole:** Fighters / Machinegunner
 - **Specialization:** `HeavyWeapons`
-- **Level / Salary:** 4 / $280
+- **Level / Salary:** 1 / $280
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Heavy_02` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_34` ← donor `Legion_Marksman03` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
 | Stat | |
@@ -970,7 +971,7 @@
 | Wisdom | 44 |
 | Will | 34 |
 | Leadership | 5 |
-| Marksmanship | 58 |
+| Marksmanship | 48 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 0 |
@@ -982,11 +983,11 @@
 - **Nationality:** `Kenya`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 3 / $215
+- **Level / Salary:** 1 / $215
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Legion_Recon` (male; clone→AME blue, source preset не править)
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_35` ← donor `Legion_Recon` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife
 
 | Stat | |
@@ -998,7 +999,7 @@
 | Wisdom | 58 |
 | Will | 26 |
 | Leadership | 8 |
-| Marksmanship | 68 |
+| Marksmanship | 58 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -1010,12 +1011,12 @@
 - **Nationality:** `Mali`
 - **Category / CombatRole:** Fighters / Autorifleman
 - **Specialization:** `Autoriflemen`
-- **Level / Salary:** 4 / $225
+- **Level / Salary:** 1 / $225
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `LegionRaider` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife · Toolkit
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_36` ← donor `Legion_Recon02` (male; blue recolor, source не править)
+- **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife · Wirecutter
 
 | Stat | |
 | --- | ---: |
@@ -1026,7 +1027,7 @@
 | Wisdom | 52 |
 | Will | 28 |
 | Leadership | 5 |
-| Marksmanship | 64 |
+| Marksmanship | 54 |
 | Mechanical | 15 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -1038,11 +1039,11 @@
 - **Nationality:** `Congo`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 3 / $195
+- **Level / Salary:** 1 / $195
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Soldier_Rebels_02` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_37` ← donor `Legion_Recon03` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×16 · Knife · Bandage×2
 
 | Stat | |
@@ -1054,7 +1055,7 @@
 | Wisdom | 56 |
 | Will | 30 |
 | Leadership | 8 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 12 |
@@ -1066,11 +1067,11 @@
 - **Nationality:** `SouthAfrica`
 - **Category / CombatRole:** Fighters / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 4 / $205
+- **Level / Salary:** 1 / $205
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `LegionRaider`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Low`
+- **Appearance:** `JAZZ_AME_38` ← donor `Legion_Shaman` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife
 
 | Stat | |
@@ -1082,7 +1083,7 @@
 | Wisdom | 54 |
 | Will | 32 |
 | Leadership | 50 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 0 |
 | Medical | 5 |
@@ -1096,12 +1097,12 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Hardened / Autorifleman
 - **Specialization:** `Autoriflemen`
-- **Level / Salary:** 6 / $480
+- **Level / Salary:** 1 / $480
 - **Potential (Wisdom):** Low
 - **Traits (common):** `AutoWeapons`, `CQCTraining`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Soldier_Rebels` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** UZI · 9mm×60 · Knife · FragGrenade×1 · Bandage×1
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_39` ← donor `GrandChien_Artillery` (male; blue recolor, source не править)
+- **Inventory (fixed):** Thompson · .45×60 · Knife · FragGrenade×1 · Bandage×1
 
 | Stat | |
 | --- | ---: |
@@ -1112,7 +1113,7 @@
 | Wisdom | 44 |
 | Will | 55 |
 | Leadership | 12 |
-| Marksmanship | 64 |
+| Marksmanship | 54 |
 | Mechanical | 0 |
 | Explosives | 10 |
 | Medical | 8 |
@@ -1124,11 +1125,11 @@
 - **Nationality:** `Ethiopia`
 - **Category / CombatRole:** Hardened / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 7 / $420
+- **Level / Salary:** 1 / $420
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`, `SteadyBreathing`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Legion_Soldier` (male; clone→AME blue, source preset не править)
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_40` ← donor `GrandChien_Demolition` (male; blue recolor, source не править)
 - **Inventory (fixed):** Mini14 · 5.56×40 · Knife · Bandage×1
 
 | Stat | |
@@ -1140,7 +1141,7 @@
 | Wisdom | 50 |
 | Will | 52 |
 | Leadership | 10 |
-| Marksmanship | 70 |
+| Marksmanship | 60 |
 | Mechanical | 5 |
 | Explosives | 8 |
 | Medical | 5 |
@@ -1152,11 +1153,11 @@
 - **Nationality:** `SouthAfrica`
 - **Category / CombatRole:** Hardened / Machinegunner
 - **Specialization:** `HeavyWeapons`
-- **Level / Salary:** 8 / $520
+- **Level / Salary:** 1 / $520
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Legion_Heavy_02` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_41` ← donor `GrandChien_Heavy` (male; blue recolor, source не править)
 - **Inventory (fixed):** BAR · .30-06×80 · Knife · Bandage×1
 
 | Stat | |
@@ -1168,7 +1169,7 @@
 | Wisdom | 36 |
 | Will | 58 |
 | Leadership | 8 |
-| Marksmanship | 60 |
+| Marksmanship | 50 |
 | Mechanical | 0 |
 | Explosives | 8 |
 | Medical | 5 |
@@ -1180,11 +1181,11 @@
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Hardened / Rifle
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 9 / $400
+- **Level / Salary:** 1 / $400
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Soldier_Rebels` (male; clone→AME blue, source preset не править)
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_42` ← donor `GrandChien_Marksman` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Bandage×1
 
 | Stat | |
@@ -1196,7 +1197,7 @@
 | Wisdom | 48 |
 | Will | 52 |
 | Leadership | 18 |
-| Marksmanship | 70 |
+| Marksmanship | 60 |
 | Mechanical | 0 |
 | Explosives | 12 |
 | Medical | 8 |
@@ -1208,11 +1209,11 @@
 - **Nationality:** `Congo`
 - **Category / CombatRole:** Hardened / Grenadier
 - **Specialization:** `ExplosiveExpert`
-- **Level / Salary:** 5 / $500
+- **Level / Salary:** 1 / $500
 - **Potential (Wisdom):** Low
 - **Traits (common):** `Throwing`, `HeavyWeaponsTraining`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Militia_Demolition` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_43` ← donor `GrandChien_Medic` (male; blue recolor, source не править)
 - **Inventory (fixed):** Ithaca · 12g×16 · FragGrenade×2 · Knife · Bandage×1
 
 | Stat | |
@@ -1224,7 +1225,7 @@
 | Wisdom | 44 |
 | Will | 48 |
 | Leadership | 5 |
-| Marksmanship | 68 |
+| Marksmanship | 58 |
 | Mechanical | 5 |
 | Explosives | 14 |
 | Medical | 5 |
@@ -1236,11 +1237,11 @@
 - **Nationality:** `Nigeria`
 - **Category / CombatRole:** Hardened / Autorifleman
 - **Specialization:** `Autoriflemen`
-- **Level / Salary:** 8 / $450
+- **Level / Salary:** 1 / $450
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `RebelFemaleSniper` (female; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_44` ← donor `RebelFemaleSniper` (female; blue recolor, source не править)
 - **Inventory (fixed):** Type56 · 7.62×90 · Knife · Bandage×2
 
 | Stat | |
@@ -1252,7 +1253,7 @@
 | Wisdom | 52 |
 | Will | 54 |
 | Leadership | 16 |
-| Marksmanship | 68 |
+| Marksmanship | 58 |
 | Mechanical | 0 |
 | Explosives | 8 |
 | Medical | 12 |
@@ -1264,12 +1265,12 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Hardened / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 6 / $430
+- **Level / Salary:** 1 / $430
 - **Potential (Wisdom):** Low
-- **Traits (common):** `TakeAim`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Legion_Soldier` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Toolkit · Bandage×1
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_45` ← donor `GrandChien_Officer` (male; blue recolor, source не править)
+- **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Wirecutter · Bandage×1
 
 | Stat | |
 | --- | ---: |
@@ -1280,7 +1281,7 @@
 | Wisdom | 40 |
 | Will | 56 |
 | Leadership | 14 |
-| Marksmanship | 70 |
+| Marksmanship | 60 |
 | Mechanical | 28 |
 | Explosives | 10 |
 | Medical | 8 |
@@ -1292,11 +1293,11 @@
 - **Nationality:** `Ghana`
 - **Category / CombatRole:** Hardened / Machinegunner
 - **Specialization:** `HeavyWeapons`
-- **Level / Salary:** 9 / $490
+- **Level / Salary:** 1 / $490
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Legion_Heavy` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_46` ← donor `GrandChien_Recon` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×80 · Knife · Bandage×1
 
 | Stat | |
@@ -1308,7 +1309,7 @@
 | Wisdom | 34 |
 | Will | 60 |
 | Leadership | 5 |
-| Marksmanship | 66 |
+| Marksmanship | 56 |
 | Mechanical | 0 |
 | Explosives | 8 |
 | Medical | 5 |
@@ -1320,11 +1321,11 @@
 - **Nationality:** `Mali`
 - **Category / CombatRole:** Hardened / Grenadier
 - **Specialization:** `ExplosiveExpert`
-- **Level / Salary:** 8 / $510
+- **Level / Salary:** 1 / $510
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Legion_Demolishion` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_47` ← donor `GrandChien_Soldier` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×30 · FragGrenade×2 · Molotov×1 · Knife · Bandage×1
 
 | Stat | |
@@ -1336,7 +1337,7 @@
 | Wisdom | 46 |
 | Will | 50 |
 | Leadership | 8 |
-| Marksmanship | 70 |
+| Marksmanship | 60 |
 | Mechanical | 5 |
 | Explosives | 14 |
 | Medical | 5 |
@@ -1348,11 +1349,11 @@
 - **Nationality:** `Kenya`
 - **Category / CombatRole:** Hardened / Rifle
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 9 / $440
+- **Level / Salary:** 1 / $440
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`, `NightOps`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `LegionRaider` (male; clone→AME blue, source preset не править)
+- **Traits (common):** `NightOps`
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_48` ← donor `GrandChien_Stormer` (male; blue recolor, source не править)
 - **Inventory (fixed):** Mini14 · 5.56×40 · Knife · Bandage×1
 
 | Stat | |
@@ -1364,7 +1365,7 @@
 | Wisdom | 48 |
 | Will | 52 |
 | Leadership | 48 |
-| Marksmanship | 70 |
+| Marksmanship | 60 |
 | Mechanical | 0 |
 | Explosives | 10 |
 | Medical | 8 |
@@ -1378,11 +1379,11 @@
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Specialists / Medic
 - **Specialization:** `Doctor`
-- **Level / Salary:** 6 / $950
+- **Level / Salary:** 1 / $950
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `GrandChien_CommanderFemale` (female; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_49` ← donor `RebelFemaleSniper_1` (female; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×24 · Medkit · Bandage×6 · Morphine×2 · Knife
 
 | Stat | |
@@ -1394,7 +1395,7 @@
 | Wisdom | 72 |
 | Will | 28 |
 | Leadership | 30 |
-| Marksmanship | 34 |
+| Marksmanship | 24 |
 | Mechanical | 8 |
 | Explosives | 5 |
 | Medical | 70 |
@@ -1406,11 +1407,11 @@
 - **Nationality:** `Kenya`
 - **Category / CombatRole:** Specialists / Medic
 - **Specialization:** `Doctor`
-- **Level / Salary:** 6 / $880
+- **Level / Salary:** 1 / $880
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `GrandChien_CommanderFemale` (female; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_50` ← donor `RebelFemaleSniper_1` (female; blue recolor, source не править)
 - **Inventory (fixed):** Knife · Medkit · Bandage×8 · Stim×2
 
 | Stat | |
@@ -1422,7 +1423,7 @@
 | Wisdom | 70 |
 | Will | 26 |
 | Leadership | 28 |
-| Marksmanship | 32 |
+| Marksmanship | 22 |
 | Mechanical | 5 |
 | Explosives | 0 |
 | Medical | 66 |
@@ -1434,11 +1435,11 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Specialists / Medic
 - **Specialization:** `Doctor`
-- **Level / Salary:** 5 / $1000
+- **Level / Salary:** 1 / $1000
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Militia_Marksman` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_51` ← donor `Heavy_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×24 · Medkit · Bandage×6 · Knife
 
 | Stat | |
@@ -1450,7 +1451,7 @@
 | Wisdom | 74 |
 | Will | 30 |
 | Leadership | 38 |
-| Marksmanship | 36 |
+| Marksmanship | 26 |
 | Mechanical | 12 |
 | Explosives | 5 |
 | Medical | 68 |
@@ -1462,11 +1463,11 @@
 - **Nationality:** `Mali`
 - **Category / CombatRole:** Specialists / Instructor
 - **Specialization:** `Leader`
-- **Level / Salary:** 7 / $1200
+- **Level / Salary:** 1 / $1200
 - **Potential (Wisdom):** High
 - **Traits (common):** `Teacher`
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `GrandChien_CommanderFemale` (female; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_52` ← donor `MilitiaRookie_Female_01` (female; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×30 · Knife · Bandage×2
 
 | Stat | |
@@ -1477,8 +1478,8 @@
 | Strength | 52 |
 | Wisdom | 85 |
 | Will | 32 |
-| Leadership | 85 |
-| Marksmanship | 45 |
+| Leadership | 68 |
+| Marksmanship | 35 |
 | Mechanical | 50 |
 | Explosives | 28 |
 | Medical | 35 |
@@ -1490,11 +1491,11 @@
 - **Nationality:** `Nigeria`
 - **Category / CombatRole:** Specialists / Instructor
 - **Specialization:** `Leader`
-- **Level / Salary:** 5 / $1150
+- **Level / Salary:** 1 / $1150
 - **Potential (Wisdom):** High
-- **Traits (common):** `Teacher`, `TakeAim`
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `GrandChien_CommanderFemale` (female; clone→AME blue, source preset не править)
+- **Traits (common):** `Teacher`
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_53` ← donor `MilitiaRookie_Female_02` (female; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Bandage×2
 
 | Stat | |
@@ -1505,8 +1506,8 @@
 | Strength | 50 |
 | Wisdom | 82 |
 | Will | 28 |
-| Leadership | 80 |
-| Marksmanship | 48 |
+| Leadership | 65 |
+| Marksmanship | 38 |
 | Mechanical | 42 |
 | Explosives | 22 |
 | Medical | 30 |
@@ -1518,11 +1519,11 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Specialists / Instructor
 - **Specialization:** `Leader`
-- **Level / Salary:** 4 / $1300
+- **Level / Salary:** 1 / $1300
 - **Potential (Wisdom):** High
 - **Traits (common):** `Teacher`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `LegionRaidLeader` (male; clone→AME blue, source preset не править)
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_54` ← donor `Heavy_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×30 · Knife · Bandage×3
 
 | Stat | |
@@ -1533,8 +1534,8 @@
 | Strength | 58 |
 | Wisdom | 88 |
 | Will | 34 |
-| Leadership | 88 |
-| Marksmanship | 42 |
+| Leadership | 70 |
+| Marksmanship | 32 |
 | Mechanical | 55 |
 | Explosives | 30 |
 | Medical | 40 |
@@ -1546,11 +1547,11 @@
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Specialists / Sniper
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 5 / $780
+- **Level / Salary:** 1 / $780
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`, `SteadyBreathing`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Marksman_Rebels_02` (male; clone→AME blue, source preset не править)
+- **Traits (common):** —
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_55` ← donor `Heavy_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** Gewehr98 · 7.62×20 · Knife
 
 | Stat | |
@@ -1562,7 +1563,7 @@
 | Wisdom | 58 |
 | Will | 28 |
 | Leadership | 8 |
-| Marksmanship | 78 |
+| Marksmanship | 68 |
 | Mechanical | 20 |
 | Explosives | 5 |
 | Medical | 5 |
@@ -1574,11 +1575,11 @@
 - **Nationality:** `SouthAfrica`
 - **Category / CombatRole:** Specialists / Sniper
 - **Specialization:** `Marksmen`
-- **Level / Salary:** 6 / $820
+- **Level / Salary:** 1 / $820
 - **Potential (Wisdom):** Medium
-- **Traits (common):** `TakeAim`, `NightOps`
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `RebelFemaleSniper` (female; clone→AME blue, source preset не править)
+- **Traits (common):** `NightOps`
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_56` ← donor `GrandChien_CommanderFemale` (female; blue recolor, source не править)
 - **Inventory (fixed):** SKS · 7.62×30 · Knife
 
 | Stat | |
@@ -1590,7 +1591,7 @@
 | Wisdom | 55 |
 | Will | 30 |
 | Leadership | 12 |
-| Marksmanship | 80 |
+| Marksmanship | 70 |
 | Mechanical | 15 |
 | Explosives | 0 |
 | Medical | 8 |
@@ -1602,12 +1603,12 @@
 - **Nationality:** `Mali`
 - **Category / CombatRole:** Specialists / Sapper
 - **Specialization:** `ExplosiveExpert`
-- **Level / Salary:** 5 / $720
+- **Level / Salary:** 1 / $720
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Militia_Demolition` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** Knife · HE_Charge×2 · TNT×1 · PipeBomb×2 · Detonator · Toolkit
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_57` ← donor `Marksman_Rebels` (male; blue recolor, source не править)
+- **Inventory (fixed):** Knife · ShapedCharge×2 · TNT×1 · PipeBomb×2 · Detonator · Wirecutter
 
 | Stat | |
 | --- | ---: |
@@ -1618,7 +1619,7 @@
 | Wisdom | 60 |
 | Will | 26 |
 | Leadership | 8 |
-| Marksmanship | 34 |
+| Marksmanship | 24 |
 | Mechanical | 50 |
 | Explosives | 68 |
 | Medical | 8 |
@@ -1630,12 +1631,12 @@
 - **Nationality:** `Congo`
 - **Category / CombatRole:** Specialists / Sapper
 - **Specialization:** `ExplosiveExpert`
-- **Level / Salary:** 4 / $760
+- **Level / Salary:** 1 / $760
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `AnneLeMitrailleur`
-- **Appearance (donor):** `RebelFemaleSniper` (female; clone→AME blue, source preset не править)
-- **Inventory (fixed):** Makarov · 9x18×16 · HE_Charge×2 · Knife · Toolkit
+- **Voice:** `Jazz_AME_Female`
+- **Appearance:** `JAZZ_AME_58` ← donor `MilitiaRookie_Female_02` (female; blue recolor, source не править)
+- **Inventory (fixed):** Makarov · 9x18×16 · ShapedCharge×2 · Knife · Wirecutter
 
 | Stat | |
 | --- | ---: |
@@ -1646,7 +1647,7 @@
 | Wisdom | 62 |
 | Will | 28 |
 | Leadership | 6 |
-| Marksmanship | 36 |
+| Marksmanship | 26 |
 | Mechanical | 52 |
 | Explosives | 66 |
 | Medical | 10 |
@@ -1658,12 +1659,12 @@
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Specialists / Mechanic
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 7 / $680
+- **Level / Salary:** 1 / $680
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** Toolkit · Crowbar · Knife
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_59` ← donor `Marksman_Rebels_02` (male; blue recolor, source не править)
+- **Inventory (fixed):** Wirecutter · Crowbar · Knife
 
 | Stat | |
 | --- | ---: |
@@ -1674,8 +1675,8 @@
 | Wisdom | 62 |
 | Will | 26 |
 | Leadership | 0 |
-| Marksmanship | 32 |
-| Mechanical | 90 |
+| Marksmanship | 22 |
+| Mechanical | 70 |
 | Explosives | 5 |
 | Medical | 5 |
 
@@ -1686,12 +1687,12 @@
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Specialists / Mechanic
 - **Specialization:** `AllRounder`
-- **Level / Salary:** 4 / $720
+- **Level / Salary:** 1 / $720
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `ArmySoldier`
-- **Appearance (donor):** `Militia_Stormer` (male; clone→AME blue, source preset не править)
-- **Inventory (fixed):** Toolkit · Lockpick · Knife · Bandage×1
+- **Voice:** `Jazz_AME_Male_Hard`
+- **Appearance:** `JAZZ_AME_60` ← donor `Marksman_Rebels_03` (male; blue recolor, source не править)
+- **Inventory (fixed):** Wirecutter · Lockpick · Knife · Bandage×1
 
 | Stat | |
 | --- | ---: |
@@ -1702,8 +1703,8 @@
 | Wisdom | 58 |
 | Will | 28 |
 | Leadership | 5 |
-| Marksmanship | 34 |
-| Mechanical | 88 |
+| Marksmanship | 24 |
+| Mechanical | 68 |
 | Explosives | 0 |
 | Medical | 8 |
 

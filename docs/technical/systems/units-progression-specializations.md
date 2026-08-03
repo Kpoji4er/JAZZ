@@ -2,7 +2,7 @@
 
 ## Назначение и эффект для игрока
 
-Пакет `jazz-units` задаёт составы фракций, 179 UnitData, внешность, экипировку, loot, squads и AI archetypes. Ручной код core/units назначает специализации, расширяет уровни, меняет рост характеристик и создаёт имена элитных противников. AIM UI фильтрует наёмников по новой ролевой модели.
+Пакет `jazz-units` задаёт составы фракций, ~239 UnitData (в т.ч. 60 AME), внешность, экипировку, loot, squads и AI archetypes. Ручной код core/units назначает специализации, расширяет уровни, меняет рост характеристик и создаёт имена элитных противников. AIM UI фильтрует наёмников по новой ролевой модели.
 
 ## Происхождение по слоям
 
@@ -27,6 +27,7 @@
 
 - `Code/SpecializationGiver.lua` — назначение специализаций на `DataLoaded`;
 - `Code/System_AimHiringFilters.lua` — фильтры AIM и детерминированный offline randomization;
+- `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005): PDA mode `ame`, market tick, nationality flags;
 - `Code/System_OR_Unit.lua`, `System_UnitInventory.lua`, `System_UnitAppearance.lua` — runtime schema;
 - `Code/System_IMP_StartingGear.lua` — JA2-style динамический стартовый экип IMP (`JazzBuildImpStartingGear` / `JazzApplyImpStartingGear`);
 - `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap.
@@ -43,7 +44,7 @@ Personality pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Scoundrel/Psyc
 
 `jazz-units`:
 
-- 179 `UnitData`;
+- ~239 `UnitData` (включая `JAZZ_AME_01`…`60`);
 - 158 appearance presets;
 - 73 enemy squad definitions (включая четыре `LegionGlobalAI_*` role presets пилота Global AI);
 - 40 AI archetypes;
@@ -70,6 +71,27 @@ Personality pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Scoundrel/Psyc
 Три specialization definitions: `Autoriflemen`, `HeavyWeapons`, `Stealth`. `SpecializationGiver.lua` назначает их указанным merc IDs после `DataLoaded`. AIM filters используют специализации для отбора/представления кандидатов.
 
 Offline merc randomization детерминирован. Это означает, что замена RNG или порядка списка изменит состав доступных наёмников при том же seed/save. Любое изменение специализации требует обновить merc assignments, UI filters и локализацию вместе.
+
+## African Mercenary Exchange (JAZZ-UNITS-005)
+
+Отдельный PDA hire site (не вкладка внутри AIM):
+
+| Контракт | Current-state |
+|---|---|
+| Org / Affiliation | `AME` |
+| UnitData | `JAZZ_AME_01`…`JAZZ_AME_60` в `jazz-units` (`IsMercenary`, fixed `Loot_JAZZ_AME_NN`) |
+| PDA mode | `ame` → `PDAAIMEBrowser` (subclass `PDAAIMBrowser`) |
+| PDA URL | `http://www.ame-exchange.net/Roster/<Category>/<Nick>` — ASCII `urlSlug` (не `T`/локаль); wrap всегда поверх AIM `TFormat.PDAUrl` (иначе KindOf→AIM `ActiveFiles` + кириллица specialization) |
+| Витрина | ~15 `Available` на старте; `NotListed` скрыты; terminal (`JoinedLegion`/`Killed`/…) — серые карточки |
+| Tick | 30 дней кампании; specialist soft-guarantee |
+| Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap |
+| VR | `Jazz_AME_Male_Low` (Legion phrases + `*-1.opus` alt voice), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`; Fallback `Ice`/`Fox` |
+| Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); red→blue cloth; dark African skin forced ([ame-appearance-map.json](../../design/ame-appearance-map.json)) |
+| Nationality | reuse `GrandChien`/`SouthAfrica` + new `Nigeria`…`Ethiopia` (`System_AME_Nationalities.lua`, flags `Icons/Flags/f_*.png`) |
+| Portraits | unique `MercPortraits/JAZZ_AME_NN.png` + `_Big` (300/2000) |
+| Generator | `docs/tools/_gen_ame_unitdata.py` (+ roster/flags/portrait tools) |
+
+Design roster: [ame-roster-60.md](../../design/ame-roster-60.md), companion [ame-mercenary-exchange.md](../../design/ame-mercenary-exchange.md). AIM mode `aim` не заменяется AME-скином.
 
 ## Имена элитных противников
 

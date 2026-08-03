@@ -39,7 +39,7 @@ Short bio per slot + varied origins: **mostly Africa**, with a solid share from 
 
 Specialist roles: Medic, Instructor (`Teacher`), Sniper, Sapper, Mechanic — **одна вкладка Specialists** (без подтабов по роли).
 
-Full design cards (all 60): [`ame-roster-60.md`](ame-roster-60.md). Fixed inventory per slot. **Kit caps:** Irregulars ≤ **1-2**; Fighters ≤ **1-3**; Hardened/Specialists ≤ **2-1** (no T2-2+). **`Type56` = AR ceiling, Hardened only.** **`SKS` + T1 bolt = Snipers only.** **Bandages:** Fighters ~40%; Hardened always. **Sappers:** some `PipeBomb`. **Bios:** full in-game hire-card prose (not design stubs).
+Full design cards (all 60): [`ame-roster-60.md`](ame-roster-60.md). Fixed inventory per slot. **Kit caps:** Irregulars ≤ **1-2**; Fighters ≤ **1-3**; Hardened/Specialists ≤ **2-1** (no T2-2+). **`Type56` = AR ceiling, Hardened only.** **`SKS` + T1 bolt = Snipers only.** **SMGs:** vintage T1 (`Thompson`, `M3GreaseGun`, `PPS43`, `PPSH`, …) — no starting `UZI`. **Bandages:** Fighters ~40%; Hardened always. **Sappers:** some `PipeBomb`. **Bios:** full in-game hire-card prose (not design stubs).
 
 ### Fighters / Hardened combat mix
 
@@ -103,20 +103,20 @@ See `JAZZ-UNITS-005-REQ-016` for full tables.
 
 **Will:** low (20–40) for Irregulars, Fighters, and all Specialists; medium (45–65) only for Hardened (veterans).
 
-**Agi / Dex / Marks ladder:** category medians **≈60 / 65 / 70** (Irregulars / Fighters / Hardened). Pool Agi/Dex ceiling **70**. **Health and Strength** may deviate more widely than the combat triad. Perk tax on strong combat combos lowers Marks below category median.
+**Agi / Dex / Marks ladder:** category Marks medians **≈45 / 55 / 60** (Irregulars / Fighters / Hardened); Agi/Dex still **≈60 / 65 / 70**. Pool Agi/Dex ceiling **70**. **Health and Strength** may deviate more widely than the combat triad. Perk tax on strong combat combos lowers Marks below category median.
 
 Summary peaks:
 
 | Category | Peak | Marks | Wisdom |
 | --- | --- | ---: | ---: |
-| Irregulars | growth / high HP | **медиана ≈60** | high |
-| Fighters | T1 kit | **медиана ≈65** | mid |
-| Hardened | kit/Will | **медиана ≈70 / потолок 70** | mid-low |
-| Medic | Medical **потолок 70** | ~32–36 | mid-high |
-| Instructor | Lead + Teacher | ~42–48 | high |
-| Sniper | only above Hardened ceiling | **71–80** | mid |
-| Sapper | Explosives **потолок <70** | ~34–36 | mid |
-| Mechanic | Mechanical peak | ~32–34 | mid |
+| Irregulars | growth / high HP | **медиана ≈45** | high |
+| Fighters | T1 kit | **медиана ≈55** | mid |
+| Hardened | kit/Will | **медиана ≈60 / потолок ≈60** | mid-low |
+| Medic | Medical **потолок 70** | ~22–26 | mid-high |
+| Instructor | Lead **потолок 70** + Teacher | ~32–38 | high |
+| Sniper | only above Hardened ceiling | **≈68–70** | mid |
+| Sapper | Explosives **потолок <70** | ~24–26 | mid |
+| Mechanic | Mechanical **потолок 70** | ~22–24 | mid |
 
 Potential UI label from Wisdom: Low (below 45), Medium (45–64), High (65+).
 
@@ -132,18 +132,22 @@ Potential UI label from Wisdom: Low (below 45), Medium (45–64), High (65+).
 
 ## Voice / look
 
-- Male Irregulars / Fighters: `LegionRaider` (+ optional `-1.opus` alt takes)
-- Male Hardened / Specialists: `ArmySoldier`
-- **Female slots:** `VoiceResponseId = "AnneLeMitrailleur"` (Anne la Mitrailleuse — existing rebel/army female donor; also used by `RebelSniper_female`, `ArmyCommanderFemale`)
-- Appearance sources: **Rebels** / **Militia** / **Legion** — clone to AME ids; **per-slot donor** listed on [`ame-roster-60.md`](ame-roster-60.md) as `Appearance (donor)`
-- Female looks (thin bank): `RebelFemaleSniper` (`AnneLeMitrailleur`), `GrandChien_CommanderFemale` (`ArmyCommanderFemale`)
-- Recolor: **blue-dominant** uniform (`ColorizationPropSet` on clothes); do not edit source faction presets; keep skin/metal/leather natural
+Shared Jazz VR banks (hireable slot coverage; not raw enemy presets):
+
+- Male Irregulars / Fighters → `Jazz_AME_Male_Low` — **LegionRaider phrases**, audio from alt takes `*-1.opus` (other voice than vanilla Legion enemies)
+- Male Hardened / Specialists → `Jazz_AME_Male_Hard` — ArmySoldier remesh
+- Female → `Jazz_AME_Female` — AnneLeMitrailleur remesh
+- `FallbackMissingVR`: donor banks `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (Pain/AiDeath only — **not** Ice/Fox). Empty Selection/Move → silence.
+- Tooling: `docs/tools/_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py`
+- Appearance sources: **unique clone per slot** `JAZZ_AME_NN` from **Rebels** / **Militia** / **Legion** (Hardened/Specialists may use **GrandChien**); map [`ame-appearance-map.json`](ame-appearance-map.json)
+- Recolor: **red cloth → blue** (`ColorizationPropSet`); **skin forced dark** African bank (near-black); do not edit source faction presets
+- Female looks: thin faction female bank (`RebelFemaleSniper`×2, `GrandChien_CommanderFemale`, MilitiaRookie female×2) — unique ModItems even when donor mesh repeats
 - Machinegunners: only T1 LMGs (`MAC2429`, `BAR`) — `RPK`/`RPK74` are T2, forbidden on AME
-- Portraits: shared bank ≥16 faces
+- Portraits: unique per slot `MercPortraits/JAZZ_AME_NN`
 
 ## Out of v1
 
 - EE / LatAm markets (API-shaped only)
 - Unique personal perks per slot
 - Quest lock on first open
-- New recorded voice banks
+- Neural re-record of voice banks (v1 = remesh + Legion alt pack)

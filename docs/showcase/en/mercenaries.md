@@ -22,6 +22,10 @@ Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level
 
 All 48 have a named perk in StartingPerks; **working hooks** are only a subset — see [perks](perks.md).
 
+## A.M.E. (local market)
+
+Separate PDA site: **[African Mercenary Exchange](ame.md)** — pool of **60** local fighters (`Affiliation=AME`), ~15 on the board, ~30-day rotation, fixed kits and unique portraits. Not listed in the AIM table below.
+
 ## IMP
 
 IMP starting gear depends on test stats and perks (weapon, armor, meds, tools). Personality pool adds **Mimicry**, **Veteran**, **Sniper** — see [perks](perks.md).

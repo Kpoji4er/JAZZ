@@ -9,6 +9,7 @@
     "combat-actions",
     "weapons-and-ammo",
     "mercenaries",
+    "ame",
     "perks",
     "legion-units",
     "legion-strategy"
@@ -58,6 +59,11 @@
       "wikiBase": "Mercenaries",
       "ru": "Наёмники",
       "en": "Mercenaries"
+    },
+    "ame": {
+      "wikiBase": "African-Mercenary-Exchange",
+      "ru": "Биржа A.M.E.",
+      "en": "A.M.E. Exchange"
     },
     "perks": {
       "wikiBase": "Perks",

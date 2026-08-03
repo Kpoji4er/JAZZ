@@ -9,6 +9,7 @@
 - [Полный каталог оружия по тирам](weapons/README.md)
 - [Все компоненты](weapons/components.md)
 - [Карта Grand Chien](grand-chien-map.md)
+- [Африканская биржа наёмников (A.M.E.)](african-mercenary-exchange.md)
 
 ## Как читать этот справочник
 
