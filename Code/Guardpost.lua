@@ -106,8 +106,19 @@ end
 function Guardpost:ForceSetNextSpawnTimeAndSector(time, sector_ids, custom_quest_id, on_reach_quest, on_reach_var)
 	local so = self.session_obj
 
-	-- Allow only up to one attack a time. Queue script based attacks.
-	if not self:CanSpawnNewSquad() then
+	-- Queue only when a slot is truly busy. Do NOT call CanSpawnNewSquad:
+	-- its Legion-AI managed early-out (no forced_attack) deadlocks scripted
+	-- TriggerGuardPostAttack (Ernie_CounterAttack etc.) by re-queuing forever
+	-- without ever setting forced_attack. Auto aggro on managed posts stays
+	-- muted via CanSpawnNewSquad / Update / SpawnEnemySquad early-outs.
+	local busy = so.primed_squad and true or false
+	if not busy and so.last_squad_attacked then
+		local lastAttackSquad = gv_Squads[so.last_squad_attacked]
+		if IsSquadTravelling(lastAttackSquad, "skip_tick_pass") then
+			busy = true
+		end
+	end
+	if busy then
 		local attack = {
 			time,
 			sector_ids,

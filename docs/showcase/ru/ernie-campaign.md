@@ -56,6 +56,8 @@
 | `ReduceFortressStrength` | How to reduce the Fort's defenses | да |
 | `LegionFlag` | Fooling Pierre | да |
 | `Ernie_CounterAttack` | *(без имени)* | да |
+
+После освобождения деревни при вражеском форте — **квестовая** sat-атака с форта на деревню (~16 ч). Под Global AI / Vanilla Maps это снова работает; обычные ванильные периодические вылазки с managed-форта не включаются.
 | `ErnieSideQuests` | *(без имени)* | да |
 | `ErnieSideQuests_WorldFlip` | *(без имени)* | да |
 | `RescueTeam` | Мы в спасатели нанимались | нет |

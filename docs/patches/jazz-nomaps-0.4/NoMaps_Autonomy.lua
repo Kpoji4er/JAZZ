@@ -113,7 +113,7 @@ local SQUAD_REMAP = {
 	LegionDefenders_Mobile_Easy = "LegionGlobalAI_Patrol",
 	LegionDefenders_Shooters_Easy = "LegionAttackers_JazzBalanced_Easy_Assault",
 	FortressDefenders = "LegionFortressDefenders",
-	FortressPierre = "LegionJAZZSquadT2",
+	-- FortressPierre intentionally omitted (keep vanilla Pierre boss).
 	LegionHeavyTroops = "LegionHeavyTroops",
 	LegionHeavy = "LegionHeavyTroops",
 	LegionAttackers_Shock_Easy = "LegionAttackers_Shock_Easy",
