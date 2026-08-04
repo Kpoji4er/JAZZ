@@ -103,8 +103,8 @@ FFMPEG_CANDIDATES = [
     Path(r"D:\py-voice\RVC-WebUI\ffmpeg.exe"),
 ]
 
-# Generation-queue order. Spouke is never queued (done_manual — full JA3 voice acting).
-# lynx/tosca/spider may be re-shipped from JA2 archive; Spouke must not.
+# Generation-queue order.
+# done_manual JA3 VO — never ship/overwrite: spouke, lynx, tosca, spider.
 QUEUE = [
     "colby",
     "blade",
@@ -152,9 +152,6 @@ QUEUE = [
     "lucky",
     "laura",
     "eskimo",
-    "lynx",
-    "tosca",
-    "spider",
 ]
 
 # Bayun canon: SPEECH 000–080 = combat/map (no hire); 081–120 = hire/AIM chat.
@@ -1127,8 +1124,8 @@ def main() -> int:
         pid = (row.get("profile_id") or "").strip()
         unit = row["unit_id"]
         source = row.get("speech_source") or "data_slf"
-        # Never overwrite mercs with complete manual JA3 voice acting (e.g. Spouke).
-        if status == "done_manual" or slug == "spouke":
+        # Never overwrite mercs with complete manual JA3 voice acting.
+        if status == "done_manual" or slug in ("spouke", "lynx", "tosca", "spider"):
             print(f"SKIP {slug}: done_manual — keep existing opus")
             summary.append((slug, "skip-done-manual", 0, 0))
             continue

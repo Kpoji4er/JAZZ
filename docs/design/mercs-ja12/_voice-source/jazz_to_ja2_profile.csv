@@ -1,6 +1,6 @@
 slug,unit_id,profile_id,speech_source,status,notes
 colby,Jazz_Colby,005,ja2mercs:аимовцы/005 trevor,done,Trevor; already JA2-archive opus; ja2mercs:аимовцы/trevor; Trevor; was done from trevor.rar
-lynx,Jazz_Lynx,002,data_slf,shipped,Рысь / Rudy Roberts; greeting 108; [ja2mercs:skip_no_folder] no ja2mercs folder; keep data_slf
+lynx,Jazz_Lynx,002,data_slf,done_manual,Рысь / Rudy Roberts — original JA3 VO; never remesh (792d1c5 overwrote; restored from a626ebc); [ja2mercs:skip_manual]
 blade,Jazz_Blade,043,ja2mercs:мерки/043 razor,shipped,Razor/Бритва (Bill Lamont); was wrongly thought missing — EDT nick id043; buddy Fidel/Nervous; anti-Biff/Flo; ja2mercs:мерки/razor; Razor
 ira,Jazz_Ira,059,ja2mercs:локался/059 ira,shipped,RPC AIM woman; American in Arulco; ja2mercs:локался/ira
 dimitri,Jazz_Dimitri,060,ja2mercs:локался/060 dimitry,shipped,RPC; broken hire lines but combat SPEECH present; ja2mercs:локался/dimitry; NOT цс/manuel (also 060)
@@ -46,6 +46,6 @@ steiger,Jazz_Steiger,177,ja2mercs:вилдфаер/177 rudolf,shipped,Wildfire A
 lucky,Jazz_Lucky,174,ja2mercs:вилдфаер/174 lucky,shipped,Wildfire AIM; ja2mercs:вилдфаер/lucky; WF Lucky
 laura,Jazz_Laura,175,ja2mercs:вилдфаер/175 laura,shipped,Wildfire AIM; ja2mercs:вилдфаер/laura; WF Laura
 eskimo,Jazz_Eskimo,065,ja2mercs:но-шж/065 escimo,shipped,NO overlay; ja2mercs:но-шж/escimo; filter 065 / D_065 / r_065; ignore stray 067
-tosca,Jazz_Buzz,016,data_slf,shipped,Buzz / Тарболс (unit Jazz_Buzz); [ja2mercs:skip_no_folder] Buzz 016 absent; keep data_slf
-spider,Jazz_Spider,019,data_slf,shipped,Dr Houston — full VR already; re-ship ok; [ja2mercs:skip_no_folder] Houston 019 absent; keep data_slf
+tosca,Jazz_Buzz,016,data_slf,done_manual,Тоска / Jazz_Buzz — original JA3 VO; never remesh (792d1c5 overwrote; restored from a626ebc); [ja2mercs:skip_manual]
+spider,Jazz_Spider,019,data_slf,done_manual,Паук / Dr Houston — original JA3 VO; never remesh (792d1c5 overwrote; restored from a626ebc); [ja2mercs:skip_manual]
 spouke,JAZZ_Merc_Spouke,,missing,done_manual,JA3 manual VO — never overwrite; [ja2mercs:skip_manual] done_manual — never overwrite

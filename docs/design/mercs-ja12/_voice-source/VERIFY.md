@@ -41,19 +41,19 @@
 | Carlos | Carlos RPC | 058 SLF | Gaston UB |
 | Benny | SJ Benedict | 067 SJ | Shank SLF 067 |
 | Simon | SJ Garandier | 066 SJ | Dynamo SLF 066 |
-| Buzz (`tosca`) | Buzz / Тарболс | 016 | — |
-| Spider | Dr Houston / Паук | 019 | файл `019_Scully` врёт |
+| Buzz (`tosca`) | original JA3 VO | — | `done_manual` |
+| Spider | original JA3 VO | — | `done_manual` |
 
 ## High-visibility spot (ожидание)
 
-Ira 059 · Hobbit/Gumpy 045 · Hitman/Slay 064 · Spider/Houston 019 · Lynx 002 · Buzz 016 · Grom ja2mercs 076+047 · Colby/Trevor 005.
+Ira 059 · Hobbit/Gumpy 045 · Hitman/Slay 064 · Spider/Lynx/Buzz = original JA3 (`done_manual`) · Grom ja2mercs 076+047 · Colby/Trevor 005.
 
 ## ja2mercs remesh (2026-08)
 
 Preferred pack: `Downloads/ja2mercs (1)/ja2mercs` (pid-prefixed folders + `схема реплик`).  
 Combat + AIM chat: `_ship_ja2_merc_voices.py --ja2mercs-remesh --aim-chat`.  
 Ear-check **Gaston** (UB French, not Carlos) · **Benny** (female SJ, pack pid 040) vs **Shank** · **Simon** (pack 062) vs **Dynamo** · **Vicious** (Malice «Алле») · WF AIM hire (`108` greeting ≠ Selection).  
-Leftovers: no-folder Lynx/Buzz/Spider (Biff = `data_slf` combat-proxy hire).  
+Leftovers: Biff = `data_slf` combat-proxy hire. Lynx/Buzz/Spider/`spouke` = `done_manual` (original JA3 VO; restored after accidental remesh 792d1c5).  
 **Hire UI ear-check (2026-08):** silent MERK/RPC list + UB wrong-replica + Danny/Highball text↔audio.  
 Tools: `_pour_ja12_design_hire_chat.py` (design phrases) · `_stt_hire_chat_lines.py` (Quinten/Highball) · `_fill_ja12_chat_voices.py --apply --only …`.  
 **Re-check after R_-fullest remesh:** Mike `074`+OLD hire · Vince `R_069` · Kulba `R_164` · Biggens `R_168` (Rothman control).

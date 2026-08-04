@@ -5,7 +5,7 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | slug | JA2 match | pid | status |
 | --- | --- | --- | --- |
 | colby | Trevor | 005 | done |
-| lynx | Rudy Roberts / Рысь | 002 | shipped |
+| lynx | Rudy Roberts / Рысь | 002 | done_manual (original JA3 VO) |
 | blade | Razor / Бритва | 043 | shipped |
 | ira | Ira (RPC) | 059 | shipped |
 | dimitri | Dimitri (RPC) | 060 | shipped |
@@ -51,8 +51,8 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | lucky | Wildfire AIM | 174 | shipped |
 | laura | Wildfire AIM | 175 | shipped |
 | eskimo | NO overlay | 065 | shipped |
-| tosca | Buzz / Тарболс | 016 | shipped |
-| spider | Dr Houston | 019 | shipped |
+| tosca | Тоска / Jazz_Buzz | 016 | done_manual (original JA3 VO) |
+| spider | Dr Houston / Паук | 019 | done_manual (original JA3 VO) |
 | spouke | JA3 manual VO | — | done_manual |
 
 ## Notes

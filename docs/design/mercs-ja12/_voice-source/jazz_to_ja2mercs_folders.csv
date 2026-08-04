@@ -45,7 +45,7 @@ manuel,цс/167 manuel,167,R_167,remesh,UB Manuel pack pid 167; merge R_167 when
 grom,но-шж/047 gromov,047,R_047,remesh,both 047_* + R_047_* (ex-076) are Grom; merge_speech fullest; NOT Larry,ja2mercs:но-шж/047 gromov|battle=R_047|merge_speech
 mike,локался/074 mike,074,R_074,remesh,combat 074+R_074 NEW; hire 081–120 from OLD локался/mike R_074 (HIRE_ALT_BANKS),ja2mercs:локался/074 mike|battle=R_074|merge_speech
 biff,,040,,skip_no_folder,no ja2mercs Biff folder; data_slf combat-proxy hire (no archive 081–120; do not use но-шж/040 benni),
-lynx,,002,,skip_no_folder,no ja2mercs folder; keep data_slf,
-tosca,,016,,skip_no_folder,Buzz 016 absent; keep data_slf,
-spider,,019,,skip_no_folder,Houston 019 absent; keep data_slf,
+lynx,,002,,skip_manual,done_manual — original JA3 VO; never overwrite,
+tosca,,016,,skip_manual,done_manual — original JA3 VO; never overwrite,
+spider,,019,,skip_manual,done_manual — original JA3 VO; never overwrite,
 spouke,,,,skip_manual,done_manual — never overwrite,

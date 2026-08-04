@@ -41,8 +41,8 @@ Do not mix co-folder banks (Carlos≠Gaston, Shank≠Benny, Dynamo≠Simon).
 | Slug | Why |
 | --- | --- |
 | `mike` | `локался/074 mike` — identity unclear |
-| `biff` / `lynx` / `tosca` / `spider` | no ja2mercs folder — keep `data_slf` |
-| `spouke` | `done_manual` — never overwrite |
+| `biff` | no ja2mercs folder — keep `data_slf` |
+| `lynx` / `tosca` / `spider` / `spouke` | `done_manual` — original JA3 VO; never overwrite |
 | Workshop `Merc_*` | different packs — do not touch |
 
 ## Schemas (speech ↔ role ↔ merc)
@@ -68,5 +68,5 @@ Do not mix co-folder banks (Carlos≠Gaston, Shank≠Benny, Dynamo≠Simon).
 ## Ship notes
 
 Gold pattern: `Jazz_Colby` — hire from `081–120` (`AIM_CHAT_WAV`); combat from battle + `000–080`.  
-Never overwrite `spouke` (`done_manual`).  
+Never overwrite `spouke` / `lynx` / `tosca` / `spider` (`done_manual` — original JA3 VO).  
 MERK / локался without hire files: combat only; AIM chat stays silent (do not copy Selection).
