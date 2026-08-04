@@ -26,7 +26,7 @@ Short bio per slot + varied origins: **mostly Africa**, with a solid share from 
 - Core mark: **black Africa continent** on tactical tan/khaki patch
 - African origin accent (not Russian PMC refs): assegai + ishlangu / geometric shield — no bear, no MoD star, no “African Corps” copy
 - Concept (preferred): `docs/design/_ame-logo/ame-logo-concept-v4.png` — чистый щит, Африка + ishlangu/assegai, honeycomb. `v5` отложен (артефакты по контуру/тексту). Older: v1–v3, v4b.
-- Final PDA chrome / tab icon still open (RU motto vs EN “AME” / bilingual)
+- **PDA chrome (shipped):** savannah/ochre tint on panels; HazOS → `Icons/PDA/AME_Mark.png` (v4); AIM banner → `Icons/PDA/AME_BannerPad.png`; backdrop `Icons/PDA/AME_PdaBackdrop.png`. Source skin: `Code/System_AME_Browser_Template.lua` → `_install_ame_xtemplate_moditem.py`.
 
 ## Categories
 

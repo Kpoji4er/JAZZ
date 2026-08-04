@@ -90,7 +90,7 @@
 | `_audit_long_scopes.py` | Снимок long-scope профилей (данные). |
 | `_calib_optic_targets.py` | Старая калибровка рычагов ×1.2 (исторически АКМ). |
 | `_rebalance_long_scope_ow.py` | Длинная оптика: `ScopeOverwatchAngle`% уже по кратности (больше зум → уже OW). |
-| `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, **raw newline inside quoted strings**, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
 | `_fix_metadata_last_changes_and_audit_code.py` | HOTFIX-001: чинит raw newline в `metadata.lua` `last_changes` (иначе local mod не грузится → Steam packed); аудитит все `metadata.code` пути vs disk/git (missing/case). |
 | `_append_imp001_loc.py` | JAZZ-IMP-001: дописывает RU/EN строки `890000000001931–936` для Mimicry/Veteran/Sniper (формат id,RU,EN). |
 | `_insert_imp_personality_perks.py` | JAZZ-IMP-001: вставляет `Jazz_Perk_{Mimicry,Veteran,Sniper}` в Personality-папку `items.lua`. |
@@ -253,7 +253,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_gen_ame_flags.py` | PNG флаги 128×80 для новых AME Nationality (`Icons/Flags/f_*.png`). |
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |
 | `_process_ame_portraits.py` | rembg BiRefNet + resize 2000 + bust_crop 300 из `*_Big_raw.png` (assets/_raw). |
-| `_install_ame_xtemplate_moditem.py` | Ставит `PDAAIMEBrowser` как `ModItemXTemplate` в `items.lua` + `ModResourcePreset`; убирает Code-load шаблона (иначе XTemplate not found). |
+| `_install_ame_xtemplate_moditem.py` | Ставит `PDAAIMEBrowser` как `ModItemXTemplate` в `items.lua` + `ModResourcePreset`; убирает Code-load шаблона (иначе XTemplate not found). После правок `System_AME_Browser_Template.lua` (в т.ч. savannah chrome). Replace через callable `re.sub` — plain string ломает Lua `\\n` в T(...). Затем `_validate_items_quick.py`. |
+| `_theme_ame_pda_savannah.py` / `_fix_ame_xtemplate_imagecolor.py` | Helpers: savannah chrome на template; снять незаконный `ImageColor` с XFrame. |
 | `_gen_ame_portrait_prompts.py` | AME identity prompt bank: roster → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl` + README (60 unique `face_traits`, `big_prompt`/`bust_prompt` for GenerateImage; no image gen). |
 | `_gen_ame_flags.py` | JAZZ-UNITS-005: Pillow → `Icons/Flags/f_{nigeria,kenya,angola,mali,congo,ghana,senegal,ethiopia}.png` (128×80 simplified UI flags). |
 | `_audit_ame_kit_tiers.py` | Аудит китов `ame-roster-60.md` vs потолки `tier_label`: Irr ≤1-2, Fight ≤1-3, Hard/Spec ≤2-1 (`weapons.csv`). |

@@ -2,7 +2,7 @@
 
 [Overview](home.md) · [AIM mercenaries](mercenaries.md) · [Русский](../ru/ame.md)
 
-The PDA gets a separate site, **African Mercenary Exchange (A.M.E.)** — not a tab inside AIM.
+The PDA gets a separate site, **African Mercenary Exchange (A.M.E.)** — not a tab inside AIM. The site chrome uses a **savannah** look (ochre/bronze panels, Africa-shield mark) so it does not read as AIM/HazOS.
 
 ## At a glance
 

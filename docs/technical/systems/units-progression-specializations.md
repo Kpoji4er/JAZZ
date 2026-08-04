@@ -87,7 +87,8 @@ Offline merc randomization детерминирован. Это означает
 | Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap |
 | VR | Pool: Jazz remesh (~1/4) + all 6 IMP UnitData (VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP→self (not Ice/Fox) |
 | Heads | No `Faction_Legion_Head_*` war-paint; named Af / `Head_F_Af_NPC_*` / `Head_M_IMP_01` |
-| Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); red→blue cloth; dark African skin forced ([ame-appearance-map.json](../../design/ame-appearance-map.json)) |
+| Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); **1** blue cloth accent; dark African skin; no Legion war-paint heads ([ame-appearance-map.json](../../design/ame-appearance-map.json)) |
+| PDA chrome | Savannah/ochre panel tints; `Icons/PDA/AME_Mark` (logo v4) instead of HazOS; AME banner pad (not AIM hiring banner); backdrop watermark. Edit `System_AME_Browser_Template.lua` → `_install_ame_xtemplate_moditem.py` |
 | Nationality | reuse `GrandChien`/`SouthAfrica` + new `Nigeria`…`Ethiopia` (`System_AME_Nationalities.lua`, flags `Icons/Flags/f_*.png`) |
 | Portraits | unique `MercPortraits/JAZZ_AME_NN.png` + `_Big` (300/2000) |
 | Generator | `docs/tools/_gen_ame_unitdata.py` (+ roster/flags/portrait tools) |

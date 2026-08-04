@@ -29,6 +29,64 @@ def missing_comma_before_placeobj(text: str, name: str) -> list[str]:
     return problems
 
 
+def raw_newlines_in_quoted_strings(text: str, name: str, limit: int = 5) -> list[str]:
+    """Catch illegal raw CR/LF inside '...' / \"...\" (Lua long strings [[ ]] are OK).
+
+    Typical failure: a Python/theme script or editor paste turns `\\n\\n` into real
+    newlines inside a T(...) default — entire items.lua then fails to load.
+    """
+    problems: list[str] = []
+    i = 0
+    n = len(text)
+    line = 1
+    while i < n and len(problems) < limit:
+        c = text[i]
+        if c == "\n":
+            line += 1
+            i += 1
+            continue
+        if c == "-" and i + 1 < n and text[i + 1] == "-":
+            while i < n and text[i] != "\n":
+                i += 1
+            continue
+        if c in ("'", '"'):
+            q = c
+            start_line = line
+            i += 1
+            while i < n:
+                c2 = text[i]
+                if c2 == "\\" and i + 1 < n:
+                    i += 2
+                    continue
+                if c2 in ("\n", "\r"):
+                    problems.append(
+                        f"{name}: L{start_line} raw newline inside {q}...{q} string "
+                        "(use \\\\n escapes; file will not load in JA3)"
+                    )
+                    j = i
+                    while j < n and j < i + 800 and text[j] != q:
+                        if text[j] == "\n":
+                            line += 1
+                        j += 1
+                    i = j + 1 if j < n and text[j] == q else i + 1
+                    break
+                if c2 == q:
+                    i += 1
+                    break
+                i += 1
+            continue
+        if c == "[" and i + 1 < n and text[i + 1] == "[":
+            i += 2
+            while i + 1 < n and not (text[i] == "]" and text[i + 1] == "]"):
+                if text[i] == "\n":
+                    line += 1
+                i += 1
+            i = min(i + 2, n)
+            continue
+        i += 1
+    return problems
+
+
 def check(path: Path) -> list[str]:
     problems: list[str] = []
     text = path.read_text(encoding="utf-8")
@@ -54,6 +112,7 @@ def check(path: Path) -> list[str]:
     if brace != 0:
         problems.append(f"{path.name}: brace imbalance {brace}")
     problems.extend(missing_comma_before_placeobj(text, path.name))
+    problems.extend(raw_newlines_in_quoted_strings(text, path.name))
     # Corrupt id lines from partial MagLarge_50_AK remove / bad insert
     for i, ln in enumerate(text.splitlines(), 1):
         s = ln.strip()

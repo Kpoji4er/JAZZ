@@ -29,9 +29,17 @@ def build_moditem_block() -> str:
 
 def patch_items(block: str) -> None:
     text = ITEMS.read_text(encoding="utf-8")
+    # Match markers with any leading whitespace so reinstalls don't leave orphan tabs.
     if BEGIN in text:
-        pattern = re.compile(re.escape(BEGIN) + r".*?" + re.escape(END) + r"\n?", re.S)
-        text = pattern.sub(block, text, count=1)
+        pattern = re.compile(
+            r"[ \t]*" + re.escape(BEGIN) + r".*?" + r"[ \t]*" + re.escape(END) + r"[ \t]*\n?",
+            re.S,
+        )
+        # Callable replacement: re.sub treats \n/\1 in a plain string as escapes
+        # and would corrupt Lua "\\n" inside T(...) bios.
+        text, n = pattern.subn(lambda _m: block, text, count=1)
+        if n != 1:
+            raise RuntimeError(f"AME XTemplate replace count={n}")
         ITEMS.write_text(text, encoding="utf-8")
         print("replaced existing AME XTemplate block in items.lua")
         return
@@ -39,7 +47,7 @@ def patch_items(block: str) -> None:
     needle = "\tPlaceObj('ModItemFolder', {\n\t\t'name', \"Constants\","
     idx = text.find(needle)
     if idx < 0:
-        raise RuntimeError("Constants folder anchor not found in items.lua")
+        raise SystemExit("Constants folder anchor not found in items.lua")
     text = text[:idx] + block + text[idx:]
     ITEMS.write_text(text, encoding="utf-8")
     print("inserted AME XTemplate before Constants folder")
