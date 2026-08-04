@@ -142,17 +142,16 @@ function JazzBuildImpStartingGear(unit)
 		end
 	end
 
-	-- Armor (Health). Camo overrides vest when Stealthy.
+	-- Armor (Health). Stealthy → Zylon; otherwise Flak vest by Health.
+	-- Helm/legs at 70+: M1 + leather pants (not vanilla Kevlar/FlakLeggings).
 	if hasStealthy then
-		JazzImpAdd(items, "CamoArmor_Light")
-	elseif health >= 80 then
-		JazzImpAdd(items, "KevlarVest")
-	elseif health >= 60 then
 		JazzImpAdd(items, "JazzArmor_ZylonLight")
+	elseif health >= 60 then
+		JazzImpAdd(items, "JazzArmor_FlakM1955")
 	end
 	if health >= 70 then
-		JazzImpAdd(items, "LightHelmet")
-		JazzImpAdd(items, "FlakLeggings")
+		JazzImpAdd(items, "JazzArmor_M1Helm")
+		JazzImpAdd(items, "JazzArmor_LeatherPants")
 	end
 
 	-- Agility flares

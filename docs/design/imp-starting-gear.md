@@ -11,7 +11,7 @@ Design contract for **JAZZ-IMP-001**. Runtime owner: `Code/System_IMP_StartingGe
 
 ## Приоритет primary
 
-1. `Stealthy` → `MP5SD` (+ `CamoArmor_Light` в броню)
+1. `Stealthy` → `MP5SD` (+ `JazzArmor_ZylonLight` в броню)
 2. `HeavyWeaponsTraining` + `AutoWeapons` + Strength ≥ 80 → `BAR` (Mark ≥ 60) / `RPD` (Mark ≥ 80); `M79` остаётся secondary
 3. `AutoWeapons` → Mark 50/70/85: `MPL` / `TMP` / `CAR15`
 4. Иначе Mark 50/70/85: `TT33` / `R870` / `SKS`
@@ -23,7 +23,7 @@ Heavy alone (без LMG-ветки): `M79` + 2×`_40mmFlashbangGrenade` + 3×`_4
 
 | Stat | Thresholds | Items |
 | --- | --- | --- |
-| Health | 60 / 70 / 80 | `JazzArmor_ZylonLight` → +`LightHelmet`+`FlakLeggings` → `KevlarVest`+`LightHelmet`+`FlakLeggings` |
+| Health | 60 / 70 | `JazzArmor_FlakM1955` → +`JazzArmor_M1Helm`+`JazzArmor_LeatherPants` |
 | Agility | 70 / 80 | 2 / 4 `FlareStick` |
 | Dexterity | 70 / 80 | `Knife` / 3×`Knife_Balanced` |
 | Strength | 70 / 80 | 2×`FragGrenade` / +`Crowbar` |

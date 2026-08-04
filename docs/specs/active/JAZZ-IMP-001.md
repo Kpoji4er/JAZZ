@@ -113,7 +113,7 @@ IMP получает статичный `IMP_equipment_basic` при `CreateUnit
 
 ## Documentation delta
 
-- `docs/design/imp-starting-gear.md`
-- `docs/technical/systems/units-progression-specializations.md`
-- `docs/technical/systems/file-coverage.md`
+- `docs/design/imp-starting-gear.md` — Stealthy→ZylonLight; Health≥60→FlakM1955; ≥70→M1Helm+LeatherPants.
+- `docs/technical/systems/units-progression-specializations.md` — IMP armor + personal HList spacing / ImpCalcAnswers sanitize.
 - `docs/wiki/` + `docs/showcase/ru|en` mercenaries/perks
+- Playtest fix 2026-08-04: jazz-units `LootEntryUpgradedWeapon` legacy upgrade IDs remapped to `JAZZ_*` (`docs/tools/_apply_loot_upgrade_id_remap.py`).

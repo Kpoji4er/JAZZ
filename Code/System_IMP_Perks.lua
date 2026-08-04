@@ -1,4 +1,4 @@
--- JAZZ-IMP-001: Mimicry / Veteran / Sniper hooks + IMP personal perk pool.
+-- JAZZ-IMP-001: Mimicry / Veteran / Sniper hooks + IMP personal perk pool + perk UI fixes.
 
 g_JAZZ_ImpPersonalPerksWrapped = rawget(_G, "g_JAZZ_ImpPersonalPerksWrapped") or false
 g_JAZZ_ImpPersonalPerksBase = rawget(_G, "g_JAZZ_ImpPersonalPerksBase") or false
@@ -8,6 +8,9 @@ g_JAZZ_UnitHasPerkCheckBase = rawget(_G, "g_JAZZ_UnitHasPerkCheckBase") or false
 g_JAZZ_UnitHasPerkCheckWrapped = rawget(_G, "g_JAZZ_UnitHasPerkCheckWrapped") or false
 g_JAZZ_UnitHasStatCheckBase = rawget(_G, "g_JAZZ_UnitHasStatCheckBase") or false
 g_JAZZ_UnitHasStatCheckWrapped = rawget(_G, "g_JAZZ_UnitHasStatCheckWrapped") or false
+g_JAZZ_ImpCalcAnswersBase = rawget(_G, "g_JAZZ_ImpCalcAnswersBase") or false
+g_JAZZ_ImpCalcAnswersWrapped = rawget(_G, "g_JAZZ_ImpCalcAnswersWrapped") or false
+g_JAZZ_ImpPerksLayoutPatched = rawget(_G, "g_JAZZ_ImpPerksLayoutPatched") or false
 
 local JAZZ_IMP_DIALOGUE_PERKS = {
 	Negotiator = true,
@@ -39,6 +42,26 @@ function JazzPassesDialoguePerkGate(unit, perk)
 	return false
 end
 
+--- Drop false/empty tactical slots from ImpCalcAnswers (vanilla always inserts 2 slots).
+function JazzSanitizeImpPerks(perks)
+	if type(perks) ~= "table" then
+		return perks
+	end
+	if type(perks.tactical) == "table" then
+		local cleaned = {}
+		for _, entry in ipairs(perks.tactical) do
+			if type(entry) == "table" and type(entry.perk) == "string" and entry.perk ~= "" then
+				cleaned[#cleaned + 1] = entry
+			end
+		end
+		perks.tactical = cleaned
+	end
+	if type(perks.personal) == "table" and perks.personal.perk == false then
+		perks.personal = {}
+	end
+	return perks
+end
+
 local function JazzImpInstallPersonalPerksWrap()
 	if rawget(_G, "g_JAZZ_ImpPersonalPerksWrapped") then
 		return
@@ -58,6 +81,22 @@ local function JazzImpInstallPersonalPerksWrap()
 			end
 		end
 		return list
+	end
+end
+
+local function JazzImpInstallCalcAnswersWrap()
+	if rawget(_G, "g_JAZZ_ImpCalcAnswersWrapped") then
+		return
+	end
+	local base = rawget(_G, "ImpCalcAnswers")
+	if type(base) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_ImpCalcAnswersBase", base)
+	rawset(_G, "g_JAZZ_ImpCalcAnswersWrapped", true)
+	function ImpCalcAnswers(...)
+		local stats, perks = g_JAZZ_ImpCalcAnswersBase(...)
+		return stats, JazzSanitizeImpPerks(perks)
 	end
 end
 
@@ -137,15 +176,102 @@ local function JazzImpInstallDialogueConditionWraps()
 	end
 end
 
-function OnMsg.ClassesBuilt()
+--- Personal perk row: vanilla HList @ spacing 46 overflows after Mimicry/Veteran/Sniper.
+--- Keep HList (HWrap stole clicks from the tactical Grid below). Tighten spacing only.
+local function JazzImpWalkPatchPersonalHList(node, depth)
+	if type(node) ~= "table" or (depth or 0) > 48 then
+		return false
+	end
+	-- Prefer the HList that directly hosts the "personal perks" ForEach comment.
+	local has_personal_foreach = false
+	for _, v in ipairs(node) do
+		if type(v) == "table" and v.comment == "personal perks" then
+			has_personal_foreach = true
+			break
+		end
+	end
+	if has_personal_foreach and node.LayoutMethod == "HList" and (node.LayoutHSpacing or 0) >= 40 then
+		node.LayoutHSpacing = 12
+		return true
+	end
+	-- Fallback: first HList with spacing 46 (vanilla personal row; never touch Grid).
+	if node.LayoutMethod == "HList" and node.LayoutHSpacing == 46 then
+		node.LayoutHSpacing = 12
+		return true
+	end
+	for _, v in ipairs(node) do
+		if type(v) == "table" and JazzImpWalkPatchPersonalHList(v, (depth or 0) + 1) then
+			return true
+		end
+	end
+	for k, v in pairs(node) do
+		if type(k) ~= "number" and type(v) == "table" and JazzImpWalkPatchPersonalHList(v, (depth or 0) + 1) then
+			return true
+		end
+	end
+	return false
+end
+
+function JazzImpPatchPersonalPerksLayout()
+	local xt = rawget(_G, "XTemplates") and XTemplates.PDAImpResultMerc
+	if not xt then
+		return
+	end
+	-- Undo a prior HWrap mistake if still present on personal row.
+	local function undo_hwrap(node, depth)
+		if type(node) ~= "table" or (depth or 0) > 48 then
+			return false
+		end
+		if node.LayoutMethod == "HWrap" and (node.LayoutHSpacing == 20 or node.LayoutHSpacing == 12) then
+			-- Only revert if this looks like the personal host (has personal ForEach child).
+			for _, v in ipairs(node) do
+				if type(v) == "table" and v.comment == "personal perks" then
+					node.LayoutMethod = "HList"
+					node.LayoutHSpacing = 12
+					return true
+				end
+			end
+		end
+		for _, v in ipairs(node) do
+			if type(v) == "table" and undo_hwrap(v, (depth or 0) + 1) then
+				return true
+			end
+		end
+		for k, v in pairs(node) do
+			if type(k) ~= "number" and type(v) == "table" and undo_hwrap(v, (depth or 0) + 1) then
+				return true
+			end
+		end
+		return false
+	end
+	undo_hwrap(xt, 0)
+	JazzImpWalkPatchPersonalHList(xt, 0)
+	rawset(_G, "g_JAZZ_ImpPerksLayoutPatched", true)
+end
+
+function JazzImpInstallAll()
 	JazzImpInstallPersonalPerksWrap()
+	JazzImpInstallCalcAnswersWrap()
 	JazzImpInstallDialogueConditionWraps()
+	JazzImpPatchPersonalPerksLayout()
+	if g_ImpTest and g_ImpTest.final and g_ImpTest.final.perks then
+		JazzSanitizeImpPerks(g_ImpTest.final.perks)
+	end
+	if g_ImpTest and g_ImpTest.result and g_ImpTest.result.perks then
+		JazzSanitizeImpPerks(g_ImpTest.result.perks)
+	end
+end
+
+function OnMsg.ClassesBuilt()
+	JazzImpInstallAll()
+end
+
+function OnMsg.DataLoaded()
+	JazzImpPatchPersonalPerksLayout()
 end
 
 function OnMsg.ModsReloaded()
-	JazzImpInstallPersonalPerksWrap()
-	JazzImpInstallDialogueConditionWraps()
+	JazzImpInstallAll()
 end
 
-JazzImpInstallPersonalPerksWrap()
-JazzImpInstallDialogueConditionWraps()
+JazzImpInstallAll()

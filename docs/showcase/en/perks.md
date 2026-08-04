@@ -43,7 +43,7 @@ Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle r
 
 ## IMP starting gear
 
-After the IMP test, loadout is built from stats and perks (JA2-style): primary from AutoWeapons/Heavy/Stealthy/Marksmanship, armor from Health, tools from Mechanical/Medical, etc. Details in design `imp-starting-gear.md`.
+After the IMP test, loadout is built from stats and perks (JA2-style): primary from AutoWeapons/Heavy/Stealthy/Marksmanship, **JazzArmor_*** by Health (not vanilla Kevlar), tools from Mechanical/Medical, etc. Details in design `imp-starting-gear.md`.
 
 ## Still stubs
 

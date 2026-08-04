@@ -43,7 +43,7 @@
 
 ## IMP: стартовый экип
 
-После IMP-теста кит собирается по статам и перкам (как в JA2): ствол по AutoWeapons/Heavy/Stealthy/Marksmanship, броня по Health, инструменты по Mechanical/Medical и т.д. Подробности — в design `imp-starting-gear.md`.
+После IMP-теста кит собирается по статам и перкам (как в JA2): ствол по AutoWeapons/Heavy/Stealthy/Marksmanship, броня **JazzArmor_*** по Health (не ванильный Kevlar), инструменты по Mechanical/Medical и т.д. Подробности — в design `imp-starting-gear.md`.
 
 ## Ещё stubs
 

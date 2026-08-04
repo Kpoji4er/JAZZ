@@ -70113,6 +70113,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 		PlaceObj('ModItemFolder', {
 			'name', "Perks",
 		}, {
+			PlaceObj('ModItemCode', {
+				'name', "System_IMP_Perks",
+				'CodeFileName', "Code/System_IMP_Perks.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_IMP_StartingGear",
+				'CodeFileName', "Code/System_IMP_StartingGear.lua",
+			}),
 			PlaceObj('ModItemFolder', {
 				'name', "Personality",
 			}, {

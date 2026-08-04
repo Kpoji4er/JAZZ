@@ -28,7 +28,7 @@ Separate PDA site: **[African Mercenary Exchange](ame.md)** — pool of **60** l
 
 ## IMP
 
-IMP starting gear depends on test stats and perks (weapon, armor, meds, tools). Personality pool adds **Mimicry**, **Veteran**, **Sniper** — see [perks](perks.md).
+IMP starting gear depends on test stats and perks (weapon, **JazzArmor_*** by Health, meds, tools). Personality pool adds **Mimicry**, **Veteran**, **Sniper** — see [perks](perks.md).
 
 ## Full roster (UnitData)
 
