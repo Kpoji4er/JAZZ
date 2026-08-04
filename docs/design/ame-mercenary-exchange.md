@@ -138,10 +138,10 @@ Voice pool (Jazz remesh + all 6 IMP UnitData):
 - ~1/4 → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`)
 - **VoiceResponseId** resolves to working VR: male → `IMP_male_01`, female → `IMP_female_01` (vanilla only ships those two banks; UnitData 02/03 also use them)
 - `FallbackMissingVR`: IMP → same VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (**not** Ice/Fox). Empty Selection/Move on remesh → silence.
-- Heads: **no** `Faction_Legion_Head_*` war-paint; named Af / `Head_F_Af_NPC_*` / `Head_M_IMP_01`
-- Tooling: `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_gen_ame_appearances.py`; assignment in `_gen_ame_roster_60.py`
-- Appearance sources: **unique clone per slot** `JAZZ_AME_NN` from **Rebels** / **Militia** / **Legion** (Hardened/Specialists may use **GrandChien**); map [`ame-appearance-map.json`](ame-appearance-map.json)
-- Recolor: **red cloth → blue** (`ColorizationPropSet`); **skin forced dark** African bank (near-black); do not edit source faction presets
+- Heads: safe Af bank only (see [`ame-appearance-assets.md`](ame-appearance-assets.md)); **no** Flay/Fidel/Magic/Blood/Fauda/Omryn; **no** `Faction_Legion_Head_*` war-paint
+- Tooling: `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_gen_ame_appearances.py` + `_audit_patch_ame_heads.py`; assignment in `_gen_ame_roster_60.py`
+- Appearance sources: **unique clone per slot** `JAZZ_AME_NN` from **Rebels** / **Militia** / **Legion** (Hardened/Specialists may use **GrandChien**); map [`ame-appearance-map.json`](ame-appearance-map.json); asset policy [`ame-appearance-assets.md`](ame-appearance-assets.md)
+- Recolor: **red cloth → blue** (`ColorizationPropSet`); **BodyColor C1** dark African bank; **HeadColor** black (never skin-tint heads); do not edit source faction presets
 - Female looks: thin faction female bank (`RebelFemaleSniper`×2, `GrandChien_CommanderFemale`, MilitiaRookie female×2) — unique ModItems even when donor mesh repeats
 - Machinegunners: only T1 LMGs (`MAC2429`, `BAR`) — `RPK`/`RPK74` are T2, forbidden on AME
 - Portraits: unique per slot `MercPortraits/JAZZ_AME_NN`

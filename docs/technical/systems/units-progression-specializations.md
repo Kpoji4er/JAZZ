@@ -30,7 +30,7 @@
 - `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005): PDA mode `ame`, market tick, nationality flags;
 - `Code/System_OR_Unit.lua`, `System_UnitInventory.lua`, `System_UnitAppearance.lua` — runtime schema;
 - `Code/System_IMP_StartingGear.lua` — JA2-style динамический стартовый экип IMP (`JazzBuildImpStartingGear` / `JazzApplyImpStartingGear`);
-- `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap.
+- `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap, sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid).
 
 `Code/AimHiringScreen_Template.lua` существует в core, но не указан в metadata и не загружается. Не считать его активным XTemplate. Фактический UI изменяется generated XTemplate/загруженным кодом.
 
@@ -86,8 +86,8 @@ Offline merc randomization детерминирован. Это означает
 | Tick | 30 дней кампании; specialist soft-guarantee |
 | Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap |
 | VR | Pool: Jazz remesh (~1/4) + all 6 IMP UnitData (VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP→self (not Ice/Fox) |
-| Heads | No `Faction_Legion_Head_*` war-paint; named Af / `Head_F_Af_NPC_*` / `Head_M_IMP_01` |
-| Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); **1** blue cloth accent; dark African skin; no Legion war-paint heads ([ame-appearance-map.json](../../design/ame-appearance-map.json)) |
+| Heads | Safe Af bank only: `Chimurenga`/`Pierre`/`Jackhammer`/`Head_M_IMP_01`/`Faction_Rebels_M_HeadMedic` + female `Head_F_Af_NPC_*`; **not** Flay/Fidel/Magic/Blood/Fauda/Omryn; no `Faction_Legion_Head_*` ([ame-appearance-assets.md](../../design/ame-appearance-assets.md)) |
+| Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); **1** blue cloth accent; `BodyColor` C1 dark African + `HeadColor` black; no Legion war-paint / no `GrandChien_Top_05` (pale hands); map [ame-appearance-map.json](../../design/ame-appearance-map.json) |
 | PDA chrome | Savannah/ochre panel tints; `Icons/PDA/AME_Mark` (logo v4) instead of HazOS; AME banner pad (not AIM hiring banner); backdrop watermark. Edit `System_AME_Browser_Template.lua` → `_install_ame_xtemplate_moditem.py` |
 | Nationality | reuse `GrandChien`/`SouthAfrica` + new `Nigeria`…`Ethiopia` (`System_AME_Nationalities.lua`, flags `Icons/Flags/f_*.png`) |
 | Portraits | unique `MercPortraits/JAZZ_AME_NN.png` + `_Big` (300/2000) |

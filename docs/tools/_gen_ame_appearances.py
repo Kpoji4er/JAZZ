@@ -7,12 +7,13 @@ JAZZ-UNITS-005-REQ-019:
   - donor from faction pools (unique males; females may reuse donor mesh)
   - exactly ONE AME-blue accent (Hat > Hat2 > Shirt > BodyC2); never Pants/boots
   - other Legion red → muted slate (not blue); Body Color1 dark African; HeadColor (0,0,0)
-  - Caucasian/Asian/AIM/Male_Head/Legion painted → named Af / Head_F_Af_NPC (no Legion war-paint)
+  - Caucasian/Asian/AIM/Male_Head/Legion painted → narrow Af bank / Head_F_Af_NPC (see ame-appearance-assets.md)
   - source presets never edited
 
 Usage (jazz/):
   python docs/tools/_gen_ame_appearances.py
   python docs/tools/_gen_ame_appearances.py --dry-run
+  python docs/tools/_audit_patch_ame_heads.py --sync-map
   python docs/tools/_gen_ame_roster_60.py
   python docs/tools/_gen_ame_unitdata.py
 """
@@ -74,35 +75,61 @@ SKIN_BANK = [
 # Ethnicity lives in the Head *mesh* + HeadColor (0,0,0) like vanilla.
 # Do NOT tint HeadColor to skin RGB — that washes Male_Head faces to chalk-white.
 # Do NOT use Faction_Legion_Head_* — war-paint / painted Legion faces.
-# Male Af bank: named African merc heads + Rebel medic + IMP (no war paint).
+# Male Af bank: player-verified dark African meshes only (see ame-appearance-assets.md).
+# NEVER bank: Flay/Fidel/Magic/Blood (AIM, read Caucasian on AME).
+# Never: Head_Fauda / Head_Lami (female) — Hat attach breaks / gender mesh mix.
+# Never: Head_Omryn (Asian) — reads as pale/"white" on AME.
 MALE_AF_HEADS = [
     "Head_Chimurenga",
     "Head_Pierre",
-    "Head_Fidel",
-    "Head_Fauda",
-    "Head_Magic",
-    "Head_Blood",
-    "Head_Omryn",
-    "Head_Flay",
     "Head_Jackhammer",
-    "Head_Lami",
-    "Faction_Rebels_M_HeadMedic",
     "Head_M_IMP_01",
+    "Faction_Rebels_M_HeadMedic",
 ]
 FEMALE_AF_HEADS = [f"Head_F_Af_NPC_{i:02d}" for i in range(1, 11)]
 
 # AIM / ethnicity-coded / pale generic heads that must be swapped for AME.
+# Includes former false-"Af" AIM heads (Flay/Fidel/Magic/Blood) and female-on-male risks.
 _HEAD_FORCE_REPLACE = re.compile(
     r"^Head_(M|F)_(Ca|As|Senior|IMP)_"
     r"|^Male_Head_"
     r"|^Female_Head_"
-    r"|^Head_(Vicki|Buns|Fox|Meltdown|Mouse|MD|Magic|Blood|Flay|Fauda|Fidel|"
+    r"|^Head_(Vicki|Buns|Fox|Meltdown|Mouse|MD|Magic|Blood|Flay|Fauda|Lami|Fidel|"
     r"Barry|Ivan|Omryn|Livewire|Ice|Grizzly|Scope|Kalyna|Igor|"
     r"Faucheux|Major|Shadow|Raven|Tex|Scully|Steroid|DrQ|Gus|Len|Larry|"
     r"Red|Thor|Wolf|Sidney|Nails|Hitman|Grunty|Spike|Raider|Razor|"
     r"Reaper|Biff|Lynx)$",
     re.I,
 )
+
+# Legion war-paint / ceremonial bare torsos — never clone onto AME.
+_LEGION_WARPAINT_BODY = re.compile(r"^Faction_Legion_Top_", re.I)
+# No GrandChien_Top_05 — exposed arms stay pale despite dark BodyColor C1 (Claude report).
+_SAFE_MALE_BODY = [
+    "Faction_Militia_Top_02",
+    "Faction_Militia_Top_03",
+    "Faction_Rebels_Top_Comander",
+    "Faction_GrandChien_Top_02",
+    "Faction_GrandChien_Top_03",
+    "Faction_Adonis_Top_01",
+]
+_FEMALE_HAT = "NPCCostumeFemale_Hat_01"
+# Merc-named bottoms/hats that look wrong on AME (esp. Omryn).
+_BAD_GEAR_RE = re.compile(r"Omryn|Fauda|Lami", re.I)
+_SAFE_MALE_PANTS = [
+    "Faction_Militia_Bottom_01",
+    "Faction_Rebels_Bottom_01",
+    "Faction_GrandChien_Bottom_03",
+]
+
+
+def body_of(block: str) -> str:
+    m = re.search(r'Body\s*=\s*"([^"]*)"', block)
+    return m.group(1) if m else ""
+
+
+def is_warpaint_donor(block: str) -> bool:
+    return bool(_LEGION_WARPAINT_BODY.match(body_of(block)))
 
 
 def skin_for_slot(slot: int) -> tuple[int, int, int]:
@@ -347,6 +374,44 @@ def recolor_block(block: str, slot: int) -> str:
     )
 
 
+# Bodies whose exposed arms stay pale despite dark BodyColor C1 (player report: Claude).
+_PALE_HAND_BODY = {"Faction_GrandChien_Top_05"}
+
+
+def gender_fix_gear(inner: str, slot: int, female: bool) -> str:
+    """Swap Legion war-paint / pale-hand tops, male hats on female kits, Omryn/Fauda/Lami gear."""
+    body_m = re.search(r'Body\s*=\s*"([^"]*)"', inner)
+    body = body_m.group(1) if body_m else ""
+    if not female and body and (
+        _LEGION_WARPAINT_BODY.match(body) or body in _PALE_HAND_BODY
+    ):
+        new_b = _SAFE_MALE_BODY[(slot - 1) % len(_SAFE_MALE_BODY)]
+        inner = re.sub(r'Body\s*=\s*"[^"]*"', f'Body = "{new_b}"', inner, count=1)
+    hat_m = re.search(r'Hat\s*=\s*"([^"]*)"', inner)
+    hat = hat_m.group(1) if hat_m else ""
+    if female and hat and ("Male" in hat or hat.startswith("FactionMale")):
+        inner = re.sub(r'Hat\s*=\s*"[^"]*"', f'Hat = "{_FEMALE_HAT}"', inner, count=1)
+    if hat and _BAD_GEAR_RE.search(hat):
+        if female:
+            inner = re.sub(r'Hat\s*=\s*"[^"]*"', f'Hat = "{_FEMALE_HAT}"', inner, count=1)
+        else:
+            # Drop named merc hat — leave empty (optional headwear).
+            inner = re.sub(r'Hat\s*=\s*"[^"]*"\s*,?\s*\n', "", inner, count=1)
+    pants_m = re.search(r'Pants\s*=\s*"([^"]*)"', inner)
+    pants = pants_m.group(1) if pants_m else ""
+    if pants and _BAD_GEAR_RE.search(pants):
+        new_p = _SAFE_MALE_PANTS[(slot - 1) % len(_SAFE_MALE_PANTS)]
+        if female:
+            new_p = "Female_Pants_01"
+        inner = re.sub(r'Pants\s*=\s*"[^"]*"', f'Pants = "{new_p}"', inner, count=1)
+    # Gloves hide arm skin / can read as pale hands — clear so Body C1 shows.
+    shirt_m = re.search(r'Shirt\s*=\s*"([^"]*)"', inner)
+    shirt = shirt_m.group(1) if shirt_m else ""
+    if not female and shirt and re.search(r"Glove", shirt, re.I):
+        inner = re.sub(r'Shirt\s*=\s*"[^"]*"', 'Shirt = ""', inner, count=1)
+    return inner
+
+
 def to_moditem(
     block: str, new_id: str, donor: str, slot: int, female: bool = False
 ) -> tuple[str, str | None]:
@@ -359,6 +424,7 @@ def to_moditem(
     inner = re.sub(r"^\s*group\s*=\s*\"[^\"]*\"\s*,?\s*$", "", inner, flags=re.M)
     inner = re.sub(r"^\s*id\s*=\s*\"[^\"]*\"\s*,?\s*$", "", inner, flags=re.M)
     inner, head_swap = africanize_head(inner, slot, female)
+    inner = gender_fix_gear(inner, slot, female)
     inner = recolor_block(inner, slot)
     # Normalize leading tabs to two tabs for folder children fields.
     lines = []
@@ -408,49 +474,60 @@ def build_pools(blocks: dict[str, str]) -> dict[str, list[str]]:
 
 
 def prefer_for(m: dict) -> list[str]:
-    """Ordered pool keys for this merc."""
+    """Ordered pool keys for this merc.
+
+    Prefer Militia/Rebels/GrandChien over Legion. Legion war-paint donors may still
+    be taken last; gender_fix_gear swaps Faction_Legion_Top_* → safe tops.
+    """
     cat = m.get("cat", "")
     role = m.get("role", "")
     if m.get("female"):
         return ["female"]
     if cat == "Hardened":
-        return ["grandchien_m", "legion_m", "rebels_m", "militia_m"]
+        return ["grandchien_m", "rebels_m", "militia_m", "legion_m"]
     if cat == "Specialists":
         if role in ("Instructor", "Medic"):
             return ["grandchien_m", "rebels_m", "militia_m", "legion_m"]
         if role in ("Sniper", "Sapper", "Mechanic"):
-            return ["rebels_m", "militia_m", "legion_m", "grandchien_m"]
+            return ["rebels_m", "militia_m", "grandchien_m", "legion_m"]
         return ["rebels_m", "grandchien_m", "militia_m", "legion_m"]
     if cat == "Irregulars":
-        return ["militia_m", "rebels_m", "legion_m"]
-    # Fighters — lean Legion (red→blue most visible) then Rebels.
+        return ["militia_m", "rebels_m", "grandchien_m", "legion_m"]
+    # Fighters — militia/rebels first (AME blue accent); Legion last.
     if role in ("Machinegunner", "Autorifleman", "Grenadier"):
-        return ["legion_m", "rebels_m", "militia_m"]
-    return ["legion_m", "rebels_m", "militia_m"]
+        return ["militia_m", "rebels_m", "grandchien_m", "legion_m"]
+    return ["rebels_m", "militia_m", "grandchien_m", "legion_m"]
 
 
-def assign_donors(roster: list[dict], pools: dict[str, list[str]]) -> list[str]:
+def assign_donors(
+    roster: list[dict], pools: dict[str, list[str]], blocks: dict[str, str]
+) -> list[str]:
     used: set[str] = set()
-    # Working copies we can pop from.
     bags = {k: list(v) for k, v in pools.items()}
     assigned: list[str] = []
 
     def take(keys: list[str], allow_reuse: bool) -> str:
-        # Prefer unused donors first.
-        for k in keys:
-            bag = bags[k]
-            for i, aid in enumerate(bag):
-                if aid in used:
-                    continue
-                used.add(aid)
-                if not allow_reuse:
-                    bag.pop(i)
-                return aid
+        # Prefer unused non-warpaint donors, then any unused, then reuse (females).
+        for require_safe in (True, False):
+            for k in keys:
+                bag = bags[k]
+                for i, aid in enumerate(bag):
+                    if aid in used:
+                        continue
+                    if require_safe and is_warpaint_donor(blocks.get(aid, "")):
+                        continue
+                    used.add(aid)
+                    if not allow_reuse:
+                        bag.pop(i)
+                    return aid
         if allow_reuse:
             for k in keys:
                 bag = bags[k]
                 if bag:
-                    aid = bag[len(assigned) % len(bag)]
+                    # Prefer non-warpaint on reuse too.
+                    safe = [a for a in bag if not is_warpaint_donor(blocks.get(a, ""))]
+                    pick = safe if safe else bag
+                    aid = pick[len(assigned) % len(pick)]
                     used.add(aid)
                     return aid
         raise RuntimeError(f"no donor for keys={keys}")
@@ -527,12 +604,20 @@ def main() -> int:
 
     blocks = extract_appearance_blocks(VANILLA_AP.read_text(encoding="utf-8"))
     pools = build_pools(blocks)
+    warpaint_in_pools = sum(
+        1
+        for k, ids in pools.items()
+        if k != "female"
+        for aid in ids
+        if is_warpaint_donor(blocks[aid])
+    )
     print(
         "pools:",
         {k: len(v) for k, v in pools.items()},
+        f"warpaint_donors_in_pools={warpaint_in_pools} (body swapped at emit)",
     )
 
-    donors = assign_donors(roster, pools)
+    donors = assign_donors(roster, pools, blocks)
     unique_male = len({d for d, m in zip(donors, roster) if not m.get("female")})
     unique_female_donors = len({d for d, m in zip(donors, roster) if m.get("female")})
     print(f"assigned unique male donors={unique_male}/50 female donor kinds={unique_female_donors}")
