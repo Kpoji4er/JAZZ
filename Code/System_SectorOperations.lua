@@ -443,15 +443,32 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 
 
 	if operation_id=="RepairItems" then
-		local free_repair = operation:ResolveValue("free_repair")
+		local free_repair = operation:ResolveValue("free_repair") or 0
 		local restore_condition_per_Part = operation:ResolveValue("restore_condition_per_Part")
 		local parts_per_step = operation:ResolveValue("parts_per_step")
 		for _, item_data in ipairs(queued_items) do
 			local item = SectorOperationRepairItems_GetItemFromData(item_data)
-			-- JAZZ-WEAPONS-002: do not inflate restore_condition_per_Part (*3 removed).
+			-- JAZZ-WEAPONS-002: Parts tick uses Condition % (0..100), not absolute
+			-- WeaponResource/ArmorResource units. Absolute scale + removed *3 hack
+			-- produced hundreds of Parts per rifle (e.g. 49% of WR≈8000 → ~825).
 			restore_condition_per_Part = operation:ResolveValue("restore_condition_per_Part")
-			local cur_cond = item and (item:GetCurrentResource() or item.Condition) or 0
-			local max_condition = item and item:GetMaxResource() or item:GetMaxCondition() or 0
+			local cur_cond, max_condition
+			if item and (item.WeaponResource or item.ArmorResource) then
+				local max_res = item:GetMaxResource() or item:GetFactoryResource() or 1
+				if max_res <= 0 then
+					max_res = 1
+				end
+				local cur_res = item:GetCurrentResource() or 0
+				if item.GetConditionPercent then
+					cur_cond = item:GetConditionPercent()
+				else
+					cur_cond = Clamp(MulDivRound(cur_res, 100, max_res), 0, 100)
+				end
+				max_condition = 100
+			else
+				cur_cond = item and (item.Condition or 0) or 0
+				max_condition = item and (item:GetMaxCondition() or 100) or 0
+			end
 			local to_repair = max_condition - cur_cond
 
 			--use parts

@@ -62,7 +62,7 @@ Side, Under, Bipod, Magazine, GrenadeLauncher; GL Mech **≥40**, others **≥30
 | --- | --- |
 | `JAZZ_BarrelParts` | `CeilDiv(restoredPct, 10)` — всегда при ремонте current |
 | `JAZZ_ScopeParts` | `CeilDiv(restoredPct, 20)` — только если установлен remountable Scope |
-| `Parts` | как vanilla RepairItems tick |
+| `Parts` | vanilla RepairItems tick на **Condition % 0..100** (`restore_condition_per_Part` / `parts_per_step`); **не** absolute `WeaponResource` units и не хак `*3` |
 
 ## Jam
 

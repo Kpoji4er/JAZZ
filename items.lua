@@ -108810,17 +108810,35 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					
 					
 						if repaired > 0 then
-							if to_repair <= self:ResolveValue("free_repair") then
-							else			
-								-- get one part
-								local border = 0
-								local cond_delta = (item:GetCurrentResource() or item.Condition) - prev_cond
-						if cond_delta > 0 then
+							-- JAZZ-WEAPONS-002: Parts debit on Condition % (0..100), not absolute
+							-- WeaponResource units. Keep resource progress; only rescale the Parts bill.
+							local free_repair = self:ResolveValue("free_repair") or 0
+							local use_pct = item.WeaponResource or item.ArmorResource
+							local prev_pct = use_pct and (max_condition > 0 and MulDivRound(prev_cond, 100, max_condition) or 0) or prev_cond
+							local new_abs = item:GetCurrentResource() or item.Condition
+							local new_pct = use_pct and (max_condition > 0 and MulDivRound(new_abs, 100, max_condition) or 0) or new_abs
+							local to_repair_for_parts = use_pct and (100 - prev_pct) or to_repair
+							if to_repair_for_parts <= free_repair then
+							else
+						if new_pct > prev_pct or (not use_pct and repaired > 0) then
 						    local restore_per_part = self:ResolveValue("restore_condition_per_Part")
-						     if item.WeaponResource then
-						restore_per_part = restore_per_part * 3
-						end
-						    local parts_needed = floatfloor(cond_delta / restore_per_part)
+						    if restore_per_part <= 0 then
+						    	restore_per_part = 1
+						    end
+						    -- Threshold crossings on the same scale as SectorOperation_ItemsCalcRes.
+						    local charge_hi = use_pct and Min(new_pct, 100 - free_repair) or (new_abs)
+						    local charge_lo = prev_pct
+						    if not use_pct then
+						    	charge_hi = new_abs
+						    	charge_lo = prev_cond
+						    	if free_repair > 0 then
+						    		charge_hi = Min(charge_hi, max_condition - free_repair)
+						    	end
+						    end
+						    local parts_needed = 0
+						    if charge_hi > charge_lo then
+						    	parts_needed = floatfloor(charge_hi / restore_per_part) - floatfloor(charge_lo / restore_per_part)
+						    end
 						    for i=1, parts_needed do
 						        local parts, m, mbag, slot_name
 						        -- попытка найти детали
@@ -108858,22 +108876,19 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						            end
 						            InventoryUIRespawn()
 						        else
-						            -- если деталей не хватает - откат прогресса ремонта
-						            --item.Condition = prev_cond
+						            -- Out of Parts: roll back this tick's resource gain (no free repair).
 						            item.repair_progress = prev_progress
-									item.Condition = prev_cond
-					if item.ArmorResource then
-					 -- item.ArmorResource = MulDivRound(prev_cond, max_condition, 100)
-					
-					  item.ArmorResourceMax = max_condition;
-					  item.ArmorResource = Clamp(item.ArmorResource, 0, item.ArmorResourceMax)
-					  item.Condition = MulDivRound(item.ArmorResource, 100, item.ArmorResourceMax)
-					elseif item.WeaponResource then
-					
-					  item.WeaponResourceMax = max_condition;
-					  item.WeaponResource = Clamp(item.WeaponResource, 0,  item.WeaponResourceMax)
-					  item.Condition = MulDivRound(item.WeaponResource, 100,  item.WeaponResourceMax)
-					end
+									if item.ArmorResource then
+									  item.ArmorResource = prev_cond
+									  item.ArmorResourceMax = max_condition
+									  item.Condition = MulDivRound(item.ArmorResource, 100, Max(1, item.ArmorResourceMax))
+									elseif item.WeaponResource then
+									  item.WeaponResource = prev_cond
+									  item.WeaponResourceMax = max_condition
+									  item.Condition = MulDivRound(item.WeaponResource, 100, Max(1, item.WeaponResourceMax))
+									else
+									  item.Condition = prev_cond
+									end
 						            CombatLog("important", T{788054483744, "Not enough parts to continue <em><activity></em> Operation in sector <SectorName(sector)>.", sector = sector, activity = self.display_name})
 						            self:Complete(sector)
 						            gv_Sectors[sector.Id].sector_repair_items_queued = {}
