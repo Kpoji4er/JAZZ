@@ -89,14 +89,30 @@ for start in starts:
             indent = mm.group(1)
             break
 
+    is_merc = 'group = "Mercs"' in block
+
     inserts = []
-    inserts.append(entry("JAZZ_Bandage", 2 if (has_fak or has_medkit) else 1, 5 if (has_fak or has_medkit) else 4,
-                         drop_chance=None if (has_fak or has_medkit) else 80, indent=indent))
+    if is_merc:
+        inserts.append(entry("JAZZ_Bandage", 10, 10, indent=indent))
+    else:
+        # Enemy / world medical pools: single stack (see _apply_enemy_med_stacks_min.py).
+        inserts.append(
+            entry(
+                "JAZZ_Bandage",
+                1,
+                1,
+                drop_chance=None if (has_fak or has_medkit) else 80,
+                indent=indent,
+            )
+        )
     stats["bandage"] += 1
 
     if has_fak or has_medkit or is_medic or is_doctor:
-        sm, sx = (1, 3) if (is_doctor or has_medkit) else (1, 2)
-        chance = None if (is_doctor or has_medkit) else 70
+        if is_merc:
+            sm, sx = (1, 3) if (is_doctor or has_medkit) else (1, 2)
+            chance = None if (is_doctor or has_medkit) else 70
+        else:
+            sm, sx, chance = 1, 1, (None if (is_doctor or has_medkit) else 70)
         inserts.append(entry("JAZZ_Morphine", sm, sx, drop_chance=chance, indent=indent))
         stats["morphine"] += 1
 

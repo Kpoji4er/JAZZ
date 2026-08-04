@@ -153,15 +153,22 @@ for start, end, lid, block in spans:
 
     inserts = []
     if merc or had_kit:
-        inserts.append(entry("JAZZ_Bandage", 2, 5, indent=indent))
-        inserts.append(entry("JAZZ_Morphine", 1, 2, drop_chance=None if had_kit else 80, indent=indent))
-        if merc and not had_kit:
-            inserts.append(
-                f"{indent}PlaceObj('LootEntryInventoryItem', {{ item = \"FirstAidKit\", stack_min = 1, stack_max = 1 }}),"
-            )
+        # Merc kits: Bandage x10, IFAK full MaxStacks=5 (see _apply_merc_med_full_stacks.py).
+        # Medical enemy kits keep smaller bandage stacks when had_kit and not merc.
+        if merc:
+            inserts.append(entry("JAZZ_Bandage", 10, 10, indent=indent))
+            inserts.append(entry("JAZZ_Morphine", 1, 2, drop_chance=None if had_kit else 80, indent=indent))
+            if not had_kit:
+                inserts.append(
+                    f"{indent}PlaceObj('LootEntryInventoryItem', {{ item = \"FirstAidKit\", stack_min = 5, stack_max = 5 }}),"
+                )
+        else:
+            # Enemy medical kits: single-use stacks (see _apply_enemy_med_stacks_min.py).
+            inserts.append(entry("JAZZ_Bandage", 1, 1, indent=indent))
+            inserts.append(entry("JAZZ_Morphine", 1, 1, drop_chance=None if had_kit else 80, indent=indent))
         stats["merc"] += 1
     else:
-        inserts.append(entry("JAZZ_Bandage", 1, 3, drop_chance=65, indent=indent))
+        inserts.append(entry("JAZZ_Bandage", 1, 1, drop_chance=65, indent=indent))
         inserts.append(entry("JAZZ_Morphine", 1, 1, drop_chance=25, indent=indent))
         stats["enemy"] += 1
 
