@@ -692,19 +692,6 @@ end
 		else
 			-- assign target points to shots based on desired outcome
 			precalc_shots = {}
-			--[[local lowest
-			for i = 1, num_shots do
-				local shot_miss = band(shots_data[i], sfHit) == 0
-				local target_tbl = shot_miss and miss_target_pts or hit_target_pts
-				local shot_vector = table.remove(target_tbl)
-				local target_pos = shot_vector.target_pos
-				precalc_shots[i] = { lof_pos1 = shot_vector.lof_pos1, attack_pos = shot_vector.attack_pos, target_pos = target_pos, shot_data = shots_data[i], shot_idx = i }
-				if not lowest or (lowest:z() > target_pos:z()) then
-					lowest = target_pos
-				end
-			end
-			
-			table.sort(precalc_shots, function(a, b) return a.target_pos:Dist(lowest) < b.target_pos:Dist(lowest) end)--]]
 			for i = 1, num_shots do
 				local shot_miss = band(shots_data[i], sfHit) == 0
 				local allow_grazing = band(shots_data[i], sfAllowGrazing) ~= 0
@@ -732,12 +719,31 @@ end
 				
 				local shot_target_pos = shot_vector.target_pos
 				local shot_attack_pos = shot_vector.attack_pos
-				local t_offset = shot_target_pos - disp_origin
-				precalc_shots[i] = { lof_pos1 = shot_vector.lof_pos1, attack_pos = shot_attack_pos, target_pos = shot_target_pos, shot_data = shots_data[i], shot_idx = i, dispersion = shot_vector.idx }--Dot(t_offset, disp_dir) }
+				-- JAZZ-WEAPONS-007: true misses on non-pellet queues climb with effective_recoil.
+				-- Hits and graze stay on CalcShotVectors placement; CTH unchanged.
+				if not pellet_pack and shot_miss and not allow_grazing and recoil_profile then
+					local aim = (lof_data and lof_data.target_pos) or target_pos
+					local lof1 = shot_vector.lof_pos1 or attack_results.lof_pos1
+					local climbed = JAZZ_CTHBuildRecoilClimbMissPos(aim, lof1, i, recoil_profile, attacker)
+					if climbed then
+						shot_target_pos = climbed
+					end
+				end
+				precalc_shots[i] = {
+					lof_pos1 = shot_vector.lof_pos1,
+					attack_pos = shot_attack_pos,
+					target_pos = shot_target_pos,
+					shot_data = shots_data[i],
+					shot_idx = i,
+					dispersion = shot_vector.idx,
+				}
 			end
-			table.sort(precalc_shots, function(a, b)
-				return a.dispersion < b.dispersion
-			end)
+			-- Pellet packet may keep vanilla tight→wide sort; rifle queues keep CTH index order.
+			if pellet_pack then
+				table.sort(precalc_shots, function(a, b)
+					return a.dispersion < b.dispersion
+				end)
+			end
 		end
 	end
 
@@ -910,6 +916,14 @@ end
 					dispersion = dispersion + 20*guic -- try shooting wider next time to avoid infinitely retrying to find miss vectors very close to the target
 				end
 				miss_target_pos = self:PickMissTargetPos(attacker, misses, roll, shot_cth)
+				-- JAZZ-WEAPONS-007: fallback miss path also climbs for non-pellet queues.
+				if not pellet_pack and not allow_grazing and recoil_profile then
+					local aim = (lof_data and lof_data.target_pos) or target_pos
+					local climbed = JAZZ_CTHBuildRecoilClimbMissPos(aim, lof_pos1, i, recoil_profile, attacker)
+					if climbed then
+						miss_target_pos = climbed
+					end
+				end
 				-- extend the shot vector to the max range to make sure the bullet doesn't despawn right after passing by the missed target
 				local v = miss_target_pos - lof_pos1
 				miss_target_pos = lof_pos1 + SetLen(v, max_range - const.SlabSizeX)

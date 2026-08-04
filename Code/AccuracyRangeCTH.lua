@@ -9,6 +9,9 @@ JAZZ_CTH_VALID_SHOT_FLOOR = 2
 -- After BDR/E: factor falls with acceleration toward this floor at WeaponRange (not to 0).
 JAZZ_CTH_RANGE_FLOOR_FACTOR = 250 -- 0.25 * FACTOR_SCALE
 -- Minimum curve exponent (>1 → accelerating falloff).
+-- JAZZ-WEAPONS-007: miss climb offset_len = min(ref, ref * k * Round(er) / CLIMB_SCALE)
+JAZZ_CTH_RECOIL_CLIMB_SCALE = 400
+JAZZ_CTH_RECOIL_CLIMB_LATERAL_PCT = 25
 
 local function JAZZ_CTHRound(value)
 	if value >= 0 then
@@ -616,4 +619,72 @@ function JAZZ_CTHGetBulletChance(first_bullet_chance, bullet_index, recoil_profi
 		chance = chance * (retention * 1.0 / JAZZ_CTH_FACTOR_SCALE) ^ exponent
 	end
 	return Clamp(JAZZ_CTHRound(chance), JAZZ_CTH_VALID_SHOT_FLOOR, 100)
+end
+
+-- JAZZ-WEAPONS-007: progressive upward miss climb for non-pellet queues.
+-- Does not affect CTH / hit placement — only true-miss target points.
+function JAZZ_CTHGetRecoilClimbOffsetLen(dist, bullet_index, recoil_profile)
+	local er = recoil_profile and recoil_profile.effective_recoil or 0
+	local prot = recoil_profile and recoil_profile.shots_before_recoil or 0
+	local k = Max(0, (bullet_index or 1) - 1 - prot)
+	if k <= 0 or er <= 0 then
+		return 0
+	end
+	local max_offset_ref = Max(guim, MulDivRound(guim, dist or 0, 8 * guim))
+	local er_round = JAZZ_CTHRound(er)
+	return Min(max_offset_ref, MulDivRound(max_offset_ref, k * er_round, JAZZ_CTH_RECOIL_CLIMB_SCALE))
+end
+
+local function JAZZ_CTHGetRecoilClimbAxes(lof_pos1, aim_pos)
+	local dir = aim_pos - lof_pos1
+	if dir:Len() == 0 then
+		dir = point(guim, 0, 0)
+	end
+	dir = SetLen(dir, guim)
+	local up = point(0, 0, guim)
+	local dd = Dot(dir, dir)
+	local climb = up
+	if dd > 0 then
+		climb = up - MulDivRound(dir, Dot(up, dir), dd)
+	end
+	if climb:Len() < DivRound(guim, 8) then
+		climb = point(-dir:y(), dir:x(), 0)
+		if climb:Len() == 0 then
+			climb = point(guim, 0, 0)
+		end
+	end
+	climb = SetLen(climb, guim)
+	local lateral = SetLen(RotateAxis(climb, dir, 90 * 60), guim)
+	return climb, lateral, dir
+end
+
+--- Returns climbed miss point, or nil when k==0 / no profile (caller keeps CalcShotVectors miss).
+function JAZZ_CTHBuildRecoilClimbMissPos(aim_pos, lof_pos1, bullet_index, recoil_profile, attacker)
+	if not aim_pos or not lof_pos1 or not recoil_profile then
+		return nil
+	end
+	if not aim_pos:IsValidZ() then
+		aim_pos = aim_pos:SetTerrainZ()
+	end
+	if not lof_pos1:IsValidZ() then
+		lof_pos1 = lof_pos1:SetTerrainZ()
+	end
+	local dist = lof_pos1:Dist(aim_pos)
+	local offset_len = JAZZ_CTHGetRecoilClimbOffsetLen(dist, bullet_index, recoil_profile)
+	if offset_len <= 0 then
+		return nil
+	end
+	local climb_axis, lateral_axis = JAZZ_CTHGetRecoilClimbAxes(lof_pos1, aim_pos)
+	local miss_pos = aim_pos + SetLen(climb_axis, offset_len)
+	local lateral_max = MulDivRound(offset_len, JAZZ_CTH_RECOIL_CLIMB_LATERAL_PCT, 100)
+	if attacker and lateral_max > 0 and lateral_axis then
+		local lateral = attacker:Random(2 * lateral_max + 1) - lateral_max
+		if lateral ~= 0 then
+			miss_pos = miss_pos + MulDivRound(lateral_axis, lateral, guim)
+		end
+		NetUpdateHash("JAZZ_RecoilClimb", bullet_index, offset_len, lateral)
+	else
+		NetUpdateHash("JAZZ_RecoilClimb", bullet_index, offset_len, 0)
+	end
+	return miss_pos
 end

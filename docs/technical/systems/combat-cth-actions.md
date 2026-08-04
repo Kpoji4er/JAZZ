@@ -65,6 +65,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 `Firearm:GetAttackResults` получает шанс первой пули из общего CTH pipeline, строит один recoil profile и применяет `recoil_retention` к каждой последующей пуле. `PredictCTH` использует тот же профиль. Strength, стойка, сошки/развёртывание, resolved component `Recoil`, `AutoWeapons`, класс оружия и действие входят в effective recoil множителями.
 
+Для non-pellet очередей true-miss LoF после protected-окон уводится нарастающим climb’ом вверх (`JAZZ-WEAPONS-007`, якорь `/400` от `effective_recoil`); hit placement и CTH не меняются. Дробовый `pellet_pack` остаётся пакетным конусом без queue-climb.
+
 `cth_loss_per_shot` и `shots_before_recoil` сохранены как совместимые входы существующих CombatAction, но больше не означают линейное вычитание CTH. Первый задаёт action recoil severity, второй — число дополнительных пуль после первой до начала retention. `AbakanBurst`, `AbakanAutoFire` и `JAZZ_ControllableBurst` защищают вторую пулю; `MGBurstFire` снижает тяжесть отдачи до `0.8` от оружейной; `GrizzlyPerk` дополнительно использует action factor `0.55`; `JAZZ_Fanning` получает собственную severity.
 
 ## Данные действий

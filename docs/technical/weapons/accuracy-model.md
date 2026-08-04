@@ -246,6 +246,18 @@ Strength и Marksmanship поровну определяют базовый ко
 
 Пакет дроби (`Buckshot` / `DoubleBarrel` / …, JAZZ-WEAPONS-006): это **не** очередь. Для всех дробин `P_bullet(i) = P_first` (без `recoil_retention^(i-1)`); у каждой дробины свой hit-roll при том же шансе.
 
+### Climb промахов очереди (JAZZ-WEAPONS-007)
+
+Для **нарезных** multishot-атак (не `pellet_pack`) true-miss точки после protected-окон нарастают вверх от прицела:
+
+```text
+k(i) = max(0, i - 1 - shots_before_recoil)
+offset_len = min(max_offset_ref, max_offset_ref × k × Round(effective_recoil) / 400)
+miss_pos  = aim + climb_up × offset_len + lateral(≤25% of offset)
+```
+
+`effective_recoil` / `shots_before_recoil` — тот же `JAZZ_CTHGetRecoilProfile`, что CTH. Успешный hit и graze (near-target inaccurate) **не** смещаются climb’ом. Fire-order `precalc_shots[i]` = CTH-индекс пули `i` (без sort по dispersion). Дробовый пакет (`Buckshot` / `DoubleBarrel` / `CancelShotCone` / `BuckshotBurst`) без queue-climb. Helpers: `JAZZ_CTHGetRecoilClimbOffsetLen` / `JAZZ_CTHBuildRecoilClimbMissPos` в `Code/AccuracyRangeCTH.lua`; wiring в `Firearm:GetAttackResults`.
+
 ## UI без debug и в debug
 
 Без debug сохраняется существующая качественная шкала, в которой количество знаков отражает силу эффекта:

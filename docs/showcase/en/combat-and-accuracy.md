@@ -66,7 +66,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 The first bullet uses the normal final chance. Each next bullet keeps only part of the previous accuracy (**recoil retention**).
 
-Strength and Marksmanship equally improve control, alongside stance, bipods/setup, components, perks, and special actions. Compact high-RPM platforms are less controllable than heavier, slower examples in the same caliber. Recoil changes hit probability once; bullet spray after a miss is not a second hidden penalty.
+Strength and Marksmanship equally improve control, alongside stance, bipods/setup, components, perks, and special actions. Compact high-RPM platforms are less controllable than heavier, slower examples in the same caliber. Recoil changes hit probability once; burst misses climb upward further along the string (the same control tightens both chance decay and climb). Hits on the aimed target are not shifted by climb. Shotgun pellet packets have no queue-climb.
 
 ## Grenades and launchers
 
