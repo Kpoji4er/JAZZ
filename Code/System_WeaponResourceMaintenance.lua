@@ -304,8 +304,8 @@ function JazzEnsureBarrelPartsResource()
 	if not SectorOperationResouces.Parts then
 		return false
 	end
-	JazzRegisterSectorResource("JAZZ_BarrelParts", T(990002002, "Barrel Parts"))
-	JazzRegisterSectorResource("JAZZ_ScopeParts", T(990002500, "Scope Parts"))
+	JazzRegisterSectorResource("JAZZ_BarrelParts", T(990002002, "Ствольные запчасти"))
+	JazzRegisterSectorResource("JAZZ_ScopeParts", T(990002500, "Детали прицелов"))
 	return SectorOperationResouces.JAZZ_BarrelParts and SectorOperationResouces.JAZZ_ScopeParts
 end
 

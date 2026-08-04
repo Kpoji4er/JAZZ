@@ -370,7 +370,7 @@ PlaceObj('XTemplate', {
 								end,
 								'TextStyle', "AimCopyrightText",
 								'Translate', true,
-								'Text', T(491974676910, --[[XTemplate PDAAIMEBrowser Text]] "<style AimCopyrightTextC><copyright></style> AME 2001"),
+								'Text', T(890000000005049, --[[XTemplate PDAAIMEBrowser Text]] "<style AimCopyrightTextC><copyright></style> AME 2001"),
 							}),
 							PlaceObj('XTemplateTemplate', {
 								'__template', "PDALinkButton",

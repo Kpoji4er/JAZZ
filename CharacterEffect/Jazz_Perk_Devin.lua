@@ -4,8 +4,8 @@ DefineClass.Jazz_Perk_Devin = {
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 	object_class = "Perk",
 	unit_reactions = {},
-	DisplayName = T(890000000005005, "IRA"),
-	Description = T(890000000005006, "WIP — механика сигнатурного перка в разработке."),
+	DisplayName = T(890000000005054, "IRA"),
+	Description = T(890000000005055, "WIP — механика сигнатурного перка в разработке."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Devin.png",
 	Tier = "Personal",
 }

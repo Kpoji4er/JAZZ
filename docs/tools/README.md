@@ -54,6 +54,8 @@
 | `_purge_legacy_gunsmith_parts.py` | WEAPONS-002: безопасный remap только `'Type'`/`'item'` в costs (`FineSteelPipe`→`JAZZ_BarrelParts`, lens/chip→`Parts`); **не** трогает `'Id'`. `--restore-bak` из `items.lua.bak_legacy_parts`; dormant shop на legacy defs. `--apply`. |
 | `_verify_gap_fixes.py` | Smoke после wave gaps: Id uniqueness Parts/BarrelParts, Type leftovers, unique WeaponMass. |
 | `_verify_nomaps_unit_remap_named_skip.py` | COMPAT-004: static mirror remap families — Bastien skip; `WeakFlagHill`→assault; `*_Tutorial` stems; Hyena skip. |
+| `_verify_nomaps_fortress_pierre_squad.py` | NoMaps: `FortressPierre` must stay out of `SQUAD_REMAP` (vanilla Pierre boss; not `LegionJAZZSquadT2`). |
+| `_verify_guardpost_scripted_attack.py` | Guardpost: `ForceSet` does not call `CanSpawnNewSquad`; managed early-out kept on CanSpawn/Update/Spawn (scripted Ernie attack OK, vanilla auto muted). |
 | `_verify_nomaps_early_squad.py` | COMPAT-005: `LegionJAZZSquadT1_Early` all `T1_`; metadata Id; NoMaps remap/cap wiring. |
 | `_verify_nomaps_globals_predeclare.py` | NoMaps wrap flags predeclared at file top + `rawset` + `lQuestVarSafeSet`. |
 | `_verify_nomaps_region_radius.py` | COMPAT-007: `AUTO_REGION_RADIUS=false` (unbounded Voronoi), `AI_REGION_REV=2`, multi-outpost refresh; no legacy `<= 8`. |
@@ -258,6 +260,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_emit_ame_live_patch.py` | Emit pasteable live-Lua AppearancePreset patches for in-session AME head/body repair. |
 | `_gen_ja12_appearances.py` | JAZZ-UNITS-002: same-gender mixes. Prefer **faction/NPC body + head**, or AIM clone; **warn on AIM×AIM** cross (плохая совместимость мешей). Map `ja12-appearance-map.json`. |
 | `_list_appearance_donors.py` | Каталог donor AppearancePreset по категории/полу (для подбора JA12 recipes). |
+| (manual) `_appearance-preset-rules.md` | WIP rules: gender lock (♂/♀ skeletons incompatible), recipe shape, index; visual slots in `_appearance-donor-visual-catalog.md`. |
+| (manual) `_appearance-donor-visual-catalog.md` | Working visual catalog: preset id → gender + slots + look (AME browse). Includes separate **jazz-units mod** Legion* batch (not vanilla donors). |
 | `_audit_ja12_appearance_links.py` | UnitData `AppearancesList` → shipped/vanilla preset ids + gender lock on JA12 section. |
 | `_gen_ame_flags.py` | PNG флаги 128×80 для новых AME Nationality (`Icons/Flags/f_*.png`). |
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |
@@ -305,6 +309,9 @@ python docs/tools/build-sector-atlas-docs.py
 4. При системной процедуре — ссылка в `.agents/docs/playbooks/…` и при необходимости в `.agents/docs/index.md`.
 
 | `_loc_csv_io.py` | Safe read/write for `Russian.csv`/`English.csv`: **never** `splitlines()` before `csv.DictReader` (that flattens multiline AdditionalHint / perk text). |
+| `_fix_dup_loc_ids_ame_perk_mag.py` | CommonLib «duplicated loc IDs»: JA2 perks off AME `5009–5028` → `5029–5048`; AME copyright → `5049`; Bleeding Text=EN; nationalities T()=EN; mag/parts Text↔T() align. |
+| `_fix_dup_loc_ids_ame_perk_wave2.py` | Wave2: Meat/Carlos/Devin/Shank off AME filter `5001–5008` → `5050–5057`; English.csv AME Text = T() source. |
+| `_fix_mag_hint_loc_align.py` | Mag `AdditionalHint`: unify family-prefix vs short T() text across companions/`items.lua` + RU/EN CSV Text. |
 | `_audit_additionalhint_newlines.py` | Audit/restore weapon `AdditionalHint` bullets: compare `InventoryItem/**/*.lua` `\n` vs CSV; `--apply` inserts newlines before bullet markers. |
 | `_restore_csv_newlines_from_head.py` | Restore any CSV cell newlines lost vs `HEAD` when wording still matches (whitespace-insensitive). `--apply`. |
 | `_purge_workshop_aim_mercs.py` | One-shot purge of six Steam Workshop AIM mercs from jazz + jazz-units (ModItems, companions, voices, loc, design). |

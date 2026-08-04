@@ -32,8 +32,8 @@ DefineClass.Jazz_Perk_Eskimo = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005027, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Eskimo DisplayName]] "Тюремная выдержка"),
-	Description = T(890000000005028, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Eskimo Description]] "Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки."),
+	DisplayName = T(890000000005047, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Eskimo DisplayName]] "Тюремная выдержка"),
+	Description = T(890000000005048, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Eskimo Description]] "Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
 	Tier = "Personal",
 }

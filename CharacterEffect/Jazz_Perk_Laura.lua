@@ -19,8 +19,8 @@ DefineClass.Jazz_Perk_Laura = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005025, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura DisplayName]] "Скрытный врач"),
-	Description = T(890000000005026, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "Лечение союзника не снимает с Лоры скрытность."),
+	DisplayName = T(890000000005045, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura DisplayName]] "Скрытный врач"),
+	Description = T(890000000005046, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "Лечение союзника не снимает с Лоры скрытность."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Laura.png",
 	Tier = "Personal",
 }

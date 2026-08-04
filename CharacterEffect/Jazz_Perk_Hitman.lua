@@ -4,8 +4,8 @@ DefineClass.Jazz_Perk_Hitman = {
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 	object_class = "Perk",
 	unit_reactions = {},
-	DisplayName = T(890000000005011, "Вырубить"),
-	Description = T(890000000005012, "WIP — механика сигнатурного перка в разработке."),
+	DisplayName = T(890000000005031, "Вырубить"),
+	Description = T(890000000005032, "WIP — механика сигнатурного перка в разработке."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Hitman.png",
 	Tier = "Personal",
 }

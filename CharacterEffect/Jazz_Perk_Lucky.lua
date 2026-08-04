@@ -13,8 +13,8 @@ DefineClass.Jazz_Perk_Lucky = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005023, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Второе дыхание"),
-	Description = T(890000000005024, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Раз за бой первый промах из огнестрела становится попаданием."),
+	DisplayName = T(890000000005043, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Второе дыхание"),
+	Description = T(890000000005044, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Раз за бой первый промах из огнестрела становится попаданием."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Lucky.png",
 	Tier = "Personal",
 }

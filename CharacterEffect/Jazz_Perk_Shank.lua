@@ -15,8 +15,8 @@ DefineClass.Jazz_Perk_Shank = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005007, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank DisplayName]] "Не трогай меня"),
-	Description = T(890000000005008, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank Description]] "Враги в ближнем бою по Шенку получают −50 к шансу попадания."),
+	DisplayName = T(890000000005056, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank DisplayName]] "Не трогай меня"),
+	Description = T(890000000005057, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank Description]] "Враги в ближнем бою по Шенку получают −50 к шансу попадания."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Shank.png",
 	Tier = "Personal",
 }

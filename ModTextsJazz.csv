@@ -2976,7 +2976,7 @@ ID,Text,Translation,VoiceActor,Context
 910957860179,"Этот персонаж находится в <color EmStyle>критическом состоянии</color> и истечет кровью, если его не <color EmStyle>перевязать</color>. Каждый ход персонаж будет терять 8 единиц здоровья.",,,ModItemCharacterEffectCompositeDef BleedingOut Description
 425969373535,Кровотечение,,,ModItemCharacterEffectCompositeDef Bleeding DisplayName
 326849165819,Этот боец каждый ход будет <color EmStyle>получать урон до <DamagePerTurn> ОЗ</color> за уровень кровотечения до тех пор пока не будет <color EmStyle>перевязан</color>. При третьем уровне кровотечения макс. количество <color EmStyle>ОД будет снижено на <APLoss></color>.,,,ModItemCharacterEffectCompositeDef Bleeding Description
-488938284982,<color EmStyle><DisplayName></color> истекает кровью,,,ModItemCharacterEffectCompositeDef Bleeding AddEffectText
+488938284982,<color EmStyle><DisplayName></color> is bleeding,,,ModItemCharacterEffectCompositeDef Bleeding AddEffectText
 738668654416,Ранен,,,ModItemCharacterEffectCompositeDef Wounded DisplayName
 345786294171,Макс. количество <color EmStyle>ОЗ снижается на <MaxHpReductionPerStack></color> за каждую рану. Так же с каждой раной снижается <color EmStyle>Количество ОД </color>. Можно вылечить операцией <color EmStyle>Лечение ран</color> в режиме Вида со спутника.,,,ModItemCharacterEffectCompositeDef Wounded Description
 116769410151,Снижение точности,,,ModItemCharacterEffectCompositeDef Inaccurate DisplayName

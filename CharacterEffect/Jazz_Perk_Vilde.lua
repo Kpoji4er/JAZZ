@@ -22,8 +22,8 @@ DefineClass.Jazz_Perk_Vilde = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005017, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vilde DisplayName]] "Ночной автоматчик"),
-	Description = T(890000000005018, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vilde Description]] "Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания."),
+	DisplayName = T(890000000005037, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vilde DisplayName]] "Ночной автоматчик"),
+	Description = T(890000000005038, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vilde Description]] "Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Vilde.png",
 	Tier = "Personal",
 }

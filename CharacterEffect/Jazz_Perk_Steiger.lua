@@ -22,8 +22,8 @@ DefineClass.Jazz_Perk_Steiger = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005021, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger DisplayName]] "Ночной инструктор"),
-	Description = T(890000000005022, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger Description]] "Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания."),
+	DisplayName = T(890000000005041, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger DisplayName]] "Ночной инструктор"),
+	Description = T(890000000005042, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger Description]] "Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Steiger.png",
 	Tier = "Personal",
 }

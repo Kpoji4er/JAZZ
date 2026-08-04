@@ -26,8 +26,8 @@ DefineClass.Jazz_Perk_Vince = {
 			end,
 		}),
 	},
-	DisplayName = T(890000000005009, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Полевой наставник"),
-	Description = T(890000000005010, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД."),
+	DisplayName = T(890000000005029, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Полевой наставник"),
+	Description = T(890000000005030, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Vince.png",
 	Tier = "Personal",
 }
