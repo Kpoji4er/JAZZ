@@ -18,10 +18,10 @@ local JAZZ_IMP_DIALOGUE_PERKS = {
 	Psycho = true,
 }
 
+-- Personal IMP pool extras (Personality). Sniper is Perk-Specialization → tactical grid.
 local JAZZ_IMP_EXTRA_PERSONAL = {
 	"Jazz_Perk_Mimicry",
 	"Jazz_Perk_Veteran",
-	"Jazz_Perk_Sniper",
 }
 
 function JazzIsDialogueSocialPerk(perk)
@@ -176,7 +176,7 @@ local function JazzImpInstallDialogueConditionWraps()
 	end
 end
 
---- Personal perk row: vanilla HList @ spacing 46 overflows after Mimicry/Veteran/Sniper.
+--- Personal perk row: vanilla HList @ spacing 46 overflows after Mimicry/Veteran.
 --- Keep HList (HWrap stole clicks from the tactical Grid below). Tighten spacing only.
 local function JazzImpWalkPatchPersonalHList(node, depth)
 	if type(node) ~= "table" or (depth or 0) > 48 then

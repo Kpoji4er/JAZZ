@@ -67,7 +67,7 @@ IMP получает статичный `IMP_equipment_basic` при `CreateUnit
 - `JAZZ-IMP-001-REQ-004` — `Jazz_Perk_Mimicry` passes dialogue conditions for Negotiator/Scoundrel/Psycho only.
 - `JAZZ-IMP-001-REQ-005` — `Jazz_Perk_Veteran` adds +10 in SkillCheck, RollSkillCheck, UnitHasStat.
 - `JAZZ-IMP-001-REQ-006` — `Jazz_Perk_Sniper` adds +1 via OnCalcMaxAimActions.
-- `JAZZ-IMP-001-REQ-007` — Mimicry/Veteran/Sniper appear in `ImpGetPersonalPerks()`; Group `Perk-Personality`.
+- `JAZZ-IMP-001-REQ-007` — Mimicry/Veteran appear in `ImpGetPersonalPerks()` (Group `Perk-Personality`); Sniper is Group `Perk-Specialization` (IMP tactical grid via `Presets...["Perk-Specialization"]`).
 - `JAZZ-IMP-001-REQ-008` — `IMP_equipment_basic` is a minimal placeholder until hire rebuild.
 
 ## Инварианты и ограничения
@@ -118,3 +118,4 @@ IMP получает статичный `IMP_equipment_basic` при `CreateUnit
 - `docs/wiki/` + `docs/showcase/ru|en` mercenaries/perks
 - Playtest fix 2026-08-04: jazz-units `LootEntryUpgradedWeapon` legacy upgrade IDs remapped to `JAZZ_*` (`docs/tools/_apply_loot_upgrade_id_remap.py`).
 - Playtest UX 2026-08-04: personal perk row stays `HList` with spacing 12; wrap `ImpCalcAnswers` via `JazzSanitizeImpPerks` (empty tactical slots).
+- Playtest fix 2026-08-04 (certificate): Russian.csv Translation for Mimicry/Veteran/Sniper; Sniper → tactical (`Perk-Specialization`); Veteran icon `OldDog` (not Teacher); AIM filter icons use `Specialization.icon`; Recoil rollover guards `GetBaseAttack`.

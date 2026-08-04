@@ -18,5 +18,5 @@ DefineClass.Jazz_Perk_Sniper = {
 	DisplayName = T(890000000001935, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Sniper DisplayName]] "Снайпер"),
 	Description = T(890000000001936, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Sniper Description]] "Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия."),
 	Icon = "UI/Icons/Perks/Deadeye",
-	Tier = "Personality",
+	Tier = "Specialization",
 }

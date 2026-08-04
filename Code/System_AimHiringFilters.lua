@@ -34,6 +34,8 @@ function GetAIMScreenFilters()
 			nameString = string.lower(Specialization.id),
 			-- ASCII path for PDA URL bar (never localized DisplayName).
 			urlName = Untranslated(Specialization.id),
+			-- Class portrait icon (not UI/Icons/hf_<id> — those assets do not exist).
+			icon = Specialization.icon,
 			func = function(item)
 				return IsMetAIMMerc(item) and item.Specialization == Specialization.id
 			end,

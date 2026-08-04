@@ -6,6 +6,7 @@ DefineClass.Jazz_Perk_Veteran = {
 	object_class = "Perk",
 	DisplayName = T(890000000001933, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Veteran DisplayName]] "Ветеран"),
 	Description = T(890000000001934, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Veteran Description]] "Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks)."),
-	Icon = "UI/Icons/Perks/Teacher",
+	-- Distinct from Teacher (same graduation-cap look confused IMP personal vs tactical).
+	Icon = "UI/Icons/Perks/OldDog",
 	Tier = "Personality",
 }

@@ -69,4 +69,4 @@ For each equipped firearm: spare stack ≈ `max(MagazineSize × 4, 60)` (prefer 
 | `Jazz_Perk_Veteran` | +10 to `SkillCheck` / `RollSkillCheck` / `UnitHasStat` |
 | `Jazz_Perk_Sniper` | +1 `OnCalcMaxAimActions` any weapon |
 
-Selectable via wrapped `ImpGetPersonalPerks()` on IMP result screen.
+Selectable on the IMP certificate: Mimicry/Veteran via wrapped `ImpGetPersonalPerks()` (personal row); Sniper via `Perk-Specialization` (tactical grid).

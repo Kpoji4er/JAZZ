@@ -35,9 +35,9 @@
 | `GrizzlyPerk` | Grizzly | Личная MG-атака + CTH/recoil |
 | `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP первый ход |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира |
-| `Jazz_Perk_Mimicry` | IMP | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
-| `Jazz_Perk_Veteran` | IMP | +10 ко всем skill/stat checks |
-| `Jazz_Perk_Sniper` | IMP | +1 макс. уровень прицеливания (любое оружие) |
+| `Jazz_Perk_Mimicry` | IMP (личностные) | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
+| `Jazz_Perk_Veteran` | IMP (личностные) | +10 ко всем skill/stat checks |
+| `Jazz_Perk_Sniper` | IMP (тактические) | +1 макс. уровень прицеливания (любое оружие) |
 
 Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
 

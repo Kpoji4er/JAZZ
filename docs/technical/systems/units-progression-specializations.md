@@ -30,7 +30,8 @@
 - `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005): PDA mode `ame`, market tick, nationality flags;
 - `Code/System_OR_Unit.lua`, `System_UnitInventory.lua`, `System_UnitAppearance.lua` — runtime schema;
 - `Code/System_IMP_StartingGear.lua` — JA2-style динамический стартовый экип IMP (`JazzBuildImpStartingGear` / `JazzApplyImpStartingGear`);
-- `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap, sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid).
+- `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap (Mimicry+Veteran only), sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid).
+- AIM PDA filters: `System_AimHiringFilters` stores `Specialization.icon`; `PDAAIMBrowser` uses `item.icon` (avoids missing `UI/Icons/hf_<specId>`).
 
 `Code/AimHiringScreen_Template.lua` существует в core, но не указан в metadata и не загружается. Не считать его активным XTemplate. Фактический UI изменяется generated XTemplate/загруженным кодом.
 
@@ -38,7 +39,7 @@
 
 Hire path: `CreateImpMercData(sync)` после статов/перков очищает инвентарь и собирает кит по таблице [docs/design/imp-starting-gear.md](../../design/imp-starting-gear.md). Campaign-init `IMP_equipment_basic` (jazz-units) — только placeholder (бинты).
 
-Personality pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Scoundrel/Psycho), `Jazz_Perk_Veteran` (+10 SkillCheck/RollSkillCheck/UnitHasStat), `Jazz_Perk_Sniper` (`OnCalcMaxAimActions` +1).
+Personal (Personality) pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Scoundrel/Psycho), `Jazz_Perk_Veteran` (+10 SkillCheck/RollSkillCheck/UnitHasStat; icon `OldDog`). Tactical (`Perk-Specialization`) extra: `Jazz_Perk_Sniper` (`OnCalcMaxAimActions` +1; icon `Deadeye`). Certificate UI lists all `Perk-Specialization` presets in the tactical grid (vanilla Teacher/MrFixit/Throwing/… plus Sniper).
 
 ## Снимок generated data
 

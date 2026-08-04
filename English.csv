@@ -7639,12 +7639,6 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000001798,Задание выполнено! Хочу что-нибудь сделать.,Job done! Fancy something else.,,jazz-units:VoiceResponse Jazz_Colby ActivityFinished
 890000000001799,Я тебе не игрушечный солдатик. Не буду делать!,I'm not a toy soldier. Not doing that!,,jazz-units:VoiceResponse Jazz_Colby NotNow
 890000000001801,"Атаки ближнего боя: +20 к шансу попадания, критические удары невозможны.",Melee attacks: +20 chance to hit; critical hits are disabled.,,Jazz_Perk_WaveA
-890000000001931,Мимикрия,Mimicry,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
-890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Passes <em>Negotiator</em>, <em>Scoundrel</em>, and <em>Psycho</em> conversation perk checks without their combat or economy effects.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
-890000000001933,Ветеран,Veteran,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
-890000000001934,"Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).","<em>+10</em> bonus to all skill and attribute checks (dialogue, exploration, skill checks).",,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
-890000000001935,Снайпер,Sniper,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
-890000000001936,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,Maximum aiming level <em>+1</em> when firing any weapon.,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
 890000000002101,Убийство в упор (дистанция 1 клетка) даёт Воодушевление.,A point-blank kill (range 1 tile) grants Inspired.,,Jazz_Perk_WaveA
 890000000002431,Шахтёрский надзор,Mine Overseer,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002432,"Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты","While Rothman garrisons a sector with a mine, he can run a special operation that catches thieving steigers and temporarily boosts mine income",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
@@ -11976,3 +11970,9 @@ ID,Text,Translation,VoiceActor,Context
 890000000005695,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_60
 890000000005696,До связи.,Contract accepted.,,JAZZ_AME_60
 # JAZZ-UNITS-005-AME-LOC-END
+890000000001931,Мимикрия,Mimicry,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Passes <em>Negotiator</em>, <em>Scoundrel</em>, and <em>Psycho</em> conversation perk checks without their combat or economy effects.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001933,Ветеран,Veteran,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001934,"Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).","<em>+10</em> bonus to all skill and attribute checks (dialogue, exploration, skill checks).",,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001935,Снайпер,Sniper,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
+890000000001936,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,Maximum aiming level <em>+1</em> when firing any weapon.,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua

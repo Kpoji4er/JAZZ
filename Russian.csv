@@ -7629,12 +7629,6 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001928,Жду сигнала.,Жду сигнала.,,jazz-units:items.lua:71964
 890000000001929,Хоть бы Злобного тут не было.,Хоть бы Злобного тут не было.,,jazz-units:items.lua:71970
 890000000001930,Рада драться рядом со своими.,Рада драться рядом со своими.,,jazz-units:items.lua:71976
-890000000001931,Мимикрия,Mimicry,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
-890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Passes <em>Negotiator</em>, <em>Scoundrel</em>, and <em>Psycho</em> conversation perk checks without their combat or economy effects.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
-890000000001933,Ветеран,Veteran,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
-890000000001934,"Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).","<em>+10</em> bonus to all skill and attribute checks (dialogue, exploration, skill checks).",,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
-890000000001935,Снайпер,Sniper,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
-890000000001936,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,Maximum aiming level <em>+1</em> when firing any weapon.,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
 890000000002000,Точильщик,Точильщик,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002001,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002002,[WIP] Димитрий Газзо,[WIP] Димитрий Газзо,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
@@ -12197,3 +12191,9 @@ ID,Text,Translation,VoiceActor,Context
 890000000005695,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_60
 890000000005696,Contract accepted.,До связи.,,JAZZ_AME_60
 # JAZZ-UNITS-005-AME-LOC-END
+890000000001931,Мимикрия,Мимикрия,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
+890000000001933,Ветеран,Ветеран,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001934,"Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).","Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks).",,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
+890000000001935,Снайпер,Снайпер,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua
+890000000001936,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия.,,jazz:CharacterEffect/Jazz_Perk_Sniper.lua

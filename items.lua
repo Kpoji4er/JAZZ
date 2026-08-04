@@ -99,7 +99,7 @@ return {
 								'__context', function (parent, context, item, i, n) return item end,
 								'run_after', function (child, context, item, i, n, last)
 									child:SetGridX(i)
-									child:SetIcon("UI/Icons/hf_" .. item.nameString)
+									child:SetIcon(item.icon or ("UI/Icons/hf_" .. item.nameString))
 									rawset(child, "lastIndex", i == last)
 								end,
 							}, {
@@ -70216,13 +70216,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'DisplayName', T(890000000001933, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Veteran DisplayName]] "Ветеран"),
 					'Description', T(890000000001934, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Veteran Description]] "Бонус <em>+10</em> ко всем проверкам навыков и характеристик (диалоги, исследование, skill checks)."),
-					'Icon', "UI/Icons/Perks/Teacher",
+					'Icon', "UI/Icons/Perks/OldDog",
 					'Tier', "Personality",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personality",
+					'Group', "Perk-Specialization",
 					'Id', "Jazz_Perk_Sniper",
-					'SortKey', 22,
+					'SortKey', 110,
 					'object_class', "Perk",
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
@@ -70238,7 +70238,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'DisplayName', T(890000000001935, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Sniper DisplayName]] "Снайпер"),
 					'Description', T(890000000001936, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Sniper Description]] "Максимальный уровень прицеливания <em>+1</em> при стрельбе из любого оружия."),
 					'Icon', "UI/Icons/Perks/Deadeye",
-					'Tier', "Personality",
+					'Tier', "Specialization",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Quirk",
@@ -78997,13 +78997,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						PlaceObj('XTemplateTemplate', {
 							'comment', "Recoil",
 							'__condition', function (parent, context)
-								local cnt = ResolvePropObj(context);
-								
-									local baseAttack = cnt:GetBaseAttack(false, "force")
-									local baseAction = CombatActions[baseAttack]
-									 if ((baseAction.id == "AutoFire") or (baseAction.id == "BurstFire") or (baseAction.id == "MGBurstFire"))
-								    then return  IsKindOf(cnt, "Firearm") 
-									else return false end
+								local cnt = ResolvePropObj(context)
+								if not IsKindOf(cnt, "Firearm") then return false end
+								local baseAttack = cnt:GetBaseAttack(false, "force")
+								if not baseAttack then return false end
+								local baseAction = CombatActions[baseAttack]
+								if not baseAction then return false end
+								return baseAction.id == "AutoFire" or baseAction.id == "BurstFire" or baseAction.id == "MGBurstFire"
 							end,
 							'__template', "RolloverPropTextRight",
 							'IgnoreMissing', true,
