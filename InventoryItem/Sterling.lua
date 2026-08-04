@@ -57,7 +57,7 @@ DefineClass.Sterling = {
 	WeaponSizeClass = "Carbine",
 	BurstLimiter = 0,
 	MaxAimActions = 2,
-	Recoil = 18,
+	Recoil = 12,
 	BurstShots = 3,
 	AutoShots = 6,
 

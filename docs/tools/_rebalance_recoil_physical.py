@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Apply JAZZ-WEAPONS-003 physical firearm authoring data.
+"""Apply JAZZ-WEAPONS-003/008 physical firearm authoring data.
 
 Reads the active rows in weapons.csv, assigns the authored mass/RPM/size/limiter
 profile, derives Recoil/BurstShots/AutoShots, and writes the same values to the
-InventoryItem companion and its ModItemInventoryItemCompositeDef in items.lua.
+InventoryItem companion, ModItemInventoryItemCompositeDef in items.lua, and CSV.
 Default operation is a dry run; --apply writes .bak siblings once per file.
+
+JAZZ-WEAPONS-008: SMG mass/size placeholders (80/Long) replaced; SMG floor 12;
+true MG auto cap ignores SubmachineGun substring.
 """
 from __future__ import annotations
 
@@ -30,6 +33,7 @@ IMPULSE = {
 
 # Exact authoring corrections.  All other active firearms receive the explicit
 # class/caliber profile below, keeping this table small enough to audit.
+# Tuple: mass (0.1 kg), rpm, size, limiter, optional Recoil override.
 AUTHORED_OVERRIDES = {
     "AK74": (35, 650, "Rifle", 0, 15),
     "AKM": (36, 600, "Rifle", 0, 25),
@@ -38,8 +42,27 @@ AUTHORED_OVERRIDES = {
     "MP5K": (30, 900, "Compact", 0, None),
     "MP5": (30, 800, "Carbine", 0, None),
     "MP5A2": (31, 800, "Carbine", 0, None),
+    "MP5A4": (31, 800, "Carbine", 0, None),
+    "MP5SD": (34, 800, "Carbine", 0, None),
     "Sterling": (33, 550, "Carbine", 0, None),
     "BerettaM12": (32, 600, "Carbine", 0, None),
+    "MAT49": (36, 600, "Carbine", 0, None),
+    "MP40": (40, 500, "Carbine", 0, None),
+    "M3GreaseGun": (36, 450, "Carbine", 0, None),
+    "PPS43": (30, 600, "Carbine", 0, None),
+    "PPSH": (36, 900, "Carbine", 0, None),
+    "Thompson": (48, 700, "Carbine", 0, None),
+    "MPL": (30, 550, "Carbine", 0, None),
+    "Agram2000": (22, 800, "Compact", 0, None),
+    "UZI": (35, 600, "Carbine", 0, None),
+    "M45": (35, 600, "Carbine", 0, None),
+    "PP19Bizon": (27, 680, "Carbine", 0, None),
+    "SpectreM4": (29, 850, "Compact", 0, None),
+    "TMP": (25, 900, "Compact", 0, None),
+    "UMP45": (30, 600, "Carbine", 0, None),
+    "MP7": (21, 950, "Compact", 0, None),
+    "P90": (28, 900, "Compact", 0, None),
+    "LionRoar": (35, 700, "Carbine", 0, None),
     "M16A2": (34, 700, "Rifle", 3, None),
     "AN94": (39, 1800, "Rifle", 2, None),
     "MAC10": (28, 1100, "Compact", 0, None),
@@ -68,21 +91,30 @@ def caliber_key(caliber: str) -> str:
     return "762x39" if "762" in text else "9x19"
 
 
+def is_true_machinegun(cls: str) -> bool:
+    """SubmachineGun contains 'machinegun'; do not treat SMG as belt MG."""
+    return "submachine" not in cls and (
+        cls in {"machinegun", "lightmachinegun"} or cls.endswith("machinegun")
+    )
+
+
 def default_profile(row: dict[str, str]) -> tuple[int, int, str, int, float]:
     cls = row["object_class"].lower()
-    # Prefer CSV-authored mass/rpm/size when present (unique/quest companions).
+    # Prefer CSV-authored mass/rpm/size when present (unique/quest companions),
+    # but reject known SMG placeholders (mass≥70 + Long) from WEAPONS-003 drift.
     csv_mass = int(row["weapon_mass"] or 0) if row.get("weapon_mass") else 0
     csv_rpm = int(row["cyclic_rpm"] or 0) if row.get("cyclic_rpm") else 0
     csv_size = row.get("weapon_size_class") or ""
     csv_lim = int(row["burst_limiter"] or 0) if row.get("burst_limiter") else 0
-    if csv_mass and csv_size in SIZE_FACTOR:
+    smg_placeholder = "submachine" in cls and csv_mass >= 70 and csv_size == "Long"
+    if csv_mass and csv_size in SIZE_FACTOR and not smg_placeholder:
         return csv_mass, csv_rpm, csv_size, csv_lim, 1.0
     if "sniper" in cls or "precision" in cls:
         return 55, 0, "Long", 0, 1.0
     # SubmachineGun before MachineGun: "submachinegun" contains "machinegun".
     if "submachine" in cls:
         return 32, 700, "Carbine", 0, 1.0
-    if cls in {"machinegun", "lightmachinegun"} or cls.endswith("machinegun"):
+    if is_true_machinegun(cls):
         return 80, 700, "Long", 0, .92
     if "shotgun" in cls:
         return 36, 0, "Rifle", 0, 1.0
@@ -108,14 +140,20 @@ def authored_profile(row: dict[str, str]) -> Profile:
     rpm_f = 1 + max(-.08, min(.18, (rpm - 700) / 2000))
     recoil = round(impulse * mass_f * SIZE_FACTOR[size] * rpm_f * family_f)
     cls = row["object_class"].lower()
-    floor = 5 if ("pistol" in cls or "revolver" in cls) else 12 if "assault" in cls else 18
+    # WEAPONS-008: SMG floor 12 (was 18 — flattened all ПП). AR also 12.
+    if "pistol" in cls or "revolver" in cls:
+        floor = 5
+    elif "submachine" in cls or "assault" in cls:
+        floor = 12
+    else:
+        floor = 18
     recoil = max(floor, min(70, recoil_override if recoil_override is not None else recoil))
     attacks = row["available_attacks"]
     # Shotgun pellet count is BuckshotProjectiles (JAZZ-WEAPONS-006), not AutoShots.
     burst = max(2, min(8, round(rpm / 200))) if rpm and ("BurstFire" in attacks or limiter) else 0
     if limiter:
         burst = min(burst, limiter) if burst else 0
-    auto_max = 10 if "machinegun" in cls else 14
+    auto_max = 10 if is_true_machinegun(cls) else 14
     auto = max(3, min(auto_max, round(rpm / 100))) if rpm and "AutoFire" in attacks else 0
     return Profile(mass, rpm, size, limiter, recoil, burst, auto)
 
@@ -196,6 +234,35 @@ def write(path: Path, content: str, apply: bool) -> None:
             handle.write(content)
 
 
+def update_csv(profiles: dict[str, Profile], apply: bool) -> None:
+    with CSV.open(encoding="utf-8-sig", newline="") as stream:
+        reader = csv.DictReader(stream)
+        fieldnames = reader.fieldnames or []
+        rows = list(reader)
+    for row in rows:
+        profile = profiles.get(row["id"])
+        if not profile:
+            continue
+        row["weapon_mass"] = str(profile.mass)
+        row["cyclic_rpm"] = str(profile.rpm)
+        row["weapon_size_class"] = profile.size
+        row["burst_limiter"] = str(profile.limiter)
+        row["recoil"] = str(profile.recoil)
+        if "burst_shots" in row:
+            row["burst_shots"] = str(profile.burst)
+        if "auto_shots" in row:
+            row["auto_shots"] = str(profile.auto)
+    if not apply:
+        return
+    backup = CSV.with_suffix(CSV.suffix + ".bak")
+    if not backup.exists():
+        shutil.copy2(CSV, backup)
+    with CSV.open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=fieldnames, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
@@ -227,10 +294,22 @@ def main() -> None:
         if weapon_id not in seen:
             # Unique/quest companions may exist without a ModItem block in items.lua.
             moditem_missing.append(weapon_id)
+    update_csv(profiles, args.apply)
     print(f"{'applied' if args.apply else 'dry-run'} active={len(profiles)} items={len(seen)}")
-    for weapon_id in ("AK74", "AKM", "FNFAL", "MicroUZI", "MP5K", "MP5", "Sterling", "BerettaM12", "LionRoar", "TexRevolver"):
+    for weapon_id in (
+        "AK74", "AKM", "FNFAL", "MicroUZI", "MP5K", "MP5A2", "Sterling",
+        "MAT49", "UZI", "P90", "LionRoar", "TexRevolver",
+    ):
         if weapon_id in profiles:
             print(f"{weapon_id}: {profiles[weapon_id]}")
+    smg = [
+        (row["id"], profiles[row["id"]])
+        for row in active
+        if "submachine" in row["object_class"].lower() and row["id"] in profiles
+    ]
+    if smg:
+        recoils = sorted({p.recoil for _, p in smg})
+        print(f"SMG Recoil set={recoils} n={len(smg)}")
     if companion_missing:
         raise SystemExit("missing companions: " + ", ".join(companion_missing))
     if moditem_missing:

@@ -29,11 +29,11 @@ DefineClass.JAZZ_AMMO_762x51_Crafted = {
 			target_prop = "PenetrationBonus",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = -25,
+			mod_add = -18,
 			target_prop = "Reliability",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 200,
+			mod_add = 140,
 			target_prop = "BaseJamChance",
 		}),
 		PlaceObj('CaliberModification', {

@@ -33,11 +33,11 @@ DefineClass.JAZZ_AMMO_762x51_Poor = {
 			target_prop = "Damage",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = -5,
+			mod_add = -4,
 			target_prop = "Reliability",
 		}),
 		PlaceObj('CaliberModification', {
-			mod_add = 100,
+			mod_add = 70,
 			target_prop = "BaseJamChance",
 		}),
 		PlaceObj('CaliberModification', {

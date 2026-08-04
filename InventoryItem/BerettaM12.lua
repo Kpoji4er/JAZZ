@@ -71,7 +71,7 @@ DefineClass.BerettaM12 = {
 	CyclicRPM = 600,
 	WeaponSizeClass = "Carbine",
 	BurstLimiter = 0,
-	Recoil = 18,
+	Recoil = 12,
 	BurstShots = 3,
 	AutoShots = 6,
 

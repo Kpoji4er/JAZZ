@@ -264,15 +264,16 @@ function FirearmBase:GetBaseJamChanceRaw()
 	local base_jam = item.BaseJamChance or 5
 	local base = Max(0, (100 - reliability) + base_jam)
 
+	-- WEAPONS-008: wear tiers softened (was 24/16/8/4).
 	local degrade_mult = 1
 	if condition_percent <= 15 then
-		degrade_mult = 24
+		degrade_mult = 18
 	elseif condition_percent <= 40 then
-		degrade_mult = 16
+		degrade_mult = 12
 	elseif condition_percent <= 60 then
-		degrade_mult = 8
+		degrade_mult = 6
 	elseif condition_percent <= 80 then
-		degrade_mult = 4
+		degrade_mult = 3
 	end
 
 	local raw_chance = base * degrade_mult

@@ -85,13 +85,13 @@ DefineClass.MP5SD = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	WeaponMass = 80,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Long",
+	WeaponMass = 34,
+	CyclicRPM = 800,
+	WeaponSizeClass = "Carbine",
 	BurstLimiter = 0,
 	BurstShots = 4,
-	Recoil = 18,
-	AutoShots = 7,
+	Recoil = 13,
+	AutoShots = 8,
 
 	CloseRange = 2,
 

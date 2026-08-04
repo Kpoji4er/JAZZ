@@ -125,10 +125,12 @@ JamScore = clamp(base × degrade_multiplier [× rain], 0, 1000)
 | Condition % | Multiplier |
 |---|---|
 | > 80 | ×1 |
-| ≤ 80 | ×4 |
-| ≤ 60 | ×8 |
-| ≤ 40 | ×16 |
-| ≤ 15 | ×24 |
+| ≤ 80 | ×3 |
+| ≤ 60 | ×6 |
+| ≤ 40 | ×12 |
+| ≤ 15 | ×18 |
+
+(WEAPONS-008: softened from 4/8/16/24.) Poor/Crafted ammo still raise `BaseJamChance` / cut Reliability via Reload modifiers; Crafted ≈ +140 JamScore / Rel−18, 9×19 Poor ≈ +120 / Rel−10.
 
 Mechanical снижает score **пропорционально** (`MulDivRound(score, Mechanical, 120)` у мерков + малый secondary Marks/Wisdom/Level; у AI знаменатель 150). Одиночный выстрел делит score пополам через `DivRound`. `FirearmBase:GetDisplayJamChancePercent(attacker?)` отдаёт приведённый %.
 

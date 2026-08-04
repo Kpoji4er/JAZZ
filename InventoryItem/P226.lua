@@ -101,6 +101,8 @@ DefineClass.P226 = {
 	},
 	ShootAP = 2000,
 	ReloadAP = 3000,
+	CyclicRPM = 0,
+	BurstLimiter = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
 	BurstShots = 0,

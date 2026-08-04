@@ -74,13 +74,13 @@ DefineClass.P90 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 7000,
-	WeaponMass = 80,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Long",
+	WeaponMass = 28,
+	CyclicRPM = 900,
+	WeaponSizeClass = "Compact",
 	BurstLimiter = 0,
-	Recoil = 18,
+	Recoil = 17,
 	BurstShots = 4,
-	AutoShots = 7,
+	AutoShots = 9,
 
 	CloseRange = 2,
 

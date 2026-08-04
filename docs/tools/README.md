@@ -235,7 +235,9 @@ python docs/tools/build-sector-atlas-docs.py
 | `_apply_buckshot_projectiles.py` | JAZZ-WEAPONS-006: `BuckshotProjectiles=1` на SG, ammo `target_prop` → `BuckshotProjectiles`, CombatAction/CSV; Auto/Burst снова 0. `--apply`. |
 | `_verify_buckshot_projectiles.py` | Static AC-001..003 для WEAPONS-006. Exit 1 при FAIL. |
 | `_fix_shotgun_pellet_autoshots.py` | **Superseded by 006** — старый hotfix AutoShots=1; не использовать. |
-| `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003: authoring mass/RPM/size/limiter и physical Recoil/Burst/Auto; не трогает `BuckshotProjectiles`. `--apply` пишет `.bak`. |
+| `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003/008: authoring mass/RPM/size/limiter и physical Recoil/Burst/Auto; SMG placeholder reject + floor 12; пишет CSV. `--apply` → `.bak`. |
+| `_soften_ammo_jam.py` | JAZZ-WEAPONS-008: смягчает Poor/Crafted `BaseJamChance`/`Reliability` в `items.lua` + companions. `--apply`. |
+| `_tmp_audit_smg_jam_feedback.py` | Discord audit: SMG Recoil distribution + Poor/Crafted JamScore scenarios. |
 | `_audit_recoil_dist.py` | Static AC audit полей active firearms, recoil anchors, 9×19 differentiation и M16A2/AN94 limiters. |
 | `_fix_madman_salary.py` | Jazz_Madman: `StartingSalary`/`SalaryLv1`/`SalaryMaxLv` в `jazz-units/items.lua` (companion править отдельно). |
 | `_fix_free_merc_salaries.py` | Jazz_Grom / Jazz_Hitman: paid hire salaries в companion + `jazz-units/items.lua`. |

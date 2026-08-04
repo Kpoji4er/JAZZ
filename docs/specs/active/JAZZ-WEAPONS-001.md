@@ -52,7 +52,7 @@ approved_by: project-owner
 ## Требования
 
 - `JAZZ-WEAPONS-001-REQ-001` — JamScore ∈ `[0, 1000]`; `jam_roll < score` с `attacker:Random(1000)`; display `%` = `DivRound(score, 10)`.
-- `JAZZ-WEAPONS-001-REQ-002` — condition multipliers: `>80` ×1, `<=80` ×4, `<=60` ×8, `<=40` ×16, `<=15` ×24 via `elseif`.
+- `JAZZ-WEAPONS-001-REQ-002` — condition multipliers via `elseif` (original 4/8/16/24; **WEAPONS-008** softens to 3/6/12/18).
 - `JAZZ-WEAPONS-001-REQ-003` — Mechanical reduces score proportionally (merc `/120` + small secondary; AI `/150`); single shot halves score via `DivRound`.
 - `JAZZ-WEAPONS-001-REQ-004` — ammo rollover keeps `BaseJamChance/10` as `%`; modify UI keeps Reliability only.
 - `JAZZ-WEAPONS-001-REQ-005` — `Handling` property and data remain; CTH modifier `Handling` returns false; overwatch cone uses only `OverwatchAngle`.
@@ -99,7 +99,7 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-WEAPONS-001-AC-001`: `PASS` — static: `GetBaseJamChanceRaw` uses elseif tiers (15→24, 40→16, 60→8, 80→4)
+- `JAZZ-WEAPONS-001-AC-001`: `PASS` — static: `GetBaseJamChanceRaw` uses elseif tiers (superseded numbers in WEAPONS-008: 15→18, 40→12, 60→6, 80→3)
 - `JAZZ-WEAPONS-001-AC-002`: `PASS` — static: Mechanical only in `GetJamChance`; roll `attacker:Random(1000)`
 - `JAZZ-WEAPONS-001-AC-003`: `PASS` — static: `AmmoRolloverHint` uses `mod_mul`; BaseJamChance `/10`
 - `JAZZ-WEAPONS-001-AC-004`: `PASS` — static: Handling CTH inert; overwatch without Handling term
