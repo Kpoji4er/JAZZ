@@ -436,7 +436,25 @@ function SatelliteReachSectorCenter(squad_id, sector_id, prev_sector_id, dontUpd
 		ExecuteSectorEvents("SE_OnSquadReachSectorCenter", sector_id)
 	end
 	NetUpdateHash("SatelliteReachSectorCenter_FireMessage", squad_id, sector_id)
+	-- Camp du Crocodile: vanilla HotDiamonds OnMsg does `for i = 1, table.find(G13..G14, sector)`.
+	-- JAZZ remaps home/route (I19 loop) → place=nil assert on InitialSquad spawn. Hide def for
+	-- this Msg only. Maps may export JAZZ_UpdateCrocodilePatrolOnReachSectorCenter for remapped route.
+	local jazz_croc_squad = gv_Squads and gv_Squads[squad_id]
+	local jazz_croc_prev_def
+	if jazz_croc_squad and jazz_croc_squad.enemy_squad_def == "CampCrocodile_CirclingPatrol" then
+		local updater = rawget(_G, "JAZZ_UpdateCrocodilePatrolOnReachSectorCenter")
+		if type(updater) == "function" then
+			updater(squad_id, sector_id)
+		end
+		if not table.find({ "G13", "H13", "I13", "I14", "I15", "H15", "G15", "G14" }, sector_id) then
+			jazz_croc_prev_def = jazz_croc_squad.enemy_squad_def
+			jazz_croc_squad.enemy_squad_def = false
+		end
+	end
 	Msg("ReachSectorCenter", squad_id, sector_id, prev_sector_id)
+	if jazz_croc_prev_def then
+		jazz_croc_squad.enemy_squad_def = jazz_croc_prev_def
+	end
 	
 	-- Check if joining a squad, or any squad wants to join this one
 	if player_squad then
@@ -1078,8 +1096,8 @@ function SetSatelliteSquadRoute(squad, route, keepJoiningSquad, from, squadPos)
 	end
 	
 	-- Prevent squads starting travel from briefly missing conflict.
-	local curSector = gv_Sectors[squad.CurrentSector]
-	if not wasTravelling and not squad.Retreat and not curSector.conflict then
+	local curSector = squad.CurrentSector and gv_Sectors[squad.CurrentSector]
+	if not wasTravelling and not squad.Retreat and curSector and not curSector.conflict then
 		-- Used to mark this squad as not being centered despite not having moved yet.
 		-- This will prevent other cases of briefly missing conflict,
 		-- such as when the player squad is fast enough to exit the sector before the next check.
@@ -1091,11 +1109,15 @@ function SetSatelliteSquadRoute(squad, route, keepJoiningSquad, from, squadPos)
 	
 	-- If the first sector in the route is a water tile,
 	-- we're water travelling from the get go.
+	-- Guard: empty/malformed waypoint (first sector nil) used to assert on gv_Sectors[nil].
 	local first = route and route[1]
 	first = first and first[1]
-	SetSquadWaterTravel(squad, gv_Sectors[first].Passability == "Water")
+	local firstSector = first and gv_Sectors[first]
+	SetSquadWaterTravel(squad, firstSector and firstSector.Passability == "Water")
 	
-	ObjModified(curSector)
+	if curSector then
+		ObjModified(curSector)
+	end
 	Msg("SquadStartedTravelling", squad)
 end
 

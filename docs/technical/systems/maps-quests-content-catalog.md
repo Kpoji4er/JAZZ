@@ -201,7 +201,7 @@
 ## Зависимости и пересечения
 
 - Squad/UnitData IDs живут в `jazz-units`; переименование ломает сектора maps.
-- Crocodile patrol: maps `System_JAZZ_CrocodilePatrol.lua` + quest `ReduceCrocodileCampStrength` (триггер M1 вместо vanilla I1).
+- Crocodile patrol: maps `System_JAZZ_CrocodilePatrol.lua` + core `SatelliteSquad.lua` hide-def guard + quest `ReduceCrocodileCampStrength` (триггер M1 вместо vanilla I1).
 - Override matrix: пересечения patrol/setup — [override-matrix](../override-matrix.md); детали setpiece M1 — briefing maps package.
 
 ## Чек-лист проверки
