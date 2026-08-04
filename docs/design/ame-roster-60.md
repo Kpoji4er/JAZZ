@@ -595,7 +595,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_21` ← donor `Legion_Artillery` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_21` ← donor `Heavy_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×40 · Knife
 
 | Stat | |
@@ -623,7 +623,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_22` ← donor `Legion_Artillery02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_22` ← donor `Heavy_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -651,7 +651,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_23` ← donor `Legion_Artillery03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_23` ← donor `Heavy_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
 | Stat | |
@@ -679,7 +679,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_24` ← donor `Legion_Demolishion` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_24` ← donor `Marksman_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Colt1911 · .45×24 · FragGrenade×2 · Knife · Bandage×1
 
 | Stat | |
@@ -707,7 +707,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_25` ← donor `Legion_Demolishion02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_25` ← donor `Marksman_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife · Bandage×1
 
 | Stat | |
@@ -735,7 +735,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_26` ← donor `Legion_Demolishion03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_26` ← donor `Marksman_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -763,7 +763,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_27` ← donor `Legion_Heavy` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_27` ← donor `Medic_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** M3GreaseGun · .45×60 · Knife
 
 | Stat | |
@@ -791,7 +791,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `HeavyWeaponsTraining`
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_28` ← donor `Legion_Heavy02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_28` ← donor `Medic_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** BAR · .30-06×60 · Knife · Bandage×1
 
 | Stat | |
@@ -819,7 +819,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`, `HeavyWeaponsTraining`
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_29` ← donor `Legion_Heavy03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_29` ← donor `Medic_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** PPS43 · 7.62x25×70 · FragGrenade×2 · Knife · Bandage×1
 
 | Stat | |
@@ -847,7 +847,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_30` ← donor `Legion_Jose` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_30` ← donor `Recon_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** M1897 · 12g×20 · Knife
 
 | Stat | |
@@ -875,7 +875,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_31` ← donor `Legion_Marksman` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_31` ← donor `Recon_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -931,7 +931,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_33` ← donor `Legion_Marksman02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_33` ← donor `Recon_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×20 · Knife
 
 | Stat | |
@@ -959,7 +959,7 @@
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_34` ← donor `Legion_Marksman03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_34` ← donor `Soldier_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
 | Stat | |
@@ -987,7 +987,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_35` ← donor `Legion_Recon` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_35` ← donor `Soldier_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife
 
 | Stat | |
@@ -1015,7 +1015,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_36` ← donor `Legion_Recon02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_36` ← donor `Soldier_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife · Wirecutter
 
 | Stat | |
@@ -1043,7 +1043,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_37` ← donor `Legion_Recon03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_37` ← donor `Soldier_Rebels_04` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×16 · Knife · Bandage×2
 
 | Stat | |
@@ -1071,7 +1071,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_38` ← donor `Legion_Shaman` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_38` ← donor `Stormer_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife
 
 | Stat | |
@@ -1439,7 +1439,7 @@
 - **Potential (Wisdom):** High
 - **Traits (common):** —
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_51` ← donor `Heavy_Rebels` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_51` ← donor `Stormer_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×24 · Medkit · Bandage×6 · Knife
 
 | Stat | |
@@ -1523,7 +1523,7 @@
 - **Potential (Wisdom):** High
 - **Traits (common):** `Teacher`
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_54` ← donor `Heavy_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_54` ← donor `Stormer_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×30 · Knife · Bandage×3
 
 | Stat | |
@@ -1551,7 +1551,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_55` ← donor `Heavy_Rebels_03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_55` ← donor `Legion_Jose` (male; blue recolor, source не править)
 - **Inventory (fixed):** Gewehr98 · 7.62×20 · Knife
 
 | Stat | |
@@ -1607,7 +1607,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
 - **Voice:** `IMP_male_03` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_57` ← donor `Marksman_Rebels` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_57` ← donor `Legion_Artillery` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife · ShapedCharge×2 · TNT×1 · PipeBomb×2 · Detonator · Wirecutter
 
 | Stat | |
@@ -1663,7 +1663,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_59` ← donor `Marksman_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_59` ← donor `Legion_Artillery02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Wirecutter · Crowbar · Knife
 
 | Stat | |
@@ -1691,7 +1691,7 @@
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_60` ← donor `Marksman_Rebels_03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_60` ← donor `Legion_Artillery03` (male; blue recolor, source не править)
 - **Inventory (fixed):** Wirecutter · Lockpick · Knife · Bandage×1
 
 | Stat | |

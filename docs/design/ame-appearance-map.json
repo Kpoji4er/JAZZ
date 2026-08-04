@@ -24,7 +24,7 @@
     "name": "Ibrahim Touré",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Chimurenga"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 4,
@@ -33,7 +33,7 @@
     "name": "Sani Abubakar",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Chimurenga"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 5,
@@ -42,7 +42,7 @@
     "name": "Pierre Ndongo",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 6,
@@ -51,7 +51,7 @@
     "name": "Moussa Diop",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 7,
@@ -69,7 +69,7 @@
     "name": "Thabo Molefe",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_M_IMP_01"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 9,
@@ -78,7 +78,7 @@
     "name": "Daniel Kiprop",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 10,
@@ -87,7 +87,7 @@
     "name": "Emmanuel Kabongo",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 11,
@@ -105,7 +105,7 @@
     "name": "Amadou Keita",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_M_IMP_01"
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 13,
@@ -114,7 +114,7 @@
     "name": "Chidi Okonkwo",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Chimurenga"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 14,
@@ -123,7 +123,7 @@
     "name": "Lucien Mbarga",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 15,
@@ -159,7 +159,7 @@
     "name": "Serge Kouassi",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 19,
@@ -168,7 +168,7 @@
     "name": "Bongani Dlamini",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Chimurenga"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 20,
@@ -177,39 +177,39 @@
     "name": "Idrissa Bah",
     "cat": "Irregulars",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 21,
     "id": "JAZZ_AME_21",
-    "donor": "Legion_Artillery",
+    "donor": "Heavy_Rebels",
     "name": "Omar Diallo",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": "Head_Chimurenga"
+  },
+  {
+    "slot": 22,
+    "id": "JAZZ_AME_22",
+    "donor": "Heavy_Rebels_02",
+    "name": "Bastien Lafontaine",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": "Head_Pierre"
+  },
+  {
+    "slot": 23,
+    "id": "JAZZ_AME_23",
+    "donor": "Heavy_Rebels_03",
+    "name": "Chukwuemeka Obi",
     "cat": "Fighters",
     "female": false,
     "head_swap": "Head_Jackhammer"
   },
   {
-    "slot": 22,
-    "id": "JAZZ_AME_22",
-    "donor": "Legion_Artillery02",
-    "name": "Bastien Lafontaine",
-    "cat": "Fighters",
-    "female": false,
-    "head_swap": "Head_M_IMP_01"
-  },
-  {
-    "slot": 23,
-    "id": "JAZZ_AME_23",
-    "donor": "Legion_Artillery03",
-    "name": "Chukwuemeka Obi",
-    "cat": "Fighters",
-    "female": false,
-    "head_swap": "Faction_Rebels_M_HeadMedic"
-  },
-  {
     "slot": 24,
     "id": "JAZZ_AME_24",
-    "donor": "Legion_Demolishion",
+    "donor": "Marksman_Rebels",
     "name": "Michel Kabeya",
     "cat": "Fighters",
     "female": false,
@@ -218,25 +218,25 @@
   {
     "slot": 25,
     "id": "JAZZ_AME_25",
-    "donor": "Legion_Demolishion02",
+    "donor": "Marksman_Rebels_02",
     "name": "Juma Otieno",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": "Faction_Rebels_M_HeadMedic"
+  },
+  {
+    "slot": 26,
+    "id": "JAZZ_AME_26",
+    "donor": "Marksman_Rebels_03",
+    "name": "Andile Nkosi",
     "cat": "Fighters",
     "female": false,
     "head_swap": "Head_Chimurenga"
   },
   {
-    "slot": 26,
-    "id": "JAZZ_AME_26",
-    "donor": "Legion_Demolishion03",
-    "name": "Andile Nkosi",
-    "cat": "Fighters",
-    "female": false,
-    "head_swap": "Head_Pierre"
-  },
-  {
     "slot": 27,
     "id": "JAZZ_AME_27",
-    "donor": "Legion_Heavy",
+    "donor": "Medic_Rebels",
     "name": "Sekou Camara",
     "cat": "Fighters",
     "female": false,
@@ -245,38 +245,38 @@
   {
     "slot": 28,
     "id": "JAZZ_AME_28",
-    "donor": "Legion_Heavy02",
+    "donor": "Medic_Rebels_02",
     "name": "Pascal Ngoma",
     "cat": "Fighters",
     "female": false,
-    "head_swap": "Head_Chimurenga"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 29,
     "id": "JAZZ_AME_29",
-    "donor": "Legion_Heavy03",
+    "donor": "Medic_Rebels_03",
     "name": "Kwesi Boateng",
     "cat": "Fighters",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 30,
     "id": "JAZZ_AME_30",
-    "donor": "Legion_Jose",
+    "donor": "Recon_Rebels",
     "name": "Tesfaye Alemu",
     "cat": "Fighters",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 31,
     "id": "JAZZ_AME_31",
-    "donor": "Legion_Marksman",
+    "donor": "Recon_Rebels_02",
     "name": "Rafael dos Santos",
     "cat": "Fighters",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 32,
@@ -290,7 +290,7 @@
   {
     "slot": 33,
     "id": "JAZZ_AME_33",
-    "donor": "Legion_Marksman02",
+    "donor": "Recon_Rebels_03",
     "name": "Claude Mvemba",
     "cat": "Fighters",
     "female": false,
@@ -299,7 +299,7 @@
   {
     "slot": 34,
     "id": "JAZZ_AME_34",
-    "donor": "Legion_Marksman03",
+    "donor": "Soldier_Rebels",
     "name": "Emeka Nwosu",
     "cat": "Fighters",
     "female": false,
@@ -308,7 +308,7 @@
   {
     "slot": 35,
     "id": "JAZZ_AME_35",
-    "donor": "Legion_Recon",
+    "donor": "Soldier_Rebels_02",
     "name": "Samuel Cheruiyot",
     "cat": "Fighters",
     "female": false,
@@ -317,29 +317,29 @@
   {
     "slot": 36,
     "id": "JAZZ_AME_36",
-    "donor": "Legion_Recon02",
+    "donor": "Soldier_Rebels_03",
     "name": "Mamadou Traoré",
-    "cat": "Fighters",
-    "female": false,
-    "head_swap": "Head_M_IMP_01"
-  },
-  {
-    "slot": 37,
-    "id": "JAZZ_AME_37",
-    "donor": "Legion_Recon03",
-    "name": "Felix Tshisekedi",
     "cat": "Fighters",
     "female": false,
     "head_swap": "Head_Chimurenga"
   },
   {
-    "slot": 38,
-    "id": "JAZZ_AME_38",
-    "donor": "Legion_Shaman",
-    "name": "Noah van Wyk",
+    "slot": 37,
+    "id": "JAZZ_AME_37",
+    "donor": "Soldier_Rebels_04",
+    "name": "Felix Tshisekedi",
     "cat": "Fighters",
     "female": false,
     "head_swap": "Head_Pierre"
+  },
+  {
+    "slot": 38,
+    "id": "JAZZ_AME_38",
+    "donor": "Stormer_Rebels",
+    "name": "Noah van Wyk",
+    "cat": "Fighters",
+    "female": false,
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 39,
@@ -348,7 +348,7 @@
     "name": "Joseph Mukendi",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Rebels_M_HeadMedic"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 40,
@@ -357,7 +357,7 @@
     "name": "Abraham Tekle",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Head_Chimurenga"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 41,
@@ -366,7 +366,7 @@
     "name": "Sipho Khumalo",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Head_Pierre"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 42,
@@ -375,7 +375,7 @@
     "name": "Boubacar Kane",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 43,
@@ -402,7 +402,7 @@
     "name": "Léopold Sassou",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 46,
@@ -411,7 +411,7 @@
     "name": "Kofi Mensah",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 47,
@@ -420,7 +420,7 @@
     "name": "Hassan Ibrahim",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Faction_Rebels_M_HeadMedic"
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 48,
@@ -429,7 +429,7 @@
     "name": "Patrick Omondi",
     "cat": "Hardened",
     "female": false,
-    "head_swap": "Head_M_IMP_01"
+    "head_swap": "Head_Jackhammer"
   },
   {
     "slot": 49,
@@ -452,11 +452,11 @@
   {
     "slot": 51,
     "id": "JAZZ_AME_51",
-    "donor": "Heavy_Rebels",
+    "donor": "Stormer_Rebels_02",
     "name": "Dr. Emile Kabongo",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Head_M_IMP_01"
+    "head_swap": "Head_Chimurenga"
   },
   {
     "slot": 52,
@@ -479,20 +479,20 @@
   {
     "slot": 54,
     "id": "JAZZ_AME_54",
-    "donor": "Heavy_Rebels_02",
+    "donor": "Stormer_Rebels_03",
     "name": "Maj. Théodore Ngalula",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Rebels_M_HeadMedic"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 55,
     "id": "JAZZ_AME_55",
-    "donor": "Heavy_Rebels_03",
+    "donor": "Legion_Jose",
     "name": "Issa Camara",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   },
   {
     "slot": 56,
@@ -506,11 +506,11 @@
   {
     "slot": 57,
     "id": "JAZZ_AME_57",
-    "donor": "Marksman_Rebels",
+    "donor": "Legion_Artillery",
     "name": "Bakary Diarra",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Head_Jackhammer"
+    "head_swap": "Head_Pierre"
   },
   {
     "slot": 58,
@@ -524,19 +524,19 @@
   {
     "slot": 59,
     "id": "JAZZ_AME_59",
-    "donor": "Marksman_Rebels_02",
+    "donor": "Legion_Artillery02",
     "name": "Ousmane Fall",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Faction_Rebels_M_HeadMedic"
+    "head_swap": "Head_M_IMP_01"
   },
   {
     "slot": 60,
     "id": "JAZZ_AME_60",
-    "donor": "Marksman_Rebels_03",
+    "donor": "Legion_Artillery03",
     "name": "Jean-Pierre Kalala",
     "cat": "Specialists",
     "female": false,
-    "head_swap": "Head_M_IMP_01"
+    "head_swap": "Faction_Rebels_M_HeadMedic"
   }
 ]
