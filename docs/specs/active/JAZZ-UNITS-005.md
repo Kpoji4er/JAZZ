@@ -77,7 +77,7 @@ approved_by: project-owner
 ### Сайт и найм
 
 - `JAZZ-UNITS-005-REQ-001` — новый PDA browser mode `ame` с вкладкой в `PDABrowser` / `PDABrowserTabState`; URL/chrome RU+EN «African Mercenary Exchange» / «Африканская биржа наёмников».
-- `JAZZ-UNITS-005-REQ-002` — root dialog class — **subclass** `PDAAIMBrowser` (сохранить post-hire / messenger совместимость); отдельный XTemplate skin (не замена mode `aim`).
+- `JAZZ-UNITS-005-REQ-002` — root dialog class — **subclass** `PDAAIMBrowser` (сохранить post-hire / messenger совместимость); отдельный XTemplate skin (не замена mode `aim`). На AME Loadout **нет** блока Traits/Perks («Черты») — только Equipment/Backpack; AIM browser без изменений.
 - `JAZZ-UNITS-005-REQ-003` — найм/продление/увольнение через существующий pipeline (`MercCanContact` → chat → `NetSyncEvent("HireMerc")` / JAZZ `LocalHireMerc`); без нового network event.
 - `JAZZ-UNITS-005-REQ-004` — пул AME **не** проходит фильтры AIM (`IsMetAIMMerc` / specialization tabs AIM). AIM «My Team» может показывать нанятых AME как уже нанятых игроком (как сейчас любой Hired).
 - `JAZZ-UNITS-005-REQ-005` — AME-наймы **не** считаются в AIM contact-cap (`Affiliation == "AIM"`). Отдельного жёсткого cap на число AME-контрактов в v1 нет (баланс ценой и ротацией).
@@ -114,7 +114,9 @@ approved_by: project-owner
 | Rifle / general | Marksmen / AllRounder | 0–1 common perk |
 | Autorifleman | Autoriflemen | часто `AutoWeapons` |
 | Machinegunner | HeavyWeapons | часто `HeavyWeaponsTraining` и/или `AutoWeapons` |
-| Grenadier | ExplosiveExpert или HeavyWeapons | часто `Throwing` и/или `HeavyWeaponsTraining` |
+| Grenadier | HeavyWeapons | часто `Throwing` и/или `HeavyWeaponsTraining` |
+
+**Specialization icons (карточка найма):** у Irregulars / Fighters / Hardened только квартет `AllRounder` · `Autoriflemen` · `HeavyWeapons` · `Marksmen`. Роли `Doctor` / `Mechanic` / `ExplosiveExpert` / `Leader` — **только** у Specialists (Medic / Mechanic / Sapper / Instructor). Sniper-Specialists — `Marksmen`.
 
 Целевая доля в сумме Fighters+Hardened пула: **не менее ~30%** слотов с CombatRole ∈ {Autorifleman, Machinegunner, Grenadier}. Kit и specialization согласованы с ролью. Signature abilities / именные Jazz_Perk_* на эти слоты не выдаются.
 
@@ -291,11 +293,11 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
 ### Внешность, голос, контент
 
 - `JAZZ-UNITS-005-REQ-019` — appearance: **уникальный клон на слот** `JAZZ_AME_01`…`60` (`ModItemAppearancePreset`, group `AME`). Donor — Rebels / Militia / Legion; Hardened/Specialists могут брать **GrandChien**. Карта слот→donor: [`ame-appearance-map.json`](../../design/ame-appearance-map.json) + поле на карточке roster. **Ровно один AME-синий акцент** (Hat → Hat2 → Shirt → BodyC2; **не** Pants/ботинки); прочий Legion-red / лишний blue → muted slate. **Кожа рук** (`BodyColor` EditableColor1) — тёмный African bank; **`HeadColor` = (0,0,0)** как vanilla. **Голова:** без `Faction_Legion_Head_*` (war-paint); Ca/As/AIM/`Male_Head`/Legion painted → named Af (Chimurenga/Pierre/Magic/…) / `Head_F_Af_NPC_*` / `Head_M_IMP_01`. Исходные presets **не править**. Female: Af head. Tooling: `_gen_ame_appearances.py`.
-- `JAZZ-UNITS-005-REQ-020` — голос (Jazz remesh + **все 6 IMP UnitData** `IMP_male_01..03` / `IMP_female_01..03`):
-  - ~3/4 слотов → IMP pool (cycle 01..03 по полу); ~1/4 → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`);
-  - **VoiceResponseId** резолвится в существующий VR: male → `IMP_male_01`, female → `IMP_female_01` (ваниль: UnitData 02/03 тоже указывают на эти банки — отдельных opus-банков нет);
-  - `FallbackMissingVR`: IMP → тот же VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` — **не** Ice/Fox.
-  Calm slots на remesh **не** из `BecomeAware` → тишина. `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py`; назначение `_gen_ame_roster_60.py`.
+- `JAZZ-UNITS-005-REQ-020` — голос (Jazz remesh majority + `PierreMerc` + small IMP minority):
+  - ~7/8 слотов → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) или `PierreMerc` (полный hireable Af bank); ~1/8 → IMP pool (cycle 01..03 по полу; VR → `IMP_male_01` / `IMP_female_01`);
+  - bucket `(slot-1)%8`: `7` → IMP; `3` → `PierreMerc` (males); иначе Jazz remesh (Hardened/Specialists и bucket 1/5 → `Male_Hard`);
+  - `FallbackMissingVR`: IMP/`PierreMerc` → тот же VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` — **не** Ice/Fox.
+  Calm slots на remesh **не** из `BecomeAware` → тишина. `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_apply_ame_voice_remap.py`; назначение `_gen_ame_roster_60.py`.
 - `JAZZ-UNITS-005-REQ-021` — портреты: банк ≥ **16** уникальных лиц в `jazz-units/MercPortraits` (AME); reuse банка между слотами разрешён; специалисты стремятся к меньшей коллизии лиц на одной витрине.
 - `JAZZ-UNITS-005-REQ-022` — у каждого слота **полная игровая биография** (поле `Bio` на карточке найма) RU+EN: проза от 3-го лица (происхождение, прошлое, характер, слабость), без мета-цифр статов/тиров; тексты различаются (страна, background, тон). Design-roster держит канон RU; EN — в том же change set локализации. Hire chat — шаблонные фразы по категории/роли.
 - `JAZZ-UNITS-005-REQ-023` — background flavor tags в bio (не отдельный filter v1): ex-army / militia / police / hunter / rebel — без привязки «дешёвый = раса».

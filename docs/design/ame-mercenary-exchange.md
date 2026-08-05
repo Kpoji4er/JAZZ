@@ -19,6 +19,7 @@ Short bio per slot + varied origins: **mostly Africa**, with a solid share from 
 - Org / Affiliation: `AME`
 - UnitData slots: `JAZZ_AME_01` … `JAZZ_AME_60`
 - UI class: subclass of `PDAAIMBrowser` + separate XTemplate skin
+- Hire card **Loadout**: shows Equipment / Backpack only — **no Traits/Perks strip** (AIM keeps Perks)
 - Hire pipeline: vanilla chat / `HireMerc` (no custom messenger)
 
 ### Logo (draft)
@@ -45,12 +46,14 @@ Full design cards (all 60): [`ame-roster-60.md`](ame-roster-60.md). Fixed invent
 
 Inside Fighters + Hardened (not the Specialists filter), a share of slots are:
 
-| CombatRole | Typical traits (common only, no signatures) |
-| --- | --- |
-| Rifle / general | 0–1 common |
-| Autorifleman | often `AutoWeapons` |
-| Machinegunner | often `HeavyWeaponsTraining` / `AutoWeapons` |
-| Grenadier | often `Throwing` / `HeavyWeaponsTraining` |
+| CombatRole | Specialization icon | Typical traits (common only, no signatures) |
+| --- | --- | --- |
+| Rifle / general | `Marksmen` / `AllRounder` | 0–1 common |
+| Autorifleman | `Autoriflemen` | often `AutoWeapons` |
+| Machinegunner | `HeavyWeapons` | often `HeavyWeaponsTraining` / `AutoWeapons` |
+| Grenadier | `HeavyWeapons` | often `Throwing` / `HeavyWeaponsTraining` |
+
+Line-troop Specialization icons are **only** that quartet. Soft roles `Doctor` / `Mechanic` / `ExplosiveExpert` / `Leader` appear **only** on Specialists (Medic / Mechanic / Sapper / Instructor). Sniper specialists use `Marksmen`.
 
 Target: at least ~30% of Fighters+Hardened slots are Autorifleman / Machinegunner / Grenadier.
 
@@ -133,14 +136,14 @@ Potential UI label from Wisdom: Low (below 45), Medium (45–64), High (65+).
 
 ## Voice / look
 
-Voice pool (Jazz remesh + all 6 IMP UnitData):
+Voice pool (Jazz remesh majority + local hireable + small IMP minority):
 
-- ~3/4 slots → IMP pool cycling `IMP_male_01..03` / `IMP_female_01..03`
-- ~1/4 → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`)
-- **VoiceResponseId** resolves to working VR: male → `IMP_male_01`, female → `IMP_female_01` (vanilla only ships those two banks; UnitData 02/03 also use them)
-- `FallbackMissingVR`: IMP → same VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (**not** Ice/Fox). Empty Selection/Move on remesh → silence.
+- ~7/8 slots → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) or `PierreMerc` (African hireable bank with full Selection/Order)
+- ~1/8 → IMP pool (`IMP_male_01..03` / `IMP_female_01..03`; VR resolves to `IMP_male_01` / `IMP_female_01`)
+- Bucket `(slot-1)%8`: `7` → IMP; `3` → `PierreMerc` (males); else Jazz remesh. Hardened/Specialists and odd buckets prefer `Male_Hard`.
+- `FallbackMissingVR`: IMP/`PierreMerc` → same VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (**not** Ice/Fox). Empty Selection/Move on remesh → silence.
 - Heads: safe Af bank only (see [`ame-appearance-assets.md`](ame-appearance-assets.md)); **no** Flay/Fidel/Magic/Blood/Fauda/Omryn; **no** `Faction_Legion_Head_*` war-paint
-- Tooling: `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_gen_ame_appearances.py` + `_audit_patch_ame_heads.py`; assignment in `_gen_ame_roster_60.py`
+- Tooling: `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_gen_ame_appearances.py` + `_audit_patch_ame_heads.py` + `_apply_ame_voice_remap.py`; assignment in `_gen_ame_roster_60.py`
 - Appearance sources: **unique clone per slot** `JAZZ_AME_NN` from **Rebels** / **Militia** / **Legion** (Hardened/Specialists may use **GrandChien**); map [`ame-appearance-map.json`](ame-appearance-map.json); asset policy [`ame-appearance-assets.md`](ame-appearance-assets.md)
 - Recolor: **red cloth → blue** (`ColorizationPropSet`); **BodyColor C1** dark African bank; **HeadColor** black (never skin-tint heads); do not edit source faction presets
 - Female looks: thin faction female bank (`RebelFemaleSniper`×2, `GrandChien_CommanderFemale`, MilitiaRookie female×2) — unique ModItems even when donor mesh repeats

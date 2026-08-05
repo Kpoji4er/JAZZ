@@ -800,49 +800,14 @@ PlaceObj('XTemplate', {
 								'LayoutMethod', "VList",
 								'VScroll', "idLoadoutScroll",
 							}, {
-								PlaceObj('XTemplateWindow', {
-									'__class', "XText",
-									'Margins', box(0, 7, 0, 1),
-									'HAlign', "left",
-									'VAlign', "top",
-									'TextStyle', "Hiring_Bio_Header",
-									'Translate', true,
-									'Text', T(984976462387, --[[XTemplate PDAAIMEBrowser Text]] "Perks"),
-									'TextVAlign', "center",
-								}),
-								PlaceObj('XTemplateWindow', {
-									'comment', "perks",
-									'LayoutMethod', "HWrap",
-									'LayoutHSpacing', 10,
-									'LayoutVSpacing', 10,
-								}, {
-									PlaceObj('XTemplateForEach', {
-										'array', function (parent, context) return context:GetPerks(nil, "sort") end,
-										'run_after', function (child, context, item, i, n, last)
-											child:SetPerkId(item.class)
-										end,
-									}, {
-										PlaceObj('XTemplateTemplate', {
-											'__template', "PDAPerk",
-										}),
-										}),
-									}),
+								-- AME: hide Traits/Perks strip (keep Equipment). AIM browser unchanged.
 								PlaceObj('XTemplateWindow', {
 									'comment', "equipment",
 									'LayoutMethod', "VList",
 								}, {
 									PlaceObj('XTemplateWindow', {
-										'comment', "vertical sep",
-										'__class', "XFrame",
-										'Margins', box(0, 5, 0, 7),
-										'VAlign', "top",
-										'Image', "UI/PDA/separate_line_vertical",
-										'FrameBox', box(3, 3, 3, 3),
-										'SqueezeY', false,
-									}),
-									PlaceObj('XTemplateWindow', {
 										'__class', "XText",
-										'Margins', box(0, 0, 0, 4),
+										'Margins', box(0, 7, 0, 4),
 										'HAlign', "left",
 										'VAlign', "center",
 										'TextStyle', "Hiring_Bio_Header",

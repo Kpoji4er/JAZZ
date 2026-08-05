@@ -18,7 +18,7 @@
 - **Кит:** Irr ≤ **1-2**; Fight ≤ **1-3**; Hard/Spec ≤ **2-1**. **`Type56` — потолок AR, только Hardened.** `SKS`/bolt — только Sniper.
 - **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**
 - **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.
-- Voice pool: Jazz remesh (~1/4) + all 6 IMP UnitData `IMP_male_01..03` / `IMP_female_01..03` (~3/4; VR resolves to `IMP_male_01` / `IMP_female_01`).
+- Voice pool: Jazz remesh majority (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) + `PierreMerc` variety (~1/8 males on bucket) + small IMP minority (~1/8; VR → `IMP_male_01` / `IMP_female_01`).
 - **Bio:** полная игровая проза карточки найма (RU); без мета-цифр статов/тиров.
 - Nick: в основном Hardened. Grand Chien: заметная доля.
 
@@ -32,7 +32,7 @@
 - **Level / Salary:** 1 / $80
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_01` ← donor `MilitiaRookie_Male_01` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
@@ -60,7 +60,7 @@
 - **Level / Salary:** 1 / $88
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_02` ← donor `MilitiaRookie_Male_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×6 · Knife
 
@@ -88,7 +88,7 @@
 - **Level / Salary:** 1 / $96
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_03` ← donor `Militia_Artillery` (male; blue recolor, source не править)
 - **Inventory (fixed):** SWModel10 · .38×12 · Knife
 
@@ -116,7 +116,7 @@
 - **Level / Salary:** 1 / $104
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `PierreMerc` → VR `PierreMerc`
 - **Appearance:** `JAZZ_AME_04` ← donor `Militia_Demolition` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
@@ -144,7 +144,7 @@
 - **Level / Salary:** 1 / $112
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_05` ← donor `Militia_Heavy` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
@@ -172,7 +172,7 @@
 - **Level / Salary:** 1 / $120
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_06` ← donor `Militia_Marksman` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×14 · Knife
 
@@ -200,7 +200,7 @@
 - **Level / Salary:** 1 / $128
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_07` ← donor `Militia_Medic` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
@@ -228,7 +228,7 @@
 - **Level / Salary:** 1 / $136
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `IMP_male_02` → VR `IMP_male_01`
 - **Appearance:** `JAZZ_AME_08` ← donor `Militia_Officer` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×8 · Knife
 
@@ -256,7 +256,7 @@
 - **Level / Salary:** 1 / $80
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_09` ← donor `Militia_Recon` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×6 · Knife
 
@@ -284,7 +284,7 @@
 - **Level / Salary:** 1 / $88
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_10` ← donor `Militia_Soldier` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
@@ -312,7 +312,7 @@
 - **Level / Salary:** 1 / $96
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_female_02` → VR `IMP_female_01`
+- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
 - **Appearance:** `JAZZ_AME_11` ← donor `GrandChien_CommanderFemale` (female; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
@@ -340,7 +340,7 @@
 - **Level / Salary:** 1 / $104
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `PierreMerc` → VR `PierreMerc`
 - **Appearance:** `JAZZ_AME_12` ← donor `Militia_Stormer` (male; blue recolor, source не править)
 - **Inventory (fixed):** Machete
 
@@ -368,7 +368,7 @@
 - **Level / Salary:** 1 / $112
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_13` ← donor `Artillery_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Colt38Special · .38×12 · Knife
 
@@ -396,7 +396,7 @@
 - **Level / Salary:** 1 / $120
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_14` ← donor `Artillery_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
@@ -424,7 +424,7 @@
 - **Level / Salary:** 1 / $128
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_15` ← donor `Artillery_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
@@ -452,7 +452,7 @@
 - **Level / Salary:** 1 / $136
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `IMP_male_01` → VR `IMP_male_01`
 - **Appearance:** `JAZZ_AME_16` ← donor `Commander_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
@@ -480,7 +480,7 @@
 - **Level / Salary:** 1 / $80
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_female_02` → VR `IMP_female_01`
+- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
 - **Appearance:** `JAZZ_AME_17` ← donor `MilitiaRookie_Female_01` (female; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×4 · Knife
 
@@ -508,7 +508,7 @@
 - **Level / Salary:** 1 / $88
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_18` ← donor `Demolitions_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
@@ -536,7 +536,7 @@
 - **Level / Salary:** 1 / $96
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_19` ← donor `Demolitions_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** ColtM1917 · .45×12 · Knife
 
@@ -564,7 +564,7 @@
 - **Level / Salary:** 1 / $104
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `PierreMerc` → VR `PierreMerc`
 - **Appearance:** `JAZZ_AME_20` ← donor `Demolitions_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** SWModel10 · .38×6 · Knife
 
@@ -594,7 +594,7 @@
 - **Level / Salary:** 1 / $220
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_21` ← donor `Heavy_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×40 · Knife
 
@@ -622,7 +622,7 @@
 - **Level / Salary:** 1 / $240
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_22` ← donor `Heavy_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
@@ -650,7 +650,7 @@
 - **Level / Salary:** 1 / $260
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_23` ← donor `Heavy_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
@@ -674,11 +674,11 @@
 
 - **Nationality:** `Congo`
 - **Category / CombatRole:** Fighters / Grenadier
-- **Specialization:** `ExplosiveExpert`
+- **Specialization:** `HeavyWeapons`
 - **Level / Salary:** 1 / $250
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `IMP_male_03` → VR `IMP_male_01`
 - **Appearance:** `JAZZ_AME_24` ← donor `Marksman_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Colt1911 · .45×24 · FragGrenade×2 · Knife · Bandage×1
 
@@ -706,7 +706,7 @@
 - **Level / Salary:** 1 / $200
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_25` ← donor `Marksman_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife · Bandage×1
 
@@ -734,7 +734,7 @@
 - **Level / Salary:** 1 / $230
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_26` ← donor `Marksman_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
@@ -762,7 +762,7 @@
 - **Level / Salary:** 1 / $190
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_27` ← donor `Medic_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** M3GreaseGun · .45×60 · Knife
 
@@ -790,7 +790,7 @@
 - **Level / Salary:** 1 / $270
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `HeavyWeaponsTraining`
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `PierreMerc` → VR `PierreMerc`
 - **Appearance:** `JAZZ_AME_28` ← donor `Medic_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** BAR · .30-06×60 · Knife · Bandage×1
 
@@ -814,11 +814,11 @@
 
 - **Nationality:** `Ghana`
 - **Category / CombatRole:** Fighters / Grenadier
-- **Specialization:** `ExplosiveExpert`
+- **Specialization:** `HeavyWeapons`
 - **Level / Salary:** 1 / $255
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`, `HeavyWeaponsTraining`
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_29` ← donor `Medic_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** PPS43 · 7.62x25×70 · FragGrenade×2 · Knife · Bandage×1
 
@@ -846,7 +846,7 @@
 - **Level / Salary:** 1 / $210
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_30` ← donor `Recon_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** M1897 · 12g×20 · Knife
 
@@ -874,7 +874,7 @@
 - **Level / Salary:** 1 / $235
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_31` ← donor `Recon_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
@@ -902,7 +902,7 @@
 - **Level / Salary:** 1 / $180
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
+- **Voice:** `IMP_female_02` → VR `IMP_female_01`
 - **Appearance:** `JAZZ_AME_32` ← donor `MilitiaRookie_Female_02` (female; blue recolor, source не править)
 - **Inventory (fixed):** PPSH · 7.62x25×70 · Knife · Bandage×1
 
@@ -930,7 +930,7 @@
 - **Level / Salary:** 1 / $200
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_33` ← donor `Recon_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×20 · Knife
 
@@ -958,7 +958,7 @@
 - **Level / Salary:** 1 / $280
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_34` ← donor `Soldier_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
@@ -986,7 +986,7 @@
 - **Level / Salary:** 1 / $215
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_35` ← donor `Soldier_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife
 
@@ -1014,7 +1014,7 @@
 - **Level / Salary:** 1 / $225
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `AutoWeapons`
-- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
+- **Voice:** `PierreMerc` → VR `PierreMerc`
 - **Appearance:** `JAZZ_AME_36` ← donor `Soldier_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife · Wirecutter
 
@@ -1042,7 +1042,7 @@
 - **Level / Salary:** 1 / $195
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
 - **Appearance:** `JAZZ_AME_37` ← donor `Soldier_Rebels_04` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×16 · Knife · Bandage×2
 
@@ -1070,7 +1070,7 @@
 - **Level / Salary:** 1 / $205
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_38` ← donor `Stormer_Rebels` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife
 
@@ -1100,7 +1100,7 @@
 - **Level / Salary:** 1 / $480
 - **Potential (Wisdom):** Low
 - **Traits (common):** `AutoWeapons`, `CQCTraining`
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_39` ← donor `GrandChien_Artillery` (male; blue recolor, source не править)
 - **Inventory (fixed):** Thompson · .45×60 · Knife · FragGrenade×1 · Bandage×1
 
@@ -1128,7 +1128,7 @@
 - **Level / Salary:** 1 / $420
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
+- **Voice:** `IMP_male_01` → VR `IMP_male_01`
 - **Appearance:** `JAZZ_AME_40` ← donor `GrandChien_Demolition` (male; blue recolor, source не править)
 - **Inventory (fixed):** Mini14 · 5.56×40 · Knife · Bandage×1
 
@@ -1156,7 +1156,7 @@
 - **Level / Salary:** 1 / $520
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_41` ← donor `GrandChien_Heavy` (male; blue recolor, source не править)
 - **Inventory (fixed):** BAR · .30-06×80 · Knife · Bandage×1
 
@@ -1184,7 +1184,7 @@
 - **Level / Salary:** 1 / $400
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_42` ← donor `GrandChien_Marksman` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Bandage×1
 
@@ -1208,11 +1208,11 @@
 
 - **Nationality:** `Congo`
 - **Category / CombatRole:** Hardened / Grenadier
-- **Specialization:** `ExplosiveExpert`
+- **Specialization:** `HeavyWeapons`
 - **Level / Salary:** 1 / $500
 - **Potential (Wisdom):** Low
 - **Traits (common):** `Throwing`, `HeavyWeaponsTraining`
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_43` ← donor `GrandChien_Medic` (male; blue recolor, source не править)
 - **Inventory (fixed):** Ithaca · 12g×16 · FragGrenade×2 · Knife · Bandage×1
 
@@ -1268,7 +1268,7 @@
 - **Level / Salary:** 1 / $430
 - **Potential (Wisdom):** Low
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_45` ← donor `GrandChien_Officer` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Wirecutter · Bandage×1
 
@@ -1296,7 +1296,7 @@
 - **Level / Salary:** 1 / $490
 - **Potential (Wisdom):** Low
 - **Traits (common):** `HeavyWeaponsTraining`
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_46` ← donor `GrandChien_Recon` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×80 · Knife · Bandage×1
 
@@ -1320,11 +1320,11 @@
 
 - **Nationality:** `Mali`
 - **Category / CombatRole:** Hardened / Grenadier
-- **Specialization:** `ExplosiveExpert`
+- **Specialization:** `HeavyWeapons`
 - **Level / Salary:** 1 / $510
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_47` ← donor `GrandChien_Soldier` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×30 · FragGrenade×2 · Molotov×1 · Knife · Bandage×1
 
@@ -1352,7 +1352,7 @@
 - **Level / Salary:** 1 / $440
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `NightOps`
-- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
+- **Voice:** `IMP_male_03` → VR `IMP_male_01`
 - **Appearance:** `JAZZ_AME_48` ← donor `GrandChien_Stormer` (male; blue recolor, source не править)
 - **Inventory (fixed):** Mini14 · 5.56×40 · Knife · Bandage×1
 
@@ -1382,7 +1382,7 @@
 - **Level / Salary:** 1 / $950
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_female_01` → VR `IMP_female_01`
+- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
 - **Appearance:** `JAZZ_AME_49` ← donor `RebelFemaleSniper_1` (female; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×24 · Medkit · Bandage×6 · Morphine×2 · Knife
 
@@ -1410,7 +1410,7 @@
 - **Level / Salary:** 1 / $880
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_female_02` → VR `IMP_female_01`
+- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
 - **Appearance:** `JAZZ_AME_50` ← donor `RebelFemaleSniper_1` (female; blue recolor, source не править)
 - **Inventory (fixed):** Knife · Medkit · Bandage×8 · Stim×2
 
@@ -1438,7 +1438,7 @@
 - **Level / Salary:** 1 / $1000
 - **Potential (Wisdom):** High
 - **Traits (common):** —
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_51` ← donor `Stormer_Rebels_02` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×24 · Medkit · Bandage×6 · Knife
 
@@ -1494,7 +1494,7 @@
 - **Level / Salary:** 1 / $1150
 - **Potential (Wisdom):** High
 - **Traits (common):** `Teacher`
-- **Voice:** `IMP_female_02` → VR `IMP_female_01`
+- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
 - **Appearance:** `JAZZ_AME_53` ← donor `MilitiaRookie_Female_02` (female; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×40 · Knife · Bandage×2
 
@@ -1522,7 +1522,7 @@
 - **Level / Salary:** 1 / $1300
 - **Potential (Wisdom):** High
 - **Traits (common):** `Teacher`
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_54` ← donor `Stormer_Rebels_03` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×30 · Knife · Bandage×3
 
@@ -1550,7 +1550,7 @@
 - **Level / Salary:** 1 / $780
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_01` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_55` ← donor `Legion_Jose` (male; blue recolor, source не править)
 - **Inventory (fixed):** Gewehr98 · 7.62×20 · Knife
 
@@ -1578,7 +1578,7 @@
 - **Level / Salary:** 1 / $820
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `NightOps`
-- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
+- **Voice:** `IMP_female_02` → VR `IMP_female_01`
 - **Appearance:** `JAZZ_AME_56` ← donor `GrandChien_CommanderFemale` (female; blue recolor, source не править)
 - **Inventory (fixed):** SKS · 7.62×30 · Knife
 
@@ -1606,7 +1606,7 @@
 - **Level / Salary:** 1 / $720
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `IMP_male_03` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_57` ← donor `Legion_Artillery` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife · ShapedCharge×2 · TNT×1 · PipeBomb×2 · Detonator · Wirecutter
 
@@ -1634,7 +1634,7 @@
 - **Level / Salary:** 1 / $760
 - **Potential (Wisdom):** Medium
 - **Traits (common):** `Throwing`
-- **Voice:** `IMP_female_01` → VR `IMP_female_01`
+- **Voice:** `Jazz_AME_Female` → VR `Jazz_AME_Female`
 - **Appearance:** `JAZZ_AME_58` ← donor `MilitiaRookie_Female_02` (female; blue recolor, source не править)
 - **Inventory (fixed):** Makarov · 9x18×16 · ShapedCharge×2 · Knife · Wirecutter
 
@@ -1658,11 +1658,11 @@
 
 - **Nationality:** `Senegal`
 - **Category / CombatRole:** Specialists / Mechanic
-- **Specialization:** `AllRounder`
+- **Specialization:** `Mechanic`
 - **Level / Salary:** 1 / $680
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `IMP_male_02` → VR `IMP_male_01`
+- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
 - **Appearance:** `JAZZ_AME_59` ← donor `Legion_Artillery02` (male; blue recolor, source не править)
 - **Inventory (fixed):** Wirecutter · Crowbar · Knife
 
@@ -1686,11 +1686,11 @@
 
 - **Nationality:** `GrandChien`
 - **Category / CombatRole:** Specialists / Mechanic
-- **Specialization:** `AllRounder`
+- **Specialization:** `Mechanic`
 - **Level / Salary:** 1 / $720
 - **Potential (Wisdom):** Medium
 - **Traits (common):** —
-- **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
+- **Voice:** `PierreMerc` → VR `PierreMerc`
 - **Appearance:** `JAZZ_AME_60` ← donor `Legion_Artillery03` (male; blue recolor, source не править)
 - **Inventory (fixed):** Wirecutter · Lockpick · Knife · Bandage×1
 

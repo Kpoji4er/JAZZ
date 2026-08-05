@@ -11,6 +11,8 @@ The PDA gets a separate site, **African Mercenary Exchange (A.M.E.)** — not a 
 - Market rotates about every **14** campaign days (2 weeks).
 - Categories: Irregulars · Fighters · Hardened · Specialists.
 - Each slot has a fixed starting kit and its own portrait — no random hire inventory roll.
+- AME Loadout omits the **Traits/Perks** strip (equipment only); AIM still shows perks.
+- Specialization icons: line troops only All-Rounder / Autorifleman / Heavy Weapons / Marksman; Doctor / Mechanic / Explosives / Leader icons are Specialists-only.
 - Hire week ≈ daily `StartingSalary` × 7: cheapest irregulars from ~**$50**/week, typical ~**$100–$1000**/week, specialists up to ~**$2000**/week — still **below** cheap AIM like Igor/Barry (~$3150–$3290/week).
 - Same chat/contract hire path; contract duration slider goes up to **30** days from the start (vanilla capped at 14). A.M.E. hires **do not** consume the AIM contact cap. Board rotation (~14 days) is separate from contract length.
 

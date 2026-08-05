@@ -77,6 +77,10 @@ def _roster_slot(m: dict) -> int:
 IMP_MALE_POOL = ("IMP_male_01", "IMP_male_02", "IMP_male_03")
 IMP_FEMALE_POOL = ("IMP_female_01", "IMP_female_02", "IMP_female_03")
 
+# Hireable African/local VR with full Selection/Order (not Magic/Blood — AIM US accent;
+# not Chimurenga/Jackhammer — NPC banks lack hireable calm slots).
+AF_HIREABLE_MALE = "PierreMerc"
+
 
 def resolve_imp_voice(unit_id: str) -> str:
     """Map IMP UnitData id → existing VoiceResponse preset id."""
@@ -88,50 +92,60 @@ def resolve_imp_voice(unit_id: str) -> str:
 
 
 def voice_for(m: dict) -> str:
-    """Jazz remesh banks + all 6 IMP UnitData ids (resolve to working VR).
+    """Jazz remesh majority + PierreMerc variety + small IMP minority.
 
-    ~3/4 of roster uses IMP pool (cycling male_01..03 / female_01..03);
-    remaining keep Jazz remesh for local flavour.
+    Bucket (slot-1)%8:
+      7 → IMP (~1/8, gender-matched; VR resolves to IMP_*_01)
+      3 → PierreMerc for males (full hireable Af bank); females stay Jazz_AME_Female
+      else → Jazz remesh (Male_Low / Male_Hard / Female)
+
+    Owner feedback: cut IMP share hard (was ~3/4). Target IMP ≤15%.
     """
     slot = _roster_slot(m)
+    bucket = (slot - 1) % 8
     if m.get("female"):
-        if slot % 4 == 0:
-            return "Jazz_AME_Female"
-        return resolve_imp_voice(IMP_FEMALE_POOL[(slot - 1) % 3])
-    if slot % 4 == 0:
-        if m["cat"] in ("Hardened", "Specialists"):
-            return "Jazz_AME_Male_Hard"
-        return "Jazz_AME_Male_Low"
-    return resolve_imp_voice(IMP_MALE_POOL[(slot - 1) % 3])
+        if bucket == 7:
+            return resolve_imp_voice(IMP_FEMALE_POOL[(slot - 1) % 3])
+        return "Jazz_AME_Female"
+    if bucket == 7:
+        return resolve_imp_voice(IMP_MALE_POOL[(slot - 1) % 3])
+    if bucket == 3:
+        return AF_HIREABLE_MALE
+    if m["cat"] in ("Hardened", "Specialists") or bucket in (1, 5):
+        return "Jazz_AME_Male_Hard"
+    return "Jazz_AME_Male_Low"
 
 
 def voice_pool_label(m: dict) -> str:
-    """Design-roster label: which of the 6 IMP UnitData (or Jazz bank) was picked."""
+    """Design-roster label: IMP UnitData id, PierreMerc, or Jazz bank."""
     slot = _roster_slot(m)
+    bucket = (slot - 1) % 8
     if m.get("female"):
-        if slot % 4 == 0:
-            return "Jazz_AME_Female"
-        return IMP_FEMALE_POOL[(slot - 1) % 3]
-    if slot % 4 == 0:
-        if m["cat"] in ("Hardened", "Specialists"):
-            return "Jazz_AME_Male_Hard"
-        return "Jazz_AME_Male_Low"
-    return IMP_MALE_POOL[(slot - 1) % 3]
+        if bucket == 7:
+            return IMP_FEMALE_POOL[(slot - 1) % 3]
+        return "Jazz_AME_Female"
+    if bucket == 7:
+        return IMP_MALE_POOL[(slot - 1) % 3]
+    if bucket == 3:
+        return AF_HIREABLE_MALE
+    if m["cat"] in ("Hardened", "Specialists") or bucket in (1, 5):
+        return "Jazz_AME_Male_Hard"
+    return "Jazz_AME_Male_Low"
 
 
 def voice_fallback(m: dict) -> str:
     """Pain/AiDeath only (Banter.lua) — never Ice/Fox (vanilla merc identity).
 
-    IMP assignees fall back to the shared hireable bank (male_01 / female_01).
+    IMP / PierreMerc fall back to the same hireable bank.
     Jazz remesh banks point at the enemy UnitData/VR they remeshed from.
     Calm slots (Selection/Move) stay silent when omitted on remesh banks.
     """
     voice = voice_for(m)
-    if voice in ("IMP_male_01", "IMP_female_01"):
+    if voice in ("IMP_male_01", "IMP_female_01", AF_HIREABLE_MALE):
         return voice
     if m.get("female"):
         return "AnneLeMitrailleur"
-    if m["cat"] in ("Hardened", "Specialists"):
+    if voice == "Jazz_AME_Male_Hard" or m["cat"] in ("Hardened", "Specialists"):
         return "ArmySoldier"
     return "LegionRaider"
 
@@ -334,7 +348,7 @@ FIGHTERS = [
     ("Chukwuemeka Obi", "Emeka", "Nigeria", "Machinegunner", "HeavyWeapons", ["HeavyWeaponsTraining", "AutoWeapons"], 260,
      "MAC2429 · 7.5French×60 · Knife",
      "Чуквуэмека Оби сидел на пулемётной точке нигерийского блокпоста, пока блокпост не стёрли с карты. Крепкий, тяжёлый, бьёт по земле увереннее, чем по мишеням — и сам над этим иногда шутит. Закрыть сектор огнём для него привычнее, чем выигрывать конкурс стрелков."),
-    ("Michel Kabeya", None, "Congo", "Grenadier", "ExplosiveExpert", ["Throwing"], 250,
+    ("Michel Kabeya", None, "Congo", "Grenadier", "HeavyWeapons", ["Throwing"], 250,
      "Colt1911 · .45×24 · FragGrenade×2 · Knife",
      "Мишель Кабейа из Конго всегда любил банки больше стволов. Настоящая работа для него начинается, когда свистит чека. Шумный в баре и тихий перед броском — и не притворяется героем."),
     ("Juma Otieno", None, "Kenya", "Rifle", "Marksmen", [], 200,
@@ -349,7 +363,7 @@ FIGHTERS = [
     ("Pascal Ngoma", None, "GrandChien", "Machinegunner", "HeavyWeapons", ["HeavyWeaponsTraining"], 270,
      "BAR · .30-06×60 · Knife",
      "Паскаль Нгома держал огневую точку в Гранд-Шьен с характером человека, который не любит бегать. Тяжёлый, упрямый: закрывает сектор и ждёт, пока сектор перестанет шевелиться. Под огнём не дёргается первым — и этим уже выигрывает время для остальных."),
-    ("Kwesi Boateng", None, "Ghana", "Grenadier", "ExplosiveExpert", ["Throwing", "HeavyWeaponsTraining"], 255,
+    ("Kwesi Boateng", None, "Ghana", "Grenadier", "HeavyWeapons", ["Throwing", "HeavyWeaponsTraining"], 255,
      "PPS43 · 7.62x25×70 · FragGrenade×2 · Knife",
      "Квеси Боатенг из Ганы любит короткую работу и тяжёлую ладонь на банке. Взрывчатки у него немного, зато бросок уверенный — как у человека, который тренировался на пустых бутылках за складом. Улыбается редко и работает быстро: пришёл, бросил, ушёл, пока эхо ещё гуляет."),
     ("Tesfaye Alemu", None, "Ethiopia", "Rifle", "Marksmen", [], 210,
@@ -442,7 +456,7 @@ HARD = [
     ("Boubacar Kane", None, "Senegal", "Rifle", "AllRounder", [], 400,
      "STG44 · 7.92Kurz×40 · Knife",
      "Бубакар Кане — офицер запаса из Сенегала со спокойным прицелом. С людьми получается чуть лучше, чем у многих ветеранов: объяснит задачу так, что даже усталые кивают. Не орёт. Не геройствует. За сутки на старшего позицию обычно оставляет целой."),
-    ("Didier Mbemba", "Smoke", "Congo", "Grenadier", "ExplosiveExpert", ["Throwing", "HeavyWeaponsTraining"], 500,
+    ("Didier Mbemba", "Smoke", "Congo", "Grenadier", "HeavyWeapons", ["Throwing", "HeavyWeaponsTraining"], 500,
      "Ithaca · 12g×16 · FragGrenade×2 · Knife",
      "Дидье Мбемба, «Дым», из Конго приходит с банками и уходит в дыму, который сам же и ставит. Не спринтер — зато сектор задымления знает наизусть. Когда тишина уже не вариант, он как раз на месте."),
     ("Amina Yusuf", None, "Nigeria", "Autorifleman", "Autoriflemen", ["AutoWeapons"], 450,
@@ -454,7 +468,7 @@ HARD = [
     ("Kofi Mensah", None, "Ghana", "Machinegunner", "HeavyWeapons", ["HeavyWeaponsTraining"], 490,
      "MAC2429 · 7.5French×80 · Knife",
      "Кофи Менса из Ганы — силач: здоровье и мощь замечают раньше, чем меткость. Не догоняет — занимает место и делает его непригодным для врага. Там, где нужна тяжесть, а не грация, он уместен."),
-    ("Hassan Ibrahim", "Scorpion", "Mali", "Grenadier", "ExplosiveExpert", ["Throwing"], 510,
+    ("Hassan Ibrahim", "Scorpion", "Mali", "Grenadier", "HeavyWeapons", ["Throwing"], 510,
      "HiPower · 9mm×30 · FragGrenade×2 · Molotov×1 · Knife",
      "Хассана Ибрахима в Мали зовут «Скорпион»: быстрее многих ветеранов, с ухмылкой человека, который любит, когда взрыв случается вовремя. Бросок уверенный, характер ядовитый. Кличка известнее имени — и он над этим не работает."),
     ("Patrick Omondi", None, "Kenya", "Rifle", "Marksmen", ["NightOps"], 440,
@@ -531,10 +545,10 @@ SPEC = [
     ("Marie-Claire Mbala", None, "Congo", "Sapper", "ExplosiveExpert", ["Throwing"], 760,
      "Makarov · 9x18×16 · ShapedCharge×2 · Knife · Wirecutter",
      "Мари-Клер Мбала ставит мины в Конго без лишней поэзии. Взрывчатка для неё важнее патронов, и она это повторяет всем новичкам. Бросок уверенный, характер сухой — сначала любопытство, потом осторожность."),
-    ("Ousmane Fall", None, "Senegal", "Mechanic", "AllRounder", [], 680,
+    ("Ousmane Fall", None, "Senegal", "Mechanic", "Mechanic", [], 680,
      "Wirecutter · Crowbar · Knife",
      "Усман Фалл из Сенегала чинит стволы лучше, чем держит их в бою. Желания геройствовать нет. В бой его не зовут, если есть хоть кто-то другой; после боя зовут первыми. Без него отряд разваливается быстрее, чем без лишнего героя."),
-    ("Jean-Pierre Kalala", None, "GrandChien", "Mechanic", "AllRounder", [], 720,
+    ("Jean-Pierre Kalala", None, "GrandChien", "Mechanic", "Mechanic", [], 720,
      "Wirecutter · Lockpick · Knife · Bandage×1",
      "Жан-Пьер Калала — бывший гаражный мастер из Гранд-Шьен. Замок вскроет, очередь — вряд ли. Инструменты ему роднее любого автомата. Хорошие механики не любят рекламу — его обычно находят по рекомендации."),
 ]
@@ -576,6 +590,16 @@ for (name, nick, nat, role, spec, traits, salary, inv, bio), st in zip(SPEC, SPE
 
 assert len(ROSTER) == 60, len(ROSTER)
 
+# Specialization icons: role specialists only; line troops = combat quartet.
+_LINE_SPECS = frozenset({"AllRounder", "Autoriflemen", "HeavyWeapons", "Marksmen"})
+_SPECIALIST_SPECS = frozenset({"Doctor", "Leader", "Marksmen", "ExplosiveExpert", "Mechanic"})
+for _m in ROSTER:
+    _spec = _m["spec"]
+    if _m["cat"] == "Specialists":
+        assert _spec in _SPECIALIST_SPECS, (_m["name"], _spec)
+    else:
+        assert _spec in _LINE_SPECS, (_m["name"], _m["cat"], _spec)
+
 
 def render() -> str:
     lines: list[str] = []
@@ -599,7 +623,7 @@ def render() -> str:
     lines.append("- **Кит:** Irr ≤ **1-2**; Fight ≤ **1-3**; Hard/Spec ≤ **2-1**. **`Type56` — потолок AR, только Hardened.** `SKS`/bolt — только Sniper.")
     lines.append("- **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**")
     lines.append("- **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.")
-    lines.append("- Voice pool: Jazz remesh (~1/4) + all 6 IMP UnitData `IMP_male_01..03` / `IMP_female_01..03` (~3/4; VR resolves to `IMP_male_01` / `IMP_female_01`).")
+    lines.append("- Voice pool: Jazz remesh majority (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) + `PierreMerc` variety (~1/8 males on bucket) + small IMP minority (~1/8; VR → `IMP_male_01` / `IMP_female_01`).")
     lines.append("- **Bio:** полная игровая проза карточки найма (RU); без мета-цифр статов/тиров.")
     lines.append("- Nick: в основном Hardened. Grand Chien: заметная доля.")
     lines.append("")

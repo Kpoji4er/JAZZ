@@ -270,6 +270,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_restore_lynx_tosca_spider_voices.py` | Restore original JA3 opus for `Jazz_Lynx` / `Jazz_Buzz` / `Jazz_Spider` from pre-remesh commit `a626ebc` (after accidental overwrite in `792d1c5`). Spouke untouched. |
 | `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh majority + `PierreMerc` + IMP minority (~1/8; VR → `IMP_*_01`). Assert: line troops = AllRounder/Autoriflemen/HeavyWeapons/Marksmen; soft specs только у Specialists. |
 | `_patch_ame_specializations.py` | Синхронизирует `Specialization` в `jazz-units/UnitData/JAZZ_AME_*.lua` + `items.lua` из roster generator **без** перезаписи зарплат/loc. |
+| `_patch_ame_specializations.py` | Синхронизирует `Specialization` в `jazz-units/UnitData/JAZZ_AME_*.lua` + `items.lua` из roster generator **без** перезаписи зарплат/loc. |
 | `_ame_names_ru.py` | RU Name/Nick для AME (кириллица); используется `_gen_ame_unitdata.py` в RU/EN loc. |
 | `_gen_ame_unitdata.py` | JAZZ-UNITS-005: из roster → `jazz-units/UnitData/JAZZ_AME_01..60.lua`, fixed `Loot_*`, items/metadata markers, nationality presets, RU/EN loc (имена RU из `_ame_names_ru.py`), placeholder portraits. Idempotent (`JAZZ-UNITS-005-AME-*`). |
 | `_apply_ame_weekly_salaries.py` | Playtest salary ladder: weekly bands → `StartingSalary` (week≈×7); writes all `UnitData/JAZZ_AME_*.lua`. Ceiling below Igor/Barry daily. |

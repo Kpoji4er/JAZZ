@@ -89,10 +89,11 @@ Offline merc randomization детерминирован. Это означает
 | Витрина | ~15 `Available` на старте; `NotListed` скрыты; terminal (`JoinedLegion`/`Killed`/…) — серые карточки |
 | Tick | **14** дней кампании (2 недели); specialist soft-guarantee |
 | Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap; contract slider max **30** days (`System_HireContractDuration`, shared with AIM) |
-| VR | Pool: Jazz remesh (~1/4) + all 6 IMP UnitData (VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP→self (not Ice/Fox) |
+| VR | Pool: Jazz remesh majority (`Male_Low`/`Male_Hard`/`Female`) + `PierreMerc` (~10%) + small IMP minority (~12%; VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP/PierreMerc→self (not Ice/Fox) |
 | Heads | Safe Af bank only: `Chimurenga`/`Pierre`/`Jackhammer`/`Head_M_IMP_01`/`Faction_Rebels_M_HeadMedic` + female `Head_F_Af_NPC_*`; **not** Flay/Fidel/Magic/Blood/Fauda/Omryn; no `Faction_Legion_Head_*` ([ame-appearance-assets.md](../../design/ame-appearance-assets.md)) |
 | Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); **1** blue cloth accent; `BodyColor` C1 dark African + `HeadColor` black; no Legion war-paint / no `GrandChien_Top_05` (pale hands); map [ame-appearance-map.json](../../design/ame-appearance-map.json) |
-| PDA chrome | Savannah/ochre panel tints; `Icons/PDA/AME_Mark` (logo v4) instead of HazOS; AME banner pad (not AIM hiring banner); backdrop watermark. Edit `System_AME_Browser_Template.lua` → `_install_ame_xtemplate_moditem.py` |
+| PDA chrome | Savannah/ochre panel tints; `Icons/PDA/AME_Mark` (logo v4) instead of HazOS; AME banner pad (not AIM hiring banner); backdrop watermark. Edit `System_AME_Browser_Template.lua` → `_install_ame_xtemplate_moditem.py`. Loadout omits Traits/Perks strip (Equipment/Backpack only); AIM unchanged. |
+| Specialization | Line troops (`Irregulars`/`Fighters`/`Hardened`): only `AllRounder` · `Autoriflemen` · `HeavyWeapons` · `Marksmen`. Soft icons `Doctor`/`Mechanic`/`ExplosiveExpert`/`Leader` only on Specialists. Patch helper: `_patch_ame_specializations.py`. |
 | Nationality | reuse `GrandChien`/`SouthAfrica` + new `Nigeria`…`Ethiopia` (`System_AME_Nationalities.lua`, flags `Icons/Flags/f_*.png`) |
 | Portraits | unique `MercPortraits/JAZZ_AME_NN.png` + `_Big` (300/2000) |
 | Generator | `docs/tools/_gen_ame_unitdata.py` (+ roster/flags/portrait tools) |
