@@ -9,15 +9,15 @@
 
 | Тир | Оружие | Калибр | Урон | Пробитие | Маг. | ОД выстрел/перезарядка | Прицел | BDR / дальность | Кучность | Отдача | Режимы |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1-1 | Mac 2429 (`MAC2429`) | JAZZ_Caliber_75French | 33 | 1 | 25 | 8 / 7 | 3 × 7 | 14 / 56 | 32 | 32 | очередь 4, пулемёт 4 |
-| 1-2 | BAR (`BAR`) | JAZZ_Caliber_3006 | 34 | 1 | 20 | 7 / 8 | 3 × 8 | 15 / 52 | 38 | 35 | очередь 3, пулемёт 3 |
-| 2-1 | РПД (`RPD`) | JAZZ_Caliber_762x39 | 28 | 1 | 100 | 9 / 7 | 3 × 10 | 14 / 40 | 65 | 9 | очередь 6, пулемёт 6 |
-| 2-1 | U100 (`U100`) | JAZZ_Caliber_556 | 21 | 1 | 30 | 8 / 6 | 3 × 10 | 14 / 48 | 42 | 9 | очередь 4, пулемёт 4 |
-| 2-3 | РПК (`RPK`) | JAZZ_Caliber_762x39 | 29 | 1 | 30 | 8 / 6 | 3 × 10 | 15 / 42 | 62 | 10 | очередь 4, пулемёт 4 |
-| 2-4 | РПК-74 (`RPK74`) | JAZZ_Caliber_545 | 26 | 1 | 30 | 8 / 6 | 3 × 12 | 18 / 50 | 56 | 8 | очередь 4, пулемёт 4 |
-| 2-5 | Minimi (`FNMinimi`) | JAZZ_Caliber_556 | 20 | 1 | 100 | 8 / 8 | 3 × 13 | 17 / 54 | 57 | 6 | очередь 10, пулемёт 10 |
-| 3-2 | HK21 (`HK21`) | JAZZ_Caliber_762x51 | 35 | 1 | 40 | 8 / 7 | 3 × 10 | 20 / 58 | 53 | 25 | очередь 5, пулемёт 5 |
-| 3-2 | HK23e (`HK23e`) | JAZZ_Caliber_556 | 22 | 1 | 100 | 8 / 9 | 3 × 12 | 18 / 52 | 60 | 6 | очередь 4, пулемёт 4 |
+| 1-1 | Mac 2429 (`MAC2429`) | JAZZ_Caliber_75French | 33 | 1 | 25 | 8 / 7 | 3 × 7 | 14 / 56 | 32 | 18 | очередь 4, пулемёт 4 |
+| 1-2 | BAR (`BAR`) | JAZZ_Caliber_3006 | 34 | 1 | 20 | 7 / 8 | 3 × 8 | 15 / 52 | 38 | 18 | очередь 4, пулемёт 4 |
+| 2-1 | РПД (`RPD`) | JAZZ_Caliber_762x39 | 28 | 1 | 100 | 9 / 7 | 3 × 10 | 14 / 40 | 65 | 18 | очередь 4, пулемёт 4 |
+| 2-1 | U100 (`U100`) | JAZZ_Caliber_556 | 21 | 1 | 30 | 8 / 6 | 3 × 10 | 14 / 48 | 42 | 18 | очередь 4, пулемёт 4 |
+| 2-3 | РПК (`RPK`) | JAZZ_Caliber_762x39 | 29 | 1 | 30 | 8 / 6 | 3 × 10 | 15 / 42 | 62 | 18 | очередь 4, пулемёт 4 |
+| 2-4 | РПК-74 (`RPK74`) | JAZZ_Caliber_545 | 26 | 1 | 30 | 8 / 6 | 3 × 12 | 18 / 50 | 56 | 18 | очередь 4, пулемёт 4 |
+| 2-5 | Minimi (`FNMinimi`) | JAZZ_Caliber_556 | 20 | 1 | 100 | 8 / 8 | 3 × 13 | 17 / 54 | 57 | 18 | очередь 4, пулемёт 4 |
+| 3-2 | HK21 (`HK21`) | JAZZ_Caliber_762x51 | 35 | 1 | 40 | 8 / 7 | 3 × 10 | 20 / 58 | 53 | 22 | очередь 4, пулемёт 4 |
+| 3-2 | HK23e (`HK23e`) | JAZZ_Caliber_556 | 22 | 1 | 100 | 8 / 9 | 3 × 12 | 18 / 52 | 60 | 18 | очередь 4, пулемёт 4 |
 
 ## Эксплуатация и компоненты
 
@@ -27,12 +27,12 @@
 |---|---|---|---|---|---|---|---|
 | Mac 2429 (`MAC2429`) | 40 | 0 | 2400 / 1 | 68 | 14° | 3000 | Bipod: Bipod ★<br>Barrel (фикс.): Заводской ствол ★<br>Stock (фикс.): Default Stock ★<br>Magazine (фикс.): Заводской магазин ★ |
 | BAR (`BAR`) | 50 | 0 | 6500 / 1 | 66 | 16° | 3000 | Bipod (фикс.): Bipod ★ |
-| РПД (`RPD`) | 70 | -10 | 9000 / 1 | 52 | 10° | 9000 | Magazine (фикс.): Заводской магазин ★<br>Barrel (фикс.): Заводской ствол ★<br>Stock (фикс.): Default Stock ★<br>Bipod: Сложенная сошка / Разложенная сошка ★<br>Scope (фикс.): Стандартный прицел ★ |
-| U100 (`U100`) | 65 | 0 | 5500 / 1 | 48 | 14° | 12000 | Bipod: Сложенная сошка ★ / Разложенная сошка<br>Barrel (фикс.): Заводской ствол ★<br>Magazine: Бубен / Заводской магазин ★<br>Mountfront (фикс.): Рукоять удержания ★<br>Muzzle (фикс.): Заводской дульный тормоз ★<br>Stock (фикс.): Default Stock ★ |
-| РПК (`RPK`) | 80 | -30 | 12000 / 1 | 50 | 14° | 10000 | Bipod (можно снять): Bipod ★<br>Barrel: Default Barrel ★ / Gain-Twist Barrel<br>Magazine: Бубен / Магазин на 40 патрон ★ / Заводской магазин<br>Handguard: Default Handguard ★ / Vertical Grip<br>Muzzle (можно снять): Compensator / Suppressor<br>Stock (фикс.): Default Stock ★ |
-| РПК-74 (`RPK74`) | 85 | -30 | 11500 / 1 | 48 | 14° | 75000 | Bipod (можно снять): Bipod ★<br>Barrel: Default Barrel ★ / Gain-Twist Barrel<br>Magazine: Магазин на 45 патрон ★ / Заводской магазин<br>Handguard (фикс.): Default Handguard ★ / Vertical Grip<br>Muzzle (можно снять): Compensator ★<br>Stock (фикс.): Light Stock / Default Stock ★ |
+| РПД (`RPD`) | 70 | -10 | 9000 / 1 | 52 | 10° | 9000 | Magazine (фикс.): Заводской магазин ★<br>Barrel (фикс.): Заводской ствол ★<br>Stock (фикс.): Default Stock ★<br>Bipod: Bipod ★<br>Scope (фикс.): Стандартный прицел ★ |
+| U100 (`U100`) | 65 | 0 | 5500 / 1 | 48 | 14° | 12000 | Bipod: Bipod ★<br>Barrel (фикс.): Заводской ствол ★<br>Magazine: Бубен / Заводской магазин ★ / Магазин на 10 патрон<br>Mountfront (фикс.): Рукоять удержания ★<br>Muzzle (фикс.): Заводской дульный тормоз ★<br>Stock (фикс.): Default Stock ★ |
+| РПК (`RPK`) | 80 | -30 | 12000 / 1 | 50 | 14° | 10000 | Bipod (можно снять): Bipod ★<br>Barrel: Default Barrel ★ / Gain-Twist Barrel<br>Magazine: Бубен / Магазин на 40 патрон ★ / Заводской магазин / Quick Mag<br>Handguard: Default Handguard ★ / Vertical Grip<br>Muzzle (можно снять): Compensator / Suppressor<br>Stock (фикс.): Default Stock ★ |
+| РПК-74 (`RPK74`) | 85 | -30 | 11500 / 1 | 48 | 14° | 75000 | Bipod (можно снять): Bipod ★<br>Barrel: Default Barrel ★ / Gain-Twist Barrel<br>Magazine: Магазин на 45 патрон ★ / Заводской магазин / Quick Mag<br>Handguard (фикс.): Default Handguard ★ / Vertical Grip<br>Muzzle (можно снять): Compensator ★<br>Stock (фикс.): Light Stock / Default Stock ★ |
 | Minimi (`FNMinimi`) | 75 | 0 | 7500 / 1 | 48 | 14° | 60000 | Barrel: Extended Barrel / Extended Gain-Twist Barrel / Default Barrel ★ / Gain-Twist Barrel / Short Barrel / Short Gain-Twist Barrel<br>Bipod: Bipod ★<br>Stock: Heavy Stock / Default Stock ★<br>Scope (можно снять): Штурмовой прицел (2x) / Штурмовой прицел ACOG (4x) / Ночной прицел (5х) / Коллиматор Aimpoint5000 / Коллиматор Закрытый / Коллиматор Eotech / Коллиматор Aimpoint M68 / Оптический Прицел Leupold Mark 4 (12x) / Оптический Прицел 1-6x / Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)<br>Magazine: Увеличенный короб / Заводской магазин ★ |
-| HK21 (`HK21`) | 80 | -30 | 10000 / 1 | 66 | 14° | 150000 | Barrel: Extended Barrel / Extended Gain-Twist Barrel / Default Barrel ★ / Gain-Twist Barrel / Short Barrel / Short Gain-Twist Barrel<br>Muzzle: DefaultMuzzle_HK21 ★ / Compensator<br>Scope (можно снять): Штурмовой прицел (2x) / Штурмовой прицел ACOG (4x) / Ночной прицел (5х) / Коллиматор Aimpoint5000 / Коллиматор Закрытый / Коллиматор Eotech / Коллиматор Aimpoint M68 / Оптический Прицел Leupold Mark 4 (12x) / Оптический Прицел 1-6x / Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)<br>Side (можно снять): Flashlight / Tactical Device / Лазерный целеуказатель / UV Dot<br>Stock: Heavy Stock / Default Stock ★<br>Bipod: Bipod ★<br>Under (можно снять): Tactical Grip / Vertical Grip<br>Magazine: Короб / Заводской магазин ★ |
-| HK23e (`HK23e`) | 80 | -30 | 10000 / 1 | 55 | 14° | 170000 | Scope (можно снять): Штурмовой прицел (2x) / Штурмовой прицел ACOG (4x) / Ночной прицел (5х) / Коллиматор Aimpoint5000 / Коллиматор Закрытый / Коллиматор Eotech / Коллиматор Aimpoint M68 / Оптический Прицел Leupold Mark 4 (12x) / Оптический Прицел 1-6x / Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)<br>Magazine: Заводской магазин ★<br>Side (можно снять): Flashlight / Tactical Device / Лазерный целеуказатель<br>Bipod: Bipod ★ |
+| HK21 (`HK21`) | 80 | -30 | 10000 / 1 | 66 | 14° | 150000 | Barrel: Extended Barrel / Extended Gain-Twist Barrel / Default Barrel ★ / Gain-Twist Barrel / Short Barrel / Short Gain-Twist Barrel<br>Muzzle: DefaultMuzzle_HK21 ★ / Compensator<br>Scope (можно снять): Штурмовой прицел (2x) / Штурмовой прицел ACOG (4x) / Ночной прицел (5х) / Коллиматор Aimpoint5000 / Коллиматор Закрытый / Коллиматор Eotech / Коллиматор Aimpoint M68 / Оптический Прицел Leupold Mark 4 (12x) / Оптический Прицел 1-6x / Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)<br>Side (можно снять): Flashlight / Tactical Device / Flashlight / Лазерный целеуказатель / UV Dot<br>Stock: Heavy Stock / Default Stock ★<br>Bipod: Bipod ★<br>Under (можно снять): Tactical Grip / Vertical Grip<br>Magazine: Короб / Бубен / Заводской магазин ★ / Магазин на 10 патрон |
+| HK23e (`HK23e`) | 80 | -30 | 10000 / 1 | 55 | 14° | 170000 | Scope (можно снять): Штурмовой прицел (2x) / Штурмовой прицел ACOG (4x) / Ночной прицел (5х) / Коллиматор Aimpoint5000 / Коллиматор Закрытый / Коллиматор Eotech / Коллиматор Aimpoint M68 / Оптический Прицел Leupold Mark 4 (12x) / Оптический Прицел 1-6x / Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)<br>Magazine (фикс.): Короб ★<br>Side (можно снять): Flashlight / Tactical Device / Flashlight / Лазерный целеуказатель<br>Bipod: Bipod ★ |
 
 Источник чисел: канонический CSV-снимок `working-tree`. Описание полей и правила синхронизации находятся в [техническом контракте](../../technical/weapons/README.md).

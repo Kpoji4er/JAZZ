@@ -7,196 +7,212 @@
 
 | Слот | Компонент | Цена | Сложность | Эффекты | Параметры | Доп. материалы | Оружий |
 |---|---|---:|---:|---|---|---|---:|
-| Barrel | .50 BMG Barrel (`Barrel50BMG_DesertEagle`) | 20 | -25 | `IncreaseDamage`<br>`ReduceReliabilityPercent`<br>`ChangeCaliberToBMG` | DamageIncrease=10;ReliabilityDecreasePercent=30 | FineSteelPipe=1 | 1 |
-| Barrel | Заводской ствол (`BarrelsDefs`) | 0 | 0 | — | — | — | 6 |
-| Barrel | Короткий ствол (`Auto5_Short_NMag`) | 20 | 0 | `ReduceShootAP`<br>`ReduceRange`<br>`ReduceReliability`<br>`IncreaseBuckshotAngle` | ShootAPDecrease=1;ReliabilityDecrease=10;BuckshotAngleIncrease=115;RangeDecrease=2 | FineSteelPipe=1 | 2 |
-| Barrel | Короткий ствол (`BarrelShort_Pistol`) | 15 | 0 | `BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelHandlingIncrease`<br>`BarrelGroupingReduce`<br>`ReduceShootAP` | ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4 | FineSteelPipe=1 | 6 |
-| Barrel | Короткий ствол (`BarrelShortRunNGun`) | 15 | 0 | `ReduceReliability`<br>`EnableRunNGun`<br>`BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelHandlingIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRecoilIncrease` | ReliabilityDecrease=10;ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4 | FineSteelPipe=1 | 1 |
-| Barrel | Стандартный ствол (`BarrelNormal_noSil`) | 50 | 10 | `BlocksMuzzleSlot` | — | FineSteelPipe=2 | 1 |
-| Barrel | Ствол под глушитель (`BarrelNormal_Sil`) | 50 | 10 | `ThreadedForSuppressor` | — | FineSteelPipe=2 | 1 |
-| Barrel | Basic Configuration (`Auto5_Basic_NMag`) | 0 | 0 | — | — | FineSteelPipe=1 | 2 |
-| Barrel | Default Barrel (`BarrelNormal`) | 50 | 10 | — | — | FineSteelPipe=2 | 39 |
-| Barrel | Extended Barrel (`BarrelLong`) | 75 | 0 | `BarrelRangeIncrease`<br>`BarrelBulletDropIncrease`<br>`BarrelAccuracyIncrease`<br>`BarrelHandlingReduce`<br>`BarrelRecoilRecude`<br>`BarrelGroupingIncrease` | RangeIncrease=6;AimAccuracyIncrease=2;EffectiveRange=2 | FineSteelPipe=3 | 16 |
-| Barrel | Extended Barrel (`BarrelLongShotgun`) | 75 | 0 | `BarrelRangeIncrease`<br>`BarrelBulletDropIncrease`<br>`BarrelAccuracyIncrease`<br>`BarrelHandlingReduce`<br>`BarrelGroupingIncrease` | RangeIncrease=4 | FineSteelPipe=3 | 2 |
-| Barrel | Extended Barrel with Bipod (`BarrelLong_AUG`) | 70 | 0 | `AccuracyBonusProne`<br>`BarrelHandlingReduce`<br>`BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRecoilRecude`<br>`BarrelRangeIncrease`<br>`BarrelAccuracyIncrease` | RangeIncrease=6;AimAccuracyIncrease=2 | FineSteelPipe=1 | 1 |
-| Barrel | Extended Gain-Twist Barrel (`BarrelLongImproved`) | 100 | 0 | `IncreaseReliability`<br>`BarrelRangeIncrease`<br>`BarrelBulletDropIncrease`<br>`BarrelAccuracyIncrease`<br>`BarrelHandlingReduce`<br>`BarrelGroupingIncrease`<br>`BarrelRecoilRecude` | ReliabilityIncrease=10;AimAccuracyIncrease=2;RangeIncrease=6 | FineSteelPipe=3 | 5 |
-| Barrel | Extended Gain-Twist Barrel with Bipod (`BarrelLongImproved_AUG`) | 100 | 0 | `AccuracyBonusProne`<br>`IncreaseReliability`<br>`BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelHandlingReduce`<br>`BarrelRecoilRecude`<br>`BarrelAccuracyIncrease`<br>`BarrelRangeIncrease` | AimAccuracyIncrease=2;RangeIncrease=6;ReliabilityIncrease=10 | FineSteelPipe=1 | 1 |
-| Barrel | Gain-Twist Barrel (`BarrelNormalImproved`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | FineSteelPipe=1 | 9 |
-| Barrel | Heavy Barrel (`BarrelHeavy`) | 30 | 0 | `IncreasedSingleShotAccuracy`<br>`BarrelHandlingReduce`<br>`BarrelRecoilRecude`<br>`BarrelBulletDropIncrease` | xrng=2;dmg=3;bonus_cth=5;BarrelRecoilRecude=-3 | FineSteelPipe=1 | 3 |
-| Barrel | High Cap (`Auto5_Basic_LMag`) | 15 | 0 | `MagazineSizeMultiplier` | MagazineSizeMultiplier=150 | FineSteelPipe=1 | 2 |
-| Barrel | Long Barrel (`Auto5_Long_NMag`) | 30 | 0 | `HalfRangeDmgIncrease`<br>`IncreaseRange` | RangeIncrease=4 | FineSteelPipe=1 | 2 |
-| Barrel | Long Barrel High Cap (`Auto5_Long_LMag`) | 50 | 0 | `HalfRangeDmgIncrease`<br>`MagazineSizeMultiplier`<br>`IncreaseRange` | RangeIncrease=4;MagazineSizeMultiplier=150 | FineSteelPipe=1 | 2 |
-| Barrel | Short Barrel (`BarrelShort`) | 15 | 0 | `ReduceReliability`<br>`BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelHandlingIncrease`<br>`BarrelGroupingReduce`<br>`BarrelRecoilIncrease` | ReliabilityDecrease=10;ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=4 | FineSteelPipe=1 | 11 |
-| Barrel | Short Barrel (`BarrelShort_AUG`) | 15 | 0 | `ReduceReliability`<br>`BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRecoilIncrease` | ShootAPDecrease=1;ReliabilityDecrease=10 | FineSteelPipe=1 | 1 |
-| Barrel | Short Barrel (`BarrelShort_Winchester`) | 15 | 0 | `ReduceShootAP`<br>`ReduceRange`<br>`ReduceReliability`<br>`ReduceMagazineSize` | ShootAPDecrease=1;RangeDecrease=4;ReliabilityDecrease=10;MagazineSizeDecrease=4 | FineSteelPipe=1 | 1 |
-| Barrel | Short Gain-Twist Barrel (`BarrelShortImproved`) | 35 | 0 | `BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelHandlingIncrease`<br>`BarrelGroupingReduce`<br>`BarrelRecoilIncrease` | ShootAPDecrease=1;RangeDecrease=4;EffectiveRange=1 | FineSteelPipe=1 | 7 |
-| Barrel | Short Gain-Twist Barrel (`BarrelShortImproved_AUG`) | 35 | 0 | `BarrelHandlingIncrease`<br>`BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRecoilIncrease`<br>`BarrelRangeReduce` | RangeDecrease=4;ShootAPDecrease=1 | FineSteelPipe=1 | 1 |
-| Barrel | Shortened Barrel (`BarrelShortShotgun`) | 15 | 0 | `BarrelRangeReduce`<br>`BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelHandlingIncrease` | ShootAPDecrease=1;ReliabilityDecrease=10;RangeDecrease=2;BuckshotAngleIncrease=115 | FineSteelPipe=1 | 2 |
-| Barrel | Shortened Barrel (`BarrelShortShotgun_Benelli`) | 15 | 0 | `ReduceReliability`<br>`ReduceMagazineSize`<br>`IncreaseBuckshotAngle`<br>`ReduceRange`<br>`ReduceShootAP` | ReliabilityDecrease=10;MagazineSizeDecrease=2;BuckshotAngleIncrease=115;RangeDecrease=2;ShootAPDecrease=1 | FineSteelPipe=1 | 1 |
-| Bipod | Разложенная сошка (`UnfoldBipod`) | 0 | 0 | `ShotsBeforeRecoilProne`<br>`AccuracyBonusProne` | — | — | 2 |
-| Bipod | Сложенная сошка (`FoldBipod`) | 0 | 0 | — | — | — | 2 |
-| Bipod | Сошка от KSP 58 (`KSP_BIPOD`) | 0 | 0 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | — | — | 1 |
-| Bipod | Bipod (`Bipod`) | 60 | 20 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne`<br>`BipodsHandlingDecrease` | bonus_cth_bipod=10 | — | 32 |
-| Bipod | Bipod (`Bipod_MG42`) | 60 | 20 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | — | — | 2 |
-| Freeswap | Пистолет (`JAZZ_Freeswap`) | 10 | 0 | `FreeWeaponSwap` | — | — | 3 |
-| General | Разложенный прицел (`M70_Unfld_GL`) | 0 | 0 | — | — | — | 1 |
-| General | Ремень (`HolsterBelt`) | 20 | 10 | `FreeWeaponSwap` | — | — | 2 |
-| General | Сложенный прицел (`M70_Fld_GL`) | 0 | 0 | — | — | — | 1 |
-| General | Улучшенный lower (`HK33LowerMod`) | 20 | 10 | — | — | — | 1 |
-| General | Lower (`HK33Lower`) | 20 | 10 | — | — | — | 1 |
-| Grenadelauncher | Grenade Launcher (`GrenadeLauncher_AUG`) | 20 | 20 | `GrenadeLauncher` | — | FineSteelPipe=1 | 1 |
-| Handgrip | Стандартная рукоять (`Handgrip_Default`) | 0 | 0 | — | — | — | 4 |
-| Handgrip | Эргономичная рукоять (`Handgrip_Ergo`) | 0 | 0 | `GripHandlingIncrease` | — | — | 4 |
-| Handguard | Гранатомет (`M16A1LaunchHandGuard`) | 1 | -10 | `GrenadeLauncher` | — | — | 2 |
-| Handguard | Заводская рукоять ПКМ (`PKMDefHandGrip`) | 0 | 0 | — | — | — | 1 |
-| Handguard | Заводская рукоять Sig (`SigDefHandGuard`) | 0 | 0 | — | — | — | 4 |
-| Handguard | Модифицированная рукоять ПКМ (`PKMModHandGrip`) | 0 | 0 | — | — | — | 1 |
-| Handguard | Цевье (`HK33Handguard`) | 20 | 10 | — | — | — | 1 |
-| Handguard | Цевьё (`Handguard`) | 0 | 0 | — | — | — | 4 |
-| Handguard | Цевьё (`HandguardM1A`) | 25 | 10 | — | — | — | 1 |
-| Handguard | Цевье с планками (`HK33HandguardMod`) | 20 | 10 | — | — | — | 1 |
-| Handguard | Цевьё с рельсой (`HandguardM1ARail`) | 150 | 20 | — | — | — | 1 |
-| Handguard | Эргономичная рукоять для Sig (`SigErgoHandGrip`) | 0 | 0 | `GripHandlingIncrease` | — | — | 4 |
-| Handguard | Default Chamber (`MuzzleBooster_Glock18`) | 15 | 0 | `ExtraBurstShots` | — | — | 1 |
-| Handguard | Default Handguard (`AKSU_Hanguard_Basic`) | 0 | -25 | — | — | — | 1 |
-| Handguard | Default Handguard (`FNFAL_Handguard`) | 0 | -25 | — | — | — | 1 |
-| Handguard | Default Handguard (`RPK74_Hanguard_Basic`) | 0 | -25 | — | — | — | 2 |
-| Handguard | Vertical Grip (`AKSU_VerticalGrip`) | 40 | 20 | `RecoilDecrease` | Recoil=1 | FineSteelPipe=1 | 1 |
-| Handguard | Vertical Grip (`RPK74_VerticalGrip`) | 40 | 20 | `RecoilDecrease` | Recoil=1 | — | 2 |
-| Magazine | Бубен (`MagDrum_30-100`) | 50 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeMultiplier` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=333 | — | 2 |
-| Magazine | Бубен (`MagDrum_30-100_cumbersome`) | 50 | 0 | `MagazineHandlingDecrease`<br>`IncreaseReloadAP`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeMultiplier` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=333 | — | 1 |
-| Magazine | Бубен (`MagDrum_30-50`) | 50 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeAdd`<br>`ReduceAimAccuracy15Percent` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSize=20 | — | 2 |
-| Magazine | Бубен (`MagDrum_30-75`) | 50 | 0 | `MagazineHandlingDecrease`<br>`ExtraOverwatchShots`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeMultiplier`<br>`Cumbersome` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=250 | — | 4 |
-| Magazine | Бубен (`MagDrum_35-71`) | 50 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeAdd` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSize=36 | — | 1 |
-| Magazine | Заводской магазин (`MagNormal`) | 25 | 0 | — | — | — | 103 |
-| Magazine | Короб (`MagBelt_40-100`) | 50 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeMultiplier` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=250 | — | 1 |
-| Magazine | Магазин на 10 патрон (`MagLarge_5_10`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeMultiplier` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSizeMultiplier=200 | — | 1 |
-| Magazine | Магазин на 10 патрон (`MagLarge_7_10`) | 25 | 0 | `ReduceReliability`<br>`MagazineSizeMultiplier` | ReliabilityDecrease=5;MagazineSizeMultiplier=142 | — | 1 |
-| Magazine | Магазин на 10 патрон (`MagLarge_8_10`) | 25 | 0 | `ReduceReliability`<br>`MagazineSizeMultiplier` | ReliabilityDecrease=5;MagazineSizeMultiplier=125 | — | 1 |
-| Magazine | Магазин на 10 патрон (`MagSmall20_10`) | 15 | 0 | `ReduceReloadAP`<br>`IncreaseReliability`<br>`ReduceMagazineSize`<br>`MagazineHandlingIncrease` | ReloadAPDecrease=1;ReliabilityIncrease=15;MagazineSizeDecrease=10 | — | 5 |
-| Magazine | Магазин на 15 патрон (`MagSmall30_15`) | 15 | 0 | `ReduceReloadAP`<br>`IncreaseReliability`<br>`ReduceMagazineSize`<br>`MagazineHandlingIncrease` | ReloadAPDecrease=1;ReliabilityIncrease=15;MagazineSizeDecrease=15 | — | 6 |
-| Magazine | Магазин на 20 патрон (`MagLarge_10_20`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeMultiplier` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSizeMultiplier=200 | — | 3 |
-| Magazine | Магазин на 20 патрон (`MagLarge_18_20`) | 25 | 0 | `ReduceReliability`<br>`MagazineSizeMultiplier` | ReliabilityDecrease=5;MagazineSizeMultiplier=112 | — | 1 |
-| Magazine | Магазин на 20 патрон (`MagNormalG18`) | 25 | 0 | — | MagazineSizeMultiplier=117 | — | 2 |
-| Magazine | Магазин на 20 патрон (`MagSmall30_20`) | 15 | 0 | `ReduceReloadAP`<br>`IncreaseReliability`<br>`ReduceMagazineSize`<br>`MagazineHandlingIncrease` | ReloadAPDecrease=1;ReliabilityIncrease=15;MagazineSizeDecrease=10 | — | 4 |
-| Magazine | Магазин на 30 патрон (`MagLarge_20_30`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeAdd` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=10 | — | 3 |
-| Magazine | Магазин на 33 патрона (`MagLarge_17_33`) | 15 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeAdd`<br>`IncreaseReloadAP` | ReliabilityDecrease=15;ReloadAPIncrease=1;MagazineSize=16 | — | 1 |
-| Magazine | Магазин на 40 патрон (`MagLarge_25_40`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeAdd` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=15 | — | 2 |
-| Magazine | Магазин на 40 патрон (`MagLarge_30_40`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeAdd` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=10;MagazineHandlingDecrease=5 | — | 5 |
-| Magazine | Магазин на 42 патрона (`MagLarge_30_42`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeAdd` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=12 | — | 1 |
-| Magazine | Магазин на 45 патрон (`MagLarge_30_45`) | 25 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`MagazineSizeAdd` | extra_shots=5;ReliabilityDecrease=5;ReloadAPIncrease=1;MagazineSize=15 | — | 4 |
-| Magazine | Расширенный магазин (`MagLarge`) | 15 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeMultiplier`<br>`IncreaseReloadAP` | ReliabilityDecrease=15;ReloadAPIncrease=1;MagazineSizeMultiplier=166 | — | 22 |
-| Magazine | Увеличенный короб (`MagBelt_100-200`) | 100 | 0 | `MagazineHandlingDecrease`<br>`ReduceReliability`<br>`IncreaseReloadAP`<br>`ReduceAimAccuracy15Percent`<br>`MagazineSizeMultiplier` | extra_shots=5;ReliabilityDecrease=15;ReloadAPIncrease=2;MagazineSizeMultiplier=200 | — | 1 |
-| Magazine | Ergonomic Expanded Mag (`MagLargeFine`) | 25 | 0 | `MagazineSizeMultiplier` | MagazineSizeMultiplier=150 | — | 1 |
-| Magazine | Fine-Tuned Mag (`MagNormalFine`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 4 |
-| Magazine | Quick Mag (`MagQuick`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 5 |
-| Mount | Современные крепления с планками для М60 (`M60E4ModernMount`) | 0 | 0 | — | — | — | 2 |
-| Mount | Цевье с рукоятью для cовременных М60 (`M60E3HandGrip`) | 0 | 0 | — | — | — | 2 |
-| Mount | Rail Mount (`AUGMount`) | 0 | -25 | — | — | — | 1 |
-| Mountfront | Рукоять удержания (`U100Handle`) | 0 | 0 | — | — | — | 1 |
-| Muzzle | Глушитель (`PistolSuppressor`) | 10 | -10 | `RecoilDecrease`<br>`ReduceReliability`<br>`SilencerGroupingReduce10`<br>`SilencerHandlingReduce`<br>`StealthKillBonusPerAim`<br>`SilentShots` | NoiseMultiplier=15;Recoil=1;RangeDecrease=3;ReliabilityDecrease=5;SilencerHandlingReduce=5;crit=25;stealth_kill_bonus=80 | FineSteelPipe=1;Parts=50 | 25 |
-| Muzzle | Глушитель Интегрированный (`SuppressorIntegrated`) | 10 | 0 | `StealthKillBonusPerAim` | stealth_kill_bonus=30 | FineSteelPipe=1 | 6 |
-| Muzzle | Заводской дульный тормоз (`DefMuzzle`) | 0 | 0 | — | — | — | 6 |
-| Muzzle | Масляной фильтр (`ImprovisedSuppressor`) | 20 | -25 | `StealthKillBonusPerAim`<br>`ReduceReliabilityPercent`<br>`SilencerGroupingReduce50`<br>`SilencerHandlingReduce`<br>`SilencerJamChance`<br>`ReduceAimAccuracy15Percent`<br>`SilentShots` | NoiseMultiplier=33;ReliabilityDecreasePercent=50;SilencerHandlingReduce=10;crit=25;stealth_kill_bonus=100 | — | 47 |
-| Muzzle | Наствольная граната для М70 (`M70_Grenade`) | 0 | 0 | `GrenadeLauncher` | — | — | 1 |
-| Muzzle | Пламегаситель (`FlashHider`) | 10 | 0 | `RecoilDecrease`<br>`StealthKillBonusPerAim`<br>`SilencerHandlingReduce` | Recoil=1;crit=10;stealth_kill_bonus=20 | FineSteelPipe=2;Parts=50 | 1 |
-| Muzzle | Улучшенный глушитель (`SuppressorImproved`) | 10 | 10 | `SilentShots`<br>`RecoilDecrease`<br>`StealthKillBonusPerAim`<br>`ReduceReliability`<br>`SilencerGroupingReduce10` | NoiseMultiplier=25;Recoil=2;RangeDecrease=5;ReliabilityDecrease=5;SilencerHandlingReduce=2;crit=25;stealth_kill_bonus=20 | FineSteelPipe=5;Parts=250 | 24 |
-| Muzzle | Advanced Compensator (`AUGCompensator_03`) | 15 | 0 | `AccuracyBonusSameTarget`<br>`IncreaseReliability` | ReliabilityIncrease=10 | — | 1 |
-| Muzzle | Compensator (`Compensator`) | 0 | 0 | `RecoilDecrease`<br>`AccuracyBonusSameTarget` | Recoil=3 | FineSteelPipe=1;Parts=25 | 41 |
-| Muzzle | Compensator (`Compensator_cosmetic`) | 25 | 0 | — | — | — | 1 |
-| Muzzle | Default Compensator (`AUGCompensator_01`) | 10 | -25 | `AccuracyBonusSameTarget` | — | — | 1 |
-| Muzzle | Default Flash Hider (`DefaultMuzzle_HK21`) | 0 | -25 | — | — | — | 1 |
-| Muzzle | Default Muzzle (`M14_Default_Muzzle`) | 2 | -25 | — | — | — | 4 |
-| Muzzle | Default Muzzle Brake (`Galil_Brake_Default`) | 2 | -25 | `IncreaseAimAccuracy` | AimAccuracyIncrease=1 | — | 2 |
-| Muzzle | Duckbill Choke (`DuckbillChoke`) | 20 | 0 | `IncreaseBuckshotAngle` | BuckshotAngleIncrease=120 | — | 3 |
-| Muzzle | Full Choke (`FullChoke`) | 20 | 0 | `DecreaseBuckshotAngle`<br>`IncreaseRange` | RangeIncrease=4;BuckshotAngleDecrease=80 | — | 3 |
-| Muzzle | Recoil Booster (`MuzzleBooster`) | 15 | 0 | — | — | — | 1 |
-| Muzzle | Suppressor (`Suppressor`) | 10 | 0 | `SilentShots`<br>`SilencerGroupingReduce30`<br>`RecoilDecrease`<br>`StealthKillBonusPerAim`<br>`SilencerHandlingReduce`<br>`SilencerJamChance`<br>`ReduceReliability` | NoiseMultiplier=33;Recoil=1;RangeDecrease=8;ReliabilityDecrease=10;SilencerHandlingReduce=5;crit=25;stealth_kill_bonus=50 | FineSteelPipe=2;Parts=50 | 37 |
-| Scope | Быстрый прицел (`Jazz_IronSight_FAST`) | 50 | 10 | `MinorAccuracyBonus` | BonusCTH=3 | — | 1 |
-| Scope | Коллиматор (`JAZZ_Reflex_Garand`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleIncreace` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=5 | Microchip=1;OpticalLens=1 | 1 |
-| Scope | Коллиматор (`ReflexSight`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`IncreaseOverwatchAngle`<br>`MinAim` | OverwatchAngleIncrease=140;MaxAimActionsDecrease=1;extra_attacks=1 | Microchip=1;OpticalLens=1 | 9 |
-| Scope | Коллиматор Закрытый (`JAZZ_Reflex_Closed`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreace`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeHandlingReduce` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=1 | Microchip=1;OpticalLens=1 | 51 |
-| Scope | Коллиматор Кобра (`JAZZ_Reflex_Cobra`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreaceBig`<br>`MinAim` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1 | Microchip=1;OpticalLens=1 | 8 |
-| Scope | Коллиматор Компактный (`JAZZ_Reflex_Open`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreaceBig`<br>`MinAim`<br>`OpportunityAttackBonusCth` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1 | Microchip=1;OpticalLens=1 | 16 |
-| Scope | Коллиматор Пистолетный (`JAZZ_Reflex_Pistol`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreaceBig`<br>`MinAim`<br>`OpportunityAttackBonusCth` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1 | Microchip=1;OpticalLens=1 | 5 |
-| Scope | Коллиматор ПК-АА (`JAZZ_Reflex_PKAS`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreace`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeHandlingReduce` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=3 | Microchip=1;OpticalLens=1 | 8 |
-| Scope | Коллиматор Aimpoint M68 (`JAZZ_Reflex_M68`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreace`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeHandlingReduce` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=2 | Microchip=1;OpticalLens=1 | 50 |
-| Scope | Коллиматор Aimpoint5000 (`JAZZ_Reflex_Aimpoint5000`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreace`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeHandlingReduce` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1;ScopeHandlingReduce=3 | Microchip=1;OpticalLens=1 | 46 |
-| Scope | Коллиматор Eotech (`JAZZ_Reflex_Eotech`) | 50 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`ScopeOverwatchAngleIncreaceBig`<br>`MinAim`<br>`OpportunityAttackBonusCth` | OverwatchAngleIncrease=120;MaxAimActionsDecrease=1;extra_attacks=1 | Microchip=1;OpticalLens=1 | 51 |
-| Scope | Ночной прицел (`Jazz_IronSight_NIGHT`) | 50 | 20 | `NightsIronsBonus` | NightsIronsBonus=10 | — | 1 |
-| Scope | Ночной прицел (`ThermalScope`) | 100 | 10 | `IncreaseShotAP`<br>`IgnoreInTheDarkWhenFullyAimed`<br>`IgnoreLightOfSightWhenFullyAimed`<br>`ReduceAimAccuracy20Percent`<br>`ReduceAuto75Percent`<br>`ReduceBurst50Percent` | ShotAP=2 | Microchip=4;OpticalLens=4;FineSteelPipe=4 | 3 |
-| Scope | Ночной прицел (5х) (`JAZZ_NightScope`) | 100 | 10 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`IgnoreInTheDarkWhenFullyAimed`<br>`ScopeHandlingReduce` | ShotAP=1;ScopeMagnification=5;ScopeSubMagnification=;ScopeAimLevel=3;ScopeHandlingReduce=24 | Microchip=4;OpticalLens=4;FineSteelPipe=4 | 47 |
-| Scope | Ночной прицел (5х) (`JAZZ_NightScope_M3`) | 100 | 10 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`IgnoreInTheDarkWhenFullyAimed`<br>`ScopeHandlingReduce` | ShotAP=1;ScopeMagnification=1;ScopeSubMagnification=5;ScopeAimLevel=3;ScopeHandlingReduce=2 | Microchip=1;OpticalLens=1;FineSteelPipe=1 | 1 |
-| Scope | Ночной прицел НСПУ (3.5х) (`JAZZ_NightScope_NSPU`) | 100 | 10 | `IncreaseShotAP`<br>`IgnoreInTheDarkWhenFullyAimed`<br>`ScopeMagnification`<br>`ScopeHandlingReduce` | ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=5;ScopeAimLevel=3;ScopeHandlingReduce=32 | Microchip=4;OpticalLens=4;FineSteelPipe=4 | 8 |
-| Scope | Оптический прицел (`LROptics`) | 50 | 0 | `IncreaseMaxAimActions`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ReduceAuto75Percent`<br>`ReduceBurst50Percent` | IncreaseMaxAimActions=1;ShotAP=2;min_aim=2;AimAccuracyIncrease=5 | OpticalLens=2;FineSteelPipe=1 | 3 |
-| Scope | Оптический Прицел (2.75x) (`JAZZ_Scope_Springfield`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=2;ScopeSubMagnification=7;ScopeAimLevel=3;ScopeHandlingReduce=20 | OpticalLens=2;FineSteelPipe=1 | 1 |
-| Scope | Оптический Прицел 1-6x (`JAZZ_Scope_6x`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | ShotAP=1;ScopeMagnification=6;ScopeAimLevel=3;ScopeHandlingReduce=20 | OpticalLens=2;FineSteelPipe=1 | 48 |
-| Scope | Оптический Прицел 8x (`JAZZ_Scope_8x_SCROME`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ShotAP=2;ScopeMagnification=8;ScopeAimLevel=3;ScopeHandlingReduce=16 | OpticalLens=2;FineSteelPipe=1 | 1 |
-| Scope | Оптический Прицел ПСО (4x) (`JAZZ_Scope_PSO`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | ShotAP=1;ScopeMagnification=4;ScopeAimLevel=3;ScopeHandlingReduce=16 | OpticalLens=2;FineSteelPipe=1 | 8 |
-| Scope | Оптический Прицел ПУ (3.5x) (`JAZZ_Scope_PU`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=5;ScopeAimLevel=2;ScopeHandlingReduce=16 | OpticalLens=2;FineSteelPipe=1 | 2 |
-| Scope | Оптический Прицел Hensoldt ZF PSG1 (6x) (`JAZZ_Scope_PSG`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | ShotAP=1;ScopeMagnification=6;ScopeSubMagnification=;ScopeAimLevel=3;ScopeHandlingReduce=16 | OpticalLens=2;FineSteelPipe=1 | 1 |
-| Scope | Оптический Прицел Leupold Mark 4 (12x) (`JAZZ_Scope_12x`) | 50 | 0 | `IncreaseMaxAimActions`<br>`ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=10;ScopeAimLevel=4;ScopeHandlingReduce=30 | OpticalLens=2;FineSteelPipe=1 | 48 |
-| Scope | Оптический Прицел M84 (2.2x) (`JAZZ_Scope_Garand`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | ShotAP=1;ScopeMagnification=2;ScopeSubMagnification=2;ScopeAimLevel=2;ScopeHandlingReduce=12 | OpticalLens=2;FineSteelPipe=1 | 1 |
-| Scope | Оптический Прицел Redfield (3-9x) (`JAZZ_Scope_3x_9x`) | 50 | 0 | `IncreaseMaxAimActions`<br>`ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig`<br>`SmallMagnification` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=9;ScopeSubMagnification=;ScopeAimLevel=4;SmallAimLevel=2;SmallMagnification=3;SmallSubMagnification=;ScopeHandlingReduce=16 | OpticalLens=2;FineSteelPipe=1 | 2 |
-| Scope | Оптический Прицел Vortex Crossfire II Scout Scope (2-7x) (`JAZZ_Scope_Scout`) | 50 | 0 | `ScopeMagnification`<br>`SmallMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | ShotAP=1;ScopeMagnification=7;ScopeSubMagnification=;ScopeAimLevel=3;SmallAimLevel=1;SmallMagnification=2;SmallSubMagnification=;ScopeHandlingReduce=12 | OpticalLens=2;FineSteelPipe=1 | 48 |
-| Scope | Оптический Прицел Zeiss Diavari-DA (1.5-6x) (`JAZZ_Scope_DA15_6x`) | 50 | 0 | `ScopeMagnification`<br>`SmallMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | ShotAP=1;ScopeMagnification=6;ScopeAimLevel=3;SmallAimLevel=1;SmallMagnification=1;SmallSubMagnification=5;ScopeHandlingReduce=12 | OpticalLens=2;FineSteelPipe=1 | 8 |
-| Scope | Оптический Прицел ZF4 (4x) (`JAZZ_Scope_ZF4`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=4;ScopeAimLevel=3;ScopeHandlingReduce=12 | OpticalLens=2;FineSteelPipe=1 | 4 |
-| Scope | Оптический Прицел ZRAK (4x) (`JAZZ_Scope_ZRAK`) | 50 | 0 | `ScopeMagnification`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=4;ScopeAimLevel=3;ScopeHandlingReduce=16 | OpticalLens=2;FineSteelPipe=1 | 1 |
-| Scope | Прицел малой кратности (`ScopeCOG`) | 50 | 0 | `FirstShotIncreasedAim`<br>`ReduceAuto25Percent`<br>`ReduceBurst25Percent`<br>`IncreaseShotAP` | min_aim=2;ShotAP=1 | OpticalLens=1;FineSteelPipe=1 | 5 |
-| Scope | Прицел AUG (1.5x) (`AUGScope_Default`) | 0 | -25 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecrease` | IncreaseMaxAimActions=1;ShotAP=1;ScopeMagnification=1;ScopeSubMagnification=5;ScopeAimLevel=2;ScopeHandlingReduce=1 | — | 1 |
-| Scope | Прицел G36 1.5x (`Jazz_G36Sight`) | 0 | -25 | `ScopeMagnification` | ScopeMagnification=1;ScopeSubMagnification=5;ScopeAimLevel=1 | — | 1 |
-| Scope | Прицел G36 3x (`Jazz_G36Scope`) | 0 | -25 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=;ScopeAimLevel=2 | — | 1 |
-| Scope | Стандартный прицел (`Jazz_IronSight`) | 0 | -10 | — | — | — | 9 |
-| Scope | Точный прицел (`Jazz_IronSight_AIM`) | 50 | 10 | `IncreaseAimAccuracy`<br>`CritBonusWhenFullyAimed` | BonusCTH=;AimAccuracyIncrease=5 | — | 2 |
-| Scope | Тюльпан (`JAZZ_CombatScope_1P29`) | 100 | 0 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecrease` | ShotAP=1;ScopeMagnification=4;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=10 | OpticalLens=3;FineSteelPipe=3 | 8 |
-| Scope | Улучшенный коллиматор (`ReflexSightAdvanced`) | 100 | 10 | `DecreaseMaxAimActions`<br>`OpportunityAttackBonusCth`<br>`IncreaseOverwatchAngle`<br>`MinAim` | OverwatchAngleIncrease=140;MaxAimActionsDecrease=1;extra_attacks=1 | Microchip=3;OpticalLens=2 | 7 |
-| Scope | Штурмовой прицел (`ScopeCOGQuick`) | 100 | 0 | `FirstShotIncreasedAim`<br>`ReduceAuto25Percent`<br>`ReduceBurst25Percent`<br>`IncreaseAimAccuracy`<br>`IncreaseShotAP` | AimAccuracyIncrease=10;min_aim=2;ShotAP=1 | OpticalLens=3;FineSteelPipe=3 | 4 |
-| Scope | Штурмовой прицел (2x) (`JAZZ_CombatScope_2x`) | 50 | 0 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecrease` | ShotAP=1;ScopeMagnification=2;ScopeSubMagnification=;ScopeAimLevel=1;ScopeHandlingReduce=6 | OpticalLens=1;FineSteelPipe=1 | 55 |
-| Scope | Штурмовой прицел (3x) (`JAZZ_CombatScope_3x`) | 50 | 0 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecrease` | ShotAP=1;ScopeMagnification=3;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=6 | OpticalLens=1;FineSteelPipe=1 | 5 |
-| Scope | Штурмовой прицел ACOG (4x) (`JAZZ_CombatScope_ACOG`) | 100 | 0 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecrease` | ShotAP=1;ScopeMagnification=4;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=6 | OpticalLens=3;FineSteelPipe=3 | 48 |
-| Scope | Штурмовой прицел Fero Z24 (4х) (`JAZZ_CombatScope_FeroZ24`) | 100 | 0 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeHandlingReduce`<br>`ScopeOverwatchAngleDecrease` | ShotAP=1;ScopeMagnification=4;ScopeSubMagnification=;ScopeAimLevel=2;ScopeHandlingReduce=10 | OpticalLens=3;FineSteelPipe=3 | 7 |
-| Scope | Basic Iron Sight (`BaseIronsight_Anaconda`) | 10 | 0 | — | bonus_cth=5 | — | 1 |
-| Scope | Improved Iron Sight (`ImprovedIronsight`) | 10 | 0 | `MinorAccuracyBonus` | — | — | 6 |
-| Scope | Red Dot (`LaserDot_Anaconda`) | 10 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`LaserMark` | CritChangeScaledIncrease=15;EffectiveRange=2;OverwatchAngleIncrease=140;LaserCTH=15;LaserDistance=10 | Microchip=1 | 1 |
-| Scope | Sniper Scope x10 (`LROpticsAdvanced`) | 100 | 10 | `IncreaseMaxAimActions`<br>`IncreaseShotAP`<br>`CritBonusWhenFullyAimed`<br>`ReduceAuto75Percent`<br>`ReduceBurst50Percent` | AimAccuracyIncrease=7;IncreaseMaxAimActions=2;min_aim=3;ShotAP=3 | OpticalLens=4;FineSteelPipe=4 | 3 |
-| Scope | Tactical Device (`FlashlightDot_Anaconda`) | 20 | 10 | `IgnoreInTheDark`<br>`StealthKillBonusPerAim`<br>`IncreaseOverwatchAngle` | maxaims=1;EffectiveRange=1;OverwatchAngleIncrease=140;aim_bonus=1;stealth_kill_bonus=2 | Microchip=1 | 1 |
-| Scope | UV Dot (`UVDot_Anaconda`) | 10 | 10 | `MinAim` | — | Microchip=1 | 1 |
-| Side | Лазерный целеуказатель (`LaserDot`) | 50 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`LaserMark` | CritChangeScaledIncrease=15;OverwatchAngleIncrease=140;LaserCTH=15;LaserDistance=10 | Microchip=2 | 48 |
-| Side | Обмотка на цевье (`HandlingWrap`) | 10 | 0 | `BarrelHandlingIncrease` | BarrelHandlingIncrease=1 | — | 1 |
-| Side | Flashlight (`Flashlight`) | 25 | -25 | `IgnoreInTheDark` | — | — | 50 |
-| Side | Flashlight (`Flashlight_aa12`) | 10 | -25 | `IgnoreInTheDark` | — | — | 1 |
-| Side | Flashlight (`Flashlight_PSG_M1`) | 10 | -25 | `IgnoreInTheDark` | — | — | 1 |
-| Side | Red Dot (`LaserDot_aa12`) | 10 | 10 | `IncreaseCritChangeScaled`<br>`MarkWhenFullyAimed`<br>`IncreaseOverwatchAngle`<br>`LaserMark` | CritChangeScaledIncrease=15;EffectiveRange=2;OverwatchAngleIncrease=140;LaserCTH=15;LaserDistance=10 | Microchip=1 | 1 |
-| Side | Red Dot (`LaserDot_PSG_M1`) | 10 | 10 | `MarkWhenFullyAimed` | — | Microchip=1 | 1 |
-| Side | Tactical Device (`FlashlightDot`) | 50 | 10 | `StealthKillBonusPerAim`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed` | maxaims=1;OverwatchAngleIncrease=140;aim_bonus=1;stealth_kill_bonus=2 | Microchip=3 | 45 |
-| Side | Tactical Device (`FlashlightDot_aa12`) | 20 | 10 | `IgnoreInTheDark`<br>`StealthKillBonusPerAim`<br>`IncreaseOverwatchAngle` | maxaims=1;EffectiveRange=1;OverwatchAngleIncrease=140;aim_bonus=1;stealth_kill_bonus=2 | Microchip=1 | 1 |
-| Side | Tactical Device (`FlashlightDot_PSG_M1`) | 20 | 10 | `IgnoreInTheDark`<br>`StealthKillBonusPerAim` | stealth_kill_bonus=2 | Microchip=1 | 1 |
-| Side | UV Dot (`UVDot`) | 10 | 10 | `MinAim` | — | Microchip=1 | 40 |
-| Side | UV Dot (`UVDot_aa12`) | 10 | 10 | `MinAim` | — | Microchip=1 | 1 |
-| Side | UV Dot (`UVDot_PSG_M1`) | 10 | 10 | `MinAim` | — | Microchip=1 | 1 |
-| Side2 | Ускорение перезарядки (`SpeedLoader`) | 30 | 0 | `ReduceReloadAP` | ReloadAPDecrease=2 | — | 1 |
-| Stock | Кастомный приклад ПКМ (`PKMModStock`) | 0 | 0 | — | — | — | 1 |
-| Stock | Рамочный приклад (Разложенный) (`StockLightUnFolded`) | 50 | 20 | `zzStockEquipped` | — | — | 31 |
-| Stock | Складной приклад (Сложенный) (`StockLightFolded`) | 50 | 20 | `ReduceAimAccuracy90Percent`<br>`ReduceShootAP`<br>`RecoilIncrease`<br>`zzStockEquipped`<br>`ExtraOverwatchShots`<br>`StockHandlingIncrease`<br>`DecreaseMaxAimActions` | Recoil=5;ShootAPDecrease=1;MaxAimActionsDecrease=1 | FineSteelPipe=1 | 31 |
-| Stock | Default Stock (`StockNormal`) | 50 | 0 | `RecoilDecrease`<br>`IncreaseAimAccuracy15Percent` | Recoil=1 | FineSteelPipe=1 | 27 |
-| Stock | Folded Stock (`StockFolded`) | 50 | 20 | `ReduceAimAccuracy`<br>`ExtraOverwatchShots` | extra_attacks=1;crit_display=15;accuracy_penalty=-50 | — | 1 |
-| Stock | Heavy Stock (`StockHeavy`) | 40 | 20 | `IncreaseAimAccuracy15Percent` | range=10;bonus_cth=10 | — | 13 |
-| Stock | Light Stock (`StockLight`) | 150 | 20 | `RecoilIncrease`<br>`StockHandlingIncrease` | Recoil=1;StockHandlingIncrease=5 | FineSteelPipe=1 | 8 |
-| Stock | No Stock (`StockNo`) | 15 | 20 | `ReduceShootAP`<br>`ReduceAimAccuracy90Percent`<br>`RecoilIncrease`<br>`ExtraOverwatchShots`<br>`StockHandlingIncrease` | extra_attacks=1;ShootAPDecrease=1;Recoil=5;StockHandlingIncrease=15;crit_display=15;accuracy_penalty=-50 | — | 3 |
-| Trigger | Автоматический огонь (`Autofire`) | 0 | 0 | `EnableFullAuto`<br>`EnableBurst` | — | — | 1 |
-| Under | Вертикальная рукоять (Сложенная) (`VerticalGripFld`) | 40 | 20 | — | Recoil=1 | FineSteelPipe=1 | 1 |
-| Under | ГП-25 (`GP25`) | 50 | 20 | `GrenadeLauncher`<br>`GLHandlingDecrease` | — | FineSteelPipe=2 | 3 |
-| Under | Штык-нож (`Type56Bayo`) | 30 | 0 | `zzStockEquipped` | — | FineSteelPipe=1 | 1 |
-| Under | Штык-нож (`Type56BayoF`) | 30 | 0 | `zzStockEquipped` | — | FineSteelPipe=1 | 1 |
-| Under | Bipod (`Bipod_Galil`) | 60 | 20 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | — | — | 2 |
-| Under | Bipod (`Bipod_Under`) | 60 | 20 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | — | — | 3 |
-| Under | Default Handguard (`Galil_Handguard_Default`) | 2 | -25 | — | — | — | 1 |
-| Under | Grenade Launcher (`GrenadeLauncher`) | 50 | 20 | `GrenadeLauncher`<br>`GLHandlingDecrease` | — | FineSteelPipe=2 | 6 |
-| Under | Grenade Launcher (`GrenadeLauncher_Galil`) | 50 | 20 | `GrenadeLauncher`<br>`GLHandlingDecrease` | — | FineSteelPipe=2 | 1 |
-| Under | Grenade Launcher (`GrenadeLauncher_M14`) | 20 | 20 | `GrenadeLauncher` | — | FineSteelPipe=1 | 4 |
-| Under | Tactical Grip (`TacGrip`) | 20 | 10 | `GripHandlingIncrease` | accuracy=5 | — | 9 |
-| Under | Tactical Grip (`TacGrip_M14`) | 20 | 10 | `FreeWeaponSwap` | accuracy=5 | — | 3 |
-| Under | Vertical Grip (`VerticalGrip`) | 40 | 20 | `RecoilDecrease` | Recoil=1 | FineSteelPipe=1 | 15 |
-| Under | Vertical Grip (`VerticalGrip_M14`) | 40 | 20 | `RecoilDecrease` | Recoil=1 | FineSteelPipe=1 | 3 |
+| Barrel | .50 BMG Barrel (`JAZZ_Barrel50BMG_DesertEagle`) | 20 | -25 | `ChangeCaliberToBMG`<br>`IncreaseDamage`<br>`ReduceReliabilityPercent` | DamageIncrease=10;ReliabilityDecreasePercent=30 | — | 1 |
+| Barrel | Заводской ствол (`JAZZ_BarrelsDefs`) | — | — | — | — | — | 6 |
+| Barrel | Короткий ствол (`JAZZ_Auto5_Short_NMag`) | 20 | 0 | `IncreaseBuckshotAngle`<br>`ReduceRange`<br>`ReduceReliability`<br>`ReduceShootAP` | BuckshotAngleIncrease=115;RangeDecrease=2;ReliabilityDecrease=10;ShootAPDecrease=1 | — | 2 |
+| Barrel | Короткий ствол (`JAZZ_BarrelShortRunNGun`) | 15 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingIncrease`<br>`BarrelRangeReduce`<br>`BarrelRecoilIncrease`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease`<br>`EnableRunNGun`<br>`ReduceReliability` | BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12;ReliabilityDecrease=10;SilencerGroupingReduce=110 | — | 1 |
+| Barrel | Короткий ствол (`JAZZ_BarrelShort_Pistol`) | 15 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRecoilIncrease`<br>`CloseRangeFactorIncrease`<br>`CloseRangeIncrease` | BarrelGroupingReduce=90;BarrelRecoilIncrease=1;BulletDropReduce=85;CloseRangeFactorIncrease=15;CloseRangeIncrease=3 | — | 6 |
+| Barrel | Стандартный ствол (`JAZZ_BarrelNormal_noSil`) | 50 | 10 | `BlocksMuzzleSlot` | — | — | 1 |
+| Barrel | Ствол под глушитель (`JAZZ_BarrelNormal_Sil`) | 50 | 10 | `ThreadedForSuppressor` | — | — | 1 |
+| Barrel | BarrelShort_Winchester (`BarrelShort_Winchester`) | — | — | — | — | — | 1 |
+| Barrel | Basic Configuration (`JAZZ_Auto5_Basic_NMag`) | — | 0 | — | — | — | 2 |
+| Barrel | Default Barrel (`JAZZ_BarrelNormal`) | 50 | 10 | — | — | — | 39 |
+| Barrel | Extended Barrel (`JAZZ_BarrelLong`) | 75 | 0 | `BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRangeIncrease`<br>`BarrelRecoilRecude`<br>`CloseRangeFactorDecrease`<br>`CloseRangeIncrease` | BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;SilencerGroupingReduce=110 | — | 16 |
+| Barrel | Extended Barrel (`JAZZ_BarrelLongShotgun`) | 75 | 0 | `BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRangeIncrease`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease` | BarrelRangeIncrease=1;BulletDropIncrease=120;CloseRangeDecrease=1;CloseRangeFactorIncrease=10;SilencerGroupingReduce=110 | — | 2 |
+| Barrel | Extended Barrel with Bipod (`JAZZ_BarrelLong_AUG`) | 70 | 0 | `BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRangeIncrease`<br>`BarrelRecoilRecude`<br>`CloseRangeFactorDecrease`<br>`CloseRangeIncrease` | BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;SilencerGroupingReduce=110 | — | 1 |
+| Barrel | Extended Gain-Twist Barrel (`JAZZ_BarrelLongImproved`) | 100 | 0 | `BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRangeIncrease`<br>`BarrelRecoilRecude`<br>`CloseRangeFactorDecrease`<br>`CloseRangeIncrease`<br>`IncreaseReliability` | BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;ReliabilityIncrease=10;SilencerGroupingReduce=110 | — | 5 |
+| Barrel | Extended Gain-Twist Barrel with Bipod (`JAZZ_BarrelLongImproved_AUG`) | 100 | 0 | `BarrelBulletDropIncrease`<br>`BarrelGroupingIncrease`<br>`BarrelRangeIncrease`<br>`BarrelRecoilRecude`<br>`CloseRangeFactorDecrease`<br>`CloseRangeIncrease`<br>`IncreaseReliability` | BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;ReliabilityIncrease=10;SilencerGroupingReduce=110 | — | 1 |
+| Barrel | Gain-Twist Barrel (`JAZZ_BarrelNormalImproved`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 9 |
+| Barrel | Heavy Barrel (`JAZZ_BarrelHeavy`) | 30 | 0 | `BarrelBulletDropIncrease`<br>`BarrelRecoilRecude`<br>`CloseRangeFactorDecrease`<br>`CloseRangeIncrease` | BarrelRecoilRecude=5;BulletDropIncrease=115;CloseRangeFactorDecrease=8;CloseRangeIncrease=2 | — | 3 |
+| Barrel | High Cap (`JAZZ_Auto5_Basic_LMag`) | 15 | 0 | `MagazineSizeMultiplier` | MagazineSizeMultiplier=150 | — | 2 |
+| Barrel | Long Barrel (`JAZZ_Auto5_Long_NMag`) | 30 | 0 | `HalfRangeDmgIncrease`<br>`IncreaseRange` | RangeIncrease=4 | — | 2 |
+| Barrel | Long Barrel High Cap (`JAZZ_Auto5_Long_LMag`) | 50 | 0 | `HalfRangeDmgIncrease`<br>`IncreaseRange`<br>`MagazineSizeMultiplier` | MagazineSizeMultiplier=150;RangeIncrease=4 | — | 2 |
+| Barrel | Short Barrel (`JAZZ_BarrelShort`) | 15 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRangeReduce`<br>`BarrelRecoilIncrease`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease`<br>`ReduceReliability` | BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12;ReliabilityDecrease=10 | — | 11 |
+| Barrel | Short Barrel (`JAZZ_BarrelShort_AUG`) | 15 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRangeReduce`<br>`BarrelRecoilIncrease`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease`<br>`ReduceReliability` | BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12;ReliabilityDecrease=10 | — | 1 |
+| Barrel | Short Gain-Twist Barrel (`JAZZ_BarrelShortImproved`) | 35 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRangeReduce`<br>`BarrelRecoilIncrease`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease` | BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12 | — | 7 |
+| Barrel | Short Gain-Twist Barrel (`JAZZ_BarrelShortImproved_AUG`) | 35 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRangeReduce`<br>`BarrelRecoilIncrease`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease` | BarrelGroupingReduce=90;BarrelRangeReduce=1;BarrelRecoilIncrease=2;BulletDropReduce=70;CloseRangeDecrease=3;CloseRangeFactorIncrease=12 | — | 1 |
+| Barrel | Shortened Barrel (`JAZZ_BarrelShortShotgun`) | 15 | 0 | `BarrelBulletDropReduce`<br>`BarrelGroupingReduce`<br>`BarrelRangeReduce`<br>`CloseRangeDecrease`<br>`CloseRangeFactorIncrease`<br>`IncreaseBuckshotAngle`<br>`ReduceReliability` | BarrelGroupingReduce=90;BarrelRangeReduce=1;BuckshotAngleIncrease=115;BulletDropReduce=80;CloseRangeDecrease=1;CloseRangeFactorIncrease=12;ReliabilityDecrease=10 | — | 2 |
+| Barrel | Shortened Barrel (`JAZZ_BarrelShortShotgun_Benelli`) | 15 | 0 | `CloseRangeDecrease`<br>`CloseRangeFactorIncrease`<br>`IncreaseBuckshotAngle`<br>`ReduceMagazineSize`<br>`ReduceRange`<br>`ReduceReliability` | BuckshotAngleIncrease=115;CloseRangeDecrease=1;CloseRangeFactorIncrease=12;MagazineSizeDecrease=2;RangeDecrease=1;ReliabilityDecrease=10 | — | 1 |
+| Bipod | Bipod (`JAZZ_Bipod`) | 50 | 10 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | ShotsBeforeRecoilProne=1;bonus_cth_bipod=10 | — | 38 |
+| Freeswap | Пистолет (`JAZZ_Freeswap`) | 10 | 0 | `FreeWeaponSwap` | — | — | 4 |
+| General | Разложенный прицел (`JAZZ_M70_Unfld_GL`) | — | — | — | — | — | 1 |
+| General | Ремень (`JAZZ_HolsterBelt`) | 20 | 10 | `FreeWeaponSwap` | — | — | 2 |
+| General | Сложенный прицел (`JAZZ_M70_Fld_GL`) | — | — | — | — | — | 1 |
+| General | Улучшенный lower (`JAZZ_HK33LowerMod`) | 20 | 10 | — | — | — | 1 |
+| General | Lower (`JAZZ_HK33Lower`) | 20 | 10 | — | — | — | 1 |
+| Grenadelauncher | Grenade Launcher (`JAZZ_GrenadeLauncher_AUG`) | 20 | 20 | `GrenadeLauncher` | — | — | 1 |
+| Handgrip | Стандартная рукоять (`JAZZ_Handgrip_Default`) | 5 | 0 | — | — | — | 4 |
+| Handgrip | Эргономичная рукоять (`JAZZ_Handgrip_Ergo`) | 15 | 0 | `IncreaseAimAccuracy15Percent` | AimAccuracyPercent=105 | — | 4 |
+| Handguard | Гранатомет (`JAZZ_M16A1LaunchHandGuard`) | 1 | -10 | `GrenadeLauncher` | — | — | 2 |
+| Handguard | Заводская рукоять ПКМ (`JAZZ_PKMDefHandGrip`) | — | — | — | — | — | 1 |
+| Handguard | Заводская рукоять Sig (`JAZZ_SigDefHandGuard`) | — | — | — | — | — | 4 |
+| Handguard | Модифицированная рукоять ПКМ (`JAZZ_PKMModHandGrip`) | — | — | — | — | — | 1 |
+| Handguard | Цевье (`JAZZ_HK33Handguard`) | 20 | 10 | — | — | — | 1 |
+| Handguard | Цевьё (`JAZZ_Handguard`) | — | — | — | — | — | 4 |
+| Handguard | Цевьё (`JAZZ_HandguardM1A`) | 25 | 10 | — | — | — | 1 |
+| Handguard | Цевье с планками (`JAZZ_HK33HandguardMod`) | 20 | 10 | — | — | — | 1 |
+| Handguard | Цевьё с рельсой (`JAZZ_HandguardM1ARail`) | 150 | 20 | — | — | — | 1 |
+| Handguard | Эргономичная рукоять для Sig (`JAZZ_SigErgoHandGrip`) | 15 | 0 | `IncreaseAimAccuracy15Percent` | AimAccuracyPercent=105 | — | 4 |
+| Handguard | AKSU_Hanguard_Basic (`AKSU_Hanguard_Basic`) | — | — | — | — | — | 1 |
+| Handguard | Default Handguard (`JAZZ_RPK74_Hanguard_Basic`) | — | -25 | — | — | — | 2 |
+| Handguard | FNFAL_Handguard (`FNFAL_Handguard`) | — | — | — | — | — | 1 |
+| Handguard | MuzzleBooster_Glock18 (`MuzzleBooster_Glock18`) | — | — | — | — | — | 1 |
+| Handguard | Vertical Grip (`JAZZ_AKSU_VerticalGrip`) | 15 | 0 | `RecoilDecrease` | Recoil=1 | — | 1 |
+| Handguard | Vertical Grip (`JAZZ_RPK74_VerticalGrip`) | 15 | 0 | `RecoilDecrease` | Recoil=1 | — | 2 |
+| Magazine | Бубен (`JAZZ_MagDrum_30_100_G3`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 2 |
+| Magazine | Бубен (`JAZZ_MagDrum_30_100_HK33`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Бубен (`JAZZ_MagDrum_30_100_cumbersome`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Бубен (`JAZZ_MagDrum_30_50_THOMPSON`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Бубен (`JAZZ_MagDrum_30_50_UZI`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 2 |
+| Magazine | Бубен (`JAZZ_MagDrum_30_75`) | 50 | 0 | `ExtraOverwatchShots`<br>`IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=75;ReliabilityDecrease=15;ReloadAPIncrease=2;extra_shots=5 | — | 6 |
+| Magazine | Бубен (`JAZZ_MagDrum_35_71`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=71;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Заводской магазин (`JAZZ_MagNormal`) | 25 | 0 | — | — | — | 102 |
+| Magazine | Короб (`JAZZ_MagBelt_40_100`) | 50 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=100;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 2 |
+| Magazine | Магазин на 10 патрон (`JAZZ_MagLarge_5_10`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=10;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 10 патрон (`JAZZ_MagLarge_7_10`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=10;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 10 патрон (`JAZZ_MagLarge_8_10`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=10;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 10 патрон (`JAZZ_MagSmall20_10_G3`) | 15 | 0 | `IncreaseReliability`<br>`MagazineSizeSet`<br>`ReduceReloadAP` | MagazineSize=10;ReliabilityIncrease=15;ReloadAPDecrease=1 | — | 5 |
+| Magazine | Магазин на 10 патрон (`JAZZ_MagSmall20_10_M14`) | 15 | 0 | `IncreaseReliability`<br>`MagazineSizeSet`<br>`ReduceReloadAP` | MagazineSize=10;ReliabilityIncrease=15;ReloadAPDecrease=1 | — | 3 |
+| Magazine | Магазин на 15 патрон (`JAZZ_MagSmall30_15_M2CARBINE`) | 15 | 0 | `IncreaseReliability`<br>`MagazineSizeSet`<br>`ReduceReloadAP` | MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1 | — | 1 |
+| Magazine | Магазин на 15 патрон (`JAZZ_MagSmall30_15_MP5`) | 15 | 0 | `IncreaseReliability`<br>`MagazineSizeSet`<br>`ReduceReloadAP` | MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1 | — | 4 |
+| Magazine | Магазин на 15 патрон (`JAZZ_MagSmall30_15_TMP`) | 15 | 0 | `IncreaseReliability`<br>`MagazineSizeSet`<br>`ReduceReloadAP` | MagazineSize=15;ReliabilityIncrease=15;ReloadAPDecrease=1 | — | 1 |
+| Magazine | Магазин на 20 патрон (`JAZZ_MagLarge_10_20_SVD`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=20;ReloadAPIncrease=1 | — | 3 |
+| Magazine | Магазин на 20 патрон (`JAZZ_MagLarge_10_20_VAL`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=20;ReloadAPIncrease=1 | — | 2 |
+| Magazine | Магазин на 20 патрон (`JAZZ_MagLarge_18_20`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=20;ReloadAPIncrease=1 | — | 2 |
+| Magazine | Магазин на 20 патрон (`JAZZ_MagNormalG18`) | 25 | 0 | `MagazineSizeSet` | MagazineSize=20 | — | 2 |
+| Magazine | Магазин на 20 патрон (`JAZZ_MagSmall30_20`) | 15 | 0 | `IncreaseReliability`<br>`MagazineSizeSet`<br>`ReduceReloadAP` | MagazineSize=20;ReliabilityIncrease=15;ReloadAPDecrease=1 | — | 4 |
+| Magazine | Магазин на 30 патрон (`JAZZ_MagLarge_20_30_FAL`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=30;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 30 патрон (`JAZZ_MagLarge_20_30_MINI14`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=30;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 30 патрон (`JAZZ_MagLarge_20_30_UZI`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=30;ReloadAPIncrease=1 | — | 2 |
+| Magazine | Магазин на 33 патрона (`JAZZ_MagLarge_17_33`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=33;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 40 патрон (`JAZZ_MagLarge_25_40`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=40;ReloadAPIncrease=1 | — | 2 |
+| Magazine | Магазин на 40 патрон (`JAZZ_MagLarge_30_40`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=40;ReloadAPIncrease=1 | — | 6 |
+| Magazine | Магазин на 42 патрона (`JAZZ_MagLarge_30_42`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=42;ReloadAPIncrease=1 | — | 1 |
+| Magazine | Магазин на 45 патрон (`JAZZ_MagLarge_30_45`) | 25 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet` | MagazineSize=45;ReloadAPIncrease=1 | — | 4 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_13_PISTOL_52`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=13;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 4 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_13_PISTOL_DE`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=13;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_25_AA12`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_25_PISTOL_9`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 7 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_25_USAS`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=25;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_27`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=27;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 3 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_28`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=28;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_50_AR15`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 5 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_50_MP40`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_50_MP5`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 4 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_50_SIG`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 4 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_8_BARRET`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_8_PISTOL_52`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 4 |
+| Magazine | Расширенный магазин (`JAZZ_MagLarge_8_PSG1`) | 40 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=8;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Увеличенный короб (`JAZZ_MagBelt_100_200`) | 100 | 0 | `IncreaseReloadAP`<br>`MagazineSizeSet`<br>`ReduceAimAccuracy15Percent`<br>`ReduceReliability` | MagazineSize=200;ReliabilityDecrease=15;ReloadAPIncrease=2 | — | 1 |
+| Magazine | Fine-Tuned Mag (`JAZZ_MagNormalFine_AR15`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 5 |
+| Magazine | Fine-Tuned Mag (`JAZZ_MagNormalFine_FAL`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 1 |
+| Magazine | Fine-Tuned Mag (`JAZZ_MagNormalFine_M14`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 3 |
+| Magazine | Fine-Tuned Mag (`JAZZ_MagNormalFine_PISTOL_9`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 2 |
+| Magazine | Fine-Tuned Mag (`JAZZ_MagNormalFine_PSG1`) | 15 | 0 | `IncreaseReliability` | ReliabilityIncrease=10 | — | 1 |
+| Magazine | Quick Mag (`JAZZ_MagQuick_AK`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 10 |
+| Magazine | Quick Mag (`JAZZ_MagQuick_AR15`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 5 |
+| Magazine | Quick Mag (`JAZZ_MagQuick_AUG`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 1 |
+| Magazine | Quick Mag (`JAZZ_MagQuick_G36`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 2 |
+| Magazine | Quick Mag (`JAZZ_MagQuick_GALIL`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 1 |
+| Magazine | Quick Mag (`JAZZ_MagQuick_MP5`) | 15 | 0 | `ReduceReloadAP` | ReloadAPDecrease=1 | — | 4 |
+| Mountfront | Рукоять удержания (`JAZZ_U100Handle`) | — | — | — | — | — | 1 |
+| Muzzle | Глушитель (`JAZZ_PistolSuppressor`) | 35 | -10 | `ReduceReliability`<br>`SilencerGroupingReduce10`<br>`SilentShots`<br>`StealthKillBonusPerAim` | NoiseMultiplier=20;ReliabilityDecrease=5;stealth_kill_bonus=70 | — | 25 |
+| Muzzle | Глушитель Интегрированный (`JAZZ_SuppressorIntegrated`) | 10 | 0 | `SilentShots`<br>`StealthKillBonusPerAim` | NoiseMultiplier=30;stealth_kill_bonus=50 | — | 6 |
+| Muzzle | Заводской дульный тормоз (`JAZZ_DefMuzzle`) | — | — | — | — | — | 6 |
+| Muzzle | Масляной фильтр (`JAZZ_ImprovisedSuppressor`) | 20 | -25 | `ReduceAimAccuracy15Percent`<br>`ReduceReliabilityPercent`<br>`SilencerGroupingReduce50`<br>`SilencerJamChance`<br>`SilentShots`<br>`StealthKillBonusPerAim` | NoiseMultiplier=40;ReliabilityDecreasePercent=50;stealth_kill_bonus=40 | — | 47 |
+| Muzzle | Наствольная граната для М70 (`JAZZ_M70_Grenade`) | — | — | `GrenadeLauncher` | — | — | 1 |
+| Muzzle | Пламегаситель (`JAZZ_FlashHider`) | 10 | 0 | `RecoilDecrease`<br>`StealthKillBonusPerAim` | Recoil=1;stealth_kill_bonus=25 | — | 1 |
+| Muzzle | Улучшенный глушитель (`JAZZ_SuppressorImproved`) | 75 | 10 | `ReduceReliability`<br>`SilencerGroupingReduce10`<br>`SilentShots`<br>`StealthKillBonusPerAim` | NoiseMultiplier=25;ReliabilityDecrease=5;stealth_kill_bonus=80 | — | 24 |
+| Muzzle | AUGCompensator_01 (`AUGCompensator_01`) | — | — | — | — | — | 1 |
+| Muzzle | AUGCompensator_03 (`AUGCompensator_03`) | — | — | — | — | — | 1 |
+| Muzzle | Compensator (`JAZZ_Compensator`) | 30 | 0 | `AccuracyBonusSameTarget`<br>`RecoilDecrease` | Recoil=3 | — | 41 |
+| Muzzle | Compensator_cosmetic (`Compensator_cosmetic`) | — | — | — | — | — | 1 |
+| Muzzle | Default Muzzle (`JAZZ_M14_Default_Muzzle`) | 2 | -25 | — | — | — | 4 |
+| Muzzle | Default Muzzle Brake (`JAZZ_Galil_Brake_Default`) | 2 | -25 | `RecoilDecrease` | Recoil=1 | — | 2 |
+| Muzzle | DefaultMuzzle_HK21 (`DefaultMuzzle_HK21`) | — | — | — | — | — | 1 |
+| Muzzle | Duckbill Choke (`JAZZ_DuckbillChoke`) | 20 | 0 | `IncreaseBuckshotAngle` | BuckshotAngleIncrease=120 | — | 3 |
+| Muzzle | Full Choke (`JAZZ_FullChoke`) | 20 | 0 | `DecreaseBuckshotAngle` | BuckshotAngleDecrease=80 | — | 3 |
+| Muzzle | Suppressor (`JAZZ_Suppressor`) | 40 | 0 | `ReduceReliability`<br>`SilencerGroupingReduce30`<br>`SilencerJamChance`<br>`SilentShots`<br>`StealthKillBonusPerAim` | NoiseMultiplier=33;ReliabilityDecrease=10;stealth_kill_bonus=55 | — | 37 |
+| Scope | Быстрый прицел (`JAZZ_IronSight_FAST`) | 50 | 10 | `MinorAccuracyBonus` | BonusCTH=3 | — | 1 |
+| Scope | Коллиматор (`JAZZ_Reflex_Garand`) | 30 | -15 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`MinAim` | AimAccuracyAimLevel=1;AimAccuracyPercent=120;CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1 | — | 1 |
+| Scope | Коллиматор Закрытый (`JAZZ_Reflex_Closed`) | 50 | 0 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`MinAim` | AimAccuracyAimLevel=1;AimAccuracyPercent=135;CloseRangeFactorIncrease=20;MaxAimActionsDecrease=1 | — | 52 |
+| Scope | Коллиматор Кобра (`JAZZ_Reflex_Cobra`) | 35 | -10 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`MinAim`<br>`ScopeOverwatchAngleIncreaceBig` | CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1;ScopeOverwatchAngle=140;extra_attacks=1 | — | 8 |
+| Scope | Коллиматор Компактный (`JAZZ_Reflex_Open`) | 50 | 0 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeOverwatchAngleIncreaceBig` | CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1;ScopeOverwatchAngle=150;bonus_cth=8;extra_attacks=2 | — | 17 |
+| Scope | Коллиматор Пистолетный (`JAZZ_Reflex_Pistol`) | 45 | 0 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeOverwatchAngleIncreaceBig` | CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1;ScopeOverwatchAngle=150;bonus_cth=8;extra_attacks=2 | — | 5 |
+| Scope | Коллиматор ПК-АА (`JAZZ_Reflex_PKAS`) | 100 | 15 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`MinAim` | AimAccuracyAimLevel=1;AimAccuracyPercent=160;CloseRangeFactorIncrease=35;MaxAimActionsDecrease=1 | — | 8 |
+| Scope | Коллиматор Aimpoint M68 (`JAZZ_Reflex_M68`) | 75 | 10 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`MinAim` | AimAccuracyAimLevel=1;AimAccuracyPercent=150;CloseRangeFactorIncrease=25;MaxAimActionsDecrease=1 | — | 51 |
+| Scope | Коллиматор Aimpoint5000 (`JAZZ_Reflex_Aimpoint5000`) | 35 | -10 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`MinAim` | AimAccuracyAimLevel=1;AimAccuracyPercent=120;CloseRangeFactorIncrease=15;MaxAimActionsDecrease=1 | — | 47 |
+| Scope | Коллиматор Eotech (`JAZZ_Reflex_Eotech`) | 90 | 10 | `CloseRangeFactorIncrease`<br>`DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`MinAim`<br>`OpportunityAttackBonusCth`<br>`ScopeOverwatchAngleIncreaceBig` | AimAccuracyAimLevel=1;AimAccuracyPercent=135;CloseRangeFactorIncrease=20;MaxAimActionsDecrease=1;ScopeOverwatchAngle=145;bonus_cth=8;extra_attacks=1 | — | 52 |
+| Scope | Ночной прицел (`JAZZ_IronSight_NIGHT`) | 50 | 20 | `NightsIronsBonus` | NightsIronsBonus=10 | — | 1 |
+| Scope | Ночной прицел (5х) (`JAZZ_NightScope`) | 100 | 10 | `IgnoreInTheDarkWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | OpticMinRange=9;OpticNearFactor=70;ScopeAimLevel=3;ScopeMagnification=5;ScopeOverwatchAngle=60;ShotAP=1 | — | 47 |
+| Scope | Ночной прицел (5х) (`JAZZ_NightScope_M3`) | 100 | 10 | `IgnoreInTheDarkWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification` | ScopeAimLevel=3;ScopeMagnification=1;ScopeSubMagnification=5;ShotAP=1 | — | 1 |
+| Scope | Ночной прицел НСПУ (3.5х) (`JAZZ_NightScope_NSPU`) | 100 | 10 | `IgnoreInTheDarkWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | OpticMinRange=7;OpticNearFactor=80;ScopeAimLevel=3;ScopeMagnification=3;ScopeOverwatchAngle=70;ShotAP=1 | — | 8 |
+| Scope | Оптический Прицел (2.75x) (`JAZZ_Scope_Springfield`) | 45 | -10 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=2;AimAccuracyPercent=110;OpticMinRange=5;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=2;ScopeOverwatchAngle=80;ShotAP=1 | — | 1 |
+| Scope | Оптический Прицел 1-6x (`JAZZ_Scope_6x`) | 80 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig`<br>`SmallMagnification` | AimAccuracyAimLevel=3;AimAccuracyPercent=115;OpticMinRange=10;OpticNearFactor=62;ScopeAimLevel=3;ScopeMagnification=6;ScopeOverwatchAngle=55;ShotAP=1;SmallAimLevel=1;SmallMagnification=1 | — | 48 |
+| Scope | Оптический Прицел 8x (`JAZZ_Scope_8x_SCROME`) | 100 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=3;AimAccuracyPercent=120;OpticMinRange=13;OpticNearFactor=50;ScopeAimLevel=3;ScopeMagnification=8;ScopeOverwatchAngle=48;ShotAP=1 | — | 1 |
+| Scope | Оптический Прицел ПСО (4x) (`JAZZ_Scope_PSO`) | 60 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=3;AimAccuracyPercent=155;OpticMinRange=8;OpticNearFactor=78;ScopeAimLevel=3;ScopeMagnification=4;ScopeOverwatchAngle=65;ShotAP=1 | — | 8 |
+| Scope | Оптический Прицел ПУ (3.5x) (`JAZZ_Scope_PU`) | 40 | -10 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=2;AimAccuracyPercent=112;OpticMinRange=6;OpticNearFactor=85;ScopeAimLevel=2;ScopeMagnification=3;ScopeOverwatchAngle=75;ShotAP=1 | — | 2 |
+| Scope | Оптический Прицел Hensoldt ZF PSG1 (6x) (`JAZZ_Scope_PSG`) | 50 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | ScopeAimLevel=3;ScopeMagnification=6;ScopeOverwatchAngle=55;ShotAP=1 | — | 1 |
+| Scope | Оптический Прицел Leupold Mark 4 (12x) (`JAZZ_Scope_12x`) | 130 | 10 | `CritBonusWhenFullyAimed`<br>`IncreaseMaxAimActions`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=4;AimAccuracyPercent=125;IncreaseMaxAimActions=1;OpticMinRange=14;OpticNearFactor=40;ScopeAimLevel=4;ScopeMagnification=10;ScopeOverwatchAngle=42;ShotAP=1 | — | 48 |
+| Scope | Оптический Прицел M84 (2.2x) (`JAZZ_Scope_Garand`) | 40 | -15 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=2;AimAccuracyPercent=110;OpticMinRange=5;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=2;ScopeOverwatchAngle=82;ShotAP=1 | — | 1 |
+| Scope | Оптический Прицел Redfield (3-9x) (`JAZZ_Scope_3x_9x`) | 110 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseMaxAimActions`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig`<br>`SmallMagnification` | AimAccuracyAimLevel=4;AimAccuracyPercent=120;IncreaseMaxAimActions=1;OpticMinRange=13;OpticNearFactor=48;ScopeAimLevel=4;ScopeMagnification=9;ScopeOverwatchAngle=45;ShotAP=1;SmallAimLevel=1;SmallMagnification=3 | — | 2 |
+| Scope | Оптический Прицел Vortex Crossfire II Scout Scope (2-7x) (`JAZZ_Scope_Scout`) | 100 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig`<br>`SmallMagnification` | AimAccuracyAimLevel=3;AimAccuracyPercent=120;OpticMinRange=12;OpticNearFactor=55;ScopeAimLevel=3;ScopeMagnification=7;ScopeOverwatchAngle=52;ShotAP=1;SmallAimLevel=1;SmallMagnification=2 | — | 48 |
+| Scope | Оптический Прицел Zeiss Diavari-DA (1.5-6x) (`JAZZ_Scope_DA15_6x`) | 80 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig`<br>`SmallMagnification` | AimAccuracyAimLevel=3;AimAccuracyPercent=115;OpticMinRange=10;OpticNearFactor=62;ScopeAimLevel=3;ScopeMagnification=6;ScopeOverwatchAngle=55;ShotAP=1;SmallAimLevel=1;SmallMagnification=1;SmallSubMagnification=5 | — | 9 |
+| Scope | Оптический Прицел ZF4 (4x) (`JAZZ_Scope_ZF4`) | 60 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | AimAccuracyAimLevel=3;AimAccuracyPercent=155;OpticMinRange=8;OpticNearFactor=78;ScopeAimLevel=3;ScopeMagnification=4;ScopeOverwatchAngle=65;ShotAP=1 | — | 4 |
+| Scope | Оптический Прицел ZRAK (4x) (`JAZZ_Scope_ZRAK`) | 50 | 0 | `CritBonusWhenFullyAimed`<br>`IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecreaseBig` | IncreaseMaxAimActions=1;ScopeAimLevel=3;ScopeMagnification=4;ScopeOverwatchAngle=65;ShotAP=1 | — | 1 |
+| Scope | Прицел AUG (1.5x) (`JAZZ_AUGScope_Default`) | — | -25 | `IncreaseShotAP`<br>`ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | IncreaseMaxAimActions=1;ScopeAimLevel=2;ScopeMagnification=1;ScopeOverwatchAngle=88;ScopeSubMagnification=5;ShotAP=1 | — | 1 |
+| Scope | Прицел G36 1.5x (`JAZZ_G36Sight`) | — | -25 | `ScopeMagnification` | ScopeAimLevel=1;ScopeMagnification=1;ScopeSubMagnification=5 | — | 1 |
+| Scope | Прицел G36 3x (`JAZZ_G36Scope`) | — | -25 | `ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | AimAccuracyAimLevel=2;AimAccuracyPercent=140;OpticMinRange=9;OpticNearFactor=90;ScopeAimLevel=2;ScopeMagnification=3;ScopeOverwatchAngle=78 | — | 1 |
+| Scope | Стандартный прицел (`JAZZ_IronSight`) | — | -10 | — | — | — | 9 |
+| Scope | Точный прицел (`JAZZ_IronSight_AIM`) | 50 | 10 | `CritBonusWhenFullyAimed`<br>`IncreaseAimAccuracy` | AimAccuracyIncrease=5 | — | 2 |
+| Scope | Штурмовой прицел (2x) (`JAZZ_CombatScope_2x`) | 50 | 0 | `ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | AimAccuracyAimLevel=1;AimAccuracyPercent=125;OpticMinRange=6;OpticNearFactor=92;ScopeAimLevel=1;ScopeMagnification=2;ScopeOverwatchAngle=85 | — | 56 |
+| Scope | Штурмовой прицел (3x) (`JAZZ_CombatScope_3x`) | 60 | 0 | `ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | AimAccuracyAimLevel=2;AimAccuracyPercent=140;OpticMinRange=9;OpticNearFactor=90;ScopeAimLevel=2;ScopeMagnification=3;ScopeOverwatchAngle=78 | — | 5 |
+| Scope | Штурмовой прицел ACOG (4x) (`JAZZ_CombatScope_ACOG`) | 100 | 0 | `ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | AimAccuracyAimLevel=2;AimAccuracyPercent=155;OpticMinRange=12;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=4;ScopeOverwatchAngle=70 | — | 48 |
+| Scope | Штурмовой прицел Fero Z24 (4х) (`JAZZ_CombatScope_FeroZ24`) | 100 | 0 | `ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | AimAccuracyAimLevel=2;AimAccuracyPercent=155;OpticMinRange=12;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=4;ScopeOverwatchAngle=70 | — | 8 |
+| Scope | Basic Iron Sight (`JAZZ_BaseIronsight_Anaconda`) | 10 | 0 | — | bonus_cth=5 | — | 1 |
+| Scope | Default Iron Sight (`JAZZ_DefaultIronsight_AR15`) | 10 | 0 | — | — | — | 6 |
+| Scope | Improved Iron Sight (`JAZZ_ImprovedIronsight`) | 10 | 0 | `MinorAccuracyBonus` | — | — | 5 |
+| Scope | JAZZ_CombatScope_1P29 (`JAZZ_CombatScope_1P29`) | 100 | 0 | `ScopeMagnification`<br>`ScopeOverwatchAngleDecrease` | AimAccuracyAimLevel=2;AimAccuracyPercent=155;OpticMinRange=12;OpticNearFactor=88;ScopeAimLevel=2;ScopeMagnification=4;ScopeOverwatchAngle=70 | — | 8 |
+| Scope | Red Dot (`JAZZ_LaserDot_Anaconda`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 1 |
+| Scope | Tactical Device (`JAZZ_FlashlightDot_Anaconda`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 1 |
+| Scope | UV Dot (`JAZZ_UVDot_Anaconda`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 1 |
+| Side | Лазерный целеуказатель (`JAZZ_LaserDot`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 47 |
+| Side | Обмотка на цевье (`JAZZ_HandlingWrap`) | 10 | 0 | `CloseRangeFactorIncrease` | CloseRangeFactorIncrease=5 | — | 1 |
+| Side | Flashlight (`JAZZ_Flashlight`) | 20 | -25 | `IgnoreInTheDark` | — | — | 48 |
+| Side | Flashlight (`JAZZ_FlashlightOff`) | 5 | -25 | — | — | — | 48 |
+| Side | Flashlight (`JAZZ_Flashlight_PSG_M1`) | 20 | -25 | `IgnoreInTheDark` | — | — | 1 |
+| Side | Flashlight (`JAZZ_Flashlight_aa12`) | 20 | -25 | `IgnoreInTheDark` | — | — | 1 |
+| Side | Red Dot (`JAZZ_LaserDot_PSG_M1`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 1 |
+| Side | Red Dot (`JAZZ_LaserDot_aa12`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 1 |
+| Side | Tactical Device (`JAZZ_FlashlightDot`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 44 |
+| Side | Tactical Device (`JAZZ_FlashlightDot_PSG_M1`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 1 |
+| Side | Tactical Device (`JAZZ_FlashlightDot_aa12`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 1 |
+| Side | UV Dot (`JAZZ_UVDot`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 39 |
+| Side | UV Dot (`JAZZ_UVDot_PSG_M1`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 1 |
+| Side | UV Dot (`JAZZ_UVDot_aa12`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 1 |
+| Side2 | Ускорение перезарядки (`JAZZ_SpeedLoader`) | 30 | 0 | `ReduceReloadAP` | ReloadAPDecrease=2 | — | 1 |
+| Stock | Кастомный приклад ПКМ (`JAZZ_PKMModStock`) | — | — | — | — | — | 1 |
+| Stock | Рамочный приклад (Разложенный) (`JAZZ_StockLightUnFolded`) | 20 | 0 | `RecoilIncrease`<br>`zzStockEquipped` | Recoil=2 | — | 31 |
+| Stock | Складной приклад (Сложенный) (`JAZZ_StockLightFolded`) | 20 | 0 | `DecreaseMaxAimActions`<br>`ExtraOverwatchShots`<br>`RecoilIncrease`<br>`ReduceAimAccuracy15Percent`<br>`ReduceShootAP`<br>`zzStockEquipped` | AimAccuracyPercent=85;MaxAimActionsDecrease=1;Recoil=5;ShootAPDecrease=1;extra_attacks=2 | — | 31 |
+| Stock | Default Stock (`JAZZ_StockNormal`) | 25 | 0 | — | — | — | 27 |
+| Stock | Folded Stock (`JAZZ_StockFolded`) | 20 | 0 | `ExtraOverwatchShots`<br>`RecoilIncrease`<br>`ReduceAimAccuracy15Percent`<br>`ReduceShootAP` | AimAccuracyPercent=85;Recoil=5;ShootAPDecrease=1;extra_attacks=2 | — | 1 |
+| Stock | Heavy Stock (`JAZZ_StockHeavy`) | 40 | 10 | `IncreaseAimAccuracy15Percent`<br>`RecoilDecrease` | AimAccuracyPercent=115;Recoil=5 | — | 13 |
+| Stock | Light Stock (`JAZZ_StockLight`) | 20 | 0 | `RecoilIncrease` | Recoil=2 | — | 8 |
+| Stock | No Stock (`JAZZ_StockNo`) | 15 | 10 | `ExtraOverwatchShots`<br>`RecoilIncrease`<br>`ReduceAimAccuracy15Percent`<br>`ReduceShootAP` | AimAccuracyPercent=85;Recoil=5;ShootAPDecrease=1;extra_attacks=2 | — | 3 |
+| Trigger | Автоматический огонь (`JAZZ_Autofire`) | — | — | `EnableBurst`<br>`EnableFullAuto` | — | — | 1 |
+| Under | Вертикальная рукоять (Сложенная) (`JAZZ_VerticalGripFld`) | 10 | 0 | — | — | — | 1 |
+| Under | ГП-25 (`JAZZ_GP25`) | 50 | 20 | `GrenadeLauncher` | — | — | 3 |
+| Under | Штык-нож (`JAZZ_Type56Bayo`) | 30 | 0 | `zzStockEquipped` | — | — | 1 |
+| Under | Штык-нож (`JAZZ_Type56BayoF`) | 30 | 0 | `zzStockEquipped` | — | — | 1 |
+| Under | Bipod (`JAZZ_Bipod_Galil`) | 50 | 10 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | ShotsBeforeRecoilProne=1;bonus_cth_bipod=10 | — | 2 |
+| Under | Bipod (`JAZZ_Bipod_Under`) | 50 | 10 | `AccuracyBonusProne`<br>`ShotsBeforeRecoilProne` | ShotsBeforeRecoilProne=1;bonus_cth_bipod=10 | — | 3 |
+| Under | Galil_Handguard_Default (`Galil_Handguard_Default`) | — | — | — | — | — | 1 |
+| Under | Grenade Launcher (`JAZZ_GrenadeLauncher`) | 50 | 20 | `GrenadeLauncher` | — | — | 6 |
+| Under | Grenade Launcher (`JAZZ_GrenadeLauncher_Galil`) | 50 | 20 | `GrenadeLauncher` | — | — | 1 |
+| Under | Grenade Launcher (`JAZZ_GrenadeLauncher_M14`) | 20 | 20 | `GrenadeLauncher` | — | — | 4 |
+| Under | Tactical Grip (`JAZZ_TacGrip`) | 10 | 0 | `CloseRangeFactorIncrease` | CloseRangeFactorIncrease=5 | — | 9 |
+| Under | Tactical Grip (`JAZZ_TacGrip_M14`) | 10 | 0 | `CloseRangeFactorIncrease` | CloseRangeFactorIncrease=5 | — | 3 |
+| Under | Vertical Grip (`JAZZ_VerticalGrip`) | 15 | 0 | `RecoilDecrease` | Recoil=1 | — | 15 |
+| Under | Vertical Grip (`JAZZ_VerticalGrip_M14`) | 15 | 0 | `RecoilDecrease` | Recoil=1 | — | 3 |
 
 Полный нормализованный список, включая неиспользуемые определения и отдельный словарь эффектов, находится в [технических CSV](../../technical/weapons/README.md).

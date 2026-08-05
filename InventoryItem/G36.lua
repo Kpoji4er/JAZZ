@@ -122,12 +122,12 @@ DefineClass.G36 = {
 	ShootAP = 5000,
 	ReloadAP = 6000,
 	WeaponMass = 36,
-	CyclicRPM = 700,
+	CyclicRPM = 750,
 	WeaponSizeClass = "Rifle",
-	BurstLimiter = 0,
-	Recoil = 16,
-	BurstShots = 4,
-	AutoShots = 7,
+	BurstLimiter = 2,
+	Recoil = 17,
+	BurstShots = 2,
+	AutoShots = 8,
 
 	CloseRange = 8,
 

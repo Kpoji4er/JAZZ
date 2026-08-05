@@ -78,7 +78,7 @@ DefineClass.FNMAG = {
 	CyclicRPM = 700,
 	WeaponSizeClass = "Long",
 	BurstLimiter = 0,
-	Recoil = 24,
+	Recoil = 22,
 	BurstShots = 4,
 	AutoShots = 0,
 

@@ -83,7 +83,7 @@ DefineClass.M2Carbine = {
 	CyclicRPM = 0,
 	WeaponSizeClass = "Rifle",
 	BurstLimiter = 0,
-	Recoil = 18,
+	Recoil = 12,
 	BurstShots = 0,
 	AutoShots = 0,
 

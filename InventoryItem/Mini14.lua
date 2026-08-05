@@ -87,7 +87,7 @@ DefineClass.Mini14 = {
 	CyclicRPM = 0,
 	WeaponSizeClass = "Rifle",
 	BurstLimiter = 0,
-	Recoil = 18,
+	Recoil = 15,
 	AutoShots = 0,
 
 	CloseRange = 5,

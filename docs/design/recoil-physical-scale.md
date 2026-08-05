@@ -16,10 +16,15 @@ Impulse bands: pistol soft 8–10; pistol/SMG 11–14; light intermediate 16–1
 heavy intermediate 22–26; battle/full 36–42; heavy MG/.50 48–55. Explicit
 anchors win: AK74 **15**, AKM **25**, FN FAL **43**.
 
-Family floors (WEAPONS-008): pistol/revolver **5**, assault/SMG **12**, else **18**.
+Family floors (WEAPONS-008): pistol/revolver **5**, assault/SMG/**carbine** **12**, else **18**.
 SMG floor was briefly **18** and combined with placeholder `WeaponMass=80` /
 `Long` flattened every ПП to Recoil 18; placeholders are rejected and SMG
 profiles are authored (Sterling ~12 … Micro UZI 21).
+
+`Carbine` select-fire platforms get class default RPM **700** when CSV still has
+placeholder `cyclic_rpm=0` (hole from first WEAPONS-003 apply). Semi-only carbines
+keep RPM 0 → Burst/Auto 0. Authored anchors include M4A1 **800/4/8**, G36/G36c
+**BurstLimiter=2** (burst capped at 2; AutoFire length unchanged).
 
 `BurstShots = clamp(round(RPM / 200), 2..8)` and
 `AutoShots = clamp(round(RPM / 100), 3..14)` only when the corresponding fire

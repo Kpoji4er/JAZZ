@@ -8,6 +8,9 @@ Default operation is a dry run; --apply writes .bak siblings once per file.
 
 JAZZ-WEAPONS-008: SMG mass/size placeholders (80/Long) replaced; SMG floor 12;
 true MG auto cap ignores SubmachineGun substring.
+
+Carbine hole fix: class default + ignore csv cyclic_rpm=0 when Burst/Auto exist;
+G36/G36c BurstLimiter=2; carbine Recoil floor 12 (same as AR/SMG).
 """
 from __future__ import annotations
 
@@ -65,6 +68,18 @@ AUTHORED_OVERRIDES = {
     "LionRoar": (35, 700, "Carbine", 0, None),
     "M16A2": (34, 700, "Rifle", 3, None),
     "AN94": (39, 1800, "Rifle", 2, None),
+    # G36 family: mechanical 2-rd burst (BurstLimiter caps BurstFire only).
+    "G36": (36, 750, "Rifle", 2, None),
+    "G36c": (30, 750, "Carbine", 2, None),
+    # Carbines (WEAPONS-003 M4A1 anchor 800/4/8; class was previously rpm=0 hole).
+    "M4A1": (33, 800, "Carbine", 0, None),
+    "CAR15": (30, 750, "Carbine", 0, None),
+    "AKSU": (27, 700, "Carbine", 0, None),
+    "Sig552": (32, 700, "Carbine", 0, None),
+    "Sig552SWAT": (32, 700, "Carbine", 0, None),
+    "AS_Val": (28, 900, "Carbine", 0, None),
+    "ZastavaM92": (33, 700, "Carbine", 0, None),
+    "VSS": (28, 800, "Carbine", 0, None),  # BurstFire only → AutoShots=0
     "MAC10": (28, 1100, "Compact", 0, None),
     "Glock18": (26, 1200, "Compact", 0, None),
     "Beretta93r": (26, 1100, "Compact", 3, None),
@@ -98,17 +113,22 @@ def is_true_machinegun(cls: str) -> bool:
     )
 
 
-def default_profile(row: dict[str, str]) -> tuple[int, int, str, int, float]:
-    cls = row["object_class"].lower()
-    # Prefer CSV-authored mass/rpm/size when present (unique/quest companions),
-    # but reject known SMG placeholders (mass≥70 + Long) from WEAPONS-003 drift.
-    csv_mass = int(row["weapon_mass"] or 0) if row.get("weapon_mass") else 0
-    csv_rpm = int(row["cyclic_rpm"] or 0) if row.get("cyclic_rpm") else 0
-    csv_size = row.get("weapon_size_class") or ""
-    csv_lim = int(row["burst_limiter"] or 0) if row.get("burst_limiter") else 0
-    smg_placeholder = "submachine" in cls and csv_mass >= 70 and csv_size == "Long"
-    if csv_mass and csv_size in SIZE_FACTOR and not smg_placeholder:
-        return csv_mass, csv_rpm, csv_size, csv_lim, 1.0
+def attack_set(attacks: str) -> set[str]:
+    """CSV/companion attack lists use ';' — never substring-match (MGBurstFire ⊃ BurstFire)."""
+    return {part.strip() for part in (attacks or "").replace(",", ";").split(";") if part.strip()}
+
+
+def needs_cyclic_rpm(attacks: str) -> bool:
+    """Select-fire / auto platforms must not keep placeholder CyclicRPM=0."""
+    tokens = attack_set(attacks)
+    return bool(tokens & {
+        "AutoFire", "BurstFire", "MGBurstFire", "JAZZ_LargeAutoFire",
+        "AbakanBurst", "AbakanAutoFire",
+    })
+
+
+def class_default_profile(cls: str, attacks: str) -> tuple[int, int, str, int, float]:
+    cyclic = 700 if needs_cyclic_rpm(attacks) else 0
     if "sniper" in cls or "precision" in cls:
         return 55, 0, "Long", 0, 1.0
     # SubmachineGun before MachineGun: "submachinegun" contains "machinegun".
@@ -118,15 +138,36 @@ def default_profile(row: dict[str, str]) -> tuple[int, int, str, int, float]:
         return 80, 700, "Long", 0, .92
     if "shotgun" in cls:
         return 36, 0, "Rifle", 0, 1.0
+    if "carbine" in cls:
+        # Short AR / select-fire carbines; semi-only stay rpm=0.
+        return 32, cyclic, "Carbine", 0, 1.0
     if "assault" in cls or "battle" in cls:
-        return 36, 700, "Rifle", 0, 1.0
+        return 36, cyclic, "Rifle", 0, 1.0
     if "autopistol" in cls:
         return 27, 900, "Compact", 0, 1.0
     if "pistol" in cls or "revolver" in cls:
         return 10, 0, "Compact", 0, 1.0
     if "rifle" in cls:
         return 40, 0, "Long", 0, 1.0
-    return 35, 0, "Rifle", 0, 1.0
+    return 35, cyclic, "Rifle", 0, 1.0
+
+
+def default_profile(row: dict[str, str]) -> tuple[int, int, str, int, float]:
+    cls = row["object_class"].lower()
+    attacks = row.get("available_attacks") or ""
+    def_mass, def_rpm, def_size, def_lim, family_f = class_default_profile(cls, attacks)
+    # Prefer CSV-authored mass/rpm/size when present (unique/quest companions),
+    # but reject known SMG placeholders (mass≥70 + Long) from WEAPONS-003 drift.
+    # csv cyclic_rpm=0 is a placeholder when the platform has Burst/Auto — use class default.
+    csv_mass = int(row["weapon_mass"] or 0) if row.get("weapon_mass") else 0
+    csv_rpm = int(row["cyclic_rpm"] or 0) if row.get("cyclic_rpm") else 0
+    csv_size = row.get("weapon_size_class") or ""
+    csv_lim = int(row["burst_limiter"] or 0) if row.get("burst_limiter") else 0
+    smg_placeholder = "submachine" in cls and csv_mass >= 70 and csv_size == "Long"
+    if csv_mass and csv_size in SIZE_FACTOR and not smg_placeholder:
+        rpm = csv_rpm if csv_rpm > 0 else def_rpm
+        return csv_mass, rpm, csv_size, csv_lim, family_f
+    return def_mass, def_rpm, def_size, def_lim, family_f
 
 
 def authored_profile(row: dict[str, str]) -> Profile:
@@ -140,21 +181,24 @@ def authored_profile(row: dict[str, str]) -> Profile:
     rpm_f = 1 + max(-.08, min(.18, (rpm - 700) / 2000))
     recoil = round(impulse * mass_f * SIZE_FACTOR[size] * rpm_f * family_f)
     cls = row["object_class"].lower()
-    # WEAPONS-008: SMG floor 12 (was 18 — flattened all ПП). AR also 12.
+    # WEAPONS-008: SMG floor 12 (was 18 — flattened all ПП). AR/Carbine also 12.
     if "pistol" in cls or "revolver" in cls:
         floor = 5
-    elif "submachine" in cls or "assault" in cls:
+    elif "submachine" in cls or "assault" in cls or "carbine" in cls:
         floor = 12
     else:
         floor = 18
     recoil = max(floor, min(70, recoil_override if recoil_override is not None else recoil))
-    attacks = row["available_attacks"]
+    tokens = attack_set(row["available_attacks"])
     # Shotgun pellet count is BuckshotProjectiles (JAZZ-WEAPONS-006), not AutoShots.
-    burst = max(2, min(8, round(rpm / 200))) if rpm and ("BurstFire" in attacks or limiter) else 0
-    if limiter:
-        burst = min(burst, limiter) if burst else 0
+    # BurstFire / AbakanBurst / MGBurstFire (BurstShots feeds GetAutofireShots MG fallback).
+    has_burst_mode = bool(tokens & {"BurstFire", "AbakanBurst", "MGBurstFire"})
+    burst = max(2, min(8, round(rpm / 200))) if rpm and has_burst_mode else 0
+    if limiter and burst:
+        burst = min(burst, limiter)
     auto_max = 10 if is_true_machinegun(cls) else 14
-    auto = max(3, min(auto_max, round(rpm / 100))) if rpm and "AutoFire" in attacks else 0
+    has_auto_mode = bool(tokens & {"AutoFire", "AbakanAutoFire", "JAZZ_LargeAutoFire"})
+    auto = max(3, min(auto_max, round(rpm / 100))) if rpm and has_auto_mode else 0
     return Profile(mass, rpm, size, limiter, recoil, burst, auto)
 
 
@@ -299,9 +343,35 @@ def main() -> None:
     for weapon_id in (
         "AK74", "AKM", "FNFAL", "MicroUZI", "MP5K", "MP5A2", "Sterling",
         "MAT49", "UZI", "P90", "LionRoar", "TexRevolver",
+        "M4A1", "G36", "G36c", "CAR15", "AKSU", "VSS", "AS_Val", "ZastavaM92", "AN94",
     ):
         if weapon_id in profiles:
             print(f"{weapon_id}: {profiles[weapon_id]}")
+    # Guard: BurstLimiter>0 must keep BurstShots>0; no BurstFire⊂MGBurstFire false positive.
+    bad_lim = [
+        wid for wid, p in profiles.items()
+        if p.limiter > 0 and p.burst <= 0
+    ]
+    if bad_lim:
+        raise SystemExit("BurstLimiter with BurstShots=0: " + ", ".join(bad_lim))
+    false_burst = []
+    for row in active:
+        p = profiles[row["id"]]
+        tokens = attack_set(row["available_attacks"])
+        if p.burst > 0 and not (tokens & {"BurstFire", "AbakanBurst", "MGBurstFire"}):
+            false_burst.append(row["id"])
+    if false_burst:
+        raise SystemExit("BurstShots without burst mode: " + ", ".join(false_burst))
+    carb = [
+        (row["id"], profiles[row["id"]])
+        for row in active
+        if "carbine" in row["object_class"].lower() and row["id"] in profiles
+    ]
+    if carb:
+        zero_rpm = [wid for wid, p in carb if p.rpm == 0 and needs_cyclic_rpm(
+            next(r["available_attacks"] for r in active if r["id"] == wid)
+        )]
+        print(f"Carbine n={len(carb)} select-fire rpm0={zero_rpm or 'ok'}")
     smg = [
         (row["id"], profiles[row["id"]])
         for row in active

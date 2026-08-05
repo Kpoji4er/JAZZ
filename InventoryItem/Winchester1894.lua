@@ -81,7 +81,7 @@ DefineClass.Winchester1894 = {
 	CyclicRPM = 0,
 	WeaponSizeClass = "Rifle",
 	BurstLimiter = 0,
-	Recoil = 18,
+	Recoil = 12,
 	AutoShots = 0,
 
 	CloseRange = 5,
