@@ -16,11 +16,11 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 Загружаемые файлы `jazz`:
 
-- `Code/System_Firearm_AddProperties.lua` — свойства firearm и расчётные helpers;
+- `Code/System_Firearm_AddProperties.lua` — свойства firearm, расчётные helpers и `JAZZ_GetWeaponCloseRangeRolloverTexts` для строки ближней зоны на карточке;
 - `Code/System_OR_Weapons.lua` — расширенная runtime-логика оружия, износ и заклинивание;
 - `Code/System_EmplacementAmmo.lua` — `MachineGunEmplacement:Update` remaps cut `_50BMG_*` `ammo_template` → `JAZZ_AMMO_50BMG_*` (и generic caliber mismatch → `GetAmmosWithCaliber`);
 - `Code/System_WeaponResourceMaintenance.lua` — JAZZ-WEAPONS-002 late override: resource helpers, max-wear, jam type (no `GetRolloverHint` jam append), removable `JAZZ_RemovableAttachment` create/API (`JAZZ_ResolveRemovableComponentId` vanilla↔`JAZZ_` twins; `JAZZ_CreateRemovableAttachment` prefers catalog class `Id == component id`), remove-fail break (`P=Clamp(100−resourcePct,0,95)` → ScopeParts salvage / destroy), presentation sync, **rollover title** = compatible weapon DisplayNames + component name (`JAZZ_FormatCompatibleWeaponsForTitle`), install/remove Mech = best-in-squad (`JAZZ_GetSquadMechanical`); repair debits `JAZZ_BarrelParts` + `JAZZ_ScopeParts` when remountable Scope installed; `JAZZ_IsRemovableWeaponComponent` excludes irons / MagNormal / `*SuppressorIntegrated` (integral muzzle stays on scrap); **`GetSpecialScrapItems`** returns only `AdditionalCosts` of `JAZZ_BarrelParts`/`JAZZ_ScopeParts` (never `component.Cost` — that is install Parts price);
-- `items.lua` `RolloverInventoryWeaponBase` — единственный UI «Шанс Клина» на карточке оружия: `GetDisplayJamChancePercent` (base / optional merc);
+- `items.lua` `RolloverInventoryWeaponBase` — UI «Шанс Клина» (`GetDisplayJamChancePercent`) и «Ближняя зона» (`JAZZ_GetWeaponCloseRangeRolloverTexts`: resolved−base Factor boost или штраф базы);
 - `Code/System_WeaponRemovableModify.lua` — ModifyWeapon/DnD remountables; fold craft filter (`*Folded` без `UnFolded` скрыт в popup); Unfolded↔Folded swap бесплатно; `GetWeaponComponentDescription` всегда показывает DisplayName и для опций без эффектов — «базовый вариант» вместо голого «Без изменений»;
 - `Code/System_InventoryStacks.lua` — `JAZZ_RemovableAttachment` никогда не bag-stack (MaxStacks=1; иначе collimator+compensator → Amount=2);
 - generated `InventoryItem/<JAZZ_*>.lua` remountable catalog (~144) + folder `RemovableAttachments` in `items.lua` (editor spawn); refresh: `docs/tools/_gen_removable_attachment_items.py --apply`; **Bobby Ray temp:** `CanAppearInShop=true` RestockWeight=10 MaxStock=1 Tier=1 via `_enable_remountable_bobby_ray.py` (skip integ suppressor);
@@ -110,7 +110,7 @@ Path **B** (chips): template `Icon` оружия не подменяется. Ch
 
 UI (`SectorOperation_ItemsCalcRes` в `Code/System_SectorOperations.lua`) и debit тика (`ModItemSectorOperation RepairItems` / `SectorMercsTick` в `items.lua`) считают обычные **`Parts`** по **Condition % 0..100** (`GetConditionPercent` / `current÷max`), с параметрами операции `restore_condition_per_Part=5`, `parts_per_step=1` — как vanilla tick, не по абсолютным единицам `WeaponResource` (часто 1k–10k). Регрессия remountable-волны (убрали хак `*3`, оставили absolute scale) давала сотни Parts на одно оружие (пример: ~49% при WR≈8000 → ~825). При нехватке Parts тик откатывает `WeaponResource`/`ArmorResource` к значению до тика. **`JAZZ_BarrelParts` / `JAZZ_ScopeParts`** по-прежнему через `CeilDiv(restoredPct_of_factory, 10|20)` в `System_WeaponResourceMaintenance.lua` (отдельный debit; sector-op wiring AC ещё partial). Время операции по-прежнему на absolute resource × `RepairCost` (+ `sum_stat*3` для оружия).
 
-JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll на каждый выстрел: при успехе max теряет не более одной единицы. При jam max теряет минимум одну единицу от 0.5% (ordinary) или 3% (critical); `P(critical|jam) = clamp(5 + wear×35/100 + max(0,100−Mechanical)×25/100, 5, 65)`. Неудачный unjam остаётся отдельным источником потери max. Runtime wave остаётся BLOCKED.
+JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll на каждый выстрел: при успехе max теряет не более одной единицы. При jam max теряет минимум одну единицу от 0.5% (ordinary) или 3% (critical); `P(critical|jam) = clamp(5 + wear×35/100 + max(0,100−Mechanical)×25/100, 5, 65)`. Неудачный **player** Unjam (`FirearmBase:Unjam`): −**1..3% max** (`condLoss = Clamp(DivRound(Random(100−Mechanical), 10), 1, 3)`); current clamp ≤ new max; при `max≤1` или condition%≤0 — поломка. **NPC/AI** clear jam через `AIReloadWeapons` → `RepairJammed(nil)` **без** записи `WeaponResource` (раньше баг: `RepairJammed(Condition)` трактовал 0..100% как абсолютные единицы и обнулял ствол, напр. 0/9695). Runtime wave остаётся BLOCKED.
 
 Jam использует единую шкалу **JamScore** `0..1000` (те же единицы, что `attacker:Random(1000)` в `ReliabilityCheck`). Приведённый процент для UI/ammo rollover: `DivRound(JamScore, 10)`. Окно модификации оружия показывает **Reliability**, не Jam %.
 
@@ -137,14 +137,14 @@ Mechanical снижает score **пропорционально** (`MulDivRound
 
 `Handling` («Эргономика») удалён из Firearm / WeaponPropertyDef; CTH-модификатор отсутствует, угол overwatch берётся только из `OverwatchAngle` (`JAZZ-WEAPONS-001` / `JAZZ-ATTACH-001`).
 
-Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие. Карточка оружия (`RolloverInventoryWeaponBase`) выводит `GetDisplayJamChancePercent` в строке «Шанс Клина»; в `AdditionalHint` / `GetRolloverHint` jam % не дублируется. Refactor обязан сохранять шкалу 0..1000, порядок проверок, RNG и побочные изменения экземпляра.
+Jam/unjam способен необратимо снизить максимальный ресурс или окончательно сломать оружие (**только** путь `FirearmBase:Unjam` с Mechanical roll). `RepairJammed(resource?, owner)`: `nil` — снять jam без износа; число — абсолютный `WeaponResource`. Карточка оружия (`RolloverInventoryWeaponBase`) выводит `GetDisplayJamChancePercent` в строке «Шанс Клина»; в `AdditionalHint` / `GetRolloverHint` jam % не дублируется. Refactor обязан сохранять шкалу 0..1000, порядок проверок, RNG и побочные изменения экземпляра.
 
 ## Боеприпасы и crafting
 
 Ammo ModItems наследуют `Ammo`; rollover выводит модификации и effects (`BaseJamChance` как `%` через `/10`), а reload использует специализированный `AmmoInventory`. Зарегистрированы 49 `CraftOperationsRecipe` для боеприпасов и mortar/ordnance и 33 `RecipeDef`, главным образом преобразования брони. Категории Bobby Ray включают 10 ammo subcategories.
 
 ### Поэлементная перезарядка (JAZZ-WEAPONS-004)
-`ReloadStyle=Magazine` сохраняет обычную полную смену магазина. Для `Tube`, `Break` и `Revolver` пустое оружие использует полный Reload; при `0 < ammo < MagazineSize` тот же слот Reload переключается на `Top up` / «Дозарядить» и загружает ровно один совместимый патрон. Полное оружие недоступно для reload.
+`ReloadStyle=Magazine` сохраняет обычную полную смену магазина. Для `Tube`, `Break` и `Revolver` пустое оружие использует полный Reload; при `0 < ammo < MagazineSize` тот же слот Reload переключается на `Top up` / «Дозарядить» и загружает ровно один совместимый патрон (`Unit:ReloadAction` → `ReloadWeapon(..., "one_round")` → `Firearm:Reload` с `max_add=1`). Полное оружие недоступно для reload.
 
 Стоимость дозарядки вычисляется из уже модифицированного `ReloadAP`: `max(1 AP, DivCeil(ReloadAP, MagazineSize))`. R870 (`7000`, 6) платит `2000` (2 AP); шесть дозарядок не дешевле полного reload. Tube: M1897, Ithaca, R870, Auto5, SPAS12 и Winchester1894; Break: DoubleBarrelShotgun и Stoeger; Revolver: все active revolver presets. AA12 и USAS12 не имеют authored style и остаются `Magazine`.
 

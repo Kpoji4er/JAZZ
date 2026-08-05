@@ -88,7 +88,7 @@ DefineClass.UZI = {
 	Recoil = 12,
 	AutoShots = 6,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 10,

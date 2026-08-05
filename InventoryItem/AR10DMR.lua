@@ -75,7 +75,7 @@ DefineClass.AR10DMR = {
 	BurstShots = 0,
 	AutoShots = 0,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 18,

@@ -113,11 +113,11 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-REQ-007` — переходы bleed по рекомендованной таблице design (70/15/15 · 35/45/20 · 15/85).
 - `JAZZ-MED-001-REQ-008` — docs: technical + wiki + showcase RU/EN + design status sync.
 - `JAZZ-MED-001-REQ-009` — цветные `Icons/Items` для новых/rebrand предметов; hotbar icons из `Icons/Med`.
-- `JAZZ-MED-001-REQ-010` — публичные trauma IDs: `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (15). Light = боль при юзе зоны, без zone CTH/move; Medium+ = специфик + боль; Heavy = near-ineffective + Pain ramp/ход. Ribs: **no Tired**. Head: повышенный шанс Medium/Heavy с хита. Eye → Head.
+- `JAZZ-MED-001-REQ-010` — публичные trauma IDs: `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (15). Light = боль при юзе зоны, без zone CTH/move; Medium+ = специфик + боль; Heavy = near-ineffective + Pain. **Pain on solid damaging hit:** **+1** via `JazzPainOnDamagingHit` from `ApplyDamageAndEffects` (damage > 0; **graze excluded**; separate from zone-use). **Pain stacks on zone use:** Light **1** / Medium **2** / Heavy **3** (`JazzTraumaPainOnZoneUse`); **unused Heavy** zones still add **+1 Pain each** EndTurn (`JazzTraumaHeavyPainRamp`, skip if that zone already used this turn). Ribs: **no Tired**. Head: повышенный шанс Medium/Heavy с хита. Eye → Head.
 - `JAZZ-MED-001-REQ-011` — hit→trauma через `*shot` rollers (`Armsshot`/`Legsshot`/`Headshot`/`Torsoshot`/`Groinshot` → `JazzTryRollTraumaFromBodyPart`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain), не Wounded stacks.
 - `JAZZ-MED-001-REQ-012` — status icons `Icons/StatusEffects/Trauma*.png` wired on effects.
 - `JAZZ-MED-001-REQ-013` — worn armor covering the hit zone (`ProtectedBodyParts`: Arms / Legs / Torso|Groin→Ribs / Head|Neck→Head) reduces trauma roll chance via `JazzGetTraumaArmorChanceFactor` (Coverage×Condition, max ~60% cut, floor factor 40). Does not apply to Burn or knockout package. Unpierced armor still blocks `*shot` separately.
-- `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma + Pain; no bleed. Chance scales with `armor_prevented + residual` damage.
+- `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma; no bleed. Pain: residual damage > 0 uses hit +1 (`JazzPainOnDamagingHit`); full absorb (0 residual) adds `JazzAddPainStacks(1)` in BAT. Chance scales with `armor_prevented + residual` damage.
 - `JAZZ-MED-001-REQ-015` — field TreatWounds / `PatientAddHealWoundProgress` marks each patient `Trauma*` with `jazz_healing`: progress checks use halved interval (floor 2h), improve **100%** (guaranteed tier step-down via improve branch), worsen **0**; flag survives tier downgrade. Does **not** instant-clear Trauma*. `HealWounds` Effect does **not** set healing.
 
 ## Инварианты и ограничения
@@ -141,6 +141,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-009` — static: `JazzGetTraumaArmorChanceFactor` scales thresholds when covering armor Condition>0; Burn/knockout untouched.
 - `JAZZ-MED-001-AC-010` — static: unpierced armor path calls `JazzTryBehindArmorTrauma`; no bleed on BAT.
 - `JAZZ-MED-001-AC-011` — static: `PatientAddHealWoundProgress` calls `JazzMarkUnitTraumasHealing`; healing chances/interval match REQ-015; `HealWounds` does not mark healing.
+- `JAZZ-MED-001-AC-012` — static: solid damaging hit -> `JazzPainOnDamagingHit` +1 (cap 8); graze excluded; no double with BAT when residual damage > 0.
 
 ## Impact и совместимость
 
@@ -178,6 +179,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-009`: `PASS` — static: armor zone→factor wired in `Systems_Medicine.lua`.
 - `JAZZ-MED-001-AC-010`: `PASS` — static: BAT wired from `ApplyDamageAndEffects` unpierced branch.
 - `JAZZ-MED-001-AC-011`: `PASS` — static: OperationHeal marks `jazz_healing`; progress **100%** improve / **0** worsen / half interval; HealWounds unchanged for trauma.
+- `JAZZ-MED-001-AC-012`: `PASS` — static: `JazzPainOnDamagingHit` (+1 Pain, damage>0, graze excluded) from `ApplyDamageAndEffects`; BAT full-absorb Pain only when residual<=0.
 
 status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI + OperationHeal→healing flag; mark `implemented` after smoke in editor/game.
 
@@ -185,7 +187,7 @@ status note: code wired including zonal traumas + armor trauma mitigation + BAT 
 
 ## Documentation delta
 
-- `docs/design/medicine.md` — status → approved / v1 implementing (traumas in scope)
-- `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain, zonal traumas, items, OperationHeal healing flag
+- `docs/design/medicine.md` — status → approved / v1 implementing (traumas in scope); Pain growth includes solid damaging hit +1
+- `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain (hit + zone-use + heavy ramp), zonal traumas, items, OperationHeal healing flag
 - `docs/technical/systems/file-coverage.md` — Systems_Medicine.lua + Trauma* effects
-- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing)
+- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing; hit Pain; graze no hit Pain)

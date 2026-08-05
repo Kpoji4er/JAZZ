@@ -607,3 +607,70 @@ function GetWeaponComponentDescription(componentPreset)
 	return table.concat(lines, "\n"), data
 end
 ]]
+
+-- Inventory weapon card: CloseRange lives in RolloverInventoryWeaponBase (RolloverPropTextRight),
+-- same block as Grouping / BulletDropRange / JamChance / Noise — not AdditionalHint bullets.
+-- Prefer component Factor boost (resolved − base_*), matching barrel effect phrasing
+-- («на 12»), not Factor−100 (Ithaca short: 102 → +2 hides +12).
+local function JAZZ_GetWeaponCloseRangeNum(weapon, id, default)
+	local value
+	if weapon.GetProperty then
+		value = weapon:GetProperty(id)
+	end
+	if value == nil then
+		value = weapon[id]
+	end
+	if value == nil then
+		return default
+	end
+	return tonumber(value) or default
+end
+
+-- Returns name_t, value_t for the inventory rollover row, or nil when the row should hide.
+function JAZZ_GetWeaponCloseRangeRolloverTexts(weapon)
+	if not weapon or not IsKindOf(weapon, "FirearmProperties") then
+		return
+	end
+	local close_range = Max(0, JAZZ_GetWeaponCloseRangeNum(weapon, "CloseRange", 0))
+	local factor = Clamp(JAZZ_GetWeaponCloseRangeNum(weapon, "CloseRangeFactor", 100), 25, 150)
+	-- Runtime only lerps when CloseRange > 0 (see AccuracyRangeCTH).
+	if close_range <= 0 then
+		return
+	end
+	local base_factor = tonumber(weapon["base_CloseRangeFactor"])
+	if base_factor == nil then
+		base_factor = factor
+	end
+	local factor_boost = factor - base_factor
+	local name = T(982641736210, "Ближняя зона")
+	if factor_boost > 0 then
+		return name, T{
+			890000000001937,
+			"+<bonus> (<tiles> кл.)",
+			bonus = factor_boost,
+			tiles = close_range,
+		}
+	end
+	if factor == 100 then
+		return
+	end
+	if factor > 100 then
+		return name, T{
+			890000000001937,
+			"+<bonus> (<tiles> кл.)",
+			bonus = factor - 100,
+			tiles = close_range,
+		}
+	end
+	return name, T{
+		890000000001938,
+		"−<penalty>% (<tiles> кл.)",
+		penalty = 100 - factor,
+		tiles = close_range,
+	}
+end
+
+function JAZZ_ShouldShowWeaponCloseRangeRollover(weapon)
+	local name = JAZZ_GetWeaponCloseRangeRolloverTexts(weapon)
+	return not not name
+end

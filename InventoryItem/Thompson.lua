@@ -60,7 +60,7 @@ DefineClass.Thompson = {
 	BurstShots = 4,
 	AutoShots = 7,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 8,

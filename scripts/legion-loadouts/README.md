@@ -8,7 +8,7 @@ Design: `docs/design/legion-loadouts.md` (L1–L23). Spec: `docs/specs/active/JA
 
 | Path | Role |
 | --- | --- |
-| `data/recipes.json` | 37 combat `JAZZ_Legion_*` recipes (Recruit out of scope) |
+| `data/recipes.json` | 37 combat `JAZZ_Legion_*` recipes (Recruit out of scope). Optional: `arch1_all_subs_from` (Sergeant `11` → all balance `1-x` from that Amount); `exclude_tags` (e.g. `pistol` keeps Autopistol out of SMG primary); `primary_max_tier_label` (SMG cap, e.g. `2-1`); `arch1_early_ids` (named guns into arch1 at Amount; bypasses `exclude_tags`, e.g. M45/`11`, MAC10/`12`, UZI/`13`). |
 | `data/packages.json` | Mod packages M0–M4 keyword sets |
 | `data/caliber_ammo.json` | Caliber → existing ammo LootDef |
 | `data/weapon_tag_overrides.json` | Extra family tags (e.g. M2 `{carbine,assault}`) |

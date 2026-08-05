@@ -922,15 +922,18 @@ end
 
 -- JAZZ-AI-PERF-001: DestLos dest-cap + far-skip; soft Precalc target prune.
 -- Enemy shortlist rolled back: use full enemies (smarter LOS). Cap CheckLOS dests.
+-- 2026-08-05: tightened for M1 Rebel/ally AITurn (owner: ход повстанцев всё ещё долгий).
 JAZZ_AI_PERF_RANGE_MARGIN = 2 * const.SlabSizeX
-JAZZ_AI_PERF_DESTLOS_CAP = 320
+JAZZ_AI_PERF_DESTLOS_CAP = 200
 -- OptLoc/all_destinations scoring cap (TakeCover×enemies over open M1 slabs).
 -- Prefer stay / important / behavior dests, then nearest threat; rest dropped.
-JAZZ_AI_PERF_OPTLOC_DEST_CAP = 400
+JAZZ_AI_PERF_OPTLOC_DEST_CAP = 200
 JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12 -- only range-prune when more targets than this
 JAZZ_AI_PERF_PRECALC_MARGIN_MULT = 4 -- soft: margin * this (8 slabs default)
 -- AIPrecalcDamageScore: GetLoFData per dest; cap scored dests (stay/important first).
-JAZZ_AI_PERF_PRECALC_DEST_CAP = 80
+JAZZ_AI_PERF_PRECALC_DEST_CAP = 48
+-- TakeCover: score at most N nearest visible threats per dest (not all Legion on M1).
+JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP = 8
 
 function JAZZ_AIPerfLog(fmt, ...)
 	if config.JAZZ_AIPerfLog then
@@ -1120,13 +1123,13 @@ function AIUpdateDestLosCache(unit, context)
 
 	local capped_out = 0
 	if dests then
-		local cap = JAZZ_AI_PERF_DESTLOS_CAP or 320
+		local cap = JAZZ_AI_PERF_DESTLOS_CAP or 200
 		dests, capped_out = JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
 	end
 
 	local check_dest_count = dests and #dests or 0
 	NetUpdateHash("AIUpdateDestLosCache_Start", GameTime(), sight, #all_destinations, hashParamTable(all_destinations),
-		#enemies_for_los, hashParamTable(enemies_for_los), check_dest_count, capped_out, JAZZ_AI_PERF_DESTLOS_CAP or 320)
+		#enemies_for_los, hashParamTable(enemies_for_los), check_dest_count, capped_out, JAZZ_AI_PERF_DESTLOS_CAP or 200)
 
 	if dests and #dests > 0 then
 		local max_los_checks = 100
@@ -1586,7 +1589,7 @@ function AIEnumValidDests(context)
 	-- M1 open slabs: OptLoc radius 55–100 can yield 2k–3k dests; TakeCover scores each × enemies.
 	local uncapped = #dests
 	local capped_out = 0
-	local cap = JAZZ_AI_PERF_OPTLOC_DEST_CAP or 400
+	local cap = JAZZ_AI_PERF_OPTLOC_DEST_CAP or 200
 	local cap_fn = rawget(_G, "JAZZ_AICapDestLosCandidates") or JAZZ_AICapDestLosCandidates
 	if uncapped > cap and type(cap_fn) == "function" then
 		dests, capped_out = cap_fn(unit, context, dests, cap)
@@ -2305,4 +2308,84 @@ function Combat:AITurn(team)
 			tostring(team and team.side), GetPreciseTicks() - t0,
 			team and team.units and #team.units or 0)
 	end
+end
+
+-- JAZZ-AI-MED-001 / MED-001: vanilla AISelectHealTarget gated on MaxHp (default 70%)
+-- and only counted status id "Bleeding", so light bleed above the HP gate and all
+-- BleedingMedium/Heavy stacks never scored → AIActionBandage never treated them.
+local function JazzAI_AllyHasBleed(ally)
+	if not ally then
+		return false
+	end
+	if type(rawget(_G, "JazzHasAnyBleed")) == "function" then
+		return JazzHasAnyBleed(ally)
+	end
+	return ally:HasStatusEffect("Bleeding")
+		or ally:HasStatusEffect("BleedingMedium")
+		or ally:HasStatusEffect("BleedingHeavy")
+end
+
+local function JazzAI_BleedScoreBonus(ally, bleed_weight)
+	if not JazzAI_AllyHasBleed(ally) then
+		return 0
+	end
+	local w = bleed_weight or 30
+	if ally:HasStatusEffect("BleedingHeavy") then
+		return w + w
+	end
+	if ally:HasStatusEffect("BleedingMedium") then
+		return w + DivRound(w, 2)
+	end
+	return w
+end
+
+function AISelectHealTarget(context, dest, grid_voxel, heal_policy)
+	if context.voxel_heal_score[grid_voxel] then
+		return context.voxel_heal_target[grid_voxel], context.voxel_heal_score[grid_voxel]
+	end
+
+	local best_target, best_score = false, 0
+	local dx, dy, dz = stance_pos_unpack(dest)
+	local ppos = point_pack(dx, dy, dz)
+	local max_hp = heal_policy.MaxHp or 70
+	local bleed_w = heal_policy.BleedingWeight or 30
+	local hp_w = heal_policy.HpWeight or 100
+	local self_mod = heal_policy.SelfHealMod or 50
+	local can_use_mod = heal_policy.CanUseMod or 100
+
+	for _, ally in ipairs(context.allies) do
+		if not ally:IsDead() then
+			local hpp = MulDivRound(ally.HitPoints, 100, Max(1, ally.MaxHitPoints))
+			local bleeding = JazzAI_AllyHasBleed(ally)
+			-- Bleed bypasses the MaxHp gate so fresh / high-HP bleeds still get treated.
+			if bleeding or hpp <= max_hp then
+				local score = 0
+				if ally == context.unit or IsMeleeRangeTarget(context.unit, ppos, nil, ally) then
+					score = MulDivRound(100 - hpp, hp_w, 100) + JazzAI_BleedScoreBonus(ally, bleed_w)
+					-- Self-bleed stays urgent: do not apply SelfHealMod penalty while bleeding.
+					if ally == context.unit and not bleeding then
+						score = MulDivRound(score, self_mod, 100)
+					end
+				end
+				if score > best_score then
+					best_target, best_score = ally, score
+				end
+			end
+		end
+	end
+
+	if best_score <= 0 then
+		best_target, best_score = false, 0
+	else
+		local ap_at_dest = context.dest_ap[dest] or 0
+		local kit_ap = (CombatActions.Bandage and CombatActions.Bandage.ActionPoints) or (2 * const.Scale.AP)
+		local field_ap = (CombatActions.JazzBandage and CombatActions.JazzBandage.ActionPoints) or const.Scale.AP
+		if ap_at_dest >= kit_ap or ap_at_dest >= field_ap then
+			best_score = MulDivRound(best_score, can_use_mod, 100)
+		end
+	end
+
+	context.voxel_heal_target[grid_voxel] = best_target
+	context.voxel_heal_score[grid_voxel] = best_score
+	return best_target, best_score
 end

@@ -19808,7 +19808,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 8,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 28,
@@ -19873,7 +19873,7 @@ return {
 					'AutoShots', 5,
 					'BulletDropRange', 9,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 32,
@@ -19942,7 +19942,7 @@ return {
 					'AutoShots', 4,
 					'BulletDropRange', 8,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 75,
@@ -20009,7 +20009,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 9,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 34,
@@ -20076,7 +20076,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 8,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 75,
@@ -20146,7 +20146,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 12,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 29,
@@ -20214,7 +20214,7 @@ return {
 					'BurstShots', 4,
 					'BulletDropRange', 11,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 26,
@@ -20287,7 +20287,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 40,
@@ -20360,7 +20360,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 12,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 55,
@@ -20433,7 +20433,7 @@ return {
 					'AutoShots', 8,
 					'BulletDropRange', 9,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 70,
@@ -20527,7 +20527,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 50,
@@ -20609,7 +20609,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 65,
@@ -20675,7 +20675,7 @@ return {
 					'AutoShots', 8,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 68,
@@ -20754,7 +20754,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 9,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 60,
@@ -20884,7 +20884,7 @@ return {
 					'AutoShots', 9,
 					'BulletDropRange', 8,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 78,
@@ -20972,7 +20972,7 @@ return {
 					'AutoShots', 8,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 62,
@@ -21055,7 +21055,7 @@ return {
 					'AutoShots', 9,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 85,
@@ -21160,7 +21160,7 @@ return {
 					'AutoShots', 8,
 					'BulletDropRange', 10,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 72,
@@ -21278,7 +21278,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 9,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 70,
@@ -21377,7 +21377,7 @@ return {
 					'AutoShots', 8,
 					'BulletDropRange', 11,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 70,
@@ -21467,7 +21467,7 @@ return {
 					'AutoShots', 9,
 					'BulletDropRange', 14,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 50,
@@ -21568,7 +21568,7 @@ return {
 					'BurstShots', 5,
 					'BulletDropRange', 12,
 
-					'CloseRange', 2,
+					'CloseRange', 3,
 
 					'CloseRangeFactor', 95,
 					'Grouping', 72,
@@ -21663,7 +21663,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 10,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 83,
@@ -21757,7 +21757,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 12,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 53,
@@ -21841,7 +21841,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 61,
@@ -21938,7 +21938,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 61,
@@ -22022,7 +22022,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 12,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 53,
@@ -22131,7 +22131,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 14,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 55,
@@ -22234,7 +22234,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 13,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 53,
@@ -22357,7 +22357,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 57,
@@ -22482,7 +22482,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 14,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 63,
@@ -22569,7 +22569,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 13,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 62,
@@ -22689,7 +22689,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 63,
@@ -22800,7 +22800,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 63,
@@ -22916,7 +22916,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 63,
@@ -22992,7 +22992,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 12,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 66,
@@ -23076,7 +23076,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 13,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 47,
@@ -23181,7 +23181,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 15,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 61,
@@ -23284,7 +23284,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 14,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 63,
@@ -23400,7 +23400,7 @@ return {
 					'Recoil', 16,
 					'BulletDropRange', 13,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 62,
@@ -23520,7 +23520,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 16,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 62,
@@ -23610,7 +23610,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 14,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 63,
@@ -23752,7 +23752,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 15,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 64,
@@ -23903,7 +23903,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 14,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 57,
@@ -24022,7 +24022,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 16,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 56,
@@ -24154,7 +24154,7 @@ return {
 					'BurstShots', 4,
 					'BulletDropRange', 15,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 63,
@@ -24268,7 +24268,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 17,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 62,
@@ -24404,7 +24404,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 16,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 63,
@@ -24523,7 +24523,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 17,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 63,
@@ -24656,7 +24656,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 63,
@@ -24753,7 +24753,7 @@ return {
 					'AutoShots', 14,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 56,
@@ -24863,7 +24863,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 60,
@@ -24925,7 +24925,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 40,
@@ -24978,7 +24978,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 44,
@@ -25048,7 +25048,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 37,
@@ -25122,7 +25122,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 15,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 42,
@@ -25190,7 +25190,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 38,
@@ -25252,7 +25252,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 17,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 35,
@@ -25333,7 +25333,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 18,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 45,
@@ -25467,7 +25467,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 17,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 41,
@@ -25614,7 +25614,7 @@ return {
 					'AutoShots', 6,
 					'BulletDropRange', 19,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 51,
@@ -25745,7 +25745,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 17,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 52,
@@ -25843,7 +25843,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 20,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 51,
@@ -25951,7 +25951,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 20,
 
-					'CloseRange', 8,
+					'CloseRange', 11,
 
 					'CloseRangeFactor', 80,
 					'Grouping', 51,
@@ -26017,7 +26017,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 41,
@@ -26090,7 +26090,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 45,
@@ -26152,7 +26152,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 50,
@@ -26240,7 +26240,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 45,
@@ -26324,7 +26324,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 48,
@@ -26459,7 +26459,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 45,
@@ -26563,7 +26563,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 46,
@@ -26636,7 +26636,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 66,
@@ -26701,7 +26701,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 19,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 48,
@@ -26783,7 +26783,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 59,
@@ -26883,7 +26883,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 20,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 50,
@@ -26995,7 +26995,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 21,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 46,
@@ -27133,7 +27133,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 19,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 59,
@@ -27218,7 +27218,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 19,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 44,
@@ -27294,7 +27294,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 21,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 42,
@@ -27394,7 +27394,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 25,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 29,
@@ -27513,7 +27513,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 20,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 45,
@@ -27601,7 +27601,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 21,
 
-					'CloseRange', 12,
+					'CloseRange', 16,
 
 					'CloseRangeFactor', 70,
 					'Grouping', 45,
@@ -27695,7 +27695,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 14,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 32,
@@ -27762,7 +27762,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 38,
@@ -27867,7 +27867,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 14,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 42,
@@ -27975,7 +27975,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 15,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 62,
@@ -28086,7 +28086,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 56,
@@ -28184,7 +28184,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 14,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 65,
@@ -28295,7 +28295,7 @@ return {
 					'BurstShots', 4,
 					'BulletDropRange', 17,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 57,
@@ -28432,7 +28432,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 20,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 53,
@@ -28533,7 +28533,7 @@ return {
 					'AutoShots', 7,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 60,
@@ -28603,7 +28603,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 15,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 35,
@@ -28670,7 +28670,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 16,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 34,
@@ -28740,7 +28740,7 @@ return {
 					'Recoil', 18,
 					'BulletDropRange', 20,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 35,
@@ -28805,7 +28805,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 38,
@@ -28877,7 +28877,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 38,
@@ -28948,7 +28948,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 17,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 38,
@@ -29036,7 +29036,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 37,
@@ -29173,7 +29173,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 38,
@@ -29278,7 +29278,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 18,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 40,
@@ -29333,7 +29333,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 28,
 
-					'CloseRange', 6,
+					'CloseRange', 8,
 
 					'CloseRangeFactor', 85,
 					'Grouping', 21,
@@ -29410,7 +29410,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 140,
@@ -29481,7 +29481,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 7,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 110,
@@ -29577,7 +29577,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 145,
@@ -29670,7 +29670,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 150,
@@ -29731,7 +29731,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 160,
@@ -29816,7 +29816,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 6,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 100,
@@ -29882,7 +29882,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 130,
@@ -29941,7 +29941,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 140,
@@ -30043,7 +30043,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 9,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 155,
@@ -30137,7 +30137,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 145,
@@ -30247,7 +30247,7 @@ return {
 					'AutoShots', 0,
 					'BulletDropRange', 8,
 
-					'CloseRange', 4,
+					'CloseRange', 5,
 
 					'CloseRangeFactor', 90,
 					'Grouping', 150,
@@ -62060,6 +62060,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				MoveStep = true,
 				MultiSelectBehavior = "first",
 				QueuedBadgeText = T(890000000010202, "BANDAGE"),
+				-- Skip CombatActionAttackStart free-aim "no enemies" prompt (vanilla
+				-- hardcodes only id=="Bandage"; field bandage targets allies).
+				RequireTargets = true,
 				RequireState = "any",
 				RequireWeapon = false,
 				Run = function (self, unit, ap, ...)
@@ -62126,6 +62129,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				MoveStep = true,
 				MultiSelectBehavior = "first",
 				QueuedBadgeText = T(890000000010030, "MORPHINE"),
+				-- Same as JazzBandage: ally medicine must not open free-aim confirm.
+				RequireTargets = true,
 				RequireState = "any",
 				RequireWeapon = false,
 				Run = function (self, unit, ap, ...)
@@ -62601,7 +62606,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010102, "Arm Trauma (Medium)"),
-				'Description', T(890000000010103, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms."),
+				'Description', T(890000000010103, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when using arms."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsMedium.png",
 				'Shown', true,
@@ -62626,6 +62631,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 					PlaceObj('UnitReaction', {
+						Event = "OnFirearmAttackStart",
+						Handler = function(self, target, attacker, attack_target, action, attack_args)
+							if target == attacker then
+								JazzTraumaPainOnZoneUse(attacker, "Arms")
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
 						Event = "OnCalcChanceToHit",
 						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 							if target == attacker then
@@ -62635,7 +62648,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010104, "Arm Trauma (Heavy)"),
-				'Description', T(890000000010105, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn."),
+				'Description', T(890000000010105, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. +3 Pain when using arms; +1 Pain/turn if unused."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsHeavy.png",
 				'Shown', true,
@@ -62703,7 +62716,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010108, "Leg Trauma (Medium)"),
-				'Description', T(890000000010109, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving."),
+				'Description', T(890000000010109, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. +2 Pain when moving."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -62736,9 +62749,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcMoveModifier",
 						Handler = function(self, target, value, action)
-							if self.class == "TraumaLegsMedium" then
-								JazzTraumaPainOnZoneUse(target, "Legs")
-							end
+							JazzTraumaPainOnZoneUse(target, "Legs")
 							return value + self:ResolveValue("move_ap_modifier")
 						end,
 					}),
@@ -62757,7 +62768,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010110, "Leg Trauma (Heavy)"),
-				'Description', T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn."),
+				'Description', T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. +3 Pain when moving; +1 Pain/turn if unused."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -62831,7 +62842,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010114, "Rib Trauma (Medium)"),
-				'Description', T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness."),
+				'Description', T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn. No Tiredness."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -62864,9 +62875,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcStartTurnAP",
 						Handler = function(self, target, value)
-							if self.class == "TraumaRibsMedium" then
-								JazzTraumaPainOnZoneUse(target, "Ribs")
-							end
+							JazzTraumaPainOnZoneUse(target, "Ribs")
 							return value - self:ResolveValue("APLoss") * const.Scale.AP
 						end,
 					}),
@@ -62885,7 +62894,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010116, "Rib Trauma (Heavy)"),
-				'Description', T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
+				'Description', T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -63048,7 +63057,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010126, "Burn Trauma (Medium)"),
-				'Description', T(890000000010127, "Moderate burn debt. Pain on exertion. Infection risk deferred."),
+				'Description', T(890000000010127, "Moderate burn debt. +2 Pain on exertion. Infection risk deferred."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnMedium.png",
 				'Shown', true,
@@ -63065,9 +63074,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							JazzTraumaHeavyPainRamp(target)
 						end,
 					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function(self, target, value)
+							JazzTraumaPainOnZoneUse(target, "Burn")
+							return value
+						end,
+					}),
 				},
 				'DisplayName', T(890000000010128, "Burn Trauma (Heavy)"),
-				'Description', T(890000000010129, "Severe burn debt. Pain rises each turn. Infection/hospital clear deferred."),
+				'Description', T(890000000010129, "Severe burn debt. +3 Pain on exertion; +1 Pain/turn if unused. Infection/hospital clear deferred."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnHeavy.png",
 				'Shown', true,
@@ -72426,7 +72442,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000006100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura DisplayName]] "Командная аура"),
-					'Description', T(890000000006101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura Description]] "Этот командир держит ауру приказа над союзниками в радиусе (сержант 15, лейтенант 25, капитан — вся карта).\n\nВозможные приказы: <em>Держать линию</em>, <em>Давить</em>, <em>Охват</em>, <em>Отход</em>, <em>Сосредоточить огонь</em>, <em>Низкая видимость — держать</em>. Приказ обновляется по обстановке."),
+					'Description', T(890000000006101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura Description]] "Этот командир отдаёт приказы союзникам поблизости."),
 					'AddEffectText', T(890000000006102, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAura AddEffectText]] "Отдаёт приказы"),
 					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAura.png",
 					'Tier', "System",
@@ -72439,7 +72455,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000006103, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence DisplayName]] "Под влиянием ауры"),
-					'Description', T(890000000006104, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence Description]] "Боец в радиусе командирской ауры и следует текущему приказу отряда (удержание, натиск, охват и т.д.). Эффект снимается, если командир погиб или боец вышел из радиуса."),
+					'Description', T(890000000006104, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence Description]] "Боец следует приказам командира. Эффект снимается, если командир погиб или боец вышел из зоны влияния."),
 					'AddEffectText', T(890000000006105, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_OfficerAuraInfluence AddEffectText]] "Под приказом"),
 					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAuraInfluence.png",
 					'Tier', "System",
@@ -79650,6 +79666,35 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									local max = cnt:GetMaxResource() or 0
 									local factory = cnt:GetFactoryResource() or 0
 									self.idPropVal:SetValueText(T{890000000001383, "<current>/<max>\n (заводской <factory>)", current = current, max = max, factory = factory})
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
+							'comment', "CloseRange",
+							'__condition', function (parent, context)
+								local cnt = ResolvePropObj(context)
+								return IsKindOf(cnt, "Firearm") and JAZZ_ShouldShowWeaponCloseRangeRollover(cnt)
+							end,
+							'__template', "RolloverPropTextRight",
+							'IgnoreMissing', true,
+							'OnLayoutComplete', function (self)
+								self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+								self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+							end,
+							'BindTo', "CloseRange",
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+									self.idPropVal:SetTextStyleRight("PDAActivityDescriptionWounds")
+									XPropControl.Open(self,...)
+									local cnt = ResolvePropObj(self.context)
+									local name, value = JAZZ_GetWeaponCloseRangeRolloverTexts(cnt)
+									if name then
+										self.idPropVal:SetNameText(name)
+										self.idPropVal:SetValueText(value)
+									end
 								end,
 							}),
 							}),
@@ -109583,7 +109628,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'AutoShots', 0,
 			'BulletDropRange', 6,
 
-			'CloseRange', 4,
+			'CloseRange', 5,
 
 			'CloseRangeFactor', 90,
 			'Grouping', 90,
@@ -109694,7 +109739,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'AutoShots', 7,
 			'BulletDropRange', 18,
 
-			'CloseRange', 8,
+			'CloseRange', 11,
 
 			'CloseRangeFactor', 80,
 			'Grouping', 58,
@@ -109781,7 +109826,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'AutoShots', 0,
 			'BulletDropRange', 17,
 
-			'CloseRange', 12,
+			'CloseRange', 16,
 
 			'CloseRangeFactor', 70,
 			'Grouping', 55,
@@ -109857,7 +109902,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'AutoShots', 7,
 			'BulletDropRange', 9,
 
-			'CloseRange', 2,
+			'CloseRange', 3,
 
 			'CloseRangeFactor', 95,
 			'Grouping', 45,
@@ -109931,7 +109976,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'AutoShots', 0,
 			'BulletDropRange', 9,
 
-			'CloseRange', 4,
+			'CloseRange', 5,
 
 			'CloseRangeFactor', 90,
 			'Grouping', 88,

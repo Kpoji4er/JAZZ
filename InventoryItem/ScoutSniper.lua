@@ -81,7 +81,7 @@ DefineClass.ScoutSniper = {
 	Recoil = 22,
 	AutoShots = 0,
 
-	CloseRange = 12,
+	CloseRange = 16,
 
 	CloseRangeFactor = 70,
 	BulletDropRange = 21,

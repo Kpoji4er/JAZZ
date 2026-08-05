@@ -11392,33 +11392,33 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000010100,Arm Trauma (Light),Травма рук (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009226
 890000000010101,Pain when shooting or using arms. No direct accuracy penalty.,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,,jazz:MED-001-trauma-remap-from-890000000009227
 890000000010102,Arm Trauma (Medium),Травма рук (средняя),,jazz:MED-001-trauma-remap-from-890000000009228
-890000000010103,Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms.,Штраф точности <color EmStyle><cth_penalty>%</color>. Боль при нагрузке на руки.,,jazz:MED-001-trauma-remap-from-890000000009229
+890000000010103,Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when using arms.,Штраф точности <color EmStyle><cth_penalty>%</color>. +2 боли при нагрузке на руки.,,jazz:MED-001-trauma-remap-from-890000000009229
 890000000010104,Arm Trauma (Heavy),Травма рук (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009230
-890000000010105,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn.,Жёсткий штраф точности <color EmStyle><cth_penalty>%</color>. Почти небоеспособен. Боль растёт каждый ход.,,jazz:MED-001-trauma-remap-from-890000000009231
+890000000010105,Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. +3 Pain when using arms; +1 Pain/turn if unused.,Жёсткий штраф точности <color EmStyle><cth_penalty>%</color>. Почти небоеспособен. +3 боли при нагрузке на руки; +1 боли/ход если зона не использовалась.,,jazz:MED-001-trauma-remap-from-890000000009231
 890000000010106,Leg Trauma (Light),Травма ног (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009232
 890000000010107,Pain when moving. No direct move-cost penalty.,Боль при движении. Без прямого штрафа к стоимости хода.,,jazz:MED-001-trauma-remap-from-890000000009233
 890000000010108,Leg Trauma (Medium),Травма ног (средняя),,jazz:MED-001-trauma-remap-from-890000000009234
-890000000010109,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. Pain when moving.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Нет Free Move / спринта. Боль при движении.,,jazz:MED-001-trauma-remap-from-890000000009235
+890000000010109,Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. +2 Pain when moving.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Нет Free Move / спринта. +2 боли при движении.,,jazz:MED-001-trauma-remap-from-890000000009235
 890000000010110,Leg Trauma (Heavy),Травма ног (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009236
-890000000010111,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. Pain rises each turn.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. Боль растёт каждый ход.,,jazz:MED-001-trauma-remap-from-890000000009237
+890000000010111,Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. +3 Pain when moving; +1 Pain/turn if unused.,Стоимость движения <color EmStyle>+<move_ap_modifier>%</color>. Почти не ходит. +3 боли при движении; +1 боли/ход если зона не использовалась.,,jazz:MED-001-trauma-remap-from-890000000009237
 890000000010112,Rib Trauma (Light),Травма рёбер (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009238
 890000000010113,Pain at the start of the turn.,Боль в начале хода.,,jazz:MED-001-trauma-remap-from-890000000009239
 890000000010114,Rib Trauma (Medium),Травма рёбер (средняя),,jazz:MED-001-trauma-remap-from-890000000009240
-890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. Pain at the start of the turn. No Tiredness.,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. Боль в начале хода. Без Tired.,,jazz:MED-001-trauma-remap-from-890000000009241
+890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn. No Tiredness.,ОД на старте хода <color EmStyle>-<APLoss></color>. Нет Free Move. +2 боли в начале хода. Без Tired.,,jazz:MED-001-trauma-remap-from-890000000009241
 890000000010116,Rib Trauma (Heavy),Травма рёбер (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009242
-890000000010117,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness.,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. Боль растёт каждый ход. Без Tired.,,jazz:MED-001-trauma-remap-from-890000000009243
+890000000010117,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness.,ОД на старте хода <color EmStyle>-<APLoss></color>. Небоеспособен. +3 боли в начале хода; +1 боли/ход если зона не использовалась. Без Tired.,,jazz:MED-001-trauma-remap-from-890000000009243
 890000000010118,Head Trauma (Light),Травма головы (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009244
 890000000010119,Pain when aiming or firing. Eye trauma folded into head for v1.,Боль при прицеливании/стрельбе. Травма глаза в v1 включена в голову.,,jazz:MED-001-trauma-remap-from-890000000009245
 890000000010120,Head Trauma (Medium),Травма головы (средняя),,jazz:MED-001-trauma-remap-from-890000000009246
-890000000010121,Sight and accuracy penalties. Pain when aiming or firing.,Штрафы зрения и точности. Боль при прицеливании/стрельбе.,,jazz:MED-001-trauma-remap-from-890000000009247
+890000000010121,Sight and accuracy penalties. +2 Pain when aiming or firing.,Штрафы зрения и точности. +2 боли при прицеливании/стрельбе.,,jazz:MED-001-trauma-remap-from-890000000009247
 890000000010122,Head Trauma (Heavy),Травма головы (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009248
-890000000010123,Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn.,Сильная потеря зрения/точности. Почти небоеспособен. Боль растёт каждый ход.,,jazz:MED-001-trauma-remap-from-890000000009249
+890000000010123,Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused.,Сильная потеря зрения/точности. Почти небоеспособен. +3 боли при прицеливании/стрельбе; +1 боли/ход если зона не использовалась.,,jazz:MED-001-trauma-remap-from-890000000009249
 890000000010124,Burn Trauma (Light),Ожоговая травма (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009250
 890000000010125,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,Долг после огня. Боль при нагрузке. Бинт ожог не снимает.,,jazz:MED-001-trauma-remap-from-890000000009251
 890000000010126,Burn Trauma (Medium),Ожоговая травма (средняя),,jazz:MED-001-trauma-remap-from-890000000009252
-890000000010127,Moderate burn debt. Pain on exertion. Infection risk deferred.,Средний ожоговый долг. Боль при нагрузке. Инфекция — позже.,,jazz:MED-001-trauma-remap-from-890000000009253
+890000000010127,Moderate burn debt. +2 Pain on exertion. Infection risk deferred.,Средний ожоговый долг. +2 боли при нагрузке. Инфекция — позже.,,jazz:MED-001-trauma-remap-from-890000000009253
 890000000010128,Burn Trauma (Heavy),Ожоговая травма (тяжёлая),,jazz:MED-001-trauma-remap-from-890000000009254
-890000000010129,Severe burn debt. Pain rises each turn. Infection/hospital clear deferred.,Тяжёлый ожоговый долг. Боль растёт каждый ход. Инфекция/госпиталь — позже.,,jazz:MED-001-trauma-remap-from-890000000009255
+890000000010129,Severe burn debt. +3 Pain on exertion; +1 Pain/turn if unused. Infection/hospital clear deferred.,Тяжёлый ожоговый долг. +3 боли при нагрузке; +1 боли/ход если зона не использовалась. Инфекция/госпиталь — позже.,,jazz:MED-001-trauma-remap-from-890000000009255
 890000000010197,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,Лечение: заживает. Проверки чаще; каждая проверка улучшает травму (не ухудшится).,,jazz:MED-001-trauma-healing
 890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Следующая проверка прогресса: <em>сейчас</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
 890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Следующая проверка прогресса через <em><hours> ч</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
@@ -12244,6 +12244,11 @@ ID,Text,Translation,VoiceActor,Context
 890000000010278,"Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns.","Дезориентация от взрыва: <color EmStyle>−<APLoss> ОД</color>, <color EmStyle>−<cth_penalty>% к точности</color>, стоимость хода <color EmStyle>+<move_ap_modifier>%</color>, без Free Move. Около 1–2 ходов.",,jazz:CharacterEffect/Concussion.lua
 890000000010279,<color EmStyle><DisplayName></color> is concussed,<color EmStyle><DisplayName></color> контужен,,jazz:CharacterEffect/Concussion.lua
 890000000010280,<color EmStyle><DisplayName></color> clears concussion,<color EmStyle><DisplayName></color> приходит в себя после контузии,,jazz:CharacterEffect/Concussion.lua
+890000000001937,+<bonus> (<tiles> кл.),+<bonus> (<tiles> кл.),,jazz:Code/System_Firearm_AddProperties.lua
+890000000001938,−<penalty>% (<tiles> кл.),−<penalty>% (<tiles> кл.),,jazz:Code/System_Firearm_AddProperties.lua
+890000000001939,"<hint>
+<close>","<hint>
+<close>",,jazz:Code/System_Firearm_AddProperties.lua
 890000000006100,Командная аура,Командная аура,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
 890000000006101,Этот командир отдаёт приказы союзникам поблизости.,Этот командир отдаёт приказы союзникам поблизости.,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
 890000000006102,Отдаёт приказы,Отдаёт приказы,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua

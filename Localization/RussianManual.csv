@@ -1,403 +1,396 @@
-"N","AnchorID","SourceText","Russian","Notes"
-"1","890000000001388","
-<bullet_point> <target_prop>: <pen>","
-<bullet_point> <target_prop>: <pen>","technical-copy"
-"2","890000000000634","(already known)","(уже известно)","manual-translation"
-"3","890000000000549","(climbing)","(взбирается)","manual-translation"
-"4","890000000000431","(climbing_2)","(взбирается_2)","manual-translation"
-"5","890000000000830","(climbing_3)","(взбирается_3)","manual-translation"
-"6","890000000000104","(heavy breath)","(тяжёлое дыхание)","manual-translation"
-"7","890000000000115","(heavy breath_2)","(тяжёлое дыхание_2)","manual-translation"
-"8","890000000000096","(jumping over something)","(перепрыгивает через препятствие)","manual-translation"
-"9","890000000000302","(jumping over something_2)","(перепрыгивает через препятствие_2)","manual-translation"
-"10","890000000000416",".30 Cal M1 Ball",".30 Cal M1 Ball","technical-copy"
-"11","890000000000417",".30 Cal M18 +P",".30 Cal M18 +P","technical-copy"
-"12","890000000000411",".357 Mag FMJ",".357 Mag FMJ","technical-copy"
-"13","890000000000412",".357 Mag JHP",".357 Mag JHP","technical-copy"
-"14","890000000000413",".38 Special FMJ",".38 Special FMJ","technical-copy"
-"15","890000000000414",".38 Special JHP",".38 Special JHP","technical-copy"
-"16","124552577193",".44, FMJ",".44, FMJ","technical-copy"
-"17","382334892926",".44, JHP",".44, JHP","technical-copy"
-"18","131577728333",".44, Match",".44, Match","technical-copy"
-"19","287426986485",".45ACP",".45ACP","technical-copy"
-"20","399199708303",".45ACP, +P",".45ACP, +P","technical-copy"
-"21","890000000000052",".45ACP, FMJ",".45ACP, FMJ","technical-copy"
-"22","587071959481",".45ACP, JHP",".45ACP, JHP","technical-copy"
-"23","890000000000053",".45ACP, M1911 Substandard",".45ACP, M1911 Substandard","technical-copy"
-"24","890000000000165",".50AE FMJ",".50AE FMJ","technical-copy"
-"25","890000000000166",".50AE JHP",".50AE JHP","technical-copy"
-"26","890000000000749","<amount> x <em><itemNameT></em> (<mercName>)","<amount> x <em><itemNameT></em> (<mercName>)","technical-copy"
-"27","890000000000531","<amount> x <em><itemNameT></em> (squad bag)","<amount> x <em><itemNameT></em> (сумка отряда)","manual-translation"
-"28","890000000000409","<amount> x <em><itemNameT></em> added in the squad bag","<amount> x <em><itemNameT></em> добавлено в сумку отряда","manual-translation"
-"29","890000000001158","<amount> x <em><itemNameT></em> taken by <mercName>","<amount> x <em><itemNameT></em> забрано персонажем <mercName>","manual-translation"
-"30","348547901304","<apn(GetUIActionPoints())>","<apn(GetUIActionPoints())>","technical-copy"
-"31","890000000001381","<base>%","<base>%","technical-copy"
-"32","890000000001382","<base>% (<merc>%)","<base>% (<merc>%)","technical-copy"
-"33","890000000001390","<bullet_point> <target_prop>: <mod_add> <mod_mul>","<bullet_point> <target_prop>: <mod_add> <mod_mul>","technical-copy"
-"34","229449529062","<color 61 122 153>","<color 61 122 153>","technical-copy"
-"35","503996625887","<Description>","<Description>","technical-copy"
-"36","6862025595561","<Deterioration> <percent(condPercent)>","<Deterioration> <percent(condPercent)>","technical-copy"
-"37","611405286573","<DisplayName>","<DisplayName>","technical-copy"
-"38","890000000001408","<eff_class>","<eff_class>","technical-copy"
-"39","111937778616","<em><GhostClues> Clue(s)</em> gathered about the <em><SectorName('I16')></em>","Собрано <em><GhostClues> улик(и)</em> о <em><SectorName('I16')></em>","manual-translation"
-"40","828975379182","<em>Bella</em> is dead","<em>Белла</em> мертва","manual-translation"
-"41","922856971797","<em>Granny Cohani</em> at the <em><SectorName('N13')></em> is ready to give an arm and a leg for <em>Ma Baxter's Shotgun</em>","<em>Бабуля Кохани</em> в <em><SectorName('N13')></em> готова отдать руку и ногу за <em>дробовик Ма Бакстер</em>","manual-translation"
-"42","424240938925","<em>Headshot Hue</em> at the <em><SectorName('N13')></em> needs a <em>red wig</em> to play a prank on the bartender <em>Lurch</em>","<em>Хедшоту Хью</em> в <em><SectorName('N13')></em> нужен <em>рыжий парик</em>, чтобы разыграть бармена <em>Лёрча</em>","manual-translation"
-"43","592779994694","<em>Headshot Hue</em> at the <em><SectorName('N13')></em> needs the <em>wig</em> to dress like Lurch's mom in order to convince him to give up the <em>shotgun</em>","<em>Хедшоту Хью</em> в <em><SectorName('N13')></em> нужен <em>парик</em>, чтобы переодеться матерью Лёрча и убедить его отдать <em>дробовик</em>","manual-translation"
-"44","950550161774","<em>Lalee</em> at the <em><SectorName('H19')></em> offers money for the <em>diamond necklace</em>","<em>Лали</em> в <em><SectorName('H19')></em> предлагает деньги за <em>бриллиантовое ожерелье</em>","manual-translation"
-"45","194915769887","<em>Lalee</em> in <em><SectorName('H19')></em> can probably provide a <em>passport</em> for <em>Karen</em>","<em>Лали</em> в <em><SectorName('H19')></em>, вероятно, сможет достать <em>паспорт</em> для <em>Карен</em>","manual-translation"
-"46","121004431695","<em>Lami</em> from the <em><SectorName('J18')></em> is drugging the men of <em>Wassergrab</em> and forcing them to dig diamonds for her","<em>Лами</em> из <em><SectorName('J18')></em> одурманивает мужчин <em>Вассерграба</em> и заставляет их добывать для неё алмазы","manual-translation"
-"47","254556052186","<em>Lucky Veinard</em> said there is a <em>ritual book</em> pointing at a hidden treasure among the <em><SectorName('J18')></em>","<em>Счастливчик Вейнар</em> сказал, что <em>ритуальная книга</em> указывает на спрятанное сокровище среди <em><SectorName('J18')></em>","manual-translation"
-"48","435695865334","<em>Ma Baxter's Shotgun</em> is in the hands of <em>Headshot Hue</em> at the <em><SectorName('N13')></em>","<em>Дробовик Ма Бакстер</em> находится у <em>Хедшота Хью</em> в <em><SectorName('N13')></em>","manual-translation"
-"49","706580608154","<em>Martha</em> is looking for her husband who was kidnapped by the <em>Legion</em> and was last seen on the <em><SectorName('M7')></em>","<em>Марта</em> ищет мужа, похищенного <em>Легионом</em>; в последний раз его видели в <em><SectorName('M7')></em>","manual-translation"
-"50","954601292221","<em>Once per turn</em>.
-Move to a new location and then shoot the closest enemy.","<em>Раз в ход</em>. Переместитесь на новую позицию, а затем выстрелите в ближайшего врага.","manual-translation"
-"51","652093742599","<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired","<em>Операция</em>: капитан Жак Пьеро в <em><SectorName('G9')></em> предлагает морские перевозки, если отремонтировать лодку «Гордость M.E.R.C.»","manual-translation"
-"52","754673942627","<em>Operation</em>: The <em>bus gang</em> intends to kill anyone who dares to hang around their <em>bus stop</em> in the <em><SectorName('F9')></em>","<em>Операция</em>: <em>автобусная банда</em> собирается убить любого, кто осмелится задержаться у их <em>автобусной остановки</em> в <em><SectorName('F9')></em>","manual-translation"
-"53","615121539626","<em>Operation</em>: The <em>bus gang</em> is late, but they will definitely kill anyone who dares to hang around their <em>bus stop</em> in the <em><SectorName('F9')></em>","<em>Операция</em>: <em>автобусная банда</em> опаздывает, но обязательно убьёт любого, кто осмелится задержаться у их <em>автобусной остановки</em> в <em><SectorName('F9')></em>","manual-translation"
-"54","188867442685","<em>Operation</em>: Train <em>Militia</em> in the <em><SectorName('I5')></em>","<em>Операция</em>: обучить <em>ополчение</em> в <em><SectorName('I5')></em>","manual-translation"
-"55","110569990109","<em>Outcome:</em> <em>Dr. L'Enfer</em> was blamed for the murders at the <SectorName('L18')> and <em>executed</em>","<em>Итог:</em> <em>доктора Л'Анфера</em> обвинили в убийствах в <SectorName('L18')> и <em>казнили</em>","manual-translation"
-"56","249811929640","<em>Outcome:</em> <em>Herman</em> was hanged in the <em><SectorName('I5')></em>","<em>Итог:</em> <em>Германа</em> повесили в <em><SectorName('I5')></em>","manual-translation"
-"57","698807734454","<em>Outcome:</em> <em>Luc</em> was hanged in the <em><SectorName('I5')></em>","<em>Итог:</em> <em>Люка</em> повесили в <em><SectorName('I5')></em>","manual-translation"
-"58","816146453546","<em>Outcome:</em> <em>Martha</em> and <em>Herman</em> left the <em><SectorName('I5')></em>","<em>Итог:</em> <em>Марта</em> и <em>Герман</em> покинули <em><SectorName('I5')></em>","manual-translation"
-"59","617786889079","<em>Outcome:</em> <em>Martha</em> left the <em><SectorName('I5')></em>","<em>Итог:</em> <em>Марта</em> покинула <em><SectorName('I5')></em>","manual-translation"
-"60","995319950975","<em>Outcome:</em> <em>Teddy</em> the Teddy Bear killer was put to rest","<em>Итог:</em> убийца <em>Тедди — Плюшевый Мишка</em> упокоен","manual-translation"
-"61","443476251653","<em>Outcome:</em> Defeated <em>Pierre</em> and took control of <em><SectorName('I7')></em>","<em>Итог:</em> <em>Пьер</em> побеждён, <em><SectorName('I7')></em> взят под контроль","manual-translation"
-"62","377491970491","<em>Outcome:</em> Defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> families at the <em><SectorName('L18')></em>","<em>Итог:</em> кровожадные семьи <em>Ван Тасселей</em> и <em>Ле Домасов</em> побеждены в <em><SectorName('L18')></em>","manual-translation"
-"63","376428242327","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia and a Machine Gun
-","<em>Итог:</em> <em><SectorName('I5')></em> укреплён ополчением и пулемётом","manual-translation"
-"64","845156775611","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
-","<em>Итог:</em> <em><SectorName('I5')></em> укреплён ополчением, но без пулемёта","manual-translation"
-"65","826675773932","<em>Outcome:</em> Gave the Browning .50 cal. <em>machine gun</em> to Basil","<em>Итог:</em> <em>пулемёт</em> Browning .50 передан Базилю","manual-translation"
-"66","585150418707","<em>Outcome:</em> Helped the <em>Ghost Butler</em> reclaim the <em><SectorName('I16')></em>","<em>Итог:</em> помогли <em>дворецкому-призраку</em> вернуть <em><SectorName('I16')></em>","manual-translation"
-"67","622267968145","<em>Outcome:</em> Lami the <em>Witch</em> is dead","<em>Итог:</em> <em>ведьма</em> Лами мертва","manual-translation"
-"68","997322139649","<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ","<em>Итог:</em> <em>ведьма</em> Лами продолжит эксплуатировать рабочих <em>Вассерграба</em>","manual-translation"
-"69","333076070006","<em>Outcome:</em> Lami the <em>Witch</em> will stop exploiting the workers of <em>Wassergrab</em>","<em>Итог:</em> <em>ведьма</em> Лами перестанет эксплуатировать рабочих <em>Вассерграба</em>","manual-translation"
-"70","884795282888","<em>Outcome:</em> M.E.R.C.'s boat is repaired and will be commandeered by Captain Jacques Pierrot as naval transport from <em><SectorName('G9')></em>","<em>Итог:</em> лодка M.E.R.C. отремонтирована; капитан Жак Пьеро будет использовать её для морских перевозок из <em><SectorName('G9')></em>","manual-translation"
-"71","946221282530","<em>Outcome:</em> Prevented the hanging in the <em><SectorName('I5')></em>","<em>Итог:</em> казнь через повешение в <em><SectorName('I5')></em> предотвращена","manual-translation"
-"72","875806667851","<em>Outcome:</em> Punished the abuser from <em><SectorName('H19')></em>","<em>Итог:</em> обидчик из <em><SectorName('H19')></em> наказан","manual-translation"
-"73","495827247577","<em>Outcome:</em> Refused to give Basil the Browning .50 cal. <em>machine gun</em>","<em>Итог:</em> Базилю отказались отдавать <em>пулемёт</em> Browning .50","manual-translation"
-"74","108552742993","<em>Outcome:</em> The <em>""Ghost"" Butler</em> from the <em><SectorName('I16')></em> and <em>Mike Ditch</em> were reunited at the Hermit shack in the <em><SectorName('L12')></em>","<em>Итог:</em> <em>дворецкий «Призрак»</em> из <em><SectorName('I16')></em> и <em>Майк Дитч</em> воссоединились у хижины отшельника в <em><SectorName('L12')></em>","manual-translation"
-"75","317986271185","<em>Outcome:</em> The <em>""Ghost""</em> of the <em><SectorName('I16')></em> is dead","<em>Итог:</em> <em>«призрак»</em> из <em><SectorName('I16')></em> мёртв","manual-translation"
-"76","945397520724","<em>Outcome:</em> The <em>bus gang</em> is out of service","<em>Итог:</em> <em>автобусная банда</em> больше не действует","manual-translation"
-"77","714830943923","<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control","<em>Итог:</em> вспышка болезни в <em><SectorName('I19')></em> вышла из-под контроля","manual-translation"
-"78","153864599306","<em>Outcome:</em> The shady <em>doctor</em> at the <SectorName('L18')> is dead","<em>Итог:</em> подозрительный <em>доктор</em> в <SectorName('L18')> мёртв","manual-translation"
-"79","472642259879","<em>Outcome:</em> There is finally some peace and quiet in <em><SectorName('I19')></em>","<em>Итог:</em> в <em><SectorName('I19')></em> наконец воцарились тишина и покой","manual-translation"
-"80","349187275730","<em>Outcome:</em> Time for <em>party</em> in the <em><SectorName('I19')></em>!","<em>Итог:</em> время <em>вечеринки</em> в <em><SectorName('I19')></em>!","manual-translation"
-"81","659363947973","<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ","<em>Пьер</em> побеждён в <em><SectorName('I7')></em>","manual-translation"
-"82","623031245401","<em>Pierre</em> was spared at <em><SectorName('I7')></em> ","<em>Пьера</em> пощадили в <em><SectorName('I7')></em>","manual-translation"
-"83","890000000001395","<GameTerm('Grouping')>","<GameTerm('Grouping')>","technical-copy"
-"84","890000000001396","<GameTerm('Recoil')>","<GameTerm('Recoil')>","technical-copy"
-"85","862897735770","<Name> ","<Name> ","technical-copy"
-"86","37850827305051","<parts>","<parts>","technical-copy"
-"87","115026001164","<placeholder>","<placeholder>","technical-copy"
-"88","444327862984111","<ScopeLevelText>","<ScopeLevelText>","technical-copy"
-"89","483378573996","<style AimCopyrightTextC>©</style> A.I.M. 2001","<style AimCopyrightTextC>©</style> A.I.M. 2001","technical-copy"
-"90","173653436963","<style AimCopyrightTextC>©</style> AIM 2001","<style AimCopyrightTextC>©</style> AIM 2001","technical-copy"
-"91","987654321","<style WeaponModHeader><display_name></style>","<style WeaponModHeader><display_name></style>","technical-copy"
-"92","890000000001401","<text1>","<text1>","technical-copy"
-"93","890000000001403","<text1>%","<text1>%","technical-copy"
-"94","541139041647111","<text1>/<text2>","<text1>/<text2>","technical-copy"
-"95","890000000001402","<text1>/<text2>/<text3>/<text4>/<text5>","<text1>/<text2>/<text3>/<text4>/<text5>","technical-copy"
-"96","890000000000799","<tiredness>.","<tiredness>.","technical-copy"
-"97","890000000000387","0.30","0.30","technical-copy"
-"98","890000000000388","0.357 MAG","0.357 MAG","technical-copy"
-"99","890000000000389","0.38","0.38","technical-copy"
-"100","890000000000385","0.44","0.44","technical-copy"
-"101","598752828060","0.45ACP","0.45ACP","technical-copy"
-"102","410640021530","0.5","0.5","technical-copy"
-"103","890000000000386","0.50 AE","0.50 AE","technical-copy"
-"104","163764621255","00:00","00:00","technical-copy"
-"105","386324723679","30-06","30-06","technical-copy"
-"106","451736198437","5.7mm","5.7mm","technical-copy"
-"107","890000000001216","7.62x25, Lot 66-3 CN","7.62x25, Lot 66-3 CN","technical-copy"
-"108","890000000000664","7.62x25, Lot 66-3 CN Substandard","7.62x25, партия 66-3 CN, низкого качества","manual-translation"
-"109","890000000000665","7.62x25, Wolf JHP","7.62x25, Wolf JHP","technical-copy"
-"110","373203732372","7.62x54R","7.62x54R","technical-copy"
-"111","930379768672","7.92x57 Mauser","7.92x57 Mauser","technical-copy"
-"112","167070341336","762x25","762x25","technical-copy"
-"113","137822310603","9x18","9x18","technical-copy"
-"114","828931318837","9x19","9x19","technical-copy"
-"115","548094068432","A hidden treasure found under one of the ritual stones at the <em><SectorName('J18')></em>","Под одним из ритуальных камней в <em><SectorName('J18')></em> найдено спрятанное сокровище","manual-translation"
-"116","680641099779","A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>","Ценное <em>бриллиантовое ожерелье</em>, возможно, находится у <em>Лали</em> из <em><SectorName('H19')></em>","manual-translation"
-"117","890000000000554","AA-52","AA-52","technical-copy"
-"118","462304999019","According to the <em>ritual book</em> found at the <em><SectorName('J18')></em>: ""Three spirits are resting inside. Seven more are waiting outside. One of them is missing.""","Согласно <em>ритуальной книге</em>, найденной в <em><SectorName('J18')></em>: «Три духа покоятся внутри. Ещё семь ждут снаружи. Одного из них не хватает».","manual-translation"
-"119","257808768357","AKM","AKM","technical-copy"
-"120","935392577230","All trapped civilians in the <em><SectorName('I19')></em> have been <em>saved</em>","Все запертые гражданские в <em><SectorName('I19')></em> <em>спасены</em>","manual-translation"
-"121","749765377029","AN/PVS-14","AN/PVS-14","technical-copy"
-"122","538496112994","AN/PVS-5","AN/PVS-5","technical-copy"
-"123","314187072777","AN/PVS-7","AN/PVS-7","technical-copy"
-"124","114038317284","AR-10","AR-10","technical-copy"
-"125","115079764307","AR-10 DMR","AR-10 DMR","technical-copy"
-"126","422903365513","Arctic Warfare","Arctic Warfare","technical-copy"
-"127","890000000000184","Are you okay?","Ты в порядке?","manual-translation"
-"128","263441472933","Backpack","Рюкзак","manual-translation"
-"129","580992024771","bad impression on <em>Boss Blaubert</em>","плохое впечатление на <em>Босса Блауберта</em>","manual-translation"
-"130","890000000000232","BAR","BAR","technical-copy"
-"131","844599512838","Barry_Smugler@yandex.com","Barry_Smugler@yandex.com","technical-copy"
-"132","809144720392","Basil needs a Browning .50 cal. <em>machine gun</em> to protect the <em><SectorName('I5')></em>","Базилю нужен <em>пулемёт</em> Browning .50 для защиты <em><SectorName('I5')></em>","manual-translation"
-"133","720317896743","Bastien and his family have a hideout in <em><SectorName('I6')></em>","У Бастьена и его семьи есть убежище в <em><SectorName('I6')></em>","manual-translation"
-"134","890000000001149","Beretta 93r","Beretta 93r","technical-copy"
-"135","158495869880","Briefing","Брифинг","manual-translation"
-"136","249265686079","Can become <GameTerm('Inspired')> and increase the team's <GameTerm('Morale')> during combat.","Может получить <GameTerm('Inspired')> и повысить <GameTerm('Morale')> команды во время боя.","manual-translation"
-"137","890000000001308","Cancel","Отмена","manual-translation"
-"138","239679390077","CAR-15","CAR-15","technical-copy"
-"139","178177064561","Carl Gustaf M/45","Carl Gustaf M/45","technical-copy"
-"140","272796175499","China Lake","China Lake","technical-copy"
-"141","460502027712","CHPOK!@aim.com","CHPOK!@aim.com","technical-copy"
-"142","910000002172","CJ","CJ","technical-copy"
-"143","589546325001","Clue: A member of one of the Twin Manors families was choked by forcing a tiny <em>strychnine bottle</em> into her throat","Улика: члена одной из семей Поместий-близнецов задушили, затолкав ей в горло крошечный флакон со <em>стрихнином</em>","manual-translation"
-"144","587491303563","Clue: A member of one of the Twin Manors families was shot with a <em>9 mm HP bullet</em> and then chopped up with an axe","Улика: члена одной из семей Поместий-близнецов застрелили <em>9-мм экспансивной пулей</em>, а затем изрубили топором","manual-translation"
-"145","857853010981","Clue: As a descendant of the L'Enfer brothers, <em>Dr. L'Enfer</em> owns the land of the Twin Manors - and the Families own just the buildings","Улика: как потомок братьев Л'Анфер, <em>доктор Л'Анфер</em> владеет землёй Поместий-близнецов, а семьям принадлежат только здания","manual-translation"
-"146","469296105606","Clue: Found <em>cyanide</em> in the Doctor's cabinet","Улика: в шкафу доктора найден <em>цианид</em>","manual-translation"
-"147","870471710924","Clue: Found <em>strychnine</em> in the Le Domas manor","Улика: в поместье Ле Домасов найден <em>стрихнин</em>","manual-translation"
-"148","278670827869","Clue: Found a 9 mm pistol and an unopened box of standard <em>9 mm bullets</em> in the Doctor's desk","Улика: в столе доктора найдены 9-мм пистолет и нераспечатанная коробка обычных <em>9-мм патронов</em>","manual-translation"
-"149","930687801470","Clue: Found several boxes of <em>9 mm HP bullets</em> in a locked cabinet inside the Van Tassel manor. One of the boxes was already <em>opened</em>","Улика: в запертом шкафу поместья Ван Тасселей найдено несколько коробок <em>9-мм экспансивных патронов</em>. Одна коробка уже была <em>открыта</em>","manual-translation"
-"150","766648053715","Clue: One of the actors on the stage was performing with a gun loaded with real <em>9 mm HP bullets</em>","Улика: один из актёров на сцене выступал с оружием, заряженным настоящими <em>9-мм экспансивными патронами</em>","manual-translation"
-"151","270267935987","Clue: The ""potion"" drank by one of the actors during the performance contained <em>strychnine</em>","Улика: «зелье», которое выпил один из актёров во время представления, содержало <em>стрихнин</em>","manual-translation"
-"152","949015834158","Clue: The ""potion"" drunk by one of the actors during the performance contained <em>real poison</em>","Улика: «зелье», выпитое одним из актёров во время представления, содержало <em>настоящий яд</em>","manual-translation"
-"153","637993950428","Clue: The <em>Witch's cauldron</em> contains a herbal concoction that can cause short term memory loss","Улика: в <em>котле ведьмы</em> находится травяная смесь, вызывающая кратковременную потерю памяти","manual-translation"
-"154","768399831148","Clue: The Doctor has dutifully performed <em>autopsies</em> on the murder victims at the Twin Manors","Улика: доктор добросовестно провёл <em>вскрытия</em> жертв убийств в Поместьях-близнецах","manual-translation"
-"155","710437033787","Clue: The two families own the houses but not the <em>land</em> of the Twin Manors. The land can never be sold to others while there is a living heir","Улика: двум семьям принадлежат дома, но не <em>земля</em> Поместий-близнецов. Пока жив наследник, землю нельзя продать посторонним","manual-translation"
-"156","644161589711","Clue: There is a deep hole under the <SectorName('J18')> that looks a lot like a <em>mining shaft</em>","Улика: под <SectorName('J18')> есть глубокая яма, очень похожая на <em>шахту</em>","manual-translation"
-"157","999263655262","Clue: There is a rumor that the L'Enfer brothers who once owned the Manors killed each other and have returned as <em>vengeful spirits</em>","Улика: ходят слухи, что братья Л'Анфер, некогда владевшие поместьями, убили друг друга и вернулись как <em>мстительные духи</em>","manual-translation"
-"158","226408276853","Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ","Полковник Фоше прячет ценные <em>произведения искусства</em> в <em><SectorName('L17')></em> внутри предмета, который сам является <em>произведением искусства</em>","manual-translation"
-"159","890000000000497","Colt .38 Special","Colt .38 Special","technical-copy"
-"160","890000000000680","Colt M1911","Colt M1911","technical-copy"
-"161","890000000000498","Colt M1917 .45 Service Revolver","Colt M1917 .45 Service Revolver","technical-copy"
-"162","890000000000180","CombatRedirect","CombatRedirect","technical-copy"
-"163","890000000001148","CZ Vz. 52","CZ Vz. 52","technical-copy"
-"164","890000000001147","CZ75","CZ75","technical-copy"
-"165","890000000000978","De Lisle Carbine","De Lisle Carbine","technical-copy"
-"166","890000000000937","De Lisle Carbines","De Lisle Carbines","technical-copy"
-"167","330318415649","dealt with the <em>Bus Gang</em>","разобрался с <em>автобусной бандой</em>","manual-translation"
-"168","723660035090","defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> Families","победил кровожадные семьи <em>Ван Тасселей</em> и <em>Ле Домасов</em>","manual-translation"
-"169","890000000000599","Die!","Умри!","manual-translation"
-"170","638558387543","established a <em>Port</em> in <em><SectorName('G9')></em>","основал <em>порт</em> в <em><SectorName('G9')></em>","manual-translation"
-"171","819181213302","Expanded Mag","Expanded Mag","technical-copy"
-"172","541475699024","exposed and defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> Families","разоблачил и победил кровожадные семьи <em>Ван Тасселей</em> и <em>Ле Домасов</em>","manual-translation"
-"173","890000000000233","FG42","FG42","technical-copy"
-"174","982240783679","Find My Feet","Обрести опору","manual-translation"
-"175","890000000001179","Fire","Огонь","manual-translation"
-"176","559078272887","FiveSeven","FiveSeven","technical-copy"
-"177","528780556719","FN MAG","FN MAG","technical-copy"
-"178","227471793670","FOLDING","СКЛАДЫВАНИЕ","manual-translation"
-"179","696808655976","Found a <em>machine gun</em> such as the one requested by <em>Basil</em> from the <em><SectorName('I5')></em>","Найден <em>пулемёт</em>, похожий на тот, который просил <em>Базиль</em> из <em><SectorName('I5')></em>","manual-translation"
-"180","799798287692","FR F2","FR F2","technical-copy"
-"181","933103009214","G3 SG","G3 SG","technical-copy"
-"182","164978166764","G36c","G36c","technical-copy"
-"183","179839012718","G3A3","G3A3","technical-copy"
-"184","555464992529","G3A4","G3A4","technical-copy"
-"185","890000000000973","G43","G43","technical-copy"
-"186","890000000000033","Get out of here","Убирайся отсюда","manual-translation"
-"187","134481114957","Glock 17","Glock 17","technical-copy"
-"188","890000000000720","Goodbye","До свидания","manual-translation"
-"189","890000000001023","Greeting","Приветствие","manual-translation"
-"190","238574955470","Grenade","Grenade","technical-copy"
-"191","355951259941","Grimer Hamlet","Grimer Hamlet","technical-copy"
-"192","121264662868","Grizzly LAR","Grizzly LAR","technical-copy"
-"193","890000000000886","Hallo!","Привет!","manual-translation"
-"194","890000000000761","Hands up!","Руки вверх!","manual-translation"
-"195","764642319165","Herman will return to the <em><SectorName('I5')></em> once it is safe","Герман вернётся в <em><SectorName('I5')></em>, когда там станет безопасно","manual-translation"
-"196","109123476314","HK23e","HK23e","technical-copy"
-"197","551664372478","HK33","HK33","technical-copy"
-"198","158052641318","HMGothic Rough A, 16","HMGothic Rough A, 16","technical-copy"
-"199","481545511185","HoustonMD","HoustonMD","technical-copy"
-"200","923960576868","HoustonMD@aim.com","HoustonMD@aim.com","technical-copy"
-"201","494150854420","Iseeyou","Iseeyou","technical-copy"
-"202","181330570580","Ithaca37","Ithaca37","technical-copy"
-"203","890000000000778","Ja?","Да?","manual-translation"
-"204","342619813681","JAZZ","JAZZ","technical-copy"
-"205","540196714249","killed <em>Ted</em> the teddy bear maniac","убил маньяка <em>Теда — Плюшевого Мишку</em>","manual-translation"
-"206","890000000000681","Kimber","Kimber","technical-copy"
-"207","890000000000499","Korth Revolver","Korth Revolver","technical-copy"
-"208","890000000000106","LegionTier1","LegionTier1","technical-copy"
-"209","890000000000107","LegionTier2","LegionTier2","technical-copy"
-"210","890000000000108","LegionTier3","LegionTier3","technical-copy"
-"211","890000000000109","LegionTier4","LegionTier4","technical-copy"
-"212","890000000000110","LegionTier5","LegionTier5","technical-copy"
-"213","540573932957","letsgoboom","letsgoboom","technical-copy"
-"214","815320386712","liberated <em>Belle Eau</em>","освободил <em>Бель-О</em>","manual-translation"
-"215","898177327102","LMG and MG Magazines","Магазины для ручных и единых пулемётов","manual-translation"
-"216","229551591966","lonelyandsad","lonelyandsad","technical-copy"
-"217","515826095239","LouisaGarneau@aim.com","LouisaGarneau@aim.com","technical-copy"
-"218","991477811622","Lower","Опустить","manual-translation"
-"219","815740499368","Lynx@aim.com","Lynx@aim.com","technical-copy"
-"220","720763685329","M16A1","M16A1","technical-copy"
-"221","403087186042","M16A4","M16A4","technical-copy"
-"222","363996539626","M1897","M1897","technical-copy"
-"223","477348066740","M1A","M1A","technical-copy"
-"224","502906359887","M-21","M-21","technical-copy"
-"225","635674998872","M3 Grease Gun","M3 Grease Gun","technical-copy"
-"226","954941893648","M3 Grease Guns","M3 Grease Guns","technical-copy"
-"227","108497703803","M4A1","M4A1","technical-copy"
-"228","566971066898","M60E3","M60E3","technical-copy"
-"229","403738538284","M60E4","M60E4","technical-copy"
-"230","539019407378","M700","M700","technical-copy"
-"231","162495707543","M72LAW2","M72LAW2","technical-copy"
-"232","971400395106","M79","M79","technical-copy"
-"233","354142133889","Mac 2429","Mac 2429","technical-copy"
-"234","890000000001150","MAC Mle 1950","MAC Mle 1950","technical-copy"
-"235","612255777676","MAC-10","MAC-10","technical-copy"
-"236","890000000000500","Manurhin MR 73","Manurhin MR 73","technical-copy"
-"237","890000000000482","MAS36","MAS36","technical-copy"
-"238","890000000000974","MAS-49/56","MAS-49/56","technical-copy"
-"239","714310548316","MAT-49","MAT-49","technical-copy"
-"240","374622059945","Monday from the <em><SectorName('I19')></em> wants his Infected ex-girlfriend <em>Bella</em> and her lovers killed","Понедельник из <em><SectorName('I19')></em> хочет, чтобы его заражённую бывшую девушку <em>Беллу</em> и её любовников убили","manual-translation"
-"241","362204247435","Morale","Боевой дух","manual-translation"
-"242","617919327732","MP5A2","MP5A2","technical-copy"
-"243","123316525310","MP5A4","MP5A4","technical-copy"
-"244","440607563310","MP5SD","MP5SD","technical-copy"
-"245","150579573516","MP7","MP7","technical-copy"
-"246","890000000000949","Normal","Обычный","manual-translation"
-"247","968093564193","Not enough money to pay for boat travel.","Недостаточно денег для оплаты поездки на лодке.","manual-translation"
-"248","784829604010","Of Murders and Teddy Bears","Об убийствах и плюшевых медведях","manual-translation"
-"249","682214104226","One of the <em>12 chairs</em> is in the villa at the <em><SectorName('H19')></em>","One of the <em>12 chairs</em> is in the villa at the <em><SectorName('H19')></em>","technical-copy"
-"250","191783634543","P-210","P-210","technical-copy"
-"251","291513194954","P-220","P-220","technical-copy"
-"252","218461390224","P-226","P-226","technical-copy"
-"253","890000000001151","P38","P38","technical-copy"
-"254","409531523901","P90","P90","technical-copy"
-"255","890000000000947","Pain1","Pain1","technical-copy"
-"256","890000000001081","Pain2","Pain2","technical-copy"
-"257","890000000000403","Pain3","Pain3","technical-copy"
-"258","890000000001333","Pain4","Pain4","technical-copy"
-"259","890000000000726","Pain5","Pain5","technical-copy"
-"260","890000000000266","Pain6","Pain6","technical-copy"
-"261","890000000000655","pain7","pain7","technical-copy"
-"262","687884848179","Pierre wants the Legion flag placed on <em><SectorName('K4')></em>","Пьер хочет, чтобы флаг Легиона установили в <em><SectorName('K4')></em>","manual-translation"
-"263","115318172545","placeholder","placeholder","technical-copy"
-"264","228456778686","R870","R870","technical-copy"
-"265","197268689344","Raised the Legion flag on <em><SectorName('K4')></em>","Флаг Легиона установлен в <em><SectorName('K4')></em>","manual-translation"
-"266","823772119772","Received clearance to speak with <em>Col. Faucheux</em> in <em><SectorName('L17')></em>","Получено разрешение поговорить с <em>полковником Фоше</em> в <em><SectorName('L17')></em>","manual-translation"
-"267","890000000000352","Redirect","Redirect","technical-copy"
-"268","150226461771","Rescued <em>Herman</em> and he promised a reward once he returns to the <em><SectorName('I5')></em>","<em>Герман</em> спасён и пообещал награду, когда вернётся в <em><SectorName('I5')></em>","manual-translation"
-"269","890000000000314","River","River","technical-copy"
-"270","890000000001293","S&W Model 52","S&W Model 52","technical-copy"
-"271","890000000001153","S&W Model 52 .38 Special Pistol","S&W Model 52 .38 Special Pistol","technical-copy"
-"272","890000000001152","S&W Model 5906","S&W Model 5906","technical-copy"
-"273","890000000000503","S&W Model10 .38 Special","S&W Model10 .38 Special","technical-copy"
-"274","890000000000526","S*W Model19 .357 Combat Magnum","S*W Model19 .357 Combat Magnum","technical-copy"
-"275","389917013778","Scorpion","Scorpion","technical-copy"
-"276","890000000001128","Sea","Sea","technical-copy"
-"277","890000000000292","SECTOR <sector> STASH","SECTOR <sector> STASH","technical-copy"
-"278","501240162927","Sig 550","Sig 550","technical-copy"
-"279","518572936824","Sig 550 RIS","Sig 550 RIS","technical-copy"
-"280","668776562271","Sig 552","Sig 552","technical-copy"
-"281","188243913550","Sig 552 SWAT","Sig 552 SWAT","technical-copy"
-"282","695156617677","Someone at the <em><SectorName('H19')></em> is looking for a missing trinket","Кто-то в <em><SectorName('H19')></em> ищет пропавшую безделушку","manual-translation"
-"283","647469050360","Someone has been playing with <em>explosives</em> at the <em><SectorName('I16')></em>, but they are nowhere to be seen. Perhaps they come out at <em>night</em>?","Кто-то возился со <em>взрывчаткой</em> в <em><SectorName('I16')></em>, но теперь там никого нет. Возможно, они появляются <em>ночью</em>?","manual-translation"
-"284","998383873461","Someone is murdering people in the Farmlands and placing <em>teddy bears</em> at the scene","Кто-то убивает людей на Фермерских землях и оставляет на месте преступления <em>плюшевых медведей</em>","manual-translation"
-"285","179417854348","Source Code Pro, 16","Source Code Pro, 16","technical-copy"
-"286","127311436093","SPAS-12","SPAS-12","technical-copy"
-"287","248441865106","Spectre M4","Spectre M4","technical-copy"
-"288","124159407418","Springfield 1903","Springfield 1903","technical-copy"
-"289","111366988214","Steyr Scout","Steyr Scout","technical-copy"
-"290","890000000000073","StG-44","StG-44","technical-copy"
-"291","890000000000501","SWModel19","SWModel19","technical-copy"
-"292","890000000000502","SWModel29","SWModel29","technical-copy"
-"293","529687283334","The <em>""Ghost"" Butler</em> at the <em><SectorName('I16')></em> will be happy to learn that his former employer and friend is still alive","<em>Дворецкий «Призрак»</em> в <em><SectorName('I16')></em> будет рад узнать, что его бывший хозяин и друг ещё жив","manual-translation"
-"294","183850974191","The <em>""ghost""</em> has hidden in the <em>cellar</em> of the <em><SectorName('I16')></em>","<em>«Призрак»</em> спрятался в <em>подвале</em> <em><SectorName('I16')></em>","manual-translation"
-"295","177888276268","The <em>bus gang</em> has arrived at the bus stop in the <em><SectorName('F9')></em>","<em>Автобусная банда</em> прибыла на остановку в <em><SectorName('F9')></em>","manual-translation"
-"296","564299410612","The <em>Ghost Butler</em> is still hiding in the <em>cellar</em> of the <em><SectorName('I16')></em>","<em>Дворецкий-призрак</em> всё ещё прячется в <em>подвале</em> <em><SectorName('I16')></em>","manual-translation"
-"297","469774238622","The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, former corporate CEO and owner of the <em><SectorName('I16')></em>","<em>Отшельник</em> оказался <em>мистером Дитчем</em>, бывшим генеральным директором и владельцем <em><SectorName('I16')></em>","manual-translation"
-"298","281399517249","The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, owner of the <em><SectorName('I16')></em> and friend of the <em>""Ghost"" Butler</em>","<em>Отшельник</em> оказался <em>мистером Дитчем</em>, владельцем <em><SectorName('I16')></em> и другом <em>дворецкого «Призрака»</em>","manual-translation"
-"299","405529445599","The <em>Hermit</em> will be happy if his friend the <em>""Ghost"" Butler</em> of the <em><SectorName('I16')></em> comes to see him","<em>Отшельник</em> будет рад, если его друг, <em>дворецкий «Призрак»</em> из <em><SectorName('I16')></em>, навестит его","manual-translation"
-"300","100047705770","The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>","Семьи <em>Ле Домасов</em> и <em>Ван Тасселей</em> собрались, чтобы выслушать результаты <em>расследования убийств</em>","manual-translation"
-"301","752147908718","The <em>Witch</em> has summoned her fearsome crocodile guardians","<em>Ведьма</em> призвала своих грозных крокодилов-стражей","manual-translation"
-"302","136622116597","The Bus Gang","Автобусная банда","manual-translation"
-"303","207185033766","The Butler at the <em><SectorName('I16')></em> is looking for <em>Mr. Ditch</em>","Дворецкий из <em><SectorName('I16')></em> ищет <em>мистера Дитча</em>","manual-translation"
-"304","206795564935","The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated","Крокодилы-стражи <em><SectorName('J18')></em> мертвы, теперь <em>ведьму</em> можно допросить","manual-translation"
-"305","881242259615","The defense of <em><SectorName('I7')></em> can be weakened by completing its Outpost objectives","Оборону <em><SectorName('I7')></em> можно ослабить, выполнив задачи аванпоста","manual-translation"
-"306","506338622134","The Infected in <em><SectorName('I19')></em> have all broken free!","Все заражённые в <em><SectorName('I19')></em> вырвались на свободу!","manual-translation"
-"307","107882379888","The Twin Manors","Поместья-близнецы","manual-translation"
-"308","622275591993","There are a bunch of <em>Fleatown thugs</em> outside looking for the alleged <em>treasure</em> of the <em><SectorName('I16')></em>","Снаружи собралась толпа <em>бандитов Флитауна</em>, ищущих предполагаемое <em>сокровище</em> <em><SectorName('I16')></em>","manual-translation"
-"309","499080476726","There are rumors of <em>murders and teddy bears</em> in the Farmlands","Ходят слухи об <em>убийствах и плюшевых медведях</em> на Фермерских землях","manual-translation"
-"310","234834978879","There are still some <em>Infected</em> in the houses of <em><SectorName('I19')></em>","В домах <em><SectorName('I19')></em> всё ещё остаются <em>заражённые</em>","manual-translation"
-"311","317344197311","There has been a series of murders at the <em><SectorName('L18')></em> that culminated in a spectacular double murder during an amateur play of <em>""Romeo and Juliet""</em>","В <em><SectorName('L18')></em> произошла серия убийств, завершившаяся эффектным двойным убийством во время любительской постановки <em>«Ромео и Джульетты»</em>","manual-translation"
-"312","870534106939","There is <em>treasure</em> in the <em><SectorName('I16')></em>, but the Butler won't give it up until the owner agrees","В <em><SectorName('I16')></em> есть <em>сокровище</em>, но дворецкий не отдаст его, пока владелец не согласится","manual-translation"
-"313","525611168674","There is a <em>treasure</em> at the <em><SectorName('I16')></em> that is supposedly guarded by a <em>ghost</em>","В <em><SectorName('I16')></em> есть <em>сокровище</em>, которое якобы охраняет <em>призрак</em>","manual-translation"
-"314","505764570979","There is a <em>treasure</em> at the haunted <em><SectorName('I16')></em>","В населённом призраками <em><SectorName('I16')></em> есть <em>сокровище</em>","manual-translation"
-"315","271039591348","There is a <em>Witch</em> at the <em><SectorName('J18')></em> who seems to be enchanting and sexually abusing the men of <em>Wassergrab</em>","В <em><SectorName('J18')></em> есть <em>ведьма</em>, которая, похоже, зачаровывает и насилует мужчин <em>Вассерграба</em>","manual-translation"
-"316","282720427297","There is a <em>Witch</em> at the <em><SectorName('J18')></em> who seems to be enchanting the men of <em>Wassergrab</em>","В <em><SectorName('J18')></em> есть <em>ведьма</em>, которая, похоже, зачаровывает мужчин <em>Вассерграба</em>","manual-translation"
-"317","990717185362","There is a Browning <em>machine gun</em> in the bunker at <em><SectorName('I6')></em>","В бункере в <em><SectorName('I6')></em> находится <em>пулемёт</em> Browning","manual-translation"
-"318","627894766418","There is a sense of mystery around the <em><SectorName('I16')></em>","<em><SectorName('I16')></em> окружён ореолом тайны","manual-translation"
-"319","296618143436","There is a virulent disease outbreak in the <em><SectorName('I19')></em>","В <em><SectorName('I19')></em> произошла вспышка опасной болезни","manual-translation"
-"320","481714140704","There is a wicked <em>Witch</em> at the <em><SectorName('J18')></em>","В <em><SectorName('J18')></em> обитает злобная <em>ведьма</em>","manual-translation"
-"321","664455317823","There is no other way but to <em>fight</em> the families at the <em><SectorName('L18')></em>","Другого выхода нет: придётся <em>сражаться</em> с семьями в <em><SectorName('L18')></em>","manual-translation"
-"322","698124792962","There is some kind of commotion in the <em><SectorName('I5')></em>","В <em><SectorName('I5')></em> происходит какая-то суматоха","manual-translation"
-"323","471422397175","There is something weird going on at the <em><SectorName('L18')></em>","В <em><SectorName('L18')></em> происходит что-то странное","manual-translation"
-"324","966823756418","There is something weird going on at the the <em><SectorName('L18')></em>, and <em>Dr. L'Enfer</em> seems to be involved","В <em><SectorName('L18')></em> происходит что-то странное, и, похоже, <em>доктор Л'Анфер</em> к этому причастен","manual-translation"
-"325","875225952240","There may be <em>Metaviron</em> at the <em><SectorName('H19')></em>","В <em><SectorName('H19')></em> может быть <em>Метавирон</em>","manual-translation"
-"326","266252160720","There may be clues about <em>Smiley</em> in <em><SectorName('H19')></em>","В <em><SectorName('H19')></em> могут быть улики, связанные со <em>Смайли</em>","manual-translation"
-"327","479875631638","Thompson","Thompson","technical-copy"
-"328","527195562093","Thompsons","Thompsons","technical-copy"
-"329","176729812517","Time to face the <em>teddy bear maniac</em>","Пора встретиться с <em>маньяком с плюшевым медведем</em>","manual-translation"
-"330","853492691401","Time to have a word with the <em>Ghost Butler</em> from the <em><SectorName('I16')></em>","Пора поговорить с <em>дворецким-призраком</em> из <em><SectorName('I16')></em>","manual-translation"
-"331","408152361455","TMP","TMP","technical-copy"
-"332","302091822558","trained <em>Militia</em>","обучил <em>ополчение</em>","manual-translation"
-"333","864094482022","Trained <em>Militia</em> to protect the <em><SectorName('I5')></em>","<em>Ополчение</em> обучено защищать <em><SectorName('I5')></em>","manual-translation"
-"334","890000000000074","Type 56","Type 56","technical-copy"
-"335","236944133476","U100","U100","technical-copy"
-"336","952338905331","Überraschung","Überraschung","technical-copy"
-"337","629372801982","UMP45","UMP45","technical-copy"
-"338","995951843740","Underground Tunnel","Подземный тоннель","manual-translation"
-"339","294591405946","USAS12","USAS12","technical-copy"
-"340","280616524895","USP45 Tactical","USP45 Tactical","technical-copy"
-"341","890000000001154","Vektor CP1","Vektor CP1","technical-copy"
-"342","428938093531","Vest","Жилет","manual-translation"
-"343","186070330181","Virus sample: The ground is sour at the old <em><SectorName('J18')></em>","Образец вируса: земля у старого <em><SectorName('J18')></em> заражена","manual-translation"
-"344","324062013193","Walther MP","Walther MP","technical-copy"
-"345","277928713012","Wassergrab","Wassergrab","technical-copy"
-"346","890000000000402","WeaponRange","Дальность оружия","manual-translation"
-"347","890000000000504","Webley Mk VI","Webley Mk VI","technical-copy"
-"348","890000000000505","Welrod","Welrod","technical-copy"
-"349","603757752539","Wetlands","Болота","manual-translation"
-"350","890000000000850","What happened to you?","Что с тобой случилось?","manual-translation"
-"351","890000000000594","within the set cone","в пределах заданного конуса","manual-translation"
-"352","301759703755","Wounds are being bandaged.","Раны перевязывают.","manual-translation"
-"353","890000000000369","Ya mon.","Да, брат.","manual-translation"
-"354","890000000000719","Yes","Да","manual-translation"
-"355","587785554300","You can't reassign mercs to a squad in conflict.","Нельзя переводить наёмников в другой отряд во время конфликта.","manual-translation"
-"356","288131795255","Zastava M70","Zastava M70","technical-copy"
-"357","641866672184","Zastava M76","Zastava M76","technical-copy"
-"358","395524774639","Zastava M92","Zastava M92","technical-copy"
-"359","890000000000250","Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost","Заклинившее оружие было <em>повреждено при попытке ремонта</em> персонажем <DisplayName> (механика: <Mechanical>): потеряно <condLoss> ед. состояния","manual-translation"
-"360","890000000001424","Garrison","Гарнизон","manual-translation"
-"361","890000000001425","Patrol","Патруль","manual-translation"
-"362","890000000001426","Recon","Разведка","manual-translation"
-"363","890000000001427","QRF","QRF","manual-translation"
-"364","890000000001428","Retribution","Возмездие","manual-translation"
-"365","890000000001429","Supply convoy","Конвой снабжения","manual-translation"
-"366","890000000001430","Diamond convoy","Алмазный конвой","manual-translation"
-"367","890000000001431","<role> — outpost <home> lost; no contact","<role> — без связи: аванпост <home> потерян","manual-translation"
-"368","890000000001432","<role> — awaiting orders from outpost <home>","<role> — ожидает приказов аванпоста <home>","manual-translation"
-"369","890000000001433","<role> — returning with intelligence about <sector> to <home>","<role> — возвращается с разведданными о <sector> в <home>","manual-translation"
-"370","890000000001434","<role> — returning to base <home>","<role> — возвращается на базу <home>","manual-translation"
-"371","890000000001435","<role> — awaiting assignment","<role> — ожидает задачу","manual-translation"
-"372","890000000001436","<role> — holding sector <target>","<role> — удерживает сектор <target>","manual-translation"
-"373","890000000001437","<role> — moving to hold sector <target>","<role> — идёт удерживать сектор <target>","manual-translation"
-"374","890000000001438","<role> — patrolling key sites; next: <target>","<role> — патрулирует ключевые точки, следующая: <target>","manual-translation"
-"375","890000000001439","<role> — observing area <target>","<role> — наблюдает район <target>","manual-translation"
-"376","890000000001440","<role> — moving to observe area <target>","<role> — выдвигается к району <target>","manual-translation"
-"377","890000000001441","<role> — retaking sector <target>","<role> — отбивает сектор <target>","manual-translation"
-"378","890000000001442","<role> — responding to intelligence in sector <target>","<role> — реагирует по разведданным в секторе <target>","manual-translation"
-"379","890000000001443","<role> — assaulting sector <target>","<role> — штурмует сектор <target>","manual-translation"
-"380","890000000001444","<role> — delivering $<money> to <target>","<role> — везёт $<money> в <target>","manual-translation"
-"381","890000000001445","<role> — delivering $<money> to HQ <target>","<role> — везёт $<money> в штаб <target>","manual-translation"
-"382","890000000001446","<role> — task in sector <target>","<role> — задача в секторе <target>","manual-translation"
-"383","890000000001447","<squad_name>
-Task: <task>","<squad_name>
-Задача: <task>","manual-translation"
-"384","890000000001448","Legion Recon","Разведка Легиона","manual-translation"
-"385","890000000001449","Legion Patrol","Патруль Легиона","manual-translation"
-"386","890000000001450","Legion Convoy","Конвой Легиона","manual-translation"
-"387","890000000001451","Legion Garrison","Гарнизон Легиона","manual-translation"
-"388","890000000001631","Reinforce","Усиление","manual-translation"
-"389","890000000001632","<role> — reinforcing border sector <target>","<role> — усиливает пограничный сектор <target>","manual-translation"
-"390","890000000001633","<role> — moving to reinforce sector <target>","<role> — идёт усиливать сектор <target>","manual-translation"
-"391","890000000001634","Tax collector","Сборщик налогов","manual-translation"
-"392","890000000001635","<role> — collecting taxes ($<money>); next: <target>","<role> — собирает налоги ($<money>); далее: <target>","manual-translation"
+N,AnchorID,SourceText,Russian,Notes
+1,890000000001388,<bullet_point> <target_prop>: <pen>,<bullet_point> <target_prop>: <pen>,technical-copy
+2,890000000000634,(already known),(уже известно),manual-translation
+3,890000000000549,(climbing),(взбирается),manual-translation
+4,890000000000431,(climbing_2),(взбирается_2),manual-translation
+5,890000000000830,(climbing_3),(взбирается_3),manual-translation
+6,890000000000104,(heavy breath),(тяжёлое дыхание),manual-translation
+7,890000000000115,(heavy breath_2),(тяжёлое дыхание_2),manual-translation
+8,890000000000096,(jumping over something),(перепрыгивает через препятствие),manual-translation
+9,890000000000302,(jumping over something_2),(перепрыгивает через препятствие_2),manual-translation
+10,890000000000416,.30 Cal M1 Ball,.30 Cal M1 Ball,technical-copy
+11,890000000000417,.30 Cal M18 +P,.30 Cal M18 +P,technical-copy
+12,890000000000411,.357 Mag FMJ,.357 Mag FMJ,technical-copy
+13,890000000000412,.357 Mag JHP,.357 Mag JHP,technical-copy
+14,890000000000413,.38 Special FMJ,.38 Special FMJ,technical-copy
+15,890000000000414,.38 Special JHP,.38 Special JHP,technical-copy
+16,124552577193,".44, FMJ",".44, FMJ",technical-copy
+17,382334892926,".44, JHP",".44, JHP",technical-copy
+18,131577728333,".44, Match",".44, Match",technical-copy
+19,287426986485,.45ACP,.45ACP,technical-copy
+20,399199708303,".45ACP, +P",".45ACP, +P",technical-copy
+21,890000000000052,".45ACP, FMJ",".45ACP, FMJ",technical-copy
+22,587071959481,".45ACP, JHP",".45ACP, JHP",technical-copy
+23,890000000000053,".45ACP, M1911 Substandard",".45ACP, M1911 Substandard",technical-copy
+24,890000000000165,.50AE FMJ,.50AE FMJ,technical-copy
+25,890000000000166,.50AE JHP,.50AE JHP,technical-copy
+26,890000000000749,<amount> x <em><itemNameT></em> (<mercName>),<amount> x <em><itemNameT></em> (<mercName>),technical-copy
+27,890000000000531,<amount> x <em><itemNameT></em> (squad bag),<amount> x <em><itemNameT></em> (сумка отряда),manual-translation
+28,890000000000409,<amount> x <em><itemNameT></em> added in the squad bag,<amount> x <em><itemNameT></em> добавлено в сумку отряда,manual-translation
+29,890000000001158,<amount> x <em><itemNameT></em> taken by <mercName>,<amount> x <em><itemNameT></em> забрано персонажем <mercName>,manual-translation
+30,348547901304,<apn(GetUIActionPoints())>,<apn(GetUIActionPoints())>,technical-copy
+31,890000000001381,<base>%,<base>%,technical-copy
+32,890000000001382,<base>% (<merc>%),<base>% (<merc>%),technical-copy
+33,890000000001390,<bullet_point> <target_prop>: <mod_add> <mod_mul>,<bullet_point> <target_prop>: <mod_add> <mod_mul>,technical-copy
+34,229449529062,<color 61 122 153>,<color 61 122 153>,technical-copy
+35,503996625887,<Description>,<Description>,technical-copy
+36,6862025595561,<Deterioration> <percent(condPercent)>,<Deterioration> <percent(condPercent)>,technical-copy
+37,611405286573,<DisplayName>,<DisplayName>,technical-copy
+38,890000000001408,<eff_class>,<eff_class>,technical-copy
+39,111937778616,<em><GhostClues> Clue(s)</em> gathered about the <em><SectorName('I16')></em>,Собрано <em><GhostClues> улик(и)</em> о <em><SectorName('I16')></em>,manual-translation
+40,828975379182,<em>Bella</em> is dead,<em>Белла</em> мертва,manual-translation
+41,922856971797,<em>Granny Cohani</em> at the <em><SectorName('N13')></em> is ready to give an arm and a leg for <em>Ma Baxter's Shotgun</em>,<em>Бабуля Кохани</em> в <em><SectorName('N13')></em> готова отдать руку и ногу за <em>дробовик Ма Бакстер</em>,manual-translation
+42,424240938925,<em>Headshot Hue</em> at the <em><SectorName('N13')></em> needs a <em>red wig</em> to play a prank on the bartender <em>Lurch</em>,"<em>Хедшоту Хью</em> в <em><SectorName('N13')></em> нужен <em>рыжий парик</em>, чтобы разыграть бармена <em>Лёрча</em>",manual-translation
+43,592779994694,<em>Headshot Hue</em> at the <em><SectorName('N13')></em> needs the <em>wig</em> to dress like Lurch's mom in order to convince him to give up the <em>shotgun</em>,"<em>Хедшоту Хью</em> в <em><SectorName('N13')></em> нужен <em>парик</em>, чтобы переодеться матерью Лёрча и убедить его отдать <em>дробовик</em>",manual-translation
+44,950550161774,<em>Lalee</em> at the <em><SectorName('H19')></em> offers money for the <em>diamond necklace</em>,<em>Лали</em> в <em><SectorName('H19')></em> предлагает деньги за <em>бриллиантовое ожерелье</em>,manual-translation
+45,194915769887,<em>Lalee</em> in <em><SectorName('H19')></em> can probably provide a <em>passport</em> for <em>Karen</em>,"<em>Лали</em> в <em><SectorName('H19')></em>, вероятно, сможет достать <em>паспорт</em> для <em>Карен</em>",manual-translation
+46,121004431695,<em>Lami</em> from the <em><SectorName('J18')></em> is drugging the men of <em>Wassergrab</em> and forcing them to dig diamonds for her,<em>Лами</em> из <em><SectorName('J18')></em> одурманивает мужчин <em>Вассерграба</em> и заставляет их добывать для неё алмазы,manual-translation
+47,254556052186,<em>Lucky Veinard</em> said there is a <em>ritual book</em> pointing at a hidden treasure among the <em><SectorName('J18')></em>,"<em>Счастливчик Вейнар</em> сказал, что <em>ритуальная книга</em> указывает на спрятанное сокровище среди <em><SectorName('J18')></em>",manual-translation
+48,435695865334,<em>Ma Baxter's Shotgun</em> is in the hands of <em>Headshot Hue</em> at the <em><SectorName('N13')></em>,<em>Дробовик Ма Бакстер</em> находится у <em>Хедшота Хью</em> в <em><SectorName('N13')></em>,manual-translation
+49,706580608154,<em>Martha</em> is looking for her husband who was kidnapped by the <em>Legion</em> and was last seen on the <em><SectorName('M7')></em>,"<em>Марта</em> ищет мужа, похищенного <em>Легионом</em>; в последний раз его видели в <em><SectorName('M7')></em>",manual-translation
+50,954601292221,<em>Once per turn</em>.Move to a new location and then shoot the closest enemy.,"<em>Раз в ход</em>. Переместитесь на новую позицию, а затем выстрелите в ближайшего врага.",manual-translation
+51,652093742599,"<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired","<em>Операция</em>: капитан Жак Пьеро в <em><SectorName('G9')></em> предлагает морские перевозки, если отремонтировать лодку «Гордость M.E.R.C.»",manual-translation
+52,754673942627,<em>Operation</em>: The <em>bus gang</em> intends to kill anyone who dares to hang around their <em>bus stop</em> in the <em><SectorName('F9')></em>,"<em>Операция</em>: <em>автобусная банда</em> собирается убить любого, кто осмелится задержаться у их <em>автобусной остановки</em> в <em><SectorName('F9')></em>",manual-translation
+53,615121539626,"<em>Operation</em>: The <em>bus gang</em> is late, but they will definitely kill anyone who dares to hang around their <em>bus stop</em> in the <em><SectorName('F9')></em>","<em>Операция</em>: <em>автобусная банда</em> опаздывает, но обязательно убьёт любого, кто осмелится задержаться у их <em>автобусной остановки</em> в <em><SectorName('F9')></em>",manual-translation
+54,188867442685,<em>Operation</em>: Train <em>Militia</em> in the <em><SectorName('I5')></em>,<em>Операция</em>: обучить <em>ополчение</em> в <em><SectorName('I5')></em>,manual-translation
+55,110569990109,<em>Outcome:</em> <em>Dr. L'Enfer</em> was blamed for the murders at the <SectorName('L18')> and <em>executed</em>,<em>Итог:</em> <em>доктора Л'Анфера</em> обвинили в убийствах в <SectorName('L18')> и <em>казнили</em>,manual-translation
+56,249811929640,<em>Outcome:</em> <em>Herman</em> was hanged in the <em><SectorName('I5')></em>,<em>Итог:</em> <em>Германа</em> повесили в <em><SectorName('I5')></em>,manual-translation
+57,698807734454,<em>Outcome:</em> <em>Luc</em> was hanged in the <em><SectorName('I5')></em>,<em>Итог:</em> <em>Люка</em> повесили в <em><SectorName('I5')></em>,manual-translation
+58,816146453546,<em>Outcome:</em> <em>Martha</em> and <em>Herman</em> left the <em><SectorName('I5')></em>,<em>Итог:</em> <em>Марта</em> и <em>Герман</em> покинули <em><SectorName('I5')></em>,manual-translation
+59,617786889079,<em>Outcome:</em> <em>Martha</em> left the <em><SectorName('I5')></em>,<em>Итог:</em> <em>Марта</em> покинула <em><SectorName('I5')></em>,manual-translation
+60,995319950975,<em>Outcome:</em> <em>Teddy</em> the Teddy Bear killer was put to rest,<em>Итог:</em> убийца <em>Тедди — Плюшевый Мишка</em> упокоен,manual-translation
+61,443476251653,<em>Outcome:</em> Defeated <em>Pierre</em> and took control of <em><SectorName('I7')></em>,"<em>Итог:</em> <em>Пьер</em> побеждён, <em><SectorName('I7')></em> взят под контроль",manual-translation
+62,377491970491,<em>Outcome:</em> Defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> families at the <em><SectorName('L18')></em>,<em>Итог:</em> кровожадные семьи <em>Ван Тасселей</em> и <em>Ле Домасов</em> побеждены в <em><SectorName('L18')></em>,manual-translation
+63,376428242327,<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia and a Machine Gun,<em>Итог:</em> <em><SectorName('I5')></em> укреплён ополчением и пулемётом,manual-translation
+64,845156775611,<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun,"<em>Итог:</em> <em><SectorName('I5')></em> укреплён ополчением, но без пулемёта",manual-translation
+65,826675773932,<em>Outcome:</em> Gave the Browning .50 cal. <em>machine gun</em> to Basil,<em>Итог:</em> <em>пулемёт</em> Browning .50 передан Базилю,manual-translation
+66,585150418707,<em>Outcome:</em> Helped the <em>Ghost Butler</em> reclaim the <em><SectorName('I16')></em>,<em>Итог:</em> помогли <em>дворецкому-призраку</em> вернуть <em><SectorName('I16')></em>,manual-translation
+67,622267968145,<em>Outcome:</em> Lami the <em>Witch</em> is dead,<em>Итог:</em> <em>ведьма</em> Лами мертва,manual-translation
+68,997322139649,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,<em>Итог:</em> <em>ведьма</em> Лами продолжит эксплуатировать рабочих <em>Вассерграба</em>,manual-translation
+69,333076070006,<em>Outcome:</em> Lami the <em>Witch</em> will stop exploiting the workers of <em>Wassergrab</em>,<em>Итог:</em> <em>ведьма</em> Лами перестанет эксплуатировать рабочих <em>Вассерграба</em>,manual-translation
+70,884795282888,<em>Outcome:</em> M.E.R.C.'s boat is repaired and will be commandeered by Captain Jacques Pierrot as naval transport from <em><SectorName('G9')></em>,<em>Итог:</em> лодка M.E.R.C. отремонтирована; капитан Жак Пьеро будет использовать её для морских перевозок из <em><SectorName('G9')></em>,manual-translation
+71,946221282530,<em>Outcome:</em> Prevented the hanging in the <em><SectorName('I5')></em>,<em>Итог:</em> казнь через повешение в <em><SectorName('I5')></em> предотвращена,manual-translation
+72,875806667851,<em>Outcome:</em> Punished the abuser from <em><SectorName('H19')></em>,<em>Итог:</em> обидчик из <em><SectorName('H19')></em> наказан,manual-translation
+73,495827247577,<em>Outcome:</em> Refused to give Basil the Browning .50 cal. <em>machine gun</em>,<em>Итог:</em> Базилю отказались отдавать <em>пулемёт</em> Browning .50,manual-translation
+74,108552742993,"<em>Outcome:</em> The <em>""Ghost"" Butler</em> from the <em><SectorName('I16')></em> and <em>Mike Ditch</em> were reunited at the Hermit shack in the <em><SectorName('L12')></em>",<em>Итог:</em> <em>дворецкий «Призрак»</em> из <em><SectorName('I16')></em> и <em>Майк Дитч</em> воссоединились у хижины отшельника в <em><SectorName('L12')></em>,manual-translation
+75,317986271185,"<em>Outcome:</em> The <em>""Ghost""</em> of the <em><SectorName('I16')></em> is dead",<em>Итог:</em> <em>«призрак»</em> из <em><SectorName('I16')></em> мёртв,manual-translation
+76,945397520724,<em>Outcome:</em> The <em>bus gang</em> is out of service,<em>Итог:</em> <em>автобусная банда</em> больше не действует,manual-translation
+77,714830943923,<em>Outcome:</em> The outbreak in the <em><SectorName('I19')></em> got out of control,<em>Итог:</em> вспышка болезни в <em><SectorName('I19')></em> вышла из-под контроля,manual-translation
+78,153864599306,<em>Outcome:</em> The shady <em>doctor</em> at the <SectorName('L18')> is dead,<em>Итог:</em> подозрительный <em>доктор</em> в <SectorName('L18')> мёртв,manual-translation
+79,472642259879,<em>Outcome:</em> There is finally some peace and quiet in <em><SectorName('I19')></em>,<em>Итог:</em> в <em><SectorName('I19')></em> наконец воцарились тишина и покой,manual-translation
+80,349187275730,<em>Outcome:</em> Time for <em>party</em> in the <em><SectorName('I19')></em>!,<em>Итог:</em> время <em>вечеринки</em> в <em><SectorName('I19')></em>!,manual-translation
+81,659363947973,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,<em>Пьер</em> побеждён в <em><SectorName('I7')></em>,manual-translation
+82,623031245401,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,<em>Пьера</em> пощадили в <em><SectorName('I7')></em>,manual-translation
+83,890000000001395,<GameTerm('Grouping')>,<GameTerm('Grouping')>,technical-copy
+84,890000000001396,<GameTerm('Recoil')>,<GameTerm('Recoil')>,technical-copy
+85,862897735770,<Name> ,<Name> ,technical-copy
+86,37850827305051,<parts>,<parts>,technical-copy
+87,115026001164,<placeholder>,<placeholder>,technical-copy
+88,444327862984111,<ScopeLevelText>,<ScopeLevelText>,technical-copy
+89,483378573996,<style AimCopyrightTextC>©</style> A.I.M. 2001,<style AimCopyrightTextC>©</style> A.I.M. 2001,technical-copy
+90,173653436963,<style AimCopyrightTextC>©</style> AIM 2001,<style AimCopyrightTextC>©</style> AIM 2001,technical-copy
+91,987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,technical-copy
+92,890000000001401,<text1>,<text1>,technical-copy
+93,890000000001403,<text1>%,<text1>%,technical-copy
+94,541139041647111,<text1>/<text2>,<text1>/<text2>,technical-copy
+95,890000000001402,<text1>/<text2>/<text3>/<text4>/<text5>,<text1>/<text2>/<text3>/<text4>/<text5>,technical-copy
+96,890000000000799,<tiredness>.,<tiredness>.,technical-copy
+97,890000000000387,0.30,0.30,technical-copy
+98,890000000000388,0.357 MAG,0.357 MAG,technical-copy
+99,890000000000389,0.38,0.38,technical-copy
+100,890000000000385,0.44,0.44,technical-copy
+101,598752828060,0.45ACP,0.45ACP,technical-copy
+102,410640021530,0.5,0.5,technical-copy
+103,890000000000386,0.50 AE,0.50 AE,technical-copy
+104,163764621255,00:00,00:00,technical-copy
+105,386324723679,30-06,30-06,technical-copy
+106,451736198437,5.7mm,5.7mm,technical-copy
+107,890000000001216,"7.62x25, Lot 66-3 CN","7.62x25, Lot 66-3 CN",technical-copy
+108,890000000000664,"7.62x25, Lot 66-3 CN Substandard","7.62x25, партия 66-3 CN, низкого качества",manual-translation
+109,890000000000665,"7.62x25, Wolf JHP","7.62x25, Wolf JHP",technical-copy
+110,373203732372,7.62x54R,7.62x54R,technical-copy
+111,930379768672,7.92x57 Mauser,7.92x57 Mauser,technical-copy
+112,167070341336,762x25,762x25,technical-copy
+113,137822310603,9x18,9x18,technical-copy
+114,828931318837,9x19,9x19,technical-copy
+115,548094068432,A hidden treasure found under one of the ritual stones at the <em><SectorName('J18')></em>,Под одним из ритуальных камней в <em><SectorName('J18')></em> найдено спрятанное сокровище,manual-translation
+116,680641099779,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,"Ценное <em>бриллиантовое ожерелье</em>, возможно, находится у <em>Лали</em> из <em><SectorName('H19')></em>",manual-translation
+117,890000000000554,AA-52,AA-52,technical-copy
+118,462304999019,"According to the <em>ritual book</em> found at the <em><SectorName('J18')></em>: ""Three spirits are resting inside. Seven more are waiting outside. One of them is missing.""","Согласно <em>ритуальной книге</em>, найденной в <em><SectorName('J18')></em>: «Три духа покоятся внутри. Ещё семь ждут снаружи. Одного из них не хватает».",manual-translation
+119,257808768357,AKM,AKM,technical-copy
+120,935392577230,All trapped civilians in the <em><SectorName('I19')></em> have been <em>saved</em>,Все запертые гражданские в <em><SectorName('I19')></em> <em>спасены</em>,manual-translation
+121,749765377029,AN/PVS-14,AN/PVS-14,technical-copy
+122,538496112994,AN/PVS-5,AN/PVS-5,technical-copy
+123,314187072777,AN/PVS-7,AN/PVS-7,technical-copy
+124,114038317284,AR-10,AR-10,technical-copy
+125,115079764307,AR-10 DMR,AR-10 DMR,technical-copy
+126,422903365513,Arctic Warfare,Arctic Warfare,technical-copy
+127,890000000000184,Are you okay?,Ты в порядке?,manual-translation
+128,263441472933,Backpack,Рюкзак,manual-translation
+129,580992024771,bad impression on <em>Boss Blaubert</em>,плохое впечатление на <em>Босса Блауберта</em>,manual-translation
+130,890000000000232,BAR,BAR,technical-copy
+131,844599512838,Barry_Smugler@yandex.com,Barry_Smugler@yandex.com,technical-copy
+132,809144720392,Basil needs a Browning .50 cal. <em>machine gun</em> to protect the <em><SectorName('I5')></em>,Базилю нужен <em>пулемёт</em> Browning .50 для защиты <em><SectorName('I5')></em>,manual-translation
+133,720317896743,Bastien and his family have a hideout in <em><SectorName('I6')></em>,У Бастьена и его семьи есть убежище в <em><SectorName('I6')></em>,manual-translation
+134,890000000001149,Beretta 93r,Beretta 93r,technical-copy
+135,158495869880,Briefing,Брифинг,manual-translation
+136,249265686079,Can become <GameTerm('Inspired')> and increase the team's <GameTerm('Morale')> during combat.,Может получить <GameTerm('Inspired')> и повысить <GameTerm('Morale')> команды во время боя.,manual-translation
+137,890000000001308,Cancel,Отмена,manual-translation
+138,239679390077,CAR-15,CAR-15,technical-copy
+139,178177064561,Carl Gustaf M/45,Carl Gustaf M/45,technical-copy
+140,272796175499,China Lake,China Lake,technical-copy
+141,460502027712,CHPOK!@aim.com,CHPOK!@aim.com,technical-copy
+142,910000002172,CJ,CJ,technical-copy
+143,589546325001,Clue: A member of one of the Twin Manors families was choked by forcing a tiny <em>strychnine bottle</em> into her throat,"Улика: члена одной из семей Поместий-близнецов задушили, затолкав ей в горло крошечный флакон со <em>стрихнином</em>",manual-translation
+144,587491303563,Clue: A member of one of the Twin Manors families was shot with a <em>9 mm HP bullet</em> and then chopped up with an axe,"Улика: члена одной из семей Поместий-близнецов застрелили <em>9-мм экспансивной пулей</em>, а затем изрубили топором",manual-translation
+145,857853010981,"Clue: As a descendant of the L'Enfer brothers, <em>Dr. L'Enfer</em> owns the land of the Twin Manors - and the Families own just the buildings","Улика: как потомок братьев Л'Анфер, <em>доктор Л'Анфер</em> владеет землёй Поместий-близнецов, а семьям принадлежат только здания",manual-translation
+146,469296105606,Clue: Found <em>cyanide</em> in the Doctor's cabinet,Улика: в шкафу доктора найден <em>цианид</em>,manual-translation
+147,870471710924,Clue: Found <em>strychnine</em> in the Le Domas manor,Улика: в поместье Ле Домасов найден <em>стрихнин</em>,manual-translation
+148,278670827869,Clue: Found a 9 mm pistol and an unopened box of standard <em>9 mm bullets</em> in the Doctor's desk,Улика: в столе доктора найдены 9-мм пистолет и нераспечатанная коробка обычных <em>9-мм патронов</em>,manual-translation
+149,930687801470,Clue: Found several boxes of <em>9 mm HP bullets</em> in a locked cabinet inside the Van Tassel manor. One of the boxes was already <em>opened</em>,Улика: в запертом шкафу поместья Ван Тасселей найдено несколько коробок <em>9-мм экспансивных патронов</em>. Одна коробка уже была <em>открыта</em>,manual-translation
+150,766648053715,Clue: One of the actors on the stage was performing with a gun loaded with real <em>9 mm HP bullets</em>,"Улика: один из актёров на сцене выступал с оружием, заряженным настоящими <em>9-мм экспансивными патронами</em>",manual-translation
+151,270267935987,"Clue: The ""potion"" drank by one of the actors during the performance contained <em>strychnine</em>","Улика: «зелье», которое выпил один из актёров во время представления, содержало <em>стрихнин</em>",manual-translation
+152,949015834158,"Clue: The ""potion"" drunk by one of the actors during the performance contained <em>real poison</em>","Улика: «зелье», выпитое одним из актёров во время представления, содержало <em>настоящий яд</em>",manual-translation
+153,637993950428,Clue: The <em>Witch's cauldron</em> contains a herbal concoction that can cause short term memory loss,"Улика: в <em>котле ведьмы</em> находится травяная смесь, вызывающая кратковременную потерю памяти",manual-translation
+154,768399831148,Clue: The Doctor has dutifully performed <em>autopsies</em> on the murder victims at the Twin Manors,Улика: доктор добросовестно провёл <em>вскрытия</em> жертв убийств в Поместьях-близнецах,manual-translation
+155,710437033787,Clue: The two families own the houses but not the <em>land</em> of the Twin Manors. The land can never be sold to others while there is a living heir,"Улика: двум семьям принадлежат дома, но не <em>земля</em> Поместий-близнецов. Пока жив наследник, землю нельзя продать посторонним",manual-translation
+156,644161589711,Clue: There is a deep hole under the <SectorName('J18')> that looks a lot like a <em>mining shaft</em>,"Улика: под <SectorName('J18')> есть глубокая яма, очень похожая на <em>шахту</em>",manual-translation
+157,999263655262,Clue: There is a rumor that the L'Enfer brothers who once owned the Manors killed each other and have returned as <em>vengeful spirits</em>,"Улика: ходят слухи, что братья Л'Анфер, некогда владевшие поместьями, убили друг друга и вернулись как <em>мстительные духи</em>",manual-translation
+158,226408276853,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,"Полковник Фоше прячет ценные <em>произведения искусства</em> в <em><SectorName('L17')></em> внутри предмета, который сам является <em>произведением искусства</em>",manual-translation
+159,890000000000497,Colt .38 Special,Colt .38 Special,technical-copy
+160,890000000000680,Colt M1911,Colt M1911,technical-copy
+161,890000000000498,Colt M1917 .45 Service Revolver,Colt M1917 .45 Service Revolver,technical-copy
+162,890000000000180,CombatRedirect,CombatRedirect,technical-copy
+163,890000000001148,CZ Vz. 52,CZ Vz. 52,technical-copy
+164,890000000001147,CZ75,CZ75,technical-copy
+165,890000000000978,De Lisle Carbine,De Lisle Carbine,technical-copy
+166,890000000000937,De Lisle Carbines,De Lisle Carbines,technical-copy
+167,330318415649,dealt with the <em>Bus Gang</em>,разобрался с <em>автобусной бандой</em>,manual-translation
+168,723660035090,defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> Families,победил кровожадные семьи <em>Ван Тасселей</em> и <em>Ле Домасов</em>,manual-translation
+169,890000000000599,Die!,Умри!,manual-translation
+170,638558387543,established a <em>Port</em> in <em><SectorName('G9')></em>,основал <em>порт</em> в <em><SectorName('G9')></em>,manual-translation
+171,819181213302,Expanded Mag,Expanded Mag,technical-copy
+172,541475699024,exposed and defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> Families,разоблачил и победил кровожадные семьи <em>Ван Тасселей</em> и <em>Ле Домасов</em>,manual-translation
+173,890000000000233,FG42,FG42,technical-copy
+174,982240783679,Find My Feet,Обрести опору,manual-translation
+175,890000000001179,Fire,Огонь,manual-translation
+176,559078272887,FiveSeven,FiveSeven,technical-copy
+177,528780556719,FN MAG,FN MAG,technical-copy
+178,227471793670,FOLDING,СКЛАДЫВАНИЕ,manual-translation
+179,696808655976,Found a <em>machine gun</em> such as the one requested by <em>Basil</em> from the <em><SectorName('I5')></em>,"Найден <em>пулемёт</em>, похожий на тот, который просил <em>Базиль</em> из <em><SectorName('I5')></em>",manual-translation
+180,799798287692,FR F2,FR F2,technical-copy
+181,933103009214,G3 SG,G3 SG,technical-copy
+182,164978166764,G36c,G36c,technical-copy
+183,179839012718,G3A3,G3A3,technical-copy
+184,555464992529,G3A4,G3A4,technical-copy
+185,890000000000973,G43,G43,technical-copy
+186,890000000000033,Get out of here,Убирайся отсюда,manual-translation
+187,134481114957,Glock 17,Glock 17,technical-copy
+188,890000000000720,Goodbye,До свидания,manual-translation
+189,890000000001023,Greeting,Приветствие,manual-translation
+190,238574955470,Grenade,Grenade,technical-copy
+191,355951259941,Grimer Hamlet,Grimer Hamlet,technical-copy
+192,121264662868,Grizzly LAR,Grizzly LAR,technical-copy
+193,890000000000886,Hallo!,Привет!,manual-translation
+194,890000000000761,Hands up!,Руки вверх!,manual-translation
+195,764642319165,Herman will return to the <em><SectorName('I5')></em> once it is safe,"Герман вернётся в <em><SectorName('I5')></em>, когда там станет безопасно",manual-translation
+196,109123476314,HK23e,HK23e,technical-copy
+197,551664372478,HK33,HK33,technical-copy
+198,158052641318,"HMGothic Rough A, 16","HMGothic Rough A, 16",technical-copy
+199,481545511185,HoustonMD,HoustonMD,technical-copy
+200,923960576868,HoustonMD@aim.com,HoustonMD@aim.com,technical-copy
+201,494150854420,Iseeyou,Iseeyou,technical-copy
+202,181330570580,Ithaca37,Ithaca37,technical-copy
+203,890000000000778,Ja?,Да?,manual-translation
+204,342619813681,JAZZ,JAZZ,technical-copy
+205,540196714249,killed <em>Ted</em> the teddy bear maniac,убил маньяка <em>Теда — Плюшевого Мишку</em>,manual-translation
+206,890000000000681,Kimber,Kimber,technical-copy
+207,890000000000499,Korth Revolver,Korth Revolver,technical-copy
+208,890000000000106,LegionTier1,LegionTier1,technical-copy
+209,890000000000107,LegionTier2,LegionTier2,technical-copy
+210,890000000000108,LegionTier3,LegionTier3,technical-copy
+211,890000000000109,LegionTier4,LegionTier4,technical-copy
+212,890000000000110,LegionTier5,LegionTier5,technical-copy
+213,540573932957,letsgoboom,letsgoboom,technical-copy
+214,815320386712,liberated <em>Belle Eau</em>,освободил <em>Бель-О</em>,manual-translation
+215,898177327102,LMG and MG Magazines,Магазины для ручных и единых пулемётов,manual-translation
+216,229551591966,lonelyandsad,lonelyandsad,technical-copy
+217,515826095239,LouisaGarneau@aim.com,LouisaGarneau@aim.com,technical-copy
+218,991477811622,Lower,Опустить,manual-translation
+219,815740499368,Lynx@aim.com,Lynx@aim.com,technical-copy
+220,720763685329,M16A1,M16A1,technical-copy
+221,403087186042,M16A4,M16A4,technical-copy
+222,363996539626,M1897,M1897,technical-copy
+223,477348066740,M1A,M1A,technical-copy
+224,502906359887,M-21,M-21,technical-copy
+225,635674998872,M3 Grease Gun,M3 Grease Gun,technical-copy
+226,954941893648,M3 Grease Guns,M3 Grease Guns,technical-copy
+227,108497703803,M4A1,M4A1,technical-copy
+228,566971066898,M60E3,M60E3,technical-copy
+229,403738538284,M60E4,M60E4,technical-copy
+230,539019407378,M700,M700,technical-copy
+231,162495707543,M72 LAW,M72 LAW,technical-copy
+232,971400395106,M79,M79,technical-copy
+233,354142133889,Mac 2429,Mac 2429,technical-copy
+234,890000000001150,MAC Mle 1950,MAC Mle 1950,technical-copy
+235,612255777676,MAC-10,MAC-10,technical-copy
+236,890000000000500,Manurhin MR 73,Manurhin MR 73,technical-copy
+237,890000000000482,MAS36,MAS36,technical-copy
+238,890000000000974,MAS-49/56,MAS-49/56,technical-copy
+239,714310548316,MAT-49,MAT-49,technical-copy
+240,374622059945,Monday from the <em><SectorName('I19')></em> wants his Infected ex-girlfriend <em>Bella</em> and her lovers killed,"Понедельник из <em><SectorName('I19')></em> хочет, чтобы его заражённую бывшую девушку <em>Беллу</em> и её любовников убили",manual-translation
+241,362204247435,Morale,Боевой дух,manual-translation
+242,617919327732,MP5A2,MP5A2,technical-copy
+243,123316525310,MP5A4,MP5A4,technical-copy
+244,440607563310,MP5SD,MP5SD,technical-copy
+245,150579573516,MP7,MP7,technical-copy
+246,890000000000949,Normal,Обычный,manual-translation
+247,968093564193,Not enough money to pay for boat travel.,Недостаточно денег для оплаты поездки на лодке.,manual-translation
+248,784829604010,Of Murders and Teddy Bears,Об убийствах и плюшевых медведях,manual-translation
+249,682214104226,One of the <em>12 chairs</em> is in the villa at the <em><SectorName('H19')></em>,One of the <em>12 chairs</em> is in the villa at the <em><SectorName('H19')></em>,technical-copy
+250,191783634543,P-210,P-210,technical-copy
+251,291513194954,P-220,P-220,technical-copy
+252,218461390224,P-226,P-226,technical-copy
+253,890000000001151,P38,P38,technical-copy
+254,409531523901,P90,P90,technical-copy
+255,890000000000947,Pain1,Pain1,technical-copy
+256,890000000001081,Pain2,Pain2,technical-copy
+257,890000000000403,Pain3,Pain3,technical-copy
+258,890000000001333,Pain4,Pain4,technical-copy
+259,890000000000726,Pain5,Pain5,technical-copy
+260,890000000000266,Pain6,Pain6,technical-copy
+261,890000000000655,pain7,pain7,technical-copy
+262,687884848179,Pierre wants the Legion flag placed on <em><SectorName('K4')></em>,"Пьер хочет, чтобы флаг Легиона установили в <em><SectorName('K4')></em>",manual-translation
+263,115318172545,placeholder,placeholder,technical-copy
+264,228456778686,R870,R870,technical-copy
+265,197268689344,Raised the Legion flag on <em><SectorName('K4')></em>,Флаг Легиона установлен в <em><SectorName('K4')></em>,manual-translation
+266,823772119772,Received clearance to speak with <em>Col. Faucheux</em> in <em><SectorName('L17')></em>,Получено разрешение поговорить с <em>полковником Фоше</em> в <em><SectorName('L17')></em>,manual-translation
+267,890000000000352,Redirect,Redirect,technical-copy
+268,150226461771,Rescued <em>Herman</em> and he promised a reward once he returns to the <em><SectorName('I5')></em>,"<em>Герман</em> спасён и пообещал награду, когда вернётся в <em><SectorName('I5')></em>",manual-translation
+269,890000000000314,River,River,technical-copy
+270,890000000001293,S&W Model 52,S&W Model 52,technical-copy
+271,890000000001153,S&W Model 52 .38 Special Pistol,S&W Model 52 .38 Special Pistol,technical-copy
+272,890000000001152,S&W Model 5906,S&W Model 5906,technical-copy
+273,890000000000503,S&W Model10 .38 Special,S&W Model10 .38 Special,technical-copy
+274,890000000000526,S*W Model19 .357 Combat Magnum,S*W Model19 .357 Combat Magnum,technical-copy
+275,389917013778,Scorpion,Scorpion,technical-copy
+276,890000000001128,Sea,Sea,technical-copy
+277,890000000000292,SECTOR <sector> STASH,SECTOR <sector> STASH,technical-copy
+278,501240162927,Sig 550,Sig 550,technical-copy
+279,518572936824,Sig 550 RIS,Sig 550 RIS,technical-copy
+280,668776562271,Sig 552,Sig 552,technical-copy
+281,188243913550,Sig 552 SWAT,Sig 552 SWAT,technical-copy
+282,695156617677,Someone at the <em><SectorName('H19')></em> is looking for a missing trinket,Кто-то в <em><SectorName('H19')></em> ищет пропавшую безделушку,manual-translation
+283,647469050360,"Someone has been playing with <em>explosives</em> at the <em><SectorName('I16')></em>, but they are nowhere to be seen. Perhaps they come out at <em>night</em>?","Кто-то возился со <em>взрывчаткой</em> в <em><SectorName('I16')></em>, но теперь там никого нет. Возможно, они появляются <em>ночью</em>?",manual-translation
+284,998383873461,Someone is murdering people in the Farmlands and placing <em>teddy bears</em> at the scene,Кто-то убивает людей на Фермерских землях и оставляет на месте преступления <em>плюшевых медведей</em>,manual-translation
+285,179417854348,"Source Code Pro, 16","Source Code Pro, 16",technical-copy
+286,127311436093,SPAS-12,SPAS-12,technical-copy
+287,248441865106,Spectre M4,Spectre M4,technical-copy
+288,124159407418,Springfield 1903,Springfield 1903,technical-copy
+289,111366988214,Steyr Scout,Steyr Scout,technical-copy
+290,890000000000073,StG-44,StG-44,technical-copy
+291,890000000000501,SWModel19,SWModel19,technical-copy
+292,890000000000502,SWModel29,SWModel29,technical-copy
+293,529687283334,"The <em>""Ghost"" Butler</em> at the <em><SectorName('I16')></em> will be happy to learn that his former employer and friend is still alive","<em>Дворецкий «Призрак»</em> в <em><SectorName('I16')></em> будет рад узнать, что его бывший хозяин и друг ещё жив",manual-translation
+294,183850974191,"The <em>""ghost""</em> has hidden in the <em>cellar</em> of the <em><SectorName('I16')></em>",<em>«Призрак»</em> спрятался в <em>подвале</em> <em><SectorName('I16')></em>,manual-translation
+295,177888276268,The <em>bus gang</em> has arrived at the bus stop in the <em><SectorName('F9')></em>,<em>Автобусная банда</em> прибыла на остановку в <em><SectorName('F9')></em>,manual-translation
+296,564299410612,The <em>Ghost Butler</em> is still hiding in the <em>cellar</em> of the <em><SectorName('I16')></em>,<em>Дворецкий-призрак</em> всё ещё прячется в <em>подвале</em> <em><SectorName('I16')></em>,manual-translation
+297,469774238622,"The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, former corporate CEO and owner of the <em><SectorName('I16')></em>","<em>Отшельник</em> оказался <em>мистером Дитчем</em>, бывшим генеральным директором и владельцем <em><SectorName('I16')></em>",manual-translation
+298,281399517249,"The <em>Hermit</em> turned out to be <em>Mr. Ditch</em>, owner of the <em><SectorName('I16')></em> and friend of the <em>""Ghost"" Butler</em>","<em>Отшельник</em> оказался <em>мистером Дитчем</em>, владельцем <em><SectorName('I16')></em> и другом <em>дворецкого «Призрака»</em>",manual-translation
+299,405529445599,"The <em>Hermit</em> will be happy if his friend the <em>""Ghost"" Butler</em> of the <em><SectorName('I16')></em> comes to see him","<em>Отшельник</em> будет рад, если его друг, <em>дворецкий «Призрак»</em> из <em><SectorName('I16')></em>, навестит его",manual-translation
+300,100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,"Семьи <em>Ле Домасов</em> и <em>Ван Тасселей</em> собрались, чтобы выслушать результаты <em>расследования убийств</em>",manual-translation
+301,752147908718,The <em>Witch</em> has summoned her fearsome crocodile guardians,<em>Ведьма</em> призвала своих грозных крокодилов-стражей,manual-translation
+302,136622116597,The Bus Gang,Автобусная банда,manual-translation
+303,207185033766,The Butler at the <em><SectorName('I16')></em> is looking for <em>Mr. Ditch</em>,Дворецкий из <em><SectorName('I16')></em> ищет <em>мистера Дитча</em>,manual-translation
+304,206795564935,The crocodile guardians of the <em><SectorName('J18')></em> are dead and now the <em>Witch</em> can be interrogated,"Крокодилы-стражи <em><SectorName('J18')></em> мертвы, теперь <em>ведьму</em> можно допросить",manual-translation
+305,881242259615,The defense of <em><SectorName('I7')></em> can be weakened by completing its Outpost objectives,"Оборону <em><SectorName('I7')></em> можно ослабить, выполнив задачи аванпоста",manual-translation
+306,506338622134,The Infected in <em><SectorName('I19')></em> have all broken free!,Все заражённые в <em><SectorName('I19')></em> вырвались на свободу!,manual-translation
+307,107882379888,The Twin Manors,Поместья-близнецы,manual-translation
+308,622275591993,There are a bunch of <em>Fleatown thugs</em> outside looking for the alleged <em>treasure</em> of the <em><SectorName('I16')></em>,"Снаружи собралась толпа <em>бандитов Флитауна</em>, ищущих предполагаемое <em>сокровище</em> <em><SectorName('I16')></em>",manual-translation
+309,499080476726,There are rumors of <em>murders and teddy bears</em> in the Farmlands,Ходят слухи об <em>убийствах и плюшевых медведях</em> на Фермерских землях,manual-translation
+310,234834978879,There are still some <em>Infected</em> in the houses of <em><SectorName('I19')></em>,В домах <em><SectorName('I19')></em> всё ещё остаются <em>заражённые</em>,manual-translation
+311,317344197311,"There has been a series of murders at the <em><SectorName('L18')></em> that culminated in a spectacular double murder during an amateur play of <em>""Romeo and Juliet""</em>","В <em><SectorName('L18')></em> произошла серия убийств, завершившаяся эффектным двойным убийством во время любительской постановки <em>«Ромео и Джульетты»</em>",manual-translation
+312,870534106939,"There is <em>treasure</em> in the <em><SectorName('I16')></em>, but the Butler won't give it up until the owner agrees","В <em><SectorName('I16')></em> есть <em>сокровище</em>, но дворецкий не отдаст его, пока владелец не согласится",manual-translation
+313,525611168674,There is a <em>treasure</em> at the <em><SectorName('I16')></em> that is supposedly guarded by a <em>ghost</em>,"В <em><SectorName('I16')></em> есть <em>сокровище</em>, которое якобы охраняет <em>призрак</em>",manual-translation
+314,505764570979,There is a <em>treasure</em> at the haunted <em><SectorName('I16')></em>,В населённом призраками <em><SectorName('I16')></em> есть <em>сокровище</em>,manual-translation
+315,271039591348,There is a <em>Witch</em> at the <em><SectorName('J18')></em> who seems to be enchanting and sexually abusing the men of <em>Wassergrab</em>,"В <em><SectorName('J18')></em> есть <em>ведьма</em>, которая, похоже, зачаровывает и насилует мужчин <em>Вассерграба</em>",manual-translation
+316,282720427297,There is a <em>Witch</em> at the <em><SectorName('J18')></em> who seems to be enchanting the men of <em>Wassergrab</em>,"В <em><SectorName('J18')></em> есть <em>ведьма</em>, которая, похоже, зачаровывает мужчин <em>Вассерграба</em>",manual-translation
+317,990717185362,There is a Browning <em>machine gun</em> in the bunker at <em><SectorName('I6')></em>,В бункере в <em><SectorName('I6')></em> находится <em>пулемёт</em> Browning,manual-translation
+318,627894766418,There is a sense of mystery around the <em><SectorName('I16')></em>,<em><SectorName('I16')></em> окружён ореолом тайны,manual-translation
+319,296618143436,There is a virulent disease outbreak in the <em><SectorName('I19')></em>,В <em><SectorName('I19')></em> произошла вспышка опасной болезни,manual-translation
+320,481714140704,There is a wicked <em>Witch</em> at the <em><SectorName('J18')></em>,В <em><SectorName('J18')></em> обитает злобная <em>ведьма</em>,manual-translation
+321,664455317823,There is no other way but to <em>fight</em> the families at the <em><SectorName('L18')></em>,Другого выхода нет: придётся <em>сражаться</em> с семьями в <em><SectorName('L18')></em>,manual-translation
+322,698124792962,There is some kind of commotion in the <em><SectorName('I5')></em>,В <em><SectorName('I5')></em> происходит какая-то суматоха,manual-translation
+323,471422397175,There is something weird going on at the <em><SectorName('L18')></em>,В <em><SectorName('L18')></em> происходит что-то странное,manual-translation
+324,966823756418,"There is something weird going on at the the <em><SectorName('L18')></em>, and <em>Dr. L'Enfer</em> seems to be involved","В <em><SectorName('L18')></em> происходит что-то странное, и, похоже, <em>доктор Л'Анфер</em> к этому причастен",manual-translation
+325,875225952240,There may be <em>Metaviron</em> at the <em><SectorName('H19')></em>,В <em><SectorName('H19')></em> может быть <em>Метавирон</em>,manual-translation
+326,266252160720,There may be clues about <em>Smiley</em> in <em><SectorName('H19')></em>,"В <em><SectorName('H19')></em> могут быть улики, связанные со <em>Смайли</em>",manual-translation
+327,479875631638,Thompson,Thompson,technical-copy
+328,527195562093,Thompsons,Thompsons,technical-copy
+329,176729812517,Time to face the <em>teddy bear maniac</em>,Пора встретиться с <em>маньяком с плюшевым медведем</em>,manual-translation
+330,853492691401,Time to have a word with the <em>Ghost Butler</em> from the <em><SectorName('I16')></em>,Пора поговорить с <em>дворецким-призраком</em> из <em><SectorName('I16')></em>,manual-translation
+331,408152361455,TMP,TMP,technical-copy
+332,302091822558,trained <em>Militia</em>,обучил <em>ополчение</em>,manual-translation
+333,864094482022,Trained <em>Militia</em> to protect the <em><SectorName('I5')></em>,<em>Ополчение</em> обучено защищать <em><SectorName('I5')></em>,manual-translation
+334,890000000000074,Type 56,Type 56,technical-copy
+335,236944133476,U100,U100,technical-copy
+336,952338905331,Überraschung,Überraschung,technical-copy
+337,629372801982,UMP45,UMP45,technical-copy
+338,995951843740,Underground Tunnel,Подземный тоннель,manual-translation
+339,294591405946,USAS12,USAS12,technical-copy
+340,280616524895,USP45 Tactical,USP45 Tactical,technical-copy
+341,890000000001154,Vektor CP1,Vektor CP1,technical-copy
+342,428938093531,Vest,Жилет,manual-translation
+343,186070330181,Virus sample: The ground is sour at the old <em><SectorName('J18')></em>,Образец вируса: земля у старого <em><SectorName('J18')></em> заражена,manual-translation
+344,324062013193,Walther MP,Walther MP,technical-copy
+345,277928713012,Wassergrab,Wassergrab,technical-copy
+346,890000000000402,WeaponRange,Дальность оружия,manual-translation
+347,890000000000504,Webley Mk VI,Webley Mk VI,technical-copy
+348,890000000000505,Welrod,Welrod,technical-copy
+349,603757752539,Wetlands,Болота,manual-translation
+350,890000000000850,What happened to you?,Что с тобой случилось?,manual-translation
+351,890000000000594,within the set cone,в пределах заданного конуса,manual-translation
+352,301759703755,Wounds are being bandaged.,Раны перевязывают.,manual-translation
+353,890000000000369,Ya mon.,"Да, брат.",manual-translation
+354,890000000000719,Yes,Да,manual-translation
+355,587785554300,You can't reassign mercs to a squad in conflict.,Нельзя переводить наёмников в другой отряд во время конфликта.,manual-translation
+356,288131795255,Zastava M70,Zastava M70,technical-copy
+357,641866672184,Zastava M76,Zastava M76,technical-copy
+358,395524774639,Zastava M92,Zastava M92,technical-copy
+359,890000000000250,Jammed weapon was <em>damaged in attempt to fix</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost,Заклинившее оружие было <em>повреждено при попытке ремонта</em> персонажем <DisplayName> (механика: <Mechanical>): потеряно <condLoss> ед. состояния,manual-translation
+360,890000000001424,Garrison,Гарнизон,manual-translation
+361,890000000001425,Patrol,Патруль,manual-translation
+362,890000000001426,Recon,Разведка,manual-translation
+363,890000000001427,QRF,QRF,manual-translation
+364,890000000001428,Retribution,Возмездие,manual-translation
+365,890000000001429,Supply convoy,Конвой снабжения,manual-translation
+366,890000000001430,Diamond convoy,Алмазный конвой,manual-translation
+367,890000000001431,<role> — outpost <home> lost; no contact,<role> — без связи: аванпост <home> потерян,manual-translation
+368,890000000001432,<role> — awaiting orders from outpost <home>,<role> — ожидает приказов аванпоста <home>,manual-translation
+369,890000000001433,<role> — returning with intelligence about <sector> to <home>,<role> — возвращается с разведданными о <sector> в <home>,manual-translation
+370,890000000001434,<role> — returning to base <home>,<role> — возвращается на базу <home>,manual-translation
+371,890000000001435,<role> — awaiting assignment,<role> — ожидает задачу,manual-translation
+372,890000000001436,<role> — holding sector <target>,<role> — удерживает сектор <target>,manual-translation
+373,890000000001437,<role> — moving to hold sector <target>,<role> — идёт удерживать сектор <target>,manual-translation
+374,890000000001438,<role> — patrolling key sites; next: <target>,"<role> — патрулирует ключевые точки, следующая: <target>",manual-translation
+375,890000000001439,<role> — observing area <target>,<role> — наблюдает район <target>,manual-translation
+376,890000000001440,<role> — moving to observe area <target>,<role> — выдвигается к району <target>,manual-translation
+377,890000000001441,<role> — retaking sector <target>,<role> — отбивает сектор <target>,manual-translation
+378,890000000001442,<role> — responding to intelligence in sector <target>,<role> — реагирует по разведданным в секторе <target>,manual-translation
+379,890000000001443,<role> — assaulting sector <target>,<role> — штурмует сектор <target>,manual-translation
+380,890000000001444,<role> — delivering $<money> to <target>,<role> — везёт $<money> в <target>,manual-translation
+381,890000000001445,<role> — delivering $<money> to HQ <target>,<role> — везёт $<money> в штаб <target>,manual-translation
+382,890000000001446,<role> — task in sector <target>,<role> — задача в секторе <target>,manual-translation
+383,890000000001447,<squad_name>Task: <task>,<squad_name>Задача: <task>,manual-translation
+384,890000000001448,Legion Recon,Разведка Легиона,manual-translation
+385,890000000001449,Legion Patrol,Патруль Легиона,manual-translation
+386,890000000001450,Legion Convoy,Конвой Легиона,manual-translation
+387,890000000001451,Legion Garrison,Гарнизон Легиона,manual-translation
+388,890000000001631,Reinforce,Усиление,manual-translation
+389,890000000001632,<role> — reinforcing border sector <target>,<role> — усиливает пограничный сектор <target>,manual-translation
+390,890000000001633,<role> — moving to reinforce sector <target>,<role> — идёт усиливать сектор <target>,manual-translation
+391,890000000001634,Tax collector,Сборщик налогов,manual-translation
+392,890000000001635,<role> — collecting taxes ($<money>); next: <target>,<role> — собирает налоги ($<money>); далее: <target>,manual-translation
 388,872401100001,HMMWV,HMMWV,technical-copy
 389,872401100070,HMMWV,HMMWV,technical-copy
 390,890000000001465,Long Distance Relations,Отношения на расстоянии,manual-translation
@@ -406,4 +399,54 @@ Task: <task>","<squad_name>
 393,890000000001496,Grilled Bears' Survival Guide,Руководство по выживанию «Жареных медведей»,manual-translation
 394,890000000001502,An Apple a Day,Яблоко в день,manual-translation
 395,890000000001506,Grilled Bears' Survival Guide,Руководство по выживанию «Жареных медведей»,manual-translation
-"396","890000000001650","<first> <last>","<first> <last>","technical-copy"
+396,890000000001650,<first> <last>,<first> <last>,technical-copy
+397,592681872481,You're talking to Samuel Nkosi. How can I help you?,С вами говорит Самуэль Нкоси. Чем могу помочь?,manual-translation
+398,979669120158,"Hi, you've reached Samuel Nkosi. Sorry, I missed your call. I'm especially busy right now, but if you leave me your phone number and a brief message, I'll get back to you as soon as possible.","Здравствуйте, вы дозвонились до Самуэля Нкоси. Извините, я пропустил ваш звонок. Сейчас я особенно занят, но если оставите номер и короткое сообщение, я перезвоню при первой возможности.",manual-translation
+399,399892814797,"Hi, it's good to talk to you again.","Привет, рад снова с вами поговорить.",manual-translation
+400,518273598044,"Hey, I don't have all day. Why did you call me?","Эй, у меня не весь день. Зачем вы звонили?",manual-translation
+401,462159909484,Your conditions sound fair. I will accept.,Ваши условия звучат справедливо. Я согласен.,manual-translation
+402,852151262223,"Hey, we need to talk about my contract. I hope we will come to an agreement again.","Эй, нам нужно поговорить о моём контракте. Надеюсь, мы снова договоримся.",manual-translation
+403,734949798117,That's a solid offer. I will accept.,Это достойное предложение. Я принимаю.,manual-translation
+404,813014999872,I'm not keen on working with that german named Grunty. But we can come to an agreement if you add some money on top of my salary for any inconveniences he might cause.,"Мне не очень хочется работать с этим немцем по имени Грунти. Но мы можем договориться, если вы добавите сверху к моей зарплате за возможные неудобства с его стороны.",manual-translation
+405,141954478311,Samuel,Самуэль,manual-translation
+406,162045764185,You're talking to Jerry Sinclair. Are you in need of mechanical assistance?,С вами говорит Джерри Синклер. Нужна механическая помощь?,manual-translation
+407,352332137969,"You have reached Jerry Sinclair. Unfortunately, I can't answer the phone right now, but please leave me a message, and I'll get back to you promptly.","Вы дозвонились до Джерри Синклера. К сожалению, я сейчас не могу ответить, но оставьте сообщение — и я быстро перезвоню.",manual-translation
+408,105486838898,I knew you would call me back. I'm the best mechanic you can get for your bucks.,"Я знал, что вы перезвоните. Я лучший механик, которого можно найти за ваши деньги.",manual-translation
+409,172029544435,"Oh come on, i really need to go to a walk with my dog. Tell me what you want, or hang up already.","Да ладно вам, мне правда нужно выгулять собаку. Скажите, чего хотите, или уже кладите трубку.",manual-translation
+410,857370343482,"Okay, this sounds like a good deal. I'll be on my way immediately.","Ладно, звучит как хорошая сделка. Выезжаю немедленно.",manual-translation
+411,120667680807,Jerry here. We need to talk about my contract. Are you interested in a renewal?,Это Джерри. Нам нужно поговорить о моём контракте. Интересует продление?,manual-translation
+412,940539384341,Thanks a lot for your trust. You will not regret it.,Большое спасибо за доверие. Вы не пожалеете.,manual-translation
+413,492954200051,"I already worked with that drinking russian. Let me tell you - this wasn't the most pleasure thing. But i guess with some extra money, we'll come together.","Я уже работал с этим пьющим русским. Скажу прямо — удовольствия было мало. Но думаю, за доплату мы как-нибудь сработаемся.",manual-translation
+414,169750321810,You have reached Mildred Patterson. Thanks for your call. Please leave a brief message and I will get back to you as quickly as my time allows.,"Вы дозвонились до Милдред Паттерсон. Спасибо за звонок. Оставьте короткое сообщение, и я отвечу, как только позволит время.",manual-translation
+415,641341334949,"Good morning, this is Mildred Patterson talking. Please explain the matter of your call.","Доброе утро, с вами говорит Милдред Паттерсон. Пожалуйста, объясните причину вашего звонка.",manual-translation
+416,971375804811,"This is Mildred Patterson speaking. Please tell me, how can I help you?","С вами говорит Милдред Паттерсон. Скажите, пожалуйста, чем могу помочь?",manual-translation
+417,482117704614,"Excuse me, would you please tell me now, what is the reason for your call?","Простите, не могли бы вы уже сказать, в чём причина вашего звонка?",manual-translation
+418,118276112116,I can agree on that contract conditions. It's been a pleasure speaking to you. We will meet on site.,Я могу согласиться на эти условия контракта. Было приятно с вами поговорить. Встретимся на месте.,manual-translation
+419,110729622402,We need to negotiate a new contract. How do you think about an extension?,Нам нужно обсудить новый контракт. Что скажете насчёт продления?,manual-translation
+420,584882121239,I am glad we came to a new agreement.,"Я рада, что мы пришли к новому соглашению.",manual-translation
+421,135993321037,You talking to Hector Sanchez. Hector not good english. What you want?,Ты говорить с Гектор Санчес. Гектор плохо английский. Что ты хотеть?,manual-translation
+422,730561750335,You called Hector Sanchez. Hector not here. Leave phone number after Beep and Hector will call back later.,"Ты позвонить Гектор Санчес. Гектор нет здесь. Оставить номер после Бип, и Гектор перезвонить потом.",manual-translation
+423,523627989001,This is Hector. What you want?,Это Гектор. Что ты хотеть?,manual-translation
+424,411154719819,Hello... Hello? - Hector not likes prank calls... Talk to Hector!,Алло... Алло? — Гектор не любить розыгрыш... Говорить с Гектор!,manual-translation
+425,313244239742,Hector is happy with conditions. We have deal.,Гектор доволен условиями. У нас сделка.,manual-translation
+426,573437956087,Hector is happy and wants to stay. Hector needs new contract. We make deal?,Гектор рад и хочет остаться. Гектору нужен новый контракт. Мы делать сделка?,manual-translation
+427,406968238869,Splendid! Hector will pay for next round of beer!,Отлично! Гектор заплатит за следующий круг пива!,manual-translation
+428,321599305977,Hector does not like to fight with kid like MD. Hector wants more money!,Гектор не любить воевать с ребёнком как MD. Гектор хотеть больше денег!,manual-translation
+429,890000000006100,Командная аура,Командная аура,manual-translation
+430,890000000006101,Этот командир отдаёт приказы союзникам поблизости.,Этот командир отдаёт приказы союзникам поблизости.,manual-translation
+431,890000000006102,Отдаёт приказы,Отдаёт приказы,manual-translation
+432,890000000006103,Под влиянием ауры,Под влиянием ауры,manual-translation
+433,890000000006104,"Боец следует приказам командира. Эффект снимается, если командир погиб или боец вышел из зоны влияния.","Боец следует приказам командира. Эффект снимается, если командир погиб или боец вышел из зоны влияния.",manual-translation
+434,890000000006105,Под приказом,Под приказом,manual-translation
+435,890000000006106,Держать линию,Держать линию,manual-translation
+436,890000000006107,Давить,Давить,manual-translation
+437,890000000006108,Охват,Охват,manual-translation
+438,890000000006109,Низкая видимость — держать,Низкая видимость — держать,manual-translation
+439,890000000006110,Отход,Отход,manual-translation
+440,890000000006111,Сосредоточить огонь,Сосредоточить огонь,manual-translation
+441,890000000006112,Текущий приказ: <em><order></em>,Текущий приказ: <em><order></em>,manual-translation
+442,890000000006113,Следует приказу: <em><order></em>,Следует приказу: <em><order></em>,manual-translation
+443,890000000006114,приказ не выбран,приказ не выбран,manual-translation
+444,890000000006115,Занимать дома,Занимать дома,manual-translation
+445,890000000006116,Спрятаться,Спрятаться,manual-translation
+446,890000000006117,Скрыться,Скрыться,manual-translation

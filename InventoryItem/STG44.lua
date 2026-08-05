@@ -65,7 +65,7 @@ DefineClass.STG44 = {
 	Recoil = 12,
 	AutoShots = 7,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 12,

@@ -93,7 +93,7 @@ DefineClass.MP7 = {
 	Recoil = 19,
 	BurstShots = 5,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 12,

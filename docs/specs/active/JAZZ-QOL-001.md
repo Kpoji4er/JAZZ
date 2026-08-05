@@ -53,8 +53,8 @@ approved_by: project-owner
 ## Требования
 
 - `JAZZ-QOL-001-REQ-001` — `AutoFastForward=Off`: JAZZ не меняет `g_FastForwardGameSpeed`.
-- `JAZZ-QOL-001-REQ-002` — `Running`: перед `behavior:Play` выставить Fast, если PoV team не видит юнита (`HasVisibilityTo`), иначе Normal; перед атаками не переключать повторно.
-- `JAZZ-QOL-001-REQ-003` — `Always` (default): то же перед behavior и повторная проверка перед `AIPlayAttacks`.
+- `JAZZ-QOL-001-REQ-002` — `Running`: перед `behavior:Play` выставить Fast, если PoV team не видит юнита (`HasVisibilityTo`) **или** юнит — player ally (`side=ally` / `player_ally`, в т.ч. Rebels), иначе Normal; перед атаками не переключать повторно.
+- `JAZZ-QOL-001-REQ-003` — `Always` (default): то же перед behavior и повторная проверка перед `AIPlayAttacks`. **2026-08-05 owner:** союзные повстанцы на M1 почти всегда PoV-visible → без ally-исключения FF на их ходе не срабатывал.
 - `JAZZ-QOL-001-REQ-004` — смена скорости только если новое значение ≠ текущему; вызов `UpdateFastForwardGameSpeed()`.
 - `JAZZ-QOL-001-REQ-005` — опция `EnemyTurnFreeCamera` (bool, default on): пока активен AI execution / `g_Combat` без `is_player_control`, `LockCameraMovement` не блокирует pan/zoom; при Activate снимаются уже поставленные movement-locks.
 - `JAZZ-QOL-001-REQ-006` — логика вынесена в `Code/AiFastForward.lua`; из `AiActions.lua` убраны dirty helper и копипаста.
@@ -97,7 +97,7 @@ approved_by: project-owner
 - Статус: approved
 - Кто подтвердил: project-owner («апрув если оно быстрее станет в итоге»)
 - Дата: 2026-07-28
-- Условие: скрытые враги реально идут на Fast (const FastForwardGameSpeed); видимые — Normal.
+- Условие: скрытые враги реально идут на Fast (const FastForwardGameSpeed); видимые враги — Normal; **союзники (Rebels) — Fast** при Running/Always даже если PoV их видит.
 
 ## Evidence
 

@@ -33,4 +33,4 @@ No CommonLib rewrite of `AIPrecalcDamageScore` or LoF reuse across destinations.
 
 ## Mod notes
 
-JAZZ `JAZZ-AI-PERF-001` (`AiActions.lua`): soft target prune only when `#targets > 12` (`JAZZ_AI_PERF_PRECALC_TARGET_SOFT`) with wide margin (`weapon_range + 8 slabs`); early-out dest when `g_AIDestEnemyLOSCache[dest] == false`; does not expand Think subsets to `all_destinations`. CTH aim-grid cache remains. Gated log: `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] Precalc ...`.
+JAZZ `JAZZ-AI-PERF-001` (`AiActions.lua`): soft target prune only when `#targets > 12` (`JAZZ_AI_PERF_PRECALC_TARGET_SOFT`) with wide margin (`weapon_range + 8 slabs`); early-out dest when `g_AIDestEnemyLOSCache[dest] == false`; does not expand Think subsets to `all_destinations`; scored dests capped to `JAZZ_AI_PERF_PRECALC_DEST_CAP` (**48**, was 80). CTH aim-grid cache remains. Gated log: `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] Precalc ...`.

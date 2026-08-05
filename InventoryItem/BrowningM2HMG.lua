@@ -46,7 +46,7 @@ DefineClass.BrowningM2HMG = {
 	AutoShots = 0,
 	BulletDropRange = 28,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	Grouping = 21,

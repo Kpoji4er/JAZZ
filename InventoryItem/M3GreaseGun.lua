@@ -62,7 +62,7 @@ DefineClass.M3GreaseGun = {
 	BurstShots = 2,
 	AutoShots = 4,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 8,

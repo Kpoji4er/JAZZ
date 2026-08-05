@@ -173,12 +173,15 @@ function AIReloadWeapons(unit)
 
     local action = unit:GetDefaultAttackAction()
     local weapon1, weapon2 = action:GetAttackWeapons(unit)
+    -- Clear jam only: never pass Condition (0..100) into RepairJammed — that API
+    -- takes absolute WeaponResource units and would collapse e.g. 9695 → ≤100.
+    -- NPC/AI free-clear; player Unjam still uses Mechanical roll + fail wear (1–3% max).
     if weapon1 and weapon1.jammed then
-        weapon1:RepairJammed(weapon1.Condition, unit)
+        weapon1:RepairJammed(nil, unit)
         unit.Mechanical = unit.Mechanical + 1;
     end
     if weapon2 and weapon2.jammed then
-        weapon2:RepairJammed(weapon2.Condition, unit)
+        weapon2:RepairJammed(nil, unit)
         unit.Mechanical = unit.Mechanical + 1;
     end
     --	target:SetActionCommand("ChangeStance", nil, nil, "Prone")
@@ -1097,7 +1100,7 @@ end
 
     -- Cap GetLoFData dest matrix (M1 path dests can be 200–400 → multi-second Precalc).
     -- Do not rawget(_G,…): JAZZ_* live in the mod env, not always on _G.
-    local precalc_cap = (rawget(_G, "JAZZ_AI_PERF_PRECALC_DEST_CAP") or JAZZ_AI_PERF_PRECALC_DEST_CAP) or 80
+    local precalc_cap = (rawget(_G, "JAZZ_AI_PERF_PRECALC_DEST_CAP") or JAZZ_AI_PERF_PRECALC_DEST_CAP) or 48
     local precalc_capped = 0
     local cap_fn = rawget(_G, "JAZZ_AICapDestLosCandidates") or JAZZ_AICapDestLosCandidates
     if destinations and #destinations > precalc_cap and type(cap_fn) == "function" then
@@ -1845,6 +1848,47 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score,
 	return best_target, best_score
 end
 
+-- JAZZ-AI-MED-001: only plan Bandage when heal score > 0; use kit Bandage or
+-- field JazzBandage when the medic only has stack bandages.
+function AIActionBandage:PrecalcAction(context, action_state)
+	local unit = context.unit
+	local x, y, z = unit:GetGridCoords()
+	local grid_voxel = point_pack(x, y, z)
+	local dest = GetPackedPosAndStance(unit)
+	local target, score = AISelectHealTarget(context, dest, grid_voxel, self)
+	if not target or not score or score <= 0 then
+		return
+	end
+
+	local bleeding = type(rawget(_G, "JazzHasAnyBleed")) == "function" and JazzHasAnyBleed(target)
+		or target:HasStatusEffect("Bleeding")
+		or target:HasStatusEffect("BleedingMedium")
+		or target:HasStatusEffect("BleedingHeavy")
+	local kit = JazzGetEquippedKitMedicine and JazzGetEquippedKitMedicine(unit)
+	local field = JazzGetBandageItem and JazzGetBandageItem(unit)
+	local action_id = "Bandage"
+	if kit then
+		action_id = "Bandage"
+	elseif bleeding and field then
+		action_id = "JazzBandage"
+	else
+		return
+	end
+
+	local caction = CombatActions[action_id]
+	if not caction then
+		return
+	end
+	action_state.args = {
+		target = target,
+		goto_pos = SnapToVoxel(unit:GetPos()),
+	}
+	action_state.jazz_bandage_action = action_id
+	action_state.score = score
+	local cost = caction:GetAPCost(unit, action_state.args)
+	action_state.has_ap = (cost >= 0) and unit:HasAP(cost)
+end
+
 -- MED-001: Bandage fail-safe — do not freeze turn when target unreachable
 function AIActionBandage:Execute(context, action_state)
 	assert(action_state.has_ap)
@@ -1870,7 +1914,8 @@ function AIActionBandage:Execute(context, action_state)
 		return
 	end
 	unit:Face(target)
-	AIPlayCombatAction("Bandage", unit, nil, action_state.args)
+	local action_id = action_state.jazz_bandage_action or "Bandage"
+	AIPlayCombatAction(action_id, unit, nil, action_state.args)
 	return "stop"
 end
 

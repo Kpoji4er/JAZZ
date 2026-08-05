@@ -13,7 +13,7 @@ DefineClass.TraumaBurnMedium = {
 		}),
 	},
 	DisplayName = T(890000000010126, "Burn Trauma (Medium)"),
-	Description = T(890000000010127, "Moderate burn debt. Pain on exertion. Infection risk deferred."),
+	Description = T(890000000010127, "Moderate burn debt. +2 Pain on exertion. Infection risk deferred."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnMedium.png",
 	Shown = true,

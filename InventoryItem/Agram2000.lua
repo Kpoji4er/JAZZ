@@ -66,7 +66,7 @@ DefineClass.Agram2000 = {
 	BurstShots = 4,
 	AutoShots = 8,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 9,

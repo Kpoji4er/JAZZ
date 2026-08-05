@@ -100,7 +100,7 @@ DefineClass.G3A4 = {
 	BurstShots = 4,
 	AutoShots = 7,
 
-	CloseRange = 8,
+	CloseRange = 11,
 
 	CloseRangeFactor = 80,
 	BulletDropRange = 20,

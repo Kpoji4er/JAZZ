@@ -63,7 +63,7 @@ DefineClass.M1897 = {
 	BurstShots = 0,
 	AutoShots = 0,
 
-	CloseRange = 4,
+	CloseRange = 5,
 
 	CloseRangeFactor = 90,
 	BulletDropRange = 7,

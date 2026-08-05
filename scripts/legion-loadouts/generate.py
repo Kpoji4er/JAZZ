@@ -382,12 +382,41 @@ def tags_for_recipe(recipe: dict, arch: int) -> set[str]:
     return tags
 
 
-def weapon_weight(w: dict, arch: int) -> tuple[int, int] | None:
+def parse_tier_label(label: str) -> tuple[int, int]:
+    major_s, _, sub_s = str(label).partition("-")
+    return int(major_s), int(sub_s or "1")
+
+
+def weapon_excluded_by_recipe(w: dict, recipe: dict | None) -> bool:
+    """Optional recipe filters: exclude_tags, primary_max_tier_label (SMG class only)."""
+    if not recipe:
+        return False
+    exclude = set(recipe.get("exclude_tags") or [])
+    if exclude and (w["tags"] & exclude):
+        return True
+    cap = recipe.get("primary_max_tier_label")
+    if cap and w.get("object_class") == "SubmachineGun":
+        c_maj, c_sub = parse_tier_label(cap)
+        bt, bs = w["balance_tier"], w["balance_subtier"]
+        if bt > c_maj or (bt == c_maj and bs > c_sub):
+            return True
+    return False
+
+
+def weapon_weight(w: dict, arch: int, recipe: dict | None = None) -> tuple[int, int] | None:
     """Return (min_tier_amount, weight) or None if excluded."""
+    if weapon_excluded_by_recipe(w, recipe):
+        return None
     bt = w["balance_tier"]
     if bt == arch:
         # prefer matching sub mid-high
-        return 10 * arch + min(w["balance_subtier"], 5), 100000 + w["balance_subtier"] * 1000
+        amin = 10 * arch + min(w["balance_subtier"], 5)
+        # Optional: commanders unlock all arch1 subs from day-one quest tier
+        # (e.g. MPL 1-3 at Amount=11 instead of waiting for 13).
+        floor = (recipe or {}).get("arch1_all_subs_from") if arch == 1 else None
+        if floor is not None:
+            amin = min(amin, int(floor))
+        return amin, 100000 + w["balance_subtier"] * 1000
     if bt == arch - 1 and arch == 2:
         # ~1% remnant of tier1 on arch2 (tuned vs mid pool; evidence AC-004)
         return 20, 1400
@@ -495,32 +524,56 @@ def collect_firearm_plan(
     """Return (firearm entries meta, combo_id -> combo block text)."""
     entries_meta = []
     combos: dict[str, str] = {}
-    for arch in (1, 2, 3):
-        tags = tags_for_recipe(recipe, arch)
+    weapons_by_id = {w["id"]: w for w in weapons}
+
+    def append_entry(w: dict, arch: int, amin: int, weight: int) -> None:
         pkg_name = (recipe.get("packages_by_arch") or ["m0", "m0", "m0"])[arch - 1]
         package = packages.get(pkg_name) or packages["m0"]
+        upgrades = resolve_package(w["id"], package, comps) if package.get("keywords") else []
+        ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
+        cid = combo_id(w["id"], pkg_name, ammo)
+        if cid not in combos:
+            combos[cid] = emit_weapon_combo(
+                cid, w["id"], upgrades, ammo, class_id=w.get("class_id")
+            )
+        # Exclusive arch bands: arch1 ≤19, arch2 ≤29, arch3 open.
+        # Remnant tier1 on arch2 already uses amin=20 weight≈1%.
+        if arch == 2 and w["balance_tier"] == 1:
+            upper = 29
+        elif arch >= 3:
+            upper = None
+        else:
+            upper = 10 * arch + 9  # 19 / 29
+        entries_meta.append((cid, amin, upper, weight))
+
+    for arch in (1, 2, 3):
+        tags = tags_for_recipe(recipe, arch)
         candidates = [w for w in weapons if w["tags"] & tags]
         for w in candidates:
-            gate = weapon_weight(w, arch)
+            gate = weapon_weight(w, arch, recipe)
             if not gate:
                 continue
             amin, weight = gate
-            upgrades = resolve_package(w["id"], package, comps) if package.get("keywords") else []
-            ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
-            cid = combo_id(w["id"], pkg_name, ammo)
-            if cid not in combos:
-                combos[cid] = emit_weapon_combo(
-                    cid, w["id"], upgrades, ammo, class_id=w.get("class_id")
-                )
-            # Exclusive arch bands: arch1 ≤19, arch2 ≤29, arch3 open.
-            # Remnant tier1 on arch2 already uses amin=20 weight≈1%.
-            if arch == 2 and w["balance_tier"] == 1:
-                upper = 29
-            elif arch >= 3:
-                upper = None
-            else:
-                upper = 10 * arch + 9  # 19 / 29
-            entries_meta.append((cid, amin, upper, weight))
+            append_entry(w, arch, amin, weight)
+
+    # Optional: pull named higher-ladder guns into the arch1 band at a gated Amount
+    # (e.g. M45@11, MAC10@12 / T1-2, UZI/Agram@13). Explicit IDs bypass exclude_tags
+    # (Sergeant pistol filter) but still respect primary_max_tier_label for SMGs.
+    early = recipe.get("arch1_early_ids") or {}
+    if early:
+        pkg_arch = 1
+        early_recipe = {**recipe, "exclude_tags": []}
+        for wid, unlock in early.items():
+            w = weapons_by_id.get(wid)
+            if not w or weapon_excluded_by_recipe(w, early_recipe):
+                continue
+            tags = tags_for_recipe(recipe, pkg_arch)
+            if not (w["tags"] & tags):
+                continue
+            amin = int(unlock)
+            weight = 100000 + w["balance_subtier"] * 1000
+            append_entry(w, pkg_arch, amin, weight)
+
     return entries_meta, combos
 
 

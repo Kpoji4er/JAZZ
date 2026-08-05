@@ -104,6 +104,7 @@ Style-референсы: **только** PNG в этой папке + runtime 
 | `BleedingHeavy.png` | `#A02020` | `BleedingHeavy` | MED-001 heavy: cascade + spray |
 | `Pain.png` | `#A02020` | `Pain` | MED-001 ache burst + zigzags (not bleed drop) |
 | `Analgesia.png` | `#B8B880` | `Analgesia` | MED-001 buff: autoinjector + calm waves |
+| `Concussion.png` | `#E03838` | `Concussion` | blast daze: head profile + swirl + impact rings (not TraumaHead cracked skull) |
 
 Officer pair (final art brief):
 

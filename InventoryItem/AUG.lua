@@ -125,7 +125,7 @@ DefineClass.AUG = {
 	Recoil = 16,
 	BurstShots = 4,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 15,

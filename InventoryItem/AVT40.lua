@@ -56,7 +56,7 @@ DefineClass.AVT40 = {
 	Recoil = 21,
 	AutoShots = 7,
 
-	CloseRange = 8,
+	CloseRange = 11,
 
 	CloseRangeFactor = 80,
 	BulletDropRange = 17,

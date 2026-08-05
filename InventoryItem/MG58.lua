@@ -63,7 +63,7 @@ DefineClass.MG58 = {
 	AutoShots = 0,
 	Recoil = 18,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 20,

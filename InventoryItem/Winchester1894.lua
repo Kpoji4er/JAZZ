@@ -84,7 +84,7 @@ DefineClass.Winchester1894 = {
 	Recoil = 18,
 	AutoShots = 0,
 
-	CloseRange = 4,
+	CloseRange = 5,
 
 	CloseRangeFactor = 90,
 	BulletDropRange = 10,

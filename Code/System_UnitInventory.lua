@@ -429,7 +429,8 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai, reload_mode)
 	
 	local prev, playedFX, change
 	while ammo and (ai or ((gun.ammo and gun.ammo.Amount or 0) < gun.MagazineSize) or not gun.ammo or gun.ammo.class ~= ammo.class) do
-		prev, playedFX, change = gun:Reload(ammo, nil, delayed_fx)
+		-- WEAPONS-004 Top up: cap transfer at 1 round (vanilla Firearm:Reload fills MagSize).
+		prev, playedFX, change = gun:Reload(ammo, nil, delayed_fx, reload_mode == "one_round" and 1 or nil)
 		local vo = gun:GetVisualObj()
 		if (change or ai) and vo and not playedFX then
 			CreateGameTimeThread(function(weapon, obj, delayed_fx)

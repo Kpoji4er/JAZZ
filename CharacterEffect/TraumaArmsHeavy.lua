@@ -18,6 +18,14 @@ DefineClass.TraumaArmsHeavy = {
 			end,
 		}),
 		PlaceObj('UnitReaction', {
+			Event = "OnFirearmAttackStart",
+			Handler = function(self, target, attacker, attack_target, action, attack_args)
+				if target == attacker then
+					JazzTraumaPainOnZoneUse(attacker, "Arms")
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
@@ -27,7 +35,7 @@ DefineClass.TraumaArmsHeavy = {
 		}),
 	},
 	DisplayName = T(890000000010104, "Arm Trauma (Heavy)"),
-	Description = T(890000000010105, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. Pain rises each turn."),
+	Description = T(890000000010105, "Severe accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly unable to fight. +3 Pain when using arms; +1 Pain/turn if unused."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsHeavy.png",
 	Shown = true,

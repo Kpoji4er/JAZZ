@@ -7,18 +7,55 @@ DefineClass.JazzTraumaEffect = {
 	__parents = { "StatusEffect" },
 }
 
+-- File-local: avoid PropertyObject dynamic-member assert on instances.
+local l_desc_reentry = false
+
+-- Raw preset Description (T), never via ResolveValue/GetProperty — those re-enter
+-- GetDescription after Jazz ResolveValue("Description") and double-append progress text.
+function JazzTraumaRawDescription(effect)
+	if not effect then
+		return ""
+	end
+	local class_name = effect.class
+	local def = CharacterEffectDefs and class_name and CharacterEffectDefs[class_name]
+	if def then
+		local d = rawget(def, "Description") or def.Description
+		if d and d ~= "" then
+			return d
+		end
+	end
+	local cls = class_name and g_Classes and g_Classes[class_name]
+	if cls then
+		local d = rawget(cls, "Description") or cls.Description
+		if d and d ~= "" then
+			return d
+		end
+	end
+	return ""
+end
+
+-- MercStatusEffectsMoreInfo / StatusEffectIcon use T("<Description>") → ResolveValue.
+-- Vanilla CharacterEffect.ResolveValue → GetProperty(Description field) and never calls
+-- GetDescription, so progress text must be injected here.
+function JazzTraumaEffect:ResolveValue(key)
+	if key == "Description" then
+		return self:GetDescription()
+	end
+	return CharacterEffect.ResolveValue(self, key)
+end
+
 function JazzTraumaEffect:GetDescription()
-	local base
-	local ce = rawget(_G, "CharacterEffect")
-	if type(ce) == "table" and type(ce.GetDescription) == "function" then
-		base = ce.GetDescription(self)
-	else
-		base = self.Description
+	-- Re-entry guard: formatting ResolveValue/tag eval must not nest another format.
+	if l_desc_reentry then
+		return JazzTraumaRawDescription(self)
 	end
-	-- JazzFormatTraumaStatusDescription lives in Systems_Medicine (later in load order).
+	l_desc_reentry = true
+	local base = JazzTraumaRawDescription(self)
 	local format = rawget(_G, "JazzFormatTraumaStatusDescription")
+	local result = base
 	if type(format) == "function" then
-		return format(self, base)
+		result = format(self, base)
 	end
-	return base
+	l_desc_reentry = false
+	return result
 end

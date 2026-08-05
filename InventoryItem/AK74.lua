@@ -112,7 +112,7 @@ DefineClass.AK74 = {
 	Recoil = 15,
 	AutoShots = 6,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 16,

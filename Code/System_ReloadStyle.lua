@@ -1,11 +1,29 @@
 -- JAZZ-WEAPONS-004: per-round reloads for tube, break-action, and revolver firearms.
 -- CombatAction.Reload UI/AP is a full ModItem replace in items.lua; this file owns helpers + Unit.ReloadAction.
+-- Top-up must cap transfer at 1 round: vanilla Firearm:Reload fills MagSize in one call;
+-- breaking UnitInventory:ReloadWeapon's stack loop alone does not limit rounds transferred.
 
 local JazzPerRoundStyles = {
 	Tube = true,
 	Break = true,
 	Revolver = true,
 }
+
+-- Optional 4th arg max_add: temporarily clamp the source stack so vanilla Reload
+-- cannot pull more than that many rounds (used by WEAPONS-004 Top up).
+local VanillaFirearmReload = Firearm.Reload
+function Firearm:Reload(ammo, suspend_fx, delayed_fx, max_add)
+	local reserved = 0
+	if max_add and max_add > 0 and ammo and ammo.Amount and ammo.Amount > max_add then
+		reserved = ammo.Amount - max_add
+		ammo.Amount = max_add
+	end
+	local prev_ammo, played_fx, change = VanillaFirearmReload(self, ammo, suspend_fx, delayed_fx)
+	if reserved > 0 and ammo then
+		ammo.Amount = (ammo.Amount or 0) + reserved
+	end
+	return prev_ammo, played_fx, change
+end
 
 local JazzReloadStyleByWeaponId = {
 	Auto5 = "Tube",

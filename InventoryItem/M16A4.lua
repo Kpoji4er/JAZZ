@@ -110,7 +110,7 @@ DefineClass.M16A4 = {
 	Recoil = 16,
 	AutoShots = 7,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 17,

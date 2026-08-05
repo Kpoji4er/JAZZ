@@ -25,7 +25,7 @@ Medic freeze на Bandage unreachable; Late-only heal; bleed не приорит
 
 ## Цели
 
-- Bleed-first + early 85% Healer; turn_phase Normal; один Bandage entry; OptLocSearchRadius 45; Execute fail-safe без freeze.
+- Bleed-first + early 85% Healer; turn_phase Early; exclusive Healer vs Standard/SeekEnemy; один Bandage entry; OptLocSearchRadius 45; Execute fail-safe без freeze.
 
 ## Non-goals
 
@@ -34,7 +34,7 @@ Medic freeze на Bandage unreachable; Late-only heal; bleed не приорит
 ## Требования
 
 - `JAZZ-AI-MED-001-REQ-001` — Healer Score: Bleeding → высокий weight; иначе HP&lt;85%.
-- `JAZZ-AI-MED-001-REQ-002` — turn_phase Normal; один Priority Bandage.
+- `JAZZ-AI-MED-001-REQ-002` — turn_phase Early; один Priority Bandage (перед MobileShot); при bleed/HP need Healer exclusive (combat behavior Score = 0).
 - `JAZZ-AI-MED-001-REQ-003` — OptLocSearchRadius ≤45.
   - items.lua: Medic / Medic_Low = 45.
   - **Runtime:** `JazzAI_ApplyMedicOptLocCap` in `Code/AICombatStance.lua` (`ModsReloaded` / `DataLoaded`) clamps preset to 45 so editor autosave cannot restore 80.
@@ -64,10 +64,12 @@ Medic freeze на Bandage unreachable; Late-only heal; bleed не приорит
 
 ## Evidence
 
-- `JAZZ-AI-MED-001-AC-001`: `PASS` — static Medic patch.
-- `JAZZ-AI-MED-001-AC-002`: `PASS` — static Execute override.
-- `JAZZ-AI-MED-001-AC-003`: `BLOCKED` — smoke.
+- `JAZZ-AI-MED-001-AC-001`: `PASS` (static, re-verified) — Medic/Medic_Low Healer Score = bleed (all Jazz tiers) OR HP&lt;85%; combat behaviors Score=0 while heal needed; `turn_phase` Early; OptLoc/Bandage MaxHp 85 + BleedingWeight 300 + SelfHealMod 100; Priority Bandage before MobileShot; radius 45 via ApplyMedicOptLocCap.
+- `JAZZ-AI-MED-001-AC-002`: `PASS` — static Execute fail-safe + Precalc score&gt;0 / JazzBandage fallback in AiActions.lua; `AISelectHealTarget` override in CombatAI.lua (self-bleed skips SelfHealMod penalty).
+- `JAZZ-AI-MED-001-AC-003`: `BLOCKED` — smoke/human: medic treats bleed (incl. self) before advancing/engaging.
 
 ## Documentation delta
 
-- ai-awareness.md, playtest MED section.
+- `docs/technical/systems/ai-awareness.md` — medic heal / bleed targeting
+- `docs/design/tactical-ai-archetypes.md` — Medic Healer Normal / 85% / bleed-first
+- `docs/showcase/en/legion-units.md`, `docs/showcase/ru/legion-units.md` — Bonemaker treats bleeding

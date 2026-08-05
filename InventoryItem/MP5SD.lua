@@ -93,7 +93,7 @@ DefineClass.MP5SD = {
 	Recoil = 13,
 	AutoShots = 8,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 11,

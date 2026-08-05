@@ -126,6 +126,7 @@ local function JazzAICoverCanShot(context, dest, any_in_range)
 end
 
 --- Evaluates cover with threat-weighted enemies and cover×shot composite (POL-001).
+--- JAZZ-AI-PERF-001: score at most TAKECOVER_ENEMY_CAP nearest visible threats (M1 dense fights).
 function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 	local unit = context.unit
 	local tbl = context.enemies or empty_table
@@ -136,6 +137,7 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 	local any_in_range = false
 	local eff_range = context.EffectiveRange or context.ExtremeRange or 20
 
+	local cand = {}
 	for _, enemy in ipairs(tbl) do
 		local visible = true
 		if self.visibility_mode == "self" then
@@ -146,20 +148,41 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 
 		if visible then
 			local epos = context.enemy_pack_pos_stance[enemy]
-			if not epos then
-				goto continue
+			if epos then
+				cand[#cand + 1] = {
+					enemy = enemy,
+					epos = epos,
+					dist = stance_pos_dist(dest, epos),
+					handle = enemy.handle or 0,
+				}
 			end
+		end
+	end
 
-			local coverstd = GetCoverFrom(dest, epos)
-			local base = self.CoverScores[coverstd] or 0
-
-			local ex, ey, ez = point_unpack(epos)
-			local enemy_pt = point(ex, ey, ez)
-			if not enemy_pt:IsValidZ() then
-				goto continue
+	local enemy_cap = (rawget(_G, "JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP") or JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP) or 8
+	if #cand > enemy_cap then
+		table.sort(cand, function(a, b)
+			if a.dist ~= b.dist then
+				return a.dist < b.dist
 			end
+			return a.handle < b.handle
+		end)
+		while #cand > enemy_cap do
+			cand[#cand] = nil
+		end
+	end
 
-			local dist = Max(1, DivRound(stance_pos_dist(dest, epos), const.SlabSizeX))
+	for i = 1, #cand do
+		local enemy = cand[i].enemy
+		local epos = cand[i].epos
+
+		local coverstd = GetCoverFrom(dest, epos)
+		local base = self.CoverScores[coverstd] or 0
+
+		local ex, ey, ez = point_unpack(epos)
+		local enemy_pt = point(ex, ey, ez)
+		if enemy_pt:IsValidZ() then
+			local dist = Max(1, DivRound(cand[i].dist, const.SlabSizeX))
 			if dist <= eff_range then
 				any_in_range = true
 			end
@@ -178,7 +201,6 @@ function AIPolicyTakeCover:EvalDest(context, dest, grid_voxel)
 			score_acc = score_acc + local_cover * threat
 			threat_acc = threat_acc + threat
 		end
-		::continue::
 	end
 
 	if threat_acc <= 0 then

@@ -95,7 +95,7 @@ DefineClass.M41Shotgun = {
 	Recoil = 25,
 	AutoShots = 0,
 
-	CloseRange = 4,
+	CloseRange = 5,
 
 	CloseRangeFactor = 90,
 	BulletDropRange = 9,

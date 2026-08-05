@@ -304,6 +304,39 @@ local function lInstallBandageTargetsHook()
 	end
 end
 
+-- Vanilla CombatActionAttackStart free-aim gate:
+--   isFreeAimMode = isFreeAimMode and self.id ~= "Bandage"
+-- JazzBandage / JazzMorphine use the same IModeCombatMelee UIBegin path but are
+-- not excluded, so ally-only medicine pops «Free Aim / no enemies» confirmation.
+-- RequireTargets skips that branch (same outcome as the Bandage id hardcode).
+function JazzIsAllyMedicineCombatAction(action)
+	local id = action and action.id
+	return id == "Bandage" or id == "JazzBandage" or id == "JazzMorphine"
+end
+
+JazzCombatActionAttackStart_Vanilla = rawget(_G, "JazzCombatActionAttackStart_Vanilla") or false
+JazzCombatActionAttackStart_Wrapped = rawget(_G, "JazzCombatActionAttackStart_Wrapped") or false
+
+local function lInstallCombatActionAttackStartMedHook()
+	local current = rawget(_G, "CombatActionAttackStart")
+	if type(current) ~= "function" then
+		return
+	end
+	if current == rawget(_G, "JazzCombatActionAttackStart_Wrapped") then
+		return
+	end
+	rawset(_G, "JazzCombatActionAttackStart_Vanilla", current)
+	local function jazz_CombatActionAttackStart(self, units, args, mode, noChangeAction)
+		-- Bandage is already excluded by vanilla id hardcode; Jazz med actions need RequireTargets.
+		if JazzIsAllyMedicineCombatAction(self) and self.id ~= "Bandage" and not self.RequireTargets then
+			self.RequireTargets = true
+		end
+		return JazzCombatActionAttackStart_Vanilla(self, units, args, mode, noChangeAction)
+	end
+	rawset(_G, "JazzCombatActionAttackStart_Wrapped", jazz_CombatActionAttackStart)
+	rawset(_G, "CombatActionAttackStart", jazz_CombatActionAttackStart)
+end
+
 function JazzTryRollBleedFromHit(target, hit, attacker)
 	if not target or not hit or hit.setpiece then
 		return false
@@ -389,7 +422,11 @@ function JazzTryBehindArmorTrauma(unit, hit, attacker)
 		tier = "Medium"
 	end
 	JazzApplyTrauma(unit, zone, tier)
-	unit:AddStatusEffect("Pain")
+	-- Pain: damaging hits already get +1 via JazzPainOnDamagingHit. Full absorb (0 HP)
+	-- still needs a stack here so BAT without residual damage is not painless.
+	if residual <= 0 then
+		JazzAddPainStacks(unit, 1)
+	end
 	Msg("JAZZ_BehindArmorTrauma", unit, zone, tier, hit, attacker)
 	return true
 end
@@ -784,52 +821,100 @@ function JazzApplyKnockoutTraumaPackage(unit)
 	return true
 end
 
--- Light/Medium: Pain when the injured zone is used. Deduped per unit/zone/turn.
+-- Pain stacks added when an injured zone is used (deduped per unit/zone/turn).
+-- Light 1 / Medium 2 / Heavy 3. Heavy zones that stay unused still get +1 via JazzTraumaHeavyPainRamp.
+-- Separate source: solid damaging hits add +1 via JazzPainOnDamagingHit (not graze; not zone-use).
+JazzTraumaPainStacksOnZoneUse = { Light = 1, Medium = 2, Heavy = 3 }
+
+-- +1 Pain when a solid (non-graze) hit deals HP damage. Cap via JazzAddPainStacks / Pain.max_stacks.
+-- Graze excluded (scratch package: HP + rare light bleed only). Zone-use / heavy ramp stay separate.
+function JazzPainOnDamagingHit(unit, hit, damage)
+	if not unit or not hit or hit.setpiece then
+		return 0
+	end
+	if hit.grazing then
+		return 0
+	end
+	damage = tonumber(damage) or 0
+	if damage <= 0 then
+		return 0
+	end
+	return JazzAddPainStacks(unit, 1)
+end
+
+function JazzAddPainStacks(unit, amount)
+	if not unit or type(unit.AddStatusEffect) ~= "function" then
+		return 0
+	end
+	amount = tonumber(amount) or 0
+	if amount <= 0 then
+		return 0
+	end
+	local pain = unit.GetStatusEffect and unit:GetStatusEffect("Pain")
+	local stacks = pain and pain.stacks or 0
+	local max_stacks = (CharacterEffectDefs.Pain and CharacterEffectDefs.Pain.max_stacks) or 8
+	local added = 0
+	for _ = 1, amount do
+		if stacks + added >= max_stacks then
+			break
+		end
+		unit:AddStatusEffect("Pain")
+		added = added + 1
+	end
+	return added
+end
+
+function JazzTraumaPainZoneTurnKey(zone, turn)
+	return tostring(zone) .. "|" .. tostring(turn or 0)
+end
+
+function JazzTraumaCurrentTurnKey()
+	return (g_Combat and g_Combat.current_turn) or (GameTime and GameTime()) or 0
+end
+
 function JazzTraumaPainOnZoneUse(unit, zone)
 	if not unit or not zone then
 		return false
 	end
 	local tier = JazzGetTraumaTier(unit, zone)
-	if not tier or tier == "Heavy" then
-		-- Heavy ramps Pain on EndTurn instead.
+	if not tier then
 		return false
 	end
-	local key = tostring(zone) .. "|" .. tostring((g_Combat and g_Combat.current_turn) or (GameTime and GameTime()) or 0)
+	local turn = JazzTraumaCurrentTurnKey()
+	local key = JazzTraumaPainZoneTurnKey(zone, turn)
 	unit.jazz_trauma_pain_keys = unit.jazz_trauma_pain_keys or {}
 	if unit.jazz_trauma_pain_keys[key] then
 		return false
 	end
 	unit.jazz_trauma_pain_keys[key] = true
-	unit:AddStatusEffect("Pain")
-	return true
+	local stacks = JazzTraumaPainStacksOnZoneUse[tier] or 1
+	return JazzAddPainStacks(unit, stacks) > 0
 end
 
--- Heavy traumas: Pain climbs toward Pain.max_stacks each EndTurn.
+-- Heavy traumas: +1 Pain each EndTurn for every heavy zone that was not used this turn.
 function JazzTraumaHeavyPainRamp(unit)
 	if not unit then
 		return
 	end
-	local key = (g_Combat and g_Combat.current_turn) or (GameTime and GameTime()) or 0
-	if unit.jazz_trauma_heavy_pain_key == key then
+	local turn = JazzTraumaCurrentTurnKey()
+	if unit.jazz_trauma_heavy_pain_key == turn then
 		return
 	end
-	local has_heavy = false
+	unit.jazz_trauma_pain_keys = unit.jazz_trauma_pain_keys or {}
+	local unused = 0
 	for _, zone in ipairs(JazzTraumaZones) do
 		if JazzGetTraumaTier(unit, zone) == "Heavy" then
-			has_heavy = true
-			break
+			local zkey = JazzTraumaPainZoneTurnKey(zone, turn)
+			if not unit.jazz_trauma_pain_keys[zkey] then
+				unused = unused + 1
+			end
 		end
 	end
-	if not has_heavy then
+	if unused <= 0 then
 		return
 	end
-	unit.jazz_trauma_heavy_pain_key = key
-	local pain = unit:GetStatusEffect("Pain")
-	local stacks = pain and pain.stacks or 0
-	local max_stacks = (CharacterEffectDefs.Pain and CharacterEffectDefs.Pain.max_stacks) or 8
-	if stacks < max_stacks then
-		unit:AddStatusEffect("Pain")
-	end
+	unit.jazz_trauma_heavy_pain_key = turn
+	JazzAddPainStacks(unit, unused)
 end
 
 function JazzTraumaBlockFreeMove(unit)
@@ -1061,7 +1146,22 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	else
 		flavor = ""
 	end
-	base_desc = base_desc or (effect and effect.Description) or ""
+	-- Never fall back to effect.Description / ResolveValue — that re-enters GetDescription
+	-- and double-appends the progress line (Missing text + two timing lines).
+	if not base_desc or base_desc == "" then
+		local raw = rawget(_G, "JazzTraumaRawDescription")
+		base_desc = (type(raw) == "function" and raw(effect)) or ""
+	end
+	-- Dedup if a stacked/re-entered path already baked progress into a string.
+	if type(base_desc) == "string" then
+		local cut = string.find(base_desc, "Next progress check", 1, true)
+		if cut and cut > 1 then
+			base_desc = string.match(base_desc, "^(.-)%s*\n") or string.sub(base_desc, 1, cut - 1)
+			base_desc = string.gsub(base_desc, "%s+$", "")
+		end
+	end
+	-- table.concat of T values returns a TConcat; UI translates it with the effect as
+	-- context so <cth_penalty>% / <APLoss> tags resolve (same as Concussion).
 	if flavor and flavor ~= "" then
 		return table.concat({ base_desc, timing, flavor }, "\n\n")
 	end
@@ -1167,6 +1267,7 @@ end
 
 function OnMsg.DataLoaded()
 	lInstallBandageTargetsHook()
+	lInstallCombatActionAttackStartMedHook()
 end
 
 -- MED-001: disable vanilla HP→Wounded stack conversion (trauma/bleed replace it).
@@ -1517,13 +1618,16 @@ end
 
 function OnMsg.ClassesBuilt()
 	lInstallMedicineStackBandageHooks()
+	lInstallCombatActionAttackStartMedHook()
 end
 
 function OnMsg.ModsReloaded()
 	-- Classes may be redefined; reinstall targeting + Bandage wraps.
 	lInstallBandageTargetsHook()
+	lInstallCombatActionAttackStartMedHook()
 	-- Identity rebind in lInstall* handles wiped Unit methods; no sticky-flag skip.
 	lInstallMedicineStackBandageHooks()
 end
 
+lInstallCombatActionAttackStartMedHook()
 lInstallMedicineStackBandageHooks()

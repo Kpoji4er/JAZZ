@@ -520,6 +520,8 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			if explosion then
 				JazzTryApplyExplosionConcussionAndTrauma(self, hit, attacker)
 			end
+			-- MED-001: solid damaging hits grant +1 Pain (separate from zone-use / heavy ramp).
+			JazzPainOnDamagingHit(self, hit, damage)
 		end
 	end
     --end

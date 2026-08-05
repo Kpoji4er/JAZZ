@@ -66,7 +66,7 @@ Generated `ActionCameraCrosshair` не вызывает `Open` для `idContain
 
 ## Inventory и rollovers
 
-Inventory UI визуализирует специализированные slots, resource/max resource, armor/plate, ammo modifications, weapon properties/components и ограничения экипировки. Rollover должен корректно обрабатывать отсутствующие optional properties и generated items старого save.
+Inventory UI визуализирует специализированные slots, resource/max resource, armor/plate, ammo modifications, weapon properties/components и ограничения экипировки. Rollover должен корректно обрабатывать отсутствующие optional properties и generated items старого save. Карточка оружия (`RolloverInventoryWeaponBase` → `RolloverPropTextRight`) показывает live ближний профиль в том же блоке, что Меткость/Настильность/Шанс клина: прирост `CloseRangeFactor` от компонентов (`resolved − base_*`, как short barrel +12); иначе штраф базы при Factor<100 (см. [accuracy-model](../weapons/accuracy-model.md)). В `AdditionalHint` / `GetRolloverHint` ближняя зона не дублируется.
 
 Generated `RolloverInventoryWeaponBase` обновляет icon только при наличии optional control `idIcon`; варианты template без такого control продолжают показывать тип оружия без Lua-ошибки.
 
@@ -88,7 +88,9 @@ Sound IDs потребляются actions и FX. Отсутствующий `.o
 
 `FirearmBase` при выстреле берёт `fx_target` из `visual_obj.parts.Muzzle` или `.Barrel` (`Weapon.lua`). У ванильных пресетов выстрела (в т.ч. `AKSU`) `Target = "Basic"` / `"Silencer"`, а `Compensator` / `BarrelNormal` / `Suppressor` наследуют эти классы через `ActionFXInherit_Actor`.
 
-JAZZ-компоненты (`JAZZ_Compensator`, `JAZZ_BarrelNormal`, `JAZZ_Suppressor*`, …) имеют **другие** id, поэтому без inherit выстрел с дефолтным `JAZZ_Compensator` (например АКСУ) идёт без звука. Маппинг живёт в `Code/CodeSounds.lua` (`JAZZ_*` → `Basic` / `Silencer`).
+JAZZ-компоненты (`JAZZ_Compensator`, `JAZZ_BarrelNormal`, `JAZZ_Suppressor*`, `JAZZ_Auto5_*` barrel/mag configs, …) имеют **другие** id, поэтому без inherit выстрел с дефолтным `JAZZ_Compensator` (например АКСУ) или пустым дулом Auto-5 (fx_target = `JAZZ_Auto5_Basic_NMag`) идёт без звука. Маппинг живёт в `Code/CodeSounds.lua` (`JAZZ_*` → `Basic` / `Silencer`).
+
+`Buckshot` (и связанные shotgun fire members) ставят `fx_action = "WeaponBuckshot"`. Preset rows keyed by vanilla FX `id` must keep that Action: rewriting Auto5’s buckshot IDs as `WeaponFire` in `CodeSounds_SHOTGUNS.lua` silenced the gun. Sound bank `Auto5_shot_single` / `-room` samples live under `Sounds/Benellim4/`.
 
 `items.lua` переопределяет `AKSU_shot_single` и `AKSU_shot_single-room` 12 собственными сэмплами из `Sounds/AKSU74/`: шесть dry и шесть room `.opus`, все по путям `Mod/e6L4ECj/Sounds/AKSU74/...`. Предыдущее утверждение об отсутствующих файлах было ошибочным: сэмплы присутствуют в core-пакете и отслеживаются Git. `metadata.lua` регистрирует оба `SoundPreset`; отдельная resource-запись на каждый `.opus` для файлов внутри пакета не нужна. `AKSU_shot_auto` остаётся ванильным.
 

@@ -75,7 +75,7 @@ DefineClass.AR10 = {
 	Recoil = 36,
 	AutoShots = 7,
 
-	CloseRange = 8,
+	CloseRange = 11,
 
 	CloseRangeFactor = 80,
 	BulletDropRange = 18,

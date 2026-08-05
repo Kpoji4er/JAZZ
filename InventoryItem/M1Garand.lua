@@ -64,7 +64,7 @@ DefineClass.M1Garand = {
 	Recoil = 18,
 	AutoShots = 0,
 
-	CloseRange = 8,
+	CloseRange = 11,
 
 	CloseRangeFactor = 80,
 	BulletDropRange = 15,

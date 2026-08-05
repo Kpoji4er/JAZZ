@@ -132,7 +132,7 @@ visible_actions =
 
 - **Тип:** базовый режим пулемёта.
 - **Совместимость:** лёгкие и тяжёлые пулемёты.
-- **Поведение:** выпускает `AutoShots` пуль одной длинной серией.
+- **Поведение:** `FirearmBase:GetAutofireShots` — длина = `AutoShots` если `> 0`, иначе `BurstShots` (WEAPONS-003: без `AutoFire` → `AutoShots=0`; иначе тяжёлые MG вроде `BrowningM2HMG` / `MG42` давали `num_shots=0`: анимация без пуль).
 - **Стоимость:** без отдельной надбавки действия поверх стоимости оружия.
 - **Состояние:** для лёгкого пулемёта доступность связана с развёртыванием; стационарный пулемёт использует её как основной огонь и в позиционном конусе.
 - **CTH и отдача:** обычная пулемётная отдача по последовательности; `Jazz_Perk_Buzz` увеличивает число пуль на 50%.
@@ -458,7 +458,7 @@ visible_actions =
 Эти действия связаны с оружием и влияют на последующую стрельбу, но не являются firing actions:
 
 ### `Reload` / `Top up`
-`Reload` остаётся единственным reload-slot action и заменён full `ModItemCombatAction` в `items.lua` (vanilla id). На `Magazine` он всегда выполняет полный ReloadAP. Для authored `Tube`, `Break` и `Revolver`: пустой магазин показывает обычный `Reload` и наполняется стандартным путём; частично заполненный магазин меняет отображаемое имя на `Top up` / «Дозарядить», стоит `max(1 AP, DivCeil(effective ReloadAP, MagazineSize))` и передаёт в `UnitInventory:ReloadWeapon` режим одной итерации. На полной ёмкости action disabled. Helpers/`Unit:ReloadAction` живут в `Code/System_ReloadStyle.lua`; `GetAPCost` и runtime используют один предикат `Firearm:IsPerRoundReload()`, поэтому UI reservation и фактический расход AP совпадают.
+`Reload` остаётся единственным reload-slot action и заменён full `ModItemCombatAction` в `items.lua` (vanilla id). На `Magazine` он всегда выполняет полный ReloadAP. Для authored `Tube`, `Break` и `Revolver`: пустой магазин показывает обычный `Reload` и наполняется стандартным путём; частично заполненный магазин меняет отображаемое имя на `Top up` / «Дозарядить», стоит `max(1 AP, DivCeil(effective ReloadAP, MagazineSize))` и передаёт `reload_mode="one_round"` → `Firearm:Reload(..., max_add=1)`. Vanilla `Firearm:Reload` иначе заливает до `MagazineSize` за один вызов; одного break по стекам в `ReloadWeapon` недостаточно. На полной ёмкости action disabled. Helpers/`Unit:ReloadAction` / `Firearm:Reload` wrap живут в `Code/System_ReloadStyle.lua`; `GetAPCost` и runtime используют один предикат `Firearm:IsPerRoundReload()`, поэтому UI reservation и фактический расход AP совпадают.
 
 ### `FoldStock` / `UnFoldStock`
 

@@ -47,6 +47,7 @@ This is one mod suite, not four independent mods. Partial installs are unsupport
 ### AI, visibility, and enemies
 
 - Tactical AI for position, targets, cover, flanks, and special actions.
+- On large fights (including the **M1** landing with rebels), allied turns are sped up: shorter AI deliberation and auto fast-forward for ally animations when Fast Forward is enabled.
 - Clearer enemy roles and loadouts.
 - Light, night, smoke, and weather affect spotting and fire.
 - In real-time, the suspicion bubble behind a sentry is shorter (about 10 tiles): approaching from the rear is easier than walking into their full forward view.

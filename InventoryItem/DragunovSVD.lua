@@ -97,7 +97,7 @@ DefineClass.DragunovSVD = {
 	Recoil = 18,
 	AutoShots = 0,
 
-	CloseRange = 12,
+	CloseRange = 16,
 
 	CloseRangeFactor = 70,
 	BulletDropRange = 17,

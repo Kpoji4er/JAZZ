@@ -101,7 +101,7 @@ DefineClass.MP5A4 = {
 	AutoShots = 8,
 	BulletDropRange = 10,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	Grouping = 72,

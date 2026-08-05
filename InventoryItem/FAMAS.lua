@@ -109,7 +109,7 @@ DefineClass.FAMAS = {
 	AutoShots = 7,
 	Recoil = 16,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 13,

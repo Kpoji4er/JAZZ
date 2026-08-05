@@ -84,7 +84,7 @@ DefineClass.AK47 = {
 	Recoil = 21,
 	AutoShots = 7,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 14,

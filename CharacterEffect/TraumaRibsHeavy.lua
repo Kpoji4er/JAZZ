@@ -20,9 +20,7 @@ DefineClass.TraumaRibsHeavy = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
 			Handler = function(self, target, value)
-				if self.class == "TraumaRibsMedium" then
-					JazzTraumaPainOnZoneUse(target, "Ribs")
-				end
+				JazzTraumaPainOnZoneUse(target, "Ribs")
 				return value - self:ResolveValue("APLoss") * const.Scale.AP
 			end,
 		}),
@@ -41,7 +39,7 @@ DefineClass.TraumaRibsHeavy = {
 		}),
 	},
 	DisplayName = T(890000000010116, "Rib Trauma (Heavy)"),
-	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. Pain rises each turn. No Tiredness."),
+	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,

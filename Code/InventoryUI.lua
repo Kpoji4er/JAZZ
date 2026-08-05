@@ -134,6 +134,43 @@ function JazzWeaponIcon_SuppressModBadge(img, item, _baked)
 	end
 end
 
+-- Vanilla XInventorySlot:InternalDragStop only calls OnDragDrop (→ ClearDragState) when
+-- OnDrop returns falsy. Truthy results keep click-to-drop alive:
+--   "not valid target" — intentional (retry / switch merc while holding item)
+--   true — target claims the drop was handled (use-item on big portrait)
+-- Big-portrait OnDrop returns true on give-distance / can-use failure WITHOUT ClearDragState,
+-- so the floating icon stays until capture is lost. Vanilla OnCaptureLost then StopDrag()s
+-- (strips mouse follow) but never deletes the window → orphan icon stuck on XDesktop.
+function XInventorySlot:InternalDragStop(pt)
+	local drag_win = self.drag_win
+	if not drag_win then
+		return
+	end
+	self:UpdateDrag(drag_win, pt)
+
+	local result = "not valid target"
+	local target = self:GetDragTarget(pt)
+	if target then
+		result = target:OnDrop(drag_win, pt, self)
+	else
+		PlayFX("DropItemFail", "start")
+	end
+	if not result then
+		self:OnDragDrop(target, drag_win, result, pt)
+	elseif result == true and self.drag_win then
+		-- Handled drop that forgot to clear (failed use / too far on big portrait).
+		self:CancelDragging()
+	end
+end
+
+function XInventorySlot:OnCaptureLost()
+	if self.drag_win then
+		self:CancelDragging()
+		return
+	end
+	XDragAndDropControl.OnCaptureLost(self)
+end
+
 local InventoryUIRespawn_shield
 function InventoryUIRespawn()
     if InventoryUIRespawn_shield then

@@ -68,7 +68,7 @@ DefineClass.MPL = {
 	AutoShots = 6,
 	BulletDropRange = 10,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	Grouping = 40,

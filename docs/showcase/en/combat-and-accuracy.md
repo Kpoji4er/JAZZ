@@ -28,7 +28,7 @@ The legacy `Handling` stat has been removed and is not used in hit chance.
 
 Inside BDR there is no range penalty. Past it, chance falls gently at first and then faster, but a still-possible shot near the hard limit retains about a quarter of its range profile instead of dropping to zero.
 
-Weapons also have a close-range profile: pistols and compact guns are comfortable at point-blank range, while long rifles and long barrels can be weaker across the nearest few tiles. A short barrel shifts that comfort closer; a long barrel shifts it farther away.
+Weapons also have a close-range profile: pistols and compact guns are comfortable at point-blank range, while long rifles and long barrels can be weaker across the nearest tiles — rough zone lengths: SMG ~3, carbine/shotgun ~5, assault/MG ~8 (StG-44), battle rifle ~11, sniper ~16. A short barrel shifts that comfort closer and boosts close-range effectiveness (weapon card row **Close range** shows the barrel-style `+N` after base + attachments); a long barrel shifts it farther away. A base near-zone penalty without a boosting barrel also appears as its own labeled row (`−N%` and zone length), not as a hint bullet.
 
 Optics do not make the bullet travel farther — they change weapon **specialization**: reflex raises effectiveness vs irons, combat scopes own mid-range, full optics reward max aim. Effective-zone shift and optic AimAccuracy% apply only after that aim threshold. Strong scopes help at medium and long range and **hurt up close just by being mounted** — the optic near penalty applies even on snap shots and stacks with the weapon’s close-range profile.
 
@@ -51,8 +51,8 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 - Bleeding has three tiers (**3 / 6 / 12** HP per stack per turn). Hotbar: **Field Bandage** (`JazzBandage`, ~1 AP) drops the worst stack by **one tier** (no Medical; stacks to **30**); **Bandage** uses IFAK (stack **5**) / Medkit (stack **3**) — one use = one item (HP heal + stronger bleed clear).
 - **Heavy** bleed from hits comes from **expanding** ammo (JHP).
-- **Pain** cuts AP and accuracy (−1 stack/turn); **Morphine** (stacks to **10**) suppresses pain penalties and does not stop bleeding or trauma.
-- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Light = pain when you use that zone; medium+ adds zone penalties (−accuracy, move cost, start AP, sight). **Armor on the hit zone lowers trauma chance when pierced; if armor stops the round**, you can still take **behind-armor trauma** (light trauma + pain, no bleeding). Going down applies a **heavy** trauma package; combat **Wounded** stacks from HP loss stay off. Bandages do not heal trauma. Status Information shows **hours until the next progress check** (may improve or worsen on the campaign clock). A squad **field Treat Wounds** operation does not clear trauma instantly — it marks traumas as **healing**: faster checks, **each check improves** the tier (light clears / medium→light / heavy→medium), no worsening. On the campaign map, HP recovers slowly — about **1** HP/hour (Treat Wounds patients faster; R&R faster still).
+- **Pain** cuts AP and accuracy (−1 stack/turn): each solid damaging hit adds **+1** Pain (grazing scratches do not). **Morphine** (stacks to **10**) suppresses pain penalties and does not stop bleeding or trauma.
+- **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Using an injured zone adds Pain stacks once per zone per turn: light **+1**, medium **+2**, heavy **+3**. Each **unused heavy** zone still adds **+1** Pain at end of turn. Medium+ also adds zone penalties (−accuracy, move cost, start AP, sight). **Armor on the hit zone lowers trauma chance when pierced; if armor stops the round**, you can still take **behind-armor trauma** (light trauma + pain, no bleeding). Going down applies a **heavy** trauma package; combat **Wounded** stacks from HP loss stay off. Bandages do not heal trauma. Status Information shows **hours until the next progress check** (may improve or worsen on the campaign clock). A squad **field Treat Wounds** operation does not clear trauma instantly — it marks traumas as **healing**: faster checks, **each check improves** the tier (light clears / medium→light / heavy→medium), no worsening. On the campaign map, HP recovers slowly — about **1** HP/hour (Treat Wounds patients faster; R&R faster still).
 - In combat, party portraits show the same statuses as satellite (not only Wounded).
 - Leg hits apply zone trauma (`Legsshot`), not the old **Slowed** status.
 - Combat-start grit (~25% Temp HP) is **removed**.
@@ -62,7 +62,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 - **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **50%**; about **32%** at 20% CTH, about **2%** at 80% CTH). High CTH barely grazes.
 - **Cover:** cover strength in the hit-chance calc sets the chance a hit becomes a graze — up to **100%** in full cover.
 - Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility).
-- A graze deals about **40%** damage, with no crit and no trauma / `Wounded`; about **15%** chance of **light** bleed only.
+- A graze deals about **40%** damage, with no crit, no trauma / `Wounded`, and **no +1 Pain from the hit**; about **15%** chance of **light** bleed only.
 
 ## Burst recoil
 

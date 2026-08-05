@@ -87,7 +87,7 @@ DefineClass.USAS12 = {
 	Recoil = 25,
 	AutoShots = 0,
 
-	CloseRange = 4,
+	CloseRange = 5,
 
 	CloseRangeFactor = 90,
 	BulletDropRange = 8,

@@ -17,7 +17,7 @@ JAZZ расширяет инвентарь специализированным�
 Загружаются:
 
 - `Code/Inventory.lua` — крупная модификация vanilla Inventory;
-- `Code/InventoryUI.lua` — UI, rollover и drag/drop;
+- `Code/InventoryUI.lua` — UI, rollover и drag/drop; `XInventorySlot:InternalDragStop` / `OnCaptureLost` clear drag ghost when a handled drop (`true`) or capture loss would otherwise leave the floating item icon on `XDesktop` (vanilla: failed give/use-too-far on big portrait);
 - `Code/System_UnitInventory.lua` — slot schema, вместимость и ограничения;
 - `Code/System_Vest.lua` — vest classes при неактивном отдельном Vest slot;
 - `Code/System_OR_ItemContainer.lua` — контейнеры, открытие и NetSync;
@@ -123,6 +123,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 ## Проверка
 
 - drag/drop предмета на иконку другого мерка в party panel (`SquadsAndMercs`): runtime PASS (owner, 2026-07-30) — `OnDrop` = `SelectUnit()` only; `InventoryGiveDistance` = `4800`;
+- failed give/use (too far / disabled) must not leave a floating item icon on the tactical view — `InternalDragStop` clears on handled `true` drops that skip `OnDragDrop`; `OnCaptureLost` uses `CancelDragging` instead of bare `StopDrag`;
 - drag/drop между каждой парой совместимых/несовместимых слотов;
 - reload при ammo в правильном и неправильном slot;
 - вместимость при разных stats/perks;

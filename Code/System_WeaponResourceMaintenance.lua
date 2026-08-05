@@ -204,10 +204,12 @@ function Inventory:ItemModifyCondition(item, amount)
 	return current
 end
 
+-- resource: absolute WeaponResource units, or nil/false to clear jam without wear.
+-- Do not pass Condition (0..100%) — that zeros most guns (Condition ≤100 << max).
 function FirearmBase:RepairJammed(resource, unit_owner)
 	self.jammed = false
-	if resource then
-		self.WeaponResource = Min(resource, self:GetWeaponResourceMax())
+	if type(resource) == "number" then
+		self.WeaponResource = Clamp(resource, 0, self:GetWeaponResourceMax())
 	end
 	self:ClampWeaponResource()
 	NetUpdateHash("WeaponUnjam", self.class, self.id, self.WeaponResource, self:GetWeaponResourceMax())

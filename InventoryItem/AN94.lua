@@ -90,7 +90,7 @@ DefineClass.AN94 = {
 	BurstShots = 2,
 	AutoShots = 14,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 18,

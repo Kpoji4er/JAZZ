@@ -145,7 +145,7 @@ DefineClass.HK33 = {
 	AutoShots = 7,
 	BulletDropRange = 14,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	Grouping = 57,

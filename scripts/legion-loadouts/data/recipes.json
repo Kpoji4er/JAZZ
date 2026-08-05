@@ -267,7 +267,11 @@
   },
   "JAZZ_Legion_LeaderT1_Sergeant": {
     "inventory": "Sergeant_Inventory", "firearm": "Sergeant_Firearm", "class_tier": 1,
-    "primary_tags": ["smg", "pistol"], "arch3_extra_tags": ["assault"],
+    "primary_tags": ["smg"], "arch3_extra_tags": ["assault"],
+    "exclude_tags": ["pistol"],
+    "primary_max_tier_label": "2-1",
+    "arch1_all_subs_from": 11,
+    "arch1_early_ids": { "M45": 11, "MAC10": 12, "UZI": 13, "Agram2000": 13 },
     "packages_by_arch": ["m0", "cqb_m1", "assault_m1"],
     "sidearm": { "unlock": 11, "chance": 70 }, "melee": null, "armor": "Middle",
     "utility": { "he": { "mode": "chance", "chance_by_arch": [15, 30, 40] }, "smoke_chance": 40 },

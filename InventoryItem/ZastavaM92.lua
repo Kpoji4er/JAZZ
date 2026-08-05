@@ -77,7 +77,7 @@ DefineClass.ZastavaM92 = {
 	Recoil = 20,
 	AutoShots = 0,
 
-	CloseRange = 4,
+	CloseRange = 5,
 
 	CloseRangeFactor = 90,
 	BulletDropRange = 12,

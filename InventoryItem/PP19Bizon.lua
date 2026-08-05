@@ -72,7 +72,7 @@ DefineClass.PP19Bizon = {
 	BurstShots = 3,
 	AutoShots = 7,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 9,

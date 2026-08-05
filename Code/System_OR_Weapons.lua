@@ -195,8 +195,14 @@ function FirearmBase:GetAutofireShots(action)
 	end
 	local shots = action:ResolveValue("num_shots") or 1
 	-- ExtraBurstShots intentionally disabled: shot counts come only from BurstShots/AutoShots.
-	if action.id == "AutoFire" or action.id == "MGBurstFire" then
+	-- WEAPONS-003: no AutoFire → AutoShots=0. Heavy MGs (BrowningM2HMG, MG42, …) still fire via
+	-- MGBurstFire only — must not return 0 (anim plays, ExecFirearmAttacks gets empty shots).
+	-- LMGs with authored AutoShots keep the longer MGBurst length; else BurstShots.
+	if action.id == "AutoFire" then
 		shots = self.AutoShots
+	elseif action.id == "MGBurstFire" then
+		local auto = self.AutoShots or 0
+		shots = (auto > 0) and auto or (self.BurstShots or shots)
 	elseif action.id == "JAZZ_LargeAutoFire" then
 		shots = self.AutoShots * 2
 	elseif action.id == "BurstFire" or action.id == "JAZZ_Zipper" then
@@ -204,7 +210,7 @@ function FirearmBase:GetAutofireShots(action)
 	elseif action.id == "JAZZ_SmgStorm" then
 		shots = self.BurstShots * 2
 	end
-	return shots
+	return Max(1, shots or 1)
 end
 
 -- Jazz_Perk_Nervous / Jazz_Perk_Buzz shot-count helpers (shared by CombatAction GetAutofireShots call sites).
@@ -348,20 +354,19 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 	return jammed, condition_percent
 end
 
-function FirearmBase:RepairJammed(condition, unit_owner)
+-- Compat / ReloadLua: same contract as System_WeaponResourceMaintenance.RepairJammed.
+-- resource = absolute WeaponResource, or nil to clear jam only (never pass Condition %).
+function FirearmBase:RepairJammed(resource, unit_owner)
 	self.jammed = false
-	NetUpdateHash("WeaponUnjam", self.class, self.id, self.Condition, condition or self.Condition)
-	if condition then
-		self.Condition = condition
-		if self.WeaponResourceMax then
-			local max = self.WeaponResourceMax > 0 and self.WeaponResourceMax or self:GetFactoryResource() or 1
-			self.WeaponResource = MulDivRound(max, condition, 100)
-		end
+	if type(resource) == "number" then
+		local max = self:GetMaxResource() or self:GetFactoryResource() or 1
+		if max <= 0 then max = 1 end
+		self.WeaponResource = Clamp(resource, 0, max)
 	end
+	NetUpdateHash("WeaponUnjam", self.class, self.id, self.WeaponResource or 0, self:GetMaxResource() or 0)
 	if unit_owner then
 		CreateFloatingText(unit_owner, T(123820160317, "Unjammed"))
-		--CombatLog("important", T{276992233611, "Jammed weapon was <em>clumsily fixed</em> by <DisplayName> (<Mechanical> Mechanical): <condLoss> condition lost", SubContext(unit, {condLoss = condLoss})})
-		Msg("InventoryChange", unit_owner) 
+		Msg("InventoryChange", unit_owner)
 		if IsKindOf(unit_owner, "Unit") then unit_owner:RecalcUIActions() end
 		ObjModified(unit_owner)
 		PlayFX("UnjamWeapon", "start", unit_owner, self.class)

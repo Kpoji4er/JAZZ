@@ -164,7 +164,7 @@ RU DisplayName unit: **«Дозарядить»** / EN: **«Top up»**.
 
 - `JAZZ-WEAPONS-004-AC-001`: `PASS` (static) — `items.lua` tags Tube/Break/Revolver; AA12/USAS12 retain the `Magazine` default.
 - `JAZZ-WEAPONS-004-AC-002`: `PASS` (static) — `Firearm:GetReloadUnitAP()` uses `Max(const.Scale.AP, DivCeil(ReloadAP, MagazineSize))`; R870 `7000/6` is `2000`.
-- `JAZZ-WEAPONS-004-AC-003`: `BLOCKED` (runtime) — wave test pending.
+- `JAZZ-WEAPONS-004-AC-003`: `PASS` (static) / `BLOCKED` (runtime) — Top up path now passes `max_add=1` into `Firearm:Reload` (vanilla filled MagSize per call; stack-loop break alone was insufficient). Runtime wave still pending.
 - `JAZZ-WEAPONS-004-AC-004`: `BLOCKED` (runtime) — wave test pending.
 - `JAZZ-WEAPONS-004-AC-005`: `BLOCKED` (runtime) — wave test pending.
 - `JAZZ-WEAPONS-004-AC-006`: `BLOCKED` (human) — readability in combat HUD pending.

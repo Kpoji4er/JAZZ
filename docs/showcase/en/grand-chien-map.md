@@ -21,7 +21,7 @@ Emerald Coast on Ernie is **J7**. Diamond Red is **A4**.
 
 ## Regions
 
-- **Ernie** — start M1, hub I5, fort I7, rebel base L1.
+- **Ernie** — start M1, hub I5, fort I7, rebel base L1. Allied rebel turns on large landing fights are sped up.
 - **Pantagruel** — slums/downtown around E15–E16.
 - **Fleatown** — jungle port (H18–H19 area).
 - **Port Cacao** — city and docks around N12–N13.

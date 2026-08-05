@@ -61,7 +61,7 @@ DefineClass.BAR = {
 	Recoil = 18,
 	AutoShots = 0,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 15,

@@ -23,6 +23,14 @@ DefineClass.TraumaHeadHeavy = {
 			end,
 		}),
 		PlaceObj('UnitReaction', {
+			Event = "OnFirearmAttackStart",
+			Handler = function(self, target, attacker, attack_target, action, attack_args)
+				if target == attacker then
+					JazzTraumaPainOnZoneUse(attacker, "Head")
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
@@ -40,7 +48,7 @@ DefineClass.TraumaHeadHeavy = {
 		}),
 	},
 	DisplayName = T(890000000010122, "Head Trauma (Heavy)"),
-	Description = T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn."),
+	Description = T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
 	Shown = true,

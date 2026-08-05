@@ -104,7 +104,7 @@ DefineClass.FNMinimi = {
 	Recoil = 18,
 	BurstShots = 4,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 17,

@@ -15,6 +15,8 @@ Source: `jazz-maps/items.lua` (sectors, quests, setpieces). Demo scope is Ernie 
 
 Cities: **Ernie** (`ErnieVillage`), rebel base (`Rebels_Ernie`), smugglers (`SmugglersErnie`).
 
+On large landing fights (**M1**), allied rebel turns are shortened: less position/cover deliberation and faster playback of their actions when auto Fast Forward is on.
+
 ## Ernie sectors (from code)
 
 Filter: `WeatherZone=Erny` **or** city `ErnieVillage`/`Rebels_Ernie` **or** `Label1=Ernie` → **20** sectors (not the older catalog’s “23”).

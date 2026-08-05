@@ -129,7 +129,7 @@ DefineClass.G36 = {
 	BurstShots = 4,
 	AutoShots = 7,
 
-	CloseRange = 6,
+	CloseRange = 8,
 
 	CloseRangeFactor = 85,
 	BulletDropRange = 16,

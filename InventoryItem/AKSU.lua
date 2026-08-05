@@ -98,7 +98,7 @@ DefineClass.AKSU = {
 	AutoShots = 0,
 	BulletDropRange = 13,
 
-	CloseRange = 4,
+	CloseRange = 5,
 
 	CloseRangeFactor = 90,
 	Grouping = 53,

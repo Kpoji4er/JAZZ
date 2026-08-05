@@ -29,7 +29,7 @@ DefineClass.TraumaArmsMedium = {
 		}),
 	},
 	DisplayName = T(890000000010102, "Arm Trauma (Medium)"),
-	Description = T(890000000010103, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. Pain when using arms."),
+	Description = T(890000000010103, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when using arms."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsMedium.png",
 	Shown = true,

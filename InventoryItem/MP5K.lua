@@ -124,7 +124,7 @@ DefineClass.MP5K = {
 	BurstShots = 4,
 	AutoShots = 9,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 8,

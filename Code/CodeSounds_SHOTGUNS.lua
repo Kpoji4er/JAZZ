@@ -46,8 +46,10 @@ PlaceObj('ActionFXSound', {
 	id = "18241718423519833371",
 })
 
+-- Buckshot CombatAction sets fx_action = "WeaponBuckshot". These IDs are vanilla's
+-- Auto5 WeaponBuckshot rows; rewriting them as WeaponFire silenced Buckshot shots.
 PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
+	Action = "WeaponBuckshot",
 	Actor = "Auto5",
 	DetailLevel = 100,
 	Moment = "start",
@@ -58,18 +60,18 @@ PlaceObj('ActionFXSound', {
 })
 
 PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
+	Action = "WeaponBuckshot",
 	Actor = "Auto5",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "silencer_shotgun",
 	Target = "Silencer",
 	group = "Default",
-	id = "20807926553681575811",
+	id = "2080792655368157581",
 })
 
 PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
+	Action = "WeaponBuckshot",
 	Actor = "Auto5",
 	Delay = 100,
 	DetailLevel = 100,
@@ -82,7 +84,7 @@ PlaceObj('ActionFXSound', {
 })
 
 PlaceObj('ActionFXSound', {
-	Action = "WeaponFire",
+	Action = "WeaponBuckshot",
 	Actor = "Auto5",
 	Delay = 300,
 	DetailLevel = 100,
@@ -91,7 +93,7 @@ PlaceObj('ActionFXSound', {
 	Sound = "bullet_casingSHOTGUN_fall",
 	Source = "ActionPos",
 	group = "Default",
-	id = "54735129208684895231",
+	id = "5473512920868489523",
 })
 
 PlaceObj('ActionFXSound', {

@@ -1,4 +1,6 @@
 -- JAZZ-QOL-001: auto fast-forward for unseen AI units + free camera on non-player turns
+-- Ally (Rebel) exception 2026-08-05: PoV almost always sees allies → unseen Fast never fired on
+-- their turn; M1 Rebel AITurn felt slow even after PERF dest caps.
 
 local function JAZZ_AutoFastForwardMode()
 	return CurrentModOptions and CurrentModOptions.AutoFastForward or "Off"
@@ -15,6 +17,20 @@ local function JAZZ_IsUnseenByPoV(unit)
 	return not HasVisibilityTo(pov, unit)
 end
 
+local function JAZZ_IsPlayerAllyAIUnit(unit)
+	if not IsValid(unit) then
+		return false
+	end
+	local team = unit.team
+	if not team then
+		return false
+	end
+	if team.side == "ally" then
+		return true
+	end
+	return not not team.player_ally
+end
+
 --- Apply AutoFastForward for an AI unit.
 --- phase: "behavior" (before behavior:Play) | "attacks" (before AIPlayAttacks; Always only)
 function JAZZ_UpdateAutoFastForward(unit, phase)
@@ -29,7 +45,9 @@ function JAZZ_UpdateAutoFastForward(unit, phase)
 		return
 	end
 
-	local want = JAZZ_IsUnseenByPoV(unit) and "Fast" or "Normal"
+	-- Allies (Rebels): always Fast when FF enabled — they are usually PoV-visible.
+	-- Enemies: Fast only when unseen (Running/Always).
+	local want = (JAZZ_IsPlayerAllyAIUnit(unit) or JAZZ_IsUnseenByPoV(unit)) and "Fast" or "Normal"
 	if g_FastForwardGameSpeed == want then
 		return
 	end

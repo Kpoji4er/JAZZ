@@ -53,10 +53,10 @@ CLOSE_EFFECTS = (
 )
 BASE_CLOSE_RANGE = {
     "pistol": (0, 100), "autopistol": (0, 100), "revolver": (0, 100),
-    "submachine-gun": (2, 95), "carbine": (4, 90), "shotgun": (4, 90),
-    "assault-rifle": (6, 85), "machine-gun": (6, 85),
-    "light-machine-gun": (6, 85), "battle-rifle": (8, 80),
-    "sniper-rifle": (12, 70),
+    "submachine-gun": (3, 95), "carbine": (5, 90), "shotgun": (5, 90),
+    "assault-rifle": (8, 85), "machine-gun": (8, 85),
+    "light-machine-gun": (8, 85), "battle-rifle": (11, 80),
+    "sniper-rifle": (16, 70),
 }
 
 

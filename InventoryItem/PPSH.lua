@@ -61,7 +61,7 @@ DefineClass.PPSH = {
 	Recoil = 13,
 	BurstShots = 4,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 11,

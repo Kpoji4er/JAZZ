@@ -141,7 +141,7 @@ DefineClass.FNFAL = {
 	Recoil = 43,
 	AutoShots = 6,
 
-	CloseRange = 8,
+	CloseRange = 11,
 
 	CloseRangeFactor = 80,
 	BulletDropRange = 19,

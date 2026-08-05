@@ -58,7 +58,7 @@ DefineClass.MP40 = {
 	BurstShots = 2,
 	AutoShots = 5,
 
-	CloseRange = 2,
+	CloseRange = 3,
 
 	CloseRangeFactor = 95,
 	BulletDropRange = 9,
