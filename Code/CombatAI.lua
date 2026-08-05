@@ -410,10 +410,10 @@ function AICreateContext(unit, context)
 		context.EffectiveRange = Min(DivRound(context.unit:GetSightRadius(),const.SlabSizeX),context.EffectiveRange) 
 	end
 
-
-
-	--context.ExtremeRange = IsKindOf(weapon, "Firearm") and weapon.WeaponRange or 1
-	context.ExtremeRange = context.EffectiveRange
+	-- JAZZ-AI-SNIPER-001: ExtremeRange = full WeaponRange (Effective stays half / sight-clamped).
+	-- Collapsing Extreme==Effective pulled WeaponRange OptLoc/EndTurn into mid-close and
+	-- made snipers abandon long high-ground shots they can still take.
+	context.ExtremeRange = IsKindOf(weapon, "Firearm") and (weapon.WeaponRange or 1) or context.EffectiveRange
 	context.enemies = enemies
 	context.attack_target = {}
 	context.enemy_visible = {}
@@ -1484,6 +1484,11 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 	for _, policy in ipairs(policies) do
 		local peval = policy:EvalDest(context, dest, grid_voxel)
 		local pscore = MulDivRound(peval or 0, policy.Weight, 100)
+		-- JAZZ-AI-SNIPER-001: useless perch → shrink HighGround weight (stay bias / descent penalty).
+		local hg_pct = context.jazz_sniper_highground_pct
+		if hg_pct and hg_pct ~= 100 and IsKindOf(policy, "AIPolicyHighGround") then
+			pscore = MulDivRound(pscore, hg_pct, 100)
+		end
 		local failed = policy.Required and pscore <= 0
 		score = score + pscore
 		if score_details then
@@ -1496,7 +1501,20 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		end
 	end
 	
-	score = (base_score or 0) + score 
+	score = (base_score or 0) + score
+
+	-- Soft stay penalty grows with consecutive useless turns (not a hard teleport).
+	local stay_pen = context.jazz_sniper_stay_penalty or 0
+	if stay_pen > 0 then
+		local stay = context.unit_stance_pos
+		if stay and stance_pos_dist(dest, stay) == 0 then
+			score = score - stay_pen
+			if score_details then
+				score_details[#score_details + 1] = "SNIPER USELESS STAY"
+				score_details[#score_details + 1] = -stay_pen
+			end
+		end
+	end
 	
 	-- bombard zone modifier
 	for _, zone in ipairs(g_Bombard) do
@@ -1615,6 +1633,8 @@ function AIFindOptimalLocation(context, dest_score_details)
 	end
 
 	local unit = context.unit
+	-- JAZZ-AI-SNIPER-001: prior useless turns → soft-downweight current high ground / stay.
+	JazzAI_ApplySniperUselessBiasToContext(context)
 	context.best_dests = {}
 
 	local r = context.archetype.OptLocSearchRadius * const.SlabSizeX
@@ -2389,3 +2409,177 @@ function AISelectHealTarget(context, dest, grid_voxel, heal_policy)
 	context.voxel_heal_score[grid_voxel] = best_score
 	return best_target, best_score
 end
+
+-- JAZZ-AI-SNIPER-001: hold when a usable shot exists; useless streak soft-downweights HighGround/stay.
+g_JAZZ_AIScoreReachableVoxelsBase = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase") or false
+g_JAZZ_AIScoreReachableVoxelsFn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsFn") or false
+
+-- Consecutive AI turns with no usable stay shot. Soft weight decay, not hard teleport.
+-- Decay starts after the 2nd useless turn (shifted +1 from first playtest).
+JazzAI_SniperUselessTurns = 3
+
+--- HighGround policy Weight multiplier (%). streak0–1=100, streak2=40, streak3+=0.
+function JazzAI_SniperHighGroundWeightPct(streak)
+	streak = streak or 0
+	if streak <= 1 then
+		return 100
+	end
+	if streak == 2 then
+		return 40
+	end
+	return 0
+end
+
+--- Soft stay score penalty. Grows with useless streak; does not force a dest.
+function JazzAI_SniperStayUselessPenalty(streak)
+	streak = streak or 0
+	if streak <= 1 then
+		return 0
+	end
+	if streak == 2 then
+		return 300
+	end
+	return 600 + (streak - 3) * 200
+end
+
+function JazzAI_ApplySniperUselessBiasToContext(context)
+	if not context then
+		return
+	end
+	local unit = context.unit
+	if not JazzAI_UnitHasSniperHoldKeyword(unit) then
+		context.jazz_sniper_useless_streak = 0
+		context.jazz_sniper_highground_pct = 100
+		context.jazz_sniper_stay_penalty = 0
+		return
+	end
+	local streak = JazzAI_GetSniperUselessStreak(unit)
+	context.jazz_sniper_useless_streak = streak
+	context.jazz_sniper_highground_pct = JazzAI_SniperHighGroundWeightPct(streak)
+	context.jazz_sniper_stay_penalty = JazzAI_SniperStayUselessPenalty(streak)
+end
+
+function JazzAI_UnitHasSniperHoldKeyword(unit)
+	local keys = unit and unit.AIKeywords
+	if not keys then
+		return false
+	end
+	for _, k in ipairs(keys) do
+		if k == "Sniper" or k == "Marksman" then
+			return true
+		end
+	end
+	return false
+end
+
+function JazzAI_SniperUselessKey(unit)
+	if not unit then
+		return false
+	end
+	return unit.handle or unit.session_id or tostring(unit)
+end
+
+function JazzAI_GetSniperUselessStreak(unit)
+	local key = JazzAI_SniperUselessKey(unit)
+	if not key then
+		return 0
+	end
+	JazzAI_SniperUselessStreak = JazzAI_SniperUselessStreak or {}
+	local streak = JazzAI_SniperUselessStreak[key]
+	if type(streak) == "table" then
+		return streak.count or 0
+	end
+	return streak or 0
+end
+
+--- One increment per combat turn while stay has no shot; reset when a shot exists.
+function JazzAI_NoteSniperUselessTurn(unit, useless)
+	if not JazzAI_UnitHasSniperHoldKeyword(unit) then
+		return 0
+	end
+	local key = JazzAI_SniperUselessKey(unit)
+	if not key then
+		return 0
+	end
+	JazzAI_SniperUselessStreak = JazzAI_SniperUselessStreak or {}
+	local turn = g_Combat and g_Combat.current_turn or 0
+	local streak = JazzAI_SniperUselessStreak[key]
+	if type(streak) ~= "table" then
+		streak = { count = 0, turn = -1 }
+	end
+	if useless then
+		if streak.turn ~= turn then
+			streak.count = (streak.count or 0) + 1
+			streak.turn = turn
+		end
+	else
+		streak.count = 0
+		streak.turn = turn
+	end
+	JazzAI_SniperUselessStreak[key] = streak
+	return streak.count or 0
+end
+
+--- Hold stay when a shot exists. Track useless streak for soft HighGround/stay weights.
+--- No hard escape dest — OptLoc/EndTurn leave via reduced high-ground weight.
+function JazzAI_ApplySniperHoldDestination(context, dest)
+	if not context or not dest then
+		return dest
+	end
+	local unit = context.unit
+	if not JazzAI_UnitHasSniperHoldKeyword(unit) then
+		return dest
+	end
+	if context.reposition or (unit and unit:HasStatusEffect("Burning")) then
+		return dest
+	end
+	local stay = context.unit_stance_pos or (unit and GetPackedPosAndStance(unit))
+	if not stay then
+		return dest
+	end
+	local stay_score = (context.dest_target_score or empty_table)[stay] or 0
+	JazzAI_NoteSniperUselessTurn(unit, stay_score <= 0)
+	JazzAI_ApplySniperUselessBiasToContext(context)
+
+	if stay_score > 0 then
+		return stay
+	end
+	return dest
+end
+
+local function JazzAI_InstallAIScoreReachableVoxelsWrap()
+	local ourFn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsFn")
+	local current = rawget(_G, "AIScoreReachableVoxels")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_AIScoreReachableVoxelsBase", current)
+	elseif not rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase") then
+		return false
+	end
+	local function wrap(context, policies, opt_loc_weight, score_details, ...)
+		-- Bias from prior turns before scoring (EndTurn policies include HighGround).
+		JazzAI_ApplySniperUselessBiasToContext(context)
+		local base_fn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase")
+		local dest, score = base_fn(context, policies, opt_loc_weight, score_details, ...)
+		dest = JazzAI_ApplySniperHoldDestination(context, dest)
+		return dest, score
+	end
+	rawset(_G, "g_JAZZ_AIScoreReachableVoxelsFn", wrap)
+	rawset(_G, "AIScoreReachableVoxels", wrap)
+	return true
+end
+
+function OnMsg.ModsReloaded()
+	JazzAI_InstallAIScoreReachableVoxelsWrap()
+end
+
+function OnMsg.DataLoaded()
+	JazzAI_InstallAIScoreReachableVoxelsWrap()
+end
+
+JazzAI_InstallAIScoreReachableVoxelsWrap()

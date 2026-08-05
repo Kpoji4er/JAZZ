@@ -2,6 +2,7 @@
 
 MapVar("JazzAI_TeamDirectives", {})
 MapVar("JazzAI_PeekStreak", {})
+MapVar("JazzAI_SniperUselessStreak", {})
 MapVar("JazzAI_FlarePushUntil", false)
 MapVar("JazzAI_TeamActed", {})
 MapVar("JazzAI_TeamActedTurn", false)
@@ -679,6 +680,7 @@ end
 function OnMsg.CombatStart()
 	JazzAI_TeamDirectives = {}
 	JazzAI_PeekStreak = {}
+	JazzAI_SniperUselessStreak = {}
 	JazzAI_FlarePushUntil = false
 	JazzAI_TeamActed = {}
 	JazzAI_TeamActedTurn = false

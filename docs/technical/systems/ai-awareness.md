@@ -66,6 +66,8 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Machine gun setup согласован с AP, action availability и visual/entity state.
 
+**Sniper / Marksman hold (JAZZ-AI-SNIPER-001):** `ExtremeRange = weapon.WeaponRange`; stay-hold если `dest_target_score[stay] > 0`. `MapVar JazzAI_SniperUselessStreak`: бесполезные ходы **мягко** режут вес высоты — полный HighGround на 0–1 ход; ×40% на 2-й; ×0% на 3+; soft stay penalty 0 / 0 / 300 / 600+. Без hard escape dest. Clear на CombatStart.
+
 **MG half-cover setup (JAZZ-AI-ACT-003):** `AIActionMGSetup` после выбора зоны проверяет тот же предикат, что игрок (`CoverLow`, `coverage > 80` vs `target_pos`, оценка в `Crouch`). При halfcover Execute сначала ставит Crouch, затем `MGSetup` → `BipodUnfolded` без forced Prone; иначе prone-deploy как раньше. `AIScoreDest` даёт скромный bonus (+45) reachable dest с usable low cover для не-stationed MG/LMG. Rotate/Pack ветка без изменения.
 
 **MGPack after Dump:** не паковать сектор, пока жив `g_Overwatch[unit]` (иначе каждый `MGSetup` сразу срывался: Dump стопорится на OW → unconditional `MGPack` → restart/PrefStance «встал»). Intentional pack — через `AIActionMGSetup` Precalc при пустой зоне; recovery pack — если `StationedMachineGun` без OW.

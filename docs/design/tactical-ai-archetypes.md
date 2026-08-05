@@ -58,7 +58,7 @@ Rebels: `RebelFlanker` → **`Rebels_Flanker`**.
 | Семья на диаграмме | Default role archetype | Ситуативные stance |
 | --- | --- | --- |
 | Assault / Stormer / demo | Assaulter | Flank (охват), Melee (нож во 2-м), Fallback (редко) |
-| Front / Marksman / Soldier / Sniper | Frontliner | Assaulter только CQB+sidearm; Sniper Hold жёстче |
+| Front / Marksman / Soldier / Sniper | Frontliner | Assaulter только CQB+sidearm; Sniper Hold (**JAZZ-AI-SNIPER-001:** stay if shot; useless streak soft-downweights HighGround) |
 | Flanker / Recon / Scout | **Flanker** (новый) | Press → Assaulter |
 | Gunner | Machinegunner | никогда Melee/Flank-default |
 | Leader / Commander | Frontliner (+ aura) | Hold / Directive |
