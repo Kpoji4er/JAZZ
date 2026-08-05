@@ -309,13 +309,28 @@ end
 -- JazzBandage / JazzMorphine use the same IModeCombatMelee UIBegin path but are
 -- not excluded, so ally-only medicine pops «Free Aim / no enemies» confirmation.
 -- RequireTargets skips that branch (same outcome as the Bandage id hardcode).
+--
+-- IMPORTANT: RequireTargets alone is not enough. IModeCombatMelee / Targeting_UnitInMelee
+-- hardcode `action.id == "Bandage"` for ally bandage targeting; without that path
+-- Jazz actions fall through to Unit:CanAttack (ActionType "Other" → always false) and
+-- clicks on mercs do nothing. See lInstallMedicineMeleeUIHooks.
 function JazzIsAllyMedicineCombatAction(action)
 	local id = action and action.id
 	return id == "Bandage" or id == "JazzBandage" or id == "JazzMorphine"
 end
 
+function JazzIsFieldMedicineActionId(id)
+	return id == "JazzBandage" or id == "JazzMorphine"
+end
+
+-- While Targeting_UnitInMelee spoofs action.id to "Bandage", remember the real Jazz id
+-- so CanBandageUI still validates against JazzBandage / JazzMorphine rules.
+g_JAZZ_ActiveMedicineActionId = rawget(_G, "g_JAZZ_ActiveMedicineActionId") or false
+
 JazzCombatActionAttackStart_Vanilla = rawget(_G, "JazzCombatActionAttackStart_Vanilla") or false
 JazzCombatActionAttackStart_Wrapped = rawget(_G, "JazzCombatActionAttackStart_Wrapped") or false
+JazzCanBandageUI_Vanilla = rawget(_G, "JazzCanBandageUI_Vanilla") or false
+g_JAZZ_MedicineMeleeUIHooks = rawget(_G, "g_JAZZ_MedicineMeleeUIHooks") or false
 
 local function lInstallCombatActionAttackStartMedHook()
 	local current = rawget(_G, "CombatActionAttackStart")
@@ -335,6 +350,181 @@ local function lInstallCombatActionAttackStartMedHook()
 	end
 	rawset(_G, "JazzCombatActionAttackStart_Wrapped", jazz_CombatActionAttackStart)
 	rawset(_G, "CombatActionAttackStart", jazz_CombatActionAttackStart)
+end
+
+function JazzGetActiveMedicineActionId()
+	local marked = rawget(_G, "g_JAZZ_ActiveMedicineActionId")
+	if marked then
+		return marked
+	end
+	local dlg = GetInGameInterfaceModeDlg and GetInGameInterfaceModeDlg()
+	local action = dlg and dlg.action
+	return action and action.id
+end
+
+local function lJazzMedicineUIRangeAndAP(attacker, target, action, args)
+	local cost = action:GetAPCost(attacker, args) or 0
+	local err = false
+	if target ~= attacker and g_Combat then
+		if not IsMeleeRangeTarget(attacker, nil, nil, target) then
+			local pos = attacker:GetClosestMeleeRangePos(target)
+			local cpath = GetCombatPath(attacker)
+			local ap = cpath and cpath:GetAP(pos)
+			if not ap then
+				err = AttackDisableReasons.NoAP
+			else
+				cost = cost + Max(0, ap - (attacker.free_move_ap or 0))
+			end
+		end
+	end
+	if not err and g_Combat and cost >= 0 and attacker.UIHasAP and not attacker:UIHasAP(cost) then
+		err = AttackDisableReasons.NoAP
+	elseif not err and not g_Combat and cost >= 0 and attacker.UIHasAP and not attacker:UIHasAP(cost) then
+		err = AttackDisableReasons.TooFar
+	end
+	return not err, err
+end
+
+function JazzCanFieldBandageUI(attacker, args)
+	local target = args and args.target
+	if not target then
+		return false, AttackDisableReasons.NoTarget
+	end
+	if not target:IsPlayerAlly() and not (target.team and target.team.neutral) then
+		return false, AttackDisableReasons.InvalidTarget
+	end
+	local action = CombatActions.JazzBandage
+	if not action then
+		return false, AttackDisableReasons.InvalidTarget
+	end
+	local state, reason = action:GetUIState({ attacker }, args)
+	if state ~= "enabled" then
+		return false, reason
+	end
+	local ok, err = lJazzMedicineUIRangeAndAP(attacker, target, action, args)
+	if not ok then
+		return false, err
+	end
+	if not JazzUnitNeedsFieldBandage(target) then
+		return false, AttackDisableReasons.NoBandageTarget or AttackDisableReasons.FullHP
+	end
+	return true
+end
+
+function JazzCanMorphineUI(attacker, args)
+	local target = args and args.target
+	if not target then
+		return false, AttackDisableReasons.NoTarget
+	end
+	if not target:IsPlayerAlly() and not (target.team and target.team.neutral) then
+		return false, AttackDisableReasons.InvalidTarget
+	end
+	local action = CombatActions.JazzMorphine
+	if not action then
+		return false, AttackDisableReasons.InvalidTarget
+	end
+	local state, reason = action:GetUIState({ attacker }, args)
+	if state ~= "enabled" then
+		return false, reason
+	end
+	local ok, err = lJazzMedicineUIRangeAndAP(attacker, target, action, args)
+	if not ok then
+		return false, err
+	end
+	if not JazzUnitNeedsMorphine(target) then
+		return false, AttackDisableReasons.NoBandageTarget or AttackDisableReasons.FullHP
+	end
+	return true
+end
+
+local jazz_targeting_unit_in_melee_fn
+local jazz_melee_confirm_fn
+local jazz_melee_confirm_base
+
+local function lInstallMedicineMeleeUIHooks()
+	-- CanBandageUI: dispatch Jazz field actions; kit Bandage also accepts all Jazz bleed tiers.
+	if not rawget(_G, "JazzCanBandageUI_Vanilla") and type(rawget(_G, "CanBandageUI")) == "function" then
+		rawset(_G, "JazzCanBandageUI_Vanilla", CanBandageUI)
+		function CanBandageUI(attacker, args)
+			local id = JazzGetActiveMedicineActionId()
+			if id == "JazzBandage" then
+				return JazzCanFieldBandageUI(attacker, args)
+			end
+			if id == "JazzMorphine" then
+				return JazzCanMorphineUI(attacker, args)
+			end
+			local ok, err = JazzCanBandageUI_Vanilla(attacker, args)
+			if not ok and err == AttackDisableReasons.FullHP then
+				local target = args and args.target
+				-- Vanilla only checked status id "Bleeding"; Medium/Heavy looked like FullHP.
+				if target and JazzUnitNeedsFieldOrKitBandage(target) then
+					return true
+				end
+			end
+			return ok, err
+		end
+	end
+
+	-- Spoof action.id → "Bandage" only inside Targeting_UnitInMelee so bandaging=true
+	-- visuals / click acceptance run; real id kept in g_JAZZ_ActiveMedicineActionId.
+	local current_targeting = rawget(_G, "Targeting_UnitInMelee")
+	if type(current_targeting) == "function" and current_targeting ~= jazz_targeting_unit_in_melee_fn then
+		local base_targeting = current_targeting
+		jazz_targeting_unit_in_melee_fn = function(dialog, blackboard, command, pt)
+			local action = dialog and dialog.action
+			local real_id = action and action.id
+			if JazzIsFieldMedicineActionId(real_id) then
+				rawset(_G, "g_JAZZ_ActiveMedicineActionId", real_id)
+				action.id = "Bandage"
+				local ok, a, b, c = pcall(base_targeting, dialog, blackboard, command, pt)
+				action.id = real_id
+				rawset(_G, "g_JAZZ_ActiveMedicineActionId", false)
+				if not ok then
+					error(a)
+				end
+				return a, b, c
+			end
+			return base_targeting(dialog, blackboard, command, pt)
+		end
+		rawset(_G, "Targeting_UnitInMelee", jazz_targeting_unit_in_melee_fn)
+	end
+
+	-- Confirm must NOT spoof id (NetStartCombatAction would fire kit Bandage).
+	local classes = rawget(_G, "g_Classes")
+	local melee_cls = classes and classes.IModeCombatMelee
+	if type(melee_cls) == "table" and type(melee_cls.Confirm) == "function"
+		and melee_cls.Confirm ~= jazz_melee_confirm_fn
+	then
+		jazz_melee_confirm_base = melee_cls.Confirm
+		jazz_melee_confirm_fn = function(self, ...)
+			local action = self.action
+			local real_id = action and action.id
+			if JazzIsFieldMedicineActionId(real_id) then
+				self.target_pos = (self.attacker and self.attacker:GetPos()) or self.target_pos or self.melee_step_pos
+				if not self.target or not self.target_pos then
+					return
+				end
+				if self.target == SelectedObj then
+					self.target_pos = SnapToVoxel(SelectedObj:GetPos())
+				end
+				rawset(_G, "g_JAZZ_ActiveMedicineActionId", real_id)
+				local ok_check = CheckCanBeBandagedAndReport(SelectedObj, {
+					target = self.target,
+					goto_pos = self.target_pos,
+				})
+				rawset(_G, "g_JAZZ_ActiveMedicineActionId", false)
+				if not ok_check then
+					return
+				end
+				self.move_step_position = self.target_pos
+				return IModeCombatAttackBase.Confirm(self)
+			end
+			return jazz_melee_confirm_base(self, ...)
+		end
+		melee_cls.Confirm = jazz_melee_confirm_fn
+	end
+
+	rawset(_G, "g_JAZZ_MedicineMeleeUIHooks", true)
 end
 
 function JazzTryRollBleedFromHit(target, hit, attacker)
@@ -1268,6 +1458,7 @@ end
 function OnMsg.DataLoaded()
 	lInstallBandageTargetsHook()
 	lInstallCombatActionAttackStartMedHook()
+	lInstallMedicineMeleeUIHooks()
 end
 
 -- MED-001: disable vanilla HP→Wounded stack conversion (trauma/bleed replace it).
@@ -1619,15 +1810,18 @@ end
 function OnMsg.ClassesBuilt()
 	lInstallMedicineStackBandageHooks()
 	lInstallCombatActionAttackStartMedHook()
+	lInstallMedicineMeleeUIHooks()
 end
 
 function OnMsg.ModsReloaded()
 	-- Classes may be redefined; reinstall targeting + Bandage wraps.
 	lInstallBandageTargetsHook()
 	lInstallCombatActionAttackStartMedHook()
+	lInstallMedicineMeleeUIHooks()
 	-- Identity rebind in lInstall* handles wiped Unit methods; no sticky-flag skip.
 	lInstallMedicineStackBandageHooks()
 end
 
 lInstallCombatActionAttackStartMedHook()
+lInstallMedicineMeleeUIHooks()
 lInstallMedicineStackBandageHooks()
