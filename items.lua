@@ -3186,7 +3186,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 1,
@@ -3211,7 +3211,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 1,
@@ -3241,7 +3241,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 2,
@@ -3265,7 +3265,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 3,
@@ -3289,7 +3289,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 4,
@@ -3313,7 +3313,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 5,
@@ -3337,7 +3337,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 6,
@@ -3361,7 +3361,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 7,
@@ -3385,7 +3385,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 8,
@@ -3409,7 +3409,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 9,
@@ -3433,7 +3433,7 @@ return {
 				PlaceObj('TriggeredConditionalEvent', {
 					Conditions = {
 						PlaceObj('CheckExpression', {
-							Expression = function (self, obj) return not (rawget(_G, "JAZZ_NoMapsIsActive") and JAZZ_NoMapsIsActive()) end,
+							Expression = function (self, obj) return false end, -- COMPAT-008: Maps+NoMaps via LegionTierProgression.lua
 						}),
 						PlaceObj('PlayerControlSectors', {
 							Amount = 10,

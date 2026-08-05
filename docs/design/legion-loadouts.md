@@ -11,7 +11,7 @@ Design-only. Код не меняет. Runtime current-state: [`legion-units-equ
 | # | Решение |
 | --- | --- |
 | L1 | Две оси: **class T1–T4** (силаэт) и **campaign `JAZZ_Legion_Tier`** (поколение склада). Живой юнит не морфится в другой UnitData. |
-| L2 | Носитель прогресса — quest `JAZZ_LegionTier` / `JAZZ_Legion_Tier`. Текущие TCE по `PlayerControlSectors` осознанны: **демо Ernie ≈ ~20 секторов**, сетка порогов растянута под этот остров; не «случайный сырой count». Улучшения триггеров — отдельный change, не обязательны для генератора лута. |
+| L2 | Носитель прогресса — quest `JAZZ_LegionTier` / `JAZZ_Legion_Tier`. **Maps (COMPAT-008):** time на острове (~7д → `13` за ~2 нед), T2 по **оккупации** mainland surface, T3 по **5** шахтам, sub ~30д. **NoMaps (COMPAT-003):** шахта+3д / WorldFlip / 3д·14д. Legacy sector-count TCE отключены. |
 | L3 | Три **arch**: `1x` / `2x` / `3x`. Arch = скачок поколения. **Число sub и сетка `11–1N` / `21–2N` / `31–3N` = зеркало пула оружия** (`tier_label` в `weapons.csv`: сейчас `1-1…1-3`, `2-1…2-5`, `3-1…3-5`), не отдельная произвольная длина. |
 | L4 | Кодировка тира оружия `tier_label` `X-Y` = число `XY` того же языка, что `JAZZ_Legion_Tier` (`1-2` → `12`, не «гибрид»). |
 | L5 | Основной пул оружия на arch N = `balance_tier == N`. Прошлое поколение на следующем arch — **~1%** (WWII/`tier 1` на `2x`); на `3x` поколение `1` = 0%. |
@@ -454,7 +454,7 @@ Scout:
 ## 7. Quest signal и regen
 
 - Var остаётся `JAZZ_Legion_Tier`.
-- Текущие пороги по `PlayerControlSectors` завязаны на **демо Ernie (~20 секторов)** — сетка осмысленна для острова; не считать багом «сырого count» без контекста.
+- Текущие пороги Maps — time/mainland/mines ([JAZZ-COMPAT-008](../specs/active/JAZZ-COMPAT-008.md)); legacy `PlayerControlSectors` TCE отключены.
 - Материк / significant-POI триггеры — отдельный follow-up, не блокер генератора.
 - **Regen:** open / as-is (L19).
 

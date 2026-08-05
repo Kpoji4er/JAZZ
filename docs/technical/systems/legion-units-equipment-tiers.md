@@ -31,7 +31,7 @@
 | --- | --- |
 | Установленная vanilla | `UnitData`, `ModItemLootDef`, `LootEntry*`, `QuestIsVariableNum`, `PlayerControlSectors`, TCE/quest state и `CreateStartingEquipment` |
 | CommonLib | Прямого одноимённого override для описанного контракта в подтверждённом snapshot не зафиксировано |
-| `jazz` (`e6L4ECj`) | Quest `JAZZ_LegionTier`, переменная `JAZZ_Legion_Tier`, одиннадцать TCE переходов и deferred-регенерация через `Code/UtilityFunc.lua` |
+| `jazz` (`e6L4ECj`) | Quest `JAZZ_LegionTier`, переменная `JAZZ_Legion_Tier`, Maps/NoMaps progression в `Code/LegionTierProgression.lua` (legacy sector TCE gated off) и deferred-регенерация через `Code/UtilityFunc.lua` |
 | `jazz-units` (`Dv3mFVN`) | 38 классов `JAZZ_Legion_*` (incl. Recruit), их equipment presets и 739 condition references к `JAZZ_Legion_Tier` в generated LootDef snapshot |
 
 ## Файлы реализации и load-state
@@ -144,6 +144,8 @@ Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** д�
 | T3 | `JAZZ_Legion_LeaderT3_Captain` | Советник | 6 | `Marksman` | `Legion_Frontliner` | `Captain_Inventory` |
 | T4 | `JAZZ_Legion_LeaderT4_MercenaryCaptain` | Мастер | 8 | `Commander` | `Legion_Frontliner` | `MercenaryCaptain_Inventory` |
 
+`Sergeant_Firearm` (shared T1 commander kit, incl. named M1 **Рафаль**): primary tags **SMG** (`exclude_tags: ["pistol"]` — Autopistol/`Scorpion`/`MicroUZI` out of the normal scan; pistols via `JAZZ_Gen_Sidearm`); `primary_max_tier_label: "2-1"` (true SMG ladder through `M45`/`UZI`/`Agram2000`, no MP5+); `arch1_all_subs_from: 11` so balance `1-x` SMGs (e.g. `MPL`/`Sterling`) roll from day-one Amount `11`; `arch1_early_ids` (bypass `exclude_tags`): `M45`→`11`, `MAC10`→`12` (T1-2), `UZI`/`Agram2000`→`13` (T1-3).
+
 Линия диаграммы линейна: `Sergeant → Lieutenant → Captain → MercenaryCaptain`. Текущие `StartingLevel` не монотонны и не совпадают с уровнями 8/14/16/20 на diagram revision.
 
 ### Гранатомётчики
@@ -160,29 +162,31 @@ Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** д�
 
 ### Кодирование и пороги
 
-Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Tier` начинается со значения `11`. Десятки обозначают крупную группу прогрессии, единицы — ступень внутри группы. Значения `20` и `30` используются в LootDef как групповые границы, но сами TCE их не присваивают.
+Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Tier` начинается со значения `11`. Десятки обозначают крупную группу прогрессии, единицы — ступень внутри группы. Значения `20` и `30` используются в LootDef как групповые границы; runtime их не присваивает как «текущий» tier.
 
-В установленной vanilla у `PlayerControlSectors` comparator по умолчанию равен `>`. Поэтому generated TCE задают следующую зависимость от числа контролируемых игроком секторов:
+Legacy TCE по `PlayerControlSectors` в quest **заглушены** (`CheckExpression` → `false`, JAZZ-COMPAT-008). Оба профиля двигают tier только из `Code/LegionTierProgression.lua` (**только вверх**).
 
-| Секторы игрока | Условие TCE | Записываемый tier |
+### Maps: time + mainland + mines (COMPAT-008)
+
+При **не** `JAZZ_NoMapsIsActive()` — `gv_JAZZ_LegionTierMaps`:
+
+| Major | Как открывается |
+| ---: | --- |
+| 1 | старт |
+| 2 | первая **оккупация** non-Ernie **surface** сектора (`SectorSideChanged` → player1/player2). Найм мерков / travel без смены `Side` не считаются. Ernie = Id из Region `ErnieIsland.Sectors` (+ WeatherZone/City/Label fallback). |
+| 3 | **5** player-owned surface `Mine` |
+
+| Major | Шаг подтира | Потолок |
 | ---: | --- | ---: |
-| 0–1 | initial value `11`; отдельный reset TCE срабатывает при `< 1` | 11 |
-| 2 | `> 1` | 12 |
-| 3 | `> 2` | 13 |
-| 4 | `> 3` | 21 |
-| 5 | `> 4` | 22 |
-| 6 | `> 5` | 23 |
-| 7 | `> 6` | 24 |
-| 8 | `> 7` | 25 |
-| 9 | `> 8` | 31 |
-| 10 | `> 9` | 32 |
-| 11 и больше | `> 10` | 33 |
+| 1 | каждые **7** дней | `11`→`12`→`13` (~2 недели до потолка T1) |
+| 2 | каждые **30** дней | `21`…`25` |
+| 3 | каждые **30** дней | `31`→`32`→`33` |
 
-Каждому переходу соответствует `QuestVarTCEState`, поэтому это одноразовые quest events, а не формула, вычисляемая при каждом чтении. У перехода в `12` дополнительно стоит guard `JAZZ_Legion_Tier <= 23`; он не даёт поздно сработавшему раннему событию откатить уже достигнутую третью группу.
+Без mainland occupation потолок остаётся `13` (даже при долгом сидении на острове). При смене major таймер sub сбрасывается. Existing save с уже player-owned mainland surface latch'ит `mainland_at` без нового захвата.
 
 ### NoMaps: time progression (COMPAT-003) — только без maps
 
-На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) quest TCE по `PlayerControlSectors` **не срабатывают**. `Code/LegionTierProgression.lua` + `gv_JAZZ_LegionTierNoMaps` двигают `JAZZ_Legion_Tier` **только вверх** по `Game.CampaignTime`:
+На профиле `jazz-nomaps` (`JAZZ_NoMapsIsActive`) — `gv_JAZZ_LegionTierNoMaps` по `Game.CampaignTime`:
 
 | Major | Как открывается |
 | ---: | --- |
@@ -196,7 +200,7 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 | 2 | каждые **14** дней | 25 |
 | 3 | каждые **14** дней | 33 |
 
-При смене major таймер подтира сбрасывается (старт с `x1`). Сектора на NoMaps tier не влияют. Ernie/maps — прежние TCE.
+При смене major таймер подтира сбрасывается (старт с `x1`). Сектора на NoMaps tier не влияют.
 
 **Class weight (COMPAT-005):** отдельно от gear loot. NoMaps default EnemySquad remap использует `LegionJAZZSquadT1_Early` (только UnitData `*T1_*`) на major I; alias резолвится в `LegionJAZZSquadT2`/`T3` при major II/III. UnitData remap на major I всегда class T1 (`Stronger_Elite`→T4 только major III+).
 
@@ -216,8 +220,8 @@ Legacy/coarse gates (`1`–`10`) в старых списках при знач�
 
 ## Runtime flow смены снаряжения
 
-1. TCE по числу контролируемых секторов записывает новое значение `JAZZ_Legion_Tier`.
-2. `ExecuteCode` вызывает `RegenerateLegionLoot()`. Функция только ставит локальный boolean `RegenerateLegionLootVar`.
+1. `JAZZ_UpdateLegionTierForMaps` / `JAZZ_UpdateLegionTierForNoMaps` (SatelliteTick / OpenSatelliteView / SectorSideChanged / NewGame/LoadGame) поднимает `JAZZ_Legion_Tier` и вызывает `RegenerateLegionLoot()`.
+2. `RegenerateLegionLoot()` только ставит локальный boolean `RegenerateLegionLootVar`.
 3. При следующем `OnMsg.OpenSatelliteView` установленный флаг вызывает `_RegenerateLegionLoot()`.
 4. Функция проходит все `gv_Squads` и все `squad.units`.
 5. Для существующего tactical object живого non-merc юнита Легиона очищается инвентарь объекта и заново вызывается `CreateStartingEquipment(unitdata.randomization_seed)`.
@@ -274,7 +278,7 @@ Stats, perks и детальный состав инвентаря с диагр
 
 - [ ] Все 38 `JAZZ_Legion_*` зарегистрированы в `jazz-units/metadata.lua` и имеют одноимённый файл UnitData.
 - [ ] Каждый UnitData ссылается на существующий корневой equipment LootDef.
-- [ ] Quest `JAZZ_LegionTier` загружен из `jazz/items.lua`, имеет initial tier 11 и состояния для всех 11 переходов.
+- [ ] Quest `JAZZ_LegionTier` загружен из `jazz/items.lua`, initial tier 11; sector TCE gated; Maps/NoMaps формулы в `LegionTierProgression.lua`.
 - [ ] При порогах 0/2/3/4/8/9/11 контролируемых секторов наблюдаются tier 11/12/13/21/25/31/33.
 - [ ] После перехода флаг не меняет инвентарь до открытия satellite view.
 - [ ] После открытия satellite view regenerated equipment соответствует новому tier и флаг больше не вызывает повторный проход.

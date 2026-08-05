@@ -7,7 +7,7 @@ Source: `jazz-units/UnitData/JAZZ_Legion_*.lua`, quest `JAZZ_LegionTier` / `Code
 ## Two axes
 
 1. **Class T1–T4** — fixed UnitData (stats, role, AI, root preset). Living units do **not** morph mid-fight.
-2. **Campaign gear tier** `JAZZ_Legion_Tier` — loot pool for `CreateStartingEquipment`; rises with your sector count; regenerates on satellite open.
+2. **Campaign gear tier** `JAZZ_Legion_Tier` — loot pool for `CreateStartingEquipment`; rises by campaign time / mainland occupation / mines (see Gear tier); regenerates on satellite open.
 
 Satellite squad roles: [Legion strategy](legion-strategy.md).
 
@@ -88,15 +88,16 @@ Leader levels are **not** monotonic (as loaded). Strategic T4 squads need Mercen
 
 Quest var starts at **11**.
 
-**Ernie (with maps):** from your sector count (TCE in `JAZZ_LegionTier`):
+**Ernie / maps package:** time and campaign beats (not sector count):
 
-| Sectors | Tier |
-| ---: | ---: |
-| 0–1 | 11 |
-| 2 | 12 |
-| 3 | 13 |
-| 4…8 | 21…25 |
-| 9+ | 31…33 |
+| Step | Trigger | Tier |
+| --- | --- | ---: |
+| T1 sub | every **~7** campaign days | `11` → `12` → `13` (~2 weeks to T1 cap) |
+| T2-1 | **occupy** first mainland (non-Ernie) surface sector | `21` |
+| T2/T3 sub | every **~30** days after entering that major | `22`…`25` / `32`…`33` |
+| T3-1 | **5** player-owned mines | `31` |
+
+Stay on the island without taking mainland land → cap **`13`**. Hiring mercs or traveling through a sector without changing ownership does **not** unlock T2. Tier only rises.
 
 **Mainland with JAZZ Vanilla Maps (no jazz-maps):** tier **II** **3 days** after your first captured mine; tier **III** after **World Flip**. Subtiers: every **3 days** on I, every **two weeks** on II and III. Tier only rises. While tier is still **I**, map spawns use **class T1 only** (`LegionJAZZSquadT1_Early`); heavier classes unlock with major II/III.
 

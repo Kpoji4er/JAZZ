@@ -61,9 +61,7 @@ approved_by: project-owner
   guardposts после bootstrap / load.
 - `GetRegionForSector` предпочитает `LegionAIEnabled` region при коллизии списков.
 - Disabled maps-only regions очищают `Sectors` / `ManagedOutposts`.
-- При активном NoMaps `JAZZ_Legion_Tier` считается формулой mines→major, sectors→sub; Ernie TCE
-  не перетирают значение.
-- С maps (без активного NoMaps) Ernie TCE-сетка без регрессии.
+- При активном NoMaps `JAZZ_Legion_Tier` считается time-формулой (COMPAT-003); с maps — time/mainland/mines (COMPAT-008). Sector TCE не двигают tier.
 
 ## Non-goals
 
@@ -105,7 +103,7 @@ approved_by: project-owner
 | 3 | каждые **14** дней | 31→32→33 |
 
 Таймер sub сбрасывается при входе в новый major. Сектора **не** двигают tier на NoMaps.
-Maps/Ernie — прежние TCE по `PlayerControlSectors`.
+Maps/Ernie progression: **superseded by [JAZZ-COMPAT-008](JAZZ-COMPAT-008.md)** (time + mainland occupation + 5 mines; sector TCE gated off).
 
 ## Инварианты и ограничения
 
