@@ -22,9 +22,14 @@ Emerald Coast on Ernie is **J7**. Diamond Red is **A4**.
 ## Regions
 
 - **Ernie** — start M1, hub I5, fort I7, rebel base L1. Allied rebel turns on large landing fights are sped up.
-- **Pantagruel** — slums/downtown around E15–E16.
-- **Fleatown** — jungle port (H18–H19 area).
-- **Port Cacao** — city and docks around N12–N13.
+- **Seagull Island** — E3–E5 / F3–F7 / G4–G7 (landmark, no Global AI outpost yet).
+- **Great Desert** — western savanna (incl. **A10–D10** and west); Legion Global AI outpost **E10** (half-asleep until gear tier T2-1).
+- **Mountain Steppe** — highlands/center (from ~A13… toward D18); Global AI outpost **D18** (half-asleep until T2-1).
+- **La Barrier** — jungle corridor; outpost **L15**; patrols into Port Cacao / Fleatown environs; larger garrison; Major supply right after Ernie; half-asleep until T2-1.
+- **Great Forest** — G22–G25 / H–K 20–24; dual outposts **G22** + **K21** (shared treasury; squads rehome if one falls); half-asleep until T2-1.
+- **Fleatown** — jungle port; Global AI **environs** (outpost **H19**; half-asleep until T2-1).
+- **Pantagruel** — slums/downtown around E15–E16 (not savanna).
+- **Port Cacao** — city and docks around N12–N13; Global AI **environs** (outpost **P17**; half-asleep until T2-1).
 - **Landsbach** — A25–A26.
 
 Ernie sector list: [Ernie campaign](ernie-campaign.md).

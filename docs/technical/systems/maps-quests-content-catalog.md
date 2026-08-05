@@ -97,7 +97,7 @@
 | I5 | Деревня Эрни | Главный хаб; ForceConflict; setpieces `ErnieReturn_FirstEnter`, `PierreLucTalk` | `LegionErnieVillage`, `LegionExtraSquadFireArms` | — |
 | I6 | Жестянка | Связан с liberate / fortify | — | — |
 | I6_Underground | Бункер FB45-68 | Underground I6; ForceConflict | — | — |
-| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
+| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost (`ErnieIsland`) | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
 | J4 | Дорога в Эрни | Переход | — | — |
 | J5 | Фермы Эрни | City ErnieVillage | FireArms, 2×Shooters_Easy, Balanced_Easy | — |
 | J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; враги на карте (не InitialSquads); music Ernie_* | — | — |
@@ -179,7 +179,7 @@
 
 **Региональные группы:** Savanah (`RefugeeBlues`, `HunterHunted`, `DiamondRed`, …), Pantagruel, Jungle (`Sanatorium`, `Beast`, `Hermit`, …), Wetlands (`Elliot`, `Lenore`, crocodile camp helpers), Highlands (`Landsbach`, …), Farmlands (`TwinManors_copy`, …), Port Cacao, Other (MERC rescues, treasure, …).
 
-**Guardposts с патрулями (примеры):** B28 Орлиное гнездо, D18 Кам-Гран-При, D28 Разлом, E10 Кам-Саван, G22 Кам-Шьен-Саваж, I7 Форт Ло-Блё и др.
+**Guardposts с патрулями (примеры):** B28 Орлиное гнездо, **D18 Кам-Гран-При** (Global AI `MountainSteppe`), D28 Разлом, **E10 Кам-Саван** (Global AI `GreatDesert`), **G22 Кам-Шьен-Саваж** + **K21 Кам-Бьян-Шьен** (Global AI `GreatForest`, shared), **H19 Флитаун блошиный рынок** (Global AI `FleatownEnvirons`), I7 Форт Ло-Блё (Global AI `ErnieIsland`), **L15 Кам-Ла-Барьер** (Global AI `LaBarrier`, export patrol), **P17 Камп Де Крокодиль** (Global AI `PortCacaoEnvirons`) и др.
 
 **Скрытые helper-квесты силы лагерей:** `Reduce*CampStrength` (Fortress, Crocodile, Barrier, BienChien, Savanna, Crossroads, River, Major).
 
@@ -194,7 +194,7 @@
 
 1. New game → campaign `HotDiamonds` → `InitialSector` M1 → setpiece `M1Landing`.
 2. Satellite перемещение → tactical map по `Map`/`mapName`.
-3. `InitialSquads` + map spawners формируют бой; guardpost I7 использует patrol/strong/extra pools.
+3. `InitialSquads` + map spawners формируют бой; managed Global AI outposts `I7` / `E10` / `D18` / `P17` используют role lists (garrison/patrol/recon/QRF).
 4. Quest notes/badges и TCEs читают `QuestId` / sector events.
 5. Conflict/loyalty/control возвращаются на сателлит (`FactionGrantLoyalty` и core strategy).
 

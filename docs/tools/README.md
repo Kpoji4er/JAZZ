@@ -120,6 +120,14 @@
 | `_calib_optic_targets.py` | Старая калибровка рычагов ×1.2 (исторически АКМ). |
 | `_rebalance_long_scope_ow.py` | Длинная оптика: `ScopeOverwatchAngle`% уже по кратности (больше зум → уже OW). |
 | `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, **raw newline inside quoted strings**, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_apply_strategy_021_great_desert.py` | STRATEGY-021: `GreatDesert` Region + PortCacao `LateAwakenMinTier`/Starting* =0 в `jazz/items.lua` + metadata resource. |
+| `_apply_mountain_steppe_region.py` | Trim GreatDesert (drop A9–A12/B9–B12/C8–C12) + add `MountainSteppe` / D18; metadata resource. |
+| `_fix_savanna_west_from_steppe.py` | Owner fix: restore A9–A12/B9–B12/C8–C12 to `GreatDesert`; MountainSteppe from A13…; drop D11–D12 overlap. |
+| `_apply_fleatown_environs_region.py` | Add `FleatownEnvirons` / H19; drop F18 from MountainSteppe (overlap). |
+| `_apply_labarrier_region.py` | Add `LaBarrier` / L15 + Ernie `MajorSupplyPriority`; wire L15 Global AI lists. |
+| `_apply_great_forest_region.py` | Add `GreatForest` / G22+K21 shared dual-outpost; wire Global AI lists. |
+| `_verify_late_awaken_regions.py` | Print `LateAwakenMinTier` / `LegionAIEnabled` per authored Region in `jazz/items.lua`. |
+| `_restore_ernie_sectors.py` | Restore `ErnieIsland.Sectors` from `HEAD` (keeps `MajorSupplyPriority`). |
 | `_fix_metadata_last_changes_and_audit_code.py` | HOTFIX-001: чинит raw newline в `metadata.lua` `last_changes` (иначе local mod не грузится → Steam packed); аудитит все `metadata.code` пути vs disk/git (missing/case). |
 | `_append_imp001_loc.py` | JAZZ-IMP-001: RU/EN строки `890000000001931–936` (Russian.csv: Translation=RU; English.csv: Translation=EN). |
 | `_append_close_range_rollover_loc.py` | CloseRange card-row values RU/EN `890000000001937–938` (`+N (tiles)` / `−N% (tiles)`); label = `982641736210`. |

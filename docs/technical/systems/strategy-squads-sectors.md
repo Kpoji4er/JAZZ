@@ -67,9 +67,9 @@ Dormant/unlisted core-файлы:
 
 Maps добавляет четыре `GuardpostObjective` ModItems. Units предоставляет enemy squads/roles/UnitData, которые guardpost должен уметь создать.
 
-### Пилот Legion Global AI: `ErnieIsland` / `I7`
+### Legion Global AI: `ErnieIsland` / `I7` и `PortCacaoEnvirons` / `P17`
 
-Пилот включён только для Region `ErnieIsland`, управляемого аванпоста `I7` и штаба Майора `B28`; остальные guardposts продолжают legacy-путь. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema **`3`** ($ + manpower). Existing save со schema `1` мигрирует на `$` (v2), затем на manpower pools (v3). Начальный Heat региона — максимум Heat секторов с clamp `0..1000`; director сверяет существующие и исчезнувшие отряды.
+Managed Regions с `LegionAIEnabled`: **`ErnieIsland`** (`I7`, MajorSupplyPriority **100**); **`LaBarrier`** (`L15`, export patrol → Какао/Флитаун, GarrisonCapBonus **+4**, PatrolCap **4**, MajorSupplyPriority **80**); **`GreatForest`** (`G22`+`K21`, shared `$`/manpower/diamond, orphan rehome); **`PortCacaoEnvirons`** (`P17`); **`GreatDesert`** (`E10`); **`MountainSteppe`** (`D18`); **`FleatownEnvirons`** (`H19`); landmark **`SeagullIsland`**. Материковые late-awaken (`LateAwakenMinTier=21`): до T2-1 экономика ÷10, spawn gate ×10, без QRF, старт $0/manpower 0, recruiter после Major delivery. Major supply/manpower: сначала **MajorSupplyPriority**, затем беднее `$`. Regions с **≥2** ManagedOutposts шарят казну/manpower/diamond (доход раз на регион); при потере аванпоста ресурсы и регулярные отряды переходят к enabled sibling (STRATEGY-023). Остальные guardposts — legacy. Статическая конфигурация находится в Region/SatelliteSector presets, а изменяемый source of truth — versioned `GameVar("gv_JAZZ_LegionAI", ...)` со schema **`3`** ($ + manpower). Existing save со schema `1` мигрирует на `$` (v2), затем на manpower pools (v3). Начальный Heat региона — максимум Heat секторов с clamp `0..1000`; director сверяет существующие и исчезнувшие отряды.
 
 Почасовой tick: base passive `$` (default **0**) пишется в `outpost.money` (capacity **120000**); mine `$` копятся в `diamond_stock` и едут shipment’ом. City/farm `$` **не** льются hourly в аванпост — копятся в `region_state.poi_money` пульсом раз в **4** суток (`POIGenerationInterval` **96h**; authored city **$2500** / farm **$800**; stock cap authored `PoiMoneyCap` **12000**) и доезжают ролью `tax`. **STRATEGY-016:** runtime `JAZZ_LegionEconomyScalePct=25` (÷4) умножает `$`/алмазные rates + starting pools + shipment/tax cargo thresholds при `lConfig` (manpower floors 8/16). Hourly tick в `major.money` не пишет. Major capacity **1200000**, starting authored **120000**. TaxCap **1**, TaxThreshold **1000** (не scaled), TaxCargoMax scaled, cooldown **48h**. Командное окно **12h**. Роли пилота:
 
@@ -168,7 +168,7 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 Без maps (с nomaps):
 
-- отключает maps-only Region `ErnieIsland` (I7/B28) и **очищает `Sectors`/`ManagedOutposts`**, чтобы I2–I7 не shadow'или `JAZZ_Auto_*` в `GetRegionForSector`;
+- отключает maps-only Regions `ErnieIsland`, `PortCacaoEnvirons`, `GreatDesert`, `MountainSteppe`, `FleatownEnvirons`, `LaBarrier`, `GreatForest` и **очищает `Sectors`/`ManagedOutposts`**, чтобы maps-география не shadow'ила `JAZZ_Auto_*` в `GetRegionForSector`;
 - строит `JAZZ_Auto_<guardpost>` по vanilla Guardpost (A20, D10, E16, F7, F19, G10, H4, H14);
 - **COMPAT-006** (nomaps **0.9.11**): multi-outpost Voronoi + `#ManagedOutposts≤1` + `ai_region_rev`; hard Chebyshev **R=3** убрал чужие Guardpost, но оставил периферийные orphans;
 - **COMPAT-007** (nomaps **0.9.12**): **unbounded** nearest-outpost Voronoi — каждый surface-сектор (не Water/Blocked/GroundSector) ровно в одном `JAZZ_Auto_*`; `foreign_gp=0`; `AI_REGION_REV=2` пересобирает `Sectors` на existing saves;

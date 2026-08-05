@@ -46,6 +46,10 @@ approved_by: project-owner
 | JAZZ-STRATEGY-015 | Medic density: Bonemaker reserved ~1 / 10–20 (min 1 at n≥10, `floor(n/15)`) in combat generator |
 | JAZZ-STRATEGY-016 | Early→mature squad sizes (B+C); diamond/`$` income ×0.25 (÷4); slower cadence; **NoMaps smaller size table** |
 | JAZZ-STRATEGY-017 | Tagged money cargo in inventory for tax/shipment/supply; survives loot regen; live resync |
+| JAZZ-STRATEGY-020 | Maps: `PortCacaoEnvirons` / `P17` (approved; runtime playtest open) |
+| JAZZ-STRATEGY-021 | `GreatDesert` / `E10` + late-awaken ≤T2-1 + Major neediest supply |
+| JAZZ-STRATEGY-022 | `LaBarrier` / L15 + export patrol / garrison bonus / Major priority |
+| JAZZ-STRATEGY-023 | `GreatForest` / G22+K21 + shared multi-outpost resources + orphan rehome |
 
 ## Валюта (утверждено)
 
@@ -184,6 +188,18 @@ Owner 2026-08-02 (**implemented** static; runtime AC open):
 - Tax/recruiter: новые аванпосты ждут **72h** перед первым выездом.
 - Глобальный пул новых managed-спавнов / **24h**: tier I/II/III → **1/2/3**.
 - Командное окно: tax → recruiter → combat → потом supply/shipment/manpower.
+
+### 11. Maps Port Cacao region → approved [JAZZ-STRATEGY-020](JAZZ-STRATEGY-020.md)
+
+Owner 2026-08-05: второй managed Region `PortCacaoEnvirons` (outpost `P17`, Major `B28`, сектора P8–P20 / O10–O20 / N11–N16).
+
+### 12. GreatDesert + mainland late-awaken → approved [JAZZ-STRATEGY-021](JAZZ-STRATEGY-021.md)
+
+Owner 2026-08-05: `GreatDesert` / `E10`; `LateAwakenMinTier=21` (÷10 economy, ×10 spawn gate, no QRF, recruiter after Major delivery); Major neediest-first supply.
+
+### 13. GreatForest dual-outpost + shared resources → approved [JAZZ-STRATEGY-023](JAZZ-STRATEGY-023.md)
+
+Owner 2026-08-05: `GreatForest` / G22+K21; shared `$`/manpower/diamond across ManagedOutposts; orphan rehome to sibling when one outpost falls.
 
 ## Иконки (ассеты)
 

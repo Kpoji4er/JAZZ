@@ -40,6 +40,10 @@ DefineClass.Region = {
   
     properties = {
       { category = "Legion AI", id = "LegionAIEnabled", name = "Enable Legion AI", editor = "bool", default = false },
+      { category = "Legion AI", id = "LateAwakenMinTier", name = "Late awaken min tier", editor = "number", default = 0, min = 0, max = 99, help = "0 = always awake. 21 = dormant until Legion tier T2-1 (STRATEGY-021): ÷10 economy, ×10 combat spawn gate, no QRF, recruiter after Major delivery." },
+      { category = "Legion AI", id = "ExportPatrolRegionIds", name = "Export patrol into regions", editor = "string_list", default = {}, item_default = "", help = "STRATEGY-022: patrol may also target key/POI sectors of these Region Ids (e.g. neighbors)." },
+      { category = "Legion AI", id = "GarrisonCapBonus", name = "Garrison cap bonus", editor = "number", default = 0, min = 0, max = 20, help = "STRATEGY-022: added to dynamic garrison cap (important sectors + 1)." },
+      { category = "Legion AI", id = "MajorSupplyPriority", name = "Major supply priority", editor = "number", default = 0, min = 0, max = 1000, help = "STRATEGY-022: higher gets Major supply/manpower before poorer outposts (Ernie=100, LaBarrier=80)." },
       { category = "Legion AI", id = "ManagedOutposts", name = "Managed outposts", editor = "string_list", default = {}, item_default = "", items = function(self) return GetCampaignSectorsCombo("") end },
       { category = "Legion AI", id = "MajorHQSector", name = "Major HQ sector", editor = "combo", default = "", items = function(self) return GetCampaignSectorsCombo("") end },
       { category = "Legion AI", id = "CommandInterval", name = "Command interval (hours)", editor = "number", default = 12 * const.Scale.h, scale = const.Scale.h, min = const.Scale.h, max = 168 * const.Scale.h },

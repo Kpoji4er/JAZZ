@@ -302,6 +302,117 @@ local function lGetRegionPreset(region_id)
 	return false
 end
 
+-- STRATEGY-021: mainland LateAwakenMinTier regions stay half-asleep until Legion tier.
+local function lLegionTierNumber()
+	local tier = (JAZZ_GetLegionTier and JAZZ_GetLegionTier()) or 11
+	return tonumber(tier) or 11
+end
+
+local function lRegionLateAwakenMin(region)
+	return tonumber(region and region.LateAwakenMinTier) or 0
+end
+
+local function lRegionDormant(region)
+	local min_tier = lRegionLateAwakenMin(region)
+	if min_tier <= 0 then
+		return false
+	end
+	return lLegionTierNumber() < min_tier
+end
+
+local function lDormantIncomeDiv(region)
+	return lRegionDormant(region) and 10 or 1
+end
+
+local function lNoteMajorDelivery(outpost)
+	if not outpost then
+		return
+	end
+	outpost.major_delivery_done = true
+	-- STRATEGY-023: shared region — one Major delivery unlocks recruiter for all outposts.
+	local root = gv_JAZZ_LegionAI
+	local region = lGetRegionPreset(outpost.region_id)
+	if root and region and #(region.ManagedOutposts or empty_table) >= 2 then
+		for _, sector_id in ipairs(region.ManagedOutposts or empty_table) do
+			local sibling = root.outposts[sector_id]
+			if sibling then
+				sibling.major_delivery_done = true
+			end
+		end
+	end
+end
+
+local function lOutpostSupplyTrigger(region)
+	local capacity = lOutpostMoneyCapacity(region)
+	return MulDivRound(capacity, lConfig(region, "SupplyConvoyTriggerPercent", 40), 100)
+end
+
+local function lOutpostWantsSupply(root, region, outpost)
+	if not outpost or not outpost.enabled then
+		return false
+	end
+	local cargo = lConfig(region, "SupplyConvoyCargo", 12000)
+	if (root.major.money or 0) < cargo then
+		return false
+	end
+	return (outpost.money or 0) < lOutpostSupplyTrigger(region)
+end
+
+--- Among enabled outposts that want supply, prefer higher MajorSupplyPriority,
+--- then lowest money (then sector id).
+local function lIsNeediestSupplyOutpost(root, candidate)
+	if not candidate then
+		return false
+	end
+	local cand_region = lGetRegionPreset(candidate.region_id)
+	local cand_pri = tonumber(cand_region and cand_region.MajorSupplyPriority) or 0
+	local cand_money = candidate.money or 0
+	local cand_id = candidate.sector_id or ""
+	for _, outpost in sorted_pairs(root.outposts or empty_table) do
+		if outpost.enabled and outpost.sector_id ~= cand_id then
+			local region = lGetRegionPreset(outpost.region_id)
+			if region and lOutpostWantsSupply(root, region, outpost) then
+				local other_pri = tonumber(region.MajorSupplyPriority) or 0
+				local other_money = outpost.money or 0
+				local other_id = outpost.sector_id or ""
+				if other_pri > cand_pri
+					or (other_pri == cand_pri and other_money < cand_money)
+					or (other_pri == cand_pri and other_money == cand_money and other_id < cand_id)
+				then
+					return false
+				end
+			end
+		end
+	end
+	return true
+end
+
+--- Among enabled outposts with manpower==0, prefer MajorSupplyPriority then lowest money.
+local function lIsNeediestManpowerOutpost(root, candidate)
+	if not candidate or (candidate.manpower or 0) > 0 then
+		return false
+	end
+	local cand_region = lGetRegionPreset(candidate.region_id)
+	local cand_pri = tonumber(cand_region and cand_region.MajorSupplyPriority) or 0
+	local cand_money = candidate.money or 0
+	local cand_id = candidate.sector_id or ""
+	for _, outpost in sorted_pairs(root.outposts or empty_table) do
+		if outpost.enabled and outpost.sector_id ~= cand_id and (outpost.manpower or 0) <= 0 then
+			local region = lGetRegionPreset(outpost.region_id)
+			local other_pri = tonumber(region and region.MajorSupplyPriority) or 0
+			local other_money = outpost.money or 0
+			local other_id = outpost.sector_id or ""
+			if other_pri > cand_pri
+				or (other_pri == cand_pri and other_money < cand_money)
+				or (other_pri == cand_pri and other_money == cand_money and other_id < cand_id)
+			then
+				return false
+			end
+		end
+	end
+	return true
+end
+
 local function lContains(list, value)
 	return list and table.find(list, value) and true or false
 end
@@ -366,18 +477,95 @@ local function lInitialRegionHeat(region)
 	return lClampHeat(heat)
 end
 
+-- STRATEGY-023: multi-outpost Regions share $ / manpower / diamond stock.
+local function lRegionHasSharedOutposts(region)
+	return region and #(region.ManagedOutposts or empty_table) >= 2
+end
+
+local function lSyncSharedOutpostResources(root, region, source)
+	if not root or not source or not lRegionHasSharedOutposts(region) then
+		return
+	end
+	local money = source.money or 0
+	local manpower = source.manpower or 0
+	local diamond = source.diamond_stock or 0
+	for _, sector_id in ipairs(region.ManagedOutposts or empty_table) do
+		local outpost = root.outposts[sector_id]
+		if outpost then
+			outpost.money = money
+			outpost.manpower = manpower
+			outpost.diamond_stock = diamond
+		end
+	end
+end
+
+local function lFindEnabledSiblingOutpost(root, region_id, exclude_sector)
+	if not root or not region_id then
+		return false, false
+	end
+	for sector_id, outpost in sorted_pairs(root.outposts or empty_table) do
+		if outpost
+			and outpost.region_id == region_id
+			and outpost.enabled
+			and sector_id ~= exclude_sector
+		then
+			return sector_id, outpost
+		end
+	end
+	return false, false
+end
+
+--- Claim orphans whose home is disabled; rehome to this enabled outpost (same region).
+local function lClaimRegionOrphans(root, outpost)
+	if not root or not outpost or not outpost.enabled then
+		return 0
+	end
+	local claimed = 0
+	for squad_id, squad_state in sorted_pairs(root.squads or empty_table) do
+		if squad_state.region_id == outpost.region_id
+			and squad_state.state == "orphaned"
+			and lRegularRoles[squad_state.role]
+		then
+			local home = root.outposts[squad_state.home_sector]
+			if not home or not home.enabled or squad_state.home_sector == outpost.sector_id then
+				squad_state.home_sector = outpost.sector_id
+				squad_state.task = false
+				squad_state.state = "ready_for_orders"
+				claimed = claimed + 1
+				local squad = gv_Squads and gv_Squads[squad_id]
+				if squad then
+					ObjModified(squad)
+				end
+			end
+		end
+	end
+	return claimed
+end
+
 local function lEnsureOutpost(root, region, region_state, sector_id)
 	local sector = gv_Sectors and gv_Sectors[sector_id]
 	local controlled = sector and JAZZ_IsLegionSide(sector.Side) or false
 	local outpost = root.outposts[sector_id]
 	if not outpost then
+		-- STRATEGY-023: additional outposts in a shared region start empty and pull from siblings.
+		local start_money = lConfig(region, "StartingSupply", 12000)
+		local start_manpower = lConfig(region, "StartingManpower", 20)
+		if lRegionHasSharedOutposts(region) then
+			for _, other_id in ipairs(region.ManagedOutposts or empty_table) do
+				if other_id ~= sector_id and root.outposts[other_id] then
+					start_money = 0
+					start_manpower = 0
+					break
+				end
+			end
+		end
 		outpost = {
 			sector_id = sector_id,
 			region_id = lRegionId(region),
 			enabled = controlled,
 			owner_faction = "legion",
-			money = lConfig(region, "StartingSupply", 12000),
-			manpower = lConfig(region, "StartingManpower", 20),
+			money = start_money,
+			manpower = start_manpower,
 			diamond_stock = 0,
 			next_command_time = lNow() + lInterval(region, "CommandInterval", 12 * lHourScale()),
 			reboot_until = 0,
@@ -389,6 +577,15 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 			logistics_open_at = lNow() + 72 * lHourScale(),
 		}
 		root.outposts[sector_id] = outpost
+		if start_money == 0 and lRegionHasSharedOutposts(region) then
+			for _, other_id in ipairs(region.ManagedOutposts or empty_table) do
+				local other = root.outposts[other_id]
+				if other and other_id ~= sector_id then
+					lSyncSharedOutpostResources(root, region, other)
+					break
+				end
+			end
+		end
 	end
 	outpost.retake_targets = outpost.retake_targets or {}
 	outpost.last_tax_time = outpost.last_tax_time or 0
@@ -428,7 +625,7 @@ local function lEnsureOutpost(root, region, region_state, sector_id)
 	return outpost
 end
 
--- NoMaps (COMPAT-004): never latch Major HQ from maps-only ErnieIsland / disabled regions.
+-- NoMaps (COMPAT-004): never latch Major HQ from maps-only regions / disabled regions.
 local function lJazzMapsModLoaded()
 	if rawget(_G, "IsModLoaded") then
 		return not not IsModLoaded("FhNNYd")
@@ -462,8 +659,10 @@ local function lMayAdoptMajorHQ(region)
 		return false
 	end
 	local rid = lRegionId(region)
-	if rid == "ErnieIsland" and lNoMapsProfileLikely() then
-		return false
+	if rid == "ErnieIsland" or rid == "PortCacaoEnvirons" or rid == "GreatDesert" or rid == "MountainSteppe" or rid == "FleatownEnvirons" or rid == "LaBarrier" or rid == "GreatForest" then
+		if lNoMapsProfileLikely() then
+			return false
+		end
 	end
 	return true
 end
@@ -975,12 +1174,38 @@ local function lCountImportantLegionSectors(region)
 end
 
 local function lGarrisonCap(region)
-	-- Cap = important Legion sectors + 1 (fallback to preset if region empty).
+	-- Cap = important Legion sectors + 1 (fallback to preset if region empty)
+	-- + authored GarrisonCapBonus (STRATEGY-022 barrier / doctrine).
 	local key_count = lCountImportantLegionSectors(region)
+	local base
 	if key_count > 0 then
-		return key_count + 1
+		base = key_count + 1
+	else
+		base = lConfig(region, "GarrisonCap", 2)
 	end
-	return lConfig(region, "GarrisonCap", 2)
+	local bonus = tonumber(region and region.GarrisonCapBonus) or 0
+	return base + Max(0, bonus)
+end
+
+local function lPatrolSectorPool(region)
+	local pool = {}
+	local seen = {}
+	local function add_from(reg)
+		if not reg then
+			return
+		end
+		for _, sector_id in ipairs(reg.Sectors or empty_table) do
+			if not seen[sector_id] then
+				seen[sector_id] = true
+				pool[#pool + 1] = sector_id
+			end
+		end
+	end
+	add_from(region)
+	for _, rid in ipairs(region and region.ExportPatrolRegionIds or empty_table) do
+		add_from(lGetRegionPreset(rid))
+	end
+	return pool
 end
 
 local function lCountRegionRole(root, region_id, role)
@@ -998,9 +1223,14 @@ end
 
 local function lOutpostCanSpawn(outpost)
 	-- Combat fill only: one new regular spawn per outpost per 48h (STRATEGY-016 cadence).
+	-- Late-awaken dormant: ×10 gate (STRATEGY-021).
 	-- Logistics (tax/recruiter/supply/shipment/manpower) use their own cooldowns
 	-- and must not be starved by garrison/patrol while-loops in the same window.
 	local gate = 48 * lHourScale()
+	local region = outpost and lGetRegionPreset(outpost.region_id)
+	if lRegionDormant(region) then
+		gate = gate * 10
+	end
 	return (outpost.last_spawn_time or 0) + gate <= lNow()
 end
 
@@ -1112,9 +1342,10 @@ end
 
 local function lPatrolTarget(root, region, region_state, squad)
 	local entries = {}
-	for _, sector_id in ipairs(region.Sectors or empty_table) do
+	for _, sector_id in ipairs(lPatrolSectorPool(region)) do
 		local sector = gv_Sectors[sector_id]
 		-- Side is ignored: patrol may enter player-controlled key/POI sectors.
+		-- ExportPatrolRegionIds (STRATEGY-022) extend the pool into neighbor regions.
 		if sector_id ~= squad.CurrentSector
 			and lSectorIsSurface(sector)
 			and lSectorIsKey(sector)
@@ -2229,6 +2460,8 @@ local function lOnSquadArrived(root, squad, squad_state)
 			)
 			squad_state.payload.money = 0
 			lClearTaggedMoneyCargo(squad)
+			lNoteMajorDelivery(outpost)
+			lSyncSharedOutpostResources(root, region, outpost)
 		end
 		-- Park/rest at Major HQ after delivery (home becomes HQ).
 		squad_state.home_sector = root.major.hq_sector
@@ -2296,6 +2529,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 				)
 				squad_state.payload.money = 0
 				lClearTaggedMoneyCargo(squad)
+				lSyncSharedOutpostResources(root, region, outpost)
 			end
 			squad_state.missions_left = 0
 			lBeginBaseRest(root, squad, squad_state)
@@ -2384,6 +2618,7 @@ local function lOnSquadArrived(root, squad, squad_state)
 					outpost.outbound_manpower = (outpost.outbound_manpower or 0) + overflow
 				end
 				outpost.manpower = Min((outpost.manpower or 0) + delivered, capacity)
+				lSyncSharedOutpostResources(root, region, outpost)
 				lLog(string.format(
 					"recruiter %s deposited %d manpower at %s (now %d, outbound %d); resting",
 					tostring(squad.UniqueId),
@@ -2450,6 +2685,10 @@ local function lOnSquadArrived(root, squad, squad_state)
 					squad_state.payload.manpower = #leftover
 				end
 				outpost.manpower = Min((outpost.manpower or 0) + deposited, capacity)
+				if deposited > 0 then
+					lNoteMajorDelivery(outpost)
+					lSyncSharedOutpostResources(root, region, outpost)
+				end
 			end
 			squad_state.home_sector = root.major.hq_sector
 			lBeginReturn(root, squad, squad_state, "rest")
@@ -2605,6 +2844,9 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 end
 
 local function lSpawnRegularRole(root, region, region_state, outpost, role)
+	if role == "qrf" and lRegionDormant(region) then
+		return false
+	end
 	if not lOutpostCanSpawn(outpost) then
 		return false
 	end
@@ -2753,6 +2995,10 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 	local trigger = MulDivRound(capacity, lConfig(region, "SupplyConvoyTriggerPercent", 40), 100)
 	local cargo = lConfig(region, "SupplyConvoyCargo", 12000)
 	if (outpost.money or 0) >= trigger or (root.major.money or 0) < cargo then
+		return false
+	end
+	-- STRATEGY-021: Major feeds the poorest outpost first.
+	if not lIsNeediestSupplyOutpost(root, outpost) then
 		return false
 	end
 	local hq_sector = root.major.hq_sector
@@ -2990,6 +3236,10 @@ local function lTryRecruiter(root, region, region_state, outpost)
 	if not lLogisticsOpen(outpost) then
 		return false
 	end
+	-- Late-awaken: recruiter only after first Major supply/manpower delivery.
+	if lRegionLateAwakenMin(region) > 0 and not outpost.major_delivery_done then
+		return false
+	end
 	local cooldown = lConfig(region, "RecruiterCooldown", 48 * lHourScale())
 	if (outpost.last_recruiter_time or 0) + cooldown > lNow() then
 		return false
@@ -3051,6 +3301,10 @@ end
 local function lTryManpowerConvoy(root, region, region_state, outpost)
 	-- Major → outpost only when the outpost has no manpower left.
 	if (outpost.manpower or 0) > 0 then
+		return false
+	end
+	-- STRATEGY-021: among empty outposts, feed the poorest $ first.
+	if not lIsNeediestManpowerOutpost(root, outpost) then
 		return false
 	end
 	if lActiveRole(root, region_state.region_id, outpost.sector_id, "manpower") then
@@ -3208,6 +3462,7 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 		return
 	end
 
+	lClaimRegionOrphans(root, outpost)
 	lRestoreOrphans(root, outpost)
 	lRefreshRetakeTargets(region, outpost)
 	lCompleteWorkingTasks(root, region, region_state, outpost)
@@ -3231,9 +3486,43 @@ local function lRunCommandWindow(root, region, region_state, outpost)
 	lTryDiamondShipment(root, region, region_state, outpost)
 	lTryManpowerOutbound(root, region, region_state, outpost)
 	lTryManpowerConvoy(root, region, region_state, outpost)
+	-- STRATEGY-023: push spends/gains to sibling outposts.
+	lSyncSharedOutpostResources(root, region, outpost)
 end
 
 local function lParalyzeOutpost(root, outpost)
+	local region = lGetRegionPreset(outpost.region_id)
+	local sibling_id, sibling = lFindEnabledSiblingOutpost(root, outpost.region_id, outpost.sector_id)
+	if sibling then
+		-- Merge treasury into surviving outpost, then rehome regular squads.
+		local cap = lOutpostMoneyCapacity(region)
+		sibling.money = Min((sibling.money or 0) + (outpost.money or 0), cap)
+		sibling.manpower = (sibling.manpower or 0) + (outpost.manpower or 0)
+		sibling.diamond_stock = (sibling.diamond_stock or 0) + (outpost.diamond_stock or 0)
+		outpost.money = 0
+		outpost.manpower = 0
+		outpost.diamond_stock = 0
+		lSyncSharedOutpostResources(root, region, sibling)
+		for squad_id, squad_state in sorted_pairs(root.squads) do
+			local squad = gv_Squads[squad_id]
+			if squad_state.home_sector == outpost.sector_id and squad then
+				if lRegularRoles[squad_state.role] then
+					squad_state.home_sector = sibling_id
+					squad_state.task = false
+					squad_state.state = "ready_for_orders"
+					ObjModified(squad)
+					if IsSquadTravelling(squad, "skip_tick_pass") then
+						NetSyncEvent("SquadCancelTravel", squad_id)
+					end
+				elseif squad_state.role == "supply" then
+					squad_state.home_sector = root.major.hq_sector
+					lBeginReturn(root, squad, squad_state)
+				end
+			end
+		end
+		outpost.enabled = false
+		return
+	end
 	outpost.enabled = false
 	for squad_id, squad_state in sorted_pairs(root.squads) do
 		local squad = gv_Squads[squad_id]
@@ -3343,19 +3632,39 @@ local function lTickEconomyAndHeat(root, region, region_state)
 		end
 	end
 
+	local shared = lRegionHasSharedOutposts(region)
+	local income_outpost = false
 	for sector_id in sorted_pairs(region_state.outposts) do
 		local outpost = root.outposts[sector_id]
 		local sector = gv_Sectors[sector_id]
-		if outpost.enabled and sector and JAZZ_IsLegionSide(sector.Side) then
-			-- Base passive stays on outpost; city/farm $ wait for tax pulse; mine → shipment stock.
-			local income = lConfig(region, "PassiveSupplyPerHour", 0)
-			outpost.money = Min(
-				(outpost.money or 0) + income,
-				lOutpostMoneyCapacity(region)
-			)
-			outpost.diamond_stock = (outpost.diamond_stock or 0)
-				+ legion_mines * lConfig(region, "MineDiamondPerHour", 250)
+		if outpost and outpost.enabled and sector and JAZZ_IsLegionSide(sector.Side) then
+			if shared then
+				income_outpost = income_outpost or outpost
+			else
+				-- Base passive stays on outpost; city/farm $ wait for tax pulse; mine → shipment stock.
+				local income = lConfig(region, "PassiveSupplyPerHour", 0)
+				income = DivRound(income, lDormantIncomeDiv(region))
+				outpost.money = Min(
+					(outpost.money or 0) + income,
+					lOutpostMoneyCapacity(region)
+				)
+				local mine_income = legion_mines * lConfig(region, "MineDiamondPerHour", 250)
+				mine_income = DivRound(mine_income, lDormantIncomeDiv(region))
+				outpost.diamond_stock = (outpost.diamond_stock or 0) + mine_income
+			end
 		end
+	end
+	if income_outpost then
+		local income = lConfig(region, "PassiveSupplyPerHour", 0)
+		income = DivRound(income, lDormantIncomeDiv(region))
+		income_outpost.money = Min(
+			(income_outpost.money or 0) + income,
+			lOutpostMoneyCapacity(region)
+		)
+		local mine_income = legion_mines * lConfig(region, "MineDiamondPerHour", 250)
+		mine_income = DivRound(mine_income, lDormantIncomeDiv(region))
+		income_outpost.diamond_stock = (income_outpost.diamond_stock or 0) + mine_income
+		lSyncSharedOutpostResources(root, region, income_outpost)
 	end
 
 	if region_state.next_heat_decay_time <= lNow() then
@@ -3400,6 +3709,7 @@ local function lTickEconomyAndHeat(root, region, region_state)
 						end
 						-- Mines/ports/guardposts do not accrue tax stock here.
 						if money_add > 0 then
+							money_add = DivRound(money_add, lDormantIncomeDiv(region))
 							region_state.poi_money[sector_id] = Min(
 								(region_state.poi_money[sector_id] or 0) + money_add,
 								money_cap
@@ -3427,10 +3737,13 @@ local function lTickEconomyAndHeat(root, region, region_state)
 							cap = Max(cap, lConfig(region, "PortRecruitCap", 8))
 						end
 						if recruit_add > 0 then
-							region_state.poi_recruits[sector_id] = Min(
-								(region_state.poi_recruits[sector_id] or 0) + recruit_add,
-								cap
-							)
+							recruit_add = DivRound(recruit_add, lDormantIncomeDiv(region))
+							if recruit_add > 0 then
+								region_state.poi_recruits[sector_id] = Min(
+									(region_state.poi_recruits[sector_id] or 0) + recruit_add,
+									cap
+								)
+							end
 						end
 					end
 				end
