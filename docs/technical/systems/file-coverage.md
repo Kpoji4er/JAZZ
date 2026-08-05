@@ -17,6 +17,7 @@
 | `CombatBadge_DeathRoll.lua` | loaded | [Бой](combat-cth-actions.md), [UI](ui-audio-fx.md) |
 | `System_Firearm_AddProperties.lua` | loaded | [Оружие](weapons-ammo-components.md) |
 | `System_OR_Weapons.lua` | loaded | [Оружие](weapons-ammo-components.md) |
+| `System_EmplacementAmmo.lua` | loaded | [Оружие](weapons-ammo-components.md) — remap cut `_50BMG_*` emplacement ammo → `JAZZ_AMMO_50BMG_*` |
 | `System_WeaponResourceMaintenance.lua` | loaded | [Оружие](weapons-ammo-components.md), [инвентарь](inventory-items-loot-crafting.md) — JAZZ-WEAPONS-002 resource triad / jam wear |
 | `WeaponClasses.lua` | loaded | [Оружие](weapons-ammo-components.md) |
 | `System_DisposableLaunchers.lua` | loaded | [Оружие](weapons-ammo-components.md), [взрывчатка](explosives-traps-heavy-weapons.md) |
@@ -68,6 +69,7 @@
 | `Camera.lua` | loaded | [Видимость](visibility-weather-appearance.md), [бой](combat-cth-actions.md) |
 | `SpecializationGiver.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_AimHiringFilters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
+| `System_HireContractDuration.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AIM/AME chat `MaxDuration` 14→30 |
 | `System_AME_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME PDA filters (UNITS-005) |
 | `System_AME_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAAIMEBrowser` + tab/hire wrap (UNITS-005) |
 | `System_AME_Market.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME market tick/state (UNITS-005) |

@@ -1,0 +1,4 @@
+890000000010277,Контузия,Concussion
+890000000010278,Дезориентация от взрыва: <color EmStyle>−<APLoss> ОД</color>, <color EmStyle>−<cth_penalty>% к точности</color>, стоимость хода <color EmStyle>+<move_ap_modifier>%</color>, без Free Move. Около 1–2 ходов.,Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns.
+890000000010279,<color EmStyle><DisplayName></color> контужен,<color EmStyle><DisplayName></color> is concussed
+890000000010280,<color EmStyle><DisplayName></color> приходит в себя после контузии,<color EmStyle><DisplayName></color> clears concussion

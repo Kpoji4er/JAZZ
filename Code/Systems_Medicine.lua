@@ -394,6 +394,77 @@ function JazzTryBehindArmorTrauma(unit, hit, attacker)
 	return true
 end
 
+-- Damaging blast (aoeType none): guaranteed concussion + trauma chance.
+-- Smoke/tear/toxic/fire skip. Flashbang (0 dmg, aoe none) still gets concussion.
+-- Blast statuses ignore ballistic pierce. TempHitPoints still blocks this package.
+function JazzIsBlastExplosiveHit(hit)
+	if not hit or not hit.explosion or hit.grazing then
+		return false
+	end
+	local aoe = hit.aoe_type
+	if aoe == nil or aoe == false or aoe == "" then
+		local w = hit.weapon
+		if w and w.aoeType then
+			aoe = w.aoeType
+		end
+	end
+	aoe = aoe or "none"
+	-- Only pure blast (frag/HE/flashbang/demo). Smoke/tear/toxic/fire use other packages.
+	return aoe == "none"
+end
+
+function JazzTryApplyExplosionConcussionAndTrauma(unit, hit, attacker)
+	if not unit or not JazzIsBlastExplosiveHit(hit) then
+		return false
+	end
+	if (unit.TempHitPoints or 0) > 0 then
+		return false
+	end
+	local center = hit.explosion_center
+	local trauma_gate = center and 100 or 40 -- center always attempts *shot-style trauma roll
+
+	local applied_conc = false
+	if CharacterEffectDefs and CharacterEffectDefs.Concussion then
+		unit:AddStatusEffect("Concussion")
+		applied_conc = true
+	end
+
+	local applied_trauma = false
+	-- When CenterAppliedEffects already listed *shot and pierce bypass applied them,
+	-- skip a second trauma roll to avoid stacking three body-part rollers + this gate.
+	local effects = hit.effects
+	local has_shot_roller = false
+	if type(effects) == "table" then
+		for _, effect in ipairs(effects) do
+			if effect == "Headshot" or effect == "Armsshot" or effect == "Legsshot"
+				or effect == "Torsoshot" or effect == "Groinshot" then
+				has_shot_roller = true
+				break
+			end
+		end
+	elseif effects == "Headshot" or effects == "Armsshot" or effects == "Legsshot"
+		or effects == "Torsoshot" or effects == "Groinshot" then
+		has_shot_roller = true
+	end
+	if not has_shot_roller and unit:Random(100) < trauma_gate then
+		local zones = { "Arms", "Legs", "Ribs", "Head" }
+		local zone
+		if center and unit:Random(100) < 40 then
+			zone = "Head"
+		elseif center and unit:Random(100) < 50 then
+			zone = "Ribs"
+		else
+			zone = zones[1 + unit:Random(#zones)]
+		end
+		applied_trauma = JazzTryRollTraumaFromBodyPart(unit, zone) and true or false
+	end
+
+	if applied_conc or applied_trauma then
+		Msg("JAZZ_ExplosionConcussionTrauma", unit, hit, attacker, applied_conc, applied_trauma)
+	end
+	return applied_conc or applied_trauma
+end
+
 function JazzRemapHitBleedEffect(effect, hit, attacker)
 	if effect ~= "Bleeding" then
 		return effect

@@ -37,23 +37,48 @@ def escape(s: str) -> str:
 
 
 def collect_lua_hints() -> dict[int, set[tuple[str, str]]]:
-    """id -> set of (source_text, relpath) from AdditionalHint T()."""
+    """id -> set of (source_text, relpath) from mag/parts AdditionalHint T() only.
+
+    IMPORTANT: do not scan all InventoryItem/*.lua. That previously wrote EN
+    AdditionalHint sources into Russian.csv Translation (Bandage/Medkit etc.)
+    and stomped vanilla Game.csv overrides (Winchester_Quest, WeavePadding, …).
+    """
     out: dict[int, set[tuple[str, str]]] = defaultdict(set)
     pat = re.compile(
         r"AdditionalHint\s*=\s*T\(\s*(\d+)\s*,\s*(?:--\[\[[^\]]*\]\]\s*)?(\"(\"\"|[^\"])*\")",
         re.DOTALL,
     )
-    # also items.lua 'AdditionalHint'
     pat2 = re.compile(
         r"'AdditionalHint',\s*T\(\s*(\d+)\s*,\s*(?:--\[\[[^\]]*\]\]\s*)?(\"(\"\"|[^\"])*\")",
         re.DOTALL,
     )
-    for p in list((ROOT / "InventoryItem").glob("*.lua")) + [ROOT / "items.lua"]:
+    paths = list((ROOT / "InventoryItem").glob("JAZZ_Mag*.lua"))
+    paths += [
+        ROOT / "InventoryItem" / "JAZZ_ScopeParts.lua",
+        ROOT / "InventoryItem" / "JAZZ_BarrelParts.lua",
+        ROOT / "InventoryItem" / "JAZZ_RemovableAttachment.lua",
+        ROOT / "items.lua",
+    ]
+    for p in paths:
+        if not p.exists():
+            continue
         t = p.read_text(encoding="utf-8")
         rel = str(p.relative_to(ROOT))
         for patx in (pat, pat2):
             for m in patx.finditer(t):
-                out[int(m.group(1))].add((unquote(m.group(2)), rel))
+                src = unquote(m.group(2))
+                # items.lua: only family/short removable-module hints
+                if p.name == "items.lua":
+                    if not (
+                        src.startswith("Семья магазинов")
+                        or src.startswith("Magazine family:")
+                        or src == HINT_SHORT_RU
+                        or src == HINT_SHORT_EN
+                        or src.startswith("Съёмный модуль")
+                        or src.startswith("Removable module")
+                    ):
+                        continue
+                out[int(m.group(1))].add((src, rel))
     return out
 
 
@@ -165,6 +190,12 @@ def main() -> None:
     ru_rows = load_csv(ROOT / "Russian.csv")
     en_rows = load_csv(ROOT / "English.csv")
     for lid, src in canonical.items():
+        # Russian.csv: Translation must stay Russian (RU client reads Translation).
+        # Mag T() sources are RU; EN file gets EN Translation via family_en.
+        if not any("\u0400" <= c <= "\u04FF" for c in src):
+            raise SystemExit(
+                f"refusing to write non-Cyrillic mag hint {lid} into Russian.csv: {src[:80]!r}"
+            )
         upsert_all(ru_rows, lid, src, src, "mag-hint-aligned")
         upsert_all(en_rows, lid, src, family_en(src), "mag-hint-aligned")
 

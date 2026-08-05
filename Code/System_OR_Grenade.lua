@@ -153,7 +153,10 @@ function Grenade:GetAttackResults(action, attack_args)
 		local explosion_voxel_pos = SnapToVoxel(explosion_pos) + point(0, 0, const.SlabSizeZ / 2)
 		local impact_force = self:GetImpactForce()
 		local unit_damage = {}
+		local stamped_aoe = aoe_params.aoe_type or self.aoeType or "none"
 		for _, hit in ipairs(results) do
+			hit.aoe_type = stamped_aoe
+			hit.weapon = hit.weapon or self
 			local obj = hit.obj
 			if not obj or hit.damage == 0 then goto continue end
 			
@@ -293,6 +296,11 @@ function HeavyWeapon:GetAttackResults(action, attack_args)
 	results.fired = not jammed and 1
 	results.mishap = mishap
 	results.burn_ground = ordnance.BurnGround
+	local stamped_aoe = aoe_params.aoe_type or (ordnance and ordnance.aoeType) or "none"
+	for _, hit in ipairs(results) do
+		hit.aoe_type = stamped_aoe
+		hit.weapon = hit.weapon or ordnance or self
+	end
 	if self.trajectory_type == "bombard" then
 		results.explosion_pos = target_pos
 		if not jammed then

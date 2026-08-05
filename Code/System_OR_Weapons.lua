@@ -110,8 +110,9 @@ function JAZZ_CalcCoverGrazeChance(attacker, target, attack_pos, weapon, attack_
 		return 0
 	end
 	local cover_mod = Presets.ChanceToHitModifier and Presets.ChanceToHitModifier.Default and Presets.ChanceToHitModifier.Default.RangeAttackTargetStanceCover
-	local exposed_value = cover_mod and cover_mod:ResolveValue("ExposedCover") or -5
-	local full_value = cover_mod and cover_mod:ResolveValue("Cover") or -20
+	-- Fallbacks match RangeAttackTargetStanceCover params (owner soften 2026-08-05).
+	local exposed_value = cover_mod and cover_mod:ResolveValue("ExposedCover") or -12
+	local full_value = cover_mod and cover_mod:ResolveValue("Cover") or -45
 	if IsKindOf(attacker, "Unit") and CheckSightCondition(attacker, target, const.usObscured) then
 		local dust = const.EnvEffects.DustStormCoverCTHPenalty or 0
 		exposed_value = exposed_value + dust

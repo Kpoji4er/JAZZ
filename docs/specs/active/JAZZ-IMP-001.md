@@ -119,3 +119,4 @@ IMP получает статичный `IMP_equipment_basic` при `CreateUnit
 - Playtest fix 2026-08-04: jazz-units `LootEntryUpgradedWeapon` legacy upgrade IDs remapped to `JAZZ_*` (`docs/tools/_apply_loot_upgrade_id_remap.py`).
 - Playtest UX 2026-08-04: personal perk row stays `HList` with spacing 12; wrap `ImpCalcAnswers` via `JazzSanitizeImpPerks` (empty tactical slots).
 - Playtest fix 2026-08-04 (certificate): Russian.csv Translation for Mimicry/Veteran/Sniper; Sniper → tactical (`Perk-Specialization`); Veteran icon `OldDog` (not Teacher); AIM filter icons use `Specialization.icon`; Recoil rollover guards `GetBaseAttack`.
+- Playtest UX 2026-08-05: tactical Grid **6 columns** + HSpacing 18 (Sniper 11th icon no longer forces row 3 over Prev/Done); still no HWrap.

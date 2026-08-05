@@ -120,13 +120,13 @@ approved_by: project-owner
 
 ### Живой рынок
 
-- `JAZZ-UNITS-005-REQ-011` — каждые **30** дней campaign time детерминированный market tick (`Game.id` + day + slot seed):
+- `JAZZ-UNITS-005-REQ-011` — каждые **14** дней campaign time (2 weeks) детерминированный market tick (`Game.id` + day + slot seed; runtime `AME_TICK_DAYS = 14`):
   - часть Available уходит в terminal/unavailable: `JoinedLegion` / `Killed` (и при необходимости `HiredElsewhere`) — карточка **остаётся видимой**, но Contact/hire disabled + reason UI (REQ-007);
   - `Missing` может быть временным Away (снова Available позже) или terminal — зафиксировать при implement; по умолчанию temporary и **скрыт**, пока снова не Available;
   - на витрину выходят новые слоты из `NotListed` до **14–16** hireable Available (unavailable-карточки не съедают этот бюджет hireable);
   - Hired игроком не ротируются;
   - `NotListed` нельзя увидеть и нельзя нанять.
-- `JAZZ-UNITS-005-REQ-012` — specialist soft-guarantee: ни одна из ролей Medic / Instructor / Sniper не держится **0 Available на витрине и 0 PendingArrival** дольше **30** дней подряд; следующий tick обязан выставить минимум одного слота этой роли (из пула или reroll свободного Away-слота).
+- `JAZZ-UNITS-005-REQ-012` — specialist soft-guarantee: ни одна из ролей Medic / Instructor / Sniper не держится **0 Available на витрине и 0 PendingArrival** дольше **одного tick cycle (~14 дней)** подряд; следующий tick обязан выставить минимум одного слота этой роли (из пула или reroll свободного Away-слота).
 
 ### Specialist floor и цена
 
@@ -142,9 +142,9 @@ approved_by: project-owner
 
 Остальные слоты — Irregulars / Fighters / Hardened (целевая плотность витрины: Irregulars ~40%, Fighters ~35%, Hardened ~20%, Specialists ~5–8% видимых).
 
-- `JAZZ-UNITS-005-REQ-014` — лестница зарплат AME:  
-  `Irregulars < Fighters < Hardened ≪ Specialists`.  
-  Specialists — max на AME. Ориентиры `StartingSalary` (USD/day scale как AIM): Irregulars 80–150; Fighters 150–300; Hardened 350–600; Sapper/Sniper 600–900; Medic 700–1100; Instructor 900–1400. Сопоставимый AIM-профи всё ещё дороже (×2–3 к specialist AME).
+- `JAZZ-UNITS-005-REQ-014` — лестница зарплат AME (owner weekly bands, playtest 2026-08-05):  
+  `Irregulars < Fighters < Hardened ≪ Specialists`. JA3 hire week ≈ `StartingSalary × 7`.  
+  Ориентиры **$/week → daily `StartingSalary`**: floor cheap Irregulars ~**$50**/wk (~7); Irregulars **50–350**/wk (**7–50**); Fighters **400–750**/wk (**57–107**); Hardened **750–1000**/wk (**107–143**); Specialists **1100–2000**/wk (**157–286**). Specialists stay **below** Igor/Barry weekly (~$3150 / $3290). Apply: `_apply_ame_weekly_salaries.py` / `_sync_ame_salary_items.py`.
 - `JAZZ-UNITS-005-REQ-015` — Instructor: обязательный perk `Teacher` + статы Instructor-band (REQ-016); цена в верхнем диапазоне Specialists (дороже Medic того же пула при прочих равных).
 
 ### Статы (нормативные диапазоны)
@@ -333,7 +333,7 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
 - `JAZZ-UNITS-005-AC-004` — runtime: hire AME → squad/arrival как AIM; rehire/dismiss; co-op sync hire (если net test доступен).
 - `JAZZ-UNITS-005-AC-005` — static: пул 60; specialist counts в диапазонах REQ-013; статы sample слотов внутри REQ-016; ≥30% Fighters+Hardened с CombatRole autorifle/MG/GL; Lead≈50 и Mech≈30 counts 1–2; bio+Nationality заполнены; доля Grand Chien в ориентире REQ-028; все новые id из REQ-028 зарегистрированы с флаг-ассетом; имена африканские (REQ-029); Nick преимущественно у Hardened.
 - `JAZZ-UNITS-005-AC-010` — runtime/human: на карточке AME-мерка с новым Nationality (например Nigeria/Kenya) виден флаг через тот же UI path, что AIM (`MercFlagImage` / equivalent); `GrandChien` / `SouthAfrica` тоже корректны.
-- `JAZZ-UNITS-005-AC-006` — runtime: после +30d market tick меняет витрину детерминированно; Hired игроком сохраняются; soft-guarantee специалиста срабатывает при искусственном нуле.
+- `JAZZ-UNITS-005-AC-006` — runtime: после +14d market tick меняет витрину детерминированно; Hired игроком сохраняются; soft-guarantee специалиста срабатывает при искусственном нуле.
 - `JAZZ-UNITS-005-AC-007` — runtime/human: Instructor имеет `Teacher`; salary Specialists выше Hardened; Instructor не дешевле Medic в сопоставимой выборке.
 - `JAZZ-UNITS-005-AC-008` — static: loc needs Russian=0, English=0 для AME строк; wiki + showcase RU/EN обновлены.
 - `JAZZ-UNITS-005-AC-009` — human: карточка показывает category + Potential; рост дешёвого Fighter за длительную кампанию ощутим относительно стартового Marks (playtest owner).
@@ -369,7 +369,7 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
 - `JAZZ-UNITS-005-AC-003`: `BLOCKED` (runtime) — код market/filters готов; нужен JA3 playtest витрины.
 - `JAZZ-UNITS-005-AC-004`: `BLOCKED` (runtime) — hire wrap static-present; нужен playtest hire→squad.
 - `JAZZ-UNITS-005-AC-005`: `PASS` (static) — 60 companions/loot; categories 20/18/10/12; flags `Icons/Flags/f_*.png` + `System_AME_Nationalities.lua`; 60 unique portraits (sha1); kit audit `_audit_ame_kit_tiers.py` violations=0.
-- `JAZZ-UNITS-005-AC-006`: `BLOCKED` (runtime) — tick logic in `System_AME_Market.lua`; нужен +30d playtest.
+- `JAZZ-UNITS-005-AC-006`: `BLOCKED` (runtime) — tick logic in `System_AME_Market.lua` (`AME_TICK_DAYS = 14`); нужен +14d playtest.
 - `JAZZ-UNITS-005-AC-007`: `BLOCKED` (runtime/human) — roster salaries/traits static; нужен human card check.
 - `JAZZ-UNITS-005-AC-008`: `PASS` (static) — AME loc block in RU/EN CSV; wiki `african-mercenary-exchange.md`; showcase `ru|en/ame.md` + pages.json.
 - `JAZZ-UNITS-005-AC-009`: `BLOCKED` (human) — owner playtest Potential/growth.

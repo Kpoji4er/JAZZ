@@ -5,6 +5,22 @@
 
 Запуск из корня пакета `jazz/` (если не указано иное).
 
+## FortifyErnie / stationary MG
+
+| Скрипт | Назначение |
+| --- | --- |
+| `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
+| `_fix_fortify_ernie_mg_handin.py` | GreasyBasil `FortifyErnie`: `MG42` → `Jazz_Browning_MuchineGun`+`Jazz_Browning_Bench` (has/take); I5 `ubRwFgf` ammo_template → `JAZZ_AMMO_50BMG_Basic`. |
+| `_patch_ernie_counterattack_heavies.py` | `jazz-units` EnemySquadDef `ErnieCounterAttack`: 1× Rocketeer + 2× AssaultT1_Grenadier + 1× Mortarman (no HeavyT2 hand GL). |
+
+## CTH / cover
+
+| Скрипт | Назначение |
+| --- | --- |
+| `_calc_cover_cth_gewehr.py` | Static Gewehr98 mid-merc cover CTH (open / full / half / stance); reads `RangeAttackTargetStanceCover` from `items.lua`. |
+| `_check_cover_params_items.py` | Assert Cover/Exposed/Crouch/Prone params in `items.lua` match owner soften (−45/−12/−12/−23). |
+| `_audit_cth_mod_require_action.py` | List CTHMod `RequireActionType` (missing → class default `Any Attack`). |
+
 ## JAZZ-MED-001 / медицина
 
 | Скрипт | Назначение |
@@ -21,8 +37,10 @@
 | `_fix_med001_loot_braces.py` | Чинит `}}),` → `}),` на строках JAZZ med loot (баг f-string). |
 | `_bump_units_med_loot_meta.py` | Bump `jazz-units/metadata.lua` Revision + `last_changes` после loot apply. |
 | `_wire_med001_traumas.py` / `_append_med001_trauma_loc.py` | Wiring/loc зональных Trauma* эффектов. |
+| `_apply_grenade_concussion.py` / `_append_grenade_concussion_loc.py` / `_patch_he_grenade_concussion_hint_loc.py` / `_fix_concussion_loc_ids_items.py` / `_patch_grenade_concussion_guaranteed_loc.py` | Playtest: `Concussion` CharacterEffect + items/metadata; RU/EN loc `890000000010277–280`; Frag/HE hints. Runtime: `JazzTryApplyExplosionConcussionAndTrauma` (concussion guaranteed). Loc patch: chance→guaranteed on IDs `243383619902` / `663236691841`. |
 | `_apply_jazz_trauma_effect_parent.py` | Trauma* → parent/`object_class` `JazzTraumaEffect` (companions + `items.lua`); paired with early `Code/System_JazzTraumaEffect.lua`. |
 | `_fix_med001_runtime_csv.py` | MED-001: чинит `Russian.csv` Text/Translation (EN source / RU translation) + literal `\\n` → реальные переносы в AdditionalHint. |
+| `_fix_med_en_in_ru_loc.py` | Playtest: восстанавливает RU Translation для MED AdditionalHint (`010013/016/019/024/027/030`) + Concussion `010277–280`; снимает `mag-hint-aligned` vanilla stomps EN-in-RU. |
 | `_fix_med001_loc_append.py` | Перезаписывает RU/EN строки `890000000010200+` (JazzBandage / trauma timing / kit Bandage desc); Text=EN, Translation=язык. |
 | `_patch_combat_status_ui.py` | CombatBadge: 2–3 critical icons у ника; party combat `idWounded` → `JazzGetPartyPortraitStatusEffects` (parity с satellite). |
 | `_recenter_med_action_icons.py` | Recenter+upscale dual-strip 108×54: `--dir Icons/Med` (default) или `Perks/SignatureAbilities`. Мелкие/съехавшие к центру полосы → fill≈48px. `--dry-run` / `--pad`. |
@@ -253,6 +271,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh + all 6 IMP UnitData (`IMP_*_01..03` → VR `IMP_*_01`). |
 | `_ame_names_ru.py` | RU Name/Nick для AME (кириллица); используется `_gen_ame_unitdata.py` в RU/EN loc. |
 | `_gen_ame_unitdata.py` | JAZZ-UNITS-005: из roster → `jazz-units/UnitData/JAZZ_AME_01..60.lua`, fixed `Loot_*`, items/metadata markers, nationality presets, RU/EN loc (имена RU из `_ame_names_ru.py`), placeholder portraits. Idempotent (`JAZZ-UNITS-005-AME-*`). |
+| `_apply_ame_weekly_salaries.py` | Playtest salary ladder: weekly bands → `StartingSalary` (week≈×7); writes all `UnitData/JAZZ_AME_*.lua`. Ceiling below Igor/Barry daily. |
+| `_sync_ame_salary_items.py` | Copies companion `StartingSalary` into `jazz-units/items.lua` ModItem `'Id',"JAZZ_AME_NN"` blocks. |
 | `_import_legion_raider_alt_voices.py` | Импорт Legion Raider alt takes `*-1.opus` (rar или `--dir Downloads/1`) → `jazz-units/voices/` (донор голоса для AME Male_Low). |
 | `_gen_ame_voice_responses.py` | Три shared VR: `Jazz_AME_Male_Low` (Legion alt `*-1.opus`, без Legion/Major takes), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`. Remesh только подходящие слоты; Selection/Order/CombatMovement **omit** → тишина. UnitData `FallbackMissingVR` = Legion/Army/Anne (Pain only, не Ice/Fox). |
 | `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN`; **1** синий акцент (Hat/Hat2/Shirt/BodyC2, не Pants); узкий Af bank (Chimurenga/Pierre/Jackhammer/`Head_M_IMP_01`/Rebel medic — **не** Flay/Fidel/Magic/Blood); без Legion war-paint / `GrandChien_Top_05`; red/extra-blue→slate; BodyC1 dark; HeadColor 0; map `ame-appearance-map.json`. Policy: `docs/design/ame-appearance-assets.md`. |
@@ -314,7 +334,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_loc_csv_io.py` | Safe read/write for `Russian.csv`/`English.csv`: **never** `splitlines()` before `csv.DictReader` (that flattens multiline AdditionalHint / perk text). |
 | `_fix_dup_loc_ids_ame_perk_mag.py` | CommonLib «duplicated loc IDs»: JA2 perks off AME `5009–5028` → `5029–5048`; AME copyright → `5049`; Bleeding Text=EN; nationalities T()=EN; mag/parts Text↔T() align. |
 | `_fix_dup_loc_ids_ame_perk_wave2.py` | Wave2: Meat/Carlos/Devin/Shank off AME filter `5001–5008` → `5050–5057`; English.csv AME Text = T() source. |
-| `_fix_mag_hint_loc_align.py` | Mag `AdditionalHint`: unify family-prefix vs short T() text across companions/`items.lua` + RU/EN CSV Text. |
+| `_fix_mag_hint_loc_align.py` | Mag/parts `AdditionalHint` only (`JAZZ_Mag*`, Scope/Barrel parts): unify family-prefix vs short T() + RU/EN CSV. **Не** сканирует весь `InventoryItem/` (иначе EN→RU Translation у Bandage/Medkit и vanilla stomps). |
 | `_audit_additionalhint_newlines.py` | Audit/restore weapon `AdditionalHint` bullets: compare `InventoryItem/**/*.lua` `\n` vs CSV; `--apply` inserts newlines before bullet markers. |
 | `_restore_csv_newlines_from_head.py` | Restore any CSV cell newlines lost vs `HEAD` when wording still matches (whitespace-insensitive). `--apply`. |
 | `_purge_workshop_aim_mercs.py` | One-shot purge of six Steam Workshop AIM mercs from jazz + jazz-units (ModItems, companions, voices, loc, design). |

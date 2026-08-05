@@ -1,4 +1,4 @@
--- AME living market: listing, 30-day tick, specialist soft-guarantee (JAZZ-UNITS-005).
+-- AME living market: listing, 14-day (2-week) tick, specialist soft-guarantee (JAZZ-UNITS-005).
 
 GameVar("gv_JAZZ_AME_Market", function()
 	return {
@@ -10,7 +10,7 @@ GameVar("gv_JAZZ_AME_Market", function()
 end)
 
 local AME_TARGET_AVAILABLE = 15
-local AME_TICK_DAYS = 30
+local AME_TICK_DAYS = 14
 local AME_SPECIALIST_ROLES = { Medic = true, Instructor = true, Sniper = true, Sapper = true, Mechanic = true }
 
 local function lAmeIds()

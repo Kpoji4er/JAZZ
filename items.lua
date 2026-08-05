@@ -34,6 +34,10 @@ return {
 			'name', "System_AimHiringFilters",
 			'CodeFileName', "Code/System_AimHiringFilters.lua",
 		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_HireContractDuration",
+			'CodeFileName', "Code/System_HireContractDuration.lua",
+		}),
 		PlaceObj('ModItemXTemplate', {
 			__is_kind_of = "XDialog",
 			group = "Zulu PDA",
@@ -30583,7 +30587,7 @@ return {
 					'DisplayName', T(172826329217, --[[ModItemInventoryItemCompositeDef FragGrenade DisplayName]] "Граната M24"),
 					'DisplayNamePlural', T(167822758999, --[[ModItemInventoryItemCompositeDef FragGrenade DisplayNamePlural]] "Гранаты M24"),
 					'Description', "",
-					'AdditionalHint', T(243383619902, --[[ModItemInventoryItemCompositeDef FragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс (Ловкость + Взрывчатка; уверенно примерно с 30)"),
+					'AdditionalHint', T(243383619902, --[[ModItemInventoryItemCompositeDef FragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс (Ловкость + Взрывчатка; уверенно примерно с 30)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>"),
 					'UnitStat', "Explosives",
 					'Cost', 300,
 					'CanAppearInShop', true,
@@ -30627,7 +30631,7 @@ return {
 					'ItemType', "Grenade",
 					'DisplayName', T(211344759878, --[[ModItemInventoryItemCompositeDef HE_Grenade DisplayName]] "Граната Mk2"),
 					'DisplayNamePlural', T(246480537411, --[[ModItemInventoryItemCompositeDef HE_Grenade DisplayNamePlural]] "Гранаты Mk2"),
-					'AdditionalHint', T(663236691841, --[[ModItemInventoryItemCompositeDef HE_Grenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте"),
+					'AdditionalHint', T(663236691841, --[[ModItemInventoryItemCompositeDef HE_Grenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
 					'CanAppearInShop', true,
@@ -63536,6 +63540,90 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'HasFloatingText', true,
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "Concussion",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 2,
+						'Tag', "<APLoss>",
+					}),
+					PlaceObj('PresetParamPercent', {
+						'Name', "cth_penalty",
+						'Value', 15,
+						'Tag', "<cth_penalty>%",
+					}),
+					PlaceObj('PresetParamNumber', {
+						'Name', "move_ap_modifier",
+						'Value', 30,
+						'Tag', "<move_ap_modifier>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcChanceToHit",
+						Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+							if target == attacker then
+								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcMoveModifier",
+						Handler = function (self, target, value, action)
+							return value + self:ResolveValue("move_ap_modifier")
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcFreeMove",
+						Handler = function (self, target, data)
+							data.add = 0
+							data.mul = 0
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function (self, target)
+							target:RemoveStatusEffect("FreeMove")
+						end,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							local left = self:ResolveValue("jazz_conc_turns") or 1
+							left = left - 1
+							if left <= 0 then
+								target:RemoveStatusEffect("Concussion", "all")
+							else
+								self:SetParameter("jazz_conc_turns", left)
+							end
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010277, --[[ModItemCharacterEffectCompositeDef Concussion DisplayName]] "Concussion"),
+				'Description', T(890000000010278, --[[ModItemCharacterEffectCompositeDef Concussion Description]] "Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns."),
+				'AddEffectText', T(890000000010279, --[[ModItemCharacterEffectCompositeDef Concussion AddEffectText]] "<color EmStyle><DisplayName></color> is concussed"),
+				'RemoveEffectText', T(890000000010280, --[[ModItemCharacterEffectCompositeDef Concussion RemoveEffectText]] "<color EmStyle><DisplayName></color> clears concussion"),
+				'OnAdded', function (self, obj)
+					self:SetParameter("jazz_conc_turns", 2)
+					Msg("UnitAPChanged", obj)
+				end,
+				'OnRemoved', function (self, obj)
+					Msg("UnitAPChanged", obj)
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Concussion.png",
+				'RemoveOnEndCombat', true,
+				'Shown', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Group', "System",
 				'Id', "SuppressStunGrenade",
 				'Parameters', {},
@@ -74381,24 +74469,28 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					return false, 0
 				end,
 				Parameters = {
+					-- Owner soften 2026-08-05 (Gewehr mid-merc full cover → ~40–50% CTH):
+					-- percent→factor via JAZZ_CTHPercentToFactor: Cover −45 → ×0.55
+					-- (mid between old −20/×0.80 ~67% and harsh −70/×0.30 ~25%).
+					-- Exposed/Crouch/Prone scaled from harsh ×(45/70).
 					PlaceObj('PresetParamNumber', {
 						'Name', "Cover",
-						'Value', -20,
+						'Value', -45,
 						'Tag', "<Cover>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "ExposedCover",
-						'Value', -5,
+						'Value', -12,
 						'Tag', "<ExposedCover>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "CrouchPenalty",
-						'Value', -5,
+						'Value', -12,
 						'Tag', "<CrouchPenalty>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "PronePenalty",
-						'Value', -10,
+						'Value', -23,
 						'Tag', "<PronePenalty>",
 					}),
 				},
@@ -75265,6 +75357,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'name', "System_OR_Weapons",
 				'comment', "Система отдачи / Стрельба",
 				'CodeFileName', "Code/System_OR_Weapons.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_EmplacementAmmo",
+				'comment', "Remap cut _50BMG_* MachineGunEmplacement ammo to JAZZ_AMMO_50BMG_*",
+				'CodeFileName', "Code/System_EmplacementAmmo.lua",
 			}),
 			PlaceObj('ModItemCode', {
 				'name', "System_Firearm_AddProperties",

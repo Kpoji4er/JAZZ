@@ -41,6 +41,11 @@ DefineClass.Guardpost = {
 --- @param targetSectorId string|nil The ID of the target sector to attack. If not provided, the guardpost's target sector is used.
 --- @param promoteToStrong boolean|nil If true, the primed squad is promoted to a strong enemy squad, otherwise it is promoted to a regular enemy squad.
 ---
+local function lPrimedIsCustomQuestSquad(primed_squad, quest_id)
+	local map = rawget(_G, "gv_CustomQuestIdToSquadId")
+	return type(map) == "table" and quest_id and map[quest_id] == primed_squad
+end
+
 function Guardpost:AttackWithEnemySquad(targetSectorId, promoteToStrong)
 	local so = self.session_obj
 	
@@ -71,20 +76,27 @@ function Guardpost:AttackWithEnemySquad(targetSectorId, promoteToStrong)
 		return
 	end
 	
-	-- Promote the primed extra defenders squad to an attack squad
-	local squadList
-	if promoteToStrong then
-		squadList = sector.StrongEnemySquadsList
-	else
-		squadList = sector.EnemySquadsList
-	end
-	if squadList and #squadList > 0 then
-		local squadPresetId = table.interaction_rand(squadList, "GuardpostPromote")
-		local squad_id = GenerateEnemySquad(squadPresetId, sectorId, "Guardpost")
-		
-		procall(RemoveSquad, squadObj)
-		squadObj = gv_Squads[squad_id]
-		so.primed_squad = squad_id
+	-- Quest Ernie_CounterAttack: keep dedicated ErnieCounterAttack composition.
+	-- Do not promote/replace into random EnemySquadsList (that was ~39 with 4 hand GL).
+	local keep_quest_composition = so.forced_attack
+		and lPrimedIsCustomQuestSquad(primedSquad, "ErnieCounterAttack")
+
+	if not keep_quest_composition then
+		-- Promote the primed extra defenders squad to an attack squad
+		local squadList
+		if promoteToStrong then
+			squadList = sector.StrongEnemySquadsList
+		else
+			squadList = sector.EnemySquadsList
+		end
+		if squadList and #squadList > 0 then
+			local squadPresetId = table.interaction_rand(squadList, "GuardpostPromote")
+			local squad_id = GenerateEnemySquad(squadPresetId, sectorId, "Guardpost")
+
+			procall(RemoveSquad, squadObj)
+			squadObj = gv_Squads[squad_id]
+			so.primed_squad = squad_id
+		end
 	end
 
 	SendSatelliteSquadOnRoute(squadObj, targetSectorId, { enemy_guardpost = true })
@@ -262,7 +274,16 @@ function Guardpost:SpawnEnemySquad()
 		return
 	end
 	
-	local squadToSpawn = table.interaction_rand(sector.ExtraDefenderSquads, "Guardpost")
+	-- Ernie_CounterAttack (custom_quest_id ErnieCounterAttack): dedicated punitive def.
+	local squadToSpawn
+	if so.custom_quest_id == "ErnieCounterAttack"
+		and EnemySquadDefs
+		and EnemySquadDefs.ErnieCounterAttack
+	then
+		squadToSpawn = "ErnieCounterAttack"
+	else
+		squadToSpawn = table.interaction_rand(sector.ExtraDefenderSquads, "Guardpost")
+	end
 	local squad_id = GenerateEnemySquad(squadToSpawn, so.SectorId, "Guardpost")
 	if not squad_id then -- Couldn't spawn?
 		return

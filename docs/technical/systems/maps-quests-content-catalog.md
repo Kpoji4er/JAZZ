@@ -149,7 +149,7 @@
 | `PierreDefeated` | Pierre | нет | I5, I7, K4, F19 | Пьер и информация о Майоре |
 | `JoseFamily` | Bastien | нет | I6, E9 | Bastien |
 | `LegionFlag` | Fooling Pierre | да | I7 | Скрытая ветка |
-| `Ernie_CounterAttack` | — | да | I5, I7 | Контратака |
+| `Ernie_CounterAttack` | — | да | I5, I7 | Контратака; squad def `ErnieCounterAttack` (~37; 1 RPG + 2 AssaultT1_Grenadier + 1 mortar) |
 | `ErnieSideQuests` | — | да | I6, I7, M4 | Side logic Intro |
 | `ErnieSideQuests_WorldFlip` | — | да | I5, I7 | Side после betrayal |
 | `Demo` | — | нет | I7 | Demo marker |

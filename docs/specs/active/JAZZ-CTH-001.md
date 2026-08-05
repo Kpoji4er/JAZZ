@@ -186,3 +186,9 @@ approved_by: project-owner
 - Canonical weapon/component CSV files remain the machine-readable source for the wiki generator; generated pages are never edited by hand.
 - Disabled or removed content (`AR15`, `M4Commando`, base `MP5`, `CompactSMG`, and the legacy bolt action) is excluded from player documentation.
 - ADR-0002 records the technical/player documentation split and the validation contract.
+
+## Owner recalibration (2026-08-05, softened)
+
+Spec never locked exact cover percent params (REQ-008 = multiplicative product only; accuracy-model ranges were initial calibration). After harsh pass (`Cover −70` / ×0.30 → ~25% Gewehr full cover), owner directed a mid soften: full-cover CTH ~40–50% on Gewehr mid-merc (open ~83%). Runtime `RangeAttackTargetStanceCover`: `Cover −45` (×0.55), Exposed/Crouch/Prone `−12/−12/−23` (scaled from harsh ×45/70). Current-state: `accuracy-model.md`, `combat-cth-actions.md`, wiki + showcase RU/EN; check `docs/tools/_calc_cover_cth_gewehr.py` / `_check_cover_params_items.py`.
+
+Static evidence for this recalibration: `PASS` — items.lua params + Gewehr matrix (~83% open → ~46% full cover). In-game playtest remains under existing `AC-014` (BLOCKED).

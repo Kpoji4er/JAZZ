@@ -36,6 +36,8 @@ Optics do not make the bullet travel farther — they change weapon **specializa
 
 Penalties are multipliers: high skill does not flat-absorb cover.
 
+**Full cover** leaves roughly **half** of the open-target chance (rule of thumb: a solid rifle shot at mid range drops from about ~80% open to ~40–50% behind full cover). Partial cover and crouch/prone without cover cut less.
+
 Chance can be affected by cover and visible target size, stance, visibility/smoke/darkness, suppression and statuses, weapon condition and components, the chosen action, and perks. The same effect should not be applied twice.
 
 ## Suppression, retaliation, and Lightning Reactions
@@ -76,6 +78,7 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 - **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
 - Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
 - While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair. Up close (0% mishap) the color can still warm as scatter grows.
+- Frag / HE / flashbang: **guaranteed concussion** on blast-hit units, plus a chance of **zone trauma**. Smoke / gas / Molotov use their own packages, not concussion.
 
 ## What the UI shows
 

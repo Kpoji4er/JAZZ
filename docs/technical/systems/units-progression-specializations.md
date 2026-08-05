@@ -27,10 +27,11 @@
 
 - `Code/SpecializationGiver.lua` — назначение специализаций на `DataLoaded`;
 - `Code/System_AimHiringFilters.lua` — фильтры AIM и детерминированный offline randomization;
+- `Code/System_HireContractDuration.lua` — AIM/AME messenger `MaxDuration` 14→30;
 - `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005): PDA mode `ame`, market tick, nationality flags;
 - `Code/System_OR_Unit.lua`, `System_UnitInventory.lua`, `System_UnitAppearance.lua` — runtime schema;
 - `Code/System_IMP_StartingGear.lua` — JA2-style динамический стартовый экип IMP (`JazzBuildImpStartingGear` / `JazzApplyImpStartingGear`);
-- `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap (Mimicry+Veteran only), sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid).
+- `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap (Mimicry+Veteran only), sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid), tactical specialization Grid **6 columns** + HSpacing 18 so Sniper stays on 2 rows (no Prev/Done overlap).
 - AIM PDA filters: `System_AimHiringFilters` stores `Specialization.icon`; `PDAAIMBrowser` uses `item.icon` (avoids missing `UI/Icons/hf_<specId>`).
 
 `Code/AimHiringScreen_Template.lua` существует в core, но не указан в metadata и не загружается. Не считать его активным XTemplate. Фактический UI изменяется generated XTemplate/загруженным кодом.
@@ -73,6 +74,8 @@ Personal (Personality) pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Sco
 
 Offline merc randomization детерминирован. Это означает, что замена RNG или порядка списка изменит состав доступных наёмников при том же seed/save. Любое изменение специализации требует обновить merc assignments, UI filters и локализацию вместе.
 
+**Срок контракта (AIM + AME chat):** vanilla `AIMHiringScreen` / messenger slider `MaxDuration = 14`. JAZZ `System_HireContractDuration.lua` wraps `GetNextMercConversation` **and** `PDAMessengerClass:SetupUIForChat` (resume path) и поднимает `MaxDuration` **14 → 30** сразу (с day 1); min остаётся 3, default offer по-прежнему ~7 via `GetMercMinDaysCanAfford`. Duration-refusal ветки с `MaxDuration = 7` не трогаются. AME и AIM делят один `StartMercChat` path — отдельного AME hire-duration cap нет. Это **не** AME market tick (`AME_TICK_DAYS = 14`).
+
 ## African Mercenary Exchange (JAZZ-UNITS-005)
 
 Отдельный PDA hire site (не вкладка внутри AIM):
@@ -84,8 +87,8 @@ Offline merc randomization детерминирован. Это означает
 | PDA mode | `ame` → `PDAAIMEBrowser` (subclass `PDAAIMBrowser`) |
 | PDA URL | `http://www.ame-exchange.net/Roster/<Category>/<Nick>` — ASCII `urlSlug` (не `T`/локаль); wrap всегда поверх AIM `TFormat.PDAUrl` (иначе KindOf→AIM `ActiveFiles` + кириллица specialization) |
 | Витрина | ~15 `Available` на старте; `NotListed` скрыты; terminal (`JoinedLegion`/`Killed`/…) — серые карточки |
-| Tick | 30 дней кампании; specialist soft-guarantee |
-| Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap |
+| Tick | **14** дней кампании (2 недели); specialist soft-guarantee |
+| Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap; contract slider max **30** days (`System_HireContractDuration`, shared with AIM) |
 | VR | Pool: Jazz remesh (~1/4) + all 6 IMP UnitData (VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP→self (not Ice/Fox) |
 | Heads | Safe Af bank only: `Chimurenga`/`Pierre`/`Jackhammer`/`Head_M_IMP_01`/`Faction_Rebels_M_HeadMedic` + female `Head_F_Af_NPC_*`; **not** Flay/Fidel/Magic/Blood/Fauda/Omryn; no `Faction_Legion_Head_*` ([ame-appearance-assets.md](../../design/ame-appearance-assets.md)) |
 | Appearance | per-slot clone `JAZZ_AME_NN` ← Rebels/Militia/Legion (+ GrandChien Hardened/Spec); **1** blue cloth accent; `BodyColor` C1 dark African + `HeadColor` black; no Legion war-paint / no `GrandChien_Top_05` (pale hands); map [ame-appearance-map.json](../../design/ame-appearance-map.json) |
@@ -93,8 +96,11 @@ Offline merc randomization детерминирован. Это означает
 | Nationality | reuse `GrandChien`/`SouthAfrica` + new `Nigeria`…`Ethiopia` (`System_AME_Nationalities.lua`, flags `Icons/Flags/f_*.png`) |
 | Portraits | unique `MercPortraits/JAZZ_AME_NN.png` + `_Big` (300/2000) |
 | Generator | `docs/tools/_gen_ame_unitdata.py` (+ roster/flags/portrait tools) |
+| Salary (playtest 2026-08-05) | `StartingSalary` ≈ daily; **week ≈ ×7**. Irregular floor ~**$50**/wk; typical ~**$100–$1000**/wk; specialists up to ~**$2000**/wk and **below** Igor (`450`→`$3150`/wk) / Barry (`470`→`$3290`/wk). Current roster daily **7–286** (wk **~49–2002**). Apply/sync: `_apply_ame_weekly_salaries.py`, `_sync_ame_salary_items.py` |
 
 Design roster: [ame-roster-60.md](../../design/ame-roster-60.md), companion [ame-mercenary-exchange.md](../../design/ame-mercenary-exchange.md). AIM mode `aim` не заменяется AME-скином.
+
+> **Spec:** `JAZZ-UNITS-005-REQ-014` aligned to these weekly bands (2026-08-05); tick `REQ-011` = **14** days.
 
 ## JA12 merc appearances (JAZZ-UNITS-002 gap fill)
 

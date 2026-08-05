@@ -29,6 +29,17 @@
 
 Семейство `ThrowGrenade` представлено несколькими action presets для разных вариантов применения. Area-aim строит зону и набор целей, после чего grenade runtime применяет урон/effects. Для взрывов отдельно учитываются explosive armor rating, дистанция до эпицентра, suppression/Will damage и состояния цели.
 
+### Контузия и травмы от blast (playtest)
+
+Для `aoeType == "none"` (осколочные/фугасные/flashbang/demo; **не** дым/газ/огонь):
+
+- `ApplyDamageAndEffects` применяет `hit.effects` (**включая** `*shot` rollers) даже если броня не «пробита» по pen-class — blast-статусы не баллистические. Bleed по-прежнему только при pierce. BAT на explosion **не** вызывается (травма идёт через `*shot` / dedicated roll).
+- `JazzTryApplyExplosionConcussionAndTrauma` (`Systems_Medicine.lua`): **`Concussion` гарантированно** на любом blast-hit юните (`aoeType none`, center и area); без ролла и без снижения от `StunGrenadeProtection` (тот по-прежнему влияет на flashbang Will/`SuppressStunGrenade`). Пропуск только при `TempHitPoints > 0`, не-blast aoe, grazing, мёртвых/invulnerable на входе `ApplyDamageAndEffects`. Длительность ~1–2 хода (−2 ОД, −15 CTH, +30% move, без Free Move).
+- Травма: если в `CenterAppliedEffects` уже есть `Headshot`/`Armsshot`/`Legsshot` (Frag/HE) — ролл через эти rollers после pierce-bypass; иначе (напр. 40mm только `Exposed`) — dedicated gate **100%** center / **40%** area → `JazzTryRollTraumaFromBodyPart` (случайная зона, center bias Head/Ribs).
+- Hits штампуют `aoe_type`/`weapon` в `Grenade`/`HeavyWeapon` `GetAttackResults`, чтобы smoke/fire не получали concussion.
+
+Публичный ID: `Concussion`. Icon: `Icons/StatusEffects/Concussion.png`.
+
 AI использует собственную оценку допустимой дальности, targeting options и специальное действие flare. Поскольку `AIGetAttackTargetingOptions` в JAZZ заменяет и vanilla, и CommonLib версию, тест grenade/flare обязателен после обновления dependency.
 
 ### Отклонение (scatter / mishap) — JAZZ-GRENADES-001

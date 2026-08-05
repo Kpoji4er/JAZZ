@@ -1,4 +1,4 @@
-sep=,
+﻿sep=,
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002001,<bullet_point> Jam chance: <chance>%,<bullet_point> Шанс клина: <chance>%,,jazz:Code/System_WeaponResourceMaintenance.lua
 990002002,Ствольные запчасти,Ствольные запчасти,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -11338,26 +11338,26 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бинт — худшее кровотечение −1 тир
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Мало ОД
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:MED-001-remap-from-890000000009208
 890000000010014,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009209
 890000000010015,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009210
 890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Морфий — глушит штрафы Боли
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь и не лечит травму
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:MED-001-remap-from-890000000009211
 890000000010017,Surgical Kit,Хирургический набор,,jazz:MED-001-remap-from-890000000009212
 890000000010018,Surgical Kits,Хирургические наборы,,jazz:MED-001-remap-from-890000000009213
 890000000010019,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Через меню предмета
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длительное обезболивание (v1)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Редкий; позже — полевая хирургия для врачей",,jazz:MED-001-remap-from-890000000009214
 890000000010020,USE,ИСПОЛЬЗОВАТЬ,,jazz:MED-001-remap-from-890000000009215
 890000000010021,<target> bleeding reduced by bandage,<target> кровотечение снижено бинтом,,jazz:MED-001-remap-from-890000000009216
 890000000010022,IFAK,ИФАК,,jazz:MED-001-remap-from-890000000009217
@@ -11365,30 +11365,30 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка снимает один худший стак крови
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Один юз = одна штука из стака
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Работает из инвентаря",,jazz:MED-001-remap-from-890000000009219
 890000000010025,Med Kit,Аптечка,,jazz:MED-001-remap-from-890000000009220
 890000000010026,Med Kits,Аптечки,,jazz:MED-001-remap-from-890000000009221
 890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающих
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка +25% ОЗ
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает до двух худших стаков крови
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Один юз = одна штука из стака",,jazz:MED-001-remap-from-890000000009222
 890000000010028,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,Вколоть морфий: глушит штрафы Боли у себя или союзника. Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 60% more HP
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 60% more HP
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует умирающих
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нужен для перевязки
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 60% больше ОЗ
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Один юз = одна штука из стака
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически из инвентаря",,jazz:stack-kits
 890000000010100,Arm Trauma (Light),Травма рук (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009226
 890000000010101,Pain when shooting or using arms. No direct accuracy penalty.,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,,jazz:MED-001-trauma-remap-from-890000000009227
 890000000010102,Arm Trauma (Medium),Травма рук (средняя),,jazz:MED-001-trauma-remap-from-890000000009228
@@ -11557,82 +11557,82 @@ ID,Text,Translation,VoiceActor,Context
 890000000003816,,Я наемник от Бога.,,Jazz_Monk
 890000000003818,,Контракт скоро заканчивается... Виктор тебе еще нужен?,,Jazz_Monk
 890000000003819,,Хорошо... Очень хорошо.,,Jazz_Monk
-890000000003713,Мануэль... сейчас нет связи. Позже.
-890000000003714,Это Мануэль. Слушаю.
-890000000003715,Связь прервалась. Вернёмся к делу.
-890000000003716,Тише. Мануэль слушает лес.
-890000000003712,"Если встретите Мигеля — скажите, Мануэль его не забыл."
-890000000003718,Контракт заканчивается. Продлеваем?
-890000000003719,Остаюсь. Лес подождёт.
-890000000002912,"Нервный... занят... пиши, перезвоню, может."
-890000000002913,Ч-чё надо? Стрелять будем?!
-890000000002914,Связь прервалась. Вернёмся к делу.
-890000000002915,"Где враги, где враги, где враги..."
-890000000002916,"Уже бегу, уже бегу! Патроны есть, всё нормально!"
-890000000002917,Контракт заканчивается. Продлеваем?
-890000000002918,Остаюсь! Ещё патроны не кончились!
-890000000004511,"Хоббит недоступен. Наверное, к лучшему."
-890000000004512,"Хоббит на связи. Я не Фродо, если что."
-890000000004513,Связь прервалась. Вернёмся к делу.
-890000000004514,Жарко. Всё равно ничем хорошим не кончится.
-890000000004515,"Ладно, могу и понести вас, если что."
-890000000004516,Контракт заканчивается. Продлеваем?
-890000000004517,Остаюсь. Всё равно хуже уже не будет.
-890000000004412,Кардан... куда я дел телефон... перезвоните.
-890000000004413,А? Кардан слушает. Что чинить?
-890000000004414,Связь прервалась. Вернёмся к делу.
-890000000004415,Что мы вообще делали?
-890000000004416,"Кажется, я согласился. Иду."
-890000000004417,Контракт заканчивается. Продлеваем?
-890000000004418,Остаюсь. Кажется.
-890000000003410,Динамо вне зоны — наверно чинит что-то. Пиши.
-890000000003411,Динамо. Чо надо?
-890000000003412,Связь прервалась. Вернёмся к делу.
-890000000003413,"Давай уже, время не резиновое."
-890000000003414,За идею пойду — или за полтинник. Разницы нет.
-890000000003415,Контракт заканчивается. Продлеваем?
-890000000003416,Остаюсь. Тут ещё есть что чинить и кого пугать.
-890000000003311,Гамос много путешествовать — сейчас нет тут. Потом.
-890000000003312,Гамос тут. Куда идти надо?
-890000000003313,Связь пропадать. Вернёмся к делу.
-890000000003314,Идём? Гамос знать дорогу.
-890000000003315,"Хорошо, Гамос идёт. Джунгли не страшны."
-890000000003316,Контракт заканчивается. Продлеваем?
-890000000003317,Гамос остаётся. Есть ещё тропы показать.
-890000000002612,"Это доктор Дэниел Квинтен. Пожалуйста, оставьте сообщение. Если нужна срочная медицинская помощь — звоните ещё."
-890000000002613,"Да, это доктор Квинтен."
-890000000002614,"Пожалуйста, обратите внимание, я сказал..."
-890000000002615,"Как вы, наверно, знаете, моя специальность — оказание медицинской помощи в полевых условиях."
-890000000002616,Я буду очень рад подписать этот контракт. Спасибо.
-890000000002617,"Ты собираешься продлевать мой контракт? Сообщи поскорее, если хочешь, чтобы я к тому моменту был свободен."
-890000000002618,Это вполне приемлемо. Спасибо.
-890000000004211,"Это доктор Клиффорд Хайбол, спасибо за звонок. Сейчас я не могу с вами разговаривать — оставьте своё имя и номер."
-890000000004212,Доктор Клиффорд Хайбол.
-890000000004213,"Пожалуйста, внимание — я сказал."
-890000000004214,"Немногие бойцы способны причинять или облегчать боль так, как я могу."
-890000000004215,В следующий раз мы будем разговаривать уже в Арулько.
-890000000004216,"Мой контракт почти закончен. Следует ли мне понимать вашу незаинтересованность как свидетельство того, что продления не будет?"
-890000000004217,Отлично! Это место начинает мне нравиться!
-890000000002813,"Бифф... э-э... перезвоните, пожалуйста?"
-890000000002814,Э... Бифф на связи. Вы серьёзно насчёт боевого задания?
-890000000002815,Связь прервалась. Вернёмся к делу.
-890000000002816,Можно... без стрельбы обойтись?
-890000000002812,"Если найдёте Фло — берите, вместе нам как-то спокойнее."
-890000000002818,Контракт заканчивается. Продлеваем?
-890000000002819,Остаюсь. Наверное.
-890000000003113,Пума вне зоны действия. Пишите.
-890000000003114,"Пума. Говори тихо, если можешь."
-890000000003115,Связь прервалась. Вернёмся к делу.
-890000000003116,...
-890000000003112,Наймите ещё Лена — с ним работать тихо и надёжно.
-890000000003118,Контракт заканчивается. Продлеваем?
-890000000003119,"Остаюсь. Тихо, но остаюсь."
-890000000003517,Pour vous — всегда готов. Беру винтовку.
-890000000003717,Иду с вами. Фатима поймёт.
-890000000002817,Ладно... я попробую. Только пусть кто-нибудь прикроет.
-890000000003117,Уже в тени. Иду.
+890000000003713,Мануэль... сейчас нет связи. Позже.,,,
+890000000003714,Это Мануэль. Слушаю.,,,
+890000000003715,Связь прервалась. Вернёмся к делу.,,,
+890000000003716,Тише. Мануэль слушает лес.,,,
+890000000003712,"Если встретите Мигеля — скажите, Мануэль его не забыл.",,,
+890000000003718,Контракт заканчивается. Продлеваем?,,,
+890000000003719,Остаюсь. Лес подождёт.,,,
+890000000002912,"Нервный... занят... пиши, перезвоню, может.",,,
+890000000002913,Ч-чё надо? Стрелять будем?!,,,
+890000000002914,Связь прервалась. Вернёмся к делу.,,,
+890000000002915,"Где враги, где враги, где враги...",,,
+890000000002916,"Уже бегу, уже бегу! Патроны есть, всё нормально!",,,
+890000000002917,Контракт заканчивается. Продлеваем?,,,
+890000000002918,Остаюсь! Ещё патроны не кончились!,,,
+890000000004511,"Хоббит недоступен. Наверное, к лучшему.",,,
+890000000004512,"Хоббит на связи. Я не Фродо, если что.",,,
+890000000004513,Связь прервалась. Вернёмся к делу.,,,
+890000000004514,Жарко. Всё равно ничем хорошим не кончится.,,,
+890000000004515,"Ладно, могу и понести вас, если что.",,,
+890000000004516,Контракт заканчивается. Продлеваем?,,,
+890000000004517,Остаюсь. Всё равно хуже уже не будет.,,,
+890000000004412,Кардан... куда я дел телефон... перезвоните.,,,
+890000000004413,А? Кардан слушает. Что чинить?,,,
+890000000004414,Связь прервалась. Вернёмся к делу.,,,
+890000000004415,Что мы вообще делали?,,,
+890000000004416,"Кажется, я согласился. Иду.",,,
+890000000004417,Контракт заканчивается. Продлеваем?,,,
+890000000004418,Остаюсь. Кажется.,,,
+890000000003410,Динамо вне зоны — наверно чинит что-то. Пиши.,,,
+890000000003411,Динамо. Чо надо?,,,
+890000000003412,Связь прервалась. Вернёмся к делу.,,,
+890000000003413,"Давай уже, время не резиновое.",,,
+890000000003414,За идею пойду — или за полтинник. Разницы нет.,,,
+890000000003415,Контракт заканчивается. Продлеваем?,,,
+890000000003416,Остаюсь. Тут ещё есть что чинить и кого пугать.,,,
+890000000003311,Гамос много путешествовать — сейчас нет тут. Потом.,,,
+890000000003312,Гамос тут. Куда идти надо?,,,
+890000000003313,Связь пропадать. Вернёмся к делу.,,,
+890000000003314,Идём? Гамос знать дорогу.,,,
+890000000003315,"Хорошо, Гамос идёт. Джунгли не страшны.",,,
+890000000003316,Контракт заканчивается. Продлеваем?,,,
+890000000003317,Гамос остаётся. Есть ещё тропы показать.,,,
+890000000002612,"Это доктор Дэниел Квинтен. Пожалуйста, оставьте сообщение. Если нужна срочная медицинская помощь — звоните ещё.",,,
+890000000002613,"Да, это доктор Квинтен.",,,
+890000000002614,"Пожалуйста, обратите внимание, я сказал...",,,
+890000000002615,"Как вы, наверно, знаете, моя специальность — оказание медицинской помощи в полевых условиях.",,,
+890000000002616,Я буду очень рад подписать этот контракт. Спасибо.,,,
+890000000002617,"Ты собираешься продлевать мой контракт? Сообщи поскорее, если хочешь, чтобы я к тому моменту был свободен.",,,
+890000000002618,Это вполне приемлемо. Спасибо.,,,
+890000000004211,"Это доктор Клиффорд Хайбол, спасибо за звонок. Сейчас я не могу с вами разговаривать — оставьте своё имя и номер.",,,
+890000000004212,Доктор Клиффорд Хайбол.,,,
+890000000004213,"Пожалуйста, внимание — я сказал.",,,
+890000000004214,"Немногие бойцы способны причинять или облегчать боль так, как я могу.",,,
+890000000004215,В следующий раз мы будем разговаривать уже в Арулько.,,,
+890000000004216,"Мой контракт почти закончен. Следует ли мне понимать вашу незаинтересованность как свидетельство того, что продления не будет?",,,
+890000000004217,Отлично! Это место начинает мне нравиться!,,,
+890000000002813,"Бифф... э-э... перезвоните, пожалуйста?",,,
+890000000002814,Э... Бифф на связи. Вы серьёзно насчёт боевого задания?,,,
+890000000002815,Связь прервалась. Вернёмся к делу.,,,
+890000000002816,Можно... без стрельбы обойтись?,,,
+890000000002812,"Если найдёте Фло — берите, вместе нам как-то спокойнее.",,,
+890000000002818,Контракт заканчивается. Продлеваем?,,,
+890000000002819,Остаюсь. Наверное.,,,
+890000000003113,Пума вне зоны действия. Пишите.,,,
+890000000003114,"Пума. Говори тихо, если можешь.",,,
+890000000003115,Связь прервалась. Вернёмся к делу.,,,
+890000000003116,...,,,
+890000000003112,Наймите ещё Лена — с ним работать тихо и надёжно.,,,
+890000000003118,Контракт заканчивается. Продлеваем?,,,
+890000000003119,"Остаюсь. Тихо, но остаюсь.",,,
+890000000003517,Pour vous — всегда готов. Беру винтовку.,,,
+890000000003717,Иду с вами. Фатима поймёт.,,,
+890000000002817,Ладно... я попробую. Только пусть кто-нибудь прикроет.,,,
+890000000003117,Уже в тени. Иду.,,,
 
-# JAZZ-UNITS-005-AME-VR-LOC-BEGIN
+# JAZZ-UNITS-005-AME-VR-LOC-BEGIN,,,,
 890000000005800,Take that!,Есть цель!,,jazz-units:items.lua:VoiceResponse AME
 890000000005801,Die!,Бью.,,jazz-units:items.lua:VoiceResponse AME
 890000000005802,MEURS!,Держу на мушке.,,jazz-units:items.lua:VoiceResponse AME
@@ -11747,8 +11747,8 @@ ID,Text,Translation,VoiceActor,Context
 890000000005911,Laying low!,Держу сектор.,,jazz-units:items.lua:VoiceResponse AME
 890000000005912,(coughing),(кашляет),,jazz-units:items.lua:VoiceResponse AME
 890000000005913,You are nothing but butchers!,Зверь!,,jazz-units:items.lua:VoiceResponse AME
-# JAZZ-UNITS-005-AME-VR-LOC-END
-# JAZZ-UNITS-005-AME-LOC-BEGIN
+# JAZZ-UNITS-005-AME-VR-LOC-END,,,,
+# JAZZ-UNITS-005-AME-LOC-BEGIN,,,,
 890000000005000,A.M.E. Exchange,Африканская биржа наёмников,,AME_UI
 890000000005001,Irregulars,Новобранцы,,AME_Filter
 890000000005002,Irregulars,Irregulars,,AME_Filter
@@ -12198,7 +12198,7 @@ ID,Text,Translation,VoiceActor,Context
 890000000005694,On the line.,На связи. Готов обсуждать контракт.,,JAZZ_AME_60
 890000000005695,Listening. Tell me about the job.,Слушаю. Расскажите о задаче.,,JAZZ_AME_60
 890000000005696,Contract accepted.,До связи.,,JAZZ_AME_60
-# JAZZ-UNITS-005-AME-LOC-END
+# JAZZ-UNITS-005-AME-LOC-END,,,,
 890000000001931,Мимикрия,Мимикрия,,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
 890000000001932,"Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.","Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов.",,jazz:CharacterEffect/Jazz_Perk_Mimicry.lua
 890000000001933,Ветеран,Ветеран,,jazz:CharacterEffect/Jazz_Perk_Veteran.lua
@@ -12226,45 +12226,6 @@ ID,Text,Translation,VoiceActor,Context
 890000000005047,Тюремная выдержка,Тюремная выдержка,,perk-remap-from-890000000005027
 890000000005048,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,,perk-remap-from-890000000005028
 890000000005049,<style AimCopyrightTextC><copyright></style> AME 2001,<style AimCopyrightTextC><copyright></style> AME 2001,,AME_Browser_copyright
-111789233685,"<bullet_point> Backstabby and Silent
-<bullet_point> High Crit chance
-<bullet_point> Very low attack costs
-<bullet_point> Short range
-<bullet_point> Limited ammo capacity","<bullet_point> Backstabby and Silent
-<bullet_point> High Crit chance
-<bullet_point> Very low attack costs
-<bullet_point> Short range
-<bullet_point> Limited ammo capacity",,mag-hint-aligned
-112848820358,"<bullet_point> Awesome Crit chance
-<bullet_point> Longer range","<bullet_point> Awesome Crit chance
-<bullet_point> Longer range",,mag-hint-aligned
-251066241512,"<bullet_point> OUR weapon
-<bullet_point> Shorter range
-<bullet_point> High Damage
-<bullet_point> Limited ammo capacity
-<bullet_point> Increased bonus from Aiming
-<bullet_point> Very noisy","<bullet_point> OUR weapon
-<bullet_point> Shorter range
-<bullet_point> High Damage
-<bullet_point> Limited ammo capacity
-<bullet_point> Increased bonus from Aiming
-<bullet_point> Very noisy",,mag-hint-aligned
-317995733561,Ted is dead,Ted is dead,,mag-hint-aligned
-419302066547,"<bullet_point> Can be combined with Armor
-<bullet_point> Increases all Damage reduction stats of the armor","<bullet_point> Can be combined with Armor
-<bullet_point> Increases all Damage reduction stats of the armor",,mag-hint-aligned
-439493128569,"<bullet_point> Insensitive
-<bullet_point> Cumbersome (no Free Move)
-<bullet_point> Very noisy","<bullet_point> Insensitive
-<bullet_point> Cumbersome (no Free Move)
-<bullet_point> Very noisy",,mag-hint-aligned
-520396775412,It's easier to keep count this way.,It's easier to keep count this way.,,mag-hint-aligned
-528600006484,"<bullet_point> Can be combined with Torso Armor
-<bullet_point> Enhanced Armor absorbs more damage until the plates break down","<bullet_point> Can be combined with Torso Armor
-<bullet_point> Enhanced Armor absorbs more damage until the plates break down",,mag-hint-aligned
-745822040566,"<bullet_point> Can be combined with Armor
-<bullet_point> Increases the additional Damage Reduction of the Armor","<bullet_point> Can be combined with Armor
-<bullet_point> Increases the additional Damage Reduction of the Armor",,mag-hint-aligned
 932865416694,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нулевая бронебойность
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенный урон
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Повышенный шанс критического попадания
@@ -12280,3 +12241,7 @@ ID,Text,Translation,VoiceActor,Context
 890000000005055,WIP — механика сигнатурного перка в разработке.,WIP — механика сигнатурного перка в разработке.,,perk-remap-from-890000000005006
 890000000005056,Не трогай меня,Не трогай меня,,perk-remap-from-890000000005007
 890000000005057,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,,perk-remap-from-890000000005008
+890000000010277,Concussion,Контузия,,jazz:CharacterEffect/Concussion.lua
+890000000010278,"Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns.","Дезориентация от взрыва: <color EmStyle>−<APLoss> ОД</color>, <color EmStyle>−<cth_penalty>% к точности</color>, стоимость хода <color EmStyle>+<move_ap_modifier>%</color>, без Free Move. Около 1–2 ходов.",,jazz:CharacterEffect/Concussion.lua
+890000000010279,<color EmStyle><DisplayName></color> is concussed,<color EmStyle><DisplayName></color> контужен,,jazz:CharacterEffect/Concussion.lua
+890000000010280,<color EmStyle><DisplayName></color> clears concussion,<color EmStyle><DisplayName></color> приходит в себя после контузии,,jazz:CharacterEffect/Concussion.lua

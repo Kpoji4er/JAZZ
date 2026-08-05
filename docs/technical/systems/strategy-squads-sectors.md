@@ -91,7 +91,8 @@ Maps добавляет четыре `GuardpostObjective` ModItems. Units пре
 - максимум 1 managed combat spawn / **48h** / аванпост;
 - unlocked Hospital бафает managed Legion squads (`Inspired`, 24h);
 - `shipment` — везёт `$` shipment-stock в HQ; inventory = tagged cargo (survives loot regen via hourly/`ConflictStart`/`JAZZ_LegionAIResyncMoneyCargo`); после сдачи clear + rest;
-- `major` (Retribution) — Heat 800+; cooldown 72 часа.
+- `major` (Retribution) — Heat 800+; cooldown 72 часа. Composition from Global AI recipe `retribution` (STRATEGY-016 sizes); **not** the Ernie quest punitive pack.
+- **Quest punitive** `Ernie_CounterAttack` (custom id `ErnieCounterAttack`, I7→I5): EnemySquadDef `ErnieCounterAttack` — size **37** (from Balanced_Easy_Assault 39), **1×** `HeavyT1_Rocketeer` + **2×** `AssaultT1_Grenadier` (T1 throwers, not hand GL) + **1×** `HeavyT3_Mortarman`. Spawned via `Guardpost:SpawnEnemySquad` when `custom_quest_id` matches; `AttackWithEnemySquad` skips EnemySquadsList promote so Global AI retribution recipes stay untouched.
 
 **Lifecycle (JAZZ-STRATEGY-013):** happy-path **без RemoveSquad** (retire только living==0). После исчерпания `missions_left` отряд возвращается на home → state `resting` **12–36h** (`BaseRestMin/Max`, heal+top-up; **garrison без обязательного rest**) → refresh budget → `ready_for_orders`. Idle на базе только если после отдыха **нечего делать**. Recon/QRF без primary request могут assist гарнизон. Field understrength/wounded → retreat (012) → rest/wounded без despawn. Routing: land-first; water fallback; Major convoys exempt. `lRetireSquad` снимает отряд **сразу** на sync-пути планировщика (без `CreateRealTimeThread` / deferred RemoveSquad).
 - Idle ready squads at home top-up toward optimal when resources allow, then take new orders.

@@ -46,6 +46,10 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 После cap ядра CTH presets, status effects, component effects, реакции, укрытие и остальные ситуационные поправки преобразуются в именованные fixed-point факторы и применяются одним детерминированным произведением. Физически возможный выстрел ограничивается `2..100%`; невозможная атака возвращает `0%`. Опытный стрелок может получить `100%` по открытой цели в полный рост при полном aim и оптимальной дистанции, но любой применимый штраф снижает этот результат. Полная формула находится в [модели стрельбы и точности](../weapons/accuracy-model.md).
 
+Укрытие (`RangeAttackTargetStanceCover`, owner-soften 2026-08-05): `Cover −45` → factor `×0.55`, `ExposedCover −12` → `×0.88`, crouch/prone без укрытия `−12/−23` → `×0.88/×0.77`; частичное — `InterpolateCoverEffect`. Runtime: preset `CalcValue` → `JAZZ_CTHPercentToFactor` в `Unit:CalcChanceToHit` (firearm pipeline). Проверка: `docs/tools/_calc_cover_cth_gewehr.py`, `_check_cover_params_items.py`.
+
+**Cover-graze (не трогали):** при полном укрытии cover→graze ≈100% — любой CTH-hit становится царапиной (~40% урона). Вместе с miss→graze при низком CTH это даёт частые «чипы», даже когда solid hit почти невозможен. Owner intent был снизить CTH; graze слой оставлен.
+
 ## Дальность и кучность в текущем runtime
 
 `JAZZ_CTHGetRangeProfile` совместно использует:

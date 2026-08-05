@@ -18,13 +18,13 @@ Hire tiers: Regular **21** · Veteran **16** · Elite **10** · blank (Spider) *
 
 Roles: Leader 7 · ExplosiveExpert 7 · Melee 6 · Autoriflemen 5 · Stealth 5 · Doctor 5 · Mechanic 4 · Marksmen 4 · HeavyWeapons 2 · AllRounder 2 · Negotiator 1.
 
-Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level 21**.
+Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level 21**. Contract duration in AIM/AME chat: **3–30** days (vanilla max was 14).
 
 All 48 have a named perk in StartingPerks; **working hooks** are only a subset — see [perks](perks.md).
 
 ## A.M.E. (local market)
 
-Separate PDA site: **[African Mercenary Exchange](ame.md)** — pool of **60** local fighters (`Affiliation=AME`), ~15 on the board, ~30-day rotation, fixed kits and unique portraits. Not listed in the AIM table below.
+Separate PDA site: **[African Mercenary Exchange](ame.md)** — pool of **60** local fighters (`Affiliation=AME`), ~15 on the board, ~**14-day** (2-week) rotation, fixed kits and unique portraits. Not listed in the AIM table below.
 
 ## IMP
 

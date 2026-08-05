@@ -176,6 +176,10 @@ local function JazzImpInstallDialogueConditionWraps()
 	end
 end
 
+-- Tactical specialization grid: vanilla uses 5 cols (2 rows for ~10 presets).
+-- Jazz_Perk_Sniper adds an 11th → 3rd row overlaps Prev/Done. Prefer 6 cols (still 2 rows).
+local JAZZ_IMP_TACTICAL_COLS = 6
+
 --- Personal perk row: vanilla HList @ spacing 46 overflows after Mimicry/Veteran.
 --- Keep HList (HWrap stole clicks from the tactical Grid below). Tighten spacing only.
 local function JazzImpWalkPatchPersonalHList(node, depth)
@@ -206,6 +210,49 @@ local function JazzImpWalkPatchPersonalHList(node, depth)
 	end
 	for k, v in pairs(node) do
 		if type(k) ~= "number" and type(v) == "table" and JazzImpWalkPatchPersonalHList(v, (depth or 0) + 1) then
+			return true
+		end
+	end
+	return false
+end
+
+--- Tactical Grid: tighter H spacing + 6-column placement (no HWrap — click-safe).
+local function JazzImpWalkPatchTacticalGrid(node, depth)
+	if type(node) ~= "table" or (depth or 0) > 48 then
+		return false
+	end
+	if node.LayoutMethod == "Grid" and (node.LayoutHSpacing or 0) >= 40 and node.UniformColumnWidth then
+		node.LayoutHSpacing = 18
+		node.LayoutVSpacing = math.min(node.LayoutVSpacing or 10, 6)
+		for _, child in ipairs(node) do
+			if type(child) == "table" and type(child.run_after) == "function" and not child.jazz_imp_cols_patched then
+				local base = child.run_after
+				local cols = JAZZ_IMP_TACTICAL_COLS
+				child.run_after = function(c, context, item, i, n, last)
+					base(c, context, item, i, n, last)
+					-- Integer-safe column/row (vanilla used i-(i-1)/5*5).
+					local idx = (type(i) == "number" and i or 1) - 1
+					local col = (idx % cols) + 1
+					local row = math.floor(idx / cols) + 1
+					if c.SetGridX then
+						c:SetGridX(col)
+					end
+					if c.SetGridY then
+						c:SetGridY(row)
+					end
+				end
+				child.jazz_imp_cols_patched = true
+			end
+		end
+		return true
+	end
+	for _, v in ipairs(node) do
+		if type(v) == "table" and JazzImpWalkPatchTacticalGrid(v, (depth or 0) + 1) then
+			return true
+		end
+	end
+	for k, v in pairs(node) do
+		if type(k) ~= "number" and type(v) == "table" and JazzImpWalkPatchTacticalGrid(v, (depth or 0) + 1) then
 			return true
 		end
 	end
@@ -246,6 +293,7 @@ function JazzImpPatchPersonalPerksLayout()
 	end
 	undo_hwrap(xt, 0)
 	JazzImpWalkPatchPersonalHList(xt, 0)
+	JazzImpWalkPatchTacticalGrid(xt, 0)
 	rawset(_G, "g_JAZZ_ImpPerksLayoutPatched", true)
 end
 

@@ -3,6 +3,12 @@
 Never pre-split the file with str.splitlines() before csv.DictReader —
 that destroys quoted multiline fields (weapon AdditionalHint bullets, perk
 text, map outcomes). Always parse via StringIO / file handle.
+
+IMPORTANT: jazz *runtime* root `Russian.csv` / `English.csv` are often
+`sep=,` + data rows with **no** `ID,Text,Translation,...` header. DictReader
+will treat the first data row as field names and corrupt the file on write.
+For those files use raw `csv.reader` (see `_fix_med_en_in_ru_loc.py`).
+This helper is for catalog-style CSVs that *do* include a header row.
 """
 from __future__ import annotations
 

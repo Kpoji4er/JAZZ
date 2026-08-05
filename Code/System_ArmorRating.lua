@@ -494,8 +494,12 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			local effects = hit.effects
 			local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
 			local armor_pierced = not armor_hit or hit.armor_pen and next(hit.armor_pen) ~= nil
+			-- Blast: status effects (*shot / Blinded / stun) are not ballistic — apply even if armor
+			-- "stopped" pen-class. Bleed still requires pierce. BAT skipped for explosions (trauma
+			-- comes from *shot rollers + JazzTryApplyExplosionConcussionAndTrauma).
+			local explosion = hit and hit.explosion
 			local function apply_hit_effect(effect)
-				if armor_pierced and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
+				if (armor_pierced or explosion) and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
 					and CharacterEffectDefs[effect] then
 					self:AddStatusEffect(JazzRemapHitBleedEffect(effect, hit, attacker))
 				end
@@ -509,9 +513,12 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			end
 			if armor_pierced then
 				JazzTryRollBleedFromHit(self, hit, attacker)
-			elseif armor_hit then
+			elseif armor_hit and not explosion then
 				-- Stopped by armor: behind-armor blunt trauma (no bleed / no *shot).
 				JazzTryBehindArmorTrauma(self, hit, attacker)
+			end
+			if explosion then
+				JazzTryApplyExplosionConcussionAndTrauma(self, hit, attacker)
 			end
 		end
 	end

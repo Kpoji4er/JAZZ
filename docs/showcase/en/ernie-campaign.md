@@ -57,7 +57,7 @@ On the island but **without** Ernie tags in ModItemSector: `I3`/`I4` (road to li
 | `LegionFlag` | Fooling Pierre | yes |
 | `Ernie_CounterAttack` | *(unnamed)* | yes |
 
-After liberating the village while the fort is still enemy — a **quest** sat attack from the fort on the village (~16 h). Under Global AI / Vanilla Maps this works again; ordinary vanilla periodic sorties from the managed fort stay off.
+After liberating the village while the fort is still enemy — a **quest** sat attack from the fort on the village (~16 h). Squad def `ErnieCounterAttack`: ~**37** bodies, **1** rocketeer (RPG), **2** T1 thrower grenadiers + **1** mortar (not the generic Legion “Retaliation” AI recipe). Under Global AI / Vanilla Maps this works again; ordinary vanilla periodic sorties from the managed fort stay off.
 | `ErnieSideQuests` | *(unnamed)* | yes |
 | `ErnieSideQuests_WorldFlip` | *(unnamed)* | yes |
 | `RescueTeam` | We were hired as rescuers (RU title) | no |

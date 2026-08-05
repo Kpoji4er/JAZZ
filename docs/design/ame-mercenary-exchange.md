@@ -71,9 +71,9 @@ Target: at least ~30% of Fighters+Hardened slots are Autorifleman / Machinegunne
   - show (disabled): already unhireable — at least **JoinedLegion** and **Killed** (grayed card + reason)
   - show: player’s **Hired** (My Team)
   - hide: **NotListed** (not yet appeared) — never preview future mercs
-- Tick: every **30** campaign days (deterministic)
+- Tick: every **14** campaign days / 2 weeks (deterministic; was 30)
 - Terminal reasons (stay visible, no hire): JoinedLegion, Killed (+ HiredElsewhere if treated as terminal)
-- Specialist soft-guarantee: Medic / Instructor / Sniper cannot stay at zero Available+Pending for more than 30 days
+- Specialist soft-guarantee: Medic / Instructor / Sniper cannot stay at zero Available+Pending across a tick cycle (~14 days)
 
 ### Specialist floor (in pool)
 
@@ -84,18 +84,19 @@ Target: at least ~30% of Fighters+Hardened slots are Autorifleman / Machinegunne
 | Sniper | 2 |
 | Sapper | 1–2 |
 
-## Salary ladder (StartingSalary orient)
+## Salary ladder (owner weekly bands, 2026-08-05)
 
-`Irregulars < Fighters < Hardened ≪ Specialists` (Specialists = max on AME, still below comparable AIM).
+JA3 hire week ≈ `StartingSalary × 7`. Ladder: `Irregulars < Fighters < Hardened ≪ Specialists`. Specialists stay **below** Igor/Barry weekly (`$3150` / `$3290`).
 
-| Band | $ |
-| --- | --- |
-| Irregulars | 80–150 |
-| Fighters | 150–300 |
-| Hardened | 350–600 |
-| Sapper / Sniper | 600–900 |
-| Medic | 700–1100 |
-| Instructor | 900–1400 |
+| Band | ≈ $/week | `StartingSalary` (daily) |
+| --- | ---: | ---: |
+| Floor (cheap Irregulars) | ~50 | ~7 |
+| Irregulars | 50–350 | 7–50 |
+| Fighters | 400–750 | 57–107 |
+| Hardened (non-spec max) | 750–1000 | 107–143 |
+| Specialists | 1100–2000 | 157–286 |
+
+`JAZZ-UNITS-005-REQ-014` matches this ladder (older 80–1400 daily bands superseded).
 
 ## Stats
 

@@ -65,6 +65,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - бросок/подствол: вблизи только лёгкий scatter (mishap% ≈ 0), цвет всё равно может теплеть от scatter; на дальней дистанции выше mishap и цвет уходит к красному (`GetMishapAimReliability` → `GetCTHColor`);
 - граната при Dex+Expl ≈ 30 ощущается уверенно; пайп/TNT при среднем Expl — заметно рискованнее;
 - suppression / Inaccurate увеличивают mishap% и разброс гранаты/GL;
+- **контузия/травма:** frag/HE/flashbang blast-hit — всегда `Concussion` (кроме TempHitPoints); `*shot` trauma rollers сквозь непробитую броню / dedicated trauma gate шансовый; smoke/gas/fire без concussion;
 - заклинивание, устранение задержки, износ и ремонт;
 - Run and Gun игрока и AI;
 - overwatch, interrupt и смена оружия;

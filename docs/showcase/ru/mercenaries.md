@@ -18,13 +18,13 @@
 
 Роли (Specialization): Leader 7 · ExplosiveExpert 7 · Melee 6 · Autoriflemen 5 · Stealth 5 · Doctor 5 · Mechanic 4 · Marksmen 4 · HeavyWeapons 2 · AllRounder 2 · Negotiator 1.
 
-Фильтры AIM в core: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP до **21** уровня.
+Фильтры AIM в core: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP до **21** уровня. Срок контракта в чате AIM/AME: **3–30** дней (vanilla max был 14).
 
 Именной перк у всех 48 проставлен в StartingPerks; **рабочие хуки** — только у части (см. [перки](perks.md)).
 
 ## A.M.E. (локальный рынок)
 
-Отдельный PDA-сайт **[Африканская биржа наёмников](ame.md)**: пул **60** местных бойцов (`Affiliation=AME`), ~15 на витрине, ротация ~30 дней, фиксированный кит и уникальные портреты. Не входит в таблицу AIM ниже.
+Отдельный PDA-сайт **[Африканская биржа наёмников](ame.md)**: пул **60** местных бойцов (`Affiliation=AME`), ~15 на витрине, ротация ~**14** дней (2 недели), фиксированный кит и уникальные портреты. Не входит в таблицу AIM ниже.
 
 ## IMP
 
