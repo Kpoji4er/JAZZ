@@ -24,7 +24,9 @@ profiles are authored (Sterling ~12 … Micro UZI 21).
 `Carbine` select-fire platforms get class default RPM **700** when CSV still has
 placeholder `cyclic_rpm=0` (hole from first WEAPONS-003 apply). Semi-only carbines
 keep RPM 0 → Burst/Auto 0. Authored anchors include M4A1 **800/4/8**, G36/G36c
-**BurstLimiter=2** (burst capped at 2; AutoFire length unchanged).
+**BurstLimiter=2** (burst capped at 2; AutoFire length unchanged). Select-fire
+snipers (SVU) use class cyclic when Burst/Auto exists — not forced rpm=0.
+Mechanical 3-rd burst: M16A2/A4, FAMAS, AUG, HK33, Sig550*, G3A3/A4.
 
 `BurstShots = clamp(round(RPM / 200), 2..8)` and
 `AutoShots = clamp(round(RPM / 100), 3..14)` only when the corresponding fire

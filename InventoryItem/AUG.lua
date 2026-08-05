@@ -120,10 +120,10 @@ DefineClass.AUG = {
 	WeaponMass = 36,
 	CyclicRPM = 700,
 	WeaponSizeClass = "Rifle",
-	BurstLimiter = 0,
+	BurstLimiter = 3,
 	AutoShots = 7,
 	Recoil = 16,
-	BurstShots = 4,
+	BurstShots = 3,
 
 	CloseRange = 8,
 

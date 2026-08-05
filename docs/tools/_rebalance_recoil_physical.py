@@ -67,10 +67,19 @@ AUTHORED_OVERRIDES = {
     "P90": (28, 900, "Compact", 0, None),
     "LionRoar": (35, 700, "Carbine", 0, None),
     "M16A2": (34, 700, "Rifle", 3, None),
+    "M16A4": (34, 700, "Rifle", 3, None),  # burst-cut like A2; Jazz has LargeAutoFire separately
     "AN94": (39, 1800, "Rifle", 2, None),
     # G36 family: mechanical 2-rd burst (BurstLimiter caps BurstFire only).
     "G36": (36, 750, "Rifle", 2, None),
     "G36c": (30, 750, "Carbine", 2, None),
+    # 3-rd mechanical burst platforms (BurstFire capped; AutoFire length unchanged).
+    "FAMAS": (37, 900, "Rifle", 3, None),
+    "AUG": (36, 700, "Rifle", 3, None),
+    "HK33": (37, 750, "Rifle", 3, None),
+    "Sig550": (41, 700, "Rifle", 3, None),
+    "Sig550Custom": (41, 700, "Rifle", 3, None),
+    "G3A3": (44, 550, "Rifle", 3, None),
+    "G3A4": (43, 550, "Rifle", 3, None),
     # Carbines (WEAPONS-003 M4A1 anchor 800/4/8; class was previously rpm=0 hole).
     "M4A1": (33, 800, "Carbine", 0, None),
     "CAR15": (30, 750, "Carbine", 0, None),
@@ -80,6 +89,7 @@ AUTHORED_OVERRIDES = {
     "AS_Val": (28, 900, "Carbine", 0, None),
     "ZastavaM92": (33, 700, "Carbine", 0, None),
     "VSS": (28, 800, "Carbine", 0, None),  # BurstFire only → AutoShots=0
+    "SVU": (48, 650, "Long", 0, None),  # BurstFire DMR; sniper class previously forced rpm=0
     "MAC10": (28, 1100, "Compact", 0, None),
     "Glock18": (26, 1200, "Compact", 0, None),
     "Beretta93r": (26, 1100, "Compact", 3, None),
@@ -130,7 +140,8 @@ def needs_cyclic_rpm(attacks: str) -> bool:
 def class_default_profile(cls: str, attacks: str) -> tuple[int, int, str, int, float]:
     cyclic = 700 if needs_cyclic_rpm(attacks) else 0
     if "sniper" in cls or "precision" in cls:
-        return 55, 0, "Long", 0, 1.0
+        # Semi bolt/DMR keep rpm=0; BurstFire SVU-class must get cyclic (was forced 0 hole).
+        return 55, cyclic, "Long", 0, 1.0
     # SubmachineGun before MachineGun: "submachinegun" contains "machinegun".
     if "submachine" in cls:
         return 32, 700, "Carbine", 0, 1.0
@@ -344,6 +355,7 @@ def main() -> None:
         "AK74", "AKM", "FNFAL", "MicroUZI", "MP5K", "MP5A2", "Sterling",
         "MAT49", "UZI", "P90", "LionRoar", "TexRevolver",
         "M4A1", "G36", "G36c", "CAR15", "AKSU", "VSS", "AS_Val", "ZastavaM92", "AN94",
+        "SVU", "FAMAS", "AUG", "M16A4", "HK33", "Sig550", "G3A3",
     ):
         if weapon_id in profiles:
             print(f"{weapon_id}: {profiles[weapon_id]}")
