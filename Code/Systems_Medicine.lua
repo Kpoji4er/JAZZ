@@ -440,6 +440,22 @@ end
 local jazz_targeting_unit_in_melee_fn
 local jazz_melee_confirm_fn
 local jazz_melee_confirm_base
+local jazz_melee_set_target_fn
+local jazz_melee_set_target_base
+local jazz_start_move_attack_fn
+local jazz_start_move_attack_base
+local jazz_update_cursor_fn
+local jazz_update_cursor_base
+
+function JazzResolveMedicineGotoPos(attacker, target)
+	if not attacker or not IsValid(target) then
+		return false
+	end
+	if target == attacker or IsMeleeRangeTarget(attacker, nil, nil, target) then
+		return (GetPassSlab and GetPassSlab(attacker)) or SnapToVoxel(attacker:GetPos())
+	end
+	return attacker:GetClosestMeleeRangePos(target)
+end
 
 local function lInstallMedicineMeleeUIHooks()
 	-- CanBandageUI: dispatch Jazz field actions; kit Bandage also accepts all Jazz bleed tiers.
@@ -489,9 +505,68 @@ local function lInstallMedicineMeleeUIHooks()
 		rawset(_G, "Targeting_UnitInMelee", jazz_targeting_unit_in_melee_fn)
 	end
 
-	-- Confirm must NOT spoof id (NetStartCombatAction would fire kit Bandage).
+	-- Healing cursor: vanilla compares action object identity to CombatActions.Bandage only.
+	local common_cls = rawget(_G, "g_Classes") and g_Classes.IModeCommonUnitControl
+	if type(common_cls) == "table" and type(common_cls.UpdateCursorImage) == "function"
+		and common_cls.UpdateCursorImage ~= jazz_update_cursor_fn
+	then
+		jazz_update_cursor_base = common_cls.UpdateCursorImage
+		jazz_update_cursor_fn = function(self, ...)
+			if JazzIsAllyMedicineCombatAction(self.action) then
+				if GetUIStyleGamepad and GetUIStyleGamepad() then
+					return
+				end
+				if self.potential_target and CanBandageUI(SelectedObj, { target = self.potential_target }) then
+					self.desktop:SetMouseCursor("UI/Cursors/Healing_on.tga")
+				else
+					self.desktop:SetMouseCursor("UI/Cursors/Healing_off.tga")
+				end
+				return
+			end
+			return jazz_update_cursor_base(self, ...)
+		end
+		common_cls.UpdateCursorImage = jazz_update_cursor_fn
+	end
+
+	-- Portrait StartMoveAndAttack always passed GetClosestMeleeRangePos → walk to adjacent
+	-- even when already adjacent / self-treat. Keep in place when melee range already OK.
+	local base_mode_cls = rawget(_G, "g_Classes") and g_Classes.IModeCombatBase
+	if type(base_mode_cls) == "table" and type(base_mode_cls.StartMoveAndAttack) == "function"
+		and base_mode_cls.StartMoveAndAttack ~= jazz_start_move_attack_fn
+	then
+		jazz_start_move_attack_base = base_mode_cls.StartMoveAndAttack
+		jazz_start_move_attack_fn = function(self, attacker, action, target, step_pos, args)
+			if JazzIsAllyMedicineCombatAction(action) and attacker and IsValid(target) then
+				if target == attacker or IsMeleeRangeTarget(attacker, nil, nil, target) then
+					step_pos = (GetPassSlab and GetPassSlab(attacker)) or attacker:GetPos()
+				elseif not step_pos then
+					step_pos = attacker:GetClosestMeleeRangePos(target)
+				end
+			end
+			return jazz_start_move_attack_base(self, attacker, action, target, step_pos, args)
+		end
+		base_mode_cls.StartMoveAndAttack = jazz_start_move_attack_fn
+	end
+
 	local classes = rawget(_G, "g_Classes")
 	local melee_cls = classes and classes.IModeCombatMelee
+
+	-- SetTarget CanAttack eject: ActionType "Other" always fails → kicks out of mode on world hover.
+	if type(melee_cls) == "table" and type(melee_cls.SetTarget) == "function"
+		and melee_cls.SetTarget ~= jazz_melee_set_target_fn
+	then
+		jazz_melee_set_target_base = melee_cls.SetTarget
+		jazz_melee_set_target_fn = function(self, ...)
+			if JazzIsAllyMedicineCombatAction(self.action) then
+				return IModeCombatBase.SetTarget(self, ...)
+			end
+			return jazz_melee_set_target_base(self, ...)
+		end
+		melee_cls.SetTarget = jazz_melee_set_target_fn
+	end
+
+	-- Confirm: do not spoof id (would fire kit Bandage). Skip CheckAndReportImpossibleAttack
+	-- (CanAttack always false for ActionType Other) — validate via CanBandageUI then Execute/move.
 	if type(melee_cls) == "table" and type(melee_cls.Confirm) == "function"
 		and melee_cls.Confirm ~= jazz_melee_confirm_fn
 	then
@@ -499,27 +574,36 @@ local function lInstallMedicineMeleeUIHooks()
 		jazz_melee_confirm_fn = function(self, ...)
 			local action = self.action
 			local real_id = action and action.id
-			if JazzIsFieldMedicineActionId(real_id) then
-				self.target_pos = (self.attacker and self.attacker:GetPos()) or self.target_pos or self.melee_step_pos
-				if not self.target or not self.target_pos then
-					return
-				end
-				if self.target == SelectedObj then
-					self.target_pos = SnapToVoxel(SelectedObj:GetPos())
-				end
-				rawset(_G, "g_JAZZ_ActiveMedicineActionId", real_id)
-				local ok_check = CheckCanBeBandagedAndReport(SelectedObj, {
-					target = self.target,
-					goto_pos = self.target_pos,
-				})
-				rawset(_G, "g_JAZZ_ActiveMedicineActionId", false)
-				if not ok_check then
-					return
-				end
-				self.move_step_position = self.target_pos
-				return IModeCombatAttackBase.Confirm(self)
+			if not JazzIsFieldMedicineActionId(real_id) then
+				return jazz_melee_confirm_base(self, ...)
 			end
-			return jazz_melee_confirm_base(self, ...)
+			if self.crosshair then
+				return jazz_melee_confirm_base(self, ...)
+			end
+			local attacker = SelectedObj or self.attacker
+			local target = self.target
+			if not IsValid(attacker) or not IsValid(target) then
+				return
+			end
+			rawset(_G, "g_JAZZ_ActiveMedicineActionId", real_id)
+			local ok_check = CheckCanBeBandagedAndReport(attacker, { target = target })
+			rawset(_G, "g_JAZZ_ActiveMedicineActionId", false)
+			if not ok_check then
+				return
+			end
+			local goto_pos = JazzResolveMedicineGotoPos(attacker, target)
+			local args = { target = target, goto_pos = goto_pos }
+			self.attack_confirmed = true
+			if ClearAPIndicator then
+				ClearAPIndicator()
+			end
+			local need_move = goto_pos and attacker:GetDist(goto_pos) > (const.SlabSizeX / 2)
+			if need_move then
+				self:StartMoveAndAttack(attacker, action, target, goto_pos, args)
+			else
+				action:Execute({ attacker }, args)
+			end
+			return "break"
 		end
 		melee_cls.Confirm = jazz_melee_confirm_fn
 	end
