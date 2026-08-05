@@ -39,7 +39,7 @@ DefineClass.TMP = {
 				"JAZZ_MagNormal",
 				"JAZZ_MagSmall30_15_TMP",
 			},
-			'DefaultComponent', "JAZZ_MagSmall30_15_TMP",
+			'DefaultComponent', "JAZZ_MagNormal",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "General",

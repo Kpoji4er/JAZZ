@@ -130,8 +130,8 @@ function JazzBuildImpStartingGear(unit)
 	local giveM79 = hasHeavy
 	if giveM79 then
 		JazzImpAdd(items, "M79")
-		JazzImpAdd(items, "_40mmFlashbangGrenade", 2)
-		JazzImpAdd(items, "_40mmFragGrenade", 3)
+		JazzImpAdd(items, "JAZZ_AMMO_40mmFlashbangGrenade", 2)
+		JazzImpAdd(items, "JAZZ_AMMO_40mmFragGrenade", 3)
 	end
 
 	-- Melee/CQC sidearm ladder

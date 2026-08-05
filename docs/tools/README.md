@@ -5,6 +5,9 @@
 
 Запуск из корня пакета `jazz/` (если не указано иное).
 
+| `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
+| `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
+
 ## FortifyErnie / stationary MG
 
 | Скрипт | Назначение |

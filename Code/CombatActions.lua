@@ -882,7 +882,6 @@ function Unit:FirearmAttack(action_id, cost_ap, args, applied_status) -- SingleS
 		self:GainAP(cost_ap)
 		CombatActionInterruped(self)
 	end
-		print(action_id)
 		local action = CombatActions[action_id]
 		local cooldown = action:ResolveValue("cooldown")
 		if cooldown then
@@ -894,41 +893,67 @@ function Unit:FirearmAttack(action_id, cost_ap, args, applied_status) -- SingleS
 		end
 end
 
+-- JAZZ_TargetSweep: short burst (or SingleShot) at each LOS enemy in the aim cone.
+-- Refund AP + skip signature recharge when nothing fires (vanilla DanceForMe pattern left AP spent).
 function Unit:TargetSweep(action_id, cost_ap, args)
 	local action = CombatActions[action_id]
 	local weapon = self:GetActiveWeapons()
+	if not weapon then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
 	local aoeParams = weapon:GetAreaAttackParams(action_id, self)
 	local attackData = self:ResolveAttackParams(action_id, args.target, {})
-	
+
 	local attackerPos = attackData.step_pos
 	local attackerPos3D = attackerPos
 	if not attackerPos3D:IsValidZ() then
 		attackerPos3D = attackerPos3D:SetTerrainZ()
 	end
 	local targetPos = args.target
-	
 	local targetAngle = CalcOrientation(attackerPos, targetPos)
-	
 	local distance = Clamp(attackerPos3D:Dist(targetPos), aoeParams.min_range * const.SlabSizeX, aoeParams.max_range * const.SlabSizeX)
 
+	local attackAction
+	if table.find(weapon.AvailableAttacks, "BurstFire") and CombatActions.BurstFire then
+		attackAction = CombatActions.BurstFire
+	elseif table.find(weapon.AvailableAttacks, "SingleShot") and CombatActions.SingleShot then
+		attackAction = CombatActions.SingleShot
+	else
+		attackAction = self:GetDefaultAttackAction("ranged")
+	end
+
+	local fired_any = false
 	local enemies = GetEnemies(self)
 	local maxValue, losValues = CheckLOS(enemies, attackerPos, distance, attackData.stance, aoeParams.cone_angle, targetAngle, false)
-	
-	if maxValue then
+
+	if maxValue and attackAction then
 		for i, los in ipairs(losValues) do
 			if los then
-				local defaultAttack = self:GetDefaultAttackAction("ranged")
+				if not self:CanUseWeapon(weapon, 1) then
+					break
+				end
 				local tempArgs = table.copy(args)
 				tempArgs.target = enemies[i]
 				tempArgs.target_spot_group = "Torso"
-				if defaultAttack and self:CanAttack(tempArgs.target, weapon, defaultAttack, nil, nil, "skip_ap_check") then
-					self:FirearmAttack(defaultAttack.id, 0, tempArgs)
+				tempArgs.aim = 0
+				tempArgs.distance = nil
+				if self:CanAttack(tempArgs.target, weapon, attackAction, nil, nil, "skip_ap_check") then
+					self:FirearmAttack(attackAction.id, 0, tempArgs)
+					fired_any = true
 				end
 			end
 		end
 	end
-	
+
+	if not fired_any then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
 	local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
 	self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
-
 end

@@ -1,4 +1,3 @@
---APS
 PlaceObj('ActionFXSound', {
 	Action = "WeaponFire",
 	Actor = "APS",
@@ -74,7 +73,7 @@ PlaceObj('ActionFXSound', {
 	Source = "Camera",
 	Target = "any",
 	group = "Default",
-	id = "fxAPS1",
+	id = "fxAPS_unjam1",
 })
 
 PlaceObj('ActionFXSound', {
@@ -87,7 +86,7 @@ PlaceObj('ActionFXSound', {
 	Delay = 2200,
 	Target = "any",
 	group = "Default",
-	id = "fxAPS2",
+	id = "fxAPS_unjam2",
 })
 
 PlaceObj('ActionFXSound', {
@@ -100,7 +99,7 @@ PlaceObj('ActionFXSound', {
 	Delay = 4200,
 	Target = "any",
 	group = "Default",
-	id = "fxAPS3",
+	id = "fxAPS_unjam3",
 })
 
 
@@ -166,7 +165,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "Makarov",
+	Actor = "APS",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Makarov_clipin",
@@ -179,7 +178,7 @@ PlaceObj('ActionFXSound', {
 
 PlaceObj('ActionFXSound', {
 	Action = "WeaponReload",
-	Actor = "Makarov",
+	Actor = "APS",
 	DetailLevel = 100,
 	Moment = "start",
 	Sound = "Makarov_reload",

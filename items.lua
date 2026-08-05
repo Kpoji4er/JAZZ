@@ -21015,10 +21015,10 @@ return {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Magazine",
 							'AvailableComponents', {
-								"JAZZ_MagSmall30_15_TMP",
 								"JAZZ_MagNormal",
+								"JAZZ_MagSmall30_15_TMP",
 							},
-							'DefaultComponent', "JAZZ_MagSmall30_15_TMP",
+							'DefaultComponent', "JAZZ_MagNormal",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "General",
@@ -22014,12 +22014,12 @@ return {
 					'ShootAP', 5000,
 					'ReloadAP', 5000,
 					'WeaponMass', 35,
-					'CyclicRPM', 0,
+					'CyclicRPM', 700,
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
-					'BurstShots', 0,
+					'BurstShots', 4,
 					'Recoil', 20,
-					'AutoShots', 0,
+					'AutoShots', 7,
 					'BulletDropRange', 12,
 
 					'CloseRange', 5,
