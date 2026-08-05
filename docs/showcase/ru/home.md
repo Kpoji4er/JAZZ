@@ -16,6 +16,7 @@
 - [Каталог оружия (статы)](../../wiki/weapons/README.md)
 - [Наёмники](mercenaries.md) — AIM / JA1·2 волна
 - [Перки](perks.md) — именные vs классовые техники
+- [Командная аура](officer-aura.md) — приказы AI-офицеров в бою
 - [Юниты Легиона](legion-units.md) — T1–T4 и gear tier
 - [Легион на стратегии](legion-strategy.md) — роли отрядов на сателлите
 

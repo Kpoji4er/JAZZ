@@ -34,7 +34,7 @@
 | `Jazz_Perk_Steiger` | Штайгер | Ночью: союзники ≤5 получают +5 CTH |
 | `GrizzlyPerk` | Grizzly | Личная MG-атака + CTH/recoil |
 | `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP первый ход |
-| `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира; в тултипе — **текущий приказ** (держать линию / давить / охват / отход / сосредоточить огонь / занимать дома / спрятаться / скрыться / низкая видимость) |
+| `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира; в тултипе — **текущий приказ**. Подробности: [Командная аура](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (личностные) | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
 | `Jazz_Perk_Veteran` | IMP (личностные) | +10 ко всем skill/stat checks |
 | `Jazz_Perk_Sniper` | IMP (тактические) | +1 макс. уровень прицеливания (любое оружие) |

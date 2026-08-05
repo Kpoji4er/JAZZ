@@ -76,6 +76,8 @@ Satellite squad roles: [Legion strategy](legion-strategy.md).
 
 Leader levels are **not** monotonic (as loaded). Strategic T4 squads need MercenaryCaptain; officer density Sergeant/8, Lieutenant/15–20, Captain/30 (`LegionSquadComposition.lua`).
 
+In combat, leaders issue a **command aura** and orders to allies in range — see [Command aura](officer-aura.md).
+
 ### Artillery
 
 | T | Id | Name | Lvl |

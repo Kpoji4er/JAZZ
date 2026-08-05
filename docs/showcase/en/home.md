@@ -16,6 +16,7 @@ Bilingual showcase for the **JAZZ** overhaul of *Jagged Alliance 3*: Ernie demo,
 - [Weapon catalog (stats)](../../wiki/weapons/README.md)
 - [Mercenaries](mercenaries.md) — AIM / JA1·2 wave
 - [Perks](perks.md) — named vs class techniques
+- [Command aura](officer-aura.md) — AI officer orders in combat
 - [Legion units](legion-units.md) — T1–T4 and gear tier
 - [Legion on the strategic map](legion-strategy.md) — satellite squad roles
 
