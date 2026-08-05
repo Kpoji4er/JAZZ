@@ -123,6 +123,7 @@
 | `_apply_strategy_021_great_desert.py` | STRATEGY-021: `GreatDesert` Region + PortCacao `LateAwakenMinTier`/Starting* =0 в `jazz/items.lua` + metadata resource. |
 | `_apply_mountain_steppe_region.py` | Trim GreatDesert (drop A9–A12/B9–B12/C8–C12) + add `MountainSteppe` / D18; metadata resource. |
 | `_fix_savanna_west_from_steppe.py` | Owner fix: restore A9–A12/B9–B12/C8–C12 to `GreatDesert`; MountainSteppe from A13…; drop D11–D12 overlap. |
+| `_add_great_desert_sectors.py` | Append sectors to `GreatDesert` (overlap check vs other Regions). |
 | `_apply_fleatown_environs_region.py` | Add `FleatownEnvirons` / H19; drop F18 from MountainSteppe (overlap). |
 | `_apply_labarrier_region.py` | Add `LaBarrier` / L15 + Ernie `MajorSupplyPriority`; wire L15 Global AI lists. |
 | `_apply_great_forest_region.py` | Add `GreatForest` / G22+K21 shared dual-outpost; wire Global AI lists. |

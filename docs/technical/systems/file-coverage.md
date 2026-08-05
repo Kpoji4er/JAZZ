@@ -93,6 +93,7 @@
 | `LegionSquadGenerator.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
 | `LegionMilitiaRecruits.lua` | loaded (soft gate; 011 partial) | [Стратегия](strategy-squads-sectors.md) |
 | `Regions_Sectors.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |
+| `Satellite_RegionBorders.lua` | loaded | [Стратегия](strategy-squads-sectors.md) — sat region edge overlay |
 | `SatelliteSquad.lua` | loaded | [Стратегия](strategy-squads-sectors.md), [юниты](units-progression-specializations.md) — IMP hire gear rebuild (IMP-001) |
 | `SatelliteSquadFixes.lua` | loaded, empty | [Стратегия](strategy-squads-sectors.md) |
 | `POI Extension.lua` | loaded | [Стратегия](strategy-squads-sectors.md) |

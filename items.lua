@@ -109051,6 +109051,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'CodeFileName', "Code/Regions_Sectors.lua",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "Satellite_RegionBorders",
+			'CodeFileName', "Code/Satellite_RegionBorders.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "EnemySquad",
 			'CodeFileName', "Code/EnemySquad.lua",
 		}),
@@ -109249,16 +109253,21 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					"D10",
 					"D11",
 					"D12",
+					"E8",
+					"E9",
 					"E10",
+					"E11",
 					"F8",
 					"F9",
 					"F10",
 					"F11",
 					"F12",
+					"F13",
 					"G9",
 					"G10",
 					"G11",
 					"G12",
+					"G13",
 					"H10",
 					"H11",
 					"H12",
@@ -109727,7 +109736,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'Dock', "bottom",
 							}, {
 								PlaceObj('XTemplateWindow', {
-									'comment', "loyalty",
+									'comment', "region",
 									'__class', "XText",
 									'RolloverTemplate', "RolloverGeneric",
 									'RolloverAnchor', "center-top",
@@ -109738,6 +109747,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									'Margins', box(5, 0, 5, 0),
 									'FoldWhenHidden', true,
 									'TextStyle', "PDASectorInfo_Green",
+									'Translate', true,
 								}),
 								}),
 							PlaceObj('XTemplateWindow', {
@@ -109844,7 +109854,21 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								end
 								
 								parent.idRegion:SetVisible(not not has_region)
-								parent.idRegion:SetText(has_region and region:GetRolloverHint(sector.Id) or "")
+								if has_region then
+									-- Compact label: DisplayName (string or T). Full hint stays on rollover.
+									local name = region.DisplayName
+									if name and name ~= "" then
+										parent.idRegion:SetText(IsT(name) and name or Untranslated(name))
+									else
+										parent.idRegion:SetText(Untranslated(tostring(region.id or region.Id or "")))
+									end
+									local hint = region.GetRolloverHint and region:GetRolloverHint(sector.Id)
+									if hint and hint ~= "" then
+										parent.idRegion:SetRolloverText(hint)
+									end
+								else
+									parent.idRegion:SetText("")
+								end
 								
 								local intel = sector.Intel and sector.intel_discovered
 								parent.idIntel:SetVisible(intel)
