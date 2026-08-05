@@ -1,20 +1,20 @@
 {
   "Allik": {
     "gender": "Male",
-    "body_donor": "Militia_Soldier",
-    "head_donor": "Igor",
-    "hair_donor": "Igor",
+    "body_donor": "DirtyHenri",
+    "head_donor": "Sidney",
+    "hair_donor": "Sidney",
     "hat_donor": "",
-    "note": "Estonian AR — Militia + Igor",
+    "note": "heavy-weapons bear — DirtyHenri + Sidney; C1=pale skin (shirt C1 is skin; donor brown mismatched pale Sidney); PantsColor brown",
     "handcrafted_kept": false
   },
   "Benny": {
     "gender": "Female",
-    "body_donor": "WorkingGirl01",
-    "head_donor": "Fox",
-    "hair_donor": "Fox",
+    "body_donor": "Livewire",
+    "head_donor": "Livewire",
+    "hair_donor": "Livewire",
     "hat_donor": "",
-    "note": "female fixer — WorkingGirl + Fox",
+    "note": "BigPortrait: tactical fixer vest cargos — pure Livewire clone",
     "handcrafted_kept": false
   },
   "Biggens": {
@@ -22,98 +22,98 @@
     "body_donor": "DirtyHenri",
     "head_donor": "Gus",
     "hair_donor": "Gus",
-    "hat_donor": "Gus",
-    "note": "old colonel beret — DirtyHenri militia shirt + Gus",
+    "hat_donor": "Adonis_Officer",
+    "note": "BigPortrait: khaki beret — DirtyHenri + Gus head + Adonis_Officer beret; HatColor khaki",
     "handcrafted_kept": false
   },
   "Blade": {
     "gender": "Male",
-    "body_donor": "ThugMelee",
+    "body_donor": "GrandChien_Recon",
     "head_donor": "Reaper",
     "hair_donor": "Reaper",
     "hat_donor": "",
-    "note": "knife psycho — ThugMelee + Reaper",
+    "note": "sheet: knife fighter harness — GrandChien_Recon + Reaper head (was ThugMelee Male_Body dark-arms + pale Reaper)",
     "handcrafted_kept": false
   },
   "Bull": {
     "gender": "Male",
-    "body_donor": "Bonecrusher",
+    "body_donor": "Steroid",
     "head_donor": "Steroid",
     "hair_donor": "",
     "hat_donor": "",
-    "note": "bald bruiser — Bonecrusher + Steroid bald",
+    "note": "sheet: white bald bruiser — Steroid pale body+head, Hair cleared; Bonecrusher black cargos (not dark Bonecrusher torso; not bare Steroid clone)",
     "handcrafted_kept": false
   },
   "Carlos": {
     "gender": "Male",
     "body_donor": "Soldier_Rebels_02",
-    "head_donor": "Flay",
-    "hair_donor": "Flay",
+    "head_donor": "Blood",
+    "hair_donor": "Blood",
     "hat_donor": "",
-    "note": "Latino rebel — Rebels + Flay",
+    "note": "Arulco rebel scout — Rebels body + Blood head/hair (was Tex = JA3 Asian face; Hair empty)",
     "handcrafted_kept": false
   },
   "Colby": {
     "gender": "Male",
-    "body_donor": "WorkingGuy01",
-    "head_donor": "Sidney",
-    "hair_donor": "Sidney",
+    "body_donor": "Barry",
+    "head_donor": "Barry",
+    "hair_donor": "Barry",
     "hat_donor": "",
-    "note": "inventor clutter — WorkingGuy + Sidney",
+    "note": "sheet: gadgets in pockets / inventor — pure Barry (plaid+tool vest); was WorkingGuy then GC_Demolition army vest",
     "handcrafted_kept": false
   },
   "Conrad": {
     "gender": "Male",
-    "body_donor": "GrandChien_Soldier",
+    "body_donor": "Adonis_Officer",
     "head_donor": "Len",
     "hair_donor": "Len",
     "hat_donor": "",
-    "note": "Arulco LT — GC Soldier + Len",
+    "note": "German ex-officer olive plate — Adonis_Officer + Len; C1=pale skin (Top_05 C1 is SKIN — olive on C1 = green hands), C2/C3/pants=olive plate",
     "handcrafted_kept": false
   },
   "Cord": {
     "gender": "Male",
-    "body_donor": "WorkingGuy01",
-    "head_donor": "Tex",
-    "hair_donor": "Tex",
+    "body_donor": "Mario",
+    "head_donor": "Sidney",
+    "hair_donor": "Sidney",
     "hat_donor": "",
-    "note": "grease monkey — WorkingGuy + Tex",
+    "note": "grease coveralls — Mario + Sidney; C1=pale skin (Mario C1 is skin, was near-black; do not put olive on C1), C2=dirty khaki overalls",
     "handcrafted_kept": false
   },
   "Cougar": {
     "gender": "Male",
-    "body_donor": "Militia_Recon",
-    "head_donor": "Shadow",
-    "hair_donor": "Shadow",
+    "body_donor": "Adonis_Soldier",
+    "head_donor": "Raider",
+    "hair_donor": "Raider",
     "hat_donor": "",
-    "note": "stealth MERC — Militia Recon + Shadow",
+    "note": "BigPortrait: tan shirt black plate vest — Adonis + Raider",
     "handcrafted_kept": false
   },
   "Devin": {
     "gender": "Male",
-    "body_donor": "BillyBoy",
+    "body_donor": "Adonis_Demolition",
     "head_donor": "Red",
     "hair_donor": "Red",
-    "hat_donor": "",
-    "note": "Irish explosives trader — BillyBoy shirt + Red",
+    "hat_donor": "Red",
+    "note": "sheet: Irish demo redhead — Adonis_Demolition + Red head/beret (not pure Red AIM clone; was BillyBoy)",
     "handcrafted_kept": false
   },
   "Dimitri": {
     "gender": "Male",
-    "body_donor": "Soldier_Rebels",
-    "head_donor": "Flay",
-    "hair_donor": "Flay",
+    "body_donor": "Soldier_Rebels_03",
+    "head_donor": "Blood",
+    "hair_donor": "Blood",
     "hat_donor": "",
-    "note": "Greek rebel / machete — Rebels Soldier + Flay",
+    "note": "olive/camo knife rebel — Soldier_Rebels_03 + Blood (Militia_Top_02 has pale baked arms; BodyColor olive does not fix skin)",
     "handcrafted_kept": false
   },
   "Dynamo": {
     "gender": "Male",
-    "body_donor": "Militia_Soldier",
+    "body_donor": "DirtyHenri",
     "head_donor": "Blood",
     "hair_donor": "Blood",
     "hat_donor": "",
-    "note": "beaten mechanic — Militia + Blood",
+    "note": "beaten torn shirt dark skin — DirtyHenri + Blood; C1 dark skin (shirt C1 is skin channel)",
     "handcrafted_kept": false
   },
   "Eskimo": {
@@ -122,142 +122,160 @@
     "head_donor": "Omryn",
     "hair_donor": "Omryn",
     "hat_donor": "",
-    "note": "northern scout — Rebels Marksman + Omryn",
+    "note": "BigPortrait: tan jacket scarf — Marksman Rebels + Omryn",
     "handcrafted_kept": false
   },
   "Flo": {
     "gender": "Female",
-    "body_donor": "VillagerFemale_08",
+    "body_donor": "Livewire",
     "head_donor": "Buns",
     "hair_donor": "Buns",
     "hat_donor": "",
-    "note": "negotiator civilian — Villager blouse + Buns",
+    "note": "sheet: civilian-tactical — Livewire body + Buns (was RebelFemale+BC1 pale → white broken arms; not WorkingGirl Mollie)",
     "handcrafted_kept": false
   },
   "Gamos": {
     "gender": "Male",
     "body_donor": "Poacher_01",
-    "head_donor": "Flay",
-    "hair_donor": "Flay",
+    "head_donor": "Blood",
+    "hair_donor": "Blood",
     "hat_donor": "",
-    "note": "stealth hunter — Poacher + Flay",
+    "note": "Arulco traveler burnt-orange — Poacher + Blood head (was Tex Asian/empty hair); ShirtColor orange + brown pants",
     "handcrafted_kept": false
   },
   "Gaston": {
     "gender": "Male",
     "body_donor": "Adonis_Marksman",
-    "head_donor": "Sidney",
-    "hair_donor": "Sidney",
+    "head_donor": "Gus",
+    "hair_donor": "Gus",
     "hat_donor": "",
-    "note": "FMC sniper — Adonis Marksman + Sidney",
+    "note": "BigPortrait: black plate carrier grey hair — Adonis Marksman + Gus",
     "handcrafted_kept": false
   },
   "Grace": {
     "gender": "Female",
-    "body_donor": "WorkingGirl01",
-    "head_donor": "Livewire",
-    "hair_donor": "Livewire",
+    "body_donor": "Meltdown",
+    "head_donor": "Fox",
+    "hair_donor": "Meltdown",
     "hat_donor": "",
-    "note": "jeans / knives — WorkingGirl + Livewire",
+    "note": "Meltdown jacket/jeans + Fox head + Meltdown dark bob (JA2 mahogany bob; not Buns platinum crown braid / not full Meltdown AIM clone)",
     "handcrafted_kept": false
   },
   "Grom": {
     "gender": "Male",
-    "body_donor": "GrandChien_Officer",
-    "head_donor": "Igor",
-    "hair_donor": "Igor",
+    "body_donor": "Igor",
+    "head_donor": "Hitman",
+    "hair_donor": "Hitman",
     "hat_donor": "",
-    "note": "Soviet major — GC Officer + Igor",
+    "note": "BigPortrait/JA2: telnyashka + thick mustache — Igor body; Head/Hair=Hitman (Head_Igor is clean-shaven in JA3)",
     "handcrafted_kept": false
   },
   "Henning": {
     "gender": "Male",
-    "body_donor": "GrandChien_Officer",
-    "head_donor": "Gus",
-    "hair_donor": "Gus",
-    "hat_donor": "",
-    "note": "German officer — GC Officer + Gus",
+    "body_donor": "Reaper",
+    "head_donor": "Hitman",
+    "hair_donor": "Hitman",
+    "hat_donor": "Adonis_Officer",
+    "note": "sheet: black shirt/pants + beret — Reaper dark kit + Hitman face + black Adonis beret (was Adonis_Soldier military; Gus hat empty)",
     "handcrafted_kept": false
   },
   "Highball": {
     "gender": "Male",
     "body_donor": "Doctor_01",
-    "head_donor": "Gus",
-    "hair_donor": "Gus",
+    "head_donor": "DrQ",
+    "hair_donor": "DrQ",
     "hat_donor": "",
-    "note": "alcoholic doctor — Doctor NPC + Gus",
+    "note": "sheet: alcoholic doctor — Doctor_01 + DrQ + Adonis medic Chest/Hip; PantsColor brown (was white mud Pants_04)",
+    "handcrafted_kept": false
+  },
+  "Hitman": {
+    "gender": "Male",
+    "body_donor": "Ice",
+    "head_donor": "Hitman",
+    "hair_donor": "Hitman",
+    "hat_donor": "",
+    "note": "sheet/portrait: inconspicuous jacket/hoodie — Ice jacket + Hitman face (was alias vanilla pink Hitman kit)",
     "handcrafted_kept": false
   },
   "Hobbit": {
     "gender": "Male",
-    "body_donor": "VillagerMale_05",
+    "body_donor": "Barry",
     "head_donor": "Barry",
     "hair_donor": "Barry",
     "hat_donor": "",
-    "note": "pudgy messy — Villager + Barry",
+    "note": "BigPortrait: dynamite / tools — pure Barry (was WorkingGuy01 pink + Barry head)",
+    "handcrafted_kept": false
+  },
+  "Horg": {
+    "gender": "Male",
+    "body_donor": "Adonis_Heavy",
+    "head_donor": "Hitman",
+    "hair_donor": "Hitman",
+    "hat_donor": "",
+    "note": "sheet: LT cigar + flak — Adonis_Heavy + Hitman head + Fidel cigar (was Bonecrusher dark torso + pale Hitman)",
     "handcrafted_kept": false
   },
   "Ira": {
     "gender": "Female",
-    "body_donor": "RebelFemaleSniper",
-    "head_donor": "Kalyna",
-    "hair_donor": "Kalyna",
+    "body_donor": "Livewire",
+    "head_donor": "Fox",
+    "hair_donor": "Fox",
     "hat_donor": "",
-    "note": "young medic rebel — RebelFemale + Kalyna",
+    "note": "sheet: militia instructor — Livewire body + Fox + Adonis medic (was RebelFemale+pale BC1 → white arms like Flo; was Mollie dress)",
     "handcrafted_kept": false
   },
   "Kulba": {
     "gender": "Male",
-    "body_donor": "BillyBoy",
-    "head_donor": "Len",
-    "hair_donor": "Len",
+    "body_donor": "Gus",
+    "head_donor": "Gus",
+    "hair_donor": "Gus",
     "hat_donor": "",
-    "note": "old American civilian — BillyBoy shirt + Len",
+    "note": "portrait: elderly gunsmith — pure Gus (was WorkingGuy01 pink/red + Gus → dark-arms bald mess)",
     "handcrafted_kept": false
   },
   "Laura": {
     "gender": "Female",
-    "body_donor": "Nurse_01",
-    "head_donor": "Scope",
-    "hair_donor": "Scope",
+    "body_donor": "Livewire",
+    "head_donor": "Livewire",
+    "hair_donor": "Livewire",
     "hat_donor": "",
-    "note": "coat / med bag — Nurse + Scope",
+    "note": "Roma field doctor — Livewire body+head + Adonis medic (was RebelFemale+pale BC1 white-arms; medic grafts differentiate from pure Livewire)",
     "handcrafted_kept": false
   },
   "Lucky": {
     "gender": "Male",
-    "body_donor": "Militia_Stormer",
+    "body_donor": "Commander_Rebels",
     "head_donor": "Blood",
     "hair_donor": "Blood",
     "hat_donor": "",
-    "note": "muscle AR — Militia Stormer + Blood",
+    "note": "BigPortrait: full OD chest rig — Commander Rebels + Blood",
     "handcrafted_kept": false
   },
   "Madman": {
     "gender": "Male",
     "body_donor": "ThugAssault",
     "head_donor": "Nails",
-    "hair_donor": "Nails",
+    "hair_donor": "",
     "hat_donor": "",
-    "note": "torn punk — ThugAssault + Nails",
+    "note": "sheet: torn tee / psycho — ThugAssault + Nails face; Hair cleared (EquipmentNails_Hair needs headband or clips through face)",
     "handcrafted_kept": false
   },
   "Manuel": {
     "gender": "Male",
-    "body_donor": "Recon_Rebels_02",
-    "head_donor": "Tex",
-    "hair_donor": "Tex",
+    "body_donor": "Commander_Rebels",
+    "head_donor": "Chimurenga",
+    "hair_donor": "Raider",
     "hat_donor": "",
-    "note": "dirty rebel cover — Rebels Recon + Tex",
+    "note": "BigPortrait: olive field open shirt — Commander Rebels + Chimurenga; Hair=Raider (Chimurenga hair is under-helmet / bald crown)",
     "handcrafted_kept": false
   },
   "Meat": {
     "gender": "Male",
-    "body_donor": "Bulldozer",
+    "body_donor": "Grizzly",
     "head_donor": "Grizzly",
-    "hair_donor": "Grizzly",
+    "hair_donor": "Raider",
     "hat_donor": "",
-    "note": "huge / dumb — Bulldozer + Grizzly",
+    "note": "BigPortrait/sheet: pale fat bruiser — pure Grizzly body+head (was Bulldozer dark torso); Hair=Raider (Grizzly hair is under-beret)",
     "handcrafted_kept": false
   },
   "Miguel": {
@@ -266,151 +284,154 @@
     "head_donor": "Chimurenga",
     "hair_donor": "Chimurenga",
     "hat_donor": "Chimurenga",
-    "note": "rebel leader beret — Commander + Chimurenga",
+    "note": "BigPortrait: maroon beret gold star — Commander + Chimurenga",
+    "handcrafted_kept": false
+  },
+  "Mike": {
+    "gender": "Male",
+    "body_donor": "Adonis_Officer",
+    "head_donor": "Raider",
+    "hair_donor": "Raider",
+    "hat_donor": "",
+    "note": "BigPortrait: all-black plate carrier — Adonis Officer + Raider; forced black Body/Pants (donor is olive/grey)",
     "handcrafted_kept": false
   },
   "Monk": {
     "gender": "Male",
-    "body_donor": "Recon_Rebels",
-    "head_donor": "DrQ",
-    "hair_donor": "DrQ",
+    "body_donor": "Sample_Horatio",
+    "head_donor": "GrandChien_Recon",
+    "hair_donor": "Raider",
     "hat_donor": "",
-    "note": "camo mystic — Rebels Recon + DrQ",
+    "note": "BigPortrait: charcoal suit + camo face + short dark hair — Sample_Horatio + Camo head + Raider hair",
     "handcrafted_kept": false
   },
   "Nervous": {
     "gender": "Male",
-    "body_donor": "ThugAssault",
-    "head_donor": "MD",
-    "hair_donor": "MD",
+    "body_donor": "Tex",
+    "head_donor": "Tex",
+    "hair_donor": "Tex",
     "hat_donor": "",
-    "note": "redneck autorifle — Thug + MD",
+    "note": "BigPortrait: denim tattoos — pure Tex (was WorkingGuy01 pink + Tex)",
     "handcrafted_kept": false
   },
   "Quinten": {
     "gender": "Male",
-    "body_donor": "Adonis_Medic",
-    "head_donor": "Blood",
-    "hair_donor": "Blood",
+    "body_donor": "Steroid",
+    "head_donor": "Steroid",
+    "hair_donor": "Steroid",
     "hat_donor": "",
-    "note": "ripped medic — Adonis Medic + Blood",
+    "note": "BigPortrait: muscular medic — Steroid body (Adonis_Top+Steroid head clipped collar) + Adonis medic Chest/Hip",
     "handcrafted_kept": false
   },
   "Ricochet": {
     "gender": "Male",
-    "body_donor": "Gangster_01",
+    "body_donor": "Nails",
     "head_donor": "Nails",
     "hair_donor": "Nails",
-    "hat_donor": "",
-    "note": "punk — Gangster + Nails",
+    "hat_donor": "Nails",
+    "note": "BigPortrait: biker vest mohawk tattoos — pure Nails (keep headband; Nails hair clips without it)",
     "handcrafted_kept": false
   },
   "Rothman": {
     "gender": "Male",
-    "body_donor": "Adonis_Officer",
-    "head_donor": "Magic",
-    "hair_donor": "Magic",
+    "body_donor": "Sidney",
+    "head_donor": "Len",
+    "hair_donor": "Len",
     "hat_donor": "",
-    "note": "security commander — Adonis Officer + Magic",
+    "note": "mine security — Sidney top (shoulder holster, not blue Veinard bomber) + Len head + NPC pants brown",
     "handcrafted_kept": false
   },
   "Shank": {
     "gender": "Male",
-    "body_donor": "Gangster_01",
-    "head_donor": "Ice",
-    "hair_donor": "Ice",
+    "body_donor": "BillyBoy",
+    "head_donor": "Scully",
+    "hair_donor": "Scully",
     "hat_donor": "",
-    "note": "exhausted rich kid — Gangster hoodie + Ice",
+    "note": "BigPortrait: charcoal civilian + pale exhausted blonde — BillyBoy black tee/jeans + Scully head/hair",
+    "handcrafted_kept": false
+  },
+  "Simon": {
+    "gender": "Male",
+    "body_donor": "Shadow",
+    "head_donor": "Raider",
+    "hair_donor": "Raider",
+    "hat_donor": "",
+    "note": "Shadow sleeveless camo kit + Raider head/hair (Head_Shadow face-camo bleed); own preset — do not alias UnitData to Shadow",
     "handcrafted_kept": false
   },
   "Static": {
     "gender": "Male",
-    "body_donor": "WorkingGuy02",
+    "body_donor": "GreasyBasil",
     "head_donor": "Thor",
     "hair_donor": "Thor",
-    "hat_donor": "Thor",
-    "note": "hippie mechanic — WorkingGuy + Thor band",
+    "hat_donor": "GreasyBasil",
+    "note": "hippie mechanic — GreasyBasil tee/pants + welder hat + Thor head/hair (not Thor AIM clone; C1 pale skin for Thor; was pure Thor / WorkingGuy02)",
     "handcrafted_kept": false
   },
   "Steiger": {
     "gender": "Male",
     "body_donor": "Adonis_Soldier",
-    "head_donor": "Shadow",
-    "hair_donor": "Shadow",
+    "head_donor": "Red",
+    "hair_donor": "Red",
     "hat_donor": "",
-    "note": "GSG-9 — Adonis kit + Shadow",
+    "note": "BigPortrait: olive chest rig auburn beard — Adonis + Red",
     "handcrafted_kept": false
   },
   "Vicious": {
     "gender": "Male",
-    "body_donor": "ThugMelee",
-    "head_donor": "Reaper",
-    "hair_donor": "Reaper",
+    "body_donor": "Ivan",
+    "head_donor": "Ivan",
+    "hair_donor": "",
     "hat_donor": "",
-    "note": "melee mean — ThugMelee + Reaper",
+    "note": "sheet: bomber + big knife + gloves — Ivan leather jacket (no ushanka) + Recon knife chest; was ThugMelee dark-arms + Hitman mustache/cream shirt",
     "handcrafted_kept": false
   },
   "Vilde": {
     "gender": "Male",
-    "body_donor": "Militia_Officer",
-    "head_donor": "Igor",
-    "hair_donor": "Igor",
+    "body_donor": "Adonis_Soldier",
+    "head_donor": "Raider",
+    "hair_donor": "Raider",
     "hat_donor": "",
-    "note": "militarized leader — Militia Officer + Igor",
+    "note": "Adonis_Soldier + Raider (Shadow head is face-camo); fabric BodyColor2/Pants slightly browner",
     "handcrafted_kept": false
   },
   "Vince": {
     "gender": "Male",
     "body_donor": "Doctor_02",
-    "head_donor": "Sidney",
-    "hair_donor": "Sidney",
+    "head_donor": "MD",
+    "hair_donor": "MD",
     "hat_donor": "",
-    "note": "neat civilian doctor — Doctor NPC + Sidney",
+    "note": "BigPortrait: white lab coat + brown chinos — Doctor + MD; PantsColor brown",
     "handcrafted_kept": false
+  },
+  "Biff": {
+    "gender": "Male",
+    "handcrafted_kept": true,
+    "note": "UnitData → vanilla Biff"
   },
   "Buzz": {
     "gender": "Female",
     "handcrafted_kept": true,
-    "note": "LMG — Fauda + Fox (handcrafted)"
-  },
-  "Hitman": {
-    "gender": "Male",
-    "handcrafted_kept": true,
-    "note": "vanilla Hitman (keep if present)"
-  },
-  "Horg": {
-    "gender": "Male",
-    "handcrafted_kept": true,
-    "note": "heavy — Steroid (handcrafted)"
+    "note": "handcrafted — do not generate"
   },
   "Ivanov": {
     "gender": "Male",
     "handcrafted_kept": true,
-    "note": "NPC — Ivan"
+    "note": "NPC — keep jazz-units Ivanov handcraft"
   },
   "JAZZ_Spouke": {
     "gender": "Male",
     "handcrafted_kept": true,
-    "note": "keep handcrafted if present"
+    "note": "handcrafted — do not generate"
   },
   "Lynx": {
     "gender": "Male",
     "handcrafted_kept": true,
-    "note": "sniper — Fidel + pale Ice (handcrafted)"
-  },
-  "Mike": {
-    "gender": "Male",
-    "handcrafted_kept": true,
-    "note": "dark tac — Ice (handcrafted)"
-  },
-  "Simon": {
-    "gender": "Male",
-    "handcrafted_kept": true,
-    "note": "stealth — use vanilla Shadow via UnitData"
+    "note": "handcrafted — do not generate"
   },
   "Spider": {
     "gender": "Female",
     "handcrafted_kept": true,
-    "note": "medic — Mouse + Buns (handcrafted)"
+    "note": "handcrafted — do not generate"
   }
 }

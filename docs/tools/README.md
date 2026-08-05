@@ -260,10 +260,11 @@ python docs/tools/build-sector-atlas-docs.py
 | `_audit_loot_upgrade_ids.py` | Audit `LootEntryUpgradedWeapon` upgrade IDs in `jazz-units/items.lua` vs known `JAZZ_*` WeaponComponent map. |
 | `_apply_loot_upgrade_id_remap.py` | Remap legacy vanilla upgrade IDs on loot entries to `JAZZ_*` companions (dry-run default). |
 | `_emit_ame_live_patch.py` | Emit pasteable live-Lua AppearancePreset patches for in-session AME head/body repair. |
-| `_gen_ja12_appearances.py` | JAZZ-UNITS-002: same-gender mixes. Prefer **faction/NPC body + head**, or AIM clone; **warn on AIM×AIM** cross (плохая совместимость мешей). Map `ja12-appearance-map.json`. |
+| `_gen_ja12_appearances.py` | JAZZ-UNITS-002: same-gender mixes from BigPortrait cues. Prefer **faction/NPC body + head**, or AIM clone; **warn on AIM×AIM**. Skips `KEEP_HANDCRAFTED` (Lynx/Buzz/Spider/JAZZ_Spouke/Ivanov + vanilla Biff/Hitman/Simon→Shadow) unless `--force`. Map `ja12-appearance-map.json`. |
+| `_purge_ja12_app_dupes.py` | Removes listed `ModItemAppearancePreset` ids that appear **before** `JAZZ-UNITS-002-JA12-APP` (avoid duplicate Mike/Horg when moving into generated folder). |
 | `_list_appearance_donors.py` | Каталог donor AppearancePreset по категории/полу (для подбора JA12 recipes). |
 | (manual) `_appearance-preset-rules.md` | WIP rules: gender lock (♂/♀ skeletons incompatible), recipe shape, index; visual slots in `_appearance-donor-visual-catalog.md`. |
-| (manual) `_appearance-donor-visual-catalog.md` | Working visual catalog: preset id → gender + slots + look (AME browse). Includes separate **jazz-units mod** Legion* batch (not vanilla donors; through Scout_Stronger_alt). Scratch: `.tmp/ame-crops/batch{3,4,5}_*`. |
+| (manual) `_appearance-donor-visual-catalog.md` | Working visual catalog: preset id → gender + slots + look (AME browse). Includes **jazz-units** Legion* (through Sniper) + named + merc skins batch7–8 (`*_Savana`/`*_Jungle`/`*_DustStorm`/`*_Hot`/`*_Forest`/`*_Snake`, `Buzz`, `Spider`). Scratch: `.tmp/ame-crops/batch{3…8}_*`. |
 | `_audit_ja12_appearance_links.py` | UnitData `AppearancesList` → shipped/vanilla preset ids + gender lock on JA12 section. |
 | `_gen_ame_flags.py` | PNG флаги 128×80 для новых AME Nationality (`Icons/Flags/f_*.png`). |
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |

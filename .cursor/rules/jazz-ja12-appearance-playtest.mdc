@@ -1,0 +1,32 @@
+---
+description: JA12 appearance playtest — не повторять ошибки волны 2026-08-05
+globs:
+  - docs/tools/_gen_ja12_appearances.py
+  - docs/design/mercs-ja12/**
+  - "**/ja12-appearance*"
+alwaysApply: false
+---
+
+# JA12 appearance playtest
+
+Канон gotchas/process: `docs/design/mercs-ja12/_appearance-preset-rules.md` (§ Gotchas, Session refresh, Playtest process).
+
+## Перед правкой мерка
+
+1. Открыть sheet `docs/design/mercs-ja12/<slug>.md` (CHARACTER_DESCRIPTION + JA2 face) — не только note в generator.
+2. Не делать **чистых клонов AIM** (`body=head=Red` и т.п.) — owner veto.
+3. Не брать `WorkingGuy*` / `WorkingGirl01|04` (Mollie purple) как body.
+4. Сверить skin tone head↔body (`Bonecrusher`, `Female_Body_01`, `ThugMelee`/`Male_Body_01` dark BC1).
+5. Если обещан цвет (olive/black/brown/orange) — сразу `body_color*` / `pants_color` / `shirt_color` (AIM bottoms не красятся → graft `pants`).
+
+## После regen
+
+1. `python docs/tools/_validate_items_quick.py` на `jazz-units`.
+2. DAP: патч `AppearancePresets` **и** UnitData-based `ApplyAppearance` для всех `Jazz_*` (см. rules § Session refresh).
+3. Не писать «уже в сессии», пока refresh не прогнан; при сомнении — попросить скрин.
+
+## Ловушки
+
+- Tex ≠ Latino (Asian + empty Hair) → Blood для Arulco.
+- Adonis_Officer / Militia_Top_02 без recolor = белый/синий китель.
+- Sidney AIM + pants_color = no-op.

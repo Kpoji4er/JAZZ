@@ -12,6 +12,8 @@ Compatibility policy (important):
     AIM clone (same body+head id). Avoid AIM-body × different-AIM-head mixes.
   - Donors may be AIM, Rebels, Militia, Army/GrandChien, Adonis, Thugs, Civ/NPC.
   - Prefer non–war-paint heads for hireables (named / NPC heads over Legion paint).
+  - Live gotchas (under-hat hair, skin mismatch, Steroid×Adonis clip, recolors):
+    docs/design/mercs-ja12/_appearance-preset-rules.md § Gotchas
 
 Usage (jazz/):
   python docs/tools/_gen_ja12_appearances.py --dry-run
@@ -47,19 +49,17 @@ ITEMS_END = f"-- {SECTION}-END"
 META_BEGIN = f"\t\t-- {SECTION}-META-BEGIN"
 META_END = f"\t\t-- {SECTION}-META-END"
 
-# Handcrafted / already-good presets — skip unless --force.
+# Skip unless --force. Never auto-overwrite these ModItems / vanilla shared IDs.
+# Handcrafted live outside JA12-APP folder; Biff→vanilla AIM.
+# Hitman/Simon get own JA12 mixes — do NOT alias UnitData to flashy AIM kits.
 KEEP_HANDCRAFTED = {
     "Lynx",
     "Buzz",
     "Spider",
-    "Mike",
-    "Horg",
     "JAZZ_Spouke",
     "Ivanov",
-    "Biff",  # vanilla Biff exists
-    "Hitman",  # vanilla Hitman exists
-    "Shadow",  # Simon UnitData points at vanilla Shadow
-    "Simon",  # do not duplicate — keep UnitData → Shadow
+    "Biff",
+    "Shadow",
 }
 
 # preset_id -> recipe
@@ -70,9 +70,9 @@ KEEP_HANDCRAFTED = {
 # gender: Male|Female — hard gate
 Recipe = dict  # typed loosely
 
-# Visual cues: portraits + docs/design/mercs-ja12/_appearance-sheet.md
+# Visual cues: MercPortraits/*_Big.png + docs/design/mercs-ja12/_appearance-sheet.md
 # Pool: AIM + Rebels/Militia/Army/Adonis/Thugs/Civ/NPC kits (same-gender only).
-# Prefer non-AIM body + head swap; AIM×AIM cross only if handcrafted/accepted.
+# Prefer non-AIM body + head swap; AIM×AIM cross only if pure clone or accepted.
 
 # Known AIM hireable / named Equipment* presets — cross-mixing these bodies/heads
 # is fragile (neck/collar scale). Faction Male_Body / Female_Body kits mix better.
@@ -94,59 +94,457 @@ def warn_aim_cross(preset_id: str, recipe: Recipe) -> None:
         )
 
 
+# 2026-08-05 rebuild: match MercPortraits/<id>_Big.png clothing as closely as
+# same-gender donor kits allow. Avoid Gangster_01 (incomplete). Clear WorkingGuy
+# sunglasses hats unless portrait has eyewear as hat.
 RECIPES: dict[str, Recipe] = {
-    # --- already handcrafted (kept as documentation of intent) ---
-    "Lynx": {"gender": "Male", "body": "Fidel", "head": "Ice", "hair": "Ice", "hat": "", "note": "sniper — Fidel + pale Ice (handcrafted)"},
-    "Buzz": {"gender": "Female", "body": "Fauda", "head": "Fox", "hair": "Fox", "hat": "", "note": "LMG — Fauda + Fox (handcrafted)"},
-    "Spider": {"gender": "Female", "body": "Mouse", "head": "Buns", "hair": "Buns", "hat": "", "note": "medic — Mouse + Buns (handcrafted)"},
-    "Mike": {"gender": "Male", "body": "Ice", "head": "Ice", "hair": "Ice", "hat": "", "note": "dark tac — Ice (handcrafted)"},
-    "Horg": {"gender": "Male", "body": "Steroid", "head": "Steroid", "hair": "Steroid", "hat": "", "note": "heavy — Steroid (handcrafted)"},
-    # --- generated ---
-    "Colby": {"gender": "Male", "body": "WorkingGuy01", "head": "Sidney", "hair": "Sidney", "hat": "", "note": "inventor clutter — WorkingGuy + Sidney"},
-    "Blade": {"gender": "Male", "body": "ThugMelee", "head": "Reaper", "hair": "Reaper", "hat": "", "note": "knife psycho — ThugMelee + Reaper"},
-    "Ira": {"gender": "Female", "body": "RebelFemaleSniper", "head": "Kalyna", "hair": "Kalyna", "hat": "", "note": "young medic rebel — RebelFemale + Kalyna"},
-    "Dimitri": {"gender": "Male", "body": "Soldier_Rebels", "head": "Flay", "hair": "Flay", "hat": "", "note": "Greek rebel / machete — Rebels Soldier + Flay"},
-    "Madman": {"gender": "Male", "body": "ThugAssault", "head": "Nails", "hair": "Nails", "hat": "", "note": "torn punk — ThugAssault + Nails"},
-    "Grom": {"gender": "Male", "body": "GrandChien_Officer", "head": "Igor", "hair": "Igor", "hat": "", "note": "Soviet major — GC Officer + Igor"},
-    "Static": {"gender": "Male", "body": "WorkingGuy02", "head": "Thor", "hair": "Thor", "hat": "Thor", "note": "hippie mechanic — WorkingGuy + Thor band"},
-    "Highball": {"gender": "Male", "body": "Doctor_01", "head": "Gus", "hair": "Gus", "hat": "", "note": "alcoholic doctor — Doctor NPC + Gus"},
-    "Bull": {"gender": "Male", "body": "Bonecrusher", "head": "Steroid", "hair": "", "hat": "", "note": "bald bruiser — Bonecrusher + Steroid bald"},
-    "Cord": {"gender": "Male", "body": "WorkingGuy01", "head": "Tex", "hair": "Tex", "hat": "", "note": "grease monkey — WorkingGuy + Tex"},
-    "Hobbit": {"gender": "Male", "body": "VillagerMale_05", "head": "Barry", "hair": "Barry", "hat": "", "note": "pudgy messy — Villager + Barry"},
-    "Ricochet": {"gender": "Male", "body": "Gangster_01", "head": "Nails", "hair": "Nails", "hat": "", "note": "punk — Gangster + Nails"},
-    "Meat": {"gender": "Male", "body": "Bulldozer", "head": "Grizzly", "hair": "Grizzly", "hat": "", "note": "huge / dumb — Bulldozer + Grizzly"},
-    "Carlos": {"gender": "Male", "body": "Soldier_Rebels_02", "head": "Flay", "hair": "Flay", "hat": "", "note": "Latino rebel — Rebels + Flay"},
-    "Devin": {"gender": "Male", "body": "BillyBoy", "head": "Red", "hair": "Red", "hat": "", "note": "Irish explosives trader — BillyBoy shirt + Red"},
-    "Shank": {"gender": "Male", "body": "Gangster_01", "head": "Ice", "hair": "Ice", "hat": "", "note": "exhausted rich kid — Gangster hoodie + Ice"},
-    "Vince": {"gender": "Male", "body": "Doctor_02", "head": "Sidney", "hair": "Sidney", "hat": "", "note": "neat civilian doctor — Doctor NPC + Sidney"},
-    "Hitman": {"gender": "Male", "body": "Hitman", "head": "Hitman", "hair": "Hitman", "hat": "", "note": "vanilla Hitman (keep if present)"},
-    "Biggens": {"gender": "Male", "body": "DirtyHenri", "head": "Gus", "hair": "Gus", "hat": "Gus", "note": "old colonel beret — DirtyHenri militia shirt + Gus"},
-    "Kulba": {"gender": "Male", "body": "BillyBoy", "head": "Len", "hair": "Len", "hat": "", "note": "old American civilian — BillyBoy shirt + Len"},
-    "Vilde": {"gender": "Male", "body": "Militia_Officer", "head": "Igor", "hair": "Igor", "hat": "", "note": "militarized leader — Militia Officer + Igor"},
-    "Grace": {"gender": "Female", "body": "WorkingGirl01", "head": "Livewire", "hair": "Livewire", "hat": "", "note": "jeans / knives — WorkingGirl + Livewire"},
-    "Steiger": {"gender": "Male", "body": "Adonis_Soldier", "head": "Shadow", "hair": "Shadow", "hat": "", "note": "GSG-9 — Adonis kit + Shadow"},
-    "Lucky": {"gender": "Male", "body": "Militia_Stormer", "head": "Blood", "hair": "Blood", "hat": "", "note": "muscle AR — Militia Stormer + Blood"},
-    "Laura": {"gender": "Female", "body": "Nurse_01", "head": "Scope", "hair": "Scope", "hat": "", "note": "coat / med bag — Nurse + Scope"},
-    "Eskimo": {"gender": "Male", "body": "Marksman_Rebels", "head": "Omryn", "hair": "Omryn", "hat": "", "note": "northern scout — Rebels Marksman + Omryn"},
-    "Rothman": {"gender": "Male", "body": "Adonis_Officer", "head": "Magic", "hair": "Magic", "hat": "", "note": "security commander — Adonis Officer + Magic"},
-    "Quinten": {"gender": "Male", "body": "Adonis_Medic", "head": "Blood", "hair": "Blood", "hat": "", "note": "ripped medic — Adonis Medic + Blood"},
-    "Allik": {"gender": "Male", "body": "Militia_Soldier", "head": "Igor", "hair": "Igor", "hat": "", "note": "Estonian AR — Militia + Igor"},
-    "Henning": {"gender": "Male", "body": "GrandChien_Officer", "head": "Gus", "hair": "Gus", "hat": "", "note": "German officer — GC Officer + Gus"},
-    "Conrad": {"gender": "Male", "body": "GrandChien_Soldier", "head": "Len", "hair": "Len", "hat": "", "note": "Arulco LT — GC Soldier + Len"},
-    "Flo": {"gender": "Female", "body": "VillagerFemale_08", "head": "Buns", "hair": "Buns", "hat": "", "note": "negotiator civilian — Villager blouse + Buns"},
-    "Gaston": {"gender": "Male", "body": "Adonis_Marksman", "head": "Sidney", "hair": "Sidney", "hat": "", "note": "FMC sniper — Adonis Marksman + Sidney"},
-    "Cougar": {"gender": "Male", "body": "Militia_Recon", "head": "Shadow", "hair": "Shadow", "hat": "", "note": "stealth MERC — Militia Recon + Shadow"},
-    "Monk": {"gender": "Male", "body": "Recon_Rebels", "head": "DrQ", "hair": "DrQ", "hat": "", "note": "camo mystic — Rebels Recon + DrQ"},
-    "Manuel": {"gender": "Male", "body": "Recon_Rebels_02", "head": "Tex", "hair": "Tex", "hat": "", "note": "dirty rebel cover — Rebels Recon + Tex"},
-    "Gamos": {"gender": "Male", "body": "Poacher_01", "head": "Flay", "hair": "Flay", "hat": "", "note": "stealth hunter — Poacher + Flay"},
-    "Dynamo": {"gender": "Male", "body": "Militia_Soldier", "head": "Blood", "hair": "Blood", "hat": "", "note": "beaten mechanic — Militia + Blood"},
-    "Nervous": {"gender": "Male", "body": "ThugAssault", "head": "MD", "hair": "MD", "hat": "", "note": "redneck autorifle — Thug + MD"},
-    "Miguel": {"gender": "Male", "body": "Commander_Rebels", "head": "Chimurenga", "hair": "Chimurenga", "hat": "Chimurenga", "note": "rebel leader beret — Commander + Chimurenga"},
-    "Vicious": {"gender": "Male", "body": "ThugMelee", "head": "Reaper", "hair": "Reaper", "hat": "", "note": "melee mean — ThugMelee + Reaper"},
-    "Benny": {"gender": "Female", "body": "WorkingGirl01", "head": "Fox", "hair": "Fox", "hat": "", "note": "female fixer — WorkingGirl + Fox"},
-    "Simon": {"gender": "Male", "body": "Shadow", "head": "Shadow", "hair": "Shadow", "hat": "", "note": "stealth — use vanilla Shadow via UnitData"},
-    "Ivanov": {"gender": "Male", "body": "Ivan", "head": "Ivan", "hair": "Ivan", "hat": "", "note": "NPC — Ivan"},
-    "JAZZ_Spouke": {"gender": "Male", "body": "Raider", "head": "Ice", "hair": "Ice", "hat": "", "note": "keep handcrafted if present"},
+    # --- handcrafted (KEEP; recipe = intent only, not generated) ---
+    "Lynx": {
+        "gender": "Male",
+        "body": "Fidel",
+        "head": "Ice",
+        "hair": "Ice",
+        "hat": "",
+        "note": "handcrafted — do not generate",
+    },
+    "Buzz": {
+        "gender": "Female",
+        "body": "Fauda",
+        "head": "Fox",
+        "hair": "Fox",
+        "hat": "",
+        "note": "handcrafted — do not generate",
+    },
+    "Spider": {
+        "gender": "Female",
+        "body": "Mouse",
+        "head": "Buns",
+        "hair": "Buns",
+        "hat": "",
+        "note": "handcrafted — do not generate",
+    },
+    "JAZZ_Spouke": {
+        "gender": "Male",
+        "body": "Raider",
+        "head": "Ice",
+        "hair": "Ice",
+        "hat": "",
+        "note": "handcrafted — do not generate",
+    },
+    # --- generated (BigPortrait pass) ---
+    "Mike": {
+        "gender": "Male",
+        "body": "Adonis_Officer",
+        "head": "Raider",
+        "hair": "Raider",
+        "hat": "",
+        "body_color1": (22, 22, 24),
+        "body_color2": (18, 18, 20),
+        "body_color3": (12, 12, 14),
+        "pants_color": (20, 20, 22),
+        "note": "BigPortrait: all-black plate carrier — Adonis Officer + Raider; forced black Body/Pants (donor is olive/grey)",
+    },
+    "Horg": {
+        "gender": "Male",
+        "body": "Adonis_Heavy",
+        "head": "Hitman",
+        "hair": "Hitman",
+        "hat": "",
+        "hat_mesh": "EquipmentFidel_Cigar",
+        "note": "sheet: LT cigar + flak — Adonis_Heavy + Hitman head + Fidel cigar (was Bonecrusher dark torso + pale Hitman)",
+    },
+    "Colby": {
+        "gender": "Male",
+        "body": "Barry",
+        "head": "Barry",
+        "hair": "Barry",
+        "hat": "",
+        "note": "sheet: gadgets in pockets / inventor — pure Barry (plaid+tool vest); was WorkingGuy then GC_Demolition army vest",
+    },
+    "Blade": {
+        "gender": "Male",
+        "body": "GrandChien_Recon",
+        "head": "Reaper",
+        "hair": "Reaper",
+        "hat": "",
+        "note": "sheet: knife fighter harness — GrandChien_Recon + Reaper head (was ThugMelee Male_Body dark-arms + pale Reaper)",
+    },
+    "Ira": {
+        "gender": "Female",
+        "body": "Livewire",
+        "head": "Fox",
+        "hair": "Fox",
+        "hat": "",
+        "chest": "Adonis_Medic",
+        "hip": "Adonis_Medic",
+        "note": "sheet: militia instructor — Livewire body + Fox + Adonis medic (was RebelFemale+pale BC1 → white arms like Flo; was Mollie dress)",
+    },
+    "Dimitri": {
+        "gender": "Male",
+        "body": "Soldier_Rebels_03",
+        "head": "Blood",
+        "hair": "Blood",
+        "hat": "",
+        "pants_color": (55, 68, 40),
+        "note": "olive/camo knife rebel — Soldier_Rebels_03 + Blood (Militia_Top_02 has pale baked arms; BodyColor olive does not fix skin)",
+    },
+    "Madman": {
+        "gender": "Male",
+        "body": "ThugAssault",
+        "head": "Nails",
+        "hair": "",
+        "hat": "",
+        "note": "sheet: torn tee / psycho — ThugAssault + Nails face; Hair cleared (EquipmentNails_Hair needs headband or clips through face)",
+    },
+    "Grom": {
+        "gender": "Male",
+        "body": "Igor",
+        "head": "Hitman",
+        "hair": "Hitman",
+        "hat": "",
+        "note": "BigPortrait/JA2: telnyashka + thick mustache — Igor body; Head/Hair=Hitman (Head_Igor is clean-shaven in JA3)",
+    },
+    "Static": {
+        "gender": "Male",
+        "body": "GreasyBasil",
+        "head": "Thor",
+        "hair": "Thor",
+        "hat": "GreasyBasil",
+        "body_color1": (185, 150, 120),
+        "note": "hippie mechanic — GreasyBasil tee/pants + welder hat + Thor head/hair (not Thor AIM clone; C1 pale skin for Thor; was pure Thor / WorkingGuy02)",
+    },
+    "Highball": {
+        "gender": "Male",
+        "body": "Doctor_01",
+        "head": "DrQ",
+        "hair": "DrQ",
+        "hat": "",
+        "chest": "Adonis_Medic",
+        "hip": "Adonis_Medic",
+        "pants_color": (102, 68, 38),
+        "note": "sheet: alcoholic doctor — Doctor_01 + DrQ + Adonis medic Chest/Hip; PantsColor brown (was white mud Pants_04)",
+    },
+    "Bull": {
+        "gender": "Male",
+        "body": "Steroid",
+        "head": "Steroid",
+        "hair": "",
+        "hat": "",
+        "pants": "Bonecrusher",
+        "note": "sheet: white bald bruiser — Steroid pale body+head, Hair cleared; Bonecrusher black cargos (not dark Bonecrusher torso; not bare Steroid clone)",
+    },
+    "Cord": {
+        "gender": "Male",
+        "body": "Mario",
+        "head": "Sidney",
+        "hair": "Sidney",
+        "hat": "",
+        "body_color1": (185, 150, 120),
+        "body_color2": (88, 78, 48),
+        "pants_color": (72, 62, 40),
+        "note": "grease coveralls — Mario + Sidney; C1=pale skin (Mario C1 is skin, was near-black; do not put olive on C1), C2=dirty khaki overalls",
+    },
+    "Hobbit": {
+        "gender": "Male",
+        "body": "Barry",
+        "head": "Barry",
+        "hair": "Barry",
+        "hat": "",
+        "note": "BigPortrait: dynamite / tools — pure Barry (was WorkingGuy01 pink + Barry head)",
+    },
+    "Ricochet": {
+        "gender": "Male",
+        "body": "Nails",
+        "head": "Nails",
+        "hair": "Nails",
+        "hat": "Nails",
+        "note": "BigPortrait: biker vest mohawk tattoos — pure Nails (keep headband; Nails hair clips without it)",
+    },
+    "Meat": {
+        "gender": "Male",
+        "body": "Grizzly",
+        "head": "Grizzly",
+        "hair": "Raider",
+        "hat": "",
+        "note": "BigPortrait/sheet: pale fat bruiser — pure Grizzly body+head (was Bulldozer dark torso); Hair=Raider (Grizzly hair is under-beret)",
+    },
+    "Carlos": {
+        "gender": "Male",
+        "body": "Soldier_Rebels_02",
+        "head": "Blood",
+        "hair": "Blood",
+        "hat": "",
+        "note": "Arulco rebel scout — Rebels body + Blood head/hair (was Tex = JA3 Asian face; Hair empty)",
+    },
+    "Devin": {
+        "gender": "Male",
+        "body": "Adonis_Demolition",
+        "head": "Red",
+        "hair": "Red",
+        "hat": "Red",
+        "note": "sheet: Irish demo redhead — Adonis_Demolition + Red head/beret (not pure Red AIM clone; was BillyBoy)",
+    },
+    "Shank": {
+        "gender": "Male",
+        "body": "BillyBoy",
+        "head": "Scully",
+        "hair": "Scully",
+        "hat": "",
+        "note": "BigPortrait: charcoal civilian + pale exhausted blonde — BillyBoy black tee/jeans + Scully head/hair",
+    },
+    "Vince": {
+        "gender": "Male",
+        "body": "Doctor_02",
+        "head": "MD",
+        "hair": "MD",
+        "hat": "",
+        "pants_color": (102, 68, 38),
+        "note": "BigPortrait: white lab coat + brown chinos — Doctor + MD; PantsColor brown",
+    },
+    "Hitman": {
+        "gender": "Male",
+        "body": "Ice",
+        "head": "Hitman",
+        "hair": "Hitman",
+        "hat": "",
+        "note": "sheet/portrait: inconspicuous jacket/hoodie — Ice jacket + Hitman face (was alias vanilla pink Hitman kit)",
+    },
+    "Biggens": {
+        "gender": "Male",
+        "body": "DirtyHenri",
+        "head": "Gus",
+        "hair": "Gus",
+        "hat": "Adonis_Officer",
+        "hat_color": (140, 120, 70),
+        "note": "BigPortrait: khaki beret — DirtyHenri + Gus head + Adonis_Officer beret; HatColor khaki",
+    },
+    "Kulba": {
+        "gender": "Male",
+        "body": "Gus",
+        "head": "Gus",
+        "hair": "Gus",
+        "hat": "",
+        "note": "portrait: elderly gunsmith — pure Gus (was WorkingGuy01 pink/red + Gus → dark-arms bald mess)",
+    },
+    "Vilde": {
+        "gender": "Male",
+        "body": "Adonis_Soldier",
+        "head": "Raider",
+        "hair": "Raider",
+        "hat": "",
+        "body_color2": (82, 64, 44),
+        "pants_color": (82, 64, 44),
+        "note": "Adonis_Soldier + Raider (Shadow head is face-camo); fabric BodyColor2/Pants slightly browner",
+    },
+    "Grace": {
+        "gender": "Female",
+        "body": "Meltdown",
+        "head": "Fox",
+        "hair": "Meltdown",
+        "hat": "",
+        "note": "Meltdown jacket/jeans + Fox head + Meltdown dark bob (JA2 mahogany bob; not Buns platinum crown braid / not full Meltdown AIM clone)",
+    },
+    "Steiger": {
+        "gender": "Male",
+        "body": "Adonis_Soldier",
+        "head": "Red",
+        "hair": "Red",
+        "hat": "",
+        "note": "BigPortrait: olive chest rig auburn beard — Adonis + Red",
+    },
+    "Lucky": {
+        "gender": "Male",
+        "body": "Commander_Rebels",
+        "head": "Blood",
+        "hair": "Blood",
+        "hat": "",
+        "note": "BigPortrait: full OD chest rig — Commander Rebels + Blood",
+    },
+    "Laura": {
+        "gender": "Female",
+        "body": "Livewire",
+        "head": "Livewire",
+        "hair": "Livewire",
+        "hat": "",
+        "chest": "Adonis_Medic",
+        "hip": "Adonis_Medic",
+        "note": "Roma field doctor — Livewire body+head + Adonis medic (was RebelFemale+pale BC1 white-arms; medic grafts differentiate from pure Livewire)",
+    },
+    "Eskimo": {
+        "gender": "Male",
+        "body": "Marksman_Rebels",
+        "head": "Omryn",
+        "hair": "Omryn",
+        "hat": "",
+        "note": "BigPortrait: tan jacket scarf — Marksman Rebels + Omryn",
+    },
+    "Rothman": {
+        "gender": "Male",
+        "body": "Sidney",
+        "head": "Len",
+        "hair": "Len",
+        "hat": "",
+        "pants": "LuckiVernard",
+        "pants_color": (102, 68, 38),
+        "note": "mine security — Sidney top (shoulder holster, not blue Veinard bomber) + Len head + NPC pants brown",
+    },
+    "Quinten": {
+        "gender": "Male",
+        "body": "Steroid",
+        "head": "Steroid",
+        "hair": "Steroid",
+        "hat": "",
+        "chest": "Adonis_Medic",
+        "hip": "Adonis_Medic",
+        "note": "BigPortrait: muscular medic — Steroid body (Adonis_Top+Steroid head clipped collar) + Adonis medic Chest/Hip",
+    },
+    "Allik": {
+        "gender": "Male",
+        "body": "DirtyHenri",
+        "head": "Sidney",
+        "hair": "Sidney",
+        "hat": "",
+        "pants_color": (102, 68, 38),
+        "body_color1": (185, 150, 120),
+        "note": "heavy-weapons bear — DirtyHenri + Sidney; C1=pale skin (shirt C1 is skin; donor brown mismatched pale Sidney); PantsColor brown",
+    },
+    "Henning": {
+        "gender": "Male",
+        "body": "Reaper",
+        "head": "Hitman",
+        "hair": "Hitman",
+        "hat": "Adonis_Officer",
+        "hat_color": (28, 28, 28),
+        "note": "sheet: black shirt/pants + beret — Reaper dark kit + Hitman face + black Adonis beret (was Adonis_Soldier military; Gus hat empty)",
+    },
+    "Conrad": {
+        "gender": "Male",
+        "body": "Adonis_Officer",
+        "head": "Len",
+        "hair": "Len",
+        "hat": "",
+        "body_color1": (185, 150, 120),
+        "body_color2": (62, 72, 40),
+        "body_color3": (40, 46, 28),
+        "pants_color": (55, 64, 38),
+        "note": "German ex-officer olive plate — Adonis_Officer + Len; C1=pale skin (Top_05 C1 is SKIN — olive on C1 = green hands), C2/C3/pants=olive plate",
+    },
+    "Flo": {
+        "gender": "Female",
+        "body": "Livewire",
+        "head": "Buns",
+        "hair": "Buns",
+        "hat": "",
+        "note": "sheet: civilian-tactical — Livewire body + Buns (was RebelFemale+BC1 pale → white broken arms; not WorkingGirl Mollie)",
+    },
+    "Gaston": {
+        "gender": "Male",
+        "body": "Adonis_Marksman",
+        "head": "Gus",
+        "hair": "Gus",
+        "hat": "",
+        "note": "BigPortrait: black plate carrier grey hair — Adonis Marksman + Gus",
+    },
+    "Cougar": {
+        "gender": "Male",
+        "body": "Adonis_Soldier",
+        "head": "Raider",
+        "hair": "Raider",
+        "hat": "",
+        "note": "BigPortrait: tan shirt black plate vest — Adonis + Raider",
+    },
+    "Monk": {
+        "gender": "Male",
+        "body": "Sample_Horatio",
+        "head": "GrandChien_Recon",
+        "hair": "Raider",
+        "hat": "",
+        "note": "BigPortrait: charcoal suit + camo face + short dark hair — Sample_Horatio + Camo head + Raider hair",
+    },
+    "Manuel": {
+        "gender": "Male",
+        "body": "Commander_Rebels",
+        "head": "Chimurenga",
+        "hair": "Raider",
+        "hat": "",
+        "note": "BigPortrait: olive field open shirt — Commander Rebels + Chimurenga; Hair=Raider (Chimurenga hair is under-helmet / bald crown)",
+    },
+    "Gamos": {
+        "gender": "Male",
+        "body": "Poacher_01",
+        "head": "Blood",
+        "hair": "Blood",
+        "hat": "",
+        "shirt_color": (176, 88, 32),
+        "pants_color": (110, 78, 42),
+        "note": "Arulco traveler burnt-orange — Poacher + Blood head (was Tex Asian/empty hair); ShirtColor orange + brown pants",
+    },
+    "Dynamo": {
+        "gender": "Male",
+        "body": "DirtyHenri",
+        "head": "Blood",
+        "hair": "Blood",
+        "hat": "",
+        "body_color1": (28, 14, 8),
+        "note": "beaten torn shirt dark skin — DirtyHenri + Blood; C1 dark skin (shirt C1 is skin channel)",
+    },
+    "Nervous": {
+        "gender": "Male",
+        "body": "Tex",
+        "head": "Tex",
+        "hair": "Tex",
+        "hat": "",
+        "note": "BigPortrait: denim tattoos — pure Tex (was WorkingGuy01 pink + Tex)",
+    },
+    "Miguel": {
+        "gender": "Male",
+        "body": "Commander_Rebels",
+        "head": "Chimurenga",
+        "hair": "Chimurenga",
+        "hat": "Chimurenga",
+        "note": "BigPortrait: maroon beret gold star — Commander + Chimurenga",
+    },
+    "Vicious": {
+        "gender": "Male",
+        "body": "Ivan",
+        "head": "Ivan",
+        "hair": "",
+        "hat": "",
+        "chest": "GrandChien_Recon",
+        "note": "sheet: bomber + big knife + gloves — Ivan leather jacket (no ushanka) + Recon knife chest; was ThugMelee dark-arms + Hitman mustache/cream shirt",
+    },
+    "Benny": {
+        "gender": "Female",
+        "body": "Livewire",
+        "head": "Livewire",
+        "hair": "Livewire",
+        "hat": "",
+        "note": "BigPortrait: tactical fixer vest cargos — pure Livewire clone",
+    },
+    "Simon": {
+        "gender": "Male",
+        "body": "Shadow",
+        "head": "Raider",
+        "hair": "Raider",
+        "hat": "",
+        "note": "Shadow sleeveless camo kit + Raider head/hair (Head_Shadow face-camo bleed); own preset — do not alias UnitData to Shadow",
+    },
+    "Ivanov": {
+        "gender": "Male",
+        "body": "Ivan",
+        "head": "Ivan",
+        "hair": "Ivan",
+        "hat": "",
+        "note": "NPC — keep jazz-units Ivanov handcraft",
+    },
+    "Biff": {
+        "gender": "Male",
+        "body": "Biff",
+        "head": "Biff",
+        "hair": "Biff",
+        "hat": "",
+        "note": "UnitData → vanilla Biff",
+    },
 }
 
 
@@ -336,6 +734,22 @@ def to_moditem(block: str, preset_id: str, group: str = "JAZZ_JA12") -> str:
     )
 
 
+def set_propset_color(block: str, key: str, rgb: tuple[int, int, int], channel: int = 1) -> str:
+    """Set EditableColor{channel} inside `key = PlaceObj('ColorizationPropSet', ...)`."""
+    r, g, b = rgb
+    pat = (
+        rf"({key}\s*=\s*PlaceObj\('ColorizationPropSet',\s*\{{[\s\S]*?"
+        rf"'EditableColor{channel}',\s*)RGBA\(\d+,\s*\d+,\s*\d+,\s*\d+\)"
+    )
+    repl = rf"\1RGBA({r}, {g}, {b}, 255)"
+    new, n = re.subn(pat, repl, block, count=1)
+    return new if n else block
+
+
+def set_propset_color1(block: str, key: str, rgb: tuple[int, int, int]) -> str:
+    return set_propset_color(block, key, rgb, 1)
+
+
 def build_combined(blocks: dict[str, str], preset_id: str, recipe: Recipe) -> str:
     gender = recipe["gender"]
     body_id = recipe["body"]
@@ -378,6 +792,37 @@ def build_combined(blocks: dict[str, str], preset_id: str, recipe: Recipe) -> st
         out = replace_field(out, "Hat2", hat2 if hat2 else "")
         if hat:
             out = copy_propset(out, ht, "HatColor")
+    if recipe.get("hat2") == "":
+        out = replace_field(out, "Hat2", "")
+    hat_mesh = recipe.get("hat_mesh")
+    if isinstance(hat_mesh, str):
+        out = replace_field(out, "Hat", hat_mesh)
+
+    # Optional gear graft (Chest/Hip/Armor/Pants) from another preset — same-gender body already locked.
+    for slot, recipe_key in (("Chest", "chest"), ("Hip", "hip"), ("Armor", "armor"), ("Pants", "pants")):
+        gear_id = recipe.get(recipe_key)
+        if not isinstance(gear_id, str) or not gear_id:
+            continue
+        if gear_id not in blocks:
+            raise SystemExit(f"{preset_id}: {recipe_key} donor missing: {gear_id}")
+        gb = blocks[gear_id]
+        mesh = field(gb, slot)
+        if mesh:
+            out = replace_field(out, slot, mesh)
+            out = copy_propset(out, gb, f"{slot}Color")
+
+    if recipe.get("pants_color"):
+        out = set_propset_color1(out, "PantsColor", recipe["pants_color"])
+    if recipe.get("shirt_color"):
+        out = set_propset_color1(out, "ShirtColor", recipe["shirt_color"])
+    if recipe.get("hat_color"):
+        out = set_propset_color1(out, "HatColor", recipe["hat_color"])
+    if recipe.get("body_color2"):
+        out = set_propset_color(out, "BodyColor", recipe["body_color2"], 2)
+    if recipe.get("body_color1"):
+        out = set_propset_color(out, "BodyColor", recipe["body_color1"], 1)
+    if recipe.get("body_color3"):
+        out = set_propset_color(out, "BodyColor", recipe["body_color3"], 3)
 
     return to_moditem(out, preset_id)
 
@@ -481,20 +926,75 @@ def main() -> None:
     if args.dry_run:
         return
 
-    folder = (
-        "\tPlaceObj('ModItemFolder', {\n"
-        '\t\t\'name\', "JA12_Appearances",\n'
-        '\t\t\'comment\', "JAZZ-UNITS-002 same-gender mixes (AIM/Rebels/Militia/Army/Thugs/Civ)",\n'
-        "\t}, {\n"
-        + "\n".join(m for _, m, _ in built)
-        + "\n\t}),"
-    )
+    if only and ITEMS_BEGIN in items and ITEMS_END in items:
+        # Merge into existing JA12 folder — never wipe siblings when --only is set.
+        old_sec = items.split(ITEMS_BEGIN)[1].split(ITEMS_END)[0]
+        existing = extract_blocks(old_sec)
+        built_map = {pid: moditem for pid, moditem, _ in built}
+        ordered_ids: list[str] = []
+        for m in re.finditer(r"\bid\s*=\s*\"([^\"]+)\"", old_sec):
+            i = m.group(1)
+            if i not in ordered_ids:
+                ordered_ids.append(i)
+        for pid in built_map:
+            if pid not in ordered_ids:
+                ordered_ids.append(pid)
+        merged = []
+        for i in ordered_ids:
+            if i in built_map:
+                block = built_map[i]
+            elif i in existing:
+                block = existing[i]
+                if "ModItemAppearancePreset" not in block[:100]:
+                    block = to_moditem(block, i)
+                elif not block.startswith("\t\t"):
+                    block = "\t\t" + block.lstrip()
+            else:
+                continue
+            # extract_blocks strips the trailing comma after `})` — restore it for folder children.
+            block = block.rstrip()
+            if block.endswith("})"):
+                block += ","
+            elif not block.endswith("},") and not block.endswith("}),"):
+                block += ","
+            merged.append(block)
+        folder = (
+            "\tPlaceObj('ModItemFolder', {\n"
+            '\t\t\'name\', "JA12_Appearances",\n'
+            '\t\t\'comment\', "JAZZ-UNITS-002 same-gender mixes (AIM/Rebels/Militia/Army/Thugs/Civ)",\n'
+            "\t}, {\n"
+            + "\n".join(merged)
+            + "\n\t}),"
+        )
+    else:
+        folder = (
+            "\tPlaceObj('ModItemFolder', {\n"
+            '\t\t\'name\', "JA12_Appearances",\n'
+            '\t\t\'comment\', "JAZZ-UNITS-002 same-gender mixes (AIM/Rebels/Militia/Army/Thugs/Civ)",\n'
+            "\t}, {\n"
+            + "\n".join(m for _, m, _ in built)
+            + "\n\t}),"
+        )
     new_items = replace_marked(items, ITEMS_BEGIN, ITEMS_END, folder)
     meta = META.read_text(encoding="utf-8")
-    new_meta = upsert_meta_resources(meta, [p for p, _, _ in built])
+    # Metadata: on --only, merge resource ids into existing META section list.
+    if only and META_BEGIN in meta and META_END in meta:
+        old_meta_sec = meta.split(META_BEGIN)[1].split(META_END)[0]
+        old_ids = re.findall(r"'Id',\s*\"([^\"]+)\"", old_meta_sec)
+        merged_ids = list(dict.fromkeys(old_ids + [p for p, _, _ in built]))
+        new_meta = upsert_meta_resources(meta, merged_ids)
+        # upsert expects preset ids; keep map merge below
+    else:
+        new_meta = upsert_meta_resources(meta, [p for p, _, _ in built])
 
-    map_data = {
-        pid: {
+    map_data = {}
+    if only and MAP_OUT.exists():
+        try:
+            map_data = json.loads(MAP_OUT.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            map_data = {}
+    for pid, _, r in built:
+        map_data[pid] = {
             "gender": r["gender"],
             "body_donor": r["body"],
             "head_donor": r["head"],
@@ -503,14 +1003,23 @@ def main() -> None:
             "note": r.get("note", ""),
             "handcrafted_kept": False,
         }
-        for pid, _, r in built
-    }
-    for pid in skipped:
-        map_data[pid] = {
-            "gender": RECIPES[pid]["gender"],
-            "handcrafted_kept": True,
-            "note": RECIPES[pid].get("note", ""),
-        }
+    if not only:
+        for pid in skipped:
+            map_data[pid] = {
+                "gender": RECIPES[pid]["gender"],
+                "handcrafted_kept": True,
+                "note": RECIPES[pid].get("note", ""),
+            }
+    else:
+        for pid in skipped:
+            map_data.setdefault(
+                pid,
+                {
+                    "gender": RECIPES[pid]["gender"],
+                    "handcrafted_kept": True,
+                    "note": RECIPES[pid].get("note", ""),
+                },
+            )
 
     ITEMS.write_text(new_items, encoding="utf-8")
     META.write_text(new_meta, encoding="utf-8")
