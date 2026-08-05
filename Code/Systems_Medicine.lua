@@ -447,12 +447,21 @@ local jazz_start_move_attack_base
 local jazz_update_cursor_fn
 local jazz_update_cursor_base
 
-function JazzResolveMedicineGotoPos(attacker, target)
+function JazzMedicineNeedsApproach(attacker, target)
 	if not attacker or not IsValid(target) then
 		return false
 	end
-	if target == attacker or IsMeleeRangeTarget(attacker, nil, nil, target) then
-		return (GetPassSlab and GetPassSlab(attacker)) or SnapToVoxel(attacker:GetPos())
+	if target == attacker then
+		return false
+	end
+	return not IsMeleeRangeTarget(attacker, nil, nil, target)
+end
+
+-- false = stay put (no goto_pos). Never return current slab: GetDist(visual, slab)
+-- can exceed SlabSizeX/2 and StartMoveAndAttack still issues a one-tile Move.
+function JazzResolveMedicineGotoPos(attacker, target)
+	if not JazzMedicineNeedsApproach(attacker, target) then
+		return false
 	end
 	return attacker:GetClosestMeleeRangePos(target)
 end
@@ -528,8 +537,8 @@ local function lInstallMedicineMeleeUIHooks()
 		common_cls.UpdateCursorImage = jazz_update_cursor_fn
 	end
 
-	-- Portrait StartMoveAndAttack always passed GetClosestMeleeRangePos → walk to adjacent
-	-- even when already adjacent / self-treat. Keep in place when melee range already OK.
+	-- Portrait always StartMoveAndAttack(GetClosestMeleeRangePos). Even "stay on current slab"
+	-- still Moves when visual pos is > half-slab from GetPassSlab. Skip the move thread entirely.
 	local base_mode_cls = rawget(_G, "g_Classes") and g_Classes.IModeCombatBase
 	if type(base_mode_cls) == "table" and type(base_mode_cls.StartMoveAndAttack) == "function"
 		and base_mode_cls.StartMoveAndAttack ~= jazz_start_move_attack_fn
@@ -537,11 +546,21 @@ local function lInstallMedicineMeleeUIHooks()
 		jazz_start_move_attack_base = base_mode_cls.StartMoveAndAttack
 		jazz_start_move_attack_fn = function(self, attacker, action, target, step_pos, args)
 			if JazzIsAllyMedicineCombatAction(action) and attacker and IsValid(target) then
-				if target == attacker or IsMeleeRangeTarget(attacker, nil, nil, target) then
-					step_pos = (GetPassSlab and GetPassSlab(attacker)) or attacker:GetPos()
-				elseif not step_pos then
-					step_pos = attacker:GetClosestMeleeRangePos(target)
+				if not JazzMedicineNeedsApproach(attacker, target) then
+					if attacker.move_attack_in_progress then
+						return
+					end
+					args = args or {}
+					args.target = target
+					args.goto_pos = nil
+					self.attack_confirmed = true
+					if ClearAPIndicator then
+						ClearAPIndicator()
+					end
+					action:Execute({ attacker }, args)
+					return
 				end
+				step_pos = step_pos or attacker:GetClosestMeleeRangePos(target)
 			end
 			return jazz_start_move_attack_base(self, attacker, action, target, step_pos, args)
 		end
@@ -592,13 +611,15 @@ local function lInstallMedicineMeleeUIHooks()
 				return
 			end
 			local goto_pos = JazzResolveMedicineGotoPos(attacker, target)
-			local args = { target = target, goto_pos = goto_pos }
+			local args = { target = target }
+			if goto_pos then
+				args.goto_pos = goto_pos
+			end
 			self.attack_confirmed = true
 			if ClearAPIndicator then
 				ClearAPIndicator()
 			end
-			local need_move = goto_pos and attacker:GetDist(goto_pos) > (const.SlabSizeX / 2)
-			if need_move then
+			if goto_pos then
 				self:StartMoveAndAttack(attacker, action, target, goto_pos, args)
 			else
 				action:Execute({ attacker }, args)
