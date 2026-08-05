@@ -15,7 +15,7 @@ JAZZ_Auto5_Basic_NMag,Basic Configuration,Barrel,,0,,,,Auto5 Specific,2,jazz,wor
 JAZZ_Auto5_Long_LMag,Long Barrel High Cap,Barrel,50,0,HalfRangeDmgIncrease;IncreaseRange;MagazineSizeMultiplier,MagazineSizeMultiplier=150;RangeIncrease=4,,Auto5 Specific,2,jazz,working-tree
 JAZZ_Auto5_Long_NMag,Long Barrel,Barrel,30,0,HalfRangeDmgIncrease;IncreaseRange,RangeIncrease=4,,Auto5 Specific,2,jazz,working-tree
 JAZZ_Auto5_Short_NMag,Короткий ствол,Barrel,20,0,IncreaseBuckshotAngle;ReduceRange;ReduceReliability;ReduceShootAP,BuckshotAngleIncrease=115;RangeDecrease=2;ReliabilityDecrease=10;ShootAPDecrease=1,,Auto5 Specific,2,jazz,working-tree
-JAZZ_Autofire,Автоматический огонь,Trigger,,,EnableBurst;EnableFullAuto,,,Underslung,1,jazz,working-tree
+JAZZ_Autofire,Автоматический огонь,Trigger,,,EnableBurst;EnableFullAuto,,,Underslung,2,jazz,working-tree
 JAZZ_Barrel50BMG_DesertEagle,.50 BMG Barrel,Barrel,20,-25,ChangeCaliberToBMG;IncreaseDamage;ReduceReliabilityPercent,DamageIncrease=10;ReliabilityDecreasePercent=30,,Desert Eagle Specific,1,jazz,working-tree
 JAZZ_BarrelHeavy,Heavy Barrel,Barrel,30,0,BarrelBulletDropIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,BarrelRecoilRecude=5;BulletDropIncrease=115;CloseRangeFactorDecrease=8;CloseRangeIncrease=2,,Barrel,3,jazz,working-tree
 JAZZ_BarrelLong,Extended Barrel,Barrel,75,0,BarrelBulletDropIncrease;BarrelGroupingIncrease;BarrelRangeIncrease;BarrelRecoilRecude;CloseRangeFactorDecrease;CloseRangeIncrease,BarrelRangeIncrease=1;BarrelRecoilRecude=2;BulletDropIncrease=130;CloseRangeFactorDecrease=8;CloseRangeIncrease=3;SilencerGroupingReduce=110,,Barrel,18,jazz,working-tree

@@ -127,7 +127,7 @@ Diamond shipment: vanilla `InitDiamondBriefcaseSquads` (`Lua/DiamondBriefcase.lu
 
 Для Region с `LegionAIEnabled` методы Heat читают/меняют `gv_JAZZ_LegionAI`; legacy Region продолжает хранить Heat в preset. Sector Heat и Region Heat пилота ограничены диапазоном `0..1000`. Старый hourly decay пропускает managed-регион, чтобы его не применяли одновременно два владельца; director снижает sector Heat на 10 и region Heat на 5 каждые 7 часов.
 
-Generated `SatelliteViewMapContextMenu` считает отсутствие Region preset допустимым состоянием: скрывает region-блок, очищает его текст и не вызывает методы на `nil`. Loyalty показывается только для city-сектора без отдельного region-блока.
+Generated `SatelliteViewMapContextMenu` считает отсутствие Region preset допустимым состоянием: скрывает region-блок, очищает его текст и не вызывает методы на `nil`. При наличии region полный блок (городская loyalty/heat + имя/описание/loyalty/heat региона) идёт в `idRegion` через `SetText(region:GetRolloverHint(sector.Id))` — у control `Translate = true`, иначе `TConcat` не рендерится. Отдельный `idLoyalty` скрыт, когда region видим; не сводить `idRegion` только к DisplayName.
 
 Изменение tick interval или порядка updates может переиграть экономику существующего save, поэтому его нужно считать балансным и migration-sensitive.
 

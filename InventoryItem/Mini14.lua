@@ -73,6 +73,13 @@ DefineClass.Mini14 = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Trigger",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Autofire",
+			},
+		}),
 	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
@@ -82,13 +89,13 @@ DefineClass.Mini14 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	BurstShots = 0,
-	WeaponMass = 35,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Rifle",
+	WeaponMass = 30,
+	CyclicRPM = 750,
+	WeaponSizeClass = "Carbine",
 	BurstLimiter = 0,
-	Recoil = 15,
-	AutoShots = 0,
+	Recoil = 22,
+	BurstShots = 4,
+	AutoShots = 8,
 
 	CloseRange = 5,
 

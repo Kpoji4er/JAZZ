@@ -199,7 +199,7 @@
 | Stock | Heavy Stock (`JAZZ_StockHeavy`) | 40 | 10 | `IncreaseAimAccuracy15Percent`<br>`RecoilDecrease` | AimAccuracyPercent=115;Recoil=5 | — | 13 |
 | Stock | Light Stock (`JAZZ_StockLight`) | 20 | 0 | `RecoilIncrease` | Recoil=2 | — | 8 |
 | Stock | No Stock (`JAZZ_StockNo`) | 15 | 10 | `ExtraOverwatchShots`<br>`RecoilIncrease`<br>`ReduceAimAccuracy15Percent`<br>`ReduceShootAP` | AimAccuracyPercent=85;Recoil=5;ShootAPDecrease=1;extra_attacks=2 | — | 3 |
-| Trigger | Автоматический огонь (`JAZZ_Autofire`) | — | — | `EnableBurst`<br>`EnableFullAuto` | — | — | 1 |
+| Trigger | Автоматический огонь (`JAZZ_Autofire`) | — | — | `EnableBurst`<br>`EnableFullAuto` | — | — | 2 |
 | Under | Вертикальная рукоять (Сложенная) (`JAZZ_VerticalGripFld`) | 10 | 0 | — | — | — | 1 |
 | Under | ГП-25 (`JAZZ_GP25`) | 50 | 20 | `GrenadeLauncher` | — | — | 3 |
 | Under | Штык-нож (`JAZZ_Type56Bayo`) | 30 | 0 | `zzStockEquipped` | — | — | 1 |

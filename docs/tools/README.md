@@ -147,6 +147,7 @@
 | `_audit_imp001_ids.py` | JAZZ-IMP-001: static audit class IDs (оружие/перки/расходники) в jazz+jazz-units. |
 | `_bump_imp001_fix_meta.py` | Revision bump + last_changes bullet после hotfix Sniper/LMG. |
 | `_bump_metadata_for_commit.py` | Универсальный Revision +1 и prepend `last_changes` bullet (literal `\\n` only). `--path` для sibling packages. |
+| `_audit_region_descriptions.py` | Печатает DisplayName/Description_len для mainland Region presets в `items.lua` (Ernie/PortCacao/…). |
 | `_bump_suite_018.py` | One-shot: suite display → `0.18` (`version_minor` 18, rev 6015), title `v0.18`, prepend `last_changes` (literal `\\n` only). |
 | `_wire_med001_traumas.py` | MED-001: генерирует `Trauma*` CharacterEffect companions + inserts ModItems/metadata; патчит `*shot` / `Unconscious` / `Burning` → trauma API. |
 | `_append_med001_trauma_loc.py` | MED-001: дописывает RU/EN строки `890000000009226`–`009255` для Trauma* DisplayName/Description. |
@@ -281,7 +282,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_apply_buckshot_projectiles.py` | JAZZ-WEAPONS-006: `BuckshotProjectiles=1` на SG, ammo `target_prop` → `BuckshotProjectiles`, CombatAction/CSV; Auto/Burst снова 0. `--apply`. |
 | `_verify_buckshot_projectiles.py` | Static AC-001..003 для WEAPONS-006. Exit 1 при FAIL. |
 | `_fix_shotgun_pellet_autoshots.py` | **Superseded by 006** — старый hotfix AutoShots=1; не использовать. |
-| `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003/008: mass/RPM/size/limiter → Recoil/Burst/Auto; SMG floor 12; Carbine + select-fire sniper rpm holefix; G36 lim=2; M16A2/A4/FAMAS/AUG/HK33/Sig550*/G3 lim=3; token-safe attack match. `--apply` → `.bak`. |
+| `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003/008: mass/RPM/size/limiter → Recoil/Burst/Auto; SMG floor 12; Carbine + select-fire sniper rpm holefix; G36 lim=2; M16A2/A4/FAMAS/AUG/HK33/Sig550*/G3 lim=3; M2Carbine component-gated JAZZ_Autofire shot counts; token-safe attack match. `--apply` → `.bak`. |
 | `_audit_weapons_rpm_holes.py` | WEAPONS-003 hole scan: select-fire/`MGBurst` with `cyclic_rpm=0`, Auto/Burst=0 with mode, known BurstLimiter drift, CSV↔companion, SMG mass/Long placeholders, spec anchors. |
 | `_soften_ammo_jam.py` | JAZZ-WEAPONS-008: смягчает Poor/Crafted `BaseJamChance`/`Reliability` в `items.lua` + companions. `--apply`. |
 | `_tmp_audit_smg_jam_feedback.py` | Discord audit: SMG Recoil distribution + Poor/Crafted JamScore scenarios. |

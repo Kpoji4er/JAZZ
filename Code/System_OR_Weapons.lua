@@ -198,17 +198,44 @@ function FirearmBase:GetAutofireShots(action)
 	-- WEAPONS-003: no AutoFire → AutoShots=0. Heavy MGs (BrowningM2HMG, MG42, …) still fire via
 	-- MGBurstFire only — must not return 0 (anim plays, ExecFirearmAttacks gets empty shots).
 	-- LMGs with authored AutoShots keep the longer MGBurst length; else BurstShots.
+	-- Component-gated auto (M2Carbine + JAZZ_Autofire): modes appear via EnableFullAuto/EnableBurst
+	-- while preset may still have AutoShots/BurstShots=0 until authored — derive from CyclicRPM.
+	local function shots_from_rpm(divisor, min_v, max_v)
+		local rpm = self.CyclicRPM or 0
+		if rpm <= 0 then
+			return nil
+		end
+		return Max(min_v, Min(max_v, DivRound(rpm, divisor)))
+	end
 	if action.id == "AutoFire" then
 		shots = self.AutoShots
+		if not shots or shots <= 0 then
+			shots = shots_from_rpm(100, 3, 14) or 5
+		end
 	elseif action.id == "MGBurstFire" then
 		local auto = self.AutoShots or 0
 		shots = (auto > 0) and auto or (self.BurstShots or shots)
 	elseif action.id == "JAZZ_LargeAutoFire" then
-		shots = self.AutoShots * 2
+		local auto = self.AutoShots or 0
+		if auto <= 0 then
+			auto = shots_from_rpm(100, 3, 14) or 5
+		end
+		shots = auto * 2
 	elseif action.id == "BurstFire" or action.id == "JAZZ_Zipper" then
 		shots = self.BurstShots
+		if not shots or shots <= 0 then
+			shots = shots_from_rpm(200, 2, 8) or 3
+		end
+		local lim = self.BurstLimiter or 0
+		if lim > 0 then
+			shots = Min(shots, lim)
+		end
 	elseif action.id == "JAZZ_SmgStorm" then
-		shots = self.BurstShots * 2
+		local burst = self.BurstShots or 0
+		if burst <= 0 then
+			burst = shots_from_rpm(200, 2, 8) or 3
+		end
+		shots = burst * 2
 	end
 	return Max(1, shots or 1)
 end

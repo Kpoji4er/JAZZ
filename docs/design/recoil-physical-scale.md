@@ -27,10 +27,13 @@ keep RPM 0 → Burst/Auto 0. Authored anchors include M4A1 **800/4/8**, G36/G36c
 **BurstLimiter=2** (burst capped at 2; AutoFire length unchanged). Select-fire
 snipers (SVU) use class cyclic when Burst/Auto exists — not forced rpm=0.
 Mechanical 3-rd burst: M16A2/A4, FAMAS, AUG, HK33, Sig550*, G3A3/A4.
+`M2Carbine` / `Mini14` keep semi-only `AvailableAttacks`, but author Burst/Auto from RPM for the
+`JAZZ_Autofire` Trigger (`EnableFullAuto`/`EnableBurst`). `GetAutofireShots` also falls
+back to CyclicRPM when shot counts are still 0.
 
 `BurstShots = clamp(round(RPM / 200), 2..8)` and
 `AutoShots = clamp(round(RPM / 100), 3..14)` only when the corresponding fire
-mode exists. `BurstLimiter` caps burst only; belt/MG auto is capped at 10
+mode exists **or** the platform is component-gated autofire. `BurstLimiter` caps burst only; belt/MG auto is capped at 10
 (true MachineGun/LMG only — not SubmachineGun).
 There is no random burst-length variance.
 

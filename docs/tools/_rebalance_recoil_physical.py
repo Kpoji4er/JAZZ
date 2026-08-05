@@ -31,6 +31,7 @@ IMPULSE = {
     "9x18": 9, "9x19": 12, "762x25": 12, "38": 10, "45ACP": 13, "44CAL": 18,
     "50AE": 24, "57": 11, "46": 10, "545": 17, "556": 18, "300BLK": 20,
     "762x39": 24, "762x51": 40, "762x54R": 41, "308": 40, "30-06": 41,
+    "30cal": 15,  # .30 Carbine (M2Carbine)
     "8mm": 39, "12gauge": 30, "20gauge": 24, "50BMG": 54, "127": 54,
 }
 
@@ -90,11 +91,19 @@ AUTHORED_OVERRIDES = {
     "ZastavaM92": (33, 700, "Carbine", 0, None),
     "VSS": (28, 800, "Carbine", 0, None),  # BurstFire only → AutoShots=0
     "SVU": (48, 650, "Long", 0, None),  # BurstFire DMR; sniper class previously forced rpm=0
+    # Component-gated auto (JAZZ_Autofire Trigger): base AvailableAttacks stay semi-only,
+    # but Burst/Auto shot counts must be authored for EnableFullAuto/EnableBurst.
+    "M2Carbine": (28, 750, "Carbine", 0, None),
+    "Mini14": (30, 750, "Carbine", 0, None),  # AC-556; JAZZ_Autofire Trigger (same as M2)
     "MAC10": (28, 1100, "Compact", 0, None),
     "Glock18": (26, 1200, "Compact", 0, None),
     "Beretta93r": (26, 1100, "Compact", 3, None),
     "APS": (30, 750, "Compact", 0, None),
 }
+
+# Weapons whose Burst/Auto come from EnableBurst/EnableFullAuto components, not AvailableAttacks.
+COMPONENT_GATED_AUTOFIRE = frozenset({"M2Carbine", "Mini14"})
+
 
 
 @dataclass(frozen=True)
@@ -201,14 +210,16 @@ def authored_profile(row: dict[str, str]) -> Profile:
         floor = 18
     recoil = max(floor, min(70, recoil_override if recoil_override is not None else recoil))
     tokens = attack_set(row["available_attacks"])
+    gated = row["id"] in COMPONENT_GATED_AUTOFIRE
     # Shotgun pellet count is BuckshotProjectiles (JAZZ-WEAPONS-006), not AutoShots.
     # BurstFire / AbakanBurst / MGBurstFire (BurstShots feeds GetAutofireShots MG fallback).
-    has_burst_mode = bool(tokens & {"BurstFire", "AbakanBurst", "MGBurstFire"})
+    # COMPONENT_GATED_AUTOFIRE: JAZZ_Autofire enables modes at runtime — still author shot counts.
+    has_burst_mode = gated or bool(tokens & {"BurstFire", "AbakanBurst", "MGBurstFire"})
     burst = max(2, min(8, round(rpm / 200))) if rpm and has_burst_mode else 0
     if limiter and burst:
         burst = min(burst, limiter)
     auto_max = 10 if is_true_machinegun(cls) else 14
-    has_auto_mode = bool(tokens & {"AutoFire", "AbakanAutoFire", "JAZZ_LargeAutoFire"})
+    has_auto_mode = gated or bool(tokens & {"AutoFire", "AbakanAutoFire", "JAZZ_LargeAutoFire"})
     auto = max(3, min(auto_max, round(rpm / 100))) if rpm and has_auto_mode else 0
     return Profile(mass, rpm, size, limiter, recoil, burst, auto)
 
@@ -247,7 +258,11 @@ def item_blocks(text: str) -> list[tuple[int, int, str]]:
 
 
 def id_of(block: str) -> str | None:
-    match = re.search(r"(?:'|\")id(?:'|\"),\s*\"([^\"]+)\"", block, re.IGNORECASE)
+    # Prefer the ModItem Id near the head (avoid later nested keys).
+    match = re.search(r"(?:'|\")Id(?:'|\"),\s*\"([^\"]+)\"", block[:1200])
+    if match:
+        return match.group(1)
+    match = re.search(r"(?:'|\")id(?:'|\"),\s*\"([^\"]+)\"", block[:1200], re.IGNORECASE)
     return match.group(1) if match else None
 
 
@@ -355,7 +370,7 @@ def main() -> None:
         "AK74", "AKM", "FNFAL", "MicroUZI", "MP5K", "MP5A2", "Sterling",
         "MAT49", "UZI", "P90", "LionRoar", "TexRevolver",
         "M4A1", "G36", "G36c", "CAR15", "AKSU", "VSS", "AS_Val", "ZastavaM92", "AN94",
-        "SVU", "FAMAS", "AUG", "M16A4", "HK33", "Sig550", "G3A3",
+        "SVU", "FAMAS", "AUG", "M16A4", "HK33", "Sig550", "G3A3", "M2Carbine", "Mini14",
     ):
         if weapon_id in profiles:
             print(f"{weapon_id}: {profiles[weapon_id]}")
@@ -370,7 +385,8 @@ def main() -> None:
     for row in active:
         p = profiles[row["id"]]
         tokens = attack_set(row["available_attacks"])
-        if p.burst > 0 and not (tokens & {"BurstFire", "AbakanBurst", "MGBurstFire"}):
+        gated = row["id"] in COMPONENT_GATED_AUTOFIRE
+        if p.burst > 0 and not gated and not (tokens & {"BurstFire", "AbakanBurst", "MGBurstFire"}):
             false_burst.append(row["id"])
     if false_burst:
         raise SystemExit("BurstShots without burst mode: " + ", ".join(false_burst))

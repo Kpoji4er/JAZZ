@@ -21698,6 +21698,7 @@ return {
 					'Noise', 30,
 					'HandSlot', "TwoHanded",
 					'Entity', "M2Carbine",
+
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Stock",
@@ -21748,13 +21749,13 @@ return {
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
-					'WeaponMass', 35,
-					'CyclicRPM', 0,
-					'WeaponSizeClass', "Rifle",
+					'WeaponMass', 28,
+					'CyclicRPM', 750,
+					'WeaponSizeClass', "Carbine",
 					'BurstLimiter', 0,
-					'Recoil', 12,
-					'BurstShots', 0,
-					'AutoShots', 0,
+					'Recoil', 19,
+					'BurstShots', 4,
+					'AutoShots', 8,
 					'BulletDropRange', 12,
 
 					'CloseRange', 5,
@@ -21920,6 +21921,13 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Trigger",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Autofire",
+							},
+						}),
 					},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
@@ -21929,13 +21937,13 @@ return {
 					},
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
-					'BurstShots', 0,
-					'WeaponMass', 35,
-					'CyclicRPM', 0,
-					'WeaponSizeClass', "Rifle",
+					'WeaponMass', 30,
+					'CyclicRPM', 750,
+					'WeaponSizeClass', "Carbine",
 					'BurstLimiter', 0,
-					'Recoil', 15,
-					'AutoShots', 0,
+					'Recoil', 22,
+					'BurstShots', 4,
+					'AutoShots', 8,
 					'BulletDropRange', 16,
 
 					'CloseRange', 5,
@@ -109854,21 +109862,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								end
 								
 								parent.idRegion:SetVisible(not not has_region)
-								if has_region then
-									-- Compact label: DisplayName (string or T). Full hint stays on rollover.
-									local name = region.DisplayName
-									if name and name ~= "" then
-										parent.idRegion:SetText(IsT(name) and name or Untranslated(name))
-									else
-										parent.idRegion:SetText(Untranslated(tostring(region.id or region.Id or "")))
-									end
-									local hint = region.GetRolloverHint and region:GetRolloverHint(sector.Id)
-									if hint and hint ~= "" then
-										parent.idRegion:SetRolloverText(hint)
-									end
-								else
-									parent.idRegion:SetText("")
-								end
+								-- Full sector/region block (city loyalty, heat, region name/desc/loyalty/heat).
+								-- Must stay on SetText: city idLoyalty is hidden when has_region.
+								-- Translate=true required — GetRolloverHint returns TConcat of T lines.
+								parent.idRegion:SetText(has_region and region:GetRolloverHint(sector.Id) or "")
 								
 								local intel = sector.Intel and sector.intel_discovered
 								parent.idIntel:SetVisible(intel)
