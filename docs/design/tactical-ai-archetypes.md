@@ -272,16 +272,19 @@ Leader (`JAZZ_Legion_Leader*`, RebelSergeant, keyword `Leader`) раз в ход
 | Lieutenant (`LeaderT2`) | **25** тайлов |
 | Captain / MercCaptain (`LeaderT3`/`T4`) | **вся карта** (все allies команды) |
 
-| Directive | Условие | Эффект в радиусе |
+| Directive | Условие (runtime picker) | Эффект в радиусе (сейчас) |
 | --- | --- | --- |
-| `HoldLine` | город / хорошие cover / численный паритет | Frontliner cover↑, Overwatch bias↑, Assaulter Press↓ |
-| `Push` | перевес / низкий Will врагов / после smoke | Assaulter NeedPush, Flanker может Press |
-| `Envelop` | фланг доступен | Pushers NeedFlank↑, Scouts остаются Flanker |
-| `FallBack` | потери / death zones | smoke bias↑, Deserter только low-tier |
-| `FocusFire` | одна цель низкий HP | targeting bias на session_id |
-| `LowVisHold` | Night/Fog/Dust (§15) | flare↑, OW↑, Press↓, Flanker stealth |
+| `FallBack` | тяжёлые потери (≥2 dead и ≥25% отряда, или ≥50% живых ≤45% HP) | Scout/Pusher/Recruit/Line → Frontliner; melee off |
+| `GoHidden` | Night/Fog/Dust **или** «перестрел» на дистанции, если ≥40% команды может `CanStealth` | `unit:Hide()` в ауре (не в PickCustom); → Frontliner; melee off |
+| `LowVisHold` | Night/Fog/Dust, если стелс недоступен большинству | Line не уходит в CQB Assaulter; OW/LowVis profile |
+| `FocusFire` | видимый враг ≤40% HP (минимальный HP%) | MapVar `focus_target`; attack score ×1.45 у allies |
+| `TakeCover` | дистанция ≥18 и «перестрел», стелс недоступен | → Frontliner; melee off |
+| `Push` | nearest enemy ≤ **12** тайлов | Scout → Assaulter |
+| `OccupyBuildings` | Urban / indoor≥30%; mid-range (&lt;24) или нет врага | Scout/Pusher/Recruit/Line → Frontliner |
+| `Envelop` | nearest enemy ≥ **24** тайлов | Pusher → Flanker |
+| `HoldLine` | 13–23 тайлов (не urban occupy) / fallback | default семьи |
 
-Офицер **не** pathfind’ит за всех: только множители Weight / stance hints. Без офицера — локальные default stance. При нескольких офицерах — более высокий ранг / больший радиус побеждает (Captain перекрывает Sgt).
+Офицер **не** pathfind’ит за всех: stance hints + FocusFire targeting bias + `GoHidden`→`Hide()`. Полные weight-множители cover/OW/smoke — поэтапно. Без офицера — локальные default stance. При нескольких офицерах — более высокий ранг / больший радиус побеждает (Captain перекрывает Sgt).
 
 Leaders сейчас имеют **пустой** PickCustom — как раз место для aura writer, а не для copy-paste panic.
 
@@ -349,7 +352,7 @@ Keyword `Smoke` желателен на доверенных носителях 
 
 **Дизайн (F10):** лечить **как можно раньше**; **Bleeding** важнее процента HP. Не поднимать порог «чтобы реже лечил» — наоборот ранний Support. Freeze чинить fail-safe’ами, не отказом от раннего heal.
 
-Bonemaker сейчас: любой союзник &lt;70% HP → `Medic`. У `Medic`: Healer Late + Priority Bandage + `BleedingWeight` 300 в OptLoc HealingRange.
+Bonemaker сейчас: любой союзник с Jazz bleed (любой тир) или HP &lt;85% → `Medic`. У `Medic`: Healer **Early** + exclusive Score (combat behaviors → 0) + Priority Bandage до MobileShot + `BleedingWeight` 300 / `MaxHp` 85 / `SelfHealMod` 100; `AISelectHealTarget` (jazz override) считает все bleed tiers, не требует HP&lt;70% для крови и не штрафует self-bleed через SelfHealMod.
 
 Статические риски фриза:
 
@@ -372,7 +375,7 @@ Bonemaker сейчас: любой союзник &lt;70% HP → `Medic`. У `Me
 | **JAZZ-AI-POL-001** | TakeCover threat-weight + cover×shot; Proximity closer/farther modes; Weight rebalance трёх ролей |
 | **JAZZ-AI-POL-002** | AllyRoleAnchor (sniper screen / leader retinue); AvoidPeekVoxel |
 | **JAZZ-AI-CTX-001** | Urban (indoor ratio) + **LowVis** (Night/Fog/Dust/Fire/Underground/Rain) profiles; множители Weight; flare/OW gates |
-| **JAZZ-AI-CMD-001** | Officer aura (15/25/map) + directives вкл. `LowVisHold` |
+| **JAZZ-AI-CMD-001** | Officer aura (15/25/map) + directives HoldLine/Push/Envelop/LowVisHold/FallBack/FocusFire/OccupyBuildings/TakeCover/GoHidden; bands 12/24 |
 | **JAZZ-AI-ACT-001** | Smoke LOS-break score; anti-peek overwatch; flare→push; LowVis min_score OW |
 | **JAZZ-AI-MED-001** | Medic freeze repro + fail-safes; early heal; bleed-first |
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |

@@ -525,6 +525,13 @@ function AICreateContext(unit, context)
 				if context.enemy_visible[enemy] and best_attack then
 					best_attack.score = best_attack.score * 1.2
 				end
+				-- CMD-001 FocusFire: bias aura allies onto the officer's finish target
+				if best_attack and JazzAI_GetTeamFocusTarget then
+					local focus = JazzAI_GetTeamFocusTarget(unit)
+					if focus and enemy == focus then
+						best_attack.score = best_attack.score * 1.45
+					end
+				end
 				--local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim[enemy])
           	   if best_attack and best_attack.score >= best_overall_score then
 					--print(best_attack.score)

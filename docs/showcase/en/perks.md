@@ -34,7 +34,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `Jazz_Perk_Steiger` | Steiger | At night: allies ≤5 get +5 CTH |
 | `GrizzlyPerk` | Grizzly | Personal MG attack + CTH/recoil |
 | `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP first turn |
-| `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura |
+| `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura; tooltip shows the **current order** (hold the line / push / envelop / fall back / focus fire / occupy buildings / take cover / go hidden / low-vis hold) |
 | `Jazz_Perk_Mimicry` | IMP (personal) | Conversation options for Negotiator/Scoundrel/Psycho without their combat/economy effects |
 | `Jazz_Perk_Veteran` | IMP (personal) | +10 to all skill/stat checks |
 | `Jazz_Perk_Sniper` | IMP (tactical) | +1 max aim level (any weapon) |

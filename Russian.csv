@@ -11631,7 +11631,6 @@ ID,Text,Translation,VoiceActor,Context
 890000000003717,Иду с вами. Фатима поймёт.,,,
 890000000002817,Ладно... я попробую. Только пусть кто-нибудь прикроет.,,,
 890000000003117,Уже в тени. Иду.,,,
-
 # JAZZ-UNITS-005-AME-VR-LOC-BEGIN,,,,
 890000000005800,Take that!,Есть цель!,,jazz-units:items.lua:VoiceResponse AME
 890000000005801,Die!,Бью.,,jazz-units:items.lua:VoiceResponse AME
@@ -12245,3 +12244,21 @@ ID,Text,Translation,VoiceActor,Context
 890000000010278,"Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns.","Дезориентация от взрыва: <color EmStyle>−<APLoss> ОД</color>, <color EmStyle>−<cth_penalty>% к точности</color>, стоимость хода <color EmStyle>+<move_ap_modifier>%</color>, без Free Move. Около 1–2 ходов.",,jazz:CharacterEffect/Concussion.lua
 890000000010279,<color EmStyle><DisplayName></color> is concussed,<color EmStyle><DisplayName></color> контужен,,jazz:CharacterEffect/Concussion.lua
 890000000010280,<color EmStyle><DisplayName></color> clears concussion,<color EmStyle><DisplayName></color> приходит в себя после контузии,,jazz:CharacterEffect/Concussion.lua
+890000000006100,Командная аура,Командная аура,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
+890000000006101,Этот командир отдаёт приказы союзникам поблизости.,Этот командир отдаёт приказы союзникам поблизости.,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
+890000000006102,Отдаёт приказы,Отдаёт приказы,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
+890000000006103,Под влиянием ауры,Под влиянием ауры,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+890000000006104,"Боец следует приказам командира. Эффект снимается, если командир погиб или боец вышел из зоны влияния.","Боец следует приказам командира. Эффект снимается, если командир погиб или боец вышел из зоны влияния.",,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+890000000006105,Под приказом,Под приказом,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+890000000006106,Держать линию,Держать линию,,jazz:Code/AIContextProfiles.lua
+890000000006107,Давить,Давить,,jazz:Code/AIContextProfiles.lua
+890000000006108,Охват,Охват,,jazz:Code/AIContextProfiles.lua
+890000000006109,Низкая видимость — держать,Низкая видимость — держать,,jazz:Code/AIContextProfiles.lua
+890000000006110,Отход,Отход,,jazz:Code/AIContextProfiles.lua
+890000000006111,Сосредоточить огонь,Сосредоточить огонь,,jazz:Code/AIContextProfiles.lua
+890000000006112,Текущий приказ: <em><order></em>,Текущий приказ: <em><order></em>,,jazz:Code/AIContextProfiles.lua
+890000000006113,Следует приказу: <em><order></em>,Следует приказу: <em><order></em>,,jazz:Code/AIContextProfiles.lua
+890000000006114,приказ не выбран,приказ не выбран,,jazz:Code/AIContextProfiles.lua
+890000000006115,Занимать дома,Занимать дома,,jazz:Code/AIContextProfiles.lua
+890000000006116,Спрятаться,Спрятаться,,jazz:Code/AIContextProfiles.lua
+890000000006117,Скрыться,Скрыться,,jazz:Code/AIContextProfiles.lua

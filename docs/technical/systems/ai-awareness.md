@@ -18,16 +18,16 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 - `Code/AiActions.lua` — attacks, targeting, aim/reload и action helpers;
 - `Code/AiAction_ThrowFlare.lua` — grenade/flare action;
-- `Code/AiFastForward.lua` — auto fast-forward / PoV visibility на вражеском ходе;
+- `Code/AiFastForward.lua` — auto fast-forward / PoV visibility на вражеском ходе; **союзники (Rebels `side=ally`)** при Running/Always всегда на Fast (иначе PoV их почти всегда видит и FF не срабатывал);
 - `Code/AIBehaviours.lua` — небольшой слой behavior registration;
 - `Code/AIPolicy.lua` — позиционные политики (cover/threat, ScoreMode, role anchor, anti-peek, ally spacing — POL-001…003 code loaded; specs may still be `approved`);
-- `Code/AIContextProfiles.lua` — context profiles / officer directives / aura lifecycle (CTX/CMD code loaded);
+- `Code/AIContextProfiles.lua` — context profiles / officer directives / aura lifecycle (CTX/CMD code loaded); team directive stored in `MapVar JazzAI_TeamDirectives` (`directive` / `source` / `radius` / `focus_target` for FocusFire); **order is picked in `JazzAI_PickOfficerDirective`** (priority: FallBack → GoHidden|LowVisHold → FocusFire → GoHidden|TakeCover → Push≤12 → OccupyBuildings mid-range urban → Envelop≥24 → HoldLine) and written by `JazzAI_WriteOfficerAura` on `CombatStart` (after clear) and every `UnitBeginTurn` via `JazzAI_RefreshAllOfficerAuras` (all teams — ally Rebel officers like Burda/`RebelSergeant`+`Leader` included); **GoHidden** calls `JazzAI_TryUnitGoHidden` (`CanStealth`→`Hide()`) for aura members on write + acting unit on begin turn (not PickCustom); no player COMMAND button; combat-badge INFO resolves via `Jazz_Perk_OfficerAura*:ResolveValue("Description")` → raw preset Description + one **current order** line (loc 6106–6117; no player-facing radii); tooltip lazy-`EnsureEffectDirective` rewrites if MapVar/InstParameter empty; FocusFire attack bias ×1.45 in `CombatAI` via `JazzAI_GetTeamFocusTarget`;
 - `Code/CombatAI.lua` — выбор действия и tactical execution (в т.ч. ACT-003 MG half-cover dest bonus в `AIScoreDest`);
 - `Code/UnitAwareness.lua` — suspicion, alerts и переходы awareness;
 - `Code/InfiniteLoopFix.lua` — увеличивает защитные thresholds от зависания;
 - `Code/System_OR_Unit.lua`, `CombatActions.lua`, `System_OR_Weapons.lua` — действия/состояние/оружие, используемые AI.
 
-`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance — MED/REG/ROLE-002 code loaded) и generated AI archetypes (в т.ч. `Legion_Flanker` / `Rebels_Flanker`, `OptLocSearchRadius = 55`), enemy roles/squads и UnitData. `JazzAI_PickCombatStance` резолвит faction stance-id через `JazzAI_ResolveKnownArchetype`: отсутствующий preset (исторический gap `Rebels_Flanker`) → `*_Assaulter` / `*_Frontliner`. Soft Precalc prune gate: `JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12`; DestLos CheckLOS cap 320; **OptLoc `all_destinations` cap `JAZZ_AI_PERF_OPTLOC_DEST_CAP = 400`** (fill by nearest threat); TakeCover = full POL-001 `GetCoverPercentage` (jazz `CombatAI.lua` / `AiActions.lua` / `AIPolicy.lua`). `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
+`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance — MED/REG/ROLE-002 code loaded) и generated AI archetypes (в т.ч. `Legion_Flanker` / `Rebels_Flanker`, `OptLocSearchRadius = 55`), enemy roles/squads и UnitData. `JazzAI_PickCombatStance` резолвит faction stance-id через `JazzAI_ResolveKnownArchetype`: отсутствующий preset (исторический gap `Rebels_Flanker`) → `*_Assaulter` / `*_Frontliner`. Soft Precalc prune gate: `JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12`; DestLos CheckLOS cap **200**; **OptLoc `all_destinations` cap `JAZZ_AI_PERF_OPTLOC_DEST_CAP = 200`** (fill by nearest threat); Precalc dest cap **48**; TakeCover scores at most **8** nearest visible threats per dest (`JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP`) with full POL-001 `GetCoverPercentage` (jazz `CombatAI.lua` / `AiActions.lua` / `AIPolicy.lua`). `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
 
 ## Подтверждённые коллизии CommonLib
 
@@ -80,6 +80,8 @@ AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`,
 
 Archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels (`Rebels_Assaulter` / `Rebels_Flanker` / `Rebels_Frontliner` / `Rebels_Machinegunner`; `Rebels_Flanker` — clone `Legion_Flanker` для `RebelFlanker` / Scout stance; оба Flanker OptLoc **55**, не 80). Generated UnitData связывает archetype с инвентарём, stats и actions.
 
+**Medic / Bandage (JAZZ-AI-MED-001 + MED-001 bleed tiers):** vanilla `AISelectHealTarget` учитывал только `hpp ≤ MaxHp` (default 70%) и статус `"Bleeding"`, поэтому лёгкая кровь при HP выше порога и все `BleedingMedium`/`BleedingHeavy` не набирали score — Priority `AIActionBandage` на Healer не планировался (Standard держал Priority `MobileShot`). JAZZ override в `CombatAI.lua`: любой Jazz bleed bypass MaxHp + вес по тирам; self-bleed не режется `SelfHealMod`; `AIActionBandage` Precalc/Execute в `AiActions.lua` требует score&gt;0 и может сыграть `JazzBandage`, если нет kit medicine. `Medic`/`Medic_Low`: при bleed/HP&lt;85% Healer **exclusive** (`JazzAI_MedicHealBehaviorScore` / combat behaviors → 0), `turn_phase` **Early**, Priority Bandage перед MobileShot, `MaxHp` 85 / `BleedingWeight` 300 / `SelfHealMod` 100. Stance `JazzAI_TryMedicSwitch` тоже смотрит все тиры крови.
+
 ## Awareness и внешние условия
 
 `UnitAwareness.lua` заменяет крупную vanilla-систему. На обнаружение влияют LOS, light/darkness, smoke, night/weather, camo, noise и team state. `IsLineInSmoke` дополнительно переопределён JAZZ поверх функции CommonLib в `System_OR_Unit.lua`.
@@ -104,7 +106,7 @@ Hidden sight (`JAZZ-AI-005`/`006`): укрытие Hidden ×35%; трава flat
 - signature action и обычная атака на разных дистанциях;
 - grenade/flare/smoke, MG setup и suppression;
 - indoor/outdoor, cover, high ground, flank и no-safe-position;
-- low/high AP и необходимость reload/unjam;
+- low/high AP и необходимость reload/unjam (`AIReloadWeapons` clears jam via `RepairJammed(nil)` — no WeaponResource write);
 - разные keywords/archetypes и weapon roles;
 - sight/noise/smoke/night/rain/camo suspicion;
 - exploration: подход сзади за пределами 10 тайлов не копит suspicion; спереди дальний пузырь сохраняется;
