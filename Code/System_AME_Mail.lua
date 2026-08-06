@@ -7,6 +7,11 @@ g_JAZZ_AME_MarkEmailBase = rawget(_G, "g_JAZZ_AME_MarkEmailBase") or false
 local AME_WELCOME_ID = "AME_Welcome"
 local AME_LISTING_ID = "AME_ListingUpdate"
 
+local AME_IDS = {}
+for i = 1, 60 do
+	AME_IDS[i] = string.format("JAZZ_AME_%02d", i)
+end
+
 local AME_CAT_LABEL = {
 	Irregulars = T(890000000006900, "Irregulars"),
 	Fighters = T(890000000006901, "Fighters"),
@@ -52,11 +57,7 @@ local function lMarket()
 end
 
 local function lAmeIds()
-	local ids = {}
-	for i = 1, 60 do
-		ids[#ids + 1] = string.format("JAZZ_AME_%02d", i)
-	end
-	return ids
+	return AME_IDS
 end
 
 local function lNickOrName(ud)
@@ -211,21 +212,28 @@ function JAZZ_AME_ApplyTabLock()
 	ObjModified("pda browser tabs")
 end
 
+local function lSendListingMail(email_id, market)
+	if type(ReceiveEmail) ~= "function" then
+		return false
+	end
+	if not Emails or not Emails[email_id] then
+		return false
+	end
+	local listing = JAZZ_AME_BuildAvailableListingText()
+	ReceiveEmail(email_id, { listing = Untranslated(listing) })
+	market.listing_snapshot = JAZZ_AME_BuildListingSnapshot()
+	return true
+end
+
 function JAZZ_AME_SendWelcomeMail()
 	local market = lMarket()
 	if not market or market.welcome_sent then
 		return false
 	end
-	if type(ReceiveEmail) ~= "function" then
+	if not lSendListingMail(AME_WELCOME_ID, market) then
 		return false
 	end
-	if not Emails or not Emails[AME_WELCOME_ID] then
-		return false
-	end
-	local listing = JAZZ_AME_BuildAvailableListingText()
-	ReceiveEmail(AME_WELCOME_ID, { listing = Untranslated(listing) })
 	market.welcome_sent = true
-	market.listing_snapshot = JAZZ_AME_BuildListingSnapshot()
 	JAZZ_AME_ApplyTabLock()
 	return true
 end
@@ -235,20 +243,11 @@ function JAZZ_AME_SendListingUpdateMail()
 	if not market or not market.welcome_sent then
 		return false
 	end
-	if type(ReceiveEmail) ~= "function" then
-		return false
-	end
-	if not Emails or not Emails[AME_LISTING_ID] then
-		return false
-	end
 	local snap = JAZZ_AME_BuildListingSnapshot()
 	if snap == (market.listing_snapshot or false) then
 		return false
 	end
-	local listing = JAZZ_AME_BuildAvailableListingText()
-	ReceiveEmail(AME_LISTING_ID, { listing = Untranslated(listing) })
-	market.listing_snapshot = snap
-	return true
+	return lSendListingMail(AME_LISTING_ID, market)
 end
 
 function JAZZ_AME_OnWelcomeRead()

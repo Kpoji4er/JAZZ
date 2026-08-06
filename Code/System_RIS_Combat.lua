@@ -344,6 +344,77 @@ function JAZZ_RIS_ResolveSectorContext(sector_id)
 	}
 end
 
+local function lAAROutcome(playerWon, isRetreat)
+	if isRetreat then
+		return "retreat"
+	end
+	if playerWon then
+		return "win"
+	end
+	return "loss"
+end
+
+local function lAARAppendSector(parts, aar, ctx)
+	if not (ctx and (ctx.sector_name or ctx.sector_id) and aar.sector) then
+		return
+	end
+	local secName = ctx.sector_name ~= "" and ctx.sector_name or tostring(ctx.sector_id or "?")
+	if ctx.poi and aar.sector.poi then
+		parts[#parts + 1] = lTr(T{ aar.sector.poi, sector = secName, poi = ctx.poi })
+	else
+		parts[#parts + 1] = lTr(T{ aar.sector.line, sector = secName })
+	end
+	parts[#parts + 1] = ""
+end
+
+local function lAARAppendQuest(parts, aar, ctx)
+	if not (aar.quest and ctx) then
+		return
+	end
+	local qs = ctx.quests or empty_table
+	if #qs == 0 then
+		parts[#parts + 1] = lTr(aar.quest.none)
+	elseif #qs == 1 then
+		local q = qs[1]
+		if q.source == "active" and not ctx.quest_linked then
+			parts[#parts + 1] = lTr(T{ aar.quest.active, quest = q.name })
+		elseif q.note and q.note ~= "" then
+			parts[#parts + 1] = lTr(T{ aar.quest.one, quest = q.name, note = q.note })
+		else
+			parts[#parts + 1] = lTr(T{ aar.quest.one_nonote, quest = q.name })
+		end
+	else
+		local names = {}
+		for _, q in ipairs(qs) do
+			names[#names + 1] = q.name
+		end
+		parts[#parts + 1] = lTr(T{ aar.quest.many, quests = table.concat(names, "; ") })
+	end
+	parts[#parts + 1] = ""
+end
+
+local function lAARAppendElites(parts, aar, snap)
+	table.sort(snap.elites or {}, function(a, b)
+		return tostring(a.name) < tostring(b.name)
+	end)
+	for _, row in ipairs(snap.elites or empty_table) do
+		local fate = row.fate or "threat"
+		local tpl = aar.elite[fate] or aar.elite.threat
+		parts[#parts + 1] = ""
+		parts[#parts + 1] = lTr(T{ tpl, name = row.name })
+	end
+end
+
+local function lAARClosingKey(inten, playerWon, isRetreat)
+	if inten == "low" and playerWon then
+		return "quiet"
+	end
+	if inten == "high" and (not playerWon or isRetreat) then
+		return "disaster"
+	end
+	return "noise"
+end
+
 local function lBuildAARText(snap, playerWon, isRetreat, autoResolve)
 	local aar = rawget(_G, "JAZZ_RIS_AAR")
 	if not aar then
@@ -351,12 +422,7 @@ local function lBuildAARText(snap, playerWon, isRetreat, autoResolve)
 	end
 	local ctx = snap.sector_ctx or JAZZ_RIS_ResolveSectorContext(snap.sector_id)
 	snap.sector_ctx = ctx
-	local outcome = "loss"
-	if isRetreat then
-		outcome = "retreat"
-	elseif playerWon then
-		outcome = "win"
-	end
+	local outcome = lAAROutcome(playerWon, isRetreat)
 	local inten = lIntensityBand(snap, playerWon, isRetreat)
 	local key = string.format("%s|%s", outcome, inten)
 	local bank = aar.headlines[key] or aar.headlines["win|mid"]
@@ -379,39 +445,8 @@ local function lBuildAARText(snap, playerWon, isRetreat, autoResolve)
 		lTr(headline),
 		"",
 	}
-	-- Sector line (always when we have an id/name)
-	if ctx and (ctx.sector_name or ctx.sector_id) and aar.sector then
-		local secName = ctx.sector_name ~= "" and ctx.sector_name or tostring(ctx.sector_id or "?")
-		if ctx.poi and aar.sector.poi then
-			parts[#parts + 1] = lTr(T{ aar.sector.poi, sector = secName, poi = ctx.poi })
-		else
-			parts[#parts + 1] = lTr(T{ aar.sector.line, sector = secName })
-		end
-		parts[#parts + 1] = ""
-	end
-	-- Quest thread(s)
-	if aar.quest and ctx then
-		local qs = ctx.quests or empty_table
-		if #qs == 0 then
-			parts[#parts + 1] = lTr(aar.quest.none)
-		elseif #qs == 1 then
-			local q = qs[1]
-			if q.source == "active" and not ctx.quest_linked then
-				parts[#parts + 1] = lTr(T{ aar.quest.active, quest = q.name })
-			elseif q.note and q.note ~= "" then
-				parts[#parts + 1] = lTr(T{ aar.quest.one, quest = q.name, note = q.note })
-			else
-				parts[#parts + 1] = lTr(T{ aar.quest.one_nonote, quest = q.name })
-			end
-		else
-			local names = {}
-			for _, q in ipairs(qs) do
-				names[#names + 1] = q.name
-			end
-			parts[#parts + 1] = lTr(T{ aar.quest.many, quests = table.concat(names, "; ") })
-		end
-		parts[#parts + 1] = ""
-	end
+	lAARAppendSector(parts, aar, ctx)
+	lAARAppendQuest(parts, aar, ctx)
 	parts[#parts + 1] = lTr(weather)
 	parts[#parts + 1] = lTr(intensity)
 	parts[#parts + 1] = lTr(forces)
@@ -437,39 +472,19 @@ local function lBuildAARText(snap, playerWon, isRetreat, autoResolve)
 		parts[#parts + 1] = ""
 		parts[#parts + 1] = "(Satellite resolve — limited field detail.)"
 	end
-	table.sort(snap.elites or {}, function(a, b)
-		return tostring(a.name) < tostring(b.name)
-	end)
-	for _, row in ipairs(snap.elites or empty_table) do
-		local fate = row.fate or "threat"
-		local tpl = aar.elite[fate] or aar.elite.threat
-		parts[#parts + 1] = ""
-		parts[#parts + 1] = lTr(T{ tpl, name = row.name })
-	end
-	local closeKey = "noise"
-	if inten == "low" and playerWon then
-		closeKey = "quiet"
-	elseif inten == "high" and (not playerWon or isRetreat) then
-		closeKey = "disaster"
-	end
+	lAARAppendElites(parts, aar, snap)
 	parts[#parts + 1] = ""
-	parts[#parts + 1] = lTr(aar.closing[closeKey] or aar.closing.noise)
+	parts[#parts + 1] = lTr(aar.closing[lAARClosingKey(inten, playerWon, isRetreat)] or aar.closing.noise)
 	local title = lTr(headline)
 	if ctx and ctx.sector_name and ctx.sector_name ~= "" then
 		title = string.format("%s — %s", title, ctx.sector_name)
 	end
-	local body = table.concat(parts, "\n")
-	return title, body
+	return title, table.concat(parts, "\n")
 end
 
-function JAZZ_RIS_FinalizeBattle(sector, playerWon, isRetreat, autoResolve)
-	local st = lState()
-	if not st then
-		return
-	end
+local function lCaptureFinalizeSnap(sector)
 	local snap = g_JAZZ_RIS_CombatSnap
 	if type(snap) ~= "table" then
-		-- Auto-resolve / no tactical snap: minimal stub.
 		snap = {
 			sector_id = sector and sector.Id or gv_CurrentSectorId,
 			heat_start = 0,
@@ -490,27 +505,29 @@ function JAZZ_RIS_FinalizeBattle(sector, playerWon, isRetreat, autoResolve)
 	end
 	snap.sector_id = snap.sector_id or (sector and sector.Id) or gv_CurrentSectorId
 	snap.sector_ctx = JAZZ_RIS_ResolveSectorContext(snap.sector_id)
-	-- Mark surviving named elites as threat/escaped.
-	if g_Units then
-		for _, u in pairs(g_Units) do
-			if IsValid(u) and u.elite and lIsEnemySide(u) and lDisplayName(u) then
-				if u:IsDead() then
-					lTrackElite(u, "killed")
-				elseif (u.IsDowned and u:IsDowned()) or (u.HasStatusEffect and u:HasStatusEffect("BleedingOut")) then
-					lTrackElite(u, "wounded")
-				elseif isRetreat or not playerWon then
-					lTrackElite(u, "escaped")
-				else
-					lTrackElite(u, "threat")
-				end
+	return snap
+end
+
+local function lMarkSurvivingEliteFates(playerWon, isRetreat)
+	if not g_Units then
+		return
+	end
+	for _, u in pairs(g_Units) do
+		if IsValid(u) and u.elite and lIsEnemySide(u) and lDisplayName(u) then
+			if u:IsDead() then
+				lTrackElite(u, "killed")
+			elseif (u.IsDowned and u:IsDowned()) or (u.HasStatusEffect and u:HasStatusEffect("BleedingOut")) then
+				lTrackElite(u, "wounded")
+			elseif isRetreat or not playerWon then
+				lTrackElite(u, "escaped")
+			else
+				lTrackElite(u, "threat")
 			end
 		end
 	end
-	local title, body = lBuildAARText(snap, playerWon, isRetreat, autoResolve)
-	if not title then
-		g_JAZZ_RIS_CombatSnap = false
-		return
-	end
+end
+
+local function lPersistAAREntry(st, snap, sector, title, body, playerWon, isRetreat)
 	local entry = {
 		time = Game and Game.CampaignTime or 0,
 		sector = snap.sector_id or (sector and sector.Id),
@@ -532,6 +549,21 @@ function JAZZ_RIS_FinalizeBattle(sector, playerWon, isRetreat, autoResolve)
 	while #st.battles > lCap() do
 		table.remove(st.battles)
 	end
+end
+
+function JAZZ_RIS_FinalizeBattle(sector, playerWon, isRetreat, autoResolve)
+	local st = lState()
+	if not st then
+		return
+	end
+	local snap = lCaptureFinalizeSnap(sector)
+	lMarkSurvivingEliteFates(playerWon, isRetreat)
+	local title, body = lBuildAARText(snap, playerWon, isRetreat, autoResolve)
+	if not title then
+		g_JAZZ_RIS_CombatSnap = false
+		return
+	end
+	lPersistAAREntry(st, snap, sector, title, body, playerWon, isRetreat)
 	g_JAZZ_RIS_CombatSnap = false
 	ObjModified("jazz_ris")
 end

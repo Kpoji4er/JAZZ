@@ -17,12 +17,13 @@ local AME_TARGET_AVAILABLE = 15
 local AME_TICK_DAYS = 14
 local AME_SPECIALIST_ROLES = { Medic = true, Instructor = true, Sniper = true, Sapper = true, Mechanic = true }
 
+local AME_IDS = {}
+for i = 1, 60 do
+	AME_IDS[i] = string.format("JAZZ_AME_%02d", i)
+end
+
 local function lAmeIds()
-	local ids = {}
-	for i = 1, 60 do
-		ids[#ids + 1] = string.format("JAZZ_AME_%02d", i)
-	end
-	return ids
+	return AME_IDS
 end
 
 local function lCampaignDay()
@@ -43,7 +44,7 @@ end
 
 local function lCountAvailable()
 	local n = 0
-	for _, id in ipairs(lAmeIds()) do
+	for _, id in ipairs(AME_IDS) do
 		local ud = lGetUd(id)
 		if ud and ud.HireStatus == "Available" then
 			n = n + 1
@@ -53,7 +54,7 @@ local function lCountAvailable()
 end
 
 local function lSpecialistAvailableOrPending()
-	for _, id in ipairs(lAmeIds()) do
+	for _, id in ipairs(AME_IDS) do
 		local ud = lGetUd(id)
 		if ud and AME_SPECIALIST_ROLES[ud.AMERole or ""] then
 			if ud.HireStatus == "Available" then
@@ -84,7 +85,7 @@ function JAZZ_AME_InitMarket(force)
 	local gameId = Game and Game.id or 0
 	-- Reset all AME to NotMet, then open a starting window.
 	local pool = {}
-	for _, id in ipairs(lAmeIds()) do
+	for _, id in ipairs(AME_IDS) do
 		local ud = lGetUd(id)
 		if ud then
 			market.slots[id] = market.slots[id] or { reason = false }
@@ -165,20 +166,8 @@ local function lOpenSlot(id)
 	return true
 end
 
-function JAZZ_AME_MarketTick()
-	local market = gv_JAZZ_AME_Market
-	if not market or not market.initialized then
-		JAZZ_AME_InitMarket()
-		return
-	end
-	local day = lCampaignDay()
-	if day < (market.next_tick_day or 0) then
-		return
-	end
-	local gameId = Game and Game.id or 0
-	local tick = market.next_tick_day or day
-	-- Departures from Available
-	for _, id in ipairs(lAmeIds()) do
+local function lApplyDepartures(gameId, tick)
+	for _, id in ipairs(AME_IDS) do
 		local ud = lGetUd(id)
 		if ud and ud.HireStatus == "Available" then
 			local roll = lRoll({ gameId, id, tick, "leave" }, 1, 100)
@@ -193,39 +182,62 @@ function JAZZ_AME_MarketTick()
 			end
 		end
 	end
-	-- Refill to target
+end
+
+local function lRefillAvailable(gameId, tick)
 	local need = AME_TARGET_AVAILABLE - lCountAvailable()
-	if need > 0 then
-		local candidates = {}
-		for _, id in ipairs(lAmeIds()) do
-			local ud = lGetUd(id)
-			if ud and ud.HireStatus == "NotMet" then
-				candidates[#candidates + 1] = id
-			end
-		end
-		table.sort(candidates, function(a, b)
-			return lRoll({ gameId, a, tick, "enter" }, 0, 1000000) < lRoll({ gameId, b, tick, "enter" }, 0, 1000000)
-		end)
-		for i = 1, need do
-			if candidates[i] then
-				lOpenSlot(candidates[i])
-			end
+	if need <= 0 then
+		return
+	end
+	local candidates = {}
+	for _, id in ipairs(AME_IDS) do
+		local ud = lGetUd(id)
+		if ud and ud.HireStatus == "NotMet" then
+			candidates[#candidates + 1] = id
 		end
 	end
-	-- Specialist soft-guarantee
-	if not lSpecialistAvailableOrPending() then
-		for _, id in ipairs(lAmeIds()) do
-			local ud = lGetUd(id)
-			if ud and AME_SPECIALIST_ROLES[ud.AMERole or ""] then
-				if ud.HireStatus == "NotMet" or (ud.HireStatus == "MIA" and not (market.slots[id] and market.slots[id].reason == "Killed")) then
-					if ud.HireStatus ~= "Hired" and ud.HireStatus ~= "Dead" then
-						lOpenSlot(id)
-						break
-					end
+	table.sort(candidates, function(a, b)
+		return lRoll({ gameId, a, tick, "enter" }, 0, 1000000) < lRoll({ gameId, b, tick, "enter" }, 0, 1000000)
+	end)
+	for i = 1, need do
+		if candidates[i] then
+			lOpenSlot(candidates[i])
+		end
+	end
+end
+
+local function lEnsureSpecialistSoftGuarantee(market)
+	if lSpecialistAvailableOrPending() then
+		return
+	end
+	for _, id in ipairs(AME_IDS) do
+		local ud = lGetUd(id)
+		if ud and AME_SPECIALIST_ROLES[ud.AMERole or ""] then
+			if ud.HireStatus == "NotMet" or (ud.HireStatus == "MIA" and not (market.slots[id] and market.slots[id].reason == "Killed")) then
+				if ud.HireStatus ~= "Hired" and ud.HireStatus ~= "Dead" then
+					lOpenSlot(id)
+					break
 				end
 			end
 		end
 	end
+end
+
+function JAZZ_AME_MarketTick()
+	local market = gv_JAZZ_AME_Market
+	if not market or not market.initialized then
+		JAZZ_AME_InitMarket()
+		return
+	end
+	local day = lCampaignDay()
+	if day < (market.next_tick_day or 0) then
+		return
+	end
+	local gameId = Game and Game.id or 0
+	local tick = market.next_tick_day or day
+	lApplyDepartures(gameId, tick)
+	lRefillAvailable(gameId, tick)
+	lEnsureSpecialistSoftGuarantee(market)
 	market.next_tick_day = day + AME_TICK_DAYS
 	ObjModified("pda browser tabs")
 	if rawget(_G, "JAZZ_AME_SendListingUpdateMail") then

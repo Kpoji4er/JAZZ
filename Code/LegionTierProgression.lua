@@ -261,6 +261,38 @@ local function lApplyTierRaise(computed, log_label, extra)
 	return computed
 end
 
+local function lSubIntervalDays(major, t1_days, t2t3_days)
+	if major == 1 then
+		return t1_days
+	end
+	return t2t3_days
+end
+
+local function lComputeTierSub(now, major_started_at, major, interval_days)
+	major = major or 1
+	local max_sub = MAX_SUB[major] or 3
+	local started = major_started_at or now or 0
+	local elapsed = Max(0, (now or 0) - started)
+	local interval = interval_days * lDay()
+	if interval <= 0 then
+		return major * 10 + 1
+	end
+	local step = math.floor(elapsed / interval)
+	local sub = Min(max_sub, 1 + step)
+	return major * 10 + sub
+end
+
+--- Latch major_started_at / bump major when target advances (shared Maps/NoMaps).
+local function lAdvanceMajorState(st, now, target_major)
+	if not st.major_started_at then
+		st.major_started_at = now
+		st.major = target_major
+	elseif target_major > (st.major or 1) then
+		st.major = target_major
+		st.major_started_at = now
+	end
+end
+
 ---------------------------------------------------------------------------
 -- NoMaps (COMPAT-003)
 ---------------------------------------------------------------------------
@@ -280,24 +312,11 @@ local function lMigrateNoMapsState(st, now, mines)
 end
 
 local function lNoMapsSubIntervalDays(major)
-	if major == 1 then
-		return NOMAPS_T1_SUB_INTERVAL_DAYS
-	end
-	return NOMAPS_T2_T3_SUB_INTERVAL_DAYS
+	return lSubIntervalDays(major, NOMAPS_T1_SUB_INTERVAL_DAYS, NOMAPS_T2_T3_SUB_INTERVAL_DAYS)
 end
 
 function JAZZ_ComputeLegionTierNoMapsSub(now, major_started_at, major)
-	major = major or 1
-	local max_sub = MAX_SUB[major] or 3
-	local started = major_started_at or now or 0
-	local elapsed = Max(0, (now or 0) - started)
-	local interval = lNoMapsSubIntervalDays(major) * lDay()
-	if interval <= 0 then
-		return major * 10 + 1
-	end
-	local step = math.floor(elapsed / interval)
-	local sub = Min(max_sub, 1 + step)
-	return major * 10 + sub
+	return lComputeTierSub(now, major_started_at, major, lNoMapsSubIntervalDays(major or 1))
 end
 
 function JAZZ_ComputeLegionTierNoMapsMajor(now, first_mine_at, world_flip)
@@ -329,14 +348,7 @@ function JAZZ_UpdateLegionTierForNoMaps()
 
 	local world_flip = JAZZ_IsWorldFlipProgressionActive()
 	local target_major = JAZZ_ComputeLegionTierNoMapsMajor(now, st.first_mine_at, world_flip)
-
-	if not st.major_started_at then
-		st.major_started_at = now
-		st.major = target_major
-	elseif target_major > (st.major or 1) then
-		st.major = target_major
-		st.major_started_at = now
-	end
+	lAdvanceMajorState(st, now, target_major)
 
 	local computed = JAZZ_ComputeLegionTierNoMapsSub(now, st.major_started_at, st.major)
 	return lApplyTierRaise(computed, "NoMaps", string.format(
@@ -352,24 +364,11 @@ end
 ---------------------------------------------------------------------------
 
 local function lMapsSubIntervalDays(major)
-	if major == 1 then
-		return MAPS_T1_SUB_INTERVAL_DAYS
-	end
-	return MAPS_T2_T3_SUB_INTERVAL_DAYS
+	return lSubIntervalDays(major, MAPS_T1_SUB_INTERVAL_DAYS, MAPS_T2_T3_SUB_INTERVAL_DAYS)
 end
 
 function JAZZ_ComputeLegionTierMapsSub(now, major_started_at, major)
-	major = major or 1
-	local max_sub = MAX_SUB[major] or 3
-	local started = major_started_at or now or 0
-	local elapsed = Max(0, (now or 0) - started)
-	local interval = lMapsSubIntervalDays(major) * lDay()
-	if interval <= 0 then
-		return major * 10 + 1
-	end
-	local step = math.floor(elapsed / interval)
-	local sub = Min(max_sub, 1 + step)
-	return major * 10 + sub
+	return lComputeTierSub(now, major_started_at, major, lMapsSubIntervalDays(major or 1))
 end
 
 function JAZZ_ComputeLegionTierMapsMajor(mainland_at, mine_count)
@@ -424,14 +423,7 @@ function JAZZ_UpdateLegionTierForMaps()
 
 	local mines = JAZZ_CountPlayerMines()
 	local target_major = JAZZ_ComputeLegionTierMapsMajor(st.mainland_at, mines)
-
-	if not st.major_started_at then
-		st.major_started_at = now
-		st.major = target_major
-	elseif target_major > (st.major or 1) then
-		st.major = target_major
-		st.major_started_at = now
-	end
+	lAdvanceMajorState(st, now, target_major)
 
 	local computed = JAZZ_ComputeLegionTierMapsSub(now, st.major_started_at, st.major)
 	return lApplyTierRaise(computed, "Maps", string.format(

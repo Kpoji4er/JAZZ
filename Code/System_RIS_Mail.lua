@@ -25,17 +25,16 @@ g_JAZZ_RIS_MarkEmailWrapped = rawget(_G, "g_JAZZ_RIS_MarkEmailWrapped") or false
 g_JAZZ_RIS_MarkEmailBase = rawget(_G, "g_JAZZ_RIS_MarkEmailBase") or false
 g_JAZZ_RIS_BrowserInstalled = rawget(_G, "g_JAZZ_RIS_BrowserInstalled") or false
 
+-- Mail desk timing / email ids (behavior constants — do not retune in refactor waves).
 local RIS_WELCOME_ID = "RIS_Welcome"
 local RIS_WELCOME_DELAY_H = 2
 local RIS_BASELINE_BRIEF_DELAY_H = 7
 local RIS_RAISE_BRIEF_DELAY_H = 5
 local RIS_FIELD_NOTE_DELAY_H = 5
 local RIS_DISPATCH_SPACING_H = 5
-
 local RIS_SIGHTING_ID = "RIS_UnitSighting"
 local RIS_ELITE_OBIT_ID = "RIS_EliteObit"
 local RIS_NPC_OBIT_ID = "RIS_NpcObit"
-
 local RIS_BRIEF_TIERS = { 11, 12, 13, 21, 22, 23, 24, 25, 31, 32, 33 }
 
 local function lState()
@@ -118,27 +117,47 @@ local function lQueueHasKey(st, key)
 	return false
 end
 
+--- Update an existing pending row (same key): earlier ready_at wins; tier/email may refresh.
+local function lRefreshQueuedItem(st, item)
+	for _, row in ipairs(st.mail_queue) do
+		if row.key == item.key then
+			if item.ready_at and (not row.ready_at or item.ready_at < row.ready_at) then
+				row.ready_at = item.ready_at
+			end
+			if item.tier then
+				row.tier = item.tier
+				row.email_id = item.email_id
+			end
+			return true
+		end
+	end
+	return false
+end
+
 local function lEnqueue(st, item)
 	if not st or not item or not item.key or not item.email_id then
 		return false
 	end
 	if lQueueHasKey(st, item.key) then
-		-- Refresh ready_at if an older pending entry exists (e.g. raise again).
-		for _, row in ipairs(st.mail_queue) do
-			if row.key == item.key then
-				if item.ready_at and (not row.ready_at or item.ready_at < row.ready_at) then
-					row.ready_at = item.ready_at
-				end
-				if item.tier then
-					row.tier = item.tier
-					row.email_id = item.email_id
-				end
-				return false
-			end
-		end
+		lRefreshQueuedItem(st, item)
+		return false
 	end
 	st.mail_queue[#st.mail_queue + 1] = item
 	return true
+end
+
+--- First queue index with ready_at <= now (FIFO among due items).
+local function lPickDueIndex(st, now)
+	for i, item in ipairs(st.mail_queue) do
+		if (tonumber(item.ready_at) or 0) <= now then
+			return i
+		end
+	end
+	return false
+end
+
+local function lBumpDispatch(st, now)
+	st.next_dispatch_at = now + RIS_DISPATCH_SPACING_H * lHour()
 end
 
 function JAZZ_RIS_IsWelcomeRead()
@@ -284,7 +303,18 @@ local function lDeliver(st, item)
 	return true
 end
 
---- Drain at most one eligible item when the 5h desk slot is free.
+local function lDispatchOne(st, item, now)
+	if not lDeliver(st, item) then
+		-- Put back at front if preset missing (retry later).
+		table.insert(st.mail_queue, 1, item)
+		lBumpDispatch(st, now)
+		return false
+	end
+	lBumpDispatch(st, now)
+	return true
+end
+
+--- Drain at most one eligible item when the desk spacing slot is free.
 function JAZZ_RIS_ProcessMailQueue()
 	local st = lState()
 	if not st then
@@ -295,26 +325,12 @@ function JAZZ_RIS_ProcessMailQueue()
 	if now < (tonumber(st.next_dispatch_at) or 0) then
 		return false
 	end
-	local idx = false
-	for i, item in ipairs(st.mail_queue) do
-		if (tonumber(item.ready_at) or 0) <= now then
-			idx = i
-			break
-		end
-	end
-	-- Note: scan finds the earliest *ready* item in FIFO order (skip not-yet-ready heads).
+	local idx = lPickDueIndex(st, now)
 	if not idx then
 		return false
 	end
 	local item = table.remove(st.mail_queue, idx)
-	if not lDeliver(st, item) then
-		-- Put back at front if preset missing (retry later).
-		table.insert(st.mail_queue, 1, item)
-		st.next_dispatch_at = now + RIS_DISPATCH_SPACING_H * lHour()
-		return false
-	end
-	st.next_dispatch_at = now + RIS_DISPATCH_SPACING_H * lHour()
-	return true
+	return lDispatchOne(st, item, now)
 end
 
 function JAZZ_RIS_EnqueueLegionBrief(tier, delay_h)

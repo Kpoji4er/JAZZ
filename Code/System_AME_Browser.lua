@@ -129,81 +129,53 @@ local function lEnsureAmeTabState()
 	ObjModified("pda browser tabs")
 end
 
+local function lFindNodeWithMode(node, mode, depth)
+	depth = depth or 0
+	if type(node) ~= "table" or depth > 14 then
+		return false
+	end
+	if node.mode == mode then
+		return node
+	end
+	if node[1] then
+		for _, child in ipairs(node) do
+			local found = lFindNodeWithMode(child, mode, depth + 1)
+			if found then
+				return found
+			end
+		end
+	end
+	return false
+end
+
+local function lFindModeHost(node, depth)
+	depth = depth or 0
+	if type(node) ~= "table" or depth > 14 then
+		return false
+	end
+	for _, child in ipairs(node) do
+		if type(child) == "table" and child.mode == "aim" then
+			return node
+		end
+	end
+	for _, child in ipairs(node) do
+		local host = lFindModeHost(child, depth + 1)
+		if host then
+			return host
+		end
+	end
+	return false
+end
+
 local function lInjectAmeXTemplateMode()
 	local pda = rawget(_G, "XTemplates") and XTemplates.PDABrowser
 	if not pda then
 		return
 	end
-	-- XTemplates.PDABrowser is a nested tree; find XContentTemplate children list.
-	local function walk(node, depth)
-		if type(node) ~= "table" or depth > 12 then
-			return false
-		end
-		if node.mode == "ame" then
-			return true
-		end
-		local kids = node
-		if node[1] then
-			for _, child in ipairs(node) do
-				if walk(child, depth + 1) then
-					return true
-				end
-			end
-		end
-		return false
-	end
-	if walk(pda, 0) then
+	if lFindNodeWithMode(pda, "ame", 0) then
 		return
 	end
-	-- Append mode by cloning aim-mode structure if present.
-	local function findContentTemplate(node, depth)
-		if type(node) ~= "table" or depth > 12 then
-			return false
-		end
-		if node.Id == "idBrowserContent" or (node.__class == "XContentTemplate") then
-			return node
-		end
-		for _, child in ipairs(node) do
-			local found = findContentTemplate(child, depth + 1)
-			if found then
-				return found
-			end
-		end
-		-- also scan named fields
-		for k, v in pairs(node) do
-			if type(k) == "string" and type(v) == "table" then
-				local found = findContentTemplate(v, depth + 1)
-				if found then
-					return found
-				end
-			end
-		end
-		return false
-	end
-	-- Prefer inserting into the window that already hosts XTemplateMode entries.
-	local function findModeHost(node, depth)
-		if type(node) ~= "table" or depth > 14 then
-			return false
-		end
-		local hasAim = false
-		for _, child in ipairs(node) do
-			if type(child) == "table" and child.mode == "aim" then
-				hasAim = true
-				break
-			end
-		end
-		if hasAim then
-			return node
-		end
-		for _, child in ipairs(node) do
-			local host = findModeHost(child, depth + 1)
-			if host then
-				return host
-			end
-		end
-		return false
-	end
-	local host = findModeHost(pda, 0)
+	local host = lFindModeHost(pda, 0)
 	if not host then
 		return
 	end
@@ -306,84 +278,107 @@ local function lBuildAmePDAUrl(browserContent)
 	return url
 end
 
+--- Shared re-assert wrap for mutable global/TFormat slots (avoids double-nest after ModsReloaded).
+-- cfg.getCurrent / cfg.setCurrent, cfg.ourFnKey, cfg.baseKey, optional cfg.wrappedKey / cfg.legacyBaseKey,
+-- cfg.buildWrap = function() -> wrap (reads base via rawget baseKey).
+local function lInstallReassertWrap(cfg)
+	local ourFn = rawget(_G, cfg.ourFnKey)
+	local current = cfg.getCurrent()
+	if ourFn and current == ourFn then
+		if cfg.wrappedKey then
+			rawset(_G, cfg.wrappedKey, true)
+		end
+		return true
+	end
+	if type(current) ~= "function" then
+		return false
+	end
+	if current ~= ourFn then
+		rawset(_G, cfg.baseKey, current)
+		if cfg.legacyBaseKey then
+			rawset(_G, cfg.legacyBaseKey, current)
+		end
+	elseif not rawget(_G, cfg.baseKey) then
+		return false
+	end
+	local wrap = cfg.buildWrap()
+	rawset(_G, cfg.ourFnKey, wrap)
+	cfg.setCurrent(wrap)
+	if cfg.wrappedKey then
+		rawset(_G, cfg.wrappedKey, true)
+	end
+	return true
+end
+
 local function lInstallPDAUrlWrap()
 	if not TFormat or type(TFormat.PDAUrl) ~= "function" then
 		return false
 	end
-	-- Already outer wrapper and still hooked.
-	if rawget(_G, "g_JAZZ_AME_PDAUrlWrapped") and TFormat.PDAUrl == rawget(_G, "g_JAZZ_AME_PDAUrlFn") then
-		return true
-	end
-	local current = TFormat.PDAUrl
-	local ourFn = rawget(_G, "g_JAZZ_AME_PDAUrlFn")
-	-- Capture base only when current is not our wrap (avoid nesting).
-	if current ~= ourFn then
-		rawset(_G, "g_JAZZ_PDAUrlBase", current)
-	elseif not rawget(_G, "g_JAZZ_PDAUrlBase") then
-		return false
-	end
-	local function wrap(context_obj)
-		local pda = GetDialog("PDADialog")
-		if pda then
-			local content = pda:ResolveId("idContent")
-			local mercBrowser = IsKindOf(content, "PDABrowser") and content
-			local browserContent = mercBrowser and mercBrowser.idBrowserContent
-			-- Must check AME before falling through: PDAAIMEBrowser is KindOf PDAAIMBrowser.
-			if IsKindOf(browserContent, "PDAAIMEBrowser") then
-				return lBuildAmePDAUrl(browserContent)
+	return lInstallReassertWrap({
+		ourFnKey = "g_JAZZ_AME_PDAUrlFn",
+		baseKey = "g_JAZZ_PDAUrlBase",
+		wrappedKey = "g_JAZZ_AME_PDAUrlWrapped",
+		getCurrent = function()
+			return TFormat.PDAUrl
+		end,
+		setCurrent = function(fn)
+			TFormat.PDAUrl = fn
+		end,
+		buildWrap = function()
+			return function(context_obj)
+				local pda = GetDialog("PDADialog")
+				if pda then
+					local content = pda:ResolveId("idContent")
+					local mercBrowser = IsKindOf(content, "PDABrowser") and content
+					local browserContent = mercBrowser and mercBrowser.idBrowserContent
+					-- Must check AME before falling through: PDAAIMEBrowser is KindOf PDAAIMBrowser.
+					if IsKindOf(browserContent, "PDAAIMEBrowser") then
+						return lBuildAmePDAUrl(browserContent)
+					end
+				end
+				local base = g_JAZZ_PDAUrlBase
+				if type(base) == "function" then
+					return base(context_obj)
+				end
+				return Untranslated("http://www.ame-exchange.net/")
 			end
-		end
-		local base = g_JAZZ_PDAUrlBase
-		if type(base) == "function" then
-			return base(context_obj)
-		end
-		return Untranslated("http://www.ame-exchange.net/")
-	end
-	rawset(_G, "g_JAZZ_AME_PDAUrlFn", wrap)
-	TFormat.PDAUrl = wrap
-	rawset(_G, "g_JAZZ_AME_PDAUrlWrapped", true)
-	return true
+		end,
+	})
 end
 
 local function lInstallDockWrap()
-	local ourFn = rawget(_G, "g_JAZZ_AME_DockFn")
-	if ourFn and DockBrowserTab == ourFn then
-		return true
-	end
-	local current = rawget(_G, "DockBrowserTab")
-	if type(current) ~= "function" then
-		return false
-	end
-	-- Capture vanilla/base only when current is not already our wrap (avoid nesting).
-	if current ~= ourFn then
-		rawset(_G, "g_JAZZ_AME_DockBase", current)
-		-- Keep legacy name for any leftover callers / assert stacks.
-		rawset(_G, "g_JAZZ_AME_DockWrap", current)
-	elseif not rawget(_G, "g_JAZZ_AME_DockBase") then
-		return false
-	end
-	local function wrap(tab)
-		local base = g_JAZZ_AME_DockBase
-		if type(base) ~= "function" then
-			return
-		end
-		base(tab)
-		-- Landing OnDelete restores only aim(+imp). Keep AME docked with AIM (always unlocked).
-		if tab == "aim" then
-			base("ame")
-			if PDABrowserTabState then
-				if PDABrowserTabState.ame then
-					PDABrowserTabState.ame.locked = false
-				else
-					PDABrowserTabState.ame = { locked = false }
+	return lInstallReassertWrap({
+		ourFnKey = "g_JAZZ_AME_DockFn",
+		baseKey = "g_JAZZ_AME_DockBase",
+		legacyBaseKey = "g_JAZZ_AME_DockWrap",
+		getCurrent = function()
+			return rawget(_G, "DockBrowserTab")
+		end,
+		setCurrent = function(fn)
+			DockBrowserTab = fn
+		end,
+		buildWrap = function()
+			return function(tab)
+				local base = g_JAZZ_AME_DockBase
+				if type(base) ~= "function" then
+					return
 				end
-				ObjModified("pda browser tabs")
+				base(tab)
+				-- Landing OnDelete restores only aim(+imp). Keep AME docked with AIM (always unlocked).
+				if tab == "aim" then
+					base("ame")
+					if PDABrowserTabState then
+						if PDABrowserTabState.ame then
+							PDABrowserTabState.ame.locked = false
+						else
+							PDABrowserTabState.ame = { locked = false }
+						end
+						ObjModified("pda browser tabs")
+					end
+				end
 			end
-		end
-	end
-	rawset(_G, "g_JAZZ_AME_DockFn", wrap)
-	DockBrowserTab = wrap
-	return true
+		end,
+	})
 end
 
 local function lInstallAmeBrowser()
