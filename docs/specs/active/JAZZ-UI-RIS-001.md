@@ -19,7 +19,11 @@ write_set:
   - metadata.lua
   - English.csv
   - Russian.csv
+  - Localization/Strings.csv
   - docs/specs/active/JAZZ-UI-RIS-001.md
+  - docs/tools/_ris_dossier_copy.py
+  - docs/tools/_apply_ris_dossier_copy.py
+  - docs/tools/_rewrite_ris_legion_briefs.py
   - docs/design/ris-legion-tier-briefs.md
   - docs/design/ris-battle-report-templates.md
   - docs/design/ris-legion-dossiers.md
@@ -31,6 +35,7 @@ write_set:
 exclusive_resources:
   - jazz/items.lua
   - jazz/metadata.lua
+  - jazz/Localization/Strings.csv
 related_decisions:
   - none
 approved_by: project-owner
@@ -163,7 +168,16 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-UI-RIS-001-AC-001`…`AC-010`: `BLOCKED` — awaiting approve / implement
+- `JAZZ-UI-RIS-001-AC-001`: `PASS` (static) — welcome/baseline queue, delays and site lock реализованы; `BLOCKED` (runtime) — NewGame timing smoke.
+- `JAZZ-UI-RIS-001-AC-002`: `PASS` (static) — missing state defaults и load queue реализованы; `BLOCKED` (runtime) — old-save load smoke.
+- `JAZZ-UI-RIS-001-AC-003`: `PASS` (static) — tier mail dedupe/ready/dispatch реализованы; `BLOCKED` (runtime) — campaign raise smoke.
+- `JAZZ-UI-RIS-001-AC-004`: `PASS` (static) — runtime sender R.I.S.; legacy stubs не используются mail path.
+- `JAZZ-UI-RIS-001-AC-005`: `PASS` (human copy review) — briefs сверены с weapon unlock bands и переписаны как полевые оценки без внутренних tier/arch терминов.
+- `JAZZ-UI-RIS-001-AC-006`: `PASS` (static) — dossier unlock threshold и canonical copy присутствуют; `BLOCKED` (runtime) — three-kill unlock smoke.
+- `JAZZ-UI-RIS-001-AC-007`: `PASS` (static) — deterministic AAR headline banks и persist path присутствуют; `BLOCKED` (runtime) — post-combat site smoke.
+- `JAZZ-UI-RIS-001-AC-008`: `PASS` (static) — per-elite name substitution и stable order реализованы; `BLOCKED` (runtime/human) — two named elites scenario.
+- `JAZZ-UI-RIS-001-AC-009`: `PASS` (static) — weather/intensity/forces/losses slots реализованы; `BLOCKED` (runtime) — representative battle smoke.
+- `JAZZ-UI-RIS-001-AC-010`: `PASS` (static) — generated Email/CSV/tooling sync и quick validators; package audit известные pre-existing warnings вынесены отдельно.
 
 ## Documentation delta
 

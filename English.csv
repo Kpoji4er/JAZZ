@@ -11352,30 +11352,30 @@ ID,Text,Translation,VoiceActor,Context
 890000000006909,A.M.E. — обновление витрины,A.M.E. — listing update,,JAZZ-UI-AME-001
 890000000006920,R.I.S.,R.I.S.,,JAZZ-UI-RIS-001
 890000000006921,R.I.S. <desk@ris-intel.net>,R.I.S. <desk@ris-intel.net>,,JAZZ-UI-RIS-001
-890000000006922,R.I.S. — бесплатная подписка разведки,R.I.S. — complimentary intelligence subscription,,JAZZ-UI-RIS-001-B
+890000000006922,R.I.S. — бесплатная полевая разведка для вашего отряда,R.I.S. — free field intelligence for your team,,JAZZ-UI-RIS-001-B
 890000000006923,"Командир,
 
-Разведывательная служба R.I.S. открыла вам бесплатную полевую подписку на эту кампанию. Мы будем присылать оценки, когда изменится качество снабжения Легиона, а на сайте в КПК — вести досье и боевые сводки по мере расширения стола.
+R.I.S. открыла для вашего отряда бесплатный канал полевой разведки на время этой кампании. Если Легион сменит оружие или снаряжение, оценка придёт вам на почту. По мере подтверждения данных на сайте R.I.S. в КПК будут появляться досье и сводки после боёв.
 
 Прочитайте это письмо, чтобы открыть вкладку R.I.S.
 
-— Разведывательная служба R.I.S.","Commander,
+— Разведывательно-информационная служба R.I.S.","Commander,
 
-Recon Intelligence Services has activated your complimentary field subscription for this campaign. We will send assessments when Legion supply quality shifts, and host dossiers and battle reports on our PDA site as the desk expands.
+R.I.S. has opened a free field-intelligence channel for your team for the duration of this campaign. When Legion weapons or equipment change, we will send an assessment to your inbox. As we confirm more information, dossiers and after-action reports will appear on the R.I.S. site in your PDA.
 
-Read this message to unlock the R.I.S. browser tab.
+Read this message to open the R.I.S. tab.
 
 — Recon Intelligence Services",,JAZZ-UI-RIS-001-B
 890000000006939,R.I.S. <legion-desk@ris-intel.net>,R.I.S. <legion-desk@ris-intel.net>,,JAZZ-UI-RIS-001
-890000000006924,"Разведывательная служба R.I.S.
+890000000006924,"Разведывательно-информационная служба R.I.S.
 
-Бесплатная полевая подписка активна. Досье и боевые сводки появятся здесь по мере расширения стола.
+Бесплатная подписка на время кампании активна. Здесь будут появляться подтверждённые досье и сводки после боёв.
 
-Следите за почтой — там оценки снабжения Легиона.","Recon Intelligence Services
+Оценки снабжения Легиона приходят на почту.","Recon Intelligence Services
 
-Complimentary field subscription active. Dossiers and battle reports will appear here as the desk expands.
+Your free campaign subscription is active. Confirmed dossiers and after-action reports will appear here.
 
-Watch your inbox for Legion supply assessments.",,JAZZ-UI-RIS-001-B
+Legion supply assessments are delivered to your inbox.",,JAZZ-UI-RIS-001-B
 890000000006907,"Командир,
 
 добро пожаловать на Африканскую биржу наёмников — местную доску объявлений для бойцов без бренда A.I.M. Они дешевле, потому что рынок ценит имя и репутацию, а не потому что «местные». Вы платите за потенциал: людей, которые могут вырасти у вас на службе.
@@ -11460,103 +11460,103 @@ Don't sleep on specialists: medics, instructors, and snipers do not stay Availab
 890000000006982,уже обстрелян — меньше няньки,already blooded — less babysitting,,JAZZ-UI-AME-001
 890000000006983,редкий навык — стоит своей недели,scarce skill — worth the weekly,,JAZZ-UI-AME-001
 890000000006984,ищет стабильную работу,looking for steady work,,JAZZ-UI-AME-001
-890000000011000,Разведывательная служба R.I.S.,Recon Intelligence Services,,JAZZ-UI-RIS-001-B
-890000000011001,Сводка,Bulletin,,JAZZ-UI-RIS-001-B
+890000000011000,Разведывательно-информационная служба R.I.S.,Recon Intelligence Services,,JAZZ-UI-RIS-001-B
+890000000011001,Оперативная сводка,Field bulletin,,JAZZ-UI-RIS-001-B
 890000000011002,Досье,Dossiers,,JAZZ-UI-RIS-001-B
-890000000011003,Боевые сводки,Battle reports,,JAZZ-UI-RIS-001-B
-890000000011004,Оценок снабжения пока нет. Следите за почтой — письма R.I.S. появятся здесь после получения.,No supply briefs on file yet. Watch your inbox — R.I.S. mails appear here after you receive them.,,JAZZ-UI-RIS-001-B
-890000000011005,"Досье ещё не открыты. Новые типы Легиона появляются здесь, когда приходит заметка R.I.S. о контакте.",No dossiers unlocked yet. New Legion types appear here when their R.I.S. contact note arrives.,,JAZZ-UI-RIS-001-B
-890000000011006,Боевых сводок пока нет. Завершите бой — стол положит сюда отчёт (без спама в почту).,No battle reports yet. Finish a fight — the desk will file a summary here (no mail spam).,,JAZZ-UI-RIS-001-B
-890000000011007,Зафиксировано убийств: <count>/3,Observed kills: <count>/3,,JAZZ-UI-RIS-001-B
-890000000011008,(запечатано — нужно 3 подтверждённых убийства),(sealed — need 3 confirmed kills),,JAZZ-UI-RIS-001-B
-890000000011009,Особые фигуры,Persons of interest,,JAZZ-UI-RIS-001-B
-890000000011010,Типы Легиона,Legion types,,JAZZ-UI-RIS-001-B
+890000000011003,Сводки после боёв,After-action reports,,JAZZ-UI-RIS-001-B
+890000000011004,"Оценок снабжения пока нет. Когда R.I.S. пришлёт новую, она появится здесь.","No supply assessment yet. Once R.I.S. sends one, it will appear here.",,JAZZ-UI-RIS-001-B
+890000000011005,Мы пока не опознали ни одного бойца Легиона. Данные появятся после первых контактов.,No Legion units identified yet. We will add them as contact reports come in.,,JAZZ-UI-RIS-001-B
+890000000011006,"Сводок после боёв пока нет. Завершите бой, и R.I.S. добавит сюда итог.",No after-action reports yet. Finish a battle and R.I.S. will add a summary here.,,JAZZ-UI-RIS-001-B
+890000000011007,Подтверждённые потери противника: <count>/3,Confirmed kills: <count>/3,,JAZZ-UI-RIS-001-B
+890000000011008,(засекречено — нужно подтвердить 3 устранения),(classified — requires 3 confirmed kills),,JAZZ-UI-RIS-001-B
+890000000011009,Ключевые фигуры,Key figures,,JAZZ-UI-RIS-001-B
+890000000011010,Бойцы Легиона,Legion units,,JAZZ-UI-RIS-001-B
 890000000011011,Последняя оценка снабжения,Latest supply assessment,,JAZZ-UI-RIS-001-B
 890000000011012,Архив писем R.I.S.,R.I.S. mail archive,,JAZZ-UI-RIS-001-B
 890000000011013,Рекрут,Recruit,,JAZZ-UI-RIS-001-B
-890000000011014,"Майор по-прежнему выметает деревни за «тёплыми телами»: дешёвые ботинки, винтовка если повезёт, неделя орёного строя. Рекруты цепенеют, едва опустеет первый магазин, и сбиваются в дверных проёмах. Опасны только числом — и как напоминание, что у Легиона всегда есть ещё имена. Три трупа — и стол держит досье открытым.","The Major still sweeps villages for warm bodies: cheap boots, a rifle if lucky, and a week of shouted drill. Recruits freeze when the first magazine empties and bunch up like sheep in a doorway. Dangerous only in numbers — and as proof the Legion never runs out of names. Kill three and the desk will keep the file open.",,JAZZ-UI-RIS-001-B
+890000000011014,"Вербовщики Легиона собирают людей по деревням и отправляют в бой после нескольких дней муштры. Они бросаются вперёд с тем оружием, которое им выдали, но заметно уступают кадровым бойцам в подготовке и стойкости. Держите дистанцию и разбейте их группу, прежде чем они забьют дверной проём или окружат отставшего наёмника.","Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are handed, but lack the training and staying power of regular troops. Keep them at range and break up the group before they crowd a doorway or surround a lone merc.",,JAZZ-UI-RIS-001-B
 890000000011015,Громила,Crusher,,JAZZ-UI-RIS-001-B
-890000000011016,"Громила — тупой инструмент Майора для комнат и переулков: дыхание дробовика, плечо в косяк, никаких дуэлей на дистанции. Киты ещё со склада — громкие нервы, тонкая дисциплина. В ближнем бою опустошают ствол и идут дальше; оставьте открытую дверь — и следующие пять метров уже их. Опасность высокая, если сократят дистанцию.","Crusher is the Major's blunt instrument for rooms and alleys: shotgun breath, shoulder through the jamb, no patience for standoffs. Kit is scrap-yard early — loud nerves, thin discipline. In CQB they dump the tube and keep walking; leave them an open door and they own the next five metres. Danger spikes once the gap closes.",,JAZZ-UI-RIS-001-B
+890000000011016,"Громилами в Легионе становятся самые крепкие бойцы; их учат одному — любой ценой сократить дистанцию. Дробовик, добротная броня и недюжинная выносливость делают их особенно опасными в комнатах и узких переулках. Не встречайте Громилу в дверях — отходите на простор и сосредоточьте огонь, пока он не подошёл вплотную.","The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the shotgun takes over.",,JAZZ-UI-RIS-001-B
 890000000011017,Гренадёр,Grenadier,,JAZZ-UI-RIS-001-B
-890000000011018,"Штурмовые гренадёры рано учат один приём: кинуть железо, пока ещё не видно глаз. Учёба короткая — под огнём чеку ещё роняют, но зелёный бросок в коридор уже ломает штурм. Смотрите углы и лестницы: они входят со взрывами, не с бравадой. Сырой кит, но привычка бросать первой уже есть.","Assault Grenadiers learn one trick early: toss steel before they see the whites of your eyes. Drill is short; they still fumble pins under fire, but a green throw into a hallway rewrites the breach. Watch corners and stairwells — they breach with bangs, not bravado. Soft kit, hard habit of lobbing first.",,JAZZ-UI-RIS-001-B
+890000000011018,"Новых Гренадёров наскоро учат обращению со взрывчаткой, после чего Легион сразу бросает их в штурм. Кроме пистолета или пистолета-пулемёта, у них есть несколько гранат, а иногда и бутылка с зажигательной смесью. Не стойте кучно, оставьте себе выход из укрытия и снимайте Гренадёра до того, как он устроится за углом.","New Grenadiers receive a short course in assault explosives before the Legion sends them forward. They carry several grenades beside a pistol or submachine gun, and some add a bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before they settle behind a corner.",,JAZZ-UI-RIS-001-B
 890000000011019,Головорез,Roughneck,,JAZZ-UI-RIS-001-B
-890000000011020,"Головорезы — дворовые псы Майора: очередь из пистолета-пулемёта, ботинок в дверь, карты дальше следующей комнаты нет. Зелёные как сырая краска — жмутся, орёт, опорожняют магазины в мебель. В узком месте всё равно смертельны, если отдать им первый шаг. Это шум ближнего боя с зубами, не солдаты.","Roughnecks are the Major's street dogs — SMG spray, boot in the door, no map beyond the next room. Green as wet paint: they bunch, shout, and dump magazines into furniture. Still lethal in a choke point if you give them the first step. Treat them as CQB noise with teeth, not soldiers.",,JAZZ-UI-RIS-001-B
+890000000011020,"Головорезов почти не учат: Легион рассчитывает, что нехватку подготовки заменят скорость и напор. Они стреляют из пистолетов или автоматического оружия на ходу, а для последних шагов нередко берут нож. Заставьте их пересекать открытое место под перекрёстным огнём и не позволяйте превратить тесную комнату в драку.","Roughnecks receive little formal training; the Legion expects speed and aggression to make up the difference. They fire pistols or automatic weapons on the move and often carry a knife for the last few steps. Make them cross open ground under overlapping fire, and do not let them turn a cramped room into a brawl.",,JAZZ-UI-RIS-001-B
 890000000011021,Грабитель,Pillager,,JAZZ-UI-RIS-001-B
-890000000011022,"Грабители уже обчистили пару посёлков — ломают двери ради добычи и оставляют выжженные комнаты. Обстреляны достаточно, чтобы идти сквозь дым, а не стынуть в нём. Ждите агрессивный ближний бой: вспышка, угол, обшарить мёртвых. В набитых проёмах всё ещё паникуют — но паникуют вперёд.","Pillagers have already looted a few towns — they breach for loot and leave scorched rooms behind. Blooded enough to push through smoke instead of freezing in it. Expect aggressive CQB: flash in, take the corner, strip the dead. They still panic in stacked doorways, but they panic forward.",,JAZZ-UI-RIS-001-B
+890000000011022,"Грабителями становятся налётчики, которые пережили первые уличные бои и научились не останавливаться под огнём. Лёгкая броня не мешает им быстро сближаться с автоматическим оружием и, чаще всего, ножом. Не подпускайте их, держите подходы под огнём и не гонитесь за ними за непросматриваемый угол.","The Legion forms Pillager teams from raiders who survived their first street fights and learned to keep moving. Light armor keeps them quick as they press close with an automatic weapon and, more often than not, a knife. Hold a long line of fire and do not chase them around a blind corner.",,JAZZ-UI-RIS-001-B
 890000000011023,Пироман,Pyro,,JAZZ-UI-RIS-001-B
-890000000011024,"Пироманы несут огонь в пролом — бутылки, заряды, всё, что превращает комнату в печь. Уже с кровью на руках; запах им нравится больше, чем признаёт Майор. Перекройте коридоры с горючим и тесные интерьеры — иначе укрытие станет западнёй. Ближний бой с мышлением спичечного коробка: комнату не взяли — сожгли.","Pyros bring fire into the breach — bottles, charges, anything that turns a room into a kiln. Already blooded; they enjoy the smell more than the Major admits. Deny them fuel lanes and tight interiors or your cover becomes a trap. CQB with a matchbook mentality: if they can't take the room, they burn it.",,JAZZ-UI-RIS-001-B
+890000000011024,"Пироманов отбирают из штурмовых отрядов и отдельно учат обращению с зажигательными смесями. Они носят тяжёлую броню, берут несколько бутылок с огнём и идут следом с пистолетом-пулемётом или короткой винтовкой. Не стойте кучно, избегайте тупиковых укрытий и снимайте их до броска.","Pyros are assault troops singled out for incendiary work rather than careful demolition. They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they get within throwing distance.",,JAZZ-UI-RIS-001-B
 890000000011025,Штурмовик,Shock Trooper,,JAZZ-UI-RIS-001-B
-890000000011026,"Штурмовики — отработанная группа пролома Легиона: стэк, хлопок, зачистка. Уже не ополчение — умеют держать дверь, пока входит следующий. Ждите согласованный ближний бой и меньше пустых очередей. Взяли первую комнату — остальное здание сыплется, как ряд плиток.","Shock Troopers are the Legion's practiced breach team: stack, bang, clear. Not militia anymore — they know how to hold a door while the next man enters. Expect coordinated CQB and fewer wasted magazines. If they seize the first room, the rest of the building follows like a falling row of tiles.",,JAZZ-UI-RIS-001-B
+890000000011026,"Штурмовики — это бойцы ранних штурмовых отрядов, которых переучили не останавливать атаку под ответным огнём. Они начинают штурм с нескольких гранат, а затем сближаются с автоматическим оружием; у некоторых есть дымовые или оглушающие заряды. Не собирайтесь за одной стеной — прижмите их на открытом месте до первого броска.","Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one wall—pin them in the open before a grenade clears their route.",,JAZZ-UI-RIS-001-B
 890000000011027,Каратель,Punisher,,JAZZ-UI-RIS-001-B
-890000000011028,"Каратели — вышколенные убийцы на коротком поводке: специалисты пролома, которые дочищают комнаты, которые Майор хочет тихими. Видна учёба: контролируемый вход, гранаты по таймеру, без охоты за сувенирами среди боя. Ближний бой у них — конвейер. Внутри — высокая угроза; лестницу им не дарите.","Punishers are trained killers on a short leash — breach specialists who finish rooms the Major wants quiet. Drill shows: controlled entries, grenades on timers, no souvenir hunting mid-fight. They turn CQB into a conveyor. High threat once inside; do not gift them the stairwell.",,JAZZ-UI-RIS-001-B
+890000000011028,"Карателей набирают из опытных штурмовиков и учат не сбавлять темп после первого пролома. Тяжёлая броня, автоматические винтовки и большой запас гранат позволяют им идти вперёд, даже когда оборона держится. Бейте с разных сторон, заранее готовьте запасную позицию и добивайте одного, прежде чем переносить огонь.","Punishers are drawn from assault veterans and trained to keep an attack moving after the first breach. Heavy armor, automatic rifles, and a full load of grenades let them press forward even when the defense holds. Engage from more than one angle, keep a second position ready, and finish one before switching targets.",,JAZZ-UI-RIS-001-B
 890000000011029,Череполом,Skull Crusher,,JAZZ-UI-RIS-001-B
-890000000011030,"Череполомы совмещают тяжёлое ближнее железо с привычкой к подрыву — двери, стены, всё, что мешает рывку. Вышколены, не сброд: считают взрыв и идут сквозь пыль. На штурмовых осях стирают укрытия, которые казались вечными. Остановите до рывка — или переписывайте карту после.","Skull Crushers pair heavy close-in iron with demolition habits — doors, walls, whatever blocks the rush. Trained, not rabble: they time the boom and walk through the dust. In assault lanes they erase cover you thought was permanent. Stop them before the charge, or rewrite your map after it.",,JAZZ-UI-RIS-001-B
+890000000011030,"Череполомов набирают из опытных драчунов и учат навязывать ближний бой в дыму и неразберихе. Тяжёлая броня помогает им дойти до дистанции дробовика или пистолета-пулемёта; почти каждый берёт мачете, а некоторые — дым или зажигательную смесь. Оставляйте себе выход из тесных помещений и изматывайте их до рывка.","Skull Crushers are veteran brawlers trained to force a close fight through smoke and confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them also have a machete and some bring smoke or firebombs. Keep a clear way out of tight interiors and wear them down before they can rush.",,JAZZ-UI-RIS-001-B
 890000000011031,Палач,Headsman,,JAZZ-UI-RIS-001-B
-890000000011032,"Палачи — наёмная сталь, любимчики Майора на проломе. Лучший кит, холодный тайминг, ни шага зря в комнату. Чистят здания, как мясники — крючья: методично, громко только когда это помогает. Приоритет в любом ближнем бою; если такой встал на вашу дверь, досье уже предполагает, что комнату вы отдадите.","Headsmen are paid steel — the Major's favourite breach artists. Top kit, cold timing, no wasted steps into a room. They clear buildings the way butchers clear hooks: methodical, loud only when it helps. Priority targets in any CQB; if one stacks on your door, the dossier already assumes you lose the room.",,JAZZ-UI-RIS-001-B
+890000000011032,"Палачами становятся лучшие ветераны штурмовых отрядов; их снаряжают как настоящих профессионалов. Тяжёлая броня, улучшенное автоматическое оружие и большой запас гранат позволяют им быстро сближаться и не прерывать атаку. Бейте Палача первым, держите под контролем несколько подходов и не оставляйте одиночного наёмника у него на фланге.","Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them cross ground quickly and keep attacking at close range. Make them the first target, cover more than one approach, and never leave a lone merc on their flank.",,JAZZ-UI-RIS-001-B
 890000000011033,Дозорный,Warden,,JAZZ-UI-RIS-001-B
-890000000011034,"Дозорные живут на краях карты — зелёные разведчики с зудящим спуском и тонкими ботинками. Чаще режут бегущих, чем выигрывают перестрелки. Забудете обочину — отрежут отход; будете смотреть — всё равно опустошат магазин в кусты. Угроза средняя, пока вы помните, что фланги существуют.",Wardens haunt the edges — green scouts with itchy triggers and thin boots. They ambush runners more than they win gunfights. Ignore the map rim and they cut your retreat; watch them and they still waste a magazine into brush. Medium threat until you forget the flanks exist.,,JAZZ-UI-RIS-001-B
+890000000011034,"Дозорные — обычные стрелки, которым дали основы разведки и ставят в стороне от основной линии. Лёгкое снаряжение помогает им занять боковую позицию, после чего они держатся за укрытие и ловят движущиеся цели винтовочным огнём. Перед наступлением проверяйте оба фланга. Подходите под прикрытием дыма или заходите с другой стороны.","Wardens are ordinary riflemen given basic scouting instruction and posted away from the main line. Their light gear helps them reach a side position, where they hold cover and punish movement with steady rifle fire. Check both flanks before advancing, and use smoke or a second angle to dislodge them.",,JAZZ-UI-RIS-001-B
 890000000011035,Скаут,Scout,,JAZZ-UI-RIS-001-B
-890000000011036,"У скаутов уже кровь на ботинках — щупают, метят и зовут засаду раньше, чем вы увидите просеку. Тише дозорных, злее, если пересечёте их след. Ждите боковые выстрелы в овервотч и нож для отставших. Потеряете края карты — бой придёт с неверной стороны компаса.","Scouts have blood on the boots already — they probe, mark, and call the ambush before you see the lane. Quieter than Wardens, meaner when you cross their trail. Expect side shots into overwatch and knives for stragglers. Lose sight of the edges and the fight arrives from the wrong compass.",,JAZZ-UI-RIS-001-B
+890000000011036,"Скауты — это выжившие Дозорные, которые научились двигаться тихо и выбирать путь для захода. Они обходят линию с автоматическим оружием, а в тылу могут пустить в ход нож или дым. Прикрывайте фланги парами, следите за скрытыми подходами и не гонитесь за Скаутом туда, где ещё не провели разведку.","Scouts are survivors of Warden patrols who have learned to move quietly and choose their approach. They slip around the line with automatic weapons, and may use a knife or smoke once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a Scout into ground you have not cleared.",,JAZZ-UI-RIS-001-B
 890000000011037,Застрельщик,Skirmisher,,JAZZ-UI-RIS-001-B
-890000000011038,"Застрельщики ведут мягкий бой на крыле: удар, исчез, снова удар. Обстреляны достаточно, чтобы заманить погоню во вторую группу. Землю не держат — наказывают тех, кто вылез из центральной колонны. Считайте пустой переулок занятым, пока не доказано обратное.","Skirmishers fight the soft fight on the wing: hit, fade, hit again. Blooded enough to bait a chase into a second team. They do not hold ground — they punish anyone who leaves the centre column. Treat every empty alley as occupied until proven otherwise.",,JAZZ-UI-RIS-001-B
+890000000011038,"В Застрельщики отбирают метких бойцов и учат их работать в стороне от главной линии. Они носят лёгкую броню и переходят между боковыми позициями с боевыми винтовками, выискивая открытые цели. Не преследуйте их по открытому месту — двигайтесь под прикрытием или дымовой завесой и сначала прижмите их огнём.","Skirmishers are picked for marksmanship and trained to fight away from the main line. They carry light armor and battle rifles, shifting between flanking positions to fire on exposed targets. Do not follow them across open ground; move under cover or smoke and pin their position before advancing.",,JAZZ-UI-RIS-001-B
 890000000011039,Следопыт,Pathfinder,,JAZZ-UI-RIS-001-B
-890000000011040,"Следопыты — вышколенные убийцы троп: им принадлежат козьи тропки, канавы и слепая зона за вашим наступлением. Не ополчение — ставят просеки и ждут. Качество засад растёт; бегущие гибнут, не дойдя до дороги. Зачистите края, прежде чем праздновать центр.","Pathfinders are trained trail killers — they own goat paths, ditch lines, and the blind spot behind your advance. Not militia: they set lanes and wait. Ambush quality jumps; runners die before they reach the road. Clear the edges before you celebrate the centre.",,JAZZ-UI-RIS-001-B
+890000000011040,"Следопыты — опытные разведчики, которых учат выбирать скрытую линию огня и удерживать её. Лёгкое снаряжение помогает им выйти во фланг с карабином или пистолетом-пулемётом; многие также берут дым или нож. Перед движением основной группы проверьте ближайшие укрытия, а обнаружив Следопыта, перекройте ему отход.","Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their light gear lets them reach a flank with a carbine or submachine gun, and many also carry smoke or a knife. Sweep nearby cover before moving the main group, then block their escape instead of trading shots from one position.",,JAZZ-UI-RIS-001-B
 890000000011041,Разведчик,Recon,,JAZZ-UI-RIS-001-B
-890000000011042,"Разведчики кормят Майора глазами — умеют считать, вести хвост и стрелять только когда кольцо уже сомкнуто. После контакта исчезают и возвращаются с друзьями. Если на подходе кажется, что за вами смотрят — скорее всего, так и есть. Уберите их рано или потом бейтесь с их докладом.","Recon teams feed the Major eyes — trained to count, shadow, and only shoot when the ambush is already closed. They vanish after contact and return with friends. If you feel watched on the approach, you probably are. Kill them early or fight their report later.",,JAZZ-UI-RIS-001-B
+890000000011042,"Разведчики — опытные бойцы, которых учат скрытно подходить к цели и действовать ночью. Лёгкое снаряжение и компактное автоматическое оружие позволяют им сближаться с неожиданной стороны, иногда под прикрытием дыма. Прикрывайте друг друга перекрёстным огнём, освещайте тёмные подходы и добивайте Разведчика, как только он себя выдаст.","Recon troops are veteran scouts trained for quiet approaches and night fighting. They use light gear and compact automatic weapons to close from an unseen angle, sometimes covering the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish them as soon as they reveal themselves.",,JAZZ-UI-RIS-001-B
 890000000011043,Рейнджер,Ranger,,JAZZ-UI-RIS-001-B
-890000000011044,"Рейнджеры — платные призраки в любимом списке Майора: элитный фланг, лучшая оптика, без лишнего шума. Режут снабжение, глушат часовых, схлопывают отходы. Если такой на доске — считайте каждую лесополосу враждебной. Приоритет: мультипликаторы силы, которые никогда не стоят в середине.","Rangers are paid ghosts on the Major's favourite payroll — elite flank work with top glass and no wasted noise. They cut logistics, silence sentries, and collapse retreats. If one is on the board, assume every tree line is hostile. Priority kill: force multipliers who never stand in the middle.",,JAZZ-UI-RIS-001-B
+890000000011044,"Рейнджеров отбирают из лучших фланкеров Легиона и готовят как элитных полевых разведчиков. Они быстро и тихо двигаются с улучшенными карабинами или пистолетами-пулемётами, бьют сбоку и снова уходят из-под огня. Считайте Рейнджера приоритетной целью, прикрывайте друг друга перекрёстным огнём и не оставляйте наёмника в одиночку.","Rangers are elite scouts selected from the Legion's best flankers and given its finest field training. They move quickly and quietly with upgraded carbines or submachine guns, striking from the side before slipping away. Treat a Ranger as a priority target, overlap your fields of fire, and never leave one merc isolated.",,JAZZ-UI-RIS-001-B
 890000000011045,Костоправ,Bonemaker,,JAZZ-UI-RIS-001-B
-890000000011046,"Костоправы — полевые медики Легиона с винтовками: держат линию и одновременно поднимают своих. Сырой кит, дрожащий прицел, но каждый живой снова ставит легионера на ноги. Держите овервотч вокруг их носилок — они сильнее наказывают героические рывки, чем выигрывают дуэли.","Bonemakers are the Legion's field medics with rifles — they hold the line while dragging their own back up. Green kit, shaky aim, but every one you leave alive puts another Legionnaire on his feet. Overwatch around their stretchers; they punish heroic rushes more than they win duels.",,JAZZ-UI-RIS-001-B
+890000000011046,"Если рекрут покидает строй, чтобы помочь раненому легионеру, перед вами, скорее всего, Костоправ. Майор выбирает для этой роли тех, кто не теряется при виде крови, выдаёт им компактное огнестрельное оружие и наскоро обучает полевой медицине. Они выходят из боя, чтобы остановить кровотечение или обработать другие раны. Уберите медика до начала штурма, иначе уже задетые бойцы останутся в строю гораздо дольше, чем вы рассчитывали.","A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. The Major chooses people who stay calm around blood, gives them a compact firearm, and hurries them through battlefield medicine. They break off to stop bleeding or treat other wounds. Remove the medic before pressing forward, or fighters you have already hurt will stay in the battle far longer than expected.",,JAZZ-UI-RIS-001-B
 890000000011047,Мародёр,Marauder,,JAZZ-UI-RIS-001-B
-890000000011048,"Мародёры заполняют линию огня трофейными винтовками и скверным нравом. Зелёные, шумные, любят поливать просеку, которую считают вашей. Держат землю объёмом огня, не мастерством. Угроза ровная, если стоите на открытом; мягче, если заставите их двигаться.","Marauders fill the firing line with scavenged rifles and bad attitudes. Green, loud, and fond of spraying the lane they think is yours. They hold ground by volume more than craft. Steady threat if you stand in the open; softer if you force them to move.",,JAZZ-UI-RIS-001-B
+890000000011048,"Мародёров набирают из грабителей и местных громил. Сначала им выдают пистолеты и пистолеты-пулемёты; штурмовые винтовки появляются, когда снабжение Легиона налаживается. Они закрывают бреши в передовой и держат открытые участки под огнём, но плотный ответ быстро прижимает их к земле. Их оружие опаснее всего вблизи, поэтому отвечайте сразу, держите дистанцию и не давайте им поднять голову.","Looters and local toughs fill the Marauder ranks. They start with pistols and submachine guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the line and rake exposed ground with fire, but pressure can pin them down before they accomplish much. Their short-range weapons punish careless movement, so return fire quickly, keep your distance, and force them to keep their heads down.",,JAZZ-UI-RIS-001-B
 890000000011049,Стрелок,Rifleman,,JAZZ-UI-RIS-001-B
-890000000011050,"Стрелки — учебниковая зелёная линия: прицельный выстрел, если вспомнят дышать, панический магазин — если нет. Держат овервотч на дверях скорее надеждой, чем умением. И всё же терпеливая пуля из укрытия убивает героев. Ошибки наказывают жёстче, чем храбрость.","Riflemen are the textbook green line — aimed shots when they remember to breathe, panic magazines when they don't. They overwatch doorways with more hope than skill. Still: a patient bullet from cover kills heroes. Punish mistakes harder than they punish courage.",,JAZZ-UI-RIS-001-B
+890000000011050,"Большинство Стрелков — призывники с несколькими уроками меткой стрельбы за плечами; их ставят охранять дороги, двери и подступы к деревням. Из укрытия они следят за подступами и ждут удобного выстрела. Терпеливый Стрелок накажет за неосторожное движение, поэтому закройте ему обзор дымом или подойдите со стороны, которую не перекрывает его позиция.","Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, doorways, and village approaches. From cover, they use their rifles to watch the ground ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block his view with smoke or approach from a direction his firing position does not cover.",,JAZZ-UI-RIS-001-B
 890000000011051,Засадник,Ambusher,,JAZZ-UI-RIS-001-B
-890000000011052,"Засадники владеют подготовленными просеками на фронте — обстрелянные стрелки, ждущие, пока первый пересечёт меловую черту. Не бегуны; охотники со статичной зоной поражения. Овервотч у них уже кусается. Щупайте дымом или углами, прежде чем гнать колонну.",Ambushers own prepared lanes on the front — blooded shooters who wait for the first man to cross a chalk line. Not runners; hunters with a static kill zone. Expect overwatch that actually bites. Probe with smoke or angles before you commit the column.,,JAZZ-UI-RIS-001-B
+890000000011052,"Засадники — терпеливые стрелки, обученные заранее готовить скрытые позиции на вероятных путях противника. С подготовленной позиции они ждут открытой цели и отвечают точным винтовочным огнём на первое неосторожное движение. Не входите вслепую туда, что выбрали они: разведайте подход, поставьте дым и вынудите Засадников раскрыться раньше срока.","Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not walk into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.",,JAZZ-UI-RIS-001-B
 890000000011053,Охотник,Marksman,,JAZZ-UI-RIS-001-B
-890000000011054,"Охотники снимают офицеров и пулемётные точки со второго ряда — обстреляны достаточно, чтобы ждать выстрела, который важен. Наказывают силуэты на гребнях и тех, кто выглядывает в одно окно дважды. Угроза ровная: им не нужно к вам бежать.",Marksmen pick officers and MG nests from the second rank — blooded enough to hold fire until the shot matters. They punish silhouettes on ridges and anyone who peeks the same window twice. Steady threat: they do not need to rush you.,,JAZZ-UI-RIS-001-B
+890000000011054,"Лучшим стрелкам обычных отделений выдают точные винтовки и приучают ждать удобного выстрела. Они держатся позади передовой, занимают выгодные позиции и позволяют противнику самому выйти под выстрел. Их меткость превращает повторный выход из укрытия в смертельную ошибку, поэтому чаще меняйте огневые точки и закрывайте обзор дымом.","The best shots in regular squads are given accurate rifles and taught to wait for a clean shot. They work behind the front, hold useful ground, and let the enemy come to them rather than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing points often and deny them a clear view with smoke.",,JAZZ-UI-RIS-001-B
 890000000011055,Налётчик,Raider,,JAZZ-UI-RIS-001-B
-890000000011056,"Налётчики — линейные с привычкой к внезапному рывку: обстрелянные солдаты, которые после залпа идут вперёд, а не вечно жмутся к земле. Держат — и берут следующую стену. Овервотч плюс короткие штурмы: это движущийся фронт, не статичный забор.","Raiders are line troops with a habit of sudden advances — blooded soldiers who push after a volley instead of hugging dirt forever. They hold, then take the next wall. Overwatch plus short assaults: treat them as a moving front, not a static fence.",,JAZZ-UI-RIS-001-B
+890000000011056,"Налётчики — подвижные бойцы передовой, обученные обращаться с автоматическим оружием; каждому также выдают ручные гранаты. Они движутся вместе с передовой, прикрывают короткие рывки быстрым огнём и бросают гранаты, когда защитники прочно засели в укрытии. Быстрый огонь и гранаты делают их опасными на ближней и средней дистанции, поэтому рассредоточьтесь, перекройте подход и надавите до первого броска.","Raiders are adaptable front-line fighters drilled with automatic weapons; every one also receives hand grenades. They move with the line, use rapid fire to cover short advances, and throw grenades when defenders settle behind cover. Rapid fire and grenades make them dangerous at close and middle range, so spread out, deny them an easy approach, and press them before they can choose where to throw.",,JAZZ-UI-RIS-001-B
 890000000011057,Снайпер,Sniper,,JAZZ-UI-RIS-001-B
-890000000011058,"Снайперы Легиона — вышколенная оптика: один выстрел, один сломанный план. Выбирают просеку и ждут; героизм через открытое — подарок. Не ополчение с прицелом: умеют сменить позицию после первого трупа. Снимите овервотч, прежде чем собирать стэк на штурм.","Legion snipers are trained glass — one shot, one changed plan. They pick lanes and wait; heroics across open ground are gifts. Not militia with scopes: they know when to relocate after the first kill. Clear overwatch before you stack for assault.",,JAZZ-UI-RIS-001-B
+890000000011058,"Снайперскую подготовку получают только лучшие стрелки Легиона: их учат терпеливо выбирать цель и правильно обращаться с винтовками с оптикой. Они наблюдают за открытыми подступами издалека и начинают бой, прижимая точным огнём одну неосторожно открывшуюся цель. На открытом месте вы сами подставляетесь под удобный выстрел, поэтому прикрывайте движение дымом и найдите Снайпера до начала прямого штурма.","Only the Legion's finest riflemen receive sniper training: patience, target selection, and careful use of scoped rifles. They watch open approaches from distance and begin an engagement by pinning one exposed target under accurate fire. Crossing open ground gives them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a direct assault.",,JAZZ-UI-RIS-001-B
 890000000011059,Ветеран,Veteran,,JAZZ-UI-RIS-001-B
-890000000011060,"Ветераны — хребет вышколенной линии Легиона: терпеливый огонь, умный овервотч, мало пустых магазинов. Наказывают ошибки и переживают те, что должны были их сломить. Ждите гранатные фокусы и взаимную поддержку. Угроза ровная и неприятная.","Veterans are the backbone of a trained Legion line — patient fire, smart overwatch, few wasted magazines. They punish mistakes and survive the ones you thought would break them. Expect grenade tricks and disciplined mutual support. Steady, ugly threat.",,JAZZ-UI-RIS-001-B
+890000000011060,"Ветераны пережили несколько кампаний и не растерялись под огнём. Они упрямо наступают с автоматическим оружием и гранатами; некоторые также несут гранатомёт, и все выдерживают давление, которое остановило бы менее опытных бойцов. Их стойкость и взрывчатка опасны для плотного строя, поэтому рассредоточьтесь, не давайте им удобно сблизиться и сосредоточьте огонь до решающего рывка.","Veterans have survived several campaigns and stayed steady under fire. They advance stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep fighting through punishment that would stop less experienced troops. Their durability and explosives punish a packed formation, so spread out, deny them a clean approach, and concentrate fire before closing in.",,JAZZ-UI-RIS-001-B
 890000000011061,Наёмник,Mercenary,,JAZZ-UI-RIS-001-B
-890000000011062,"Наёмники на жалованье Майора бьются как профи с почасовой оплатой — платная сталь на линии. Лучший кит, спокойный овервотч, без панических очередей. Держат сектора, как подрядчики держат контракты. Уберите их — или потом платите подкреплениями.","Mercenaries on the Major's payroll fight like professionals who bill by the hour — paid steel on the line. Top kit, calm overwatch, no panic dumps. They hold sectors the way contractors hold contracts. Kill them or pay later in reinforcements.",,JAZZ-UI-RIS-001-B
+890000000011062,"На важные позиции Легион нанимает опытных Наёмников и выдаёт им неизменно хорошее оружие. Они движутся вместе с передовой и сочетают точный винтовочный огонь с гранатами; некоторые также несут гранатомёт, и все продолжают эффективно сражаться под давлением. Они опасны на разных дистанциях, поэтому не давайте им честного боя: рассеивайте внимание, закрывайте обзор и подавляйте по одной позиции.","The Legion hires experienced Mercenaries to hold important positions and sends them out with good weapons. They move with the front and combine accurate rifle fire with grenades; a few also carry a launcher, and all keep fighting under pressure. They are dangerous at several ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one position at a time.",,JAZZ-UI-RIS-001-B
 890000000011063,Наёмник-снайпер,Mercenary Sniper,,JAZZ-UI-RIS-001-B
-890000000011064,"Наёмные снайперы — любимые длинные ножи Майора: платная оптика, которая снимает командиров и пулемёты до начала штурма. Меняют позицию после каждого выстрела; второго шанса в том же окне не ждите. Приоритет почти над всем остальным на фронте.",Mercenary Snipers are the Major's favourite long knives — paid glass that erases leadership and MG before the assault starts. Relocate after every shot; expect no second chance in the same window. Priority over almost everything else on the front.,,JAZZ-UI-RIS-001-B
+890000000011064,"Наёмники-снайперы — готовые специалисты, которых нанимают для операций, где точный дальний огонь может решить исход первой перестрелки. Они начинают бой, прижимая открывшуюся цель, и держат открытые подступы под огнём мощных винтовок с оптикой. Заметив такого стрелка, не показывайтесь дважды в одном месте, прикройте движение дымом и надавите на него до общего наступления.","Mercenary Snipers are proven specialists hired for operations where accurate long-range fire can decide the opening exchange. They begin by pinning an exposed target and use powerful scoped rifles to control open approaches from a distance. Once one is reported, do not expose yourself twice from the same place. Cover movement with smoke and pressure the shooter before committing the squad.",,JAZZ-UI-RIS-001-B
 890000000011065,Пуляло,Gunner,,JAZZ-UI-RIS-001-B
-890000000011066,"Зелёные пулемётчики держат просеку лентами, которые едва умеют подавать. Громко, криво — но достаточно, чтобы прижать тех, кто выпрямился на открытом. В тесных комнатах мягче; через дворы — жестоко. Зайдите с фланга или ешьте подавление.","Green gunners own a lane with belts they barely know how to feed. Loud, inaccurate, still enough to pin anyone who stands tall in the open. Soft in tight rooms; brutal across courtyards. Flank them or eat suppression.",,JAZZ-UI-RIS-001-B
+890000000011066,"Самым крепким новобранцам Легион выдаёт старые пулемёты и наспех учит с ними обращаться. Они разворачиваются у дорог и дворов и прижимают к земле всех, кто не успел укрыться, но остаются уязвимыми на ходу. Не входите в их сектор огня через открытое место: используйте дым, здания или обходной путь.","The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up across roads and courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their sights in the open; use smoke, buildings, or a side approach to reach them safely.",,JAZZ-UI-RIS-001-B
 890000000011067,Коммандо,Assault Gunner,,JAZZ-UI-RIS-001-B
-890000000011068,"Штурмовые пулемётчики несут ленту вперёд — обстрелянные расчёты, которые смещаются с натиском, а не вечно сидят за одним мешком. Подавление, идущее вместе с проломом. Открытое всё ещё их; комнаты наказывают медленную установку. Перекройте подход — или платите метрами.",Assault Gunners walk the belt forward — blooded crews who displace with the push instead of camping one sandbag forever. Suppression that moves with the breach. Open ground still favours them; rooms punish slow mounts. Deny the approach or pay in inches.,,JAZZ-UI-RIS-001-B
+890000000011068,"Выживших пулемётчиков переводят в Коммандо и учат продвигать лёгкий пулемёт вперёд вместо охраны одной позиции. Они сближаются, разворачивают оружие рядом с местом боя и прижимают защитников с позиций, которые обычный пулемётчик счёл бы слишком открытыми. Если они доберутся до удобного места, атаку будет трудно остановить, поэтому сорвите подход взрывом или ударьте, пока пулемёт ещё несут.","Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light machine guns forward instead of guarding one position. They close the distance, set up near the fight, and pin defenders from positions that ordinary gunners would consider too exposed. If they reach useful firing ground the attack becomes hard to stop, so break their approach with explosives or catch them while they are moving.",,JAZZ-UI-RIS-001-B
 890000000011069,Пулемётчик,GPMG,,JAZZ-UI-RIS-001-B
-890000000011070,"Расчёты GPMG — классическое обстрелянное гнездо: длинные ленты, пересекающиеся просеки, терпение. Закрывают подходы, пока что-то крупнее не сломает ствол. Угроза высокая через площади; мягче, если заставить смещаться под огнём. Дым и углы бьют героизм.","GPMG teams are the classic blooded nest — sustained belts, interlocking lanes, patience. They deny approaches until something bigger breaks the gun. High threat across plazas; softer if you force a move under fire. Smoke and angles beat heroism.",,JAZZ-UI-RIS-001-B
+890000000011070,"На роль Пулемётчика ставят надёжных бойцов и учат их долго вести огонь, не паля впустую. Они занимают подготовленные позиции и перекрывают единым пулемётом дороги, дворы и широкие подступы. Лобовой бросок играет им на руку; закройте обзор дымом, вынудите пулемётчика сняться с места или атакуйте с неприкрытой стороны.","Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. They settle into prepared positions and use a general-purpose machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.",,JAZZ-UI-RIS-001-B
 890000000011071,Подавитель,Veteran Gunner,,JAZZ-UI-RIS-001-B
-890000000011072,"Ветераны-пулемётчики — вышколенные мастера ленты: водят огонь, экономят очереди и убивают первого, кто решил, что просека чиста. Не ополчение с сошками. Ждите дисциплинированное подавление, которое лепит весь бой. Жёсткий фланг или тяжёлое железо.","Veteran Gunners are trained belt artists — they walk fire, save bursts, and kill the first man who thinks the lane is clear. Not militia with a bipod. Expect disciplined suppression that shapes the whole fight. Flank hard or bring boom.",,JAZZ-UI-RIS-001-B
+890000000011072,"Подавители — опытные пулемётчики, пережившие не один бой; им доверяют более мощное оружие. С подготовленных позиций они перекрывают движение точными очередями, а тяжёлая броня помогает дольше выдерживать ответный огонь. Подавитель способен остановить наступление, поэтому отвлеките его с одной стороны и быстро ударьте с другой либо накройте позицию взрывчаткой.","Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert prepared fire to lock down movement, while tougher defenses let them stay effective under pressure. Their fire can stall an attack, so keep them occupied from one direction and strike quickly from another, or destroy the position with explosives.",,JAZZ-UI-RIS-001-B
 890000000011073,Наёмник-пулемётчик,Merc Gunner,,JAZZ-UI-RIS-001-B
-890000000011074,"Наёмные пулемётчики — платная сталь за лучшими лентами, какие Майор может купить. Владеют открытым, как подрядчики — пунктом договора. Уходят под дымом и встают под худшим углом. Приоритет: одно гнездо может заморозить весь натиск.","Merc Gunners are paid steel behind the best belts the Major can buy. They own open ground like contractors own a clause. Relocate under smoke, reappear on a worse angle. Priority target: one nest can freeze a whole push.",,JAZZ-UI-RIS-001-B
+890000000011074,"Наёмники-пулемётчики — опытные специалисты по тяжёлому оружию, которым выдают лучшие пулемёты Легиона. С подготовленной позиции они держат под огнём широкий участок и продолжают стрелять даже под плотным ответным огнём. Если оставить их в покое, они остановят любое продвижение, поэтому закройте им обзор и уничтожьте пулемётчика до выхода отряда на открытое место.","Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine disciplined bursts, prepared fire, and enough resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone can halt an advance, so deny them a clear field of fire and destroy the gunner before committing anyone across open ground.",,JAZZ-UI-RIS-001-B
 890000000011075,Ракетчик,Rocketeer,,JAZZ-UI-RIS-001-B
-890000000011076,"Зелёные ракетчики ещё вздрагивают от собственного подрыва сзади — и всё равно сносят стену, если труба ушла с плеча. Угроза-всплеск: один выстрел переписывает укрытия и мораль. Мягкие, если поймать на перезарядке; катастрофа, если встать им в прицел. Зона поражения — и по привычке, и по заданию.",Green rocketeers still flinch at their own backblast — and still erase a wall if the tube leaves the shoulder. Spike threat: one shot rewrites cover and morale. Soft if you catch them mid-reload; catastrophic if you stack in their sight picture. Area denial by accident and intent.,,JAZZ-UI-RIS-001-B
+890000000011076,"Ракетчики — новобранцы, которым хватает смелости взвалить установку на плечо и подготовки, чтобы не накрыть своих. Они стреляют из РПГ или одноразовых установок по машинам, стенам и плотным группам, но после пуска обычно не могут сразу атаковать снова. Рассредоточьтесь и надавите сразу после выстрела: одна оставленная без ответа ракета превратит надёжную позицию в груду обломков.","Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but the launcher usually leaves them with only one attack before they must recover or reload. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.",,JAZZ-UI-RIS-001-B
 890000000011077,Гранатомётчик,Grenadier,,JAZZ-UI-RIS-001-B
-890000000011078,"Тяжёлые гранатомётчики — обстрелянные специалисты грома: трубы и пусковые, которые режут комнаты и дворы. Формируют подходы взрывами по таймеру, не надеждой. Ждите зону поражения, которая гонит вас под чужие пулемёты. Уберите или сместите до второго выстрела.","Heavy Grenadiers are blooded boom specialists — tubes and launchers that carve rooms and courtyards. They shape approaches with timed blasts, not hope. Expect area denial that forces you into their gunners' lanes. Kill or displace before the second round lands.",,JAZZ-UI-RIS-001-B
+890000000011078,"Гранатомётчики уже знакомы со взрывчаткой, прежде чем их начинают учить стрельбе из РПГ и гранатомётов. Они посылают взрывные выстрелы в помещения, дворы и прикрытые подступы, вынуждая переживших разрыв покинуть удобную позицию. Тот, кто останется на месте, дождётся следующего выстрела, поэтому двигайтесь после каждого разрыва и надавите на Гранатомётчика до перезарядки.","Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into rooms, courtyards, and covered approaches, forcing anyone who survives the blast to abandon a comfortable position. Remaining in one place invites another round, so move after each shot and pressure the Grenadier before the launcher is ready again.",,JAZZ-UI-RIS-001-B
 890000000011079,Миномётчик,Mortarman,,JAZZ-UI-RIS-001-B
-890000000011080,"Миномётчики вышколены ронять железо туда, где небо казалось пустым. Навесной огонь превращает укрытие в рекомендацию. Не ополчение с трубой — ведут разрывы по сетке. Сломайте расчёт или бросьте квадрат: стоять под вышколенным миномётом — выбор, не план.","Mortarmen are trained to drop steel where you thought the sky was empty. Indirect fire turns cover into a suggestion. Not militia with a tube: they walk rounds onto a grid. Break the team or abandon the square — standing still under trained mortar is a choice, not a plan.",,JAZZ-UI-RIS-001-B
+890000000011080,"Миномётчики — проверенные бойцы тяжёлого оружия, обученные забрасывать мины за стены и другие препятствия. Они используют переносной миномёт против позиций, до которых трудно добраться прямым огнём, вынуждая засевших бойцов покинуть укрытие. Как только начался обстрел, немедленно двигайтесь и надавите на расчёт до следующего выстрела. Стена между вами и расчётом от мины не спасёт.","Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike positions that direct fire cannot easily reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move immediately and pressure the crew before it fires again. A wall between you and the crew will not keep you safe.",,JAZZ-UI-RIS-001-B
 890000000011081,Бригадир,Sergeant,,JAZZ-UI-RIS-001-B
-890000000011082,"Бригадиры держат зелёную стаю в одном направлении — резкие окрики, грубый сбор, достаточно присутствия, чтобы остановить бегство. Поодиночке мягки; опасны как усилитель отряда. Уберите голос рано — сброд забудет, зачем пришёл.","Sergeants keep green packs pointed the same way — shouted orders, slapstick rally, enough presence to stop a rout. Soft individually; dangerous as a force multiplier. Kill the voice early and the rabble forgets why it came.",,JAZZ-UI-RIS-001-B
+890000000011082,"Если испуганные рекруты вдруг начинают действовать как один, ищите самого громкого среди них. Из таких надёжных легионеров Майор делает Бригадиров: они гонят ближайших бойцов вперёд, удерживают их на месте или сосредоточивают огонь. Уберите лидера в начале боя, и остальных станет гораздо легче рассеять.","When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops forward, hold them in place, or focus their fire. Remove the leader early and the rest become much easier to disrupt.",,JAZZ-UI-RIS-001-B
 890000000011083,Командир,Lieutenant,,JAZZ-UI-RIS-001-B
-890000000011084,"Лейтенанты — обстрелянный клей среднего звена: собирают после первых потерь и толкают стаю, а не дают ей растаять. Ждите выверенные рывки и меньше оцепенения под огнём. Мультипликатор силы: уберите их — местный план схлопнется в шум.",Lieutenants are blooded mid-tier glue — they rally after the first casualties and push the pack instead of letting it melt. Expect timed advances and fewer freezes under fire. Force multiplier: remove them and the local plan collapses into noise.,,JAZZ-UI-RIS-001-B
+890000000011084,"Успешные Бригадиры становятся Командирами и вместо одной группы руководят несколькими отделениями. Их приказы слышны на большей территории: наступать, удерживать позиции, искать укрытие или сосредоточивать огонь. Пока Командир жив, местная атака сохраняет общий замысел, поэтому устраните офицера до перегруппировки Легиона.","Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area, sending troops forward, holding them in place, moving them into cover, or focusing their fire as the situation changes. Their presence keeps a local attack coherent, so remove the officer before the Legion can regroup and turn a confused exchange into an organized assault.",,JAZZ-UI-RIS-001-B
 890000000011085,Советник,Captain,,JAZZ-UI-RIS-001-B
-890000000011086,"Капитаны — вышколенные командиры, из сброда делают подразделение: контроль огня, взаимная поддержка, неприятная грамотность. Майор доверяет им сектора, которые важны. Приоритет: каждую минуту их жизни Легион вокруг умнеет.","Captains are trained commanders who make rabble fight like a unit — fire control, mutual support, ugly competence. The Major trusts them with sectors that matter. Priority kill: every minute they live, the Legion around them gets smarter.",,JAZZ-UI-RIS-001-B
+890000000011086,"Советники — офицеры, которым доверяют сразу несколько подразделений. Они отдают приказы всему отряду Легиона, меняют направление атаки по обстановке и поддерживают свои команды точным винтовочным огнём. Пока Советник жив, противник действует слаженно, поэтому быстро найдите офицера и устраните его до решающего натиска.","Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as conditions change, and support those commands with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, so identify the officer quickly and bring him down before pressing the fight.",,JAZZ-UI-RIS-001-B
 890000000011087,Мастер,Mercenary Captain,,JAZZ-UI-RIS-001-B
-890000000011088,"Наёмные капитаны — платная сталь с рацией: элитные мультипликаторы в коротком списке Майора. Держат связность под катастрофами, которые развеяли бы ополчение. Если такой на поле — у боя есть мозг. Уберите первым; о медалях поспорите потом.","Mercenary Captains are paid steel with a radio — elite force multipliers on the Major's short list. They hold cohesion under disasters that would scatter militia. If one is present, assume the fight has a brain. Kill first; argue about medals later.",,JAZZ-UI-RIS-001-B
+890000000011088,"Мастера — опытные наёмные офицеры, умеющие командовать смешанными силами; им нужны лишь свежие сведения о местной обстановке. Они отдают приказы всему отряду, сохраняют дисциплину после потерь и быстро меняют план, если первый не сработал. Пока Мастер жив, считайте, что окружающие бойцы действуют сообща; устраните его до атаки на остальных.","Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue orders across the entire force, preserve discipline through casualties, and quickly change plans when the first one fails. Assume nearby units are acting with a common purpose while one survives; bring the Captain down before attacking the rest.",,JAZZ-UI-RIS-001-B
 890000000011089,Пьер Лоран,Pierre Laurent,,JAZZ-UI-RIS-001-B
-890000000011090,"Папенькин сынок, ставший лицом Легиона на Эрни — гордость, выглаженная форма и обида размером с винтовку за спиной. Удобен как флюгер: по нему видно, как сильно Майор давит на остров. Обаяние считайте прикрывающим огнём.","Father's boy turned Legion face on Ernie — pride, pressed uniforms, and a chip on the shoulder big enough to hide a rifle behind. Useful as a weather vane for how hard the Major is leaning on the island. Treat charm as cover fire.",,JAZZ-UI-RIS-001-B
+890000000011090,"Сын Люка Лорана представляет Легион на Эрни — всегда в выглаженной форме и с желанием что-то доказать. Ему важно не только подчинение, но и внимание, поэтому его легче читать, чем других офицеров Легиона. Только не принимайте обаяние за доброту.","Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with something to prove. He likes being seen as much as being obeyed, which makes him easier to read than most Legion officers. Don't mistake charm for mercy.",,JAZZ-UI-RIS-001-B
 890000000011091,Бастьен,Bastien,,JAZZ-UI-RIS-001-B
-890000000011092,"Местная сила с улыбкой торговца. Когда говорит о торговле, слушайте, кто на самом деле держит дорогу — пошлины, наводки и тихие угрозы ходят по одной пыли. Заметка стола: полезный контакт, никогда не друг.","Local muscle with a merchant's smile. When he talks trade, listen for who really owns the road — tolls, tips, and quiet threats travel the same dirt. Desk note: useful contact, never a friend.",,JAZZ-UI-RIS-001-B
+890000000011092,"Местный делец с улыбкой торговца. Он знает, кто держит каждую дорогу, сколько стоит проезд и кому платить. Полезный контакт, но не путайте дела с дружбой.","A local fixer with a trader's smile. He knows who controls each road, what passage costs, and whom to pay. A useful contact, but never mistake business for friendship.",,JAZZ-UI-RIS-001-B
 890000000011093,Майор,The Major,,JAZZ-UI-RIS-001-B
-890000000011094,"Не слух — командир, который собирает армию из страха, жалованья и краденых складов. Каждая сводка снабжения на этом столе на самом деле о нём. Ждите терпения, жестокости и длинной памяти к тем, кто портит его учёт.","Not a rumor — a commander who builds an army from fear, payroll, and stolen warehouses. Every supply brief on this desk is really about him. Expect patience, cruelty, and a long memory for whoever spoils his inventory.",,JAZZ-UI-RIS-001-B
+890000000011094,"За Легионом стоит Майор. Он собрал армию страхом, деньгами и крадеными припасами, а затем раскинул её по всему Гранд-Шьену. Любая сводка о снабжении Легиона в итоге ведёт к нему. Он терпелив, безжалостен и помнит каждую потерю.","The man behind the Legion built his army with fear, money, and stolen supplies, then spread it across Grand Chien. Every Legion supply report ultimately leads back to him. He is patient, ruthless, and remembers every loss.",,JAZZ-UI-RIS-001-B
 890000000011095,Легион (фракция),Legion (faction),,JAZZ-UI-RIS-001-B
-890000000011096,"Частная военная машина в краденой легитимности. Ждите налётов, рекрутов под конвоем и офицеров, для которых деревня — строка в инвентаре. Фракция — тень Майора на каждом секторе, где вам предстоит биться.","A private war machine wearing stolen legitimacy. Expect raids, pressed recruits, and officers who treat villages like inventory ledgers. The faction is the Major's shadow cast across every sector you will fight.",,JAZZ-UI-RIS-001-B
+890000000011096,"Армия Майора живёт за счёт краденых припасов, насильственного набора и офицеров, которые считают деревни своей собственностью. В её рядах есть и запуганные местные, и обученные специалисты. Где появляется Легион, там недалеко и власть Майора.","The Major's army survives on stolen supplies, forced recruitment, and officers who treat villages as property. Its troops range from frightened locals to trained specialists. Wherever the Legion appears, the Major's reach is close behind.",,JAZZ-UI-RIS-001-B
 890000000011097,Тихая зачистка,Quiet clearance,,JAZZ-UI-RIS-001-B
 890000000011098,Сектор взят без фейерверка,Sector secured without fireworks,,JAZZ-UI-RIS-001-B
 890000000011099,"Мало шума, чистый финиш","Low noise, clean finish",,JAZZ-UI-RIS-001-B
@@ -11568,7 +11568,7 @@ Don't sleep on specialists: medics, instructors, and snipers do not stay Availab
 890000000011105,Гром над сектором,Thunder over the sector,,JAZZ-UI-RIS-001-B
 890000000011106,Отошли — потери лёгкие,"Forced back, light losses",,JAZZ-UI-RIS-001-B
 890000000011107,Прощупывание провалилось,Probe failed,,JAZZ-UI-RIS-001-B
-890000000011108,"Плохая позиция, ещё хуже момент","Bad ground, worse timing",,JAZZ-UI-RIS-001-B
+890000000011108,"Место хуже некуда, момент — ещё хуже","Bad ground, worse timing",,JAZZ-UI-RIS-001-B
 890000000011109,Сбиты с поля,Beaten off the field,,JAZZ-UI-RIS-001-B
 890000000011110,Сектор остался у них,They kept the sector,,JAZZ-UI-RIS-001-B
 890000000011111,Отход под огнём,Retreat under fire,,JAZZ-UI-RIS-001-B
@@ -11578,45 +11578,45 @@ Don't sleep on specialists: medics, instructors, and snipers do not stay Availab
 890000000011115,Организованный отход,Ordered withdrawal,,JAZZ-UI-RIS-001-B
 890000000011116,"Ушли, пока не стало дорого",You left before it got expensive,,JAZZ-UI-RIS-001-B
 890000000011117,Осторожность вместо медалей,Discretion over medals,,JAZZ-UI-RIS-001-B
-890000000011118,Отошли под давлением,Pulled out under pressure,,JAZZ-UI-RIS-001-B
+890000000011118,Пришлось отступить,Forced to pull back,,JAZZ-UI-RIS-001-B
 890000000011119,"Отходим, чтобы биться завтра",Falling back to fight another day,,JAZZ-UI-RIS-001-B
 890000000011120,Линия не держалась,The line wouldn't hold,,JAZZ-UI-RIS-001-B
 890000000011121,Кровавая эвакуация,Bloody extraction,,JAZZ-UI-RIS-001-B
-890000000011122,Пробились наружу сквозь огонь,Ran the gauntlet out,,JAZZ-UI-RIS-001-B
+890000000011122,Вырвались из-под огня,Broke through the gauntlet,,JAZZ-UI-RIS-001-B
 890000000011123,Сначала выжить — гордость потом,"Survival first, pride later",,JAZZ-UI-RIS-001-B
-890000000011124,Над боем — ясное небо.,Weather: clear skies over the fight.,,JAZZ-UI-RIS-001-B
-890000000011125,Дождь отсырил порох и укоротил нервы.,Weather: rain turned powder damp and tempers shorter.,,JAZZ-UI-RIS-001-B
-890000000011126,Ночной бой — говорили вспышки дул.,Weather/time: night fight — muzzle flashes did the talking.,,JAZZ-UI-RIS-001-B
-890000000011127,Туман резал обзор; все жались к укрытиям.,Weather: fog cut sightlines; everyone hugged cover.,,JAZZ-UI-RIS-001-B
-890000000011128,Пекло — усталость била не хуже пуль.,Weather: baking heat — fatigue hit as hard as bullets.,,JAZZ-UI-RIS-001-B
-890000000011129,Пылевая буря — песок в каждом стволе.,Weather: dust storm grit in every weapon.,,JAZZ-UI-RIS-001-B
-890000000011130,Погода обычная — историю сделала стрельба.,Weather: unremarkable — the shooting was the story.,,JAZZ-UI-RIS-001-B
-890000000011131,Короткая перестрелка — и тишина. Жара на клетке почти не шевельнулась.,"Intensity: a sharp exchange, then quiet. Heat on the grid barely stirred.",,JAZZ-UI-RIS-001-B
-890000000011132,"Плотный огонь и манёвр. Местная Жара выросла так, что стол это заметил.",Intensity: sustained fire and movement. Local Heat climbed enough for the desk to notice.,,JAZZ-UI-RIS-001-B
-890000000011133,Мясорубка. Сеть Майора наверняка учует дым.,Intensity: a meat grinder. Expect the Major's network to smell the smoke.,,JAZZ-UI-RIS-001-B
-890000000011134,Силы на контакте: примерно <player> своих против <enemy> противника.,Forces: roughly <player> friendlies against <enemy> hostiles at contact.,,JAZZ-UI-RIS-001-B
-890000000011135,Район: <sector>.,Theatre: <sector>.,,JAZZ-UI-RIS-001-B
-890000000011136,Район: <sector> — местное название <poi>.,Theatre: <sector> — local label <poi>.,,JAZZ-UI-RIS-001-B
-890000000011137,Оперативная линия: <quest>. Заметка стола по клетке: <note>,Operational thread: <quest>. Desk note on this grid: <note>,,JAZZ-UI-RIS-001-B
-890000000011138,Оперативная линия: <quest> — метки привязывают этот бой к заданию.,Operational thread: <quest> — badges pin this fight to that job.,,JAZZ-UI-RIS-001-B
-890000000011139,"На секторе сходятся задания: <quests>. Стрельбу считайте частью этих дел, а не случайным шумом.","Operational threads on this sector: <quests>. Treat the shooting as part of those jobs, not random noise.",,JAZZ-UI-RIS-001-B
-890000000011140,Активное задание стола (без метки на секторе): <quest>.,Active desk job (not sector-badged): <quest>.,,JAZZ-UI-RIS-001-B
-890000000011141,Живой метки задания на клетке нет — записано как свободный бой за сектор.,No live quest badge on this grid — logged as a free-fire sector action.,,JAZZ-UI-RIS-001-B
-890000000011142,Характер боя: поле осталось за вами.,Character: your side held the field.,,JAZZ-UI-RIS-001-B
-890000000011143,Характер боя: сектор остался у противника.,Character: the enemy kept the sector.,,JAZZ-UI-RIS-001-B
-890000000011144,Характер боя: отход с боем — не стояли насмерть.,Character: fighting withdrawal — not a stand.,,JAZZ-UI-RIS-001-B
-890000000011145,Характер боя: похоже на засаду — первые выстрелы решили карту.,Character: smelled like an ambush — first shots decided the map.,,JAZZ-UI-RIS-001-B
-890000000011146,Характер боя: бой по заданию — давление по цели выдержали; сектор ваш.,Character: quest-linked fight — objective pressure held; the sector stayed yours.,,JAZZ-UI-RIS-001-B
-890000000011147,Характер боя: бой по заданию — дело на этой клетке только усложнилось.,Character: quest-linked fight — the job on this grid just got harder.,,JAZZ-UI-RIS-001-B
-890000000011148,Характер боя: отход по заданию — ушли с отмеченного сектора не по плану.,Character: quest-linked withdrawal — you left the badge sector under protest.,,JAZZ-UI-RIS-001-B
-890000000011149,"Потери: свои убиты <pkia>, ранены <pwia>; противник убит <ekia>, ранен <ewia>.","Losses: friendlies KIA <pkia>, WIA <pwia>; hostiles KIA <ekia>, WIA <ewia>.",,JAZZ-UI-RIS-001-B
+890000000011124,Бой прошёл под ясным небом.,The fighting unfolded under clear skies.,,JAZZ-UI-RIS-001-B
+890000000011125,Дождь размыл землю и вымотал всем нервы.,Rain soaked the ground and frayed everyone's nerves.,,JAZZ-UI-RIS-001-B
+890000000011126,Ночью каждый выстрел выдавали вспышки.,"At night, muzzle flashes gave away every shot.",,JAZZ-UI-RIS-001-B
+890000000011127,"Из-за тумана видимость упала, и все держались ближе к укрытиям.",Fog cut visibility and kept everyone close to cover.,,JAZZ-UI-RIS-001-B
+890000000011128,Жара выматывала почти не меньше пуль.,"In the heat, exhaustion hit almost as hard as the bullets.",,JAZZ-UI-RIS-001-B
+890000000011129,Пылевая буря забила песком всё оружие.,The dust storm worked grit into every weapon.,,JAZZ-UI-RIS-001-B
+890000000011130,Погода не вмешивалась — хватило стрельбы.,The weather stayed out of it; the shooting did not.,,JAZZ-UI-RIS-001-B
+890000000011131,Перестрелка быстро закончилась и почти не привлекла внимания.,The exchange was brief. It drew little attention beyond the sector.,,JAZZ-UI-RIS-001-B
+890000000011132,Бой затянулся: обе стороны маневрировали под огнём. Слухи о нём разойдутся.,The firefight dragged on as both sides moved under fire. Word of it will spread.,,JAZZ-UI-RIS-001-B
+890000000011133,Бой превратился в бойню. Люди Майора об этом услышат.,The fight became a slaughter. The Major's people will hear about it.,,JAZZ-UI-RIS-001-B
+890000000011134,На момент первого контакта мы насчитали около <player> своих и <enemy> противников.,"At first contact, we counted about <player> friendlies and <enemy> hostiles.",,JAZZ-UI-RIS-001-B
+890000000011135,Бой произошёл в секторе <sector>.,The fighting took place in <sector>.,,JAZZ-UI-RIS-001-B
+890000000011136,"Бой произошёл в секторе <sector>, в районе <poi>.","The fighting took place in <sector>, near <poi>.",,JAZZ-UI-RIS-001-B
+890000000011137,Бой был связан с заданием <quest>. Важная подробность: <note>,This fight was tied to <quest>. One detail may matter: <note>,,JAZZ-UI-RIS-001-B
+890000000011138,"Судя по данным, этот бой связан с заданием <quest>.",The evidence ties this fight to <quest>.,,JAZZ-UI-RIS-001-B
+890000000011139,Сразу несколько текущих заданий привели ваш отряд сюда: <quests>. Случайной эту стычку не назовёшь.,Several active jobs led your team here: <quests>. This was no random skirmish.,,JAZZ-UI-RIS-001-B
+890000000011140,"Отряд также выполнял задание <quest>, хотя оно не было связано с этим сектором.","The team was also working on <quest>, though that job was not tied to this sector.",,JAZZ-UI-RIS-001-B
+890000000011141,Ни одно активное задание не вело в этот район. Это был бой за сам сектор.,No active assignment led to this area. This was a fight for the sector itself.,,JAZZ-UI-RIS-001-B
+890000000011142,Поле боя осталось за вашим отрядом.,Your team held the field.,,JAZZ-UI-RIS-001-B
+890000000011143,Противник сохранил контроль над сектором.,The enemy kept control of the sector.,,JAZZ-UI-RIS-001-B
+890000000011144,"Ваш отряд отошёл под огнём, не ввязываясь в бой до последнего.",Your team withdrew under fire instead of making a last stand.,,JAZZ-UI-RIS-001-B
+890000000011145,"Похоже, это была засада: первые выстрелы решили исход боя.",It looked like an ambush; the opening shots decided the fight.,,JAZZ-UI-RIS-001-B
+890000000011146,"Бой был связан с активным заданием. Цель удалось удержать, и сектор остался за вами.","The fight was tied to an active job. The objective held, and the sector remained yours.",,JAZZ-UI-RIS-001-B
+890000000011147,"Бой был связан с активным заданием, и потеря сектора теперь усложнит это задание.","The fight was tied to an active job, and losing the sector will make that job harder.",,JAZZ-UI-RIS-001-B
+890000000011148,"Ваш отряд отступил из сектора, связанного с активным заданием.",Your team withdrew from a sector tied to an active job.,,JAZZ-UI-RIS-001-B
+890000000011149,У нас <pkia> погибших и <pwia> раненых; у противника — <ekia> убитых и <ewia> раненых.,Our side suffered <pkia> killed and <pwia> wounded; enemy losses were <ekia> killed and <ewia> wounded.,,JAZZ-UI-RIS-001-B
 890000000011150,<name> лёг в этом бою — на одно элитное имя в списке Майора меньше.,<name> went down in the fight — one less elite name on the Major's roster.,,JAZZ-UI-RIS-001-B
 890000000011151,<name> ушёл с поля истекая кровью. Если выживет — запомнит ваши лица.,"<name> left the field bleeding. If they live, they'll remember your faces.",,JAZZ-UI-RIS-001-B
 890000000011152,<name> выскользнул из сети. Ждите это имя снова.,<name> slipped the net. Expect that name again.,,JAZZ-UI-RIS-001-B
 890000000011153,"<name> ещё стоял, когда стрельба стихла — незакрытый счёт.",<name> was still standing when the shooting stopped — unfinished business.,,JAZZ-UI-RIS-001-B
-890000000011154,Итог: сектор стихает; след Жары выглядит управляемым.,Closing: the sector goes quiet; Heat footprint looks manageable.,,JAZZ-UI-RIS-001-B
-890000000011155,Итог: шум разнесётся — обычно следом идут патрули и выплаты.,Closing: the noise will travel — patrols and payoffs usually follow.,,JAZZ-UI-RIS-001-B
-890000000011156,Итог: пишите красным. Командование будет спрашивать жёстко.,Closing: write this one in red. Command will ask hard questions.,,JAZZ-UI-RIS-001-B
+890000000011154,"Сектор снова затих, и этот бой вряд ли привлечёт много внимания.","The sector is quiet again, and the fight should draw little attention.",,JAZZ-UI-RIS-001-B
+890000000011155,Слухи об этом бое разойдутся. Ждите новых патрулей и новых сделок.,Word of this fight will spread. Expect more patrols and more money changing hands.,,JAZZ-UI-RIS-001-B
+890000000011156,Эту сводку отметьте красным. Командование Майора потребует объяснений.,Mark this one in red. The Major's command will want answers.,,JAZZ-UI-RIS-001-B
 890000000011200,R.I.S. <desk@ris-intel.net>,R.I.S. <desk@ris-intel.net>,,JAZZ-UI-RIS-001-Q
 890000000011201,R.I.S. — новый тип Легиона: <unit_title>,R.I.S. — new Legion type on file: <unit_title>,,JAZZ-UI-RIS-001-Q
 890000000011202,"Полевая заметка R.I.S. — контакт
@@ -11688,117 +11688,113 @@ Confirmed: <name> is down. Named Legion elites do not grow on trees — expect t
 Confirmed: <name> is off the board. A named person of interest just moved the local power map.
 
 — Разведывательная служба R.I.S.",,JAZZ-UI-RIS-001-Q
-890000000011300,"Складской хлам: Мосин, MAT-49, двустволки","Warehouse scrap: Mosin, MAT-49, double-barrels",,JAZZ-UI-RIS-001
-890000000011301,"Полевая заметка R.I.S. — снабжение Легиона
+890000000011300,У патрулей Легиона — оружие со старых складов,Old warehouse stock on Legion patrols,,JAZZ-UI-RIS-001
+890000000011301,"По свежим донесениям, дорожные патрули Легиона вооружены тем, что удалось выгрести со старых складов. Винтовки Мосина и MAS-36 соседствуют с MAT-49, MP40, карабинами Winchester и двустволками. Из более тяжёлого оружия в тех же партиях идут ДП-27 и MAC 24/29. Поставки по-прежнему представляют собой сборную солянку из старых образцов.
 
-Майор по-прежнему вычищает старые склады. У патрулей на старте — военный хлам: Мосин и MAS-36, MAT-49 и MP40, рычажные Winchester, двустволки, уставшие служебные пистолеты. Пулемётные гнёзда — эпохи ДП-27 / MAC 24/29. Патронов мало; броня — в основном фантазия.
+Ничего современного, зато винтовок и рекрутов хватает. Считайте опасным каждый блокпост, даже если оружие выглядит старше бойцов, которые его держат.
 
-Ранние патрули Легиона слабо экипированы — но их много. Не путайте ржавчину с безопасностью.
+— Полевой отдел R.I.S.","Fresh reports from Legion road patrols point to old warehouse stock. Mosin and MAS-36 rifles are turning up beside MAT-49s, MP40s, Winchester carbines and double-barrel shotguns. DP-27s and MAC 24/29s make up the heavier end of the same shipments. The deliveries remain a mixed collection of old designs.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+None of it is sophisticated, but there are plenty of rifles and plenty of recruits to carry them. Treat every roadblock as dangerous, even when the weapons look older than the men holding them.
 
-The Major is still emptying old warehouses. Day-one patrols carry wartime leftovers: Mosin and MAS-36 bolt guns, MAT-49 and MP40 subguns, Winchester lever carbines, double-barrel shotguns, tired service pistols. Machine-gun nests are DP-27 / MAC 24/29 era. Ammo is thin; armor is mostly wishful thinking.
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011302,До патрулей дошло оружие получше,Better weapons are reaching the patrols,,JAZZ-UI-RIS-001
+890000000011303,"В последних ящиках меньше откровенного хлама и больше исправного оружия военных лет. К Grease Gun и Sterling добавились M1 Garand, карабины M2, StG 44 и дробовики Model 1897. Из личного оружия всё чаще встречаются Luger, ТТ-33 и приличные револьверы.
 
-Early Legion patrols are poorly equipped — but there are a lot of them. Do not mistake rust for safety.
+Перемены пока невелики, но уже заметны. Охрана дорог и складов теперь получает исправное оружие партиями, а не берёт первое, что осталось на дне ящика.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011302,"В обороте Grease Gun, Sterling, Garand","Grease Guns, Sterlings, Garands in the mix",,JAZZ-UI-RIS-001
-890000000011303,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Recent crates contain fewer castoffs and more serviceable wartime weapons. Grease Guns and Sterlings are appearing alongside M1 Garands, M2 carbines, StG 44s and Model 1897 shotguns. Sidearms now include Lugers, TT-33s and better revolvers.
 
-Поставки чуть менее отчаянные. Grease Gun и Sterling смешиваются с M1 Garand, карабинами M2, StG 44, дробовиками Model 1897 — всё ещё военное поколение, но меньше рулетки из металлолома. Боковики лучше: Люгеры, ТТ-33, приличные револьверы.
+The improvement is modest but visible. Guards around roads and depots now receive usable weapons in regular batches instead of taking whatever happens to be left in a box.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011304,Майор выгреб старые арсеналы,The Major has cleaned out the old armories,,JAZZ-UI-RIS-001
+890000000011305,"Закупщики Майора добрались до дальних рядов старых арсеналов. У патрулей появились ППШ, ППС-43, Thompson и MPL, изредка попадается Scorpion. Стрелкам достаются FG 42, G43 и СВТ-40; группы поддержки получают Auto-5 и MG 42. Худшие старые пистолеты заменяют на пистолеты Макарова, Colt 1911 и P38.
 
-Shipments look a little less desperate. Grease Guns and Sterlings are mixing with M1 Garands, M2 carbines, StG 44s, Model 1897 shotguns — still wartime generation, but less scrap-metal roulette. Sidearms improve: Lugers, TT-33s, better revolvers.
+Образцы немолодые, но большинство создавали для войны. Недооценивать их не стоит.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011304,"Пик раннего кита: ППШ, Thompson, 1911","Early kit peaks: PPSh, Thompson, 1911s",,JAZZ-UI-RIS-001
-890000000011305,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and SVT-40s are reaching riflemen; Auto-5 shotguns and MG 42s are appearing with support teams. Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.
 
-Первая волна выдачи на пике: ППШ и ППС-43, Thompson, MPL, редкий Scorpion; боевые FG 42 / G43 / СВТ-40; Auto-5; ленты MG 42. Служебные пистолеты, которые реально стреляют — Макаров, Colt 1911, P38. Всё ещё первое поколение, но Майор перестал раздавать чистый музей как норму.
+The designs are old, but most were built for war and still deserve respect.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011306,Новые поставки меняют блокпосты,New imports are changing the roadblocks,,JAZZ-UI-RIS-001
+890000000011307,"На блокпостах Легиона появилось более новое компактное оружие: UZI, MAC-10, Micro UZI и Agram, а также пистолеты Hi-Power. Стрелкам выдают M16A1, Type 56 и карабины Mini-14.
 
-First-wave issue is peaking: PPSh and PPS-43, Thompsons, MPL, the odd Scorpion; FG 42 / G43 / SVT-40 battle rifles; Auto-5 shotguns; MG 42 belts. Service pistols that actually fire — Makarov, Colt 1911, P38. Still generation-one gear, but the Major has stopped issuing pure museum pieces as standard.
+В нескольких донесениях у групп головорезов отмечены самодельные бомбы, но пока это не стало правилом. Не ждите взрывчатки у каждого патруля, однако перед штурмом тесного помещения присмотритесь к сумкам и разгрузкам.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011306,"Вторая волна: UZI, MAC-10, самодельные бомбы","Second wave: UZI, MAC-10, pipe bombs",,JAZZ-UI-RIS-001
-890000000011307,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Newer compact weapons are appearing at Legion roadblocks: UZIs, MAC-10s, Micro UZIs and Agrams, backed by Hi-Power pistols. Riflemen are also receiving M16A1s, Type 56s and Mini-14 carbines.
 
-Вторая волна. Компактные ПП — UZI, MAC-10, Micro UZI, Agram — и пистолеты Hi-Power рядом с ранними M16A1 / Type 56 и карабинами Mini-14. У головорезов появились самодельные бомбы. Это уже не парад мародёров.
+Several field reports place improvised pipe bombs with Roughneck teams, though the sightings are not yet consistent. Do not assume every patrol carries explosives, but check bags and webbing before crowding a doorway.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011308,В ящиках — карабины и винтовки для метких стрелков,Carbines and marksman rifles in the crates,,JAZZ-UI-RIS-001
+890000000011309,"В перехваченных на главных дорогах ящиках лежат карабины CAR-15, винтовки FAMAS и Zastava M70, а также M14 и дробовики Remington 870. Лучшим стрелкам передают FR F2 и Zastava M76.
 
-Second wave. Compact SMGs — UZI, MAC-10, Micro UZI, Agram — and Hi-Power pistols are showing up beside early M16A1 / Type 56 rifles and Mini-14 carbines. Roughnecks have started carrying pipe bombs. This is no longer a scavenger parade.
+Закупки явно идут по плану: короткое оружие для штурма, мощные винтовки для основной линии и точные винтовки для тех, кто следит за подступами. Легион готовится не только собирать дань на дорогах.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011308,"Идут CAR-15, FAMAS, винтовки M14","CAR-15, FAMAS, M14-pattern rifles arriving",,JAZZ-UI-RIS-001
-890000000011309,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Crates intercepted along the main roads contain CAR-15 carbines, FAMAS and Zastava M70 rifles, plus M14s and Remington 870 shotguns. FR F2s and Zastava M76s are being passed to the better shots.
 
-В ящиках — карабины и боевые винтовки: CAR-15, FAMAS, Zastava M70, схемы M14 SAW, Remington 870. У стрелков — FR F2 / Zastava M76. Кто-то закупается под настоящий бой, а не под тряску на блокпосте.
+This is procurement with a plan: short weapons for assaults, full-power rifles for the line, and dedicated rifles for men watching the approaches. The Legion is preparing for more than roadside extortion.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011310,Калашниковы становятся штатным оружием,Kalashnikovs are becoming the Legion's standard,,JAZZ-UI-RIS-001
+890000000011311,"АК-47 и АКМ поступают крупными партиями, у стрелков также замечены M16A2. АКС-74У достаются тем, кому нужно оружие покороче, а «Бизоны» и Spectre появляются у штурмовых групп. Основную линию дополняют FN FAL и дробовики Striker.
 
-Carbines and battle rifles in the crates: CAR-15, FAMAS, Zastava M70, M14 SAW patterns, Remington 870s. Marksmen pick up FR F2 / Zastava M76. Someone is buying for a real fight, not a roadblock shakedown.
+Пулемётчики получают РПК и M60, отдельным метким стрелкам выдают винтовки M21. Легион всё больше похож на силу с собственным арсеналом, а не на ополчение, которое одалживает оружие на один день.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011310,АК оптом — Легион уже похож на армию,AKs in volume — Legion looks like an army,,JAZZ-UI-RIS-001
-890000000011311,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","AK-47s and AKMs are arriving in volume, with M16A2s also appearing among the riflemen. AKS-74Us are going to troops that need shorter weapons, while Bizons and Spectres are showing up with close-assault teams. FN FALs and Striker shotguns fill out the line.
 
-Калашниковы оптом: АК-47, АКМ, АКС-74У, редкий «Бизон» или Spectre. Боевые FN FAL, дробовики Striker, поддержка M21 / РПК / M60. Легион наконец похож на армию, у которой есть свои винтовки, а не на ополчение, которое их одалживает.
+Support gunners now have RPKs and M60s, and selected marksmen are carrying M21 rifles. The Legion is starting to look like a force with its own armory rather than a militia borrowing weapons for the day.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011312,Современное оружие дошло до укреплённых позиций,Modern weapons have reached fortified positions,,JAZZ-UI-RIS-001
+890000000011313,"На укреплённых позициях Легиона замечены MP5A2, MP5K и TMP, а стрелки получают M4A1, HK33, АК-74 и Galil. В помещениях всё чаще встречаются SPAS-12; дальние подступы прикрывают стрелки с Dragunov и M700. Поддержку обеспечивают РПК-74 и M60E3, среди пистолетов появились USP и Kimber.
 
-Kalashnikovs in volume: AK-47, AKM, AKS-74U, the occasional Bizon or Spectre. FN FAL battle rifles, Striker shotguns, M21 / RPK / M60 support. The Legion is finally looking like an army that owns rifles, not a militia that borrows them.
+Такой набор явно подбирали и для штурма в тесноте, и для обороны подготовленных позиций.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011312,В руках Легиона MP5 и M4A1,MP5 family and M4A1 in Legion hands,,JAZZ-UI-RIS-001
-890000000011313,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Fortified Legion positions now show MP5A2s, MP5Ks and TMPs, while riflemen carry M4A1s, HK33s, AK-74s and Galils. SPAS-12 shotguns are appearing indoors; Dragunovs and M700s cover longer approaches. RPK-74 and M60E3 machine guns provide support, with USPs and Kimbers among the sidearms.
 
-Западные ПП и карабины: MP5A2 / MP5K, TMP, M4A1, HK33, АК-74, Galil. SPAS-12, оптика Dragunov / M700, ленты РПК-74 и M60E3. Серьёзные боковики — USP, Kimber. Ждите более плотный огонь и меньше клинов, когда прёте на укреплённую позицию.
+The mix points to deliberate preparation for both close assaults and defended ground.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011314,Передовые отряды получают современное оружие,Front-line squads are receiving modern weapons,,JAZZ-UI-RIS-001
+890000000011315,"У передовых отрядов Легиона замечены G36 и G36c, AUG, карабины ВСС и винтовки G3. В качестве оружия поддержки они получают Minimi, MAG и ПКМ, а современные пистолеты встречаются уже слишком часто, чтобы считать их личными трофеями.
 
-Western SMGs and carbines: MP5A2 / MP5K, TMP, M4A1, HK33, AK-74, Galil. SPAS-12, Dragunov / M700 glass, RPK-74 and M60E3 belts. Serious sidearms — USP, Kimber. Expect tighter fire and fewer jams when you push a fortified position.
+Такие отряды вооружают как единое целое, а не чем придётся. Ждите оружие, подобранное под конкретные задачи, а не случайный набор из одного ящика.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011314,"G36c, ВСС — поздний скачок второй волны","G36c, VSS — late second-wave spike",,JAZZ-UI-RIS-001
-890000000011315,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Front-line Legion squads are turning up with G36s and G36cs, AUGs, VSS carbines and G3 rifles. Their support weapons now include Minimis, MAGs and PKMs, and modern pistols are common enough to be more than personal trophies.
 
-Поздний скачок второй волны: G36 / G36c, AUG, ВСС, боевые G3, поддержка Minimi / MAG / ПКМ, современные пистолеты. Качество снова выросло — ветеранов стоит считать нормально вооружёнными, а не «чуть лучшими мародёрами».
+These squads are being armed as units, not from whatever happens to be at hand. Plan for weapons chosen for specific jobs rather than a random assortment from one crate.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011316,В обороте оружие профессионального уровня,Professional-grade rifles are in circulation,,JAZZ-UI-RIS-001
+890000000011317,"На вооружении Легиона появились винтовки Sig 550 и Sig 552, малошумные MP5SD и пулемёты M60E4. Винтовки M1A используют для прицельного огня на дальних дистанциях; личное оружие у этих подразделений тоже стало лучше.
 
-Late second-wave spike: G36 / G36c, AUG, VSS, G3 battle rifles, Minimi / MAG / PKM support, modern pistols. Quality jumped again — veteran squads are properly armed, not upgraded scavengers.
+Как бы ни были подготовлены бойцы, такое вооружение делает их опасными. Перед сближением определите, где винтовки и пулемёты.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011316,"Третья волна: Sig 550, M60E4, настоящая оптика","Third wave: Sig 550, M60E4, real optics",,JAZZ-UI-RIS-001
-890000000011317,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, and the sidearms carried by these units have improved as well.
 
-Третья волна. Винтовки Sig 550 / 552, MP5SD, пулемёты M60E4, оптика M1A, лучше боковики. Майор выдаёт кит, рассчитанный держать землю против профессионалов.
+Whatever the quality of the troops, this armament makes them dangerous. Identify the rifles and machine guns before committing to an approach.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011318,Подтверждены специальные образцы,Special-purpose weapons confirmed,,JAZZ-UI-RIS-001
+890000000011319,"У Легиона подтверждены специальные образцы: доработанные винтовки Sig, MP7 и P90, точные СВУ и Arctic Warfare, а также дробовики USAS-12. В тех же поставках отмечены HK21 и HK23.
 
-Third wave. Sig 550 / 552 rifles, MP5SD, M60E4 machine guns, M1A glass, better sidearms. The Major is issuing kit meant to hold ground against professionals.
+Такой набор позволяет предположить, что Легион может собирать метких стрелков, штурмовиков и пулемётчиков под конкретные задачи. Пока это лишь предположение: сначала определите оружие и только потом решайте, как будет действовать отряд.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011318,"Кастомные Sig, СВУ, Arctic Warfare","Custom Sigs, SVU, Arctic Warfare",,JAZZ-UI-RIS-001
-890000000011319,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Special-purpose weapons are now confirmed in Legion hands: customized Sig rifles, MP7s and P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place HK21s and HK23s in the same flow of weapons.
 
-Точность и спецстволы: кастомные Sig, MP7 / P90, СВУ, Arctic Warfare, USAS-12, ленты HK21 / HK23. Снайперы и штурм уже не «на потом».
+The mix suggests the Legion may be grouping marksmen, assault troops and gunners around particular tasks. That is still only an assessment: identify the weapons before assuming how the squad will fight.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001
+890000000011320,"Подтверждены Barrett, PSG-1, АС «Вал» и AA-12","Barrett, PSG-1, AS Val and AA-12 confirmed",,JAZZ-UI-RIS-001
+890000000011321,"Подтверждено наличие у Легиона противоматериальных винтовок Barrett, точных PSG-1, карабинов АС «Вал» и дробовиков AA-12.
 
-Precision and special weapons: custom Sigs, MP7 / P90, SVU, Arctic Warfare rifles, USAS-12, HK21 / HK23 belts. Marksmen and assault elements are no longer an afterthought.
+Любой линейный отряд Легиона с одним из этих образцов может сразу изменить ход боя. Определите оружие, оцените его дальность и измените план до первого выстрела.
 
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
-890000000011320,"Barrett, PSG-1, AA-12 — угрозы высшего полка","Barrett, PSG-1, AA-12 — top-shelf threats",,JAZZ-UI-RIS-001
-890000000011321,"Полевая заметка R.I.S. — снабжение Легиона
+— Полевой отдел R.I.S.","Barrett anti-materiel rifles, PSG-1 precision rifles, AS Val carbines and AA-12 shotguns are now confirmed in Legion stocks.
 
-Высшая полка. Противоматериальные Barrett, точные PSG-1, карабины АС «Вал», дробовики AA-12. Если такое в поле — считайте, Майор хочет кого-то мёртвым. Насовсем.
+Any Legion line squad carrying one of these weapons can change the fight immediately. Identify the weapon, work out what it can reach, and change the plan before it opens fire.
 
-— Разведывательная служба R.I.S.","R.I.S. field note — Legion supply
-
-Top shelf. Barrett anti-materiel rifles, PSG-1 precision guns, AS Val carbines, AA-12 shotguns. If you see this kit in the field, assume the Major wants someone dead — permanently.
-
-— Recon Intelligence Services",,JAZZ-UI-RIS-001
+— R.I.S. Field Desk",,JAZZ-UI-RIS-001

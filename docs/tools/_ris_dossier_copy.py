@@ -13,16 +13,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Recruit",
         "title_ru": "Рекрут",
         "body_en": (
-            "The Major still sweeps villages for warm bodies: cheap boots, a rifle if lucky, "
-            "and a week of shouted drill. Recruits freeze when the first magazine empties and "
-            "bunch up like sheep in a doorway. Dangerous only in numbers — and as proof the "
-            "Legion never runs out of names. Kill three and the desk will keep the file open."
+            "Legion recruiters sweep up villagers and send them out after only a few days of drill. They "
+            "rush forward with whatever weapon they are handed, but lack the training and staying power "
+            "of regular troops. Keep them at range and break up the group before they crowd a doorway or "
+            "surround a lone merc."
         ),
         "body_ru": (
-            "Майор по-прежнему выметает деревни за «тёплыми телами»: дешёвые ботинки, винтовка "
-            "если повезёт, неделя орёного строя. Рекруты цепенеют, едва опустеет первый магазин, "
-            "и сбиваются в дверных проёмах. Опасны только числом — и как напоминание, что у "
-            "Легиона всегда есть ещё имена. Три трупа — и стол держит досье открытым."
+            "Вербовщики Легиона собирают людей по деревням и отправляют в бой после нескольких дней "
+            "муштры. Они бросаются вперёд с тем оружием, которое им выдали, но заметно уступают кадровым "
+            "бойцам в подготовке и стойкости. Держите дистанцию и разбейте их группу, прежде чем они "
+            "забьют дверной проём или окружат отставшего наёмника."
         ),
     },
     # --- Assault T1 ---
@@ -30,48 +30,48 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Crusher",
         "title_ru": "Громила",
         "body_en": (
-            "Crusher is the Major's blunt instrument for rooms and alleys: shotgun breath, "
-            "shoulder through the jamb, no patience for standoffs. Kit is scrap-yard early — "
-            "loud nerves, thin discipline. In CQB they dump the tube and keep walking; leave "
-            "them an open door and they own the next five metres. Danger spikes once the gap closes."
+            "The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the "
+            "distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and "
+            "narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the "
+            "shotgun takes over."
         ),
         "body_ru": (
-            "Громила — тупой инструмент Майора для комнат и переулков: дыхание дробовика, плечо "
-            "в косяк, никаких дуэлей на дистанции. Киты ещё со склада — громкие нервы, тонкая "
-            "дисциплина. В ближнем бою опустошают ствол и идут дальше; оставьте открытую дверь — "
-            "и следующие пять метров уже их. Опасность высокая, если сократят дистанцию."
+            "Громилами в Легионе становятся самые крепкие бойцы; их учат одному — любой ценой сократить "
+            "дистанцию. Дробовик, добротная броня и недюжинная выносливость делают их особенно опасными в "
+            "комнатах и узких переулках. Не встречайте Громилу в дверях — отходите на простор и "
+            "сосредоточьте огонь, пока он не подошёл вплотную."
         ),
     },
     "JAZZ_Legion_AssaultT1_Grenadier": {
         "title_en": "Grenadier",
         "title_ru": "Гренадёр",
         "body_en": (
-            "Assault Grenadiers learn one trick early: toss steel before they see the whites of "
-            "your eyes. Drill is short; they still fumble pins under fire, but a green throw into "
-            "a hallway rewrites the breach. Watch corners and stairwells — they breach with bangs, "
-            "not bravado. Soft kit, hard habit of lobbing first."
+            "New Grenadiers receive a short course in assault explosives before the Legion sends them "
+            "forward. They carry several grenades beside a pistol or submachine gun, and some add a "
+            "bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before "
+            "they settle behind a corner."
         ),
         "body_ru": (
-            "Штурмовые гренадёры рано учат один приём: кинуть железо, пока ещё не видно глаз. "
-            "Учёба короткая — под огнём чеку ещё роняют, но зелёный бросок в коридор уже ломает "
-            "штурм. Смотрите углы и лестницы: они входят со взрывами, не с бравадой. Сырой кит, "
-            "но привычка бросать первой уже есть."
+            "Новых Гренадёров наскоро учат обращению со взрывчаткой, после чего Легион сразу бросает их в "
+            "штурм. Кроме пистолета или пистолета-пулемёта, у них есть несколько гранат, а иногда и "
+            "бутылка с зажигательной смесью. Не стойте кучно, оставьте себе выход из укрытия и снимайте "
+            "Гренадёра до того, как он устроится за углом."
         ),
     },
     "JAZZ_Legion_AssaultT1_Roughneck": {
         "title_en": "Roughneck",
         "title_ru": "Головорез",
         "body_en": (
-            "Roughnecks are the Major's street dogs — SMG spray, boot in the door, no map beyond "
-            "the next room. Green as wet paint: they bunch, shout, and dump magazines into furniture. "
-            "Still lethal in a choke point if you give them the first step. Treat them as CQB noise "
-            "with teeth, not soldiers."
+            "Roughnecks receive little formal training; the Legion expects speed and aggression to make "
+            "up the difference. They fire pistols or automatic weapons on the move and often carry a "
+            "knife for the last few steps. Make them cross open ground under overlapping fire, and do not "
+            "let them turn a cramped room into a brawl."
         ),
         "body_ru": (
-            "Головорезы — дворовые псы Майора: очередь из пистолета-пулемёта, ботинок в дверь, "
-            "карты дальше следующей комнаты нет. Зелёные как сырая краска — жмутся, орёт, "
-            "опорожняют магазины в мебель. В узком месте всё равно смертельны, если отдать им "
-            "первый шаг. Это шум ближнего боя с зубами, не солдаты."
+            "Головорезов почти не учат: Легион рассчитывает, что нехватку подготовки заменят скорость и "
+            "напор. Они стреляют из пистолетов или автоматического оружия на ходу, а для последних шагов "
+            "нередко берут нож. Заставьте их пересекать открытое место под перекрёстным огнём и не "
+            "позволяйте превратить тесную комнату в драку."
         ),
     },
     # --- Assault T2 ---
@@ -79,48 +79,48 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Pillager",
         "title_ru": "Грабитель",
         "body_en": (
-            "Pillagers have already looted a few towns — they breach for loot and leave scorched "
-            "rooms behind. Blooded enough to push through smoke instead of freezing in it. Expect "
-            "aggressive CQB: flash in, take the corner, strip the dead. They still panic in stacked "
-            "doorways, but they panic forward."
+            "The Legion forms Pillager teams from raiders who survived their first street fights and "
+            "learned to keep moving. Light armor keeps them quick as they press close with an automatic "
+            "weapon and, more often than not, a knife. Hold a long line of fire and do not chase them "
+            "around a blind corner."
         ),
         "body_ru": (
-            "Грабители уже обчистили пару посёлков — ломают двери ради добычи и оставляют "
-            "выжженные комнаты. Обстреляны достаточно, чтобы идти сквозь дым, а не стынуть в нём. "
-            "Ждите агрессивный ближний бой: вспышка, угол, обшарить мёртвых. В набитых проёмах "
-            "всё ещё паникуют — но паникуют вперёд."
+            "Грабителями становятся налётчики, которые пережили первые уличные бои и научились не "
+            "останавливаться под огнём. Лёгкая броня не мешает им быстро сближаться с автоматическим "
+            "оружием и, чаще всего, ножом. Не подпускайте их, держите подходы под огнём и не гонитесь за "
+            "ними за непросматриваемый угол."
         ),
     },
     "JAZZ_Legion_AssaultT2_Pyro": {
         "title_en": "Pyro",
         "title_ru": "Пироман",
         "body_en": (
-            "Pyros bring fire into the breach — bottles, charges, anything that turns a room into "
-            "a kiln. Already blooded; they enjoy the smell more than the Major admits. Deny them "
-            "fuel lanes and tight interiors or your cover becomes a trap. CQB with a matchbook "
-            "mentality: if they can't take the room, they burn it."
+            "Pyros are assault troops singled out for incendiary work rather than careful demolition. "
+            "They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun "
+            "or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they "
+            "get within throwing distance."
         ),
         "body_ru": (
-            "Пироманы несут огонь в пролом — бутылки, заряды, всё, что превращает комнату в печь. "
-            "Уже с кровью на руках; запах им нравится больше, чем признаёт Майор. Перекройте "
-            "коридоры с горючим и тесные интерьеры — иначе укрытие станет западнёй. Ближний бой "
-            "с мышлением спичечного коробка: комнату не взяли — сожгли."
+            "Пироманов отбирают из штурмовых отрядов и отдельно учат обращению с зажигательными смесями. "
+            "Они носят тяжёлую броню, берут несколько бутылок с огнём и идут следом с "
+            "пистолетом-пулемётом или короткой винтовкой. Не стойте кучно, избегайте тупиковых укрытий и "
+            "снимайте их до броска."
         ),
     },
     "JAZZ_Legion_AssaultT2_ShockTrooper": {
         "title_en": "Shock Trooper",
         "title_ru": "Штурмовик",
         "body_en": (
-            "Shock Troopers are the Legion's practiced breach team: stack, bang, clear. Not "
-            "militia anymore — they know how to hold a door while the next man enters. Expect "
-            "coordinated CQB and fewer wasted magazines. If they seize the first room, the rest "
-            "of the building follows like a falling row of tiles."
+            "Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving "
+            "through resistance. They open the assault with several grenades, then close in with an "
+            "automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one "
+            "wall—pin them in the open before a grenade clears their route."
         ),
         "body_ru": (
-            "Штурмовики — отработанная группа пролома Легиона: стэк, хлопок, зачистка. Уже не "
-            "ополчение — умеют держать дверь, пока входит следующий. Ждите согласованный ближний "
-            "бой и меньше пустых очередей. Взяли первую комнату — остальное здание сыплется, "
-            "как ряд плиток."
+            "Штурмовики — это бойцы ранних штурмовых отрядов, которых переучили не останавливать атаку "
+            "под ответным огнём. Они начинают штурм с нескольких гранат, а затем сближаются с "
+            "автоматическим оружием; у некоторых есть дымовые или оглушающие заряды. Не собирайтесь за "
+            "одной стеной — прижмите их на открытом месте до первого броска."
         ),
     },
     # --- Assault T3 ---
@@ -128,32 +128,32 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Punisher",
         "title_ru": "Каратель",
         "body_en": (
-            "Punishers are trained killers on a short leash — breach specialists who finish rooms "
-            "the Major wants quiet. Drill shows: controlled entries, grenades on timers, no "
-            "souvenir hunting mid-fight. They turn CQB into a conveyor. High threat once inside; "
-            "do not gift them the stairwell."
+            "Punishers are drawn from assault veterans and trained to keep an attack moving after the "
+            "first breach. Heavy armor, automatic rifles, and a full load of grenades let them press "
+            "forward even when the defense holds. Engage from more than one angle, keep a second position "
+            "ready, and finish one before switching targets."
         ),
         "body_ru": (
-            "Каратели — вышколенные убийцы на коротком поводке: специалисты пролома, которые "
-            "дочищают комнаты, которые Майор хочет тихими. Видна учёба: контролируемый вход, "
-            "гранаты по таймеру, без охоты за сувенирами среди боя. Ближний бой у них — конвейер. "
-            "Внутри — высокая угроза; лестницу им не дарите."
+            "Карателей набирают из опытных штурмовиков и учат не сбавлять темп после первого пролома. "
+            "Тяжёлая броня, автоматические винтовки и большой запас гранат позволяют им идти вперёд, даже "
+            "когда оборона держится. Бейте с разных сторон, заранее готовьте запасную позицию и добивайте "
+            "одного, прежде чем переносить огонь."
         ),
     },
     "JAZZ_Legion_AssaultT3_SkullCrusher": {
         "title_en": "Skull Crusher",
         "title_ru": "Череполом",
         "body_en": (
-            "Skull Crushers pair heavy close-in iron with demolition habits — doors, walls, "
-            "whatever blocks the rush. Trained, not rabble: they time the boom and walk through "
-            "the dust. In assault lanes they erase cover you thought was permanent. Stop them "
-            "before the charge, or rewrite your map after it."
+            "Skull Crushers are veteran brawlers trained to force a close fight through smoke and "
+            "confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them "
+            "also have a machete and some bring smoke or firebombs. Keep a clear way out of tight "
+            "interiors and wear them down before they can rush."
         ),
         "body_ru": (
-            "Череполомы совмещают тяжёлое ближнее железо с привычкой к подрыву — двери, стены, "
-            "всё, что мешает рывку. Вышколены, не сброд: считают взрыв и идут сквозь пыль. "
-            "На штурмовых осях стирают укрытия, которые казались вечными. Остановите до рывка — "
-            "или переписывайте карту после."
+            "Череполомов набирают из опытных драчунов и учат навязывать ближний бой в дыму и неразберихе. "
+            "Тяжёлая броня помогает им дойти до дистанции дробовика или пистолета-пулемёта; почти каждый "
+            "берёт мачете, а некоторые — дым или зажигательную смесь. Оставляйте себе выход из тесных "
+            "помещений и изматывайте их до рывка."
         ),
     },
     # --- Assault T4 ---
@@ -161,16 +161,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Headsman",
         "title_ru": "Палач",
         "body_en": (
-            "Headsmen are paid steel — the Major's favourite breach artists. Top kit, cold "
-            "timing, no wasted steps into a room. They clear buildings the way butchers clear "
-            "hooks: methodical, loud only when it helps. Priority targets in any CQB; if one "
-            "stacks on your door, the dossier already assumes you lose the room."
+            "Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite "
+            "professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them "
+            "cross ground quickly and keep attacking at close range. Make them the first target, cover "
+            "more than one approach, and never leave a lone merc on their flank."
         ),
         "body_ru": (
-            "Палачи — наёмная сталь, любимчики Майора на проломе. Лучший кит, холодный тайминг, "
-            "ни шага зря в комнату. Чистят здания, как мясники — крючья: методично, громко "
-            "только когда это помогает. Приоритет в любом ближнем бою; если такой встал на "
-            "вашу дверь, досье уже предполагает, что комнату вы отдадите."
+            "Палачами становятся лучшие ветераны штурмовых отрядов; их снаряжают как настоящих "
+            "профессионалов. Тяжёлая броня, улучшенное автоматическое оружие и большой запас гранат "
+            "позволяют им быстро сближаться и не прерывать атаку. Бейте Палача первым, держите под "
+            "контролем несколько подходов и не оставляйте одиночного наёмника у него на фланге."
         ),
     },
     # --- Flanker T1 ---
@@ -178,16 +178,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Warden",
         "title_ru": "Дозорный",
         "body_en": (
-            "Wardens haunt the edges — green scouts with itchy triggers and thin boots. They "
-            "ambush runners more than they win gunfights. Ignore the map rim and they cut your "
-            "retreat; watch them and they still waste a magazine into brush. Medium threat until "
-            "you forget the flanks exist."
+            "Wardens are ordinary riflemen given basic scouting instruction and posted away from the main "
+            "line. Their light gear helps them reach a side position, where they hold cover and punish "
+            "movement with steady rifle fire. Check both flanks before advancing, and use smoke or a "
+            "second angle to dislodge them."
         ),
         "body_ru": (
-            "Дозорные живут на краях карты — зелёные разведчики с зудящим спуском и тонкими "
-            "ботинками. Чаще режут бегущих, чем выигрывают перестрелки. Забудете обочину — "
-            "отрежут отход; будете смотреть — всё равно опустошат магазин в кусты. Угроза "
-            "средняя, пока вы помните, что фланги существуют."
+            "Дозорные — обычные стрелки, которым дали основы разведки и ставят в стороне от основной "
+            "линии. Лёгкое снаряжение помогает им занять боковую позицию, после чего они держатся за "
+            "укрытие и ловят движущиеся цели винтовочным огнём. Перед наступлением проверяйте оба фланга. "
+            "Подходите под прикрытием дыма или заходите с другой стороны."
         ),
     },
     # --- Flanker T2 ---
@@ -195,32 +195,32 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Scout",
         "title_ru": "Скаут",
         "body_en": (
-            "Scouts have blood on the boots already — they probe, mark, and call the ambush "
-            "before you see the lane. Quieter than Wardens, meaner when you cross their trail. "
-            "Expect side shots into overwatch and knives for stragglers. Lose sight of the edges "
-            "and the fight arrives from the wrong compass."
+            "Scouts are survivors of Warden patrols who have learned to move quietly and choose their "
+            "approach. They slip around the line with automatic weapons, and may use a knife or smoke "
+            "once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a "
+            "Scout into ground you have not cleared."
         ),
         "body_ru": (
-            "У скаутов уже кровь на ботинках — щупают, метят и зовут засаду раньше, чем вы "
-            "увидите просеку. Тише дозорных, злее, если пересечёте их след. Ждите боковые "
-            "выстрелы в овервотч и нож для отставших. Потеряете края карты — бой придёт с "
-            "неверной стороны компаса."
+            "Скауты — это выжившие Дозорные, которые научились двигаться тихо и выбирать путь для захода. "
+            "Они обходят линию с автоматическим оружием, а в тылу могут пустить в ход нож или дым. "
+            "Прикрывайте фланги парами, следите за скрытыми подходами и не гонитесь за Скаутом туда, где "
+            "ещё не провели разведку."
         ),
     },
     "JAZZ_Legion_FlankerT2_Skirmisher": {
         "title_en": "Skirmisher",
         "title_ru": "Застрельщик",
         "body_en": (
-            "Skirmishers fight the soft fight on the wing: hit, fade, hit again. Blooded enough "
-            "to bait a chase into a second team. They do not hold ground — they punish anyone "
-            "who leaves the centre column. Treat every empty alley as occupied until proven "
-            "otherwise."
+            "Skirmishers are picked for marksmanship and trained to fight away from the main line. They "
+            "carry light armor and battle rifles, shifting between flanking positions to fire on exposed "
+            "targets. Do not follow them across open ground; move under cover or smoke and pin their "
+            "position before advancing."
         ),
         "body_ru": (
-            "Застрельщики ведут мягкий бой на крыле: удар, исчез, снова удар. Обстреляны "
-            "достаточно, чтобы заманить погоню во вторую группу. Землю не держат — наказывают "
-            "тех, кто вылез из центральной колонны. Считайте пустой переулок занятым, пока "
-            "не доказано обратное."
+            "В Застрельщики отбирают метких бойцов и учат их работать в стороне от главной линии. Они "
+            "носят лёгкую броню и переходят между боковыми позициями с боевыми винтовками, выискивая "
+            "открытые цели. Не преследуйте их по открытому месту — двигайтесь под прикрытием или дымовой "
+            "завесой и сначала прижмите их огнём."
         ),
     },
     # --- Flanker T3 ---
@@ -228,32 +228,32 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Pathfinder",
         "title_ru": "Следопыт",
         "body_en": (
-            "Pathfinders are trained trail killers — they own goat paths, ditch lines, and the "
-            "blind spot behind your advance. Not militia: they set lanes and wait. Ambush "
-            "quality jumps; runners die before they reach the road. Clear the edges before you "
-            "celebrate the centre."
+            "Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their "
+            "light gear lets them reach a flank with a carbine or submachine gun, and many also carry "
+            "smoke or a knife. Sweep nearby cover before moving the main group, then block their escape "
+            "instead of trading shots from one position."
         ),
         "body_ru": (
-            "Следопыты — вышколенные убийцы троп: им принадлежат козьи тропки, канавы и "
-            "слепая зона за вашим наступлением. Не ополчение — ставят просеки и ждут. Качество "
-            "засад растёт; бегущие гибнут, не дойдя до дороги. Зачистите края, прежде чем "
-            "праздновать центр."
+            "Следопыты — опытные разведчики, которых учат выбирать скрытую линию огня и удерживать её. "
+            "Лёгкое снаряжение помогает им выйти во фланг с карабином или пистолетом-пулемётом; многие "
+            "также берут дым или нож. Перед движением основной группы проверьте ближайшие укрытия, а "
+            "обнаружив Следопыта, перекройте ему отход."
         ),
     },
     "JAZZ_Legion_FlankerT3_Recon": {
         "title_en": "Recon",
         "title_ru": "Разведчик",
         "body_en": (
-            "Recon teams feed the Major eyes — trained to count, shadow, and only shoot when "
-            "the ambush is already closed. They vanish after contact and return with friends. "
-            "If you feel watched on the approach, you probably are. Kill them early or fight "
-            "their report later."
+            "Recon troops are veteran scouts trained for quiet approaches and night fighting. They use "
+            "light gear and compact automatic weapons to close from an unseen angle, sometimes covering "
+            "the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish "
+            "them as soon as they reveal themselves."
         ),
         "body_ru": (
-            "Разведчики кормят Майора глазами — умеют считать, вести хвост и стрелять только "
-            "когда кольцо уже сомкнуто. После контакта исчезают и возвращаются с друзьями. "
-            "Если на подходе кажется, что за вами смотрят — скорее всего, так и есть. Уберите "
-            "их рано или потом бейтесь с их докладом."
+            "Разведчики — опытные бойцы, которых учат скрытно подходить к цели и действовать ночью. "
+            "Лёгкое снаряжение и компактное автоматическое оружие позволяют им сближаться с неожиданной "
+            "стороны, иногда под прикрытием дыма. Прикрывайте друг друга перекрёстным огнём, освещайте "
+            "тёмные подходы и добивайте Разведчика, как только он себя выдаст."
         ),
     },
     # --- Flanker T4 ---
@@ -261,16 +261,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Ranger",
         "title_ru": "Рейнджер",
         "body_en": (
-            "Rangers are paid ghosts on the Major's favourite payroll — elite flank work with "
-            "top glass and no wasted noise. They cut logistics, silence sentries, and collapse "
-            "retreats. If one is on the board, assume every tree line is hostile. Priority "
-            "kill: force multipliers who never stand in the middle."
+            "Rangers are elite scouts selected from the Legion's best flankers and given its finest field "
+            "training. They move quickly and quietly with upgraded carbines or submachine guns, striking "
+            "from the side before slipping away. Treat a Ranger as a priority target, overlap your fields "
+            "of fire, and never leave one merc isolated."
         ),
         "body_ru": (
-            "Рейнджеры — платные призраки в любимом списке Майора: элитный фланг, лучшая "
-            "оптика, без лишнего шума. Режут снабжение, глушат часовых, схлопывают отходы. "
-            "Если такой на доске — считайте каждую лесополосу враждебной. Приоритет: "
-            "мультипликаторы силы, которые никогда не стоят в середине."
+            "Рейнджеров отбирают из лучших фланкеров Легиона и готовят как элитных полевых разведчиков. "
+            "Они быстро и тихо двигаются с улучшенными карабинами или пистолетами-пулемётами, бьют сбоку "
+            "и снова уходят из-под огня. Считайте Рейнджера приоритетной целью, прикрывайте друг друга "
+            "перекрёстным огнём и не оставляйте наёмника в одиночку."
         ),
     },
     # --- Front T1 ---
@@ -278,48 +278,52 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Bonemaker",
         "title_ru": "Костоправ",
         "body_en": (
-            "Bonemakers are the Legion's field medics with rifles — they hold the line while "
-            "dragging their own back up. Green kit, shaky aim, but every one you leave alive "
-            "puts another Legionnaire on his feet. Overwatch around their stretchers; they "
-            "punish heroic rushes more than they win duels."
+            "A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. "
+            "The Major chooses people who stay calm around blood, gives them a compact firearm, and "
+            "hurries them through battlefield medicine. They break off to stop bleeding or treat other "
+            "wounds. Remove the medic before pressing forward, or fighters you have already hurt will "
+            "stay in the battle far longer than expected."
         ),
         "body_ru": (
-            "Костоправы — полевые медики Легиона с винтовками: держат линию и одновременно "
-            "поднимают своих. Сырой кит, дрожащий прицел, но каждый живой снова ставит "
-            "легионера на ноги. Держите овервотч вокруг их носилок — они сильнее наказывают "
-            "героические рывки, чем выигрывают дуэли."
+            "Если рекрут покидает строй, чтобы помочь раненому легионеру, перед вами, скорее всего, "
+            "Костоправ. Майор выбирает для этой роли тех, кто не теряется при виде крови, выдаёт им "
+            "компактное огнестрельное оружие и наскоро обучает полевой медицине. Они выходят из боя, "
+            "чтобы остановить кровотечение или обработать другие раны. Уберите медика до начала штурма, "
+            "иначе уже задетые бойцы останутся в строю гораздо дольше, чем вы рассчитывали."
         ),
     },
     "JAZZ_Legion_FrontT1_Marauder": {
         "title_en": "Marauder",
         "title_ru": "Мародёр",
         "body_en": (
-            "Marauders fill the firing line with scavenged rifles and bad attitudes. Green, "
-            "loud, and fond of spraying the lane they think is yours. They hold ground by "
-            "volume more than craft. Steady threat if you stand in the open; softer if you "
-            "force them to move."
+            "Looters and local toughs fill the Marauder ranks. They start with pistols and submachine "
+            "guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the "
+            "line and rake exposed ground with fire, but pressure can pin them down before they "
+            "accomplish much. Their short-range weapons punish careless movement, so return fire quickly, "
+            "keep your distance, and force them to keep their heads down."
         ),
         "body_ru": (
-            "Мародёры заполняют линию огня трофейными винтовками и скверным нравом. Зелёные, "
-            "шумные, любят поливать просеку, которую считают вашей. Держат землю объёмом "
-            "огня, не мастерством. Угроза ровная, если стоите на открытом; мягче, если "
-            "заставите их двигаться."
+            "Мародёров набирают из грабителей и местных громил. Сначала им выдают пистолеты и "
+            "пистолеты-пулемёты; штурмовые винтовки появляются, когда снабжение Легиона налаживается. Они "
+            "закрывают бреши в передовой и держат открытые участки под огнём, но плотный ответ быстро "
+            "прижимает их к земле. Их оружие опаснее всего вблизи, поэтому отвечайте сразу, держите "
+            "дистанцию и не давайте им поднять голову."
         ),
     },
     "JAZZ_Legion_FrontT1_Rifleman": {
         "title_en": "Rifleman",
         "title_ru": "Стрелок",
         "body_en": (
-            "Riflemen are the textbook green line — aimed shots when they remember to breathe, "
-            "panic magazines when they don't. They overwatch doorways with more hope than "
-            "skill. Still: a patient bullet from cover kills heroes. Punish mistakes harder "
-            "than they punish courage."
+            "Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, "
+            "doorways, and village approaches. From cover, they use their rifles to watch the ground "
+            "ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block "
+            "his view with smoke or approach from a direction his firing position does not cover."
         ),
         "body_ru": (
-            "Стрелки — учебниковая зелёная линия: прицельный выстрел, если вспомнят дышать, "
-            "панический магазин — если нет. Держат овервотч на дверях скорее надеждой, чем "
-            "умением. И всё же терпеливая пуля из укрытия убивает героев. Ошибки наказывают "
-            "жёстче, чем храбрость."
+            "Большинство Стрелков — призывники с несколькими уроками меткой стрельбы за плечами; их "
+            "ставят охранять дороги, двери и подступы к деревням. Из укрытия они следят за подступами и "
+            "ждут удобного выстрела. Терпеливый Стрелок накажет за неосторожное движение, поэтому "
+            "закройте ему обзор дымом или подойдите со стороны, которую не перекрывает его позиция."
         ),
     },
     # --- Front T2 ---
@@ -327,47 +331,50 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Ambusher",
         "title_ru": "Засадник",
         "body_en": (
-            "Ambushers own prepared lanes on the front — blooded shooters who wait for the "
-            "first man to cross a chalk line. Not runners; hunters with a static kill zone. "
-            "Expect overwatch that actually bites. Probe with smoke or angles before you "
-            "commit the column."
+            "Ambushers are patient shooters taught to prepare concealed firing positions along likely "
+            "approaches. From a prepared position, they wait for an exposed target and punish the first "
+            "careless move with accurate rifle fire. Do not walk into ground they have chosen; scout "
+            "ahead, use smoke, and force them to reveal themselves early."
         ),
         "body_ru": (
-            "Засадники владеют подготовленными просеками на фронте — обстрелянные стрелки, "
-            "ждущие, пока первый пересечёт меловую черту. Не бегуны; охотники со статичной "
-            "зоной поражения. Овервотч у них уже кусается. Щупайте дымом или углами, прежде "
-            "чем гнать колонну."
+            "Засадники — терпеливые стрелки, обученные заранее готовить скрытые позиции на вероятных "
+            "путях противника. С подготовленной позиции они ждут открытой цели и отвечают точным "
+            "винтовочным огнём на первое неосторожное движение. Не входите вслепую туда, что выбрали они: "
+            "разведайте подход, поставьте дым и вынудите Засадников раскрыться раньше срока."
         ),
     },
     "JAZZ_Legion_FrontT2_Marksman": {
         "title_en": "Marksman",
         "title_ru": "Охотник",
         "body_en": (
-            "Marksmen pick officers and MG nests from the second rank — blooded enough to "
-            "hold fire until the shot matters. They punish silhouettes on ridges and anyone "
-            "who peeks the same window twice. Steady threat: they do not need to rush you."
+            "The best shots in regular squads are given accurate rifles and taught to wait for a clean "
+            "shot. They work behind the front, hold useful ground, and let the enemy come to them rather "
+            "than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing "
+            "points often and deny them a clear view with smoke."
         ),
         "body_ru": (
-            "Охотники снимают офицеров и пулемётные точки со второго ряда — обстреляны "
-            "достаточно, чтобы ждать выстрела, который важен. Наказывают силуэты на гребнях "
-            "и тех, кто выглядывает в одно окно дважды. Угроза ровная: им не нужно к вам "
-            "бежать."
+            "Лучшим стрелкам обычных отделений выдают точные винтовки и приучают ждать удобного выстрела. "
+            "Они держатся позади передовой, занимают выгодные позиции и позволяют противнику самому выйти "
+            "под выстрел. Их меткость превращает повторный выход из укрытия в смертельную ошибку, поэтому "
+            "чаще меняйте огневые точки и закрывайте обзор дымом."
         ),
     },
     "JAZZ_Legion_FrontT2_Raider": {
         "title_en": "Raider",
         "title_ru": "Налётчик",
         "body_en": (
-            "Raiders are line troops with a habit of sudden advances — blooded soldiers who "
-            "push after a volley instead of hugging dirt forever. They hold, then take the "
-            "next wall. Overwatch plus short assaults: treat them as a moving front, not a "
-            "static fence."
+            "Raiders are adaptable front-line fighters drilled with automatic weapons; every one also "
+            "receives hand grenades. They move with the line, use rapid fire to cover short advances, and "
+            "throw grenades when defenders settle behind cover. Rapid fire and grenades make them "
+            "dangerous at close and middle range, so spread out, deny them an easy approach, and press "
+            "them before they can choose where to throw."
         ),
         "body_ru": (
-            "Налётчики — линейные с привычкой к внезапному рывку: обстрелянные солдаты, "
-            "которые после залпа идут вперёд, а не вечно жмутся к земле. Держат — и берут "
-            "следующую стену. Овервотч плюс короткие штурмы: это движущийся фронт, не "
-            "статичный забор."
+            "Налётчики — подвижные бойцы передовой, обученные обращаться с автоматическим оружием; "
+            "каждому также выдают ручные гранаты. Они движутся вместе с передовой, прикрывают короткие "
+            "рывки быстрым огнём и бросают гранаты, когда защитники прочно засели в укрытии. Быстрый "
+            "огонь и гранаты делают их опасными на ближней и средней дистанции, поэтому рассредоточьтесь, "
+            "перекройте подход и надавите до первого броска."
         ),
     },
     # --- Front T3 ---
@@ -375,31 +382,36 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Sniper",
         "title_ru": "Снайпер",
         "body_en": (
-            "Legion snipers are trained glass — one shot, one changed plan. They pick lanes "
-            "and wait; heroics across open ground are gifts. Not militia with scopes: they "
-            "know when to relocate after the first kill. Clear overwatch before you stack "
-            "for assault."
+            "Only the Legion's finest riflemen receive sniper training: patience, target selection, and "
+            "careful use of scoped rifles. They watch open approaches from distance and begin an "
+            "engagement by pinning one exposed target under accurate fire. Crossing open ground gives "
+            "them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a "
+            "direct assault."
         ),
         "body_ru": (
-            "Снайперы Легиона — вышколенная оптика: один выстрел, один сломанный план. "
-            "Выбирают просеку и ждут; героизм через открытое — подарок. Не ополчение с "
-            "прицелом: умеют сменить позицию после первого трупа. Снимите овервотч, прежде "
-            "чем собирать стэк на штурм."
+            "Снайперскую подготовку получают только лучшие стрелки Легиона: их учат терпеливо выбирать "
+            "цель и правильно обращаться с винтовками с оптикой. Они наблюдают за открытыми подступами "
+            "издалека и начинают бой, прижимая точным огнём одну неосторожно открывшуюся цель. На "
+            "открытом месте вы сами подставляетесь под удобный выстрел, поэтому прикрывайте движение "
+            "дымом и найдите Снайпера до начала прямого штурма."
         ),
     },
     "JAZZ_Legion_FrontT3_Veteran": {
         "title_en": "Veteran",
         "title_ru": "Ветеран",
         "body_en": (
-            "Veterans are the backbone of a trained Legion line — patient fire, smart "
-            "overwatch, few wasted magazines. They punish mistakes and survive the ones you "
-            "thought would break them. Expect grenade tricks and disciplined mutual support. "
-            "Steady, ugly threat."
+            "Veterans have survived several campaigns and stayed steady under fire. They advance "
+            "stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep "
+            "fighting through punishment that would stop less experienced troops. Their durability and "
+            "explosives punish a packed formation, so spread out, deny them a clean approach, and "
+            "concentrate fire before closing in."
         ),
         "body_ru": (
-            "Ветераны — хребет вышколенной линии Легиона: терпеливый огонь, умный овервотч, "
-            "мало пустых магазинов. Наказывают ошибки и переживают те, что должны были их "
-            "сломить. Ждите гранатные фокусы и взаимную поддержку. Угроза ровная и неприятная."
+            "Ветераны пережили несколько кампаний и не растерялись под огнём. Они упрямо наступают с "
+            "автоматическим оружием и гранатами; некоторые также несут гранатомёт, и все выдерживают "
+            "давление, которое остановило бы менее опытных бойцов. Их стойкость и взрывчатка опасны для "
+            "плотного строя, поэтому рассредоточьтесь, не давайте им удобно сблизиться и сосредоточьте "
+            "огонь до решающего рывка."
         ),
     },
     # --- Front T4 ---
@@ -407,32 +419,36 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Mercenary",
         "title_ru": "Наёмник",
         "body_en": (
-            "Mercenaries on the Major's payroll fight like professionals who bill by the "
-            "hour — paid steel on the line. Top kit, calm overwatch, no panic dumps. They "
-            "hold sectors the way contractors hold contracts. Kill them or pay later in "
-            "reinforcements."
+            "The Legion hires experienced Mercenaries to hold important positions and sends them out with "
+            "good weapons. They move with the front and combine accurate rifle fire with grenades; a few "
+            "also carry a launcher, and all keep fighting under pressure. They are dangerous at several "
+            "ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one "
+            "position at a time."
         ),
         "body_ru": (
-            "Наёмники на жалованье Майора бьются как профи с почасовой оплатой — платная "
-            "сталь на линии. Лучший кит, спокойный овервотч, без панических очередей. "
-            "Держат сектора, как подрядчики держат контракты. Уберите их — или потом "
-            "платите подкреплениями."
+            "На важные позиции Легион нанимает опытных Наёмников и выдаёт им неизменно хорошее оружие. "
+            "Они движутся вместе с передовой и сочетают точный винтовочный огонь с гранатами; некоторые "
+            "также несут гранатомёт, и все продолжают эффективно сражаться под давлением. Они опасны на "
+            "разных дистанциях, поэтому не давайте им честного боя: рассеивайте внимание, закрывайте "
+            "обзор и подавляйте по одной позиции."
         ),
     },
     "JAZZ_Legion_FrontT4_MercenarySniper": {
         "title_en": "Mercenary Sniper",
         "title_ru": "Наёмник-снайпер",
         "body_en": (
-            "Mercenary Snipers are the Major's favourite long knives — paid glass that "
-            "erases leadership and MG before the assault starts. Relocate after every "
-            "shot; expect no second chance in the same window. Priority over almost "
-            "everything else on the front."
+            "Mercenary Snipers are proven specialists hired for operations where accurate long-range fire "
+            "can decide the opening exchange. They begin by pinning an exposed target and use powerful "
+            "scoped rifles to control open approaches from a distance. Once one is reported, do not "
+            "expose yourself twice from the same place. Cover movement with smoke and pressure the "
+            "shooter before committing the squad."
         ),
         "body_ru": (
-            "Наёмные снайперы — любимые длинные ножи Майора: платная оптика, которая "
-            "снимает командиров и пулемёты до начала штурма. Меняют позицию после каждого "
-            "выстрела; второго шанса в том же окне не ждите. Приоритет почти над всем "
-            "остальным на фронте."
+            "Наёмники-снайперы — готовые специалисты, которых нанимают для операций, где точный дальний "
+            "огонь может решить исход первой перестрелки. Они начинают бой, прижимая открывшуюся цель, и "
+            "держат открытые подступы под огнём мощных винтовок с оптикой. Заметив такого стрелка, не "
+            "показывайтесь дважды в одном месте, прикройте движение дымом и надавите на него до общего "
+            "наступления."
         ),
     },
     # --- Gunner T1 ---
@@ -440,15 +456,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Gunner",
         "title_ru": "Пуляло",
         "body_en": (
-            "Green gunners own a lane with belts they barely know how to feed. Loud, "
-            "inaccurate, still enough to pin anyone who stands tall in the open. Soft in "
-            "tight rooms; brutal across courtyards. Flank them or eat suppression."
+            "The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson "
+            "in using them. They set up across roads and courtyards and spray enough fire to pin anyone "
+            "caught away from cover, but remain vulnerable while moving. Do not cross their sights in the "
+            "open; use smoke, buildings, or a side approach to reach them safely."
         ),
         "body_ru": (
-            "Зелёные пулемётчики держат просеку лентами, которые едва умеют подавать. "
-            "Громко, криво — но достаточно, чтобы прижать тех, кто выпрямился на открытом. "
-            "В тесных комнатах мягче; через дворы — жестоко. Зайдите с фланга или ешьте "
-            "подавление."
+            "Самым крепким новобранцам Легион выдаёт старые пулемёты и наспех учит с ними обращаться. Они "
+            "разворачиваются у дорог и дворов и прижимают к земле всех, кто не успел укрыться, но "
+            "остаются уязвимыми на ходу. Не входите в их сектор огня через открытое место: используйте "
+            "дым, здания или обходной путь."
         ),
     },
     # --- Gunner T2 ---
@@ -456,32 +473,35 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Assault Gunner",
         "title_ru": "Коммандо",
         "body_en": (
-            "Assault Gunners walk the belt forward — blooded crews who displace with the "
-            "push instead of camping one sandbag forever. Suppression that moves with the "
-            "breach. Open ground still favours them; rooms punish slow mounts. Deny the "
-            "approach or pay in inches."
+            "Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light "
+            "machine guns forward instead of guarding one position. They close the distance, set up near "
+            "the fight, and pin defenders from positions that ordinary gunners would consider too "
+            "exposed. If they reach useful firing ground the attack becomes hard to stop, so break their "
+            "approach with explosives or catch them while they are moving."
         ),
         "body_ru": (
-            "Штурмовые пулемётчики несут ленту вперёд — обстрелянные расчёты, которые "
-            "смещаются с натиском, а не вечно сидят за одним мешком. Подавление, идущее "
-            "вместе с проломом. Открытое всё ещё их; комнаты наказывают медленную установку. "
-            "Перекройте подход — или платите метрами."
+            "Выживших пулемётчиков переводят в Коммандо и учат продвигать лёгкий пулемёт вперёд вместо "
+            "охраны одной позиции. Они сближаются, разворачивают оружие рядом с местом боя и прижимают "
+            "защитников с позиций, которые обычный пулемётчик счёл бы слишком открытыми. Если они "
+            "доберутся до удобного места, атаку будет трудно остановить, поэтому сорвите подход взрывом "
+            "или ударьте, пока пулемёт ещё несут."
         ),
     },
     "JAZZ_Legion_GunnerT2_GMPG": {
         "title_en": "GPMG",
         "title_ru": "Пулемётчик",
         "body_en": (
-            "GPMG teams are the classic blooded nest — sustained belts, interlocking "
-            "lanes, patience. They deny approaches until something bigger breaks the "
-            "gun. High threat across plazas; softer if you force a move under fire. "
-            "Smoke and angles beat heroism."
+            "Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady "
+            "without wasting ammunition. They settle into prepared positions and use a general-purpose "
+            "machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their "
+            "advantage; block their view with smoke, force them to move, or attack from a direction their "
+            "position cannot cover."
         ),
         "body_ru": (
-            "Расчёты GPMG — классическое обстрелянное гнездо: длинные ленты, пересекающиеся "
-            "просеки, терпение. Закрывают подходы, пока что-то крупнее не сломает ствол. "
-            "Угроза высокая через площади; мягче, если заставить смещаться под огнём. "
-            "Дым и углы бьют героизм."
+            "На роль Пулемётчика ставят надёжных бойцов и учат их долго вести огонь, не паля впустую. Они "
+            "занимают подготовленные позиции и перекрывают единым пулемётом дороги, дворы и широкие "
+            "подступы. Лобовой бросок играет им на руку; закройте обзор дымом, вынудите пулемётчика "
+            "сняться с места или атакуйте с неприкрытой стороны."
         ),
     },
     # --- Gunner T3 ---
@@ -489,16 +509,17 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Veteran Gunner",
         "title_ru": "Подавитель",
         "body_en": (
-            "Veteran Gunners are trained belt artists — they walk fire, save bursts, and "
-            "kill the first man who thinks the lane is clear. Not militia with a bipod. "
-            "Expect disciplined suppression that shapes the whole fight. Flank hard or "
-            "bring boom."
+            "Veteran Gunners have survived repeated engagements and are trusted with stronger machine "
+            "guns. They use disciplined bursts and expert prepared fire to lock down movement, while "
+            "tougher defenses let them stay effective under pressure. Their fire can stall an attack, so "
+            "keep them occupied from one direction and strike quickly from another, or destroy the "
+            "position with explosives."
         ),
         "body_ru": (
-            "Ветераны-пулемётчики — вышколенные мастера ленты: водят огонь, экономят "
-            "очереди и убивают первого, кто решил, что просека чиста. Не ополчение с "
-            "сошками. Ждите дисциплинированное подавление, которое лепит весь бой. Жёсткий "
-            "фланг или тяжёлое железо."
+            "Подавители — опытные пулемётчики, пережившие не один бой; им доверяют более мощное оружие. С "
+            "подготовленных позиций они перекрывают движение точными очередями, а тяжёлая броня помогает "
+            "дольше выдерживать ответный огонь. Подавитель способен остановить наступление, поэтому "
+            "отвлеките его с одной стороны и быстро ударьте с другой либо накройте позицию взрывчаткой."
         ),
     },
     # --- Gunner T4 ---
@@ -506,14 +527,18 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Merc Gunner",
         "title_ru": "Наёмник-пулемётчик",
         "body_en": (
-            "Merc Gunners are paid steel behind the best belts the Major can buy. They "
-            "own open ground like contractors own a clause. Relocate under smoke, reappear "
-            "on a worse angle. Priority target: one nest can freeze a whole push."
+            "Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine "
+            "guns available to the Legion. They combine disciplined bursts, prepared fire, and enough "
+            "resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone "
+            "can halt an advance, so deny them a clear field of fire and destroy the gunner before "
+            "committing anyone across open ground."
         ),
         "body_ru": (
-            "Наёмные пулемётчики — платная сталь за лучшими лентами, какие Майор может "
-            "купить. Владеют открытым, как подрядчики — пунктом договора. Уходят под дымом "
-            "и встают под худшим углом. Приоритет: одно гнездо может заморозить весь натиск."
+            "Наёмники-пулемётчики — опытные специалисты по тяжёлому оружию, которым выдают лучшие "
+            "пулемёты Легиона. С подготовленной позиции они держат под огнём широкий участок и продолжают "
+            "стрелять даже под плотным ответным огнём. Если оставить их в покое, они остановят любое "
+            "продвижение, поэтому закройте им обзор и уничтожьте пулемётчика до выхода отряда на открытое "
+            "место."
         ),
     },
     # --- Heavy T1 ---
@@ -521,16 +546,18 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Rocketeer",
         "title_ru": "Ракетчик",
         "body_en": (
-            "Green rocketeers still flinch at their own backblast — and still erase a "
-            "wall if the tube leaves the shoulder. Spike threat: one shot rewrites cover "
-            "and morale. Soft if you catch them mid-reload; catastrophic if you stack in "
-            "their sight picture. Area denial by accident and intent."
+            "Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction "
+            "to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, "
+            "and clustered targets, but the launcher usually leaves them with only one attack before they "
+            "must recover or reload. Spread out and press them immediately after a launch; one unanswered "
+            "rocket can turn a defensible position into wreckage."
         ),
         "body_ru": (
-            "Зелёные ракетчики ещё вздрагивают от собственного подрыва сзади — и всё равно "
-            "сносят стену, если труба ушла с плеча. Угроза-всплеск: один выстрел переписывает "
-            "укрытия и мораль. Мягкие, если поймать на перезарядке; катастрофа, если "
-            "встать им в прицел. Зона поражения — и по привычке, и по заданию."
+            "Ракетчики — новобранцы, которым хватает смелости взвалить установку на плечо и подготовки, "
+            "чтобы не накрыть своих. Они стреляют из РПГ или одноразовых установок по машинам, стенам и "
+            "плотным группам, но после пуска обычно не могут сразу атаковать снова. Рассредоточьтесь и "
+            "надавите сразу после выстрела: одна оставленная без ответа ракета превратит надёжную позицию "
+            "в груду обломков."
         ),
     },
     # --- Heavy T2 ---
@@ -538,16 +565,18 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Grenadier",
         "title_ru": "Гранатомётчик",
         "body_en": (
-            "Heavy Grenadiers are blooded boom specialists — tubes and launchers that "
-            "carve rooms and courtyards. They shape approaches with timed blasts, not "
-            "hope. Expect area denial that forces you into their gunners' lanes. Kill "
-            "or displace before the second round lands."
+            "Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade "
+            "launchers. They send explosive rounds into rooms, courtyards, and covered approaches, "
+            "forcing anyone who survives the blast to abandon a comfortable position. Remaining in one "
+            "place invites another round, so move after each shot and pressure the Grenadier before the "
+            "launcher is ready again."
         ),
         "body_ru": (
-            "Тяжёлые гранатомётчики — обстрелянные специалисты грома: трубы и пусковые, "
-            "которые режут комнаты и дворы. Формируют подходы взрывами по таймеру, не "
-            "надеждой. Ждите зону поражения, которая гонит вас под чужие пулемёты. "
-            "Уберите или сместите до второго выстрела."
+            "Гранатомётчики уже знакомы со взрывчаткой, прежде чем их начинают учить стрельбе из РПГ и "
+            "гранатомётов. Они посылают взрывные выстрелы в помещения, дворы и прикрытые подступы, "
+            "вынуждая переживших разрыв покинуть удобную позицию. Тот, кто останется на месте, дождётся "
+            "следующего выстрела, поэтому двигайтесь после каждого разрыва и надавите на Гранатомётчика "
+            "до перезарядки."
         ),
     },
     # --- Heavy T3 ---
@@ -555,16 +584,18 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Mortarman",
         "title_ru": "Миномётчик",
         "body_en": (
-            "Mortarmen are trained to drop steel where you thought the sky was empty. "
-            "Indirect fire turns cover into a suggestion. Not militia with a tube: they "
-            "walk rounds onto a grid. Break the team or abandon the square — standing "
-            "still under trained mortar is a choice, not a plan."
+            "Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other "
+            "obstacles. They use a portable mortar to strike positions that direct fire cannot easily "
+            "reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move "
+            "immediately and pressure the crew before it fires again. A wall between you and the crew "
+            "will not keep you safe."
         ),
         "body_ru": (
-            "Миномётчики вышколены ронять железо туда, где небо казалось пустым. Навесной "
-            "огонь превращает укрытие в рекомендацию. Не ополчение с трубой — ведут "
-            "разрывы по сетке. Сломайте расчёт или бросьте квадрат: стоять под вышколенным "
-            "миномётом — выбор, не план."
+            "Миномётчики — проверенные бойцы тяжёлого оружия, обученные забрасывать мины за стены и "
+            "другие препятствия. Они используют переносной миномёт против позиций, до которых трудно "
+            "добраться прямым огнём, вынуждая засевших бойцов покинуть укрытие. Как только начался "
+            "обстрел, немедленно двигайтесь и надавите на расчёт до следующего выстрела. Стена между вами "
+            "и расчётом от мины не спасёт."
         ),
     },
     # --- Leader T1 ---
@@ -572,15 +603,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Sergeant",
         "title_ru": "Бригадир",
         "body_en": (
-            "Sergeants keep green packs pointed the same way — shouted orders, slapstick "
-            "rally, enough presence to stop a rout. Soft individually; dangerous as a "
-            "force multiplier. Kill the voice early and the rabble forgets why it came."
+            "When frightened recruits suddenly start moving as one, look for the loudest man among them. "
+            "The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops "
+            "forward, hold them in place, or focus their fire. Remove the leader early and the rest "
+            "become much easier to disrupt."
         ),
         "body_ru": (
-            "Бригадиры держат зелёную стаю в одном направлении — резкие окрики, грубый "
-            "сбор, достаточно присутствия, чтобы остановить бегство. Поодиночке мягки; "
-            "опасны как усилитель отряда. Уберите голос рано — сброд забудет, зачем "
-            "пришёл."
+            "Если испуганные рекруты вдруг начинают действовать как один, ищите самого громкого среди "
+            "них. Из таких надёжных легионеров Майор делает Бригадиров: они гонят ближайших бойцов "
+            "вперёд, удерживают их на месте или сосредоточивают огонь. Уберите лидера в начале боя, и "
+            "остальных станет гораздо легче рассеять."
         ),
     },
     # --- Leader T2 ---
@@ -588,16 +620,17 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Lieutenant",
         "title_ru": "Командир",
         "body_en": (
-            "Lieutenants are blooded mid-tier glue — they rally after the first casualties "
-            "and push the pack instead of letting it melt. Expect timed advances and "
-            "fewer freezes under fire. Force multiplier: remove them and the local plan "
-            "collapses into noise."
+            "Successful Sergeants become Lieutenants and trade shouting at one group for directing "
+            "several squads. Their orders reach a wider area, sending troops forward, holding them in "
+            "place, moving them into cover, or focusing their fire as the situation changes. Their "
+            "presence keeps a local attack coherent, so remove the officer before the Legion can regroup "
+            "and turn a confused exchange into an organized assault."
         ),
         "body_ru": (
-            "Лейтенанты — обстрелянный клей среднего звена: собирают после первых потерь "
-            "и толкают стаю, а не дают ей растаять. Ждите выверенные рывки и меньше "
-            "оцепенения под огнём. Мультипликатор силы: уберите их — местный план "
-            "схлопнется в шум."
+            "Успешные Бригадиры становятся Командирами и вместо одной группы руководят несколькими "
+            "отделениями. Их приказы слышны на большей территории: наступать, удерживать позиции, искать "
+            "укрытие или сосредоточивать огонь. Пока Командир жив, местная атака сохраняет общий замысел, "
+            "поэтому устраните офицера до перегруппировки Легиона."
         ),
     },
     # --- Leader T3 ---
@@ -605,15 +638,16 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Captain",
         "title_ru": "Советник",
         "body_en": (
-            "Captains are trained commanders who make rabble fight like a unit — fire "
-            "control, mutual support, ugly competence. The Major trusts them with "
-            "sectors that matter. Priority kill: every minute they live, the Legion "
-            "around them gets smarter."
+            "Captains are officers trusted to control several units at once. They issue orders across the "
+            "entire Legion force, redirect the attack as conditions change, and support those commands "
+            "with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, "
+            "so identify the officer quickly and bring him down before pressing the fight."
         ),
         "body_ru": (
-            "Капитаны — вышколенные командиры, из сброда делают подразделение: контроль "
-            "огня, взаимная поддержка, неприятная грамотность. Майор доверяет им сектора, "
-            "которые важны. Приоритет: каждую минуту их жизни Легион вокруг умнеет."
+            "Советники — офицеры, которым доверяют сразу несколько подразделений. Они отдают приказы "
+            "всему отряду Легиона, меняют направление атаки по обстановке и поддерживают свои команды "
+            "точным винтовочным огнём. Пока Советник жив, противник действует слаженно, поэтому быстро "
+            "найдите офицера и устраните его до решающего натиска."
         ),
     },
     # --- Leader T4 ---
@@ -621,16 +655,17 @@ DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Mercenary Captain",
         "title_ru": "Мастер",
         "body_en": (
-            "Mercenary Captains are paid steel with a radio — elite force multipliers on "
-            "the Major's short list. They hold cohesion under disasters that would scatter "
-            "militia. If one is present, assume the fight has a brain. Kill first; argue "
-            "about medals later."
+            "Mercenary Captains are experienced officers hired to command mixed troops; they need little "
+            "more than local intelligence. They issue orders across the entire force, preserve discipline "
+            "through casualties, and quickly change plans when the first one fails. Assume nearby units "
+            "are acting with a common purpose while one survives; bring the Captain down before attacking "
+            "the rest."
         ),
         "body_ru": (
-            "Наёмные капитаны — платная сталь с рацией: элитные мультипликаторы в коротком "
-            "списке Майора. Держат связность под катастрофами, которые развеяли бы ополчение. "
-            "Если такой на поле — у боя есть мозг. Уберите первым; о медалях поспорите "
-            "потом."
+            "Мастера — опытные наёмные офицеры, умеющие командовать смешанными силами; им нужны лишь "
+            "свежие сведения о местной обстановке. Они отдают приказы всему отряду, сохраняют дисциплину "
+            "после потерь и быстро меняют план, если первый не сработал. Пока Мастер жив, считайте, что "
+            "окружающие бойцы действуют сообща; устраните его до атаки на остальных."
         ),
     },
 }
@@ -644,56 +679,54 @@ QUEST_DOSSIERS: dict[str, dict[str, str]] = {
         "title_en": "Pierre Laurent",
         "title_ru": "Пьер Лоран",
         "body_en": (
-            "Father's boy turned Legion face on Ernie — pride, pressed uniforms, and a chip "
-            "on the shoulder big enough to hide a rifle behind. Useful as a weather vane for "
-            "how hard the Major is leaning on the island. Treat charm as cover fire."
+            "Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with "
+            "something to prove. He likes being seen as much as being obeyed, which makes him easier to "
+            "read than most Legion officers. Don't mistake charm for mercy."
         ),
         "body_ru": (
-            "Папенькин сынок, ставший лицом Легиона на Эрни — гордость, выглаженная форма и "
-            "обида размером с винтовку за спиной. Удобен как флюгер: по нему видно, как сильно "
-            "Майор давит на остров. Обаяние считайте прикрывающим огнём."
+            "Сын Люка Лорана представляет Легион на Эрни — всегда в выглаженной форме и с желанием что-то "
+            "доказать. Ему важно не только подчинение, но и внимание, поэтому его легче читать, чем "
+            "других офицеров Легиона. Только не принимайте обаяние за доброту."
         ),
     },
     "Bastien": {
         "title_en": "Bastien",
         "title_ru": "Бастьен",
         "body_en": (
-            "Local muscle with a merchant's smile. When he talks trade, listen for who really "
-            "owns the road — tolls, tips, and quiet threats travel the same dirt. Desk note: "
-            "useful contact, never a friend."
+            "A local fixer with a trader's smile. He knows who controls each road, what passage costs, "
+            "and whom to pay. A useful contact, but never mistake business for friendship."
         ),
         "body_ru": (
-            "Местная сила с улыбкой торговца. Когда говорит о торговле, слушайте, кто на "
-            "самом деле держит дорогу — пошлины, наводки и тихие угрозы ходят по одной пыли. "
-            "Заметка стола: полезный контакт, никогда не друг."
+            "Местный делец с улыбкой торговца. Он знает, кто держит каждую дорогу, сколько стоит проезд и "
+            "кому платить. Полезный контакт, но не путайте дела с дружбой."
         ),
     },
     "TheMajor": {
         "title_en": "The Major",
         "title_ru": "Майор",
         "body_en": (
-            "Not a rumor — a commander who builds an army from fear, payroll, and stolen "
-            "warehouses. Every supply brief on this desk is really about him. Expect "
-            "patience, cruelty, and a long memory for whoever spoils his inventory."
+            "The man behind the Legion built his army with fear, money, and stolen supplies, then spread "
+            "it across Grand Chien. Every Legion supply report ultimately leads back to him. He is "
+            "patient, ruthless, and remembers every loss."
         ),
         "body_ru": (
-            "Не слух — командир, который собирает армию из страха, жалованья и краденых "
-            "складов. Каждая сводка снабжения на этом столе на самом деле о нём. Ждите "
-            "терпения, жестокости и длинной памяти к тем, кто портит его учёт."
+            "За Легионом стоит Майор. Он собрал армию страхом, деньгами и крадеными припасами, а затем "
+            "раскинул её по всему Гранд-Шьену. Любая сводка о снабжении Легиона в итоге ведёт к нему. Он "
+            "терпелив, безжалостен и помнит каждую потерю."
         ),
     },
     "Legion": {
         "title_en": "Legion (faction)",
         "title_ru": "Легион (фракция)",
         "body_en": (
-            "A private war machine wearing stolen legitimacy. Expect raids, pressed "
-            "recruits, and officers who treat villages like inventory ledgers. The "
-            "faction is the Major's shadow cast across every sector you will fight."
+            "The Major's army survives on stolen supplies, forced recruitment, and officers who treat "
+            "villages as property. Its troops range from frightened locals to trained specialists. "
+            "Wherever the Legion appears, the Major's reach is close behind."
         ),
         "body_ru": (
-            "Частная военная машина в краденой легитимности. Ждите налётов, рекрутов "
-            "под конвоем и офицеров, для которых деревня — строка в инвентаре. Фракция — "
-            "тень Майора на каждом секторе, где вам предстоит биться."
+            "Армия Майора живёт за счёт краденых припасов, насильственного набора и офицеров, которые "
+            "считают деревни своей собственностью. В её рядах есть и запуганные местные, и обученные "
+            "специалисты. Где появляется Легион, там недалеко и власть Майора."
         ),
     },
 }
@@ -705,41 +738,37 @@ QUEST_DOSSIERS: dict[str, dict[str, str]] = {
 WELCOME_FIXES: list[tuple[str, str, str]] = [
     (
         "890000000006922",
-        "R.I.S. — complimentary intelligence subscription",
-        "R.I.S. — бесплатная подписка разведки",
+        "R.I.S. — free field intelligence for your team",
+        "R.I.S. — бесплатная полевая разведка для вашего отряда",
     ),
     (
         "890000000006923",
         (
-            "Commander,\n\n"
-            "Recon Intelligence Services has activated your complimentary field subscription "
-            "for this campaign. We will send assessments when Legion supply quality shifts, "
-            "and host dossiers and battle reports on our PDA site as the desk expands.\n\n"
-            "Read this message to unlock the R.I.S. browser tab.\n\n"
-            "— Recon Intelligence Services"
+            "Commander,\n\nR.I.S. has opened a free field-intelligence channel for your team for the "
+            "duration of this campaign. When Legion weapons or equipment change, we will send an "
+            "assessment to your inbox. As we confirm more information, dossiers and after-action reports "
+            "will appear on the R.I.S. site in your PDA.\n\nRead this message to open the R.I.S. tab.\n\n— "
+            "Recon Intelligence Services"
         ),
         (
-            "Командир,\n\n"
-            "Разведывательная служба R.I.S. открыла вам бесплатную полевую подписку на эту "
-            "кампанию. Мы будем присылать оценки, когда изменится качество снабжения Легиона, "
-            "а на сайте в КПК — вести досье и боевые сводки по мере расширения стола.\n\n"
-            "Прочитайте это письмо, чтобы открыть вкладку R.I.S.\n\n"
-            "— Разведывательная служба R.I.S."
+            "Командир,\n\nR.I.S. открыла для вашего отряда бесплатный канал полевой разведки на время этой "
+            "кампании. Если Легион сменит оружие или снаряжение, оценка придёт вам на почту. По мере "
+            "подтверждения данных на сайте R.I.S. в КПК будут появляться досье и сводки после "
+            "боёв.\n\nПрочитайте это письмо, чтобы открыть вкладку R.I.S.\n\n— Разведывательно-информационная "
+            "служба R.I.S."
         ),
     ),
     (
         "890000000006924",
         (
-            "Recon Intelligence Services\n\n"
-            "Complimentary field subscription active. Dossiers and battle reports will appear "
-            "here as the desk expands.\n\n"
-            "Watch your inbox for Legion supply assessments."
+            "Recon Intelligence Services\n\nYour free campaign subscription is active. Confirmed dossiers "
+            "and after-action reports will appear here.\n\nLegion supply assessments are delivered to your "
+            "inbox."
         ),
         (
-            "Разведывательная служба R.I.S.\n\n"
-            "Бесплатная полевая подписка активна. Досье и боевые сводки появятся здесь по мере "
-            "расширения стола.\n\n"
-            "Следите за почтой — там оценки снабжения Легиона."
+            "Разведывательно-информационная служба R.I.S.\n\nБесплатная подписка на время кампании активна. "
+            "Здесь будут появляться подтверждённые досье и сводки после боёв.\n\nОценки снабжения Легиона "
+            "приходят на почту."
         ),
     ),
 ]
@@ -748,12 +777,12 @@ UI_FIXES: list[tuple[str, str, str]] = [
     (
         "890000000011000",
         "Recon Intelligence Services",
-        "Разведывательная служба R.I.S.",
+        "Разведывательно-информационная служба R.I.S.",
     ),
     (
         "890000000011001",
-        "Bulletin",
-        "Сводка",
+        "Field bulletin",
+        "Оперативная сводка",
     ),
     (
         "890000000011002",
@@ -762,43 +791,43 @@ UI_FIXES: list[tuple[str, str, str]] = [
     ),
     (
         "890000000011003",
-        "Battle reports",
-        "Боевые сводки",
+        "After-action reports",
+        "Сводки после боёв",
     ),
     (
         "890000000011004",
-        "No supply briefs on file yet. Watch your inbox — R.I.S. mails appear here after you receive them.",
-        "Оценок снабжения пока нет. Следите за почтой — письма R.I.S. появятся здесь после получения.",
+        "No supply assessment yet. Once R.I.S. sends one, it will appear here.",
+        "Оценок снабжения пока нет. Когда R.I.S. пришлёт новую, она появится здесь.",
     ),
     (
         "890000000011005",
-        "No dossiers unlocked yet. New Legion types appear here when their R.I.S. contact note arrives.",
-        "Досье ещё не открыты. Новые типы Легиона появляются здесь, когда приходит заметка R.I.S. о контакте.",
+        "No Legion units identified yet. We will add them as contact reports come in.",
+        "Мы пока не опознали ни одного бойца Легиона. Данные появятся после первых контактов.",
     ),
     (
         "890000000011006",
-        "No battle reports yet. Finish a fight — the desk will file a summary here (no mail spam).",
-        "Боевых сводок пока нет. Завершите бой — стол положит сюда отчёт (без спама в почту).",
+        "No after-action reports yet. Finish a battle and R.I.S. will add a summary here.",
+        "Сводок после боёв пока нет. Завершите бой, и R.I.S. добавит сюда итог.",
     ),
     (
         "890000000011007",
-        "Observed kills: <count>/3",
-        "Зафиксировано убийств: <count>/3",
+        "Confirmed kills: <count>/3",
+        "Подтверждённые потери противника: <count>/3",
     ),
     (
         "890000000011008",
-        "(sealed — need 3 confirmed kills)",
-        "(запечатано — нужно 3 подтверждённых убийства)",
+        "(classified — requires 3 confirmed kills)",
+        "(засекречено — нужно подтвердить 3 устранения)",
     ),
     (
         "890000000011009",
-        "Persons of interest",
-        "Особые фигуры",
+        "Key figures",
+        "Ключевые фигуры",
     ),
     (
         "890000000011010",
-        "Legion types",
-        "Типы Легиона",
+        "Legion units",
+        "Бойцы Легиона",
     ),
     (
         "890000000011011",
@@ -818,164 +847,166 @@ AAR_FIXES: list[tuple[str, str, str]] = [
     (
         "890000000011108",
         "Bad ground, worse timing",
-        "Плохая позиция, ещё хуже момент",
+        "Место хуже некуда, момент — ещё хуже",
     ),
     (
         "890000000011118",
-        "Pulled out under pressure",
-        "Отошли под давлением",
+        "Forced to pull back",
+        "Пришлось отступить",
     ),
     (
         "890000000011122",
-        "Ran the gauntlet out",
-        "Пробились наружу сквозь огонь",
+        "Broke through the gauntlet",
+        "Вырвались из-под огня",
     ),
     # Weather / intensity labels that sound like spreadsheet headers
     (
         "890000000011124",
-        "Weather: clear skies over the fight.",
-        "Над боем — ясное небо.",
+        "The fighting unfolded under clear skies.",
+        "Бой прошёл под ясным небом.",
     ),
     (
         "890000000011125",
-        "Weather: rain turned powder damp and tempers shorter.",
-        "Дождь отсырил порох и укоротил нервы.",
+        "Rain soaked the ground and frayed everyone's nerves.",
+        "Дождь размыл землю и вымотал всем нервы.",
     ),
     (
         "890000000011126",
-        "Weather/time: night fight — muzzle flashes did the talking.",
-        "Ночной бой — говорили вспышки дул.",
+        "At night, muzzle flashes gave away every shot.",
+        "Ночью каждый выстрел выдавали вспышки.",
     ),
     (
         "890000000011127",
-        "Weather: fog cut sightlines; everyone hugged cover.",
-        "Туман резал обзор; все жались к укрытиям.",
+        "Fog cut visibility and kept everyone close to cover.",
+        "Из-за тумана видимость упала, и все держались ближе к укрытиям.",
     ),
     (
         "890000000011128",
-        "Weather: baking heat — fatigue hit as hard as bullets.",
-        "Пекло — усталость била не хуже пуль.",
+        "In the heat, exhaustion hit almost as hard as the bullets.",
+        "Жара выматывала почти не меньше пуль.",
     ),
     (
         "890000000011129",
-        "Weather: dust storm grit in every weapon.",
-        "Пылевая буря — песок в каждом стволе.",
+        "The dust storm worked grit into every weapon.",
+        "Пылевая буря забила песком всё оружие.",
     ),
     (
         "890000000011130",
-        "Weather: unremarkable — the shooting was the story.",
-        "Погода обычная — историю сделала стрельба.",
+        "The weather stayed out of it; the shooting did not.",
+        "Погода не вмешивалась — хватило стрельбы.",
     ),
     (
         "890000000011131",
-        "Intensity: a sharp exchange, then quiet. Heat on the grid barely stirred.",
-        "Короткая перестрелка — и тишина. Жара на клетке почти не шевельнулась.",
+        "The exchange was brief. It drew little attention beyond the sector.",
+        "Перестрелка быстро закончилась и почти не привлекла внимания.",
     ),
     (
         "890000000011132",
-        "Intensity: sustained fire and movement. Local Heat climbed enough for the desk to notice.",
-        "Плотный огонь и манёвр. Местная Жара выросла так, что стол это заметил.",
+        "The firefight dragged on as both sides moved under fire. Word of it will spread.",
+        "Бой затянулся: обе стороны маневрировали под огнём. Слухи о нём разойдутся.",
     ),
     (
         "890000000011133",
-        "Intensity: a meat grinder. Expect the Major's network to smell the smoke.",
-        "Мясорубка. Сеть Майора наверняка учует дым.",
+        "The fight became a slaughter. The Major's people will hear about it.",
+        "Бой превратился в бойню. Люди Майора об этом услышат.",
     ),
     (
         "890000000011134",
-        "Forces: roughly <player> friendlies against <enemy> hostiles at contact.",
-        "Силы на контакте: примерно <player> своих против <enemy> противника.",
+        "At first contact, we counted about <player> friendlies and <enemy> hostiles.",
+        "На момент первого контакта мы насчитали около <player> своих и <enemy> противников.",
     ),
     (
         "890000000011135",
-        "Theatre: <sector>.",
-        "Район: <sector>.",
+        "The fighting took place in <sector>.",
+        "Бой произошёл в секторе <sector>.",
     ),
     (
         "890000000011136",
-        "Theatre: <sector> — local label <poi>.",
-        "Район: <sector> — местное название <poi>.",
+        "The fighting took place in <sector>, near <poi>.",
+        "Бой произошёл в секторе <sector>, в районе <poi>.",
     ),
     # Quest / character lines (calques)
     (
         "890000000011137",
-        "Operational thread: <quest>. Desk note on this grid: <note>",
-        "Оперативная линия: <quest>. Заметка стола по клетке: <note>",
+        "This fight was tied to <quest>. One detail may matter: <note>",
+        "Бой был связан с заданием <quest>. Важная подробность: <note>",
     ),
     (
         "890000000011138",
-        "Operational thread: <quest> — badges pin this fight to that job.",
-        "Оперативная линия: <quest> — метки привязывают этот бой к заданию.",
+        "The evidence ties this fight to <quest>.",
+        "Судя по данным, этот бой связан с заданием <quest>.",
     ),
     (
         "890000000011139",
-        "Operational threads on this sector: <quests>. Treat the shooting as part of those jobs, not random noise.",
-        "На секторе сходятся задания: <quests>. Стрельбу считайте частью этих дел, а не случайным шумом.",
+        "Several active jobs led your team here: <quests>. This was no random skirmish.",
+        "Сразу несколько текущих заданий привели ваш отряд сюда: <quests>. Случайной эту стычку не "
+        "назовёшь.",
     ),
     (
         "890000000011140",
-        "Active desk job (not sector-badged): <quest>.",
-        "Активное задание стола (без метки на секторе): <quest>.",
+        "The team was also working on <quest>, though that job was not tied to this sector.",
+        "Отряд также выполнял задание <quest>, хотя оно не было связано с этим сектором.",
     ),
     (
         "890000000011141",
-        "No live quest badge on this grid — logged as a free-fire sector action.",
-        "Живой метки задания на клетке нет — записано как свободный бой за сектор.",
+        "No active assignment led to this area. This was a fight for the sector itself.",
+        "Ни одно активное задание не вело в этот район. Это был бой за сам сектор.",
     ),
     (
         "890000000011142",
-        "Character: your side held the field.",
-        "Характер боя: поле осталось за вами.",
+        "Your team held the field.",
+        "Поле боя осталось за вашим отрядом.",
     ),
     (
         "890000000011143",
-        "Character: the enemy kept the sector.",
-        "Характер боя: сектор остался у противника.",
+        "The enemy kept control of the sector.",
+        "Противник сохранил контроль над сектором.",
     ),
     (
         "890000000011144",
-        "Character: fighting withdrawal — not a stand.",
-        "Характер боя: отход с боем — не стояли насмерть.",
+        "Your team withdrew under fire instead of making a last stand.",
+        "Ваш отряд отошёл под огнём, не ввязываясь в бой до последнего.",
     ),
     (
         "890000000011145",
-        "Character: smelled like an ambush — first shots decided the map.",
-        "Характер боя: похоже на засаду — первые выстрелы решили карту.",
+        "It looked like an ambush; the opening shots decided the fight.",
+        "Похоже, это была засада: первые выстрелы решили исход боя.",
     ),
     (
         "890000000011146",
-        "Character: quest-linked fight — objective pressure held; the sector stayed yours.",
-        "Характер боя: бой по заданию — давление по цели выдержали; сектор ваш.",
+        "The fight was tied to an active job. The objective held, and the sector remained yours.",
+        "Бой был связан с активным заданием. Цель удалось удержать, и сектор остался за вами.",
     ),
     (
         "890000000011147",
-        "Character: quest-linked fight — the job on this grid just got harder.",
-        "Характер боя: бой по заданию — дело на этой клетке только усложнилось.",
+        "The fight was tied to an active job, and losing the sector will make that job harder.",
+        "Бой был связан с активным заданием, и потеря сектора теперь усложнит это задание.",
     ),
     (
         "890000000011148",
-        "Character: quest-linked withdrawal — you left the badge sector under protest.",
-        "Характер боя: отход по заданию — ушли с отмеченного сектора не по плану.",
+        "Your team withdrew from a sector tied to an active job.",
+        "Ваш отряд отступил из сектора, связанного с активным заданием.",
     ),
     (
         "890000000011149",
-        "Losses: friendlies KIA <pkia>, WIA <pwia>; hostiles KIA <ekia>, WIA <ewia>.",
-        "Потери: свои убиты <pkia>, ранены <pwia>; противник убит <ekia>, ранен <ewia>.",
+        "Our side suffered <pkia> killed and <pwia> wounded; enemy losses were <ekia> killed and "
+        "<ewia> wounded.",
+        "У нас <pkia> погибших и <pwia> раненых; у противника — <ekia> убитых и <ewia> раненых.",
     ),
     (
         "890000000011154",
-        "Closing: the sector goes quiet; Heat footprint looks manageable.",
-        "Итог: сектор стихает; след Жары выглядит управляемым.",
+        "The sector is quiet again, and the fight should draw little attention.",
+        "Сектор снова затих, и этот бой вряд ли привлечёт много внимания.",
     ),
     (
         "890000000011155",
-        "Closing: the noise will travel — patrols and payoffs usually follow.",
-        "Итог: шум разнесётся — обычно следом идут патрули и выплаты.",
+        "Word of this fight will spread. Expect more patrols and more money changing hands.",
+        "Слухи об этом бое разойдутся. Ждите новых патрулей и новых сделок.",
     ),
     (
         "890000000011156",
-        "Closing: write this one in red. Command will ask hard questions.",
-        "Итог: пишите красным. Командование будет спрашивать жёстко.",
+        "Mark this one in red. The Major's command will want answers.",
+        "Эту сводку отметьте красным. Командование Майора потребует объяснений.",
     ),
 ]
 

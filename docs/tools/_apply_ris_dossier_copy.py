@@ -220,22 +220,46 @@ def patch_csvs(updates):
 
 
 def patch_design():
+    def preview(text: str, limit: int) -> str:
+        compact = " ".join(text.split()).replace("|", "\\|")
+        if len(compact) <= limit:
+            return compact
+        clipped = compact[: limit - 1].rsplit(" ", 1)[0]
+        return (clipped or compact[: limit - 1]) + "…"
+
     lines = [
         "# R.I.S. Legion unit dossiers (canon)",
         "",
         "Unlock: contact sighting mail (catalog) and/or ≥3 player-side kills (full body).",
         "Copy source: `docs/tools/_ris_dossier_copy.py` → apply via `_apply_ris_dossier_copy.py`.",
+        "Gameplay sources: current `../jazz-units/UnitData/JAZZ_Legion_*.lua`, "
+        "`scripts/legion-loadouts/data/recipes.json`, and "
+        "`docs/technical/systems/legion-units-equipment-tiers.md`.",
+        "",
+        "## Review checklist",
+        "",
+        "- [ ] The opening explains whom the Major recruits, promotes, or hires and how that tier is prepared.",
+        "- [ ] Combat behavior matches the current UnitData role, archetype, AIKeywords, and relevant perks.",
+        "- [ ] Weapon, armor, and utility claims are supported by the current loadout recipe.",
+        "- [ ] The closing gives useful threat or counterplay without raw stats, IDs, or unlock mechanics.",
+        "- [ ] English reads as an analyst's field note; Russian is idiomatic prose, not a literal calque.",
+        "- [ ] RU and EN preserve the same gameplay meaning, titles, and degree of certainty.",
+        "- [ ] Design-only AI proposals are not presented as loaded runtime behavior.",
+        "",
+        "## Runtime coverage",
         "",
         "| UnitData id | Title | Notes |",
         "| --- | --- | --- |",
     ]
     for key, d in sorted(DOSSIERS.items()):
-        note = d["body_en"].replace("\n", " ")[:100] + "…"
+        note = preview(d["body_en"], 140)
         lines.append(f"| `{key}` | **{d['title_en']}** / {d['title_ru']} | {note} |")
     lines.append("")
-    lines.append("Quest cards:")
+    lines.append("## Quest cards")
+    lines.append("")
     for key, d in QUEST_DOSSIERS.items():
-        lines.append(f"- **{key}**: {d['title_en']} — {d['body_en'][:120]}…")
+        note = preview(d["body_en"], 160)
+        lines.append(f"- **{key}**: {d['title_en']} — {note}")
     (ROOT / "docs/design/ris-legion-dossiers.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

@@ -19,222 +19,246 @@ BRIEFS = {
     "11": {
         "title_id": "890000000011300",
         "body_id": "890000000011301",
-        "title_en": "Warehouse scrap: Mosin, MAT-49, double-barrels",
-        "title_ru": "Складской хлам: Мосин, MAT-49, двустволки",
+        "title_en": "Old warehouse stock on Legion patrols",
+        "title_ru": "У патрулей Легиона — оружие со старых складов",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "The Major is still emptying old warehouses. Day-one patrols carry wartime leftovers: "
-            "Mosin and MAS-36 bolt guns, MAT-49 and MP40 subguns, Winchester lever carbines, "
-            "double-barrel shotguns, tired service pistols. Machine-gun nests are DP-27 / MAC 24/29 era. "
-            "Ammo is thin; armor is mostly wishful thinking.\n\n"
-            "Early Legion patrols are poorly equipped — but there are a lot of them. "
-            "Do not mistake rust for safety.\n\n"
-            "— Recon Intelligence Services"
+            "Fresh reports from Legion road patrols point to old warehouse stock. "
+            "Mosin and MAS-36 rifles are turning up beside MAT-49s, MP40s, Winchester carbines "
+            "and double-barrel shotguns. DP-27s and MAC 24/29s make up the heavier end of "
+            "the same shipments. The deliveries remain a mixed collection of old designs.\n\n"
+            "None of it is sophisticated, but there are plenty of rifles and plenty of recruits "
+            "to carry them. Treat every roadblock as dangerous, even when the weapons look older "
+            "than the men holding them.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Майор по-прежнему вычищает старые склады. У патрулей на старте — военный хлам: "
-            "Мосин и MAS-36, MAT-49 и MP40, рычажные Winchester, двустволки, уставшие служебные пистолеты. "
-            "Пулемётные гнёзда — эпохи ДП-27 / MAC 24/29. "
-            "Патронов мало; броня — в основном фантазия.\n\n"
-            "Ранние патрули Легиона слабо экипированы — но их много. "
-            "Не путайте ржавчину с безопасностью.\n\n"
-            "— Recon Intelligence Services"
+            "По свежим донесениям, дорожные патрули Легиона вооружены тем, что удалось выгрести "
+            "со старых складов. Винтовки Мосина и MAS-36 соседствуют с MAT-49, MP40, карабинами "
+            "Winchester и двустволками. Из более тяжёлого оружия в тех же партиях идут ДП-27 "
+            "и MAC 24/29. Поставки по-прежнему представляют собой сборную солянку из старых образцов.\n\n"
+            "Ничего современного, зато винтовок и рекрутов хватает. Считайте опасным каждый "
+            "блокпост, даже если оружие выглядит старше бойцов, которые его держат.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "12": {
         "title_id": "890000000011302",
         "body_id": "890000000011303",
-        "title_en": "Grease Guns, Sterlings, Garands in the mix",
-        "title_ru": "В обороте Grease Gun, Sterling, Garand",
+        "title_en": "Better weapons are reaching the patrols",
+        "title_ru": "До патрулей дошло оружие получше",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Shipments look a little less desperate. Grease Guns and Sterlings are mixing with "
-            "M1 Garands, M2 carbines, StG 44s, Model 1897 shotguns — still wartime generation, "
-            "but less scrap-metal roulette. Sidearms improve: Lugers, TT-33s, better revolvers.\n\n"
-            "— Recon Intelligence Services"
+            "Recent crates contain fewer castoffs and more serviceable wartime weapons. "
+            "Grease Guns and Sterlings are appearing alongside M1 Garands, M2 carbines, "
+            "StG 44s and Model 1897 shotguns. Sidearms now include Lugers, TT-33s and better revolvers.\n\n"
+            "The improvement is modest but visible. Guards around roads and depots now receive usable "
+            "weapons in regular batches instead of taking whatever happens to be left in a box.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Поставки чуть менее отчаянные. Grease Gun и Sterling смешиваются с "
-            "M1 Garand, карабинами M2, StG 44, дробовиками Model 1897 — всё ещё военное поколение, "
-            "но меньше рулетки из металлолома. Боковики лучше: Люгеры, ТТ-33, приличные револьверы.\n\n"
-            "— Recon Intelligence Services"
+            "В последних ящиках меньше откровенного хлама и больше исправного оружия военных лет. "
+            "К Grease Gun и Sterling добавились M1 Garand, карабины M2, StG 44 и дробовики Model 1897. "
+            "Из личного оружия всё чаще встречаются Luger, ТТ-33 и приличные револьверы.\n\n"
+            "Перемены пока невелики, но уже заметны. Охрана дорог и складов теперь получает исправное "
+            "оружие партиями, а не берёт первое, что осталось на дне ящика.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "13": {
         "title_id": "890000000011304",
         "body_id": "890000000011305",
-        "title_en": "Early kit peaks: PPSh, Thompson, 1911s",
-        "title_ru": "Пик раннего кита: ППШ, Thompson, 1911",
+        "title_en": "The Major has cleaned out the old armories",
+        "title_ru": "Майор выгреб старые арсеналы",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "First-wave issue is peaking: PPSh and PPS-43, Thompsons, MPL, the odd Scorpion; "
-            "FG 42 / G43 / SVT-40 battle rifles; Auto-5 shotguns; MG 42 belts. "
-            "Service pistols that actually fire — Makarov, Colt 1911, P38. "
-            "Still generation-one gear, but the Major has stopped issuing pure museum pieces as standard.\n\n"
-            "— Recon Intelligence Services"
+            "The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, "
+            "PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and "
+            "SVT-40s are reaching riflemen; Auto-5 shotguns and MG 42s are appearing with support teams. "
+            "Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.\n\n"
+            "The designs are old, but most were built for war and still deserve respect.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Первая волна выдачи на пике: ППШ и ППС-43, Thompson, MPL, редкий Scorpion; "
-            "боевые FG 42 / G43 / СВТ-40; Auto-5; ленты MG 42. "
-            "Служебные пистолеты, которые реально стреляют — Макаров, Colt 1911, P38. "
-            "Всё ещё первое поколение, но Майор перестал раздавать чистый музей как норму.\n\n"
-            "— Recon Intelligence Services"
+            "Закупщики Майора добрались до дальних рядов старых арсеналов. У патрулей появились "
+            "ППШ, ППС-43, Thompson и MPL, изредка попадается Scorpion. Стрелкам достаются FG 42, "
+            "G43 и СВТ-40; группы поддержки получают Auto-5 и MG 42. Худшие старые пистолеты "
+            "заменяют на пистолеты Макарова, Colt 1911 и P38.\n\n"
+            "Образцы немолодые, но большинство создавали для войны. Недооценивать их не стоит.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "21": {
         "title_id": "890000000011306",
         "body_id": "890000000011307",
-        "title_en": "Second wave: UZI, MAC-10, pipe bombs",
-        "title_ru": "Вторая волна: UZI, MAC-10, самодельные бомбы",
+        "title_en": "New imports are changing the roadblocks",
+        "title_ru": "Новые поставки меняют блокпосты",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Second wave. Compact SMGs — UZI, MAC-10, Micro UZI, Agram — and Hi-Power pistols "
-            "are showing up beside early M16A1 / Type 56 rifles and Mini-14 carbines. "
-            "Roughnecks have started carrying pipe bombs. This is no longer a scavenger parade.\n\n"
-            "— Recon Intelligence Services"
+            "Newer compact weapons are appearing at Legion roadblocks: UZIs, MAC-10s, Micro UZIs "
+            "and Agrams, backed by Hi-Power pistols. Riflemen are also receiving M16A1s, Type 56s "
+            "and Mini-14 carbines.\n\n"
+            "Several field reports place improvised pipe bombs with Roughneck teams, though the "
+            "sightings are not yet consistent. Do not assume every patrol carries explosives, "
+            "but check bags and webbing before crowding a doorway.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Вторая волна. Компактные ПП — UZI, MAC-10, Micro UZI, Agram — и пистолеты Hi-Power "
-            "рядом с ранними M16A1 / Type 56 и карабинами Mini-14. "
-            "У головорезов появились самодельные бомбы. Это уже не парад мародёров.\n\n"
-            "— Recon Intelligence Services"
+            "На блокпостах Легиона появилось более новое компактное оружие: UZI, MAC-10, Micro UZI "
+            "и Agram, а также пистолеты Hi-Power. Стрелкам выдают M16A1, Type 56 и карабины Mini-14.\n\n"
+            "В нескольких донесениях у групп головорезов отмечены самодельные бомбы, но пока это "
+            "не стало правилом. Не ждите взрывчатки у каждого патруля, однако перед штурмом тесного "
+            "помещения присмотритесь к сумкам и разгрузкам.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "22": {
         "title_id": "890000000011308",
         "body_id": "890000000011309",
-        "title_en": "CAR-15, FAMAS, M14-pattern rifles arriving",
-        "title_ru": "Идут CAR-15, FAMAS, винтовки M14",
+        "title_en": "Carbines and marksman rifles in the crates",
+        "title_ru": "В ящиках — карабины и винтовки для метких стрелков",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Carbines and battle rifles in the crates: CAR-15, FAMAS, Zastava M70, M14 SAW patterns, "
-            "Remington 870s. Marksmen pick up FR F2 / Zastava M76. "
-            "Someone is buying for a real fight, not a roadblock shakedown.\n\n"
-            "— Recon Intelligence Services"
+            "Crates intercepted along the main roads contain CAR-15 carbines, FAMAS and Zastava M70 "
+            "rifles, plus M14s and Remington 870 shotguns. FR F2s and Zastava M76s are being passed "
+            "to the better shots.\n\n"
+            "This is procurement with a plan: short weapons for assaults, full-power rifles for the "
+            "line, and dedicated rifles for men watching the approaches. The Legion is preparing "
+            "for more than roadside extortion.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "В ящиках — карабины и боевые винтовки: CAR-15, FAMAS, Zastava M70, схемы M14 SAW, "
-            "Remington 870. У стрелков — FR F2 / Zastava M76. "
-            "Кто-то закупается под настоящий бой, а не под тряску на блокпосте.\n\n"
-            "— Recon Intelligence Services"
+            "В перехваченных на главных дорогах ящиках лежат карабины CAR-15, винтовки FAMAS и "
+            "Zastava M70, а также M14 и дробовики Remington 870. Лучшим стрелкам передают FR F2 "
+            "и Zastava M76.\n\n"
+            "Закупки явно идут по плану: короткое оружие для штурма, мощные винтовки для основной "
+            "линии и точные винтовки для тех, кто следит за подступами. Легион готовится не только "
+            "собирать дань на дорогах.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "23": {
         "title_id": "890000000011310",
         "body_id": "890000000011311",
-        "title_en": "AKs in volume — Legion looks like an army",
-        "title_ru": "АК оптом — Легион уже похож на армию",
+        "title_en": "Kalashnikovs are becoming the Legion's standard",
+        "title_ru": "Калашниковы становятся штатным оружием",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Kalashnikovs in volume: AK-47, AKM, AKS-74U, the occasional Bizon or Spectre. "
-            "FN FAL battle rifles, Striker shotguns, M21 / RPK / M60 support. "
-            "The Legion is finally looking like an army that owns rifles, not a militia that borrows them.\n\n"
-            "— Recon Intelligence Services"
+            "AK-47s and AKMs are arriving in volume, with M16A2s also appearing among the riflemen. "
+            "AKS-74Us are going to troops that need shorter weapons, while Bizons and Spectres are "
+            "showing up with close-assault teams. FN FALs and Striker shotguns fill out the line.\n\n"
+            "Support gunners now have RPKs and M60s, and selected marksmen are carrying M21 rifles. "
+            "The Legion is starting to look like a force with its own armory rather than a militia "
+            "borrowing weapons for the day.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Калашниковы оптом: АК-47, АКМ, АКС-74У, редкий «Бизон» или Spectre. "
-            "Боевые FN FAL, дробовики Striker, поддержка M21 / РПК / M60. "
-            "Легион наконец похож на армию, у которой есть свои винтовки, а не на ополчение, которое их одалживает.\n\n"
-            "— Recon Intelligence Services"
+            "АК-47 и АКМ поступают крупными партиями, у стрелков также замечены M16A2. АКС-74У "
+            "достаются тем, кому нужно оружие покороче, а «Бизоны» и Spectre появляются у штурмовых "
+            "групп. Основную линию дополняют FN FAL и дробовики Striker.\n\n"
+            "Пулемётчики получают РПК и M60, отдельным метким стрелкам выдают винтовки M21. Легион "
+            "всё больше похож на силу с собственным арсеналом, а не на ополчение, которое одалживает "
+            "оружие на один день.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "24": {
         "title_id": "890000000011312",
         "body_id": "890000000011313",
-        "title_en": "MP5 family and M4A1 in Legion hands",
-        "title_ru": "В руках Легиона MP5 и M4A1",
+        "title_en": "Modern weapons have reached fortified positions",
+        "title_ru": "Современное оружие дошло до укреплённых позиций",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Western SMGs and carbines: MP5A2 / MP5K, TMP, M4A1, HK33, AK-74, Galil. "
-            "SPAS-12, Dragunov / M700 glass, RPK-74 and M60E3 belts. Serious sidearms — USP, Kimber. "
-            "Expect tighter fire and fewer jams when you push a fortified position.\n\n"
-            "— Recon Intelligence Services"
+            "Fortified Legion positions now show MP5A2s, MP5Ks and TMPs, while riflemen carry M4A1s, "
+            "HK33s, AK-74s and Galils. SPAS-12 shotguns are appearing indoors; Dragunovs and M700s "
+            "cover longer approaches. RPK-74 and M60E3 machine guns provide support, with USPs and "
+            "Kimbers among the sidearms.\n\n"
+            "The mix points to deliberate preparation for both close assaults and defended ground.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Западные ПП и карабины: MP5A2 / MP5K, TMP, M4A1, HK33, АК-74, Galil. "
-            "SPAS-12, оптика Dragunov / M700, ленты РПК-74 и M60E3. Серьёзные боковики — USP, Kimber. "
-            "Ждите более плотный огонь и меньше клинов, когда прёте на укреплённую позицию.\n\n"
-            "— Recon Intelligence Services"
+            "На укреплённых позициях Легиона замечены MP5A2, MP5K и TMP, а стрелки получают M4A1, "
+            "HK33, АК-74 и Galil. В помещениях всё чаще встречаются SPAS-12; дальние подступы прикрывают "
+            "стрелки с Dragunov и M700. Поддержку обеспечивают РПК-74 и M60E3, среди пистолетов появились "
+            "USP и Kimber.\n\n"
+            "Такой набор явно подбирали и для штурма в тесноте, и для обороны подготовленных позиций.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "25": {
         "title_id": "890000000011314",
         "body_id": "890000000011315",
-        "title_en": "G36c, VSS — late second-wave spike",
-        "title_ru": "G36c, ВСС — поздний скачок второй волны",
+        "title_en": "Front-line squads are receiving modern weapons",
+        "title_ru": "Передовые отряды получают современное оружие",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Late second-wave spike: G36 / G36c, AUG, VSS, G3 battle rifles, Minimi / MAG / PKM support, "
-            "modern pistols. Quality jumped again — veteran squads are properly armed, not upgraded scavengers.\n\n"
-            "— Recon Intelligence Services"
+            "Front-line Legion squads are turning up with G36s and G36cs, AUGs, VSS carbines and G3 rifles. "
+            "Their support weapons now include Minimis, MAGs and PKMs, and modern pistols are common "
+            "enough to be more than personal trophies.\n\n"
+            "These squads are being armed as units, not from whatever happens to be at hand. Plan for "
+            "weapons chosen for specific jobs rather than a random assortment from one crate.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Поздний скачок второй волны: G36 / G36c, AUG, ВСС, боевые G3, поддержка Minimi / MAG / ПКМ, "
-            "современные пистолеты. Качество снова выросло — ветеранов стоит считать нормально вооружёнными, "
-            "а не «чуть лучшими мародёрами».\n\n"
-            "— Recon Intelligence Services"
+            "У передовых отрядов Легиона замечены G36 и G36c, AUG, карабины ВСС и винтовки G3. "
+            "В качестве оружия поддержки они получают Minimi, MAG и ПКМ, а современные пистолеты "
+            "встречаются уже слишком часто, чтобы считать их личными трофеями.\n\n"
+            "Такие отряды вооружают как единое целое, а не чем придётся. Ждите оружие, подобранное "
+            "под конкретные задачи, а не случайный набор из одного ящика.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "31": {
         "title_id": "890000000011316",
         "body_id": "890000000011317",
-        "title_en": "Third wave: Sig 550, M60E4, real optics",
-        "title_ru": "Третья волна: Sig 550, M60E4, настоящая оптика",
+        "title_en": "Professional-grade rifles are in circulation",
+        "title_ru": "В обороте оружие профессионального уровня",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Third wave. Sig 550 / 552 rifles, MP5SD, M60E4 machine guns, M1A glass, better sidearms. "
-            "The Major is issuing kit meant to hold ground against professionals.\n\n"
-            "— Recon Intelligence Services"
+            "Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and "
+            "M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, "
+            "and the sidearms carried by these units have improved as well.\n\n"
+            "Whatever the quality of the troops, this armament makes them dangerous. "
+            "Identify the rifles and machine guns before committing to an approach.\n\n"
+            "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Третья волна. Винтовки Sig 550 / 552, MP5SD, пулемёты M60E4, оптика M1A, лучше боковики. "
-            "Майор выдаёт кит, рассчитанный держать землю против профессионалов.\n\n"
-            "— Recon Intelligence Services"
+            "На вооружении Легиона появились винтовки Sig 550 и Sig 552, малошумные MP5SD и пулемёты "
+            "M60E4. Винтовки M1A используют для прицельного огня на дальних дистанциях; личное оружие "
+            "у этих подразделений тоже стало лучше.\n\n"
+            "Как бы ни были подготовлены бойцы, такое вооружение делает их опасными. "
+            "Перед сближением определите, где винтовки и пулемёты.\n\n"
+            "— Полевой отдел R.I.S."
         ),
     },
     "32": {
         "title_id": "890000000011318",
         "body_id": "890000000011319",
-        "title_en": "Custom Sigs, SVU, Arctic Warfare",
-        "title_ru": "Кастомные Sig, СВУ, Arctic Warfare",
+        "title_en": "Special-purpose weapons confirmed",
+        "title_ru": "Подтверждены специальные образцы",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Precision and special weapons: custom Sigs, MP7 / P90, SVU, Arctic Warfare rifles, "
-            "USAS-12, HK21 / HK23 belts. Marksmen and assault elements are no longer an afterthought.\n\n"
-            "— Recon Intelligence Services"
+            "Special-purpose weapons are now confirmed in Legion hands: customized Sig rifles, MP7s and "
+            "P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place "
+            "HK21s and HK23s in the same flow of weapons.\n\nThe mix suggests the Legion may be grouping "
+            "marksmen, assault troops and gunners around particular tasks. That is still only an "
+            "assessment: identify the weapons before assuming how the squad will fight.\n\n— R.I.S. Field "
+            "Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Точность и спецстволы: кастомные Sig, MP7 / P90, СВУ, Arctic Warfare, "
-            "USAS-12, ленты HK21 / HK23. Снайперы и штурм уже не «на потом».\n\n"
-            "— Recon Intelligence Services"
+            "У Легиона подтверждены специальные образцы: доработанные винтовки Sig, MP7 и P90, точные СВУ "
+            "и Arctic Warfare, а также дробовики USAS-12. В тех же поставках отмечены HK21 и HK23.\n\nТакой "
+            "набор позволяет предположить, что Легион может собирать метких стрелков, штурмовиков и "
+            "пулемётчиков под конкретные задачи. Пока это лишь предположение: сначала определите оружие и "
+            "только потом решайте, как будет действовать отряд.\n\n— Полевой отдел R.I.S."
         ),
     },
     "33": {
         "title_id": "890000000011320",
         "body_id": "890000000011321",
-        "title_en": "Barrett, PSG-1, AA-12 — top-shelf threats",
-        "title_ru": "Barrett, PSG-1, AA-12 — угрозы высшего полка",
+        "title_en": "Barrett, PSG-1, AS Val and AA-12 confirmed",
+        "title_ru": "Подтверждены Barrett, PSG-1, АС «Вал» и AA-12",
         "body_en": (
-            "R.I.S. field note — Legion supply\n\n"
-            "Top shelf. Barrett anti-materiel rifles, PSG-1 precision guns, AS Val carbines, AA-12 shotguns. "
-            "If you see this kit in the field, assume the Major wants someone dead — permanently.\n\n"
-            "— Recon Intelligence Services"
+            "Barrett anti-materiel rifles, PSG-1 precision rifles, AS Val carbines and AA-12 shotguns are "
+            "now confirmed in Legion stocks.\n\nAny Legion line squad carrying one of these weapons can "
+            "change the fight immediately. Identify the weapon, work out what it can reach, and change "
+            "the plan before it opens fire.\n\n— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Полевая заметка R.I.S. — снабжение Легиона\n\n"
-            "Высшая полка. Противоматериальные Barrett, точные PSG-1, карабины АС «Вал», дробовики AA-12. "
-            "Если такое в поле — считайте, Майор хочет кого-то мёртвым. Насовсем.\n\n"
-            "— Recon Intelligence Services"
+            "Подтверждено наличие у Легиона противоматериальных винтовок Barrett, точных PSG-1, карабинов "
+            "АС «Вал» и дробовиков AA-12.\n\nЛюбой линейный отряд Легиона с одним из этих образцов может "
+            "сразу изменить ход боя. Определите оружие, оцените его дальность и измените план до первого "
+            "выстрела.\n\n— Полевой отдел R.I.S."
         ),
     },
 }
