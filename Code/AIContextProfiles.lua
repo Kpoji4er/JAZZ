@@ -127,6 +127,12 @@ end
 
 function JazzAI_OfficerAuraRadius(unit)
 	local class = JazzAI_OfficerAuraUnitClassName(unit)
+	-- Named NPC commanders with captain-tier (map-wide) aura. Class substring
+	-- "Captain" already covers Legion/Adonis captains; add rebel/special IDs here.
+	local captain_named = rawget(_G, "JazzAI_OfficerAuraCaptainUnitDefs")
+	if captain_named and class ~= "" and captain_named[class] then
+		return 1000
+	end
 	local function has_leader_kw()
 		local keys = unit and unit.AIKeywords
 		if not keys then
@@ -154,6 +160,11 @@ function JazzAI_OfficerAuraRadius(unit)
 	end
 	return 0
 end
+
+-- Captain-tier map aura for named NPC commanders (not class-name Captain).
+JazzAI_OfficerAuraCaptainUnitDefs = {
+	Rebel_NPC_Ghost = true, -- Dyalo "Ghost" — rebel named commander
+}
 
 -- CMD-001 distance bands (tiles to nearest enemy from the officer).
 local JazzAI_DirectivePushMax = 12

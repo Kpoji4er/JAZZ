@@ -350,15 +350,141 @@ local function JAZZ_AIFilterEnemies(context)
     return enemies
 end
 
+-- ACT-004: close MG doctrine — prefer direct fire over distant sector.
+JazzAI_MGCloseFireTiles = 8
+JazzAI_MGCloseEnemyZoneBonus = 160
+JazzAI_MGMissedCloseZonePenalty = 220
+
+function JazzAI_MGCloseFireRange()
+    return (JazzAI_MGCloseFireTiles or 8) * const.SlabSizeX
+end
+
+-- Visible enemy within close tiles (no InteractionRand). Used by Dump/setup/Positioning.
+function JazzAI_UnitWantsCloseMGDirectFire(unit)
+    if not IsValid(unit) or unit:IsDead() then
+        return false
+    end
+    if unit:HasStatusEffect("StationedMachineGun")
+        or unit:HasStatusEffect("ManningEmplacement") then
+        return false
+    end
+    local weapon = unit:GetActiveWeapons()
+    if not weapon or not IsKindOfClasses(weapon, "MachineGun", "LightMachineGun") then
+        return false
+    end
+    local maxd = JazzAI_MGCloseFireRange()
+    for _, enemy in ipairs(GetEnemies(unit) or empty_table) do
+        if IsValidTarget(enemy) and not enemy:IsDowned() and not enemy:IsIncapacitated()
+            and unit:GetDist(enemy) <= maxd then
+            if HasVisibilityTo(unit, enemy) or HasVisibilityTo(unit.team, enemy) then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+function JazzAI_ContextCloseEnemies(context)
+    local unit = context and context.unit
+    if not unit then
+        return empty_table
+    end
+    local maxd = JazzAI_MGCloseFireRange()
+    local close = {}
+    for _, enemy in ipairs(context.enemies or empty_table) do
+        if IsValidTarget(enemy) and not enemy:IsDowned() and not enemy:IsIncapacitated()
+            and unit:GetDist(enemy) <= maxd then
+            local visible = context.enemy_visible and context.enemy_visible[enemy]
+            if not visible and context.enemy_visible_by_team then
+                visible = context.enemy_visible_by_team[enemy]
+            end
+            if visible then
+                close[#close + 1] = enemy
+            end
+        end
+    end
+    return close
+end
+
+function JazzAI_MGPreferDirectFire(context)
+    local unit = context and context.unit
+    if not unit or unit:HasStatusEffect("StationedMachineGun")
+        or unit:HasStatusEffect("ManningEmplacement") then
+        return false
+    end
+    local weapon = context.weapon
+    if not weapon or not IsKindOfClasses(weapon, "MachineGun", "LightMachineGun") then
+        return false
+    end
+    return #(JazzAI_ContextCloseEnemies(context) or empty_table) > 0
+end
+
+-- Permanent MG/emplacement sector keeps AP and should Dump-fire (vanilla AIPlayAttacks).
+-- Temporary Overwatch / other prepared attacks still block Dump.
 local function JAZZ_AICanDump(unit, context)
-    return IsValid(unit) and not unit:IsDead() and not unit:IsIncapacitated()
-        and not unit:HasStatusEffect("Unconscious")
-        and not unit:HasStatusEffect("suppressionPinned")
-        and not IsSetpiecePlaying()
-        and not unit:HasPreparedAttack()
-        and not g_Overwatch[unit]
-        and (context.max_attacks or 0) > 0
-        and unit.ActionPoints > 0
+    if not IsValid(unit) or unit:IsDead() or unit:IsIncapacitated()
+        or unit:HasStatusEffect("Unconscious")
+        or unit:HasStatusEffect("suppressionPinned")
+        or IsSetpiecePlaying() then
+        return false
+    end
+    if (context.max_attacks or 0) <= 0 or unit.ActionPoints <= 0 then
+        return false
+    end
+    local ow = g_Overwatch and g_Overwatch[unit]
+    if ow and ow.permanent then
+        return true
+    end
+    if unit:HasPreparedAttack() or ow then
+        return false
+    end
+    return true
+end
+
+-- PositioningAI Label/Bias MGSetup: do not walk to a distant setup lane while a close
+-- threat is already visible (ACT-004). Patch instance Score once presets exist.
+JazzAI_MGPositioningScoresPatched = rawget(_G, "JazzAI_MGPositioningScoresPatched") or false
+
+local function JazzAI_PatchMGPositioningScores()
+    if rawget(_G, "JazzAI_MGPositioningScoresPatched") then
+        return
+    end
+    if type(ForEachPreset) ~= "function" then
+        return
+    end
+    ForEachPreset("AIArchetype", function(arch)
+        for _, behavior in ipairs(arch.Behaviors or empty_table) do
+            if IsKindOf(behavior, "PositioningAI")
+                and (behavior.Label == "MGSetup" or behavior.BiasId == "MGSetup")
+                and not behavior.jazz_mg_close_score_wrapped then
+                local prev = behavior.Score
+                behavior.Score = function(self, unit, proto_context, debug_data)
+                    if JazzAI_UnitWantsCloseMGDirectFire(unit) then
+                        return 0
+                    end
+                    if type(prev) == "function" then
+                        return prev(self, unit, proto_context, debug_data)
+                    end
+                    return self.Weight or 0
+                end
+                behavior.jazz_mg_close_score_wrapped = true
+            end
+        end
+    end)
+    rawset(_G, "JazzAI_MGPositioningScoresPatched", true)
+end
+
+function OnMsg.DataLoaded()
+    JazzAI_PatchMGPositioningScores()
+end
+
+function OnMsg.ModsReloaded()
+    rawset(_G, "JazzAI_MGPositioningScoresPatched", false)
+    JazzAI_PatchMGPositioningScores()
+end
+
+if type(ForEachPreset) == "function" then
+    JazzAI_PatchMGPositioningScores()
 end
 
 local function JAZZ_AIHasGoodCover(unit)
@@ -807,14 +933,14 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
     unit:SequentialActionsEnd()
 
-    -- Vanilla packs only when stationed with no attack target (elseif branch).
-    -- Jazz Dump exits immediately once g_Overwatch is set (JAZZ_AICanDump), so an
-    -- unconditional MGPack here cancelled every fresh MGSetup ("prone OW → pack → stand").
-    -- Intentional pack remains AIActionMGSetup Precalc (no usable zone → MGPack).
-    -- Recovery: stationed but sector missing.
+    -- Vanilla: stationed + no Dump target → MGPack + restart (reposition).
+    -- Jazz previously packed only when OW missing (recovery after ACT Dump/OW gate).
+    -- ACT-004: Dump runs with permanent OW again; restore pack-when-idle so gunners
+    -- do not sit forever in a rear sector after the fight moves on.
+    -- Skip when did_attack (includes fresh MGSetup this sequence) to avoid setup→pack thrash.
     if unit:HasStatusEffect("StationedMachineGun")
-        and not g_Overwatch[unit]
-        and CombatActions.MGPack:GetUIState({unit}) == "enabled" then
+        and CombatActions.MGPack:GetUIState({unit}) == "enabled"
+        and (not g_Overwatch[unit] or not did_attack) then
         unit:SequentialActionsEnd()
         AIPlayCombatAction("MGPack", unit)
         return "restart"
@@ -1543,10 +1669,16 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
                                g_Overwatch[context.unit].target_pos
 
     if not context.unit:HasStatusEffect("StationedMachineGun") then
+        -- ACT-004: close visible threat → Dump-fire instead of distant OW setup.
+        if JazzAI_MGPreferDirectFire(context) then
+            return
+        end
         -- Zone pick first (LoS from current stance). Halfcover only after aim known.
         action_state.stance = context.unit.stance or "Crouch"
         action_state.jazz_mg_halfcover = false
+        context.jazz_mg_cone_eval = true
         AIActionBaseConeAttack.PrecalcAction(self, context, action_state)
+        context.jazz_mg_cone_eval = nil
         local aim = action_state.args
             and (action_state.args.target_pos or action_state.args.target)
         if aim and JazzAI_IsMGHalfCoverDeploy(context.unit, aim, "Crouch") then
@@ -1562,7 +1694,9 @@ function AIActionMGSetup:PrecalcAction(context, action_state)
         local cur_zone = zones[#zones]
         if not cur_zone then return end
         cur_zone.score_mod = self.cur_zone_mod
+        context.jazz_mg_cone_eval = true
         local zone, best_score = self:EvalZones(context, zones)
+        context.jazz_mg_cone_eval = nil
 
         -- check best zone:
         if not zone then -- no suitable zone, pack up
@@ -1809,6 +1943,10 @@ end
 function AIEvalZones(context, zones, min_score, enemy_score, team_score,
                      self_score_mod, enemy_cover_score) -- , heigth_score)
     local best_target, best_score = nil, (min_score or 0) - 1
+    local close_enemies = context.jazz_mg_cone_eval and JazzAI_ContextCloseEnemies(context)
+        or empty_table
+    local close_bonus = JazzAI_MGCloseEnemyZoneBonus or 160
+    local miss_penalty = JazzAI_MGMissedCloseZonePenalty or 220
 
     for _, zone in ipairs(zones) do
         local score
@@ -1827,6 +1965,13 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score,
 								uscore = uscore + enemy_cover_score
 							end
 						end
+						-- ACT-004: prefer cones that cover close threats.
+						if context.jazz_mg_cone_eval then
+							local dist = context.unit:GetDist(unit)
+							if dist <= JazzAI_MGCloseFireRange() then
+								uscore = uscore + close_bonus
+							end
+						end
 					elseif unit.team == context.unit.team then
 						uscore = team_score or 0
 						if unit == context.unit then
@@ -1835,6 +1980,13 @@ function AIEvalZones(context, zones, min_score, enemy_score, team_score,
 					end
 				end
 				score = (score or 0) + uscore
+			end
+			if context.jazz_mg_cone_eval and #close_enemies > 0 then
+				for _, ce in ipairs(close_enemies) do
+					if not table.find(zone.units, ce) then
+						score = (score or 0) - miss_penalty
+					end
+				end
 			end
 			score = score and MulDivRound(score, zone.score_mod or 100, 100)
 			score = score and MulDivRound(score, 100 + selfmod, 100)

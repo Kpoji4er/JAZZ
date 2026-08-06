@@ -10,7 +10,7 @@ In combat, AI officers (Legion, rebels, and similar) show **Command aura**; near
 | --- | ---: |
 | Sergeant / Leader | **15** |
 | Lieutenant | **25** |
-| Captain / merc captain | **whole map** |
+| Captain / merc captain / named commanders (e.g. **Ghost**) | **whole map** |
 
 Outside the radius or after the commander dies, influence drops. With several officers, the larger radius wins.
 

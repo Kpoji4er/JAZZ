@@ -270,7 +270,7 @@ Leader (`JAZZ_Legion_Leader*`, RebelSergeant, keyword `Leader`) раз в ход
 | --- | --- |
 | Sergeant (`LeaderT1`) | **15** тайлов |
 | Lieutenant (`LeaderT2`) | **25** тайлов |
-| Captain / MercCaptain (`LeaderT3`/`T4`) | **вся карта** (все allies команды) |
+| Captain / MercCaptain (`LeaderT3`/`T4`) + named allowlist (`JazzAI_OfficerAuraCaptainUnitDefs`, e.g. `Rebel_NPC_Ghost`) | **вся карта** (все allies команды) |
 
 | Directive | Условие (runtime picker) | Эффект в радиусе (сейчас) |
 | --- | --- | --- |
@@ -577,7 +577,7 @@ StartAI → archetype (+ PickCustom)
 | ConeAttack→Overwatch | cone zones + CTH filter | min_score **300** — высокий барьер; Assaulter Weight 50 + keyword Soldier/Control; Front Weight 20 + Control/Soldier disable |
 | RunAndGun / MobileShot | Bias disable | LowVis↓; Assaulter/Flanker |
 | Charge | Melee keyword | связка F9 |
-| MGSetup | ACT-003 halfcover | crouch+bipod behind CoverLow; else Prone; dest +45 |
+| MGSetup | ACT-003 halfcover + ACT-004 close fire | crouch+bipod behind CoverLow; else Prone; dest +45; close threat → Dump not distant OW; permanent OW allows Dump burst |
 | Bandage | Priority | MED-001 |
 | Fallback OW | `AIPlaceFallbackOverwatch` | только no-sight после bunker fail |
 
