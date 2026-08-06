@@ -65,6 +65,7 @@ write_set:
   - docs/showcase/ru/combat-and-accuracy.md
   - docs/showcase/en/combat-and-accuracy.md
   - docs/tools/_audit_med001_analgesia.py
+  - docs/tools/_audit_med001_downed_heavy.py
   - docs/tools/README.md
 exclusive_resources:
   - items.lua
@@ -116,7 +117,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-REQ-008` — docs: technical + wiki + showcase RU/EN + design status sync.
 - `JAZZ-MED-001-REQ-009` — цветные `Icons/Items` для новых/rebrand предметов; hotbar icons из `Icons/Med`.
 - `JAZZ-MED-001-REQ-010` — публичные trauma IDs: `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (15). Light = боль при юзе зоны, без zone CTH/move; Medium+ = специфик + боль; Heavy = near-ineffective + Pain. **Pain on solid damaging hit:** **+1** via `JazzPainOnDamagingHit` from `ApplyDamageAndEffects` (damage > 0; **graze excluded**; separate from zone-use). **Pain stacks on zone use:** Light **1** / Medium **2** / Heavy **3** (`JazzTraumaPainOnZoneUse`); **unused Heavy** zones still add **+1 Pain each** EndTurn (`JazzTraumaHeavyPainRamp`, skip if that zone already used this turn). Ribs: **no Tired**. Head: повышенный шанс Medium/Heavy с хита. Eye → Head.
-- `JAZZ-MED-001-REQ-011` — hit→trauma через `*shot` rollers (`Armsshot`/`Legsshot`/`Headshot`/`Torsoshot`/`Groinshot` → `JazzTryRollTraumaFromBodyPart`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain), не Wounded stacks.
+- `JAZZ-MED-001-REQ-011` — hit→trauma через `*shot` rollers (`Armsshot`/`Legsshot`/`Headshot`/`Torsoshot`/`Groinshot` → `JazzTryRollTraumaFromBodyPart`). `UnitDowned` немедленно создаёт одну физическую Heavy trauma (+3 Pain), апгрейдит уже выпавшую Light/Medium и подавляет более лёгкий эффект того же хита; последующий `Unconscious` через совместимый `JazzApplyKnockoutTraumaPackage` идемпотентен. Wounded stacks не остаются.
 - `JAZZ-MED-001-REQ-012` — status icons `Icons/StatusEffects/Trauma*.png` wired on effects.
 - `JAZZ-MED-001-REQ-013` — worn armor covering the hit zone (`ProtectedBodyParts`: Arms / Legs / Torso|Groin→Ribs / Head|Neck→Head) reduces trauma roll chance via `JazzGetTraumaArmorChanceFactor` (Coverage×Condition, max ~60% cut, floor factor 40). Does not apply to Burn or knockout package. Unpierced armor still blocks `*shot` separately.
 - `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma; no bleed. Pain: residual damage > 0 uses hit +1 (`JazzPainOnDamagingHit`); full absorb (0 residual) adds `JazzAddPainStacks(1)` in BAT. Chance scales with `armor_prevented + residual` damage.
@@ -139,7 +140,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-004` — static: items Bandage/Morphine/Surgical + FirstAidKit/Medkit icons+hints.
 - `JAZZ-MED-001-AC-005` — docs synced; design marked implemented-scope v1.
 - `JAZZ-MED-001-AC-006` — runtime/human: бинт снижает тир; морфий глушит боль; без grit на старте.
-- `JAZZ-MED-001-AC-007` — static: 15 trauma CharacterEffects + *shot/Unconscious/Burning wiring + icons + loc RU/EN.
+- `JAZZ-MED-001-AC-007` — static: 15 trauma CharacterEffects + *shot/Unconscious/Burning wiring + icons + loc RU/EN; `UnitDowned` immediately guarantees one Heavy trauma and repeated Unconscious is idempotent.
 - `JAZZ-MED-001-AC-008` — runtime/human: body hit rolls trauma; knockout applies heavy package; zone debuffs match design formula.
 - `JAZZ-MED-001-AC-009` — static: `JazzGetTraumaArmorChanceFactor` scales thresholds when covering armor Condition>0; Burn/knockout untouched.
 - `JAZZ-MED-001-AC-010` — static: unpierced armor path calls `JazzTryBehindArmorTrauma`; no bleed on BAT.
@@ -180,7 +181,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-004`: `PASS` — static: Bandage/Morphine/Surgical + IFAK/Medkit icons/items wired.
 - `JAZZ-MED-001-AC-005`: `PASS` — static: technical + wiki + showcase RU/EN + design status (trauma included).
 - `JAZZ-MED-001-AC-006`: `BLOCKED` — runtime/human playtest pending.
-- `JAZZ-MED-001-AC-007`: `PASS` — static: Trauma* companions/items/metadata/icons/loc; *shot → `JazzTryRollTraumaFromBodyPart`; Unconscious → knockout package; Burning → `TraumaBurnLight`.
+- `JAZZ-MED-001-AC-007`: `PASS` — static: Trauma* companions/items/metadata/icons/loc; *shot → `JazzTryRollTraumaFromBodyPart`; Unconscious → knockout package; Burning → `TraumaBurnLight`; `_audit_med001_downed_heavy.py` verifies immediate Heavy upgrade and idempotence.
 - `JAZZ-MED-001-AC-008`: `BLOCKED` — runtime/human trauma playtest pending.
 - `JAZZ-MED-001-AC-009`: `PASS` — static: armor zone→factor wired in `Systems_Medicine.lua`.
 - `JAZZ-MED-001-AC-010`: `PASS` — static: BAT wired from `ApplyDamageAndEffects` unpierced branch.

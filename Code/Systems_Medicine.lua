@@ -1062,9 +1062,21 @@ function JazzClearZoneTrauma(unit, zone)
 end
 
 -- Apply or upgrade trauma for a zone. Never downgrades.
+local lJazzPhysicalTraumaZones = { "Arms", "Legs", "Ribs", "Head" }
+
 function JazzApplyTrauma(unit, zone, tier)
 	if not unit or not zone or not tier or not JazzTraumaTierRank[tier] then
 		return false
+	end
+	-- UnitDowned guarantees one Heavy physical trauma. A later *shot effect from
+	-- the same hit must not leave an extra Light/Medium trauma beside it.
+	if tier ~= "Heavy" and unit.HasStatusEffect and unit:HasStatusEffect("Downed") then
+		for _, physical_zone in ipairs(lJazzPhysicalTraumaZones) do
+			if JazzGetTraumaTier(unit, physical_zone) == "Heavy" then
+				return false
+			end
+		end
+		tier = "Heavy"
 	end
 	local current = JazzGetTraumaTier(unit, zone)
 	if current and JazzTraumaTierRank[current] >= JazzTraumaTierRank[tier] then
@@ -1185,19 +1197,49 @@ function JazzStripCombatWounded(unit)
 	end
 end
 
-function JazzApplyKnockoutTraumaPackage(unit)
+function JazzApplyDownedHeavyTrauma(unit)
 	if not unit then
 		return false
 	end
-	-- MED-001: never leave HP-stack Wounded on knockout; trauma package replaces it.
+	-- MED-001: never leave HP-stack Wounded on downed/knockout; one Heavy
+	-- physical trauma replaces it immediately and only once.
 	JazzStripCombatWounded(unit)
-	local zones = { "Arms", "Legs", "Ribs", "Head" }
-	local zone = zones[1 + unit:Random(#zones)]
-	JazzApplyTrauma(unit, zone, "Heavy")
+	for _, zone in ipairs(lJazzPhysicalTraumaZones) do
+		if JazzGetTraumaTier(unit, zone) == "Heavy" then
+			return false
+		end
+	end
+
+	local zone
+	local hit = unit.on_die_hit_descr
+	if hit then
+		local hit_zone = JazzHitBodyPartToTraumaZone(
+			hit.spot_group or hit.target_spot_group or g_DefaultShotBodyPart
+		)
+		if table.find(lJazzPhysicalTraumaZones, hit_zone) then
+			zone = hit_zone
+		end
+	end
+	if not zone then
+		for _, physical_zone in ipairs(lJazzPhysicalTraumaZones) do
+			if JazzGetTraumaTier(unit, physical_zone) then
+				zone = physical_zone
+				break
+			end
+		end
+	end
+	zone = zone or lJazzPhysicalTraumaZones[1 + unit:Random(#lJazzPhysicalTraumaZones)]
+	if not JazzApplyTrauma(unit, zone, "Heavy") then
+		return false
+	end
 	for _ = 1, 3 do
 		unit:AddStatusEffect("Pain")
 	end
 	return true
+end
+
+function JazzApplyKnockoutTraumaPackage(unit)
+	return JazzApplyDownedHeavyTrauma(unit)
 end
 
 -- Pain stacks added when an injured zone is used (deduped per unit/zone/turn).
@@ -1659,7 +1701,7 @@ function UnitProperties:AddWounds(wounds)
 end
 
 function OnMsg.UnitDowned(unit)
-	JazzStripCombatWounded(unit)
+	JazzApplyDownedHeavyTrauma(unit)
 end
 
 function OnMsg.NewHour()
