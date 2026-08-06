@@ -275,7 +275,7 @@ local function lBuildRisModeTemplate()
 					"__class", "XText",
 					"Translate", true,
 					"TextStyle", "PDABrowserText",
-					"Text", ui.site_title or T(890000000006920, "R.I.S."),
+					"Text", ui.site_title or T(890000000011000, "Recon Intelligence Services"),
 					"VAlign", "center",
 				}),
 			}),
@@ -287,7 +287,7 @@ local function lBuildRisModeTemplate()
 				PlaceObj("XTemplateWindow", {
 					"__class", "XTextButton",
 					"Translate", true,
-					"Text", ui.tab_bulletin or T(890000000006920, "Bulletin"),
+					"Text", ui.tab_bulletin or T(890000000011001, "Field bulletin"),
 					"Margins", box(0, 0, 8, 0),
 					"OnPress", function(self)
 						JAZZ_RIS_RefreshPage(self, "bulletin")
@@ -296,7 +296,7 @@ local function lBuildRisModeTemplate()
 				PlaceObj("XTemplateWindow", {
 					"__class", "XTextButton",
 					"Translate", true,
-					"Text", ui.tab_dossiers or T(890000000006920, "Dossiers"),
+					"Text", ui.tab_dossiers or T(890000000011002, "Dossiers"),
 					"Margins", box(0, 0, 8, 0),
 					"OnPress", function(self)
 						JAZZ_RIS_RefreshPage(self, "dossiers")
@@ -305,7 +305,7 @@ local function lBuildRisModeTemplate()
 				PlaceObj("XTemplateWindow", {
 					"__class", "XTextButton",
 					"Translate", true,
-					"Text", ui.tab_reports or T(890000000006920, "Battle reports"),
+					"Text", ui.tab_reports or T(890000000011003, "After-action reports"),
 					"OnPress", function(self)
 						JAZZ_RIS_RefreshPage(self, "reports")
 					end,
