@@ -458,7 +458,7 @@ return {
 										local bioText = self.idBioContent.idBioText
 										local iconAppend = T(381811065044, "<valign top><image UI/PDA/Event/T_Event_TextIcon 1500><valign bottom>")
 										if context.Affiliation ~= "AIM" and not context.Bio then
-											bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n\n Caution! Use at your own risk!"))
+											bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n Caution! Use at your own risk!"))
 										else
 											bioText:SetText(iconAppend .. T(606873920225, "<Bio>"))
 										end
@@ -1740,7 +1740,7 @@ return {
 										local bioText = self.idBioContent.idBioText
 										local iconAppend = T(381811065044, "<valign top><image UI/PDA/Event/T_Event_TextIcon 1500><valign bottom>")
 										if context.Affiliation ~= "AIM" and not context.Bio then
-											bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n\n Caution! Use at your own risk!"))
+											bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n Caution! Use at your own risk!"))
 										else
 											bioText:SetText(iconAppend .. T(606873920225, "<Bio>"))
 										end
@@ -62284,7 +62284,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				IsAimableAttack = false,
 				MoveStep = true,
 				MultiSelectBehavior = "first",
-				QueuedBadgeText = T(890000000010030, "MORPHINE"),
+				QueuedBadgeText = T(890000000012000, "MORPHINE"),
 				-- Same as JazzBandage: ally medicine must not open free-aim confirm.
 				RequireTargets = true,
 				RequireState = "any",
@@ -63126,7 +63126,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010120, "Head Trauma (Medium)"),
-				'Description', T(890000000010121, "Sight and accuracy penalties. Pain when aiming or firing."),
+				'Description', T(890000000010121, "Sight and accuracy penalties. +2 Pain when aiming or firing."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadMedium.png",
 				'Shown', true,
@@ -63173,7 +63173,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010122, "Head Trauma (Heavy)"),
-				'Description', T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. Pain rises each turn."),
+				'Description', T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
 				'Shown', true,
@@ -70389,7 +70389,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Psycho"),
-					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\n\nAdditional <em>conversation options</em>."),
+					'Description', T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\nAdditional <em>conversation options</em>."),
 					'Icon', "UI/Icons/Perks/Psycho",
 					'Tier', "Personality",
 				}),
@@ -70417,7 +70417,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'param_bindings', {},
 					'object_class', "Perk",
 					'DisplayName', T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Negotiator"),
-					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\n\nAdditional <em>conversation options</em>."),
+					'Description', T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\nAdditional <em>conversation options</em>."),
 					'Icon', "UI/Icons/Perks/Negotiator",
 					'Tier', "Personality",
 				}),
@@ -70427,7 +70427,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'SortKey', 10,
 					'object_class', "Perk",
 					'DisplayName', T(687227379969, --[[ModItemCharacterEffectCompositeDef Scoundrel DisplayName]] "Scoundrel"),
-					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "First <em>weapon swap</em> for the turn is <em>free</em>.\n\nAdditional <em>conversation options</em>."),
+					'Description', T(252249063178, --[[ModItemCharacterEffectCompositeDef Scoundrel Description]] "First <em>weapon swap</em> for the turn is <em>free</em>.\nAdditional <em>conversation options</em>."),
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
@@ -71134,7 +71134,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Überraschung"),
-					'Description', T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Attacks</em> the <em>closest</em> enemy with a firearm when <em>combat starts</em>, if possible.\n\nCan't be used with Heavy Weapons."),
+					'Description', T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Attacks</em> the <em>closest</em> enemy with a firearm when <em>combat starts</em>, if possible.\nCan't be used with Heavy Weapons."),
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
 				}),
@@ -71338,7 +71338,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(384624400411, --[[ModItemCharacterEffectCompositeDef Stealthy DisplayName]] "Stealthy"),
-					'Description', T(172679907276, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\n\nSlightly increased chance for <GameTerm('StealthKills')>."),
+					'Description', T(172679907276, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\nSlightly increased chance for <GameTerm('StealthKills')>."),
 					'Icon', "UI/Icons/Perks/Stealthy",
 					'Tier', "Specialization",
 				}),
@@ -81920,7 +81920,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 												'RolloverTemplate', "SmallRolloverGeneric",
 												'RolloverAnchor', "top",
-												'RolloverText', T(961263404010, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "Аwaiting deployment"),
+												'RolloverText', T(890000000012009, --[[ModItemXTemplate SquadsAndMercs2 RolloverText]] "Awaiting deployment"),
 												'RolloverOffset', box(-15, 0, 0, -15),
 												'Id', "idDeployed",
 												'Margins', box(-5, 0, 0, -5),
@@ -83497,7 +83497,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 												'RolloverTemplate', "SmallRolloverGeneric",
 												'RolloverAnchor', "top",
-												'RolloverText', T(251040816715, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "Аwaiting deployment"),
+												'RolloverText', T(890000000012009, --[[ModItemXTemplate SquadsAndMercs_copy RolloverText]] "Awaiting deployment"),
 												'RolloverOffset', box(-15, 0, 0, -15),
 												'Id', "idDeployed",
 												'Margins', box(-5, 0, 0, -5),
@@ -85099,7 +85099,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeDeployment") end,
 													'RolloverTemplate', "SmallRolloverGeneric",
 													'RolloverAnchor', "top",
-													'RolloverText', T(651816911668, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Аwaiting deployment"),
+													'RolloverText', T(890000000012009, --[[ModItemXTemplate SquadsAndMercs RolloverText]] "Awaiting deployment"),
 													'RolloverOffset', box(-15, 0, 0, -15),
 													'Id', "idDeployed",
 													'Margins', box(-5, 0, 0, -5),
@@ -104178,7 +104178,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "Revolver",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "SMGs are very accurate at point-blank range and can fire a hail of bullets. They are medium ranged and are not effective against Armor.\n\nSpecial attack: Run & Gun"),
+				Description = T(614148544769, --[[ModItemWeaponType Default SMG Description]] "SMGs are very accurate at point-blank range and can fire a hail of bullets. They are medium ranged and are not effective against Armor.\nSpecial attack: Run & Gun"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/SMG.png",
 				Name = T(890000000000976, --[[ModItemWeaponType Default SMG Name]] "Пистолет-пулемет"),
 				SortKey = 6,
@@ -104210,7 +104210,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "BattleRifle",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(675593980719, --[[ModItemWeaponType Default Shotgun Description]] "Shotguns are destructive at close range but can be stopped by most body armor. They cause collateral damage in a cone in the direction of the attack, diminishing at long range.\n\nEnemies hit by Shotguns are Exposed and lose the benefits of Cover.\n\nShotgun attacks inflict additional effects based on ammo type. "),
+				Description = T(675593980719, --[[ModItemWeaponType Default Shotgun Description]] "Shotguns are destructive at close range but can be stopped by most body armor. They cause collateral damage in a cone in the direction of the attack, diminishing at long range.\nEnemies hit by Shotguns are Exposed and lose the benefits of Cover.\nShotgun attacks inflict additional effects based on ammo type. "),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Shotguns.png",
 				Name = T(890000000001177, --[[ModItemWeaponType Default Shotgun Name]] "Дробовик"),
 				SortKey = 2,
@@ -104218,7 +104218,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "Shotgun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Machine Guns shoot many bullets but each individual shot is not very accurate.\n\nMachine Guns can be Set up to focus their threat over an area. Set and stationary Machine Guns can execute a limited number of out-of-turn interrupt attacks against enemies moving in the target area. The number of interrupt attacks is based on remaining AP."),
+				Description = T(420551480759, --[[ModItemWeaponType Default MachineGun Description]] "Machine Guns shoot many bullets but each individual shot is not very accurate.\nMachine Guns can be Set up to focus their threat over an area. Set and stationary Machine Guns can execute a limited number of out-of-turn interrupt attacks against enemies moving in the target area. The number of interrupt attacks is based on remaining AP."),
 				Icon = "Mod/e6L4ECj/WeaponTypes/MachineGun.png",
 				Name = T(934155710549, --[[ModItemWeaponType Default MachineGun Name]] "Единый пулемёт"),
 				SortKey = 6,
@@ -104234,7 +104234,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "LightMachineGun",
 			}),
 			PlaceObj('ModItemWeaponType', {
-				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Rifles have good penetration against Armor and are very accurate when targeting Body Parts. They offer long range but very low rate of fire.\n\nSpecial attack: Pin Down"),
+				Description = T(521528587114, --[[ModItemWeaponType Default Sniper Description]] "Rifles have good penetration against Armor and are very accurate when targeting Body Parts. They offer long range but very low rate of fire.\nSpecial attack: Pin Down"),
 				Icon = "Mod/e6L4ECj/WeaponTypes/Sniper.png",
 				Name = T(546961178289, --[[ModItemWeaponType Default Sniper Name]] "Снайперская винтовка"),
 				SortKey = 6,
@@ -109268,7 +109268,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'name', "Regions",
 		}, {
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Остров Эрни",
+				DisplayName = T(890000000012001, "Остров Эрни"),
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",
 				MajorSupplyPriority = 100,
@@ -109323,7 +109323,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "ErnieIsland",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Окрестности Порта Какао",
+				DisplayName = T(890000000012002, "Окрестности Порта Какао"),
 				LateAwakenMinTier = 21,
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",
@@ -109378,7 +109378,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "PortCacaoEnvirons",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Великая Пустыня",
+				DisplayName = T(890000000012003, "Великая пустыня"),
 				LateAwakenMinTier = 21,
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",
@@ -109461,7 +109461,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "GreatDesert",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Горная Степь",
+				DisplayName = T(890000000012004, "Горная степь"),
 				LateAwakenMinTier = 21,
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",
@@ -109528,7 +109528,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "MountainSteppe",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Чаячий остров",
+				DisplayName = T(890000000012005, "Чаячий остров"),
 				LegionAIEnabled = false,
 				Sectors = {
 					"E3",
@@ -109548,7 +109548,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "SeagullIsland",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Окрестности Флитауна",
+				DisplayName = T(890000000012006, "Окрестности Флитауна"),
 				LateAwakenMinTier = 21,
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",
@@ -109601,7 +109601,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "FleatownEnvirons",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Ла-Барьер",
+				DisplayName = T(890000000012007, "Ла-Барьер"),
 				LateAwakenMinTier = 21,
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",
@@ -109653,7 +109653,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				id = "LaBarrier",
 			}),
 			PlaceObj('ModItemRegion', {
-				DisplayName = "Великий лес",
+				DisplayName = T(890000000012008, "Великий лес"),
 				LateAwakenMinTier = 21,
 				LegionAIEnabled = true,
 				MajorHQSector = "B28",

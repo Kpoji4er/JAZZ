@@ -122,7 +122,7 @@ DefineClass.Region = {
       { category = "Legion AI/Squads", id = "ShipmentSquads", name = "Shipment squads", editor = "preset_id_list", default = {}, preset_class = "EnemySquads", item_default = "" },
       { category = "Legion AI/Squads", id = "MajorResponseSquads", name = "Major response squads", editor = "preset_id_list", default = {}, preset_class = "EnemySquads", item_default = "" },
       { id = "Id", editor = "text", default = "", help = "Уникальный ID региона" },
-      { id = "DisplayName", editor = "text", default = "", help = "Отображаемое имя региона" },
+      { id = "DisplayName", editor = "text", default = "", translate = true, help = "Отображаемое имя региона" },
       { id = "Description", editor = "text", default = "", help = "Описание региона" },
       { id = "Sectors", editor = "string_list", default = {}, item_default = "", items = function (self) return GetCampaignSectorsCombo("") end, help = "Сектора региона" },
       { id = "Heat", editor = "number", default = 0, help = "Legacy/default Heat; managed runtime state lives in gv_JAZZ_LegionAI", min = 0, max = 1000 },

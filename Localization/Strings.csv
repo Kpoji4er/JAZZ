@@ -8480,3 +8480,13 @@ Any Legion line squad carrying one of these weapons can change the fight immedia
 Any Legion line squad carrying one of these weapons can change the fight immediately. Identify the weapon, work out what it can reach, and change the plan before it opens fire.
 
 — R.I.S. Field Desk",russian-override;new-id,JAZZ-UI-RIS-001,jazz,jazz:items.lua:2990,
+890000000012000,MORPHINE,,МОРФИЙ,MORPHINE,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012001,Остров Эрни,,Остров Эрни,Ernie Island,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012002,Окрестности Порта Какао,,Окрестности Порта Какао,Port Cacao Environs,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012003,Великая пустыня,,Великая пустыня,Great Desert,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012004,Горная степь,,Горная степь,Mountain Steppe,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012005,Чаячий остров,,Чаячий остров,Seagull Island,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012006,Окрестности Флитауна,,Окрестности Флитауна,Fleatown Environs,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012007,Ла-Барьер,,Ла-Барьер,La Barrière,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012008,Великий лес,,Великий лес,Great Forest,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
+890000000012009,Awaiting deployment,,Ожидает высадки,Awaiting deployment,new-id,JAZZ-LOC-002,jazz,jazz:items.lua,manual-translation
