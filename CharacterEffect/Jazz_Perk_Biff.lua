@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Biff = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000002800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff DisplayName]] "Вербовка MERC"),
-	Description = T(890000000002801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff Description]] "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000002801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff Description]] "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Biff.png",
 	Tier = "Personal",
 }

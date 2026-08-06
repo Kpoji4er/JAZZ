@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Gaston = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000003500, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gaston DisplayName]] "Крыша"),
-	Description = T(890000000003501, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gaston Description]] "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000003501, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Gaston Description]] "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Gaston.png",
 	Tier = "Personal",
 }

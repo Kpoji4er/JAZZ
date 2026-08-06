@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Flo = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000003000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo DisplayName]] "Барахольщица"),
-	Description = T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Flo.png",
 	Tier = "Personal",
 }

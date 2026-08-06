@@ -4242,5 +4242,33 @@ Task: <task>",manual-translation
 4239,890000000004734,"Wildfire. Статы ~80, Leadership 67, Marksmanship 74. Плохо переносит жару. Педантичен до занудства — отсюда прозвище. Любит Аллика и Монка; недолюбливает Доктора Кью и Линкса.","Wildfire mercenary. Stats around 80, 67 Leadership, 74 Marksmanship. Handles heat poorly. Pedantic to the point of being tedious — hence the nickname. Fond of Allik and Monk; not fond of Dr.Q or Lynx.",design=docs/design/mercs-ja12/vilde.md; unit=Jazz_Vilde; field=Bio; status=ready; executable=true
 4240,890000000004667,Доктор Винсент «Винс»,"Doctor Vincent ""Vince""",design=docs/design/mercs-ja12/vince.md; unit=Jazz_Vince; field=Name; status=ready; executable=true
 4241,890000000004670,"Health 94, Dexterity 92, Agility 49, Marksmanship 35, Wisdom 94, Medical 94, Leadership 33. Быстро учится сам и легко учит других; одинаково хорошо стреляет и лечит обеими руками. Страдает клаустрофобией.","94 Health, 92 Dexterity, 49 Agility, 35 Marksmanship, 94 Wisdom, 94 Medical, 33 Leadership. A fast learner who's just as quick to teach others; shoots and treats wounds equally well with either hand. Suffers from claustrophobia.",design=docs/design/mercs-ja12/vince.md; unit=Jazz_Vince; field=Bio; status=ready; executable=true
-4242,890000000000075,WIP — механика сигнатурного перка в разработке.,This signature ability is not active yet.,manual-translation
-4243,890000000012009,Awaiting deployment,Awaiting deployment,manual-translation
+4272,890000000003901,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000002801,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005034,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000004301,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005053,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000002201,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000004401,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003101,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005055,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000002001,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003001,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003301,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003501,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005040,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000002401,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000004201,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005032,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003601,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000001901,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005036,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003701,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000005051,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003201,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000002301,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000003801,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000002601,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000004601,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4272,890000000004101,Эта именная способность пока не действует.,This signature ability is currently inactive.,manual-translation
+4270,890000000000075,Эта именная способность пока не действует.,This signature ability is not active yet.,manual-translation
+4271,890000000012009,Awaiting deployment,Awaiting deployment,manual-translation

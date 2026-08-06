@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002001,<bullet_point> Jam chance: <chance>%,<bullet_point> Jam chance: <chance>%,,jazz:Code/System_WeaponResourceMaintenance.lua
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -7001,7 +7001,7 @@ I wanted to intercept this detachment," but you managed to kill the main part. G
 890000000002901,Автоогонь и очередь выпускают на 2 пули больше.,Autofire and burst fire 2 extra bullets.,,Jazz_Perk_WaveA
 890000000003401,Попадание в голову: 25% шанс ослепить цель на 1 ход.,Head hit: 25% chance to Blind the target for 1 turn.,,Jazz_Perk_WaveA
 890000000003500,Крыша,Roof,,Jazz_Perk_Gaston
-890000000003501,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics in progress.,,Jazz_Perk_WIP
+890000000003501,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Gaston.lua | jazz:CharacterEffect/Jazz_Perk_Hobbit.lua
 890000000004001,В начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания на следующую атаку.,"At turn start, allies within 5 tiles gain +5 chance to hit on their next attack.",,Jazz_Perk_WaveA
 890000000004602,[WIP] Тим «Рикошет» Саттонн,"[WIP] Tim ""Ricochet"" Sutton",,Jazz_Ricochet
 890000000004603,Рикошет,Ricochet,,Jazz_Ricochet
@@ -11285,15 +11285,15 @@ ID,Text,Translation,VoiceActor,Context
 890000000005029,Полевой наставник,Field Mentor,,perk-remap-from-890000000005009
 890000000005030,Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД.,"Once per combat, the first heal or bandage on an ally grants the target +4 AP.",,perk-remap-from-890000000005010
 890000000005031,Вырубить,Knock Out,,perk-remap-from-890000000005011
-890000000005032,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005012
+890000000005032,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Hitman.lua
 890000000005033,Старая школа,Old School,,perk-remap-from-890000000005013
-890000000005034,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005014
+890000000005034,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Biggens.lua
 890000000005035,Оружейник старой закалки,Old-School Gunsmith,,perk-remap-from-890000000005015
-890000000005036,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005016
+890000000005036,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Kulba.lua
 890000000005037,Ночной автоматчик,Night Automatic Rifleman,,perk-remap-from-890000000005017
 890000000005038,Ночью и под землёй автоогонь/очередь получают +15 к шансу попадания.,"At night and underground, auto-fire/burst gain +15 chance to hit.",,perk-remap-from-890000000005018
 890000000005039,Точный бросок,Precision Throw,,perk-remap-from-890000000005019
-890000000005040,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005020
+890000000005040,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Grace.lua
 890000000005041,Ночной инструктор,Night Instructor,,perk-remap-from-890000000005021
 890000000005042,Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания.,"At night and underground, at the start of the turn allies within 5 tiles gain +5 chance to hit.",,perk-remap-from-890000000005022
 890000000005043,Второе дыхание,Second Wind,,perk-remap-from-890000000005023
@@ -11307,11 +11307,11 @@ ID,Text,Translation,VoiceActor,Context
 "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>""",,mag-hint-aligned
 "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>кровотечение</color>""",,mag-hint-aligned
 890000000005050,Толстокожий,Thick-Skinned,,perk-remap-from-890000000005001
-890000000005051,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005002
+890000000005051,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Meat.lua
 890000000005052,Тихая тень,Quiet Shadow,,perk-remap-from-890000000005003
-890000000005053,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005004
+890000000005053,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Carlos.lua
 890000000005054,IRA,IRA,,perk-remap-from-890000000005005
-890000000005055,WIP — механика сигнатурного перка в разработке.,WIP — signature perk mechanics under development.,,perk-remap-from-890000000005006
+890000000005055,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Devin.lua
 890000000005056,Не трогай меня,Don't Touch Me,,perk-remap-from-890000000005007
 890000000005057,Враги в ближнем бою по Шенку получают −50 к шансу попадания.,Enemies in melee against Shank take −50 chance to hit.,,perk-remap-from-890000000005008
 890000000010277,Concussion,Concussion,,jazz:CharacterEffect/Concussion.lua
@@ -11808,3 +11808,23 @@ Any Legion line squad carrying one of these weapons can change the fight immedia
 890000000012007,Ла-Барьер,La Barrière,,JAZZ-LOC-002
 890000000012008,Великий лес,Great Forest,,JAZZ-LOC-002
 890000000012009,Awaiting deployment,Awaiting deployment,,JAZZ-LOC-002
+890000000003901,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Allik.lua
+890000000002801,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Biff.lua
+890000000004301,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Bull.lua
+890000000002201,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua
+890000000004401,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Cord.lua
+890000000003101,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Cougar.lua
+890000000002001,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua
+890000000003001,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Flo.lua
+890000000003301,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Gamos.lua
+890000000002401,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua
+890000000004201,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Highball.lua
+890000000003601,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Horg.lua
+890000000001901,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua
+890000000003701,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Manuel.lua
+890000000003201,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Miguel.lua
+890000000002301,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Mike.lua
+890000000003801,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Monk.lua
+890000000002601,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Quinten.lua
+890000000004601,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Ricochet.lua
+890000000004101,Эта именная способность пока не действует.,This signature ability is currently inactive.,,jazz:CharacterEffect/Jazz_Perk_Static.lua

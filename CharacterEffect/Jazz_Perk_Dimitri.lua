@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Dimitri = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000002000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri DisplayName]] "Точильщик"),
-	Description = T(890000000002001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri Description]] "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000002001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dimitri Description]] "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Dimitri.png",
 	Tier = "Personal",
 }

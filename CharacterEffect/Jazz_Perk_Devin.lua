@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Devin = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005054, "IRA"),
-	Description = T(890000000005055, "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000005055, "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Devin.png",
 	Tier = "Personal",
 }

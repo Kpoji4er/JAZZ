@@ -5,7 +5,7 @@ DefineClass.Jazz_Perk_Carlos = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005052, "Тихая тень"),
-	Description = T(890000000005053, "WIP — механика сигнатурного перка в разработке."),
+	Description = T(890000000005053, "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Carlos.png",
 	Tier = "Personal",
 }
