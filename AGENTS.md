@@ -46,6 +46,7 @@ JAZZ состоит из четырёх канонических репозит�
 8. Не выполнять `git push`, force-push, публикацию тегов, релизов или PR без отдельного явного одобрения пользователя на конкретную публикацию. Запрос на commit, merge или перенос в ветку не разрешает push. При **одобренном** push разбивать ahead-коммиты на чанки **≤8** (см. `.cursor/rules/jazz-git-push-chunks.mdc`).
 9. При добавлении или изменении mod-only строки локализации в том же change set обновлять обе runtime-таблицы — `Russian.csv` и `English.csv`. Изменение не завершено, пока для активной строки не заполнены оба языка, множества mod-only ID таблиц не совпадают и аудитор сообщает `needs Russian=0` и `needs English=0`.
 10. При коммите изменений пакета в том же change set обновлять его `metadata.lua`: обычный коммит поднимает `version` (Revision) на `+1`; `version_minor` — только на большой мульти-spec фиче/волне. Не править вручную `saved`, `code_hash`. Sibling-пакеты без изменений не трогать. `last_changes` при коммите **дописывать**, полностью перезатирать только при Steam upload. Подробности: `.cursor/rules/jazz-commits-versioning.mdc`, `docs/technical/systems/release-versioning.md`, `$release-jazz-suite`.
+11. Новый shoppable `InventoryItem` (оружие/броня/ammo/медицина/тулзы/аттач…): в том же change set решить **Bobby Ray in|out** и выставить shop-поля (или явный out + причина). Не откладывать «потом в каталог». См. `.cursor/rules/jazz-bobby-ray-new-items.mdc`, ECON-004.
 
 ## Источники
 

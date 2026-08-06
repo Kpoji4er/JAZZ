@@ -13,6 +13,8 @@ DefineClass.Wirecutter = {
 	AdditionalHint = T(997203634310, --[[ModItemInventoryItemCompositeDef Wirecutter AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перерезают проволочные ограждения\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Изнашиваются при каждом употреблении\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не поддаются ремонту\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются автоматически, просто находясь в инвентаре"),
 	Cost = 200,
 	CanAppearInShop = true,
+	Tier = 1,
+	RestockWeight = 100,
 	CategoryPair = "Tool",
 }
 

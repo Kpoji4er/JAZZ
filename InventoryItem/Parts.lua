@@ -11,6 +11,7 @@ DefineClass.Parts = {
 	AdditionalHint = T(683993796357, --[[ModItemInventoryItemCompositeDef Parts AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для модификации оружия\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Ремонт предметов» в виде со спутника."),
 	Cost = 250,
 	CanAppearInShop = true,
+	Tier = 1,
 	MaxStock = 50,
 	RestockWeight = 150,
 	CategoryPair = "Resource",

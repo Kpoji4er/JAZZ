@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagLarge_10_20_SVD = {
 	AdditionalHint = T(990002534, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_10_20_SVD AdditionalHint]] "Семья магазинов: SVD. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 2500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 38,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 2,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagLarge_10_20_SVD",
 }

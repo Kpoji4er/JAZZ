@@ -11,10 +11,10 @@ DefineClass.JAZZ_Bipod_Galil = {
 	AdditionalHint = T(990002111, --[[ModItemInventoryItemCompositeDef JAZZ_Bipod_Galil AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 5000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Under",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Bipod_Galil",
 }

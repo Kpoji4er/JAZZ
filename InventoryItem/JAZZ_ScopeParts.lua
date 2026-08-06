@@ -10,6 +10,7 @@ DefineClass.JAZZ_ScopeParts = {
 	AdditionalHint = T(990002502, --[[ModItemInventoryItemCompositeDef JAZZ_ScopeParts AdditionalHint]] "Нужны при ремонте оружия с установленным прицелом. Также получаются при поломке прицела при неудачном снятии."),
 	Cost = 600,
 	CanAppearInShop = true,
+	Tier = 1,
 	MaxStock = 20,
 	RestockWeight = 60,
 	CategoryPair = "Resource",

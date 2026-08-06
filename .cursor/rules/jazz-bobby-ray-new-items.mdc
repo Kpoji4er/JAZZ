@@ -1,0 +1,43 @@
+---
+description: Новый InventoryItem / shoppable контент — сразу решить Bobby Ray (in/out) и заполнить shop-поля; не откладывать «потом в каталог».
+alwaysApply: true
+---
+
+# Новый предмет → сразу решение по Bobby Ray
+
+При **создании** или **вводе в игру** нового shoppable/loot `InventoryItem` (оружие, броня, патроны, медицина/тулзы/ресурсы, remountable аттач, MiscItem с магазином) в том же change set явно решить: **идёт ли он в Bobby Ray**.
+
+Не оставлять «потом разберёмся» и не копировать temp-pass (`Tier=1`, `RW=10`) без решения.
+
+## Решение (обязательно одно)
+
+| Вердикт | Что сделать сразу |
+| --- | --- |
+| **in** | `CanAppearInShop=true` + `Tier` (BR 1…5) + `RestockWeight` (+ `MaxStock` для rare) + осмысленный `Cost` + `CategoryPair` |
+| **out** | `CanAppearInShop=false` (или RW=0) + краткая причина в note/spec/audit comment |
+| **unclear** | Спросить владельца **до** merge/«готово»; не молча ставить shop=true |
+
+## Критерии out (типичные)
+
+- квест / unique / personal / locked
+- Cold War / antique / вне рыночной эпохи витрины
+- craft-only / world-only
+- weapon-integral / нет Bobby-хоста (аттач)
+- underslung GL (пока вне витрины по ECON-004)
+- irons / default stubs
+
+## Критерии in — выровнять с ECON-004
+
+Канон: `docs/specs/active/JAZZ-ECON-004.md`, audits `_audit_bobby_*_prices.py`.
+
+- **Оружие/броня/аттачи:** soft-tail; аттач `Tier ≥` earliest Bobby host weapon.
+- **Патроны:** grade×caliber BR; Poor fade rules.
+- **Staples** (Meds/Parts/IFAK/tools…): flat с U≥1.
+- **Specialty med:** SurgicalKit BR2, CombatStim/Metaviron BR3.
+- Не опережать прогрессию мира (принципы ECON-004).
+
+## DoD для нового предмета
+
+Изменение **не завершено**, пока в PR/ответе не видно: `Bobby: in|out` (+ Tier/RW/Cost если in, или reason если out).
+
+Связано: `docs/design/economy-ops-and-trade.md` §4, `.cursor/rules/jazz-items-metadata-validate.mdc`.

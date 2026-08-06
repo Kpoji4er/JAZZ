@@ -3,6 +3,7 @@ DefineClass.Reanimationsset = {
 	__parents = { "JazzStackableMedicine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 	object_class = "JazzStackableMedicine",
+	CanAppearInShop = false,
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcHealAmount",

@@ -6,6 +6,8 @@ DefineClass.JazzArmor_RaiderKneePads = {
 
 	comment = "Class1 L",
 	object_class = "Armor",
+	CanAppearInShop = false,
+	Cost = 300,
 	ScrapParts = 6,
 	Degradation = 70,
 	Icon = "Mod/e6L4ECj/ArmorIcons/RaiderPads.png",

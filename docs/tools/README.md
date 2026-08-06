@@ -7,6 +7,21 @@
 
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
+| `_fix_bobbyray_string_tier.py` | Bobby Ray: string `Tier` → numeric in `items.lua` + `InventoryItem/*.lua` (else restock Assert). Dry-run / `--apply`. |
+| `_apply_bobby_catalog.py` | ECON-004: apply Cost/Tier/RW/CAS/CategoryPair from `.tmp/bobby_*_prices.json` to companions + `items.lua`. `--dry-run` / `--apply`. |
+| `_patch_bobby_econ004_items.py` | ECON-004: ModItemCode + Other SubCategories (Optics/…) + `TCE_Tier4/5Unlock` in `items.lua`. Idempotent. |
+| `_audit_bobby_weapon_prices.py` | Audit weapon `Cost` / Bobby Tier. `--json` / `--tsv`. |
+| `_annotate_bobby_cas.py` | Annotate `.tmp/bobby_weapon_prices.json` with CAS action labels. |
+| `_gen_bobby_price_canvas.py` | Build canvas `bobby-ray-weapon-prices.canvas.tsx`. |
+| `_audit_bobby_armor_prices.py` | Audit armor Cost/Tier. `--json` / `--tsv`. |
+| `_gen_bobby_armor_canvas.py` | Build canvas `bobby-ray-armor-prices.canvas.tsx`. |
+| `_audit_bobby_ammo_prices.py` | Audit ammo Cost/Tier. `--json` / `--tsv`. |
+| `_gen_bobby_ammo_canvas.py` | Build canvas `bobby-ray-ammo-prices.canvas.tsx`. |
+| `_audit_bobby_consumables_prices.py` | Audit medicine/tools/Meds·Parts. `--json` / `--tsv`. |
+| `_audit_bobby_attach_prices.py` | Audit remountable attachments. `--json` / `--tsv`. |
+| `_gen_bobby_attach_canvas.py` | Build canvas `bobby-ray-attach-prices.canvas.tsx`. |
+| `_audit_bobby_explosive_prices.py` | Audit explosives/grenades. `--json` / `--tsv`. |
+| `_gen_bobby_explosive_canvas.py` | Build canvas `bobby-ray-explosive-prices.canvas.tsx`. |
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_apply_hotfix_unjam_pinned_items.py` | ACL-safe items.lua patch helper: Unjam ShowIn/GetUIState + suppressionPinned OnAdded/OnBeginTurn parity with companion. |
 

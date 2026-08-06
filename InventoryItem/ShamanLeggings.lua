@@ -6,6 +6,8 @@ DefineClass.ShamanLeggings = {
 
 	comment = "Class3 H",
 	object_class = "Armor",
+	CanAppearInShop = false,
+	Cost = 2200,
 	ScrapParts = 6,
 	Degradation = 16,
 	Icon = "UI/Icons/Items/shaman_leggings",

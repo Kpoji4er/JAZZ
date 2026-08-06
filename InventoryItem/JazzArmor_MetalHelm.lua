@@ -6,6 +6,8 @@ DefineClass.JazzArmor_MetalHelm = {
 
 	comment = "Class1 M",
 	object_class = "Armor",
+	CanAppearInShop = false,
+	Cost = 400,
 	ScrapParts = 6,
 	Degradation = 30,
 	Icon = "Mod/e6L4ECj/ArmorIcons/MetalHelm.png",

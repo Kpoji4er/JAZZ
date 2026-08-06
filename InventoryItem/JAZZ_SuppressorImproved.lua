@@ -13,8 +13,8 @@ DefineClass.JAZZ_SuppressorImproved = {
 	CanAppearInShop = true,
 	RestockWeight = 10,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 4,
+	CategoryPair = "Muzzle",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_SuppressorImproved",
 }

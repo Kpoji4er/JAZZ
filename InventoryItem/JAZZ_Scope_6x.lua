@@ -11,10 +11,10 @@ DefineClass.JAZZ_Scope_6x = {
 	AdditionalHint = T(990002351, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_6x AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 8000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Optics",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Scope_6x",
 }

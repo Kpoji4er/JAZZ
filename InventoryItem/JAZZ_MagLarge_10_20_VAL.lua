@@ -13,8 +13,8 @@ DefineClass.JAZZ_MagLarge_10_20_VAL = {
 	CanAppearInShop = true,
 	RestockWeight = 10,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 4,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagLarge_10_20_VAL",
 }

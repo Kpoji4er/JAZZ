@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagSmall30_15_M2CARBINE = {
 	AdditionalHint = T(990002627, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_M2CARBINE AdditionalHint]] "Семья магазинов: M2CARBINE. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 50,
 	MaxStock = 1,
 	Tier = 1,
-	CategoryPair = "Components",
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagSmall30_15_M2CARBINE",
 }

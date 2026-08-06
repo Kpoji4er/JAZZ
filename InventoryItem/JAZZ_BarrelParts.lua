@@ -10,6 +10,7 @@ DefineClass.JAZZ_BarrelParts = {
 	AdditionalHint = T(990002004, --[[ModItemInventoryItemCompositeDef JAZZ_BarrelParts AdditionalHint]] "Используются для установки и ремонта стволов."),
 	Cost = 500,
 	CanAppearInShop = true,
+	Tier = 1,
 	MaxStock = 25,
 	RestockWeight = 75,
 	CategoryPair = "Resource",

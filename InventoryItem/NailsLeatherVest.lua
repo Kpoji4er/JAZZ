@@ -6,6 +6,8 @@ DefineClass.NailsLeatherVest = {
 
 	object_class = "Armor",
 	RepairCost = 10,
+	CanAppearInShop = false,
+	Cost = 1700,
 	Degradation = 0,
 	Icon = "UI/Icons/Items/leather_jacket",
 	DisplayName = T(641043499637, --[[ModItemInventoryItemCompositeDef NailsLeatherVest DisplayName]] "Leather Vest"),

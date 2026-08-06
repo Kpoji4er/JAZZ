@@ -6,6 +6,7 @@ DefineClass.JAZZ_AMMO_MortarShell_HE = {
 
 	object_class = "Ordnance",
 	RepairCost = 0,
+	CanAppearInShop = false,
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Items/mortar_shell_he",
@@ -13,7 +14,7 @@ DefineClass.JAZZ_AMMO_MortarShell_HE = {
 	DisplayNamePlural = T(129650617617, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_HE DisplayNamePlural]] "Выстрелы для миномета"),
 	colorStyle = "AmmoBasicColor",
 	Description = T(812608538603, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_HE Description]] "Стандартный боеприпас для минометов."),
-	Cost = 1600,
+	Cost = 350,
 	Tier = 2,
 	MaxStock = 25,
 	RestockWeight = 50,

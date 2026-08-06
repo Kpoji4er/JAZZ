@@ -374,6 +374,32 @@ InventoryItemProperties.properties[#InventoryItemProperties.properties+1] = {
 SetPropMeta("BobbyRayShopItemProperties", "Tier", "max", 10)
 SetPropMeta("BobbyRayShopItemProperties", "ShopStackSize", "max", 500)
 
+-- PrepareShopItemsForRestock does `item.Tier <= unlocked_tier` (number). String Tier
+-- (e.g. Tier = "5" in a companion) Asserts during BobbyRayStoreRestock.
+local function JazzCoerceBobbyRayNumericTiers()
+	local foreach = rawget(_G, "ForEachPreset")
+	if type(foreach) ~= "function" then
+		return
+	end
+	foreach("InventoryItemCompositeDef", function(preset)
+		local item = g_Classes and preset and g_Classes[preset.id]
+		if item and type(item.Tier) == "string" then
+			local n = tonumber(item.Tier)
+			if n then
+				item.Tier = n
+			end
+		end
+	end)
+end
+
+function OnMsg.ClassesBuilt()
+	JazzCoerceBobbyRayNumericTiers()
+end
+
+function OnMsg.DataLoaded()
+	JazzCoerceBobbyRayNumericTiers()
+end
+
 
 
 local function JazzInventoryDefProperty(class_id, prop, fallback)

@@ -11,10 +11,10 @@ DefineClass.JAZZ_Galil_Brake_Default = {
 	AdditionalHint = T(990002174, --[[ModItemInventoryItemCompositeDef JAZZ_Galil_Brake_Default AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 200,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Muzzle",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Galil_Brake_Default",
 }

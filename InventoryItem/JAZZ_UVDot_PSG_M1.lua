@@ -11,10 +11,10 @@ DefineClass.JAZZ_UVDot_PSG_M1 = {
 	AdditionalHint = T(990002411, --[[ModItemInventoryItemCompositeDef JAZZ_UVDot_PSG_M1 AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 2500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 5,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 5,
+	CategoryPair = "Side",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_UVDot_PSG_M1",
 }

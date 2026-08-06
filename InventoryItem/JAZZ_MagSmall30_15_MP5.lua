@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagSmall30_15_MP5 = {
 	AdditionalHint = T(990002630, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_MP5 AdditionalHint]] "Семья магазинов: MP5. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagSmall30_15_MP5",
 }

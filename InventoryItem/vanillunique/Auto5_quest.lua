@@ -8,6 +8,7 @@ DefineClass.Auto5_quest = {
 	object_class = "Shotgun",
 	ScrapParts = 10,
 	RepairCost = 8,
+	CanAppearInShop = false,
 	Reliability = 55,
 	Icon = "UI/Icons/Weapons/Auto5Quest",
 	ItemType = "Shotgun",

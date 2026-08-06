@@ -7,6 +7,7 @@ DefineClass.PlasmaGun_Crowbar = {
 	object_class = "CrowbarBase",
 	ScrapParts = 4,
 	RepairCost = 120,
+	CanAppearInShop = false,
 	Icon = "UI/Icons/Items/plasma_gun_crowbar",
 	DisplayName = T(507871191066, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar DisplayName]] "Plasma Gun Crowbar"),
 	DisplayNamePlural = T(593438446878, --[[ModItemInventoryItemCompositeDef PlasmaGun_Crowbar DisplayNamePlural]] "Plasma Gun Crowbars"),

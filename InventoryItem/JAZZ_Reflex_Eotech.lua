@@ -11,10 +11,10 @@ DefineClass.JAZZ_Reflex_Eotech = {
 	AdditionalHint = T(990002327, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Eotech AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 9000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 8,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 4,
+	CategoryPair = "Optics",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Reflex_Eotech",
 }

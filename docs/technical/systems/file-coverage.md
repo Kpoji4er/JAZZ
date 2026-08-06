@@ -16,6 +16,7 @@
 | `CrossHairUI.lua` | loaded | [Бой](combat-cth-actions.md), [UI](ui-audio-fx.md) |
 | `CombatBadge_DeathRoll.lua` | loaded | [Бой](combat-cth-actions.md), [UI](ui-audio-fx.md) |
 | `System_Firearm_AddProperties.lua` | loaded | [Оружие](weapons-ammo-components.md) |
+| `System_BobbyRay_ECON004.lua` | loaded | [Bobby Ray](bobby-ray-shop.md) — soft-tail restock / ammo boost / staples flat / tier price |
 | `System_OR_Weapons.lua` | loaded | [Оружие](weapons-ammo-components.md) |
 | `System_EmplacementAmmo.lua` | loaded | [Оружие](weapons-ammo-components.md) — remap cut `_50BMG_*` emplacement ammo → `JAZZ_AMMO_50BMG_*` |
 | `System_WeaponResourceMaintenance.lua` | loaded | [Оружие](weapons-ammo-components.md), [инвентарь](inventory-items-loot-crafting.md) — JAZZ-WEAPONS-002 resource triad / jam wear |

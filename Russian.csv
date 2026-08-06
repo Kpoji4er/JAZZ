@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Ствольные запчасти,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -12736,3 +12736,9 @@ Legion supply assessments are delivered to your inbox.","Разведывате�
 Бесплатная подписка на время кампании активна. Здесь будут появляться подтверждённые досье и сводки после боёв.
 
 Оценки снабжения Легиона приходят на почту.",,JAZZ-UI-RIS-001-B
+890000000020150,Optics,Оптика,,jazz:items.lua BobbyRay Other SubCategory
+890000000020151,Magazines,Магазины,,jazz:items.lua BobbyRay Other SubCategory
+890000000020152,Muzzle,Дульные устройства,,jazz:items.lua BobbyRay Other SubCategory
+890000000020153,Side,Боковые обвесы,,jazz:items.lua BobbyRay Other SubCategory
+890000000020154,Underbarrel,Подствольные,,jazz:items.lua BobbyRay Other SubCategory
+890000000020155,Bipod,Сошки,,jazz:items.lua BobbyRay Other SubCategory

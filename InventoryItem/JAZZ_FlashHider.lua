@@ -11,10 +11,10 @@ DefineClass.JAZZ_FlashHider = {
 	AdditionalHint = T(990002138, --[[ModItemInventoryItemCompositeDef JAZZ_FlashHider AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 40,
 	MaxStock = 1,
 	Tier = 1,
-	CategoryPair = "Components",
+	CategoryPair = "Muzzle",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_FlashHider",
 }

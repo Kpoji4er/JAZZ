@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagQuick_GALIL = {
 	AdditionalHint = T(990002615, --[[ModItemInventoryItemCompositeDef JAZZ_MagQuick_GALIL AdditionalHint]] "Семья магазинов: GALIL. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagQuick_GALIL",
 }

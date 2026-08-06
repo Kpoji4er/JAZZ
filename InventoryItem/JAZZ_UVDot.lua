@@ -11,10 +11,10 @@ DefineClass.JAZZ_UVDot = {
 	AdditionalHint = T(990002405, --[[ModItemInventoryItemCompositeDef JAZZ_UVDot AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 2500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 40,
 	MaxStock = 1,
 	Tier = 1,
-	CategoryPair = "Components",
+	CategoryPair = "Side",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_UVDot",
 }

@@ -6,6 +6,7 @@ DefineClass.JAZZ_AMMO_MortarShell_Gas = {
 
 	object_class = "Ordnance",
 	RepairCost = 0,
+	CanAppearInShop = false,
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Items/mortar_shell_gas",
@@ -13,7 +14,7 @@ DefineClass.JAZZ_AMMO_MortarShell_Gas = {
 	DisplayNamePlural = T(191353195659, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_Gas DisplayNamePlural]] "Газ. выстрелы миномета"),
 	Description = T(368317466121, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_Gas Description]] "Газовый боеприпас для минометов."),
 	AdditionalHint = T(203665951773, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_Gas AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает <color EmStyle>удушье</color>\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно"),
-	Cost = 1800,
+	Cost = 350,
 	Tier = 3,
 	MaxStock = 10,
 	RestockWeight = 25,

@@ -11,6 +11,7 @@ DefineClass.JAZZ_AMMO_9x19_Crafted = {
 	colorStyle = "AmmoCraftedColor",
 	Description = T(890000000000196, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x19_Crafted Description]] "Производитель не известен, возможно это вы сами, рекомендуется использовать с оружием которое вы ненавидите, тогда эти патроны помогут вам скорее от него избавиться. Сильно снижают надежность оружия."),
 	Cost = 60,
+	CanAppearInShop = false,
 	MaxStock = 50,
 	CategoryPair = "9mm",
 	ShopStackSize = 50,

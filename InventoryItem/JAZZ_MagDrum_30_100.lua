@@ -10,7 +10,7 @@ DefineClass("JAZZ_MagDrum_30_100", {
 	DisplayNamePlural = T(990002218, --[[ModItemInventoryItemCompositeDef JAZZ_MagDrum_30_100 DisplayNamePlural]] "Бубен"),
 	AdditionalHint = T(990002219, --[[ModItemInventoryItemCompositeDef JAZZ_MagDrum_30_100 AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 5000,
-	CanAppearInShop = true,
+	CanAppearInShop = false,
 	RestockWeight = 10,
 	MaxStock = 1,
 	Tier = 1,

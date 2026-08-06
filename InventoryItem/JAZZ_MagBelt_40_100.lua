@@ -13,8 +13,8 @@ DefineClass("JAZZ_MagBelt_40_100", {
 	CanAppearInShop = true,
 	RestockWeight = 10,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 4,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagBelt_40_100",
 })

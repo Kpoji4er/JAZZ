@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagLarge_8_PISTOL_52 = {
 	AdditionalHint = T(990002582, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_8_PISTOL_52 AdditionalHint]] "Семья магазинов: PISTOL_52. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 4000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagLarge_8_PISTOL_52",
 }

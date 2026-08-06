@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagSmall20_10_G3 = {
 	AdditionalHint = T(990002621, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall20_10_G3 AdditionalHint]] "Семья магазинов: G3. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 38,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 2,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagSmall20_10_G3",
 }

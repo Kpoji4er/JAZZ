@@ -5,6 +5,8 @@ DefineClass.PostApoHelmet = {
 
 
 	object_class = "Armor",
+	CanAppearInShop = false,
+	Cost = 2600,
 	ScrapParts = 2,
 	Degradation = 60,
 	Icon = "UI/Icons/Items/post_apo_helmet",

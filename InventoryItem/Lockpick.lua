@@ -14,6 +14,8 @@ DefineClass.Lockpick = {
 	UnitStat = "Mechanical",
 	Cost = 200,
 	CanAppearInShop = true,
+	Tier = 1,
+	RestockWeight = 100,
 	CategoryPair = "Tool",
 }
 

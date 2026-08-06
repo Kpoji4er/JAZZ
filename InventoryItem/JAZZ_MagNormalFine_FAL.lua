@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagNormalFine_FAL = {
 	AdditionalHint = T(990002591, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_FAL AdditionalHint]] "Семья магазинов: FAL. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagNormalFine_FAL",
 }

@@ -11,10 +11,10 @@ DefineClass.JAZZ_Reflex_Cobra = {
 	AdditionalHint = T(990002324, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Cobra AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 3500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Optics",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Reflex_Cobra",
 }

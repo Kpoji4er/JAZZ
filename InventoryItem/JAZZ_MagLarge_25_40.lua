@@ -11,10 +11,10 @@ DefineClass.JAZZ_MagLarge_25_40 = {
 	AdditionalHint = T(990002255, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_25_40 AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 2500,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagLarge_25_40",
 }

@@ -12,6 +12,7 @@ DefineClass.FirstAidKit = {
 	UnitStat = "Medical",
 	Cost = 300,
 	CanAppearInShop = true,
+	Tier = 1,
 	RestockWeight = 150,
 	CategoryPair = "Medicine",
 	MaxStacks = 5,

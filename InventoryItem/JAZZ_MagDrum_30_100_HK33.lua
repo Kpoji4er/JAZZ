@@ -11,10 +11,10 @@ DefineClass("JAZZ_MagDrum_30_100_HK33", {
 	AdditionalHint = T(990002525, --[[ModItemInventoryItemCompositeDef JAZZ_MagDrum_30_100_HK33 AdditionalHint]] "Семья магазинов: HK33. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 5000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 18,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 3,
+	CategoryPair = "Magazines",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_MagDrum_30_100_HK33",
 })

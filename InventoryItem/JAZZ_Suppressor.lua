@@ -11,10 +11,10 @@ DefineClass.JAZZ_Suppressor = {
 	AdditionalHint = T(990002384, --[[ModItemInventoryItemCompositeDef JAZZ_Suppressor AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 4000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 28,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 2,
+	CategoryPair = "Muzzle",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Suppressor",
 }

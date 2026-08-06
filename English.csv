@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -12779,3 +12779,9 @@ Any Legion line squad carrying one of these weapons can change the fight immedia
 Your free campaign subscription is active. Confirmed dossiers and after-action reports will appear here.
 
 Legion supply assessments are delivered to your inbox.",,JAZZ-UI-RIS-001-B
+890000000020150,Optics,Optics,,jazz:items.lua BobbyRay Other SubCategory
+890000000020151,Magazines,Magazines,,jazz:items.lua BobbyRay Other SubCategory
+890000000020152,Muzzle,Muzzle,,jazz:items.lua BobbyRay Other SubCategory
+890000000020153,Side,Side,,jazz:items.lua BobbyRay Other SubCategory
+890000000020154,Underbarrel,Underbarrel,,jazz:items.lua BobbyRay Other SubCategory
+890000000020155,Bipod,Bipod,,jazz:items.lua BobbyRay Other SubCategory

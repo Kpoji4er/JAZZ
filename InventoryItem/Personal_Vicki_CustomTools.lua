@@ -6,6 +6,7 @@ DefineClass.Personal_Vicki_CustomTools = {
 
 	object_class = "LockpickBase",
 	RepairCost = 120,
+	CanAppearInShop = false,
 	Icon = "UI/Icons/Items/vicki_lockpick",
 	DisplayName = T(124312301509, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools DisplayName]] "Vicki's Locksmith Kit"),
 	DisplayNamePlural = T(609821932113, --[[ModItemInventoryItemCompositeDef Personal_Vicki_CustomTools DisplayNamePlural]] "Vicki's Locksmith Kit"),

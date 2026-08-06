@@ -12,6 +12,7 @@ DefineClass.JAZZ_AMMO_45ACP_Crafted = {
 	Description = T(890000000000860, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_45ACP_Crafted Description]] "Большой пистолетный патрон калибра .45, тут поддерживается дуализм, патрон по сути экспансивный, но и кустарный, а значит лизнуть мысли может как цели так и стрелку."),
 	AdditionalHint = "",
 	Cost = 60,
+	CanAppearInShop = false,
 	MaxStock = 50,
 	CategoryPair = "45ACP",
 	ShopStackSize = 50,

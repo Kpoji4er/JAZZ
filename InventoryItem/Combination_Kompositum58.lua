@@ -5,6 +5,8 @@ DefineClass.Combination_Kompositum58 = {
 
 
 	object_class = "MiscItem",
+	CanAppearInShop = false,
+	Cost = 4800,
 	Repairable = false,
 	Icon = "UI/Icons/Items/kompositum58_item.png",
 	DisplayName = T(178424124413, --[[ModItemInventoryItemCompositeDef Combination_Kompositum58 DisplayName]] "Kompositum 58"),

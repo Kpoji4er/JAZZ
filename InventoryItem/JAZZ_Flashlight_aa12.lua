@@ -11,10 +11,10 @@ DefineClass.JAZZ_Flashlight_aa12 = {
 	AdditionalHint = T(990002159, --[[ModItemInventoryItemCompositeDef JAZZ_Flashlight_aa12 AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 2000,
 	CanAppearInShop = true,
-	RestockWeight = 10,
+	RestockWeight = 5,
 	MaxStock = 1,
-	Tier = 1,
-	CategoryPair = "Components",
+	Tier = 5,
+	CategoryPair = "Side",
 	MaxStacks = 1,
 	RemovableComponentId = "JAZZ_Flashlight_aa12",
 }

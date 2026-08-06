@@ -6,6 +6,8 @@ DefineClass.ShamanHelmet = {
 
 	comment = "Class3 H",
 	object_class = "Armor",
+	CanAppearInShop = false,
+	Cost = 3000,
 	ScrapParts = 6,
 	Degradation = 16,
 	Icon = "UI/Icons/Items/shaman_helmet",

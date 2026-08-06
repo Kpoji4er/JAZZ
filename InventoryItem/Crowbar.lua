@@ -14,6 +14,8 @@ DefineClass.Crowbar = {
 	UnitStat = "Strength",
 	Cost = 100,
 	CanAppearInShop = true,
+	Tier = 1,
+	RestockWeight = 100,
 	CategoryPair = "Tool",
 }
 

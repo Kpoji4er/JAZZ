@@ -5,6 +5,8 @@ DefineClass.IvanUshanka = {
 
 
 	object_class = "Armor",
+	CanAppearInShop = false,
+	Cost = 2600,
 	Degradation = 0,
 	Icon = "UI/Icons/Items/ivan_ushanka",
 	DisplayName = T(577081433689, --[[ModItemInventoryItemCompositeDef IvanUshanka DisplayName]] "Ushanka"),

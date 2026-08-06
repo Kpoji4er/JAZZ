@@ -10,6 +10,7 @@ DefineClass.HerbalMedicine = {
 	DisplayNamePlural = T(722930256983, --[[ModItemInventoryItemCompositeDef HerbalMedicine DisplayNamePlural]] "Herbal Medicine"),
 	AdditionalHint = T(952277134603, --[[ModItemInventoryItemCompositeDef HerbalMedicine AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноразовый предмет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Укрепляет силу воли\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Непредсказуемые побочные эффекты\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без ГМО"),
 	CategoryPair = "Medicine",
+	CanAppearInShop = false,
 	MaxStacks = 20,
 	effect_moment = "on_use",
 	Effects = {

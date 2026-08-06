@@ -11,6 +11,7 @@ DefineClass.JAZZ_AMMO_762x39_Crafted = {
 	colorStyle = "AmmoCraftedColor",
 	Description = T(890000000000311, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x39_Crafted Description]] "Сперва хочется сказать что он охотничий, но нет, он собран на коленке из старых гильз, мокрого пороха и фекалий местной фауны. Пользуется популярностью у местных, дешевизна берет своё!"),
 	Cost = 100,
+	CanAppearInShop = false,
 	RestockWeight = 150,
 	CategoryPair = "762WP",
 	ShopStackSize = 30,

@@ -6,6 +6,7 @@ DefineClass.JAZZ_AMMO_MortarShell_Smoke = {
 
 	object_class = "Ordnance",
 	RepairCost = 0,
+	CanAppearInShop = false,
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Items/mortar_shell_smoke",
@@ -13,7 +14,7 @@ DefineClass.JAZZ_AMMO_MortarShell_Smoke = {
 	DisplayNamePlural = T(499008024695, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_Smoke DisplayNamePlural]] "Дым. выстрелы миномета"),
 	Description = T(144238631017, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_Smoke Description]] "Дымовой боеприпас для минометов."),
 	AdditionalHint = T(140416387512, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_MortarShell_Smoke AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не наносит урона\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумно"),
-	Cost = 750,
+	Cost = 350,
 	Tier = 2,
 	MaxStock = 10,
 	RestockWeight = 25,

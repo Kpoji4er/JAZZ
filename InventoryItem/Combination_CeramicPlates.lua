@@ -11,6 +11,7 @@ DefineClass.Combination_CeramicPlates = {
 	DisplayNamePlural = T(476480044254, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates DisplayNamePlural]] "Ceramic Plates"),
 	AdditionalHint = T(528600006484, --[[ModItemInventoryItemCompositeDef Combination_CeramicPlates AdditionalHint]] "<bullet_point> Can be combined with Torso Armor\n<bullet_point> Enhanced Armor absorbs more damage until the plates break down"),
 	Cost = 1500,
+	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 15,

@@ -8,6 +8,7 @@
     "weapon-classes",
     "combat-actions",
     "weapons-and-ammo",
+    "bobby-ray",
     "mercenaries",
     "ame",
     "ris",
@@ -56,6 +57,11 @@
       "wikiBase": "Weapons-and-Ammo",
       "ru": "Оружие и компоненты",
       "en": "Weapons and components"
+    },
+    "bobby-ray": {
+      "wikiBase": "Bobby-Ray",
+      "ru": "Bobby Ray",
+      "en": "Bobby Ray"
     },
     "mercenaries": {
       "wikiBase": "Mercenaries",
