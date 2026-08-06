@@ -1258,7 +1258,8 @@ function Unit:BeginTurn(new_turn)
 		-- pindown will be handled differently when the attack is executed
 		should_interrupt = false
 	elseif overwatch and (overwatch.permanent or not g_Combat or overwatch.expiration_turn > g_Combat.current_turn) then
-		should_interrupt = false
+		-- JAZZ-HOTFIX-003: pinned cancels even permanent MG overwatch.
+		should_interrupt = self:HasStatusEffect("suppressionPinned")
 	elseif self.prepared_bombard_zone then
 		should_interrupt = false
 	end	
@@ -2244,6 +2245,10 @@ function Unit:ApplySuppressionStatus()
 		if WPpercent <= data.threshold then
 			if not self:HasStatusEffect(data.effect) then
 				self:AddStatusEffect(data.effect)
+			elseif data.effect == "suppressionPinned" then
+				-- Already pinned: OnAdded will not re-fire; still drop prepared attacks
+				-- (permanent MG OW can be restored or left residual across ticks).
+				self:InterruptPreparedAttack()
 			end
 			applied = data.effect
 			break

@@ -56,14 +56,24 @@ def main() -> int:
 
     unjam = placeobj_block(items, "ModItemCombatAction", 'id = "Unjam"')
     check('ShowIn = "SignatureAbilities"' not in unjam, "Unjam is not forced into SignatureAbilities")
+    check('ShowIn = "CombatActions"' in unjam, "Unjam is explicitly on CombatActions action bar")
     check('group = "Default"' in unjam and "SortKey = 10" in unjam, "Unjam keeps Default/SortKey action-bar contract")
+    check("can_unjam" in unjam and "GetWeaponResourceMax" in unjam, "Unjam jam gate uses WeaponResource, not Condition Broken alone")
     check("weapon.jammed" in unjam and 'IsKindOf(weapon, "Firearm")' in unjam, "Unjam stays gated by a jammed active firearm")
     check("unit:UIHasAP(cost)" in unjam, "Unjam keeps AP gate")
 
+    unit_or = (ROOT / "Code" / "System_OR_Unit.lua").read_text(encoding="utf-8")
+    weapons_or = (ROOT / "Code" / "System_OR_Weapons.lua").read_text(encoding="utf-8")
+    check("function FirearmBase:IsCondition" in weapons_or and "GetConditionPercent()" in weapons_or, "FirearmBase:IsCondition follows WeaponResource percent")
+    check('should_interrupt = self:HasStatusEffect("suppressionPinned")' in unit_or, "BeginTurn interrupts permanent OW when pinned")
+    check('data.effect == "suppressionPinned"' in unit_or and "self:InterruptPreparedAttack()" in unit_or, "ApplySuppressionStatus re-interrupts while already pinned")
+
     pinned_generated = placeobj_block(items, "ModItemCharacterEffectCompositeDef", "suppressionPinned Description")
     for label, layer in (("companion", companion), ("generated", pinned_generated)):
-        check(layer.count("obj:InterruptPreparedAttack()") == 1, f"suppressionPinned {label} interrupts prepared attacks once")
+        check(layer.count("obj:InterruptPreparedAttack()") == 1, f"suppressionPinned {label} OnAdded interrupts prepared attacks once")
         check(layer.index("obj:InterruptPreparedAttack()") < layer.index("local unitStance"), f"suppressionPinned {label} interrupts before stance change")
+        check("StationedMachineGun" in layer and "g_Overwatch" in layer, f"suppressionPinned {label} strips residual MG OW")
+        check('Event = "OnBeginTurn"' in layer and "InterruptPreparedAttack()" in layer, f"suppressionPinned {label} OnBeginTurn clears prepared attacks")
         check(RU_TIP.replace("\n", "\\n") in layer, f"suppressionPinned {label} tooltip describes prepared-attack cleanup")
 
     check("attackArg.single_fx = true" in executor, "shotgun pellet pack enables single FX")

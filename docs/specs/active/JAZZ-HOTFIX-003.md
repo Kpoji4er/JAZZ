@@ -91,8 +91,8 @@ approved_by: project-owner
 
 ## Требования
 
-- `JAZZ-HOTFIX-003-REQ-001` — `Unjam` сохраняет vanilla `group = "Default"` и `SortKey = 10`, не имеет `ShowIn = "SignatureAbilities"`; его существующий `GetUIState` остаётся gate по jammed active firearm и AP.
-- `JAZZ-HOTFIX-003-REQ-002` — `suppressionPinned.OnAdded` вызывает `obj:InterruptPreparedAttack()` до смены стойки/укрытия; штатный вызов обязан очистить overwatch (включая `StationedMachineGun`), pindown и bombard.
+- `JAZZ-HOTFIX-003-REQ-001` — `Unjam` сохраняет vanilla `group = "Default"` и `SortKey = 10`, имеет `ShowIn = "CombatActions"` (не `SignatureAbilities`); `GetUIState` gate по jammed firearm с учётом `WeaponResource` (не ложного `IsCondition("Broken")` по stale `Condition`) и AP.
+- `JAZZ-HOTFIX-003-REQ-002` — `suppressionPinned.OnAdded` вызывает `obj:InterruptPreparedAttack()` до смены стойки/укрытия и дополнительно снимает residual `g_Overwatch` / `StationedMachineGun`; `OnBeginTurn` и `ApplySuppressionStatus` (уже pinned) повторяют interrupt; Jazz `Unit:BeginTurn` не сохраняет permanent MG OW при `suppressionPinned`.
 - `JAZZ-HOTFIX-003-REQ-003` — `AssaultGunner_Inventory` для каждого arch гарантированно содержит `Machete` и `Molotov`; `CustomEquipGear` продолжает экипировать melee в `Handheld B`.
 - `JAZZ-HOTFIX-003-REQ-004` — статический аудитор для всех 37 рецептов проверяет существование inventory/firearm LootDef, связь UnitData `Equipment`, ссылку root inventory на firearm и материализацию recipe sidearm/melee/utility.
 - `JAZZ-HOTFIX-003-REQ-005` — `Skirmisher_Inventory` использует `battle` + rifle packages + Match ammo по design-контракту.
@@ -110,8 +110,8 @@ approved_by: project-owner
 
 ## Acceptance criteria
 
-- `JAZZ-HOTFIX-003-AC-001` — static diff показывает отсутствие `ShowIn` в `Unjam`, сохранённые Default/SortKey/UI-state gates; runtime: action появляется только при jammed active firearm.
-- `JAZZ-HOTFIX-003-AC-002` — static test подтверждает вызов `InterruptPreparedAttack` в обоих слоях `suppressionPinned`; runtime: переход в pinned снимает обычный и постоянный MG overwatch, pindown и bombard.
+- `JAZZ-HOTFIX-003-AC-001` — static diff показывает `ShowIn = "CombatActions"`, Default/SortKey, jam/`WeaponResource`/AP gates; runtime: action появляется только при jammed active firearm.
+- `JAZZ-HOTFIX-003-AC-002` — static test подтверждает `InterruptPreparedAttack` в OnAdded (оба слоя), OnBeginTurn, residual MG strip, BeginTurn/ApplySuppressionStatus hooks; runtime: переход в pinned и ход под pinned снимают обычный и постоянный MG overwatch, pindown и bombard.
 - `JAZZ-HOTFIX-003-AC-003` — dry-run генератора и статический аудитор проходят 37/37; `AssaultGunner_Inventory` содержит Machete для трёх arch bands с `generate_chance = 100` и один безусловный Molotov без `generate_chance`.
 - `JAZZ-HOTFIX-003-AC-004` — все 37 UnitData с рецептами ссылаются через `Equipment` на recipe inventory, root inventory ссылается на recipe firearm, materialized optional/guaranteed entries соответствуют recipe.
 - `JAZZ-HOTFIX-003-AC-005` — `Skirmisher_Firearm` материализует battle/rifle contract без старой SMG/flanker ветки.
@@ -144,8 +144,8 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-HOTFIX-003-AC-001`: `PASS` (static) — `python docs/tools/_audit_hotfix_003.py`: Unjam has no `ShowIn`, keeps `Default`/`SortKey=10`, jammed-firearm and AP gates. `BLOCKED` (runtime) — jam/unjam action-bar smoke requires JA3.
-- `JAZZ-HOTFIX-003-AC-002`: `PASS` (static) — auditor confirms one `InterruptPreparedAttack()` in companion and `items.lua`, before stance change; vanilla `UnitOverwatch.lua` method clears Overwatch/`StationedMachineGun`, Pin Down and Bombard. `BLOCKED` (runtime) — ordinary/permanent MG overwatch, Pin Down and Bombard smoke requires JA3.
+- `JAZZ-HOTFIX-003-AC-001`: `PASS` (static) — `python docs/tools/_audit_hotfix_003.py`: Unjam `ShowIn = CombatActions`, Default/SortKey=10, jam/`WeaponResource`/AP gates; `FirearmBase:IsCondition` follows resource %. `BLOCKED` (runtime) — jam/unjam action-bar smoke requires JA3.
+- `JAZZ-HOTFIX-003-AC-002`: `PASS` (static) — auditor confirms OnAdded interrupt + residual MG strip, OnBeginTurn interrupt, BeginTurn pinned permanent-OW cancel, ApplySuppressionStatus re-interrupt; vanilla `InterruptPreparedAttack` clears Overwatch/`StationedMachineGun`, Pin Down and Bombard. `BLOCKED` (runtime) — ordinary/permanent MG overwatch, Pin Down and Bombard smoke requires JA3.
 - `JAZZ-HOTFIX-003-AC-003`: `PASS` (static) — generator dry-run and apply report `37/37`; `run_static_tests.py` confirms three Machete arch entries at 100%, one unconditional Molotov and `Handheld B` melee equip.
 - `JAZZ-HOTFIX-003-AC-004`: `PASS` (static) — `HOTFIX-003 recipe/inventory/UnitData contracts 37/37`: UnitData `Equipment`, inventory→firearm and sidearm/melee/utility/armor/night/flare/misc/valuables materialization.
 - `JAZZ-HOTFIX-003-AC-005`: `PASS` (static) — Skirmisher recipe is battle-only with rifle packages/Match cap; generated firearm references rifle packages and upgraded-ammo combos, no flanker package.

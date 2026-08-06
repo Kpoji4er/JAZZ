@@ -112,7 +112,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 - ModItem `Suppression`: штрафы атакующего `−10/−20/−30/−50/−70` по tier (`suppressionLight` … `suppressionPinned`) на **любой** дистанции, включая opportunity/retaliation.
 - `Unit:Retaliate` (Hotblood / Shatterhand / HaveABlast и др.): при `suppressionPinned` сразу `false` — прижатый не контратакует.
-- При наложении `suppressionPinned` его `OnAdded` вызывает vanilla `Unit:InterruptPreparedAttack()` до смены стойки: снимаются Overwatch (включая постоянный пулемётный `StationedMachineGun`), Pin Down и Bombard. Более слабые ступени подготовленные атаки не прерывают.
+- При наложении `suppressionPinned` его `OnAdded` вызывает vanilla `Unit:InterruptPreparedAttack()` до смены стойки и дополнительно снимает residual `g_Overwatch` / `StationedMachineGun` (гонка с `SetActionCommand`). `OnBeginTurn` повторяет interrupt; Jazz `Unit:BeginTurn` **не** сохраняет permanent MG overwatch, пока юнит прижат; `ApplySuppressionStatus` при уже активном pinned снова зовёт interrupt. Более слабые ступени подготовленные атаки не прерывают.
+- `Unjam`: `ShowIn = "CombatActions"`, `group = Default`, SortKey 10. `GetUIState` и `FirearmBase:IsCondition` опираются на `WeaponResource` %, чтобы jam не скрывался ложным `Broken` по stale `Condition`.
 
 ## Lightning Reaction (JAZZ-COMBAT-003)
 

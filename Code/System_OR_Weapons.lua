@@ -299,6 +299,12 @@ function FirearmBase:GetConditionPercent()
 	return Clamp(MulDivRound(self:GetCurrentResource(), 100, max_res), 0, 100)
 end
 
+-- JAZZ-WEAPONS-002 / HOTFIX-003: keyword tiers must follow WeaponResource %, not the
+-- stale Condition field vs InventoryItemDef.Condition (which hid Unjam on jams).
+function FirearmBase:IsCondition(condition_type)
+	return IsConditionType(self:GetConditionPercent(), 100, condition_type)
+end
+
 -- JamScore scale 0..1000 matches ReliabilityCheck roll; display % = DivRound(score, 10).
 local function JazzPerfectConditionAmmoJamScore(ammo)
 	local ammo_class = ammo and ammo.class or ""
@@ -538,6 +544,11 @@ end
 if action.id == "DoubleBarrel" then
 	num_shots = (self.BuckshotProjectiles or 1) * 2
 end
+
+-- PrecalcAmmoUse returns shells consumed, while shotgun num_shots is the pellet
+-- packet. Keep the copied args in sync after restoring the packet size, otherwise
+-- DoubleBarrel consumes two shells but downstream execution only sees two shots.
+shot_attack_args.num_shots = num_shots
 
 
 

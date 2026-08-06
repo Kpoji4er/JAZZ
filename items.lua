@@ -64392,36 +64392,32 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local unit = units[1]
 						local cost = self:GetAPCost(unit, args)
 						if cost < 0 then return "hidden" end
-						
+						-- JAZZ-HOTFIX-003 / WEAPONS-002: durability is WeaponResource.
+						-- Vanilla IsCondition("Broken") can hide Unjam on a still-repairable jam.
+						local function can_unjam(weapon)
+							if not IsKindOf(weapon, "Firearm") or not weapon.jammed then
+								return false
+							end
+							if weapon.GetWeaponResourceMax then
+								return (weapon:GetWeaponResourceMax() or 0) > 1
+							end
+							return not weapon:IsCondition("Broken")
+						end
 						local weapon = false
 						if args and args.pos then
 							weapon = unit:GetItemAtPackedPos(args.pos)
 						elseif args and args.weapon then
 							weapon = unit:GetWeaponByDefIdOrDefault("Firearm", args and args.weapon, args and args.pos)
-						end	
-						
+						end
 						if weapon then -- from Inventory
-							local jammed = false
-							if IsKindOf(weapon, "Firearm") and weapon.jammed and not weapon:IsCondition("Broken") then
-								jammed = true
-							end
-							if not jammed then return "hidden" end
+							if not can_unjam(weapon) then return "hidden" end
 						else
 							local weapon1, weapon2 = unit:GetActiveWeapons()
-							local weaponJammed1, weaponJammed2 = false, false
-							if IsKindOf(weapon1, "Firearm") and weapon1.jammed and not weapon1:IsCondition("Broken") then
-								weaponJammed1 = true
-							end
-							if IsKindOf(weapon2, "Firearm") and weapon2.jammed and not weapon2:IsCondition("Broken") then
-								weaponJammed2 = true
-							end
-							if not weaponJammed1 and not weaponJammed2 then
+							if not can_unjam(weapon1) and not can_unjam(weapon2) then
 								return "hidden"
 							end
 						end
-						
 						if not unit:UIHasAP(cost) then return "disabled", GetUnitNoApReason(unit) end
-						
 						return "enabled"
 					end,
 					Icon = "UI/Icons/Hud/repair_weapon",
@@ -64434,6 +64430,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Run = function (self, unit, ap, args)
 						unit:SetActionCommand("UnjamWeapon", self.id, ap, args)
 					end,
+					ShowIn = "CombatActions",
 					SortKey = 10,
 					group = "Default",
 					id = "Unjam",
@@ -71001,7 +70998,15 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
 							Handler = function (self, target)
-								local ap = target.ActionPoints
+								-- Pinned units cannot keep prepared attacks (incl. permanent MG OW).
+								target:InterruptPreparedAttack()
+								if g_Overwatch and g_Overwatch[target] then
+									g_Overwatch[target] = nil
+									Msg("OverwatchChanged")
+								end
+								if target:HasStatusEffect("StationedMachineGun") then
+									target:RemoveStatusEffect("StationedMachineGun")
+								end
 								target.ActionPoints = Clamp(target.ActionPoints, 0, 4*const.Scale.AP)
 								target:RemoveStatusEffect("FreeMove")
 							end,
@@ -71019,25 +71024,35 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Description', T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать или поддерживать подготовленные атаки."),
 					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
-						obj:InterruptPreparedAttack()
+						if IsValid(obj) then
+							obj:InterruptPreparedAttack()
+							-- Permanent MG OW can leave StationedMachineGun if Interrupt raced
+							-- with SetActionCommand; strip residual prepared-attack state.
+							if g_Overwatch and g_Overwatch[obj] then
+								g_Overwatch[obj] = nil
+								Msg("OverwatchChanged")
+							end
+							if obj:HasStatusEffect("StationedMachineGun") then
+								obj:RemoveStatusEffect("StationedMachineGun")
+							end
+							obj:RecalcUIActions(true)
+						end
 						local unitStance = obj.stance
 						if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
-						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
+							obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
 						end
 						if obj:CanTakeCover() then
-						obj:TakeCover();
-						obj:SetActionCommand("TakeCover", nil, nil, "Prone")
+							obj:TakeCover();
+							obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 						end
-						
 						obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
-						
 						if not obj:IsDead() then
-						                    if obj:IsMerc() then
-						                        PlayVoiceResponse(obj, "AIArchetypeScared")
-						                    else
-						                        PlayVoiceResponse(obj, "AILoseCover")
-						                    end
-						                end
+							if obj:IsMerc() then
+								PlayVoiceResponse(obj, "AIArchetypeScared")
+							else
+								PlayVoiceResponse(obj, "AILoseCover")
+							end
+						end
 					end,
 					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/suppressionPinned.png",
 					'RemoveOnEndCombat', true,

@@ -2398,12 +2398,40 @@ local function lAdvancePatrolAfterDwell(root, squad, squad_state)
 	return true
 end
 
+local function lIsMajorInboundConvoyTask(squad_state, task)
+	return task and (
+		squad_state.role == "supply" and task.task_type == "supply"
+		or squad_state.role == "manpower" and task.task_type == "manpower"
+	)
+end
+
+local function lStartMajorConvoyUnloading(squad, squad_state)
+	local task = squad_state and squad_state.task
+	if not squad or not lIsMajorInboundConvoyTask(squad_state, task) then
+		return false
+	end
+	task.phase = "unloading"
+	task.hold_until = lNow() + 12 * lHourScale()
+	squad_state.state = "working"
+	ObjModified(squad)
+	return true
+end
+
 local function lOnSquadArrived(root, squad, squad_state)
 	local task = squad_state and squad_state.task
 	if not squad or not squad_state or not task then
 		return
 	end
 	if task.target_sector and squad.CurrentSector ~= task.target_sector then
+		return
+	end
+
+	-- Major logistics remain on the map and spend 12h unloading before resources
+	-- are credited. The hourly tick re-enters with phase=unloading_done.
+	if lIsMajorInboundConvoyTask(squad_state, task)
+		and task.phase ~= "unloading_done"
+	then
+		lStartMajorConvoyUnloading(squad, squad_state)
 		return
 	end
 
@@ -2707,6 +2735,37 @@ local function lOnSquadArrived(root, squad, squad_state)
 	end
 end
 
+local function lTickMajorConvoyHandling(root)
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		local task = squad_state.task
+		if squad_state.state == "working"
+			and lIsMajorInboundConvoyTask(squad_state, task)
+			and task.hold_until
+			and task.hold_until <= lNow()
+		then
+			local squad = gv_Squads[squad_id]
+			if squad and not IsConflictMode(squad.CurrentSector) then
+				if task.phase == "loading" then
+					task.phase = "en_route"
+					task.hold_until = nil
+					squad_state.state = "en_route"
+					local routed = lSetRoute(squad, task.target_sector)
+					if not routed then
+						squad_state.state = "orphaned"
+					elseif routed == "arrived" then
+						lOnSquadArrived(root, squad, squad_state)
+					end
+				elseif task.phase == "unloading" then
+					task.phase = "unloading_done"
+					task.hold_until = nil
+					lOnSquadArrived(root, squad, squad_state)
+				end
+				ObjModified(squad)
+			end
+		end
+	end
+end
+
 local function lAssignTask(root, region, region_state, outpost, squad, squad_state, request)
 	if not request or not request.target_sector then
 		return false
@@ -3007,26 +3066,30 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 		return false
 	end
 	local function lDispatchSupply(squad, squad_state)
+		local old_home = squad_state.home_sector
+		local old_money = squad_state.payload and squad_state.payload.money
+	-- Validate the route before reserving cargo on either a reused or new convoy.
+	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "supply", "enemy1", empty_table) then
+		return false
+	end
 		squad_state.home_sector = outpost.sector_id
 		squad_state.payload = squad_state.payload or {}
 		squad_state.payload.money = cargo
 		if not lEnsureMoneyCargo(squad, cargo) then
+			squad_state.home_sector = old_home
+			squad_state.payload.money = old_money
 			lLog("supply reuse failed to load cargo $")
 			return false
 		end
-		squad_state.task = { task_type = "supply", target_sector = outpost.sector_id }
-		squad_state.state = "en_route"
-		local routed = lSetRoute(squad, outpost.sector_id)
-		if not routed then
-			squad_state.task = false
-			squad_state.state = "ready_for_orders"
-			return false
-		end
+		squad_state.task = {
+			task_type = "supply",
+			target_sector = outpost.sector_id,
+			phase = "loading",
+			hold_until = lNow() + 12 * lHourScale(),
+		}
+		squad_state.state = "working"
 		root.major.money = (root.major.money or 0) - cargo
 		ObjModified(squad)
-		if routed == "arrived" then
-			lOnSquadArrived(root, squad, squad_state)
-		end
 		return true
 	end
 	-- Prefer idle supply parked at HQ after previous rest.
@@ -3040,25 +3103,21 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 		return false
 	end
 	-- STRATEGY-018: do not spawn supply without avoid-player path HQ→outpost.
-	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "supply", "enemy1", empty_table) then
-		return false
-	end
 	local squad_id, squad_state = lSpawnManaged(
 		root, region, outpost.sector_id, "supply", hq_sector, 1, { money = cargo },
 		lEscortUnitTemplates("supply", region_state, "supply_" .. outpost.sector_id)
 	)
 	local squad = squad_id and gv_Squads[squad_id]
 	if not squad then return false end
-	squad_state.task = { task_type = "supply", target_sector = outpost.sector_id }
-	squad_state.state = "en_route"
-	local routed = lSetRoute(squad, outpost.sector_id)
-	if not routed then
-		lRetireSquad(root, squad_id)
-		return false
-	end
+	squad_state.task = {
+		task_type = "supply",
+		target_sector = outpost.sector_id,
+		phase = "loading",
+		hold_until = lNow() + 12 * lHourScale(),
+	}
+	squad_state.state = "working"
 	root.major.money = (root.major.money or 0) - cargo
 	ObjModified(squad)
-	if routed == "arrived" then lOnSquadArrived(root, squad, squad_state) end
 	return true
 end
 
@@ -3307,9 +3366,6 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 	if not lIsNeediestManpowerOutpost(root, outpost) then
 		return false
 	end
-	if lActiveRole(root, region_state.region_id, outpost.sector_id, "manpower") then
-		return false
-	end
 	local cargo = lConfig(region, "ManpowerConvoyCargo", 16)
 	if (root.major.manpower or 0) < cargo then
 		return false
@@ -3322,6 +3378,46 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "manpower", "enemy1", empty_table) then
 		return false
 	end
+	local function lDispatchManpower(squad, squad_state)
+		local old_home = squad_state.home_sector
+		local old_manpower = squad_state.payload and squad_state.payload.manpower
+		local old_recruited_ids = squad_state.payload and squad_state.payload.recruited_ids
+		squad_state.home_sector = outpost.sector_id
+		squad_state.payload = squad_state.payload or {}
+		squad_state.payload.manpower = 0
+		squad_state.payload.recruited_ids = {}
+		local added = lAddRecruitUnitsToSquad(root, squad, cargo, lRecruitUnitTemplate(region), "inbound")
+		if #added <= 0 then
+			squad_state.home_sector = old_home
+			squad_state.payload.manpower = old_manpower
+			squad_state.payload.recruited_ids = old_recruited_ids
+			lLog(string.format("manpower inbound failed to load %d recruits", cargo))
+			return false
+		end
+		squad_state.payload.recruited_ids = added
+		squad_state.payload.manpower = #added
+		squad_state.task = {
+			task_type = "manpower",
+			target_sector = outpost.sector_id,
+			phase = "loading",
+			hold_until = lNow() + 12 * lHourScale(),
+		}
+		squad_state.state = "working"
+		root.major.manpower = Max((root.major.manpower or 0) - #added, 0)
+		ObjModified(squad)
+		return true
+	end
+
+	-- Reuse a surviving replenishment convoy parked at Major HQ.
+	local idle_squad, idle_state = lFindIdleHomeRole(root, hq_sector, "manpower")
+	if idle_squad then
+		return lDispatchManpower(idle_squad, idle_state)
+	end
+	if lActiveRole(root, region_state.region_id, outpost.sector_id, "manpower")
+		or lActiveRole(root, region_state.region_id, hq_sector, "manpower")
+	then
+		return false
+	end
 	local squad_id, squad_state = lSpawnManaged(
 		root, region, outpost.sector_id, "manpower", hq_sector, 1, { manpower = 0, recruited_ids = {} },
 		lEscortUnitTemplates("manpower", region_state, "manpower_in_" .. outpost.sector_id)
@@ -3330,25 +3426,9 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 	if not squad then
 		return false
 	end
-	local added = lAddRecruitUnitsToSquad(root, squad, cargo, lRecruitUnitTemplate(region), "inbound")
-	if #added <= 0 then
-		lLog(string.format("manpower inbound failed to spawn %d recruits", cargo))
+	if not lDispatchManpower(squad, squad_state) then
 		lRetireSquad(root, squad_id)
 		return false
-	end
-	squad_state.payload.recruited_ids = added
-	squad_state.payload.manpower = #added
-	squad_state.task = { task_type = "manpower", target_sector = outpost.sector_id }
-	squad_state.state = "en_route"
-	local routed = lSetRoute(squad, outpost.sector_id)
-	if not routed then
-		lRetireSquad(root, squad_id)
-		return false
-	end
-	root.major.manpower = Max((root.major.manpower or 0) - #added, 0)
-	ObjModified(squad)
-	if routed == "arrived" then
-		lOnSquadArrived(root, squad, squad_state)
 	end
 	return true
 end
@@ -4094,6 +4174,7 @@ function JAZZ_LegionAIProcessHour()
 
 	lTickRecon(root)
 	lTickMajor(root)
+	lTickMajorConvoyHandling(root)
 	lTickRestingSquads(root)
 	lTickWoundedRetreats(root)
 	lTickHospitalHeals(root)
