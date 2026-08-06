@@ -6,6 +6,8 @@ On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ.
 
 Without the maps package (**JAZZ Vanilla Maps**) the same Global AI runs vanilla mainland outposts: Major HQ at A20, **one region per Guardpost by nearest outpost** (full land coverage, no orphan sectors, no half-map mega-regions with foreign camps), starting defenders adopted as garrison, tax/recruiting from city/farm stockpiles. **Managed squads are smaller on the mainland** than on Ernie. Enemy gear and container loot scale with Legion tier (mine + 3 days → II, World Flip → III). Before tier II, map legionaries stay **class T1 only** (no day-one jump to veterans/mercenaries); Stronger_Elite → T4 only after World Flip — see [Legion units](legion-units.md). **With the maps package**, gear tier on Ernie rises by campaign time (~2 weeks to T1-3), jumps to II when you **occupy** mainland land, and to III at **5 mines** (details on the units page). Named story NPCs such as **Bastien** and **Pierre** (fort squad `FortressPierre`) are not replaced by random legionaries. The scripted village counterattack after liberating Ernie (`Ernie_CounterAttack`) still launches from the fort; ordinary vanilla periodic Guardpost sorties from managed outposts stay **off**.
 
+Vanilla-map starting squads whose compositions are replaced by `jazz-units` are capped at **30 soldiers** when a new campaign creates them. Dynamic squads and squads already present in a save are unchanged.
+
 ## Squad roles
 
 | Role | What it does | Typical size |
