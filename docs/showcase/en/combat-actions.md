@@ -23,7 +23,7 @@ Tube-fed shotguns, break-actions, and revolvers keep one reload button that chan
 | Single shot | One direct shot, no burst recoil chain. |
 | Burst | Short burst; first bullet normal, then retention; misses climb upward along the string. |
 | Auto | Long burst: denser fire for ammo and stacked recoil; climb stronger on the tail. |
-| MG burst | Lower base action recoil weight; bipod/support still critical. |
+| MG burst | Costs +1 AP at burst length or +2 AP for the longer automatic string; uses full weapon recoil, so Strength and support remain critical. |
 | Buckshot / buckshot burst / double barrel | Pellet packet (buckshot ≈9); same hit chance per pellet, no in-packet recoil or queue-climb. |
 | Overwatch | Cone control; each interrupt resolves from the real position. |
 | Pin Down | Keeps a target under reaction threat (not a hit guarantee). |

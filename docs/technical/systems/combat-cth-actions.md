@@ -74,7 +74,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Для non-pellet очередей true-miss LoF после protected-окон уводится нарастающим climb’ом вверх (`JAZZ-WEAPONS-007`, якорь `/400` от `effective_recoil`); hit placement и CTH не меняются. Дробовый `pellet_pack` остаётся пакетным конусом без queue-climb.
 
-`cth_loss_per_shot` и `shots_before_recoil` сохранены как совместимые входы существующих CombatAction, но больше не означают линейное вычитание CTH. Первый задаёт action recoil severity, второй — число дополнительных пуль после первой до начала retention. `AbakanBurst`, `AbakanAutoFire` и `JAZZ_ControllableBurst` защищают вторую пулю; `MGBurstFire` снижает тяжесть отдачи до `0.8` от оружейной; `GrizzlyPerk` дополнительно использует action factor `0.55`; `JAZZ_Fanning` получает собственную severity.
+`cth_loss_per_shot` и `shots_before_recoil` сохранены как совместимые входы существующих CombatAction, но больше не означают линейное вычитание CTH. Первый задаёт action recoil severity, второй — число дополнительных пуль после первой до начала retention. `AbakanBurst`, `AbakanAutoFire` и `JAZZ_ControllableBurst` защищают вторую пулю; обычный `MGBurstFire` использует полный authored `Recoil`; только `GrizzlyPerk` задаёт пулемётную severity `0.8` и затем action factor `0.55`; `JAZZ_Fanning` получает собственную severity.
 
 ## Данные действий
 

@@ -152,6 +152,17 @@ function Get-BulletChance {
     return (Clamp-Value (Round-CTH ($FirstChance * [Math]::Pow($Retention, $exponent))) 2 100)
 }
 
+function Get-MGBurstSurcharge {
+    param(
+        [int]$BurstShots,
+        [int]$AutofireShots
+    )
+    if ($AutofireShots -gt $BurstShots) {
+        return 2000
+    }
+    return 1000
+}
+
 function Convert-WeaponRow {
     param($Row)
     return @{
@@ -261,8 +272,10 @@ Assert-True ($factorOrderA -eq $factorOrderB) 'factor product must not depend on
 $standingRetention = Get-RecoilRetention 30 50
 $supportedRetention = Get-RecoilRetention 30 90 0.75 0.65
 Assert-True ($supportedRetention -gt $standingRetention) 'Strength, prone stance and support must improve retention'
-$machineGunActionRetention = Get-RecoilRetention 30 50 1 1 1 1 0.8
-Assert-True ($machineGunActionRetention -gt $standingRetention) 'MGBurstFire action recoil must improve retention'
+$machineGunActionRetention = Get-RecoilRetention 30 50
+Assert-True ($machineGunActionRetention -eq $standingRetention) 'MGBurstFire must use full authored weapon recoil'
+$grizzlyActionRetention = Get-RecoilRetention 30 50 1 1 1 1 (0.8 * 0.55)
+Assert-True ($grizzlyActionRetention -gt $machineGunActionRetention) 'GrizzlyPerk must retain its 0.8 severity and 0.55 action factor'
 $fanningRetention = Get-RecoilRetention 20 50
 Assert-True ($fanningRetention -gt $standingRetention) 'Fanning must keep its dedicated recoil profile'
 Assert-True ((Get-BulletChance 85 2 $standingRetention 1) -eq 85) 'protected action shot must ignore recoil'
@@ -292,13 +305,36 @@ $comparison = foreach ($distance in @(20, 30, 37)) {
 }
 
 $accuracySource = Get-Content -LiteralPath (Join-Path $RepoRoot 'Code/AccuracyRangeCTH.lua') -Raw
+$combatAISource = Get-Content -LiteralPath (Join-Path $RepoRoot 'Code/CombatAI.lua') -Raw
 $generatedItems = Get-Content -LiteralPath (Join-Path $RepoRoot 'items.lua') -Raw
+$mgBurstDescriptionIndex = $generatedItems.IndexOf('ModItemCombatAction MGBurstFire Description', [StringComparison]::Ordinal)
+$mgBurstStart = $generatedItems.LastIndexOf("PlaceObj('ModItemCombatAction'", $mgBurstDescriptionIndex, [StringComparison]::Ordinal)
+$mgBurstEnd = $generatedItems.IndexOf('id = "MGBurstFire"', $mgBurstDescriptionIndex, [StringComparison]::Ordinal)
+Assert-True ($mgBurstDescriptionIndex -ge 0 -and $mgBurstStart -ge 0 -and $mgBurstEnd -ge 0) 'generated MGBurstFire action must exist'
+$mgBurstSource = $generatedItems.Substring($mgBurstStart, $mgBurstEnd + 'id = "MGBurstFire"'.Length - $mgBurstStart)
 Assert-True (
     $accuracySource -match 'AbakanBurst = 1' -and
     $accuracySource -match 'JAZZ_ControllableBurst = 1' -and
-    $accuracySource -match 'action_id == "MGBurstFire"' -and
+    $accuracySource -notmatch 'action_id == "MGBurstFire"' -and
+    $accuracySource -match 'action_id == "GrizzlyPerk"' -and
     $accuracySource -match 'action_id == "JAZZ_Fanning"'
 ) 'action-specific recoil contracts must remain in the shared model'
+Assert-True (
+    $mgBurstSource -match 'ActionPointDelta = 1000' -and
+    $mgBurstSource -match 'autofire_shots > burst_shots and 2 or 1' -and
+    $mgBurstSource -match 'GetAttackAPCost\(self, weapon, nil, args and args\.aim or 0, action_point_delta\)' -and
+    $mgBurstSource -notmatch 'args\.cth_loss_per_shot\s*='
+) 'MGBurstFire must price authored queue length and must not override recoil'
+Assert-True (
+    $combatAISource -match 'elseif mode_type == "MGBurstFire" then\s+shots = weapon:GetAutofireShots\(action\)'
+) 'AI must predict the authored MGBurstFire queue length'
+$bar = $active | Where-Object id -eq 'BAR' | Select-Object -First 1
+$rpk = $active | Where-Object id -eq 'RPK' | Select-Object -First 1
+$pkm = $active | Where-Object id -eq 'PKM' | Select-Object -First 1
+Assert-True (([int]$rpk.auto_shots) -eq 7) 'AI/model fixture must keep the RPK MGBurst queue at 7 shots'
+Assert-True (([int]$bar.shoot_ap + (Get-MGBurstSurcharge ([int]$bar.burst_shots) ([int]$bar.auto_shots))) -eq 8000) 'BAR MGBurstFire must cost 8 AP'
+Assert-True (([int]$rpk.shoot_ap + (Get-MGBurstSurcharge ([int]$rpk.burst_shots) ([int]$rpk.auto_shots))) -eq 10000) 'RPK MGBurstFire must cost 10 AP'
+Assert-True (([int]$pkm.shoot_ap + (Get-MGBurstSurcharge ([int]$pkm.burst_shots) ([int]$pkm.auto_shots))) -eq 10000) 'PKM MGBurstFire must cost 10 AP'
 Assert-True ($generatedItems -notmatch '\bBoltingAP\b|\bid = "Bolting"') 'legacy bolting data must be absent'
 
 $comparison | Format-Table -AutoSize

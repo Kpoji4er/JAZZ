@@ -60,7 +60,7 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 `AIPrecalcDamageScore` для повторной цели (`GetLastAttack`) добавляет SameTarget через `AICalcSameTargetScoreBonus`: `CalcValue` + `GatherCTHModifications` (включая перк **Пристрелка** / `TakeAim`) и `AccuracyBonusSameTarget` с компонентов оружия — не только плоский preset Bonus.
 
-В Dump (`AIPlayAttacks`) `PickBestAttack` липкий по режиму огня на той же цели: `context.dump_attack_mode` предпочитается, пока score режима ≥ `AIDecisionThreshold`% от best и режим влезает в AP; смена/потеря цели сбрасывает sticky.
+В Dump (`AIPlayAttacks`) `PickBestAttack` липкий по режиму огня на той же цели: `context.dump_attack_mode` предпочитается, пока score режима ≥ `AIDecisionThreshold`% от best и режим влезает в AP; смена/потеря цели сбрасывает sticky. Для `MGBurstFire` score использует фактическую длину `weapon:GetAutofireShots(action)` вместо `BurstShots` и фактический `action:GetAPCost(unit)`, включая authored наценку +1/+2 AP.
 
 ## Policies и тактические расширения
 

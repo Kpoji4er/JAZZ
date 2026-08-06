@@ -65596,6 +65596,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
+					ActionPointDelta = 1000,
 					ActionPoints = 3000,
 					ActionType = "Ranged Attack",
 					ConfigurableKeybind = false,
@@ -65614,8 +65615,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					GetAPCost = function (self, unit, args)
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon then return -1 end
+						local burst_shots = Max(1, weapon.BurstShots or 1)
+						local autofire_shots = weapon:GetAutofireShots(self)
+						local action_point_delta = self.ActionPointDelta * (autofire_shots > burst_shots and 2 or 1)
 						-- GetAttackAPCost returns aim cost as second value, while GetAPCost's second return value has a different semantic (display cost)
-						local cost = unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0)
+						local cost = unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, action_point_delta)
 						return cost
 					end,
 					GetActionDamage = function (self, unit, target, args)
@@ -65672,7 +65676,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						args.num_shots = Jazz_ApplyNamedPerkAutofireShots(unit, args.num_shots)
 						args.multishot = true
 						args.damage_bonus = self:ResolveValue("dmg_penalty")
-						args.cth_loss_per_shot = args.weapon:GetProperty("Recoil")*0.8
 						args.shots_before_recoil = 0
 						--if HasPerk(unit, "AutoWeapons") then args.shots_before_recoil = args.shots_before_recoil + 1  end
 						--if HasPerk(unit, "HeavyWeaponsTraining") then args.shots_before_recoil = args.shots_before_recoil + 1  end

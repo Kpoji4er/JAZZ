@@ -209,8 +209,12 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 			local mode_type = action.id
 			local dist_penalty = dist_ratio * 0.5
 
-			if mode_type == "BurstFire" or mode_type == "MGBurstFire" then
+			if mode_type == "BurstFire" then
 				shots = burst
+				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
+				dist_penalty = dist_ratio * 1.0
+			elseif mode_type == "MGBurstFire" then
+				shots = weapon:GetAutofireShots(action)
 				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
 				dist_penalty = dist_ratio * 1.0
 			elseif mode_type == "AutoFire" then

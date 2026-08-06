@@ -133,9 +133,9 @@ visible_actions =
 - **Тип:** базовый режим пулемёта.
 - **Совместимость:** лёгкие и тяжёлые пулемёты.
 - **Поведение:** `FirearmBase:GetAutofireShots` — длина = `AutoShots` если `> 0`, иначе `BurstShots` (WEAPONS-003: без `AutoFire` → `AutoShots=0`; иначе тяжёлые MG вроде `BrowningM2HMG` / `MG42` давали `num_shots=0`: анимация без пуль). Authored `BurstShots` уже учитывает `BurstLimiter` (G36/G36c = 2; M16A2/A4, FAMAS, AUG, HK33, Sig550*, G3A3/A4, Beretta93r = 3; AN94/`AbakanBurst` = 2). **Исключение:** `M2Carbine` / `Mini14` + `JAZZ_Autofire` (`EnableFullAuto`/`EnableBurst`) — режимы не в базовом `AvailableAttacks`, но `AutoShots`/`BurstShots`/`CyclicRPM` authored; runtime fallback от `CyclicRPM`, если счётчики ещё 0. **UI:** `GetWeaponModifyProperties` показывает Recoil/Burst/Auto по `CanBurstfire`/`CanAutofire` или authored `BurstShots`/`AutoShots` > 0 — не только когда `GetBaseAttack` уже Auto/Burst (иначе у semi-base convertibles бар отдачи пропадал).
-- **Стоимость:** без отдельной надбавки действия поверх стоимости оружия.
+- **Стоимость:** штатная атака +1 AP, если `GetAutofireShots` использует authored `BurstShots`, или +2 AP, если выбрана более длинная authored `AutoShots`. Дополнительные пули Buzz/Nervous не входят в расчёт цены; примеры: BAR 8 AP, RPK 10 AP, PKM 10 AP.
 - **Состояние:** для лёгкого пулемёта доступность связана с развёртыванием; стационарный пулемёт использует её как основной огонь и в позиционном конусе.
-- **CTH и отдача:** обычная пулемётная отдача по последовательности; `Jazz_Perk_Buzz` увеличивает число пуль на 50%.
+- **CTH и отдача:** обычный `MGBurstFire` начинает серию с полного authored `Recoil`; Strength, стойка, опора/сошки и `AutoWeapons` затем применяют общий профиль. `Jazz_Perk_Buzz` увеличивает число пуль на 50%, но не снижает AP и не меняет базовую отдачу.
 - **Целевая роль:** единый фактический исполнитель для обычных и некоторых персональных пулемётных атак.
 
 ### `Buckshot` — одиночный выстрел дробью
@@ -429,7 +429,7 @@ visible_actions =
 - **Совместимость:** `MachineGun` и `LightMachineGun`; перк выдан Гризли в stable `jazz-units`.
 - **Поведение:** одна атака через исполнитель `MGBurstFire`.
 - **Урон:** preset содержит штраф урона 50%.
-- **Отдача:** общий профиль сначала использует пулемётную severity `0.8 × Recoil`, затем персональный action factor `0.55`; Strength, стойка и опора продолжают действовать.
+- **Отдача:** только `GrizzlyPerk` сохраняет пулемётную severity `0.8 × Recoil`, затем применяет персональный action factor `0.55`; обычный `MGBurstFire` использует полный `Recoil`. Strength, стойка и опора продолжают действовать.
 - **CTH:** использует общий шанс попадания, а персональность выражается в контроле серии и штрафе урона.
 - **Целевая роль:** фирменная длинная управляемая очередь, а не общий пулемётный перк.
 

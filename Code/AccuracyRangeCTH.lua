@@ -511,7 +511,7 @@ local function JAZZ_CTHGetActionRecoil(weapon_recoil, action)
 
 	local action_id = action.id
 	local action_recoil = weapon_recoil
-	if action_id == "MGBurstFire" or action_id == "GrizzlyPerk" then
+	if action_id == "GrizzlyPerk" then
 		action_recoil = weapon_recoil * 0.8
 	elseif action_id == "JAZZ_Fanning" then
 		local configured = action.ResolveValue and action:ResolveValue("cth_loss_per_shot")

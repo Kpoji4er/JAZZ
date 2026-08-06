@@ -29,7 +29,7 @@ git diff --check
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-shooting-model.ps1
 ```
 
-Тест читает канонический weapon CSV и проверяет 11 классов, исключённые ID, Dexterity/Marksmanship, monotonic aim, floor/cap, range/optic profile, коммутативность факторов, recoil/action windows и отношение СВД к АК-47. Он не запускает движок.
+Тест читает канонический weapon CSV и проверяет 11 классов, исключённые ID, Dexterity/Marksmanship, monotonic aim, floor/cap, range/optic profile, коммутативность факторов, recoil/action windows, контракт `MGBurstFire` (+1/+2 AP, полный `Recoil`, исключение Grizzly, AI `GetAutofireShots`) и отношение СВД к АК-47. Он не запускает движок.
 
 Standalone `lua`/`luac` не является repository dependency. В evidence конкретного change set можно использовать внешний parser для синтаксической проверки, но загрузку, engine globals, реакции и runtime всё равно необходимо подтверждать самой игрой и Mod Editor.
 
@@ -57,6 +57,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 
 - одиночный выстрел без прицеливания и с максимальным прицеливанием;
 - короткая и длинная очередь с разной силой стрелка;
+- `MGBurstFire` на burst-length и auto-length пулемётах: tooltip/reservation совпадают с фактическими +1/+2 AP; число пуль, suppression и постоянный сектор не меняются;
 - стрельба на ближней, эффективной и предельной дистанции;
 - процент сохраняемого урона на дистанции всегда в диапазоне `0..100`, не создаёт отрицательный урон и учитывает range modifiers атакующего/action;
 - трассерный боеприпас добавляет `MarkedTraccers` один раз на произведённый выстрел при CTH больше нуля — и при попадании, и при промахе; при CTH `0`, jam или отсутствии выстрела не добавляет;
