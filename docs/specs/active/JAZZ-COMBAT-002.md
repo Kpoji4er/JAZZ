@@ -54,7 +54,7 @@ approved_by: project-owner
 
 ## Цели
 
-- Miss→graze: `min(50, floor(50×((100−cth)/100)²))`.
+- Miss→graze: `min(25, floor(25×((100−cth)/100)²))` (owner tune: cap halved from 50).
 - Cover→graze ∝ cover CTH bonus, cap 100%.
 - Smoke/fog/dust env/LoF graze removed; knives included.
 - Docs/loc sync.
@@ -75,9 +75,9 @@ approved_by: project-owner
 
 ## Требования
 
-- `JAZZ-COMBAT-002-REQ-001` — только miss→graze (^2, cap 50) и cover-graze (∝ bonus, cap 100).
+- `JAZZ-COMBAT-002-REQ-001` — только miss→graze (^2, cap 25) и cover-graze (∝ bonus, cap 100).
 - `JAZZ-COMBAT-002-REQ-002` — нет fog/dust env graze; нет smoke LoF graze; knives `ignore_smoke`.
-- `JAZZ-COMBAT-002-REQ-003` — плоский +3/+6 удалён; CTH 20 → 32% miss-graze.
+- `JAZZ-COMBAT-002-REQ-003` — плоский +3/+6 удалён; CTH 20 → 16% miss-graze.
 - `JAZZ-COMBAT-002-REQ-004` — cover-graze = `|cover_cth|/|cover_full|×100`.
 - `JAZZ-COMBAT-002-REQ-005` — `GrazingHitDamage` без изменения семантики.
 - `JAZZ-COMBAT-002-REQ-006` — smoke/gas hints и combat docs без magic graze.
@@ -86,7 +86,7 @@ approved_by: project-owner
 ## Acceptance criteria / Evidence
 
 - `JAZZ-COMBAT-002-AC-001`: `PASS (static)` — Fog/Dust ветки удалены; `ignore_smoke=true`; нет threshold 3/6.
-- `JAZZ-COMBAT-002-AC-002`: `PASS (static)` — `JAZZ_CalcMissGrazeChance`: 100→0, 80→2, 50→12, 20→32, 10→40.
+- `JAZZ-COMBAT-002-AC-002`: `PASS (static)` — `JAZZ_CalcMissGrazeChance`: 100→0, 80→1, 50→6, 20→16, 10→20.
 - `JAZZ-COMBAT-002-AC-003`: `BLOCKED (runtime)` — smoke/knife playtest.
 - `JAZZ-COMBAT-002-AC-004`: `BLOCKED (runtime)` — full/half cover graze rates.
 - `JAZZ-COMBAT-002-AC-005`: `PASS (static)` / `BLOCKED (runtime)` — формула; бой.

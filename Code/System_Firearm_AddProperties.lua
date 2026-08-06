@@ -476,10 +476,11 @@ function GetWeaponModifyProperties(item)
 	local dmgPreset = Presets.WeaponPropertyDef.Default.Damage
 	statList[#statList + 1] = { max = dmgPreset.max_progress, bind_to = dmgPreset.bind_to }
 	
-	local baseAttack = item:GetBaseAttack(false, "force")
-	local baseAction = CombatActions[baseAttack]
+	local baseAttack = item.GetBaseAttack and item:GetBaseAttack(false, "force")
+	local baseAction = baseAttack and CombatActions[baseAttack]
 	local baseAttackPreset = Presets.WeaponPropertyDef.Default.ShootAP
-	statList[#statList + 1] = { 
+	local base_attack_name = baseAction and (baseAction.DisplayNameShort or baseAction.DisplayName) or ""
+	statList[#statList + 1] = {
 		GetShootAP = function(it)
 			return baseAttackPreset:GetProp(it or item)/const.Scale.AP
 		end,
@@ -487,7 +488,7 @@ function GetWeaponModifyProperties(item)
 			return baseAttackPreset:Getbase_Prop(it or item)/const.Scale.AP
 		end,
 		max = 10,
-		display_name = T{310685041358, "Attack Cost (<Name>)", Name = baseAction.DisplayNameShort or baseAction.DisplayName},
+		display_name = T{310685041358, "Attack Cost (<Name>)", Name = base_attack_name},
 		id = "ShootAP",
 		reverse_bar = true,
 		description = baseAttackPreset.description
@@ -499,29 +500,26 @@ function GetWeaponModifyProperties(item)
 	local GroupingPreset = Presets.WeaponPropertyDef.Default.Grouping
 	statList[#statList + 1] = { max = GroupingPreset.max_progress, bind_to = GroupingPreset.bind_to }
 
-    if (item.BulletDropRange > 0) then
-    local effRange = Presets.WeaponPropertyDef.Default.BulletDropRange
-	statList[#statList + 1] = { max = effRange.max_progress, bind_to = effRange.bind_to } 
-    end
+	if (item.BulletDropRange or 0) > 0 then
+		local effRange = Presets.WeaponPropertyDef.Default.BulletDropRange
+		statList[#statList + 1] = { max = effRange.max_progress, bind_to = effRange.bind_to }
+	end
 
-  --  print(item.AvailableAttacks)
+	local aimAcc = Presets.WeaponPropertyDef.Default.AimAccuracy
+	statList[#statList + 1] = { max = aimAcc.max_progress, bind_to = aimAcc.bind_to }
 
-    local aimAcc = Presets.WeaponPropertyDef.Default.AimAccuracy
-    statList[#statList + 1] = { max = aimAcc.max_progress, bind_to = aimAcc.bind_to }
-
-    local MaxAimActions = Presets.WeaponPropertyDef.Default.MaxAimActions
-    statList[#statList + 1] = { max = MaxAimActions.max_progress, bind_to = MaxAimActions.bind_to }
+	local MaxAimActions = Presets.WeaponPropertyDef.Default.MaxAimActions
+	statList[#statList + 1] = { max = MaxAimActions.max_progress, bind_to = MaxAimActions.bind_to }
 
 	local critPreset = item.owner and Presets.WeaponPropertyDef.Default.CritChance or Presets.WeaponPropertyDef.Default.MaxCritChance
 	local weaponModDlg = GetDialog("ModifyWeaponDlg").idModifyDialog
-	local crit = 0
 	local unit_id = weaponModDlg.context.owner
 	statList[#statList + 1] = {
 		GetCritChance = function(it)
-			return critPreset:GetProp(it or item, unit_id )
+			return critPreset:GetProp(it or item, unit_id)
 		end,
 		Getbase_CritChance = function(it)
-			return critPreset:Getbase_Prop(it or item, unit_id )
+			return critPreset:Getbase_Prop(it or item, unit_id)
 		end,
 		max = critPreset.max_progress,
 		display_name = critPreset.display_name,
@@ -529,41 +527,40 @@ function GetWeaponModifyProperties(item)
 		description = critPreset.description
 	}
 
+	-- Recoil/burst bars: do not gate only on GetBaseAttack (often SingleShot).
+	-- Component-gated select-fire (M2Carbine/Mini14) keeps semi AvailableAttacks until
+	-- EnableBurst/EnableFullAuto, but still authors Recoil/BurstShots/AutoShots.
+	local base_id = baseAction and baseAction.id
+	local can_burst = item.CanBurstfire and item:CanBurstfire()
+	local can_auto = item.CanAutofire and item:CanAutofire()
+	local has_burst_shots = (item.BurstShots or 0) > 0
+	local has_auto_shots = (item.AutoShots or 0) > 0
+	local show_recoil = base_id == "AutoFire" or base_id == "BurstFire" or base_id == "MGBurstFire"
+		or can_burst or can_auto or has_burst_shots or has_auto_shots
+	if show_recoil then
+		local recoil = Presets.WeaponPropertyDef.Default.Recoil
+		if recoil and (item.Recoil or 0) > 0 then
+			statList[#statList + 1] = { max = recoil.max_progress, bind_to = recoil.bind_to }
+		end
+		if can_burst or has_burst_shots or base_id == "BurstFire" or base_id == "MGBurstFire" then
+			local BurstShots = Presets.WeaponPropertyDef.Default.BurstShots
+			if BurstShots then
+				statList[#statList + 1] = { max = BurstShots.max_progress, bind_to = BurstShots.bind_to }
+			end
+		end
+	end
 
-    --print('baseAction')
-    --print(baseAttackPreset.description)
-    if ((baseAction.id == "AutoFire") or (baseAction.id == "BurstFire") or (baseAction.id == "MGBurstFire"))
-    then
-    local recoil = Presets.WeaponPropertyDef.Default.Recoil
-	statList[#statList + 1] = { max = recoil.max_progress, bind_to = recoil.bind_to }
-	local BurstShots = Presets.WeaponPropertyDef.Default.BurstShots
-	statList[#statList + 1] = { max = BurstShots.max_progress, bind_to = BurstShots.bind_to }
-    end
+	if can_auto or has_auto_shots or table.find(item.AvailableAttacks, "AutoFire") then
+		local AutoShots = Presets.WeaponPropertyDef.Default.AutoShots
+		if AutoShots then
+			statList[#statList + 1] = { max = AutoShots.max_progress, bind_to = AutoShots.bind_to }
+		end
+	end
 
-  --  if (("AutoFire" in ipairs item.AvailableAttacks)) then
-
-    for i,v in ipairs(item.AvailableAttacks) do
-     --print(i..": "..v)
-     if v == "AutoFire" then 
-        --print (v)
-    	local AutoShots = Presets.WeaponPropertyDef.Default.AutoShots
-	    statList[#statList + 1] = { max = AutoShots.max_progress, bind_to = AutoShots.bind_to }
-        end
-     end
-
-
- --   end
-    
---  local OverwatchAngle = Presets.WeaponPropertyDef.Default.OverwatchAngle
---	statList[#statList + 1] = { max = rangePreset.max_progress, bind_to = OverwatchAngle.bind_to }
-
---  local BuckshotConeAngle = Presets.WeaponPropertyDef.Default.BuckshotConeAngle
---	statList[#statList + 1] = { max = rangePreset.max_progress, bind_to = BuckshotConeAngle.bind_to }
-
-    local Reliability = Presets.WeaponPropertyDef.Default.Reliability
+	local Reliability = Presets.WeaponPropertyDef.Default.Reliability
 	statList[#statList + 1] = { max = Reliability.max_progress, bind_to = Reliability.bind_to }
 
-    local Noise = Presets.WeaponPropertyDef.Default.Noise
+	local Noise = Presets.WeaponPropertyDef.Default.Noise
 	statList[#statList + 1] = { max = Noise.max_progress, bind_to = Noise.bind_to }
 
 	return statList

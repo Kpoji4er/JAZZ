@@ -10990,10 +10990,12 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 890000000010014,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009209
 890000000010015,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009210
 890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:MED-001-remap-from-890000000009211
 890000000010017,Surgical Kit,Surgical Kit,,jazz:MED-001-remap-from-890000000009212
@@ -11023,7 +11025,7 @@ I wanted to intercept this detachment, but you managed to kill the main part. Go
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,jazz:MED-001-remap-from-890000000009222
-890000000010028,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
+890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Morphine,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage

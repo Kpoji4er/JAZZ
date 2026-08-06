@@ -56490,7 +56490,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Morphine.png",
 				'DisplayName', T(890000000010014, "Morphine"),
 				'DisplayNamePlural', T(890000000010015, "Morphine"),
-				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 75,
 				'CanAppearInShop', true,
 				'RestockWeight', 75,
@@ -62092,14 +62092,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(890000000010028, "Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding."),
+				Description = T(890000000010028, "Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding."),
 				DisplayName = T(890000000010029, "Morphine"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
 					if not IsKindOf(target, "Unit") or unit:IsOnEnemySide(target) then return -1 end
-					if not target:HasStatusEffect("Pain") then return -1 end
+					if not JazzUnitNeedsMorphine(target) then return -1 end
 					local pain = target:GetStatusEffect("Pain")
-					return 100 + (pain and pain.stacks or 0)
+					local score = 100 + (pain and pain.stacks or 0)
+					if JazzUnitNeedsMorphineRally(target) then
+						score = score + 50
+					end
+					return score
 				end,
 				GetAPCost = function (self, unit, args)
 					if not JazzGetMorphineItem(unit) then return -1 end
@@ -75463,7 +75467,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
-					return  context:IsWeapon() and IsKindOfClasses(context, "Submachinegun", "Machinegun", "AssaultRifle")
+					if not context:IsWeapon() or not IsKindOf(context, "Firearm") then
+						return false
+					end
+					-- Include Carbine + component-gated select-fire (authored BurstShots / EnableBurst).
+					return (context.BurstShots or 0) > 0
+						or (context.CanBurstfire and context:CanBurstfire())
 				end,
 				GetProp = function (self, item, unit_id)
 					return item:GetProperty(self.bind_to)
@@ -75480,7 +75489,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemWeaponPropertyDef', {
 				DisplayForContext = function (self, context)
-					return  context:IsWeapon() and IsKindOfClasses(context, "Submachinegun", "Machinegun", "AssaultRifle")
+					if not context:IsWeapon() or not IsKindOf(context, "Firearm") then
+						return false
+					end
+					return (context.AutoShots or 0) > 0
+						or (context.CanAutofire and context:CanAutofire())
 				end,
 				GetProp = function (self, item, unit_id)
 					return item:GetProperty(self.bind_to)

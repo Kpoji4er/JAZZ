@@ -13,7 +13,7 @@ JAZZ_CTH_RANGE_FLOOR_FACTOR = 250 -- 0.25 * FACTOR_SCALE
 JAZZ_CTH_RECOIL_CLIMB_SCALE = 400
 JAZZ_CTH_RECOIL_CLIMB_LATERAL_PCT = 25
 
-local function JAZZ_CTHRound(value)
+function JAZZ_CTHRound(value)
 	if value >= 0 then
 		return math.floor(value + 0.5)
 	end

@@ -53,7 +53,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 - `DisposableLauncher`, `EmbeddedOrdnance` (только `RocketLauncher`: одноразовая пусковая и её встроенный ordnance);
 - `WeaponName`, `WeaponIconMod`, reticle images и `UnitSubStat`.
 
-В актуальном документальном контракте используются 12 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange` (плюс JAZZ-only `CloseRange` / `CloseRangeFactor` / `BuckshotProjectiles` на FirearmProperties).
+В актуальном документальном контракте используются 12 weapon property definitions: `AimAccuracy`, `AutoShots`, `BaseDamage`, `BulletDropRange`, `BurstShots`, `Damage`, `Grouping`, `MaxAimActions`, `Noise`, `OverwatchAngle`, `Recoil`, `WeaponRange` (плюс JAZZ-only `CloseRange` / `CloseRangeFactor` / `BuckshotProjectiles` на FirearmProperties). `ModifyWeaponDlg` (`GetWeaponModifyProperties`) показывает `Recoil`/`BurstShots`/`AutoShots` при `CanBurstfire`/`CanAutofire` или authored shot counts > 0, а не только когда `GetBaseAttack` уже Auto/Burst.
 
 В [модели стрельбы](../weapons/accuracy-model.md) `Handling` **удалён**. `Recoil` задаёт тяжесть множительного удержания точности последующих пуль и authorится из `WeaponMass` (десятые кг), `CyclicRPM` и `WeaponSizeClass`; они не читаются повторно в CTH runtime. `BurstShots`/`AutoShots` фиксированно выводятся из RPM при authoring (`/200`, `/100`) и `BurstLimiter` ограничивает только burst. Число дробин — `BuckshotProjectiles` (база 1 на стволе; картечь ×9, birdshot/salt ×20). Оптика переносит эффективную прицельную зону через aim progress, не увеличивает физическую дальность и больше не получает старые плоские CTH-effects.
 

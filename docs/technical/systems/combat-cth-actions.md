@@ -3,6 +3,9 @@
 ## Связанные specs
 
 - `JAZZ-HOTFIX-001` — устранение runtime/UI assert-ошибок без изменения формул CTH и баланса.
+- `JAZZ-COMBAT-002` — grazing (miss→graze / cover-graze).
+- `JAZZ-COMBAT-003` — suppression retaliation / Lightning Reaction / Psycho Will.
+- `JAZZ-COMBAT-004` — избыток ядра CTH → crit.
 
 ## Назначение и эффект для игрока
 
@@ -48,7 +51,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Укрытие (`RangeAttackTargetStanceCover`, owner-soften 2026-08-05): `Cover −45` → factor `×0.55`, `ExposedCover −12` → `×0.88`, crouch/prone без укрытия `−12/−23` → `×0.88/×0.77`; частичное — `InterpolateCoverEffect`. Runtime: preset `CalcValue` → `JAZZ_CTHPercentToFactor` в `Unit:CalcChanceToHit` (firearm pipeline). Проверка: `docs/tools/_calc_cover_cth_gewehr.py`, `_check_cover_params_items.py`.
 
-**Cover-graze (не трогали):** при полном укрытии cover→graze ≈100% — любой CTH-hit становится царапиной (~40% урона). Вместе с miss→graze при низком CTH это даёт частые «чипы», даже когда solid hit почти невозможен. Owner intent был снизить CTH; graze слой оставлен.
+**Cover-graze:** при полном укрытии cover→graze ≈100% — любой CTH-hit становится царапиной (~40% урона). **Miss→graze** ослаблен (cap **25%**, owner tune): при низком CTH чипы реже, контакт ближе к показанному CTH; cover-graze без изменений.
 
 ## Дальность и кучность в текущем runtime
 
@@ -126,7 +129,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 | Источник | Когда | Формула / правило |
 | --- | --- | --- |
-| **Miss→graze** | валидный выстрел (`shot_cth > 0`) и proмах | `min(50, floor(50 × ((100 − shot_cth) / 100)²))`; полоса над CTH из **того же** attack roll |
+| **Miss→graze** | валидный выстрел (`shot_cth > 0`) и proмах | `min(25, floor(25 × ((100 − shot_cth) / 100)²))`; полоса над CTH из **того же** attack roll |
 | **Cover→graze** | попадание, цель aware, не Exposed, не aim-shooting, не melee/aoe | `Clamp(MulDivRound(−cover_cth, 100, −Cover_full), 0, 100)` — пропорционально cover CTH bonus (`RangeAttackTargetStanceCover`) |
 
 Опорные точки miss→graze:
@@ -134,11 +137,11 @@ skill(x)      = 20 + x^1.25 × 0.25
 | shot_cth | miss_graze % |
 | ---: | ---: |
 | 100 | 0 |
-| 80 | 2 |
-| 50 | 12 |
-| 30 | 24 |
-| 20 | 32 |
-| 10 | 40 |
+| 80 | 1 |
+| 50 | 6 |
+| 30 | 12 |
+| 20 | 16 |
+| 10 | 20 |
 
 ### Снято (больше не даёт grazing)
 
@@ -157,6 +160,18 @@ Dust storm может **косвенно** усилить cover-graze тольк
 - `IgnoreCoverCtHWhenFullyAimed` → cover-graze 0 (нет cover CTH bonus).
 
 Уровень подтверждения формул: **static**; runtime/human playtest — в evidence `JAZZ-COMBAT-002`.
+
+## Избыток ядра → крит (JAZZ-COMBAT-004)
+
+Канон: `Unit:CalcCritChance` + `JAZZ_CTHGetShooterCore` в `Code/System_OR_Unit.lua` / `AccuracyRangeCTH.lua`.
+
+- `uncapped_core` = skill/aim ядро **до** `Clamp(..., 100)` и **до** situational factors (укрытие, видимость, …).
+- `core_overflow = Max(0, Round(uncapped_core) − 100)` → **+1:1** к crit chance.
+- Попадание строится из капнутого ядра × factors; запас не «съедает» укрытие.
+- Итоговый crit `Clamp(0, 100)`. Opportunity / `guaranteed_noncrit` → 0; grazing по-прежнему не критует.
+- Диагностика: `args.jazz_cth.uncapped_core` / `core_overflow` после `CalcChanceToHit`.
+
+Сильные Marksmanship + высокий `AimAccuracy` на полном aim часто дают заметный overflow (десятки пунктов) и упираются в кап крита — ожидаемо.
 
 ## Публичные контракты и риски
 

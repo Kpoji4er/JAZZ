@@ -11345,10 +11345,12 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000010014,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009209
 890000000010015,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009210
 890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding or heal trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Морфий — глушит штрафы Боли
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь и не лечит травму
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поднимает из downed (как аптечка)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь, не лечит ОЗ и травму
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык Медицина не нужен
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На себя или союзника",,jazz:MED-001-remap-from-890000000009211
 890000000010017,Surgical Kit,Хирургический набор,,jazz:MED-001-remap-from-890000000009212
@@ -11378,7 +11380,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка +25% ОЗ
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает до двух худших стаков крови
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Один юз = одна штука из стака",,jazz:MED-001-remap-from-890000000009222
-890000000010028,Inject morphine to suppress Pain penalties on self or ally. Does not stop bleeding.,Вколоть морфий: глушит штрафы Боли у себя или союзника. Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
+890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,Вколоть морфий: глушит Боль или поднимает из downed (без хила ОЗ). Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage

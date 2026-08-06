@@ -7,6 +7,7 @@
 - A possible shot has a chance from `2%` to `100%`.
 - `0%` means the shot is physically impossible: no valid trajectory or the target is beyond the attack limit.
 - `100%` is reachable for a skilled shooter against an open standing target with full aiming at optimal range.
+- Skill/aim core above 100 spills **1:1** into crit chance (hit chance still caps at 100%; cover only cuts the hit chance).
 - Cover, small target size, poor visibility, suppression, and awkward optics cut into the ideal chance.
 
 ## Snap shooting vs prepared fire
@@ -51,7 +52,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 - Bleeding has three tiers (**3 / 6 / 12** HP per stack per turn). Hotbar: **Field Bandage** (`JazzBandage`, ~1 AP) drops the worst stack by **one tier** (no Medical; stacks to **30**); **Bandage** uses IFAK (stack **5**) / Medkit (stack **3**) — one use = one item (HP heal + stronger bleed clear).
 - **Heavy** bleed from hits comes from **expanding** ammo (JHP).
-- **Pain** cuts AP and accuracy (−1 stack/turn): each solid damaging hit adds **+1** Pain (grazing scratches do not). **Morphine** (stacks to **10**) suppresses pain penalties and does not stop bleeding or trauma.
+- **Pain** cuts AP and accuracy (−1 stack/turn): each solid damaging hit adds **+1** Pain (grazing scratches do not). **Morphine** (stacks to **10**) suppresses pain penalties, **can rally a downed ally** (like a medkit — no HP heal), and does not stop bleeding or trauma.
 - **Zone trauma** (arms / legs / ribs / head): light / medium / heavy. Using an injured zone adds Pain stacks once per zone per turn: light **+1**, medium **+2**, heavy **+3**. Each **unused heavy** zone still adds **+1** Pain at end of turn. Medium+ also adds zone penalties (−accuracy, move cost, start AP, sight). **Armor on the hit zone lowers trauma chance when pierced; if armor stops the round**, you can still take **behind-armor trauma** (light trauma + pain, no bleeding). Going down applies a **heavy** trauma package; combat **Wounded** stacks from HP loss stay off. Bandages do not heal trauma. Status Information shows **hours until the next progress check** (may improve or worsen on the campaign clock). A squad **field Treat Wounds** operation does not clear trauma instantly — it marks traumas as **healing**: faster checks, **each check improves** the tier (light clears / medium→light / heavy→medium), no worsening. On the campaign map, HP recovers slowly — about **1** HP/hour (Treat Wounds patients faster; R&R faster still).
 - In combat, party portraits show the same statuses as satellite (not only Wounded).
 - Leg hits apply zone trauma (`Legsshot`), not the old **Slowed** status.
@@ -59,7 +60,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 ## Grazing hits
 
-- **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **50%**; about **32%** at 20% CTH, about **2%** at 80% CTH). High CTH barely grazes.
+- **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **25%**; about **16%** at 20% CTH, about **1%** at 80% CTH). High CTH barely grazes.
 - **Cover:** cover strength in the hit-chance calc sets the chance a hit becomes a graze — up to **100%** in full cover.
 - Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility).
 - A graze deals about **40%** damage, with no crit, no trauma / `Wounded`, and **no +1 Pain from the hit**; about **15%** chance of **light** bleed only.

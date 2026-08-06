@@ -78,14 +78,15 @@ function JAZZ_QueueStatusEffectApplication(unit, effect)
     QueueSuppressionApplication(unit, 0, effect)
 end
 
--- JAZZ-COMBAT-002: miss→graze chance, cap 50, curve ((100-cth)/100)^2
+-- JAZZ-COMBAT-002: miss→graze chance, cap 25, curve ((100-cth)/100)^2
+-- Cap halved from 50 (owner tune): orange-band contact closer to displayed CTH.
 function JAZZ_CalcMissGrazeChance(shot_cth)
 	shot_cth = Clamp(tonumber(shot_cth) or 0, 0, 100)
 	if shot_cth <= 0 then
 		return 0
 	end
 	local miss_pct = 100 - shot_cth
-	return Min(50, (50 * miss_pct * miss_pct) / 10000)
+	return Min(25, (25 * miss_pct * miss_pct) / 10000)
 end
 
 -- Cover graze proportional to cover CTH bonus; full cover → 100%.
@@ -685,7 +686,7 @@ end
 		data = bor(data, shot_miss and 0 or sfHit)
 		data = bor(data, shot_crit and sfCrit or 0)
 		data = bor(data, (shot_attack_args.multishot or (i == 1)) and sfLeading or 0)
-		-- JAZZ-COMBAT-002: miss→graze from ^2 curve (cap 50), band derived from attack roll
+		-- JAZZ-COMBAT-002: miss→graze from ^2 curve (cap 25), band derived from attack roll
 		if shot_miss and shot_cth > 0 then
 			local miss_graze_chance = JAZZ_CalcMissGrazeChance(shot_cth)
 			local miss_span = 100 - shot_cth

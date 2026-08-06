@@ -2800,7 +2800,14 @@ function Unit:CalcCritChance(weapon, target, action, args, attack_pos)
 	if data.guaranteed_crit then return 100 end
 
 	local critChance = data.crit_chance + aim * data.crit_per_aim + actioncritchance
-	--print("critChance="..critChance)
+	-- JAZZ-COMBAT-004: skill/aim core above 100 → crit 1:1 (before situational CTH factors).
+	if IsKindOf(weapon, "Firearm") then
+		local uncapped_core = JAZZ_CTHGetShooterCore(self, weapon, aim)
+		local overflow = Max(0, JAZZ_CTHRound(uncapped_core) - 100)
+		if overflow > 0 then
+			critChance = critChance + overflow
+		end
+	end
 
 	return Clamp(critChance, 0, 100)
 end
@@ -3219,9 +3226,12 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	end
 
 	if args then
+		local uncapped_core = skill_profile and skill_profile.uncapped_core or core
 		args.jazz_cth = {
 			final = final,
 			core = core,
+			uncapped_core = uncapped_core,
+			core_overflow = Max(0, JAZZ_CTHRound(uncapped_core) - 100),
 			core_before_range = core_before_range,
 			before_clamp = before_clamp,
 			factor_product = factor_product,

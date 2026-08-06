@@ -187,7 +187,7 @@ status note: code wired including zonal traumas + armor trauma mitigation + BAT 
 
 ## Documentation delta
 
-- `docs/design/medicine.md` — status → approved / v1 implementing (traumas in scope); Pain growth includes solid damaging hit +1
-- `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain (hit + zone-use + heavy ramp), zonal traumas, items, OperationHeal healing flag
+- `docs/design/medicine.md` — status → approved / v1 implementing (traumas in scope); Pain growth includes solid damaging hit +1; Morphine also rallies downed
+- `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain (hit + zone-use + heavy ramp), zonal traumas, items, OperationHeal healing flag; Morphine→DownedRally
 - `docs/technical/systems/file-coverage.md` — Systems_Medicine.lua + Trauma* effects
-- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing; hit Pain; graze no hit Pain)
+- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing; hit Pain; graze no hit Pain; Morphine downed rally)
