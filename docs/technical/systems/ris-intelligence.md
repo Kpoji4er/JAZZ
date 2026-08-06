@@ -11,7 +11,7 @@ Current-state for JAZZ-UI-RIS-001.
 | `Code/System_RIS_Combat.lua` | Kill counters, CombatEnd/ConflictEnd AAR snapshots |
 | `Code/System_RIS_Browser.lua` | PDA mode `ris`: Bulletin / Dossiers / Battle reports |
 
-Tabs call `JAZZ_RIS_RefreshPage` (find `idRISPage` under `idBrowserContent` / scroll; `IdNode` on content+scroll). Inject always replaces the `ris` mode on `DataLoaded` / `ModsReloaded`.
+Tabs call `JAZZ_RIS_RefreshPage` (find `idRISPage` under `idBrowserContent` / scroll; `IdNode` on content+scroll). Inject always replaces the `ris` mode on `DataLoaded` / `ModsReloaded`. Mode hosts `PDAGenericCloseAction` (bottom-right ActionBar Close, same as AIM/AME).
 
 GameVar: `gv_JAZZ_RIS` — `welcome_*`, `last_mailed_tier`, `mail_queue`, `next_dispatch_at`, `kills`, `dossiers`, `quest_met`, `battles` (FIFO 20).
 

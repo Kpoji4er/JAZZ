@@ -20,7 +20,7 @@ function JAZZ_RIS_SetSection(section)
 	ObjModified("jazz_ris")
 end
 
---- Walk UI tree for Id (ResolveId often misses nested XText under XScrollArea).
+--- Walk UI/template trees for Id (ResolveId often misses nested XText under XScrollArea).
 local function lFindWindowById(win, id, depth)
 	depth = depth or 0
 	if not win or type(win) ~= "table" or depth > 16 then
@@ -35,6 +35,43 @@ local function lFindWindowById(win, id, depth)
 			return found
 		end
 	end
+end
+
+local function lFindNodeWithMode(node, mode, depth)
+	depth = depth or 0
+	if type(node) ~= "table" or depth > 14 then
+		return false
+	end
+	if node.mode == mode then
+		return node
+	end
+	for _, child in ipairs(node) do
+		local found = lFindNodeWithMode(child, mode, depth + 1)
+		if found then
+			return found
+		end
+	end
+	return false
+end
+
+--- Prefer the window that already hosts XTemplateMode entries (look for aim sibling).
+local function lFindModeHost(node, depth)
+	depth = depth or 0
+	if type(node) ~= "table" or depth > 14 then
+		return false
+	end
+	for _, child in ipairs(node) do
+		if type(child) == "table" and child.mode == "aim" then
+			return node
+		end
+	end
+	for _, child in ipairs(node) do
+		local host = lFindModeHost(child, depth + 1)
+		if host then
+			return host
+		end
+	end
+	return false
 end
 
 local function lRisBrowserContent(btn)
@@ -207,57 +244,9 @@ function JAZZ_RIS_BuildPageText(section)
 	return JAZZ_RIS_BuildBulletinText()
 end
 
-local function lInjectRisMode()
-	local pda = rawget(_G, "XTemplates") and XTemplates.PDABrowser
-	if not pda then
-		return
-	end
-	local function findRisMode(node, depth)
-		if type(node) ~= "table" or depth > 14 then
-			return false
-		end
-		if node.mode == "ris" then
-			return node
-		end
-		for _, child in ipairs(node) do
-			local found = findRisMode(child, depth + 1)
-			if found then
-				return found
-			end
-		end
-		return false
-	end
-	-- Always replace the ris mode so OnPress / layout fixes apply on ModsReloaded.
-	local existing = findRisMode(pda, 0)
-	local function findModeHost(node, depth)
-		if type(node) ~= "table" or depth > 14 then
-			return false
-		end
-		for _, child in ipairs(node) do
-			if type(child) == "table" and child.mode == "aim" then
-				return node
-			end
-		end
-		for _, child in ipairs(node) do
-			local host = findModeHost(child, depth + 1)
-			if host then
-				return host
-			end
-		end
-		return false
-	end
-	local host = findModeHost(pda, 0)
-	if not host then
-		return
-	end
-	if existing then
-		local idx = table.find(host, existing)
-		if idx then
-			table.remove(host, idx)
-		end
-	end
+local function lBuildRisModeTemplate()
 	local ui = lUI()
-	local mode = PlaceObj("XTemplateMode", {
+	return PlaceObj("XTemplateMode", {
 		"mode", "ris",
 	}, {
 		PlaceObj("XTemplateWindow", {
@@ -354,13 +343,38 @@ local function lInjectRisMode()
 				"Dock", "right",
 				"Target", "idRISScroll",
 			}),
-			PlaceObj("XTemplateWindow", {
-				"__class", "VirtualCursorManager",
-				"Reason", "Browser",
+		}),
+		-- PDA bottom ActionBar Close (same as AIM/AME modes).
+		PlaceObj("XTemplateWindow", nil, {
+			PlaceObj("XTemplateTemplate", {
+				"__template", "PDAGenericCloseAction",
 			}),
 		}),
+		PlaceObj("XTemplateWindow", {
+			"__class", "VirtualCursorManager",
+			"Reason", "Browser",
+		}),
 	})
-	table.insert(host, mode)
+end
+
+local function lInjectRisMode()
+	local pda = rawget(_G, "XTemplates") and XTemplates.PDABrowser
+	if not pda then
+		return
+	end
+	-- Always replace the ris mode so OnPress / layout fixes apply on ModsReloaded.
+	local existing = lFindNodeWithMode(pda, "ris", 0)
+	local host = lFindModeHost(pda, 0)
+	if not host then
+		return
+	end
+	if existing then
+		local idx = table.find(host, existing)
+		if idx then
+			table.remove(host, idx)
+		end
+	end
+	table.insert(host, lBuildRisModeTemplate())
 	rawset(_G, "g_JAZZ_RIS_BrowserInstalled", true)
 end
 
