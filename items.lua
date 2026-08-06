@@ -62673,9 +62673,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcStartTurnAP",
 						Handler = function (self, target, value)
-							if not target:HasStatusEffect("Analgesia") then
-								return value - self.stacks * self:ResolveValue("APLoss") * const.Scale.AP
+							local penalty = self.stacks * self:ResolveValue("APLoss") * const.Scale.AP
+							if target:HasStatusEffect("Analgesia") then
+								self:SetParameter("jazz_ap_penalty_applied", 0)
+								self:SetParameter("jazz_ap_penalty_turn", -1)
+								return value
 							end
+							local applied = Min(Max(0, value), Max(0, penalty))
+							self:SetParameter("jazz_ap_penalty_applied", applied)
+							self:SetParameter("jazz_ap_penalty_turn", (rawget(_G, "g_Combat") and g_Combat.current_turn) or -1)
+							return value - penalty
 						end,
 					}),
 					PlaceObj('UnitReaction', {
@@ -62706,6 +62713,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'object_class', "StatusEffect",
 				'DisplayName', T(890000000010009, "Analgesia"),
 				'Description', T(890000000010010, "Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries."),
+				'OnAdded', function(self, obj)
+					local refund_ap = rawget(_G, "JazzRefundPainStartTurnAP")
+					if type(refund_ap) == "function" then
+						refund_ap(obj)
+					end
+					Msg("UnitAPChanged", obj)
+				end,
 				'type', "Buff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Analgesia.png",
 				'RemoveOnEndCombat', true,

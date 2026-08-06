@@ -64,6 +64,8 @@ write_set:
   - docs/wiki/combat-and-accuracy.md
   - docs/showcase/ru/combat-and-accuracy.md
   - docs/showcase/en/combat-and-accuracy.md
+  - docs/tools/_audit_med001_analgesia.py
+  - docs/tools/README.md
 exclusive_resources:
   - items.lua
   - metadata.lua
@@ -91,7 +93,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - **Зональные травмы** light/medium/heavy для Arms / Legs / Ribs / Head (+ Burn stub); eye folded into Head.
 - Цветные inventory icons в `Icons/Items/`; `Icons/Med/` — иконки хотбар-экшенов; status icons `Icons/StatusEffects/Trauma*.png`.
 
-## Non-goals (→ MED-002+)
+## Non-goals
 
 - Satellite hospital clear / полная стационарная хирургия (мгновенное снятие Trauma* по концу Hospital).
 - Инфекция / choking rework / pneumothorax / concussion package (D-layer).
@@ -119,6 +121,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-REQ-013` — worn armor covering the hit zone (`ProtectedBodyParts`: Arms / Legs / Torso|Groin→Ribs / Head|Neck→Head) reduces trauma roll chance via `JazzGetTraumaArmorChanceFactor` (Coverage×Condition, max ~60% cut, floor factor 40). Does not apply to Burn or knockout package. Unpierced armor still blocks `*shot` separately.
 - `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma; no bleed. Pain: residual damage > 0 uses hit +1 (`JazzPainOnDamagingHit`); full absorb (0 residual) adds `JazzAddPainStacks(1)` in BAT. Chance scales with `armor_prevented + residual` damage.
 - `JAZZ-MED-001-REQ-015` — field TreatWounds / `PatientAddHealWoundProgress` marks each patient `Trauma*` with `jazz_healing`: progress checks use halved interval (floor 2h), improve **100%** (guaranteed tier step-down via improve branch), worsen **0**; flag survives tier downgrade. Does **not** instant-clear Trauma*. `HealWounds` Effect does **not** set healing.
+- `JAZZ-MED-001-REQ-016` - `Analgesia` suppresses every `Pain` penalty immediately: CTH is gated while the effect is active, and AP already withheld by `Pain.OnCalcStartTurnAP` in the current turn is refunded exactly once from a tracked applied-penalty value. Applying Analgesia again or gaining Pain after start of turn grants no AP.
 
 ## Инварианты и ограничения
 
@@ -142,6 +145,9 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-010` — static: unpierced armor path calls `JazzTryBehindArmorTrauma`; no bleed on BAT.
 - `JAZZ-MED-001-AC-011` — static: `PatientAddHealWoundProgress` calls `JazzMarkUnitTraumasHealing`; healing chances/interval match REQ-015; `HealWounds` does not mark healing.
 - `JAZZ-MED-001-AC-012` — static: solid damaging hit -> `JazzPainOnDamagingHit` +1 (cap 8); graze excluded; no double with BAT when residual damage > 0.
+
+- `JAZZ-MED-001-AC-013` - static: `Pain` records the AP penalty actually applied at start of turn; `Analgesia.OnAdded` consumes that value through the medicine helper and refunds it once; companion and `items.lua` stay equivalent.
+- `JAZZ-MED-001-AC-014` - runtime/human: morphine during the unit turn restores exactly the AP withheld by Pain and suppresses Pain CTH; repeated morphine and Pain gained later in the turn do not grant extra AP.
 
 ## Impact и совместимость
 
@@ -180,6 +186,9 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-010`: `PASS` — static: BAT wired from `ApplyDamageAndEffects` unpierced branch.
 - `JAZZ-MED-001-AC-011`: `PASS` — static: OperationHeal marks `jazz_healing`; progress **100%** improve / **0** worsen / half interval; HealWounds unchanged for trauma.
 - `JAZZ-MED-001-AC-012`: `PASS` — static: `JazzPainOnDamagingHit` (+1 Pain, damage>0, graze excluded) from `ApplyDamageAndEffects`; BAT full-absorb Pain only when residual<=0.
+
+- `JAZZ-MED-001-AC-013`: `PASS` - static: `python docs/tools/_audit_med001_analgesia.py` verifies tracked current-turn AP penalty, one-shot direct refund, stale/post-start no-grant cases, and companion/`items.lua` parity.
+- `JAZZ-MED-001-AC-014`: `BLOCKED` - runtime/human morphine playtest pending.
 
 status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI + OperationHeal→healing flag; mark `implemented` after smoke in editor/game.
 

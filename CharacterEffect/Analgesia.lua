@@ -5,6 +5,13 @@ DefineClass.Analgesia = {
 	object_class = "StatusEffect",
 	DisplayName = T(890000000010009, "Analgesia"),
 	Description = T(890000000010010, "Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries."),
+	OnAdded = function(self, obj)
+		local refund_ap = rawget(_G, "JazzRefundPainStartTurnAP")
+		if type(refund_ap) == "function" then
+			refund_ap(obj)
+		end
+		Msg("UnitAPChanged", obj)
+	end,
 	type = "Buff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/Analgesia.png",
 	RemoveOnEndCombat = true,

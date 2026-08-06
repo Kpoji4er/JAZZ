@@ -953,6 +953,28 @@ function JazzApplyBandageAction(healer, patient)
 	return true
 end
 
+function JazzRefundPainStartTurnAP(unit)
+	local combat = rawget(_G, "g_Combat")
+	if not combat or not unit or type(unit.GetStatusEffect) ~= "function" then
+		return 0
+	end
+	local pain = unit:GetStatusEffect("Pain")
+	if not pain or type(pain.ResolveValue) ~= "function" or type(pain.SetParameter) ~= "function" then
+		return 0
+	end
+	local refund = Max(0, tonumber(pain:ResolveValue("jazz_ap_penalty_applied")) or 0)
+	local penalty_turn = tonumber(pain:ResolveValue("jazz_ap_penalty_turn")) or -1
+	pain:SetParameter("jazz_ap_penalty_applied", 0)
+	pain:SetParameter("jazz_ap_penalty_turn", -1)
+	if refund <= 0 or penalty_turn ~= combat.current_turn or type(unit.ActionPoints) ~= "number" then
+		return 0
+	end
+	unit.ActionPoints = Max(0, unit.ActionPoints + refund)
+	Msg("UnitAPChanged", unit)
+	ObjModified(unit)
+	return refund
+end
+
 function JazzApplyMorphineAction(healer, patient)
 	patient = JazzResolveMedicinePatient(healer, patient)
 	if not healer or not patient or not JazzGetMorphineItem(healer) then

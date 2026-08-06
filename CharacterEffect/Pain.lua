@@ -7,9 +7,16 @@ DefineClass.Pain = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
 			Handler = function(self, target, value)
-				if not target:HasStatusEffect("Analgesia") then
-					return value - self.stacks * self:ResolveValue("APLoss") * const.Scale.AP
+				local penalty = self.stacks * self:ResolveValue("APLoss") * const.Scale.AP
+				if target:HasStatusEffect("Analgesia") then
+					self:SetParameter("jazz_ap_penalty_applied", 0)
+					self:SetParameter("jazz_ap_penalty_turn", -1)
+					return value
 				end
+				local applied = Min(Max(0, value), Max(0, penalty))
+				self:SetParameter("jazz_ap_penalty_applied", applied)
+				self:SetParameter("jazz_ap_penalty_turn", (rawget(_G, "g_Combat") and g_Combat.current_turn) or -1)
+				return value - penalty
 			end,
 		}),
 		PlaceObj('UnitReaction', {

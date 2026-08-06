@@ -123,7 +123,7 @@ Asset contract не менялся.
 - локальные роллеры `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot` (скрытые; **только** `JazzTryRollTraumaFromBodyPart` — без legacy Numbness/Inaccurate/Slowed/Blinded/Unconscious/`Bleeding` из `*shot`);
 - зональные травмы `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (Eye folded into Head; Burn: `Burning` OnRemoved → Light stub);
 - `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови; центральный `JazzTryRollBleedFromHit`; legacy `BleedingChance` OnAdded = no-op);
-- `Pain` / `Analgesia`; `Wounded` от HP **off** (`HpLossToAddStack` sentinel + `UnitProperties:AccumulateDamageTaken`/`AddWounds` no-op; strip on knockout/`UnitDowned`);
+- `Pain` / `Analgesia`: Pain сохраняет точный штраф ОД, применённый на `OnCalcStartTurnAP`, вместе с номером хода; `Analgesia.OnAdded` через `JazzRefundPainStartTurnAP` один раз возвращает только этот штраф и обнуляет маркер. Повторное обезболивание и Pain, полученная после начала хода, ОД не дают; CTH-штраф глушится, пока Analgesia активна. `Wounded` от HP **off** (`HpLossToAddStack` sentinel + `UnitProperties:AccumulateDamageTaken`/`AddWounds` no-op; strip on knockout/`UnitDowned`);
 - `Blinded`, `Burning`, `Choking` (среда/газ; не от `*shot`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
 - уровни suppression и weight class;
 - perks и прочие status effects.
