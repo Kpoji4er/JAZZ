@@ -7293,9 +7293,9 @@ Three short bursts of Legs-Groin-Torso",russian-override;new-id,jazz:items.lua:6
 890000000001233,"Будьте готовы. Они ждут момента, когда мы расслабимся.",,"Будьте готовы. Они ждут момента, когда мы расслабимся.",Be prepared. They'll probably pop out the moment we drop our guard.,russian-override;new-id,jazz-units:items.lua:79372,jazz-units,jazz-units:items.lua:79785,
 890000000001234,Передвижение в 2 раза дороже. Точность стрельбы сильно снижена.,,Передвижение в 2 раза дороже. Точность стрельбы сильно снижена.,Travel is 2 times more expensive. Firing accuracy is greatly reduced.,russian-override;new-id,jazz:CharacterEffect/suppressionHeavy2.lua:30 | jazz:items.lua:65370,jazz,jazz:CharacterEffect/suppressionHeavy2.lua:30 | jazz:items.lua:65182,
 890000000001235,"Количество ОД — не более 4.
-Не может контратаковать.",,"Количество ОД — не более 4.
-Не может контратаковать.","AP is capped at 4.
-Cannot counterattack.",russian-override;new-id,jazz:CharacterEffect/suppressionPinned.lua:38 | jazz:items.lua:65294,jazz,jazz:CharacterEffect/suppressionPinned.lua:38 | jazz:items.lua:65251,
+Не может контратаковать или поддерживать подготовленные атаки.",,"Количество ОД — не более 4.
+Не может контратаковать или поддерживать подготовленные атаки.","AP is capped at 4.
+Cannot counterattack or maintain prepared attacks.",russian-override;new-id,jazz:CharacterEffect/suppressionPinned.lua:38 | jazz:items.lua:65294,jazz,jazz:CharacterEffect/suppressionPinned.lua:38 | jazz:items.lua:65294,
 890000000001236,Шанс попасть во врага немного снижен,,Шанс попасть во врага немного снижен,Chance to hit enemies slightly reduced,russian-override;new-id,jazz:CharacterEffect/suppressionLight.lua:23 | jazz:items.lua:65228,jazz,jazz:CharacterEffect/suppressionLight.lua:23 | jazz:items.lua:65040,
 890000000001237,"Шанс попасть во врага снижен
 +2 ОД свободного перемещения",,"Шанс попасть во врага снижен

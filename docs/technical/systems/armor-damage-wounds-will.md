@@ -201,7 +201,7 @@ JAZZ добавляет unit attribute `Will` и derived `WillPoints`/`MaxWillPo
 | `suppressionHeavy2` | Подавлен | −50 | да, со штрафом CTH |
 | `suppressionPinned` | Прижат | −70 | **нет** |
 
-CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток.
+CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток. При переходе в `suppressionPinned` дополнительно прерываются подготовленные атаки: обычный и постоянный пулемётный Overwatch, Pin Down и Bombard; более слабые ступени их не снимают.
 
 ### Psycho и восстановление Will
 

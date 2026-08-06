@@ -16,6 +16,10 @@ A perk can unlock an action or change AP, bullet count, suppression, or recoil c
 ## Reload / Top up
 Tube-fed shotguns, break-actions, and revolvers keep one reload button that changes with the load: empty uses full Reload; a partially loaded weapon shows **Top up** and adds exactly one round for a rounded-up share of the full cost (minimum 1 AP); a full weapon disables the button.
 
+### Unjam
+
+When the active firearm is jammed, **Unjam** appears on the regular action bar. It requires enough AP, does not fire a shot, and disappears once the jam is cleared.
+
 ## Core modes
 
 | Action | What it does |

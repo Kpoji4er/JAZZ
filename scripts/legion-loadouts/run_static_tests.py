@@ -43,6 +43,47 @@ def block_for(text: str, loot_id: str) -> str:
     raise RuntimeError(loot_id)
 
 
+def placeobj_blocks(text: str, class_name: str) -> list[str]:
+    """Return balanced blocks for a specific nested PlaceObj class."""
+    needle = f"PlaceObj('{class_name}'"
+    blocks: list[str] = []
+    pos = 0
+    while True:
+        start = text.find(needle, pos)
+        if start < 0:
+            return blocks
+        brace = text.find("{", start)
+        if brace < 0:
+            raise RuntimeError(f"{class_name}: missing opening brace")
+        depth = 0
+        end = brace
+        while end < len(text):
+            if text[end] == "{":
+                depth += 1
+            elif text[end] == "}":
+                depth -= 1
+                if depth == 0:
+                    blocks.append(text[start : end + 1])
+                    pos = end + 1
+                    break
+            end += 1
+        else:
+            raise RuntimeError(f"{class_name}: unbalanced block")
+
+
+def entries_with(entries: list[str], field: str, value: str) -> list[str]:
+    return [entry for entry in entries if f'{field} = "{value}"' in entry]
+
+
+def chance_values(entries: list[str]) -> list[int]:
+    values: list[int] = []
+    for entry in entries:
+        match = re.search(r"generate_chance = (\d+)", entry)
+        if match:
+            values.append(int(match.group(1)))
+    return values
+
+
 def main() -> int:
     recipes = json.loads(RECIPES.read_text(encoding="utf-8"))
     text = ITEMS.read_text(encoding="utf-8")
@@ -266,6 +307,146 @@ def main() -> int:
         fail(f"AC-005 unmarked generated blocks: {unmarked[:5]}")
     else:
         ok("AC-005 all class blocks marked generated")
+
+
+    # HOTFIX-003: recipe -> generated inventory -> UnitData contract, all 37 classes.
+    armor_defs = {
+        "Light": ("LegionTorsoLightArmor", "LegionLegsLightArmor", "LegionHelmetsLightArmor"),
+        "Middle": ("LegionTorsoMiddleArmor", "LegionLegsMiddleArmor", "LegionHelmetsMiddleArmor"),
+        "Heavy": ("LegionTorsoHeavyArmor", "LegionLegsHeavyArmor", "LegionHelmetsHeavyArmor"),
+    }
+    contract_failures: list[str] = []
+
+    def contract(condition: bool, message: str) -> None:
+        if not condition:
+            contract_failures.append(message)
+
+    for uid, recipe in recipes.items():
+        inv_id = recipe["inventory"]
+        firearm_id = recipe["firearm"]
+        inv = block_for(text, inv_id)
+        loot_entries = placeobj_blocks(inv, "LootEntryLootDef")
+        item_entries = placeobj_blocks(inv, "LootEntryInventoryItem")
+
+        unit_path = UNITS / "UnitData" / f"{uid}.lua"
+        contract(unit_path.is_file(), f"{uid}: missing UnitData file")
+        if unit_path.is_file():
+            unit_text = unit_path.read_text(encoding="utf-8")
+            equipment = re.search(r"Equipment\s*=\s*\{(.*?)\}", unit_text, re.S)
+            contract(bool(equipment), f"{uid}: missing Equipment table")
+            if equipment:
+                contract(f'"{inv_id}"' in equipment.group(1), f"{uid}: Equipment does not reference {inv_id}")
+
+        contract(len(entries_with(loot_entries, "loot_def", firearm_id)) == 1, f"{uid}: root inventory firearm link")
+        launcher = inv_id.replace("_Inventory", "_Launcher")
+        contract(
+            len(entries_with(loot_entries, "loot_def", launcher)) == (1 if recipe.get("keep_existing_heavy") else 0),
+            f"{uid}: launcher materialization",
+        )
+
+        side = recipe.get("sidearm")
+        side_entries = entries_with(loot_entries, "loot_def", "JAZZ_Gen_Sidearm")
+        contract(len(side_entries) == (1 if side else 0), f"{uid}: sidearm materialization")
+        if side and side_entries:
+            contract(f"Amount = {int(side.get('unlock') or 11)}" in side_entries[0], f"{uid}: sidearm unlock")
+            contract(f"generate_chance = {int(side.get('chance') or 50)}" in side_entries[0], f"{uid}: sidearm chance")
+
+        melee = recipe.get("melee")
+        melee_item = (melee or {}).get("item") or "Knife"
+        if melee_item == "Weapon_Knife":
+            melee_item = "Knife"
+        melee_entries = entries_with(item_entries, "item", melee_item) if melee else []
+        expected_melee = [int(ch) for ch in ((melee or {}).get("chance_by_arch") or []) if int(ch) > 0]
+        all_melee_entries = entries_with(item_entries, "item", "Knife") + entries_with(item_entries, "item", "Machete")
+        contract(len(all_melee_entries) == len(expected_melee), f"{uid}: melee entry count")
+        contract(sorted(chance_values(melee_entries)) == sorted(expected_melee), f"{uid}: melee chances")
+
+        util = recipe.get("utility") or {}
+        he = util.get("he") or {}
+        frag_entries = entries_with(item_entries, "item", "FragGrenade")
+        if he.get("mode") == "guaranteed":
+            counts = [int(n) for n in (he.get("count_by_arch") or [3, 4, 5])]
+            contract(len(frag_entries) == len(counts), f"{uid}: guaranteed HE count")
+            contract(not chance_values(frag_entries), f"{uid}: guaranteed HE has chance")
+            actual_counts = sorted(int(m.group(1)) for e in frag_entries if (m := re.search(r"stack_max = (\d+)", e)))
+            contract(actual_counts == sorted(counts), f"{uid}: guaranteed HE stacks")
+        elif he.get("mode") == "chance":
+            expected = [int(ch) for ch in (he.get("chance_by_arch") or [10, 25, 40]) if int(ch) > 0]
+            contract(len(frag_entries) == len(expected), f"{uid}: HE chance entry count")
+            contract(sorted(chance_values(frag_entries)) == sorted(expected), f"{uid}: HE chances")
+        else:
+            contract(not frag_entries, f"{uid}: unexpected HE")
+
+        pipe = util.get("pipe") or {}
+        pipe_entries = entries_with(item_entries, "item", "PipeBomb")
+        expected_pipe = [int(ch) for ch in (pipe.get("chance_by_arch") or []) if int(ch) > 0]
+        contract(len(pipe_entries) == len(expected_pipe), f"{uid}: pipe entry count")
+        contract(sorted(chance_values(pipe_entries)) == sorted(expected_pipe), f"{uid}: pipe chances")
+
+        molotov_entries = entries_with(item_entries, "item", "Molotov")
+        expected_molotov = int(bool(util.get("molotov_guaranteed"))) + int(bool(util.get("molotov_chance")))
+        contract(len(molotov_entries) == expected_molotov, f"{uid}: Molotov materialization")
+        if util.get("molotov_guaranteed"):
+            guaranteed = [e for e in molotov_entries if "generate_chance" not in e]
+            n = int(util["molotov_guaranteed"])
+            contract(len(guaranteed) == 1 and f"stack_min = {n}" in guaranteed[0] and f"stack_max = {n}" in guaranteed[0], f"{uid}: guaranteed Molotov")
+        if util.get("molotov_chance"):
+            contract(int(util["molotov_chance"]) in chance_values(molotov_entries), f"{uid}: Molotov chance")
+
+        for key, item in (("smoke_chance", "SmokeGrenade"), ("conc_chance", "ConcussiveGrenade")):
+            entries = entries_with(item_entries, "item", item)
+            contract(len(entries) == int(bool(util.get(key))), f"{uid}: {key} materialization")
+            if util.get(key) and entries:
+                contract(chance_values(entries) == [int(util[key])], f"{uid}: {key} value")
+        contract(len(entries_with(item_entries, "item", "Medkit")) == int(bool(util.get("medkit"))), f"{uid}: medkit materialization")
+        contract(len(entries_with(loot_entries, "loot_def", "LegionGL_5pc")) == int(bool(util.get("gl_5pc"))), f"{uid}: GL materialization")
+
+        contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_NightEquipment")) == 1, f"{uid}: night pool")
+        contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_FlareGun")) == (3 if int(recipe.get("flaregun") or 0) > 0 else 0), f"{uid}: flare pool")
+        contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_MiscGear")) == int(int(recipe.get("misc_chance") or 0) > 0), f"{uid}: misc pool")
+        expected_values = recipe.get("valuables") not in (None, False, "none", "None")
+        actual_values = sum('loot_def = "JAZZ_Gen_Valuables_' in entry for entry in loot_entries)
+        contract(actual_values == int(expected_values), f"{uid}: valuables materialization")
+        for armor_id in armor_defs[recipe.get("armor") or "Middle"]:
+            contract(len(entries_with(loot_entries, "loot_def", armor_id)) == 1, f"{uid}: armor {armor_id}")
+
+    if contract_failures:
+        for message in contract_failures[:20]:
+            fail(f"HOTFIX-003 contract: {message}")
+        if len(contract_failures) > 20:
+            fail(f"HOTFIX-003 contract: {len(contract_failures) - 20} more failures")
+    else:
+        ok("HOTFIX-003 recipe/inventory/UnitData contracts 37/37")
+
+    commando = block_for(text, "AssaultGunner_Inventory")
+    commando_items = placeobj_blocks(commando, "LootEntryInventoryItem")
+    machetes = entries_with(commando_items, "item", "Machete")
+    molotovs = entries_with(commando_items, "item", "Molotov")
+    commando_unit = (UNITS / "UnitData" / "JAZZ_Legion_GunnerT2_AssaultGunner.lua").read_text(encoding="utf-8")
+    if len(machetes) != 3 or chance_values(machetes) != [100, 100, 100]:
+        fail("HOTFIX-003 Commando Machete is not guaranteed in all three arch bands")
+    elif len(molotovs) != 1 or "generate_chance" in molotovs[0]:
+        fail("HOTFIX-003 Commando Molotov is not unconditional")
+    elif 'TryEquip(items, "Handheld B", "MeleeWeapon")' not in commando_unit:
+        fail("HOTFIX-003 Commando does not equip melee in Handheld B")
+    else:
+        ok("HOTFIX-003 Commando guaranteed Machete + Molotov and melee equip")
+
+    skirmisher_recipe = recipes["JAZZ_Legion_FlankerT2_Skirmisher"]
+    skirmisher = block_for(text, skirmisher_recipe["firearm"])
+    skirmisher_refs = re.findall(r'loot_def = "(JAZZ_GenW_[^"]+)"', skirmisher)
+    if skirmisher_recipe.get("primary_tags") != ["battle"]:
+        fail("HOTFIX-003 Skirmisher recipe is not battle-only")
+    elif not all(str(p).startswith("rifle_") for p in skirmisher_recipe.get("packages_by_arch") or []):
+        fail("HOTFIX-003 Skirmisher packages are not rifle packages")
+    elif skirmisher_recipe.get("ammo_cap") != "Match":
+        fail("HOTFIX-003 Skirmisher ammo cap is not Match")
+    elif not skirmisher_refs or any("_rifle_" not in ref or "_flanker_" in ref for ref in skirmisher_refs):
+        fail("HOTFIX-003 Skirmisher generated firearm uses non-rifle package")
+    elif not any(ref.endswith("_ammo_ap") for ref in skirmisher_refs):
+        fail("HOTFIX-003 Skirmisher generated firearm lacks upgraded ammo combos")
+    else:
+        ok("HOTFIX-003 Skirmisher battle/rifle/Match contract")
 
     # UNITS-004: unconditional firearm fallback
     missing_fb = []

@@ -55,6 +55,8 @@ Satellite squad roles: [Legion strategy](legion-strategy.md).
 | 3 | FlankerT3_Pathfinder | Следопыт | 10 |
 | 4 | FlankerT4_Ranger | Рейнджер | 18 |
 
+The Skirmisher uses battle rifles with rifle modification packages and Match ammunition, not the old SMG flanker branch.
+
 ### Gunner (`Legion_Machinegunner`)
 
 | T | Id | Name | Lvl |
@@ -64,6 +66,8 @@ Satellite squad roles: [Legion strategy](legion-strategy.md).
 | 2 | GunnerT2_AssaultGunner | Коммандо | 8 |
 | 3 | GunnerT3_VeteranGunner | Подавитель | 14 |
 | 4 | GunnerT4_MercGunner | Наемник Пулеметчик | 16 |
+
+The Commando deploys with a machine gun plus a guaranteed Machete and Molotov; the machete is equipped in the second hand slot.
 
 ### Leaders
 

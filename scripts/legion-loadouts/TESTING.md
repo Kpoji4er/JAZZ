@@ -35,6 +35,9 @@ Spot checks in `jazz-units/items.lua`:
 | Remnant ~1% | on Roughneck at mid: `weight = 1400` entries with Amount 20 + `<=` 29; share ≈1% of active mid weights (±0.5 pp) |
 | Logistics cargo | no `DiamondBriefcase` inside generated markers; cargo stays Global AI |
 | Heavy arty | `Rocketeer_Inventory` / `HeavyGrenadier_Inventory` / `Mortarman_Inventory` still link `*_Launcher` |
+| All recipe contracts | 37/37 UnitData `Equipment` → recipe inventory; root inventory → firearm; sidearm/melee/utility/armor/night/flare/misc/valuables materialize exactly from each recipe |
+| Commando | `AssaultGunner_Inventory`: Machete in all three arch bands at `generate_chance = 100`, one unconditional Molotov; UnitData equips melee in `Handheld B` |
+| Skirmisher | `Skirmisher_Firearm`: battle-only recipe, rifle packages, upgraded ammo combos from `ammo_cap = Match`; no old flanker package |
 
 Recipes count:
 
@@ -104,7 +107,7 @@ Cheat tip (dev console / quest editor): set `JAZZ_LegionTier` / `JAZZ_Legion_Tie
 | AC-002 | static | pilot inventories match recipes |
 | AC-003 | static | dry-run upgrade check clean |
 | AC-004 | static | no tier1 at ≥30; mid remnant ≈1% |
-| AC-005 | static | 37 recipes + patched classes |
+| AC-005 | static | 37 recipes + patched classes; all UnitData/inventory/firearm/optional-entry contracts match |
 | AC-006 | static | no class `DiamondBriefcase`; cargo path untouched |
 | AC-007 | static | new `JAZZ_Gen*` in metadata `affected_resources`; note pre-existing UnitData orphan audit noise separately |
 | AC-008 | human | Ernie smoke table above |

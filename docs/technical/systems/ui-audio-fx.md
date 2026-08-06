@@ -92,6 +92,8 @@ JAZZ-компоненты (`JAZZ_Compensator`, `JAZZ_BarrelNormal`, `JAZZ_Suppre
 
 `Buckshot` (и связанные shotgun fire members) ставят `fx_action = "WeaponBuckshot"`. Preset rows keyed by vanilla FX `id` must keep that Action: rewriting Auto5’s buckshot IDs as `WeaponFire` in `CodeSounds_SHOTGUNS.lua` silenced the gun. Sound bank `Auto5_shot_single` / `-room` samples live under `Sounds/Benellim4/`.
 
+**Pellet pack (JAZZ-WEAPONS-006):** `Buckshot` / `DoubleBarrel` / `CancelShotCone` / `BuckshotBurst` делают `num_shots = BuckshotProjectiles` (×2 для двухстволки) — это **N** вызовов `Firearm:FireBullet`, не очередь. Звук/muzzle FX должен играть **один раз** на патрон: CombatAction ставит `single_fx = true`, а `Code/ExecFirearmAttacks.lua` после первого `FireBullet` обнуляет `attackArg.fx_action` (vanilla чистила только local, который `FireBullet` не читает). Без этого выстрел «размножается» ×9/×20.
+
 `items.lua` переопределяет `AKSU_shot_single` и `AKSU_shot_single-room` 12 собственными сэмплами из `Sounds/AKSU74/`: шесть dry и шесть room `.opus`, все по путям `Mod/e6L4ECj/Sounds/AKSU74/...`. Предыдущее утверждение об отсутствующих файлах было ошибочным: сэмплы присутствуют в core-пакете и отслеживаются Git. `metadata.lua` регистрирует оба `SoundPreset`; отдельная resource-запись на каждый `.opus` для файлов внутри пакета не нужна. `AKSU_shot_auto` остаётся ванильным.
 
 ## FX

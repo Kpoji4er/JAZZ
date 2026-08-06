@@ -189,10 +189,10 @@
   },
   "JAZZ_Legion_FlankerT2_Skirmisher": {
     "inventory": "Skirmisher_Inventory", "firearm": "Skirmisher_Firearm", "class_tier": 2,
-    "primary_tags": ["smg", "carbine"], "packages_by_arch": ["flanker_m1", "flanker_m2", "flanker_m2"],
+    "primary_tags": ["battle"], "packages_by_arch": ["rifle_m1", "rifle_m2", "rifle_m2"],
     "sidearm": { "unlock": 12, "chance": 35 }, "melee": null, "armor": "Light",
     "utility": { "he": { "mode": "chance", "chance_by_arch": [12, 25, 35] }, "smoke_chance": 35 },
-    "ammo_cap": "Army", "flaregun": 18, "misc_chance": 7,
+    "ammo_cap": "Match", "flaregun": 18, "misc_chance": 7,
     "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
   },
   "JAZZ_Legion_FlankerT3_Recon": {
@@ -244,8 +244,8 @@
   "JAZZ_Legion_GunnerT2_AssaultGunner": {
     "inventory": "AssaultGunner_Inventory", "firearm": "AssaultGunner_Firearm", "class_tier": 2,
     "primary_tags": ["lmg"], "packages_by_arch": ["mg_m1", "mg_m2", "mg_m3"],
-    "sidearm": { "unlock": 12, "chance": 35 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [8, 15, 20] } },
+    "sidearm": { "unlock": 12, "chance": 35 }, "melee": { "item": "Machete", "chance_by_arch": [100, 100, 100] }, "armor": "Middle",
+    "utility": { "he": { "mode": "chance", "chance_by_arch": [8, 15, 20] }, "molotov_guaranteed": 1 },
     "ammo_cap": "Army", "flaregun": 0, "misc_chance": 5,
     "valuables": { "drop_chance": 50, "mult": [0.5, 1.4] }
   },

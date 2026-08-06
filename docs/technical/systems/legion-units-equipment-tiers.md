@@ -123,6 +123,8 @@ Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** д�
 - `Warden → Scout → Recon → Ranger`;
 - `Warden → Skirmisher → Pathfinder → Ranger`.
 
+`Skirmisher_Inventory` следует стрелковой ветке: battle rifles, rifle-пакеты модификаций и Match ammo; старая SMG/flanker-ветка не используется.
+
 ### Пулемётчики
 
 | Tier | Public ID | Display name | Level | Role | Archetype | Equipment |
@@ -133,7 +135,7 @@ Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** д�
 | T3 | `JAZZ_Legion_GunnerT3_VeteranGunner` | Подавитель | 14 | `Heavy` | `Legion_Machinegunner` | `VeteranGunner_Inventory` |
 | T4 | `JAZZ_Legion_GunnerT4_MercGunner` | Наемник Пулеметчик | 16 | `Heavy` | `Legion_Machinegunner` | `MercGunner_Inventory` |
 
-Обе ветви `Gunner → GMPG` и `Gunner → AssaultGunner` сходятся в `VeteranGunner → MercGunner`.
+Обе ветви `Gunner → GMPG` и `Gunner → AssaultGunner` сходятся в `VeteranGunner → MercGunner`. `AssaultGunner_Inventory` гарантированно выдаёт Коммандо Machete (100% в каждом arch band) и один Molotov; `CustomEquipGear` ставит melee в `Handheld B`.
 
 ### Командиры
 
@@ -213,7 +215,7 @@ Legacy TCE по `PlayerControlSectors` в quest **заглушены** (`CheckEx
 
 Legacy/coarse gates (`1`–`10`) в старых списках при значениях `11`–`33` всегда пройдены; новые generated blocks опираются на arch bands и subtier Amount.
 
-Корневой `<Unit>_Inventory` собирает с `loot = "all"` дочерние LootDef: primary firearm (weapon+ammo combo), optional launcher (heavy), sidearm/melee/utility, night, valuables band ≈ `JAZZ_GetLegionUnitPrice`, armor Light/Middle/Heavy. `CreateStartingEquipment` создаёт инвентарь из допустимых записей и весов.
+Корневой `<Unit>_Inventory` собирает с `loot = "all"` дочерние LootDef: primary firearm (weapon+ammo combo), optional launcher (heavy), sidearm/melee/utility, night, valuables band ≈ `JAZZ_GetLegionUnitPrice`, armor Light/Middle/Heavy. Статический аудитор проходит все 37 рецептов: проверяет UnitData `Equipment`, связь inventory → firearm и материализацию sidearm/melee/utility. `CreateStartingEquipment` создаёт инвентарь из допустимых записей и весов.
 
 `Veteran` / `Mercenary` дополнительно крутят `LegionGL_5pc` (~15% веса → `Legion_GL`): пул **M79**, **M72 LAW** (одноразовый, LootDef `M72LAW`) и late **ChinaLake**. UnitData `CustomEquipGear` для этих классов ставит Handheld B: `GrenadeLauncher`, затем `HeavyWeapon` (LAW), затем melee. `Rocketeer_Launcher` взвешивает RPG-7 (~70%) и M72 LAW (~30%).
 

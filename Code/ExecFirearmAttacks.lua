@@ -149,7 +149,6 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	local base_weapon_damage = 0
 	for attackIdx, attack in ipairs(attacks) do
 		local attackArg = attackArgs[attackIdx]
-		local fx_action = attackArg.fx_action
 		if action.id == "BulletHell"  then
 			BulletHellOverwriteShots(attack)
 		end
@@ -162,7 +161,23 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 		if action.id == "BurstFire" or action.id == "MGBurstFire" then
 			shots_per_animation = Max(1, n_shots)
 		end
-		if IsKindOf(results.weapon, "Shotgun") then
+		-- JAZZ-WEAPONS-006: Buckshot/DoubleBarrel fire BuckshotProjectiles as simultaneous
+		-- FireBullet calls. Without single_fx the gunshot ActionFX stacks once per pellet.
+		-- Also mutate attackArg.fx_action after the first bark — vanilla only cleared a
+		-- local that FireBullet never reads.
+		local shotgun_pellet_pack = IsKindOf(results.weapon, "Shotgun")
+			and n_shots > 1
+			and (attackArg.multishot or attackArg.single_fx
+				or action.id == "Buckshot" or action.id == "DoubleBarrel"
+				or action.id == "CancelShotCone" or action.id == "BuckshotBurst"
+				or action.id == "JAZZ_JokerShot")
+		if shotgun_pellet_pack then
+			shots_per_animation = 500
+			attackArg.single_fx = true
+			if not attackArg.fx_action or attackArg.fx_action == "" then
+				attackArg.fx_action = "WeaponBuckshot"
+			end
+		elseif IsKindOf(results.weapon, "Shotgun") then
 			shots_per_animation = 500
 		end
 
@@ -185,7 +200,7 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 			-- shot visuals
 			attack.weapon:FireBullet(self, shot, shot_threads, results, attackArg)
 			if attackArg.single_fx then
-				fx_action = ""
+				attackArg.fx_action = ""
 			end
 			if i < #attack.shots then -- more shots to fire
 				if i % shots_per_animation == 0 then

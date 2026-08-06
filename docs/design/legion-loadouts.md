@@ -181,7 +181,7 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Warden T1 | bolt/winch/semi | редко | — | Light | нет | M0–M2 | semi↑ | light rifle/SMG; не full AR |
 | Scout T2 | SMG | knife% | knife% | Light | smoke% | M1–M2 + **supp%** | SMG↑ + supp% | SMG/АК-CQB + supp |
-| Skirmisher T2 | SMG/carbine light | sidearm% | — | Light | smoke%/HE% | M1–M2 | carbine light | SMG/carbine; не heavy AR |
+| Skirmisher T2 | **battle** (ветка стрелка) | sidearm% | — | Light | smoke%/HE% | M1–M2 rifle | battle↑ | боевые винтовки; не SMG/sniper |
 | Recon T3 | SMG/carbine | sidearm% | knife% | Light | smoke | M2–M3 + supp | carbine/SMG+supp | +mods |
 | Pathfinder T3 | carbine/SMG | — | knife% | Light/Middle | smoke | M2–M3 + supp | carbine | carbine+supp |
 | Ranger T4 | carbine/SMG elite | sidearm% | knife% | Light/Middle | smoke | **M3–M4** supp | high floor | full scout kit |
@@ -192,7 +192,7 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Gunner T1 | LMG | редко | **нет** | Middle | ammo-heavy | M0–M2 bipod% | LMG↑ | GPMG + bipod |
 | GMPG T2 | GPMG | — | нет | Middle/Heavy | ammo | M1–M3 bipod | GPMG↑ | +optic rare |
-| AssaultGunner T2 | SAW/LMG | sidearm% | нет | Middle | ammo | M1–M3 | SAW↑ | SAW + mag/bipod |
+| AssaultGunner T2 | SAW/LMG | sidearm% | **Machete 100%** | Middle | ammo + **Molotov 100%** | M1–M3 | SAW↑ | SAW + mag/bipod |
 | VeteranGunner T3 | GPMG | — | нет | Heavy | ammo | M2–M3 | high MG | elite MG |
 | MercGunner T4 | elite MG | — | нет | Heavy | ammo | **M3–M4** | high floor | full MG kit |
 

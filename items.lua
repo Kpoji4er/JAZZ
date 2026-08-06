@@ -64341,7 +64341,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Run = function (self, unit, ap, args)
 						unit:SetActionCommand("UnjamWeapon", self.id, ap, args)
 					end,
-					ShowIn = "SignatureAbilities",
 					SortKey = 10,
 					group = "Default",
 					id = "Unjam",
@@ -66025,6 +66024,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					end,
 					GetActionResults = function (self, unit, args)
 						--args.anim_speed_mod = self:ResolveValue("anim_speed_mod")
+						local args = table.copy(args or {})
+						-- Same pellet-pack FX contract as Buckshot: one bark for the shell,
+						-- not once per BuckshotProjectiles FireBullet (JAZZ-WEAPONS-006).
+						args.fx_action = "WeaponBuckshot"
+						args.single_fx = true
 						local attack_args = unit:PrepareAttackArgs(self.id, args)
 						local results = attack_args.weapon:GetAttackResults(self, attack_args)
 						return results, attack_args
@@ -70919,9 +70923,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(890000000000262, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-					'Description', T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать."),
+					'Description', T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать или поддерживать подготовленные атаки."),
 					'AddEffectText', T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 					'OnAdded', function (self, obj)
+						obj:InterruptPreparedAttack()
 						local unitStance = obj.stance
 						if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
 						obj:SetActionCommand("ChangeStance", nil, nil, "Prone")

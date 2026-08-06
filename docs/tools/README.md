@@ -7,6 +7,7 @@
 
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
+| `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam stays on Default action bar; pinned interrupts prepared attacks in companion/generated layers; shotgun pellet pack emits one FX; tooltip ID `890000000001235` matches catalog + RU/EN runtime CSV. |
 
 ## FortifyErnie / stationary MG
 

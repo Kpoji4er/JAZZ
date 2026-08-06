@@ -35,9 +35,10 @@ DefineClass.suppressionPinned = {
 		}),
 	},
 	DisplayName = T(890000000000262, --[[ModItemCharacterEffectCompositeDef suppressionPinned DisplayName]] "Прижат"),
-	Description = T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать."),
+	Description = T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать или поддерживать подготовленные атаки."),
 	AddEffectText = T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
+		obj:InterruptPreparedAttack()
 		local unitStance = obj.stance
 		if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
 		obj:SetActionCommand("ChangeStance", nil, nil, "Prone")

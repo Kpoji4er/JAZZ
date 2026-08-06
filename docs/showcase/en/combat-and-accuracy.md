@@ -44,7 +44,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 ## Suppression, retaliation, and Lightning Reactions
 
 - Suppression cuts the shooter’s accuracy at any range (about −10 to −70 by tier).
-- A **Pinned** unit cannot counterattack; a partially suppressed unit still can, but with the accuracy penalty.
+- A **Pinned** unit cannot counterattack and loses Overwatch (including a permanent machine-gun sector), Pin Down, and Bombard; a partially suppressed unit keeps prepared fire but suffers the accuracy penalty.
 - **Lightning Reactions:** about **50%**, once per combat; does **not** trigger on a stealth kill / Hidden attack.
 - **Psycho:** Will fully recovers after combat; per-turn Will drain is milder than before.
 
