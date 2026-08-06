@@ -141,6 +141,21 @@ Commit messages, имена файлов и diff считаются недове
 
 Ошибка самого Discord webhook является ошибкой workflow: публикация не состоялась и требует внимания.
 
+## Cursor / agent push gap
+
+Пуш из Cursor agent часто **не создаёт** GitHub Actions run на `push` (в check suites коммита виден только app `cursor`, без `github-actions`). Webhook и workflow при этом живы: `workflow_dispatch` публикует нормально.
+
+После одобренного agent push в `main` вызывать из корня `jazz/`:
+
+```text
+pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz
+pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
+```
+
+Скрипт ждёт короткий интервал, проверяет push-triggered run для `After` SHA и при отсутствии диспатчит `workflow_dispatch`. Явная перепубликация диапазона: `-Force -AlwaysDispatch -Before <sha> -After <sha>`.
+
+См. также `.cursor/rules/jazz-git-push-chunks.mdc` §6.
+
 ## Ручная проверка
 
 1. Открыть GitHub **Actions → Discord player updates → Run workflow**.
@@ -149,6 +164,7 @@ Commit messages, имена файлов и diff считаются недове
 4. Для проверки override включить `force_publish=true`.
 5. Просмотреть в log причину skip/fallback или sanitized Discord payload.
 6. После успешного dry run повторить с `dry_run=false` только при наличии тестового webhook или при осознанной проверке публичного канала.
+7. Либо локально: `pwsh docs/tools/_dispatch_discord_player_update.ps1 -DryRun` (диспатч с `dry_run=true`).
 
 Без `OPENAI_API_KEY` обычный dry run автоматически покажет sanitized fallback payload. Docs-only диапазон без маркера будет пропущен; для проверки документационной публикации нужен `[discord]`, а для явного implementation evidence из docs — `[discord implemented]`. `force_publish=true` нужен только для осознанного обхода prefilter или AI-решения `should_publish=false`.
 

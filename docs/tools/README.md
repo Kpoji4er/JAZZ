@@ -348,6 +348,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_compose_legion_unit_portraits.py` | Compose 38 Legion unit Portrait PNGs (transparent 300×300, red-only): family mark inside shield at top-center, unified single-silhouette role glyph below it, tier dots under tip. Catalog + sheet/PSD masters → `jazz-units/EnemyPortraits/Legion/`. |
 | `_audit_legion_unit_portraits.py` | Static + visual QA of all 38 portraits: alpha/color/slots/pip count/100px readability/duplicate types; writes design preview, `xN` overlay preview and QA report. |
 | `_wire_legion_unit_portraits.py` | Set `Portrait` on all `JAZZ_Legion_*` UnitData companions + matching `items.lua` blocks to `Mod/Dv3mFVN/EnemyPortraits/Legion/<File>.png`. |
+| `_dispatch_discord_player_update.ps1` | После agent `git push` в `main`: если нет push-triggered Discord Actions run — `gh workflow run` (`workflow_dispatch`). `-Repo jazz|jazz-units|…`; `-Force`/`-AlwaysDispatch`/`-Before`/`-After` для ручной перепубликации. |
 | `_ris_dossier_copy.py` | Canon artistic EN/RU dossier + welcome/UI/AAR string fixes for R.I.S. |
 | `_apply_ris_dossier_copy.py` | Apply `_ris_dossier_copy.py` into `System_RIS_Content.lua`, welcome Emails, RU/EN CSV, design dossiers page. |
 | `_dump_ris_ru_strings.py` | Dump RIS-tagged Russian.csv strings for artistic review. |
