@@ -1,95 +1,97 @@
-﻿"ID","SourceText","Russian","English","Notes","Reasons","Packages","AllIDs","Locations"
-"990002115","JAZZ_CombatScope_1P29","","JAZZ_CombatScope_1P29","manual-translation","needs-russian","jazz","990002115 | 990002116","jazz:InventoryItem/JAZZ_CombatScope_1P29.lua:9 | jazz:items.lua:53471 | jazz:InventoryItem/JAZZ_CombatScope_1P29.lua:10 | jazz:items.lua:53472"
-"376428242327","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia and a Machine Gun
-","","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia and a Machine Gun
-","manual-translation","needs-russian","jazz-maps","376428242327","jazz-maps:items.lua:95900"
-"845156775611","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
-","","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
-","manual-translation","needs-russian","jazz-maps","845156775611","jazz-maps:items.lua:95921"
-"890000000001388","
-<bullet_point> <target_prop>: <pen>","","
-<bullet_point> <target_prop>: <pen>","manual-translation","needs-russian","jazz","890000000001388","jazz:Code/AmmoRolloverHint.lua:143"
-"890000000001939","<hint>","","<hint>","manual-translation","needs-russian","","890000000001939",""
-"890000000002607","Quinten@aim.com","","Quinten@aim.com","manual-translation","needs-russian","jazz-units","890000000002607","jazz-units:items.lua:120332 | jazz-units:UnitData/Jazz_Quinten.lua:28"
-"890000000002608","parkourmd","","parkourmd","manual-translation","needs-russian","jazz-units","890000000002608","jazz-units:items.lua:120333 | jazz-units:UnitData/Jazz_Quinten.lua:29"
-"890000000002707","Vicious@aim.com","","Vicious@aim.com","manual-translation","needs-russian","jazz-units","890000000002707","jazz-units:items.lua:120666 | jazz-units:UnitData/Jazz_Vicious.lua:28"
-"890000000002708","mademoiselles","","mademoiselles","manual-translation","needs-russian","jazz-units","890000000002708","jazz-units:items.lua:120667 | jazz-units:UnitData/Jazz_Vicious.lua:29"
-"890000000002807","Biff@merc.com","","Biff@merc.com","manual-translation","needs-russian","jazz-units","890000000002807","jazz-units:items.lua:121020 | jazz-units:UnitData/Jazz_Biff.lua:28"
-"890000000002907","Nervous@merc.com","","Nervous@merc.com","manual-translation","needs-russian","jazz-units","890000000002907","jazz-units:items.lua:121371 | jazz-units:UnitData/Jazz_Nervous.lua:28"
-"890000000002908","twitchy","","twitchy","manual-translation","needs-russian","jazz-units","890000000002908","jazz-units:items.lua:121372 | jazz-units:UnitData/Jazz_Nervous.lua:29"
-"890000000003007","Flo@merc.com","","Flo@merc.com","manual-translation","needs-russian","jazz-units","890000000003007","jazz-units:items.lua:121706 | jazz-units:UnitData/Jazz_Flo.lua:28"
-"890000000003008","bargain","","bargain","manual-translation","needs-russian","jazz-units","890000000003008","jazz-units:items.lua:121707 | jazz-units:UnitData/Jazz_Flo.lua:29"
-"890000000003107","Cougar@merc.com","","Cougar@merc.com","manual-translation","needs-russian","jazz-units","890000000003107","jazz-units:items.lua:122054 | jazz-units:UnitData/Jazz_Cougar.lua:28"
-"890000000003108","puma","","puma","manual-translation","needs-russian","jazz-units","890000000003108","jazz-units:items.lua:122055 | jazz-units:UnitData/Jazz_Cougar.lua:29"
-"890000000003207","Miguel@arulco.reb","","Miguel@arulco.reb","manual-translation","needs-russian","jazz-units","890000000003207","jazz-units:items.lua:122403 | jazz-units:UnitData/Jazz_Miguel.lua:28"
-"890000000003208","comandante","","comandante","manual-translation","needs-russian","jazz-units","890000000003208","jazz-units:items.lua:122404 | jazz-units:UnitData/Jazz_Miguel.lua:29"
-"890000000003307","Gamos@arulco.reb","","Gamos@arulco.reb","manual-translation","needs-russian","jazz-units","890000000003307","jazz-units:items.lua:122745 | jazz-units:UnitData/Jazz_Gamos.lua:28"
-"890000000003308","travelmuch","","travelmuch","manual-translation","needs-russian","jazz-units","890000000003308","jazz-units:items.lua:122746 | jazz-units:UnitData/Jazz_Gamos.lua:29"
-"890000000003407","Dynamo@merc.com","","Dynamo@merc.com","manual-translation","needs-russian","jazz-units","890000000003407","jazz-units:items.lua:123057 | jazz-units:UnitData/Jazz_Dynamo.lua:28"
-"890000000003408","dynamo","","dynamo","manual-translation","needs-russian","jazz-units","890000000003408","jazz-units:items.lua:123058 | jazz-units:UnitData/Jazz_Dynamo.lua:29"
-"890000000003507","Gaston@merc.com","","Gaston@merc.com","manual-translation","needs-russian","jazz-units","890000000003507","jazz-units:items.lua:123362 | jazz-units:UnitData/Jazz_Gaston.lua:28"
-"890000000003508","cavalier","","cavalier","manual-translation","needs-russian","jazz-units","890000000003508","jazz-units:items.lua:123363 | jazz-units:UnitData/Jazz_Gaston.lua:29"
-"890000000003607","Horg@merc.com","","Horg@merc.com","manual-translation","needs-russian","jazz-units","890000000003607","jazz-units:items.lua:123721 | jazz-units:UnitData/Jazz_Horg.lua:29"
-"890000000003608","cigar","","cigar","manual-translation","needs-russian","jazz-units","890000000003608","jazz-units:items.lua:123722 | jazz-units:UnitData/Jazz_Horg.lua:30"
-"890000000003707","Manuel@arulco.reb","","Manuel@arulco.reb","manual-translation","needs-russian","jazz-units","890000000003707","jazz-units:items.lua:124076 | jazz-units:UnitData/Jazz_Manuel.lua:28"
-"890000000003708","manuel","","manuel","manual-translation","needs-russian","jazz-units","890000000003708","jazz-units:items.lua:124077 | jazz-units:UnitData/Jazz_Manuel.lua:29"
-"890000000003807","Monk@aim.com","","Monk@aim.com","manual-translation","needs-russian","jazz-units","890000000003807","jazz-units:items.lua:124420 | jazz-units:UnitData/Jazz_Monk.lua:28"
-"890000000003808","monk","","monk","manual-translation","needs-russian","jazz-units","890000000003808","jazz-units:items.lua:124421 | jazz-units:UnitData/Jazz_Monk.lua:29"
-"890000000003907","Allik@aim.com","","Allik@aim.com","manual-translation","needs-russian","jazz-units","890000000003907","jazz-units:items.lua:124773 | jazz-units:UnitData/Jazz_Allik.lua:28"
-"890000000003908","znatok","","znatok","manual-translation","needs-russian","jazz-units","890000000003908","jazz-units:items.lua:124774 | jazz-units:UnitData/Jazz_Allik.lua:29"
-"890000000004007","Henning@aim.com","","Henning@aim.com","manual-translation","needs-russian","jazz-units","890000000004007","jazz-units:items.lua:125130 | jazz-units:UnitData/Jazz_Henning.lua:28"
-"890000000004008","vonbranitz","","vonbranitz","manual-translation","needs-russian","jazz-units","890000000004008","jazz-units:items.lua:125131 | jazz-units:UnitData/Jazz_Henning.lua:29"
-"890000000004107","Static@aim.com","","Static@aim.com","manual-translation","needs-russian","jazz-units","890000000004107","jazz-units:items.lua:125487 | jazz-units:UnitData/Jazz_Static.lua:28"
-"890000000004108","static","","static","manual-translation","needs-russian","jazz-units","890000000004108","jazz-units:items.lua:125488 | jazz-units:UnitData/Jazz_Static.lua:29"
-"890000000004207","Highball@aim.com","","Highball@aim.com","manual-translation","needs-russian","jazz-units","890000000004207","jazz-units:items.lua:125869 | jazz-units:UnitData/Jazz_Highball.lua:28"
-"890000000004208","highball","","highball","manual-translation","needs-russian","jazz-units","890000000004208","jazz-units:items.lua:125870 | jazz-units:UnitData/Jazz_Highball.lua:29"
-"890000000004307","Bull@aim.com","","Bull@aim.com","manual-translation","needs-russian","jazz-units","890000000004307","jazz-units:items.lua:126181 | jazz-units:UnitData/Jazz_Bull.lua:28"
-"890000000004308","bull","","bull","manual-translation","needs-russian","jazz-units","890000000004308","jazz-units:items.lua:126182 | jazz-units:UnitData/Jazz_Bull.lua:29"
-"890000000004407","Cord@merc.com","","Cord@merc.com","manual-translation","needs-russian","jazz-units","890000000004407","jazz-units:items.lua:126528 | jazz-units:UnitData/Jazz_Cord.lua:28"
-"890000000004408","cardan","","cardan","manual-translation","needs-russian","jazz-units","890000000004408","jazz-units:items.lua:126529 | jazz-units:UnitData/Jazz_Cord.lua:29"
-"890000000004507","Hobbit@merc.com","","Hobbit@merc.com","manual-translation","needs-russian","jazz-units","890000000004507","jazz-units:items.lua:126872 | jazz-units:UnitData/Jazz_Hobbit.lua:28"
-"890000000004508","frodo","","frodo","manual-translation","needs-russian","jazz-units","890000000004508","jazz-units:items.lua:126873 | jazz-units:UnitData/Jazz_Hobbit.lua:29"
-"890000000010013","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
+ID,SourceText,Russian,English,Notes,Reasons,Packages,AllIDs,Locations
+990002115,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,manual-reviewed-human,needs-russian,jazz,990002115 | 990002116,jazz:InventoryItem/JAZZ_CombatScope_1P29.lua:9 | jazz:items.lua:53471 | jazz:InventoryItem/JAZZ_CombatScope_1P29.lua:10 | jazz:items.lua:53472
+376428242327,"<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia and a Machine Gun
+","<em>Итог:</em> сектор <em><SectorName('I5')></em> укреплён ополчением и пулемётом
+","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia and a Machine Gun
+",manual-reviewed-human,needs-russian,jazz-maps,376428242327,jazz-maps:items.lua:95900
+845156775611,"<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
+","<em>Итог:</em> сектор <em><SectorName('I5')></em> укреплён ополчением, но без пулемёта
+","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
+",manual-reviewed-human,needs-russian,jazz-maps,845156775611,jazz-maps:items.lua:95921
+890000000001388,"
+<bullet_point> <target_prop>: <pen>","
+<bullet_point> <target_prop>: <pen>","
+<bullet_point> <target_prop>: <pen>",manual-reviewed-human,needs-russian,jazz,890000000001388,jazz:Code/AmmoRolloverHint.lua:143
+890000000001939,<hint>,<hint>,<hint>,manual-reviewed-human,needs-russian,,890000000001939,
+890000000002607,Quinten@aim.com,Quinten@aim.com,Quinten@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000002607,jazz-units:items.lua:120332 | jazz-units:UnitData/Jazz_Quinten.lua:28
+890000000002608,parkourmd,parkourmd,parkourmd,manual-reviewed-human,needs-russian,jazz-units,890000000002608,jazz-units:items.lua:120333 | jazz-units:UnitData/Jazz_Quinten.lua:29
+890000000002707,Vicious@aim.com,Vicious@aim.com,Vicious@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000002707,jazz-units:items.lua:120666 | jazz-units:UnitData/Jazz_Vicious.lua:28
+890000000002708,mademoiselles,mademoiselles,mademoiselles,manual-reviewed-human,needs-russian,jazz-units,890000000002708,jazz-units:items.lua:120667 | jazz-units:UnitData/Jazz_Vicious.lua:29
+890000000002807,Biff@merc.com,Biff@merc.com,Biff@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000002807,jazz-units:items.lua:121020 | jazz-units:UnitData/Jazz_Biff.lua:28
+890000000002907,Nervous@merc.com,Nervous@merc.com,Nervous@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000002907,jazz-units:items.lua:121371 | jazz-units:UnitData/Jazz_Nervous.lua:28
+890000000002908,twitchy,twitchy,twitchy,manual-reviewed-human,needs-russian,jazz-units,890000000002908,jazz-units:items.lua:121372 | jazz-units:UnitData/Jazz_Nervous.lua:29
+890000000003007,Flo@merc.com,Flo@merc.com,Flo@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000003007,jazz-units:items.lua:121706 | jazz-units:UnitData/Jazz_Flo.lua:28
+890000000003008,bargain,bargain,bargain,manual-reviewed-human,needs-russian,jazz-units,890000000003008,jazz-units:items.lua:121707 | jazz-units:UnitData/Jazz_Flo.lua:29
+890000000003107,Cougar@merc.com,Cougar@merc.com,Cougar@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000003107,jazz-units:items.lua:122054 | jazz-units:UnitData/Jazz_Cougar.lua:28
+890000000003108,puma,puma,puma,manual-reviewed-human,needs-russian,jazz-units,890000000003108,jazz-units:items.lua:122055 | jazz-units:UnitData/Jazz_Cougar.lua:29
+890000000003207,Miguel@arulco.reb,Miguel@arulco.reb,Miguel@arulco.reb,manual-reviewed-human,needs-russian,jazz-units,890000000003207,jazz-units:items.lua:122403 | jazz-units:UnitData/Jazz_Miguel.lua:28
+890000000003208,comandante,comandante,comandante,manual-reviewed-human,needs-russian,jazz-units,890000000003208,jazz-units:items.lua:122404 | jazz-units:UnitData/Jazz_Miguel.lua:29
+890000000003307,Gamos@arulco.reb,Gamos@arulco.reb,Gamos@arulco.reb,manual-reviewed-human,needs-russian,jazz-units,890000000003307,jazz-units:items.lua:122745 | jazz-units:UnitData/Jazz_Gamos.lua:28
+890000000003308,travelmuch,travelmuch,travelmuch,manual-reviewed-human,needs-russian,jazz-units,890000000003308,jazz-units:items.lua:122746 | jazz-units:UnitData/Jazz_Gamos.lua:29
+890000000003407,Dynamo@merc.com,Dynamo@merc.com,Dynamo@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000003407,jazz-units:items.lua:123057 | jazz-units:UnitData/Jazz_Dynamo.lua:28
+890000000003408,dynamo,dynamo,dynamo,manual-reviewed-human,needs-russian,jazz-units,890000000003408,jazz-units:items.lua:123058 | jazz-units:UnitData/Jazz_Dynamo.lua:29
+890000000003507,Gaston@merc.com,Gaston@merc.com,Gaston@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000003507,jazz-units:items.lua:123362 | jazz-units:UnitData/Jazz_Gaston.lua:28
+890000000003508,cavalier,cavalier,cavalier,manual-reviewed-human,needs-russian,jazz-units,890000000003508,jazz-units:items.lua:123363 | jazz-units:UnitData/Jazz_Gaston.lua:29
+890000000003607,Horg@merc.com,Horg@merc.com,Horg@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000003607,jazz-units:items.lua:123721 | jazz-units:UnitData/Jazz_Horg.lua:29
+890000000003608,cigar,cigar,cigar,manual-reviewed-human,needs-russian,jazz-units,890000000003608,jazz-units:items.lua:123722 | jazz-units:UnitData/Jazz_Horg.lua:30
+890000000003707,Manuel@arulco.reb,Manuel@arulco.reb,Manuel@arulco.reb,manual-reviewed-human,needs-russian,jazz-units,890000000003707,jazz-units:items.lua:124076 | jazz-units:UnitData/Jazz_Manuel.lua:28
+890000000003708,manuel,manuel,manuel,manual-reviewed-human,needs-russian,jazz-units,890000000003708,jazz-units:items.lua:124077 | jazz-units:UnitData/Jazz_Manuel.lua:29
+890000000003807,Monk@aim.com,Monk@aim.com,Monk@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000003807,jazz-units:items.lua:124420 | jazz-units:UnitData/Jazz_Monk.lua:28
+890000000003808,monk,monk,monk,manual-reviewed-human,needs-russian,jazz-units,890000000003808,jazz-units:items.lua:124421 | jazz-units:UnitData/Jazz_Monk.lua:29
+890000000003907,Allik@aim.com,Allik@aim.com,Allik@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000003907,jazz-units:items.lua:124773 | jazz-units:UnitData/Jazz_Allik.lua:28
+890000000003908,znatok,znatok,znatok,manual-reviewed-human,needs-russian,jazz-units,890000000003908,jazz-units:items.lua:124774 | jazz-units:UnitData/Jazz_Allik.lua:29
+890000000004007,Henning@aim.com,Henning@aim.com,Henning@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000004007,jazz-units:items.lua:125130 | jazz-units:UnitData/Jazz_Henning.lua:28
+890000000004008,vonbranitz,vonbranitz,vonbranitz,manual-reviewed-human,needs-russian,jazz-units,890000000004008,jazz-units:items.lua:125131 | jazz-units:UnitData/Jazz_Henning.lua:29
+890000000004107,Static@aim.com,Static@aim.com,Static@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000004107,jazz-units:items.lua:125487 | jazz-units:UnitData/Jazz_Static.lua:28
+890000000004108,static,static,static,manual-reviewed-human,needs-russian,jazz-units,890000000004108,jazz-units:items.lua:125488 | jazz-units:UnitData/Jazz_Static.lua:29
+890000000004207,Highball@aim.com,Highball@aim.com,Highball@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000004207,jazz-units:items.lua:125869 | jazz-units:UnitData/Jazz_Highball.lua:28
+890000000004208,highball,highball,highball,manual-reviewed-human,needs-russian,jazz-units,890000000004208,jazz-units:items.lua:125870 | jazz-units:UnitData/Jazz_Highball.lua:29
+890000000004307,Bull@aim.com,Bull@aim.com,Bull@aim.com,manual-reviewed-human,needs-russian,jazz-units,890000000004307,jazz-units:items.lua:126181 | jazz-units:UnitData/Jazz_Bull.lua:28
+890000000004308,bull,bull,bull,manual-reviewed-human,needs-russian,jazz-units,890000000004308,jazz-units:items.lua:126182 | jazz-units:UnitData/Jazz_Bull.lua:29
+890000000004407,Cord@merc.com,Cord@merc.com,Cord@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000004407,jazz-units:items.lua:126528 | jazz-units:UnitData/Jazz_Cord.lua:28
+890000000004408,cardan,cardan,cardan,manual-reviewed-human,needs-russian,jazz-units,890000000004408,jazz-units:items.lua:126529 | jazz-units:UnitData/Jazz_Cord.lua:29
+890000000004507,Hobbit@merc.com,Hobbit@merc.com,Hobbit@merc.com,manual-reviewed-human,needs-russian,jazz-units,890000000004507,jazz-units:items.lua:126872 | jazz-units:UnitData/Jazz_Hobbit.lua:28
+890000000004508,frodo,frodo,frodo,manual-reviewed-human,needs-russian,jazz-units,890000000004508,jazz-units:items.lua:126873 | jazz-units:UnitData/Jazz_Hobbit.lua:29
+890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бинт — ослабляет сильнейшее кровотечение на один уровень
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык медицины не требуется
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая стоимость в ОД
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно применить к себе или союзнику","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","manual-translation","needs-russian","jazz","890000000010013","jazz:InventoryItem/JAZZ_Bandage.lua:10 | jazz:items.lua:56621"
-"890000000010016","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",manual-reviewed-human,needs-russian,jazz,890000000010013,jazz:InventoryItem/JAZZ_Bandage.lua:10 | jazz:items.lua:56621
+890000000010016,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Морфин — подавляет штрафы от боли
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стабилизирует умирающих бойцов и возвращает их в бой (как аптечка)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровотечение, не восстанавливает ОЗ и не лечит травмы
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык медицины не требуется
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно применить к себе или союзнику","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","manual-translation","needs-russian","jazz","890000000010016","jazz:InventoryItem/JAZZ_Morphine.lua:10 | jazz:items.lua:56637"
-"890000000010019","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",manual-reviewed-human,needs-russian,jazz,890000000010016,jazz:InventoryItem/JAZZ_Morphine.lua:10 | jazz:items.lua:56637
+890000000010019,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Даёт длительный эффект обезболивания (v1)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Редкий предмет; позже врачи смогут использовать его для полевой хирургии","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used via item menu
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later","manual-translation","needs-russian","jazz","890000000010019","jazz:InventoryItem/JAZZ_SurgicalKit.lua:10 | jazz:items.lua:56653"
-"890000000010024","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later",manual-reviewed-human,needs-russian,jazz,890000000010019,jazz:InventoryItem/JAZZ_SurgicalKit.lua:10 | jazz:items.lua:56653
+890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Can be used for Bandage
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 60%
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует умирающих бойцов
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для действия «Перевязка»
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 60%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Can be used for Bandage
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 60%
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","manual-translation","needs-russian","jazz","890000000010024","jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:56678"
-"890000000010027","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","manual-translation","needs-russian","jazz","890000000010027","jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706"
-"890000000010030","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 60% more HP
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Required for Bandage
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 60% more HP
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","manual-translation","needs-russian","jazz","890000000010030","jazz:InventoryItem/Reanimationsset.lua:21"
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",manual-reviewed-human,needs-russian,jazz,890000000010030,jazz:InventoryItem/Reanimationsset.lua:21

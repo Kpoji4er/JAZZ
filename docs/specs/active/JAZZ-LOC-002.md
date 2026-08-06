@@ -26,6 +26,8 @@ write_set:
   - CharacterEffect/TraumaHeadMedium.lua
   - CharacterEffect/TraumaHeadHeavy.lua
   - InventoryItem/Reanimationsset.lua
+  - InventoryItem/Sig550Custom.lua
+  - ModTextsJazz.csv
   - items.lua
   - metadata.lua
   - Localization/Collisions.csv
@@ -209,6 +211,9 @@ gameplay, save, network, and load-order contracts remain unchanged.
 - `JAZZ-LOC-002-REQ-015` - replace active WIP/player-facing placeholders from approved
   design sources; an unresolved placeholder must be recorded as owner-blocked rather
   than silently accepted.
+- `JAZZ-LOC-002-REQ-016` - correct the factual SIG 500 source typo to SIG 550
+  in the companion, generated ModItem, editor text export, catalog, and both
+  languages without changing the localization ID or weapon behavior.
 
 Additional invariants:
 
@@ -228,6 +233,8 @@ Additional acceptance criteria:
   sync baseline does not exceed 488 errors and 27 warnings.
 - `JAZZ-LOC-002-AC-013` - every active region name has RU and EN output while region
   IDs and gameplay properties are byte-for-byte unchanged.
+- `JAZZ-LOC-002-AC-014` - Sig550Custom companion, `items.lua`, and
+  `ModTextsJazz.csv` use SIG 550 and the source-aware RU/EN rows match it.
 
 Preflight evidence: 20,893 active `T` uses, 15,160 active IDs, 11,465 in-memory
 mod-only catalog rows, `needs Russian=126`, `needs English=4,367`, collisions

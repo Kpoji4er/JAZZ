@@ -205,6 +205,21 @@ function JazzClearBleedStrong(patient, max_tiers_or_stacks)
 	return changed
 end
 
+function JazzClearAllBleeding(patient)
+	if not patient then
+		return false
+	end
+	local changed = false
+	for _, id in ipairs(JazzBleedTierOrder) do
+		local stacks = lBleedStacks(patient, id)
+		for _ = 1, stacks do
+			patient:RemoveStatusEffect(id, 1)
+			changed = true
+		end
+	end
+	return changed
+end
+
 function JazzHasAnyBleed(unit)
 	for _, id in ipairs(JazzBleedTierOrder) do
 		if lBleedStacks(unit, id) > 0 then
@@ -539,6 +554,16 @@ local function lInstallMedicineMeleeUIHooks()
 				return JazzCanMorphineUI(attacker, args)
 			end
 			local ok, err = JazzCanBandageUI_Vanilla(attacker, args)
+			if not ok and (err == AttackDisableReasons.NoTarget or err == AttackDisableReasons.InvalidTarget) then
+				return ok, err
+			end
+			local eligible_kit = JazzGetEquippedKitMedicine(attacker)
+			if not eligible_kit then
+				local blocked_kit = JazzGetBlockedKitMedicine(attacker)
+				if blocked_kit then
+					return false, JazzMedicineRequirementWarning(attacker, blocked_kit)
+				end
+			end
 			if not ok and err == AttackDisableReasons.FullHP then
 				local target = args and args.target
 				-- Vanilla only checked status id "Bleeding"; Medium/Heavy looked like FullHP.
@@ -896,23 +921,7 @@ function JazzConsumeInventoryItem(unit, class_id, amount)
 end
 
 function GetUnitEquippedMedicine(unit)
-	if not unit then
-		return false
-	end
-	local item
-	unit:ForEachItem("Medicine", function(itm)
-		local class_id = itm.class
-		if JazzMedicineIsFieldStack and JazzMedicineIsFieldStack(class_id) then
-			return
-		end
-		if not JazzMedicineIsUsable(itm) then
-			return
-		end
-		if not item or (item.UsePriority or 0) < (itm.UsePriority or 0) then
-			item = itm
-		end
-	end)
-	return item
+	return JazzGetEquippedKitMedicine(unit)
 end
 
 function JazzGetBandageItem(unit)
@@ -930,11 +939,33 @@ function JazzGetEquippedKitMedicine(unit)
 	end
 	local result
 	unit:ForEachItem(function(item)
-		if result then
-			return
-		end
-		if JazzMedicineIsKitClass(item.class) and JazzMedicineIsUsable(item) then
+		if JazzMedicineIsKitClass(item.class)
+			and JazzMedicineIsUsable(item)
+			and JazzMedicineMeetsRequirement(unit, item)
+			and (not result or (result.UsePriority or 0) < (item.UsePriority or 0))
+		then
 			result = item
+		end
+	end)
+	return result
+end
+
+function JazzGetBlockedKitMedicine(unit)
+	if not unit then
+		return false
+	end
+	local result
+	local result_requirement
+	unit:ForEachItem(function(item)
+		local required = JazzMedicineRequiredMedical(item)
+		if JazzMedicineIsKitClass(item.class)
+			and JazzMedicineIsUsable(item)
+			and required > 0
+			and not JazzMedicineMeetsRequirement(unit, item)
+			and (not result_requirement or required < result_requirement)
+		then
+			result = item
+			result_requirement = required
 		end
 	end)
 	return result
@@ -1165,10 +1196,10 @@ function JazzTryRollTraumaFromBodyPart(unit, zone)
 	local thr_heavy, thr_medium, thr_light
 	if zone == "Head" then
 		-- Head: Light harder; Medium/Heavy more common than limbs.
-		thr_heavy, thr_medium, thr_light = 8, 28, 48
+		thr_heavy, thr_medium, thr_light = 15, 45, 65
 	else
-		-- Limbs/Ribs/Burn: mostly Light when trauma procs; Medium uncommon; Heavy rare.
-		thr_heavy, thr_medium, thr_light = 3, 12, 55
+		-- Limbs/Ribs/Burn: all three tiers remain visible in ordinary combat.
+		thr_heavy, thr_medium, thr_light = 8, 28, 60
 	end
 	if factor < 100 then
 		thr_heavy = Max(1, MulDivRound(thr_heavy, factor, 100))

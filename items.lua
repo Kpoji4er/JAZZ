@@ -8771,7 +8771,7 @@ return {
 					'DisplayName', T(938082134003, --[[ModItemInventoryItemCompositeDef Warhead_Frag DisplayName]] "ПГ-7В"),
 					'DisplayNamePlural', T(520121604271, --[[ModItemInventoryItemCompositeDef Warhead_Frag DisplayNamePlural]] "ПГ-7В"),
 					'Description', T(340753503694, --[[ModItemInventoryItemCompositeDef Warhead_Frag Description]] "Кумулятивный боеприпас для реактивных гранатометов."),
-					'AdditionalHint', T(944051778480, --[[ModItemInventoryItemCompositeDef Warhead_Frag AdditionalHint]] '<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В центре взрыва вызывает эффект «Горение»\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В радиусе взрыва вызывает эффект "Подавление"'),
+					'AdditionalHint', T(944051778480, --[[ModItemInventoryItemCompositeDef Warhead_Frag AdditionalHint]] '<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В центре взрыва накладывает «Горение» и «Вне укрытия»\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В радиусе взрыва накладывает «Вне укрытия»'),
 					'Cost', 750,
 					'CanAppearInShop', true,
 					'Tier', 2,
@@ -23090,7 +23090,7 @@ return {
 					'DisplayName', T(890000000000205, --[[ModItemInventoryItemCompositeDef STG44 DisplayName]] "StG-44"),
 					'DisplayNamePlural', T(890000000000073, --[[ModItemInventoryItemCompositeDef STG44 DisplayNamePlural]] "StG-44"),
 					'Description', T(890000000000018, --[[ModItemInventoryItemCompositeDef STG44 Description]] 'Первый в мире серийный автомат, или штурмовая винтовка. Собсно, "Штурмгевер" и означает штурмовая винтовка (говорят, Гитлер лично придумал, но больше похоже на байку). Несмотря на то, что на ход войны вундервафля уже влияния не оказала, именно на ней была опробована и успешно получила развитие идея "промежуточного" патрона.'),
-					'AdditionalHint', T(160551721775, --[[ModItemInventoryItemCompositeDef STG44 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Первый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
+					'AdditionalHint', T(160551721775, --[[ModItemInventoryItemCompositeDef STG44 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Первый серийный автомат\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 1500,
@@ -24693,7 +24693,7 @@ return {
 					'Icon', "Mod/e6L4ECj/WeaponIcons/SIG550Custom.png",
 					'DisplayName', T(518572936824, --[[ModItemInventoryItemCompositeDef Sig550Custom DisplayName]] "Sig 550 RIS"),
 					'DisplayNamePlural', T(927601720702, --[[ModItemInventoryItemCompositeDef Sig550Custom DisplayNamePlural]] "Sig 550 RIS"),
-					'Description', T(755003574664, --[[ModItemInventoryItemCompositeDef Sig550Custom Description]] "Вариант винтовки SIG 500 в современном кастомном обвесе, позволяющем установить дополнительные приспособления. Стильно, модно, молодежно. Даже завидно."),
+					'Description', T(755003574664, --[[ModItemInventoryItemCompositeDef Sig550Custom Description]] "Вариант винтовки SIG 550 в современном кастомном обвесе, позволяющем установить дополнительные приспособления. Стильно, модно, молодежно. Даже завидно."),
 					'AdditionalHint', T(155361024222, --[[ModItemInventoryItemCompositeDef Sig550Custom AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Слабая отдача"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
@@ -27865,7 +27865,7 @@ return {
 					'DisplayName', T(890000000000232, --[[ModItemInventoryItemCompositeDef BAR DisplayName]] "BAR"),
 					'DisplayNamePlural', T(890000000000479, --[[ModItemInventoryItemCompositeDef BAR DisplayNamePlural]] "BAR"),
 					'Description', T(890000000000765, --[[ModItemInventoryItemCompositeDef BAR Description]] 'Джон Мозес Браунинг конечно гений, и все такой, но вот с разработкой BAR он явно опоздал. Концепция "ружья-пулемета", как в автомате Федорова или пулемете Гочкисса к началу 30-х годов уже безнадежно устарела, и потому BAR выглядит как неуклюжий косплей ручного пулемета, будучи слишком тяжелым для автоматической винтовки. Говорят, с тех пор американцы делать пулеметы так и не научились.'),
-					'AdditionalHint', T(890000000000866, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ружье-недопулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
+					'AdditionalHint', T(890000000000866, --[[ModItemInventoryItemCompositeDef BAR AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Автоматическая винтовка\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный"),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 3000,
@@ -28708,7 +28708,7 @@ return {
 					'DisplayName', T(890000000001345, --[[ModItemInventoryItemCompositeDef DP27 DisplayName]] "ДП-27"),
 					'DisplayNamePlural', T(890000000000553, --[[ModItemInventoryItemCompositeDef DP27 DisplayNamePlural]] "ДП-27"),
 					'Description', T(890000000001339, --[[ModItemInventoryItemCompositeDef DP27 Description]] "Ручной пулемет ДП был принят на вооружение РККА в 1927 году и стал одним из первых оружейных образцов, созданных с нуля в молодом Советском государстве. С честью прошел всю Великую Отечественную Войну и уже давно отошел от дел, но тут его нашли вы."),
-					'AdditionalHint', T(890000000001240, --[[ModItemInventoryItemCompositeDef DP27 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Единый пулемет \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача "),
+					'AdditionalHint', T(890000000001240, --[[ModItemInventoryItemCompositeDef DP27 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ручной пулемёт\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача "),
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Cost', 3000,
@@ -30829,7 +30829,7 @@ return {
 					'ItemType', "Grenade",
 					'DisplayName', T(893674710968, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName]] "Flashbang"),
 					'DisplayNamePlural', T(904754847701, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural]] "Flashbangs"),
-					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное"),
+					'AdditionalHint', T(339045500192, --[[ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цели\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет подготовленные выстрелы в радиусе взрыва\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет и лишает укрытия цели в центре\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумная"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
 					'CanAppearInShop', true,
@@ -53259,7 +53259,7 @@ PlaceObj('ModItemWeaponComponent', {
 					'Icon', "UI/Icons/Items/medicine",
 					'DisplayName', T(182769023737, --[[ModItemInventoryItemCompositeDef Meds DisplayName]] "Meds"),
 					'DisplayNamePlural', T(186822751180, --[[ModItemInventoryItemCompositeDef Meds DisplayNamePlural]] "Meds"),
-					'AdditionalHint', T(834156151134, --[[ModItemInventoryItemCompositeDef Meds AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Лечение ран» в виде со спутника\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для восполнения аптечек и наборов первой помощи"),
+					'AdditionalHint', T(834156151134, --[[ModItemInventoryItemCompositeDef Meds AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нужны для лечения ран на стратегической карте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Расходуются в медицинских операциях и при крафте"),
 					'Cost', 100,
 					'CanAppearInShop', true,
 					'MaxStock', 50,
@@ -56675,7 +56675,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_IFAK.png",
 				'DisplayName', T(890000000010022, "IFAK"),
 				'DisplayNamePlural', T(890000000010023, "IFAKs"),
-				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage action removes one worst bleeding stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
+				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 				'UnitStat', "Medical",
 				'Cost', 300,
 				'CanAppearInShop', true,
@@ -56693,7 +56693,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcHealAmount",
 						Handler = function (self, target, patient, medic, medkit, data)
 							if self == medkit then
-								data.heal_modifier = data.heal_modifier + 25
+								data.heal_modifier = data.heal_modifier + 50
 							end
 					end,
 					}),
@@ -56703,7 +56703,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
 				'DisplayName', T(890000000010025, "Med Kit"),
 				'DisplayNamePlural', T(890000000010026, "Med Kits"),
-				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage restores 25% more HP\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes up to two worst bleeding stacks\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack"),
+				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack"),
 				'UnitStat', "Medical",
 				'Cost', 500,
 				'CanAppearInShop', true,
@@ -56740,7 +56740,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "Reanimationsset",
-				'object_class', "Medicine",
+				'object_class', "JazzStackableMedicine",
 				'unit_reactions', {
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcHealAmount",
@@ -56756,15 +56756,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "UI/Icons/Items/reanimationsset.png",
 				'DisplayName', T(717284834554, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayName]] "Reanimationsset"),
 				'DisplayNamePlural', T(900536705401, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayNamePlural]] "Reanimationssets"),
-				'AdditionalHint', T(566246707628, --[[ModItemInventoryItemCompositeDef Reanimationsset AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует состояние умирающих персонажей\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для использования перевязки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Перевязка восстанавливает на 60% ОЗ больше\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Тратится при каждом употреблении, но запас медикаментов можно восполнить\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, просто находясь в инвентаре"),
+				'AdditionalHint', T(890000000010030, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Can be used for Bandage\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 60%\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory"),
 				'UnitStat', "Medical",
-				'max_meds_parts', 12,
+				'MaxStacks', 2,
 				'UsePriority', 2,
 			}),
-			}),
-		PlaceObj('ModItemFolder', {
-			'name', "Tools",
-		}, {
 			PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Quest - Equipment",
 				'Id', "PlasmaGun_Crowbar",
@@ -62051,7 +62047,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(890000000010213, "Treat an ally with an IFAK, Medkit, or surgical kit. Restores HP (Medical skill) and clears bleeding stacks. Does not use stack bandages."),
+				Description = T(890000000010213, "Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action."),
 				DisplayName = T(615556944457, --[[ModItemCombatAction Bandage DisplayName]] "Bandage"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
@@ -62450,6 +62446,89 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'max_stacks', 2,
 				'HideOnBadge', true,
 				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Group', "System",
+				'Id', "BandageInCombat",
+				'Comment', "handles the logic for the unit bandaging a downed unit",
+				'Parameters', {},
+				'object_class', "StatusEffect",
+				'msg_reactions', {},
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnBeginTurn",
+						Handler = function (self, target)
+							local patient = target:GetBandageTarget()
+							local medicine = target:GetBandageMedicine()
+							if not patient or not medicine or patient.command == "Die" or patient:IsDead()
+								or (patient.HitPoints >= patient.MaxHitPoints and not JazzHasAnyBleed(patient))
+							then
+								target:RemoveStatusEffect("BandageInCombat")
+							end
+						end,
+						param_bindings = false,
+					}),
+					PlaceObj('UnitReaction', {
+						Event = "OnEndTurn",
+						Handler = function (self, target)
+							local patient = target:GetBandageTarget()
+							local medicine = target:GetBandageMedicine()
+							if not IsValid(patient) or patient.command == "Die" or patient:IsDead()
+								or (patient.HitPoints >= patient.MaxHitPoints and not JazzHasAnyBleed(patient))
+							then
+								target:RemoveStatusEffect(self.class)
+								return
+							end
+							if patient:IsDowned() then
+								local stabilized = patient:GetStatusEffect("Stabilized")
+								stabilized = stabilized and stabilized:ResolveValue("stabilized")
+								if stabilized or RollSkillCheck(target, "Medical") then
+									patient:SetCommand("DownedRally", target, medicine)
+								else
+									patient:AddStatusEffect("Stabilized")
+								end
+							else
+								patient:GetBandaged(medicine, target)
+								if patient.HitPoints >= patient.MaxHitPoints and not JazzHasAnyBleed(patient) then
+									patient:RemoveStatusEffect("BeingBandaged")
+									target:RemoveStatusEffect(self.class)
+								end
+							end
+						end,
+						param_bindings = false,
+					}),
+				},
+				'DisplayName', T(725524260335, --[[ModItemCharacterEffectCompositeDef BandageInCombat DisplayName]] "Treating"),
+				'Description', T(829769124050, --[[ModItemCharacterEffectCompositeDef BandageInCombat Description]] "Bandaging an ally. No more actions available this turn. Effectiveness of the action depends on Medical skill."),
+				'OnAdded', function (self, obj)
+					local target = obj:GetBandageTarget()
+					if target then
+						target:RemoveStatusEffect("Downed")
+						target:RemoveStatusEffect("BleedingOut")
+					end
+					obj:RemoveStatusEffect("FreeMove")
+				end,
+				'OnRemoved', function (self, obj)
+					local target = obj:GetBandageTarget()
+					if not target or not g_Combat then return end
+					target:RemoveStatusEffect("BeingBandaged")
+					if target and not target:IsDead() and target:IsDowned() and not target:HasStatusEffect("Unconscious") then
+						target:RemoveStatusEffect("Stabilized")
+						target:AddStatusEffect("BleedingOut")
+					end
+
+					if not obj:IsDead() then
+						obj:ClearBehaviors("Bandage")
+						if CurrentThread() == obj.command_thread then
+							obj:QueueCommand("EndCombatBandage")
+						else
+							obj:SetCommand("EndCombatBandage")
+						end
+					end
+				end,
+				'Icon', "UI/Hud/Status effects/treating",
+				'RemoveOnSatViewTravel', true,
+				'Shown', true,
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Group', "System",
@@ -78701,8 +78780,43 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						'Background', RGBA(32, 35, 47, 255),
 					}, {
 						PlaceObj('XTemplateTemplate', {
+							'comment', "medicine requirement",
+							'__condition', function (parent, context) return JazzMedicineRequiredMedical(ResolvePropObj(context)) > 0 end,
+							'__template', "RolloverPropTextRight",
+						}, {
+							PlaceObj('XTemplateFunc', {
+								'name', "Open(self,...)",
+								'func', function (self,...)
+									XPropControl.Open(self,...)
+									local context = self:GetContext()
+									local item = ResolvePropObj(context)
+									local required = JazzMedicineRequiredMedical(item)
+									local unit = JazzMedicineRolloverUnit(context)
+									local current = unit and (unit.Medical or 0) or false
+									local too_low = current ~= false and current < required
+									self.idPropVal:SetNameText(
+										too_low
+											and T(890000000012011, "Medical too low")
+											or T(890000000012010, "Medical required")
+									)
+									self.idPropVal:SetValueText(
+										current ~= false
+											and Untranslated(current .. " / " .. required)
+											or Untranslated(tostring(required))
+									)
+									if too_low then
+										self.idPropVal:SetTextStyle("RolloverTextItalicRed")
+										self.idPropVal:SetTextStyleRight("RolloverTextItalicRed")
+									else
+										self.idPropVal:SetTextStyle("PDABrowserFlavorMedium")
+										self.idPropVal:SetTextStyleRight("PDABrowserTextHighlight")
+									end
+								end,
+							}),
+							}),
+						PlaceObj('XTemplateTemplate', {
 							'comment', "stat",
-							'__condition', function (parent, context) return context.UnitStat and context.owner end,
+							'__condition', function (parent, context) return context.UnitStat and context.owner and JazzMedicineRequiredMedical(ResolvePropObj(context)) <= 0 end,
 							'__template', "RolloverPropTextRight",
 						}, {
 							PlaceObj('XTemplateFunc', {

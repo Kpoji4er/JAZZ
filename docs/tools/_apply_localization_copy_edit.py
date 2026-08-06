@@ -5,6 +5,10 @@ The input is one or more RFC-4180 CSV files with this schema::
 
     ID,SourceText,Russian,English,Notes
 
+Review waves may also include an optional AllIDs column with pipe-separated
+anchor IDs that share the exact same SourceText and approved translation.  The
+primary ID is always included even if AllIDs omits it.
+
 By default the command is a read-only check.  ``--apply`` rewrites only the
 two manual translation memories.  It never edits ``Strings.csv`` or either
 runtime localization CSV.
@@ -163,14 +167,7 @@ def load_edits(paths: Iterable[Path]) -> list[Edit]:
     for path in paths:
         _, rows = read_csv_rows(path, required=EDIT_FIELDS, known_fields=EDIT_FIELDS)
         for record_number, row in enumerate(rows, start=2):
-            anchor_id = row["ID"].strip()
             origin = f"{path}:{record_number}"
-            if not re.fullmatch(r"\d+", anchor_id):
-                raise ValidationError(f"{origin}: ID must contain digits only: {anchor_id!r}")
-            if anchor_id in seen:
-                raise ValidationError(
-                    f"duplicate edit ID {anchor_id}: {seen[anchor_id]} and {origin}"
-                )
             source = row["SourceText"]
             russian = row["Russian"]
             english = row["English"]
@@ -180,10 +177,31 @@ def load_edits(paths: Iterable[Path]) -> list[Edit]:
                 raise ValidationError(f"{origin}: Russian translation is empty")
             if not english.strip():
                 raise ValidationError(f"{origin}: English translation is empty")
-            edit = Edit(anchor_id, source, russian, english, row["Notes"], origin)
-            validate_markup(edit)
-            seen[anchor_id] = origin
-            edits.append(edit)
+            primary_id = row["ID"].strip()
+            all_ids = [
+                value.strip()
+                for value in row.get("AllIDs", "").split("|")
+                if value.strip()
+            ]
+            if primary_id not in all_ids:
+                all_ids.insert(0, primary_id)
+            for anchor_id in dict.fromkeys(all_ids):
+                expanded_origin = (
+                    origin if anchor_id == primary_id
+                    else f"{origin} (AllIDs -> {anchor_id})"
+                )
+                if not re.fullmatch(r"\d+", anchor_id):
+                    raise ValidationError(
+                        f"{expanded_origin}: ID must contain digits only: {anchor_id!r}"
+                    )
+                if anchor_id in seen:
+                    raise ValidationError(
+                        f"duplicate edit ID {anchor_id}: {seen[anchor_id]} and {expanded_origin}"
+                    )
+                edit = Edit(anchor_id, source, russian, english, row["Notes"], expanded_origin)
+                validate_markup(edit)
+                seen[anchor_id] = expanded_origin
+                edits.append(edit)
     if not edits:
         raise ValidationError("no edit records were supplied")
     return edits

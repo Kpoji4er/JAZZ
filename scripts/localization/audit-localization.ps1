@@ -613,8 +613,8 @@ foreach ($key in $gameEnglishCandidatesByText.Keys) {
         $gameEnglishByText[$key] = $variants[0]
     }
 }
-$manualRussianByText = @{}
-$technicalRussianByText = @{}
+$manualRussianByText = [System.Collections.Generic.Dictionary[string,string]]::new([System.StringComparer]::Ordinal)
+$technicalRussianByText = [System.Collections.Generic.Dictionary[string,string]]::new([System.StringComparer]::Ordinal)
 if (Test-Path -LiteralPath $RussianManualCsv -PathType Leaf) {
     foreach ($row in Import-Csv -LiteralPath $RussianManualCsv -Encoding UTF8) {
         if ([string]::IsNullOrEmpty($row.Russian)) {
@@ -634,8 +634,8 @@ if (Test-Path -LiteralPath $RussianManualCsv -PathType Leaf) {
     }
 }
 
-$manualEnglishByText = @{}
-$technicalEnglishByText = @{}
+$manualEnglishByText = [System.Collections.Generic.Dictionary[string,string]]::new([System.StringComparer]::Ordinal)
+$technicalEnglishByText = [System.Collections.Generic.Dictionary[string,string]]::new([System.StringComparer]::Ordinal)
 if (Test-Path -LiteralPath $EnglishManualCsv -PathType Leaf) {
     foreach ($row in Import-Csv -LiteralPath $EnglishManualCsv -Encoding UTF8) {
         if ([string]::IsNullOrEmpty($row.English)) {

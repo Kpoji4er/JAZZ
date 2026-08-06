@@ -10,12 +10,14 @@ risk: high
 generated_data: true
 runtime_validation: required
 write_set:
+  - Code/System_JazzStackableMedicine.lua
   - Code/Systems_Medicine.lua
   - Code/GritOnStart.lua
   - Code/System_ArmorRating.lua
   - Code/Systems_Wounds_HealWounds.lua
   - Code/System_Wounds_OperationHeal.lua
   - Code/System_UnitInventory.lua
+  - CharacterEffect/BandageInCombat.lua
   - CharacterEffect/Bleeding.lua
   - CharacterEffect/BleedingMedium.lua
   - CharacterEffect/BleedingHeavy.lua
@@ -56,6 +58,8 @@ write_set:
   - metadata.lua
   - Russian.csv
   - English.csv
+  - Localization/RussianManual.csv
+  - Localization/EnglishManual.csv
   - Localization/Strings.csv
   - docs/design/medicine.md
   - docs/specs/active/JAZZ-MED-001.md
@@ -65,7 +69,7 @@ write_set:
   - docs/showcase/ru/combat-and-accuracy.md
   - docs/showcase/en/combat-and-accuracy.md
   - docs/tools/_audit_med001_analgesia.py
-  - docs/tools/_audit_med001_downed_heavy.py
+  - docs/tools/_audit_med001_kit_requirements.py
   - docs/tools/README.md
 exclusive_resources:
   - items.lua
@@ -123,6 +127,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-REQ-014` — behind-armor trauma (BAT): when hit has `armor_decay` and no `armor_pen`, `JazzTryBehindArmorTrauma` may apply Light (rarely Medium) zone trauma; no bleed. Pain: residual damage > 0 uses hit +1 (`JazzPainOnDamagingHit`); full absorb (0 residual) adds `JazzAddPainStacks(1)` in BAT. Chance scales with `armor_prevented + residual` damage.
 - `JAZZ-MED-001-REQ-015` — field TreatWounds / `PatientAddHealWoundProgress` marks each patient `Trauma*` with `jazz_healing`: progress checks use halved interval (floor 2h), improve **100%** (guaranteed tier step-down via improve branch), worsen **0**; flag survives tier downgrade. Does **not** instant-clear Trauma*. `HealWounds` Effect does **not** set healing.
 - `JAZZ-MED-001-REQ-016` - `Analgesia` suppresses every `Pain` penalty immediately: CTH is gated while the effect is active, and AP already withheld by `Pain.OnCalcStartTurnAP` in the current turn is refunded exactly once from a tracked applied-penalty value. Applying Analgesia again or gaining Pain after start of turn grants no AP.
+- `JAZZ-MED-001-REQ-017` — `FirstAidKit` requires Medical **30**, restores HP, and removes every `Bleeding` / `BleedingMedium` / `BleedingHeavy` stack. `Medkit` requires Medical **50**, has the same bleed clear, and applies **+50%** heal modifier. One requirement helper controls action availability, execution, and the inventory rollover. The rollover always shows the threshold; when the current/owner unit is below it, the requirement row is a red warning.
 
 ## Инварианты и ограничения
 
@@ -149,6 +154,8 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 - `JAZZ-MED-001-AC-013` - static: `Pain` records the AP penalty actually applied at start of turn; `Analgesia.OnAdded` consumes that value through the medicine helper and refunds it once; companion and `items.lua` stay equivalent.
 - `JAZZ-MED-001-AC-014` - runtime/human: morphine during the unit turn restores exactly the AP withheld by Pain and suppresses Pain CTH; repeated morphine and Pain gained later in the turn do not grant extra AP.
+- `JAZZ-MED-001-AC-015` — static: companion/`items.lua` parity for IFAK and Medkit; Medical thresholds are 30/50; both clear all bleed stacks; Medkit heal modifier is +50; selectors and `GetBandaged` enforce the shared helper.
+- `JAZZ-MED-001-AC-016` — runtime/human: the rollover shows current/required Medical and turns red below the threshold; a blocked kit cannot heal, clear bleed, or be consumed; eligible kits heal and remove every bleed stack.
 
 ## Impact и совместимость
 
@@ -190,6 +197,8 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 - `JAZZ-MED-001-AC-013`: `PASS` - static: `python docs/tools/_audit_med001_analgesia.py` verifies tracked current-turn AP penalty, one-shot direct refund, stale/post-start no-grant cases, and companion/`items.lua` parity.
 - `JAZZ-MED-001-AC-014`: `BLOCKED` - runtime/human morphine playtest pending.
+- `JAZZ-MED-001-AC-015`: `PASS` — `python docs/tools/_audit_med001_kit_requirements.py` verifies Medical 30/50 gates, hard treatment recheck, full bleed removal, Medkit +50%, red rollover warning, and companion/`items.lua` parity.
+- `JAZZ-MED-001-AC-016`: `BLOCKED` — runtime/human rollover and treatment playtest pending.
 
 status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI + OperationHeal→healing flag; mark `implemented` after smoke in editor/game.
 
@@ -200,4 +209,4 @@ status note: code wired including zonal traumas + armor trauma mitigation + BAT 
 - `docs/design/medicine.md` — status → approved / v1 implementing (traumas in scope); Pain growth includes solid damaging hit +1; Morphine also rallies downed
 - `docs/technical/systems/armor-damage-wounds-will.md` — grit off, bleed tiers, Pain (hit + zone-use + heavy ramp), zonal traumas, items, OperationHeal healing flag; Morphine→DownedRally
 - `docs/technical/systems/file-coverage.md` — Systems_Medicine.lua + Trauma* effects
-- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing; hit Pain; graze no hit Pain; Morphine downed rally)
+- `docs/wiki/combat-and-accuracy.md` + showcase RU/EN — player-facing wounds/medicine/trauma notes (+ field healing; hit Pain; graze no hit Pain; Morphine downed rally; kit thresholds/full bleed clear/+50% Medkit heal)

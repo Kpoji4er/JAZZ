@@ -396,8 +396,8 @@ ID,Text,Translation,VoiceActor,Context
 938082134003,ПГ-7В,,,ModItemInventoryItemCompositeDef Warhead_Frag DisplayName
 520121604271,ПГ-7В,,,ModItemInventoryItemCompositeDef Warhead_Frag DisplayNamePlural
 340753503694,Кумулятивный боеприпас для реактивных гранатометов.,,,ModItemInventoryItemCompositeDef Warhead_Frag Description
-944051778480,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В центре взрыва вызывает эффект «Горение»
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В радиусе взрыва вызывает эффект ""Подавление""",,,ModItemInventoryItemCompositeDef Warhead_Frag AdditionalHint
+944051778480,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В центре взрыва накладывает «Горение» и «Вне укрытия»
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В радиусе взрыва накладывает «Вне укрытия»",,,ModItemInventoryItemCompositeDef Warhead_Frag AdditionalHint
 921485234830,40-мм с/ш граната,,,ModItemInventoryItemCompositeDef JAZZ_AMMO_40mmFlashbangGrenade DisplayName
 179422312087,40-мм с/ш гранаты,,,ModItemInventoryItemCompositeDef JAZZ_AMMO_40mmFlashbangGrenade DisplayNamePlural
 585104380446,Светошумовой боеприпас для гранатометов калибра 40 мм.,,,ModItemInventoryItemCompositeDef JAZZ_AMMO_40mmFlashbangGrenade Description
@@ -1137,7 +1137,7 @@ ID,Text,Translation,VoiceActor,Context
 250655452748,StG-44,,,ModItemInventoryItemCompositeDef STG44 DisplayName
 153918269049,StG-44,,,ModItemInventoryItemCompositeDef STG44 DisplayNamePlural
 110936392470,"Первый в мире серийный автомат, или штурмовая винтовка. Собсно, ""Штурмгевер"" и означает штурмовая винтовка (говорят, Гитлер лично придумал, но больше похоже на байку). Несмотря на то, что на ход войны вундервафля уже влияния не оказала, именно на ней была опробована и успешно получила развитие идея ""промежуточного"" патрона.",,,ModItemInventoryItemCompositeDef STG44 Description
-160551721775,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Первый 
+160551721775,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Первый серийный автомат
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный 
@@ -1227,7 +1227,7 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно забрать домой после срочной службы",,,ModItemInventoryItemCompositeDef Sig550 AdditionalHint
 518572936824,Sig 550 RIS,,,ModItemInventoryItemCompositeDef Sig550Custom DisplayName
 927601720702,Sig 550 RIS,,,ModItemInventoryItemCompositeDef Sig550Custom DisplayNamePlural
-755003574664,"Вариант винтовки SIG 500 в современном кастомном обвесе, позволяющем установить дополнительные приспособления. Стильно, модно, молодежно. Даже завидно.",,,ModItemInventoryItemCompositeDef Sig550Custom Description
+755003574664,"Вариант винтовки SIG 550 в современном кастомном обвесе, позволяющем установить дополнительные приспособления. Стильно, модно, молодежно. Даже завидно.",,,ModItemInventoryItemCompositeDef Sig550Custom Description
 155361024222,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет 
@@ -1687,10 +1687,10 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает кровотечение",,,ModItemInventoryItemCompositeDef PipeBomb AdditionalHint
 143721324108,Светошумовая граната,,,ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayName
 464879576172,Светошумовые гранаты,,,ModItemInventoryItemCompositeDef ConcussiveGrenade DisplayNamePlural
-339045500192,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цель
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет ответный огонь и уменьшает бонусы от укрытия в центре взрыва
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумное",,,ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint
+339045500192,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ослепляет цели
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Отменяет подготовленные выстрелы в радиусе взрыва
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Подавляет и лишает укрытия цели в центре
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Почти бесшумная",,,ModItemInventoryItemCompositeDef ConcussiveGrenade AdditionalHint
 581195033607,Сигнальная шашка,,,ModItemInventoryItemCompositeDef FlareStick DisplayName
 431696879632,Сигнальные шашки,,,ModItemInventoryItemCompositeDef FlareStick DisplayNamePlural
 560759240469,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Освещает большую территорию
@@ -2088,8 +2088,8 @@ ID,Text,Translation,VoiceActor,Context
 906442723868,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия,,,ModItemInventoryItemCompositeDef FineSteelPipe AdditionalHint
 658657633995,Медикаменты,,,ModItemInventoryItemCompositeDef Meds DisplayName
 587879132073,Медикаменты,,,ModItemInventoryItemCompositeDef Meds DisplayNamePlural
-834156151134,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для операции «Лечение ран» в виде со спутника
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используются для восполнения аптечек и наборов первой помощи",,,ModItemInventoryItemCompositeDef Meds AdditionalHint
+834156151134,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Нужны для лечения ран на стратегической карте
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Расходуются в медицинских операциях и при крафте",,,ModItemInventoryItemCompositeDef Meds AdditionalHint
 171241193345,Чип,,,ModItemInventoryItemCompositeDef Microchip DisplayName
 722836023605,Чипы,,,ModItemInventoryItemCompositeDef Microchip DisplayNamePlural
 859152016185,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия,,,ModItemInventoryItemCompositeDef Microchip AdditionalHint

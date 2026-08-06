@@ -31,6 +31,8 @@
 | Скрипт | Назначение |
 | --- | --- |
 | `_audit_med001_analgesia.py` | Static MED-001: Pain tracks the current-turn AP penalty; Analgesia consumes it once, refunds AP directly, and companion/`items.lua` stay equivalent. |
+| `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
+| `_apply_localization_copy_edit.py` | Validates and applies reviewed RU/EN waves to manual memory; optional `AllIDs` propagates one source-identical review to every listed localization ID. |
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; combat Score helpers; `AISelectHealTarget` / `AIActionBandage` Precalc; `JazzAI_TryMedicSwitch` all bleed tiers. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
 | `_bump_sniper001_meta.py` | Revision +1 + prepend `last_changes` bullet for SNIPER-001 commit. |

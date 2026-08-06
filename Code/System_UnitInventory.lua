@@ -549,6 +549,9 @@ end
 function UnitInventory:InventoryBandage()
 	local target = self
 	local medicine = GetUnitEquippedMedicine(self)
+	if not medicine then
+		return
+	end
 
 	target:GetBandaged(medicine, self)
 	Msg("InventoryChange", self)
@@ -556,6 +559,9 @@ end
 
 function UnitInventory:GetBandaged(medkit, healer)
 	if not JazzHasAnyBleed(self) and self.HitPoints >= self.MaxHitPoints then
+		return
+	end
+	if medkit and not JazzMedicineMeetsRequirement(healer, medkit) then
 		return
 	end
 
@@ -606,13 +612,12 @@ function UnitInventory:GetBandaged(medkit, healer)
 		self:OnHeal(restored, medkit, healer)
 	end
 	if can_clear_bleed and medkit then
-		local stacks = 1
-		if medkit.class == "Medkit" then
-			stacks = 2
-		elseif medkit.class == "Reanimationsset" then
-			stacks = 2
+		if medkit.class == "FirstAidKit" or medkit.class == "Medkit" then
+			JazzClearAllBleeding(self)
+		else
+			local stacks = medkit.class == "Reanimationsset" and 2 or 1
+			JazzClearBleedStrong(self, stacks)
 		end
-		JazzClearBleedStrong(self, stacks)
 	end
 
 	if healer == self then
