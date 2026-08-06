@@ -148,8 +148,8 @@ Commit messages, имена файлов и diff считаются недове
 После одобренного agent push в `main` вызывать из корня `jazz/`:
 
 ```text
-pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz
-pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
+powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz
+powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
 ```
 
 Скрипт ждёт короткий интервал, проверяет push-triggered run для `After` SHA и при отсутствии диспатчит `workflow_dispatch`. Явная перепубликация диапазона: `-Force -AlwaysDispatch -Before <sha> -After <sha>`.
@@ -164,7 +164,7 @@ pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
 4. Для проверки override включить `force_publish=true`.
 5. Просмотреть в log причину skip/fallback или sanitized Discord payload.
 6. После успешного dry run повторить с `dry_run=false` только при наличии тестового webhook или при осознанной проверке публичного канала.
-7. Либо локально: `pwsh docs/tools/_dispatch_discord_player_update.ps1 -DryRun` (диспатч с `dry_run=true`).
+7. Либо локально: `powershell -File docs/tools/_dispatch_discord_player_update.ps1 -DryRun` (диспатч с `dry_run=true`).
 
 Без `OPENAI_API_KEY` обычный dry run автоматически покажет sanitized fallback payload. Docs-only диапазон без маркера будет пропущен; для проверки документационной публикации нужен `[discord]`, а для явного implementation evidence из docs — `[discord implemented]`. `force_publish=true` нужен только для осознанного обхода prefilter или AI-решения `should_publish=false`.
 

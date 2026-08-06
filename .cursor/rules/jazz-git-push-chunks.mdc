@@ -22,7 +22,7 @@ alwaysApply: true
 6. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` каждого затронутого пакета обязательно:
 
 ```text
-pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo <jazz|jazz-units|jazz-maps|jazz_assets|jazz-nomaps>
+powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <jazz|jazz-units|jazz-maps|jazz_assets|jazz-nomaps>
 ```
 
 Скрипт ждёт push-triggered run и при его отсутствии делает `workflow_dispatch`. Для явной перепубликации: `-Force -AlwaysDispatch -Before <sha> -After <sha>`. Не полагаться только на `git push`.

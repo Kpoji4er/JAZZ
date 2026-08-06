@@ -12,9 +12,9 @@
   push-triggered Discord run exists for AfterSha.
 
 .EXAMPLE
-  pwsh docs/tools/_dispatch_discord_player_update.ps1
-  pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units -Force
-  pwsh docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz -Before 971d5d4 -After 652675d -Force -AlwaysDispatch
+  powershell -File docs/tools/_dispatch_discord_player_update.ps1
+  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units -Force
+  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz -Before 971d5d4 -After 652675d -Force -AlwaysDispatch
 #>
 [CmdletBinding()]
 param(
