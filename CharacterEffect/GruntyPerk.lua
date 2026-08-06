@@ -26,7 +26,7 @@ DefineClass.GruntyPerk = {
 		}),
 	},
 	DisplayName = T(562334332352, --[[ModItemCharacterEffectCompositeDef GruntyPerk DisplayName]] "Überraschung"),
-	Description = T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Attacks</em> the <em>closest</em> enemy with a firearm when <em>combat starts</em>, if possible.\n\nCan't be used with Heavy Weapons."),
+	Description = T(742416202176, --[[ModItemCharacterEffectCompositeDef GruntyPerk Description]] "<em>Attacks</em> the <em>closest</em> enemy with a firearm when <em>combat starts</em>, if possible.\nCan't be used with Heavy Weapons."),
 	Icon = "UI/Icons/Perks/GruntyPerk",
 	Tier = "Personal",
 }

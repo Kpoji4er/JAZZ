@@ -6,7 +6,7 @@ DefineClass.Negotiator = {
 
 	object_class = "Perk",
 	DisplayName = T(196499775201, --[[ModItemCharacterEffectCompositeDef Negotiator DisplayName]] "Negotiator"),
-	Description = T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\n\nAdditional <em>conversation options</em>."),
+	Description = T(464552472248, --[[ModItemCharacterEffectCompositeDef Negotiator Description]] "Reduces prices for <em>Sector Operations</em> and <em>Boat Travel</em>.\nAdditional <em>conversation options</em>."),
 	Icon = "UI/Icons/Perks/Negotiator",
 	Tier = "Personality",
 }

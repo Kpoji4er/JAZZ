@@ -25,7 +25,7 @@ DefineClass.Psycho = {
 		}),
 	},
 	DisplayName = T(256373672615, --[[ModItemCharacterEffectCompositeDef Psycho DisplayName]] "Psycho"),
-	Description = T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\n\nAdditional <em>conversation options</em>."),
+	Description = T(966163673727, --[[ModItemCharacterEffectCompositeDef Psycho Description]] "Can decide to use a more vicious attack than the one selected.\nAdditional <em>conversation options</em>."),
 	Icon = "UI/Icons/Perks/Psycho",
 	Tier = "Personality",
 }

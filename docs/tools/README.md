@@ -92,6 +92,7 @@
 | `_verify_nomaps_early_squad.py` | COMPAT-005: `LegionJAZZSquadT1_Early` all `T1_`; metadata Id; NoMaps remap/cap wiring. |
 | `_verify_nomaps_globals_predeclare.py` | NoMaps wrap flags predeclared at file top + `rawset` + `lQuestVarSafeSet`. |
 | `_verify_nomaps_region_radius.py` | COMPAT-007: `AUTO_REGION_RADIUS=false` (unbounded Voronoi), `AI_REGION_REV=2`, multi-outpost refresh; no legacy `<= 8`. |
+| `_verify_nomaps_squad_size_cap.py` | COMPAT-009: только `InitialSquad*` NoMaps capped at 30 в `GenerateUnitsFromTemplates`, после BodyCount; dynamic squads/economy unchanged. |
 | `_audit_loot_item_case.py` | `jazz-units` LootEntry `item=` vs `InventoryItem` DefineClass (ловит `Mas36`≠`MAS36`). Exit 1 при mismatch. |
 | `_audit_faction_overlay_static.py` | Static AC hooks for STRATEGY-014/018: matrix API, ownership, avoid-player routing, load registration. |
 | `_test_legion_medic_density.py` | STRATEGY-015: static mirror `JAZZ_GetLegionMaxMedics` + generator wiring markers. |
@@ -350,6 +351,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_fill_sj_chat_voices.py` | Copy Selection opus onto missing Benny/Simon/Grom AIM-chat T-ids (`--apply`). |
 | `_fill_ja12_chat_voices.py` | Wrapper: `_ship_ja2_merc_voices.py --aim-chat-only` (classic/fallback/ub-proxy; not Selection). `--apply` / `--dry-run` / `--only`. |
 | `_pour_ja12_design_hire_chat.py` | Pour AIM-chat RU/EN from `docs/design/mercs-ja12/<slug>.md` → UnitData + `items.lua` + RU/EN CSV; sync missing PartingWords. `--apply` / `--only`. |
+| `_pour_ja12_design_identity_bio.py` | JAZZ-LOC-002: source-aware pour of RU/EN `Identity.Name` + `Bio` for the 42 approved `ready`/`executable` JA12 mercs. Preserves T-ids and unrelated bytes in UnitData/`items.lua`, emits `localization-copy-edits/ja12_identity_bio.csv`, and never edits runtime RU/EN CSV. `--dry-run` / `--apply` / `--check`. |
 | `_stt_hire_chat_lines.py` | faster-whisper STT of hire stems → UnitData chat text (Quinten/Highball). `--apply` / `--only` / `--model`. |
 | `_expand_ja2_merc_vr_full.py` | Expand stub (~12-slot) Jazz_* VoiceResponse to Colby-like combat coverage (~52 slots / 74 lines); allocates T-ids + RU/EN. Skips Colby/Spouke/need_pack/full VR. Then run `_ship_ja2_merc_voices.py`. |
 | `_audit_ja12_merc_voices.py` | Read-only audit: Jazz_* VR T-ids vs `voices/<tid>.opus`, CSV ship status, TranslatedVoices mount, `g_VoiceVariations`. `--critical` for Selection/Aim/Movement. |

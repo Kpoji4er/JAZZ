@@ -4184,7 +4184,7 @@ function ShowExhaustedUnitsQuestion(squad, exhausted)
 		local destination = next(squad.route) and GetSquadFinalDestination(squad.CurrentSector, squad.route) or false
 		local result = SatellitePopupQuestion(terminal.desktop,
 								T(824112417429, "Warning"),
-								T{246005211663, "Some mercs assigned to <em><squadName></em> are <em>exhausted</em> and can't travel anymore. The squad will stop to rest in <em><SectorName(sector_id)></em>. <newline><newline>You can split the squad and order non-exhausted mercs to carry on to <destination_sector_id>.\n\nExhausted mercs: <nicknames>",
+								T{246005211663, "Some mercs assigned to <em><squadName></em> are <em>exhausted</em> and can't travel anymore. The squad will stop to rest in <em><SectorName(sector_id)></em>. <newline><newline>You can split the squad and order non-exhausted mercs to carry on to <destination_sector_id>.\nExhausted mercs: <nicknames>",
 									squadName = Untranslated(squad.Name),
 									nicknames = exhausted_units_listed,
 									sector_id = gv_Sectors[squad.CurrentSector],
@@ -4196,7 +4196,7 @@ function ShowExhaustedUnitsQuestion(squad, exhausted)
 	else
 		local result = SatellitePopupMessage(terminal.desktop,
 								T(824112417429, "Warning"),
-								T{122112968253, "Some mercs assigned to <squadName> are exhausted and can't travel anymore. The squad will stop to rest in <sector_id>.\n\nExhausted mercs: <nicknames>",
+								T{122112968253, "Some mercs assigned to <squadName> are exhausted and can't travel anymore. The squad will stop to rest in <sector_id>.\nExhausted mercs: <nicknames>",
 									squadName = Untranslated(squad.Name),
 									nicknames = exhausted_units_listed,
 									sector_id = gv_Sectors[squad.CurrentSector].display_name,

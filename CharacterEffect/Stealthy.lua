@@ -42,7 +42,7 @@ DefineClass.Stealthy = {
 		}),
 	},
 	DisplayName = T(384624400411, --[[ModItemCharacterEffectCompositeDef Stealthy DisplayName]] "Stealthy"),
-	Description = T(172679907276, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\n\nSlightly increased chance for <GameTerm('StealthKills')>."),
+	Description = T(172679907276, --[[ModItemCharacterEffectCompositeDef Stealthy Description]] "Harder to spot by enemies while <GameTerm('Sneaking')>.\nSlightly increased chance for <GameTerm('StealthKills')>."),
 	Icon = "UI/Icons/Perks/Stealthy",
 	Tier = "Specialization",
 }
