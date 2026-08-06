@@ -381,6 +381,7 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
 | **JAZZ-AI-REG-001** | Isolated Legion → `Legion_Regroup` к дальнему ally cluster |
 | **JAZZ-AI-POL-003** | Anti-stack: hard same-voxel dibs + soft ally spacing in AIScoreDest |
+| **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee/healer floor |
 
 Рекомендуемый порядок: **001 → POL-001 → 002 → MED-001** (быстрый playfeel + не убить бой медиком), затем CTX/CMD/ACT.
 
@@ -400,6 +401,7 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 10. Replay/seed стабилен.
 11. Одиночный/пара Legion далеко от толпы (≥3 своих ≥18 тайлов) бежит к кластеру (`Legion_Regroup`), не на exit.
 12. AI не толкутся в одну клетку / shoulder-to-shoulder на одном cover (POL-003).
+13. После потерь AI реже повторно занимает ту же горловину; soft casualty danger не запирает единственный проход, melee и medic сохраняют approach (POL-004).
 
 ---
 
@@ -614,5 +616,6 @@ StartAI → archetype (+ PickCustom)
 - [x] Officer aura / AllyRoleAnchor / AvoidPeek (CMD-001 / POL-002)
 - [x] Isolated Legion Regroup (REG-001)
 - [x] Ally anti-stack spacing (POL-003)
+- [x] Casualty-aware final-score modifier + role floors (POL-004; runtime/human pending)
 
 Fog/Dust **без** flare — осознанный gap: либо принять «только Night/Underground illumination», либо отдельный design на сигнальные/шумные маркеры.

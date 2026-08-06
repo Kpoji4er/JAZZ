@@ -31,6 +31,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-shooting-model.
 
 Тест читает канонический weapon CSV и проверяет 11 классов, исключённые ID, Dexterity/Marksmanship, monotonic aim, floor/cap, range/optic profile, коммутативность факторов, recoil/action windows, контракт `MGBurstFire` (+1/+2 AP, полный `Recoil`, исключение Grizzly, AI `GetAutofireShots`) и отношение СВД к АК-47. Он не запускает движок.
 
+Для deterministic контракта anti-stack scoring выполнить:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-ai-crowd-scoring.ps1
+```
+
+Тест проверяет процентные диапазоны live/casualty crowd modifier, melee/healer floor, единственную интеграцию после BiasMarker, сохранение hard XYZ dibs и отсутствие RNG/persistent/map-wide зависимостей. Он не заменяет runtime-проверку горловины, подхода медика и melee.
+
 Standalone `lua`/`luac` не является repository dependency. В evidence конкретного change set можно использовать внешний parser для синтаксической проверки, но загрузку, engine globals, реакции и runtime всё равно необходимо подтверждать самой игрой и Mod Editor.
 
 ## Базовый запуск
@@ -113,6 +121,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - использование гранат и осветительных средств;
 - работа пулемётчика с сошками;
 - поиск укрытия и обход фланга;
+- casualty-aware anti-stack: один/два погибших в горловине, альтернативная позиция/hold, проходимость единственного маршрута, melee/medic approach;
 - накопление suspicion;
 - обнаружение через дым, ночью и при плохой погоде;
 - отсутствие зависания AI-хода.

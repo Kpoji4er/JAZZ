@@ -100,6 +100,13 @@
 - **P1** Два AI не занимают одну XYZ-клетку (stance не обходит dibs).
 - **P2** Реже стоят впритык на одном выгодном cover (soft spacing).
 
+## POL-004 — casualty-aware anti-stack
+
+- **P1** Одна dead/downed/incapacitated casualty снижает привлекательность той же и соседней destination относительно безопасной альтернативы.
+- **P2** Две casualties в радиусе 3 сильнее выталкивают ranged AI из fatal funnel; при единственном маршруте casualty tile остаётся soft и проходимой.
+- **P3** Melee и medic сохраняют обязательный подход благодаря floor 55%; replay/seed не меняет modifier.
+- **P4** В debug destination details modifier появляется один раз как `CROWD/DANGER MOD (%)` после BiasMarker.
+
 ## Регрессия всегда
 
 Нет краша; MG setup; Front/Assault/Flanker читаются разными; replay/seed стабилен на глаз.

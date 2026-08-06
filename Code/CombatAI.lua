@@ -1441,6 +1441,62 @@ function JazzAI_AllySpacingScore(context, dest, min_dist, penalty_per)
 	return -penalty
 end
 
+local function JazzAI_CrowdDistancePenalty(dist, same_tile, adjacent, outer)
+	if dist < 1 then
+		return same_tile
+	elseif dist < 2 then
+		return adjacent
+	elseif dist < 3 then
+		return outer
+	end
+	return 0
+end
+
+--- JAZZ-AI-POL-004: normalize local crowd/casualty danger against final dest score.
+--- Casualty tiles remain soft choices so a one-tile passage can never be sealed by corpses.
+local function JazzAI_CrowdDangerModifier(context, dest)
+	local unit = context and context.unit
+	if not unit or not dest then
+		return 100
+	end
+
+	local danger = 0
+	local casualties = 0
+	local scale = const.SlabSizeX
+	for _, ally in ipairs(context.allies or empty_table) do
+		if ally ~= unit and IsValid(ally) then
+			local casualty = ally:IsDead() or ally:IsDowned() or ally:IsIncapacitated()
+			local upos = context.ally_pack_pos_stance and context.ally_pack_pos_stance[ally]
+			if not casualty and ally.ai_context and ally.ai_context.ai_destination then
+				upos = ally.ai_context.ai_destination
+			end
+			if upos then
+				local dist = stance_pos_dist(dest, upos) / scale
+				if casualty then
+					local penalty = JazzAI_CrowdDistancePenalty(dist, 45, 30, 15)
+					if penalty > 0 then
+						casualties = casualties + 1
+						danger = danger + penalty
+					end
+				else
+					danger = danger + JazzAI_CrowdDistancePenalty(dist, 60, 25, 10)
+				end
+			end
+		end
+	end
+
+	if casualties > 1 then
+		danger = danger + 10 * (casualties - 1)
+	end
+
+	local min_mod = 25
+	local keywords = unit.AIKeywords or empty_table
+	if (context.EffectiveRange or 0) <= 1 or table.find(keywords, "Melee") or context.can_heal then
+		min_mod = 55
+	end
+	return Clamp(100 - danger, min_mod, 100)
+end
+
 function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_voxels, score_details)
     PauseInfiniteLoopDetection("AiCalc")
 	local score = 0
@@ -1462,16 +1518,6 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		if score_details then
 			score_details[#score_details + 1] = "GASSED AREA"
 			score_details[#score_details + 1] = const.AIAvoidGasWeigth
-		end
-	end
-
-	-- POL-003: soft anti-stack vs ally current/planned positions
-	local spacing = JazzAI_AllySpacingScore(context, dest)
-	if spacing ~= 0 then
-		score = score + spacing
-		if score_details then
-			score_details[#score_details + 1] = "ALLY SPACING"
-			score_details[#score_details + 1] = spacing
 		end
 	end
 
@@ -1547,6 +1593,15 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 					score_details[#score_details + 1] = bias
 				end
 			end
+		end
+	end
+
+	local crowd_mod = JazzAI_CrowdDangerModifier(context, dest)
+	if score > 0 and crowd_mod ~= 100 then
+		score = Max(0, MulDivRound(score, crowd_mod, 100))
+		if score_details then
+			score_details[#score_details + 1] = "CROWD/DANGER MOD (%)"
+			score_details[#score_details + 1] = crowd_mod
 		end
 	end
 	ResumeInfiniteLoopDetection("AiCalc")

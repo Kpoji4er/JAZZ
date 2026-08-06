@@ -81,6 +81,12 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 - While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair. Up close (0% mishap) the color can still warm as scatter grows.
 - Frag / HE / flashbang: **guaranteed concussion** on blast-hit units, plus a chance of **zone trauma**. Smoke / gas / Molotov use their own packages, not concussion.
 
+## Enemy positioning
+
+AI units are less eager to crowd around a single ideal firing position. Occupied and already planned allied positions reduce the value of nearby tiles, while dead, downed, or incapacitated allies make the same area less attractive. Several casualties close together increase the penalty.
+
+This remains a soft preference rather than a movement ban: narrow passages stay traversable, while melee units and medics use a gentler floor so they can still reach a target or patient.
+
 ## What the UI shows
 
 Without debug:
