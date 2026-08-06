@@ -11,6 +11,8 @@ Source: `jazz-units/UnitData/JAZZ_Legion_*.lua`, quest `JAZZ_LegionTier` / `Code
 
 Satellite squad roles: [Legion strategy](legion-strategy.md).
 
+On the satellite squad stack, Legion unit portraits are **schematic red badges** (not faces): family mark at the top of the shield, role silhouette below it, and class-tier dots T1–T4 under the shield. Commanders show rank insignia instead of weapons. Do not confuse them with **squad role** icons (filled shields on the map).
+
 ## Catalog: 38 UnitData
 
 37 combat + `JAZZ_Legion_Recruit`. Display names from UnitData:

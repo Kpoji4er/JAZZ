@@ -330,6 +330,9 @@ python docs/tools/build-sector-atlas-docs.py
 | `_apply_ris_mail_emails.py` | JAZZ-UI-RIS-001 Phase A: replace stub `LegionTier*` Emails with `RIS_Welcome` + `RIS_LegionBrief_11…33`; loc; metadata `code` + Email resources. |
 | `_rewrite_ris_legion_briefs.py` | Rewrite `RIS_LegionBrief_*` title/body from loadout unlock map; remint loc IDs `11300…11321` (off AME collisions); upsert RU/EN CSV + `items.lua`. |
 | `_gen_legion_weapon_availability_map.py` | Build `docs/design/legion-weapon-availability-by-tier.md` from `weapons.csv` `tier_label` (11…33). |
+| `_compose_legion_unit_portraits.py` | Compose 38 Legion unit Portrait PNGs (transparent 300×300, red-only): family mark inside shield at top-center, unified single-silhouette role glyph below it, tier dots under tip. Catalog + sheet/PSD masters → `jazz-units/EnemyPortraits/Legion/`. |
+| `_audit_legion_unit_portraits.py` | Static + visual QA of all 38 portraits: alpha/color/slots/pip count/100px readability/duplicate types; writes design preview, `xN` overlay preview and QA report. |
+| `_wire_legion_unit_portraits.py` | Set `Portrait` on all `JAZZ_Legion_*` UnitData companions + matching `items.lua` blocks to `Mod/Dv3mFVN/EnemyPortraits/Legion/<File>.png`. |
 | `_ris_dossier_copy.py` | Canon artistic EN/RU dossier + welcome/UI/AAR string fixes for R.I.S. |
 | `_apply_ris_dossier_copy.py` | Apply `_ris_dossier_copy.py` into `System_RIS_Content.lua`, welcome Emails, RU/EN CSV, design dossiers page. |
 | `_dump_ris_ru_strings.py` | Dump RIS-tagged Russian.csv strings for artistic review. |

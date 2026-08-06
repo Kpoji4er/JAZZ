@@ -1,0 +1,58 @@
+{
+  "_comment": "Legion unit portrait catalog. Slots: family mark INSIDE shield at the very top; role glyph below it inside shield; tier dots OUTSIDE under tip. Transparent canvas, legion red only.",
+  "families": {
+    "assault": { "mark": "chevron" },
+    "front": { "mark": "bar" },
+    "flanker": { "mark": "arrow" },
+    "gunner": { "mark": "bars" },
+    "leader": { "mark": "star" },
+    "heavy": { "mark": "diamond" },
+    "recruit": { "mark": "none" }
+  },
+  "units": [
+    { "file": "Roughneck.png", "id": "JAZZ_Legion_AssaultT1_Roughneck", "family": "assault", "glyph": "assault-v2-roughneck", "tier": 1 },
+    { "file": "Grenadier.png", "id": "JAZZ_Legion_AssaultT1_Grenadier", "family": "assault", "glyph": "assault-v2-grenadier", "tier": 1 },
+    { "file": "Crusher.png", "id": "JAZZ_Legion_AssaultT1_Crusher", "family": "assault", "glyph": "assault-v2-crusher", "tier": 1 },
+    { "file": "Pillager.png", "id": "JAZZ_Legion_AssaultT2_Pillager", "family": "assault", "glyph": "assault-v2-pillager", "tier": 2 },
+    { "file": "Shocktrooper.png", "id": "JAZZ_Legion_AssaultT2_ShockTrooper", "family": "assault", "glyph": "assault-v2-shocktrooper", "tier": 2 },
+    { "file": "Pyro.png", "id": "JAZZ_Legion_AssaultT2_Pyro", "family": "assault", "glyph": "assault-v2-pyro", "tier": 2 },
+    { "file": "Punisher.png", "id": "JAZZ_Legion_AssaultT3_Punisher", "family": "assault", "glyph": "assault-v2-punisher", "tier": 3 },
+    { "file": "Skullcrusher.png", "id": "JAZZ_Legion_AssaultT3_SkullCrusher", "family": "assault", "glyph": "assault-v2-skullcrusher", "tier": 3 },
+    { "file": "Headsman.png", "id": "JAZZ_Legion_AssaultT4_Headsman", "family": "assault", "glyph": "assault-v2-headsman", "tier": 4 },
+
+    { "file": "Rifleman.png", "id": "JAZZ_Legion_FrontT1_Rifleman", "family": "front", "glyph": "front-rifle", "tier": 1 },
+    { "file": "Bonemaker.png", "id": "JAZZ_Legion_FrontT1_Bonemaker", "family": "front", "glyph": "front-medic", "tier": 1 },
+    { "file": "Marauder.png", "id": "JAZZ_Legion_FrontT1_Marauder", "family": "front", "glyph": "front-battle-rifle", "tier": 1 },
+    { "file": "Ambusher.png", "id": "JAZZ_Legion_FrontT2_Ambusher", "family": "front", "glyph": "front-ambush-rifle", "tier": 2 },
+    { "file": "Raider.png", "id": "JAZZ_Legion_FrontT2_Raider", "family": "front", "glyph": "front-assault-rifle", "tier": 2 },
+    { "file": "Marksman.png", "id": "JAZZ_Legion_FrontT2_Marksman", "family": "front", "glyph": "front-dmr", "tier": 2 },
+    { "file": "Sniper.png", "id": "JAZZ_Legion_FrontT3_Sniper", "family": "front", "glyph": "front-sniper", "tier": 3 },
+    { "file": "Veteran.png", "id": "JAZZ_Legion_FrontT3_Veteran", "family": "front", "glyph": "front-battle-rifle", "tier": 3 },
+    { "file": "Mercenary.png", "id": "JAZZ_Legion_FrontT4_Mercenary", "family": "front", "glyph": "front-merc-rifle", "tier": 4 },
+    { "file": "MercenarySniper.png", "id": "JAZZ_Legion_FrontT4_MercenarySniper", "family": "front", "glyph": "front-suppressed-sniper", "tier": 4 },
+
+    { "file": "Warden.png", "id": "JAZZ_Legion_FlankerT1_Warden", "family": "flanker", "glyph": "flanker-smg", "tier": 1 },
+    { "file": "Scout.png", "id": "JAZZ_Legion_FlankerT2_Scout", "family": "flanker", "glyph": "flanker-binoculars", "tier": 2 },
+    { "file": "Skirmisher.png", "id": "JAZZ_Legion_FlankerT2_Skirmisher", "family": "flanker", "glyph": "flanker-battle-rifle", "tier": 2 },
+    { "file": "Recon.png", "id": "JAZZ_Legion_FlankerT3_Recon", "family": "flanker", "glyph": "flanker-radio", "tier": 3 },
+    { "file": "Pathfinder.png", "id": "JAZZ_Legion_FlankerT3_Pathfinder", "family": "flanker", "glyph": "flanker-carbine", "tier": 3 },
+    { "file": "Ranger.png", "id": "JAZZ_Legion_FlankerT4_Ranger", "family": "flanker", "glyph": "flanker-suppressed-carbine", "tier": 4 },
+
+    { "file": "Gunner.png", "id": "JAZZ_Legion_GunnerT1_Gunner", "family": "gunner", "glyph": "gunner-old-lmg", "tier": 1 },
+    { "file": "GMPG.png", "id": "JAZZ_Legion_GunnerT2_GMPG", "family": "gunner", "glyph": "gunner-gpmg", "tier": 2 },
+    { "file": "AssaultGunner.png", "id": "JAZZ_Legion_GunnerT2_AssaultGunner", "family": "gunner", "glyph": "gunner-assault-lmg", "tier": 2 },
+    { "file": "VeteranGunner.png", "id": "JAZZ_Legion_GunnerT3_VeteranGunner", "family": "gunner", "glyph": "gunner-heavy-mg", "tier": 3 },
+    { "file": "MercGunner.png", "id": "JAZZ_Legion_GunnerT4_MercGunner", "family": "gunner", "glyph": "gunner-merc-lmg", "tier": 4 },
+
+    { "file": "Sergeant.png", "id": "JAZZ_Legion_LeaderT1_Sergeant", "family": "leader", "glyph": "leader-rank-sergeant", "tier": 1 },
+    { "file": "Lieutenant.png", "id": "JAZZ_Legion_LeaderT2_Lieutenant", "family": "leader", "glyph": "leader-rank-lieutenant", "tier": 2 },
+    { "file": "Captain.png", "id": "JAZZ_Legion_LeaderT3_Captain", "family": "leader", "glyph": "leader-rank-captain", "tier": 3 },
+    { "file": "MercenaryCaptain.png", "id": "JAZZ_Legion_LeaderT4_MercenaryCaptain", "family": "leader", "glyph": "leader-rank-merc-captain", "tier": 4 },
+
+    { "file": "Rocketeer.png", "id": "JAZZ_Legion_HeavyT1_Rocketeer", "family": "heavy", "glyph": "heavy-rpg", "tier": 1 },
+    { "file": "HeavyGrenadier.png", "id": "JAZZ_Legion_HeavyT2_Grenadier", "family": "heavy", "glyph": "heavy-grenade-launcher", "tier": 2 },
+    { "file": "Mortarman.png", "id": "JAZZ_Legion_HeavyT3_Mortarman", "family": "heavy", "glyph": "heavy-mortar", "tier": 3 },
+
+    { "file": "Recruit.png", "id": "JAZZ_Legion_Recruit", "family": "recruit", "glyph": "recruit-bust", "tier": 0 }
+  ]
+}

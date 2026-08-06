@@ -15,6 +15,8 @@
 1. состав enemy squad выбирает более высокие фиксированные классы Легиона;
 2. общий campaign tier меняет доступный пул их оружия, патронов, брони и расходников.
 
+**Portrait (UI):** все 38 `JAZZ_Legion_*` используют схематичные PNG `Mod/Dv3mFVN/EnemyPortraits/Legion/<Name>.png` (прозрачный 300×300, красный mono): family-mark внутри щита у верхней кромки, ниже — глиф роли, под щитом — 0–4 точки тира класса. У Leader вместо оружия показаны лычки ранга: сержантские шевроны, одна/две офицерские планки и T4-ромб с тремя планками. Верхний левый `xN` счётчик стека не перекрывает family-mark. Не путать с satellite squad-role icons (`SquadsIcons/Enemy`). Compose/QA: `docs/tools/_compose_legion_unit_portraits.py`, `_audit_legion_unit_portraits.py` + `docs/design/_legion-unit-portraits/catalog.json`.
+
 ## Связанные источники и уровень подтверждения
 
 - Human design source: [JAZZ Units.drawio, страница `JAZZ Legion`](https://app.diagrams.net/#G1ACFcxt5YuT-Ekw40XstiJiFLh3y6_Vah#%7B%22pageId%22%3A%22c1zTZtVB8CXOZJlONBNN%22%7D), Drive revision modified `2026-03-09T20:24:26.775Z`.
