@@ -6,6 +6,10 @@ GameVar("gv_JAZZ_AME_Market", function()
 		next_tick_day = 0,
 		-- slots[id] = { reason = false|"JoinedLegion"|"Killed"|"HiredElsewhere" }
 		slots = {},
+		-- JAZZ-UI-AME-001 mail / tab lock
+		welcome_sent = false,
+		welcome_read = false,
+		listing_snapshot = false,
 	}
 end)
 
@@ -125,6 +129,9 @@ function JAZZ_AME_InitMarket(force)
 	market.initialized = true
 	market.next_tick_day = lCampaignDay() + AME_TICK_DAYS
 	ObjModified("pda browser tabs")
+	if rawget(_G, "JAZZ_AME_SendWelcomeMail") then
+		JAZZ_AME_SendWelcomeMail()
+	end
 end
 
 local function lTerminalize(id, reason)
@@ -221,6 +228,9 @@ function JAZZ_AME_MarketTick()
 	end
 	market.next_tick_day = day + AME_TICK_DAYS
 	ObjModified("pda browser tabs")
+	if rawget(_G, "JAZZ_AME_SendListingUpdateMail") then
+		JAZZ_AME_SendListingUpdateMail()
+	end
 end
 
 function OnMsg.NewGame()
@@ -233,6 +243,12 @@ function OnMsg.LoadGame()
 	DelayedCall(0, function()
 		if not gv_JAZZ_AME_Market or not gv_JAZZ_AME_Market.initialized then
 			JAZZ_AME_InitMarket(true)
+		elseif rawget(_G, "JAZZ_AME_SendWelcomeMail") then
+			-- Existing AME save: still send welcome once if never mailed.
+			JAZZ_AME_SendWelcomeMail()
+		end
+		if rawget(_G, "JAZZ_AME_ApplyTabLock") then
+			JAZZ_AME_ApplyTabLock()
 		end
 	end)
 end

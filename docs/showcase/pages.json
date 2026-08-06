@@ -10,6 +10,7 @@
     "weapons-and-ammo",
     "mercenaries",
     "ame",
+    "ris",
     "perks",
     "officer-aura",
     "legion-units",
@@ -65,6 +66,11 @@
       "wikiBase": "African-Mercenary-Exchange",
       "ru": "Биржа A.M.E.",
       "en": "A.M.E. Exchange"
+    },
+    "ris": {
+      "wikiBase": "Recon-Intelligence-Services",
+      "ru": "R.I.S. разведка",
+      "en": "R.I.S. intelligence"
     },
     "perks": {
       "wikiBase": "Perks",

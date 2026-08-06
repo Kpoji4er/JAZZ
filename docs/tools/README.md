@@ -319,6 +319,19 @@ python docs/tools/build-sector-atlas-docs.py
 | `_gen_ame_flags.py` | PNG флаги 128×80 для новых AME Nationality (`Icons/Flags/f_*.png`). |
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |
 | `_process_ame_portraits.py` | rembg BiRefNet + resize 2000 + bust_crop 300 из `*_Big_raw.png` (assets/_raw). |
+| `_append_ame_mail_loc.py` | JAZZ-UI-AME-001: RU/EN Email strings `890000000006900–6910` (welcome + listing update). Idempotent upsert; proper multiline CSV. |
+| `_update_ame_mail_sales_copy.py` | AME mail: sales-pitch listing framing + pitch loc `6960–6984`; rewrites `AME_Welcome` / `AME_ListingUpdate` bodies. |
+| `_apply_ris_mail_emails.py` | JAZZ-UI-RIS-001 Phase A: replace stub `LegionTier*` Emails with `RIS_Welcome` + `RIS_LegionBrief_11…33`; loc; metadata `code` + Email resources. |
+| `_rewrite_ris_legion_briefs.py` | Rewrite `RIS_LegionBrief_*` title/body from loadout unlock map; remint loc IDs `11300…11321` (off AME collisions); upsert RU/EN CSV + `items.lua`. |
+| `_gen_legion_weapon_availability_map.py` | Build `docs/design/legion-weapon-availability-by-tier.md` from `weapons.csv` `tier_label` (11…33). |
+| `_ris_dossier_copy.py` | Canon artistic EN/RU dossier + welcome/UI/AAR string fixes for R.I.S. |
+| `_apply_ris_dossier_copy.py` | Apply `_ris_dossier_copy.py` into `System_RIS_Content.lua`, welcome Emails, RU/EN CSV, design dossiers page. |
+| `_dump_ris_ru_strings.py` | Dump RIS-tagged Russian.csv strings for artistic review. |
+| `_fix_ris_brief11_ru_calque.py` | One-shot: fix brief 11 RU calque («берите за»); superseded by `_rewrite_ris_legion_briefs.py` for full pass. |
+| `_audit_ris_brief_loc_ids.py` | Print brief Email T-ids vs Russian/English.csv columns (catch AME ID collisions). |
+| `_apply_ris_phase_b.py` | JAZZ-UI-RIS-001 Phase B: `System_RIS_Content.lua` dossiers/AAR banks (incl. sector + quest slots); RU/EN loc `890000000011000+`; register RIS/AME mail + Combat/Browser in metadata/items. |
+| `_apply_ris_queue_field_mails.py` | R.I.S. queue Emails `RIS_UnitSighting` / `RIS_EliteObit` / `RIS_NpcObit` + loc; KEY_NPCS. Lua bodies must use `\\n` escapes. |
+| `_fix_ris_sighting_loc.py` | Sync sighting/obit/empty-dossier loc + Content empty text. |
 | `_install_ame_xtemplate_moditem.py` | Ставит `PDAAIMEBrowser` как `ModItemXTemplate` в `items.lua` + `ModResourcePreset`; убирает Code-load шаблона (иначе XTemplate not found). После правок `System_AME_Browser_Template.lua` (в т.ч. savannah chrome). Replace через callable `re.sub` — plain string ломает Lua `\\n` в T(...). Затем `_validate_items_quick.py`. |
 | `_theme_ame_pda_savannah.py` / `_fix_ame_xtemplate_imagecolor.py` | Helpers: savannah chrome на template; снять незаконный `ImageColor` с XFrame. |
 | `_gen_ame_portrait_prompts.py` | AME identity prompt bank: roster → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl` + README (60 unique `face_traits`, `big_prompt`/`bust_prompt` for GenerateImage; no image gen). |

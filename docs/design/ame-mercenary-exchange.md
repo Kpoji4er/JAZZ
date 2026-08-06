@@ -77,6 +77,7 @@ Target: at least ~30% of Fighters+Hardened slots are Autorifleman / Machinegunne
 - Tick: every **14** campaign days / 2 weeks (deterministic; was 30)
 - Terminal reasons (stay visible, no hire): JoinedLegion, Killed (+ HiredElsewhere if treated as terminal)
 - Specialist soft-guarantee: Medic / Instructor / Sniper cannot stay at zero Available+Pending across a tick cycle (~14 days)
+- **Mail ([`JAZZ-UI-AME-001`](../specs/active/JAZZ-UI-AME-001.md)):** welcome Email from AME on init (explains the exchange + **sales pitches** for current Available); listing-update Email after a real tick change; PDA tab `ame` **always open** (mail is not a gate). Not R.I.S.
 
 ### Specialist floor (in pool)
 

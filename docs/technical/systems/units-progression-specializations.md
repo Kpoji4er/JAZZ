@@ -28,7 +28,7 @@
 - `Code/SpecializationGiver.lua` — назначение специализаций на `DataLoaded`;
 - `Code/System_AimHiringFilters.lua` — фильтры AIM и детерминированный offline randomization;
 - `Code/System_HireContractDuration.lua` — AIM/AME messenger `MaxDuration` 14→30;
-- `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005): PDA mode `ame`, market tick, nationality flags;
+- `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Mail.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005 / UI-AME-001): PDA mode `ame`, market tick, welcome/listing Email, tab lock until welcome read, nationality flags;
 - `Code/System_OR_Unit.lua`, `System_UnitInventory.lua`, `System_UnitAppearance.lua` — runtime schema;
 - `Code/System_IMP_StartingGear.lua` — JA2-style динамический стартовый экип IMP (`JazzBuildImpStartingGear` / `JazzApplyImpStartingGear`);
 - `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap (Mimicry+Veteran only), sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid), tactical specialization Grid **6 columns** + HSpacing 18 so Sniper stays on 2 rows (no Prev/Done overlap).
@@ -88,6 +88,7 @@ Offline merc randomization детерминирован. Это означает
 | PDA URL | `http://www.ame-exchange.net/Roster/<Category>/<Nick>` — ASCII `urlSlug` (не `T`/локаль); wrap всегда поверх AIM `TFormat.PDAUrl` (иначе KindOf→AIM `ActiveFiles` + кириллица specialization) |
 | Витрина | ~15 `Available` на старте; `NotListed` скрыты; terminal (`JoinedLegion`/`Killed`/…) — серые карточки |
 | Tick | **14** дней кампании (2 недели); specialist soft-guarantee |
+| Mail / lock | `System_AME_Mail.lua` (UI-AME-001): welcome + listing Email; tab `ame` **always unlocked** (mail informational) |
 | Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap; contract slider max **30** days (`System_HireContractDuration`, shared with AIM) |
 | VR | Pool: Jazz remesh majority (`Male_Low`/`Male_Hard`/`Female`) + `PierreMerc` (~10%) + small IMP minority (~12%; VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP/PierreMerc→self (not Ice/Fox) |
 | Heads | Safe Af bank only: `Chimurenga`/`Pierre`/`Jackhammer`/`Head_M_IMP_01`/`Faction_Rebels_M_HeadMedic` + female `Head_F_Af_NPC_*`; **not** Flay/Fidel/Magic/Blood/Fauda/Omryn; no `Faction_Legion_Head_*` ([ame-appearance-assets.md](../../design/ame-appearance-assets.md)) |

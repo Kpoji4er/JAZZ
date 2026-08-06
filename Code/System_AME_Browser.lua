@@ -113,6 +113,11 @@ local function lEnsureAmeTabData()
 end
 
 local function lEnsureAmeTabState()
+	-- Always unlocked; welcome mail is not a gate.
+	if rawget(_G, "JAZZ_AME_ApplyTabLock") then
+		JAZZ_AME_ApplyTabLock()
+		return
+	end
 	if not PDABrowserTabState then
 		return
 	end
@@ -363,9 +368,17 @@ local function lInstallDockWrap()
 			return
 		end
 		base(tab)
-		-- Landing OnDelete restores only aim(+imp). Keep AME docked whenever AIM is.
+		-- Landing OnDelete restores only aim(+imp). Keep AME docked with AIM (always unlocked).
 		if tab == "aim" then
 			base("ame")
+			if PDABrowserTabState then
+				if PDABrowserTabState.ame then
+					PDABrowserTabState.ame.locked = false
+				else
+					PDABrowserTabState.ame = { locked = false }
+				end
+				ObjModified("pda browser tabs")
+			end
 		end
 	end
 	rawset(_G, "g_JAZZ_AME_DockFn", wrap)

@@ -166,6 +166,9 @@ Quest `JAZZ_LegionTier` создаётся с `Given = true`, а `JAZZ_Legion_Ti
 
 Legacy TCE по `PlayerControlSectors` в quest **заглушены** (`CheckExpression` → `false`, JAZZ-COMPAT-008). Оба профиля двигают tier только из `Code/LegionTierProgression.lua` (**только вверх**).
 
+**R.I.S. mail (JAZZ-UI-RIS-001):** desk queue in `gv_JAZZ_RIS` — ≤1 письмо / **5** campaign hours. Welcome `ready +3h` from awake; baseline Legion brief (T1-1) `ready +2h`; raises enqueue `ready +5h` after `lApplyTierRaise` → `JAZZ_RIS_OnTierRaised`. Tab `ris` locked until welcome read. Канон [`ris-legion-tier-briefs.md`](../../design/ris-legion-tier-briefs.md).
+
+
 ### Maps: time + mainland + mines (COMPAT-008)
 
 При **не** `JAZZ_NoMapsIsActive()` — `gv_JAZZ_LegionTierMaps`:

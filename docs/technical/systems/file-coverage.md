@@ -73,6 +73,11 @@
 | `System_AME_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME PDA filters (UNITS-005) |
 | `System_AME_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAAIMEBrowser` + tab/hire wrap (UNITS-005) |
 | `System_AME_Market.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME market tick/state (UNITS-005) |
+| `System_AME_Mail.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME welcome/listing Email + tab lock (UI-AME-001) |
+| `System_RIS_Mail.lua` | loaded | [R.I.S.](ris-intelligence.md) — welcome (2h), baseline brief (7h), Legion briefs, `ris` lock (UI-RIS-001) |
+| `System_RIS_Content.lua` | loaded | [R.I.S.](ris-intelligence.md) — dossiers + AAR banks (sector/quest) |
+| `System_RIS_Combat.lua` | loaded | [R.I.S.](ris-intelligence.md) — kills + ConflictEnd AAR |
+| `System_RIS_Browser.lua` | loaded | [R.I.S.](ris-intelligence.md) — PDA Bulletin / Dossiers / Reports |
 | `System_AME_Browser_Template.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — XTemplate `PDAAIMEBrowser` (UNITS-005) |
 | `System_AME_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME MercNationalities + flags (UNITS-005) |
 | `System_IMP_StartingGear.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — IMP hire kit (IMP-001) |

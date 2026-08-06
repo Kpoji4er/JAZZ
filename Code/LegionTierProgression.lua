@@ -255,6 +255,9 @@ local function lApplyTierRaise(computed, log_label, extra)
 			extra or ""
 		)))
 	end
+	if rawget(_G, "JAZZ_RIS_OnTierRaised") then
+		JAZZ_RIS_OnTierRaised(computed)
+	end
 	return computed
 end
 
