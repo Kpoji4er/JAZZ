@@ -78,15 +78,34 @@ function JAZZ_QueueStatusEffectApplication(unit, effect)
     QueueSuppressionApplication(unit, 0, effect)
 end
 
--- JAZZ-COMBAT-002: miss→graze chance, cap 25, curve ((100-cth)/100)^2
--- Cap halved from 50 (owner tune): orange-band contact closer to displayed CTH.
-function JAZZ_CalcMissGrazeChance(shot_cth)
+-- JAZZ-COMBAT-002: miss→graze chance, curve ((100-cth)/100)^2
+-- Base cap 25 (orange-band honesty). Within CLOSE_TILES, cap lerps up to CLOSE_CAP (old 50)
+-- at point-blank — hidden from UI; player only sees solid CTH.
+JAZZ_MISS_GRAZE_CAP = 25
+JAZZ_MISS_GRAZE_CLOSE_CAP = 50
+JAZZ_MISS_GRAZE_CLOSE_TILES = 8
+
+function JAZZ_CalcMissGrazeCap(dist_tiles)
+	dist_tiles = Max(0, tonumber(dist_tiles) or 0)
+	if dist_tiles >= JAZZ_MISS_GRAZE_CLOSE_TILES then
+		return JAZZ_MISS_GRAZE_CAP
+	end
+	-- 0 tiles → CLOSE_CAP (50); CLOSE_TILES → CAP (25)
+	return JAZZ_MISS_GRAZE_CLOSE_CAP
+		- MulDivRound(JAZZ_MISS_GRAZE_CLOSE_CAP - JAZZ_MISS_GRAZE_CAP, dist_tiles, JAZZ_MISS_GRAZE_CLOSE_TILES)
+end
+
+function JAZZ_CalcMissGrazeChance(shot_cth, dist_tiles)
 	shot_cth = Clamp(tonumber(shot_cth) or 0, 0, 100)
 	if shot_cth <= 0 then
 		return 0
 	end
+	local cap = JAZZ_CalcMissGrazeCap(dist_tiles)
+	if cap <= 0 then
+		return 0
+	end
 	local miss_pct = 100 - shot_cth
-	return Min(25, (25 * miss_pct * miss_pct) / 10000)
+	return Min(cap, (cap * miss_pct * miss_pct) / 10000)
 end
 
 -- Cover graze proportional to cover CTH bonus; full cover → 100%.
@@ -575,6 +594,7 @@ end
 	-- direct shots
 	local step_pos3D = shot_attack_args.step_pos:IsValidZ() and shot_attack_args.step_pos or shot_attack_args.step_pos:SetTerrainZ()
 	local distAttackerToTarget = step_pos3D:Dist(target_pos)
+	local miss_graze_dist_tiles = Max(0, distAttackerToTarget / const.SlabSizeX)
 	local dispersion = self:GetMaxDispersion(distAttackerToTarget)
 	local max_range = shot_attack_args.range
 	if not max_range then
@@ -686,9 +706,9 @@ end
 		data = bor(data, shot_miss and 0 or sfHit)
 		data = bor(data, shot_crit and sfCrit or 0)
 		data = bor(data, (shot_attack_args.multishot or (i == 1)) and sfLeading or 0)
-		-- JAZZ-COMBAT-002: miss→graze from ^2 curve (cap 25), band derived from attack roll
+		-- JAZZ-COMBAT-002: miss→graze ^2 curve; cap 25, rises toward 50 under 8 tiles
 		if shot_miss and shot_cth > 0 then
-			local miss_graze_chance = JAZZ_CalcMissGrazeChance(shot_cth)
+			local miss_graze_chance = JAZZ_CalcMissGrazeChance(shot_cth, miss_graze_dist_tiles)
 			local miss_span = 100 - shot_cth
 			local graze_band = MulDivRound(miss_span, miss_graze_chance, 100)
 			if graze_band > 0 and roll < shot_cth + graze_band then

@@ -51,7 +51,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Укрытие (`RangeAttackTargetStanceCover`, owner-soften 2026-08-05): `Cover −45` → factor `×0.55`, `ExposedCover −12` → `×0.88`, crouch/prone без укрытия `−12/−23` → `×0.88/×0.77`; частичное — `InterpolateCoverEffect`. Runtime: preset `CalcValue` → `JAZZ_CTHPercentToFactor` в `Unit:CalcChanceToHit` (firearm pipeline). Проверка: `docs/tools/_calc_cover_cth_gewehr.py`, `_check_cover_params_items.py`.
 
-**Cover-graze:** при полном укрытии cover→graze ≈100% — любой CTH-hit становится царапиной (~40% урона). **Miss→graze** ослаблен (cap **25%**, owner tune): при низком CTH чипы реже, контакт ближе к показанному CTH; cover-graze без изменений.
+**Cover-graze:** при полном укрытии cover→graze ≈100% — любой CTH-hit становится царапиной (~40% урона). **Miss→graze** base cap **25%**; в упоре (&lt;8 клеток) cap плавно поднимается до **50%** (скрыто от UI) — меньше «воздушных» промахов вплотную.
 
 ## Дальность и кучность в текущем runtime
 
@@ -123,16 +123,18 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 ## Grazing hits (JAZZ-COMBAT-002)
 
-Канон runtime: `Code/System_OR_Weapons.lua` (`JAZZ_CalcMissGrazeChance`, `JAZZ_CalcCoverGrazeChance`, `BaseWeapon:PrecalcDamageAndStatusEffects`), `Code/ExecFirearmAttacks.lua` (`ignore_smoke`), `Code/MeleeWeapon.lua` (thrown knives).
+Канон runtime: `Code/System_OR_Weapons.lua` (`JAZZ_CalcMissGrazeCap`, `JAZZ_CalcMissGrazeChance`, `JAZZ_CalcCoverGrazeChance`, `BaseWeapon:PrecalcDamageAndStatusEffects`), `Code/ExecFirearmAttacks.lua` (`ignore_smoke`), `Code/MeleeWeapon.lua` (thrown knives).
 
 ### Только два источника
 
 | Источник | Когда | Формула / правило |
 | --- | --- | --- |
-| **Miss→graze** | валидный выстрел (`shot_cth > 0`) и proмах | `min(25, floor(25 × ((100 − shot_cth) / 100)²))`; полоса над CTH из **того же** attack roll |
+| **Miss→graze** | валидный выстрел (`shot_cth > 0`) и промах | `cap = JAZZ_CalcMissGrazeCap(dist_tiles)`; `min(cap, floor(cap × ((100 − shot_cth) / 100)²))`; полоса над CTH из **того же** attack roll |
 | **Cover→graze** | попадание, цель aware, не Exposed, не aim-shooting, не melee/aoe | `Clamp(MulDivRound(−cover_cth, 100, −Cover_full), 0, 100)` — пропорционально cover CTH bonus (`RangeAttackTargetStanceCover`) |
 
-Опорные точки miss→graze:
+`JAZZ_CalcMissGrazeCap`: base **25**; при `dist_tiles < 8` линейно к **50** на 0 клетках (`50 − MulDivRound(25, dist, 8)`). UI / ACCURACY % не показывает этот подъём.
+
+Опорные точки miss→graze (**≥8** клеток, cap 25):
 
 | shot_cth | miss_graze % |
 | ---: | ---: |
@@ -142,6 +144,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 | 30 | 12 |
 | 20 | 16 |
 | 10 | 20 |
+
+В упоре (**0** клеток, cap 50): CTH 20 → **32%**, CTH 50 → **12%**, CTH 10 → **40%** (как старый кап).
 
 ### Снято (больше не даёт grazing)
 

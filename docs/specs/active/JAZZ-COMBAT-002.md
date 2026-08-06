@@ -54,7 +54,7 @@ approved_by: project-owner
 
 ## Цели
 
-- Miss→graze: `min(25, floor(25×((100−cth)/100)²))` (owner tune: cap halved from 50).
+- Miss→graze: `min(cap, floor(cap×((100−cth)/100)²))` where base `cap=25`; within **8** tiles `cap` lerps up to **50** at 0 tiles (hidden from UI).
 - Cover→graze ∝ cover CTH bonus, cap 100%.
 - Smoke/fog/dust env/LoF graze removed; knives included.
 - Docs/loc sync.
@@ -68,6 +68,7 @@ approved_by: project-owner
 | Решение | Итог |
 | --- | --- |
 | Кривая | `^2` |
+| Cap | 25; close-range lerp to 50 under 8 tiles |
 | Cover | ∝ cover CTH bonus |
 | Дым | всегда `ignore_smoke` |
 | Ножи | да |
@@ -75,18 +76,18 @@ approved_by: project-owner
 
 ## Требования
 
-- `JAZZ-COMBAT-002-REQ-001` — только miss→graze (^2, cap 25) и cover-graze (∝ bonus, cap 100).
+- `JAZZ-COMBAT-002-REQ-001` — только miss→graze (^2, base cap 25; close lerp→50 @0 tiles / 8) и cover-graze (∝ bonus, cap 100).
 - `JAZZ-COMBAT-002-REQ-002` — нет fog/dust env graze; нет smoke LoF graze; knives `ignore_smoke`.
-- `JAZZ-COMBAT-002-REQ-003` — плоский +3/+6 удалён; CTH 20 → 16% miss-graze.
+- `JAZZ-COMBAT-002-REQ-003` — плоский +3/+6 удалён; CTH 20 @≥8 tiles → 16% miss-graze; @0 tiles → 32%.
 - `JAZZ-COMBAT-002-REQ-004` — cover-graze = `|cover_cth|/|cover_full|×100`.
 - `JAZZ-COMBAT-002-REQ-005` — `GrazingHitDamage` без изменения семантики.
-- `JAZZ-COMBAT-002-REQ-006` — smoke/gas hints и combat docs без magic graze.
+- `JAZZ-COMBAT-002-REQ-006` — smoke/gas hints и combat docs без magic graze; close-cap не в UI %.
 - `JAZZ-COMBAT-002-REQ-007` — miss-graze band из того же attack roll (sync-safe).
 
 ## Acceptance criteria / Evidence
 
 - `JAZZ-COMBAT-002-AC-001`: `PASS (static)` — Fog/Dust ветки удалены; `ignore_smoke=true`; нет threshold 3/6.
-- `JAZZ-COMBAT-002-AC-002`: `PASS (static)` — `JAZZ_CalcMissGrazeChance`: 100→0, 80→1, 50→6, 20→16, 10→20.
+- `JAZZ-COMBAT-002-AC-002`: `PASS (static)` — `JAZZ_CalcMissGrazeChance` @≥8: 100→0, 80→1, 50→6, 20→16, 10→20; @0 tiles cap 50 → 20→32.
 - `JAZZ-COMBAT-002-AC-003`: `BLOCKED (runtime)` — smoke/knife playtest.
 - `JAZZ-COMBAT-002-AC-004`: `BLOCKED (runtime)` — full/half cover graze rates.
 - `JAZZ-COMBAT-002-AC-005`: `PASS (static)` / `BLOCKED (runtime)` — формула; бой.

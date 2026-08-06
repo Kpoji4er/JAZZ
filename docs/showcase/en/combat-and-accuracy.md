@@ -60,7 +60,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 ## Grazing hits
 
-- **Miss → graze:** lower CTH means a higher chance a miss still clips the target (square curve, max **25%**; about **16%** at 20% CTH, about **1%** at 80% CTH). High CTH barely grazes.
+- **Miss → graze:** lower CTH means a higher chance a miss still clips the target; point-blank misses graze more often, longer ranges less so.
 - **Cover:** cover strength in the hit-chance calc sets the chance a hit becomes a graze — up to **100%** in full cover.
 - Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility).
 - A graze deals about **40%** damage, with no crit, no trauma / `Wounded`, and **no +1 Pain from the hit**; about **15%** chance of **light** bleed only.
