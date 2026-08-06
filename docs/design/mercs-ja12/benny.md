@@ -38,9 +38,9 @@ executable: false
 
 ## Bio
 
-**RU:** Наёмница острова Халиф (Shady Job). Электроника и отмычки экспертного уровня, взрывчатка почти на потолке; меткость средняя — сама напоминает, что она взломщик, не снайпер. Работает в паре с Саймоном Гарандье; симпатизирует Рыси, может сблизиться с Тревором. Бесплатный найм на Халифе.
+**RU:** Наёмница острова Халиф (Shady Job). Электроника и отмычки экспертного уровня, взрывчатка почти на потолке; меткость средняя — сама напоминает, что она взломщик, не снайпер. Работает в паре с Саймоном Грандье; симпатизирует Рыси, может сблизиться с Тревором. Бесплатный найм на Халифе.
 
-**EN:** Khalif-island hire from Shady Job. Elite electronics/lockpicking and near-max explosives; middling marksmanship — she reminds you she's a burglar, not a sniper. Partners with Simon Garandier; likes Lynx, can warm to Trevor. Free hire on Khalif.
+**EN:** Khalif-island hire from Shady Job. Elite electronics/lockpicking and near-max explosives; middling marksmanship — she reminds you she's a burglar, not a sniper. Partners with Simon Grandier; likes Lynx, can warm to Trevor. Free hire on Khalif.
 
 ## Stats (MercsSJ)
 

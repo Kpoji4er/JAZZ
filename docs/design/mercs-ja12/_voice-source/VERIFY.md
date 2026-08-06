@@ -40,7 +40,7 @@
 | Gaston | UB Gaston Cavalier | 058 UB | Carlos `data_slf` 058 |
 | Carlos | Carlos RPC | 058 SLF | Gaston UB |
 | Benny | SJ Benedict | 067 SJ | Shank SLF 067 |
-| Simon | SJ Garandier | 066 SJ | Dynamo SLF 066 |
+| Simon | SJ Grandier | 066 SJ | Dynamo SLF 066 |
 | Buzz (`tosca`) | original JA3 VO | — | `done_manual` |
 | Spider | original JA3 VO | — | `done_manual` |
 

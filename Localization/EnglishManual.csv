@@ -1,4 +1,4 @@
-N,AnchorID,SourceText,English,Notes
+﻿N,AnchorID,SourceText,English,Notes
 1,987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,technical-copy
 2,100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,technical-copy
 3,100373069792,«Хорошее место» (подземелье),The Good Place (Underground),vanilla-reverse
@@ -2718,7 +2718,7 @@ Task: <task>",manual-translation
 2715,890000000006328,"Ох, круто меня отымели, друг... Очень круто...","Oh, man, they really screwed me... Real bad...",manual-translation
 2716,890000000006329,Да фигня! Я в порядке.,It's nothing! I'm fine.,manual-translation
 2717,890000000006330,Что-то у меня ружье полегчало!,My gun feels kinda light!,manual-translation
-2718,890000000006334,"А-а-а, наш маленький сладенький Бифи хочет свою сладенькую бутылочку? Ой,  не мо","Aww, does sweet little Biffy want his sweet little bottle? Oh, I can't...",manual-translation
+2718,890000000006334,"А-а-а, наш маленький сладенький Бифи хочет свою сладенькую бутылочку? Ой, не могу, ну что за котеночек! Дать бы ему по заднице.","Aww, does sweet little Biffy want his sweet little bottle? Oh, I can't—what a kitten! Someone ought to spank him.",manual-translation
 2719,890000000006340,Не хочу умирать... только не здесь... не дайте мне здесь умереть.,I don't want to die... not here... don't let me die here.,manual-translation
 2720,890000000006342,В моем ружье нет патронов!,My gun's out of ammo!,manual-translation
 2721,890000000006345,Я двигаюсь вперед.,I'm moving up.,manual-translation
@@ -2742,7 +2742,7 @@ Task: <task>",manual-translation
 2739,890000000007841,"Америка! Страна без культуры. Эти люди просто летят на яркий свет, словно мотыльки.",America! A country without culture. These people just fly toward bright lights like moths.,manual-translation
 2740,890000000007842,"Америка! Страна без культуры. Эти люди просто летят на яркий свет, словно мотыльки.",America! A country without culture. These people just fly toward bright lights like moths.,manual-translation
 2741,890000000006381,"Я это, силу необыкновенную чувствую, чувак. Опыт привалил.","Man, I'm feeling some serious power. Must be all that experience.",manual-translation
-2742,890000000006382,Ларри стал какой-то не такой. Совсем не наш чувак. Когда-то он был крутым пацано,Larry's changed. He's not one of us anymore. Used to be a cool guy...,manual-translation
+2742,890000000006382,"Ларри стал какой-то не такой. Совсем не наш чувак. Когда-то он был крутым пацаном, а сейчас... Чмо какое-то.","Larry's changed. He's not one of us anymore. Used to be a cool guy, and now... what a loser.",manual-translation
 2743,890000000006384,Доктор Клиффорд Хайбол...,Dr. Clifford Hyball...,manual-translation
 2744,890000000006386,Добро пожаловать! Я вас давно жду.,Welcome! I've been expecting you.,manual-translation
 2745,890000000006391,Добро пожаловать! Я вас давно жду.,Welcome! I've been expecting you.,manual-translation
@@ -2767,7 +2767,7 @@ Task: <task>",manual-translation
 2764,890000000006445,Вижу мишень.,Target in sight.,manual-translation
 2765,890000000006447,Уничтожен!,Eliminated!,manual-translation
 2766,890000000006449,От ФБР мне круче доставалось.,The FBI hit me harder than that.,manual-translation
-2767,890000000006454,С этой Фло таким как я невозможно работать. Она не идет мне на встречу. Я готов,I can't work with Flo. She won't meet me halfway. I'm done.,manual-translation
+2767,890000000006454,С этой Фло таким как я невозможно работать. Она не идет мне на встречу. Я готов ее просто пристрелить.,I can't work with Flo. She won't meet me halfway. I'm ready to just shoot her.,manual-translation
 2768,890000000006461,"Моя плохо, совсем плохо, однако.",Me hurt bad. Very bad.,manual-translation
 2769,890000000006464,Моя все сделать!,Me do everything!,manual-translation
 2770,890000000007666,Моя все сделать!,Me do everything!,manual-translation
@@ -2776,7 +2776,7 @@ Task: <task>",manual-translation
 2773,890000000006473,Оххохошеньки!,Owww!,manual-translation
 2774,890000000006474,Ружье кушать просит.,Gun is hungry.,manual-translation
 2775,890000000006483,Это я.,That was me.,manual-translation
-2776,890000000006490,"Нечего меня за нос водить. Ларри взялся за старое. Наркоман, а мне с ним работат",Don't jerk me around. Larry's using again. A junkie—and I'm supposed to work with him?,manual-translation
+2776,890000000006490,"Нечего меня за нос водить. Ларри взялся за старое. Наркоман, а мне с ним работать?",Don't jerk me around. Larry's using again. A junkie—and I'm supposed to work with him?,manual-translation
 2777,890000000006492,Я проснулся и готов работать с максимальной отдачей.,I'm awake and ready to give it my all.,manual-translation
 2778,890000000006493,Обнаружен враг.,Enemy detected.,manual-translation
 2779,890000000006495,Враг убит.,Enemy down.,manual-translation
@@ -2902,7 +2902,7 @@ Task: <task>",manual-translation
 2899,890000000006545,Бывало и хуже.,I've had worse.,manual-translation
 2900,890000000006549,Я потихоньку учусь.,"I'm learning, little by little.",manual-translation
 2901,890000000006552,Петушок пропел. Иду прямо на работу.,The rooster crowed. Straight to work.,manual-translation
-2902,890000000006557,"Я в порядке, потому что, типа, удары по голове до меня не доходят. В  смысле, до","I'm fine, 'cause, like, blows to the head don't get through to me. I mean, through...",manual-translation
+2902,890000000006557,"Я в порядке, потому что, типа, удары по голове до меня не доходят. В смысле, до вреда не доводят.","I'm fine, 'cause, like, blows to the head don't get through to me. I mean, they don't do any real harm.",manual-translation
 2903,890000000006563,"Вики такая девка, знаешь? В смысле... и с тормозами она классно  справляется.","Vicki's quite a girl, you know? I mean... she's pretty good with brakes, too.",manual-translation
 2904,890000000006564,"Как раз то, что мне нужно! Приступаю с того места, где закончил.",Just what I need! Picking up where I left off.,manual-translation
 2905,890000000006565,Опять плохие новости!,Bad news again!,manual-translation
@@ -4828,7 +4828,7 @@ Task: <task>",manual-translation
 4825,890000000006338,"О, non, я позволила себе надеяться, что на этот раз мы не должны их  встретить!","Oh, non, I let myself hope we wouldn't have to meet them this time!",manual-reviewed-human
 4826,890000000006343,"О, non, я позволила себе надеяться, что на этот раз мы не должны их  встретить!","Oh, non, I let myself hope we wouldn't have to meet them this time!",manual-reviewed-human
 4827,890000000006339,Я кого-то убила!,I killed someone!,manual-reviewed-human
-4828,890000000006341,"На мгновение мне показалось, что я - среди ангелов. Теперь я вижу, что  по-прежн",For a moment I thought I was among angels. Now I see I'm still with you.,manual-reviewed-human
+4828,890000000006341,"На мгновение мне показалось, что я - среди ангелов. Теперь я вижу, что по-прежнему пребываю в преисподней. Мои страдания безграничны!",For a moment I thought I was among angels. Now I see I'm still in hell. My suffering knows no bounds!,manual-reviewed-human
 4829,890000000006344,Могу я что-нибудь еще сделать?,Anything else I can do?,manual-reviewed-human
 4830,890000000006350,Я готов к схватке.,I'm ready for a fight.,manual-reviewed-human
 4831,890000000006355,Я готов к схватке.,I'm ready for a fight.,manual-reviewed-human
@@ -4881,7 +4881,7 @@ Task: <task>",manual-translation
 4878,890000000006379,"Они рядом, чувак.","They're close, man.",manual-reviewed-human
 4879,890000000006376,"Да жахнуло меня, чувак...Мне бы врача...А?","Damn, that hit me, man... I could use a doctor... Huh?",manual-reviewed-human
 4880,890000000006380,"Чувак, задание готово!","Mission accomplished, man!",manual-reviewed-human
-4881,890000000006383,"Ларри свойский чувак. Вот вроде, не думает головой, и вдруг, раз, и у него получ","Larry's a cool guy. Looks like he never thinks, then—bam!—somehow he pulls it off.",manual-reviewed-human
+4881,890000000006383,"Ларри свойский чувак. Вот вроде, не думает головой, и вдруг, раз, и у него получается.","Larry's a cool guy. Looks like he never thinks, then—bam!—somehow he pulls it off.",manual-reviewed-human
 4882,890000000006399,"Лежи, не дергайся.",Lie still. Don't move.,manual-reviewed-human
 4883,890000000006404,Готово!,Done!,manual-reviewed-human
 4884,890000000006406,"Может, нам пора избавиться от балласта? Ты как думаешь, БИФ?","Maybe it's time to lose the dead weight. What do you think, BIFF?",manual-reviewed-human
@@ -4926,7 +4926,7 @@ Task: <task>",manual-translation
 4923,890000000006510,Ищу пулю. Нет больше пуля.,Looking for bullet. No more bullet.,manual-reviewed-human
 4924,890000000006512,"Я закончил, босс.","I'm finished, boss.",manual-reviewed-human
 4925,890000000006519,Пока!,Bye!,manual-reviewed-human
-4926,890000000006520,"Плохи мои дела... Не думаю, что теперь сумогу отомстить. Передайте моей  жене: м",I'm in bad shape... I don't think I'll get my revenge now. Tell my wife: I...,manual-reviewed-human
+4926,890000000006520,"Плохи мои дела... Не думаю, что теперь смогу отомстить. Передайте моей жене: мне жаль, что так вышло с нашим сыном. Умоляю, чтобы она меня простила.",I'm in bad shape... I don't think I'll get my revenge now. Tell my wife: I'm sorry about what happened to our son. I beg her to forgive me.,manual-reviewed-human
 4927,890000000006521,Во снах со мной и хуже вещи делали.,They've done worse things to me in my dreams.,manual-reviewed-human
 4928,890000000006526,"Этот Мясо, животное, он просто тупое чмо. Хоть бы его пристрелил  кто-нибудь.","That Meat is an animal, a brainless asshole. I wish someone would shoot him.",manual-reviewed-human
 4929,890000000006529,Неприятности.,Trouble.,manual-reviewed-human
@@ -4938,9 +4938,9 @@ Task: <task>",manual-translation
 4935,890000000006546,Это незаряжено.,It's unloaded.,manual-reviewed-human
 4936,890000000006553,Покойник.,Dead man.,manual-reviewed-human
 4937,890000000006555,Расчистили!,Clear!,manual-reviewed-human
-4938,890000000006562,"Если я раз поймаю этого комуняку Ивана - не в форме, я хочу сказать, - он у мен","If I ever catch that commie Ivan—out of uniform, I mean—I'll...",manual-reviewed-human
+4938,890000000006562,"Если я раз поймаю этого комуняку Ивана - не в форме, я хочу сказать, - он у меня весь будет красный с синим, русский, твою мать!","If I ever catch that commie Ivan—out of uniform, I mean—he'll be red and blue all over, you Russian bastard!",manual-reviewed-human
 4939,890000000006567,"Лучше ты, чем я.",Better you than me.,manual-reviewed-human
-4940,890000000006568,"Похоже, я умираю... Я вижу яркий свет... о, боже, скажи мне, что это просто спец","Looks like I'm dying... I see a bright light... Oh God, tell me it's just special effects.",manual-reviewed-human
+4940,890000000006568,"Похоже, я умираю... Я вижу яркий свет... о, боже, скажи мне, что это просто спецэффекты.","Looks like I'm dying... I see a bright light... Oh God, tell me it's just special effects.",manual-reviewed-human
 4941,890000000006569,"Ну прямо как в начальной школе, опять поехали.",Just like grade school. Here we go again.,manual-reviewed-human
 4942,890000000006579,Добрался я до них.,I got to them.,manual-reviewed-human
 4943,890000000006581,Да мне это как об стенку горох!,That doesn't even faze me!,manual-reviewed-human
@@ -4962,7 +4962,7 @@ Task: <task>",manual-translation
 4959,890000000008275,"Завязывайте курить кубинские сигары, это до добра не доведет. Мы еще поставим этого парня на колени. Это может случиться в любой момент. Увидите!",Quit smoking Cuban cigars; it'll do you no good. We'll still bring this guy to his knees. It could happen any moment. You'll see!,manual-reviewed-human
 4960,890000000008276,"Завязывайте курить кубинские сигары, это до добра не доведет. Мы еще поставим этого парня на колени. Это может случиться в любой момент. Увидите!",Quit smoking Cuban cigars; it'll do you no good. We'll still bring this guy to his knees. It could happen any moment. You'll see!,manual-reviewed-human
 4961,890000000006626,БЕННИ,BENNY,manual-reviewed-human
-4962,890000000006628,Взломщица с Халифа,Burglar from Khalifa,manual-reviewed-human
+4962,890000000006628,Взломщица с Халифа,Burglar from Khalif,manual-reviewed-human
 4963,890000000006631,Бенни на линии позже.,Benny will be back on the line later.,manual-reviewed-human
 4964,890000000006632,Бенедикт. Говорите.,Benedict speaking. Go ahead.,manual-reviewed-human
 4965,890000000006658,Саймон Грандье. Слушаю.,Simon Grandier speaking. I'm listening.,manual-reviewed-human
@@ -6620,7 +6620,7 @@ Task: <task>",manual-translation
 6617,890000000006324,Без этого было нельзя. Я уже встал и готов к работе.,It had to be done. I'm back on my feet and ready for work.,manual-translation
 6618,890000000006335,"Точно, Бритва! Ты мой идеал!","That's right, Razor! You're my hero!",manual-translation
 6619,890000000006346,"Эта Лава, она просто не женщина. Она - живое оскорбление всему женскому полу!",That Lava is no woman. She's a living insult to the entire female sex!,manual-translation
-6620,890000000006347,"Потрясающе, Биф! Ну разве удивительно, что ты мне нравишься... я хочу  сказать,","Amazing, Biff! Is it any wonder I like you... I mean,",manual-translation
+6620,890000000006347,"Потрясающе, Биф! Ну разве удивительно, что ты мне нравишься... я хочу сказать, что мне так нравится с тобой работать!","Amazing, Biff! Is it any wonder I like you... I mean, that I like working with you so much!",manual-translation
 6621,890000000006349,Вижу солдата.,I see a soldier.,manual-translation
 6622,890000000006354,Надо перезарядить.,Need to reload.,manual-translation
 6623,890000000006426,Надо перезарядить.,Need to reload.,manual-translation
@@ -6639,7 +6639,7 @@ Task: <task>",manual-translation
 6636,890000000006369,Я это заслужил.,I earned this.,manual-translation
 6637,890000000006370,Этот Злобный... Он издевается над языком наших отцов. Я не могу выносить это словесное убийство.,That Malice... He butchers the language of our forefathers. I cannot stand this verbal murder.,manual-translation
 6638,890000000006371,"Тоска, ты полна затаенной страсти.","Tosca, you are full of pent-up passion.",manual-translation
-6639,890000000006372,Говорит Кирк Стивенсон. Известный по кличке Статик. Раньше я говорил только клич,"This is Kirk Stevenson, better known as Static. I used to go only by my nick—",manual-translation
+6639,890000000006372,"Говорит Кирк Стивенсон. Известный по кличке Статик. Раньше я говорил только кличку, и все думали, что у меня плохой видеотелефон.","This is Kirk Stevenson, better known as Static. I used to go only by my nickname, and everyone thought I had a bad video phone.",manual-translation
 6640,890000000006375,Шеф-повар Статик к Вашим услугам.,Chef Static at your service.,manual-translation
 6641,890000000006377,"Отходняк затянется, однозначно.",This comedown is definitely going to take a while.,manual-translation
 6642,890000000006378,"Барабан пуст, чувак.","Cylinder's empty, man.",manual-translation
@@ -6671,7 +6671,7 @@ Task: <task>",manual-translation
 6668,890000000006417,"Мясо учится, медленно.",Meat learns slowly.,manual-translation
 6669,890000000006419,"Да, Бык МОЛОДЕЦ! А Мясо - лучший Быку друг!","Yes, Bull GOOD! Meat is Bull's best friend!",manual-translation
 6670,890000000006424,Какое мучение... Чувствую холод смерти.,What agony... I feel death's cold.,manual-translation
-6671,890000000006430,"Я не доверяю Игги. Он был враг, стал друг. Что он будет завтра?  Нельзя быть уве","I don't trust Iggy. He was enemy, became friend. What will he be tomorrow? Cannot be sur—",manual-translation
+6671,890000000006430,"Я не доверяю Игги. Он был враг, стал друг. Что он будет завтра? Нельзя быть уверенным.","I don't trust Iggy. He was an enemy, became a friend. What will he be tomorrow? You can never be sure.",manual-translation
 6672,890000000006437,Я этого не заслужил.,I don't deserve this.,manual-translation
 6673,890000000006440,Приказ выполнен.,Orders carried out.,manual-translation
 6674,890000000006444,"Эй, я выспался.","Hey, I got some sleep.",manual-translation
@@ -6791,7 +6791,7 @@ Task: <task>",manual-translation
 6788,890000000006548,Я готов к работе.,I'm ready for work.,manual-translation
 6789,890000000006554,Пора убивать!,Time to kill!,manual-translation
 6790,890000000006559,Пора убивать!,Time to kill!,manual-translation
-6791,890000000006556,"Оуууу... Ох, господи, мне так последний раз было, когда я попробовал  починить п","Ohhh... Oh, God, the last time I felt like this was when I tried to fix a p—",manual-translation
+6791,890000000006556,"Оуууу... Ох, господи, мне так последний раз было, когда я попробовал починить папашин шредер, знаешь.","Ohhh... Oh, God, the last time I felt like this was when I tried to fix dad's shredder, you know.",manual-translation
 6792,890000000006558,"Сдается, у меня винтовка пустая.",Looks like my rifle is empty.,manual-translation
 6793,890000000006560,Закончил.,Finished.,manual-translation
 6794,890000000006561,Я стараюсь!,I'm trying!,manual-translation
@@ -6838,7 +6838,7 @@ Task: <task>",manual-translation
 6835,890000000009721,Готово.,Done.,manual-translation
 6836,890000000009734,Готово.,Done.,manual-translation
 6837,890000000010260,Готово.,Done.,manual-translation
-6838,890000000006598,"Эй, слушай и запоминай. Сдоба - пижонка, каких свет не видывал, и я не обещаю, ч","Listen and remember. Buns is the biggest poser I've ever seen, and I don't promise th—",manual-translation
+6838,890000000006598,"Эй, слушай и запоминай. Сдоба - пижонка, каких свет не видывал, и я не обещаю, что сумею удержать свою винтовку, пока она так лачивается. Нервишки не в порядке, понимаешь?","Listen and remember. Buns is the biggest poser I've ever seen, and I don't promise I can keep my rifle off her while she's posing like that. Nerves aren't good, you know?",manual-translation
 6839,890000000006601,Вижу подонков!,I see the bastards!,manual-translation
 6840,890000000006604,"Кровь... Я, кажется, не выживу...",Blood... I don't think I'll survive...,manual-translation
 6841,890000000006606,Кончились патроны.,Out of ammo.,manual-translation
@@ -6853,7 +6853,7 @@ Task: <task>",manual-translation
 6850,890000000006661,Идём.,Let's go.,manual-translation
 6851,890000000006651,Саймон,Simon,manual-translation
 6852,890000000006654,Снайпер с Халифа,Sniper from Khalif,manual-translation
-6853,890000000006657,Гарандье недоступен.,Garandier is unavailable.,manual-translation
+6853,890000000006657,Грандье недоступен.,Grandier is unavailable.,manual-translation
 6854,890000000007026,Патроны кончились.,Out of ammo.,manual-translation
 6855,890000000007088,Патроны кончились.,Out of ammo.,manual-translation
 6856,890000000007150,Патроны кончились.,Out of ammo.,manual-translation
@@ -8970,7 +8970,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 7751,890000000009190,Задание выполнено.,Objective completed.,manual-translation
 7752,890000000009191,Задание выполнено.,Objective completed.,manual-translation
 7753,890000000006624,[WIP] Александра «Бенни» Бенедикт,Alexandra “Benny” Benedict,manual-translation
-7754,890000000006650,[WIP] Саймон Гарандье,Simon Garandier,manual-translation
+7754,890000000006650,Саймон Грандье,Simon Grandier,manual-translation
 7755,890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack

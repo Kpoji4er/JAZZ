@@ -23,13 +23,13 @@ haggling: none
 executable: false
 ---
 
-# Саймон — Саймон Гарандье
+# Саймон — Саймон Грандье
 
 ## Identity
 
 | Field | RU | EN |
 | --- | --- | --- |
-| Name | Саймон Гарандье | Simon Garandier |
+| Name | Саймон Грандье | Simon Grandier |
 | Nick | Саймон | Simon |
 | AllCapsNick | САЙМОН | SIMON |
 | Title | Снайпер с Халифа | Khalif Marksman |
@@ -40,7 +40,7 @@ executable: false
 
 **RU:** Наёмник острова Халиф (Shady Job). Скрытность и снайпер; меткость 100, одиночка по характеру. Самопредставление в боевых репликах: «Это сказал Саймон Грандье». Напарница — Александра Бенедикт; симпатизирует Потрошителю, может сблизиться с Лысым. Бесплатный найм на Халифе.
 
-**EN:** Khalif-island hire from Shady Job. Stealth + sniper; Marksmanship 100, loner. Self-ID line: «That's what Simon Garandier said.» Partners with Alexandra Benedict; likes Reaper, can warm to Scully. Free hire on Khalif.
+**EN:** Khalif-island hire from Shady Job. Stealth + sniper; Marksmanship 100, loner. Self-ID line: «That's what Simon Grandier said.» Partners with Alexandra Benedict; likes Reaper, can warm to Scully. Free hire on Khalif.
 
 ## Stats (MercsSJ)
 

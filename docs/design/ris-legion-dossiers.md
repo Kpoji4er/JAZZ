@@ -49,13 +49,13 @@ Gameplay sources: current `../jazz-units/UnitData/JAZZ_Legion_*.lua`, `scripts/l
 | `JAZZ_Legion_GunnerT3_VeteranGunner` | **Veteran Gunner** / Подавитель | Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert… |
 | `JAZZ_Legion_GunnerT4_MercGunner` | **Merc Gunner** / Наёмник-пулемётчик | Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine… |
 | `JAZZ_Legion_HeavyT1_Rocketeer` | **Rocketeer** / Ракетчик | Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire… |
-| `JAZZ_Legion_HeavyT2_Grenadier` | **Grenadier** / Гранатомётчик | Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into… |
+| `JAZZ_Legion_HeavyT2_Grenadier` | **Heavy Grenadier** / Гранатомётчик | Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into… |
 | `JAZZ_Legion_HeavyT3_Mortarman` | **Mortarman** / Миномётчик | Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike… |
 | `JAZZ_Legion_LeaderT1_Sergeant` | **Sergeant** / Бригадир | When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like… |
 | `JAZZ_Legion_LeaderT2_Lieutenant` | **Lieutenant** / Командир | Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area,… |
 | `JAZZ_Legion_LeaderT3_Captain` | **Captain** / Советник | Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as… |
 | `JAZZ_Legion_LeaderT4_MercenaryCaptain` | **Mercenary Captain** / Мастер | Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue… |
-| `JAZZ_Legion_Recruit` | **Recruit** / Рекрут | Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are… |
+| `JAZZ_Legion_Recruit` | **Recruit** / Новобранец | Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are… |
 
 ## Quest cards
 

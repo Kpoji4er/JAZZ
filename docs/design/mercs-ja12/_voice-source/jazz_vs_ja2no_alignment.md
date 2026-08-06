@@ -14,7 +14,7 @@ Canonical map: `jazz_to_ja2_profile.csv`. Identity from mercedt **text** (greeti
 | mike | — (JA1/NO battlefield) | — | need_pack |
 | grom | SJ Sergey Gromov | 047 (+R_047 ex-076) | shipped (ja2mercs `047 gromov`) |
 | benny | SJ Alexandra Benedict | 040 (pack remap; ≠ Biff) | shipped (ja2mercs `040 benni`) |
-| simon | SJ Simon Garandier | 062 (pack remap; ≠ Dynamo) | shipped (ja2mercs `062 simon`) |
+| simon | SJ Simon Grandier | 062 (pack remap; ≠ Dynamo) | shipped (ja2mercs `062 simon`) |
 | rothman | Stefan Rothman (not Hitman file) | 030 | shipped |
 | quinten | Dr Quinten | 028 | shipped |
 | vicious | La Malice / Злобный («Алле») | 032 | shipped |

@@ -368,6 +368,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_inventory_ja2mercs.py` | Read-only inventory `Downloads/ja2mercs/ja2mercs`: layout (flat/nested), audio counts/formats, profile-id guess, crosswalk к `jazz_to_ja2_profile.csv`. Не ship/convert. `--root` optional. Remesh: `_apply_ja2mercs_profile_map.py` + `_ship_ja2_merc_voices.py --ja2mercs-remesh`. |
 | `_stt_ja2mercs_sample.py` | Pilot subtitles for ja2mercs: export XLSX/mercedt ref text + optional faster-whisper RU STT (ADPCM→PCM via ffmpeg). Default pilot `но-шж/гром` pids 076+047 (both Grom). `--no-stt` = refs only. Out: `_voice-source/_stt/`. |
 | `_audit_truncated_voice_responses.py` | Find JA2-style ~80-char mid-cut VoiceResponse strings in `English.csv`; match full RU from `ja2mercs (1)` XLSX (+ known STT repairs for Carlos/Devin). Report only → `_tmp_truncated_vr_strict.txt`. |
+| `_apply_trunc_vr_and_lore_names.py` | Apply Grandier/Грандье + Khalif lore canon and truncated VR repairs into `jazz-units` `T()` + `Russian.csv`/`English.csv` (+ Manual). Canon: Grandier / Кавалье / Khalif. |
 
 ## Артефакты
 

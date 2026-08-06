@@ -11,7 +11,7 @@ from __future__ import annotations
 DOSSIERS: dict[str, dict[str, str]] = {
     "JAZZ_Legion_Recruit": {
         "title_en": "Recruit",
-        "title_ru": "Рекрут",
+        "title_ru": "Новобранец",
         "body_en": (
             "Legion recruiters sweep up villagers and send them out after only a few days of drill. They "
             "rush forward with whatever weapon they are handed, but lack the training and staying power "
@@ -476,13 +476,15 @@ DOSSIERS: dict[str, dict[str, str]] = {
             "Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light "
             "machine guns forward instead of guarding one position. They close the distance, set up near "
             "the fight, and pin defenders from positions that ordinary gunners would consider too "
-            "exposed. If they reach useful firing ground the attack becomes hard to stop, so break their "
+            "exposed. Most also bring a machete for the last few steps and a firebomb to flush cover. "
+            "If they reach useful firing ground the attack becomes hard to stop, so break their "
             "approach with explosives or catch them while they are moving."
         ),
         "body_ru": (
             "Выживших пулемётчиков переводят в Коммандо и учат продвигать лёгкий пулемёт вперёд вместо "
             "охраны одной позиции. Они сближаются, разворачивают оружие рядом с местом боя и прижимают "
-            "защитников с позиций, которые обычный пулемётчик счёл бы слишком открытыми. Если они "
+            "защитников с позиций, которые обычный пулемётчик счёл бы слишком открытыми. Обычно у них "
+            "есть мачете для последних шагов и зажигательная смесь, чтобы выкурить укрытие. Если они "
             "доберутся до удобного места, атаку будет трудно остановить, поэтому сорвите подход взрывом "
             "или ударьте, пока пулемёт ещё несут."
         ),
@@ -562,14 +564,14 @@ DOSSIERS: dict[str, dict[str, str]] = {
     },
     # --- Heavy T2 ---
     "JAZZ_Legion_HeavyT2_Grenadier": {
-        "title_en": "Grenadier",
+        "title_en": "Heavy Grenadier",
         "title_ru": "Гранатомётчик",
         "body_en": (
             "Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade "
             "launchers. They send explosive rounds into rooms, courtyards, and covered approaches, "
             "forcing anyone who survives the blast to abandon a comfortable position. Remaining in one "
-            "place invites another round, so move after each shot and pressure the Grenadier before the "
-            "launcher is ready again."
+            "place invites another round, so move after each shot and pressure the Heavy Grenadier before "
+            "the launcher is ready again."
         ),
         "body_ru": (
             "Гранатомётчики уже знакомы со взрывчаткой, прежде чем их начинают учить стрельбе из РПГ и "

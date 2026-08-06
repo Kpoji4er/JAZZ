@@ -19,7 +19,7 @@ miguel,Jazz_Miguel,057,ja2mercs:локался/057 miguel,shipped,rebel leader l
 gamos,Jazz_Gamos,063,ja2mercs:локался/063 Hamous,shipped,Hamous/Гамос; R_063_*; vanilla Hamouse; ja2mercs:локался/Hamous
 dynamo,Jazz_Dynamo,066,ja2mercs:локался/066 Dynamo,shipped,Greg Duncan; R_066_*; buddy Shank/Blood; ja2mercs:локался/Dinamo; SLF Dynamo; NOT но-шж/simon
 benny,Jazz_Benny,040,ja2mercs:но-шж/040 benni,shipped,SJ Alexandra Benedict / Benny; female lockpick+explosives; buddy Simon; ja2mercs:но-шж/benni; SJ Benny; NOT локался/shank
-simon,Jazz_Simon,062,ja2mercs:но-шж/062 simon,shipped,SJ Simon Garandier / Грандье; sniper loner; buddy Benny; ja2mercs:но-шж/simon; SJ Simon; NOT локался/Dinamo
+simon,Jazz_Simon,062,ja2mercs:но-шж/062 simon,shipped,SJ Simon Grandier / Грандье; sniper loner; buddy Benny; ja2mercs:но-шж/simon; SJ Simon; NOT локался/Dinamo
 gaston,Jazz_Gaston,165,ja2mercs:цс/165 gaston,shipped,UB Gaston Cavalier Data-UB/058 — not NO Carlos 058; not Malice 032; ja2mercs:цс/gaston+battle=165; UB Gaston; speech U_58 + battle 165; NOT локался/carlos
 horg,Jazz_Horg,166,ja2mercs:цс/166 stogie,shipped,UB Stogie / Сигара (ЦС); ja2mercs:цс/bychok+battle=166; UB Stogie; speech U_59 + battle 166
 manuel,Jazz_Manuel,167,ja2mercs:цс/167 manuel|battle=R_167|merge_speech,shipped,NO/UB Manuel; [ja2mercs:skip_ambiguous] folder pid 060 = Dimitri; profile Manuel is 071 — do not mix

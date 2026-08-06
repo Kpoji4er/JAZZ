@@ -972,7 +972,7 @@ Requires at least 30 rounds loaded",,jazz:items.lua:68076
 225370809188,"Бронежилет, используемый полицейскими структурами чуть не по всему миру. Кевларовая ткань обеспечивает уровень защиты, достаточный против большинства преступников, вооруженных легким оружием и не очень хорошо умеющих стрелять из него.",Body armor used by police forces almost everywhere. Its Kevlar can stop the light weapons carried by most criminals—especially those who cannot shoot straight.,,jazz:InventoryItem/JazzArmor_PoliceVest.lua:14 | jazz:items.lua:55847
 226108088689,<color EmStyle>Результат:</color> <color EmStyle>Деревня Эрни</color> освобождена,<color EmStyle>Result:</color> <color EmStyle>Ernie Village</color> liberated,,jazz-maps:items.lua:57599
 226223786359,Выбрать предмет,Pick Item,,jazz:items.lua:101490
-226408276853,"Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ","Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ",,jazz-maps:items.lua:104387
+226408276853,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,,jazz-maps:items.lua:104387
 226419811457,Ща б пивка холодненького...,I wish I had a cold beer...,,jazz-units:items.lua:70904
 226438256959,"Кожаные штаны. Не только красиво облегают вашу подтянутую задницу, но еще и способны защитить ее от удара ножом.",Leather pants. They flatter your toned backside and might even keep a knife out of it.,,jazz:InventoryItem/JazzArmor_LeatherPants.lua:14 | jazz:items.lua:56658
 226755462734,Меня прижали!,I was pinned down!,,jazz-units:items.lua:70914
@@ -1124,7 +1124,7 @@ The number of attacks depends on available AP.",,jazz:items.lua:64450
 254908977776,Видимость цели,Target Visibility,,jazz:items.lua:68626
 255206300456,Снаряжение - <Nick>,Equipment — <Nick>,,jazz:items.lua:80111
 255285870071,Самодельная кольчуга,Improvised Chainmail,,jazz:InventoryItem/JazzArmor_Chainmail.lua:12 | jazz:items.lua:55491
-255478950698,"Очень хорошо! ",Very good!,,jazz-units:items.lua:69946
+255478950698,Очень хорошо! ,Very good!,,jazz-units:items.lua:69946
 256390393730,Патронов нужных больше нет.,I'm out of the right ammo.,,jazz-units:items.lua:70611
 257228948726,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный 
@@ -1143,7 +1143,7 @@ The number of attacks depends on available AP.",,jazz:items.lua:64450
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No stock
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable",,jazz:InventoryItem/Agram2000.lua:16 | jazz:items.lua:20526
-259468933010," "," ",,jazz-maps:items.lua:11912
+259468933010, , ,,jazz-maps:items.lua:11912
 259673733542,R870,R870,,jazz:InventoryItem/R870.lua:14 | jazz:items.lua:27434
 259769536367,"Современный и даже футуристичный бронежилет СПЕКТРА был захвачен в качестве трофея Ассоциацией во время операции в Арулько. Каким-то неизвестным нам образом (Ассоциация абсолютно точно не имеет к этому никакого отношения) он попал на черный рынок, откуда смог распространиться по всему миру. Производитель - неизвестен. Защита - как у танка. Тяжелый штурмовой вариант с защитой шеи, паха и рук.","The modern, even futuristic SPECTRA armor was captured by the Association during the Arulco operation. Through means entirely unknown to us—and certainly unrelated to the Association—it reached the black market and spread worldwide. Manufacturer unknown. Protection like a tank. This heavy assault model covers the neck, groin, and arms.",,jazz:InventoryItem/JazzArmor_SpectraFull.lua:14 | jazz:items.lua:56471
 260016101225,"О, братан, не керосинь, я там че-то видел такое, залупастое!","Whoa, bro, don't freak out. I saw something over there... something real dickish!",,jazz-units:items.lua:70763
@@ -1830,7 +1830,7 @@ Received: <color EmStyle>PB Pistol</color> ×1",,jazz-maps:items.lua:31204
 Выстрел <color EmStyle><num_shots> патронами</color> по цели. Точность снижается с увеличением расстояния. Все цели, оказавшиеся в зоне атаки, получают дополнительный урон.","All enemies in cover become <color EmStyle>Exposed</color>.
 Fire <color EmStyle><num_shots> rounds</color> at the target. Accuracy falls with distance. Every target inside the attack area takes additional damage.",,jazz:items.lua:66078
 390863951465,"Я не могу овладеть ситуацией! Мне надо отсюда вырваться, пока я не потеряла разум!",I can't control the situation! I need to get out of here before I lose my mind!,,jazz-units:items.lua:70016
-390899348731,"Паук... Горжусь я ей. Способная деваха! ",Spider... I'm proud of her. That girl's got talent!,,jazz-units:items.lua:79243
+390899348731,Паук... Горжусь я ей. Способная деваха! ,Spider... I'm proud of her. That girl's got talent!,,jazz-units:items.lua:79243
 391588411003,"M60 ""Свиньи""",M60 “The Pig”,,jazz:InventoryItem/M60.lua:14 | jazz:items.lua:26701
 391748044376,Сравнить,COMPARE,,jazz:items.lua:88631
 391782617851,Оптический Прицел 1-6x,1–6x Scope,,jazz:items.lua:44836
@@ -1852,7 +1852,7 @@ Unlocks a money-making operation in urban sectors (not yet available)",,jazz:Cha
 395248477224,30-06,30-06,,jazz:items.lua:2319
 395524774639,Zastava M92,Zastava M92,,jazz:InventoryItem/ZastavaM92.lua:14 | jazz:items.lua:20372
 395636543718,Чего-то до хрена их тут.,"Damn, there are a lot of them.",,jazz-units:items.lua:70808
-395851346053,"Это было просто необходимо. ",Had to be done.,,jazz-units:items.lua:68840
+395851346053,Это было просто необходимо. ,Had to be done.,,jazz-units:items.lua:68840
 396249040457,ОД,AP,,jazz:items.lua:94624
 397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет.
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> На близкой дистанции только разброс; шанс провала растёт с дальностью (Меткость + Взрывчатка).","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40 mm grenade launcher.
@@ -1893,7 +1893,7 @@ Unlocks a money-making operation in urban sectors (not yet available)",,jazz:Cha
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенная эффективность прицеливания","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Inflicts <color EmStyle>Bleeding</color>
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low attack AP cost
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Improved aiming bonus",,jazz:InventoryItem/GutHookKnife.lua:15 | jazz:items.lua:56515
-403959952241,"Надо перезарядить. ",Need to reload.,,jazz-units:items.lua:69011
+403959952241,Надо перезарядить. ,Need to reload.,,jazz-units:items.lua:69011
 404111529406,Каска М1,M1 Helmet,,jazz:InventoryItem/JazzArmor_M1Helm.lua:13 | jazz:items.lua:54812
 404179068868,Инвентарь заполнен,Inventory is full,,jazz:items.lua:89786
 404805301174,ИМУЩЕСТВО ОТРЯДА,Squad property,,jazz:items.lua:89587
@@ -1917,7 +1917,7 @@ Unlocks a money-making operation in urban sectors (not yet available)",,jazz:Cha
 409531523901,P90,P90,,jazz:InventoryItem/P90.lua:15 | jazz:items.lua:19863
 409615372084,Чилл,Chill,,jazz-units:Code/Mercenary.lua:172
 410074002761,Вес брони (5 Класс),Armor Weight (Class 5),,jazz:CharacterEffect/Weight_5Class.lua:10 | jazz:items.lua:97754
-410271431075,"Надо перезарядить. ",Need to reload.,,jazz-units:items.lua:68830
+410271431075,Надо перезарядить. ,Need to reload.,,jazz-units:items.lua:68830
 410411022674,Назад! Здесь что-то не так!,Back off! Something's wrong here!,,jazz-units:items.lua:68986
 410577681665,"Не востребованный в Советской Армии, тем не менее, весьма любим гражданскими стрелками в России за точность боя. Но это капля в море перед маниакальной страстью к нему стрелков в США. Хорошим тоном считается хотя бы один СКС на коллекцию. Хотя бы и китайский.","The Soviet Army had little use for it, but Russian civilian shooters prize the SKS for its accuracy. That is nothing beside the American obsession: every respectable collection ought to have at least one, even if it is Chinese.",,jazz:InventoryItem/SKS.lua:17 | jazz:items.lua:23026
 410640021530,0.5,0.5,,jazz:items.lua:2362
@@ -2292,7 +2292,7 @@ And sucked d*cks in the EU",,jazz-maps:items.lua:54155
 492856048683,"Делаю то, что должен.",I do what I have to do.,,jazz-units:items.lua:68815
 492982908946,Прицел: Уменьшает сектор контроля на 50%,Scope: Narrows the Overwatch Cone by 50%,,jazz:items.lua:31786
 492983145408,"Пистолет ""Тульский-Токарева"" представляет собой очередную вариацию схемы Браунинга на избитую советскую тему ""у нас есть куча патронов на складах, нужно оружие для них"".","The Tula Tokarev pistol is another variation on Browning's design and that timeless Soviet premise: “We have warehouses full of ammunition, so build a weapon for it.”",,jazz:InventoryItem/TT33.lua:15 | jazz:items.lua:15167
-493164139843,"Отсюда надо выбираться! ",We need to get out of here!,,jazz-units:items.lua:69123
+493164139843,Отсюда надо выбираться! ,We need to get out of here!,,jazz-units:items.lua:69123
 493280640968,AR-10,AR-10,,jazz:InventoryItem/AR10.lua:14 | jazz:items.lua:23413
 493304565684,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается, когда враг подходит к заряду на близкое расстояние",<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes when an enemy gets close to the charge,,mag-hint-aligned
 493478127524,"5,56 мм, M856 Трассер","5.56 mm, M856 Tracer",,jazz:InventoryItem/JAZZ_AMMO_556_Tracer.lua:10 | jazz:items.lua:4904
@@ -2313,7 +2313,7 @@ And sucked d*cks in the EU",,jazz-maps:items.lua:54155
 497570218481,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой),<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction (improved by padding),,mag-hint-aligned
 498155992830,Бэнкс,Banks,,jazz-units:Code/Mercenary.lua:47
 498160374265,Рейвен,Raven,,jazz-units:Code/Mercenary.lua:94
-498845146351,"Я сделала свою работу. ",I've done my job.,,jazz-units:items.lua:69443
+498845146351,Я сделала свою работу. ,I've done my job.,,jazz-units:items.lua:69443
 498910270585,Ой!,Oh!,,jazz-units:items.lua:69612
 499008024695,Дым. выстрелы миномета,Mortar Smoke Cartridges,,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:13 | jazz:items.lua:7300
 499080476726,There are rumors of <em>murders and teddy bears</em> in the Farmlands,There are rumors of <em>murders and teddy bears</em> in the Farmlands,,jazz-maps:items.lua:97289
@@ -2954,7 +2954,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 619706015798,Расклинить оружие. Шанс зависит и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Clear a weapon jam. Success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.,,jazz:items.lua:58885
 619763824975,"Не парься, сестра, я тя и в пушках и в движках прикрою! ","Don't worry, sis. I've got you covered with guns and engines alike!",,jazz-units:items.lua:79183
 619787402322,Один алмаз? Маловато,One diamond? That’s not much,,jazz-maps:items.lua:58621
-620020470489,"Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ",Couldn't be better. You don't often get this much satisfaction from the job.,,jazz-units:items.lua:68894
+620020470489,Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ,Couldn't be better. You don't often get this much satisfaction from the job.,,jazz-units:items.lua:68894
 620492797462,Ручной пулемёт,Light Machine Gun,,jazz:items.lua:97849
 620648651508,Дозорный,Sentinel,,jazz-units:items.lua:41561 | jazz-units:UnitData/JAZZ_Legion_FlankerT1_Warden.lua:20
 621209369041,Улика: сектор <color EmStyle></color> подвергся обстрелу горчичным газом,Clue: sector <color EmStyle></color> was shelled with mustard gas,,jazz-maps:items.lua:55718
@@ -2976,7 +2976,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 622734644944,МЕШОК,BAG,,jazz:items.lua:87407
 622786098405,Клики,Clicks,,jazz:items.lua:69228
 623029149040,".44, ББ Отключено",".44, AP — Disabled",,jazz:InventoryItem/_44CAL_AP.lua:10 | jazz:items.lua:7751
-623031245401,"<em>Pierre</em> was spared at <em><SectorName('I7')></em> ","<em>Pierre</em> was spared at <em><SectorName('I7')></em> ",,jazz-maps:items.lua:81273
+623031245401,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,,jazz-maps:items.lua:81273
 623103654662,Прыжок 2,Jump 2,,jazz-units:items.lua:70775
 623665702916,Рысий взгляд,Lynx's Gaze,,jazz:CharacterEffect/Jazz_Perk_Lynx.lua:9 | jazz:items.lua:66166
 623794979175,Осадный отряд,Siege Squad,,jazz-units:items.lua:50538 | jazz-units:items.lua:50687 | jazz-units:items.lua:50851 | jazz-units:items.lua:50960 | jazz-units:items.lua:51082
@@ -3136,7 +3136,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 658824394701,"Тяжелая участь солдата, сука...","A soldier's lot is a hard one, damn...",,jazz-units:items.lua:70696
 658901200357,ОД,AP,,jazz:items.lua:80356
 659277276887,Тут долго не поуворачиваешься!,Can't keep dodging here forever!,,jazz-units:items.lua:69954
-659363947973,"<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ","<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ",,jazz-maps:items.lua:81249
+659363947973,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,,jazz-maps:items.lua:81249
 659647363192,"Может, удастся прихлопнуть тараканчика.",Maybe I can squash this little cockroach.,,jazz-units:items.lua:69379
 659760847936,"Ты чо уши греешь, Рейдер?","You eavesdropping, Raider?",,jazz-units:items.lua:70411
 659912789786,Самодельная кольчуга из железа из шин. Разработана и введена в эксплуатацию Легионом,Homemade chain mail woven from steel tire wire. Designed and fielded by the Legion.,,mag-hint-aligned
@@ -3206,7 +3206,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 679215652471,Morale,Morale,,jazz:items.lua:74212
 679233924596,"Керамическая пластина 3 класса защиты. Керамические пластины менее долговечные, чем стальные, но лучше защищают","Class 3 ceramic plate. Ceramic plates are less durable than steel, but provide better protection.",,jazz:InventoryItem/JazzArmorPlates_Ceramics3.lua:15 | jazz:items.lua:57219
 679436731928,Аванпост контрабандистов,Smugglers' Outpost,,jazz-maps:items.lua:6245 | jazz-maps:items.lua:42274
-680087796963,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:85807
+680087796963,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:85807
 680417461250,"Итак, какая помощь вам нужна","So, what kind of help do you need?",,jazz-maps:items.lua:30501
 680606004654,"Он может считать, что ему повезло...",Lucky him...,,jazz-units:items.lua:69589
 680641099779,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,,jazz-maps:items.lua:77048
@@ -3647,7 +3647,7 @@ Removes <color EmStyle>Control</color> and <color EmStyle>Focused Fire</color> o
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire",,jazz:InventoryItem/Galil.lua:16 | jazz:items.lua:25788
 770676561991,Здравствуйте наёмники.,"Greetings, mercenaries.",,jazz-maps:items.lua:29933
-770790779264,"Выстрел <color EmStyle><num> патронами</color> по цели без отдачи. ",Fires <color EmStyle><num> rounds</color> at a target with no recoil.,,jazz:items.lua:59404
+770790779264,Выстрел <color EmStyle><num> патронами</color> по цели без отдачи. ,Fires <color EmStyle><num> rounds</color> at a target with no recoil.,,jazz:items.lua:59404
 770795604613,ФРАГ,Frag,,jazz-units:items.lua:70453 | jazz-units:UnitData/JAZZ_Merc_Spouke.lua:23
 771481547805,Бронежилеты PASGT,PASGT body armor,,jazz:InventoryItem/JazzArmor_PASGT.lua:13 | jazz:items.lua:55937
 771749268124,"При помощи лафетной системы или системы ""смещенного по времени импульса отдачи"" достигается максимальная кучность стрельбы из автомата Никонова очередью в два патрона с темпом 1800 выстрелов/мин, при стрельбе из неустойчивых положений. В голове не укладывается, что Никонов по-настоящему прошел начатый еще в СССР конкурс и был принят на вооружение, чего, прямо скажем, не способен сделать ни один из автоматов НАТО.","The Nikonov's shifted-recoil-pulse system delivers exceptional accuracy in a two-round burst at 1,800 rounds per minute, even from unstable firing positions. Hard as it is to believe, the AN-94 actually won a competition begun in the Soviet era and entered service—more than many NATO rifle projects can claim.",,jazz:InventoryItem/AN94.lua:15 | jazz:items.lua:22888
@@ -3670,7 +3670,7 @@ Cannot be used with shotguns.",,jazz-units:CharacterEffect/TheGrim.lua:32 | jazz
 774674747916,Пуля 12-го калибра.,12-Gauge Flechette Round.,,jazz:InventoryItem/_12gauge_Flechette.lua:13 | jazz:items.lua:8370
 774803615619,Zastava M76,Zastava M76,,jazz:InventoryItem/ZastavaM76.lua:14 | jazz:items.lua:24240
 775007485793,M16A1,M16A1,,jazz:InventoryItem/M16A1.lua:13 | jazz:items.lua:21412
-775573284389,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:79847
+775573284389,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:79847
 775919735090,"Ну ты че, Айсберг, как так-то? Верняк же было.","Come on, Iceberg, how'd you miss that? It was a sure thing.",,jazz-units:items.lua:70843
 776051309333,Нас бы подлатать,We could use some patching up,,jazz-maps:items.lua:30417
 776162888663,Забрать трофеи,Take Loot,,jazz:items.lua:81679
@@ -3743,7 +3743,7 @@ Back the way you came, on the shore—right here. Take it. That's all I can give
 790197779044,ХАРАКТЕРИСТИКИ ОРУЖИЯ,WEAPON SPECS,,jazz:items.lua:70691
 790667718698,"20ый калибр это не серьёзно говорили они, но тем не менее всё лучше чем ничего, люди всё также дырявятся.","“Twelve gauge isn't serious,” they said. Still, it beats nothing—and people remain perfectly capable of springing leaks.",,jazz:InventoryItem/JAZZ_AMMO_12gauge_Saltshot.lua:13 | jazz:items.lua:7026
 790778374126,"Вижу цель ясно. Зубы у него кривые. Рахит, наверное.",I have a clear view of the target. Crooked teeth. Probably rickets.,,jazz-units:items.lua:70928
-791079197040,"Что-нибудь еще? ",Anything else?,,jazz-units:items.lua:68922
+791079197040,Что-нибудь еще? ,Anything else?,,jazz-units:items.lua:68922
 791254955343,СБРОСИТЬ ПОЛОЖЕНИЕ,RESET ROTATION,,jazz:items.lua:71245
 791550858652,Пистолеты Стечкина,Stechkin Pistols,,jazz:InventoryItem/APS.lua:14 | jazz:items.lua:17422
 791668570095,Предыдущий отряд,Prev Squad,,jazz:items.lua:79639
@@ -4025,7 +4025,7 @@ Gain <color EmStyle>Grit</color> (<color EmStyle><nextToEnemyGrit></color>) when
 852886773372,9x39 мм,9x39 mm,,jazz:items.lua:2436
 852932508226,Снаряжение - <Nick>,Equipment — <Nick>,,jazz:items.lua:94446
 853020507615,<color EmStyle></color>: на базу полковника ведет <color EmStyle>тайный ход</color>,<color EmStyle></color>: a <color EmStyle>secret passage</color> leads to Colonel Faucheux’s base,,jazz-maps:items.lua:54003
-853213611494,"Рысь! ",Lynx!,,jazz-units:items.lua:69085
+853213611494,Рысь! ,Lynx!,,jazz-units:items.lua:69085
 853492691401,Time to have a word with the <em>Ghost Butler</em> from the <em><SectorName('I16')></em>,Time to have a word with the <em>Ghost Butler</em> from the <em><SectorName('I16')></em>,,jazz-maps:items.lua:70145
 853495886060,Магазин на 10 патрон,10-Round Magazine,,jazz:items.lua:49820
 853661630706,"Бронежилеты СПЕКТРА, Тяжелый",Heavy SPECTRA Body Armor,,jazz:InventoryItem/JazzArmor_SpectraFull.lua:13 | jazz:items.lua:56470
@@ -4062,7 +4062,7 @@ Gain <color EmStyle>Grit</color> (<color EmStyle><nextToEnemyGrit></color>) when
 861111377140,"Секунду так постой, чувак, я щас.","Wait a second, dude, I'll be right there.",,jazz-units:items.lua:70599
 861219355572,<em>Цель:</em> Встретиться с <em>Эммой ЛеФонтен</em> и <em>Корасон Сантьяго</em>,<em>Objective:</em> Meet <em>Emma LeFontaine</em> and <em>Corazon Santiago</em>,,jazz-maps:items.lua:57945
 861692069775,А почему я должна об этом беспокоиться?,Why should I worry about this?,,jazz-units:items.lua:69597
-861725900793,"Кхм. ",Hmm.,,jazz-units:items.lua:68843
+861725900793,Кхм. ,Hmm.,,jazz-units:items.lua:68843
 861803185499,<color EmStyle>Результат:</color> <color EmStyle><CacaoGangDead></color> из «<color EmStyle>Кофейных бобов</color>» присоединились к покойной Мамаше Бакстер,"<color EmStyle>Outcome:</color> <color EmStyle><CacaoGangDead></color> from the ""<color EmStyle>Coffee Beans</color>"" joined the late Mama Baxter",,jazz-maps:items.lua:101732
 861905427160,Пэнтер,Panther,,jazz-units:Code/Mercenary.lua:150
 861927014589,Вольф,Wolf,,jazz-units:Code/Mercenary.lua:95
@@ -4070,7 +4070,7 @@ Gain <color EmStyle>Grit</color> (<color EmStyle><nextToEnemyGrit></color>) when
 861955157003,Браунинги .50,Browning .50s,,jazz-maps:InventoryItem/Jazz_Browning_MuchineGun.lua:12 | jazz-maps:items.lua:111129
 861971172551,"Титановая бронеплита 3 класса защиты. По пулестойкости титан крепче стали, и гораздо легче нее. Есть и минусы. Цена. И заброневое осколочное действие титана. Но в первую очередь цена, да.","A Class 3 titanium armor plate. Titanium offers better ballistic resistance than steel at much lower weight. It has drawbacks: cost and dangerous behind-armor fragmentation. Mostly the cost, though.",,jazz:InventoryItem/JazzArmorPlates_Titan3.lua:15 | jazz:items.lua:57296
 862621941813,Медикаменты,Medical Supplies,,jazz:items.lua:69673
-862897735770,"<Name> ","<Name> ",,jazz:items.lua:580
+862897735770,<Name> ,<Name> ,,jazz:items.lua:580
 863009450991,Оооооой,Oooooh,,jazz-units:items.lua:69061
 863567091821,"Тяжелые бронежилеты СПЕКТРА были модифицированы неугомонными руками доктора Грузельхайма путем замены бронеэлементов на аналогичные из Композитума-58. Весьма успешно надо сказать, расковырять неоарийцев в этих бронежилетах задача та еще.","The indefatigable Dr. Gruselheim modified heavy SPECTRA armor by replacing its inserts with Compositum-58 equivalents. Quite successfully, too: prying neo-Aryans out of these vests is no easy task.",,jazz:InventoryItem/JazzArmor_SpectraCompositum.lua:14 | jazz:items.lua:56500
 863658966488,AN/PVS-14,AN/PVS-14,,jazz:InventoryItem/JazzArmor_NVG3.lua:10 | jazz:items.lua:54707
@@ -4179,7 +4179,7 @@ Gain <color EmStyle>Grit</color> (<color EmStyle><nextToEnemyGrit></color>) when
 879381074193,"Что-то, прямо здесь!",Something right here!,,jazz-units:items.lua:69522
 879717894619,Армейский взвод,Army platoon,,jazz-units:items.lua:56917
 879778704994,Очередь,Burst,,jazz:items.lua:59406
-879795630148,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:82904
+879795630148,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:82904
 880747947165,Защитный шлем из сверхплотного высокомолекулярного полиэтилена,Ultra-High-Molecular-Weight Polyethylene Helmet,,mag-hint-aligned
 880788337220,Штурмовая кираса времен мировой войны,World War II Assault Cuirass,,mag-hint-aligned
 880961384603,"А вот и ""подарочки"" с той стороны.",And here are their little 'gifts.',,jazz-units:items.lua:70827
@@ -4272,7 +4272,7 @@ Targets also gain an additional status based on the ammunition used. Every targe
 897349466377,В секторе <em><SectorName('I6')></em> есть старый бункер с большими <em>запасами оружия</em>,In sector <em><SectorName('I6')></em> there's an old bunker with big <em>weapon stockpiles</em>,,jazz-maps:items.lua:112297
 898527816735,"Доктор Хьюстон. Чем могу служить? Хорошо, поговорим о том, насколько долгий контракт вы собирались мне предложить.",Dr. Houston. How can I help? Good. Let's talk about the length of the contract you had in mind.,,jazz-units:items.lua:69828 | jazz-units:UnitData/Jazz_Spider.lua:123
 898687365396,"5,56 мм, M856","5.56 mm, M856",,jazz:InventoryItem/_556_Tracer.lua:10 | jazz:items.lua:7881
-899558582657,"Тут не соскучишься! ",Never a dull moment here!,,jazz-units:items.lua:69020
+899558582657,Тут не соскучишься! ,Never a dull moment here!,,jazz-units:items.lua:69020
 899701284012,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стреляет очередями 
@@ -4863,7 +4863,7 @@ Targets also gain an additional status based on the ammunition used. Every targe
 911005041262,Разблокирует <color EmStyle>Маневренный бой</color>.,Unlocks <color EmStyle>Mobile Combat</color>.,,jazz:items.lua:31411
 911087494081,<em><enemy></em> поднят по тревоге,<em><enemy></em> is alerted,,jazz:items.lua:102857
 911301197772,Комплект I,Loadout I,,jazz:items.lua:88553
-911767416640,"Что-нибудь еще? ",Anything else?,,jazz-units:items.lua:68807
+911767416640,Что-нибудь еще? ,Anything else?,,jazz-units:items.lua:68807
 911820358036,"операция <color EmStyle>«Ночь ""Н""»</color> прошла успешно","Operation <color EmStyle>""Night ""N""""</color> was successful",,jazz-maps:items.lua:102121
 911933649700,".45ACP, +P",".45ACP, +P",,jazz:InventoryItem/JAZZ_AMMO_45ACP_P.lua:9 | jazz:items.lua:3284
 912113361221,Самодельные кирасы,Homemade cuirasses,,jazz:InventoryItem/JazzArmor_ImprovisedCuirass.lua:12 | jazz:items.lua:55708
@@ -4873,7 +4873,7 @@ Targets also gain an additional status based on the ammunition used. Every targe
 912996860706,Кевларовые наколенники,Kevlar knee pads,,jazz:InventoryItem/JazzArmor_SwatPads.lua:13 | jazz:items.lua:56603
 913471116788,Здорово!,It's awesome!,,jazz-units:items.lua:69578
 914296644319,Так! Я это сделала. Теперь что?,Right! Done. Now what?,,jazz-units:items.lua:69634
-914665506642,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:95223
+914665506642,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:95223
 914773986339,FOLDING,FOLDING,,jazz:items.lua:58748
 914914835655,Ящики с боеприпасами и гранатами,Boxes of ammo and grenades,,jazz-maps:InventoryItem/JazzQuestItem_AmmoBox.lua:12 | jazz-maps:items.lua:111154
 915359425469,АВТ-40,AVT-40,,jazz:InventoryItem/AVT40.lua:12 | jazz:items.lua:23357
@@ -4897,7 +4897,7 @@ Targets also gain an additional status based on the ammunition used. Every targe
 918482995946,"Падай, мля. ","Drop, damn it.",,jazz-units:items.lua:71010
 918487270916,Бронежилет СПЕКТРА,SPECTRA Body Armor,,jazz:InventoryItem/JazzArmor_Spectra.lua:12 | jazz:items.lua:56439
 918715946710,HK33,HK33,,jazz:InventoryItem/HK33.lua:13 | jazz:items.lua:22034
-918989925083,"Легкая броня для ног. ",Light Leg Armor.,,mag-hint-aligned
+918989925083,Легкая броня для ног. ,Light Leg Armor.,,mag-hint-aligned
 919463735747,"Тихонько, тихонько...","Easy, easy...",,jazz-units:items.lua:70657
 919590693662,9x19 мм,9x19 mm,,jazz:items.lua:2222
 919621275120,"Поздневоенный и послевоенный британский автомат. Характерной чертой автомата является примыкаемый сбоку магазин, за который он и удерживается при стрельбе, что удобно в походе, но неудобно в бою. В целом, неплохой автомат. С учетом того, что британский.","A late-war and postwar British submachine gun. Its side-mounted magazine doubles as an awkward handhold: convenient on the march, less so in a fight. Overall, not a bad weapon—for a British one.",,jazz:InventoryItem/Sterling.lua:15 | jazz:items.lua:18567
@@ -5124,7 +5124,7 @@ Targets also gain an additional status based on the ammunition used. Every targe
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Керамические пластины ломаются после <color 124 130 96><RevertConditionCounter></color> попаданий","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction improved by ceramic plates
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ceramic plates break after <color 124 130 96><RevertConditionCounter></color> hits",,jazz:InventoryItem/KevlarChestplate_CeramicPlates.lua:14 | jazz:items.lua:58117
 926619480801,Седалищем чую - кто-то на меня глаз положил.,I can feel it in my ass—someone's got their eye on me.,,jazz-units:items.lua:70917
-926842382510,"Посмотри - у меня пульс как с цепи сорвался! Я покрываюсь испариной... ",Look—my pulse is racing! I'm breaking out in a sweat...,,jazz-units:items.lua:70242
+926842382510,Посмотри - у меня пульс как с цепи сорвался! Я покрываюсь испариной... ,Look—my pulse is racing! I'm breaking out in a sweat...,,jazz-units:items.lua:70242
 927098390925,Тут явно нечисто - аж двинуться страшно.,Something's definitely wrong here—I'm afraid to move.,,jazz-units:items.lua:69056
 927223711798,Советник,Advisor,,jazz-units:items.lua:36311 | jazz-units:UnitData/ThugBoss_Stronger_Elite.lua:20
 927601720702,Sig 550 RIS,Sig 550 RIS,,jazz:InventoryItem/Sig550Custom.lua:14 | jazz:items.lua:22762
@@ -5167,7 +5167,7 @@ Targets also gain an additional status based on the ammunition used. Every targe
 934700876331,Перелазанье 2,Climbing 2,,jazz-units:items.lua:70633
 934715860279,Блейд,Blade,,jazz-units:Code/Mercenary.lua:128
 934996152027,Следующая задача?,Next assignment?,,jazz-units:items.lua:70176
-935033359195,"Отсюда надо выбираться! ",We need to get out of here!,,jazz-units:items.lua:69095
+935033359195,Отсюда надо выбираться! ,We need to get out of here!,,jazz-units:items.lua:69095
 935097971760,Дым. выстрел миномета,Mortar Smoke Cartridge,,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua:12 | jazz:items.lua:7299
 935310631119,Доступно медикаментов,Available meds,,jazz:items.lua:100935
 935392577230,All trapped civilians in the <em><SectorName('I19')></em> have been <em>saved</em>,All trapped civilians in the <em><SectorName('I19')></em> have been <em>saved</em>,,jazz-maps:items.lua:97651
@@ -5352,7 +5352,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 971658966988,"Популярный американский защитный военный и гражданский шлем, получивший известность после использования их знаменитым отрядом ""Дельта"". Обеспечивает неплохую защиту от осколков.",A popular American military and civilian helmet made famous by Delta Force. It offers good protection against fragments.,,jazz:InventoryItem/JazzArmor_ProTecHelm.lua:14 | jazz:items.lua:55003
 971716367378,"Айс! Блин, братан, чо ж ты так похож на этих одинаковых... Как теперь твоей мамане-то сказать?","Ice! Damn, bro, why'd you have to look just like all those other guys... How am I supposed to tell your mama now?",,jazz-units:items.lua:70778
 971951422708,ТОСКА,TOSCA,,jazz-units:items.lua:69176 | jazz-units:UnitData/Jazz_Buzz.lua:23
-971967791890,"Недостаточно ОД ","Not Enough AP ",,jazz:items.lua:89093
+971967791890,Недостаточно ОД ,Not Enough AP ,,jazz:items.lua:89093
 972063049608,"5,45 мм, БП Бронебойный","5.45 mm, BP (Armor-Piercing)",,jazz:InventoryItem/JAZZ_AMMO_545_AP.lua:10 | jazz:items.lua:5156
 972121373391,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> В идеальном вакууме стреляет смертоносными сгустками плазмы. Во всех остальных случаях работает как фомка
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вскрывает замки на дверях и контейнерах (в зависимости от силы)
@@ -5463,7 +5463,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 985270049400,"Только дай мне шанс, и вы все - покойники!","Just give me a chance, and you'll all be dead!",,jazz-units:items.lua:69616
 985474219069,Аааах.,Aaaah.,,jazz-units:items.lua:70152
 985499968545,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой),<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction (improved by padding),,mag-hint-aligned
-985514983456," "," ",,jazz:items.lua:734
+985514983456, , ,,jazz:items.lua:734
 986868227792,"Удачи наемники, и да пребудет с вами сила.","Good luck, mercenaries — and may the Force be with you.",,jazz-maps:items.lua:30953
 986875063897,"Выстрел в руки: снижение вероятности попадания, уменьшение урона. Шанс зональной травмы рук (MED-001).",Arm shot: lower hit chance and damage. May cause an arm injury.,,jazz:items.lua:58659
 987419927139,Шлем ProTec,ProTec Helmet,,jazz:InventoryItem/JazzArmor_ProTecHelm.lua:12 | jazz:items.lua:55001
@@ -5516,7 +5516,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:InventoryItem/Wirecutter.lua:13 | jazz:items.lua:56817
 997206919165,ВЗЯТЬ ВСЁ,TAKE ALL,,jazz:items.lua:81417
 997296420646,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов",Reduces AP and Free Move AP. Higher levels impose stronger penalties.,,jazz:CharacterEffect/Weight_2Class.lua:11 | jazz:items.lua:97704
-997322139649,"<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ","<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ",,jazz-maps:items.lua:95529
+997322139649,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,,jazz-maps:items.lua:95529
 997417029186,Да я еще даже не вспотел!..,I haven't even broken a sweat!,,jazz-units:items.lua:69028
 997521063108,"Надоело, надоело, надоело!","I'm sick of it, sick of it, sick of it!",,jazz-units:items.lua:69479
 997580439409,"Беги-беги, пока можешь. Шарахнуть бы чем, да нету.","Run while you can. Wish I had something to blow you up with, but I'm fresh out.",,jazz-units:items.lua:70641
@@ -5549,11 +5549,11 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 1786863112825,В этом секторе добывают древесину,This sector produces timber.,,jazz:Code/POI Extension.lua:11
 2378508273050,<em>Нет данных о секторе</em>,<em>No sector data</em>,,jazz:Code/Regions_Sectors.lua:56
 2378508273052,<em>Город: <city></em>,<em>City: <city></em>,,jazz:Code/Regions_Sectors.lua:62
-2378508273053,"  Лояльность: <loyalty>%",Loyalty: <loyalty>%,,jazz:Code/Regions_Sectors.lua:63
+2378508273053,  Лояльность: <loyalty>%,Loyalty: <loyalty>%,,jazz:Code/Regions_Sectors.lua:63
 2378508273054,<em>Регион: <region></em>,<em>Region: <region></em>,,jazz:Code/Regions_Sectors.lua:87
-2378508273055,"  Лояльность: <loyalty>%",Loyalty: <loyalty>%,,jazz:Code/Regions_Sectors.lua:91
-2378508273056,"  Уровень тревоги: <heat>",Alarm level: <heat>,,jazz:Code/Regions_Sectors.lua:92
-2378508273057,"  Уровень тревоги: <heat>",Alarm level: <heat>,,jazz:Code/Regions_Sectors.lua:67
+2378508273055,  Лояльность: <loyalty>%,Loyalty: <loyalty>%,,jazz:Code/Regions_Sectors.lua:91
+2378508273056,  Уровень тревоги: <heat>,Alarm level: <heat>,,jazz:Code/Regions_Sectors.lua:92
+2378508273057,  Уровень тревоги: <heat>,Alarm level: <heat>,,jazz:Code/Regions_Sectors.lua:67
 4621434559001,"Навыки (<name>, <sub>)","Skills (<name>, <sub>)",,jazz:Code/System_OR_Unit.lua:648
 6862025595561,<Deterioration> <percent(condPercent)>,<Deterioration> <percent(condPercent)>,,jazz:Code/Inventory.lua:193
 14056221444311,Сила Воли,Grit,,jazz:Code/UnitPropertiesStats.lua:17
@@ -5698,7 +5698,7 @@ Move to a new position, during which you fire up to <em><num_shots> barrages</em
 890000000000104,(heavy breath),(heavy breath),,jazz-units:items.lua:78387
 890000000000111,"Покуда эти ненасытные мерзавцы из <em>«Адониса»</em> сидят в <em>форте Ло-Блё</em>, нам не будет покоя. Повторяется история с Легионом: они отбирают у нас всё, что им заблагорассудится.","As long as those greedy <em>Adonis</em> bastards hold <em>Fort L'Eau Bleu</em>, we will not be safe. It is the same as when the Legion was here - what is ours is theirs any time they feel like taking it.",,jazz-maps:items.lua:112091
 890000000000113,"В следующий раз старайся чуть лучше, ага? Я почти не вспотел. Хочешь жить — умей жить.","Try a little harder next time, huh? I barely broke a sweat. If you want to survive, learn to hustle.",,jazz-maps:items.lua:16267
-890000000000114,"То, что доктор прописал.","That hit the spot. ",,jazz-units:items.lua:78381
+890000000000114,"То, что доктор прописал.",That hit the spot. ,,jazz-units:items.lua:78381
 890000000000115,(heavy breath_2),(heavy breath_2),,jazz-units:items.lua:78388
 890000000000116,Эта пушка кончилась! Дайте другую!,This gun is toast! Get me another!,,jazz-units:items.lua:79675
 890000000000117,Цели поражены. Подтверждаю попадание.,Multiple targets eliminated. Kills confirmed.,,jazz-units:items.lua:78461
@@ -5740,7 +5740,7 @@ Move to a new position, during which you fire up to <em><num_shots> barrages</em
 890000000000140,Я всё сделал. Что дальше?,I'm all done here. What's next?,,jazz-units:items.lua:79326
 890000000000141,"Да пошел ты! Первая же шашка, какую найду, отправится прямиком в ТВОЙ зад!","Go fuck yourself. The first explosive I find, I'm going to stick it up YOUR butt!",,jazz-maps:items.lua:112243
 890000000000142,"Я не страшусь удачи, и потому она нашла меня.","Because I do not fear success, I have found it waiting for me.",,jazz-units:items.lua:78959
-890000000000143,"Обожаю путешествия. ","I love traveling. ",,jazz-units:items.lua:78581
+890000000000143,Обожаю путешествия. ,I love traveling. ,,jazz-units:items.lua:78581
 890000000000144,Берегись!,Heads up!,,jazz-units:items.lua:78575
 890000000000145,В яблочко!,Bullseye!,,jazz:items.lua:69069
 890000000000146,Двоечка,Double Tap,,jazz:items.lua:69087
@@ -5766,7 +5766,7 @@ Move to a new position, during which you fire up to <em><num_shots> barrages</em
 890000000000167,"Слышу, шеф.","We hear you, chief.",,jazz-units:items.lua:79443
 890000000000168,Они меня окружать!,They be comin' around the sides!,,jazz-units:items.lua:79280
 890000000000169,Преступник обезврежен. Запиши ещё одного на мой счёт.,Perp down. Score another one for Raven.,,jazz-units:items.lua:78479
-890000000000170,"Следите за дыханием, когда целитесь.","Keep your breath steady when aiming. ",,jazz-units:items.lua:78560
+890000000000170,"Следите за дыханием, когда целитесь.",Keep your breath steady when aiming. ,,jazz-units:items.lua:78560
 890000000000171,"Не парься, сестра! Мы разобрать эти железки! Все быть пучком!","Don't worry, sister! We take those iron things apart. Everyting gonna be irie!",,jazz-maps:items.lua:18975
 890000000000172,"Само собой, с задачей они не справились. О них самих с тех пор ничего не слышно, а вот Майор живее всех живых.","Naturally, they failed. No one has heard from them since, while the Major is still very much alive.",,jazz-maps:items.lua:20207
 890000000000173,Да!,Yes!,,jazz-units:items.lua:78723
@@ -5901,7 +5901,7 @@ Reliable cycling and tight groups are not guaranteed, and the damp paper-like ro
 890000000000302,(jumping over something_2),(jumping over something_2),,jazz-units:items.lua:78758
 890000000000303,Во мне рана!,Blasted!,,jazz-units:items.lua:79318
 890000000000304,Оу.,Ouch,,jazz-units:items.lua:79234
-890000000000305," "," ",,jazz:items.lua:2020
+890000000000305, , ,,jazz:items.lua:2020
 890000000000306,"Уверена, драгоценная Марта сама о себе позаботится.",I'm sure dear Martha can take care of herself.,,jazz-maps:items.lua:23261
 890000000000307,"Срок моего контракта истёк. Я возвращаюсь домой, чтобы побыть с бывшей женой и моим ребёнком. Auf Wiedersehen.",My contract has expired. I'm going to go home and spend some time with my ex-wife and my child. Auf Wiedersehen.,,jazz-units:items.lua:78682
 890000000000308,Я бросать ананас!,Time to fling up some bangin' pineapple.,,jazz-units:items.lua:79298
@@ -6003,7 +6003,7 @@ Reliable cycling and tight groups are not guaranteed, and the damp paper-like ro
 890000000000406,"Пожалуйста, не говорите им! Умоляю!","Please, don't tell them! I'm begging you!",,jazz-maps:items.lua:111340
 890000000000407,"Жизнь полна загадок, чел. Только одним путем можно узнать.","Life's full of mysteries, man. Only one way to find out.",,jazz-maps:items.lua:17249
 890000000000408,Этот мир всегда готов одарить нас.,There is always more to find in this world.,,jazz-units:items.lua:78779
-890000000000409," <amount> x <em><itemNameT></em> added in the squad bag",<amount> x <em><itemNameT></em> added in the squad bag,,jazz:Code/System_UnitInventory.lua:242
+890000000000409, <amount> x <em><itemNameT></em> added in the squad bag,<amount> x <em><itemNameT></em> added in the squad bag,,jazz:Code/System_UnitInventory.lua:242
 890000000000410,"Эмма? Дочь президента? Она жива? Я так рад! Я хотел уйти из деревни и сказать ей о планах Легиона, что ее хотят захватить, но мой... мой сын <em>Пьер</em> был против.","Emma? The president's daughter? She's alive? I'm so glad! I wanted to leave the village and tell her about the Legion's plans to capture her, but my... my son <em>Pierre</em> was against it.",,jazz-maps:items.lua:23382
 890000000000411,.357 Mag FMJ,.357 Mag FMJ,,jazz:InventoryItem/JAZZ_AMMO_357_FMJ.lua:10 | jazz:items.lua:3947
 890000000000412,.357 Mag JHP,.357 Mag JHP,,jazz:InventoryItem/JAZZ_AMMO_357_JHP.lua:10 | jazz:items.lua:3978
@@ -6043,7 +6043,7 @@ Reliable cycling and tight groups are not guaranteed, and the damp paper-like ro
 890000000000447,Обнаружен противник.,Hostiles detected.,,jazz-units:items.lua:78472
 890000000000448,(climbing_2),(climbing_2),,jazz-units:items.lua:78299
 890000000000449,Это стыдно. Нужно попадать! Сейчас!,This be embarrassing! We need to hit them. Now!,,jazz-units:items.lua:79283
-890000000000450,Я не закончила.,"Still not done. ",,jazz-units:items.lua:78295
+890000000000450,Я не закончила.,Still not done. ,,jazz-units:items.lua:78295
 890000000000451,"Ха, а недурно.","Hey, that wasn't half bad.",,jazz-units:items.lua:78529
 890000000000452,"Сработало! Видали? Сработало! О, да, здаров!. Я <em>Бомбическая Диди</em>! Вы ведь пришли за моими хлопушками? Последнюю партию я только что взорвала, но я могу сделать еще!","It worked! Did you see? It worked! Oh yeah, hi! I'm <em>Boombastic Deedee</em>! You came for my firecrackers, right? I just blew up the last batch, but I can make more!",,jazz-maps:items.lua:23981
 890000000000453,"А в <em>Жестянке</em> вы были? Там в бункере полно всяких классных штук, из которых можно делать помпезные взрывы!",Have you been to the <em>Junkyard</em>? There's a bunker full of all kinds of cool stuff you can make spectacular explosions with!,,jazz-maps:items.lua:24373
@@ -6168,7 +6168,7 @@ Move to a new position, during which you fire up to <em><num_shots> short bursts
 890000000000528,Webley Mk VI,Webley Mk VI,,jazz:InventoryItem/Webley.lua:13 | jazz:items.lua:17919
 890000000000529,Welrod,Welrod,,jazz:InventoryItem/Welrod.lua:13 | jazz:items.lua:15783
 890000000000530,"Рон... милый... прости, что покидаю тебя первой...","Ron... I'm sorry, honey... I have to be the one who leaves first...",,jazz-units:items.lua:78356
-890000000000531," <amount> x <em><itemNameT></em> (squad bag)",<amount> x <em><itemNameT></em> (squad bag),,jazz:Code/System_UnitInventory.lua:252
+890000000000531, <amount> x <em><itemNameT></em> (squad bag),<amount> x <em><itemNameT></em> (squad bag),,jazz:Code/System_UnitInventory.lua:252
 890000000000532,"Фиделю нравится. Фидель может убивать его, да? М?","Fidel likes this. Fidel can kill him, yes? Hmm?",,jazz-maps:items.lua:15916
 890000000000533,Ха-ха-ха-ха. Фиделю нужны части тела.,Ha ha ha! Fidel needs body parts.,,jazz-maps:items.lua:21418
 890000000000534,Предатерей надо вешать!,Traitors should hang!,,jazz-maps:items.lua:29786
@@ -6232,7 +6232,7 @@ Special attack: Mobile Shot",,jazz:items.lua:104287
 890000000000591,"Я... я обязан вам. Возьмите. Это всё, что у меня есть.",I... I owe you. Take it. It's everything I have.,,jazz-maps:items.lua:58738
 890000000000592,Врагов здесь не быть. Надо дальше.,"No enemies be hiding here. Come, we go.",,jazz-units:items.lua:79304
 890000000000593,"Фокус. Теперь меня не видно, да?","Watch this. Can't see me now, can you?",,jazz-units:items.lua:79360
-890000000000594," within the set cone",within the set cone,,jazz:items.lua:60264
+890000000000594, within the set cone,within the set cone,,jazz:items.lua:60264
 890000000000595,"Да не дрейфь. Спорим, они туда прокрались, а потом решили их всё-таки снять. Или теперь просто добивают. Чтоб наверняка.","Take it easy. They probably sneaked in, then shot them. Then, I guess maybe they shot some more of them, or shot them again, just to be sure.",,jazz-maps:items.lua:112191
 890000000000596,"Не волнуйтесь, однако. Омрын - лучший следопыт. Сейчас поедим, и можно будет и пойти.","Don't worry, though. Omryn is the best tracker. Let's eat now, and then we can go.",,jazz-maps:items.lua:25864
 890000000000597,"Очень серьезный боеприпас, кроме шуток способен пробивать многие базовые бронежилеты, хорошая кучность, точность и настильность. Немного негативно сказывается на износе оружия, но вы же хотите наконец простреливать бронеплиты пистолетным патроном? Это ваш шанс.","A genuinely serious round: can punch through a lot of basic body armor. Good grouping, accuracy, and flat trajectory. Slightly increases weapon wear — but you *do* want to punch plates with a pistol round, right? This is your chance.",,jazz:InventoryItem/JAZZ_AMMO_9x19_APP.lua:12 | jazz:items.lua:2792
@@ -6304,7 +6304,7 @@ Special attack: Mobile Shot",,jazz:items.lua:104287
 890000000000630,Лавина начинается с падения одного камешка.,An avalanche begins with just one pebble.,,jazz-units:items.lua:78670
 890000000000631,"Ой, обожаю шахты! Сплошные норы — прячься, не хочу.","Oh, I love mines! So many little holes to hide in.",,jazz-maps:items.lua:19500
 890000000000632,"Ну, как-то это за уши притянуто.","Well, that's a bit far-fetched.",,jazz-maps:items.lua:26432
-890000000000634," (already known)",(already known),,jazz:Code/SatelliteSquad.lua:3778
+890000000000634, (already known),(already known),,jazz:Code/SatelliteSquad.lua:3778
 890000000000635,Исчо у меня есть мускулы. Много мускулов!,And I have muscles too. Many muscles!,,jazz-maps:items.lua:12605
 890000000000636,"Мы не смогли поставить галочку, но это не должно понижать нашу самооценку.","Just because we didn't complete our to-do list, doesn't mean we're failures.",,jazz-units:items.lua:78676
 890000000000637,Нет. Фидель любит целиться в живот. Так больше крика. М?,No. Fidel likes to aim for the stomach. More screams that way. Hmm?,,jazz-maps:items.lua:17219
@@ -6396,7 +6396,7 @@ Fires a long burst of <color EmStyle><bullets> rounds</color> with increased sup
 890000000000708,"Моего друга <em>Тинхея</em>. Когда Легион пришел нас грабить, он выстрелил в <em>Пьера</em> из снайперского гнезда. И промахнулся. А потом его схватили... и если я узнаю, кто его выдал, этот урод очень сильно пожалеет.","My friend <em>Tinhay</em>. When the Legion came to rob us, he shot at <em>Pierre</em> from a sniper nest. And missed. Then they grabbed him... and if I find out who ratted him out, that bastard will regret it big time.",,jazz-maps:items.lua:28034
 890000000000709,"Ничего... кроме алмаза. Я отдам. Всё, что есть. Только спасите её.",Nothing... except a diamond. You can have it. It's all I have. Just save her.,,jazz-maps:items.lua:58552
 890000000000710,"Спасибо, наемники. Я нашел ящик с гранатами на берегу. Вот, возьмите.","Thank you, mercenaries. I found a crate of grenades on the shore. Here, take it.",,jazz-maps:items.lua:58656
-890000000000711,"У водопада... в клетке. ",By the waterfall... in a cage.,,jazz-maps:items.lua:58538
+890000000000711,У водопада... в клетке. ,By the waterfall... in a cage.,,jazz-maps:items.lua:58538
 890000000000712,"Пусть твой дух воссоединится со вселенной, а сущность переродится в ином теле.",May your spirit become one with the universe and your essence be reborn into everything.,,jazz-units:items.lua:78691
 890000000000713,Ха-ха-ха! Взрывчатка - это та-а-ак круто! Прямо башню сносит! Ха-ха-ха!,Ha-ha-ha! Explosives are so-oo-oo cool! It just blows your mind! Ha-ha-ha!,,jazz-maps:items.lua:25124
 890000000000714,Контролируемая очередь,Controlled burst,,jazz:items.lua:62000
@@ -6430,9 +6430,9 @@ Fires a long burst of <color EmStyle><bullets> rounds</color> with increased sup
 890000000000745,"7,62х39мм, Кустарный","7.62x39 mm, Handloaded",,jazz:InventoryItem/JAZZ_AMMO_762x39_Crafted.lua:10 | jazz:items.lua:5327
 890000000000746,И Диди мы тоже никак не вспоминаем?,And we're still not mentioning Deedee at all?,,jazz-maps:items.lua:23099
 890000000000748,Я гулять.,I be strollin'.,,jazz-units:items.lua:79035 | jazz-units:items.lua:79217
-890000000000749," <amount> x <em><itemNameT></em> (<mercName>)",<amount> x <em><itemNameT></em> (<mercName>),,jazz:Code/System_UnitInventory.lua:249
+890000000000749, <amount> x <em><itemNameT></em> (<mercName>),<amount> x <em><itemNameT></em> (<mercName>),,jazz:Code/System_UnitInventory.lua:249
 890000000000750,"Но зачем отпускать? Фидель не понимает. А! Может, потом его пристрелим? М?",But why let him go? Fidel does not understand. Ah! Maybe we shoot him later? Hmm?,,jazz-maps:items.lua:17512
-890000000000751,Скучно. Хочу что-нибудь поделать.,"I be gettin' antsy! Gotta keep these hands busy. ",,jazz-units:items.lua:79110
+890000000000751,Скучно. Хочу что-нибудь поделать.,I be gettin' antsy! Gotta keep these hands busy. ,,jazz-units:items.lua:79110
 890000000000752,На это стоит посмотреть вблизи.,Might want to take a closer look at this.,,jazz-units:items.lua:79468
 890000000000753,Зачистить сектор K3,Clear Sector K3,,jazz-maps:items.lua:59244
 890000000000754,Зачистить сектор K5,Clear Sector K5,,jazz-maps:items.lua:59269
@@ -6479,7 +6479,7 @@ Sorry, I didn't bring plans for the Legion's other camps. You'll have to <em>sco
 890000000000796,Я закончил задание. Если понадоблюсь - я медитирую.,I have finished my task. I'll be meditating if you need me.,,jazz-units:items.lua:78602
 890000000000797,"Мы поставили галочку. Я прямо чувствую, как стресс отступает.",We completed our to-do list. I can feel the stress melting away.,,jazz-units:items.lua:78673
 890000000000798,Да! И Фидель всегда удивляет.,Yes! And Fidel always surprises.,,jazz-maps:items.lua:25082
-890000000000799," <tiredness>.",<tiredness>.,,jazz:items.lua:64071
+890000000000799, <tiredness>.,<tiredness>.,,jazz:items.lua:64071
 890000000000800,"Тем не менее, я почему-то уверена, что ты с Легионом… э… «в семье».","And yet, for some reason, I'm certain you and the Legion are... uh... ""one big family.""",,jazz-maps:items.lua:16966
 890000000000801,Повстанец-Рейнджер,Rebel Ranger,,jazz-units:items.lua:48584 | jazz-units:UnitData/Rebel_NPC_Ghost_Guards.lua:22
 890000000000802,Рейнджер,Ranger,,jazz-units:items.lua:42233 | jazz-units:UnitData/JAZZ_Legion_FlankerT4_Ranger.lua:22
@@ -6868,7 +6868,7 @@ Move to a new position and fire two shots at nearby targets.",,jazz:items.lua:65
 890000000001155,"Чё, откиснуть захотелось?! Ну что ж, я буду феечкой! Желание исполнено!","What, wanna cool off?! Well, I'll be your fairy! Wish granted!",,jazz-maps:items.lua:25565
 890000000001156,(climbing),(climbing),,jazz-units:items.lua:78641
 890000000001157,"Всё в порядке, милый! Я на подхвате!","Don't worry, hon! I've got you covered!",,jazz-units:items.lua:78455
-890000000001158," <amount> x <em><itemNameT></em> taken by <mercName>",<amount> x <em><itemNameT></em> taken by <mercName>,,jazz:Code/System_UnitInventory.lua:239
+890000000001158, <amount> x <em><itemNameT></em> taken by <mercName>,<amount> x <em><itemNameT></em> taken by <mercName>,,jazz:Code/System_UnitInventory.lua:239
 890000000001159,"Ну да, мальчики из <em>Легиона</em> за это меня очень уважают. Когда они приходят ко мне в гости, они ведут себя очень вежливо и приносят всякие полезные запчасти для бомб!","Oh, yes! The boys in <em>the Legion</em> respect me for it. Whenever they visit, they're terribly polite and bring me all sorts of useful bomb parts!",,jazz-maps:items.lua:24764
 890000000001160,"Ну-ка, все - сделайте вдох и сбалансируйте свои чакры.",Everyone needs to breathe and realign their chakras.,,jazz-units:items.lua:78916
 890000000001161,Затравка неплохая. Перейдем к главному блюду.,Not a bad appetizer. Let's get to the main course.,,jazz-maps:items.lua:21908
@@ -6889,7 +6889,7 @@ Move to a new position and fire two shots at nearby targets.",,jazz:items.lua:65
 890000000001176,Я лежать!,Hittin' the dirt!,,jazz-units:items.lua:79292
 890000000001177,Дробовик,Shotguns,,jazz:items.lua:97833
 890000000001178,(heavy breath_2),(heavy breath_2),,jazz-units:items.lua:79461
-890000000001179," Fire",Fire,,jazz:items.lua:67109
+890000000001179, Fire,Fire,,jazz:items.lua:67109
 890000000001180,Что это? Мусор?,What's this? Junk?,,jazz-units:items.lua:78425
 890000000001181,"Твоя мамка такой зад себе отрастила, что после нее туалет динамитом приходится прочищать.","The harsh truth is, your momma's butt is so big, we need explosives to unclog the toilet after she's dropped a turd.",,jazz-maps:items.lua:112239
 890000000001182,Две длинная очереди с увеличенным подавлением,Two long bursts with increased suppression,,jazz:items.lua:62564
@@ -7046,7 +7046,7 @@ Cannot counterattack or maintain prepared attacks.",,jazz:CharacterEffect/suppre
 890000000001305,"Ха... Оказывается, я и в самом деле круче, чем думала.",Huh... I guess I *am* better than I thought.,,jazz-units:items.lua:78431
 890000000001306,Задание получено. Приступаю к исполнению.,Orders received. Task started.,,jazz-units:items.lua:78263
 890000000001307,Scheisse! Меня заметили.,Scheisse! The enemy has spotted me.,,jazz-units:items.lua:78667
-890000000001308," Cancel",Cancel,,jazz:items.lua:67136
+890000000001308, Cancel,Cancel,,jazz:items.lua:67136
 890000000001309,Выдвигаюсь.,Moving out.,,jazz-units:items.lua:78316 | jazz-units:items.lua:78378 | jazz-units:items.lua:78494
 890000000001310,"Я вижу, ты уже принял решение, Базиль. Мои слова ничего не изменят.","I see you've already made your decision, Basil. My words won't change anything.",,jazz-maps:items.lua:29217
 890000000001311,"Правда? Не понимаю, в чем ваша выгода, но я только за, разумеется.","Really? I don't understand what's in it for you, but I'm all for it, of course.",,jazz-maps:items.lua:26863
@@ -7062,11 +7062,11 @@ North of the <em>Waterfall</em> is the <em>Overlook</em>, one of the few places 
 Я хотел перехватить этот отряд, но вы успели перебить основную часть. Хорошая работа","I was wondering how many more people the Legion would lose before realizing that someone in these jungles really hates them.
 I meant to intercept this squad, but you wiped out most of it first. Good work.",,jazz-maps:items.lua:31264
 890000000001319,Да!,Yes!,,jazz-units:items.lua:78657 | jazz-units:items.lua:78850
-890000000001320,Прибыл на место и готов к самосовершенствованию.,"I have arrived at the destination and am ready for a new goal. ",,jazz-units:items.lua:78892
+890000000001320,Прибыл на место и готов к самосовершенствованию.,I have arrived at the destination and am ready for a new goal. ,,jazz-units:items.lua:78892
 890000000001321,"Пулемет? Ой-ля-ля, вот это я понимаю!","Machine gun? Ooh-la-la, now that's what I call it!",,jazz-maps:items.lua:28379
 890000000001322,"Ладно, прочешем местность. Если тут что-нибудь есть, мы это найдём.","All right, let's comb this place. If there's something here, we'll find it.",,jazz-units:items.lua:79471
 890000000001323,"Лазер: плоский CTH до LaserDistance; полный бонус до LaserFullRange, дальше спад. NightOnly=1 — только ночь/подземелье.","Laser: flat CTH out to LaserDistance; full bonus through LaserFullRange, then falloff. NightOnly=1 — night or underground only.",,jazz:items.lua:32120
-890000000001324,"Разблокирует режим <em>Стрельбы очередями</em> ",Unlocks <em>Burst Shooting</em> mode,,jazz:items.lua:32115
+890000000001324,Разблокирует режим <em>Стрельбы очередями</em> ,Unlocks <em>Burst Shooting</em> mode,,jazz:items.lua:32115
 890000000001325,Ах! Пулемет и Фидель станут лучшими друзья.,Ah! Fidel knew. Should've collected all ten livers to complete the quest. Ah…,,jazz-maps:items.lua:28354
 890000000001326,"Ты стать бы ещё лучше, не смотри ты девушкам под юбки.",You be pretty good when you don't try to look up someone's skirt.,,jazz-units:items.lua:79249
 890000000001327,"Контракт заканчиваться, правда. Хочешь меня - я буду в мастерской.","The contract is up, mon. If you need me again, I be back at my shop. I see you.",,jazz-units:items.lua:79059
@@ -7162,7 +7162,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001409,<text1>%,<text1>%,,jazz:items.lua:73069 | jazz:items.lua:73097 | jazz:items.lua:73125
 890000000001410,Защита от взрывов,Blast Protection,,jazz:items.lua:73280
 890000000001411,Защита от холодного оружия,Blade Protection,,jazz:items.lua:73307
-890000000001412,"Эффективный класс брони: ","Effective Armor Class: ",,jazz:items.lua:73226
+890000000001412,Эффективный класс брони: ,Effective Armor Class: ,,jazz:items.lua:73226
 890000000001413,Камуфляж,Camouflage,,jazz:items.lua:73335
 890000000001414,Блокирует слот лица,Blocks Face Slot,,jazz:items.lua:73423
 890000000001415,Возможность установки плиты,Accepts Armor Plate,,jazz:items.lua:73396
@@ -7707,7 +7707,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002414,"Связь прервалась. Продолжайте, товарищ.","Connection dropped. Carry on, comrade.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002415,Жду приказа. Гранатомёт заряжен.,Awaiting orders. Grenade launcher loaded.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002416,Гранатомёт с собой. Идём.,Grenade launcher's with me. Let's go.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
-890000000002417,"Контракт заканчивается. Продлеваем службу, или мне искать другой аэродром?","Contract's ending. Are we extending my service, or should I look for another airfield?",," или мне искать другой аэродром?"
+890000000002417,"Контракт заканчивается. Продлеваем службу, или мне искать другой аэродром?","Contract's ending. Are we extending my service, or should I look for another airfield?",, или мне искать другой аэродром?
 890000000002418,Остаюсь. Служба есть служба.,I'm staying. Duty is duty.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002419,Майор Громов на позиции.,Major Gromov in position.,,jazz-units:items.lua:72950
 890000000002420,Опп-а! Вижу цель.,"Well, well! Target spotted.",,jazz-units:items.lua:72919
@@ -8992,20 +8992,20 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006331,Время поставить кое-кого на место.,Time to put someone in their place.,,jazz-units:items.lua:VoiceResponse
 890000000006332,Я здесь обо всем позаботился.,I've taken care of everything here.,,jazz-units:items.lua:VoiceResponse
 890000000006333,"Моргнуть не успеешь, как я боссом стану!","Before you know it, I'll be the boss!",,jazz-units:items.lua:VoiceResponse
-890000000006334,"А-а-а, наш маленький сладенький Бифи хочет свою сладенькую бутылочку? Ой,  не мо","Aww, does sweet little Biffy want his sweet little bottle? Oh, I can't...",,jazz-units:items.lua:VoiceResponse
+890000000006334,"А-а-а, наш маленький сладенький Бифи хочет свою сладенькую бутылочку? Ой, не могу, ну что за котеночек! Дать бы ему по заднице.","Aww, does sweet little Biffy want his sweet little bottle? Oh, I can't—what a kitten! Someone ought to spank him.",,jazz-units:items.lua:VoiceResponse
 890000000006335,"Точно, Бритва! Ты мой идеал!","That's right, Razor! You're my hero!",,jazz-units:items.lua:VoiceResponse
 890000000006336,"Я проснулась, и могу начать с того места, где кончила. Эээ.. Закончила.","I'm awake, and I can pick up where I came... uh, left off.",,jazz-units:items.lua:VoiceResponse
 890000000006337,Ой!,Oh!,,jazz-units:items.lua:VoiceResponse
 890000000006338,"О, non, я позволила себе надеяться, что на этот раз мы не должны их  встретить!","Oh, non, I let myself hope we wouldn't have to meet them this time!",,jazz-units:items.lua:VoiceResponse
 890000000006339,Я кого-то убила!,I killed someone!,,jazz-units:items.lua:VoiceResponse
 890000000006340,Не хочу умирать... только не здесь... не дайте мне здесь умереть.,I don't want to die... not here... don't let me die here.,,jazz-units:items.lua:VoiceResponse
-890000000006341,"На мгновение мне показалось, что я - среди ангелов. Теперь я вижу, что  по-прежн",For a moment I thought I was among angels. Now I see I'm still with you.,,jazz-units:items.lua:VoiceResponse
+890000000006341,"На мгновение мне показалось, что я - среди ангелов. Теперь я вижу, что по-прежнему пребываю в преисподней. Мои страдания безграничны!",For a moment I thought I was among angels. Now I see I'm still in hell. My suffering knows no bounds!,,jazz-units:items.lua:VoiceResponse
 890000000006342,В моем ружье нет патронов!,My gun's out of ammo!,,jazz-units:items.lua:VoiceResponse
 890000000006343,"О, non, я позволила себе надеяться, что на этот раз мы не должны их  встретить!","Oh, non, I let myself hope we wouldn't have to meet them this time!",,jazz-units:items.lua:VoiceResponse
 890000000006344,Могу я что-нибудь еще сделать?,Anything else I can do?,,jazz-units:items.lua:VoiceResponse
 890000000006345,Я двигаюсь вперед.,I'm moving up.,,jazz-units:items.lua:VoiceResponse
 890000000006346,"Эта Лава, она просто не женщина. Она - живое оскорбление всему женскому полу!",That Lava is no woman. She's a living insult to the entire female sex!,,jazz-units:items.lua:VoiceResponse
-890000000006347,"Потрясающе, Биф! Ну разве удивительно, что ты мне нравишься... я хочу  сказать,","Amazing, Biff! Is it any wonder I like you... I mean,",,jazz-units:items.lua:VoiceResponse
+890000000006347,"Потрясающе, Биф! Ну разве удивительно, что ты мне нравишься... я хочу сказать, что мне так нравится с тобой работать!","Amazing, Biff! Is it any wonder I like you... I mean, that I like working with you so much!",,jazz-units:items.lua:VoiceResponse
 890000000006348,Готов к выполнению задания.,Ready for the mission.,,jazz-units:items.lua:VoiceResponse
 890000000006349,Вижу солдата.,I see a soldier.,,jazz-units:items.lua:VoiceResponse
 890000000006350,Я готов к схватке.,I'm ready for a fight.,,jazz-units:items.lua:VoiceResponse
@@ -9030,7 +9030,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006369,Я это заслужил.,I earned this.,,jazz-units:items.lua:VoiceResponse
 890000000006370,Этот Злобный... Он издевается над языком наших отцов. Я не могу выносить это словесное убийство.,That Malice... He butchers the language of our forefathers. I cannot stand this verbal murder.,,jazz-units:items.lua:VoiceResponse
 890000000006371,"Тоска, ты полна затаенной страсти.","Tosca, you are full of pent-up passion.",,jazz-units:items.lua:VoiceResponse
-890000000006372,Говорит Кирк Стивенсон. Известный по кличке Статик. Раньше я говорил только клич,"This is Kirk Stevenson, better known as Static. I used to go only by my nick—",,jazz-units:items.lua:VoiceResponse
+890000000006372,"Говорит Кирк Стивенсон. Известный по кличке Статик. Раньше я говорил только кличку, и все думали, что у меня плохой видеотелефон.","This is Kirk Stevenson, better known as Static. I used to go only by my nickname, and everyone thought I had a bad video phone.",,jazz-units:items.lua:VoiceResponse
 890000000006373,Лысые здесь.,The baldies are here.,,jazz-units:items.lua:VoiceResponse
 890000000006374,"Они рядом, чувак.","They're close, man.",,jazz-units:items.lua:VoiceResponse
 890000000006375,Шеф-повар Статик к Вашим услугам.,Chef Static at your service.,,jazz-units:items.lua:VoiceResponse
@@ -9040,8 +9040,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006379,"Они рядом, чувак.","They're close, man.",,jazz-units:items.lua:VoiceResponse
 890000000006380,"Чувак, задание готово!","Mission accomplished, man!",,jazz-units:items.lua:VoiceResponse
 890000000006381,"Я это, силу необыкновенную чувствую, чувак. Опыт привалил.","Man, I'm feeling some serious power. Must be all that experience.",,jazz-units:items.lua:VoiceResponse
-890000000006382,Ларри стал какой-то не такой. Совсем не наш чувак. Когда-то он был крутым пацано,Larry's changed. He's not one of us anymore. Used to be a cool guy...,,jazz-units:items.lua:VoiceResponse
-890000000006383,"Ларри свойский чувак. Вот вроде, не думает головой, и вдруг, раз, и у него получ","Larry's a cool guy. Looks like he never thinks, then—bam!—somehow he pulls it off.",,jazz-units:items.lua:VoiceResponse
+890000000006382,"Ларри стал какой-то не такой. Совсем не наш чувак. Когда-то он был крутым пацаном, а сейчас... Чмо какое-то.","Larry's changed. He's not one of us anymore. Used to be a cool guy, and now... what a loser.",,jazz-units:items.lua:VoiceResponse
+890000000006383,"Ларри свойский чувак. Вот вроде, не думает головой, и вдруг, раз, и у него получается.","Larry's a cool guy. Looks like he never thinks, then—bam!—somehow he pulls it off.",,jazz-units:items.lua:VoiceResponse
 890000000006384,Доктор Клиффорд Хайбол...,Dr. Clifford Hyball...,,jazz-units:items.lua:VoiceResponse
 890000000006385,Вражеские элементы!,Hostile elements!,,jazz-units:items.lua:VoiceResponse
 890000000006386,Добро пожаловать! Я вас давно жду.,Welcome! I've been expecting you.,,jazz-units:items.lua:VoiceResponse
@@ -9088,7 +9088,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006427,Враги показались.,Enemies spotted.,,jazz-units:items.lua:VoiceResponse
 890000000006428,Я жду приказа.,Awaiting orders.,,jazz-units:items.lua:VoiceResponse
 890000000006429,Я стал умнее.,I got smarter.,,jazz-units:items.lua:VoiceResponse
-890000000006430,"Я не доверяю Игги. Он был враг, стал друг. Что он будет завтра?  Нельзя быть уве","I don't trust Iggy. He was enemy, became friend. What will he be tomorrow? Cannot be sur—",,jazz-units:items.lua:VoiceResponse
+890000000006430,"Я не доверяю Игги. Он был враг, стал друг. Что он будет завтра? Нельзя быть уверенным.","I don't trust Iggy. He was an enemy, became a friend. What will he be tomorrow? You can never be sure.",,jazz-units:items.lua:VoiceResponse
 890000000006431,Я уважаю Мигеля. Он самый лучший.,I respect Miguel. He's the best.,,jazz-units:items.lua:VoiceResponse
 890000000006432,"О'кей, я готов.","Okay, I'm ready.",,jazz-units:items.lua:VoiceResponse
 890000000006433,У нас неприятности.,We've got trouble.,,jazz-units:items.lua:VoiceResponse
@@ -9112,7 +9112,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006451,Сейчас я их замочу.,I'll waste them.,,jazz-units:items.lua:VoiceResponse
 890000000006452,Задание выполнено. Что будем делать?,Mission accomplished. What's next?,,jazz-units:items.lua:VoiceResponse
 890000000006453,Без труда ни хрена из пруда не выловишь...,You don't get jack without putting in the work...,,jazz-units:items.lua:VoiceResponse
-890000000006454,С этой Фло таким как я невозможно работать. Она не идет мне на встречу. Я готов,I can't work with Flo. She won't meet me halfway. I'm done.,,jazz-units:items.lua:VoiceResponse
+890000000006454,С этой Фло таким как я невозможно работать. Она не идет мне на встречу. Я готов ее просто пристрелить.,I can't work with Flo. She won't meet me halfway. I'm ready to just shoot her.,,jazz-units:items.lua:VoiceResponse
 890000000006455,Маг! Так держать!,Magic! Keep it up!,,jazz-units:items.lua:VoiceResponse
 890000000006456,Моя работать.,Me work.,,jazz-units:items.lua:VoiceResponse
 890000000006457,Нехороший человек!,Bad man!,,jazz-units:items.lua:VoiceResponse
@@ -9148,7 +9148,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006487,Черт... Я только было успокоился.,Damn... I'd only just calmed down.,,jazz-units:items.lua:VoiceResponse
 890000000006488,Еще одно выполненное задание.,Another job done.,,jazz-units:items.lua:VoiceResponse
 890000000006489,Теперь я им покажу.,Now I'll show them.,,jazz-units:items.lua:VoiceResponse
-890000000006490,"Нечего меня за нос водить. Ларри взялся за старое. Наркоман, а мне с ним работат",Don't jerk me around. Larry's using again. A junkie—and I'm supposed to work with him?,,jazz-units:items.lua:VoiceResponse
+890000000006490,"Нечего меня за нос водить. Ларри взялся за старое. Наркоман, а мне с ним работать?",Don't jerk me around. Larry's using again. A junkie—and I'm supposed to work with him?,,jazz-units:items.lua:VoiceResponse
 890000000006491,"Вот это да, Ларри! Я же говорил, что у тебя получится.","Way to go, Larry! Told you you could do it.",,jazz-units:items.lua:VoiceResponse
 890000000006492,Я проснулся и готов работать с максимальной отдачей.,I'm awake and ready to give it my all.,,jazz-units:items.lua:VoiceResponse
 890000000006493,Обнаружен враг.,Enemy detected.,,jazz-units:items.lua:VoiceResponse
@@ -9178,7 +9178,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006517,Солдаты.,Soldiers.,,jazz-units:items.lua:VoiceResponse
 890000000006518,"Я знал, что они близко.",I knew they were close.,,jazz-units:items.lua:VoiceResponse
 890000000006519,Пока!,Bye!,,jazz-units:items.lua:VoiceResponse
-890000000006520,"Плохи мои дела... Не думаю, что теперь сумогу отомстить. Передайте моей  жене: м",I'm in bad shape... I don't think I'll get my revenge now. Tell my wife: I...,,jazz-units:items.lua:VoiceResponse
+890000000006520,"Плохи мои дела... Не думаю, что теперь смогу отомстить. Передайте моей жене: мне жаль, что так вышло с нашим сыном. Умоляю, чтобы она меня простила.",I'm in bad shape... I don't think I'll get my revenge now. Tell my wife: I'm sorry about what happened to our son. I beg her to forgive me.,,jazz-units:items.lua:VoiceResponse
 890000000006521,Во снах со мной и хуже вещи делали.,They've done worse things to me in my dreams.,,jazz-units:items.lua:VoiceResponse
 890000000006522,У меня больше патронов не осталось.,I have no ammunition left.,,jazz-units:items.lua:VoiceResponse
 890000000006523,"Я знал, что они близко.",I knew they were close.,,jazz-units:items.lua:VoiceResponse
@@ -9214,19 +9214,19 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006553,Покойник.,Dead man.,,jazz-units:items.lua:VoiceResponse
 890000000006554,Пора убивать!,Time to kill!,,jazz-units:items.lua:VoiceResponse
 890000000006555,Расчистили!,Clear!,,jazz-units:items.lua:VoiceResponse
-890000000006556,"Оуууу... Ох, господи, мне так последний раз было, когда я попробовал  починить п","Ohhh... Oh, God, the last time I felt like this was when I tried to fix a p—",,jazz-units:items.lua:VoiceResponse
-890000000006557,"Я в порядке, потому что, типа, удары по голове до меня не доходят. В  смысле, до","I'm fine, 'cause, like, blows to the head don't get through to me. I mean, through...",,jazz-units:items.lua:VoiceResponse
+890000000006556,"Оуууу... Ох, господи, мне так последний раз было, когда я попробовал починить папашин шредер, знаешь.","Ohhh... Oh, God, the last time I felt like this was when I tried to fix dad's shredder, you know.",,jazz-units:items.lua:VoiceResponse
+890000000006557,"Я в порядке, потому что, типа, удары по голове до меня не доходят. В смысле, до вреда не доводят.","I'm fine, 'cause, like, blows to the head don't get through to me. I mean, they don't do any real harm.",,jazz-units:items.lua:VoiceResponse
 890000000006558,"Сдается, у меня винтовка пустая.",Looks like my rifle is empty.,,jazz-units:items.lua:VoiceResponse
 890000000006559,Пора убивать!,Time to kill!,,jazz-units:items.lua:VoiceResponse
 890000000006560,Закончил.,Finished.,,jazz-units:items.lua:VoiceResponse
 890000000006561,Я стараюсь!,I'm trying!,,jazz-units:items.lua:VoiceResponse
-890000000006562,"Если я раз поймаю этого комуняку Ивана - не в форме, я хочу сказать, - он у мен","If I ever catch that commie Ivan—out of uniform, I mean—I'll...",,jazz-units:items.lua:VoiceResponse
+890000000006562,"Если я раз поймаю этого комуняку Ивана - не в форме, я хочу сказать, - он у меня весь будет красный с синим, русский, твою мать!","If I ever catch that commie Ivan—out of uniform, I mean—he'll be red and blue all over, you Russian bastard!",,jazz-units:items.lua:VoiceResponse
 890000000006563,"Вики такая девка, знаешь? В смысле... и с тормозами она классно  справляется.","Vicki's quite a girl, you know? I mean... she's pretty good with brakes, too.",,jazz-units:items.lua:VoiceResponse
 890000000006564,"Как раз то, что мне нужно! Приступаю с того места, где закончил.",Just what I need! Picking up where I left off.,,jazz-units:items.lua:VoiceResponse
 890000000006565,Опять плохие новости!,Bad news again!,,jazz-units:items.lua:VoiceResponse
 890000000006566,Они здеееесь!,They're heeeere!,,jazz-units:items.lua:VoiceResponse
 890000000006567,"Лучше ты, чем я.",Better you than me.,,jazz-units:items.lua:VoiceResponse
-890000000006568,"Похоже, я умираю... Я вижу яркий свет... о, боже, скажи мне, что это просто спец","Looks like I'm dying... I see a bright light... Oh God, tell me it's just special effects.",,jazz-units:items.lua:VoiceResponse
+890000000006568,"Похоже, я умираю... Я вижу яркий свет... о, боже, скажи мне, что это просто спецэффекты.","Looks like I'm dying... I see a bright light... Oh God, tell me it's just special effects.",,jazz-units:items.lua:VoiceResponse
 890000000006569,"Ну прямо как в начальной школе, опять поехали.",Just like grade school. Here we go again.,,jazz-units:items.lua:VoiceResponse
 890000000006570,Магазин пустой. Нет патронов.,Magazine's empty. No ammo.,,jazz-units:items.lua:VoiceResponse
 890000000006571,Они здеееесь!,They're heeeere!,,jazz-units:items.lua:VoiceResponse
@@ -9256,7 +9256,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006595,Пора браться за работу.,Time to get to work.,,jazz-units:items.lua:VoiceResponse
 890000000006596,Готово.,Done.,,jazz-units:items.lua:VoiceResponse
 890000000006597,"Я думал, лучше пойдет.",I thought that would go better.,,jazz-units:items.lua:VoiceResponse
-890000000006598,"Эй, слушай и запоминай. Сдоба - пижонка, каких свет не видывал, и я не обещаю, ч","Listen and remember. Buns is the biggest poser I've ever seen, and I don't promise th—",,jazz-units:items.lua:VoiceResponse
+890000000006598,"Эй, слушай и запоминай. Сдоба - пижонка, каких свет не видывал, и я не обещаю, что сумею удержать свою винтовку, пока она так лачивается. Нервишки не в порядке, понимаешь?","Listen and remember. Buns is the biggest poser I've ever seen, and I don't promise I can keep my rifle off her while she's posing like that. Nerves aren't good, you know?",,jazz-units:items.lua:VoiceResponse
 890000000006599,Ред - он такой!,That's Red for you!,,jazz-units:items.lua:VoiceResponse
 890000000006600,К выполнению задания готов.,Ready for duty.,,jazz-units:items.lua:VoiceResponse
 890000000006601,Вижу подонков!,I see the bastards!,,jazz-units:items.lua:VoiceResponse
@@ -9286,7 +9286,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006625,Бенни,Benny,,jazz-units:items.lua:VoiceResponse
 890000000006626,БЕННИ,BENNY,,jazz-units:items.lua:VoiceResponse
 890000000006627,work in progress,work in progress,,jazz-units:items.lua:VoiceResponse
-890000000006628,Взломщица с Халифа,Burglar from Khalifa,,jazz-units:items.lua:VoiceResponse
+890000000006628,Взломщица с Халифа,Burglar from Khalif,,jazz-units:items.lua:VoiceResponse
 890000000006629,Benny@khalif.sj,Benny@khalif.sj,,jazz-units:items.lua:VoiceResponse
 890000000006630,benny,benny,,jazz-units:items.lua:VoiceResponse
 890000000006631,Бенни на линии позже.,Benny will be back on the line later.,,jazz-units:items.lua:VoiceResponse
@@ -9296,14 +9296,14 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006635,Идём.,Let's go.,,jazz-units:items.lua:VoiceResponse
 890000000006636,Контракт заканчивается?,The contract's ending?,,jazz-units:items.lua:VoiceResponse
 890000000006637,Остаюсь.,I'm staying.,,jazz-units:items.lua:VoiceResponse
-890000000006650,[WIP] Саймон Гарандье,Simon Garandier,,jazz-units:items.lua:VoiceResponse
+890000000006650,Саймон Грандье,Simon Grandier,,jazz-units:items.lua:VoiceResponse
 890000000006651,Саймон,Simon,,jazz-units:items.lua:VoiceResponse
 890000000006652,САЙМОН,SIMON,,jazz-units:items.lua:VoiceResponse
 890000000006653,work in progress,work in progress,,jazz-units:items.lua:VoiceResponse
 890000000006654,Снайпер с Халифа,Sniper from Khalif,,jazz-units:items.lua:VoiceResponse
 890000000006655,Simon@khalif.sj,Simon@khalif.sj,,jazz-units:items.lua:VoiceResponse
 890000000006656,simon,simon,,jazz-units:items.lua:VoiceResponse
-890000000006657,Гарандье недоступен.,Garandier is unavailable.,,jazz-units:items.lua:VoiceResponse
+890000000006657,Грандье недоступен.,Grandier is unavailable.,,jazz-units:items.lua:VoiceResponse
 890000000006658,Саймон Грандье. Слушаю.,Simon Grandier speaking. I'm listening.,,jazz-units:items.lua:VoiceResponse
 890000000006659,Связь прервалась.,We got cut off.,,jazz-units:items.lua:VoiceResponse
 890000000006660,Жду.,Waiting.,,jazz-units:items.lua:VoiceResponse
@@ -9361,14 +9361,14 @@ Don't sleep on specialists: medics, instructors, and snipers do not stay Availab
 — A.M.E. Exchange desk",,JAZZ-UI-AME-001
 890000000006920,R.I.S.,R.I.S.,,JAZZ-UI-RIS-001
 890000000006921,R.I.S. <desk@ris-intel.net>,R.I.S. <desk@ris-intel.net>,,JAZZ-UI-RIS-001
-890000000006922,R.I.S. — free field intelligence for your team,R.I.S. — free field intelligence for your team,,JAZZ-UI-RIS-001-B
-890000000006923,"Commander,
+890000000006922,R.I.S. — бесплатная полевая разведка для вашего отряда,R.I.S. — free field intelligence for your team,,JAZZ-UI-RIS-001-B
+890000000006923,"Командир,
 
-R.I.S. has opened a free field-intelligence channel for your team for the duration of this campaign. When Legion weapons or equipment change, we will send an assessment to your inbox. As we confirm more information, dossiers and after-action reports will appear on the R.I.S. site in your PDA.
+R.I.S. открыла для вашего отряда бесплатный канал полевой разведки на время этой кампании. Если Легион сменит оружие или снаряжение, оценка придёт вам на почту. По мере подтверждения данных на сайте R.I.S. в КПК будут появляться досье и сводки после боёв.
 
-Read this message to open the R.I.S. tab.
+Прочитайте это письмо, чтобы открыть вкладку R.I.S.
 
-— Recon Intelligence Services","Commander,
+— Разведывательно-информационная служба R.I.S.","Commander,
 
 R.I.S. has opened a free field-intelligence channel for your team for the duration of this campaign. When Legion weapons or equipment change, we will send an assessment to your inbox. As we confirm more information, dossiers and after-action reports will appear on the R.I.S. site in your PDA.
 
@@ -12443,103 +12443,103 @@ Read this message to open the R.I.S. tab.
 890000000010278,"Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns.","Disoriented by blast: <color EmStyle>−<APLoss> AP</color>, <color EmStyle>−<cth_penalty>% chance to hit</color>, move cost <color EmStyle>+<move_ap_modifier>%</color>, no Free Move. Lasts about 1–2 turns.",,jazz:CharacterEffect/Concussion.lua
 890000000010279,<color EmStyle><DisplayName></color> is concussed,<color EmStyle><DisplayName></color> is concussed,,jazz:CharacterEffect/Concussion.lua
 890000000010280,<color EmStyle><DisplayName></color> clears concussion,<color EmStyle><DisplayName></color> clears concussion,,jazz:CharacterEffect/Concussion.lua
-890000000011000,Recon Intelligence Services,Recon Intelligence Services,,JAZZ-UI-RIS-001-B
-890000000011001,Field bulletin,Field bulletin,,JAZZ-UI-RIS-001-B
-890000000011002,Dossiers,Dossiers,,JAZZ-UI-RIS-001-B
-890000000011003,After-action reports,After-action reports,,JAZZ-UI-RIS-001-B
-890000000011004,"No supply assessment yet. Once R.I.S. sends one, it will appear here.","No supply assessment yet. Once R.I.S. sends one, it will appear here.",,JAZZ-UI-RIS-001-B
-890000000011005,No Legion units identified yet. We will add them as contact reports come in.,No Legion units identified yet. We will add them as contact reports come in.,,JAZZ-UI-RIS-001-B
-890000000011006,No after-action reports yet. Finish a battle and R.I.S. will add a summary here.,No after-action reports yet. Finish a battle and R.I.S. will add a summary here.,,JAZZ-UI-RIS-001-B
-890000000011007,Confirmed kills: <count>/3,Confirmed kills: <count>/3,,JAZZ-UI-RIS-001-B
-890000000011008,(classified — requires 3 confirmed kills),(classified — requires 3 confirmed kills),,JAZZ-UI-RIS-001-B
-890000000011009,Key figures,Key figures,,JAZZ-UI-RIS-001-B
-890000000011010,Legion units,Legion units,,JAZZ-UI-RIS-001-B
-890000000011011,Latest supply assessment,Latest supply assessment,,JAZZ-UI-RIS-001-B
-890000000011012,R.I.S. mail archive,R.I.S. mail archive,,JAZZ-UI-RIS-001-B
-890000000011013,Recruit,Recruit,,JAZZ-UI-RIS-001-B
-890000000011014,"Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are handed, but lack the training and staying power of regular troops. Keep them at range and break up the group before they crowd a doorway or surround a lone merc.","Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are handed, but lack the training and staying power of regular troops. Keep them at range and break up the group before they crowd a doorway or surround a lone merc.",,JAZZ-UI-RIS-001-B
-890000000011015,Crusher,Crusher,,JAZZ-UI-RIS-001-B
-890000000011016,"The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the shotgun takes over.","The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the shotgun takes over.",,JAZZ-UI-RIS-001-B
-890000000011017,Grenadier,Grenadier,,JAZZ-UI-RIS-001-B
-890000000011018,"New Grenadiers receive a short course in assault explosives before the Legion sends them forward. They carry several grenades beside a pistol or submachine gun, and some add a bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before they settle behind a corner.","New Grenadiers receive a short course in assault explosives before the Legion sends them forward. They carry several grenades beside a pistol or submachine gun, and some add a bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before they settle behind a corner.",,JAZZ-UI-RIS-001-B
-890000000011019,Roughneck,Roughneck,,JAZZ-UI-RIS-001-B
-890000000011020,"Roughnecks receive little formal training; the Legion expects speed and aggression to make up the difference. They fire pistols or automatic weapons on the move and often carry a knife for the last few steps. Make them cross open ground under overlapping fire, and do not let them turn a cramped room into a brawl.","Roughnecks receive little formal training; the Legion expects speed and aggression to make up the difference. They fire pistols or automatic weapons on the move and often carry a knife for the last few steps. Make them cross open ground under overlapping fire, and do not let them turn a cramped room into a brawl.",,JAZZ-UI-RIS-001-B
-890000000011021,Pillager,Pillager,,JAZZ-UI-RIS-001-B
-890000000011022,"The Legion forms Pillager teams from raiders who survived their first street fights and learned to keep moving. Light armor keeps them quick as they press close with an automatic weapon and, more often than not, a knife. Hold a long line of fire and do not chase them around a blind corner.","The Legion forms Pillager teams from raiders who survived their first street fights and learned to keep moving. Light armor keeps them quick as they press close with an automatic weapon and, more often than not, a knife. Hold a long line of fire and do not chase them around a blind corner.",,JAZZ-UI-RIS-001-B
-890000000011023,Pyro,Pyro,,JAZZ-UI-RIS-001-B
-890000000011024,"Pyros are assault troops singled out for incendiary work rather than careful demolition. They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they get within throwing distance.","Pyros are assault troops singled out for incendiary work rather than careful demolition. They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they get within throwing distance.",,JAZZ-UI-RIS-001-B
-890000000011025,Shock Trooper,Shock Trooper,,JAZZ-UI-RIS-001-B
-890000000011026,"Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one wall—pin them in the open before a grenade clears their route.","Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one wall—pin them in the open before a grenade clears their route.",,JAZZ-UI-RIS-001-B
-890000000011027,Punisher,Punisher,,JAZZ-UI-RIS-001-B
-890000000011028,"Punishers are drawn from assault veterans and trained to keep an attack moving after the first breach. Heavy armor, automatic rifles, and a full load of grenades let them press forward even when the defense holds. Engage from more than one angle, keep a second position ready, and finish one before switching targets.","Punishers are drawn from assault veterans and trained to keep an attack moving after the first breach. Heavy armor, automatic rifles, and a full load of grenades let them press forward even when the defense holds. Engage from more than one angle, keep a second position ready, and finish one before switching targets.",,JAZZ-UI-RIS-001-B
-890000000011029,Skull Crusher,Skull Crusher,,JAZZ-UI-RIS-001-B
-890000000011030,"Skull Crushers are veteran brawlers trained to force a close fight through smoke and confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them also have a machete and some bring smoke or firebombs. Keep a clear way out of tight interiors and wear them down before they can rush.","Skull Crushers are veteran brawlers trained to force a close fight through smoke and confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them also have a machete and some bring smoke or firebombs. Keep a clear way out of tight interiors and wear them down before they can rush.",,JAZZ-UI-RIS-001-B
-890000000011031,Headsman,Headsman,,JAZZ-UI-RIS-001-B
-890000000011032,"Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them cross ground quickly and keep attacking at close range. Make them the first target, cover more than one approach, and never leave a lone merc on their flank.","Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them cross ground quickly and keep attacking at close range. Make them the first target, cover more than one approach, and never leave a lone merc on their flank.",,JAZZ-UI-RIS-001-B
-890000000011033,Warden,Warden,,JAZZ-UI-RIS-001-B
-890000000011034,"Wardens are ordinary riflemen given basic scouting instruction and posted away from the main line. Their light gear helps them reach a side position, where they hold cover and punish movement with steady rifle fire. Check both flanks before advancing, and use smoke or a second angle to dislodge them.","Wardens are ordinary riflemen given basic scouting instruction and posted away from the main line. Their light gear helps them reach a side position, where they hold cover and punish movement with steady rifle fire. Check both flanks before advancing, and use smoke or a second angle to dislodge them.",,JAZZ-UI-RIS-001-B
-890000000011035,Scout,Scout,,JAZZ-UI-RIS-001-B
-890000000011036,"Scouts are survivors of Warden patrols who have learned to move quietly and choose their approach. They slip around the line with automatic weapons, and may use a knife or smoke once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a Scout into ground you have not cleared.","Scouts are survivors of Warden patrols who have learned to move quietly and choose their approach. They slip around the line with automatic weapons, and may use a knife or smoke once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a Scout into ground you have not cleared.",,JAZZ-UI-RIS-001-B
-890000000011037,Skirmisher,Skirmisher,,JAZZ-UI-RIS-001-B
-890000000011038,"Skirmishers are picked for marksmanship and trained to fight away from the main line. They carry light armor and battle rifles, shifting between flanking positions to fire on exposed targets. Do not follow them across open ground; move under cover or smoke and pin their position before advancing.","Skirmishers are picked for marksmanship and trained to fight away from the main line. They carry light armor and battle rifles, shifting between flanking positions to fire on exposed targets. Do not follow them across open ground; move under cover or smoke and pin their position before advancing.",,JAZZ-UI-RIS-001-B
-890000000011039,Pathfinder,Pathfinder,,JAZZ-UI-RIS-001-B
-890000000011040,"Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their light gear lets them reach a flank with a carbine or submachine gun, and many also carry smoke or a knife. Sweep nearby cover before moving the main group, then block their escape instead of trading shots from one position.","Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their light gear lets them reach a flank with a carbine or submachine gun, and many also carry smoke or a knife. Sweep nearby cover before moving the main group, then block their escape instead of trading shots from one position.",,JAZZ-UI-RIS-001-B
-890000000011041,Recon,Recon,,JAZZ-UI-RIS-001-B
-890000000011042,"Recon troops are veteran scouts trained for quiet approaches and night fighting. They use light gear and compact automatic weapons to close from an unseen angle, sometimes covering the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish them as soon as they reveal themselves.","Recon troops are veteran scouts trained for quiet approaches and night fighting. They use light gear and compact automatic weapons to close from an unseen angle, sometimes covering the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish them as soon as they reveal themselves.",,JAZZ-UI-RIS-001-B
-890000000011043,Ranger,Ranger,,JAZZ-UI-RIS-001-B
-890000000011044,"Rangers are elite scouts selected from the Legion's best flankers and given its finest field training. They move quickly and quietly with upgraded carbines or submachine guns, striking from the side before slipping away. Treat a Ranger as a priority target, overlap your fields of fire, and never leave one merc isolated.","Rangers are elite scouts selected from the Legion's best flankers and given its finest field training. They move quickly and quietly with upgraded carbines or submachine guns, striking from the side before slipping away. Treat a Ranger as a priority target, overlap your fields of fire, and never leave one merc isolated.",,JAZZ-UI-RIS-001-B
-890000000011045,Bonemaker,Bonemaker,,JAZZ-UI-RIS-001-B
-890000000011046,"A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. The Major chooses people who stay calm around blood, gives them a compact firearm, and hurries them through battlefield medicine. They break off to stop bleeding or treat other wounds. Remove the medic before pressing forward, or fighters you have already hurt will stay in the battle far longer than expected.","A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. The Major chooses people who stay calm around blood, gives them a compact firearm, and hurries them through battlefield medicine. They break off to stop bleeding or treat other wounds. Remove the medic before pressing forward, or fighters you have already hurt will stay in the battle far longer than expected.",,JAZZ-UI-RIS-001-B
-890000000011047,Marauder,Marauder,,JAZZ-UI-RIS-001-B
-890000000011048,"Looters and local toughs fill the Marauder ranks. They start with pistols and submachine guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the line and rake exposed ground with fire, but pressure can pin them down before they accomplish much. Their short-range weapons punish careless movement, so return fire quickly, keep your distance, and force them to keep their heads down.","Looters and local toughs fill the Marauder ranks. They start with pistols and submachine guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the line and rake exposed ground with fire, but pressure can pin them down before they accomplish much. Their short-range weapons punish careless movement, so return fire quickly, keep your distance, and force them to keep their heads down.",,JAZZ-UI-RIS-001-B
-890000000011049,Rifleman,Rifleman,,JAZZ-UI-RIS-001-B
-890000000011050,"Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, doorways, and village approaches. From cover, they use their rifles to watch the ground ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block his view with smoke or approach from a direction his firing position does not cover.","Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, doorways, and village approaches. From cover, they use their rifles to watch the ground ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block his view with smoke or approach from a direction his firing position does not cover.",,JAZZ-UI-RIS-001-B
-890000000011051,Ambusher,Ambusher,,JAZZ-UI-RIS-001-B
-890000000011052,"Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not walk into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.","Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not walk into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.",,JAZZ-UI-RIS-001-B
-890000000011053,Marksman,Marksman,,JAZZ-UI-RIS-001-B
-890000000011054,"The best shots in regular squads are given accurate rifles and taught to wait for a clean shot. They work behind the front, hold useful ground, and let the enemy come to them rather than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing points often and deny them a clear view with smoke.","The best shots in regular squads are given accurate rifles and taught to wait for a clean shot. They work behind the front, hold useful ground, and let the enemy come to them rather than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing points often and deny them a clear view with smoke.",,JAZZ-UI-RIS-001-B
-890000000011055,Raider,Raider,,JAZZ-UI-RIS-001-B
-890000000011056,"Raiders are adaptable front-line fighters drilled with automatic weapons; every one also receives hand grenades. They move with the line, use rapid fire to cover short advances, and throw grenades when defenders settle behind cover. Rapid fire and grenades make them dangerous at close and middle range, so spread out, deny them an easy approach, and press them before they can choose where to throw.","Raiders are adaptable front-line fighters drilled with automatic weapons; every one also receives hand grenades. They move with the line, use rapid fire to cover short advances, and throw grenades when defenders settle behind cover. Rapid fire and grenades make them dangerous at close and middle range, so spread out, deny them an easy approach, and press them before they can choose where to throw.",,JAZZ-UI-RIS-001-B
-890000000011057,Sniper,Sniper,,JAZZ-UI-RIS-001-B
-890000000011058,"Only the Legion's finest riflemen receive sniper training: patience, target selection, and careful use of scoped rifles. They watch open approaches from distance and begin an engagement by pinning one exposed target under accurate fire. Crossing open ground gives them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a direct assault.","Only the Legion's finest riflemen receive sniper training: patience, target selection, and careful use of scoped rifles. They watch open approaches from distance and begin an engagement by pinning one exposed target under accurate fire. Crossing open ground gives them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a direct assault.",,JAZZ-UI-RIS-001-B
-890000000011059,Veteran,Veteran,,JAZZ-UI-RIS-001-B
-890000000011060,"Veterans have survived several campaigns and stayed steady under fire. They advance stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep fighting through punishment that would stop less experienced troops. Their durability and explosives punish a packed formation, so spread out, deny them a clean approach, and concentrate fire before closing in.","Veterans have survived several campaigns and stayed steady under fire. They advance stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep fighting through punishment that would stop less experienced troops. Their durability and explosives punish a packed formation, so spread out, deny them a clean approach, and concentrate fire before closing in.",,JAZZ-UI-RIS-001-B
-890000000011061,Mercenary,Mercenary,,JAZZ-UI-RIS-001-B
-890000000011062,"The Legion hires experienced Mercenaries to hold important positions and sends them out with good weapons. They move with the front and combine accurate rifle fire with grenades; a few also carry a launcher, and all keep fighting under pressure. They are dangerous at several ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one position at a time.","The Legion hires experienced Mercenaries to hold important positions and sends them out with good weapons. They move with the front and combine accurate rifle fire with grenades; a few also carry a launcher, and all keep fighting under pressure. They are dangerous at several ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one position at a time.",,JAZZ-UI-RIS-001-B
-890000000011063,Mercenary Sniper,Mercenary Sniper,,JAZZ-UI-RIS-001-B
-890000000011064,"Mercenary Snipers are proven specialists hired for operations where accurate long-range fire can decide the opening exchange. They begin by pinning an exposed target and use powerful scoped rifles to control open approaches from a distance. Once one is reported, do not expose yourself twice from the same place. Cover movement with smoke and pressure the shooter before committing the squad.","Mercenary Snipers are proven specialists hired for operations where accurate long-range fire can decide the opening exchange. They begin by pinning an exposed target and use powerful scoped rifles to control open approaches from a distance. Once one is reported, do not expose yourself twice from the same place. Cover movement with smoke and pressure the shooter before committing the squad.",,JAZZ-UI-RIS-001-B
-890000000011065,Gunner,Gunner,,JAZZ-UI-RIS-001-B
-890000000011066,"The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up across roads and courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their sights in the open; use smoke, buildings, or a side approach to reach them safely.","The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up across roads and courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their sights in the open; use smoke, buildings, or a side approach to reach them safely.",,JAZZ-UI-RIS-001-B
-890000000011067,Assault Gunner,Assault Gunner,,JAZZ-UI-RIS-001-B
-890000000011068,"Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light machine guns forward instead of guarding one position. They close the distance, set up near the fight, and pin defenders from positions that ordinary gunners would consider too exposed. If they reach useful firing ground the attack becomes hard to stop, so break their approach with explosives or catch them while they are moving.","Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light machine guns forward instead of guarding one position. They close the distance, set up near the fight, and pin defenders from positions that ordinary gunners would consider too exposed. If they reach useful firing ground the attack becomes hard to stop, so break their approach with explosives or catch them while they are moving.",,JAZZ-UI-RIS-001-B
-890000000011069,GPMG,GPMG,,JAZZ-UI-RIS-001-B
-890000000011070,"Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. They settle into prepared positions and use a general-purpose machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.","Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. They settle into prepared positions and use a general-purpose machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.",,JAZZ-UI-RIS-001-B
-890000000011071,Veteran Gunner,Veteran Gunner,,JAZZ-UI-RIS-001-B
-890000000011072,"Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert prepared fire to lock down movement, while tougher defenses let them stay effective under pressure. Their fire can stall an attack, so keep them occupied from one direction and strike quickly from another, or destroy the position with explosives.","Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert prepared fire to lock down movement, while tougher defenses let them stay effective under pressure. Their fire can stall an attack, so keep them occupied from one direction and strike quickly from another, or destroy the position with explosives.",,JAZZ-UI-RIS-001-B
-890000000011073,Merc Gunner,Merc Gunner,,JAZZ-UI-RIS-001-B
-890000000011074,"Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine disciplined bursts, prepared fire, and enough resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone can halt an advance, so deny them a clear field of fire and destroy the gunner before committing anyone across open ground.","Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine disciplined bursts, prepared fire, and enough resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone can halt an advance, so deny them a clear field of fire and destroy the gunner before committing anyone across open ground.",,JAZZ-UI-RIS-001-B
-890000000011075,Rocketeer,Rocketeer,,JAZZ-UI-RIS-001-B
-890000000011076,"Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but the launcher usually leaves them with only one attack before they must recover or reload. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.","Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but the launcher usually leaves them with only one attack before they must recover or reload. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.",,JAZZ-UI-RIS-001-B
-890000000011077,Grenadier,Grenadier,,JAZZ-UI-RIS-001-B
-890000000011078,"Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into rooms, courtyards, and covered approaches, forcing anyone who survives the blast to abandon a comfortable position. Remaining in one place invites another round, so move after each shot and pressure the Grenadier before the launcher is ready again.","Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into rooms, courtyards, and covered approaches, forcing anyone who survives the blast to abandon a comfortable position. Remaining in one place invites another round, so move after each shot and pressure the Grenadier before the launcher is ready again.",,JAZZ-UI-RIS-001-B
-890000000011079,Mortarman,Mortarman,,JAZZ-UI-RIS-001-B
-890000000011080,"Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike positions that direct fire cannot easily reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move immediately and pressure the crew before it fires again. A wall between you and the crew will not keep you safe.","Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike positions that direct fire cannot easily reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move immediately and pressure the crew before it fires again. A wall between you and the crew will not keep you safe.",,JAZZ-UI-RIS-001-B
-890000000011081,Sergeant,Sergeant,,JAZZ-UI-RIS-001-B
-890000000011082,"When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops forward, hold them in place, or focus their fire. Remove the leader early and the rest become much easier to disrupt.","When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops forward, hold them in place, or focus their fire. Remove the leader early and the rest become much easier to disrupt.",,JAZZ-UI-RIS-001-B
-890000000011083,Lieutenant,Lieutenant,,JAZZ-UI-RIS-001-B
-890000000011084,"Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area, sending troops forward, holding them in place, moving them into cover, or focusing their fire as the situation changes. Their presence keeps a local attack coherent, so remove the officer before the Legion can regroup and turn a confused exchange into an organized assault.","Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area, sending troops forward, holding them in place, moving them into cover, or focusing their fire as the situation changes. Their presence keeps a local attack coherent, so remove the officer before the Legion can regroup and turn a confused exchange into an organized assault.",,JAZZ-UI-RIS-001-B
-890000000011085,Captain,Captain,,JAZZ-UI-RIS-001-B
-890000000011086,"Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as conditions change, and support those commands with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, so identify the officer quickly and bring him down before pressing the fight.","Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as conditions change, and support those commands with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, so identify the officer quickly and bring him down before pressing the fight.",,JAZZ-UI-RIS-001-B
-890000000011087,Mercenary Captain,Mercenary Captain,,JAZZ-UI-RIS-001-B
-890000000011088,"Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue orders across the entire force, preserve discipline through casualties, and quickly change plans when the first one fails. Assume nearby units are acting with a common purpose while one survives; bring the Captain down before attacking the rest.","Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue orders across the entire force, preserve discipline through casualties, and quickly change plans when the first one fails. Assume nearby units are acting with a common purpose while one survives; bring the Captain down before attacking the rest.",,JAZZ-UI-RIS-001-B
-890000000011089,Pierre Laurent,Pierre Laurent,,JAZZ-UI-RIS-001-B
-890000000011090,"Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with something to prove. He likes being seen as much as being obeyed, which makes him easier to read than most Legion officers. Don't mistake charm for mercy.","Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with something to prove. He likes being seen as much as being obeyed, which makes him easier to read than most Legion officers. Don't mistake charm for mercy.",,JAZZ-UI-RIS-001-B
-890000000011091,Bastien,Bastien,,JAZZ-UI-RIS-001-B
-890000000011092,"A local fixer with a trader's smile. He knows who controls each road, what passage costs, and whom to pay. A useful contact, but never mistake business for friendship.","A local fixer with a trader's smile. He knows who controls each road, what passage costs, and whom to pay. A useful contact, but never mistake business for friendship.",,JAZZ-UI-RIS-001-B
-890000000011093,The Major,The Major,,JAZZ-UI-RIS-001-B
-890000000011094,"The man behind the Legion built his army with fear, money, and stolen supplies, then spread it across Grand Chien. Every Legion supply report ultimately leads back to him. He is patient, ruthless, and remembers every loss.","The man behind the Legion built his army with fear, money, and stolen supplies, then spread it across Grand Chien. Every Legion supply report ultimately leads back to him. He is patient, ruthless, and remembers every loss.",,JAZZ-UI-RIS-001-B
-890000000011095,Legion (faction),Legion (faction),,JAZZ-UI-RIS-001-B
-890000000011096,"The Major's army survives on stolen supplies, forced recruitment, and officers who treat villages as property. Its troops range from frightened locals to trained specialists. Wherever the Legion appears, the Major's reach is close behind.","The Major's army survives on stolen supplies, forced recruitment, and officers who treat villages as property. Its troops range from frightened locals to trained specialists. Wherever the Legion appears, the Major's reach is close behind.",,JAZZ-UI-RIS-001-B
+890000000011000,Разведывательно-информационная служба R.I.S.,Recon Intelligence Services,,JAZZ-UI-RIS-001-B
+890000000011001,Оперативная сводка,Field bulletin,,JAZZ-UI-RIS-001-B
+890000000011002,Досье,Dossiers,,JAZZ-UI-RIS-001-B
+890000000011003,Сводки после боёв,After-action reports,,JAZZ-UI-RIS-001-B
+890000000011004,"Оценок снабжения пока нет. Когда R.I.S. пришлёт новую, она появится здесь.","No supply assessment yet. Once R.I.S. sends one, it will appear here.",,JAZZ-UI-RIS-001-B
+890000000011005,Мы пока не опознали ни одного бойца Легиона. Данные появятся после первых контактов.,No Legion units identified yet. We will add them as contact reports come in.,,JAZZ-UI-RIS-001-B
+890000000011006,"Сводок после боёв пока нет. Завершите бой, и R.I.S. добавит сюда итог.",No after-action reports yet. Finish a battle and R.I.S. will add a summary here.,,JAZZ-UI-RIS-001-B
+890000000011007,Подтверждённые потери противника: <count>/3,Confirmed kills: <count>/3,,JAZZ-UI-RIS-001-B
+890000000011008,(засекречено — нужно подтвердить 3 устранения),(classified — requires 3 confirmed kills),,JAZZ-UI-RIS-001-B
+890000000011009,Ключевые фигуры,Key figures,,JAZZ-UI-RIS-001-B
+890000000011010,Бойцы Легиона,Legion units,,JAZZ-UI-RIS-001-B
+890000000011011,Последняя оценка снабжения,Latest supply assessment,,JAZZ-UI-RIS-001-B
+890000000011012,Архив писем R.I.S.,R.I.S. mail archive,,JAZZ-UI-RIS-001-B
+890000000011013,Новобранец,Recruit,,JAZZ-UI-RIS-001-B
+890000000011014,"Вербовщики Легиона собирают людей по деревням и отправляют в бой после нескольких дней муштры. Они бросаются вперёд с тем оружием, которое им выдали, но заметно уступают кадровым бойцам в подготовке и стойкости. Держите дистанцию и разбейте их группу, прежде чем они забьют дверной проём или окружат отставшего наёмника.","Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are handed, but lack the training and staying power of regular troops. Keep them at range and break up the group before they crowd a doorway or surround a lone merc.",,JAZZ-UI-RIS-001-B
+890000000011015,Громила,Crusher,,JAZZ-UI-RIS-001-B
+890000000011016,"Громилами в Легионе становятся самые крепкие бойцы; их учат одному — любой ценой сократить дистанцию. Дробовик, добротная броня и недюжинная выносливость делают их особенно опасными в комнатах и узких переулках. Не встречайте Громилу в дверях — отходите на простор и сосредоточьте огонь, пока он не подошёл вплотную.","The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the shotgun takes over.",,JAZZ-UI-RIS-001-B
+890000000011017,Гренадёр,Grenadier,,JAZZ-UI-RIS-001-B
+890000000011018,"Новых Гренадёров наскоро учат обращению со взрывчаткой, после чего Легион сразу бросает их в штурм. Кроме пистолета или пистолета-пулемёта, у них есть несколько гранат, а иногда и бутылка с зажигательной смесью. Не стойте кучно, оставьте себе выход из укрытия и снимайте Гренадёра до того, как он устроится за углом.","New Grenadiers receive a short course in assault explosives before the Legion sends them forward. They carry several grenades beside a pistol or submachine gun, and some add a bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before they settle behind a corner.",,JAZZ-UI-RIS-001-B
+890000000011019,Головорез,Roughneck,,JAZZ-UI-RIS-001-B
+890000000011020,"Головорезов почти не учат: Легион рассчитывает, что нехватку подготовки заменят скорость и напор. Они стреляют из пистолетов или автоматического оружия на ходу, а для последних шагов нередко берут нож. Заставьте их пересекать открытое место под перекрёстным огнём и не позволяйте превратить тесную комнату в драку.","Roughnecks receive little formal training; the Legion expects speed and aggression to make up the difference. They fire pistols or automatic weapons on the move and often carry a knife for the last few steps. Make them cross open ground under overlapping fire, and do not let them turn a cramped room into a brawl.",,JAZZ-UI-RIS-001-B
+890000000011021,Грабитель,Pillager,,JAZZ-UI-RIS-001-B
+890000000011022,"Грабителями становятся налётчики, которые пережили первые уличные бои и научились не останавливаться под огнём. Лёгкая броня не мешает им быстро сближаться с автоматическим оружием и, чаще всего, ножом. Не подпускайте их, держите подходы под огнём и не гонитесь за ними за непросматриваемый угол.","The Legion forms Pillager teams from raiders who survived their first street fights and learned to keep moving. Light armor keeps them quick as they press close with an automatic weapon and, more often than not, a knife. Hold a long line of fire and do not chase them around a blind corner.",,JAZZ-UI-RIS-001-B
+890000000011023,Пироман,Pyro,,JAZZ-UI-RIS-001-B
+890000000011024,"Пироманов отбирают из штурмовых отрядов и отдельно учат обращению с зажигательными смесями. Они носят тяжёлую броню, берут несколько бутылок с огнём и идут следом с пистолетом-пулемётом или короткой винтовкой. Не стойте кучно, избегайте тупиковых укрытий и снимайте их до броска.","Pyros are assault troops singled out for incendiary work rather than careful demolition. They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they get within throwing distance.",,JAZZ-UI-RIS-001-B
+890000000011025,Штурмовик,Shock Trooper,,JAZZ-UI-RIS-001-B
+890000000011026,"Штурмовики — это бойцы ранних штурмовых отрядов, которых переучили не останавливать атаку под ответным огнём. Они начинают штурм с нескольких гранат, а затем сближаются с автоматическим оружием; у некоторых есть дымовые или оглушающие заряды. Не собирайтесь за одной стеной — прижмите их на открытом месте до первого броска.","Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one wall—pin them in the open before a grenade clears their route.",,JAZZ-UI-RIS-001-B
+890000000011027,Каратель,Punisher,,JAZZ-UI-RIS-001-B
+890000000011028,"Карателей набирают из опытных штурмовиков и учат не сбавлять темп после первого пролома. Тяжёлая броня, автоматические винтовки и большой запас гранат позволяют им идти вперёд, даже когда оборона держится. Бейте с разных сторон, заранее готовьте запасную позицию и добивайте одного, прежде чем переносить огонь.","Punishers are drawn from assault veterans and trained to keep an attack moving after the first breach. Heavy armor, automatic rifles, and a full load of grenades let them press forward even when the defense holds. Engage from more than one angle, keep a second position ready, and finish one before switching targets.",,JAZZ-UI-RIS-001-B
+890000000011029,Череполом,Skull Crusher,,JAZZ-UI-RIS-001-B
+890000000011030,"Череполомов набирают из опытных драчунов и учат навязывать ближний бой в дыму и неразберихе. Тяжёлая броня помогает им дойти до дистанции дробовика или пистолета-пулемёта; почти каждый берёт мачете, а некоторые — дым или зажигательную смесь. Оставляйте себе выход из тесных помещений и изматывайте их до рывка.","Skull Crushers are veteran brawlers trained to force a close fight through smoke and confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them also have a machete and some bring smoke or firebombs. Keep a clear way out of tight interiors and wear them down before they can rush.",,JAZZ-UI-RIS-001-B
+890000000011031,Палач,Headsman,,JAZZ-UI-RIS-001-B
+890000000011032,"Палачами становятся лучшие ветераны штурмовых отрядов; их снаряжают как настоящих профессионалов. Тяжёлая броня, улучшенное автоматическое оружие и большой запас гранат позволяют им быстро сближаться и не прерывать атаку. Бейте Палача первым, держите под контролем несколько подходов и не оставляйте одиночного наёмника у него на фланге.","Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them cross ground quickly and keep attacking at close range. Make them the first target, cover more than one approach, and never leave a lone merc on their flank.",,JAZZ-UI-RIS-001-B
+890000000011033,Дозорный,Warden,,JAZZ-UI-RIS-001-B
+890000000011034,"Дозорные — обычные стрелки, которым дали основы разведки и ставят в стороне от основной линии. Лёгкое снаряжение помогает им занять боковую позицию, после чего они держатся за укрытие и ловят движущиеся цели винтовочным огнём. Перед наступлением проверяйте оба фланга. Подходите под прикрытием дыма или заходите с другой стороны.","Wardens are ordinary riflemen given basic scouting instruction and posted away from the main line. Their light gear helps them reach a side position, where they hold cover and punish movement with steady rifle fire. Check both flanks before advancing, and use smoke or a second angle to dislodge them.",,JAZZ-UI-RIS-001-B
+890000000011035,Скаут,Scout,,JAZZ-UI-RIS-001-B
+890000000011036,"Скауты — это выжившие Дозорные, которые научились двигаться тихо и выбирать путь для захода. Они обходят линию с автоматическим оружием, а в тылу могут пустить в ход нож или дым. Прикрывайте фланги парами, следите за скрытыми подходами и не гонитесь за Скаутом туда, где ещё не провели разведку.","Scouts are survivors of Warden patrols who have learned to move quietly and choose their approach. They slip around the line with automatic weapons, and may use a knife or smoke once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a Scout into ground you have not cleared.",,JAZZ-UI-RIS-001-B
+890000000011037,Застрельщик,Skirmisher,,JAZZ-UI-RIS-001-B
+890000000011038,"В Застрельщики отбирают метких бойцов и учат их работать в стороне от главной линии. Они носят лёгкую броню и переходят между боковыми позициями с боевыми винтовками, выискивая открытые цели. Не преследуйте их по открытому месту — двигайтесь под прикрытием или дымовой завесой и сначала прижмите их огнём.","Skirmishers are picked for marksmanship and trained to fight away from the main line. They carry light armor and battle rifles, shifting between flanking positions to fire on exposed targets. Do not follow them across open ground; move under cover or smoke and pin their position before advancing.",,JAZZ-UI-RIS-001-B
+890000000011039,Следопыт,Pathfinder,,JAZZ-UI-RIS-001-B
+890000000011040,"Следопыты — опытные разведчики, которых учат выбирать скрытую линию огня и удерживать её. Лёгкое снаряжение помогает им выйти во фланг с карабином или пистолетом-пулемётом; многие также берут дым или нож. Перед движением основной группы проверьте ближайшие укрытия, а обнаружив Следопыта, перекройте ему отход.","Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their light gear lets them reach a flank with a carbine or submachine gun, and many also carry smoke or a knife. Sweep nearby cover before moving the main group, then block their escape instead of trading shots from one position.",,JAZZ-UI-RIS-001-B
+890000000011041,Разведчик,Recon,,JAZZ-UI-RIS-001-B
+890000000011042,"Разведчики — опытные бойцы, которых учат скрытно подходить к цели и действовать ночью. Лёгкое снаряжение и компактное автоматическое оружие позволяют им сближаться с неожиданной стороны, иногда под прикрытием дыма. Прикрывайте друг друга перекрёстным огнём, освещайте тёмные подходы и добивайте Разведчика, как только он себя выдаст.","Recon troops are veteran scouts trained for quiet approaches and night fighting. They use light gear and compact automatic weapons to close from an unseen angle, sometimes covering the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish them as soon as they reveal themselves.",,JAZZ-UI-RIS-001-B
+890000000011043,Рейнджер,Ranger,,JAZZ-UI-RIS-001-B
+890000000011044,"Рейнджеров отбирают из лучших фланкеров Легиона и готовят как элитных полевых разведчиков. Они быстро и тихо двигаются с улучшенными карабинами или пистолетами-пулемётами, бьют сбоку и снова уходят из-под огня. Считайте Рейнджера приоритетной целью, прикрывайте друг друга перекрёстным огнём и не оставляйте наёмника в одиночку.","Rangers are elite scouts selected from the Legion's best flankers and given its finest field training. They move quickly and quietly with upgraded carbines or submachine guns, striking from the side before slipping away. Treat a Ranger as a priority target, overlap your fields of fire, and never leave one merc isolated.",,JAZZ-UI-RIS-001-B
+890000000011045,Костоправ,Bonemaker,,JAZZ-UI-RIS-001-B
+890000000011046,"Если рекрут покидает строй, чтобы помочь раненому легионеру, перед вами, скорее всего, Костоправ. Майор выбирает для этой роли тех, кто не теряется при виде крови, выдаёт им компактное огнестрельное оружие и наскоро обучает полевой медицине. Они выходят из боя, чтобы остановить кровотечение или обработать другие раны. Уберите медика до начала штурма, иначе уже задетые бойцы останутся в строю гораздо дольше, чем вы рассчитывали.","A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. The Major chooses people who stay calm around blood, gives them a compact firearm, and hurries them through battlefield medicine. They break off to stop bleeding or treat other wounds. Remove the medic before pressing forward, or fighters you have already hurt will stay in the battle far longer than expected.",,JAZZ-UI-RIS-001-B
+890000000011047,Мародёр,Marauder,,JAZZ-UI-RIS-001-B
+890000000011048,"Мародёров набирают из грабителей и местных громил. Сначала им выдают пистолеты и пистолеты-пулемёты; штурмовые винтовки появляются, когда снабжение Легиона налаживается. Они закрывают бреши в передовой и держат открытые участки под огнём, но плотный ответ быстро прижимает их к земле. Их оружие опаснее всего вблизи, поэтому отвечайте сразу, держите дистанцию и не давайте им поднять голову.","Looters and local toughs fill the Marauder ranks. They start with pistols and submachine guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the line and rake exposed ground with fire, but pressure can pin them down before they accomplish much. Their short-range weapons punish careless movement, so return fire quickly, keep your distance, and force them to keep their heads down.",,JAZZ-UI-RIS-001-B
+890000000011049,Стрелок,Rifleman,,JAZZ-UI-RIS-001-B
+890000000011050,"Большинство Стрелков — призывники с несколькими уроками меткой стрельбы за плечами; их ставят охранять дороги, двери и подступы к деревням. Из укрытия они следят за подступами и ждут удобного выстрела. Терпеливый Стрелок накажет за неосторожное движение, поэтому закройте ему обзор дымом или подойдите со стороны, которую не перекрывает его позиция.","Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, doorways, and village approaches. From cover, they use their rifles to watch the ground ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block his view with smoke or approach from a direction his firing position does not cover.",,JAZZ-UI-RIS-001-B
+890000000011051,Засадник,Ambusher,,JAZZ-UI-RIS-001-B
+890000000011052,"Засадники — терпеливые стрелки, обученные заранее готовить скрытые позиции на вероятных путях противника. С подготовленной позиции они ждут открытой цели и отвечают точным винтовочным огнём на первое неосторожное движение. Не входите вслепую туда, что выбрали они: разведайте подход, поставьте дым и вынудите Засадников раскрыться раньше срока.","Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not walk into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.",,JAZZ-UI-RIS-001-B
+890000000011053,Охотник,Marksman,,JAZZ-UI-RIS-001-B
+890000000011054,"Лучшим стрелкам обычных отделений выдают точные винтовки и приучают ждать удобного выстрела. Они держатся позади передовой, занимают выгодные позиции и позволяют противнику самому выйти под выстрел. Их меткость превращает повторный выход из укрытия в смертельную ошибку, поэтому чаще меняйте огневые точки и закрывайте обзор дымом.","The best shots in regular squads are given accurate rifles and taught to wait for a clean shot. They work behind the front, hold useful ground, and let the enemy come to them rather than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing points often and deny them a clear view with smoke.",,JAZZ-UI-RIS-001-B
+890000000011055,Налётчик,Raider,,JAZZ-UI-RIS-001-B
+890000000011056,"Налётчики — подвижные бойцы передовой, обученные обращаться с автоматическим оружием; каждому также выдают ручные гранаты. Они движутся вместе с передовой, прикрывают короткие рывки быстрым огнём и бросают гранаты, когда защитники прочно засели в укрытии. Быстрый огонь и гранаты делают их опасными на ближней и средней дистанции, поэтому рассредоточьтесь, перекройте подход и надавите до первого броска.","Raiders are adaptable front-line fighters drilled with automatic weapons; every one also receives hand grenades. They move with the line, use rapid fire to cover short advances, and throw grenades when defenders settle behind cover. Rapid fire and grenades make them dangerous at close and middle range, so spread out, deny them an easy approach, and press them before they can choose where to throw.",,JAZZ-UI-RIS-001-B
+890000000011057,Снайпер,Sniper,,JAZZ-UI-RIS-001-B
+890000000011058,"Снайперскую подготовку получают только лучшие стрелки Легиона: их учат терпеливо выбирать цель и правильно обращаться с винтовками с оптикой. Они наблюдают за открытыми подступами издалека и начинают бой, прижимая точным огнём одну неосторожно открывшуюся цель. На открытом месте вы сами подставляетесь под удобный выстрел, поэтому прикрывайте движение дымом и найдите Снайпера до начала прямого штурма.","Only the Legion's finest riflemen receive sniper training: patience, target selection, and careful use of scoped rifles. They watch open approaches from distance and begin an engagement by pinning one exposed target under accurate fire. Crossing open ground gives them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a direct assault.",,JAZZ-UI-RIS-001-B
+890000000011059,Ветеран,Veteran,,JAZZ-UI-RIS-001-B
+890000000011060,"Ветераны пережили несколько кампаний и не растерялись под огнём. Они упрямо наступают с автоматическим оружием и гранатами; некоторые также несут гранатомёт, и все выдерживают давление, которое остановило бы менее опытных бойцов. Их стойкость и взрывчатка опасны для плотного строя, поэтому рассредоточьтесь, не давайте им удобно сблизиться и сосредоточьте огонь до решающего рывка.","Veterans have survived several campaigns and stayed steady under fire. They advance stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep fighting through punishment that would stop less experienced troops. Their durability and explosives punish a packed formation, so spread out, deny them a clean approach, and concentrate fire before closing in.",,JAZZ-UI-RIS-001-B
+890000000011061,Наёмник,Mercenary,,JAZZ-UI-RIS-001-B
+890000000011062,"На важные позиции Легион нанимает опытных Наёмников и выдаёт им неизменно хорошее оружие. Они движутся вместе с передовой и сочетают точный винтовочный огонь с гранатами; некоторые также несут гранатомёт, и все продолжают эффективно сражаться под давлением. Они опасны на разных дистанциях, поэтому не давайте им честного боя: рассеивайте внимание, закрывайте обзор и подавляйте по одной позиции.","The Legion hires experienced Mercenaries to hold important positions and sends them out with good weapons. They move with the front and combine accurate rifle fire with grenades; a few also carry a launcher, and all keep fighting under pressure. They are dangerous at several ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one position at a time.",,JAZZ-UI-RIS-001-B
+890000000011063,Наёмник-снайпер,Mercenary Sniper,,JAZZ-UI-RIS-001-B
+890000000011064,"Наёмники-снайперы — готовые специалисты, которых нанимают для операций, где точный дальний огонь может решить исход первой перестрелки. Они начинают бой, прижимая открывшуюся цель, и держат открытые подступы под огнём мощных винтовок с оптикой. Заметив такого стрелка, не показывайтесь дважды в одном месте, прикройте движение дымом и надавите на него до общего наступления.","Mercenary Snipers are proven specialists hired for operations where accurate long-range fire can decide the opening exchange. They begin by pinning an exposed target and use powerful scoped rifles to control open approaches from a distance. Once one is reported, do not expose yourself twice from the same place. Cover movement with smoke and pressure the shooter before committing the squad.",,JAZZ-UI-RIS-001-B
+890000000011065,Пуляло,Gunner,,JAZZ-UI-RIS-001-B
+890000000011066,"Самым крепким новобранцам Легион выдаёт старые пулемёты и наспех учит с ними обращаться. Они разворачиваются у дорог и дворов и прижимают к земле всех, кто не успел укрыться, но остаются уязвимыми на ходу. Не входите в их сектор огня через открытое место: используйте дым, здания или обходной путь.","The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up across roads and courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their sights in the open; use smoke, buildings, or a side approach to reach them safely.",,JAZZ-UI-RIS-001-B
+890000000011067,Коммандо,Assault Gunner,,JAZZ-UI-RIS-001-B
+890000000011068,"Выживших пулемётчиков переводят в Коммандо и учат продвигать лёгкий пулемёт вперёд вместо охраны одной позиции. Они сближаются, разворачивают оружие рядом с местом боя и прижимают защитников с позиций, которые обычный пулемётчик счёл бы слишком открытыми. Обычно у них есть мачете для последних шагов и зажигательная смесь, чтобы выкурить укрытие. Если они доберутся до удобного места, атаку будет трудно остановить, поэтому сорвите подход взрывом или ударьте, пока пулемёт ещё несут.","Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light machine guns forward instead of guarding one position. They close the distance, set up near the fight, and pin defenders from positions that ordinary gunners would consider too exposed. Most also bring a machete for the last few steps and a firebomb to flush cover. If they reach useful firing ground the attack becomes hard to stop, so break their approach with explosives or catch them while they are moving.",,JAZZ-UI-RIS-001-B
+890000000011069,Пулемётчик,GPMG,,JAZZ-UI-RIS-001-B
+890000000011070,"На роль Пулемётчика ставят надёжных бойцов и учат их долго вести огонь, не паля впустую. Они занимают подготовленные позиции и перекрывают единым пулемётом дороги, дворы и широкие подступы. Лобовой бросок играет им на руку; закройте обзор дымом, вынудите пулемётчика сняться с места или атакуйте с неприкрытой стороны.","Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. They settle into prepared positions and use a general-purpose machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.",,JAZZ-UI-RIS-001-B
+890000000011071,Подавитель,Veteran Gunner,,JAZZ-UI-RIS-001-B
+890000000011072,"Подавители — опытные пулемётчики, пережившие не один бой; им доверяют более мощное оружие. С подготовленных позиций они перекрывают движение точными очередями, а тяжёлая броня помогает дольше выдерживать ответный огонь. Подавитель способен остановить наступление, поэтому отвлеките его с одной стороны и быстро ударьте с другой либо накройте позицию взрывчаткой.","Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert prepared fire to lock down movement, while tougher defenses let them stay effective under pressure. Their fire can stall an attack, so keep them occupied from one direction and strike quickly from another, or destroy the position with explosives.",,JAZZ-UI-RIS-001-B
+890000000011073,Наёмник-пулемётчик,Merc Gunner,,JAZZ-UI-RIS-001-B
+890000000011074,"Наёмники-пулемётчики — опытные специалисты по тяжёлому оружию, которым выдают лучшие пулемёты Легиона. С подготовленной позиции они держат под огнём широкий участок и продолжают стрелять даже под плотным ответным огнём. Если оставить их в покое, они остановят любое продвижение, поэтому закройте им обзор и уничтожьте пулемётчика до выхода отряда на открытое место.","Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine disciplined bursts, prepared fire, and enough resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone can halt an advance, so deny them a clear field of fire and destroy the gunner before committing anyone across open ground.",,JAZZ-UI-RIS-001-B
+890000000011075,Ракетчик,Rocketeer,,JAZZ-UI-RIS-001-B
+890000000011076,"Ракетчики — новобранцы, которым хватает смелости взвалить установку на плечо и подготовки, чтобы не накрыть своих. Они стреляют из РПГ или одноразовых установок по машинам, стенам и плотным группам, но после пуска обычно не могут сразу атаковать снова. Рассредоточьтесь и надавите сразу после выстрела: одна оставленная без ответа ракета превратит надёжную позицию в груду обломков.","Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but the launcher usually leaves them with only one attack before they must recover or reload. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.",,JAZZ-UI-RIS-001-B
+890000000011077,Гранатомётчик,Heavy Grenadier,,JAZZ-UI-RIS-001-B
+890000000011078,"Гранатомётчики уже знакомы со взрывчаткой, прежде чем их начинают учить стрельбе из РПГ и гранатомётов. Они посылают взрывные выстрелы в помещения, дворы и прикрытые подступы, вынуждая переживших разрыв покинуть удобную позицию. Тот, кто останется на месте, дождётся следующего выстрела, поэтому двигайтесь после каждого разрыва и надавите на Гранатомётчика до перезарядки.","Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into rooms, courtyards, and covered approaches, forcing anyone who survives the blast to abandon a comfortable position. Remaining in one place invites another round, so move after each shot and pressure the Heavy Grenadier before the launcher is ready again.",,JAZZ-UI-RIS-001-B
+890000000011079,Миномётчик,Mortarman,,JAZZ-UI-RIS-001-B
+890000000011080,"Миномётчики — проверенные бойцы тяжёлого оружия, обученные забрасывать мины за стены и другие препятствия. Они используют переносной миномёт против позиций, до которых трудно добраться прямым огнём, вынуждая засевших бойцов покинуть укрытие. Как только начался обстрел, немедленно двигайтесь и надавите на расчёт до следующего выстрела. Стена между вами и расчётом от мины не спасёт.","Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike positions that direct fire cannot easily reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move immediately and pressure the crew before it fires again. A wall between you and the crew will not keep you safe.",,JAZZ-UI-RIS-001-B
+890000000011081,Бригадир,Sergeant,,JAZZ-UI-RIS-001-B
+890000000011082,"Если испуганные рекруты вдруг начинают действовать как один, ищите самого громкого среди них. Из таких надёжных легионеров Майор делает Бригадиров: они гонят ближайших бойцов вперёд, удерживают их на месте или сосредоточивают огонь. Уберите лидера в начале боя, и остальных станет гораздо легче рассеять.","When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops forward, hold them in place, or focus their fire. Remove the leader early and the rest become much easier to disrupt.",,JAZZ-UI-RIS-001-B
+890000000011083,Командир,Lieutenant,,JAZZ-UI-RIS-001-B
+890000000011084,"Успешные Бригадиры становятся Командирами и вместо одной группы руководят несколькими отделениями. Их приказы слышны на большей территории: наступать, удерживать позиции, искать укрытие или сосредоточивать огонь. Пока Командир жив, местная атака сохраняет общий замысел, поэтому устраните офицера до перегруппировки Легиона.","Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area, sending troops forward, holding them in place, moving them into cover, or focusing their fire as the situation changes. Their presence keeps a local attack coherent, so remove the officer before the Legion can regroup and turn a confused exchange into an organized assault.",,JAZZ-UI-RIS-001-B
+890000000011085,Советник,Captain,,JAZZ-UI-RIS-001-B
+890000000011086,"Советники — офицеры, которым доверяют сразу несколько подразделений. Они отдают приказы всему отряду Легиона, меняют направление атаки по обстановке и поддерживают свои команды точным винтовочным огнём. Пока Советник жив, противник действует слаженно, поэтому быстро найдите офицера и устраните его до решающего натиска.","Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as conditions change, and support those commands with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, so identify the officer quickly and bring him down before pressing the fight.",,JAZZ-UI-RIS-001-B
+890000000011087,Мастер,Mercenary Captain,,JAZZ-UI-RIS-001-B
+890000000011088,"Мастера — опытные наёмные офицеры, умеющие командовать смешанными силами; им нужны лишь свежие сведения о местной обстановке. Они отдают приказы всему отряду, сохраняют дисциплину после потерь и быстро меняют план, если первый не сработал. Пока Мастер жив, считайте, что окружающие бойцы действуют сообща; устраните его до атаки на остальных.","Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue orders across the entire force, preserve discipline through casualties, and quickly change plans when the first one fails. Assume nearby units are acting with a common purpose while one survives; bring the Captain down before attacking the rest.",,JAZZ-UI-RIS-001-B
+890000000011089,Пьер Лоран,Pierre Laurent,,JAZZ-UI-RIS-001-B
+890000000011090,"Сын Люка Лорана представляет Легион на Эрни — всегда в выглаженной форме и с желанием что-то доказать. Ему важно не только подчинение, но и внимание, поэтому его легче читать, чем других офицеров Легиона. Только не принимайте обаяние за доброту.","Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with something to prove. He likes being seen as much as being obeyed, which makes him easier to read than most Legion officers. Don't mistake charm for mercy.",,JAZZ-UI-RIS-001-B
+890000000011091,Бастьен,Bastien,,JAZZ-UI-RIS-001-B
+890000000011092,"Местный делец с улыбкой торговца. Он знает, кто держит каждую дорогу, сколько стоит проезд и кому платить. Полезный контакт, но не путайте дела с дружбой.","A local fixer with a trader's smile. He knows who controls each road, what passage costs, and whom to pay. A useful contact, but never mistake business for friendship.",,JAZZ-UI-RIS-001-B
+890000000011093,Майор,The Major,,JAZZ-UI-RIS-001-B
+890000000011094,"За Легионом стоит Майор. Он собрал армию страхом, деньгами и крадеными припасами, а затем раскинул её по всему Гранд-Шьену. Любая сводка о снабжении Легиона в итоге ведёт к нему. Он терпелив, безжалостен и помнит каждую потерю.","The man behind the Legion built his army with fear, money, and stolen supplies, then spread it across Grand Chien. Every Legion supply report ultimately leads back to him. He is patient, ruthless, and remembers every loss.",,JAZZ-UI-RIS-001-B
+890000000011095,Легион (фракция),Legion (faction),,JAZZ-UI-RIS-001-B
+890000000011096,"Армия Майора живёт за счёт краденых припасов, насильственного набора и офицеров, которые считают деревни своей собственностью. В её рядах есть и запуганные местные, и обученные специалисты. Где появляется Легион, там недалеко и власть Майора.","The Major's army survives on stolen supplies, forced recruitment, and officers who treat villages as property. Its troops range from frightened locals to trained specialists. Wherever the Legion appears, the Major's reach is close behind.",,JAZZ-UI-RIS-001-B
 890000000011097,Quiet clearance,Quiet clearance,,JAZZ-UI-RIS-001-B
 890000000011098,Sector secured without fireworks,Sector secured without fireworks,,JAZZ-UI-RIS-001-B
 890000000011099,"Low noise, clean finish","Low noise, clean finish",,JAZZ-UI-RIS-001-B
@@ -12551,7 +12551,7 @@ Read this message to open the R.I.S. tab.
 890000000011105,Thunder over the sector,Thunder over the sector,,JAZZ-UI-RIS-001-B
 890000000011106,"Forced back, light losses","Forced back, light losses",,JAZZ-UI-RIS-001-B
 890000000011107,Probe failed,Probe failed,,JAZZ-UI-RIS-001-B
-890000000011108,"Bad ground, worse timing","Bad ground, worse timing",,JAZZ-UI-RIS-001-B
+890000000011108,"Место хуже некуда, момент — ещё хуже","Bad ground, worse timing",,JAZZ-UI-RIS-001-B
 890000000011109,Beaten off the field,Beaten off the field,,JAZZ-UI-RIS-001-B
 890000000011110,They kept the sector,They kept the sector,,JAZZ-UI-RIS-001-B
 890000000011111,Retreat under fire,Retreat under fire,,JAZZ-UI-RIS-001-B
@@ -12561,45 +12561,45 @@ Read this message to open the R.I.S. tab.
 890000000011115,Ordered withdrawal,Ordered withdrawal,,JAZZ-UI-RIS-001-B
 890000000011116,You left before it got expensive,You left before it got expensive,,JAZZ-UI-RIS-001-B
 890000000011117,Discretion over medals,Discretion over medals,,JAZZ-UI-RIS-001-B
-890000000011118,Forced to pull back,Forced to pull back,,JAZZ-UI-RIS-001-B
+890000000011118,Пришлось отступить,Forced to pull back,,JAZZ-UI-RIS-001-B
 890000000011119,Falling back to fight another day,Falling back to fight another day,,JAZZ-UI-RIS-001-B
 890000000011120,The line wouldn't hold,The line wouldn't hold,,JAZZ-UI-RIS-001-B
 890000000011121,Bloody extraction,Bloody extraction,,JAZZ-UI-RIS-001-B
-890000000011122,Broke through the gauntlet,Broke through the gauntlet,,JAZZ-UI-RIS-001-B
+890000000011122,Вырвались из-под огня,Broke through the gauntlet,,JAZZ-UI-RIS-001-B
 890000000011123,"Survival first, pride later","Survival first, pride later",,JAZZ-UI-RIS-001-B
-890000000011124,The fighting unfolded under clear skies.,The fighting unfolded under clear skies.,,JAZZ-UI-RIS-001-B
-890000000011125,Rain soaked the ground and frayed everyone's nerves.,Rain soaked the ground and frayed everyone's nerves.,,JAZZ-UI-RIS-001-B
-890000000011126,"At night, muzzle flashes gave away every shot.","At night, muzzle flashes gave away every shot.",,JAZZ-UI-RIS-001-B
-890000000011127,Fog cut visibility and kept everyone close to cover.,Fog cut visibility and kept everyone close to cover.,,JAZZ-UI-RIS-001-B
-890000000011128,"In the heat, exhaustion hit almost as hard as the bullets.","In the heat, exhaustion hit almost as hard as the bullets.",,JAZZ-UI-RIS-001-B
-890000000011129,The dust storm worked grit into every weapon.,The dust storm worked grit into every weapon.,,JAZZ-UI-RIS-001-B
-890000000011130,The weather stayed out of it; the shooting did not.,The weather stayed out of it; the shooting did not.,,JAZZ-UI-RIS-001-B
-890000000011131,The exchange was brief. It drew little attention beyond the sector.,The exchange was brief. It drew little attention beyond the sector.,,JAZZ-UI-RIS-001-B
-890000000011132,The firefight dragged on as both sides moved under fire. Word of it will spread.,The firefight dragged on as both sides moved under fire. Word of it will spread.,,JAZZ-UI-RIS-001-B
-890000000011133,The fight became a slaughter. The Major's people will hear about it.,The fight became a slaughter. The Major's people will hear about it.,,JAZZ-UI-RIS-001-B
-890000000011134,"At first contact, we counted about <player> friendlies and <enemy> hostiles.","At first contact, we counted about <player> friendlies and <enemy> hostiles.",,JAZZ-UI-RIS-001-B
-890000000011135,The fighting took place in <sector>.,The fighting took place in <sector>.,,JAZZ-UI-RIS-001-B
-890000000011136,"The fighting took place in <sector>, near <poi>.","The fighting took place in <sector>, near <poi>.",,JAZZ-UI-RIS-001-B
-890000000011137,This fight was tied to <quest>. One detail may matter: <note>,This fight was tied to <quest>. One detail may matter: <note>,,JAZZ-UI-RIS-001-B
-890000000011138,The evidence ties this fight to <quest>.,The evidence ties this fight to <quest>.,,JAZZ-UI-RIS-001-B
-890000000011139,Several active jobs led your team here: <quests>. This was no random skirmish.,Several active jobs led your team here: <quests>. This was no random skirmish.,,JAZZ-UI-RIS-001-B
-890000000011140,"The team was also working on <quest>, though that job was not tied to this sector.","The team was also working on <quest>, though that job was not tied to this sector.",,JAZZ-UI-RIS-001-B
-890000000011141,No active assignment led to this area. This was a fight for the sector itself.,No active assignment led to this area. This was a fight for the sector itself.,,JAZZ-UI-RIS-001-B
-890000000011142,Your team held the field.,Your team held the field.,,JAZZ-UI-RIS-001-B
-890000000011143,The enemy kept control of the sector.,The enemy kept control of the sector.,,JAZZ-UI-RIS-001-B
-890000000011144,Your team withdrew under fire instead of making a last stand.,Your team withdrew under fire instead of making a last stand.,,JAZZ-UI-RIS-001-B
-890000000011145,It looked like an ambush; the opening shots decided the fight.,It looked like an ambush; the opening shots decided the fight.,,JAZZ-UI-RIS-001-B
-890000000011146,"The fight was tied to an active job. The objective held, and the sector remained yours.","The fight was tied to an active job. The objective held, and the sector remained yours.",,JAZZ-UI-RIS-001-B
-890000000011147,"The fight was tied to an active job, and losing the sector will make that job harder.","The fight was tied to an active job, and losing the sector will make that job harder.",,JAZZ-UI-RIS-001-B
-890000000011148,Your team withdrew from a sector tied to an active job.,Your team withdrew from a sector tied to an active job.,,JAZZ-UI-RIS-001-B
-890000000011149,Our side suffered <pkia> killed and <pwia> wounded; enemy losses were <ekia> killed and <ewia> wounded.,Our side suffered <pkia> killed and <pwia> wounded; enemy losses were <ekia> killed and <ewia> wounded.,,JAZZ-UI-RIS-001-B
+890000000011124,Бой прошёл под ясным небом.,The fighting unfolded under clear skies.,,JAZZ-UI-RIS-001-B
+890000000011125,Дождь размыл землю и вымотал всем нервы.,Rain soaked the ground and frayed everyone's nerves.,,JAZZ-UI-RIS-001-B
+890000000011126,Ночью каждый выстрел выдавали вспышки.,"At night, muzzle flashes gave away every shot.",,JAZZ-UI-RIS-001-B
+890000000011127,"Из-за тумана видимость упала, и все держались ближе к укрытиям.",Fog cut visibility and kept everyone close to cover.,,JAZZ-UI-RIS-001-B
+890000000011128,Жара выматывала почти не меньше пуль.,"In the heat, exhaustion hit almost as hard as the bullets.",,JAZZ-UI-RIS-001-B
+890000000011129,Пылевая буря забила песком всё оружие.,The dust storm worked grit into every weapon.,,JAZZ-UI-RIS-001-B
+890000000011130,Погода не вмешивалась — хватило стрельбы.,The weather stayed out of it; the shooting did not.,,JAZZ-UI-RIS-001-B
+890000000011131,Перестрелка быстро закончилась и почти не привлекла внимания.,The exchange was brief. It drew little attention beyond the sector.,,JAZZ-UI-RIS-001-B
+890000000011132,Бой затянулся: обе стороны маневрировали под огнём. Слухи о нём разойдутся.,The firefight dragged on as both sides moved under fire. Word of it will spread.,,JAZZ-UI-RIS-001-B
+890000000011133,Бой превратился в бойню. Люди Майора об этом услышат.,The fight became a slaughter. The Major's people will hear about it.,,JAZZ-UI-RIS-001-B
+890000000011134,На момент первого контакта мы насчитали около <player> своих и <enemy> противников.,"At first contact, we counted about <player> friendlies and <enemy> hostiles.",,JAZZ-UI-RIS-001-B
+890000000011135,Бой произошёл в секторе <sector>.,The fighting took place in <sector>.,,JAZZ-UI-RIS-001-B
+890000000011136,"Бой произошёл в секторе <sector>, в районе <poi>.","The fighting took place in <sector>, near <poi>.",,JAZZ-UI-RIS-001-B
+890000000011137,Бой был связан с заданием <quest>. Важная подробность: <note>,This fight was tied to <quest>. One detail may matter: <note>,,JAZZ-UI-RIS-001-B
+890000000011138,"Судя по данным, этот бой связан с заданием <quest>.",The evidence ties this fight to <quest>.,,JAZZ-UI-RIS-001-B
+890000000011139,Сразу несколько текущих заданий привели ваш отряд сюда: <quests>. Случайной эту стычку не назовёшь.,Several active jobs led your team here: <quests>. This was no random skirmish.,,JAZZ-UI-RIS-001-B
+890000000011140,"Отряд также выполнял задание <quest>, хотя оно не было связано с этим сектором.","The team was also working on <quest>, though that job was not tied to this sector.",,JAZZ-UI-RIS-001-B
+890000000011141,Ни одно активное задание не вело в этот район. Это был бой за сам сектор.,No active assignment led to this area. This was a fight for the sector itself.,,JAZZ-UI-RIS-001-B
+890000000011142,Поле боя осталось за вашим отрядом.,Your team held the field.,,JAZZ-UI-RIS-001-B
+890000000011143,Противник сохранил контроль над сектором.,The enemy kept control of the sector.,,JAZZ-UI-RIS-001-B
+890000000011144,"Ваш отряд отошёл под огнём, не ввязываясь в бой до последнего.",Your team withdrew under fire instead of making a last stand.,,JAZZ-UI-RIS-001-B
+890000000011145,"Похоже, это была засада: первые выстрелы решили исход боя.",It looked like an ambush; the opening shots decided the fight.,,JAZZ-UI-RIS-001-B
+890000000011146,"Бой был связан с активным заданием. Цель удалось удержать, и сектор остался за вами.","The fight was tied to an active job. The objective held, and the sector remained yours.",,JAZZ-UI-RIS-001-B
+890000000011147,"Бой был связан с активным заданием, и потеря сектора теперь усложнит это задание.","The fight was tied to an active job, and losing the sector will make that job harder.",,JAZZ-UI-RIS-001-B
+890000000011148,"Ваш отряд отступил из сектора, связанного с активным заданием.",Your team withdrew from a sector tied to an active job.,,JAZZ-UI-RIS-001-B
+890000000011149,У нас <pkia> погибших и <pwia> раненых; у противника — <ekia> убитых и <ewia> раненых.,Our side suffered <pkia> killed and <pwia> wounded; enemy losses were <ekia> killed and <ewia> wounded.,,JAZZ-UI-RIS-001-B
 890000000011150,<name> went down in the fight — one less elite name on the Major's roster.,<name> went down in the fight — one less elite name on the Major's roster.,,JAZZ-UI-RIS-001-B
 890000000011151,"<name> left the field bleeding. If they live, they'll remember your faces.","<name> left the field bleeding. If they live, they'll remember your faces.",,JAZZ-UI-RIS-001-B
 890000000011152,<name> slipped the net. Expect that name again.,<name> slipped the net. Expect that name again.,,JAZZ-UI-RIS-001-B
 890000000011153,<name> was still standing when the shooting stopped — unfinished business.,<name> was still standing when the shooting stopped — unfinished business.,,JAZZ-UI-RIS-001-B
-890000000011154,"The sector is quiet again, and the fight should draw little attention.","The sector is quiet again, and the fight should draw little attention.",,JAZZ-UI-RIS-001-B
-890000000011155,Word of this fight will spread. Expect more patrols and more money changing hands.,Word of this fight will spread. Expect more patrols and more money changing hands.,,JAZZ-UI-RIS-001-B
-890000000011156,Mark this one in red. The Major's command will want answers.,Mark this one in red. The Major's command will want answers.,,JAZZ-UI-RIS-001-B
+890000000011154,"Сектор снова затих, и этот бой вряд ли привлечёт много внимания.","The sector is quiet again, and the fight should draw little attention.",,JAZZ-UI-RIS-001-B
+890000000011155,Слухи об этом бое разойдутся. Ждите новых патрулей и новых сделок.,Word of this fight will spread. Expect more patrols and more money changing hands.,,JAZZ-UI-RIS-001-B
+890000000011156,Эту сводку отметьте красным. Командование Майора потребует объяснений.,Mark this one in red. The Major's command will want answers.,,JAZZ-UI-RIS-001-B
 890000000011200,R.I.S. <desk@ris-intel.net>,R.I.S. <desk@ris-intel.net>,,JAZZ-UI-RIS-001-Q
 890000000011201,R.I.S. — new Legion type on file: <unit_title>,R.I.S. — new Legion type on file: <unit_title>,,JAZZ-UI-RIS-001-Q
 890000000011202,"R.I.S. field note — contact
@@ -12770,3 +12770,12 @@ Any Legion line squad carrying one of these weapons can change the fight immedia
 4869897712911115,,,,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148
 5678579714391111,изношенное,worn,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
 8182360763020012,Ресурс,Resource,,jazz:items.lua:73489
+890000000006924,"Разведывательно-информационная служба R.I.S.
+
+Бесплатная подписка на время кампании активна. Здесь будут появляться подтверждённые досье и сводки после боёв.
+
+Оценки снабжения Легиона приходят на почту.","Recon Intelligence Services
+
+Your free campaign subscription is active. Confirmed dossiers and after-action reports will appear here.
+
+Legion supply assessments are delivered to your inbox.",,JAZZ-UI-RIS-001-B
