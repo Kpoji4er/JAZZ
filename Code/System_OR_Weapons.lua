@@ -300,6 +300,16 @@ function FirearmBase:GetConditionPercent()
 end
 
 -- JamScore scale 0..1000 matches ReliabilityCheck roll; display % = DivRound(score, 10).
+local function JazzPerfectConditionAmmoJamScore(ammo)
+	local ammo_class = ammo and ammo.class or ""
+	if string.match(ammo_class, "_Poor$") then
+		return 100
+	elseif string.match(ammo_class, "_Crafted$") then
+		return 150
+	end
+	return 0
+end
+
 function FirearmBase:GetBaseJamChanceRaw()
 	local item = self.parent_weapon or self
 
@@ -314,6 +324,13 @@ function FirearmBase:GetBaseJamChanceRaw()
 	if resourcefactor <= 0 then resourcefactor = 1 end
 
 	local condition_percent = MulDivRound(resource, 100, resourcefactor)
+	-- A factory-fresh firearm cannot malfunction on serviceable ammunition.
+	-- Poor/Crafted cartridges retain a fixed quality risk at perfect condition,
+	-- independent of the weapon tier: 10% / 15% respectively.
+	if condition_percent >= 100 then
+		return JazzPerfectConditionAmmoJamScore(item.ammo)
+	end
+
 	local reliability = item.Reliability or 50
 	local base_jam = item.BaseJamChance or 5
 	local base = Max(0, (100 - reliability) + base_jam)

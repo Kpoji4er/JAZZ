@@ -19,6 +19,7 @@ write_set:
   - jazz/docs/tools/_rebalance_recoil_physical.py
   - jazz/docs/tools/_soften_ammo_jam.py
   - jazz/docs/tools/_tmp_audit_smg_jam_feedback.py
+  - jazz/docs/tools/_audit_weapon_jam_balance.py
   - jazz/docs/tools/README.md
   - jazz/docs/design/recoil-physical-scale.md
   - jazz/docs/technical/systems/weapons-ammo-components.md
@@ -65,9 +66,10 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-008-REQ-003` — якоря WEAPONS-003: AK74∈[14,15], AKM∈[24,26], FNFAL∈[42,44] сохранены.
 - `JAZZ-WEAPONS-008-REQ-004` — wear multipliers: >80×1, ≤80×**3**, ≤60×**6**, ≤40×**12**, ≤15×**18**.
 - `JAZZ-WEAPONS-008-REQ-005` — `*_Crafted` BaseJamChance **140** (было 200), Rel **−18** (было −25); `*_Poor` pistol/SMG calibers BaseJamChance **≈2/3** прежнего (9×19: 120, Rel −10); rifle Poor ≈70 jam / Rel −4.
-- `JAZZ-WEAPONS-008-REQ-006` — docs: technical jam tiers + design recoil note; wiki/showcase кратко про Poor/Crafted и ПП-дифференциацию.
+- `JAZZ-WEAPONS-008-REQ-006` — при `condition_percent >= 100`: serviceable ammo = 0% raw jam для любого tier, `*_Poor` = 10%, `*_Crafted` = 15%; Mechanical/single-shot могут только снизить риск.
+- `JAZZ-WEAPONS-008-REQ-007` — docs: technical jam tiers + design recoil note; wiki/showcase кратко про идеальное состояние, Poor/Crafted и ПП-дифференциацию.
 
-## Инварианты
+## Инварианты и ограничения
 
 - JamScore 0..1000; display `/10`; Mechanical merc `/120`; ammo mods via Reload `AddModifier`.
 - Mass/RPM не читаются повторно в CTH runtime.
@@ -79,16 +81,25 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-008-AC-003` — static: `GetBaseJamChanceRaw` multipliers 3/6/12/18.
 - `JAZZ-WEAPONS-008-AC-004` — static: Crafted jam+140 Rel−18; 9×19 Poor jam+120 Rel−10; `_validate_items_quick.py` OK.
 - `JAZZ-WEAPONS-008-AC-005` — human/runtime: очередь ПП различается; Poor клинит заметно, но не «каждый второй burst» на Mech~80 fresh gun.
+- `JAZZ-WEAPONS-008-AC-006` — static: `_audit_weapon_jam_balance.py` проверяет все firearms и совместимые Poor/Crafted пары; perfect serviceable=0%, Poor=10%, Crafted=15%, M3+45ACP Poor=10%.
 
-## Impact
+## Impact и совместимость
 
 - Vanilla/CLib: only JAZZ overrides/data.
 - Saves: existing weapons keep instance Condition; new Recoil from class defs on load.
 - Generated: items + InventoryItem + CSV transaction.
 
+## План и ownership
+
+- Пакет-владелец: `jazz`.
+- Исполнитель: agent.
+- Reviewer: project-owner/runtime playtest.
+- Declared write set: frontmatter `write_set`.
+- Exclusive resources: `jazz/items.lua` для generated-data волн; текущая perfect-condition правка `items.lua` не меняет.
+
 ## Решение владельца
 
-- Статус: approved (owner: «надо пофиксить и сделать клины чуть мягче», 2026-08-04).
+- Статус: approved (owner уточнил: идеальный ствол + хорошие патроны не клинит даже на T1; Substandard около 10%, 2026-08-06).
 - Исполнитель: agent.
 
 ## Evidence
@@ -98,6 +109,7 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-008-AC-003`: `PASS` — static: `GetBaseJamChanceRaw` multipliers 3/6/12/18
 - `JAZZ-WEAPONS-008-AC-004`: `PASS` — static: Crafted 140/−18; 9×19 Poor 120/−10; `_validate_items_quick.py` OK
 - `JAZZ-WEAPONS-008-AC-005`: `BLOCKED` — runtime/human playtest
+- `JAZZ-WEAPONS-008-AC-006`: `PASS` — 116 firearms, 18 degraded-ammo classes, 150 compatible pairs; M3 + .45ACP Poor = 10%
 
 status note: static ACs done; leave `approved` until runtime smoke, then `implemented`.
 

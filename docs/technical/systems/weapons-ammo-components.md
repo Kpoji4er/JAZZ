@@ -121,7 +121,7 @@ base = max(0, (100 - Reliability) + BaseJamChance)
 JamScore = clamp(base × degrade_multiplier [× rain], 0, 1000)
 ```
 
-`BaseJamChance` — единицы JamScore (10 ≈ 1% в rollover). `degrade_multiplier` через `elseif` по condition % от weighted resource:
+`BaseJamChance` — единицы JamScore (10 ≈ 1% в rollover). При округлённом `condition_percent >= 100` действует гарантия идеального состояния: обычные/хорошие патроны дают **0%** базового клина независимо от tier оружия, `*_Poor` — **10%**, `*_Crafted` — **15%**. Затем Mechanical и правило одиночного выстрела могут только снизить этот риск. Для реально изношенного оружия снова используется полная формула надёжности. `degrade_multiplier` через `elseif` по condition % от weighted resource:
 
 | Condition % | Multiplier |
 |---|---|
