@@ -13,6 +13,10 @@ RU_TIP = "Количество ОД — не более 4.\nНе может ко
 EN_TIP = "AP is capped at 4.\nCannot counterattack or maintain prepared attacks."
 
 
+def normalize_newlines(value: str | None) -> str:
+    return (value or "").replace("\r\n", "\n")
+
+
 def check(condition: bool, message: str) -> None:
     if not condition:
         raise AssertionError(message)
@@ -75,12 +79,12 @@ def main() -> int:
     catalog_rows = [row for row in all_catalog_rows if row.get("ID") == TIP_ID]
     check(len(catalog_rows) == 1, f"catalog has one {TIP_ID} row")
     catalog = catalog_rows[0]
-    check(catalog.get("SourceText") == RU_TIP and catalog.get("Russian") == RU_TIP and catalog.get("English") == EN_TIP, "catalog RU/EN tooltip is complete")
+    check(normalize_newlines(catalog.get("SourceText")) == RU_TIP and normalize_newlines(catalog.get("Russian")) == RU_TIP and normalize_newlines(catalog.get("English")) == EN_TIP, "catalog RU/EN tooltip is complete")
     check("collision" not in (catalog.get("Status") or ""), "tooltip ID has no catalog collision")
     english = runtime_row(ROOT / "English.csv")
     russian = runtime_row(ROOT / "Russian.csv")
-    check(len(english) >= 3 and english[1] == RU_TIP and english[2] == EN_TIP, "English runtime tooltip matches catalog")
-    check(len(russian) >= 3 and russian[1] == RU_TIP and russian[2] == RU_TIP, "Russian runtime tooltip matches catalog")
+    check(len(english) >= 3 and normalize_newlines(english[1]) == RU_TIP and normalize_newlines(english[2]) == EN_TIP, "English runtime tooltip matches catalog")
+    check(len(russian) >= 3 and normalize_newlines(russian[1]) == RU_TIP and normalize_newlines(russian[2]) == RU_TIP, "Russian runtime tooltip matches catalog")
 
     mod_ids = {row["ID"] for row in all_catalog_rows if "new-id" in (row.get("Status") or "")}
     runtime_sets = []

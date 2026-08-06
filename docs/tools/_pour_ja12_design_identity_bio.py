@@ -136,6 +136,9 @@ class Plan:
         out: list[Path] = []
         for path, wanted in self.desired.items():
             current = path.read_bytes() if path.exists() else None
+            if path == CATALOG and current is not None:
+                current = current.replace(b"\r\n", b"\n")
+                wanted = wanted.replace(b"\r\n", b"\n")
             if current != wanted:
                 out.append(path)
         return out
