@@ -12876,7 +12876,7 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000006892,A.M.E. terms,Условия A.M.E.,,AME_Browser_terms_title
 890000000006893,"A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead.","A.M.E. подтверждает личность и доступность, но не храбрость, здравый смысл или удачу. Оплата, лечение, перевозка и похороны остаются делом нанимателя и бойца. С погибших биржа комиссию не берёт.",,AME_Browser_terms_body
 890000000010300,Infected Wound,Инфицированная рана,,jazz:MED-002
-890000000010301,Festering wound. Progress checks on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected.,Загноившаяся рана. Проверки на глобалке: провал может быть смертелен. Тяжёлая травма, не прошедшая улучшение, может инфицироваться.,,jazz:MED-002
+890000000010301,Festering wound. Checked about every 16 hours on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected.,Загноившаяся рана. Проверка примерно каждые 16 ч на глобалке: провал может быть смертелен. Тяжёлая травма, не прошедшая улучшение, может инфицироваться.,,jazz:MED-002
 890000000010302,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-002
 890000000010310,Weakness,Слабость,,jazz:MED-002
 890000000010311,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 50% HP. Clears only when HP rises.,Потеря крови: <color EmStyle>−<APLoss> ОД</color> в начале хода. Ниже 50% ОЗ. Снимается только ростом ОЗ.,,jazz:MED-002

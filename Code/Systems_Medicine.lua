@@ -1487,13 +1487,13 @@ end
 -- MED-002: WoundInfected (alongside Heavy trauma; does not replace Trauma*).
 -- ---------------------------------------------------------------------------
 JazzWoundInfectedSurviveChance = 40 -- 1..100; fail → death
-JazzWoundInfectedCheckIntervalHours = 8
+JazzWoundInfectedCheckIntervalHours = 16
 
 function JazzInitWoundInfectedProgressTimer(effect)
 	if not effect or not Game or not Game.CampaignTime then
 		return false
 	end
-	local hours = JazzWoundInfectedCheckIntervalHours or 8
+	local hours = JazzWoundInfectedCheckIntervalHours or 16
 	local scale_h = (const.Scale and const.Scale.h) or 1
 	effect:SetParameter("next_check_time", Game.CampaignTime + hours * scale_h)
 	effect:SetParameter("check_interval_h", hours)

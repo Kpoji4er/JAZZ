@@ -65,7 +65,7 @@ approved_by: project-owner
 
 - `JAZZ-MED-002-REQ-001` — Analgesia clears Pain stacks; JazzAddPainStacks no-op while Analgesia.
 - `JAZZ-MED-002-REQ-002` — Untreated Heavy progress not-improve → add `WoundInfected` (Heavy remains). Healing path never infects.
-- `JAZZ-MED-002-REQ-003` — WoundInfected progress: survive → remove Infected; fail → merc death (satellite-safe).
+- `JAZZ-MED-002-REQ-003` — WoundInfected progress every **16h**: survive → remove Infected; fail → merc death (satellite-safe).
 - `JAZZ-MED-002-REQ-004` — GetMaxActionPoints uses Health, not current HitPoints.
 - `JAZZ-MED-002-REQ-005` — BloodLoss50…1 mutually exclusive; APLoss 1…7; sync from HP%; only cured by raising HP.
 - `JAZZ-MED-002-REQ-006` — Icons wired; loc RU/EN; technical+wiki+showcase.

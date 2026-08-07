@@ -63365,7 +63365,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Id', "WoundInfected",
 				'object_class', "StatusEffect",
 				'DisplayName', T(890000000010300, "Infected Wound"),
-				'Description', T(890000000010301, "Festering wound. Progress checks on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected."),
+				'Description', T(890000000010301, "Festering wound. Checked about every 16 hours on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected."),
 				'AddEffectText', T(890000000010302, "<color EmStyle><DisplayName></color>"),
 				'OnAdded', function(self, obj)
 					local init = rawget(_G, "JazzInitWoundInfectedProgressTimer")
