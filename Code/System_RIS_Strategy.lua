@@ -169,26 +169,24 @@ local function lHasConfirmedContact(st)
 end
 
 local function lHasReceivedSupplyBrief(st)
-	if (tonumber(st.last_mailed_tier) or 0) > 0 then
-		return true
-	end
 	local get_received = rawget(_G, "GetReceivedEmails")
-	if type(get_received) ~= "function" then
-		return false
-	end
-	local ok, received = pcall(get_received)
-	if not ok or type(received) ~= "table" then
-		return false
-	end
-	for _, email in ipairs(received) do
-		if type(email) == "table"
-			and type(email.id) == "string"
-			and string.match(email.id, "^RIS_LegionBrief_")
-		then
-			return true
+	if type(get_received) == "function" then
+		local ok, received = pcall(get_received)
+		if ok and type(received) == "table" then
+			for _, email in ipairs(received) do
+				if type(email) == "table"
+					and type(email.id) == "string"
+					and string.match(email.id, "^RIS_LegionBrief_")
+				then
+					return true
+				end
+			end
+			-- A readable inbox is authoritative. Old enqueue-time state must not
+			-- reveal Network before a brief actually reaches the player.
+			return false
 		end
 	end
-	return false
+	return (tonumber(st.last_mailed_tier) or 0) > 0
 end
 
 local function lWelcomeRead(st)

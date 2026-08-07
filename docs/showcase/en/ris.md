@@ -23,17 +23,20 @@ assessment follows after **three confirmed kills** of the same type.
 
 The archive carries one cumulative account of a conflict, including separate
 combat phases, troops already placed in the sector, allies, hostiles, and new
-wounds suffered during that engagement. It names the sector, a connected
-assignment, and notable enemies when that information is available. If the
-objective is won while hostile troops remain nearby, the report says so instead
-of declaring the area clean.
+wounds suffered during that engagement. It does not recast an old injury on a
+notable enemy as a battle wound, and it retains the values used in assignment
+details. If the objective is won while hostile troops remain nearby, the report
+says so instead of declaring the area clean.
 
 Auto-resolved engagements also retain strength, fatalities, and wounded
 survivors without mixing simultaneous conflicts in different sectors. The
 archive keeps facts rather than a frozen translation, so headlines, place and
 assignment names, personal names, and prose are rebuilt in the currently
 selected language. Preserved outcomes, assignments, and figures are recovered
-from old reports; only missing detail becomes a short localized archive note.
+from old reports together with their recorded time. An active assignment that
+was not linked to the sector is not presented as the cause of the battle. Only
+missing detail becomes a short localized archive note, and an unrecoverable old
+name becomes a generic label in the selected language.
 
 ## The Major's Strategy
 

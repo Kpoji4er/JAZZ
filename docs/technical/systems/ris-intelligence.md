@@ -65,8 +65,8 @@ Legion AI.
 - `_ris_copy_bank.py` — единый изменяемый RU+EN банк welcome, UI, AAR,
   полевых писем, досье и Strategy; `_ris_dossier_copy.py` только compatibility
   facade.
-- 214 уникальных двуязычных пар проходят editorial audit; apply проецирует
-  **217 projected active localization IDs**.
+- **218** уникальных двуязычных пар, включая три строки identity/sender вне
+  feature-range, проходят один editorial audit и проецируются apply.
 - 11 supply briefs остаются отдельным каноном
   `_rewrite_ris_legion_briefs.py`, но проходят тот же editorial review и аудит.
 - `_apply_ris_editorial.py` синхронизирует Content Lua, 24 Email, metadata,
@@ -88,20 +88,25 @@ Legion AI.
 `JAZZ_RIS_MigrateState()` идемпотентно нормализует старые таблицы на load/reload.
 Старый AAR, в котором сохранились уже переведённые `title`/`body`, не показывает
 текст прежнего языка: необратимая проза отбрасывается, а Browser восстанавливает
-локализованные outcome, sector, quest, силы и потери из сохранившихся полей.
-Если фактов недостаточно, остаётся краткая локализованная архивная сводка.
+локализованные outcome, sector, quest, время, силы и потери из сохранившихся
+полей. Старый `quest_linked=false` сохраняет смысл «активное, но не связанное с
+сектором задание». Если фактов недостаточно, остаётся краткая локализованная
+архивная сводка.
 Миграция охватывает не только очередь, но и уже полученные sighting/obit:
 стабильные `type_id`, `npc_id` и T-ссылки пересобирают context, прежние
-`Untranslated`-обёртки ID нормализуются обратно в raw ID, а фактически
-полученные письма восстанавливают `met_types`/`obits_sent`. Pending sighting и
+`Untranslated`-обёртки ID нормализуются обратно в raw ID. T-значение считается
+стабильным только при наличии numeric localization ID; замороженный
+`Untranslated`-текст без ID заменяется локализованным общим обозначением.
+Фактически полученные письма восстанавливают `met_types`/`obits_sent`. Pending sighting и
 obit, напротив, снимают старые enqueue-time flags; для Strategy фактический inbox
 является источником истины delivery state. Невосстановимый contact получает
 локализованное общее обозначение. Strategy archive хранит material ID и исходный
 `email.time`, а не готовую прозу или время повторной миграции.
 
-Новые AAR v2 сохраняют только language-neutral keys, counts, sector/quest ID и
-стабильные ссылки на именных противников. Сектор, задание, имя элиты, auto-resolve
-и все абзацы разрешаются заново при каждом показе на выбранном сейчас языке.
+Новые AAR v2 сохраняют только language-neutral keys, counts, sector/quest ID,
+скалярные параметры quest-note и стабильные ссылки на именных противников.
+Сектор, задание, подстановка в заметке, имя элиты, auto-resolve и все абзацы
+разрешаются заново при каждом показе на выбранном сейчас языке.
 
 ## Почта и темп
 
@@ -116,6 +121,8 @@ obit, напротив, снимают старые enqueue-time flags; для S
 - Во время tactical combat стол не снимает due-row. Unlock контакта, Strategy и
   отметка некролога записываются только после появления Email в полученном inbox;
   после `CombatEnd` очередь обрабатывается повторно.
+- Sighting из старого save для уже удалённого archetype доставляется с общим
+  локализованным названием и не блокирует следующие строки desk queue.
 
 Значения 2h / 7h / 5h и общий 5h desk contract не менялись относительно
 JAZZ-UI-RIS-001.
@@ -146,11 +153,13 @@ JAZZ-UI-RIS-001.
   дедуплицирует одного участника между satellite и tactical; смерть удаляет тот
   же ключ из WIA;
 - baseline HP фиксируется при первом появлении бойца: WIA означает новое
-  повреждение/падение в этом конфликте, а не старую рану до боя;
+  повреждение/падение в этом конфликте, а не старую рану до боя; тот же baseline
+  определяет `wounded` для именного противника;
 - sector context и только задания, действительно связанные с этим сектором,
   фиксируются в начале и объединяются с финальным снимком, поэтому завершённое
   самим боем задание не пропадает, а постороннее выбранное задание в AAR не
-  попадает;
+  попадает; scalar-параметры quest state фиксируются вместе с note T-reference,
+  поэтому `<Clues>`/`<Samples>` не остаются буквальными placeholder-ами;
 - при заявленной победе и живом hostile отчёт предупреждает о сохраняющемся
   присутствии, а не объявляет сектор очищенным;
 - `ConflictStart` фиксирует состав satellite squads до auto-resolve,
@@ -168,9 +177,10 @@ JAZZ-UI-RIS-001.
 
 Девять materials открываются постепенно по уже случившимся событиям. `Network`
 всегда идёт первым после прочитанного welcome и либо первого подтверждённого
-контакта, либо полученного supply brief. В очереди одновременно остаётся только
-одна Strategy-row; после Network выбирается самое раннее ещё не выданное
-наблюдение.
+контакта, либо полученного supply brief. Когда inbox доступен, именно он, а не
+старое `last_mailed_tier`, подтверждает доставку brief. В очереди одновременно
+остаётся только одна Strategy-row; после Network выбирается самое раннее ещё не
+выданное наблюдение.
 
 Observer фиксирует:
 
@@ -199,21 +209,23 @@ Observer фиксирует:
 
 Статически подтверждено:
 
-- copy audit: 214 RU+EN pairs, все категории, 9 Strategy;
-- apply check: 8/8 outputs unchanged, 217 localization ID, 24 Email;
+- copy audit: 218 RU+EN pairs, включая identity/sender, все категории, 9 Strategy;
+- apply check: 8/8 outputs unchanged, 218 localization ID, 24 Email; obsolete
+  metadata resources `LegionTier1…5` отсутствуют;
 - strict localization audit: `needs Russian=0`, `needs English=0`, active
   collisions 0; множества mod-only ID runtime RU/EN совпадают;
 - quick structural check `items.lua` + `metadata.lua`: PASS;
-- targeted lupa contract: **7/7 PASS** — mail/inbox migration и stable-ID
-  re-resolution, delivery gate, Strategy observability, concurrent/same-time
-  satellite conflicts, two-phase tactical KIA/WIA/quest/hostile state и legacy
-  AAR reconstruction;
+- targeted lupa contract: **7/7 PASS** — engine-like `Untranslated` migration,
+  removed-archetype queue fallback, inbox-authoritative Network gate, Strategy
+  observability, concurrent/same-time satellite conflicts, two-phase tactical
+  KIA/WIA/quest params/named fate/hostile state и legacy AAR reconstruction с
+  временем и provenance задания;
 - один активный `System_RIS_Strategy.lua` в load graph после
   `Guardpost_Patrols`.
 
 Общий generated-sync пока не является PASS: suite-аудит сообщает 489 не
-связанных с R.I.S. companion errors и 27 warnings; из них core-пакет `jazz`
-даёт 409/12. R.I.S.-совпадений в отчёте нет.
+связанных с R.I.S. companion errors и 28 warnings; из них core-пакет `jazz`
+даёт 409/13. R.I.S.-совпадений в blocking report нет.
 
 Targeted runtime profile находится в
 [`docs/technical/testing.md`](../testing.md). До проверки RU/EN mail, two-stage

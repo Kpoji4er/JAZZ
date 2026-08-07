@@ -39,9 +39,10 @@ EXPECTED_COUNTS = {
     "UI_FIXES": 13,
     "AAR_FIXES": 60,
     "FIELD_MAIL_FIXES": 7,
-    "RIS_EXTRA_STRINGS": 7,
+    "RIS_FIXED_STRINGS": 3,
+    "RIS_EXTRA_STRINGS": 8,
     "STRING_FIXES": 76,
-    "ALL_SIMPLE_STRINGS": 90,
+    "ALL_SIMPLE_STRINGS": 94,
     "MAJOR_STRATEGY": 9,
 }
 
@@ -68,6 +69,7 @@ REQUIRED_PUBLIC_EXPORTS = {
     "UI_FIXES",
     "AAR_FIXES",
     "FIELD_MAIL_FIXES",
+    "RIS_FIXED_STRINGS",
     "RIS_EXTRA_STRINGS",
     "STRING_FIXES",
     "ALL_SIMPLE_STRINGS",
@@ -79,21 +81,27 @@ EXPECTED_LIST_IDS = {
     "UI_FIXES": tuple(str(value) for value in range(890000000011000, 890000000011013)),
     "AAR_FIXES": tuple(str(value) for value in range(890000000011097, 890000000011157)),
     "FIELD_MAIL_FIXES": tuple(str(value) for value in range(890000000011200, 890000000011207)),
-    "RIS_EXTRA_STRINGS": tuple(str(value) for value in range(890000000011340, 890000000011347)),
+    "RIS_FIXED_STRINGS": (
+        "890000000006920",
+        "890000000006921",
+        "890000000006939",
+    ),
+    "RIS_EXTRA_STRINGS": tuple(str(value) for value in range(890000000011340, 890000000011348)),
 }
 
 EXPECTED_ALL_IDS = (
-    set(EXPECTED_LIST_IDS["WELCOME_FIXES"])
+    set(EXPECTED_LIST_IDS["RIS_FIXED_STRINGS"])
+    | set(EXPECTED_LIST_IDS["WELCOME_FIXES"])
     | {str(value) for value in range(890000000011000, 890000000011157)}
     | set(EXPECTED_LIST_IDS["FIELD_MAIL_FIXES"])
-    | {str(value) for value in range(890000000011300, 890000000011347)}
+    | {str(value) for value in range(890000000011300, 890000000011348)}
 )
 
 EXPECTED_RESERVED_ALLOCATED = {
-    str(value) for value in range(890000000011322, 890000000011347)
+    str(value) for value in range(890000000011322, 890000000011348)
 }
 EXPECTED_RESERVED_UNALLOCATED = {
-    str(value) for value in range(890000000011347, 890000000011350)
+    str(value) for value in range(890000000011348, 890000000011350)
 }
 
 ALLOWED_PLACEHOLDERS = {
@@ -111,6 +119,7 @@ ALLOWED_PLACEHOLDERS = {
     "ekia",
     "ewia",
     "name",
+    "time",
 }
 
 EXPECTED_PLACEHOLDERS = {
@@ -134,6 +143,7 @@ EXPECTED_PLACEHOLDERS = {
     "890000000011205": ("name",),
     "890000000011206": ("name",),
     "890000000011343": ("sector",),
+    "890000000011347": ("sector", "time"),
 }
 
 PLACEHOLDER_RE = re.compile(r"<([a-z][a-z0-9_]*)>")
@@ -388,17 +398,21 @@ def audit() -> tuple[list[str], int, int]:
             error("STRING_FIXES: must equal WELCOME_FIXES + UI_FIXES + AAR_FIXES")
 
     all_simple_parts = (
+        categories["RIS_FIXED_STRINGS"],
         categories["STRING_FIXES"],
         categories["FIELD_MAIL_FIXES"],
         categories["RIS_EXTRA_STRINGS"],
     )
     if all(isinstance(part, list) for part in all_simple_parts):
         expected_all_simple = (
-            all_simple_parts[0] + all_simple_parts[1] + all_simple_parts[2]
+            all_simple_parts[0]
+            + all_simple_parts[1]
+            + all_simple_parts[2]
+            + all_simple_parts[3]
         )
         if categories["ALL_SIMPLE_STRINGS"] != expected_all_simple:
             error(
-                "ALL_SIMPLE_STRINGS: must equal STRING_FIXES + "
+                "ALL_SIMPLE_STRINGS: must equal RIS_FIXED_STRINGS + STRING_FIXES + "
                 "FIELD_MAIL_FIXES + RIS_EXTRA_STRINGS"
             )
 
@@ -463,6 +477,7 @@ def audit() -> tuple[list[str], int, int]:
         "UI_FIXES",
         "AAR_FIXES",
         "FIELD_MAIL_FIXES",
+        "RIS_FIXED_STRINGS",
         "RIS_EXTRA_STRINGS",
     )
     for category_name in simple_category_names:
@@ -680,7 +695,7 @@ def audit() -> tuple[list[str], int, int]:
     accidentally_allocated = actual_ids & EXPECTED_RESERVED_UNALLOCATED
     if accidentally_allocated:
         error(
-            "reserved strategy range: ids 11347…11349 must remain unallocated: "
+            "reserved strategy range: ids 11348…11349 must remain unallocated: "
             + ", ".join(sorted(accidentally_allocated, key=int))
         )
 
@@ -777,6 +792,7 @@ def main() -> int:
         f"ui={len(bank.UI_FIXES)}, "
         f"aar={len(bank.AAR_FIXES)}, "
         f"field_mail={len(bank.FIELD_MAIL_FIXES)}, "
+        f"fixed_identity={len(bank.RIS_FIXED_STRINGS)}, "
         f"unit_dossiers={len(bank.DOSSIERS)}, "
         f"quest_dossiers={len(bank.QUEST_DOSSIERS)}, "
         f"supply_briefs={len(brief_bank.BRIEFS)}, "
@@ -788,8 +804,8 @@ def main() -> int:
         f"unique localization ids={localization_id_count}"
     )
     print(
-        "reserved ids allocated=890000000011322-890000000011346; "
-        "unallocated=890000000011347-890000000011349"
+        "reserved ids allocated=890000000011322-890000000011347; "
+        "unallocated=890000000011348-890000000011349"
     )
     return 0
 

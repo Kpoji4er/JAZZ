@@ -89,7 +89,15 @@ end
 local function lIsStableT(value)
 	local isT = rawget(_G, "IsT")
 	if type(isT) == "function" then
-		return isT(value)
+		local ok, translated = pcall(isT, value)
+		if not ok or not translated then
+			return false
+		end
+	end
+	local getId = rawget(_G, "TGetID")
+	if type(getId) == "function" then
+		local ok, id = pcall(getId, value)
+		return ok and type(id) == "number" and id ~= 0
 	end
 	return type(value) == "table" and type(value[1]) == "number"
 end
@@ -435,7 +443,7 @@ local function lMigrateReceivedContexts(st)
 	for _, email in ipairs(received) do
 		if type(email) == "table" and email.id == RIS_SIGHTING_ID then
 			local oldContext = type(email.context) == "table" and email.context or {}
-			local typeId = lRawContextId(oldContext.type_id)
+			local typeId = lRawContextId(oldContext.type_id) or nil
 			local bank = rawget(_G, "JAZZ_RIS_DOSSIERS")
 			local card = type(bank) == "table" and typeId and bank[typeId]
 			if typeId and not st.met_types[typeId] then
@@ -461,9 +469,10 @@ local function lMigrateReceivedContexts(st)
 			and (email.id == RIS_ELITE_OBIT_ID or email.id == RIS_NPC_OBIT_ID)
 		then
 			local oldContext = type(email.context) == "table" and email.context or {}
-			local obitKey = lRawContextId(oldContext.obit_key)
+			local obitKey = lRawContextId(oldContext.obit_key) or nil
 			local npcId = lRawContextId(oldContext.npc_id)
 				or lNpcIdFromObitKey(obitKey)
+				or nil
 			if not obitKey and npcId then
 				obitKey = email.id == RIS_ELITE_OBIT_ID
 					and ("elite:session:" .. npcId)
@@ -901,13 +910,19 @@ local function lDeliveryContext(item)
 	if item.kind == "meet" then
 		local bank = rawget(_G, "JAZZ_RIS_DOSSIERS")
 		local card = type(bank) == "table" and bank[item.type_id]
-		if not (card and card.title) then
+		local title = card and card.title or lFallbackRef("legacy_contact")
+		if not title then
 			return false, false
 		end
-		-- type_id is deliberately retained as hidden stable context for future migrations.
+		if not card then
+			-- A removed archetype from an old save must not block the desk forever
+			-- or become a new stable contact under an obsolete id.
+			item.type_id = nil
+		end
+		-- A still-valid type_id stays as hidden stable context for future migrations.
 		return lContextForEmail({
 			type_id = item.type_id,
-			unit_title = card.title,
+			unit_title = title,
 		}), true
 	end
 	if item.kind == "obit" then

@@ -160,7 +160,15 @@ end
 local function lIsStableT(value)
 	local isT = rawget(_G, "IsT")
 	if type(isT) == "function" then
-		return isT(value)
+		local ok, translated = pcall(isT, value)
+		if not ok or not translated then
+			return false
+		end
+	end
+	local getId = rawget(_G, "TGetID")
+	if type(getId) == "function" then
+		local ok, id = pcall(getId, value)
+		return ok and type(id) == "number" and id ~= 0
 	end
 	return type(value) == "table" and type(value[1]) == "number"
 end
@@ -201,25 +209,6 @@ local function lIsNamedOpponent(unit)
 	return (type(keys) == "table" and keys[id])
 		or (type(dossiers) == "table" and dossiers[id])
 		or false
-end
-
-local function lIsWounded(unit)
-	if not lIsValidUnit(unit) or lIsDead(unit) then
-		return false
-	end
-	local hp = tonumber(unit.HitPoints)
-	local maxHp = tonumber(unit.MaxHitPoints)
-	if not maxHp and type(unit.GetInitialMaxHitPoints) == "function" then
-		local ok, value = pcall(unit.GetInitialMaxHitPoints, unit)
-		maxHp = ok and tonumber(value) or false
-	end
-	if hp and maxHp and hp < maxHp then
-		return true
-	end
-	if type(unit.IsDowned) == "function" and unit:IsDowned() then
-		return true
-	end
-	return type(unit.HasStatusEffect) == "function" and unit:HasStatusEffect("BleedingOut") or false
 end
 
 local function lAllUnits()
@@ -619,7 +608,25 @@ function JAZZ_RIS_NoteQuestMeet(id)
 	ObjModified("jazz_ris")
 end
 
-local function lAppendQuest(ctx, id, source, note)
+local function lQuestParams(state)
+	local params = {}
+	for key, value in pairs(type(state) == "table" and state or {}) do
+		local valueType = type(value)
+		if type(key) == "string"
+			and (
+				valueType == "string"
+				or valueType == "number"
+				or valueType == "boolean"
+				or lIsStableT(value)
+			)
+		then
+			params[key] = value
+		end
+	end
+	return params
+end
+
+local function lAppendQuest(ctx, id, source, note, params)
 	if type(id) ~= "string" or id == "" then
 		return
 	end
@@ -633,6 +640,9 @@ local function lAppendQuest(ctx, id, source, note)
 	if lIsStableT(note) then
 		ctx.quest_notes[id] = note
 	end
+	if type(params) == "table" and next(params) then
+		ctx.quest_params[id] = params
+	end
 end
 
 --- Resolve stable sector/quest references only; translation happens in the browser.
@@ -643,6 +653,7 @@ function JAZZ_RIS_ResolveSectorContext(sector_id)
 		quest_ids = {},
 		quest_sources = {},
 		quest_notes = {},
+		quest_params = {},
 		quest_linked = false,
 	}
 	local sector = lSectorObject(sector_id)
@@ -661,7 +672,7 @@ function JAZZ_RIS_ResolveSectorContext(sector_id)
 				local preset = quest and quest.preset
 				local id = preset and preset.id
 				local note = quest and quest.notes and quest.notes[1] and quest.notes[1].Text
-				lAppendQuest(ctx, id, "badge", note)
+				lAppendQuest(ctx, id, "badge", note, lQuestParams(quest and quest.state))
 			end
 		end
 	end
@@ -679,6 +690,7 @@ local function lMergeSectorContext(initial, current)
 	initial.quest_ids = type(initial.quest_ids) == "table" and initial.quest_ids or {}
 	initial.quest_sources = type(initial.quest_sources) == "table" and initial.quest_sources or {}
 	initial.quest_notes = type(initial.quest_notes) == "table" and initial.quest_notes or {}
+	initial.quest_params = type(initial.quest_params) == "table" and initial.quest_params or {}
 	local seen = {}
 	for _, id in ipairs(initial.quest_ids) do
 		seen[id] = true
@@ -694,6 +706,9 @@ local function lMergeSectorContext(initial, current)
 		end
 		if not initial.quest_notes[id] and current.quest_notes then
 			initial.quest_notes[id] = current.quest_notes[id]
+		end
+		if not initial.quest_params[id] and current.quest_params then
+			initial.quest_params[id] = current.quest_params[id]
 		end
 	end
 	initial.quest_linked = not not (initial.quest_linked or current.quest_linked)
@@ -819,7 +834,7 @@ local function lFinalizeNamedFates(snap, playerWon, isRetreat, scanMap)
 		present[handle] = true
 		if lIsDead(unit) then
 			lTrackNamed(snap, unit, "killed")
-		elseif lIsWounded(unit) then
+		elseif snap.enemy_wounded[handle] then
 			lTrackNamed(snap, unit, "wounded")
 		else
 			lTrackNamed(snap, unit, "threat")
@@ -915,6 +930,16 @@ local function lCopyMap(values)
 	return copy
 end
 
+local function lCopyQuestParams(values)
+	local copy = {}
+	for questId, params in pairs(type(values) == "table" and values or {}) do
+		if type(params) == "table" then
+			copy[questId] = lCopyMap(params)
+		end
+	end
+	return copy
+end
+
 local function lBuildAARRecord(snap, playerWon, isRetreat, autoResolve)
 	local outcome = lOutcome(playerWon, isRetreat)
 	local intensity = lIntensityBand(snap, playerWon, isRetreat)
@@ -964,6 +989,7 @@ local function lBuildAARRecord(snap, playerWon, isRetreat, autoResolve)
 		quest_ids = lCopyArray(ctx.quest_ids),
 		quest_sources = lCopyMap(ctx.quest_sources),
 		quest_notes = lCopyMap(ctx.quest_notes),
+		quest_params = lCopyQuestParams(ctx.quest_params),
 		quest_linked = ctx.quest_linked and true or false,
 		poi_ref = ctx.poi_ref,
 		elites = lCopyStableElites(snap.elites),

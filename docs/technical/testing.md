@@ -144,11 +144,13 @@ Targeted lupa-regression запускается из корня `jazz/`:
 python -B docs/tools/_test_ris_contract.py
 ```
 
-Семь сценариев проверяют синтаксис пяти loaded Lua-файлов; schema/desk и
-полученный inbox; фактическую delivery-gate досье/некролога/Strategy;
-observability и post-delivery Awakening; изоляцию параллельных auto-resolve;
-двухфазный tactical snapshot с map-only units, quest, KIA/WIA и живым hostile;
-реконструкцию legacy AAR. Проверка не заменяет JA3.
+Семь сценариев проверяют синтаксис пяти loaded Lua-файлов; engine-like
+`Untranslated` и schema/desk/received-inbox migration; fallback удалённого
+archetype и inbox-authoritative gate `Network`; фактическую delivery-gate
+досье/некролога/Strategy; observability и post-delivery Awakening; изоляцию
+параллельных auto-resolve; двухфазный tactical snapshot с map-only units,
+quest-note params, baseline named fate, KIA/WIA и живым hostile; реконструкцию
+legacy AAR с временем и provenance задания. Проверка не заменяет JA3.
 
 Статические copy/apply/items/metadata проверки не заменяют этот targeted
 runtime profile. На 7 августа 2026 года все сценарии ниже остаются
@@ -164,11 +166,13 @@ runtime profile. На 7 августа 2026 года все сценарии н�
 - при `playerWon=true` и живом hostile AAR сообщает о сохраняющемся присутствии,
   а не о полном очищении сектора;
 - RU и EN AAR локализуют auto-resolve, сектор, quest и не меньше двух именных
-  противников без raw ID и зависимости русской грамматики от пола;
+  противников без raw ID, literal quest-note placeholder и зависимости русской
+  грамматики от пола; старая рана именного противника не выдаётся за полученную
+  в этом бою;
 - old save со старым AAR, queued/received sighting и obituary после RU↔EN
-  показывает текущий язык; доступные outcome/quest/counts старого AAR
-  восстанавливаются, wrapped IDs и delivery flags нормализуются, а
-  невосстановимая часть заменяется localized summary;
+  показывает текущий язык; доступные outcome/quest/time/counts старого AAR и
+  active-but-unlinked provenance восстанавливаются, wrapped IDs и delivery flags
+  нормализуются, а невосстановимая часть заменяется localized summary;
 - Strategy: `Network` приходит первой только после welcome и контакта/brief;
   дальше выдаются только наблюдённые материалы, одна pending row, интервал между
   Strategy Email ≥24 campaign hours и общий desk spacing ≥5h;

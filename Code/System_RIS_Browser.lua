@@ -283,7 +283,15 @@ end
 local function lIsStableT(value)
 	local isT = rawget(_G, "IsT")
 	if type(isT) == "function" then
-		return isT(value)
+		local ok, translated = pcall(isT, value)
+		if not ok or not translated then
+			return false
+		end
+	end
+	local getId = rawget(_G, "TGetID")
+	if type(getId) == "function" then
+		local ok, id = pcall(getId, value)
+		return ok and type(id) == "number" and id ~= 0
 	end
 	return type(value) == "table" and type(value[1]) == "number"
 end
@@ -362,11 +370,20 @@ local function lResolveQuestRows(entry)
 			if name ~= "" then
 				local sources = type(entry.quest_sources) == "table" and entry.quest_sources or {}
 				local notes = type(entry.quest_notes) == "table" and entry.quest_notes or {}
+				local params = type(entry.quest_params) == "table" and entry.quest_params or {}
+				local source = sources[id] or sources[index]
+				local legacy = entry.legacy
+					or entry.kind == "legacy"
+					or (tonumber(entry.record_version or entry.version) or 0) < RIS_AAR_RECORD_VERSION
+				if not source and legacy and entry.quest_linked == false then
+					source = "active"
+				end
+				local note = notes[id] or notes[index]
+				local noteParams = params[id] or params[index]
 				rows[#rows + 1] = {
 					name = name,
-					source = sources[id] or sources[index],
-					note = lIsStableT(notes[id] or notes[index]) and lTranslate(notes[id] or notes[index])
-						or false,
+					source = source,
+					note = lIsStableT(note) and lTranslate(lFormat(note, noteParams)) or false,
 				}
 			end
 		end
@@ -503,6 +520,24 @@ local function lResolveHeadline(aar, entry)
 	return bank[index]
 end
 
+local function lResolveBattleTime(entry)
+	local value = tonumber(entry and (entry.time or entry.started_at))
+	if not value then
+		return false
+	end
+	local formatTime = rawget(_G, "FormatCampaignTime")
+	if type(formatTime) == "function" then
+		local ok, formatted = pcall(formatTime, value, "all")
+		if ok and formatted then
+			local text = lTranslate(formatted)
+			if text ~= "" then
+				return text
+			end
+		end
+	end
+	return tostring(value)
+end
+
 local function lRenderLegacyBattle(entry)
 	local extra = rawget(_G, "JAZZ_RIS_EXTRA")
 	if type(extra) ~= "table" then
@@ -526,7 +561,12 @@ local function lRenderLegacyBattle(entry)
 	end
 	local sector = lResolveSectorName(entry)
 	local parts = {}
-	lAppendParagraph(parts, lFormat(extra.legacy_body, { sector = sector }))
+	local battleTime = lResolveBattleTime(entry)
+	local legacyBody = battleTime and extra.legacy_body_time or extra.legacy_body
+	lAppendParagraph(parts, lFormat(legacyBody, {
+		sector = sector,
+		time = battleTime,
+	}))
 	if type(aar) == "table" then
 		lAppendQuest(parts, aar, entry)
 		if entry.player_start ~= nil and entry.enemy_start ~= nil then

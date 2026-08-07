@@ -60,6 +60,7 @@ gv_Squads = {}
 gv_Sectors = {}
 gv_JAZZ_LegionAI = { squads = {}, regions = {}, outposts = {} }
 Regions = {}
+strategy_received = {}
 
 function JAZZ_RIS_MigrateState()
 	return gv_JAZZ_RIS
@@ -71,7 +72,7 @@ function JAZZ_RIS_EnqueueMail(item)
 end
 
 function GetReceivedEmails()
-	return {}
+	return strategy_received
 end
 
 function IsSquadTravelling(squad)
@@ -224,6 +225,20 @@ for _, row in ipairs(st.mail_queue) do
 	end
 end
 assert(pending <= 1, "more than one Strategy row entered the desk queue")
+
+st.strategy_observed.strategy_network = nil
+st.welcome_read = true
+st.met_types = {}
+st.kills = {}
+st.last_mailed_tier = 11
+strategy_received = {}
+JAZZ_RIS_PollStrategySignals(false)
+assert(st.strategy_observed.strategy_network == nil,
+    "stale last_mailed_tier unlocked Network without a received brief")
+strategy_received = { { id = "RIS_LegionBrief_11" } }
+JAZZ_RIS_PollStrategySignals(false)
+assert(st.strategy_observed.strategy_network == 1000,
+    "received supply brief did not unlock Network")
 '''
     )
 
@@ -264,6 +279,22 @@ end
 
 function Untranslated(value)
 	return { value, untranslated = true }
+end
+
+function T(value, text)
+    if type(value) == "table" then
+        return value
+    end
+    return { value, text }
+end
+
+function IsT(value)
+    return type(value) == "table"
+        and (type(value[1]) == "number" or value.untranslated or value.user_text)
+end
+
+function TGetID(value)
+    return type(value) == "table" and type(value[1]) == "number" and value[1] or false
 end
 
 function Max(a, b)
@@ -336,7 +367,7 @@ gv_JAZZ_RIS = {
         },
 	},
 	kills = {},
-	met_types = {},
+	met_types = { JAZZ_Legion_Test = true },
 	dossiers = {},
 	obits_sent = { ["elite:session:LegacyElite"] = true },
 	battles = {
@@ -366,6 +397,8 @@ assert(st.mail_queue[2].context == nil
     "migrated obituary row did not recover its stable identity")
 assert(not st.obits_sent["elite:session:LegacyElite"],
     "queued obituary remained marked as already received")
+assert(not st.met_types.JAZZ_Legion_Test,
+    "queued sighting retained its legacy enqueue-time contact flag")
 assert(#st.mail_queue == 3,
     "duplicate stable field-mail rows survived migration")
 assert(not st.strategy_delivered.strategy_network
@@ -439,6 +472,20 @@ assert(received[4].context.unit_title == JAZZ_RIS_DOSSIERS.JAZZ_Legion_Test.titl
     and received[4].context.type_id == "JAZZ_Legion_Test",
 	"sighting context did not resolve at delivery time")
 
+Game.CampaignTime = 5500
+st.next_dispatch_at = 0
+st.mail_queue[#st.mail_queue + 1] = {
+    key = "meet_JAZZ_Legion_Removed",
+    kind = "meet",
+    email_id = "RIS_UnitSighting",
+    type_id = "JAZZ_Legion_Removed",
+    ready_at = 0,
+}
+assert(JAZZ_RIS_ProcessMailQueue(false)
+    and received[5].context.unit_title == JAZZ_RIS_EXTRA.legacy_contact
+    and received[5].context.type_id == nil,
+    "removed legacy sighting blocked the desk or leaked its obsolete id")
+
 Game.CampaignTime = 6000
 st.next_dispatch_at = 0
 assert(JAZZ_RIS_EnqueueEliteObit("Named hostile", 0, "named-hostile"),
@@ -493,6 +540,15 @@ received = {
             obit_key = "elite:session:LegacyElite",
         },
     },
+    {
+        id = "RIS_UnitSighting",
+        read = true,
+        time = 500,
+        context = {
+            unit_title = Untranslated("frozen unidentified contact"),
+            dossier = Untranslated("frozen unidentified dossier"),
+        },
+    },
 }
 gv_ReceivedEmails = received
 st.mail_queue = {
@@ -529,6 +585,10 @@ assert(received[4].context.name == gv_UnitData.LegacyNpc.Name
 assert(received[5].context.name == gv_UnitData.LegacyElite.Name
     and received[5].context.npc_id == "LegacyElite",
     "received elite obituary did not recover its session id")
+assert(received[6].context.unit_title == JAZZ_RIS_EXTRA.legacy_contact
+    and received[6].context.type_id == nil
+    and received[6].context.dossier == nil,
+    "unidentified legacy sighting retained an Untranslated frozen name")
 assert(st.met_types.JAZZ_Legion_Test
     and st.obits_sent["npc:LegacyNpc"]
     and st.obits_sent["elite:session:LegacyElite"],
@@ -912,7 +972,7 @@ e1 = combat_unit("e1", "enemy1", 100)
 e2 = combat_unit("e2", "enemy1", 100)
 e2.Name = "Second phase officer"
 e2.elite = true
-e3 = combat_unit("e3", "enemy1", 100)
+e3 = combat_unit("e3", "enemy1", 50)
 e3.Name = "Remaining commander"
 e3.elite = true
 e4 = combat_unit("e4", "enemy1", 100)
@@ -942,7 +1002,8 @@ function GetQuestsAssociatedWithSector()
         return {
             {
                 preset = { id = "Q1" },
-                notes = {},
+                state = { Clues = 3 },
+                notes = { { Text = { 7005, "Collected <Clues> clues" } } },
             },
         }
     end
@@ -1006,10 +1067,12 @@ assert(aar.hostiles_remain == true,
     "living map-placed hostile was omitted from the final warning")
 assert(#aar.quest_ids == 1 and aar.quest_ids[1] == "Q1",
     "AAR lost its sector quest or imported an unrelated active quest")
+assert(aar.quest_params.Q1.Clues == 3,
+    "AAR did not preserve language-neutral quest-note parameters")
 assert(#aar.elites == 2
     and aar.elites[1].fate == "killed"
     and aar.elites[2].fate == "threat",
-    "named-opponent fates changed with post-capture diplomacy")
+    "named-opponent fate used an old wound or changed with post-capture diplomacy")
 assert(elite_obits == 1,
     "recorded enemy side was ignored when queuing a death notice")
 assert(gv_JAZZ_RIS.kills.JAZZ_Legion_Test == 2,
@@ -1036,10 +1099,12 @@ gv_UnitData = {
 }
 Quests = {
     Q1 = { DisplayName = { 7001, "Recovered assignment" } },
+    Q2 = { DisplayName = { 7003, "Parameterized assignment" } },
 }
 JAZZ_RIS_EXTRA = {
     legacy_title = "ARCHIVED",
     legacy_body = "Partial record from <sector>.",
+    legacy_body_time = "Partial timed record from <sector> at <time>.",
     auto_resolve = "REMOTE",
 }
 JAZZ_RIS_AAR = {
@@ -1086,13 +1151,23 @@ function T(value, text)
     if type(value) ~= "table" then
         return { value, text }
     end
-    local result = tostring(value[1] or "")
+    local template = value[1]
+    local result = type(template) == "table"
+        and tostring(template[2] or "")
+        or tostring(template or "")
     for key, replacement in pairs(value) do
         if type(key) == "string" then
+            if type(replacement) == "table" then
+                replacement = replacement[2] or replacement[1] or ""
+            end
             result = string.gsub(result, "<" .. key .. ">", tostring(replacement))
         end
     end
     return result
+end
+
+function FormatCampaignTime()
+    return "D3-H4"
 end
 
 function ObjModified()
@@ -1105,8 +1180,10 @@ end
 local title, body = JAZZ_RIS_RenderBattle({
     kind = "legacy",
     sector_id = "A1",
+    time = 123,
     outcome = "win",
     quest_ids = { "Q1" },
+    quest_linked = false,
     player_start = 3,
     enemy_start = 4,
     player_kia = 0,
@@ -1120,6 +1197,9 @@ assert(title == "RECOVERED WIN",
 assert(string.find(body, "Alpha", 1, true)
     and string.find(body, "Recovered assignment", 1, true),
     "legacy AAR ignored preserved sector or quest references")
+assert(string.find(body, "D3-H4", 1, true)
+    and string.find(body, "ACTIVE Recovered assignment", 1, true),
+    "legacy AAR ignored preserved time or active-quest provenance")
 assert(string.find(body, "FORCES 3/4", 1, true)
     and string.find(body, "LOSSES 0/1/3/1", 1, true)
     and string.find(body, "OUTCOME WIN", 1, true)
@@ -1136,7 +1216,11 @@ local _, current_body = JAZZ_RIS_RenderBattle({
     intensity_key = "mid",
     character_key = "win",
     closing_key = "noise",
-    quest_ids = {},
+    quest_ids = { "Q2" },
+    quest_sources = { Q2 = "badge" },
+    quest_notes = { Q2 = { 7004, "Collected <Clues> clues" } },
+    quest_params = { Q2 = { Clues = 3 } },
+    quest_linked = true,
     player_start = 1,
     enemy_start = 1,
     player_kia = 0,
@@ -1155,6 +1239,8 @@ local _, current_body = JAZZ_RIS_RenderBattle({
 assert(string.find(current_body, "Current opponent name", 1, true)
     and not string.find(current_body, "Frozen old-language name", 1, true),
     "AAR preferred frozen prose over a current stable UnitData name")
+assert(string.find(current_body, "Collected 3 clues", 1, true),
+    "AAR rendered a quest note without its captured substitution values")
 '''
     )
 

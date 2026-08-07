@@ -138,6 +138,7 @@ EXTRA_FIELDS = (
     ("hostiles_remain", "890000000011344"),
     ("legacy_contact", "890000000011345"),
     ("legacy_opponent", "890000000011346"),
+    ("legacy_body_time", "890000000011347"),
 )
 
 KEY_NPCS = (
@@ -174,6 +175,7 @@ STRATEGY_EMAIL_BY_DESIGN = {
 }
 STRATEGY_CODE_PATH = "Code/System_RIS_Strategy.lua"
 STRATEGY_CODE_ANCHOR = "Code/Guardpost_Patrols.lua"
+LEGACY_EMAIL_RESOURCE_IDS = tuple(f"LegionTier{tier}" for tier in range(1, 6))
 
 EXPECTED_ACTIVE_LOC_IDS = frozenset(
     {
@@ -183,7 +185,7 @@ EXPECTED_ACTIVE_LOC_IDS = frozenset(
         *(str(value) for value in range(890000000006922, 890000000006925)),
         *(str(value) for value in range(890000000011000, 890000000011157)),
         *(str(value) for value in range(890000000011200, 890000000011207)),
-        *(str(value) for value in range(890000000011300, 890000000011347)),
+        *(str(value) for value in range(890000000011300, 890000000011348)),
     }
 )
 
@@ -319,19 +321,6 @@ def _raise_csv_field_limit() -> None:
 _raise_csv_field_limit()
 
 
-def _find_simple_string(localization_id: str) -> tuple[str, str]:
-    matches = [
-        (source_en, russian)
-        for candidate, source_en, russian in bank.ALL_SIMPLE_STRINGS
-        if candidate == localization_id
-    ]
-    if len(matches) != 1:
-        raise ValidationError(
-            f"canonical simple string {localization_id}: expected one row, found {len(matches)}"
-        )
-    return matches[0]
-
-
 def build_localization_map() -> dict[str, LocEntry]:
     """Build the complete active R.I.S. ID map and reject conflicting IDs."""
 
@@ -378,31 +367,16 @@ def build_localization_map() -> dict[str, LocEntry]:
         entries[localization_id] = entry
         origins[localization_id] = origin
 
-    desk_sender_en, desk_sender_ru = _find_simple_string("890000000011200")
-    fixed_strings = (
-        (
-            "890000000006920",
-            "R.I.S.",
-            "R.I.S.",
-            "brand",
-            "jazz:Code/System_RIS_Mail.lua",
-        ),
-        (
-            "890000000006921",
-            desk_sender_en,
-            desk_sender_ru,
-            "welcome.sender",
-            "jazz:items.lua",
-        ),
-        (
-            "890000000006939",
-            "R.I.S. <legion-desk@ris-intel.net>",
-            "R.I.S. <legion-desk@ris-intel.net>",
-            "supply_brief.sender",
-            "jazz:items.lua",
-        ),
-    )
-    for localization_id, source_en, russian, category, locations in fixed_strings:
+    fixed_metadata = {
+        "890000000006920": ("brand", "jazz:Code/System_RIS_Mail.lua"),
+        "890000000006921": ("welcome.sender", "jazz:items.lua"),
+        "890000000006939": ("supply_brief.sender", "jazz:items.lua"),
+    }
+    fixed_ids = {row[0] for row in bank.RIS_FIXED_STRINGS}
+    if fixed_ids != set(fixed_metadata):
+        raise ValidationError("fixed R.I.S. identity/sender ID set differs from projection metadata")
+    for localization_id, source_en, russian in bank.RIS_FIXED_STRINGS:
+        category, locations = fixed_metadata[localization_id]
         register(
             localization_id,
             source_en,
@@ -1449,6 +1423,19 @@ def patch_metadata(text: str) -> str:
     indexed = index_email_resources(text)
     if not indexed:
         raise ValidationError("metadata.lua: no Email resource anchor exists")
+    legacy_blocks = [
+        indexed[resource_id]
+        for resource_id in LEGACY_EMAIL_RESOURCE_IDS
+        if resource_id in indexed
+    ]
+    for block in sorted(legacy_blocks, key=lambda value: value.start, reverse=True):
+        line_start = text.rfind("\n", 0, block.start) + 1
+        line_end = block.end
+        if text.startswith("\r\n", line_end):
+            line_end += 2
+        elif text.startswith("\n", line_end):
+            line_end += 1
+        text = text[:line_start] + text[line_end:]
 
     previous_id: str | None = None
     for email_id in STRATEGY_EMAIL_IDS:
@@ -1464,6 +1451,14 @@ def patch_metadata(text: str) -> str:
         previous_id = email_id
 
     indexed = index_email_resources(text)
+    remaining_legacy = [
+        resource_id for resource_id in LEGACY_EMAIL_RESOURCE_IDS if resource_id in indexed
+    ]
+    if remaining_legacy:
+        raise ValidationError(
+            "metadata.lua: obsolete LegionTier Email resources survived projection: "
+            + ", ".join(remaining_legacy)
+        )
     missing = [email_id for email_id in STRATEGY_EMAIL_IDS if email_id not in indexed]
     if missing:
         raise ValidationError(

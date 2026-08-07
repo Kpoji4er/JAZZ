@@ -12866,3 +12866,4 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000011344,"The immediate objective was achieved, but confirmed hostiles remained in the area when the report closed.","The immediate objective was achieved, but confirmed hostiles remained in the area when the report closed.",,JAZZ-UI-RIS-002:extra.hostiles_remain
 890000000011345,Unidentified fighter,Unidentified fighter,,JAZZ-UI-RIS-002:extra.legacy_contact
 890000000011346,Unidentified opponent,Unidentified opponent,,JAZZ-UI-RIS-002:extra.legacy_opponent
+890000000011347,Archived engagement in <sector>. Record time: <time>. The available evidence is not enough to reconstruct the original field account with confidence.,Archived engagement in <sector>. Record time: <time>. The available evidence is not enough to reconstruct the original field account with confidence.,,JAZZ-UI-RIS-002:extra.legacy_body_time

@@ -138,6 +138,7 @@ placeholder-ов; порядок может меняться ради естес
 | `<pkia>`, `<pwia>` | погибшие и раненые на стороне игрока |
 | `<ekia>`, `<ewia>` | погибшие и раненые противника |
 | `<name>` | локализованное имя персонажа |
+| `<time>` | сохранённое кампанийное время архивной записи |
 
 Неизвестный placeholder — ошибка, а не повод вывести его как текст. В
 некрологах запрещён `<field_note>`: runtime его не передаёт. HTML/XML-теги не
@@ -239,7 +240,7 @@ placeholder-ов; порядок может меняться ради естес
 | Досье бойцов | 38 записей / 76 строк | PASS | PASS | Все 38 записей отмечены в `ris-legion-dossiers.md` |
 | Ключевые фигуры и фракция | 4 записи / 8 строк | PASS | PASS | Все 4 записи проверены отдельно |
 | Действующий AAR-корпус | 60 строк | PASS | PASS | 27 заголовков и все 33 paragraph slots |
-| Дополнительные AAR/section strings | 7 строк | PASS | PASS | Heading, auto-resolve, legacy title/body, surviving-hostiles line, generic contact/opponent |
+| Дополнительные AAR/section strings | 8 строк | PASS | PASS | Heading, auto-resolve, legacy title/body with optional time, surviving-hostiles line, generic contact/opponent |
 | «Стратегия Майора» | 9 писем / 18 строк | PASS | PASS | Точный текст сверен с утверждённым design-каноном |
 
 Автоматический `docs/tools/_audit_ris_copy.py` проверяет структуру, ids,

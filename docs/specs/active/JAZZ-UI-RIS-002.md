@@ -119,7 +119,7 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
 - `JAZZ-UI-RIS-002-REQ-006` — `docs/tools/_ris_copy_bank.py` является единственным каноническим RU+EN банком для welcome, UI, sighting/obit, досье, AAR и «Стратегии Майора». `_ris_dossier_copy.py` становится совместимым импортным фасадом без второй редактируемой копии тех же строк.
 - `JAZZ-UI-RIS-002-REQ-007` — оценки снабжения остаются в `_rewrite_ris_legion_briefs.py`, потому что их отдельный канон привязан к карте unlock-ов оружия; этот файл также проходит полный редакторский review.
 - `JAZZ-UI-RIS-002-REQ-008` — `_apply_ris_editorial.py` идемпотентно генерирует/синхронизирует `System_RIS_Content.lua`, R.I.S. Email ModItems в `items.lua`, RU/EN поля R.I.S. в `Localization/Strings.csv`, translation memory и оба runtime CSV. Старые apply/fix-скрипты импортируют новый банк либо явно помечены как superseded и не содержат расходящейся прозы.
-- `JAZZ-UI-RIS-002-REQ-009` — `_audit_ris_copy.py` проверяет полный ожидаемый набор R.I.S. ID и Email id, совпадение English `Text` с исходным `T()`, RU/EN placeholder parity, отсутствие неизвестных placeholder-ов, запрещённых player-facing токенов, retired factual phrases, пустых переводов, raw ID и нескольких вариантов текста на один ID.
+- `JAZZ-UI-RIS-002-REQ-009` — `_audit_ris_copy.py` проверяет полный ожидаемый набор из 218 R.I.S. ID, включая identity/sender, и Email id, совпадение English `Text` с исходным `T()`, RU/EN placeholder parity, отсутствие неизвестных placeholder-ов, запрещённых player-facing токенов, retired factual phrases, пустых переводов, raw ID и нескольких вариантов текста на один ID.
 - `JAZZ-UI-RIS-002-REQ-010` — диапазон `890000000011322…890000000011349` зарезервирован за заголовками, телами и UI-строками «Стратегии Майора». Другие подсистемы его не используют.
 
 ### Почта, UI и досье
@@ -133,23 +133,23 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
 ### Сводки после боя
 
 - `JAZZ-UI-RIS-002-REQ-016` — все AAR headlines и абзацы приведены к тону полевой аналитики. Варианты остаются различимыми по исходу и интенсивности, но не переходят в таблоид, браваду или буквальную кальку.
-- `JAZZ-UI-RIS-002-REQ-017` — auto-resolve, сектор, POI, квесты, силы, потери и именные противники локализуются через T-контракт. В отчёте нет raw quest id, raw sector id при доступном имени и жёстко зашитой английской строки.
+- `JAZZ-UI-RIS-002-REQ-017` — auto-resolve, сектор, POI, квесты, параметры quest-note, силы, потери и именные противники локализуются через T-контракт. В отчёте нет literal вложенного placeholder, raw quest id, raw sector id при доступном имени и жёстко зашитой английской строки.
 - `JAZZ-UI-RIS-002-REQ-018` — русские шаблоны используют нейтральную грамматику: `погибших: N`, `раненых: N` и конструкции с `<name>`, не требующие пола. Все числовые значения корректны для 0/1/2–4/5+ без runtime-склонения.
-- `JAZZ-UI-RIS-002-REQ-019` — каждый активный `sector_id` имеет отдельный накопительный snapshot; параллельный remote conflict не заменяет loaded tactical conflict и не сканирует его карту. Повторные `CombatStart` не обнуляют уже учтённые смерти и ранения. В силы и потери входят валидные map-placed units без satellite squad; baseline HP исключает старые травмы из WIA, а context только действительно связанных с сектором заданий фиксируется до возможного завершения задания боем. Для auto-resolve состав фиксируется на `ConflictStart`, а KIA/WIA — по satellite UnitData.
+- `JAZZ-UI-RIS-002-REQ-019` — каждый активный `sector_id` имеет отдельный накопительный snapshot; параллельный remote conflict не заменяет loaded tactical conflict и не сканирует его карту. Повторные `CombatStart` не обнуляют уже учтённые смерти и ранения. В силы и потери входят валидные map-placed units без satellite squad; baseline HP исключает старые травмы из WIA и named fate, а context только действительно связанных с сектором заданий вместе со scalar quest params фиксируется до возможного завершения задания боем. Для auto-resolve состав фиксируется на `ConflictStart`, а KIA/WIA — по satellite UnitData.
 - `JAZZ-UI-RIS-002-REQ-020` — перед формулировкой исхода AAR проверяет живых враждебных units на карте. При `playerWon=true`, но оставшихся противниках, текст сообщает о выполненной цели и продолжающемся вражеском присутствии, а не о полностью очищенном секторе.
 
 ### Переключение языка и сохранения
 
 - `JAZZ-UI-RIS-002-REQ-021` — новые AAR сохраняются как versioned language-neutral snapshot: template keys/bands, параметры, sector/quest ids, counts и stable named-unit data. `title` и `body` строятся в `System_RIS_Browser.lua` на текущем языке при каждом показе.
 - `JAZZ-UI-RIS-002-REQ-022` — sighting/obit и strategy queue/received items хранят или восстанавливают stable type/NPC/material ids и локализуемые значения, а не заранее переведённые title/body. Полученные материалы и очередь после смены языка показываются на текущем языке; Strategy migration сохраняет исходный inbox timestamp.
-- `JAZZ-UI-RIS-002-REQ-023` — `gv_JAZZ_RIS` получает `schema_version` и идемпотентную миграцию. Старые AAR по возможности разбираются в структурный вид; если прежний body невозможно восстановить без догадки, он заменяется краткой локализованной архивной сводкой из сохранённых `outcome`, `sector`, `quest_ids` и времени. Старый текст на другом языке player-facing не остаётся.
-- `JAZZ-UI-RIS-002-REQ-024` — миграция старых queued и received sighting/obit удаляет заранее переведённые поля и восстанавливает их по сохранённому `type_id`, `npc_id`, `obit_key` или stable T-reference; невосстановимый contact получает локализованное общее обозначение. Миграция не дублирует письма, снимает прежние enqueue-time flags с ещё ожидающих строк и восстанавливает delivery state только по фактически полученному inbox.
+- `JAZZ-UI-RIS-002-REQ-023` — `gv_JAZZ_RIS` получает `schema_version` и идемпотентную миграцию. Старые AAR по возможности разбираются в структурный вид; если прежний body невозможно восстановить без догадки, он заменяется краткой локализованной архивной сводкой из сохранённых `outcome`, `sector`, `quest_ids`, `quest_linked` и времени. Старый текст на другом языке player-facing не остаётся.
+- `JAZZ-UI-RIS-002-REQ-024` — миграция старых queued и received sighting/obit удаляет заранее переведённые поля и восстанавливает их по сохранённому `type_id`, `npc_id`, `obit_key` или stable T-reference с numeric localization ID; невосстановимый contact и pending sighting удалённого archetype получают локализованное общее обозначение, не блокируя desk queue. Миграция не дублирует письма, снимает прежние enqueue-time flags с ещё ожидающих строк и восстанавливает delivery state только по фактически полученному inbox.
 
 ### «Стратегия Майора»
 
 - `JAZZ-UI-RIS-002-REQ-025` — реализовать 9 Email `RIS_MajorStrategy_Network|Roads|Villages|Recon|Response|Cargo|Recovery|Retribution|Awakening` с утверждённым текстом из copy bank и [`ris-major-strategy.md`](../../design/ris-major-strategy.md).
 - `JAZZ-UI-RIS-002-REQ-026` — `System_RIS_Strategy.lua` наблюдает существующее synced-состояние Legion AI, не меняя его. Оно фиксирует восемь событий: патруль на территории игрока; замеченный сборщик/вербовщик; видимый отход разведгруппы с донесением; замеченный местный ответ/усиление; видимый конвой; наблюдаемый отход на пополнение; встреченное возмездие; новая наблюдаемая активность материкового округа после помощи штаба. Скрытые task, гарнизон, уже доставленный внутренний отчёт и неизменившийся видимый до доставки отряд сами по себе ничего не открывают.
-- `JAZZ-UI-RIS-002-REQ-027` — `Network` всегда доставляется первым после welcome и первого подтверждённого контакта/брифа. Остальные материалы становятся eligible независимо и только после соответствующего события.
+- `JAZZ-UI-RIS-002-REQ-027` — `Network` всегда доставляется первым после welcome и первого подтверждённого контакта/брифа. При доступном inbox его фактическое содержимое, а не старый `last_mailed_tier`, подтверждает доставку brief. Остальные материалы становятся eligible независимо и только после соответствующего события.
 - `JAZZ-UI-RIS-002-REQ-028` — действует общий интервал стола 5 часов и дополнительный интервал не меньше 24 campaign hours между двумя strategy mails. При нескольких событиях порядок определяется временем первого наблюдения.
 - `JAZZ-UI-RIS-002-REQ-029` — старое сохранение ставит в очередь не больше одного заслуженного strategy mail; остальные соблюдают 24-часовой интервал. Load/ReloadLua не создают дублей.
 - `JAZZ-UI-RIS-002-REQ-030` — раздел «Стратегия Майора» скрыт до первого письма, затем показывает только доставленные материалы в порядке получения. Нет счётчика, пустых карточек и названий будущих тем.
@@ -179,13 +179,13 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
 - `JAZZ-UI-RIS-002-AC-003` — static: повторный `_apply_ris_editorial.py` не меняет файлы; старые apply-скрипты не содержат второй расходящийся copy bank.
 - `JAZZ-UI-RIS-002-AC-004` — runtime RU+EN: welcome, sighting и оба obit приходят с правильными заголовками, абзацами, именами и подписями; literal placeholder, raw id и UI-инструкция отсутствуют.
 - `JAZZ-UI-RIS-002-AC-005` — runtime: первое sighting открывает краткую карточку, 0–2 kills не показывают полное досье, третье убийство открывает полный текст.
-- `JAZZ-UI-RIS-002-AC-006` — runtime: бой с двумя боевыми фазами и map-placed enemies даёт накопительные силы/потери; ни одна смерть первой фазы не потеряна, старая травма не считается новым WIA, завершённое боем задание сохраняется, параллельный сектор не смешивается.
+- `JAZZ-UI-RIS-002-AC-006` — runtime: бой с двумя боевыми фазами и map-placed enemies даёт накопительные силы/потери; ни одна смерть первой фазы не потеряна, старая травма не считается новым WIA/named wound, завершённое боем задание и параметры его note сохраняются, параллельный сектор не смешивается.
 - `JAZZ-UI-RIS-002-AC-007` — runtime: при `playerWon=true` и живом hostile на карте AAR не сообщает, что сектор полностью очищен, и явно отмечает сохраняющуюся угрозу.
-- `JAZZ-UI-RIS-002-AC-008` — runtime RU+EN: auto-resolve, сектор, квест, силы, потери и два named elites отображаются без raw id, английской вставки в RU и грамматической зависимости от пола.
-- `JAZZ-UI-RIS-002-AC-009` — runtime old-save: после переключения RU↔EN существующие AAR, queued/received sighting и obit, strategy archive отображаются на текущем языке; старый AAR восстанавливает доступные outcome/quest/counts, а невосстановимая часть заменяется локализованной краткой формой.
-- `JAZZ-UI-RIS-002-AC-010` — runtime: серия Strategy доставляет `Network` первой, затем только наблюдённые темы; скрытый squad/task/report и неизменившийся уже видимый squad не открывают материал; между двумя strategy mails ≥24h от фактического inbox time, общий desk spacing ≥5h, Load/ReloadLua не создают дублей.
+- `JAZZ-UI-RIS-002-AC-008` — runtime RU+EN: auto-resolve, сектор, квест с подставленными quest-note params, силы, потери и два named elites отображаются без literal placeholder, raw id, английской вставки в RU и грамматической зависимости от пола.
+- `JAZZ-UI-RIS-002-AC-009` — runtime old-save: после переключения RU↔EN существующие AAR, queued/received sighting и obit, strategy archive отображаются на текущем языке; старый AAR восстанавливает доступные outcome/quest provenance/time/counts, а невосстановимая часть заменяется локализованной краткой формой.
+- `JAZZ-UI-RIS-002-AC-010` — runtime: серия Strategy доставляет `Network` первой, затем только наблюдённые темы; stale `last_mailed_tier` без brief в inbox, скрытый squad/task/report и неизменившийся уже видимый squad не открывают материал; между двумя strategy mails ≥24h от фактического inbox time, общий desk spacing ≥5h, Load/ReloadLua не создают дублей.
 - `JAZZ-UI-RIS-002-AC-011` — runtime: после первого strategy mail раздел появляется в Bulletin и показывает только доставленные записи в порядке получения; до него раздел отсутствует.
-- `JAZZ-UI-RIS-002-AC-012` — generated/static: `_validate_items_quick.py` OK; generated-sync audit без нового RIS-рассогласования; один активный `System_RIS_Strategy.lua` в load graph; metadata `last_changes` не содержит raw newline.
+- `JAZZ-UI-RIS-002-AC-012` — generated/static: `_validate_items_quick.py` OK; generated-sync audit без нового RIS-рассогласования; один активный `System_RIS_Strategy.lua` в load graph; ровно 9 Strategy Email resources и ни одного старого `LegionTier1…5`; metadata `last_changes` не содержит raw newline.
 - `JAZZ-UI-RIS-002-AC-013` — docs: `ris-intelligence.md`, `file-coverage.md`, wiki и showcase RU/EN согласованы с принятым runtime и не выдают BLOCKED scope за shipped.
 
 ## Impact и совместимость
@@ -232,20 +232,21 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
 
 ## Evidence
 
-- `JAZZ-UI-RIS-002-AC-001`: `PASS (human/editorial)` — рассмотрены 214
-  двуязычных локализуемых строк в 152 content records: welcome 3, UI 13, AAR
+- `JAZZ-UI-RIS-002-AC-001`: `PASS (human/editorial)` — рассмотрены 218
+  двуязычных локализуемых строк в 156 content records: identity/sender 3,
+  welcome 3, UI 13, AAR
   60, field mail 7, unit dossiers 38, quest dossiers 4, supply briefs 11,
-  Strategy 9, reserved extras 7. Records с title+body дают по две строки.
+  Strategy 9, reserved extras 8. Records с title+body дают по две строки.
   Supply briefs отдельно вычитаны в их loadout-bound каноне;
   `_audit_ris_copy.py` подтверждает полное category coverage и guards против
   фактически опровергнутых формулировок о позиции, погоде, снаряжении и
   несуществующей красной отметке маршрута.
 - `JAZZ-UI-RIS-002-AC-002`: `PASS (static/localization)` —
-  `_audit_ris_copy.py` сообщает 214/214 bilingual IDs, exact placeholders и
+  `_audit_ris_copy.py` сообщает 218/218 bilingual IDs, exact placeholders и
   ожидаемые категории. Актуальный strict localization audit завершился с exit
   0: `needs Russian=0`, `needs English=0`, active/Game/Russian collisions 0.
-  Runtime mod-only ID sets совпадают: RU 6789, EN 6789, разница 0/0. Аудитор
-  отдельно видит 185 dormant collisions вне active R.I.S. scope.
+  Runtime mod-only ID sets совпадают, разница 0/0. Аудитор отдельно видит 185
+  dormant collisions вне active R.I.S. scope.
 - `JAZZ-UI-RIS-002-AC-003`: `PASS (static)` — второй apply и следующий
   `_apply_ris_editorial.py --check` дали `changed=0`, `unchanged=8`; check
   файлов не записал. Compatibility wrappers используют тот же банк/apply и не
@@ -258,8 +259,9 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
   short→full на третьем убийстве.
 - `JAZZ-UI-RIS-002-AC-006`: `BLOCKED (runtime)` — требуется JA3
   multi-phase/map-placed combat smoke. Targeted lupa-regression подтверждает
-  две фазы, map-only units, cumulative KIA/WIA, baseline injury, preserved quest,
-  enemyNeutral side и living-hostile warning.
+  две фазы, map-only units, cumulative KIA/WIA, baseline injury и named fate,
+  preserved quest с scalar note params, enemyNeutral side и living-hostile
+  warning.
 - `JAZZ-UI-RIS-002-AC-007`: `BLOCKED (runtime)` — требуется JA3
   surviving-hostile scenario. Двухфазный lupa-сценарий подтверждает
   `hostiles_remain=true` для живого map-placed противника и исключает
@@ -269,28 +271,31 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
   satellite start forces, KIA/WIA, concurrent-sector isolation, различение
   нового и повторного `ConflictEnd` в ту же campaign minute, surviving-merc
   auto-resolve correction, recovery после пропущенного `ConflictStart`, named
-  fates и confirmed-kill accounting.
+  fates без ложного wound от старой травмы, quest-note substitution и
+  confirmed-kill accounting.
 - `JAZZ-UI-RIS-002-AC-009`: `BLOCKED (runtime)` — требуется old-save RU↔EN
   migration smoke. Targeted lupa-regression подтверждает received
   sighting/obit re-resolution (включая elite session ID), нормализацию старых
-  wrapped stable IDs, восстановление delivery flags из фактически полученного
-  inbox, original Strategy inbox time и legacy AAR reconstruction из preserved
-  fields.
+  wrapped IDs с engine-like `Untranslated`, generic fallback для неизвестного
+  или удалённого contact, восстановление delivery flags из фактически
+  полученного inbox, original Strategy inbox time и legacy AAR reconstruction
+  времени и active-quest provenance из preserved fields.
 - `JAZZ-UI-RIS-002-AC-010`: `BLOCKED (runtime)` — требуется Strategy
   order/cadence/load smoke. Targeted lupa-regression подтверждает одну pending
-  row, 5h/24h desk contract и отсутствие unlock по скрытому squad-state или
-  доставленному внутреннему разведотчёту; Awakening требует post-delivery
-  изменения наблюдаемой activity.
+  row, 5h/24h desk contract, inbox-authoritative supply-brief gate и отсутствие
+  unlock по stale `last_mailed_tier`, скрытому squad-state или доставленному
+  внутреннему разведотчёту; Awakening требует post-delivery изменения
+  наблюдаемой activity.
 - `JAZZ-UI-RIS-002-AC-011`: `BLOCKED (runtime)` — требуется Bulletin
   visibility/archive smoke.
 - `JAZZ-UI-RIS-002-AC-012`: `PARTIAL (targeted static) / BLOCKED (broad
   generated-sync)` — `_validate_items_quick.py` PASS для `items.lua` +
   `metadata.lua`, включая отсутствие raw newline в `last_changes`; R.I.S.
-  copy/apply checks PASS; один
+  copy/apply checks PASS; obsolete `LegionTier1…5` resources удалены; один
   `System_RIS_Strategy.lua` стоит после `Guardpost_Patrols.lua`;
   `_test_ris_contract.py` даёт 7/7 PASS. Общий generated-sync baseline всё ещё
-  падает на 489 не связанных с R.I.S. companion errors и 27 warnings
-  (core `jazz`: 409/12); совпадений по R.I.S. в отчёте нет.
+  падает на 489 не связанных с R.I.S. companion errors и 28 warnings
+  (core `jazz`: 409/13); совпадений по R.I.S. в blocking report нет.
 - `JAZZ-UI-RIS-002-AC-013`: `PASS (static docs)` — technical, coverage,
   compatibility/testing, wiki, cross-link и showcase RU/EN описывают loaded
   implementation и явно оставляют live acceptance pending. Полный

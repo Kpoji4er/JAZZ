@@ -197,6 +197,7 @@ JAZZ_RIS_EXTRA = {
 	hostiles_remain = T(890000000011344, "The immediate objective was achieved, but confirmed hostiles remained in the area when the report closed."),
 	legacy_contact = T(890000000011345, "Unidentified fighter"),
 	legacy_opponent = T(890000000011346, "Unidentified opponent"),
+	legacy_body_time = T(890000000011347, "Archived engagement in <sector>. Record time: <time>. The available evidence is not enough to reconstruct the original field account with confidence."),
 }
 
 -- Key NPC session_ids for R.I.S. obituaries (same desk queue).

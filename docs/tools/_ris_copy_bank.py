@@ -1494,8 +1494,23 @@ MAJOR_STRATEGY: dict[str, dict[str, str]] = {
     },
 }
 
+# Fixed R.I.S. identity/sender strings outside the feature-reserved range.
+RIS_FIXED_STRINGS: list[tuple[str, str, str]] = [
+    ("890000000006920", "R.I.S.", "R.I.S."),
+    (
+        "890000000006921",
+        "R.I.S. <desk@ris-intel.net>",
+        "R.I.S. <desk@ris-intel.net>",
+    ),
+    (
+        "890000000006939",
+        "R.I.S. <legion-desk@ris-intel.net>",
+        "R.I.S. <legion-desk@ris-intel.net>",
+    ),
+]
+
 # Additional approved R.I.S. strings in the remainder of the reserved range.
-# 890000000011347…11349 remain intentionally unallocated.
+# 890000000011348…11349 remain intentionally unallocated.
 RIS_EXTRA_STRINGS: list[tuple[str, str, str]] = [
     (
         "890000000011340",
@@ -1544,10 +1559,21 @@ RIS_EXTRA_STRINGS: list[tuple[str, str, str]] = [
         "Unidentified opponent",
         "Неопознанный противник",
     ),
+    (
+        "890000000011347",
+        (
+            "Archived engagement in <sector>. Record time: <time>. The available evidence is not enough "
+            "to reconstruct the original field account with confidence."
+        ),
+        (
+            "Архивная запись боя в секторе <sector>. Время записи: <time>. Доступных сведений "
+            "недостаточно, чтобы уверенно восстановить первоначальное полевое донесение."
+        ),
+    ),
 ]
 
 ALL_SIMPLE_STRINGS: list[tuple[str, str, str]] = (
-    STRING_FIXES + FIELD_MAIL_FIXES + RIS_EXTRA_STRINGS
+    RIS_FIXED_STRINGS + STRING_FIXES + FIELD_MAIL_FIXES + RIS_EXTRA_STRINGS
 )
 
 
@@ -1560,6 +1586,7 @@ __all__ = [
     "UI_FIXES",
     "AAR_FIXES",
     "FIELD_MAIL_FIXES",
+    "RIS_FIXED_STRINGS",
     "RIS_EXTRA_STRINGS",
     "STRING_FIXES",
     "ALL_SIMPLE_STRINGS",

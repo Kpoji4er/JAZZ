@@ -2,7 +2,7 @@
 
 Canonical RU/EN copy: `docs/tools/_ris_copy_bank.py`. Existing AAR localization
 IDs are the contiguous range `890000000011097…11156` (60 strings). The
-additional approved strings use `890000000011341…11346`.
+additional approved strings use `890000000011341…11347`.
 
 Editorial review completed 7 August 2026. The approved source copy is projected
 to Lua and both runtime CSV tables by `_apply_ris_editorial.py`; live JA3
@@ -92,6 +92,7 @@ deterministic; the variant changes phrasing, never outcome or severity.
 | Objective achieved with living hostiles | `11344` | Overrides generic win/quest-win when confirmed hostiles remain |
 | Legacy unidentified fighter | `11345` | Sighting fallback when no stable type/title can be recovered |
 | Legacy unidentified opponent | `11346` | Obituary fallback when no stable NPC/name can be recovered |
+| Timed legacy AAR fallback body | `11347` | Localized partial-record notice with preserved `<sector>` and `<time>` |
 
 The `11344` line has precedence over `win` and `quest_win`: it records that the
 immediate objective was achieved while explicitly preserving the continuing
@@ -103,7 +104,11 @@ sector is clear.
 - Allowed in existing AAR: `<player>`, `<enemy>`, `<sector>`, `<poi>`,
   `<quest>`, `<quests>`, `<note>`, `<pkia>`, `<pwia>`, `<ekia>`, `<ewia>`,
   `<name>`.
-- Legacy fallback adds no new placeholder beyond `<sector>`.
+- Timed legacy fallback adds `<time>`; Browser uses it only when the old record
+  preserved a campaign timestamp.
+- Quest-note T-references retain the scalar quest-state substitutions they used
+  at capture time, so nested tokens such as `<Clues>` and `<Samples>` resolve
+  before the note enters `<note>`.
 - RU casualty grammar remains numeric and neutral:
   `погибших: <pkia>, раненых: <pwia>`; no runtime declension is required.
 - Named-opponent RU lines use impersonal constructions and do not infer gender

@@ -79,16 +79,19 @@ Game-time thread сохраняется вместе со стеком, upvalues
 
 `gv_JAZZ_RIS` имеет schema `3`; `JAZZ_RIS_MigrateState()` идемпотентно
 нормализует очередь, досье, AAR и Strategy state на load/reload. Новые AAR v2
-сохраняют language-neutral keys/counts, sector/quest IDs и стабильные ссылки на
-именных противников. Переведённые `title`/`body` старого AAR удаляются; Browser
-восстанавливает сохранённые outcome/quest/counts и использует краткий
-локализованный fallback только для недостающих фактов. Queued и уже received
+сохраняют language-neutral keys/counts, sector/quest IDs, scalar quest-note
+params и стабильные ссылки на именных противников. Переведённые `title`/`body`
+старого AAR удаляются; Browser восстанавливает сохранённые
+outcome/quest/time/counts, включая старый признак active-but-unlinked quest, и
+использует краткий локализованный fallback только для недостающих фактов. Queued и уже received
 sighting/obit отбрасывают замороженную прозу, заново разрешают stable
 type/NPC/T-reference, снимают прежние `Untranslated`-обёртки с raw ID и
 восстанавливают delivery flags по фактически полученному inbox; pending rows
 снимают старые enqueue-time flags, а Strategy не принимает delivery state без
-соответствующего inbox Email. Strategy migration сохраняет исходный
-`email.time`. Архив строится на текущем языке, не меняя gameplay state.
+соответствующего inbox Email. `Untranslated` без numeric localization ID не
+считается стабильной ссылкой, а pending sighting удалённого archetype получает
+локализованный fallback вместо бесконечного retry. Strategy migration сохраняет
+исходный `email.time`. Архив строится на текущем языке, не меняя gameplay state.
 
 Map-scoped `g_JAZZ_RIS_CombatSnaps` содержит schema `3` snapshots по
 `sector_id`: параллельные конфликты не заменяют друг друга, а remote auto-resolve
