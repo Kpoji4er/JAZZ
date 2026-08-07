@@ -22,13 +22,13 @@
 
 | Файл | Статус | Назначение |
 |---|---|---|
-| `jazz/.github/workflows/discord-player-updates.yml` | GitHub Actions only | Прямой запуск core, `workflow_call`, checkout caller-истории и доверенной core-реализации; минимальные `contents: read` permissions |
+| `jazz/.github/workflows/discord-player-updates.yml` | GitHub Actions only | Прямой запуск core, `workflow_call`, checkout caller-истории и доверенной core-реализации; permissions `contents: read` + `actions: read` (dedup через Actions API) |
 | `.github/scripts/discord-player-update.mjs` | CI only | Сбор диапазона, классификация evidence, Structured Output, fallback и Discord payload |
 | `.github/scripts/discord-player-update.test.mjs` | development/test only | Локальные тесты чистых функций, docs-маркеров и временных Git-репозиториев |
-| `jazz_assets/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для ресурсов; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
-| `jazz-maps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для карт; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
-| `jazz-units/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для юнитов; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
-| `jazz-nomaps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для optional NoMaps-пакета; вызывает reusable workflow из `Kpoji4er/JAZZ@main` |
+| `jazz_assets/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | Push/ручной запуск для ресурсов; вызывает reusable workflow из `Kpoji4er/JAZZ@main`; caller **обязан** `permissions.actions: read` (иначе `startup_failure`) |
+| `jazz-maps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | то же |
+| `jazz-units/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | то же |
+| `jazz-nomaps/.github/workflows/discord-player-updates.yml` | GitHub Actions caller only | то же |
 
 Файлы не входят в `metadata.lua` и не должны добавляться в игровой load order.
 
