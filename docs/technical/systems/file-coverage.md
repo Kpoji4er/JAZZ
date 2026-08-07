@@ -1,6 +1,6 @@
 # Покрытие файлов системной документацией
 
-Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **29 июля 2026**.
+Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **7 августа 2026**.
 
 Обозначения: **loaded** — загружается; **dormant** — существует, но не указан в metadata; **empty** — нулевая/пустая заготовка; **inert** — загружается, но активная логика отсутствует; **editor** — инструментальная логика.
 
@@ -75,10 +75,11 @@
 | `System_AME_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAAIMEBrowser` + tab/hire wrap (UNITS-005) |
 | `System_AME_Market.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME market tick/state (UNITS-005) |
 | `System_AME_Mail.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME welcome/listing Email + tab lock (UI-AME-001) |
-| `System_RIS_Mail.lua` | loaded | [R.I.S.](ris-intelligence.md) — welcome (2h), baseline brief (7h), Legion briefs, `ris` lock (UI-RIS-001) |
-| `System_RIS_Content.lua` | loaded | [R.I.S.](ris-intelligence.md) — dossiers + AAR banks (sector/quest) |
-| `System_RIS_Combat.lua` | loaded | [R.I.S.](ris-intelligence.md) — kills + ConflictEnd AAR |
-| `System_RIS_Browser.lua` | loaded | [R.I.S.](ris-intelligence.md) — PDA Bulletin / Dossiers / Reports |
+| `System_RIS_Mail.lua` | loaded | [R.I.S.](ris-intelligence.md) — schema 3 queue/inbox migration, receipt-gated 2h/7h/5h desk (UI-RIS-002; runtime acceptance pending) |
+| `System_RIS_Content.lua` | loaded | [R.I.S.](ris-intelligence.md) — generated dossiers, AAR v2, UI and Strategy localization banks |
+| `System_RIS_Combat.lua` | loaded | [R.I.S.](ris-intelligence.md) — two-stage dossier counters + per-sector cumulative snapshot v3, baseline WIA, satellite/tactical AAR v2 |
+| `System_RIS_Browser.lua` | loaded | [R.I.S.](ris-intelligence.md) — current-language Bulletin / Dossiers / Reports rendering |
+| `System_RIS_Strategy.lua` | loaded | [R.I.S.](ris-intelligence.md) — read-only Legion AI observer + one-row Strategy dispatch; loaded after `Guardpost_Patrols.lua` |
 | `System_AME_Browser_Template.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — XTemplate `PDAAIMEBrowser` (UNITS-005) |
 | `System_AME_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME MercNationalities + flags (UNITS-005) |
 | `System_IMP_StartingGear.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — IMP hire kit (IMP-001) |

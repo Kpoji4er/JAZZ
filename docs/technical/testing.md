@@ -136,6 +136,52 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 
 Также проверить inventory rollover, перенос между слотами, доступные UI actions, шкалу воли, AIM filters и отсутствие ссылок на отсутствующие иконки. Для динамических contexts проверить, что mutating-методы вызываются на настоящем объекте, а не на `SubContext()`. Закрытие окна должно удалить его именованные real-time threads.
 
+### R.I.S. — JAZZ-UI-RIS-002
+
+Targeted lupa-regression запускается из корня `jazz/`:
+
+```powershell
+python -B docs/tools/_test_ris_contract.py
+```
+
+Семь сценариев проверяют синтаксис пяти loaded Lua-файлов; schema/desk и
+полученный inbox; фактическую delivery-gate досье/некролога/Strategy;
+observability и post-delivery Awakening; изоляцию параллельных auto-resolve;
+двухфазный tactical snapshot с map-only units, quest, KIA/WIA и живым hostile;
+реконструкцию legacy AAR. Проверка не заменяет JA3.
+
+Статические copy/apply/items/metadata проверки не заменяют этот targeted
+runtime profile. На 7 августа 2026 года все сценарии ниже остаются
+**BLOCKED до JA3/DAP или ручной игры**:
+
+- RU и EN: welcome через ~2h, baseline supply brief через ~7h, unlock после
+  фактической доставки в inbox; sighting и оба obit без literal placeholder,
+  raw ID и UI-лексики;
+- первое доставленное sighting показывает только contact card; 0–2
+  подтверждённых убийства не открывают полный текст, третье открывает;
+- конфликт с двумя `CombatStart`-фазами и map-placed units сохраняет общий
+  стартовый состав, KIA/WIA и не считает один handle дважды;
+- при `playerWon=true` и живом hostile AAR сообщает о сохраняющемся присутствии,
+  а не о полном очищении сектора;
+- RU и EN AAR локализуют auto-resolve, сектор, quest и не меньше двух именных
+  противников без raw ID и зависимости русской грамматики от пола;
+- old save со старым AAR, queued/received sighting и obituary после RU↔EN
+  показывает текущий язык; доступные outcome/quest/counts старого AAR
+  восстанавливаются, wrapped IDs и delivery flags нормализуются, а
+  невосстановимая часть заменяется localized summary;
+- Strategy: `Network` приходит первой только после welcome и контакта/brief;
+  дальше выдаются только наблюдённые материалы, одна pending row, интервал между
+  Strategy Email ≥24 campaign hours и общий desk spacing ≥5h;
+- скрытый гарнизон, внутренний task, доставленный скрытый разведотчёт,
+  невидимый конвой или неизменившийся уже видимый отряд не открывают Strategy;
+  post-delivery движение/появление наблюдаемой колонны — открывает;
+- Load/ReloadLua не создают дубликаты, а catch-up старого save не выдаёт пачку
+  Strategy писем;
+- отдельный раздел Bulletin скрыт до первой доставки и затем показывает только
+  полученные материалы в порядке выдачи;
+- regression: observer не меняет ресурсы, Heat, отряды, формулы или темп Legion
+  Global AI; прежние 2h/7h/+5h сроки и FIFO AAR 20 сохранены.
+
 ## Карты и стратегия
 
 Проверить основные сектора Эрни, входы и deployment, квестовые маркеры, setpieces, guardpost, патрули, стратегические отряды, squad logo, POI, доход, World Flip, разговоры, banters и лояльность.

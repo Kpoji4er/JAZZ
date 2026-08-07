@@ -75,6 +75,35 @@ ID. Карта миграции хранится в
 
 Game-time thread сохраняется вместе со стеком, upvalues и байткодом. Existing save после обновления способен продолжить старое тело функции, тогда как новые вызовы уже используют новый код. Поэтому совместимый рефакторинг coroutine или кода между `Sleep`/`WaitMsg` обязан учитывать обе версии до завершения старых потоков либо вводить явную миграционную границу.
 
+### Save-контракт R.I.S.
+
+`gv_JAZZ_RIS` имеет schema `3`; `JAZZ_RIS_MigrateState()` идемпотентно
+нормализует очередь, досье, AAR и Strategy state на load/reload. Новые AAR v2
+сохраняют language-neutral keys/counts, sector/quest IDs и стабильные ссылки на
+именных противников. Переведённые `title`/`body` старого AAR удаляются; Browser
+восстанавливает сохранённые outcome/quest/counts и использует краткий
+локализованный fallback только для недостающих фактов. Queued и уже received
+sighting/obit отбрасывают замороженную прозу, заново разрешают stable
+type/NPC/T-reference, снимают прежние `Untranslated`-обёртки с raw ID и
+восстанавливают delivery flags по фактически полученному inbox; pending rows
+снимают старые enqueue-time flags, а Strategy не принимает delivery state без
+соответствующего inbox Email. Strategy migration сохраняет исходный
+`email.time`. Архив строится на текущем языке, не меняя gameplay state.
+
+Map-scoped `g_JAZZ_RIS_CombatSnaps` содержит schema `3` snapshots по
+`sector_id`: параллельные конфликты не заменяют друг друга, а remote auto-resolve
+не сканирует units загруженной карты. `session_id` объединяет satellite UnitData
+и tactical Unit одного участника; baseline HP не относит старую травму к новому
+WIA. При загрузке незавершённого snapshot schema 1/2 агрегированные start/KIA
+сохраняются, временные handle-наборы перестраиваются по живым units, чтобы не
+удвоить участника после входа в тактику.
+
+Strategy observer читает synced `gv_JAZZ_LegionAI` и squad/outpost state, но
+пишет только stable material IDs и campaign time в `gv_JAZZ_RIS`. Локальный
+язык не участвует в выборе, порядке или cooldown писем. Статическая реализация
+и миграция загружены; old-save RU↔EN и DAP/game smoke всё ещё ожидают runtime
+приёмки JAZZ-UI-RIS-002.
+
 ### Save-контракт пилота Legion Global AI
 
 `gv_JAZZ_LegionAI` имеет schema `1` и сериализует только числа, строки, boolean и таблицы ID: Major reserve/cooldown, region Heat/reports, outpost resources/timers и squad role/task/state/payload. На existing save состояние создаётся лениво; уже подготовленный `primed_squad` в `I7` принимается как managed garrison, а отсутствующие squad IDs удаляются reconciliation. Feature flag `Region.LegionAIEnabled` включает consumer для authored Regions (`ErnieIsland`, `PortCacaoEnvirons`, `GreatDesert`, `MountainSteppe`). Материковые late-awaken (`LateAwakenMinTier=21`) до T2-1 работают в урезанном режиме (STRATEGY-021).

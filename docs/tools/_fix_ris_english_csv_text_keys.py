@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Compatibility wrapper for the unified JAZZ-UI-RIS-002 apply pipeline.
 
-The former partial queue-mail writer is intentionally retired so it cannot
-restore stale sighting or obituary prose. All options are forwarded to
-``_apply_ris_editorial.py``; the default remains a read-only dry-run.
+English ``Text`` orientation is now enforced for every canonical R.I.S. row
+by ``_apply_ris_editorial.py``. This legacy command forwards all modes to that
+complete projection and contains no independent repair values.
 """
 
 from __future__ import annotations

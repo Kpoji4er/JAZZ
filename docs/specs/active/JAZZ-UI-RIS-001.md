@@ -74,7 +74,7 @@ approved_by: project-owner
 
 ### Welcome mail и site lock
 
-- `JAZZ-UI-RIS-001-REQ-003` — welcome Email **не** сразу: ставится в `mail_queue` с `ready_at = mod_awake_at + 3h` (NewGame / первый awake на старом сейве). Отправка через общий desk-drain (REQ-007a), один раз (`welcome_sent`).
+- `JAZZ-UI-RIS-001-REQ-003` — welcome Email **не** сразу: ставится в `mail_queue` с `ready_at = mod_awake_at + 2h` (NewGame / первый awake на старом сейве). Отправка через общий desk-drain (REQ-007a), один раз (`welcome_sent`).
 - `JAZZ-UI-RIS-001-REQ-004` — welcome prose: подписка активирована; что ждать (оценки снабжения Легиона; позже досье и сводки боёв); тон деловой/человеческий.
 - `JAZZ-UI-RIS-001-REQ-005` — PDA browser mode `ris` с вкладкой; `PDABrowserTabState.ris.locked = true` до `welcome_read`; после прочтения welcome — unlock. Chrome «R.I.S.» / Recon Intelligence Services.
 - `JAZZ-UI-RIS-001-REQ-006` — AME **не** появляется на сайте R.I.S. и наоборот по контенту.
@@ -82,7 +82,7 @@ approved_by: project-owner
 ### Legion equipment briefs (mail)
 
 - `JAZZ-UI-RIS-001-REQ-007` — при каждом реальном raise `JAZZ_Legion_Tier` поставить в `mail_queue` бриф для **нового** тира с `ready_at = now + 5h` (не слать мгновенно). Текст из канона [`docs/design/ris-legion-tier-briefs.md`](../../design/ris-legion-tier-briefs.md).
-- `JAZZ-UI-RIS-001-REQ-007a` — **desk queue**: не чаще одного R.I.S. письма раз в **5** campaign hours (`next_dispatch_at`). Из очереди берётся первый элемент с `ready_at ≤ now`. Baseline (стартовый тир, обычно 11 / T1-1): enqueue при awake с `ready_at = awake + 2h`.
+- `JAZZ-UI-RIS-001-REQ-007a` — **desk queue**: не чаще одного R.I.S. письма раз в **5** campaign hours (`next_dispatch_at`). Из очереди берётся первый элемент с `ready_at ≤ now`. Baseline (стартовый тир, обычно 11 / T1-1): enqueue при awake с `ready_at = awake + 7h`, после welcome.
 - `JAZZ-UI-RIS-001-REQ-008` — канон briefs покрывает каждое runtime-значение `11`…`13`, `21`…`25`, `31`…`33`. Major jump (13→21, 25→31) использует более сильный тон в том же брифе целевого значения.
 - `JAZZ-UI-RIS-001-REQ-009` — заменить/удалить stub `LegionTier1`…`5` (sender JAZZ / «Тир1-1»); новые Email id с префиксом `RIS_`.
 - `JAZZ-UI-RIS-001-REQ-010` — LoadGame catch-up: если текущий тир ещё не mailed / нет brief в inbox — **одно** место в очереди по текущему тиру (не пачка); отправка через desk-drain, не dump на Load.
@@ -124,7 +124,7 @@ approved_by: project-owner
 
 ### Phase A — mail + lock (до сайта)
 
-- `JAZZ-UI-RIS-001-AC-001` — runtime NewGame: welcome и baseline brief в очереди; T1-1 eligible ~+2h, welcome ~+3h; desk шлёт ≤1 письмо / 5h; до прочтения welcome `ris` locked.
+- `JAZZ-UI-RIS-001-AC-001` — runtime NewGame: welcome и baseline brief в очереди; welcome eligible ~+2h, T1-1 eligible ~+7h; desk шлёт ≤1 письмо / 5h; до прочтения welcome `ris` locked.
 - `JAZZ-UI-RIS-001-AC-002` — runtime old save: queue от `mod_awake_at`, не спамит пачкой на Load.
 - `JAZZ-UI-RIS-001-AC-003` — runtime: raise tier → brief в очереди с ready +5h; одно письмо за слот desk; catch-up — одно место в очереди, не dump.
 - `JAZZ-UI-RIS-001-AC-004` — static/human: stubs `LegionTier*` убраны или недостижимы; sender R.I.S.
@@ -165,6 +165,7 @@ approved_by: project-owner
 - Статус: `approved`
 - Кто подтвердил: project-owner (chat: приступай к реализации)
 - Дата: 2026-08-06
+- Поправка 2026-08-07: project-owner закрепил фактические задержки runtime — welcome +2h, baseline +7h; JAZZ-UI-RIS-002 выполняет полную редактуру и локализацию.
 
 ## Evidence
 

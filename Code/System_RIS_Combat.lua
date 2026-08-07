@@ -1,43 +1,149 @@
--- R.I.S. Phase B: kill tracking + after-action reports (JAZZ-UI-RIS-001).
+-- R.I.S. cumulative tactical snapshot + language-neutral after-action records.
 
 MapVar("g_JAZZ_RIS_CombatSnap", false)
+MapVar("g_JAZZ_RIS_CombatSnaps", {})
 
 g_JAZZ_RIS_CombatInstalled = rawget(_G, "g_JAZZ_RIS_CombatInstalled") or false
 
+local RIS_SNAP_SCHEMA = 3
+local RIS_AAR_RECORD_VERSION = 2
+
 local function lState()
+	local migrate = rawget(_G, "JAZZ_RIS_MigrateState")
+	if type(migrate) == "function" then
+		return migrate()
+	end
 	local st = rawget(_G, "gv_JAZZ_RIS")
-	if not st then
+	if type(st) ~= "table" then
 		return false
 	end
-	if type(st.kills) ~= "table" then
-		st.kills = {}
-	end
-	if type(st.battles) ~= "table" then
-		st.battles = {}
-	end
-	if type(st.dossiers) ~= "table" then
-		st.dossiers = {}
-	end
-	if type(st.quest_met) ~= "table" then
-		st.quest_met = {}
-	end
+	st.kills = type(st.kills) == "table" and st.kills or {}
+	st.battles = type(st.battles) == "table" and st.battles or {}
+	st.dossiers = type(st.dossiers) == "table" and st.dossiers or {}
+	st.quest_met = type(st.quest_met) == "table" and st.quest_met or {}
 	return st
 end
 
 local function lThreshold()
-	return rawget(_G, "JAZZ_RIS_KILL_THRESHOLD") or 3
+	return tonumber(rawget(_G, "JAZZ_RIS_KILL_THRESHOLD")) or 3
 end
 
 local function lCap()
-	return rawget(_G, "JAZZ_RIS_BATTLE_CAP") or 20
+	return tonumber(rawget(_G, "JAZZ_RIS_BATTLE_CAP")) or 20
 end
 
-local function lIsPlayerSide(unit)
-	return unit and unit.team and (unit.team.player_team or unit.team.side == "player1" or unit.team.side == "player2")
+local function lNow()
+	local game = rawget(_G, "Game")
+	return game and game.CampaignTime or 0
 end
 
-local function lIsEnemySide(unit)
-	return unit and unit.team and not lIsPlayerSide(unit) and unit.team.side ~= "neutral"
+local function lCurrentSectorId()
+	return rawget(_G, "gv_CurrentSectorId")
+end
+
+local function lSectorId(sector)
+	if type(sector) == "table" then
+		return sector.Id or sector.id
+	end
+	if type(sector) == "string" then
+		return sector
+	end
+	return lCurrentSectorId()
+end
+
+local function lSectorObject(sector_id, supplied)
+	if type(supplied) == "table" then
+		return supplied
+	end
+	local sectors = rawget(_G, "gv_Sectors")
+	return type(sectors) == "table" and sector_id and sectors[sector_id] or false
+end
+
+local function lIsValidUnit(unit)
+	if type(unit) ~= "table" and type(unit) ~= "userdata" then
+		return false
+	end
+	local isValid = rawget(_G, "IsValid")
+	if type(isValid) ~= "function" then
+		return true
+	end
+	local ok, valid = pcall(isValid, unit)
+	if ok and valid then
+		return true
+	end
+	-- Satellite UnitData is a Lua object rather than a placed map object.
+	return type(unit) == "table"
+		and type(unit.session_id) == "string"
+		and unit.Squad ~= nil
+end
+
+local function lIsDead(unit)
+	return type(unit.IsDead) == "function" and unit:IsDead() or (tonumber(unit.HitPoints) or 0) <= 0
+end
+
+local function lIsConflictParticipant(unit)
+	if not lIsValidUnit(unit) or unit.conflict_ignore then
+		return false
+	end
+	local isDefeated = unit.IsDefeatedVillain
+	if type(isDefeated) == "function" then
+		local ok, defeated = pcall(isDefeated, unit)
+		if ok and defeated then
+			return false
+		end
+	end
+	return true
+end
+
+--- Returns "player", "enemy", or false. Team diplomacy flags take precedence.
+local function lSideKind(unit)
+	local team = unit and unit.team
+	if type(team) == "table" then
+		if team.player_team == true or team.player_ally == true then
+			return "player"
+		end
+		if team.player_enemy == true then
+			return "enemy"
+		end
+		if team.neutral == true or team.side == "neutral" or team.side == "enemyNeutral" then
+			return false
+		end
+		-- Conservative fallback for lifecycle windows before diplomacy flags are refreshed.
+		if team.side == "player1" or team.side == "player2" or team.side == "ally" then
+			return "player"
+		end
+		if team.side == "enemy1" or team.side == "enemy2" then
+			return "enemy"
+		end
+	end
+	-- Auto-resolve works on UnitData, which has no tactical team object.
+	local squads = rawget(_G, "gv_Squads")
+	local squad = type(squads) == "table" and unit and unit.Squad and squads[unit.Squad]
+	local side = (type(squad) == "table" and squad.Side) or (unit and unit.Side)
+	if side == "player1" or side == "player2" or side == "ally" then
+		return "player"
+	end
+	if side == "enemy1" or side == "enemy2" then
+		return "enemy"
+	end
+	return false
+end
+
+local function lUnitHandle(unit)
+	if not unit then
+		return false
+	end
+	if type(unit.session_id) == "string" and unit.session_id ~= "" then
+		return "session:" .. unit.session_id
+	end
+	local handle = unit.handle
+	if not handle and type(unit.GetHandle) == "function" then
+		handle = unit:GetHandle()
+	end
+	if handle and handle ~= 0 then
+		return handle
+	end
+	return false
 end
 
 local function lUnitTypeId(unit)
@@ -51,167 +157,435 @@ local function lUnitTypeId(unit)
 	return false
 end
 
-local function lDisplayName(unit)
+local function lIsStableT(value)
+	local isT = rawget(_G, "IsT")
+	if type(isT) == "function" then
+		return isT(value)
+	end
+	return type(value) == "table" and type(value[1]) == "number"
+end
+
+local function lDisplayNameRef(unit)
 	if not unit then
 		return false
 	end
-	local nick = unit.Nick
-	local name = unit.Name
-	local pick = nick or name
+	local pick = unit.Nick
 	if not pick or pick == "" then
+		pick = unit.Name
+	end
+	if lIsStableT(pick) then
+		return pick
+	end
+	if type(pick) ~= "string" or pick == "" then
 		return false
 	end
-	-- Reject empty / missing localization placeholders.
-	if type(pick) == "table" and not pick[1] then
+	if pick == unit.session_id or pick == unit.unitdatadef_id or pick == unit.class then
 		return false
 	end
 	return pick
 end
 
-local function lHashPick(list, key)
-	if type(list) ~= "table" or #list == 0 then
+local function lIsNamedOpponent(unit)
+	if not unit then
 		return false
 	end
-	local h = 0
-	key = tostring(key or "")
-	for i = 1, #key do
-		h = (h * 131 + string.byte(key, i)) % 2147483647
+	if unit.elite or unit.villain then
+		return true
 	end
-	return list[(h % #list) + 1]
+	local id = unit.session_id or unit.unitdatadef_id
+	if type(id) ~= "string" then
+		return false
+	end
+	local keys = rawget(_G, "JAZZ_RIS_KEY_NPCS")
+	local dossiers = rawget(_G, "JAZZ_RIS_QUEST_DOSSIERS")
+	return (type(keys) == "table" and keys[id])
+		or (type(dossiers) == "table" and dossiers[id])
+		or false
 end
 
-local function lWeatherBand()
-	if GameState then
-		if GameState.Night or GameState.Underground then
-			return "night"
-		end
-		if GameState.Fog then
-			return "fog"
-		end
-		if GameState.DustStorm then
-			return "dust"
-		end
-		if GameState.Heat then
-			return "heat"
-		end
-		if GameState.RainHeavy or GameState.RainLight then
-			return "rain"
-		end
+local function lIsWounded(unit)
+	if not lIsValidUnit(unit) or lIsDead(unit) then
+		return false
 	end
-	local wid = gv_CurrentSectorId and type(GetCurrentSectorWeather) == "function" and GetCurrentSectorWeather(gv_CurrentSectorId)
-	if wid == "RainLight" or wid == "RainHeavy" then
-		return "rain"
+	local hp = tonumber(unit.HitPoints)
+	local maxHp = tonumber(unit.MaxHitPoints)
+	if not maxHp and type(unit.GetInitialMaxHitPoints) == "function" then
+		local ok, value = pcall(unit.GetInitialMaxHitPoints, unit)
+		maxHp = ok and tonumber(value) or false
 	end
-	if wid == "Fog" then
-		return "fog"
+	if hp and maxHp and hp < maxHp then
+		return true
 	end
-	if wid == "DustStorm" then
-		return "dust"
+	if type(unit.IsDowned) == "function" and unit:IsDowned() then
+		return true
 	end
-	if wid == "Heat" or wid == "FireStorm" then
-		return "heat"
-	end
-	if wid == "ClearSky" or wid == "Clear" then
-		return "clear"
-	end
-	return "default"
+	return type(unit.HasStatusEffect) == "function" and unit:HasStatusEffect("BleedingOut") or false
 end
 
-local function lIntensityBand(snap, playerWon, isRetreat)
-	local heat = tonumber(snap and snap.heat_delta) or 0
-	local pkia = tonumber(snap and snap.player_kia) or 0
-	local ekia = tonumber(snap and snap.enemy_kia) or 0
-	local start_e = Max(1, tonumber(snap and snap.enemy_start) or 1)
-	local rate = MulDivRound(ekia + pkia, 100, start_e + Max(1, tonumber(snap and snap.player_start) or 1))
-	if heat >= 40 or rate >= 55 or (not playerWon and not isRetreat and rate >= 35) then
-		return "high"
+local function lAllUnits()
+	local getAllUnits = rawget(_G, "GetAllUnits")
+	if type(getAllUnits) == "function" then
+		local ok, units = pcall(getAllUnits)
+		if ok and type(units) == "table" then
+			return units
+		end
 	end
-	if heat >= 15 or rate >= 25 then
-		return "mid"
+	local units = rawget(_G, "g_Units")
+	if type(units) == "table" then
+		return units
 	end
-	return "low"
+	return rawget(_G, "empty_table") or {}
 end
 
-local function lEnsureSnap()
-	local snap = g_JAZZ_RIS_CombatSnap
-	if type(snap) == "table" then
-		return snap
-	end
-	local sector = gv_Sectors and gv_Sectors[gv_CurrentSectorId]
-	local heat0 = sector and (tonumber(sector.CombatHeat) or 0) or 0
-	local p, e = 0, 0
-	if type(GetAllUnits) == "function" then
-		for _, u in ipairs(GetAllUnits() or empty_table) do
-			if IsValid(u) and not u:IsDead() then
-				if lIsPlayerSide(u) then
-					p = p + 1
-				elseif lIsEnemySide(u) then
-					e = e + 1
-				end
-			end
-		end
-	elseif g_Units then
-		for _, u in pairs(g_Units) do
-			if IsValid(u) and not u:IsDead() then
-				if lIsPlayerSide(u) then
-					p = p + 1
-				elseif lIsEnemySide(u) then
-					e = e + 1
-				end
-			end
-		end
-	end
-	snap = {
-		sector_id = gv_CurrentSectorId,
-		heat_start = heat0,
-		player_start = p,
-		enemy_start = e,
+local function lHeatForSector(sector_id, supplied)
+	local sector = lSectorObject(sector_id, supplied)
+	return sector and (tonumber(sector.CombatHeat) or 0) or 0
+end
+
+local function lNewSnap(sector_id, sector)
+	local resolveContext = rawget(_G, "JAZZ_RIS_ResolveSectorContext")
+	local sectorContext = type(resolveContext) == "function"
+		and resolveContext(sector_id)
+		or false
+	return {
+		schema_version = RIS_SNAP_SCHEMA,
+		sector_id = sector_id,
+		started_at = lNow(),
+		heat_start = lHeatForSector(sector_id, sector),
+		heat_delta = 0,
+		player_start = 0,
+		enemy_start = 0,
 		player_kia = 0,
 		enemy_kia = 0,
 		player_wia = 0,
 		enemy_wia = 0,
+		seen_units = {},
+		unit_sides = {},
+		baseline_hp = {},
+		counted_deaths = {},
+		player_wounded = {},
+		enemy_wounded = {},
 		elites = {},
+		sector_ctx = sectorContext,
 		ambush = false,
-		started = true,
-		sector_ctx = JAZZ_RIS_ResolveSectorContext(gv_CurrentSectorId),
+		finalized = false,
 	}
-	g_JAZZ_RIS_CombatSnap = snap
-	return snap
 end
 
-local function lTrackElite(unit, fate)
-	if not unit or not unit.elite then
+local function lTrackNamed(snap, unit, fate)
+	if type(snap) ~= "table" or not lIsNamedOpponent(unit) then
 		return
 	end
-	local name = lDisplayName(unit)
-	if not name then
+	local handle = lUnitHandle(unit)
+	local nameRef = lDisplayNameRef(unit)
+	if not handle then
 		return
 	end
-	local snap = lEnsureSnap()
-	local handle = unit.handle or unit.session_id or tostring(name)
+	local sessionId = type(unit.session_id) == "string" and unit.session_id or false
 	for _, row in ipairs(snap.elites) do
-		if row.handle == handle then
-			row.fate = fate
+		if row.handle == handle or (sessionId and row.session_id == sessionId) then
+			row.handle = handle
+			row.session_id = row.session_id or sessionId
+			if fate == "killed" or row.fate ~= "killed" then
+				row.fate = fate or row.fate
+			end
+			row.name_ref = row.name_ref or nameRef
 			return
 		end
 	end
 	snap.elites[#snap.elites + 1] = {
 		handle = handle,
-		name = name,
-		fate = fate,
+		session_id = sessionId,
+		unit_id = type(unit.unitdatadef_id) == "string" and unit.unitdatadef_id
+			or (type(unit.class) == "string" and unit.class or false),
+		name_ref = nameRef,
+		fate = fate or "threat",
 	}
+end
+
+local function lMarkWounded(snap, handle, side)
+	if side == "player" then
+		snap.player_wounded[handle] = true
+	elseif side == "enemy" then
+		snap.enemy_wounded[handle] = true
+	end
+end
+
+local function lCaptureUnit(snap, unit, include_dead)
+	if type(snap) ~= "table" or not lIsConflictParticipant(unit) then
+		return false, false, false
+	end
+	local handle = lUnitHandle(unit)
+	local side = handle and snap.unit_sides[handle] or lSideKind(unit)
+	local dead = lIsDead(unit)
+	if not side or not handle or (dead and not include_dead) then
+		return false, false, false
+	end
+	local isNew = not snap.seen_units[handle]
+	if isNew then
+		snap.seen_units[handle] = true
+		snap.unit_sides[handle] = side
+		snap.baseline_hp[handle] = tonumber(unit.HitPoints)
+		if side == "player" then
+			snap.player_start = (tonumber(snap.player_start) or 0) + 1
+		else
+			snap.enemy_start = (tonumber(snap.enemy_start) or 0) + 1
+		end
+	end
+	side = snap.unit_sides[handle] or side
+	local hp = tonumber(unit.HitPoints)
+	local baselineHp = tonumber(snap.baseline_hp[handle])
+	if not baselineHp and hp then
+		baselineHp = hp
+		snap.baseline_hp[handle] = hp
+	end
+	if not dead and hp and baselineHp and hp < baselineHp then
+		lMarkWounded(snap, handle, side)
+	end
+	if side == "enemy" then
+		lTrackNamed(snap, unit, dead and "killed" or "threat")
+	end
+	return handle, side, isNew
+end
+
+local function lCountDeath(snap, unit, allow_unseen)
+	local handle = lUnitHandle(unit)
+	if not handle then
+		return false, false
+	end
+	if not snap.seen_units[handle] then
+		if not allow_unseen then
+			return false, false
+		end
+		lCaptureUnit(snap, unit, true)
+		if not snap.seen_units[handle] then
+			return false, false
+		end
+	end
+	local side = snap.unit_sides[handle] or lSideKind(unit)
+	if not side or snap.counted_deaths[handle] then
+		return false, side
+	end
+	snap.counted_deaths[handle] = true
+	snap.player_wounded[handle] = nil
+	snap.enemy_wounded[handle] = nil
+	if side == "player" then
+		snap.player_kia = (tonumber(snap.player_kia) or 0) + 1
+	else
+		snap.enemy_kia = (tonumber(snap.enemy_kia) or 0) + 1
+		lTrackNamed(snap, unit, "killed")
+	end
+	return true, side
+end
+
+local function lScanUnits(snap, count_seen_deaths)
+	local livingHostile = false
+	for _, unit in pairs(lAllUnits()) do
+		if lIsConflictParticipant(unit) then
+			local handle = lUnitHandle(unit)
+			if lIsDead(unit) then
+				if count_seen_deaths and handle and snap.seen_units[handle] then
+					lCountDeath(snap, unit, false)
+				end
+			else
+				local _, side = lCaptureUnit(snap, unit, false)
+				if side == "enemy" then
+					livingHostile = true
+				end
+			end
+		end
+	end
+	return livingHostile
+end
+
+local function lScanSatelliteUnits(snap)
+	local livingHostile = false
+	local units = rawget(_G, "gv_UnitData")
+	for _, unit in pairs(type(units) == "table" and units or {}) do
+		local handle = lUnitHandle(unit)
+		if handle and snap.seen_units[handle] and lIsConflictParticipant(unit) then
+			local dead = lIsDead(unit)
+			local _, side = lCaptureUnit(snap, unit, true)
+			if dead then
+				lCountDeath(snap, unit, false)
+			elseif side == "enemy" and not snap.counted_deaths[handle] then
+				livingHostile = true
+			end
+		end
+	end
+	return livingHostile
+end
+
+local function lSnapStore()
+	local store = rawget(_G, "g_JAZZ_RIS_CombatSnaps")
+	if type(store) ~= "table" then
+		store = {}
+		rawset(_G, "g_JAZZ_RIS_CombatSnaps", store)
+	end
+	local legacy = rawget(_G, "g_JAZZ_RIS_CombatSnap")
+	if type(legacy) == "table" and legacy.sector_id then
+		store[legacy.sector_id] = store[legacy.sector_id] or legacy
+		rawset(_G, "g_JAZZ_RIS_CombatSnap", false)
+	end
+	return store
+end
+
+local function lEnsureSnap(sector_id, sector)
+	sector_id = sector_id or lCurrentSectorId()
+	if not sector_id then
+		return false
+	end
+	local store = lSnapStore()
+	local snap = store[sector_id]
+	if type(snap) ~= "table" or snap.finalized then
+		snap = lNewSnap(sector_id, sector)
+		store[sector_id] = snap
+	end
+	local legacySnap = (tonumber(snap.schema_version) or 0) < RIS_SNAP_SCHEMA
+	snap.sector_id = snap.sector_id or sector_id
+	snap.started_at = tonumber(snap.started_at) or lNow()
+	snap.seen_units = type(snap.seen_units) == "table" and snap.seen_units or {}
+	snap.unit_sides = type(snap.unit_sides) == "table" and snap.unit_sides or {}
+	snap.baseline_hp = type(snap.baseline_hp) == "table" and snap.baseline_hp or {}
+	snap.counted_deaths = type(snap.counted_deaths) == "table" and snap.counted_deaths or {}
+	snap.player_wounded = type(snap.player_wounded) == "table" and snap.player_wounded or {}
+	snap.enemy_wounded = type(snap.enemy_wounded) == "table" and snap.enemy_wounded or {}
+	snap.elites = type(snap.elites) == "table" and snap.elites or {}
+	if legacySnap then
+		-- Schema 3 uses session ids before transient map handles so tactical and
+		-- satellite views describe the same participant exactly once.
+		snap.seen_units = {}
+		snap.unit_sides = {}
+		snap.baseline_hp = {}
+		snap.counted_deaths = {}
+		snap.player_wounded = {}
+		snap.enemy_wounded = {}
+	end
+	snap.schema_version = RIS_SNAP_SCHEMA
+	if legacySnap
+		and sector_id == lCurrentSectorId()
+		and ((tonumber(snap.player_start) or 0) > 0 or (tonumber(snap.enemy_start) or 0) > 0)
+	then
+		-- Old mid-conflict snapshots have aggregate starts but no handle sets. Adopt every
+		-- currently living unit without incrementing those preserved aggregates.
+		for _, unit in pairs(lAllUnits()) do
+			if lIsValidUnit(unit) and not lIsDead(unit) then
+				local handle = lUnitHandle(unit)
+				local side = lSideKind(unit)
+				if handle and side then
+					snap.seen_units[handle] = true
+					snap.unit_sides[handle] = side
+					snap.baseline_hp[handle] = tonumber(unit.HitPoints)
+					if side == "enemy" then
+						lTrackNamed(snap, unit, "threat")
+					end
+				end
+			end
+		end
+	end
+	return snap
+end
+
+local function lInPlayerConflict(sector_id)
+	sector_id = sector_id or lCurrentSectorId()
+	if sector_id and type(lSnapStore()[sector_id]) == "table" then
+		return true
+	end
+	if sector_id and lCurrentSectorId() and sector_id ~= lCurrentSectorId() then
+		return false
+	end
+	if rawget(_G, "g_Combat") or rawget(_G, "g_StartingCombat") then
+		return true
+	end
+	local gameState = rawget(_G, "GameState")
+	if type(gameState) == "table" and gameState.Conflict then
+		return true
+	end
+	return false
+end
+
+local function lCaptureSquadList(snap, squads)
+	local unitData = rawget(_G, "gv_UnitData")
+	for _, squad in ipairs(type(squads) == "table" and squads or {}) do
+		local ids = type(squad) == "table" and type(squad.units) == "table"
+			and squad.units or {}
+		for _, id in ipairs(ids) do
+			local unit = type(unitData) == "table" and unitData[id]
+			if unit and not lIsDead(unit) then
+				lCaptureUnit(snap, unit, false)
+			end
+		end
+	end
+end
+
+local function lCaptureSatelliteConflict(sector_id)
+	local sector = lSectorObject(sector_id)
+	local snap = lEnsureSnap(sector_id, sector)
+	local getSquads = rawget(_G, "GetSquadsInSector")
+	if type(getSquads) == "function" then
+		local ok, allied, enemies = pcall(
+			getSquads,
+			sector_id,
+			"exclude_travelling",
+			"include_militia",
+			"exclude_arriving",
+			"exclude_retreating"
+		)
+		if ok then
+			lCaptureSquadList(snap, allied)
+			lCaptureSquadList(snap, enemies)
+			return snap
+		end
+	end
+	-- Defensive fallback for early lifecycle windows where the helper is absent.
+	local squads = rawget(_G, "gv_Squads")
+	local rows = {}
+	for _, squad in pairs(type(squads) == "table" and squads or {}) do
+		if type(squad) == "table"
+			and squad.CurrentSector == sector_id
+			and not squad.arrival_squad
+			and not squad.Retreat
+		then
+			rows[#rows + 1] = squad
+		end
+	end
+	lCaptureSquadList(snap, rows)
+	return snap
+end
+
+local function lNoteEnemyPresence(unit)
+	if not lIsConflictParticipant(unit) or lSideKind(unit) ~= "enemy" then
+		return
+	end
+	local id = lUnitTypeId(unit)
+	local enqueue = rawget(_G, "JAZZ_RIS_EnqueueUnitSighting")
+	if id and type(enqueue) == "function" then
+		enqueue(id)
+	end
+end
+
+local function lNoteDeathMails(unit, recorded_side)
+	if recorded_side ~= "enemy" and lSideKind(unit) ~= "enemy" then
+		return
+	end
+	local nameRef = lDisplayNameRef(unit)
+	if unit.elite and nameRef then
+		local enqueueElite = rawget(_G, "JAZZ_RIS_EnqueueEliteObit")
+		if type(enqueueElite) == "function" then
+			enqueueElite(nameRef, nil, lUnitHandle(unit))
+		end
+	end
+	local sid = unit.session_id or unit.unitdatadef_id
+	local enqueueNpc = rawget(_G, "JAZZ_RIS_EnqueueNpcObit")
+	if type(sid) == "string" and type(enqueueNpc) == "function" then
+		enqueueNpc(sid, nameRef)
+	end
 end
 
 function JAZZ_RIS_OnKill(unit, attacker)
 	local id = lUnitTypeId(unit)
 	if not id then
 		return
-	end
-	if not lIsPlayerSide(attacker) then
-		-- Count Legion deaths in player conflicts even without a clear attacker attribution.
-		if not (g_Combat or g_Teams) then
-			return
-		end
 	end
 	local st = lState()
 	if not st then
@@ -221,35 +595,12 @@ function JAZZ_RIS_OnKill(unit, attacker)
 	if st.kills[id] >= lThreshold() then
 		st.dossiers[id] = true
 	end
-	if rawget(_G, "JAZZ_RIS_EnqueueUnitSighting") then
-		JAZZ_RIS_EnqueueUnitSighting(id)
+	local enqueue = rawget(_G, "JAZZ_RIS_EnqueueUnitSighting")
+	if type(enqueue) == "function" then
+		enqueue(id)
 	end
 	JAZZ_RIS_NoteQuestMeet("Legion")
 	ObjModified("jazz_ris")
-end
-
-local function lNoteEnemyPresence(unit)
-	if not lIsEnemySide(unit) then
-		return
-	end
-	local id = lUnitTypeId(unit)
-	if id and rawget(_G, "JAZZ_RIS_EnqueueUnitSighting") then
-		JAZZ_RIS_EnqueueUnitSighting(id)
-	end
-end
-
-local function lNoteDeathMails(unit)
-	if not lIsEnemySide(unit) then
-		return
-	end
-	local name = lDisplayName(unit)
-	if unit.elite and name and rawget(_G, "JAZZ_RIS_EnqueueEliteObit") then
-		JAZZ_RIS_EnqueueEliteObit(name)
-	end
-	local sid = unit.session_id or unit.unitdatadef_id
-	if sid and rawget(_G, "JAZZ_RIS_EnqueueNpcObit") then
-		JAZZ_RIS_EnqueueNpcObit(sid, name or sid)
-	end
 end
 
 function JAZZ_RIS_NoteQuestMeet(id)
@@ -261,290 +612,375 @@ function JAZZ_RIS_NoteQuestMeet(id)
 		return
 	end
 	local bank = rawget(_G, "JAZZ_RIS_QUEST_DOSSIERS")
-	if not bank or not bank[id] then
+	if type(bank) ~= "table" or not bank[id] then
 		return
 	end
 	st.quest_met[id] = true
 	ObjModified("jazz_ris")
 end
 
-local function lTr(t)
-	if not t then
-		return ""
+local function lAppendQuest(ctx, id, source, note)
+	if type(id) ~= "string" or id == "" then
+		return
 	end
-	if type(_InternalTranslate) == "function" then
-		local ok, s = pcall(_InternalTranslate, t)
-		if ok and s then
-			return s
+	for _, existing in ipairs(ctx.quest_ids) do
+		if existing == id then
+			return
 		end
 	end
-	return tostring(t)
+	ctx.quest_ids[#ctx.quest_ids + 1] = id
+	ctx.quest_sources[id] = source
+	if lIsStableT(note) then
+		ctx.quest_notes[id] = note
+	end
 end
 
---- Resolve human sector name + quest threads pinned to this grid (badges) / active quest fallback.
+--- Resolve stable sector/quest references only; translation happens in the browser.
 function JAZZ_RIS_ResolveSectorContext(sector_id)
-	local sector = gv_Sectors and sector_id and gv_Sectors[sector_id]
-	local sector_name = ""
-	if sector and type(GetSectorName) == "function" then
-		sector_name = lTr(GetSectorName(sector))
-	elseif sector_id then
-		sector_name = tostring(sector_id)
-	end
-	local poi = false
+	local ctx = {
+		sector_id = sector_id,
+		poi_ref = false,
+		quest_ids = {},
+		quest_sources = {},
+		quest_notes = {},
+		quest_linked = false,
+	}
+	local sector = lSectorObject(sector_id)
 	if sector then
-		poi = sector.Label or sector.intel_shortcut or sector.City
-		if type(poi) == "table" then
-			poi = lTr(poi)
-		elseif poi then
-			poi = tostring(poi)
-		end
-		if poi == "" or poi == "none" or poi == "None" then
-			poi = false
+		local poi = sector.Label or sector.intel_shortcut or sector.City
+		if lIsStableT(poi) then
+			ctx.poi_ref = poi
 		end
 	end
-	local quests = {}
-	if sector_id and type(GetQuestsAssociatedWithSector) == "function" then
-		for _, q in ipairs(GetQuestsAssociatedWithSector(sector_id) or empty_table) do
-			local preset = q.preset
-			if preset then
-				local qname = preset.DisplayName or preset.display_name or preset.id
-				local note = false
-				if q.notes and q.notes[1] and q.notes[1].Text then
-					note = lTr(q.notes[1].Text)
-				end
-				quests[#quests + 1] = {
-					id = preset.id,
-					name = lTr(qname),
-					note = note,
-					source = "badge",
-				}
+
+	local getAssociated = rawget(_G, "GetQuestsAssociatedWithSector")
+	if sector_id and type(getAssociated) == "function" then
+		local ok, associated = pcall(getAssociated, sector_id)
+		if ok and type(associated) == "table" then
+			for _, quest in ipairs(associated) do
+				local preset = quest and quest.preset
+				local id = preset and preset.id
+				local note = quest and quest.notes and quest.notes[1] and quest.notes[1].Text
+				lAppendQuest(ctx, id, "badge", note)
 			end
 		end
 	end
-	local quest_link = #quests > 0
-	if not quest_link and type(GetActiveQuest) == "function" then
-		local aq = GetActiveQuest()
-		local st = aq and gv_Quests and gv_Quests[aq]
-		local preset = aq and Quests and Quests[aq]
-		if st and not st.Completed and not st.Failed and preset then
-			quests[#quests + 1] = {
-				id = aq,
-				name = lTr(preset.DisplayName or preset.display_name or aq),
-				note = false,
-				source = "active",
-			}
-		end
-	end
-	return {
-		sector_id = sector_id,
-		sector_name = sector_name,
-		poi = poi,
-		quests = quests,
-		quest_linked = quest_link, -- true only when sector badges pin a quest
-	}
+	ctx.quest_linked = #ctx.quest_ids > 0
+	return ctx
 end
 
-local function lAAROutcome(playerWon, isRetreat)
+local function lMergeSectorContext(initial, current)
+	if type(initial) ~= "table" then
+		return current
+	end
+	if type(current) ~= "table" then
+		return initial
+	end
+	initial.quest_ids = type(initial.quest_ids) == "table" and initial.quest_ids or {}
+	initial.quest_sources = type(initial.quest_sources) == "table" and initial.quest_sources or {}
+	initial.quest_notes = type(initial.quest_notes) == "table" and initial.quest_notes or {}
+	local seen = {}
+	for _, id in ipairs(initial.quest_ids) do
+		seen[id] = true
+	end
+	for _, id in ipairs(type(current.quest_ids) == "table" and current.quest_ids or {}) do
+		if not seen[id] then
+			initial.quest_ids[#initial.quest_ids + 1] = id
+			seen[id] = true
+		end
+		local source = current.quest_sources and current.quest_sources[id]
+		if source == "badge" or not initial.quest_sources[id] then
+			initial.quest_sources[id] = source
+		end
+		if not initial.quest_notes[id] and current.quest_notes then
+			initial.quest_notes[id] = current.quest_notes[id]
+		end
+	end
+	initial.quest_linked = not not (initial.quest_linked or current.quest_linked)
+	initial.poi_ref = initial.poi_ref or current.poi_ref
+	return initial
+end
+
+local function lWeatherBand(sector_id)
+	local gameState = rawget(_G, "GameState")
+	if type(gameState) == "table" and (not sector_id or sector_id == lCurrentSectorId()) then
+		if gameState.Night or gameState.Underground then
+			return "night"
+		end
+		if gameState.Fog then
+			return "fog"
+		end
+		if gameState.DustStorm then
+			return "dust"
+		end
+		if gameState.Heat then
+			return "heat"
+		end
+		if gameState.RainHeavy or gameState.RainLight then
+			return "rain"
+		end
+	end
+	local getWeather = rawget(_G, "GetCurrentSectorWeather")
+	local sectorId = sector_id or lCurrentSectorId()
+	local weather = sectorId and type(getWeather) == "function" and getWeather(sectorId) or false
+	if weather == "RainLight" or weather == "RainHeavy" then
+		return "rain"
+	end
+	if weather == "Fog" then
+		return "fog"
+	end
+	if weather == "DustStorm" then
+		return "dust"
+	end
+	if weather == "Heat" or weather == "FireStorm" then
+		return "heat"
+	end
+	if weather == "ClearSky" or weather == "Clear" then
+		return "clear"
+	end
+	return "default"
+end
+
+local function lOutcome(playerWon, isRetreat)
 	if isRetreat then
 		return "retreat"
 	end
-	if playerWon then
-		return "win"
-	end
-	return "loss"
+	return playerWon and "win" or "loss"
 end
 
-local function lAARAppendSector(parts, aar, ctx)
-	if not (ctx and (ctx.sector_name or ctx.sector_id) and aar.sector) then
-		return
+local function lIntensityBand(snap, playerWon, isRetreat)
+	local heat = tonumber(snap.heat_delta) or 0
+	local playerKia = tonumber(snap.player_kia) or 0
+	local enemyKia = tonumber(snap.enemy_kia) or 0
+	local totalStart = math.max(1, tonumber(snap.player_start) or 0)
+		+ math.max(1, tonumber(snap.enemy_start) or 0)
+	local rate = math.floor(((playerKia + enemyKia) * 100 + totalStart / 2) / totalStart)
+	if heat >= 40 or rate >= 55 or (not playerWon and not isRetreat and rate >= 35) then
+		return "high"
 	end
-	local secName = ctx.sector_name ~= "" and ctx.sector_name or tostring(ctx.sector_id or "?")
-	if ctx.poi and aar.sector.poi then
-		parts[#parts + 1] = lTr(T{ aar.sector.poi, sector = secName, poi = ctx.poi })
-	else
-		parts[#parts + 1] = lTr(T{ aar.sector.line, sector = secName })
+	if heat >= 15 or rate >= 25 then
+		return "mid"
 	end
-	parts[#parts + 1] = ""
+	return "low"
 end
 
-local function lAARAppendQuest(parts, aar, ctx)
-	if not (aar.quest and ctx) then
-		return
+local function lHashIndex(count, key)
+	if count <= 0 then
+		return 1
 	end
-	local qs = ctx.quests or empty_table
-	if #qs == 0 then
-		parts[#parts + 1] = lTr(aar.quest.none)
-	elseif #qs == 1 then
-		local q = qs[1]
-		if q.source == "active" and not ctx.quest_linked then
-			parts[#parts + 1] = lTr(T{ aar.quest.active, quest = q.name })
-		elseif q.note and q.note ~= "" then
-			parts[#parts + 1] = lTr(T{ aar.quest.one, quest = q.name, note = q.note })
-		else
-			parts[#parts + 1] = lTr(T{ aar.quest.one_nonote, quest = q.name })
-		end
-	else
-		local names = {}
-		for _, q in ipairs(qs) do
-			names[#names + 1] = q.name
-		end
-		parts[#parts + 1] = lTr(T{ aar.quest.many, quests = table.concat(names, "; ") })
+	local hash = 0
+	key = tostring(key or "")
+	for i = 1, #key do
+		hash = (hash * 131 + string.byte(key, i)) % 2147483647
 	end
-	parts[#parts + 1] = ""
+	return (hash % count) + 1
 end
 
-local function lAARAppendElites(parts, aar, snap)
-	table.sort(snap.elites or {}, function(a, b)
-		return tostring(a.name) < tostring(b.name)
-	end)
-	for _, row in ipairs(snap.elites or empty_table) do
-		local fate = row.fate or "threat"
-		local tpl = aar.elite[fate] or aar.elite.threat
-		parts[#parts + 1] = ""
-		parts[#parts + 1] = lTr(T{ tpl, name = row.name })
-	end
+local function lHeadlineCount(key)
+	local aar = rawget(_G, "JAZZ_RIS_AAR")
+	local bank = type(aar) == "table" and type(aar.headlines) == "table" and aar.headlines[key]
+	return type(bank) == "table" and math.max(1, #bank) or 1
 end
 
-local function lAARClosingKey(inten, playerWon, isRetreat)
-	if inten == "low" and playerWon then
+local function lClosingKey(intensity, playerWon, isRetreat, hostilesRemain)
+	if hostilesRemain then
+		return "noise"
+	end
+	if intensity == "low" and playerWon then
 		return "quiet"
 	end
-	if inten == "high" and (not playerWon or isRetreat) then
+	if intensity == "high" and (not playerWon or isRetreat) then
 		return "disaster"
 	end
 	return "noise"
 end
 
-local function lBuildAARText(snap, playerWon, isRetreat, autoResolve)
-	local aar = rawget(_G, "JAZZ_RIS_AAR")
-	if not aar then
-		return false, false
-	end
-	local ctx = snap.sector_ctx or JAZZ_RIS_ResolveSectorContext(snap.sector_id)
-	snap.sector_ctx = ctx
-	local outcome = lAAROutcome(playerWon, isRetreat)
-	local inten = lIntensityBand(snap, playerWon, isRetreat)
-	local key = string.format("%s|%s", outcome, inten)
-	local bank = aar.headlines[key] or aar.headlines["win|mid"]
-	local seed = table.concat({
-		tostring(Game and Game.id or ""),
-		tostring(snap.sector_id or ""),
-		tostring(Game and Game.CampaignTime or 0),
-		tostring(#(snap.elites or "")),
-		key,
-	}, "|")
-	local headline = lHashPick(bank, seed) or bank[1]
-	local weather = (aar.weather and aar.weather[lWeatherBand()]) or aar.weather.default
-	local intensity = aar.intensity[inten] or aar.intensity.mid
-	local forces = T{
-		aar.forces,
-		player = tostring(snap.player_start or 0),
-		enemy = tostring(snap.enemy_start or 0),
-	}
-	local parts = {
-		lTr(headline),
-		"",
-	}
-	lAARAppendSector(parts, aar, ctx)
-	lAARAppendQuest(parts, aar, ctx)
-	parts[#parts + 1] = lTr(weather)
-	parts[#parts + 1] = lTr(intensity)
-	parts[#parts + 1] = lTr(forces)
-	local charKey = outcome
-	if snap.ambush then
-		charKey = "ambush"
-	elseif ctx and ctx.quest_linked then
-		charKey = "quest_" .. outcome
-		if not aar.character[charKey] then
-			charKey = outcome
+local function lCountSet(set, deaths)
+	local count = 0
+	for handle in pairs(type(set) == "table" and set or {}) do
+		if not (type(deaths) == "table" and deaths[handle]) then
+			count = count + 1
 		end
 	end
-	local character = aar.character[charKey] or aar.character.win
-	parts[#parts + 1] = lTr(character)
-	parts[#parts + 1] = lTr(T{
-		aar.losses,
-		pkia = tostring(snap.player_kia or 0),
-		pwia = tostring(snap.player_wia or 0),
-		ekia = tostring(snap.enemy_kia or 0),
-		ewia = tostring(snap.enemy_wia or 0),
-	})
-	if autoResolve then
-		parts[#parts + 1] = ""
-		parts[#parts + 1] = "(Satellite resolve — limited field detail.)"
-	end
-	lAARAppendElites(parts, aar, snap)
-	parts[#parts + 1] = ""
-	parts[#parts + 1] = lTr(aar.closing[lAARClosingKey(inten, playerWon, isRetreat)] or aar.closing.noise)
-	local title = lTr(headline)
-	if ctx and ctx.sector_name and ctx.sector_name ~= "" then
-		title = string.format("%s — %s", title, ctx.sector_name)
-	end
-	return title, table.concat(parts, "\n")
+	return count
 end
 
-local function lCaptureFinalizeSnap(sector)
-	local snap = g_JAZZ_RIS_CombatSnap
-	if type(snap) ~= "table" then
-		snap = {
-			sector_id = sector and sector.Id or gv_CurrentSectorId,
-			heat_start = 0,
-			heat_delta = sector and (tonumber(sector.CombatHeat) or 0) or 0,
-			player_start = 0,
-			enemy_start = 0,
-			player_kia = 0,
-			enemy_kia = 0,
-			player_wia = 0,
-			enemy_wia = 0,
-			elites = {},
-			ambush = false,
-		}
-	else
-		local sectorObj = sector or (gv_Sectors and gv_Sectors[snap.sector_id])
-		local heat_now = sectorObj and (tonumber(sectorObj.CombatHeat) or 0) or 0
-		snap.heat_delta = Max(0, heat_now - (tonumber(snap.heat_start) or 0))
+local function lFinalizeNamedFates(snap, playerWon, isRetreat, scanMap)
+	local present = {}
+	local function note(unit)
+		if not lIsConflictParticipant(unit) or not lIsNamedOpponent(unit) then
+			return
+		end
+		local handle = lUnitHandle(unit)
+		local side = handle and snap.unit_sides[handle] or lSideKind(unit)
+		if side ~= "enemy" or not handle or present[handle] then
+			return
+		end
+		present[handle] = true
+		if lIsDead(unit) then
+			lTrackNamed(snap, unit, "killed")
+		elseif lIsWounded(unit) then
+			lTrackNamed(snap, unit, "wounded")
+		else
+			lTrackNamed(snap, unit, "threat")
+		end
 	end
-	snap.sector_id = snap.sector_id or (sector and sector.Id) or gv_CurrentSectorId
-	snap.sector_ctx = JAZZ_RIS_ResolveSectorContext(snap.sector_id)
+	if scanMap then
+		for _, unit in pairs(lAllUnits()) do
+			note(unit)
+		end
+	end
+	local unitData = rawget(_G, "gv_UnitData")
+	for _, unit in pairs(type(unitData) == "table" and unitData or {}) do
+		local handle = lUnitHandle(unit)
+		if handle and snap.seen_units[handle] then
+			note(unit)
+		end
+	end
+	for _, row in ipairs(snap.elites) do
+		if row.fate ~= "killed" and not present[row.handle] then
+			row.fate = "escaped"
+		end
+	end
+end
+
+local function lCaptureFinalizeSnap(sector, playerWon, isRetreat, autoResolve)
+	local sectorId = lSectorId(sector)
+	local store = lSnapStore()
+	local existing = sectorId and store[sectorId]
+	local hadMatchingSnap = type(existing) == "table" and not existing.finalized
+	local snap
+	if hadMatchingSnap then
+		snap = lEnsureSnap(sectorId, sector)
+	else
+		-- Lifecycle recovery: if ConflictStart was missed (old save/reload or
+		-- another handler's early exit), capture every participant still
+		-- recoverable instead of emitting a guaranteed 0/0 report.
+		snap = sectorId and lCaptureSatelliteConflict(sectorId)
+			or lNewSnap(sectorId, sector)
+	end
+	snap.sector_id = snap.sector_id or sectorId
+
+	local scanMap = not autoResolve and sectorId and sectorId == lCurrentSectorId()
+	local livingHostile = false
+	if scanMap then
+		livingHostile = lScanUnits(snap, true)
+	end
+	livingHostile = lScanSatelliteUnits(snap) or livingHostile
+	snap.player_wia = lCountSet(snap.player_wounded, snap.counted_deaths)
+	snap.enemy_wia = lCountSet(snap.enemy_wounded, snap.counted_deaths)
+	snap.heat_delta = math.max(
+		0,
+		lHeatForSector(snap.sector_id, sector) - (tonumber(snap.heat_start) or 0)
+	)
+	snap.sector_ctx = lMergeSectorContext(
+		snap.sector_ctx,
+		JAZZ_RIS_ResolveSectorContext(snap.sector_id)
+	)
+	snap.hostiles_remain = playerWon and livingHostile or false
+	lFinalizeNamedFates(snap, playerWon, isRetreat, scanMap)
 	return snap
 end
 
-local function lMarkSurvivingEliteFates(playerWon, isRetreat)
-	if not g_Units then
-		return
+local function lCopyStableElites(rows)
+	local copy = {}
+	for _, row in ipairs(type(rows) == "table" and rows or {}) do
+		copy[#copy + 1] = {
+			handle = row.handle,
+			session_id = row.session_id,
+			unit_id = row.unit_id,
+			name_ref = row.name_ref,
+			fate = row.fate or "threat",
+		}
 	end
-	for _, u in pairs(g_Units) do
-		if IsValid(u) and u.elite and lIsEnemySide(u) and lDisplayName(u) then
-			if u:IsDead() then
-				lTrackElite(u, "killed")
-			elseif (u.IsDowned and u:IsDowned()) or (u.HasStatusEffect and u:HasStatusEffect("BleedingOut")) then
-				lTrackElite(u, "wounded")
-			elseif isRetreat or not playerWon then
-				lTrackElite(u, "escaped")
-			else
-				lTrackElite(u, "threat")
-			end
-		end
-	end
+	table.sort(copy, function(a, b)
+		return tostring(a.handle or "") < tostring(b.handle or "")
+	end)
+	return copy
 end
 
-local function lPersistAAREntry(st, snap, sector, title, body, playerWon, isRetreat)
-	local entry = {
-		time = Game and Game.CampaignTime or 0,
-		sector = snap.sector_id or (sector and sector.Id),
-		sector_name = snap.sector_ctx and snap.sector_ctx.sector_name or false,
-		quest_ids = false,
-		quest_linked = snap.sector_ctx and snap.sector_ctx.quest_linked or false,
-		title = title,
-		body = body,
-		outcome = isRetreat and "retreat" or (playerWon and "win" or "loss"),
-	}
-	if snap.sector_ctx and snap.sector_ctx.quests then
-		local ids = {}
-		for _, q in ipairs(snap.sector_ctx.quests) do
-			ids[#ids + 1] = q.id
-		end
-		entry.quest_ids = ids
+local function lCopyArray(values)
+	local copy = {}
+	for i, value in ipairs(type(values) == "table" and values or {}) do
+		copy[i] = value
 	end
+	return copy
+end
+
+local function lCopyMap(values)
+	local copy = {}
+	for key, value in pairs(type(values) == "table" and values or {}) do
+		copy[key] = value
+	end
+	return copy
+end
+
+local function lBuildAARRecord(snap, playerWon, isRetreat, autoResolve)
+	local outcome = lOutcome(playerWon, isRetreat)
+	local intensity = lIntensityBand(snap, playerWon, isRetreat)
+	local headlineKey = outcome .. "|" .. intensity
+	local ctx = snap.sector_ctx or JAZZ_RIS_ResolveSectorContext(snap.sector_id)
+	local characterKey = outcome
+	if snap.ambush then
+		characterKey = "ambush"
+	elseif ctx.quest_linked then
+		characterKey = "quest_" .. outcome
+	end
+	local game = rawget(_G, "Game")
+	local seed = table.concat({
+		tostring(game and game.id or ""),
+		tostring(snap.sector_id or ""),
+		tostring(snap.started_at or 0),
+		tostring(snap.player_start or 0),
+		tostring(snap.enemy_start or 0),
+		tostring(snap.player_kia or 0),
+		tostring(snap.enemy_kia or 0),
+		headlineKey,
+	}, "|")
+	return {
+		schema_version = RIS_SNAP_SCHEMA,
+		record_version = RIS_AAR_RECORD_VERSION,
+		version = RIS_AAR_RECORD_VERSION,
+		kind = "aar",
+		time = lNow(),
+		sector_id = snap.sector_id,
+		outcome = outcome,
+		headline_key = headlineKey,
+		headline_index = lHashIndex(lHeadlineCount(headlineKey), seed),
+		weather_key = lWeatherBand(snap.sector_id),
+		intensity_key = intensity,
+		character_key = characterKey,
+		closing_key = lClosingKey(intensity, playerWon, isRetreat, snap.hostiles_remain),
+		autoResolve = autoResolve and true or false,
+		player_start = tonumber(snap.player_start) or 0,
+		enemy_start = tonumber(snap.enemy_start) or 0,
+		player_kia = tonumber(snap.player_kia) or 0,
+		enemy_kia = tonumber(snap.enemy_kia) or 0,
+		player_wia = tonumber(snap.player_wia) or 0,
+		enemy_wia = tonumber(snap.enemy_wia) or 0,
+		heat_delta = tonumber(snap.heat_delta) or 0,
+		ambush = snap.ambush and true or false,
+		hostiles_remain = snap.hostiles_remain and true or false,
+		quest_ids = lCopyArray(ctx.quest_ids),
+		quest_sources = lCopyMap(ctx.quest_sources),
+		quest_notes = lCopyMap(ctx.quest_notes),
+		quest_linked = ctx.quest_linked and true or false,
+		poi_ref = ctx.poi_ref,
+		elites = lCopyStableElites(snap.elites),
+	}
+end
+
+local function lConflictToken(sectorId, playerWon, isRetreat, autoResolve)
+	return table.concat({
+		tostring(sectorId or ""),
+		tostring(lNow()),
+		playerWon and "win" or "loss",
+		isRetreat and "retreat" or "stand",
+		autoResolve and "auto" or "tactical",
+	}, "|")
+end
+
+local function lPersistAAR(st, entry)
 	table.insert(st.battles, 1, entry)
 	while #st.battles > lCap() do
 		table.remove(st.battles)
@@ -554,49 +990,106 @@ end
 function JAZZ_RIS_FinalizeBattle(sector, playerWon, isRetreat, autoResolve)
 	local st = lState()
 	if not st then
-		return
+		return false
 	end
-	local snap = lCaptureFinalizeSnap(sector)
-	lMarkSurvivingEliteFates(playerWon, isRetreat)
-	local title, body = lBuildAARText(snap, playerWon, isRetreat, autoResolve)
-	if not title then
-		g_JAZZ_RIS_CombatSnap = false
-		return
+	local sectorId = lSectorId(sector)
+	local token = lConflictToken(sectorId, playerWon, isRetreat, autoResolve)
+	local store = lSnapStore()
+	local current = sectorId and store[sectorId]
+	if type(current) ~= "table" and st.last_battle_token == token then
+		if sectorId then
+			store[sectorId] = nil
+		end
+		return false
 	end
-	lPersistAAREntry(st, snap, sector, title, body, playerWon, isRetreat)
-	g_JAZZ_RIS_CombatSnap = false
+	if type(current) == "table" and current.finalized then
+		store[sectorId] = nil
+		return false
+	end
+	local snap = lCaptureFinalizeSnap(sector, playerWon, isRetreat, autoResolve)
+	snap.finalized = true
+	lPersistAAR(st, lBuildAARRecord(snap, playerWon, isRetreat, autoResolve))
+	st.last_battle_token = token
+	if sectorId then
+		store[sectorId] = nil
+	end
 	ObjModified("jazz_ris")
+	return true
+end
+
+function OnMsg.AutoResolveChoice(sector_id, choice)
+	if choice ~= "AutoResolve" then
+		return
+	end
+	local snap = sector_id and lSnapStore()[sector_id]
+	if type(snap) == "table" and not snap.finalized then
+		snap.auto_resolve_pending = true
+	end
+end
+
+function OnMsg.ConflictStart(sector_id)
+	if sector_id then
+		lCaptureSatelliteConflict(sector_id)
+	end
 end
 
 function OnMsg.CombatStart()
-	g_JAZZ_RIS_CombatSnap = false
-	lEnsureSnap()
-	if g_Units then
-		for _, u in pairs(g_Units) do
-			if IsValid(u) and not u:IsDead() then
-				lNoteEnemyPresence(u)
-			end
+	local snap = lEnsureSnap(lCurrentSectorId())
+	for _, unit in pairs(lAllUnits()) do
+		if lIsConflictParticipant(unit) and not lIsDead(unit) then
+			lCaptureUnit(snap, unit, false)
+			lNoteEnemyPresence(unit)
 		end
 	end
 end
 
-function OnMsg.UnitDied(unit, attacker, results)
-	if not unit then
+function OnMsg.UnitDowned(unit)
+	if not unit or not lInPlayerConflict() then
 		return
 	end
-	if lIsEnemySide(unit) then
-		local snap = lEnsureSnap()
-		snap.enemy_kia = (snap.enemy_kia or 0) + 1
-		if unit.elite then
-			lTrackElite(unit, "killed")
-		end
-		lNoteDeathMails(unit)
+	local snap = lEnsureSnap(lCurrentSectorId())
+	local handle, side = lCaptureUnit(snap, unit, true)
+	if handle and side then
+		lMarkWounded(snap, handle, side)
+	end
+end
+
+local function lHandleUnitDeath(unit, attacker, sector_id)
+	sector_id = sector_id or lCurrentSectorId()
+	if not unit or not lInPlayerConflict(sector_id) then
+		return
+	end
+	local snap = lEnsureSnap(sector_id)
+	local handle = lUnitHandle(unit)
+	local side = handle and snap.unit_sides[handle] or lSideKind(unit)
+	if not side then
+		return
+	end
+	local counted, countedSide = lCountDeath(snap, unit, true)
+	if not counted then
+		return
+	end
+	if countedSide == "enemy" then
+		lNoteDeathMails(unit, countedSide)
 		JAZZ_RIS_OnKill(unit, attacker)
-	elseif lIsPlayerSide(unit) then
-		local snap = g_JAZZ_RIS_CombatSnap
-		if type(snap) == "table" then
-			snap.player_kia = (snap.player_kia or 0) + 1
-		end
+	end
+end
+
+function OnMsg.UnitDiedOnSector(unit, sector_id)
+	lHandleUnitDeath(unit, false, sector_id)
+end
+
+function OnMsg.UnitDied(unit, attacker, results)
+	lHandleUnitDeath(unit, attacker, lCurrentSectorId())
+end
+
+function OnMsg.CombatEnd()
+	local sectorId = lCurrentSectorId()
+	local snap = sectorId and lSnapStore()[sectorId]
+	if type(snap) == "table" and not snap.finalized then
+		lScanUnits(snap, true)
+		snap.player_wia = lCountSet(snap.player_wounded, snap.counted_deaths)
+		snap.enemy_wia = lCountSet(snap.enemy_wounded, snap.counted_deaths)
 	end
 end
 
@@ -604,54 +1097,55 @@ function OnMsg.ConflictEnd(sector, _, playerAttacked, playerWon, autoResolve, is
 	if not sector then
 		return
 	end
-	-- Only file when the player was involved.
 	if playerAttacked == false and not playerWon and not isRetreat then
-		-- still allow if tactical combat existed on this sector
-		if not g_JAZZ_RIS_CombatSnap then
+		if type(lSnapStore()[lSectorId(sector)]) ~= "table" then
 			return
 		end
 	end
-	JAZZ_RIS_FinalizeBattle(sector, playerWon and true or false, isRetreat and true or false, autoResolve and true or false)
+	local sectorId = lSectorId(sector)
+	local snap = sectorId and lSnapStore()[sectorId]
+	autoResolve = autoResolve
+		or (type(snap) == "table" and snap.auto_resolve_pending)
+	JAZZ_RIS_FinalizeBattle(
+		sector,
+		playerWon and true or false,
+		isRetreat and true or false,
+		autoResolve and true or false
+	)
 end
 
--- Quest / person-of-interest unlocks when met.
-function OnMsg.UnitDataCreated(unit)
-	if unit and unit.session_id then
-		local id = unit.session_id
-		if rawget(_G, "JAZZ_RIS_QUEST_DOSSIERS") and JAZZ_RIS_QUEST_DOSSIERS[id] then
-			-- wait until IsMet
-		end
-	end
-end
-
-function OnMsg.CombatEnd()
-	-- Living wounded pass
-	if not g_Units then
+function OnMsg.AutoResolvedConflict(sector_id)
+	local st = lState()
+	if not st or type(st.battles) ~= "table" then
 		return
 	end
-	for _, u in pairs(g_Units) do
-		if IsValid(u) and u.elite and lIsEnemySide(u) and not u:IsDead() then
-			local lowHp = u.HitPoints and u.HitPoints < MulDivRound(u.MaxHitPoints or 100, 35, 100)
-			if (u.IsDowned and u:IsDowned()) or lowHp then
-				lTrackElite(u, "wounded")
+	for _, battle in ipairs(st.battles) do
+		if type(battle) == "table"
+			and battle.sector_id == sector_id
+			and tonumber(battle.time) == tonumber(lNow())
+		then
+			if not battle.autoResolve then
+				battle.autoResolve = true
+				ObjModified("jazz_ris")
 			end
+			return
 		end
 	end
 end
 
--- Poll met flags for quest cards on satellite open / load.
 local function lRefreshQuestMeets()
 	local bank = rawget(_G, "JAZZ_RIS_QUEST_DOSSIERS")
-	if not bank then
+	if type(bank) ~= "table" then
 		return
 	end
+	local isMet = rawget(_G, "IsMet")
+	local unitData = rawget(_G, "gv_UnitData")
 	for id in pairs(bank) do
 		if id ~= "Legion" then
-			local isMetFn = rawget(_G, "IsMet")
 			local met = false
-			if type(isMetFn) == "function" then
-				met = isMetFn(id) and true or false
-			elseif gv_UnitData and gv_UnitData[id] and gv_UnitData[id].IsMet then
+			if type(isMet) == "function" then
+				met = isMet(id) and true or false
+			elseif type(unitData) == "table" and unitData[id] and unitData[id].IsMet then
 				met = true
 			end
 			if met then

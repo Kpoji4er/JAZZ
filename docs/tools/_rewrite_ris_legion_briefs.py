@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Rewrite RIS Legion tier briefs from loadout unlock map; remint loc IDs off AME collisions.
+"""Canonical RIS Legion tier-brief bank bound to the loadout unlock map.
 
 Canon unlocks (line troops only): scripts/legion-loadouts + weapons.csv tier_label.
 Do not claim PPSh at tier 11 (unlocks at 13).
+
+The legacy patch helpers remain importable for audits, but the command-line
+entry point delegates to the complete ``_apply_ris_editorial.py`` transaction.
 """
 from __future__ import annotations
 
@@ -32,10 +35,10 @@ BRIEFS = {
             "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "По свежим донесениям, дорожные патрули Легиона вооружены тем, что удалось выгрести "
-            "со старых складов. Винтовки Мосина и MAS-36 соседствуют с MAT-49, MP40, карабинами "
+            "По свежим донесениям, дорожные патрули Легиона получают оружие со старых складов. "
+            "Винтовки Мосина и MAS-36 соседствуют с MAT-49, MP40, карабинами "
             "Winchester и двустволками. Из более тяжёлого оружия в тех же партиях идут ДП-27 "
-            "и MAC 24/29. Поставки по-прежнему представляют собой сборную солянку из старых образцов.\n\n"
+            "и MAC 24/29. Поставки по-прежнему состоят из разнородных старых образцов.\n\n"
             "Ничего современного, зато винтовок и рекрутов хватает. Считайте опасным каждый "
             "блокпост, даже если оружие выглядит старше бойцов, которые его держат.\n\n"
             "— Полевой отдел R.I.S."
@@ -44,8 +47,8 @@ BRIEFS = {
     "12": {
         "title_id": "890000000011302",
         "body_id": "890000000011303",
-        "title_en": "Better weapons are reaching the patrols",
-        "title_ru": "До патрулей дошло оружие получше",
+        "title_en": "Serviceable weapons are reaching the patrols",
+        "title_ru": "Патрули получают более исправное оружие",
         "body_en": (
             "Recent crates contain fewer castoffs and more serviceable wartime weapons. "
             "Grease Guns and Sterlings are appearing alongside M1 Garands, M2 carbines, "
@@ -55,7 +58,7 @@ BRIEFS = {
             "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "В последних ящиках меньше откровенного хлама и больше исправного оружия военных лет. "
+            "В последних ящиках меньше списанных образцов и больше исправного оружия военных лет. "
             "К Grease Gun и Sterling добавились M1 Garand, карабины M2, StG 44 и дробовики Model 1897. "
             "Из личного оружия всё чаще встречаются Luger, ТТ-33 и приличные револьверы.\n\n"
             "Перемены пока невелики, но уже заметны. Охрана дорог и складов теперь получает исправное "
@@ -66,20 +69,22 @@ BRIEFS = {
     "13": {
         "title_id": "890000000011304",
         "body_id": "890000000011305",
-        "title_en": "The Major has cleaned out the old armories",
-        "title_ru": "Майор выгреб старые арсеналы",
+        "title_en": "Old armories are feeding Legion patrols",
+        "title_ru": "Легион получает оружие из старых арсеналов",
         "body_en": (
             "The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, "
             "PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and "
-            "SVT-40s are reaching riflemen; Auto-5 shotguns and MG 42s are appearing with support teams. "
+            "SVT-40s are reaching riflemen; Auto-5 shotguns are appearing with assault troops, while "
+            "MG 42s are reaching support teams. "
             "Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.\n\n"
             "The designs are old, but most were built for war and still deserve respect.\n\n"
             "— R.I.S. Field Desk"
         ),
         "body_ru": (
-            "Закупщики Майора добрались до дальних рядов старых арсеналов. У патрулей появились "
+            "Закупщики Майора добрались до запасов в старых арсеналах. У патрулей появились "
             "ППШ, ППС-43, Thompson и MPL, изредка попадается Scorpion. Стрелкам достаются FG 42, "
-            "G43 и СВТ-40; группы поддержки получают Auto-5 и MG 42. Худшие старые пистолеты "
+            "G43 и СВТ-40; Auto-5 появляются у штурмовых бойцов, а MG 42 — у групп поддержки. Худшие "
+            "старые пистолеты "
             "заменяют на пистолеты Макарова, Colt 1911 и P38.\n\n"
             "Образцы немолодые, но большинство создавали для войны. Недооценивать их не стоит.\n\n"
             "— Полевой отдел R.I.S."
@@ -117,26 +122,26 @@ BRIEFS = {
             "Crates intercepted along the main roads contain CAR-15 carbines, FAMAS and Zastava M70 "
             "rifles, plus M14s and Remington 870 shotguns. FR F2s and Zastava M76s are being passed "
             "to the better shots.\n\n"
-            "This is procurement with a plan: short weapons for assaults, full-power rifles for the "
-            "line, and dedicated rifles for men watching the approaches. The Legion is preparing "
-            "for more than roadside extortion.\n\n"
+            "The pattern suggests deliberate procurement: short weapons for assaults, full-power "
+            "rifles for the line, and dedicated rifles for men watching the approaches. Expect these "
+            "units to cover both close assaults and longer approaches.\n\n"
             "— R.I.S. Field Desk"
         ),
         "body_ru": (
             "В перехваченных на главных дорогах ящиках лежат карабины CAR-15, винтовки FAMAS и "
             "Zastava M70, а также M14 и дробовики Remington 870. Лучшим стрелкам передают FR F2 "
             "и Zastava M76.\n\n"
-            "Закупки явно идут по плану: короткое оружие для штурма, мощные винтовки для основной "
-            "линии и точные винтовки для тех, кто следит за подступами. Легион готовится не только "
-            "собирать дань на дорогах.\n\n"
+            "Судя по подбору, закупки идут по плану: короткое оружие для штурма, мощные винтовки для "
+            "основной линии и точные винтовки для тех, кто следит за подступами. Такие отряды смогут "
+            "работать и в тесноте, и на дальних подходах.\n\n"
             "— Полевой отдел R.I.S."
         ),
     },
     "23": {
         "title_id": "890000000011310",
         "body_id": "890000000011311",
-        "title_en": "Kalashnikovs are becoming the Legion's standard",
-        "title_ru": "Калашниковы становятся штатным оружием",
+        "title_en": "Kalashnikovs are entering Legion service in volume",
+        "title_ru": "Калашниковы массово поступают на вооружение Легиона",
         "body_en": (
             "AK-47s and AKMs are arriving in volume, with M16A2s also appearing among the riflemen. "
             "AKS-74Us are going to troops that need shorter weapons, while Bizons and Spectres are "
@@ -203,14 +208,14 @@ BRIEFS = {
     "31": {
         "title_id": "890000000011316",
         "body_id": "890000000011317",
-        "title_en": "Professional-grade rifles are in circulation",
+        "title_en": "Professional-grade weapons are in circulation",
         "title_ru": "В обороте оружие профессионального уровня",
         "body_en": (
             "Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and "
             "M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, "
             "and the sidearms carried by these units have improved as well.\n\n"
             "Whatever the quality of the troops, this armament makes them dangerous. "
-            "Identify the rifles and machine guns before committing to an approach.\n\n"
+            "Identify rifle and machine-gun positions before committing to an approach.\n\n"
             "— R.I.S. Field Desk"
         ),
         "body_ru": (
@@ -218,7 +223,7 @@ BRIEFS = {
             "M60E4. Винтовки M1A используют для прицельного огня на дальних дистанциях; личное оружие "
             "у этих подразделений тоже стало лучше.\n\n"
             "Как бы ни были подготовлены бойцы, такое вооружение делает их опасными. "
-            "Перед сближением определите, где винтовки и пулемёты.\n\n"
+            "Перед сближением выявите позиции стрелков и пулемётчиков.\n\n"
             "— Полевой отдел R.I.S."
         ),
     },
@@ -232,7 +237,8 @@ BRIEFS = {
             "P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place "
             "HK21s and HK23s in the same flow of weapons.\n\nThe mix suggests the Legion may be grouping "
             "marksmen, assault troops and gunners around particular tasks. That is still only an "
-            "assessment: identify the weapons before assuming how the squad will fight.\n\n— R.I.S. Field "
+            "assessment: identify the weapons before drawing conclusions about the squad's tactics.\n\n"
+            "— R.I.S. Field "
             "Desk"
         ),
         "body_ru": (
@@ -240,7 +246,7 @@ BRIEFS = {
             "и Arctic Warfare, а также дробовики USAS-12. В тех же поставках отмечены HK21 и HK23.\n\nТакой "
             "набор позволяет предположить, что Легион может собирать метких стрелков, штурмовиков и "
             "пулемётчиков под конкретные задачи. Пока это лишь предположение: сначала определите оружие и "
-            "только потом решайте, как будет действовать отряд.\n\n— Полевой отдел R.I.S."
+            "только потом делайте выводы о тактике отряда.\n\n— Полевой отдел R.I.S."
         ),
     },
     "33": {
@@ -250,15 +256,15 @@ BRIEFS = {
         "title_ru": "Подтверждены Barrett, PSG-1, АС «Вал» и AA-12",
         "body_en": (
             "Barrett anti-materiel rifles, PSG-1 precision rifles, AS Val carbines and AA-12 shotguns are "
-            "now confirmed in Legion stocks.\n\nAny Legion line squad carrying one of these weapons can "
-            "change the fight immediately. Identify the weapon, work out what it can reach, and change "
+            "now confirmed in Legion stocks.\n\nA line squad carrying one of these weapons gains a serious "
+            "advantage at its intended range. Identify the weapon, work out what it can reach, and change "
             "the plan before it opens fire.\n\n— R.I.S. Field Desk"
         ),
         "body_ru": (
             "Подтверждено наличие у Легиона противоматериальных винтовок Barrett, точных PSG-1, карабинов "
-            "АС «Вал» и дробовиков AA-12.\n\nЛюбой линейный отряд Легиона с одним из этих образцов может "
-            "сразу изменить ход боя. Определите оружие, оцените его дальность и измените план до первого "
-            "выстрела.\n\n— Полевой отдел R.I.S."
+            "АС «Вал» и дробовиков AA-12.\n\nЛинейный отряд с одним из этих образцов получает серьёзное "
+            "преимущество на подходящей для него дистанции. Определите оружие, оцените его дальность и "
+            "измените план до первого выстрела.\n\n— Полевой отдел R.I.S."
         ),
     },
 }
@@ -315,12 +321,12 @@ def upsert_rows(rows, rid: str, en: str, ru: str):
     rows.append([rid, en, ru, "", TAG])
 
 
-def upsert_rows_en_file(rows, rid: str, en: str, ru: str):
+def upsert_rows_en_file(rows, rid: str, en: str):
     for i, row in enumerate(rows):
         if row and row[0] == rid:
-            rows[i] = [rid, ru, en, "", TAG]  # English.csv shape: RU, EN
+            rows[i] = [rid, en, en, "", TAG]  # English.csv shape: EN source, EN translation
             return
-    rows.append([rid, ru, en, "", TAG])
+    rows.append([rid, en, en, "", TAG])
 
 
 def patch_csvs():
@@ -332,8 +338,8 @@ def patch_csvs():
     for b in BRIEFS.values():
         upsert_rows(ru_rows, b["title_id"], b["title_en"], b["title_ru"])
         upsert_rows(ru_rows, b["body_id"], b["body_en"], b["body_ru"])
-        upsert_rows_en_file(en_rows, b["title_id"], b["title_en"], b["title_ru"])
-        upsert_rows_en_file(en_rows, b["body_id"], b["body_en"], b["body_ru"])
+        upsert_rows_en_file(en_rows, b["title_id"], b["title_en"])
+        upsert_rows_en_file(en_rows, b["body_id"], b["body_en"])
     write_csv(ROOT / "Russian.csv", ru_prefix, ru_rows)
     write_csv(ROOT / "English.csv", en_prefix, en_rows)
     print("CSV upserted", len(BRIEFS) * 2, "strings; orphans removed", len(ORPHAN_BRIEF_IDS))
@@ -372,10 +378,7 @@ def patch_items():
     print("items.lua briefs reminted")
 
 
-def main():
-    patch_csvs()
-    patch_items()
-
-
 if __name__ == "__main__":
-    main()
+    from _apply_ris_editorial import main as editorial_main
+
+    raise SystemExit(editorial_main())

@@ -1533,7 +1533,7 @@
 1532,982641736203,Пули<right><values>,Bullets<right><values>,manual-reviewed-concurrent
 1533,890000000001424,Garrison,Garrison,manual-translation
 1534,890000000001425,Patrol,Patrol,manual-translation
-1535,890000000001426,Recon,Recon,manual-translation
+1535,890000000011041,Recon,Recon,manual-translation
 1536,890000000001427,QRF,QRF,manual-translation
 1537,890000000001428,Retribution,Retribution,manual-translation
 1538,890000000001429,Supply convoy,Supply convoy,manual-translation
@@ -10655,3 +10655,505 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 9372,990002421,Vertical Grip,Vertical Grip,manual-reviewed-human
 9373,990002422,Vertical Grip,Vertical Grip,manual-reviewed-human
 9374,890000000002808,biff,biff,manual-reviewed-human
+9375,890000000006920,R.I.S.,R.I.S.,manual-translation
+9376,890000000006921,R.I.S. <desk@ris-intel.net>,R.I.S. <desk@ris-intel.net>,manual-translation
+9377,890000000006939,R.I.S. <legion-desk@ris-intel.net>,R.I.S. <legion-desk@ris-intel.net>,manual-translation
+9378,890000000006922,R.I.S. field-intelligence channel,R.I.S. field-intelligence channel,manual-translation
+9379,890000000006923,"Commander,
+
+R.I.S. has opened a field-intelligence channel for your team for the duration of this campaign. We will send an assessment whenever confirmed reports show a change in Legion weapons or equipment. As evidence accumulates, the field desk will add dossiers and after-action summaries to its bulletin.
+
+— R.I.S. Field Desk","Commander,
+
+R.I.S. has opened a field-intelligence channel for your team for the duration of this campaign. We will send an assessment whenever confirmed reports show a change in Legion weapons or equipment. As evidence accumulates, the field desk will add dossiers and after-action summaries to its bulletin.
+
+— R.I.S. Field Desk",manual-translation
+9380,890000000006924,"Recon Intelligence Services
+
+This field channel carries confirmed Legion supply assessments, unit dossiers, and after-action summaries. Reports are revised as evidence accumulates.","Recon Intelligence Services
+
+This field channel carries confirmed Legion supply assessments, unit dossiers, and after-action summaries. Reports are revised as evidence accumulates.",manual-translation
+9381,890000000011000,Recon Intelligence Services,Recon Intelligence Services,manual-translation
+9382,890000000011001,Field bulletin,Field bulletin,manual-translation
+9383,890000000011002,Dossiers,Dossiers,manual-translation
+9384,890000000011003,After-action reports,After-action reports,manual-translation
+9385,890000000011004,No supply assessment has reached the field desk yet.,No supply assessment has reached the field desk yet.,manual-translation
+9386,890000000011005,No Legion fighter type has been confirmed yet. The first contact reports will provide enough evidence for short profiles.,No Legion fighter type has been confirmed yet. The first contact reports will provide enough evidence for short profiles.,manual-translation
+9387,890000000011006,No completed engagement has been recorded yet.,No completed engagement has been recorded yet.,manual-translation
+9388,890000000011007,Fighters of this type confirmed killed: <count>/3,Fighters of this type confirmed killed: <count>/3,manual-translation
+9389,890000000011008,Full assessment after 3 fighters of this type are confirmed killed,Full assessment after 3 fighters of this type are confirmed killed,manual-translation
+9390,890000000011009,Key figures,Key figures,manual-translation
+9391,890000000011010,Legion units,Legion units,manual-translation
+9392,890000000011011,Latest supply assessment,Latest supply assessment,manual-translation
+9393,890000000011012,R.I.S. mail archive,R.I.S. mail archive,manual-translation
+9394,890000000011013,Recruit,Recruit,manual-translation
+9395,890000000011014,"Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are handed, but lack the training and staying power of regular troops. Keep them at range and break up the group before they crowd a doorway or surround a lone merc.","Legion recruiters sweep up villagers and send them out after only a few days of drill. They rush forward with whatever weapon they are handed, but lack the training and staying power of regular troops. Keep them at range and break up the group before they crowd a doorway or surround a lone merc.",manual-translation
+9396,890000000011015,Crusher,Crusher,manual-translation
+9397,890000000011016,"The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the shotgun takes over.","The Legion picks its strongest bruisers for Crusher duty and teaches them one job: close the distance. A shotgun, solid armor, and sheer toughness make them dangerous inside rooms and narrow alleys. Do not meet them in a doorway; open the range and concentrate fire before the shotgun takes over.",manual-translation
+9398,890000000011017,Grenadier,Grenadier,manual-translation
+9399,890000000011018,"New Grenadiers receive a short course in assault explosives before the Legion sends them forward. They carry several grenades beside a pistol or submachine gun, and some add a bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before they settle behind a corner.","New Grenadiers receive a short course in assault explosives before the Legion sends them forward. They carry several grenades beside a pistol or submachine gun, and some add a bottle of burning fuel. Spread out, keep an escape route from cover, and shoot them before they settle behind a corner.",manual-translation
+9400,890000000011019,Roughneck,Roughneck,manual-translation
+9401,890000000011020,"Roughnecks receive little formal training; the Legion expects speed and aggression to make up the difference. They fire pistols or automatic weapons on the move and often carry a knife for the last few steps. Make them cross open ground under overlapping fire, and do not let them turn a cramped room into a brawl.","Roughnecks receive little formal training; the Legion expects speed and aggression to make up the difference. They fire pistols or automatic weapons on the move and often carry a knife for the last few steps. Make them cross open ground under overlapping fire, and do not let them turn a cramped room into a brawl.",manual-translation
+9402,890000000011021,Pillager,Pillager,manual-translation
+9403,890000000011022,"The Legion forms Pillager teams from raiders who survived their first street fights and learned to keep moving. Light armor keeps them quick as they press close with an automatic weapon and, more often than not, a knife. Hold a long line of fire and do not chase them around a blind corner.","The Legion forms Pillager teams from raiders who survived their first street fights and learned to keep moving. Light armor keeps them quick as they press close with an automatic weapon and, more often than not, a knife. Hold a long line of fire and do not chase them around a blind corner.",manual-translation
+9404,890000000011023,Pyro,Pyro,manual-translation
+9405,890000000011024,"Pyros are assault troops singled out for incendiary work rather than careful demolition. They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they get within throwing distance.","Pyros are assault troops singled out for incendiary work rather than careful demolition. They wear heavy armor, carry several firebombs, and follow the flames with a submachine gun or short rifle. Spread out, stay clear of dead-end cover, and bring them down before they get within throwing distance.",manual-translation
+9406,890000000011025,Shock Trooper,Shock Trooper,manual-translation
+9407,890000000011026,"Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one wall—pin them in the open before a grenade clears their route.","Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke or concussion charges. Do not bunch behind one wall—pin them in the open before a grenade clears their route.",manual-translation
+9408,890000000011027,Punisher,Punisher,manual-translation
+9409,890000000011028,"Punishers are drawn from assault veterans and trained to keep an attack moving after the first breach. Heavy armor, automatic rifles, and a full load of grenades let them press forward even when the defense holds. Engage from more than one angle, keep a second position ready, and finish one before switching targets.","Punishers are drawn from assault veterans and trained to keep an attack moving after the first breach. Heavy armor, automatic rifles, and a full load of grenades let them press forward even when the defense holds. Engage from more than one angle, keep a second position ready, and finish one before switching targets.",manual-translation
+9410,890000000011029,Skull Crusher,Skull Crusher,manual-translation
+9411,890000000011030,"Skull Crushers are veteran brawlers trained to force a close fight through smoke and confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them also have a machete and some bring smoke or firebombs. Keep a clear way out of tight interiors and wear them down before they can rush.","Skull Crushers are veteran brawlers trained to force a close fight through smoke and confusion. Heavy armor carries them into shotgun or submachine-gun range, where most of them also have a machete and some bring smoke or firebombs. Keep a clear way out of tight interiors and wear them down before they can rush.",manual-translation
+9412,890000000011031,Headsman,Headsman,manual-translation
+9413,890000000011032,"Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them cross ground quickly and keep attacking at close range. Make them the first target, cover more than one approach, and never leave a lone merc on their flank.","Only the Legion's best assault veterans are promoted to Headsman duty and equipped as elite professionals. Heavy armor, upgraded automatic weapons, and plenty of grenades let them cross ground quickly and keep attacking at close range. Make them the first target, cover more than one approach, and never leave a lone merc on their flank.",manual-translation
+9414,890000000011033,Warden,Warden,manual-translation
+9415,890000000011034,"Wardens are ordinary riflemen given basic scouting instruction and posted away from the main line. Their light gear helps them reach a side position, where they hold cover and punish movement with steady rifle fire. Check both flanks before advancing, and use smoke or a second angle to dislodge them.","Wardens are ordinary riflemen given basic scouting instruction and posted away from the main line. Their light gear helps them reach a side position, where they hold cover and punish movement with steady rifle fire. Check both flanks before advancing, and use smoke or a second angle to dislodge them.",manual-translation
+9416,890000000011035,Scout,Scout,manual-translation
+9417,890000000011036,"Scouts are survivors of Warden patrols who have learned to move quietly and choose their approach. They slip around the line with automatic weapons, and may use a knife or smoke once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a Scout into ground you have not cleared.","Scouts are survivors of Warden patrols who have learned to move quietly and choose their approach. They slip around the line with automatic weapons, and may use a knife or smoke once they reach the rear. Keep the flanks paired, watch covered routes, and do not chase a Scout into ground you have not cleared.",manual-translation
+9418,890000000011037,Skirmisher,Skirmisher,manual-translation
+9419,890000000011038,"Skirmishers are picked for marksmanship and trained to fight away from the main line. They carry light armor and battle rifles, shifting between flanking positions to fire on exposed targets. Do not follow them across open ground; move under cover or smoke and pin their position before advancing.","Skirmishers are picked for marksmanship and trained to fight away from the main line. They carry light armor and battle rifles, shifting between flanking positions to fire on exposed targets. Do not follow them across open ground; move under cover or smoke and pin their position before advancing.",manual-translation
+9420,890000000011039,Pathfinder,Pathfinder,manual-translation
+9421,890000000011040,"Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their light gear lets them reach a flank with a carbine or submachine gun, and many also carry smoke or a knife. Sweep nearby cover before moving the main group, then block their escape instead of trading shots from one position.","Pathfinders are seasoned scouts trained to choose a concealed firing lane and hold it. Their light gear lets them reach a flank with a carbine or submachine gun, and many also carry smoke or a knife. Sweep nearby cover before moving the main group, then block their escape instead of trading shots from one position.",manual-translation
+9422,890000000011042,"Recon troops are veteran scouts trained for quiet approaches and night fighting. They use light gear and compact automatic weapons to close from an unseen angle, sometimes covering the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish them as soon as they reveal themselves.","Recon troops are veteran scouts trained for quiet approaches and night fighting. They use light gear and compact automatic weapons to close from an unseen angle, sometimes covering the move with smoke. Keep overlapping fields of fire, illuminate dark approaches, and finish them as soon as they reveal themselves.",manual-translation
+9423,890000000011043,Ranger,Ranger,manual-translation
+9424,890000000011044,"Rangers are elite scouts selected from the Legion's best flankers and given its finest field training. They move quickly and quietly with upgraded carbines or submachine guns, striking from the side before slipping away. Treat a Ranger as a priority target, overlap your fields of fire, and never leave one merc isolated.","Rangers are elite scouts selected from the Legion's best flankers and given its finest field training. They move quickly and quietly with upgraded carbines or submachine guns, striking from the side before slipping away. Treat a Ranger as a priority target, overlap your fields of fire, and never leave one merc isolated.",manual-translation
+9425,890000000011045,Bonemaker,Bonemaker,manual-translation
+9426,890000000011046,"A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. The Major chooses people who stay calm around blood, gives them a compact firearm, and hurries them through battlefield medicine. They break off to stop bleeding or treat other wounds. Remove the medic before pressing forward, or fighters you have already hurt will stay in the battle far longer than expected.","A recruit who breaks from the line to reach a wounded Legionnaire is probably a Bonemaker. The Major chooses people who stay calm around blood, gives them a compact firearm, and hurries them through battlefield medicine. They break off to stop bleeding or treat other wounds. Remove the medic before pressing forward, or fighters you have already hurt will stay in the battle far longer than expected.",manual-translation
+9427,890000000011047,Marauder,Marauder,manual-translation
+9428,890000000011048,"Looters and local toughs fill the Marauder ranks. They start with pistols and submachine guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the line and rake exposed ground with fire, but pressure can pin them down before they accomplish much. Their short-range weapons punish careless movement, so return fire quickly, keep your distance, and force them to keep their heads down.","Looters and local toughs fill the Marauder ranks. They start with pistols and submachine guns; assault rifles appear once better supplies reach the Legion. They plug gaps in the line and rake exposed ground with fire, but pressure can pin them down before they accomplish much. Their short-range weapons punish careless movement, so return fire quickly, keep your distance, and force them to keep their heads down.",manual-translation
+9429,890000000011049,Rifleman,Rifleman,manual-translation
+9430,890000000011050,"Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, doorways, and village approaches. From cover, they use their rifles to watch the ground ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block his view with smoke or approach from a direction his firing position does not cover.","Most Riflemen are conscripts with a few marksmanship lessons, posted to guard roads, doorways, and village approaches. From cover, they use their rifles to watch the ground ahead and wait for a clear shot. A patient Rifleman can punish careless movement, so block his view with smoke or approach from a direction his firing position does not cover.",manual-translation
+9431,890000000011051,Ambusher,Ambusher,manual-translation
+9432,890000000011052,"Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not walk into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.","Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not walk into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.",manual-translation
+9433,890000000011053,Marksman,Marksman,manual-translation
+9434,890000000011054,"The best shots in regular squads are given accurate rifles and taught to wait for a clean shot. They work behind the front, hold useful ground, and let the enemy come to them rather than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing points often and deny them a clear view with smoke.","The best shots in regular squads are given accurate rifles and taught to wait for a clean shot. They work behind the front, hold useful ground, and let the enemy come to them rather than rushing forward. Their accuracy makes repeated peeking dangerous, so change firing points often and deny them a clear view with smoke.",manual-translation
+9435,890000000011055,Raider,Raider,manual-translation
+9436,890000000011056,"Raiders are adaptable front-line fighters drilled with automatic weapons; every one also receives hand grenades. They move with the line, use rapid fire to cover short advances, and throw grenades when defenders settle behind cover. Rapid fire and grenades make them dangerous at close and middle range, so spread out, deny them an easy approach, and press them before they can choose where to throw.","Raiders are adaptable front-line fighters drilled with automatic weapons; every one also receives hand grenades. They move with the line, use rapid fire to cover short advances, and throw grenades when defenders settle behind cover. Rapid fire and grenades make them dangerous at close and middle range, so spread out, deny them an easy approach, and press them before they can choose where to throw.",manual-translation
+9437,890000000011057,Sniper,Sniper,manual-translation
+9438,890000000011058,"Only the Legion's finest riflemen receive sniper training: patience, target selection, and careful use of scoped rifles. They watch open approaches from distance and begin an engagement by pinning one exposed target under accurate fire. Crossing open ground gives them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a direct assault.","Only the Legion's finest riflemen receive sniper training: patience, target selection, and careful use of scoped rifles. They watch open approaches from distance and begin an engagement by pinning one exposed target under accurate fire. Crossing open ground gives them an easy shot, so screen movement with smoke and hunt the Sniper before beginning a direct assault.",manual-translation
+9439,890000000011059,Veteran,Veteran,manual-translation
+9440,890000000011060,"Veterans have survived several campaigns and stayed steady under fire. They advance stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep fighting through punishment that would stop less experienced troops. Their durability and explosives punish a packed formation, so spread out, deny them a clean approach, and concentrate fire before closing in.","Veterans have survived several campaigns and stayed steady under fire. They advance stubbornly with automatic fire and grenades; a few also bring a launcher, and all keep fighting through punishment that would stop less experienced troops. Their durability and explosives punish a packed formation, so spread out, deny them a clean approach, and concentrate fire before closing in.",manual-translation
+9441,890000000011061,Mercenary,Mercenary,manual-translation
+9442,890000000011062,"The Legion hires experienced Mercenaries to hold important positions and sends them out with good weapons. They move with the front and combine accurate rifle fire with grenades; a few also carry a launcher, and all keep fighting under pressure. They are dangerous at several ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one position at a time.","The Legion hires experienced Mercenaries to hold important positions and sends them out with good weapons. They move with the front and combine accurate rifle fire with grenades; a few also carry a launcher, and all keep fighting under pressure. They are dangerous at several ranges, so avoid a fair exchange: split their attention, deny clear shots, and overwhelm one position at a time.",manual-translation
+9443,890000000011063,Mercenary Sniper,Mercenary Sniper,manual-translation
+9444,890000000011064,"Mercenary Snipers are proven specialists hired for operations where accurate long-range fire can decide the opening exchange. They begin by pinning an exposed target and use powerful scoped rifles to control open approaches from a distance. Once one is reported, do not expose yourself twice from the same place. Cover movement with smoke and pressure the shooter before committing the squad.","Mercenary Snipers are proven specialists hired for operations where accurate long-range fire can decide the opening exchange. They begin by pinning an exposed target and use powerful scoped rifles to control open approaches from a distance. Once one is reported, do not expose yourself twice from the same place. Cover movement with smoke and pressure the shooter before committing the squad.",manual-translation
+9445,890000000011065,Gunner,Gunner,manual-translation
+9446,890000000011066,"The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up across roads and courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their sights in the open; use smoke, buildings, or a side approach to reach them safely.","The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up across roads and courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their sights in the open; use smoke, buildings, or a side approach to reach them safely.",manual-translation
+9447,890000000011067,Assault Gunner,Assault Gunner,manual-translation
+9448,890000000011068,"Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light machine guns forward instead of guarding one position. They close the distance, set up near the fight, and pin defenders from positions that ordinary gunners would consider too exposed. Most also bring a machete for the last few steps and a firebomb to flush cover. If they reach useful firing ground the attack becomes hard to stop, so break their approach with explosives or catch them while they are moving.","Surviving Gunners are promoted to Assault Gunner duty and taught to carry their light machine guns forward instead of guarding one position. They close the distance, set up near the fight, and pin defenders from positions that ordinary gunners would consider too exposed. Most also bring a machete for the last few steps and a firebomb to flush cover. If they reach useful firing ground the attack becomes hard to stop, so break their approach with explosives or catch them while they are moving.",manual-translation
+9449,890000000011069,GPMG,GPMG,manual-translation
+9450,890000000011070,"Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. They settle into prepared positions and use a general-purpose machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.","Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. They settle into prepared positions and use a general-purpose machine gun to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.",manual-translation
+9451,890000000011071,Veteran Gunner,Veteran Gunner,manual-translation
+9452,890000000011072,"Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert prepared fire to lock down movement, while tougher defenses let them stay effective under pressure. Their fire can stall an attack, so keep them occupied from one direction and strike quickly from another, or destroy the position with explosives.","Veteran Gunners have survived repeated engagements and are trusted with stronger machine guns. They use disciplined bursts and expert prepared fire to lock down movement, while tougher defenses let them stay effective under pressure. Their fire can stall an attack, so keep them occupied from one direction and strike quickly from another, or destroy the position with explosives.",manual-translation
+9453,890000000011073,Merc Gunner,Merc Gunner,manual-translation
+9454,890000000011074,"Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine disciplined bursts, prepared fire, and enough resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone can halt an advance, so deny them a clear field of fire and destroy the gunner before committing anyone across open ground.","Merc Gunners are experienced heavy-weapon specialists hired to use the strongest machine guns available to the Legion. They combine disciplined bursts, prepared fire, and enough resilience to keep a broad approach dangerous under sustained pressure. Leaving them alone can halt an advance, so deny them a clear field of fire and destroy the gunner before committing anyone across open ground.",manual-translation
+9455,890000000011075,Rocketeer,Rocketeer,manual-translation
+9456,890000000011076,"Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but the launcher usually leaves them with only one attack before they must recover or reload. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.","Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but the launcher usually leaves them with only one attack before they must recover or reload. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.",manual-translation
+9457,890000000011077,Heavy Grenadier,Heavy Grenadier,manual-translation
+9458,890000000011078,"Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into rooms, courtyards, and covered approaches, forcing anyone who survives the blast to abandon a comfortable position. Remaining in one place invites another round, so move after each shot and pressure the Heavy Grenadier before the launcher is ready again.","Heavy Grenadiers already understand explosives before they are trained on RPGs and grenade launchers. They send explosive rounds into rooms, courtyards, and covered approaches, forcing anyone who survives the blast to abandon a comfortable position. Remaining in one place invites another round, so move after each shot and pressure the Heavy Grenadier before the launcher is ready again.",manual-translation
+9459,890000000011079,Mortarman,Mortarman,manual-translation
+9460,890000000011080,"Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike positions that direct fire cannot easily reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move immediately and pressure the crew before it fires again. A wall between you and the crew will not keep you safe.","Mortarmen are proven heavy-weapon crews trained to lob shells over walls and other obstacles. They use a portable mortar to strike positions that direct fire cannot easily reach, forcing anyone who remains still to abandon cover. Once the bombardment begins, move immediately and pressure the crew before it fires again. A wall between you and the crew will not keep you safe.",manual-translation
+9461,890000000011081,Sergeant,Sergeant,manual-translation
+9462,890000000011082,"When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops forward, hold them in place, or focus their fire. Remove the leader early and the rest become much easier to disrupt.","When frightened recruits suddenly start moving as one, look for the loudest man among them. The Major turns dependable Legionnaires like that into Sergeants, able to push nearby troops forward, hold them in place, or focus their fire. Remove the leader early and the rest become much easier to disrupt.",manual-translation
+9463,890000000011083,Lieutenant,Lieutenant,manual-translation
+9464,890000000011084,"Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area, sending troops forward, holding them in place, moving them into cover, or focusing their fire as the situation changes. Their presence keeps a local attack coherent, so remove the officer before the Legion can regroup and turn a confused exchange into an organized assault.","Successful Sergeants become Lieutenants and trade shouting at one group for directing several squads. Their orders reach a wider area, sending troops forward, holding them in place, moving them into cover, or focusing their fire as the situation changes. Their presence keeps a local attack coherent, so remove the officer before the Legion can regroup and turn a confused exchange into an organized assault.",manual-translation
+9465,890000000011085,Captain,Captain,manual-translation
+9466,890000000011086,"Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as conditions change, and support those commands with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, so identify and remove the officer before pressing the fight.","Captains are officers trusted to control several units at once. They issue orders across the entire Legion force, redirect the attack as conditions change, and support those commands with accurate rifle fire. Every minute a Captain remains active keeps the enemy coordinated, so identify and remove the officer before pressing the fight.",manual-translation
+9467,890000000011087,Mercenary Captain,Mercenary Captain,manual-translation
+9468,890000000011088,"Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue orders across the entire force, preserve discipline through casualties, and quickly change plans when the first one fails. Assume nearby units are acting with a common purpose while one survives; bring the Captain down before attacking the rest.","Mercenary Captains are experienced officers hired to command mixed troops; they need little more than local intelligence. They issue orders across the entire force, preserve discipline through casualties, and quickly change plans when the first one fails. Assume nearby units are acting with a common purpose while one survives; bring the Captain down before attacking the rest.",manual-translation
+9469,890000000011089,Pierre Laurent,Pierre Laurent,manual-translation
+9470,890000000011090,"Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with something to prove. He likes being seen as much as being obeyed, which makes him easier to read than most Legion officers. Don't mistake charm for mercy.","Luc Laurent's son serves as the Legion's face on Ernie, always in a pressed uniform and with something to prove. He likes being seen as much as being obeyed, which makes him easier to read than most Legion officers. Don't mistake charm for mercy.",manual-translation
+9471,890000000011091,Bastien,Bastien,manual-translation
+9472,890000000011092,"A local fixer with a trader's smile. He knows who controls each road, what passage costs, and whom to pay. A useful contact, but never mistake business for friendship.","A local fixer with a trader's smile. He knows who controls each road, what passage costs, and whom to pay. A useful contact, but never mistake business for friendship.",manual-translation
+9473,890000000011093,The Major,The Major,manual-translation
+9474,890000000011094,"The man behind the Legion built his army with fear, money, and stolen supplies, then spread it across Grand Chien. Every Legion supply report ultimately leads back to him. He is patient, ruthless, and remembers every loss.","The man behind the Legion built his army with fear, money, and stolen supplies, then spread it across Grand Chien. Every Legion supply report ultimately leads back to him. He is patient, ruthless, and remembers every loss.",manual-translation
+9475,890000000011095,Legion,Legion,manual-translation
+9476,890000000011096,"The Major's army survives on stolen supplies, forced recruitment, and officers who treat villages as property. Its troops range from frightened locals to trained specialists. Wherever the Legion appears, the Major's reach is close behind.","The Major's army survives on stolen supplies, forced recruitment, and officers who treat villages as property. Its troops range from frightened locals to trained specialists. Wherever the Legion appears, the Major's reach is close behind.",manual-translation
+9477,890000000011097,Position held after a brief engagement,Position held after a brief engagement,manual-translation
+9478,890000000011098,Brief engagement ended in our favor,Brief engagement ended in our favor,manual-translation
+9479,890000000011099,"Limited resistance, position held","Limited resistance, position held",manual-translation
+9480,890000000011100,Position held after sustained fighting,Position held after sustained fighting,manual-translation
+9481,890000000011101,Sustained engagement ended in our favor,Sustained engagement ended in our favor,manual-translation
+9482,890000000011102,Resistance broken after a hard fight,Resistance broken after a hard fight,manual-translation
+9483,890000000011103,Position held at heavy cost,Position held at heavy cost,manual-translation
+9484,890000000011104,Severe fighting ended in our favor,Severe fighting ended in our favor,manual-translation
+9485,890000000011105,Victory with heavy losses,Victory with heavy losses,manual-translation
+9486,890000000011106,Position yielded after brief resistance,Position yielded after brief resistance,manual-translation
+9487,890000000011107,Brief engagement ended against us,Brief engagement ended against us,manual-translation
+9488,890000000011108,"Limited losses, position lost","Limited losses, position lost",manual-translation
+9489,890000000011109,Position lost after sustained fighting,Position lost after sustained fighting,manual-translation
+9490,890000000011110,Sustained engagement ended against us,Sustained engagement ended against us,manual-translation
+9491,890000000011111,Ground yielded under pressure,Ground yielded under pressure,manual-translation
+9492,890000000011112,Position lost at heavy cost,Position lost at heavy cost,manual-translation
+9493,890000000011113,Severe fighting ended against us,Severe fighting ended against us,manual-translation
+9494,890000000011114,"Heavy losses, hostile force prevailed","Heavy losses, hostile force prevailed",manual-translation
+9495,890000000011115,Orderly withdrawal after brief contact,Orderly withdrawal after brief contact,manual-translation
+9496,890000000011116,Force withdrew after a brief engagement,Force withdrew after a brief engagement,manual-translation
+9497,890000000011117,Contact broken with limited losses,Contact broken with limited losses,manual-translation
+9498,890000000011118,Withdrawal under sustained pressure,Withdrawal under sustained pressure,manual-translation
+9499,890000000011119,Force disengaged after a hard fight,Force disengaged after a hard fight,manual-translation
+9500,890000000011120,Position yielded to preserve the force,Position yielded to preserve the force,manual-translation
+9501,890000000011121,Withdrawal under heavy fire,Withdrawal under heavy fire,manual-translation
+9502,890000000011122,Costly disengagement completed,Costly disengagement completed,manual-translation
+9503,890000000011123,Withdrawal completed after severe fighting,Withdrawal completed after severe fighting,manual-translation
+9504,890000000011124,The engagement took place in clear weather with good visibility.,The engagement took place in clear weather with good visibility.,manual-translation
+9505,890000000011125,Rain continued through much of the engagement.,Rain continued through much of the engagement.,manual-translation
+9506,890000000011126,"The engagement took place at night, under limited visibility.","The engagement took place at night, under limited visibility.",manual-translation
+9507,890000000011127,Fog reduced visibility across the area.,Fog reduced visibility across the area.,manual-translation
+9508,890000000011128,Extreme heat added to the strain on both sides.,Extreme heat added to the strain on both sides.,manual-translation
+9509,890000000011129,A dust storm limited visibility during the engagement.,A dust storm limited visibility during the engagement.,manual-translation
+9510,890000000011130,No unusual weather materially affected the engagement.,No unusual weather materially affected the engagement.,manual-translation
+9511,890000000011131,The exchange was brief and appears to have drawn little attention outside the area.,The exchange was brief and appears to have drawn little attention outside the area.,manual-translation
+9512,890000000011132,Sustained fighting is likely to draw wider attention.,Sustained fighting is likely to draw wider attention.,manual-translation
+9513,890000000011133,The scale of the fighting will be difficult for the Major's command to ignore.,The scale of the fighting will be difficult for the Major's command to ignore.,manual-translation
+9514,890000000011134,"At first contact, field reports placed friendly strength at about <player> and hostile strength at about <enemy>.","At first contact, field reports placed friendly strength at about <player> and hostile strength at about <enemy>.",manual-translation
+9515,890000000011135,The engagement took place in <sector>.,The engagement took place in <sector>.,manual-translation
+9516,890000000011136,"The engagement took place in <sector>, near <poi>.","The engagement took place in <sector>, near <poi>.",manual-translation
+9517,890000000011137,The engagement was connected to <quest>. One confirmed detail may matter: <note>,The engagement was connected to <quest>. One confirmed detail may matter: <note>,manual-translation
+9518,890000000011138,Available evidence connects the engagement to <quest>.,Available evidence connects the engagement to <quest>.,manual-translation
+9519,890000000011139,Field records connect the engagement to several active assignments: <quests>.,Field records connect the engagement to several active assignments: <quests>.,manual-translation
+9520,890000000011140,"The team was also assigned to <quest>, although that work had no confirmed link to this area.","The team was also assigned to <quest>, although that work had no confirmed link to this area.",manual-translation
+9521,890000000011141,No active assignment was tied to this area.,No active assignment was tied to this area.,manual-translation
+9522,890000000011142,The engagement ended in your team's favor.,The engagement ended in your team's favor.,manual-translation
+9523,890000000011143,The hostile force held the ground after the engagement.,The hostile force held the ground after the engagement.,manual-translation
+9524,890000000011144,Your team broke contact and withdrew under fire.,Your team broke contact and withdrew under fire.,manual-translation
+9525,890000000011145,The opening pattern is consistent with an ambush; the first shots shaped the rest of the engagement.,The opening pattern is consistent with an ambush; the first shots shaped the rest of the engagement.,manual-translation
+9526,890000000011146,"The engagement was tied to an active assignment, and the immediate objective was secured.","The engagement was tied to an active assignment, and the immediate objective was secured.",manual-translation
+9527,890000000011147,The engagement was tied to an active assignment. The adverse outcome may complicate further work.,The engagement was tied to an active assignment. The adverse outcome may complicate further work.,manual-translation
+9528,890000000011148,Your team withdrew from an area tied to an active assignment.,Your team withdrew from an area tied to an active assignment.,manual-translation
+9529,890000000011149,"Friendly losses — killed: <pkia>, wounded: <pwia>. Hostile losses — killed: <ekia>, wounded: <ewia>.","Friendly losses — killed: <pkia>, wounded: <pwia>. Hostile losses — killed: <ekia>, wounded: <ewia>.",manual-translation
+9530,890000000011150,Confirmed killed during the engagement: <name>.,Confirmed killed during the engagement: <name>.,manual-translation
+9531,890000000011151,Confirmed wounded during the engagement: <name>. Current condition is unknown.,Confirmed wounded during the engagement: <name>. Current condition is unknown.,manual-translation
+9532,890000000011152,Confirmed: <name> escaped the area. Further contact remains possible.,Confirmed: <name> escaped the area. Further contact remains possible.,manual-translation
+9533,890000000011153,Confirmed still combat-capable when the engagement ended: <name>. The threat remains.,Confirmed still combat-capable when the engagement ended: <name>. The threat remains.,manual-translation
+9534,890000000011154,The limited scale of the engagement is unlikely to alter enemy activity by itself.,The limited scale of the engagement is unlikely to alter enemy activity by itself.,manual-translation
+9535,890000000011155,Reports of sustained fighting are likely to draw closer attention from local Legion command.,Reports of sustained fighting are likely to draw closer attention from local Legion command.,manual-translation
+9536,890000000011156,Losses on this scale will draw attention from higher Legion command.,Losses on this scale will draw attention from higher Legion command.,manual-translation
+9537,890000000011201,R.I.S. — confirmed fighter type: <unit_title>,R.I.S. — confirmed fighter type: <unit_title>,manual-translation
+9538,890000000011202,"Confirmed contact: <unit_title>.
+
+The report is sufficient to distinguish this fighter type in the field, but not yet to assess its methods with confidence. A fuller assessment will follow after three fighters of this type have been confirmed killed.
+
+— R.I.S. Field Desk","Confirmed contact: <unit_title>.
+
+The report is sufficient to distinguish this fighter type in the field, but not yet to assess its methods with confidence. A fuller assessment will follow after three fighters of this type have been confirmed killed.
+
+— R.I.S. Field Desk",manual-translation
+9539,890000000011203,R.I.S. — confirmed death: <name>,R.I.S. — confirmed death: <name>,manual-translation
+9540,890000000011204,"Confirmed after the fighting: <name> is dead.
+
+The Legion has lost a proven fighter. Any effect on local command remains to be seen.
+
+— R.I.S. Field Desk","Confirmed after the fighting: <name> is dead.
+
+The Legion has lost a proven fighter. Any effect on local command remains to be seen.
+
+— R.I.S. Field Desk",manual-translation
+9541,890000000011205,R.I.S. — key figure confirmed dead: <name>,R.I.S. — key figure confirmed dead: <name>,manual-translation
+9542,890000000011206,"Confirmed after the fighting: <name> is dead.
+
+This changes the local balance of power; the consequences are not yet clear.
+
+— R.I.S. Field Desk","Confirmed after the fighting: <name> is dead.
+
+This changes the local balance of power; the consequences are not yet clear.
+
+— R.I.S. Field Desk",manual-translation
+9543,890000000011300,Old warehouse stock on Legion patrols,Old warehouse stock on Legion patrols,manual-translation
+9544,890000000011301,"Fresh reports from Legion road patrols point to old warehouse stock. Mosin and MAS-36 rifles are turning up beside MAT-49s, MP40s, Winchester carbines and double-barrel shotguns. DP-27s and MAC 24/29s make up the heavier end of the same shipments. The deliveries remain a mixed collection of old designs.
+
+None of it is sophisticated, but there are plenty of rifles and plenty of recruits to carry them. Treat every roadblock as dangerous, even when the weapons look older than the men holding them.
+
+— R.I.S. Field Desk","Fresh reports from Legion road patrols point to old warehouse stock. Mosin and MAS-36 rifles are turning up beside MAT-49s, MP40s, Winchester carbines and double-barrel shotguns. DP-27s and MAC 24/29s make up the heavier end of the same shipments. The deliveries remain a mixed collection of old designs.
+
+None of it is sophisticated, but there are plenty of rifles and plenty of recruits to carry them. Treat every roadblock as dangerous, even when the weapons look older than the men holding them.
+
+— R.I.S. Field Desk",manual-translation
+9545,890000000011302,Serviceable weapons are reaching the patrols,Serviceable weapons are reaching the patrols,manual-translation
+9546,890000000011303,"Recent crates contain fewer castoffs and more serviceable wartime weapons. Grease Guns and Sterlings are appearing alongside M1 Garands, M2 carbines, StG 44s and Model 1897 shotguns. Sidearms now include Lugers, TT-33s and better revolvers.
+
+The improvement is modest but visible. Guards around roads and depots now receive usable weapons in regular batches instead of taking whatever happens to be left in a box.
+
+— R.I.S. Field Desk","Recent crates contain fewer castoffs and more serviceable wartime weapons. Grease Guns and Sterlings are appearing alongside M1 Garands, M2 carbines, StG 44s and Model 1897 shotguns. Sidearms now include Lugers, TT-33s and better revolvers.
+
+The improvement is modest but visible. Guards around roads and depots now receive usable weapons in regular batches instead of taking whatever happens to be left in a box.
+
+— R.I.S. Field Desk",manual-translation
+9547,890000000011304,Old armories are feeding Legion patrols,Old armories are feeding Legion patrols,manual-translation
+9548,890000000011305,"The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and SVT-40s are reaching riflemen; Auto-5 shotguns and MG 42s are appearing with support teams. Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.
+
+The designs are old, but most were built for war and still deserve respect.
+
+— R.I.S. Field Desk","The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and SVT-40s are reaching riflemen; Auto-5 shotguns and MG 42s are appearing with support teams. Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.
+
+The designs are old, but most were built for war and still deserve respect.
+
+— R.I.S. Field Desk",manual-translation
+9549,890000000011306,New imports are changing the roadblocks,New imports are changing the roadblocks,manual-translation
+9550,890000000011307,"Newer compact weapons are appearing at Legion roadblocks: UZIs, MAC-10s, Micro UZIs and Agrams, backed by Hi-Power pistols. Riflemen are also receiving M16A1s, Type 56s and Mini-14 carbines.
+
+Several field reports place improvised pipe bombs with Roughneck teams, though the sightings are not yet consistent. Do not assume every patrol carries explosives, but check bags and webbing before crowding a doorway.
+
+— R.I.S. Field Desk","Newer compact weapons are appearing at Legion roadblocks: UZIs, MAC-10s, Micro UZIs and Agrams, backed by Hi-Power pistols. Riflemen are also receiving M16A1s, Type 56s and Mini-14 carbines.
+
+Several field reports place improvised pipe bombs with Roughneck teams, though the sightings are not yet consistent. Do not assume every patrol carries explosives, but check bags and webbing before crowding a doorway.
+
+— R.I.S. Field Desk",manual-translation
+9551,890000000011308,Carbines and marksman rifles in the crates,Carbines and marksman rifles in the crates,manual-translation
+9552,890000000011309,"Crates intercepted along the main roads contain CAR-15 carbines, FAMAS and Zastava M70 rifles, plus M14s and Remington 870 shotguns. FR F2s and Zastava M76s are being passed to the better shots.
+
+The pattern suggests deliberate procurement: short weapons for assaults, full-power rifles for the line, and dedicated rifles for men watching the approaches. Expect these units to cover both close assaults and longer approaches.
+
+— R.I.S. Field Desk","Crates intercepted along the main roads contain CAR-15 carbines, FAMAS and Zastava M70 rifles, plus M14s and Remington 870 shotguns. FR F2s and Zastava M76s are being passed to the better shots.
+
+The pattern suggests deliberate procurement: short weapons for assaults, full-power rifles for the line, and dedicated rifles for men watching the approaches. Expect these units to cover both close assaults and longer approaches.
+
+— R.I.S. Field Desk",manual-translation
+9553,890000000011310,Kalashnikovs are becoming the Legion's standard,Kalashnikovs are becoming the Legion's standard,manual-translation
+9554,890000000011311,"AK-47s and AKMs are arriving in volume, with M16A2s also appearing among the riflemen. AKS-74Us are going to troops that need shorter weapons, while Bizons and Spectres are showing up with close-assault teams. FN FALs and Striker shotguns fill out the line.
+
+Support gunners now have RPKs and M60s, and selected marksmen are carrying M21 rifles. The Legion is starting to look like a force with its own armory rather than a militia borrowing weapons for the day.
+
+— R.I.S. Field Desk","AK-47s and AKMs are arriving in volume, with M16A2s also appearing among the riflemen. AKS-74Us are going to troops that need shorter weapons, while Bizons and Spectres are showing up with close-assault teams. FN FALs and Striker shotguns fill out the line.
+
+Support gunners now have RPKs and M60s, and selected marksmen are carrying M21 rifles. The Legion is starting to look like a force with its own armory rather than a militia borrowing weapons for the day.
+
+— R.I.S. Field Desk",manual-translation
+9555,890000000011312,Modern weapons have reached fortified positions,Modern weapons have reached fortified positions,manual-translation
+9556,890000000011313,"Fortified Legion positions now show MP5A2s, MP5Ks and TMPs, while riflemen carry M4A1s, HK33s, AK-74s and Galils. SPAS-12 shotguns are appearing indoors; Dragunovs and M700s cover longer approaches. RPK-74 and M60E3 machine guns provide support, with USPs and Kimbers among the sidearms.
+
+The mix points to deliberate preparation for both close assaults and defended ground.
+
+— R.I.S. Field Desk","Fortified Legion positions now show MP5A2s, MP5Ks and TMPs, while riflemen carry M4A1s, HK33s, AK-74s and Galils. SPAS-12 shotguns are appearing indoors; Dragunovs and M700s cover longer approaches. RPK-74 and M60E3 machine guns provide support, with USPs and Kimbers among the sidearms.
+
+The mix points to deliberate preparation for both close assaults and defended ground.
+
+— R.I.S. Field Desk",manual-translation
+9557,890000000011314,Front-line squads are receiving modern weapons,Front-line squads are receiving modern weapons,manual-translation
+9558,890000000011315,"Front-line Legion squads are turning up with G36s and G36cs, AUGs, VSS carbines and G3 rifles. Their support weapons now include Minimis, MAGs and PKMs, and modern pistols are common enough to be more than personal trophies.
+
+These squads are being armed as units, not from whatever happens to be at hand. Plan for weapons chosen for specific jobs rather than a random assortment from one crate.
+
+— R.I.S. Field Desk","Front-line Legion squads are turning up with G36s and G36cs, AUGs, VSS carbines and G3 rifles. Their support weapons now include Minimis, MAGs and PKMs, and modern pistols are common enough to be more than personal trophies.
+
+These squads are being armed as units, not from whatever happens to be at hand. Plan for weapons chosen for specific jobs rather than a random assortment from one crate.
+
+— R.I.S. Field Desk",manual-translation
+9559,890000000011316,Professional-grade rifles are in circulation,Professional-grade rifles are in circulation,manual-translation
+9560,890000000011317,"Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, and the sidearms carried by these units have improved as well.
+
+Whatever the quality of the troops, this armament makes them dangerous. Identify the rifles and machine guns before committing to an approach.
+
+— R.I.S. Field Desk","Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, and the sidearms carried by these units have improved as well.
+
+Whatever the quality of the troops, this armament makes them dangerous. Identify the rifles and machine guns before committing to an approach.
+
+— R.I.S. Field Desk",manual-translation
+9561,890000000011318,Special-purpose weapons confirmed,Special-purpose weapons confirmed,manual-translation
+9562,890000000011319,"Special-purpose weapons are now confirmed in Legion hands: customized Sig rifles, MP7s and P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place HK21s and HK23s in the same flow of weapons.
+
+The mix suggests the Legion may be grouping marksmen, assault troops and gunners around particular tasks. That is still only an assessment: identify the weapons before assuming how the squad will fight.
+
+— R.I.S. Field Desk","Special-purpose weapons are now confirmed in Legion hands: customized Sig rifles, MP7s and P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place HK21s and HK23s in the same flow of weapons.
+
+The mix suggests the Legion may be grouping marksmen, assault troops and gunners around particular tasks. That is still only an assessment: identify the weapons before assuming how the squad will fight.
+
+— R.I.S. Field Desk",manual-translation
+9563,890000000011320,"Barrett, PSG-1, AS Val and AA-12 confirmed","Barrett, PSG-1, AS Val and AA-12 confirmed",manual-translation
+9564,890000000011321,"Barrett anti-materiel rifles, PSG-1 precision rifles, AS Val carbines and AA-12 shotguns are now confirmed in Legion stocks.
+
+A line squad carrying one of these weapons gains a serious advantage at its intended range. Identify the weapon, work out what it can reach, and change the plan before it opens fire.
+
+— R.I.S. Field Desk","Barrett anti-materiel rifles, PSG-1 precision rifles, AS Val carbines and AA-12 shotguns are now confirmed in Legion stocks.
+
+A line squad carrying one of these weapons gains a serious advantage at its intended range. Identify the weapon, work out what it can reach, and change the plan before it opens fire.
+
+— R.I.S. Field Desk",manual-translation
+9565,890000000011322,The Major's Strategy: a network of strongpoints,The Major's Strategy: a network of strongpoints,manual-translation
+9566,890000000011323,"Recent reports suggest that the Major does not run the Legion as one army. He has divided the country into districts, each centered on a fort. Patrols leave from it, battered units return to it, and money and recruits gathered from nearby settlements pass through its gates.
+
+Destroying a column is a serious loss, but it does not end the system. As long as its strongpoint remains active, the Major's men will eventually return to the roads. If you want an area to stay quiet, watch where the units go home—not only where you meet them.
+
+— R.I.S. Field Desk","Recent reports suggest that the Major does not run the Legion as one army. He has divided the country into districts, each centered on a fort. Patrols leave from it, battered units return to it, and money and recruits gathered from nearby settlements pass through its gates.
+
+Destroying a column is a serious loss, but it does not end the system. As long as its strongpoint remains active, the Major's men will eventually return to the roads. If you want an area to stay quiet, watch where the units go home—not only where you meet them.
+
+— R.I.S. Field Desk",manual-translation
+9567,890000000011324,The Major's Strategy: a new flag does not close the road,The Major's Strategy: a new flag does not close the road,manual-translation
+9568,890000000011325,"Our observers confirm that Legion patrols continue to use familiar routes even after the ground has changed hands. They are especially willing to cross stretches where they see no permanent guard.
+
+To the Major, a road is still his as long as his men can walk it. Taking an area and keeping it quiet are different jobs. If a route matters to you, changing the flag over it will not be enough.
+
+— R.I.S. Field Desk","Our observers confirm that Legion patrols continue to use familiar routes even after the ground has changed hands. They are especially willing to cross stretches where they see no permanent guard.
+
+To the Major, a road is still his as long as his men can walk it. Taking an area and keeping it quiet are different jobs. If a route matters to you, changing the flag over it will not be enough.
+
+— R.I.S. Field Desk",manual-translation
+9569,890000000011326,The Major's Strategy: two kinds of tribute,The Major's Strategy: two kinds of tribute,manual-translation
+9570,890000000011327,"The Legion demands more than money from the villages. Collectors make their rounds for cash, while recruiters follow other routes in search of new bodies. Both travel with small escorts: their job is to bring what they gather back to the fort, not to look for a major fight.
+
+After each run they return to base, deliver the money or recruits, rest, and leave again. Intercepting one trip will cost the district money or manpower, but the system will continue as long as the fort controls the surrounding settlements.
+
+— R.I.S. Field Desk","The Legion demands more than money from the villages. Collectors make their rounds for cash, while recruiters follow other routes in search of new bodies. Both travel with small escorts: their job is to bring what they gather back to the fort, not to look for a major fight.
+
+After each run they return to base, deliver the money or recruits, rest, and leave again. Intercepting one trip will cost the district money or manpower, but the system will continue as long as the fort controls the surrounding settlements.
+
+— R.I.S. Field Desk",manual-translation
+9571,890000000011328,"The Major's Strategy: first, they look","The Major's Strategy: first, they look",manual-translation
+9572,890000000011329,"When a district becomes unsettled, the Major does not always answer with force at once. A small party leaves the fort first—to check the roads, pick up a trail, and learn where you have stopped. If it returns empty-handed, the alarm gradually fades. If it sees you, the local commander receives coordinates instead of rumors.
+
+The danger is not the size of the scouting party. Its real weapon is the report that tells the next unit where to go. If the scouts broke contact and headed home, assume the clock has already started.
+
+— R.I.S. Field Desk","When a district becomes unsettled, the Major does not always answer with force at once. A small party leaves the fort first—to check the roads, pick up a trail, and learn where you have stopped. If it returns empty-handed, the alarm gradually fades. If it sees you, the local commander receives coordinates instead of rumors.
+
+The danger is not the size of the scouting party. Its real weapon is the report that tells the next unit where to go. If the scouts broke contact and headed home, assume the clock has already started.
+
+— R.I.S. Field Desk",manual-translation
+9573,890000000011330,The Major's Strategy: the nearest fort answers,The Major's Strategy: the nearest fort answers,manual-translation
+9574,890000000011331,"The Major leaves most urgent decisions to his local commanders. A lost position or a confirmed report prompts the nearest fort to reinforce its approaches and send men toward the threat.
+
+This is not an endless reserve or a general offensive. The response is tied to a specific threat, and its size depends on the men and money available in that district. If a separate column is already moving your way, assume that someone has told the fort where to look.
+
+— R.I.S. Field Desk","The Major leaves most urgent decisions to his local commanders. A lost position or a confirmed report prompts the nearest fort to reinforce its approaches and send men toward the threat.
+
+This is not an endless reserve or a general offensive. The response is tied to a specific threat, and its size depends on the men and money available in that district. If a separate column is already moving your way, assume that someone has told the fort where to look.
+
+— R.I.S. Field Desk",manual-translation
+9575,890000000011332,The Major's Strategy: cargo takes the quiet road,The Major's Strategy: cargo takes the quiet road,manual-translation
+9576,890000000011333,"Combat patrols may cross ground under your control without hesitation. Valuable cargo is handled more carefully. Convoys carrying money, diamonds, or reinforcements will try to avoid your positions whenever another route remains open.
+
+A long detour will not stop them. If every road passes under your guns, however, a new shipment may not leave at all. A patrol is prepared to risk contact; cargo looks for a route where contact never happens.
+
+— R.I.S. Field Desk","Combat patrols may cross ground under your control without hesitation. Valuable cargo is handled more carefully. Convoys carrying money, diamonds, or reinforcements will try to avoid your positions whenever another route remains open.
+
+A long detour will not stop them. If every road passes under your guns, however, a new shipment may not leave at all. A patrol is prepared to risk contact; cargo looks for a route where contact never happens.
+
+— R.I.S. Field Desk",manual-translation
+9577,890000000011334,The Major's Strategy: they come back,The Major's Strategy: they come back,manual-translation
+9578,890000000011335,"A depleted Legion unit is not written off after a failed mission. When too many of its men are wounded or dead, it falls back to the nearest fort, waits for replacements, and only then returns to the road.
+
+The quiet after a successful ambush may therefore be temporary. A familiar patrol has not vanished; it is rebuilding behind the walls. If you want to know whether a district is truly empty, keep watching the roads that lead back to the fort.
+
+— R.I.S. Field Desk","A depleted Legion unit is not written off after a failed mission. When too many of its men are wounded or dead, it falls back to the nearest fort, waits for replacements, and only then returns to the road.
+
+The quiet after a successful ambush may therefore be temporary. A familiar patrol has not vanished; it is rebuilding behind the walls. If you want to know whether a district is truly empty, keep watching the roads that lead back to the fort.
+
+— R.I.S. Field Desk",manual-translation
+9579,890000000011336,The Major's Strategy: marked in red,The Major's Strategy: marked in red,manual-translation
+9580,890000000011337,"The nearest forts handle most threats. When losses and alarm continue to mount, however, the reports eventually reach the Major himself. A heavy column then leaves his headquarters—not to scout or guard a road, but to exact retribution.
+
+Such deployments are rare, which is precisely why they matter. They mean the local forces were judged insufficient and the Major chose to spend his own reserve. If R.I.S. marks a route in red, look beyond the nearest fort.
+
+— R.I.S. Field Desk","The nearest forts handle most threats. When losses and alarm continue to mount, however, the reports eventually reach the Major himself. A heavy column then leaves his headquarters—not to scout or guard a road, but to exact retribution.
+
+Such deployments are rare, which is precisely why they matter. They mean the local forces were judged insufficient and the Major chose to spend his own reserve. If R.I.S. marks a route in red, look beyond the nearest fort.
+
+— R.I.S. Field Desk",manual-translation
+9581,890000000011338,The Major's Strategy: not every district wakes at once,The Major's Strategy: not every district wakes at once,manual-translation
+9582,890000000011339,"The Legion's distant forts do not all move at the same pace. Some survive on what they have for a long time: they rarely send out new units, conserve their men, and make little response to trouble. It can look like weakness or indecision, but the cause is usually simpler—the district has not yet received help from headquarters.
+
+The first serious delivery changes that. Recruiters and fresh columns appear on the roads, and the local commander begins to act with greater confidence. If a formerly quiet district suddenly comes alive, the Major's supply line has probably reached it.
+
+— R.I.S. Field Desk","The Legion's distant forts do not all move at the same pace. Some survive on what they have for a long time: they rarely send out new units, conserve their men, and make little response to trouble. It can look like weakness or indecision, but the cause is usually simpler—the district has not yet received help from headquarters.
+
+The first serious delivery changes that. Recruiters and fresh columns appear on the roads, and the local commander begins to act with greater confidence. If a formerly quiet district suddenly comes alive, the Major's supply line has probably reached it.
+
+— R.I.S. Field Desk",manual-translation
+9583,890000000011340,The Major's Strategy,The Major's Strategy,manual-translation
+9584,890000000011341,This account is based on remote reports; field detail remains limited.,This account is based on remote reports; field detail remains limited.,manual-translation
+9585,890000000011342,Archived engagement,Archived engagement,manual-translation
+9586,890000000011343,An older engagement in <sector> survives only as a partial record. The available evidence is not enough to reconstruct the original field account with confidence.,An older engagement in <sector> survives only as a partial record. The available evidence is not enough to reconstruct the original field account with confidence.,manual-translation
+9587,890000000011344,"The immediate objective was achieved, but confirmed hostiles remained in the area when the report closed.","The immediate objective was achieved, but confirmed hostiles remained in the area when the report closed.",manual-translation
+9588,890000000011134,"Across the engagement, field reports placed friendly strength at about <player> and hostile strength at about <enemy>.","Across the engagement, field reports placed friendly strength at about <player> and hostile strength at about <enemy>.",manual-translation
+9589,890000000011026,"Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke grenades or flashbangs. Do not bunch behind one wall—pin them in the open before a grenade clears their route.","Shock Troopers are survivors of the early assault ranks, retrained to keep an attack moving through resistance. They open the assault with several grenades, then close in with an automatic weapon; some also carry smoke grenades or flashbangs. Do not bunch behind one wall—pin them in the open before a grenade clears their route.",manual-translation
+9590,890000000011052,"Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not advance blindly into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.","Ambushers are patient shooters taught to prepare concealed firing positions along likely approaches. From a prepared position, they wait for an exposed target and punish the first careless move with accurate rifle fire. Do not advance blindly into ground they have chosen; scout ahead, use smoke, and force them to reveal themselves early.",manual-translation
+9591,890000000011066,"The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up along roads and in courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their field of fire in the open; use smoke, buildings, or a side approach to reach them safely.","The Legion hands its strongest new recruits old machine guns and gives them a hurried lesson in using them. They set up along roads and in courtyards and spray enough fire to pin anyone caught away from cover, but remain vulnerable while moving. Do not cross their field of fire in the open; use smoke, buildings, or a side approach to reach them safely.",manual-translation
+9592,890000000011070,"Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. From prepared positions, they use machine-gun fire to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.","Reliable machine gunners are assigned to GPMG duty and taught to keep their fire steady without wasting ammunition. From prepared positions, they use machine-gun fire to cover roads, courtyards, and wide approaches. A frontal charge feeds their advantage; block their view with smoke, force them to move, or attack from a direction their position cannot cover.",manual-translation
+9593,890000000011076,"Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but after a launch they need time before they can fire again. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.","Rocketeers are recruits with enough nerve to shoulder a launcher and just enough instruction to avoid hitting their own squad. They fire RPGs or disposable rockets at vehicles, walls, and clustered targets, but after a launch they need time before they can fire again. Spread out and press them immediately after a launch; one unanswered rocket can turn a defensible position into wreckage.",manual-translation
+9594,890000000011097,Favorable outcome after a brief engagement,Favorable outcome after a brief engagement,manual-translation
+9595,890000000011099,Limited resistance overcome,Limited resistance overcome,manual-translation
+9596,890000000011100,Favorable outcome after sustained fighting,Favorable outcome after sustained fighting,manual-translation
+9597,890000000011103,Favorable outcome at heavy cost,Favorable outcome at heavy cost,manual-translation
+9598,890000000011106,Adverse outcome after brief resistance,Adverse outcome after brief resistance,manual-translation
+9599,890000000011108,Limited losses despite the adverse outcome,Limited losses despite the adverse outcome,manual-translation
+9600,890000000011109,Adverse outcome after sustained fighting,Adverse outcome after sustained fighting,manual-translation
+9601,890000000011111,Enemy pressure decided the engagement,Enemy pressure decided the engagement,manual-translation
+9602,890000000011112,Adverse outcome at heavy cost,Adverse outcome at heavy cost,manual-translation
+9603,890000000011120,Withdrawal ordered to preserve the force,Withdrawal ordered to preserve the force,manual-translation
+9604,890000000011124,Final field reports indicate clear weather and good visibility.,Final field reports indicate clear weather and good visibility.,manual-translation
+9605,890000000011125,Final field reports indicate rain.,Final field reports indicate rain.,manual-translation
+9606,890000000011126,Visibility was limited by darkness.,Visibility was limited by darkness.,manual-translation
+9607,890000000011127,Final field reports note fog and reduced visibility.,Final field reports note fog and reduced visibility.,manual-translation
+9608,890000000011128,Final field reports note extreme heat.,Final field reports note extreme heat.,manual-translation
+9609,890000000011129,Final field reports note a dust storm and reduced visibility.,Final field reports note a dust storm and reduced visibility.,manual-translation
+9610,890000000011130,Final field reports identify no notable weather condition.,Final field reports identify no notable weather condition.,manual-translation
+9611,890000000011133,The scale of the fighting will be difficult for hostile commanders to ignore.,The scale of the fighting will be difficult for hostile commanders to ignore.,manual-translation
+9612,890000000011135,Engagement location: <sector>.,Engagement location: <sector>.,manual-translation
+9613,890000000011136,Engagement location: <sector>. Nearest reported landmark: <poi>.,Engagement location: <sector>. Nearest reported landmark: <poi>.,manual-translation
+9614,890000000011137,The engagement was connected to this assignment: <quest>. One confirmed detail may matter: <note>,The engagement was connected to this assignment: <quest>. One confirmed detail may matter: <note>,manual-translation
+9615,890000000011138,The engagement was connected to this assignment: <quest>.,The engagement was connected to this assignment: <quest>.,manual-translation
+9616,890000000011140,The team also had this assignment: <quest>. No link to the area was confirmed.,The team also had this assignment: <quest>. No link to the area was confirmed.,manual-translation
+9617,890000000011143,The engagement ended in the hostile force's favor.,The engagement ended in the hostile force's favor.,manual-translation
+9618,890000000011146,The engagement was tied to an active assignment; the favorable outcome may support further work.,The engagement was tied to an active assignment; the favorable outcome may support further work.,manual-translation
+9619,890000000011152,Confirmed withdrawal from the engagement: <name>. Further contact remains possible.,Confirmed withdrawal from the engagement: <name>. Further contact remains possible.,manual-translation
+9620,890000000011155,Reports of sustained fighting are likely to draw closer attention from hostile forces in the area.,Reports of sustained fighting are likely to draw closer attention from hostile forces in the area.,manual-translation
+9621,890000000011156,Losses on this scale are likely to draw attention from hostile commanders beyond the immediate area.,Losses on this scale are likely to draw attention from hostile commanders beyond the immediate area.,manual-translation
+9622,890000000011204,"Confirmed after the fighting: <name> is dead.
+
+The local force has lost a proven fighter. The tactical effect cannot yet be assessed.
+
+— R.I.S. Field Desk","Confirmed after the fighting: <name> is dead.
+
+The local force has lost a proven fighter. The tactical effect cannot yet be assessed.
+
+— R.I.S. Field Desk",manual-translation
+9623,890000000011206,"Confirmed after the fighting: <name> is dead.
+
+This may change the local balance of power; the consequences remain unclear.
+
+— R.I.S. Field Desk","Confirmed after the fighting: <name> is dead.
+
+This may change the local balance of power; the consequences remain unclear.
+
+— R.I.S. Field Desk",manual-translation
+9624,890000000011305,"The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and SVT-40s are reaching riflemen; Auto-5 shotguns are appearing with assault troops, while MG 42s are reaching support teams. Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.
+
+The designs are old, but most were built for war and still deserve respect.
+
+— R.I.S. Field Desk","The Major's buyers have gone deeper into the old armories. Patrols now carry PPShs, PPS-43s, Thompsons and MPLs, with the occasional Scorpion mixed in. FG 42s, G43s and SVT-40s are reaching riflemen; Auto-5 shotguns are appearing with assault troops, while MG 42s are reaching support teams. Makarovs, Colt 1911s and P38s are replacing the worst of the old sidearms.
+
+The designs are old, but most were built for war and still deserve respect.
+
+— R.I.S. Field Desk",manual-translation
+9625,890000000011310,Kalashnikovs are entering Legion service in volume,Kalashnikovs are entering Legion service in volume,manual-translation
+9626,890000000011316,Professional-grade weapons are in circulation,Professional-grade weapons are in circulation,manual-translation
+9627,890000000011317,"Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, and the sidearms carried by these units have improved as well.
+
+Whatever the quality of the troops, this armament makes them dangerous. Identify rifle and machine-gun positions before committing to an approach.
+
+— R.I.S. Field Desk","Sig 550 and Sig 552 rifles are now in Legion service, along with suppressed MP5SDs and M60E4 machine guns. M1A rifles are being used for deliberate fire at longer ranges, and the sidearms carried by these units have improved as well.
+
+Whatever the quality of the troops, this armament makes them dangerous. Identify rifle and machine-gun positions before committing to an approach.
+
+— R.I.S. Field Desk",manual-translation
+9628,890000000011319,"Special-purpose weapons are now confirmed in Legion hands: customized Sig rifles, MP7s and P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place HK21s and HK23s in the same flow of weapons.
+
+The mix suggests the Legion may be grouping marksmen, assault troops and gunners around particular tasks. That is still only an assessment: identify the weapons before drawing conclusions about the squad's tactics.
+
+— R.I.S. Field Desk","Special-purpose weapons are now confirmed in Legion hands: customized Sig rifles, MP7s and P90s, SVU and Arctic Warfare precision rifles, and USAS-12 shotguns. Reports also place HK21s and HK23s in the same flow of weapons.
+
+The mix suggests the Legion may be grouping marksmen, assault troops and gunners around particular tasks. That is still only an assessment: identify the weapons before drawing conclusions about the squad's tactics.
+
+— R.I.S. Field Desk",manual-translation
+9629,890000000011336,The Major's Strategy: retribution from headquarters,The Major's Strategy: retribution from headquarters,manual-translation
+9630,890000000011337,"The nearest forts handle most threats. When losses and alarm continue to mount, however, the reports eventually reach the Major himself. A heavy column then leaves his headquarters—not to scout or guard a road, but to exact retribution.
+
+Such deployments are rare, which is precisely why they matter. They mean the local forces were judged insufficient and the Major chose to spend his own reserve. A column this heavy points beyond the nearest fort—to the Major's own reserve.
+
+— R.I.S. Field Desk","The nearest forts handle most threats. When losses and alarm continue to mount, however, the reports eventually reach the Major himself. A heavy column then leaves his headquarters—not to scout or guard a road, but to exact retribution.
+
+Such deployments are rare, which is precisely why they matter. They mean the local forces were judged insufficient and the Major chose to spend his own reserve. A column this heavy points beyond the nearest fort—to the Major's own reserve.
+
+— R.I.S. Field Desk",manual-translation
+9631,890000000011345,Unidentified fighter,Unidentified fighter,manual-translation
+9632,890000000011346,Unidentified opponent,Unidentified opponent,manual-translation
