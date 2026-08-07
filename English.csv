@@ -2955,7 +2955,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 619215783391,"прыгает, гоп",(jumps) Hop!,,jazz-units:items.lua:70039
 619300101686,"Бронежилет ""Interceptor""",Interceptor Body Armor,,jazz:InventoryItem/JazzArmor_IBALight.lua:13 | jazz:items.lua:56235
 619491844894,"Помедленнее, а то у меня будут проблемы с легкими!",Slow down or my lungs will give out!,,jazz-units:items.lua:70010
-619706015798,Расклинить оружие. Шанс зависит и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Clear a weapon jam. Success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.,,jazz:items.lua:58885
+619706015798,Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.,,jazz:items.lua:58885
 619763824975,"Не парься, сестра, я тя и в пушках и в движках прикрою! ","Don't worry, sis. I've got you covered with guns and engines alike!",,jazz-units:items.lua:79183
 619787402322,Один алмаз? Маловато,One diamond? That’s not much,,jazz-maps:items.lua:58621
 620020470489,Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ,Couldn't be better. You don't often get this much satisfaction from the job.,,jazz-units:items.lua:68894

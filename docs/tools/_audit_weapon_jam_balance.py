@@ -126,6 +126,9 @@ def raw_jam_score(
     )
     if condition >= 80 and permanent >= 80:
         score = min(score, 100)
+    service = min(condition, permanent)
+    service_discount = (50 * service * service + 5000) // 10000
+    score = max(0, score - service_discount)
     if condition > 0 and permanent > 0:
         score = min(score, 990)
     return clamp(score, 0, 1000)
@@ -193,6 +196,8 @@ def main() -> int:
         "DivRound(Min(condition_penalty, permanent_penalty), 2)",
         "if condition_percent >= 80 and permanent_percent >= 80 then",
         "raw_chance = Min(raw_chance, 100)",
+        "MulDivRound(50, service * service, 10000)",
+        "raw_chance = Max(0, raw_chance - service_discount)",
         "raw_chance = Min(raw_chance, 990)",
     ):
         if fragment not in runtime:
@@ -264,7 +269,7 @@ def main() -> int:
     if not mp40:
         failures.append("MP40 definition missing")
     else:
-        expected_mp40 = {100: 5, 90: 6, 80: 10, 0: 100}
+        expected_mp40 = {100: 0, 90: 2, 80: 7, 0: 100}
         for condition, expected in expected_mp40.items():
             score = raw_jam_score(
                 mp40.reliability,
@@ -280,9 +285,14 @@ def main() -> int:
                 )
 
     extreme_normal = display_percent(raw_jam_score(0, 1000, 800, 1000, 1000))
-    if extreme_normal != 10:
+    if extreme_normal != 7:
         failures.append(
-            f"normal-condition extreme base cap: {extreme_normal}% != 10%"
+            f"normal-condition extreme after service softener: {extreme_normal}% != 7%"
+        )
+    extreme_perfect = display_percent(raw_jam_score(0, 1000, 1000, 1000, 1000))
+    if extreme_perfect != 5:
+        failures.append(
+            f"perfect-condition extreme after -5pp softener: {extreme_perfect}% != 5%"
         )
 
     mosin = weapon_by_id.get("Mosin")
@@ -310,14 +320,14 @@ def main() -> int:
                 7000,
             )
         )
-        if mosin_base != 10:
-            failures.append(f"Mosin 3280/6507/7000 base: {mosin_base}% != 10%")
-        if mosin_capped != 19:
+        if mosin_base != 8:
+            failures.append(f"Mosin 3280/6507/7000 base: {mosin_base}% != 8%")
+        if mosin_capped != 17:
             failures.append(
-                f"Mosin 3280/6507/7000 capped base: {mosin_capped}% != 19%"
+                f"Mosin 3280/6507/7000 capped base: {mosin_capped}% != 17%"
             )
-        if mosin_mid != 10:
-            failures.append(f"Mosin 3080/4830/7000 base: {mosin_mid}% != 10%")
+        if mosin_mid != 8:
+            failures.append(f"Mosin 3080/4830/7000 base: {mosin_mid}% != 8%")
 
     if base_jam_score(50, -30) != 20:
         failures.append("negative BaseJamChance no longer reduces reliability risk")
@@ -349,10 +359,10 @@ def main() -> int:
                 base_jam,
                 base_jam_score(reliability, base_jam),
             ))
-            if loaded > 10:
+            if loaded > 5:
                 failures.append(
                     f"{weapon.item_id} + {cartridge.item_id}: "
-                    f"serviceable base {loaded}% > 10%"
+                    f"perfect resource {loaded}% > 5%"
                 )
 
     print(f"weapons={len(weapons)} degraded_ammo={len(ammo)} pairs={len(rows)}")

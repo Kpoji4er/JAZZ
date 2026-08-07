@@ -397,6 +397,11 @@ function FirearmBase:GetBaseJamChanceRaw()
 	if condition_percent >= 80 and permanent_percent >= 80 then
 		raw_chance = Min(raw_chance, 100)
 	end
+	-- Serviceability softener: up to -50 JamScore (-5%) at 100% Min(condition, permanent).
+	-- Quadratic in service so near-perfect guns drop ~5pp while mid wear keeps most risk.
+	local service = Min(condition_percent, permanent_percent)
+	local service_discount = MulDivRound(50, service * service, 10000)
+	raw_chance = Max(0, raw_chance - service_discount)
 	-- Soft ceiling while any resource remains: display 100% only at fully broken.
 	if condition_percent > 0 and permanent_percent > 0 then
 		raw_chance = Min(raw_chance, 990)

@@ -110,7 +110,7 @@ Path **B** (chips): template `Icon` оружия не подменяется. Ch
 
 UI (`SectorOperation_ItemsCalcRes` в `Code/System_SectorOperations.lua`) и debit тика (`ModItemSectorOperation RepairItems` / `SectorMercsTick` в `items.lua`) считают обычные **`Parts`** по **Condition % 0..100** (`GetConditionPercent` / `current÷max`), с параметрами операции `restore_condition_per_Part=5`, `parts_per_step=1` — как vanilla tick, не по абсолютным единицам `WeaponResource` (часто 1k–10k). Регрессия remountable-волны (убрали хак `*3`, оставили absolute scale) давала сотни Parts на одно оружие (пример: ~49% при WR≈8000 → ~825). При нехватке Parts тик откатывает `WeaponResource`/`ArmorResource` к значению до тика. **`JAZZ_BarrelParts` / `JAZZ_ScopeParts`** по-прежнему через `CeilDiv(restoredPct_of_factory, 10|20)` в `System_WeaponResourceMaintenance.lua` (отдельный debit; sector-op wiring AC ещё partial). Время операции по-прежнему на absolute resource × `RepairCost` (+ `sum_stat*3` для оружия).
 
-JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll на каждый выстрел: при успехе max теряет не более одной единицы. При jam max теряет минимум одну единицу от 0.5% (ordinary) или 3% (critical); `P(critical|jam) = clamp(5 + wear×35/100 + max(0,100−Mechanical)×25/100, 5, 65)`. Неудачный **player** Unjam (`FirearmBase:Unjam`): −**1..3% max** (`condLoss = Clamp(DivRound(Random(100−Mechanical), 10), 1, 3)`); current clamp ≤ new max; при `max≤1` или condition%≤0 — поломка. **NPC/AI** clear jam через `AIReloadWeapons` → `RepairJammed(nil)` **без** записи `WeaponResource` (раньше баг: `RepairJammed(Condition)` трактовал 0..100% как абсолютные единицы и обнулял ствол, напр. 0/9695). Runtime wave остаётся BLOCKED.
+JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll на каждый выстрел: при успехе max теряет не более одной единицы. При jam max теряет минимум одну единицу от 0.5% (ordinary) или 3% (critical); `P(critical|jam) = clamp(5 + wear×35/100 + max(0,100−Mechanical)×25/100, 5, 65)`. Неудачный **player** Unjam (`FirearmBase:Unjam`): −**1..3% max** (`condLoss = Clamp(DivRound(Random(100−Mechanical), 10), 1, 3)`); current clamp ≤ new max; при `max≤1` или condition%≤0 — поломка. Боевое действие `Unjam` стоит **4…1 ОД** от Mechanical (`4 - MulDivRound(Clamp(mech,0,100), 3, 100)`; `MrFixit` — perk AP). **NPC/AI** clear jam через `AIReloadWeapons` → `RepairJammed(nil)` **без** записи `WeaponResource` (раньше баг: `RepairJammed(Condition)` трактовал 0..100% как абсолютные единицы и обнулял ствол, напр. 0/9695). Runtime wave остаётся BLOCKED.
 
 Jam использует единую шкалу **JamScore** `0..1000` (те же единицы, что `attacker:Random(1000)` в `ReliabilityCheck`). Приведённый процент для UI/ammo rollover: `DivRound(JamScore, 10)`. Окно модификации оружия показывает **Reliability**, не Jam %.
 
@@ -164,10 +164,13 @@ JamScore = base
 | 0% | итог 1000 | 100% |
 
 Если оба остатка не ниже 80%, сумма до погоды дополнительно ограничена 10%.
+Затем вычитается serviceability softener
+`MulDivRound(50, service², 10000)` где `service = Min(condition, permanent)`:
+до **−5%** на 100% состоянии (квадратично, mid почти без скидки).
 Пока оба остатка >0, raw ≤990 (display 100% только при нуле). Дождь после
-этих потолков. MP40 при полном постоянном ресурсе: **5% / 6% / 10%** на
-100% / 90% / 80% текущего. Mid Mosin (`3280/6507/7000`, `3080/4830/7000`)
-≈ **10%** сухо / **≤20%** под rain ×2; capped base 10% на первом якоре ≈ **19%**.
+этих потолков. MP40 при полном постоянном ресурсе: **0% / 2% / 7%** на
+100% / 90% / 80% текущего. Mid Mosin ≈ **8%** сухо; perfect + extreme ammo ≤ **5%**.
+VSS + кустарный 9×39 на 100% ≈ **1%** (было ~6% до softener).
 
 Mechanical снижает score **пропорционально** (`MulDivRound(score, Mechanical, 120)` у мерков + малый secondary Marks/Wisdom/Level; у AI знаменатель 150). Одиночный выстрел делит score пополам через `DivRound`. `FirearmBase:GetDisplayJamChancePercent(attacker?)` отдаёт приведённый %.
 

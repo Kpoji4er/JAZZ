@@ -64927,19 +64927,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					id = "FlashlightOff",
 				}),
 				PlaceObj('ModItemCombatAction', {
-					ActionPoints = 5000,
+					ActionPoints = 4000,
 					ActivePauseBehavior = "queue",
-					Description = T(619706015798, --[[ModItemCombatAction Unjam Description]] "Расклинить оружие. Шанс зависит и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>."),
+					Description = T(619706015798, --[[ModItemCombatAction Unjam Description]] "Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>."),
 					DisplayName = T(860047768202, --[[ModItemCombatAction Unjam DisplayName]] "Расклинить"),
 					GetAPCost = function (self, unit, args)
 						if HasPerk(unit, "MrFixit") then
-							return  CharacterEffectDefs.MrFixit:ResolveValue("mrfixit_ap") * const.Scale.AP
+							return CharacterEffectDefs.MrFixit:ResolveValue("mrfixit_ap") * const.Scale.AP
 						end
-						if self.CostBasedOnWeapon then
-							local weapon = self:GetAttackWeapons(unit, args)	
-							return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
-						end
-						return self.ActionPoints
+						-- Mechanical 0 → 4 AP, Mechanical 100 → 1 AP.
+						local mech = unit and (unit.Mechanical or 0) or 0
+						local ap = 4 - MulDivRound(Clamp(mech, 0, 100), 3, 100)
+						return Clamp(ap, 1, 4) * const.Scale.AP
 					end,
 					GetUIState = function (self, units, args)
 						local unit = units[1]

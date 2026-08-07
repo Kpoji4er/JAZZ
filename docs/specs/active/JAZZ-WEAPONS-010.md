@@ -94,18 +94,20 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-010-REQ-003` — raw score до погоды =
   `base + max(condition_pen, permanent_pen) + DivRound(min(...), 2)`
   (полный худший износ + половина второго). Если оба остатка не ниже
-  80%, raw score ограничен 100 (10%). Пока оба остатка >0, raw score
-  дополнительно ≤990 (display 100% только при нуле). Дождь после
-  этих потолков; итог `0..1000`. `Reliability` и `BaseJamChance`
-  через `GetProperty` (ammo/component modifiers).
+  80%, raw score ограничен 100 (10%). Затем service softener
+  `Max(0, raw - MulDivRound(50, Min(c,p)², 10000))` — до −5% на 100%
+  состоянии. Пока оба остатка >0, raw score дополнительно ≤990
+  (display 100% только при нуле). Дождь после этих потолков; итог
+  `0..1000`. `Reliability` и `BaseJamChance` через `GetProperty`
+  (ammo/component modifiers).
 - `JAZZ-WEAPONS-010-REQ-004` — MP40 с базовыми свойствами
   (`Reliability=50`, `BaseJamChance=30`) и исправными патронами даёт
-  5%/6%/10% при 100%/90%/80% текущего состояния и 100% при 0%;
+  0%/2%/7% при 100%/90%/80% текущего состояния и 100% при 0%;
   постоянный ресурс при этом 100%.
 - `JAZZ-WEAPONS-010-REQ-005` — mid-resource якоря (без дождя): Mosin
-  `3280/6507/7000` и `3080/4830/7000` дают **~10%** без повышающей
-  ammo/component поправки; capped base 10% на `3280/6507/7000` —
-  **~19%**. Под rain ×2 mid-якоря остаются **≤ ~20%**.
+  `3280/6507/7000` и `3080/4830/7000` дают **~8%** без повышающей
+  ammo/component поправки; capped base на `3280/6507/7000` — **~17%**.
+  На 100% ресурсе даже extreme ammo ≤ **5%** после softener.
 - `JAZZ-WEAPONS-010-REQ-006` — Mechanical, вторичный merc skill term,
   single-shot `/2`, JamScore display `/10` и deterministic RNG не меняются.
 
@@ -119,16 +121,16 @@ approved_by: project-owner
 ## Acceptance criteria
 
 - `JAZZ-WEAPONS-010-AC-001` — static audit подтверждает MP40
-  `100→5%`, `90→6%`, `80→10%`, `0→100%`.
+  `100→0%`, `90→2%`, `80→7%`, `0→100%`.
 - `JAZZ-WEAPONS-010-AC-002` — static audit подтверждает одинаковую
   таблицу для condition и permanent wear.
-- `JAZZ-WEAPONS-010-AC-003` — static audit подтверждает cap 10% при
-  condition/wear ≥80 для extreme weapon+ammo base; **Rel ≥ 95** даёт
+- `JAZZ-WEAPONS-010-AC-003` — static audit подтверждает perfect-resource
+  ≤5% после softener (в т.ч. extreme ammo); **Rel ≥ 95** даёт
   base 0% на идеальном ресурсе даже с extreme `BaseJamChance`.
 - `JAZZ-WEAPONS-010-AC-004` — static audit подтверждает Mosin
-  `3280/6507/7000`: 10% base / 19% capped; `3080/4830/7000`: 10%.
+  `3280/6507/7000`: 8% base / 17% capped; `3080/4830/7000`: 8%.
 - `JAZZ-WEAPONS-010-AC-005` — runtime/human: rollover после ReloadLua
-  для mid Mosin порядка ~10% сухо / ≤~20% под дождём, не 29–39%.
+  для mid Mosin порядка ~8% сухо; perfect VSS+craft порядка ~1%.
 
 ## Impact и совместимость
 
@@ -154,21 +156,22 @@ approved_by: project-owner
 - Кто подтвердил: project-owner (ориентиры MP40, cap 10%, отдельный
   постоянный износ, Mosin в низких десятках %, Reliability обязателен;
   follow-up: mid-curve softened; Rel 5..95 / Rel95 = 0 base; follow-up:
-  soft wear stack + softer mid so rain mid ≤~20%, 100% only at 0).
+  soft wear stack + softer mid so rain mid ≤~20%, 100% only at 0;
+  follow-up: quadratic −5pp softener at 100% service).
 - Дата: 2026-08-07.
 
 ## Evidence
 
 - `JAZZ-WEAPONS-010-AC-001`: `PASS` — static:
-  `_audit_weapon_jam_balance.py`; MP40 100/90/80/0 anchors match.
+  `_audit_weapon_jam_balance.py`; MP40 100/90/80/0 = 0/2/7/100.
 - `JAZZ-WEAPONS-010-AC-002`: `PASS` — static: audit parses the runtime
   helper and verifies the shared soft mid-step condition/permanent-wear table.
-- `JAZZ-WEAPONS-010-AC-003`: `PASS` — static: all compatible
-  Poor/Crafted pairs stay ≤10% at normal resource; extreme base cap = 10%.
+- `JAZZ-WEAPONS-010-AC-003`: `PASS` — static: Poor/Crafted pairs ≤5% at
+  perfect resource after softener; extreme perfect = 5%.
 - `JAZZ-WEAPONS-010-AC-004`: `PASS` — static: Mosin
-  `3280/6507/7000` = 10% / 19% capped; `3080/4830/7000` = 10%.
+  `3280/6507/7000` = 8% / 17% capped; `3080/4830/7000` = 8%.
 - `JAZZ-WEAPONS-010-AC-005`: `BLOCKED` — runtime/human: ReloadLua +
-  rollover under dry/rain after soft-stack pass.
+  rollover after −5pp service softener.
 
 status note: code/static/docs complete; keep `approved` until AC-005 runtime
 smoke, then mark `implemented`.

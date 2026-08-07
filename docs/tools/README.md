@@ -322,7 +322,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003/008: mass/RPM/size/limiter → Recoil/Burst/Auto; SMG floor 12; Carbine + select-fire sniper rpm holefix; G36 lim=2; M16A2/A4/FAMAS/AUG/HK33/Sig550*/G3 lim=3; M2Carbine component-gated JAZZ_Autofire shot counts; token-safe attack match. `--apply` → `.bak`. |
 | `_audit_weapons_rpm_holes.py` | WEAPONS-003 hole scan: select-fire/`MGBurst` with `cyclic_rpm=0`, Auto/Burst=0 with mode, known BurstLimiter drift, CSV↔companion, SMG mass/Long placeholders, spec anchors. |
 | `_soften_ammo_jam.py` | JAZZ-WEAPONS-008: смягчает Poor/Crafted `BaseJamChance`/`Reliability` в `items.lua` + companions. `--apply`. |
-| `_audit_weapon_jam_balance.py` | JAZZ-WEAPONS-010 static audit: soft-stack wear (max + half min), softer mid steps, Rel 5..95 (Rel≥95 → 0 base even with Poor), MP40 5/6/10/100 anchors, Mosin mid 10%/19% capped + second mid 10%; enumerates Poor/Crafted pairs ≤10% at normal resource. |
+| `_audit_weapon_jam_balance.py` | JAZZ-WEAPONS-010 static audit: soft-stack wear, quadratic −5pp service softener at 100%, softer mid steps, Rel 5..95, MP40 0/2/7/100, Mosin mid 8%/17% capped; Poor/Crafted ≤5% at perfect resource. |
 | `_patch_jam_reliability_score.py` | Rewrite `JazzGetBaseJamScore` in `System_OR_Weapons.lua` (Rel clamp + Rel95 zero + scaled BaseJamChance); writes `.jamrel.new` then replaces when the game unlocks the file. |
 | `_tmp_audit_smg_jam_feedback.py` | Discord audit: SMG Recoil distribution + Poor/Crafted JamScore scenarios. |
 | `_audit_recoil_dist.py` | Static AC audit полей active firearms, recoil anchors, 9×19 differentiation и M16A2/AN94 limiters. |

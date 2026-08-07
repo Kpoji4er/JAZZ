@@ -60,6 +60,8 @@ def main() -> int:
     check('group = "Default"' in unjam and "SortKey = 10" in unjam, "Unjam keeps Default/SortKey action-bar contract")
     check("can_unjam" in unjam and "GetWeaponResourceMax" in unjam, "Unjam jam gate uses WeaponResource, not Condition Broken alone")
     check("weapon.jammed" in unjam and 'IsKindOf(weapon, "Firearm")' in unjam, "Unjam stays gated by a jammed active firearm")
+    check("MulDivRound(Clamp(mech, 0, 100), 3, 100)" in unjam, "Unjam AP scales with Mechanical 4..1")
+    check("ActionPoints = 4000" in unjam, "Unjam ActionPoints default is 4 AP ceiling")
     check("unit:UIHasAP(cost)" in unjam, "Unjam keeps AP gate")
 
     unit_or = (ROOT / "Code" / "System_OR_Unit.lua").read_text(encoding="utf-8")

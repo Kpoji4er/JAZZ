@@ -469,7 +469,7 @@ visible_actions =
 
 ### `Unjam`
 
-Снимает заклинивание при выполнении условий и оплате действия. `ShowIn = "CombatActions"`, `group = Default`. Не производит выстрел, но возвращает стрелковые действия из состояния `disabled`. Gate: jammed firearm с живым `WeaponResourceMax > 1` (не vanilla `IsCondition("Broken")` по stale `Condition`) и достаточные AP.
+Снимает заклинивание при выполнении условий и оплате действия. `ShowIn = "CombatActions"`, `group = Default`. Стоимость **4…1 ОД** линейно от Mechanical (0→4 AP, 100→1 AP); перк `MrFixit` оставляет свой `mrfixit_ap`. Не производит выстрел, но возвращает стрелковые действия из состояния `disabled`. Gate: jammed firearm с живым `WeaponResourceMax > 1` (не vanilla `IsCondition("Broken")` по stale `Condition`) и достаточные AP.
 
 ## Известные несоответствия stable baseline
 

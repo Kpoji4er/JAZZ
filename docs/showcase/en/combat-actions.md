@@ -18,7 +18,7 @@ Tube-fed shotguns, break-actions, and revolvers keep one reload button that chan
 
 ### Unjam
 
-When the active firearm is jammed, **Unjam** appears on the regular action bar. It requires enough AP, does not fire a shot, and disappears once the jam is cleared.
+When the active firearm is jammed, **Unjam** appears on the regular action bar. It costs **4…1 AP** by Mechanical (low skill → 4, high → 1), does not fire a shot, and disappears once the jam is cleared.
 
 ## Core modes
 
