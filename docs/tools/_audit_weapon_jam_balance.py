@@ -175,7 +175,10 @@ def main() -> int:
     runtime = (ROOT / "Code" / "System_OR_Weapons.lua").read_text(encoding="utf-8")
     for fragment in (
         "local function JazzGetBaseJamScore(item)",
-        "score = Max(reliability_score, base_jam)",
+        'Clamp(item:GetProperty("Reliability") or 50, 5, 95)',
+        "if reliability >= 95 then",
+        "MulDivRound(base_jam, reliability_score, 95)",
+        "score = Max(reliability_score, scaled)",
         "score = reliability_score + base_jam",
         "return Clamp(score, 0, 100)",
         "local function JazzGetJamResourcePenalty(resource_percent)",

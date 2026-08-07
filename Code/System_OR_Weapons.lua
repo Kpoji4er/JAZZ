@@ -316,17 +316,22 @@ function FirearmBase:IsCondition(condition_type)
 end
 
 -- JamScore scale 0..1000 matches ReliabilityCheck roll; display % = DivRound(score, 10).
--- Reliability and positive BaseJamChance are parallel fault risks: use the worse one
--- instead of adding the same ammo/platform defect twice. Negative BaseJamChance remains
--- a quality bonus. A serviceable weapon's base risk is capped at 10%.
+-- Reliability authored range is 5..95. At Rel 95 the platform base jam is 0 even with
+-- Poor/Crafted ammo. Below that, positive BaseJamChance is scaled by unreliability so
+-- high-Rel guns are not washed out by ammo BaseJam floors. Negative BaseJamChance
+-- remains a quality bonus. Serviceable base risk is still capped at 10% later.
 -- Read via GetProperty so ammo/component AddModifier ("ammo") applies.
 local function JazzGetBaseJamScore(item)
-	local reliability = item:GetProperty("Reliability") or 50
+	local reliability = Clamp(item:GetProperty("Reliability") or 50, 5, 95)
 	local base_jam = item:GetProperty("BaseJamChance") or 0
+	if reliability >= 95 then
+		return 0
+	end
 	local reliability_score = Max(0, 100 - reliability)
 	local score
 	if base_jam >= 0 then
-		score = Max(reliability_score, base_jam)
+		local scaled = MulDivRound(base_jam, reliability_score, 95)
+		score = Max(reliability_score, scaled)
 	else
 		score = reliability_score + base_jam
 	end

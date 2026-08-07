@@ -114,16 +114,20 @@ JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll н�
 
 Jam использует единую шкалу **JamScore** `0..1000` (те же единицы, что `attacker:Random(1000)` в `ReliabilityCheck`). Приведённый процент для UI/ammo rollover: `DivRound(JamScore, 10)`. Окно модификации оружия показывает **Reliability**, не Jam %.
 
-Базовый weapon score (без стрелка) снова уважает собственную
-`Reliability`, но не складывает два описания одного дефекта.
-`Reliability` / `BaseJamChance` читаются через `GetProperty`
-(ammo/component modifiers):
+Базовый weapon score (без стрелка) уважает шкалу **Reliability 5..95**
+и читает свойства через `GetProperty` (ammo/component modifiers):
 
 ```text
-reliability_score = max(0, 100 - Reliability)
-base =
-  max(reliability_score, BaseJamChance), если BaseJamChance >= 0
-  reliability_score + BaseJamChance, если BaseJamChance < 0
+Reliability = clamp(Reliability, 5, 95)
+if Reliability >= 95:
+  base = 0                    # даже Poor/Crafted не дают базовый клин
+else:
+  reliability_score = max(0, 100 - Reliability)
+  if BaseJamChance >= 0:
+    scaled = MulDivRound(BaseJamChance, reliability_score, 95)
+    base = max(reliability_score, scaled)
+  else:
+    base = reliability_score + BaseJamChance
 base = clamp(base, 0, 100)                 # максимум 10%
 
 condition_percent = current / max
@@ -131,11 +135,11 @@ permanent_percent = max / factory
 JamScore = base + penalty(condition_percent) + penalty(permanent_percent)
 ```
 
-Положительный `BaseJamChance` задаёт альтернативный минимум риска,
-отрицательный остаётся бонусом качества. Плохие патроны и компоненты
-по-прежнему меняют оба свойства, но базовый риск исправного оружия не может
-превысить **10%**. В отличие от прежнего special-case, идеальный ствол не
-обнуляет собственную ненадёжность: MP40 с `Reliability=50` даёт базовые 5%.
+При **Rel ≥ 95** платформа «вывозит» плохие патроны на базовом риске 0%;
+износ ресурса по-прежнему добавляет ступени. Ниже 95 положительный
+`BaseJamChance` патронов/обвеса масштабируется ненадёжностью, а не
+перебивает надёжный ствол абсолютным полом. Идеальный ствол с Rel 50
+(MP40) по-прежнему даёт базовые 5%.
 
 Текущее состояние (`current/max`) и постоянный остаток ресурса
 (`max/factory`) считаются **раздельно** и получают одинаковую мягкую

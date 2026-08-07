@@ -80600,6 +80600,33 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									end
 								end,
 							}),
+							PlaceObj('XTemplateFunc', {
+								'name', "OnPropUpdate(self, context, prop_meta, value)",
+								'func', function (self, context, prop_meta, value)
+									-- Bound to Condition only for template wiring; never show Condition %.
+									local cnt = ResolvePropObj(context)
+									if not IsKindOf(cnt, "Firearm") then
+										return
+									end
+									self.idPropVal:SetNameText(T(890000000001406, "Шанс Клина"))
+									local base = cnt:GetDisplayJamChancePercent() or 0
+									local unit_id = cnt.owner
+									local unit = unit_id and g_Units[unit_id]
+									local unit_data = unit_id and gv_UnitData[unit_id]
+									unit = (gv_SatelliteView or not unit) and unit_data or unit
+									if not unit then
+										self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = base})
+									else
+										local merc = cnt:GetDisplayJamChancePercent(unit) or 0
+										if merc ~= base then
+											self.idPropVal:SetNameText(T{890000000001407, "Шанс Клина (<name>)", name = unit.Nick})
+											self.idPropVal:SetValueText(T{890000000001382, "<base>% (<merc>%)", base = base, merc = merc})
+										else
+											self.idPropVal:SetValueText(T{890000000001381, "<base>%", base = base})
+										end
+									end
+								end,
+							}),
 							}),
 						PlaceObj('XTemplateTemplate', {
 							'comment', "Noise",
