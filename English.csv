@@ -698,11 +698,11 @@ ID,Text,Translation,VoiceActor,Context
 155135485934,"7.62х51мм НАТО, M80","7.62x51 mm NATO, M80",,jazz:InventoryItem/JAZZ_AMMO_762x51_Army.lua:9 | jazz:items.lua:6097
 155361024222,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстро стреляет 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Слабая отдача","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Accurate
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low recoil",,jazz:InventoryItem/Sig550Custom.lua:16 | jazz:items.lua:24697
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Максимум обвеса 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Слабая отдача","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Accurate 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Fully railed 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Soft recoil",,jazz:InventoryItem/Sig550Custom.lua:16 | jazz:items.lua:24697
 155611659517,"Послушай. Я не знал, что ты собираешься влючать Тоску в команду. Тут через минуту духа моего бы не было, если бы я так не заботился о своей репутации. Мой тебе совет: держи ее от меня подальше!","Listen. I didn't know you were putting Tosca on the team. If I cared any less about my reputation, I'd be gone in a minute. Take my advice: keep her away from me!",,jazz-units:items.lua:68912
 156206279384,"Иди, дам тебе валерьяночки!","Come here, I'll give you some valerian!",,jazz-units:items.lua:69605
 156655900866,Мы поможем,We’ll help,,jazz-maps:items.lua:58652
@@ -1136,12 +1136,12 @@ The number of attacks depends on available AP.",,jazz:items.lua:64450
 258728495811,"Ща как подкрадусь, да как жахну...",I'll sneak up and let 'em have it...,,jazz-units:items.lua:70659
 258760835486,Ресурсы,Resources,,jazz:items.lua:69698
 259340094074,"Мне нужна помощь, неотложно!",I need help—now!,,jazz-units:items.lua:70070
-259441942196,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный 
+259441942196,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный вблизи 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Без приклада 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Good handling
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No stock
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Lethal up close 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No stock 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable",,jazz:InventoryItem/Agram2000.lua:16 | jazz:items.lua:20526
 259468933010, , ,,jazz-maps:items.lua:11912
 259673733542,R870,R870,,jazz:InventoryItem/R870.lua:14 | jazz:items.lua:27434
@@ -2516,10 +2516,10 @@ They gain bonus accuracy and critical-hit chance when firing as the first action
 533640818206,"Жаль. Ну, если передумаете - я думаю, мы еще встретимся.","That's a shame. If you change your mind, I'm sure we'll meet again.",,jazz-maps:items.lua:30930
 534112939755,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно забрать домой после срочной службы","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Accurate
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Long range
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Много обвеса 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно забрать домой после срочной службы","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Accurate 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Highly modifiable 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Yours to keep after military service",,jazz:InventoryItem/Sig550.lua:16 | jazz:items.lua:24578
 534127356489,Жизни Саперов Важны,Sapper Lives Matter,,jazz-units:items.lua:70456 | jazz-units:UnitData/JAZZ_Merc_Spouke.lua:26
 534409403286,"В форте не оказалось никаких следов <color EmStyle>Корасон</color> - скорее всего, она прячется в этом секторе<color EmStyle>, но где-то <color EmStyle>под землей</color>","There were no traces of <color EmStyle>Corazon</color> in the fort — most likely she’s hiding in this sector<color EmStyle>, but somewhere <color EmStyle>underground</color>",,jazz-maps:items.lua:54835
@@ -3334,10 +3334,10 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 707682431232,Ух-ты!,Wow!,,jazz-units:items.lua:70026
 707700625892,"Если мы не найдём транспорт, я начну смотреть на деревья как на посадочные площадки","If we don't find transport, I'll start seeing every tree as a landing pad.",,jazz-units:items.lua:68579
 707784823752,В доках когда-то орудовала знаменитая банда «<color EmStyle>Кофейные бобы</color>»,"The Docks used to be home to the infamous gang ""<color EmStyle>Coffee Beans</color>""",,jazz-maps:items.lua:101337
-707852110578,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Самая точная снайперка 
+707852110578,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Самый точный полуавтомат 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Exceptional sniper accuracy
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High damage
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Most accurate semi-auto 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High damage 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliable",,jazz:InventoryItem/PSG1.lua:16 | jazz:items.lua:27568
 708253621531,"Тоски Гарно сейчас нет. Скажите, что нужно. Учтите, что все лица мужского пола успеют сто раз умереть, прежде чем я им перезвоню.",Tosca Garneau isn't here right now. Tell me what you want. Bear in mind that any male callers will die a hundred times over before I call them back.,,jazz-units:items.lua:69295 | jazz-units:UnitData/Jazz_Buzz.lua:142
 708964251739,Кроу,Crow,,jazz-units:Code/Mercenary.lua:108
@@ -5529,12 +5529,12 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Armor-piercing
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Small magazine
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Beats karate",,jazz:InventoryItem/TT33.lua:15 | jazz:items.lua:16594
-998151280081,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный 
+998151280081,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Быстрый одиночный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильная отдача 
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Good handling
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Heavy recoil
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Cheap single shot 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire 
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Heavy recoil 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Unreliable",,jazz:InventoryItem/FAMAS.lua:16 | jazz:items.lua:23458
 998362596439,Надо отдать <em>это добро партизанам</em>.,We should give <em>this loot to the partisans</em>.,,jazz-maps:items.lua:59624
 998383873461,Someone is murdering people in the Farmlands and placing <em>teddy bears</em> at the scene,Someone is murdering people in the Farmlands and placing <em>teddy bears</em> at the scene,,jazz-maps:items.lua:97337

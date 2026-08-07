@@ -17,6 +17,7 @@ KNOWN_LIMITERS = {
     "AN94": 2,
     "G36": 2,
     "G36c": 2,
+    "UMP45": 2,
     "Beretta93r": 3,
     "FAMAS": 3,
     "AUG": 3,
@@ -177,7 +178,7 @@ def main() -> None:
         "AK74": dict(rpm=650, burst=3, auto=(6, 7), lim=0),
         "M4A1": dict(rpm=800, burst=4, auto=(8, 8), lim=0),
         "M16A2": dict(rpm=700, burst=3, auto=(7, 7), lim=3),
-        "AN94": dict(rpm=1800, burst=2, auto=(14, 14), lim=2),
+        "AN94": dict(rpm=1800, burst=2, auto=(6, 6), lim=2),  # hyperburst RPM; sustained AutoShots authored
         "MicroUZI": dict(rpm=1200, burst=6, auto=(12, 12), lim=0),
     }
     by_id = {r["id"]: r for r in rows}

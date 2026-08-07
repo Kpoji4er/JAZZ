@@ -88,7 +88,7 @@ DefineClass.AN94 = {
 	BurstLimiter = 2,
 	Recoil = 17,
 	BurstShots = 2,
-	AutoShots = 14,
+	AutoShots = 6,
 
 	CloseRange = 8,
 

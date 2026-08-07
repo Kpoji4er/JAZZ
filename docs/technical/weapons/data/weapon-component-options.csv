@@ -1454,6 +1454,11 @@ Sig550,6,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,9,JAZZ_Reflex_Open,Ко
 Sig550,6,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,10,JAZZ_Scope_12x,Оптический Прицел Leupold Mark 4 (12x),jazz,false,InventoryItem/Sig550.lua,working-tree
 Sig550,6,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,11,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/Sig550.lua,working-tree
 Sig550,6,Scope,true,true,JAZZ_DefaultIronsight_AR15,true,12,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/Sig550.lua,working-tree
+Sig550,7,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Sig550.lua,working-tree
+Sig550,7,Side,true,true,,false,2,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/Sig550.lua,working-tree
+Sig550,7,Side,true,true,,false,3,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/Sig550.lua,working-tree
+Sig550,7,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/Sig550.lua,working-tree
+Sig550,7,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/Sig550.lua,working-tree
 Sig550Custom,1,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,1,Under,true,true,,false,2,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/Sig550Custom.lua,working-tree
 Sig550Custom,2,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/Sig550Custom.lua,working-tree

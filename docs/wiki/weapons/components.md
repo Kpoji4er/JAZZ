@@ -176,18 +176,18 @@
 | Scope | Red Dot (`JAZZ_LaserDot_Anaconda`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 1 |
 | Scope | Tactical Device (`JAZZ_FlashlightDot_Anaconda`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 1 |
 | Scope | UV Dot (`JAZZ_UVDot_Anaconda`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 1 |
-| Side | Лазерный целеуказатель (`JAZZ_LaserDot`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 47 |
+| Side | Лазерный целеуказатель (`JAZZ_LaserDot`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 48 |
 | Side | Обмотка на цевье (`JAZZ_HandlingWrap`) | 10 | 0 | `CloseRangeFactorIncrease` | CloseRangeFactorIncrease=5 | — | 1 |
-| Side | Flashlight (`JAZZ_Flashlight`) | 20 | -25 | `IgnoreInTheDark` | — | — | 48 |
-| Side | Flashlight (`JAZZ_FlashlightOff`) | 5 | -25 | — | — | — | 48 |
+| Side | Flashlight (`JAZZ_Flashlight`) | 20 | -25 | `IgnoreInTheDark` | — | — | 49 |
+| Side | Flashlight (`JAZZ_FlashlightOff`) | 5 | -25 | — | — | — | 49 |
 | Side | Flashlight (`JAZZ_Flashlight_PSG_M1`) | 20 | -25 | `IgnoreInTheDark` | — | — | 1 |
 | Side | Flashlight (`JAZZ_Flashlight_aa12`) | 20 | -25 | `IgnoreInTheDark` | — | — | 1 |
 | Side | Red Dot (`JAZZ_LaserDot_PSG_M1`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 1 |
 | Side | Red Dot (`JAZZ_LaserDot_aa12`) | 40 | 10 | `IncreaseCritChangeScaled`<br>`IncreaseOverwatchAngle`<br>`LaserMark`<br>`MarkWhenFullyAimed` | CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130 | — | 1 |
-| Side | Tactical Device (`JAZZ_FlashlightDot`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 44 |
+| Side | Tactical Device (`JAZZ_FlashlightDot`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 45 |
 | Side | Tactical Device (`JAZZ_FlashlightDot_PSG_M1`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 1 |
 | Side | Tactical Device (`JAZZ_FlashlightDot_aa12`) | 35 | 0 | `IgnoreInTheDark`<br>`IncreaseOverwatchAngle`<br>`MarkWhenFullyAimed`<br>`StealthKillBonusPerAim` | OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2 | — | 1 |
-| Side | UV Dot (`JAZZ_UVDot`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 39 |
+| Side | UV Dot (`JAZZ_UVDot`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 40 |
 | Side | UV Dot (`JAZZ_UVDot_PSG_M1`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 1 |
 | Side | UV Dot (`JAZZ_UVDot_aa12`) | 25 | 10 | `LaserMark`<br>`StealthKillBonusPerAim` | LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5 | — | 1 |
 | Side2 | Ускорение перезарядки (`JAZZ_SpeedLoader`) | 30 | 0 | `ReduceReloadAP` | ReloadAPDecrease=2 | — | 1 |

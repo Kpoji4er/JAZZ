@@ -127,6 +127,8 @@ UI карточки оружия: Mass/RPM/BurstLimiter **не** показыв�
 AutoShots  = clamp(round(CyclicRPM / 100), AutoMin, AutoMax)     # default clamp 3..14
 BurstShots = clamp(round(CyclicRPM / 200), BurstMin, BurstMax)   # default clamp 2..8
 
+исключение: AN94 — CyclicRPM=1800 только hyperburst пары; AutoShots=6 authored (не RPM/100)
+
 если BurstLimiter > 0:
   BurstShots = min(BurstShots, BurstLimiter)
 
@@ -146,7 +148,7 @@ MG / belt: допускается AutoShots == BurstShots или семейны�
 | M4A1 | 800 | 4 | 8 | 0 |
 | M16A2 | 700 | min(4,**3**)=**3** | 7 | **3** |
 | MicroUZI | 1200 | 6 | 12 | 0 |
-| AN94 | 1800 | min(9,**2**)=**2** | clamp(18→14)=**14** или family cap | **2** |
+| AN94 | 1800 (hyperburst) | min(9,**2**)=**2** | **6** authored (не RPM/100 — sustained после пары) | **2** |
 
 Точные `AutoMax` / MG caps — в `docs/design/recoil-physical-scale.md` при реализации; якорь ощущений: высокий RPM → заметно длиннее очередь, отсечка режет только Burst.
 
@@ -262,7 +264,7 @@ Dexterity не в retention. Debug profile отдаёт оба фактора + 
 - `JAZZ-WEAPONS-003-AC-003` — static: набор 9×19 (MicroUZI, MP5 или MP5A2, Sterling или M12) — Recoil не все равны; Compact/высокий RPM не мягче тяжёлого низкотемпового Carbine.
 - `JAZZ-WEAPONS-003-AC-004` — static: `JAZZ_CTHGetRecoilProfile` не умножает Mass/RPM; Marks участвует в shooter_factor.
 - `JAZZ-WEAPONS-003-AC-005` — static/loc: AutoWeapons текст + perk_factor.
-- `JAZZ-WEAPONS-003-AC-006` — static: sample matrix — AutoShots≈RPM/100, BurstShots≈RPM/200 с clamp; M16A2 BurstLimiter=3 → BurstShots≤3; AN94 BurstLimiter=2 → BurstShots=2; нет RNG длины.
+- `JAZZ-WEAPONS-003-AC-006` — static: sample matrix — AutoShots≈RPM/100, BurstShots≈RPM/200 с clamp; M16A2 BurstLimiter=3 → BurstShots≤3; AN94 BurstLimiter=2 → BurstShots=2 и AutoShots=6 (не 14); нет RNG длины.
 - `JAZZ-WEAPONS-003-AC-007` — human: очередь AK74 кучная, AKM хуже, FAL плохо но не zero; два ПП одного калибра ощущаются по-разному; высокий RPM даёт заметно длиннее авто.
 - `JAZZ-WEAPONS-003-AC-008` — docs sync в том же change set.
 

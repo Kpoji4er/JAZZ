@@ -63,7 +63,7 @@ AUTHORED_OVERRIDES = {
     "PP19Bizon": (27, 680, "Carbine", 0, None),
     "SpectreM4": (29, 850, "Compact", 0, None),
     "TMP": (25, 900, "Compact", 0, None),
-    "UMP45": (30, 600, "Carbine", 0, None),
+    "UMP45": (30, 600, "Carbine", 2, None),  # 2-rd burst cut; AutoFire unchanged (WEAPONS-003)
     "MP7": (21, 950, "Compact", 0, None),
     "P90": (28, 900, "Compact", 0, None),
     "LionRoar": (35, 700, "Carbine", 0, None),
@@ -221,6 +221,9 @@ def authored_profile(row: dict[str, str]) -> Profile:
     auto_max = 10 if is_true_machinegun(cls) else 14
     has_auto_mode = gated or bool(tokens & {"AutoFire", "AbakanAutoFire", "JAZZ_LargeAutoFire"})
     auto = max(3, min(auto_max, round(rpm / 100))) if rpm and has_auto_mode else 0
+    # AN94: CyclicRPM=1800 is hyperburst for the first pair only; sustained AutoShots≠RPM/100.
+    if row["id"] == "AN94" and auto:
+        auto = 6
     return Profile(mass, rpm, size, limiter, recoil, burst, auto)
 
 

@@ -105,9 +105,9 @@ DefineClass.UMP45 = {
 	WeaponMass = 30,
 	CyclicRPM = 600,
 	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
+	BurstLimiter = 2,
 	Recoil = 13,
-	BurstShots = 3,
+	BurstShots = 2,
 	AutoShots = 6,
 
 	CloseRange = 3,

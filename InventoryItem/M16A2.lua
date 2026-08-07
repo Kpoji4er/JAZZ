@@ -101,7 +101,6 @@ DefineClass.M16A2 = {
 	AvailableAttacks = {
 		"BurstFire",
 		"SingleShot",
-		"CancelShot",
 		"JAZZ_ManeuverAR",
 		"JAZZ_ControllableBurst",
 		"JAZZ_LargeAutoFire",

@@ -103,7 +103,6 @@ DefineClass.AR15 = {
 	AvailableAttacks = {
 		"BurstFire",
 		"SingleShot",
-		"CancelShot",
 	},
 	ShootAP = 5000,
 	ReloadAP = 3000,

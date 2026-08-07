@@ -15,7 +15,7 @@ CloseRangeFactorDecrease,CloseRangeFactorDecrease,Ближняя зона: Ос�
 CloseRangeFactorIncrease,CloseRangeFactorIncrease,Ближняя зона: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,CloseRangeFactorIncrease=5,jazz,working-tree
 CloseRangeIncrease,CloseRangeIncrease,Ближняя зона: Увеличивает ближнюю зону на <CloseRangeIncrease>,CloseRangeIncrease=2,jazz,working-tree
 DecreaseMaxAimActions,DecreaseMaxAimActions,Уменьшение количества уровней прицеливания на <MaxAimActionsDecrease>,MaxAimActionsDecrease=1,jazz,working-tree
-EnableBurst,EnableBurst,WIP — механика сигнатурного перка в разработке.,,jazz,working-tree
+EnableBurst,EnableBurst,Разблокирует режим <em>Стрельбы очередями</em> ,,jazz,working-tree
 EnableRunNGun,EnableRunNGun,Разблокирует <color EmStyle>Маневренный бой</color>.,,jazz,working-tree
 IncreaseAimAccuracy15Percent,IncreaseAimAccuracy15Percent,Увеличивает эффективность прицеливания на 15%,AimAccuracyPercent=115,jazz,working-tree
 IncreaseMaxAimActions,IncreaseMaxAimActions,Увеличение количества уровней прицеливания на <IncreaseMaxAimActions>,IncreaseMaxAimActions=1,jazz,working-tree

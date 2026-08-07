@@ -89,7 +89,6 @@ DefineClass.MP5 = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
 	},
 	ShootAP = 5000,
 	ReloadAP = 3000,

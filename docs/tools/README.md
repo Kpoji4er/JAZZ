@@ -84,6 +84,12 @@
 | `_apply_steam_ignore_files.py` | Синхронизирует `ModDef.ignore_files` + `.gitignore` по всем пакетам suite (`jazz`, `jazz_assets`, `jazz-units`, `jazz-maps`, `jazz-nomaps`): Steam pack exclusions + bump Revision + append `last_changes`. Запуск из любого cwd; пути абсолютные к `Mods/`. |
 | `_apply_attach_001.py` | Основная миграция ATTACH-001: strip Handling-effects, CloseRange wiring, Mount purge, `JAZZ_` rename, unused delete. `--dry-run` (default) / `--apply` (+ `.bak`). |
 | `_export_attach_csv.py` | Экспорт `weapon-components*.csv` / `weapons.csv` из **working tree** (`items.lua` + companions; weapons без companion — из ModItem). Нужен когда нет `JA3_ROOT` для `weapons-docs.mjs import`. |
+| `_analyze_weapons_balance.py` | Аудит баланса по `weapons.csv`: within-family z-score, residual vs tier, rare `AvailableAttacks`, peaks → `.tmp/weapon_analysis.json`. |
+| `_analyze_weapons_followup.py` | Печать срезов (AR/SMG/sniper/uniques) из `.tmp/weapon_analysis.json` для ручного разбора. |
+| `_apply_weapon_role_tweaks.py` | Ролевые твики FAMAS/Agram/Sig550*/PSG1 → companions + `items.lua` + `weapons.csv`. `--apply`. |
+| `_update_role_tweak_loc.py` | RU/EN AdditionalHint для тех же стволов в `Russian.csv`/`English.csv`. |
+| `_verify_role_tweaks.py` | Быстрая проверка props в `items.lua` после role tweaks. |
+| `_remove_cancelshot_attacks.py` | Убирает `CancelShot` из `AvailableAttacks` оружия в `items.lua` + `weapons.csv` (не трогает grenade AreaAppliedEffects / CancelShotCone). |
 | `sync-reload-style-csv.py` | JAZZ-WEAPONS-004: добавляет `reload_style` в канонический `weapons.csv` и проставляет Magazine/Tube/Break/Revolver по утверждённому списку ID. |
 | `_promote_vanilla_refs.py` | **Устарело / опасно:** тонкие stubs без Visuals. Не запускать. |
 | `_promote_vanilla_refs_visuals.py` | AC-008: поднять 9 dangling vanilla_ref в `JAZZ_*` ModItem **с Visuals** из `Data.hpk` (`WeaponComponentSharedClass.lua`); rename AvailableComponents/DefaultComponent + metadata resources. Требует `.tmp/data-extract/` после `hpk extract Packs/Data.hpk`. |

@@ -50,12 +50,12 @@ JAZZ_DefMuzzle,Заводской дульный тормоз,Muzzle,,,,,,Defaul
 JAZZ_DefaultIronsight_AR15,Default Iron Sight,Scope,10,0,,,,AR15 Specific,7,jazz,working-tree
 JAZZ_DuckbillChoke,Duckbill Choke,Muzzle,20,0,IncreaseBuckshotAngle,BuckshotAngleIncrease=120,,Muzzle,3,jazz,working-tree
 JAZZ_FlashHider,Пламегаситель,Muzzle,10,0,RecoilDecrease;StealthKillBonusPerAim,Recoil=1;stealth_kill_bonus=25,,Muzzle,1,jazz,working-tree
-JAZZ_Flashlight,Flashlight,Side,20,-25,IgnoreInTheDark,,,Side,51,jazz,working-tree
-JAZZ_FlashlightDot,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Side,47,jazz,working-tree
+JAZZ_Flashlight,Flashlight,Side,20,-25,IgnoreInTheDark,,,Side,52,jazz,working-tree
+JAZZ_FlashlightDot,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Side,48,jazz,working-tree
 JAZZ_FlashlightDot_Anaconda,Tactical Device,Scope,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,Anaconda Specific,1,jazz,working-tree
 JAZZ_FlashlightDot_PSG_M1,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,PSG1-Specific,1,jazz,working-tree
 JAZZ_FlashlightDot_aa12,Tactical Device,Side,35,0,IgnoreInTheDark;IncreaseOverwatchAngle;MarkWhenFullyAimed;StealthKillBonusPerAim,OverwatchAngleIncrease=130;aim_bonus=1;maxaims=1;stealth_kill_bonus=2,,AA12 Specific,1,jazz,working-tree
-JAZZ_FlashlightOff,Flashlight,Side,5,-25,,,,Side,51,jazz,working-tree
+JAZZ_FlashlightOff,Flashlight,Side,5,-25,,,,Side,52,jazz,working-tree
 JAZZ_Flashlight_PSG_M1,Flashlight,Side,20,-25,IgnoreInTheDark,,,PSG1-Specific,1,jazz,working-tree
 JAZZ_Flashlight_aa12,Flashlight,Side,20,-25,IgnoreInTheDark,,,AA12 Specific,1,jazz,working-tree
 JAZZ_Freeswap,Пистолет,Freeswap,10,0,FreeWeaponSwap,,,Muzzle,4,jazz,working-tree
@@ -87,7 +87,7 @@ JAZZ_IronSight,Стандартный прицел,Scope,,-10,,,,Default,9,jazz,
 JAZZ_IronSight_AIM,Точный прицел,Scope,50,10,CritBonusWhenFullyAimed;IncreaseAimAccuracy,AimAccuracyIncrease=5,,Default,2,jazz,working-tree
 JAZZ_IronSight_FAST,Быстрый прицел,Scope,50,10,MinorAccuracyBonus,BonusCTH=3,,Default,1,jazz,working-tree
 JAZZ_IronSight_NIGHT,Ночной прицел,Scope,50,20,NightsIronsBonus,NightsIronsBonus=10,,Default,1,jazz,working-tree
-JAZZ_LaserDot,Лазерный целеуказатель,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,Side,50,jazz,working-tree
+JAZZ_LaserDot,Лазерный целеуказатель,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,Side,51,jazz,working-tree
 JAZZ_LaserDot_Anaconda,Red Dot,Scope,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,Anaconda Specific,1,jazz,working-tree
 JAZZ_LaserDot_PSG_M1,Red Dot,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,PSG1-Specific,1,jazz,working-tree
 JAZZ_LaserDot_aa12,Red Dot,Side,40,10,IncreaseCritChangeScaled;IncreaseOverwatchAngle;LaserMark;MarkWhenFullyAimed,CritChangeScaledIncrease=10;LaserCTH=15;LaserDistance=10;LaserFullRange=5;OverwatchAngleIncrease=130,,AA12 Specific,1,jazz,working-tree
@@ -214,7 +214,7 @@ JAZZ_TacGrip_M14,Tactical Grip,Under,10,0,CloseRangeFactorIncrease,CloseRangeFac
 JAZZ_Type56Bayo,Штык-нож,Under,30,0,zzStockEquipped,,,Type56,1,jazz,working-tree
 JAZZ_Type56BayoF,Штык-нож,Under,30,0,zzStockEquipped,,,Type56,1,jazz,working-tree
 JAZZ_U100Handle,Рукоять удержания,Mountfront,,,,,,Default,1,jazz,working-tree
-JAZZ_UVDot,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,Side,41,jazz,working-tree
+JAZZ_UVDot,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,Side,42,jazz,working-tree
 JAZZ_UVDot_Anaconda,UV Dot,Scope,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,Anaconda Specific,1,jazz,working-tree
 JAZZ_UVDot_PSG_M1,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,PSG1-Specific,1,jazz,working-tree
 JAZZ_UVDot_aa12,UV Dot,Side,25,10,LaserMark;StealthKillBonusPerAim,LaserCTH=12;LaserDistance=8;LaserFullRange=5;NightOnly=1;stealth_kill_bonus=5,,AA12 Specific,1,jazz,working-tree

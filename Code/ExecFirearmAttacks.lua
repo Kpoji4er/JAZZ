@@ -191,10 +191,10 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 			PushUnitAlert("noise", self, results.weapon.Noise, Presets.NoiseTypes.Default.Gunshot.display_name)
 
 
+			-- AN94: first pair at hyperburst pacing; remaining shots at sustained tempo.
 			if action.id == "AbakanAutoFire" and i < 2 then shots_per_animation = 10 end
 			if action.id == "AbakanAutoFire" and i >= 2 then
-				auto_shots = results.weapon.AutoShots or 0
-				shots_per_animation = (auto_shots > 0) and Max(1, auto_shots / 2) or Max(1, shots_per_animation)
+				shots_per_animation = 3
 			end
 
 			-- shot visuals

@@ -88,7 +88,6 @@ DefineClass.M4Commando = {
 		"AutoFire",
 		"SingleShot",
 		"RunAndGun",
-		"CancelShot",
 	},
 	ShootAP = 5000,
 	ReloadAP = 3000,

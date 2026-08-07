@@ -132,7 +132,7 @@ visible_actions =
 
 - **Тип:** базовый режим пулемёта.
 - **Совместимость:** лёгкие и тяжёлые пулемёты.
-- **Поведение:** `FirearmBase:GetAutofireShots` — длина = `AutoShots` если `> 0`, иначе `BurstShots` (WEAPONS-003: без `AutoFire` → `AutoShots=0`; иначе тяжёлые MG вроде `BrowningM2HMG` / `MG42` давали `num_shots=0`: анимация без пуль). Authored `BurstShots` уже учитывает `BurstLimiter` (G36/G36c = 2; M16A2/A4, FAMAS, AUG, HK33, Sig550*, G3A3/A4, Beretta93r = 3; AN94/`AbakanBurst` = 2). **Исключение:** `M2Carbine` / `Mini14` + `JAZZ_Autofire` (`EnableFullAuto`/`EnableBurst`) — режимы не в базовом `AvailableAttacks`, но `AutoShots`/`BurstShots`/`CyclicRPM` authored; runtime fallback от `CyclicRPM`, если счётчики ещё 0. **UI:** `GetWeaponModifyProperties` показывает Recoil/Burst/Auto по `CanBurstfire`/`CanAutofire` или authored `BurstShots`/`AutoShots` > 0 — не только когда `GetBaseAttack` уже Auto/Burst (иначе у semi-base convertibles бар отдачи пропадал).
+- **Поведение:** `FirearmBase:GetAutofireShots` — длина = `AutoShots` если `> 0`, иначе `BurstShots` (WEAPONS-003: без `AutoFire` → `AutoShots=0`; иначе тяжёлые MG вроде `BrowningM2HMG` / `MG42` давали `num_shots=0`: анимация без пуль). Authored `BurstShots` уже учитывает `BurstLimiter` (G36/G36c / UMP45 = 2; M16A2/A4, FAMAS, AUG, HK33, Sig550*, G3A3/A4, Beretta93r = 3; AN94/`AbakanBurst` = 2). **Исключение:** `M2Carbine` / `Mini14` + `JAZZ_Autofire` (`EnableFullAuto`/`EnableBurst`) — режимы не в базовом `AvailableAttacks`, но `AutoShots`/`BurstShots`/`CyclicRPM` authored; runtime fallback от `CyclicRPM`, если счётчики ещё 0. **UI:** `GetWeaponModifyProperties` показывает Recoil/Burst/Auto по `CanBurstfire`/`CanAutofire` или authored `BurstShots`/`AutoShots` > 0 — не только когда `GetBaseAttack` уже Auto/Burst (иначе у semi-base convertibles бар отдачи пропадал).
 - **Стоимость:** штатная атака +1 AP, если `GetAutofireShots` использует authored `BurstShots`, или +2 AP, если выбрана более длинная authored `AutoShots`. Дополнительные пули Buzz/Nervous не входят в расчёт цены; примеры: BAR 8 AP, RPK 10 AP, PKM 10 AP.
 - **Состояние:** для лёгкого пулемёта доступность связана с развёртыванием; стационарный пулемёт использует её как основной огонь и в позиционном конусе.
 - **CTH и отдача:** обычный `MGBurstFire` начинает серию с полного authored `Recoil`; Strength, стойка, опора/сошки и `AutoWeapons` затем применяют общий профиль. `Jazz_Perk_Buzz` увеличивает число пуль на 50%, но не снижает AP и не меняет базовую отдачу.
@@ -238,12 +238,12 @@ visible_actions =
 
 ### `CancelShot` — срыв подготовленного огня по линии
 
-- **Тип:** vanilla perk-action, используемый JAZZ-оружием.
-- **Совместимость:** в активном стабильном каталоге явно указан у `M16A2`; доступность требует `CancelShotPerk`.
+- **Тип:** vanilla perk-action.
+- **Совместимость:** **не** назначен ни одному активному JAZZ-оружию в `AvailableAttacks` (снят с `M16A2` и cut-stubов). Доступность по-прежнему требует `CancelShotPerk`, если действие выдаётся иным путём.
 - **Поведение:** линейная атака, которая при попадании снимает у цели подготовленный `Overwatch`/`PinDown`.
 - **Стоимость:** штатная атака с надбавкой действия.
 - **CTH:** общий прямой выстрел; тактическая ценность находится в снятии состояния, а не в скрытом уроне.
-- **Целевая роль:** перковый контр-контроль, а не обязательный режим всего класса.
+- **Целевая роль:** не штатная кнопка класса; не держать на стволах каталога.
 
 ### `CancelShotCone` — срыв подготовленного огня по конусу
 
@@ -457,7 +457,7 @@ visible_actions =
 Эти действия связаны с оружием и влияют на последующую стрельбу, но не являются firing actions:
 
 ### `Reload` / `Top up`
-`Reload` остаётся единственным reload-slot action и заменён full `ModItemCombatAction` в `items.lua` (vanilla id). На `Magazine` он всегда выполняет полный ReloadAP. Для authored `Tube`, `Break` и `Revolver`: пустой магазин показывает обычный `Reload` и наполняется стандартным путём; частично заполненный магазин меняет отображаемое имя на `Top up` / «Дозарядить», стоит `max(1 AP, DivCeil(effective ReloadAP, MagazineSize))` и передаёт `reload_mode="one_round"` → `Firearm:Reload(..., max_add=1)`. Vanilla `Firearm:Reload` иначе заливает до `MagazineSize` за один вызов; одного break по стекам в `ReloadWeapon` недостаточно. На полной ёмкости action disabled. Helpers/`Unit:ReloadAction` / `Firearm:Reload` wrap живут в `Code/System_ReloadStyle.lua`; `GetAPCost` и runtime используют один предикат `Firearm:IsPerRoundReload()`, поэтому UI reservation и фактический расход AP совпадают.
+`Reload` остаётся единственным reload-slot action и заменён full `ModItemCombatAction` в `items.lua` (vanilla id). На `Magazine` он всегда выполняет полный ReloadAP. Для authored `Tube`, `Break` и `Revolver`: пустой магазин показывает обычный `Reload` и наполняется стандартным путём; частично заполненный магазин меняет отображаемое имя на `Top up` / «Дозарядить», стоит `max(1 AP, DivCeil(effective ReloadAP, MagazineSize))` и передаёт `reload_mode="one_round"` → `Firearm:Reload(..., max_add=1)`. Vanilla `Firearm:Reload` иначе заливает до `MagazineSize` за один вызов; одного break по стекам в `ReloadWeapon` недостаточно. На полной ёмкости action disabled. Helpers/`Unit:ReloadAction` / `Firearm:Reload` wrap живут в `Code/System_ReloadStyle.lua`; `JazzResolveReloadWeapon` возвращает только `Firearm` (inventory drag передаёт `pos`, который на UnitData↔Unit может указать не на ствол — без фильтра был Assert `IsPerRoundReload` nil). `GetAPCost` и runtime используют `IsKindOf(..., "Firearm")` + `Firearm:IsPerRoundReload()`, поэтому UI reservation и фактический расход AP совпадают.
 
 ### `FoldStock` / `UnFoldStock`
 

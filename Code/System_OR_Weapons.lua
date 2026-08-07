@@ -227,10 +227,20 @@ function FirearmBase:GetAutofireShots(action)
 		end
 		return Max(min_v, Min(max_v, DivRound(rpm, divisor)))
 	end
-	if action.id == "AutoFire" then
+	if action.id == "AutoFire" or action.id == "AbakanAutoFire" then
+		-- AN94: CyclicRPM=1800 is hyperburst-only; authored AutoShots is sustained length (6).
 		shots = self.AutoShots
 		if not shots or shots <= 0 then
-			shots = shots_from_rpm(100, 3, 14) or 5
+			shots = action:ResolveValue("num_shots") or shots_from_rpm(100, 3, 14) or 5
+		end
+	elseif action.id == "AbakanBurst" then
+		shots = self.BurstShots
+		if not shots or shots <= 0 then
+			shots = action:ResolveValue("num_shots") or 2
+		end
+		local lim = self.BurstLimiter or 0
+		if lim > 0 then
+			shots = Min(shots, lim)
 		end
 	elseif action.id == "MGBurstFire" then
 		local auto = self.AutoShots or 0
@@ -2078,4 +2088,37 @@ function Firearm:GetMaxDispersion(dist, mod)
 		--max = MulDivRound(max, 100 + self.InaccurateSpreadModifier, 100)
 	end
 	return Min(value, max)
+end
+
+-- FAMAS: ShootAP is 5 for cheaper SingleShot; keep AutoFire / LargeAuto at previous AP (+1).
+g_JAZZ_FAMAS_AutoAPWrapped = rawget(_G, "g_JAZZ_FAMAS_AutoAPWrapped") or false
+
+local function JazzWrapFAMASAutoAP()
+	if rawget(_G, "g_JAZZ_FAMAS_AutoAPWrapped") then
+		return
+	end
+	if not CombatActions then
+		return
+	end
+	for _, id in ipairs({ "AutoFire", "JAZZ_LargeAutoFire" }) do
+		local action = CombatActions[id]
+		if action and action.GetAPCost then
+			local base = action.GetAPCost
+			action.GetAPCost = function(self, unit, args)
+				local cost = base(self, unit, args)
+				if cost and cost > 0 then
+					local weapon = self:GetAttackWeapons(unit, args)
+					if IsKindOf(weapon, "FAMAS") then
+						return cost + (const.Scale.AP or 1000)
+					end
+				end
+				return cost
+			end
+		end
+	end
+	rawset(_G, "g_JAZZ_FAMAS_AutoAPWrapped", true)
+end
+
+function OnMsg.ClassesBuilt()
+	JazzWrapFAMASAutoAP()
 end
