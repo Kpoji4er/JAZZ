@@ -114,24 +114,52 @@ JAZZ-WEAPONS-002 добавляет независимый 0.5% integer-roll н�
 
 Jam использует единую шкалу **JamScore** `0..1000` (те же единицы, что `attacker:Random(1000)` в `ReliabilityCheck`). Приведённый процент для UI/ammo rollover: `DivRound(JamScore, 10)`. Окно модификации оружия показывает **Reliability**, не Jam %.
 
-Базовый weapon score (без стрелка):
+Базовый weapon score (без стрелка) снова уважает собственную
+`Reliability`, но не складывает два описания одного дефекта:
 
 ```text
-base = max(0, (100 - Reliability) + BaseJamChance)
-JamScore = clamp(base × degrade_multiplier [× rain], 0, 1000)
+reliability_score = max(0, 100 - Reliability)
+base =
+  max(reliability_score, BaseJamChance), если BaseJamChance >= 0
+  reliability_score + BaseJamChance, если BaseJamChance < 0
+base = clamp(base, 0, 100)                 # максимум 10%
+
+condition_percent = current / max
+permanent_percent = max / factory
+JamScore = base + penalty(condition_percent) + penalty(permanent_percent)
 ```
 
-`BaseJamChance` — единицы JamScore (10 ≈ 1% в rollover). При округлённом `condition_percent >= 100` действует гарантия идеального состояния: обычные/хорошие патроны дают **0%** базового клина независимо от tier оружия, `*_Poor` — **10%**, `*_Crafted` — **15%**. Затем Mechanical и правило одиночного выстрела могут только снизить этот риск. Для реально изношенного оружия снова используется полная формула надёжности. `degrade_multiplier` через `elseif` по condition % от weighted resource:
+Положительный `BaseJamChance` задаёт альтернативный минимум риска,
+отрицательный остаётся бонусом качества. Плохие патроны и компоненты
+по-прежнему меняют оба свойства, но базовый риск исправного оружия не может
+превысить **10%**. В отличие от прежнего special-case, идеальный ствол не
+обнуляет собственную ненадёжность: MP40 с `Reliability=50` даёт базовые 5%.
 
-| Condition % | Multiplier |
-|---|---|
-| > 80 | ×1 |
-| ≤ 80 | ×3 |
-| ≤ 60 | ×6 |
-| ≤ 40 | ×12 |
-| ≤ 15 | ×18 |
+Текущее состояние (`current/max`) и постоянный остаток ресурса
+(`max/factory`) считаются **раздельно** и получают одинаковую аддитивную
+ступень:
 
-(WEAPONS-008: softened from 4/8/16/24.) Poor/Crafted ammo still raise `BaseJamChance` / cut Reliability via Reload modifiers; Crafted ≈ +140 JamScore / Rel−18, 9×19 Poor ≈ +120 / Rel−10.
+| Остаток ресурса | Надбавка JamScore | Надбавка к шансу |
+|---:|---:|---:|
+| 100% | 0 | +0% |
+| 90–99% | 10 | +1% |
+| 80–89% | 50 | +5% |
+| 70–79% | 100 | +10% |
+| 60–69% | 150 | +15% |
+| 50–59% | 250 | +25% |
+| 40–49% | 350 | +35% |
+| 30–39% | 500 | +50% |
+| 20–29% | 650 | +65% |
+| 10–19% | 800 | +80% |
+| 1–9% | 950 | +95% |
+| 0% | итог 1000 | 100% |
+
+Если оба остатка не ниже 80%, сумма до погоды дополнительно ограничена 10%.
+Дождь применяется после этого базового cap. Поэтому MP40 при полном
+постоянном ресурсе даёт **5% / 6% / 10%** на 100% / 90% / 80% текущего
+состояния. Mosin из runtime-примера (`3280/6507`, factory `7000`) получает
+**27%** без повышающей ammo/component поправки и максимум **36%** при
+capped base 10%, а не 100%.
 
 Mechanical снижает score **пропорционально** (`MulDivRound(score, Mechanical, 120)` у мерков + малый secondary Marks/Wisdom/Level; у AI знаменатель 150). Одиночный выстрел делит score пополам через `DivRound`. `FirearmBase:GetDisplayJamChancePercent(attacker?)` отдаёт приведённый %.
 
@@ -184,7 +212,7 @@ display = "W.F"   -- 9 → 0.9, 22 → 2.2
 
 ## Проверка
 
-- состояние 100/80/60/40/15 и ниже; сухая погода/дождь;
+- текущее состояние и permanent max отдельно на 100/90/80/70/60/50/40/30/20/10/0; MP40 5/6/10% на 100/90/80, Mosin `3280/6507/7000` 27–36%; сухая погода/дождь;
 - single/burst/auto, unjam, repair и окончательная поломка;
 - деградация Grouping и совпадение CTH UI;
 - установка/снятие каждого класса компонентов, folded/unfolded визуал;

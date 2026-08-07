@@ -64,9 +64,15 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-008-REQ-001` — active SubmachineGun: реалистичные `WeaponMass` (десятые кг), `CyclicRPM`, `WeaponSizeClass` ∈ Compact|Carbine; нет mass=80+Long placeholder; CSV + companion + items согласованы.
 - `JAZZ-WEAPONS-008-REQ-002` — SMG Recoil floor 12; 9×19 order: MicroUZI > MP5K и MicroUZI > Sterling; Sterling < MP5A2 или близкий mid Carbine.
 - `JAZZ-WEAPONS-008-REQ-003` — якоря WEAPONS-003: AK74∈[14,15], AKM∈[24,26], FNFAL∈[42,44] сохранены.
-- `JAZZ-WEAPONS-008-REQ-004` — wear multipliers: >80×1, ≤80×**3**, ≤60×**6**, ≤40×**12**, ≤15×**18**.
+- `JAZZ-WEAPONS-008-REQ-004` — historical wear multipliers:
+  >80×1, ≤80×3, ≤60×6, ≤40×12, ≤15×18; **superseded by
+  JAZZ-WEAPONS-010**, which uses separate additive condition and
+  permanent-wear steps.
 - `JAZZ-WEAPONS-008-REQ-005` — `*_Crafted` BaseJamChance **140** (было 200), Rel **−18** (было −25); `*_Poor` pistol/SMG calibers BaseJamChance **≈2/3** прежнего (9×19: 120, Rel −10); rifle Poor ≈70 jam / Rel −4.
-- `JAZZ-WEAPONS-008-REQ-006` — при `condition_percent >= 100`: serviceable ammo = 0% raw jam для любого tier, `*_Poor` = 10%, `*_Crafted` = 15%; Mechanical/single-shot могут только снизить риск.
+- `JAZZ-WEAPONS-008-REQ-006` — historical perfect-condition exception:
+  serviceable 0%, Poor 10%, Crafted 15%; **superseded by
+  JAZZ-WEAPONS-010**, где Reliability снова влияет на исправный ствол,
+  а общий базовый риск ограничен 10%.
 - `JAZZ-WEAPONS-008-REQ-007` — docs: technical jam tiers + design recoil note; wiki/showcase кратко про идеальное состояние, Poor/Crafted и ПП-дифференциацию.
 
 ## Инварианты и ограничения
@@ -78,10 +84,12 @@ approved_by: project-owner
 
 - `JAZZ-WEAPONS-008-AC-001` — static: `_audit_recoil_dist.py` PASS (anchors + MicroUZI>MP5K,Sterling); active SMG Recoil не все равны 18.
 - `JAZZ-WEAPONS-008-AC-002` — static: no active SubmachineGun with WeaponMass≥70 and Size Long.
-- `JAZZ-WEAPONS-008-AC-003` — static: `GetBaseJamChanceRaw` multipliers 3/6/12/18.
+- `JAZZ-WEAPONS-008-AC-003` — historical static acceptance for
+  multipliers 3/6/12/18; superseded by JAZZ-WEAPONS-010-AC-001/002.
 - `JAZZ-WEAPONS-008-AC-004` — static: Crafted jam+140 Rel−18; 9×19 Poor jam+120 Rel−10; `_validate_items_quick.py` OK.
 - `JAZZ-WEAPONS-008-AC-005` — human/runtime: очередь ПП различается; Poor клинит заметно, но не «каждый второй burst» на Mech~80 fresh gun.
-- `JAZZ-WEAPONS-008-AC-006` — static: `_audit_weapon_jam_balance.py` проверяет все firearms и совместимые Poor/Crafted пары; perfect serviceable=0%, Poor=10%, Crafted=15%, M3+45ACP Poor=10%.
+- `JAZZ-WEAPONS-008-AC-006` — historical perfect-condition audit;
+  superseded by the additive-curve audit in JAZZ-WEAPONS-010.
 
 ## Impact и совместимость
 
@@ -99,19 +107,24 @@ approved_by: project-owner
 
 ## Решение владельца
 
-- Статус: approved (owner уточнил: идеальный ствол + хорошие патроны не клинит даже на T1; Substandard около 10%, 2026-08-06).
+- Статус: approved (historical jam decision from 2026-08-06 is superseded
+  by the owner-approved JAZZ-WEAPONS-010 contract from 2026-08-07).
 - Исполнитель: agent.
 
 ## Evidence
 
 - `JAZZ-WEAPONS-008-AC-001`: `PASS` — static: `_audit_recoil_dist.py` PASS; SMG Recoil set `{12,13,14,17,18,19,21}`
 - `JAZZ-WEAPONS-008-AC-002`: `PASS` — static: no active SMG mass≥70 / Long after apply
-- `JAZZ-WEAPONS-008-AC-003`: `PASS` — static: `GetBaseJamChanceRaw` multipliers 3/6/12/18
+- `JAZZ-WEAPONS-008-AC-003`: `PASS (historical, superseded by
+  JAZZ-WEAPONS-010)` — former multipliers 3/6/12/18 were implemented.
 - `JAZZ-WEAPONS-008-AC-004`: `PASS` — static: Crafted 140/−18; 9×19 Poor 120/−10; `_validate_items_quick.py` OK
 - `JAZZ-WEAPONS-008-AC-005`: `BLOCKED` — runtime/human playtest
-- `JAZZ-WEAPONS-008-AC-006`: `PASS` — 116 firearms, 18 degraded-ammo classes, 150 compatible pairs; M3 + .45ACP Poor = 10%
+- `JAZZ-WEAPONS-008-AC-006`: `PASS (historical, superseded by
+  JAZZ-WEAPONS-010)` — former perfect-condition contract was implemented
+  before runtime balance evidence replaced it.
 
-status note: static ACs done; leave `approved` until runtime smoke, then `implemented`.
+status note: recoil scope remains approved/runtime-pending; jam multiplier and
+perfect-condition sub-scope is superseded by JAZZ-WEAPONS-010.
 
 ## Documentation delta
 

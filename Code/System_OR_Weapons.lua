@@ -306,12 +306,47 @@ function FirearmBase:IsCondition(condition_type)
 end
 
 -- JamScore scale 0..1000 matches ReliabilityCheck roll; display % = DivRound(score, 10).
-local function JazzPerfectConditionAmmoJamScore(ammo)
-	local ammo_class = ammo and ammo.class or ""
-	if string.match(ammo_class, "_Poor$") then
-		return 100
-	elseif string.match(ammo_class, "_Crafted$") then
+-- Reliability and positive BaseJamChance are parallel fault risks: use the worse one
+-- instead of adding the same ammo/platform defect twice. Negative BaseJamChance remains
+-- a quality bonus. A serviceable weapon's base risk is capped at 10%.
+local function JazzGetBaseJamScore(item)
+	local reliability_score = Max(0, 100 - (item.Reliability or 50))
+	local base_jam = item.BaseJamChance or 0
+	local score
+	if base_jam >= 0 then
+		score = Max(reliability_score, base_jam)
+	else
+		score = reliability_score + base_jam
+	end
+	return Clamp(score, 0, 100)
+end
+
+-- Additive decile curve shared by current condition and permanent max-resource wear.
+-- The old multiplicative tiers amplified bad ammo a second time and could jump to 100%.
+local function JazzGetJamResourcePenalty(resource_percent)
+	resource_percent = Clamp(resource_percent or 0, 0, 100)
+	if resource_percent <= 0 then
+		return 1000
+	elseif resource_percent < 10 then
+		return 950
+	elseif resource_percent < 20 then
+		return 800
+	elseif resource_percent < 30 then
+		return 650
+	elseif resource_percent < 40 then
+		return 500
+	elseif resource_percent < 50 then
+		return 350
+	elseif resource_percent < 60 then
+		return 250
+	elseif resource_percent < 70 then
 		return 150
+	elseif resource_percent < 80 then
+		return 100
+	elseif resource_percent < 90 then
+		return 50
+	elseif resource_percent < 100 then
+		return 10
 	end
 	return 0
 end
@@ -322,38 +357,26 @@ function FirearmBase:GetBaseJamChanceRaw()
 	local resource = item:GetCurrentResource() or 1
 	local max_resource = item:GetMaxResource() or item:GetFactoryResource() or 1000
 	local factory = item:GetFactoryResource() or max_resource
-	if max_resource <= 0 then max_resource = 1 end
-	if factory <= 0 then factory = 1 end
-
-	-- Weighted resource headroom: 25% factory + 75% current max.
-	local resourcefactor = MulDivRound(factory, 25, 100) + MulDivRound(max_resource, 75, 100)
-	if resourcefactor <= 0 then resourcefactor = 1 end
-
-	local condition_percent = MulDivRound(resource, 100, resourcefactor)
-	-- A factory-fresh firearm cannot malfunction on serviceable ammunition.
-	-- Poor/Crafted cartridges retain a fixed quality risk at perfect condition,
-	-- independent of the weapon tier: 10% / 15% respectively.
-	if condition_percent >= 100 then
-		return JazzPerfectConditionAmmoJamScore(item.ammo)
+	if max_resource <= 0 or factory <= 0 then
+		return 1000
 	end
 
-	local reliability = item.Reliability or 50
-	local base_jam = item.BaseJamChance or 5
-	local base = Max(0, (100 - reliability) + base_jam)
-
-	-- WEAPONS-008: wear tiers softened (was 24/16/8/4).
-	local degrade_mult = 1
-	if condition_percent <= 15 then
-		degrade_mult = 18
-	elseif condition_percent <= 40 then
-		degrade_mult = 12
-	elseif condition_percent <= 60 then
-		degrade_mult = 6
-	elseif condition_percent <= 80 then
-		degrade_mult = 3
+	local condition_percent = Clamp(MulDivRound(resource, 100, max_resource), 0, 100)
+	local permanent_percent = Clamp(MulDivRound(max_resource, 100, factory), 0, 100)
+	if condition_percent <= 0 or permanent_percent <= 0 then
+		return 1000
 	end
 
-	local raw_chance = base * degrade_mult
+	local raw_chance = JazzGetBaseJamScore(item)
+		+ JazzGetJamResourcePenalty(condition_percent)
+		+ JazzGetJamResourcePenalty(permanent_percent)
+
+	-- "Normal condition" guard: even the least reliable gun with bad ammunition
+	-- stays at or below 10% before weather while both resource ratios are >= 80%.
+	if condition_percent >= 80 and permanent_percent >= 80 then
+		raw_chance = Min(raw_chance, 100)
+	end
+
 	if (GameState.RainHeavy or GameState.RainLight) and not item.indoors then
 		raw_chance = MulDivRound(raw_chance, 100 + const.EnvEffects.RainJamChanceMod, 100)
 	end

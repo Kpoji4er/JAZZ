@@ -52,7 +52,10 @@ approved_by: project-owner
 ## Требования
 
 - `JAZZ-WEAPONS-001-REQ-001` — JamScore ∈ `[0, 1000]`; `jam_roll < score` с `attacker:Random(1000)`; display `%` = `DivRound(score, 10)`.
-- `JAZZ-WEAPONS-001-REQ-002` — condition multipliers via `elseif` (original 4/8/16/24; **WEAPONS-008** softens to 3/6/12/18).
+- `JAZZ-WEAPONS-001-REQ-002` — historical condition multipliers via
+  `elseif` (original 4/8/16/24; WEAPONS-008 softened to 3/6/12/18);
+  **superseded by JAZZ-WEAPONS-010**, which replaces multiplication with
+  additive condition/permanent-wear steps.
 - `JAZZ-WEAPONS-001-REQ-003` — Mechanical reduces score proportionally (merc `/120` + small secondary; AI `/150`); single shot halves score via `DivRound`.
 - `JAZZ-WEAPONS-001-REQ-004` — ammo rollover keeps `BaseJamChance/10` as `%`; modify UI keeps Reliability only.
 - `JAZZ-WEAPONS-001-REQ-005` — `Handling` property and data remain; CTH modifier `Handling` returns false; overwatch cone uses only `OverwatchAngle`.
@@ -67,7 +70,8 @@ approved_by: project-owner
 
 ## Acceptance criteria
 
-- `JAZZ-WEAPONS-001-AC-001` — static: jam tier chain uses `elseif`; condition 10% gets ×24 not ×4.
+- `JAZZ-WEAPONS-001-AC-001` — historical static acceptance for the
+  multiplicative tier chain; **superseded by JAZZ-WEAPONS-010-AC-001/002**.
 - `JAZZ-WEAPONS-001-AC-002` — static: `GetJamChance` and `ReliabilityCheck` share one Mechanical application; roll uses `attacker:Random(1000)`.
 - `JAZZ-WEAPONS-001-AC-003` — static: ammo hint uses `mod_mul` (not `mod_mull`); BaseJamChance display `/10`.
 - `JAZZ-WEAPONS-001-AC-004` — static: CTH Handling modifier inert; overwatch without Handling term.
@@ -99,7 +103,9 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-WEAPONS-001-AC-001`: `PASS` — static: `GetBaseJamChanceRaw` uses elseif tiers (superseded numbers in WEAPONS-008: 15→18, 40→12, 60→6, 80→3)
+- `JAZZ-WEAPONS-001-AC-001`: `PASS (historical, superseded by
+  JAZZ-WEAPONS-010)` — the former multiplicative tier chain was implemented
+  and later replaced after runtime balance evidence.
 - `JAZZ-WEAPONS-001-AC-002`: `PASS` — static: Mechanical only in `GetJamChance`; roll `attacker:Random(1000)`
 - `JAZZ-WEAPONS-001-AC-003`: `PASS` — static: `AmmoRolloverHint` uses `mod_mul`; BaseJamChance `/10`
 - `JAZZ-WEAPONS-001-AC-004`: `PASS` — static: Handling CTH inert; overwatch without Handling term
