@@ -42,7 +42,9 @@ approved_by: project-owner
 низкие десятки процентов. У MP40 целевые ориентиры: 5% при 100% состояния,
 6% при 90%, 10% при 80% и 100% только при нулевом состоянии. После первого
 среза WEAPONS-010 mid-curve (~27% на том же Mosin) оставалась слишком
-жёсткой для playtest — смягчена до ~14%.
+жёсткой для playtest; полный double-add mid/mid + rain ×2 снова давал
+~29–39%. Follow-up: soft stack (dominant + half secondary) и более
+мягкая mid-таблица — mid-якоря около **10%** сухо / **≤20%** под дождём.
 
 ## Цели
 
@@ -79,30 +81,31 @@ approved_by: project-owner
 | 100% | 0 | +0% |
 | 90–99% | 10 | +1% |
 | 80–89% | 50 | +5% |
-| 70–79% | 60 | +6% |
-| 60–69% | 90 | +9% |
-| 50–59% | 120 | +12% |
-| 40–49% | 180 | +18% |
-| 30–39% | 280 | +28% |
-| 20–29% | 420 | +42% |
-| 10–19% | 600 | +60% |
-| 1–9% | 800 | +80% |
+| 70–79% | 55 | +5.5% |
+| 60–69% | 60 | +6% |
+| 50–59% | 80 | +8% |
+| 40–49% | 110 | +11% |
+| 30–39% | 160 | +16% |
+| 20–29% | 230 | +23% |
+| 10–19% | 320 | +32% |
+| 1–9% | 450 | +45% |
 | 0% | итог 1000 | 100% |
 
 - `JAZZ-WEAPONS-010-REQ-003` — raw score до погоды =
-  `base + condition_penalty + permanent_wear_penalty`. Если оба остатка
-  не ниже 80%, raw score ограничен 100 (10%). Дождь применяется после
-  этого базового потолка; итог ограничен `0..1000`. `Reliability` и
-  `BaseJamChance` читаются через `GetProperty`, чтобы учитывались
-  ammo/component modifiers.
+  `base + max(condition_pen, permanent_pen) + DivRound(min(...), 2)`
+  (полный худший износ + половина второго). Если оба остатка не ниже
+  80%, raw score ограничен 100 (10%). Пока оба остатка >0, raw score
+  дополнительно ≤990 (display 100% только при нуле). Дождь после
+  этих потолков; итог `0..1000`. `Reliability` и `BaseJamChance`
+  через `GetProperty` (ammo/component modifiers).
 - `JAZZ-WEAPONS-010-REQ-004` — MP40 с базовыми свойствами
   (`Reliability=50`, `BaseJamChance=30`) и исправными патронами даёт
   5%/6%/10% при 100%/90%/80% текущего состояния и 100% при 0%;
   постоянный ресурс при этом 100%.
-- `JAZZ-WEAPONS-010-REQ-005` — Mosin `3280/6507`, factory `7000`
-  даёт порядок низких десятков процентов, а не 100%: **14%** без
-  повышающей ammo/component поправки и не более **23%** при capped
-  base 10%.
+- `JAZZ-WEAPONS-010-REQ-005` — mid-resource якоря (без дождя): Mosin
+  `3280/6507/7000` и `3080/4830/7000` дают **~10%** без повышающей
+  ammo/component поправки; capped base 10% на `3280/6507/7000` —
+  **~19%**. Под rain ×2 mid-якоря остаются **≤ ~20%**.
 - `JAZZ-WEAPONS-010-REQ-006` — Mechanical, вторичный merc skill term,
   single-shot `/2`, JamScore display `/10` и deterministic RNG не меняются.
 
@@ -123,10 +126,9 @@ approved_by: project-owner
   condition/wear ≥80 для extreme weapon+ammo base; **Rel ≥ 95** даёт
   base 0% на идеальном ресурсе даже с extreme `BaseJamChance`.
 - `JAZZ-WEAPONS-010-AC-004` — static audit подтверждает Mosin
-  `3280/6507/7000`: 14% при base 1% и 23% при base cap 10%.
+  `3280/6507/7000`: 10% base / 19% capped; `3080/4830/7000`: 10%.
 - `JAZZ-WEAPONS-010-AC-005` — runtime/human: rollover после ReloadLua
-  больше не показывает 100% для предоставленного Mosin и следует
-  ожидаемому порядку около 14% (без дождя).
+  для mid Mosin порядка ~10% сухо / ≤~20% под дождём, не 29–39%.
 
 ## Impact и совместимость
 
@@ -151,8 +153,8 @@ approved_by: project-owner
 - Статус: approved.
 - Кто подтвердил: project-owner (ориентиры MP40, cap 10%, отдельный
   постоянный износ, Mosin в низких десятках %, Reliability обязателен;
-  follow-up: mid-curve softened; follow-up: Rel 5..95, Rel95 = 0 base
-  даже на плохих патронах).
+  follow-up: mid-curve softened; Rel 5..95 / Rel95 = 0 base; follow-up:
+  soft wear stack + softer mid so rain mid ≤~20%, 100% only at 0).
 - Дата: 2026-08-07.
 
 ## Evidence
@@ -164,9 +166,9 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-010-AC-003`: `PASS` — static: all compatible
   Poor/Crafted pairs stay ≤10% at normal resource; extreme base cap = 10%.
 - `JAZZ-WEAPONS-010-AC-004`: `PASS` — static: Mosin
-  `3280/6507/7000` = 14% base / 23% with capped bad-ammo base.
-- `JAZZ-WEAPONS-010-AC-005`: `BLOCKED` — runtime/human: DAP probe on
-  `127.0.0.1:8165` was not listening; ReloadLua and rollover check remain.
+  `3280/6507/7000` = 10% / 19% capped; `3080/4830/7000` = 10%.
+- `JAZZ-WEAPONS-010-AC-005`: `BLOCKED` — runtime/human: ReloadLua +
+  rollover under dry/rain after soft-stack pass.
 
 status note: code/static/docs complete; keep `approved` until AC-005 runtime
 smoke, then mark `implemented`.

@@ -339,27 +339,29 @@ local function JazzGetBaseJamScore(item)
 end
 
 -- Soft additive decile curve shared by current condition and permanent max-resource wear.
--- Mid steps stay playable after ordinary repair; only near-zero resource approaches 100%.
+-- Mid steps stay playable after ordinary repair; only zero resource hits 100%.
+-- When both ratios are worn, only the worse step is full and the other is halved
+-- so mid/mid stacks do not explode under rain ×2.
 local function JazzGetJamResourcePenalty(resource_percent)
 	resource_percent = Clamp(resource_percent or 0, 0, 100)
 	if resource_percent <= 0 then
 		return 1000
 	elseif resource_percent < 10 then
-		return 800
+		return 450
 	elseif resource_percent < 20 then
-		return 600
+		return 320
 	elseif resource_percent < 30 then
-		return 420
+		return 230
 	elseif resource_percent < 40 then
-		return 280
+		return 160
 	elseif resource_percent < 50 then
-		return 180
+		return 110
 	elseif resource_percent < 60 then
-		return 120
+		return 80
 	elseif resource_percent < 70 then
-		return 90
-	elseif resource_percent < 80 then
 		return 60
+	elseif resource_percent < 80 then
+		return 55
 	elseif resource_percent < 90 then
 		return 50
 	elseif resource_percent < 100 then
@@ -384,14 +386,20 @@ function FirearmBase:GetBaseJamChanceRaw()
 		return 1000
 	end
 
+	local condition_penalty = JazzGetJamResourcePenalty(condition_percent)
+	local permanent_penalty = JazzGetJamResourcePenalty(permanent_percent)
 	local raw_chance = JazzGetBaseJamScore(item)
-		+ JazzGetJamResourcePenalty(condition_percent)
-		+ JazzGetJamResourcePenalty(permanent_percent)
+		+ Max(condition_penalty, permanent_penalty)
+		+ DivRound(Min(condition_penalty, permanent_penalty), 2)
 
 	-- "Normal condition" guard: even the least reliable gun with bad ammunition
 	-- stays at or below 10% before weather while both resource ratios are >= 80%.
 	if condition_percent >= 80 and permanent_percent >= 80 then
 		raw_chance = Min(raw_chance, 100)
+	end
+	-- Soft ceiling while any resource remains: display 100% only at fully broken.
+	if condition_percent > 0 and permanent_percent > 0 then
+		raw_chance = Min(raw_chance, 990)
 	end
 
 	if (GameState.RainHeavy or GameState.RainLight) and not item.indoors then

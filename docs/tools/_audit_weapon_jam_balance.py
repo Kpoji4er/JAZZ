@@ -2,7 +2,8 @@
 """Audit the JAZZ-WEAPONS-010 additive jam curve.
 
 The audit models Reliability/BaseJamChance, current condition, permanent
-max-resource wear, the normal-condition 10% cap, and the owner-provided
+max-resource wear (dominant + half secondary stack), the normal-condition
+10% cap, soft 99% ceiling while any resource remains, and the owner-provided
 MP40/Mosin anchors. It also checks that the runtime contains this contract.
 """
 from __future__ import annotations
@@ -81,21 +82,21 @@ def resource_penalty(resource_percent: int) -> int:
     if resource_percent <= 0:
         return 1000
     if resource_percent < 10:
-        return 800
+        return 450
     if resource_percent < 20:
-        return 600
+        return 320
     if resource_percent < 30:
-        return 420
+        return 230
     if resource_percent < 40:
-        return 280
+        return 160
     if resource_percent < 50:
-        return 180
+        return 110
     if resource_percent < 60:
-        return 120
+        return 80
     if resource_percent < 70:
-        return 90
-    if resource_percent < 80:
         return 60
+    if resource_percent < 80:
+        return 55
     if resource_percent < 90:
         return 50
     if resource_percent < 100:
@@ -116,13 +117,17 @@ def raw_jam_score(
     permanent = clamp(div_round(max_resource * 100, factory_resource), 0, 100)
     if condition <= 0 or permanent <= 0:
         return 1000
+    condition_pen = resource_penalty(condition)
+    permanent_pen = resource_penalty(permanent)
     score = (
         base_jam_score(reliability, base_jam)
-        + resource_penalty(condition)
-        + resource_penalty(permanent)
+        + max(condition_pen, permanent_pen)
+        + div_round(min(condition_pen, permanent_pen), 2)
     )
     if condition >= 80 and permanent >= 80:
         score = min(score, 100)
+    if condition > 0 and permanent > 0:
+        score = min(score, 990)
     return clamp(score, 0, 1000)
 
 
@@ -184,10 +189,11 @@ def main() -> int:
         "local function JazzGetJamResourcePenalty(resource_percent)",
         "MulDivRound(resource, 100, max_resource)",
         "MulDivRound(max_resource, 100, factory)",
-        "JazzGetJamResourcePenalty(condition_percent)",
-        "JazzGetJamResourcePenalty(permanent_percent)",
+        "Max(condition_penalty, permanent_penalty)",
+        "DivRound(Min(condition_penalty, permanent_penalty), 2)",
         "if condition_percent >= 80 and permanent_percent >= 80 then",
         "raw_chance = Min(raw_chance, 100)",
+        "raw_chance = Min(raw_chance, 990)",
     ):
         if fragment not in runtime:
             failures.append(f"runtime additive-curve contract missing: {fragment}")
@@ -199,14 +205,14 @@ def main() -> int:
         100: 0,
         90: 10,
         80: 50,
-        70: 60,
-        60: 90,
-        50: 120,
-        40: 180,
-        30: 280,
-        20: 420,
-        10: 600,
-        1: 800,
+        70: 55,
+        60: 60,
+        50: 80,
+        40: 110,
+        30: 160,
+        20: 230,
+        10: 320,
+        1: 450,
         0: 1000,
     }
     penalty_body_match = re.search(
@@ -221,14 +227,14 @@ def main() -> int:
     else:
         penalty_body = penalty_body_match.group("body")
     runtime_steps = (
-        (10, 800),
-        (20, 600),
-        (30, 420),
-        (40, 280),
-        (50, 180),
-        (60, 120),
-        (70, 90),
-        (80, 60),
+        (10, 450),
+        (20, 320),
+        (30, 230),
+        (40, 160),
+        (50, 110),
+        (60, 80),
+        (70, 60),
+        (80, 55),
         (90, 50),
         (100, 10),
     )
@@ -295,12 +301,23 @@ def main() -> int:
         mosin_capped = display_percent(
             raw_jam_score(0, 1000, 3280, 6507, 7000)
         )
-        if mosin_base != 14:
-            failures.append(f"Mosin 3280/6507/7000 base: {mosin_base}% != 14%")
-        if mosin_capped != 23:
-            failures.append(
-                f"Mosin 3280/6507/7000 capped base: {mosin_capped}% != 23%"
+        mosin_mid = display_percent(
+            raw_jam_score(
+                mosin.reliability,
+                mosin.base_jam,
+                3080,
+                4830,
+                7000,
             )
+        )
+        if mosin_base != 10:
+            failures.append(f"Mosin 3280/6507/7000 base: {mosin_base}% != 10%")
+        if mosin_capped != 19:
+            failures.append(
+                f"Mosin 3280/6507/7000 capped base: {mosin_capped}% != 19%"
+            )
+        if mosin_mid != 10:
+            failures.append(f"Mosin 3080/4830/7000 base: {mosin_mid}% != 10%")
 
     if base_jam_score(50, -30) != 20:
         failures.append("negative BaseJamChance no longer reduces reliability risk")
