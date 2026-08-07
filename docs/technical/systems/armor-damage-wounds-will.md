@@ -123,7 +123,7 @@ Asset contract не менялся.
 - локальные роллеры `Armsshot`, `Headshot`, `Legsshot`, `Torsoshot`, `Groinshot` (скрытые; **только** `JazzTryRollTraumaFromBodyPart` — без legacy Numbness/Inaccurate/Slowed/Blinded/Unconscious/`Bleeding` из `*shot`);
 - зональные травмы `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (Eye folded into Head; Burn: `Burning` OnRemoved → Light stub);
 - `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови; центральный `JazzTryRollBleedFromHit`; legacy `BleedingChance` OnAdded = no-op);
-- `Pain` / `Analgesia`: Pain сохраняет точный штраф ОД, применённый на `OnCalcStartTurnAP`, вместе с номером хода; `Analgesia.OnAdded` через `JazzRefundPainStartTurnAP` один раз возвращает только этот штраф и обнуляет маркер. Повторное обезболивание и Pain, полученная после начала хода, ОД не дают; CTH-штраф глушится, пока Analgesia активна. `Wounded` от HP **off** (`HpLossToAddStack` sentinel + `UnitProperties:AccumulateDamageTaken`/`AddWounds` no-op). `OnMsg.UnitDowned` немедленно вызывает `JazzApplyDownedHeavyTrauma`: одна физическая Heavy trauma +3 Pain, с upgrade уже выпавшей Light/Medium; более лёгкий same-hit эффект и повторный `Unconscious` не дублируют пакет;
+- `Pain` / `Analgesia`: Pain сохраняет точный штраф ОД, применённый на `OnCalcStartTurnAP`, вместе с номером хода; `Analgesia.OnAdded` через `JazzRefundPainStartTurnAP` один раз возвращает только этот штраф и обнуляет маркер. Повторное обезболивание и Pain, полученная после начала хода, ОД не дают; CTH-штраф глушится, пока Analgesia активна. В бою Pain −1 стак/`OnEndTurn`; **`RemoveOnEndCombat`** снимает все стаки (и Analgesia) при конце боя — на глобалку боль не переносится. `Wounded` от HP **off** (`HpLossToAddStack` sentinel + `UnitProperties:AccumulateDamageTaken`/`AddWounds` no-op). `OnMsg.UnitDowned` немедленно вызывает `JazzApplyDownedHeavyTrauma`: одна физическая Heavy trauma +3 Pain, с upgrade уже выпавшей Light/Medium; более лёгкий same-hit эффект и повторный `Unconscious` не дублируют пакет;
 - `Blinded`, `Burning`, `Choking` (среда/газ; не от `*shot`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
 - уровни suppression и weight class;
 - perks и прочие status effects.
@@ -173,7 +173,7 @@ DefineClass.DamageReduction = {
 
 **Hit Pain (отдельно от zone-use):** `Unit:ApplyDamageAndEffects` → `JazzPainOnDamagingHit` — solid hit with **damage > 0** → **+1** Pain (`JazzAddPainStacks`, cap `Pain.max_stacks` **8**). **Graze excluded** (scratch package unchanged). Zone-use / heavy ramp do not share a dedup key with hit Pain (same combat event can still grant both only if the wounded unit also *uses* a zone that turn — different triggers).
 
-Кап `Pain.max_stacks` = **8**. Dedup zone-use: один раз за зону/ход (`unit.jazz_trauma_pain_keys`). Passive heavy: только зоны без zone-use в этом ходу; стаки суммируются по числу unused heavy.
+Кап `Pain.max_stacks` = **8**. Dedup zone-use: один раз за зону/ход (`unit.jazz_trauma_pain_keys`). Passive heavy: только зоны без zone-use в этом ходу; стаки суммируются по числу unused heavy. **Combat end:** `Pain.RemoveOnEndCombat = true` (как у `Analgesia`) — все стаки боли сбрасываются с окончанием боя; trauma/bleed остаются.
 
 **Zone-use hooks (что считается «юзом»):** Arms/Head — `OnFirearmAttackStart` (атакующий); Legs — `OnCalcMoveModifier`; Ribs/Burn — `OnCalcStartTurnAP`. Heavy-эффекты вызывают те же hooks + `OnEndTurn` → `JazzTraumaHeavyPainRamp`.
 
