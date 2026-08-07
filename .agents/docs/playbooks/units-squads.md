@@ -11,6 +11,7 @@
 - Проверить корректность ссылок между `jazz-units` и `jazz-maps` (squad/quest/sector IDs).
 - Проверить порядок инициализации после `DataLoaded`/`ModsReloaded`.
 - Учитывать determinism для hiring/randomization/персетов.
+- После изменений AME market/site/mail запускать `python -B docs/tools/_test_ame_contract.py`; после copy/биографий — `python -B docs/tools/_audit_ame_copy.py`; generated UnitData дополнительно проверять профильным sync-аудитом.
 - Не переименовывать unit/ID/class без проверки usage по всем 4 репозиториям.
 - Портреты мерков/NPC: `MercPortraits/` и `NPCPortraits/` в `jazz-units`; генерация — `$create-jazz-merc-portraits`.
 - Полный наёмник из generation-статьи: `docs/design/mercs-ja12/` + `$create-jazz-merc` + план `.agents/skills/create-jazz-merc/references/generation-plan.md` (один slug за раз: доводка → spec → генерация).

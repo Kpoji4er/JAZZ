@@ -156,10 +156,10 @@ RECIPES: dict[str, Recipe] = {
     "Colby": {
         "gender": "Male",
         "body": "Barry",
-        "head": "Barry",
-        "hair": "Barry",
+        "head": "Abraham",
+        "hair": "Abraham",
         "hat": "",
-        "note": "sheet: gadgets in pockets / inventor — pure Barry (plaid+tool vest); was WorkingGuy then GC_Demolition army vest",
+        "note": "sheet: gadgets in pockets / inventor — Barry tool-vest body + Abraham light head/wavy dark hair; avoids a pure Barry hireable clone",
     },
     "Blade": {
         "gender": "Male",
@@ -246,11 +246,11 @@ RECIPES: dict[str, Recipe] = {
     },
     "Hobbit": {
         "gender": "Male",
-        "body": "Barry",
-        "head": "Barry",
-        "hair": "Barry",
+        "body": "Larry_Addicted",
+        "head": "Larry",
+        "hair": "Larry",
         "hat": "",
-        "note": "BigPortrait: dynamite / tools — pure Barry (was WorkingGuy01 pink + Barry head)",
+        "note": "sheet: pudgy, dirty demolitions slob — Larry_Addicted torn bomb harness + Larry head/hair, football helmet cleared; no Colby clone",
     },
     "Ricochet": {
         "gender": "Male",
@@ -329,12 +329,12 @@ RECIPES: dict[str, Recipe] = {
     "Vilde": {
         "gender": "Male",
         "body": "Adonis_Soldier",
-        "head": "Raider",
-        "hair": "Raider",
+        "head": "MD",
+        "hair": "MD",
         "hat": "",
         "body_color2": (82, 64, 44),
         "pants_color": (82, 64, 44),
-        "note": "Adonis_Soldier + Raider (Shadow head is face-camo); fabric BodyColor2/Pants slightly browner",
+        "note": "young Estonian autorifleman — Adonis_Soldier + MD young head/mid-part hair; separates him from Cougar; fabric slightly browner",
     },
     "Grace": {
         "gender": "Female",
@@ -362,13 +362,13 @@ RECIPES: dict[str, Recipe] = {
     },
     "Laura": {
         "gender": "Female",
-        "body": "Livewire",
-        "head": "Livewire",
-        "hair": "Livewire",
+        "body": "IMP_Female_02",
+        "head": "Raven",
+        "hair": "WorkingGirl04",
         "hat": "",
         "chest": "Adonis_Medic",
         "hip": "Adonis_Medic",
-        "note": "Roma field doctor — Livewire body+head + Adonis medic (was RebelFemale+pale BC1 white-arms; medic grafts differentiate from pure Livewire)",
+        "note": "Roma field doctor — IMP troubleshooter jacket/cargos + Raven head + WorkingGirl04 long dark hair + Adonis medic; no Benny/Livewire clone",
     },
     "Eskimo": {
         "gender": "Male",
@@ -447,11 +447,11 @@ RECIPES: dict[str, Recipe] = {
     },
     "Cougar": {
         "gender": "Male",
-        "body": "Adonis_Soldier",
-        "head": "Raider",
-        "hair": "Raider",
+        "body": "Adonis_Heavy",
+        "head": "Scully",
+        "hair": "Scully",
         "hat": "",
-        "note": "BigPortrait: tan shirt black plate vest — Adonis + Raider",
+        "note": "MERC veteran autorifleman — Adonis_Heavy vest + Scully mature light head/hair; no Vilde recipe clone",
     },
     "Monk": {
         "gender": "Male",
@@ -515,19 +515,22 @@ RECIPES: dict[str, Recipe] = {
     },
     "Benny": {
         "gender": "Female",
-        "body": "Livewire",
-        "head": "Livewire",
-        "hair": "Livewire",
+        "body": "IMP_Female_01",
+        "head": "Fox",
+        "hair": "Fox",
         "hat": "",
-        "note": "BigPortrait: tactical fixer vest cargos — pure Livewire clone",
+        "note": "BigPortrait: tactical fixer vest/cargos — IMP trooper body + Fox short dark head/hair; male field cap cleared; no Laura/Livewire clone",
     },
     "Simon": {
         "gender": "Male",
-        "body": "Shadow",
-        "head": "Raider",
-        "hair": "Raider",
-        "hat": "",
-        "note": "Shadow sleeveless camo kit + Raider head/hair (Head_Shadow face-camo bleed); own preset — do not alias UnitData to Shadow",
+        "body": "DirtyHenri",
+        "head": "Len",
+        "hair": "Len",
+        "hat": "Grunty",
+        "pants": "Adonis_Soldier",
+        "chest": "Adonis_Artillery",
+        "body_color1": (185, 150, 120),
+        "note": "BigPortrait: field jacket, glasses, goatee, binoculars — DirtyHenri + Len + Grunty glasses + Adonis pants/chest; own preset, not Shadow",
     },
     "Ivanov": {
         "gender": "Male",
@@ -592,12 +595,15 @@ def gender_of_mesh(name: str) -> str | None:
         return None
     if re.search(
         r"(?i)(_F_|Female|Buns|Fox|Vicki|Meltdown|Mouse|Livewire|Kalyna|Raven|Scope|"
-        r"Fauda|Corazon|Emma|DrMangel|IMP_Female|Imp_Female|Head_F_)",
+        r"Fauda|Corazon|Emma|DrMangel|IMPTrooper|IMPTroublemaker|"
+        r"IMP_Female|Imp_Female|Head_F_)",
         n,
     ):
         return "Female"
     if re.search(
-        r"(?i)(_M_|Male_|IMP_Male|Imp_Male|Head_M_|Faction_.*Male|Equipment(?!Buns|Fox|Vicki|Meltdown|Mouse|Livewire|Kalyna|Raven|Scope|Fauda))",
+        r"(?i)(_M_|Male_|IMP_Male|Imp_Male|Head_M_|Faction_.*Male|"
+        r"Equipment(?!Buns|Fox|Vicki|Meltdown|Mouse|Livewire|Kalyna|Raven|Scope|"
+        r"Fauda|IMPTrooper|IMPTroublemaker))",
         n,
     ):
         # EquipmentX_Top for male AIM mercs

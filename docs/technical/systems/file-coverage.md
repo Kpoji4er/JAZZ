@@ -32,7 +32,7 @@
 | `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — grit CombatStart off (MED-001) |
 | `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
 | `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — `JazzStackableMedicine` (Bandage/Morphine stacks) + kit charge UI helper |
-| `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`GetDescription` progress line) |
+| `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`ResolveValue("Description")` progress line; `GetDescription` raw for save) |
 | `Systems_Wounds_HealWounds.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `System_Wounds_OperationHeal.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `WillPointsBar.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md), [UI](ui-audio-fx.md) |
@@ -74,13 +74,13 @@
 | `System_AME_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME PDA filters (UNITS-005) |
 | `System_AME_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAAIMEBrowser` + tab/hire wrap (UNITS-005) |
 | `System_AME_Market.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME market tick/state (UNITS-005) |
-| `System_AME_Mail.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME welcome/listing Email + tab lock (UI-AME-001) |
+| `System_AME_Mail.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME welcome/listing Email + read analytics; tab всегда открыт (UI-AME-001) |
 | `System_RIS_Mail.lua` | loaded | [R.I.S.](ris-intelligence.md) — schema 3 queue/inbox migration, receipt-gated 2h/7h/5h desk (UI-RIS-002; runtime acceptance pending) |
 | `System_RIS_Content.lua` | loaded | [R.I.S.](ris-intelligence.md) — generated dossiers, AAR v2, UI and Strategy localization banks |
 | `System_RIS_Combat.lua` | loaded | [R.I.S.](ris-intelligence.md) — two-stage dossier counters + per-sector cumulative snapshot v3, baseline WIA, satellite/tactical AAR v2 |
 | `System_RIS_Browser.lua` | loaded | [R.I.S.](ris-intelligence.md) — current-language Bulletin / Dossiers / Reports rendering |
 | `System_RIS_Strategy.lua` | loaded | [R.I.S.](ris-intelligence.md) — read-only Legion AI observer + one-row Strategy dispatch; loaded after `Guardpost_Patrols.lua` |
-| `System_AME_Browser_Template.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — XTemplate `PDAAIMEBrowser` (UNITS-005) |
+| `System_AME_Browser_Template.lua` | source-only | [Юниты и специализации](units-progression-specializations.md) — editable source projected by `_install_ame_xtemplate_moditem.py` into loaded `ModItemXTemplate` `PDAAIMEBrowser` in `items.lua` (UNITS-005) |
 | `System_AME_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME MercNationalities + flags (UNITS-005) |
 | `System_IMP_StartingGear.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — IMP hire kit (IMP-001) |
 | `System_IMP_Perks.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — Mimicry/Veteran/Sniper (IMP-001) |

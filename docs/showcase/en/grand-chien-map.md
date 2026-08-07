@@ -17,7 +17,11 @@ Demo scope is **Ernie Island**; mainland data exists, but a full country playthr
 | Flag Hill | I1 | **K4** |
 | Eagle's Nest | A20 | **B28** |
 
-Emerald Coast on Ernie is **J7**. Diamond Red is **A4**.
+Emerald Coast on Ernie is **J7**. Diamond Red is **A4**. Refugee camp is **F13**, poacher camp **D9**, Pantagruel **E15/E16**, Landsbach **A25/A26**, Fleatown mine **H14**, Camp du Crocodile **P17**.
+
+With the maps package, vanilla quest journals and sector gates already use these new IDs. The **JAZZ Vanilla Maps** profile keeps the old HotDiamonds IDs.
+
+Ernie quest landmarks: wounded rebels at **I2**, supplies and the prisoner rescue at **K5**, the defectors' camp at **K6**, Herman at **J7**, and the bunker in **L6 Underground** with the report back at L1.
 
 ## Regions
 

@@ -1,6 +1,7 @@
 """Generate docs/design/ame-roster-60.md — design cards for AME pool (JAZZ-UNITS-005)."""
 from __future__ import annotations
 
+import importlib.util
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parents[1] / "design" / "ame-roster-60.md"
@@ -49,6 +50,15 @@ SPECIALIZATION_TRAITS = frozenset(
 
 def stable_roll(name: str, mod: int = 5) -> int:
     return sum(ord(c) for c in name) % mod
+
+
+def full_name_with_callsign(name: str, nick: str | None) -> str:
+    if not nick:
+        return name
+    parts = name.split()
+    if len(parts) < 2:
+        return f'{name} "{nick}"'
+    return f'{parts[0]} "{nick}" {" ".join(parts[1:])}'
 
 
 def ensure_bandage(inv: str, count: int = 1) -> str:
@@ -590,6 +600,77 @@ for (name, nick, nat, role, spec, traits, salary, inv, bio), st in zip(SPEC, SPE
 
 assert len(ROSTER) == 60, len(ROSTER)
 
+
+def _load_ame_copy_bank() -> dict[int, dict[str, object]]:
+    path = Path(__file__).with_name("_ame_copy_bank.py")
+    spec = importlib.util.spec_from_file_location("jazz_ame_copy_bank", path)
+    if not spec or not spec.loader:
+        raise RuntimeError(f"cannot load AME copy bank: {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    bank = getattr(module, "BIOGRAPHIES", None)
+    if not isinstance(bank, dict):
+        raise TypeError("AME copy bank BIOGRAPHIES must be a dict")
+    return bank
+
+
+def _validate_ame_copy_bank(bank: dict[int, dict[str, object]]) -> None:
+    expected_slots = set(range(1, 61))
+    if set(bank) != expected_slots:
+        missing = sorted(expected_slots - set(bank))
+        unexpected = sorted(set(bank) - expected_slots, key=repr)
+        raise ValueError(
+            f"AME copy bank slots must be exactly 1..60; "
+            f"missing={missing}, unexpected={unexpected}"
+        )
+    for slot in range(1, 61):
+        copy = bank[slot]
+        if not isinstance(copy, dict) or set(copy) != {"ru", "en", "profile"}:
+            raise TypeError(
+                f"AME copy bank slot {slot} must contain exactly ru/en/profile"
+            )
+        for language in ("ru", "en"):
+            value = copy[language]
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(
+                    f"AME copy bank slot {slot} {language} must be non-empty text"
+                )
+        profile = copy["profile"]
+        if not isinstance(profile, dict) or set(profile) != {"ru", "en"}:
+            raise TypeError(
+                f"AME copy bank slot {slot} profile must contain exactly ru/en"
+            )
+        for language in ("ru", "en"):
+            value = profile[language]
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(
+                    f"AME copy bank slot {slot} profile.{language} "
+                    "must be non-empty text"
+                )
+
+
+AME_COPY_BANK = _load_ame_copy_bank()
+_validate_ame_copy_bank(AME_COPY_BANK)
+for _slot in range(1, 61):
+    _copy = AME_COPY_BANK[_slot]
+    ROSTER[_slot - 1]["bio"] = _copy["ru"]
+    ROSTER[_slot - 1]["bio_en"] = _copy["en"]
+    ROSTER[_slot - 1]["profile"] = dict(_copy["profile"])
+
+# Canonical daily rates after the approved weekly-band rebalance.  Keep this
+# projection beside the roster so a full regeneration cannot restore the old
+# pre-rebalance salaries.
+AME_STARTING_SALARIES = (
+    7, 14, 21, 27, 34, 39, 43, 48, 9, 16,
+    23, 30, 36, 41, 45, 50, 12, 18, 25, 32,
+    81, 92, 101, 95, 66, 87, 60, 104, 98, 75,
+    89, 57, 69, 107, 78, 84, 63, 72, 127, 111,
+    143, 107, 135, 123, 115, 131, 139, 119, 236, 214,
+    257, 264, 243, 286, 200, 243, 171, 214, 157, 200,
+)
+for _slot, _salary in enumerate(AME_STARTING_SALARIES, 1):
+    ROSTER[_slot - 1]["salary"] = _salary
+
 # Specialization icons: role specialists only; line troops = combat quartet.
 _LINE_SPECS = frozenset({"AllRounder", "Autoriflemen", "HeavyWeapons", "Marksmen"})
 _SPECIALIST_SPECS = frozenset({"Doctor", "Leader", "Marksmen", "ExplosiveExpert", "Mechanic"})
@@ -624,7 +705,7 @@ def render() -> str:
     lines.append("- **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**")
     lines.append("- **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.")
     lines.append("- Voice pool: Jazz remesh majority (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) + `PierreMerc` variety (~1/8 males on bucket) + small IMP minority (~1/8; VR → `IMP_male_01` / `IMP_female_01`).")
-    lines.append("- **Bio:** полная игровая проза карточки найма (RU); без мета-цифр статов/тиров.")
+    lines.append("- **Bio canon:** самостоятельные RU+EN биографии и двуязычные profile blurbs; без мета-цифр статов/тиров.")
     lines.append("- Nick: в основном Hardened. Grand Chien: заметная доля.")
     lines.append("")
 
@@ -636,8 +717,10 @@ def render() -> str:
         lines.append(f"## {cat}")
         lines.append("")
         for i, m in by_cat[cat]:
-            nick = f' «{m["nick"]}»' if m["nick"] else ""
-            lines.append(f"### `JAZZ_AME_{i:02d}` — {m['name']}{nick}")
+            lines.append(
+                f"### `JAZZ_AME_{i:02d}` — "
+                f"{full_name_with_callsign(m['name'], m.get('nick'))}"
+            )
             lines.append("")
             lines.append(f"- **Nationality:** `{m['nat']}`")
             lines.append(f"- **Category / CombatRole:** {m['cat']} / {m['role']}")
@@ -658,7 +741,13 @@ def render() -> str:
             for k, v in m["stats"].items():
                 lines.append(f"| {k} | {v} |")
             lines.append("")
-            lines.append(f"**Биография:** {m['bio']}")
+            lines.append(f"**Биография (RU):** {m['bio']}")
+            lines.append("")
+            lines.append(f"**Biography (EN):** {m['bio_en']}")
+            lines.append("")
+            lines.append(f"**Профиль (RU):** {m['profile']['ru']}")
+            lines.append("")
+            lines.append(f"**Profile (EN):** {m['profile']['en']}")
             lines.append("")
     return "\n".join(lines) + "\n"
 

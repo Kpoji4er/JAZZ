@@ -4,6 +4,19 @@
 AMEScreenFilters = false
 CurrentAMEFilter = 1
 
+local tformat = rawget(_G, "TFormat")
+if type(tformat) == "table" then
+	function tformat.AMEPlayerMercCount()
+		local count = 0
+		for _, merc in pairs(gv_UnitData or empty_table) do
+			if merc.Affiliation == "AME" and merc.HireStatus == "Hired" then
+				count = count + 1
+			end
+		end
+		return count
+	end
+end
+
 local function lIsListedAME(merc)
 	if not merc or merc.Affiliation ~= "AME" then
 		return false
@@ -68,11 +81,11 @@ function GetAMEScreenFilters()
 			id = 5,
 		},
 		{
-			name = T(890000000005011, "My Team [<PlayerMercCount()>]"),
+			name = T(890000000005011, "My Team [<AMEPlayerMercCount()>]"),
 			urlSlug = "My%20Team",
 			nameString = "hired",
 			func = function(item)
-				return item.HireStatus == "Hired"
+				return item.Affiliation == "AME" and item.HireStatus == "Hired"
 			end,
 			id = 6,
 			hire = true,

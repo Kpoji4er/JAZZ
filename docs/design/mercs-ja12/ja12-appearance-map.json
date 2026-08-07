@@ -10,11 +10,11 @@
   },
   "Benny": {
     "gender": "Female",
-    "body_donor": "Livewire",
-    "head_donor": "Livewire",
-    "hair_donor": "Livewire",
+    "body_donor": "IMP_Female_01",
+    "head_donor": "Fox",
+    "hair_donor": "Fox",
     "hat_donor": "",
-    "note": "BigPortrait: tactical fixer vest cargos — pure Livewire clone",
+    "note": "BigPortrait: tactical fixer vest/cargos — IMP trooper body + Fox short dark head/hair; male field cap cleared; no Laura/Livewire clone",
     "handcrafted_kept": false
   },
   "Biggens": {
@@ -56,10 +56,10 @@
   "Colby": {
     "gender": "Male",
     "body_donor": "Barry",
-    "head_donor": "Barry",
-    "hair_donor": "Barry",
+    "head_donor": "Abraham",
+    "hair_donor": "Abraham",
     "hat_donor": "",
-    "note": "sheet: gadgets in pockets / inventor — pure Barry (plaid+tool vest); was WorkingGuy then GC_Demolition army vest",
+    "note": "sheet: gadgets in pockets / inventor — Barry tool-vest body + Abraham light head/wavy dark hair; avoids a pure Barry hireable clone",
     "handcrafted_kept": false
   },
   "Conrad": {
@@ -82,11 +82,11 @@
   },
   "Cougar": {
     "gender": "Male",
-    "body_donor": "Adonis_Soldier",
-    "head_donor": "Raider",
-    "hair_donor": "Raider",
+    "body_donor": "Adonis_Heavy",
+    "head_donor": "Scully",
+    "hair_donor": "Scully",
     "hat_donor": "",
-    "note": "BigPortrait: tan shirt black plate vest — Adonis + Raider",
+    "note": "MERC veteran autorifleman — Adonis_Heavy vest + Scully mature light head/hair; no Vilde recipe clone",
     "handcrafted_kept": false
   },
   "Devin": {
@@ -199,11 +199,11 @@
   },
   "Hobbit": {
     "gender": "Male",
-    "body_donor": "Barry",
-    "head_donor": "Barry",
-    "hair_donor": "Barry",
+    "body_donor": "Larry_Addicted",
+    "head_donor": "Larry",
+    "hair_donor": "Larry",
     "hat_donor": "",
-    "note": "BigPortrait: dynamite / tools — pure Barry (was WorkingGuy01 pink + Barry head)",
+    "note": "sheet: pudgy, dirty demolitions slob — Larry_Addicted torn bomb harness + Larry head/hair, football helmet cleared; no Colby clone",
     "handcrafted_kept": false
   },
   "Horg": {
@@ -235,11 +235,11 @@
   },
   "Laura": {
     "gender": "Female",
-    "body_donor": "Livewire",
-    "head_donor": "Livewire",
-    "hair_donor": "Livewire",
+    "body_donor": "IMP_Female_02",
+    "head_donor": "Raven",
+    "hair_donor": "WorkingGirl04",
     "hat_donor": "",
-    "note": "Roma field doctor — Livewire body+head + Adonis medic (was RebelFemale+pale BC1 white-arms; medic grafts differentiate from pure Livewire)",
+    "note": "Roma field doctor — IMP troubleshooter jacket/cargos + Raven head + WorkingGirl04 long dark hair + Adonis medic; no Benny/Livewire clone",
     "handcrafted_kept": false
   },
   "Lucky": {
@@ -352,11 +352,11 @@
   },
   "Simon": {
     "gender": "Male",
-    "body_donor": "Shadow",
-    "head_donor": "Raider",
-    "hair_donor": "Raider",
-    "hat_donor": "",
-    "note": "Shadow sleeveless camo kit + Raider head/hair (Head_Shadow face-camo bleed); own preset — do not alias UnitData to Shadow",
+    "body_donor": "DirtyHenri",
+    "head_donor": "Len",
+    "hair_donor": "Len",
+    "hat_donor": "Grunty",
+    "note": "BigPortrait: field jacket, glasses, goatee, binoculars — DirtyHenri + Len + Grunty glasses + Adonis pants/chest; own preset, not Shadow",
     "handcrafted_kept": false
   },
   "Static": {
@@ -389,10 +389,10 @@
   "Vilde": {
     "gender": "Male",
     "body_donor": "Adonis_Soldier",
-    "head_donor": "Raider",
-    "hair_donor": "Raider",
+    "head_donor": "MD",
+    "hair_donor": "MD",
     "hat_donor": "",
-    "note": "Adonis_Soldier + Raider (Shadow head is face-camo); fabric BodyColor2/Pants slightly browner",
+    "note": "young Estonian autorifleman — Adonis_Soldier + MD young head/mid-part hair; separates him from Cougar; fabric slightly browner",
     "handcrafted_kept": false
   },
   "Vince": {

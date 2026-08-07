@@ -29,7 +29,7 @@
 - 245 sectors;
 - 110 quests;
 - 41 banters;
-- 23 conversations;
+- 24 conversations;
 - 18 loot definitions;
 - 4 guardpost objectives;
 - 4 XTemplates;
@@ -66,9 +66,31 @@ Sector ID является публичным ключом savegame, quest state
 
 ## Квесты, разговоры и banters
 
-110 Quest definitions хранят условия и эффекты, связанные с sector/unit/item/variable IDs. 23 conversations содержат ветвление и последствия; 41 banter — контекстные реплики. Локализация сейчас поддерживает русский язык, поэтому новый текст должен иметь корректный localization entry и проверяться на отсутствующие/дублированные IDs.
+110 Quest definitions хранят условия и эффекты, связанные с sector/unit/item/variable IDs. 24 conversations содержат ветвление и последствия; 41 banter — контекстные реплики. Активные mod-only строки синхронизируются в `Russian.csv` и `English.csv`; новый текст должен иметь один numeric ID, обе переведённые строки и проверку на коллизии.
 
 Разговор нельзя безопасно менять изолированно: проверить speaker UnitData, map placement, quest variables, item rewards, loyalty/control effects и повторный вход в сектор.
+
+### Контракт ремонта квестов Эрни (JAZZ-QUESTS-001)
+
+- `RebelsSavior` завершается только после сдачи 4×`ZastavaM76` и 4×`Medkit`; после сдачи у палаток K5 появляется `Merc_BarrySeal` из `jazz-units`, которого бесплатно присоединяет разговор `BarrySeal_Recruit`.
+- `Jazz_Doctor_need_Help` забирает ресурсы из player squads и требует независимо стабилизировать три wounded-маркера I2.
+- `RescueTeam` считает спасение только при живом `Rebel_Hostage`; смерть заложника фиксирует failed outcome.
+- `Jazz_DeadPigs` защищает аванс и выдачу боеприпасов от повторов; после принятия в K6 появляются четыре союзника группы `DeadPigs_Reinforcements`, не входящие в `Pigs`.
+- `JAZZ_REBELS_1_SeizeTheOutlook` использует состояние `M4_UnderControl`; payoff-маркеры K4/M4 привязаны к собственным секторам и не despawn в тот же tick.
+- `RescueHerMan` использует J7 в TCE и journal, marker Германа входит в группы `HermanShaking` и `Herman`, а обе sector-копии J7 вызывают `EncounterHerman`.
+- `Jazz_Alkatraz` имеет заголовок и journal flow «L6 Underground → отчёт в L1»; фактическое runtime-условие зачистки всё ещё требует smoke-подтверждения.
+- Кики (`JAZZ_Ernie_Locals_M2_SaveMyFamily_Woman`) загружается как `immortal` + `ImportantNPC`; Psycho-ветка выдаёт обещанный `BigDiamond`.
+
+Generated source синхронизирован между `items.lua`, `ModTextsMaps.csv`, InventoryItem/UnitData companions и шестью `objects.lua`. Уровень evidence на 7 августа 2026: static PASS (`docs/tools/_audit_maps_quest_contract.py`); Map Editor round-trip и runtime-прохождение остаются обязательными acceptance-проверками.
+
+### Vanilla quest sector remap (JAZZ-QUESTS-002)
+
+Mainland / campaign vanilla quest clone’ы в `jazz-maps` ссылаются на **maps** sector IDs из [`sector-transfer.md`](../maps/sector-transfer.md) (+ runtime `I3→J7`, crocodile `H14→P17`). Ownership — только `jazz-maps` (`items.lua`, `ModTextsMaps.csv`); `jazz-nomaps` не меняется.
+
+- Apply: `docs/tools/_apply_maps_vanilla_quest_sector_remap.py --apply`
+- Audit: `docs/tools/_audit_maps_vanilla_quest_sectors.py --strict`
+- Overloads: mine `H7→H14` ≠ crocodile `H14→P17`; custom `Jazz_*` keep maps-local I2/I3; `04_Betrayal` I3→J7 — временный долг до redesign World Flip; `D22`/`F23` — quest refs по таблице при `missing_moditem` sector stubs.
+- Static evidence (2026-08-07): audit `--strict` OK после Wave A+B apply. Runtime smoke landmark chains — open.
 
 ## Setpiece и guardposts
 
@@ -85,6 +107,8 @@ Loaded `Rebels_Loyalty.lua` добавляет `FactionGrantLoyalty`. Он ра�
 - assets: map props, weapon/unit entities, materials и textures.
 
 Maps package не объявлен обязательной dependency в core metadata, хотя runtime-ссылки существуют. Поддерживаемая установка требует его наличия.
+
+Найм Barry добавляет прямую ссылку maps → `jazz-units/UnitData/Merc_BarrySeal.lua`; поддерживаемый порядок профиля остаётся `assets → units → maps → jazz`.
 
 ## Generated data workflow
 

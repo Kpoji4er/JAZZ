@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Clear AIM-chat opus that is battle/Selection-donated or has no hire bank.
+"""Clear AIM-chat opus that duplicates battle Selection audio.
 
 Bayun: hire chat must come from SPEECH 081–120, never ATTN/Selection.
 - If chat opus bytes == current Selection → delete.
-- If merc is MERK / ja2mercs folder has no 081–120 → delete all chat opus
-  (silent chat > wrong battle VO). Hire-remeshed AIM/ЦС/WF are left alone.
+- Owner-approved fallback remesh from the correct merc voice bank is preserved.
+- `--strict-hire-only` additionally deletes chat when no 081–120 bank exists.
 
 Usage (jazz/):
   python docs/tools/_clear_ja12_selection_chat_donors.py --dry-run
@@ -38,6 +38,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--strict-hire-only", action="store_true")
     args = ap.parse_args()
     apply = args.apply and not args.dry_run
 
@@ -64,13 +65,14 @@ def main() -> int:
         row = by_unit.get(uid, {})
         source = row.get("speech_source") or ""
         pid = (row.get("profile_id") or "").strip()
-        no_hire = False
-        if is_merk_ja2mercs_source(source):
-            no_hire = True
-        elif source.startswith("ja2mercs:") and pid and not folder_has_hire_stems(
-            source, pid
-        ):
-            no_hire = True
+        no_hire = args.strict_hire_only and (
+            is_merk_ja2mercs_source(source)
+            or (
+                source.startswith("ja2mercs:")
+                and pid
+                and not folder_has_hire_stems(source, pid)
+            )
+        )
 
         donor_bytes = b""
         donor_path = VOICES / f"{donor}.opus"

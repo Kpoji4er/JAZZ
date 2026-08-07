@@ -319,9 +319,11 @@ end
 -- Reliability and positive BaseJamChance are parallel fault risks: use the worse one
 -- instead of adding the same ammo/platform defect twice. Negative BaseJamChance remains
 -- a quality bonus. A serviceable weapon's base risk is capped at 10%.
+-- Read via GetProperty so ammo/component AddModifier ("ammo") applies.
 local function JazzGetBaseJamScore(item)
-	local reliability_score = Max(0, 100 - (item.Reliability or 50))
-	local base_jam = item.BaseJamChance or 0
+	local reliability = item:GetProperty("Reliability") or 50
+	local base_jam = item:GetProperty("BaseJamChance") or 0
+	local reliability_score = Max(0, 100 - reliability)
 	local score
 	if base_jam >= 0 then
 		score = Max(reliability_score, base_jam)
@@ -331,28 +333,28 @@ local function JazzGetBaseJamScore(item)
 	return Clamp(score, 0, 100)
 end
 
--- Additive decile curve shared by current condition and permanent max-resource wear.
--- The old multiplicative tiers amplified bad ammo a second time and could jump to 100%.
+-- Soft additive decile curve shared by current condition and permanent max-resource wear.
+-- Mid steps stay playable after ordinary repair; only near-zero resource approaches 100%.
 local function JazzGetJamResourcePenalty(resource_percent)
 	resource_percent = Clamp(resource_percent or 0, 0, 100)
 	if resource_percent <= 0 then
 		return 1000
 	elseif resource_percent < 10 then
-		return 950
-	elseif resource_percent < 20 then
 		return 800
+	elseif resource_percent < 20 then
+		return 600
 	elseif resource_percent < 30 then
-		return 650
+		return 420
 	elseif resource_percent < 40 then
-		return 500
+		return 280
 	elseif resource_percent < 50 then
-		return 350
+		return 180
 	elseif resource_percent < 60 then
-		return 250
+		return 120
 	elseif resource_percent < 70 then
-		return 150
+		return 90
 	elseif resource_percent < 80 then
-		return 100
+		return 60
 	elseif resource_percent < 90 then
 		return 50
 	elseif resource_percent < 100 then
@@ -428,8 +430,10 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 	local max_resource = item:GetMaxResource() or item:GetFactoryResource() or 1000
 	if max_resource <= 0 then max_resource = 1 end
 
+	num_shots = num_shots or 1
 	local loss = item:GetBaseDegradePerShot() or 1
 	local jammed = false
+	local fired_count = num_shots
 
 	if not attacker.infinite_condition then
 		local jam_chance = item:GetJamChance(attacker)
@@ -440,21 +444,32 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 			loss = MulDivRound(loss, 110, 100)
 		end
 
+		-- Single-shot attacks keep the historical half-rate; burst/auto roll once
+		-- per intended bullet so jam risk scales with queue length (WEAPONS-011).
 		if num_shots == 1 then
 			jam_chance = DivRound(jam_chance, 2)
 		end
 
-		local jam_roll = attacker:Random(1000)
-		if item.num_safe_attacks <= 0 and jam_roll < jam_chance then
-			jammed = true
+		fired_count = 0
+		if item.num_safe_attacks and item.num_safe_attacks > 0 then
+			fired_count = num_shots
+		else
+			for _ = 1, num_shots do
+				local jam_roll = attacker:Random(1000)
+				if jam_roll < jam_chance then
+					jammed = true
+					break
+				end
+				fired_count = fired_count + 1
+			end
 		end
 
-		resource = Max(0, resource - num_shots * loss)
+		resource = Max(0, resource - fired_count * loss)
 	end
 
 	item.WeaponResource = resource
 	local condition_percent = MulDivRound(resource, 100, max_resource)
-	return jammed, condition_percent
+	return jammed, condition_percent, fired_count
 end
 
 -- Compat / ReloadLua: same contract as System_WeaponResourceMaintenance.RepairJammed.
@@ -477,22 +492,83 @@ function FirearmBase:RepairJammed(resource, unit_owner)
 end
 
 function Firearm:PrecalcAmmoUse(attacker, num, prediction, isShotgun)
-	local fired = num	
-	local jammed, condition
+	local fired = num
+	local jammed, condition, fired_count
 	if not prediction then
-		jammed, condition = self:ReliabilityCheck(attacker, num)
+		jammed, condition, fired_count = self:ReliabilityCheck(attacker, num)
+		if jammed then
+			-- Jam on attempting shot i → shots 1..i-1 already left the barrel.
+			if (fired_count or 0) > 0 then
+				fired = fired_count
+			else
+				fired = false
+			end
+		end
 	end
-	
+
 	local ammo_type = self.ammo and self.ammo.class
-	if jammed or (not attacker.infinite_ammo and not self.ammo) then
+	if fired == false or (not attacker.infinite_ammo and not self.ammo) then
 		fired = false
-	elseif self.ammo.Amount < num and isShotgun ~= true then
+	elseif type(fired) == "number" and self.ammo and self.ammo.Amount < fired and isShotgun ~= true then
 		fired = self.ammo.Amount
-	elseif self.ammo.Amount < 1 and isShotgun == true then
-		fired = 1
+		if fired <= 0 then
+			fired = false
+		end
+	elseif isShotgun == true and self.ammo and self.ammo.Amount < 1 then
+		fired = false
 	end
-	
+
 	return fired, jammed, condition, ammo_type
+end
+
+-- Vanilla ApplyAmmoUse skips ammo debit when jammed (elseif). Partial mid-burst
+-- jam must consume the rounds that already fired, then Jam the weapon.
+function Firearm:ApplyAmmoUse(attacker, fired, jammed, condition)
+	local weapon = self.parent_weapon or self
+	local prev = weapon.Condition
+	weapon.Condition = condition or prev
+	NetUpdateHash("WeaponAmmoUse", weapon.class, weapon.id, prev, weapon.Condition)
+	if prev ~= condition then
+		Msg("ItemChangeCondition", self, prev, condition, attacker)
+	end
+
+	local fired_count = type(fired) == "number" and fired or 0
+	if fired_count > 0 and not attacker.infinite_ammo and not attacker:HasStatusEffect("ManningEmplacement") then
+		assert(self.ammo and self.ammo.Amount >= fired_count)
+		self.ammo.Amount = Max(0, self.ammo.Amount - fired_count)
+		if IsMerc(attacker) and self.ammo.Amount <= 0 then
+			if g_Combat and g_Combat.out_of_ammo and not self:AmmoInSquad(attacker) then
+				g_Combat.out_of_ammo[self.class] = true
+			end
+			Msg("OutOfAmmo", attacker, self, fired_count, jammed)
+		end
+		CreateRealTimeThread(function()
+			WaitMsg("CombatActionEnd")
+			if not g_Combat or g_Combat:ShouldEndCombat() or not IsMerc(attacker) then return end
+			local amount = self.ammo.Amount
+			local reloadOptions = GetReloadOptionsForWeapon(self, attacker)
+			if not next(reloadOptions) and amount <= 0 then
+				PlayVoiceResponse(attacker, "NoAmmo")
+			elseif self.MagazineSize >= 5 then
+				if self.low_ammo_checked and amount <= (self.MagazineSize / 4) then
+					PlayVoiceResponse(attacker, "AmmoLow")
+					self.low_ammo_checked = false
+				end
+			end
+		end)
+	end
+
+	if jammed then
+		self:Jam(attacker)
+	end
+
+	if jammed or not self.ammo or self.ammo.Amount <= 0 then
+		Msg("InventoryChange", attacker)
+	end
+	ObjModified(self)
+	if weapon ~= self then
+		ObjModified(weapon)
+	end
 end
 
 function Firearm:GetAttackResults(action, attack_args)
@@ -570,12 +646,15 @@ function Firearm:GetAttackResults(action, attack_args)
 --	end
 
 -- JAZZ-WEAPONS-006: pellet count from BuckshotProjectiles (ammo-modifiable), not AutoShots.
+-- WEAPONS-011: DoubleBarrel may jam after the first shell — keep one pellet packet per fired shell.
 if IsKindOf(self, "Shotgun") then
-	num_shots = self.BuckshotProjectiles or 1
-end
-
-if action.id == "DoubleBarrel" then
-	num_shots = (self.BuckshotProjectiles or 1) * 2
+	local pellets = self.BuckshotProjectiles or 1
+	if action.id == "DoubleBarrel" then
+		local shells = type(fired) == "number" and Max(fired, 0) or 2
+		num_shots = pellets * shells
+	else
+		num_shots = pellets
+	end
 end
 
 -- PrecalcAmmoUse returns shells consumed, while shotgun num_shots is the pellet
@@ -1095,7 +1174,8 @@ shot_attack_args.num_shots = num_shots
 		end
 
 		--if not shot_attack_args.lof and not aoe_params or not fired or jammed or shot_attack_args.chance_only then
-		if not fired or jammed or (shot_attack_args.chance_only and not shot_attack_args.damage_breakdown) then
+		-- WEAPONS-011: mid-burst jam keeps jammed=true with partial fired; only abort when no rounds left the barrel.
+		if not fired or (shot_attack_args.chance_only and not shot_attack_args.damage_breakdown) then
 			ResumeInfiniteLoopDetection("CTHCalc")
 			return attack_results
 		end

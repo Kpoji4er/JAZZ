@@ -1,4 +1,4 @@
-sep=,
+﻿sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -836,7 +836,7 @@ Requires at least 30 rounds loaded",,jazz:items.lua:68076
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Cumbersome (no Free Move)",,jazz:InventoryItem/HeavyArmorTorso_WeavePadding.lua:14 | jazz:items.lua:58075
 191353195659,Газ. выстрелы миномета,Mortar Gas Cartridges,,jazz:InventoryItem/JAZZ_AMMO_MortarShell_Gas.lua:13 | jazz:items.lua:7241
 191364946234,Комплекты Дополнительного бронирования,Armor Upgrade Kits,,jazz:InventoryItem/JAZZ_ArmorUpgrade.lua:11 | jazz:items.lua:53854
-191474319874,Приговоренный <em>Партизан</em> находится где-то на <em>пирсе</em>,The sentenced <em>Partisan</em> is somewhere on the <em>pier</em>,,jazz-maps:items.lua:59514
+191474319874,Приговорённый повстанец находится на <em>пирсе</em>.,The condemned rebel is on the <em>pier</em>.,,jazz-maps:items.lua:59514
 191747956366,"Попытка добавить базовому патрону бронебойности не изменяя конструкции пули, и это удалось, теперь владельцы базовой защиты могут трепетать. Имеются побочные эффекты, однако оно того стоит.","An attempt to give the standard round armor-piercing capability without changing the bullet design — and it worked. Basic armor users should be afraid. Side effects apply, but it’s worth it.",,jazz:InventoryItem/JAZZ_AMMO_45ACP_P.lua:12 | jazz:items.lua:3287
 191783634543,P-210,P-210,,jazz:InventoryItem/P210.lua:13 | jazz:items.lua:15533
 192038051150,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Уменьшение урона (улучшено обивкой),<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Damage reduction (improved by padding),,mag-hint-aligned
@@ -2224,7 +2224,7 @@ Gains <GameTerm('Grit')> (<em><gritOnStealthKill></em>) after a successful <Game
 479875631638,Thompson,Thompson,,jazz:InventoryItem/Thompson.lua:14 | jazz:items.lua:18626
 480352270619,"Вижу трафарета. Мать моя святая женщина, ну и рожа!","I see the target. Holy mother of mine, what a mug!",,jazz-units:items.lua:70593
 480404987558,"Скоро сюда прибудет крупный отряд Легиона, необходимо помочь местным с обороной",A large Legion force will arrive soon. Help the locals prepare their defenses.,,jazz-maps:items.lua:58924
-480799336285,"Вы очень сильно помогли нам, спасибо наемники, у нас тут затесался ваш колега по опасному бизнессу, такой же солдат удачи, думаю он с радостью пойдёт с вами, по началу бредил про какую-то несуществующую страну, под названием Арулько, но вроде отпустило. Он вроде как потерял память, но боевые навыки точно не растерял. Вон он стоит у палаток.","You've done a great deal for us. Thank you, mercenaries. Another man in your dangerous line of work washed up here—a fellow soldier of fortune. I think he'd gladly join you. At first he kept raving about some nonexistent country called Arulco, but he seems to be over that now. He may have lost his memory, but he certainly hasn't lost his fighting skills. That's him by the tents.",,jazz-maps:items.lua:30698
+480799336285,"Вы нас здорово выручили. У палаток ждёт один американец — Берриман Сил, пилот и контрабандист. Его последний рейс закончился здесь не по плану. Он ищет новую команду; думаю, вы найдёте общий язык.","You've really helped us out. There's an American waiting by the tents—Berriman Seal, a pilot and smuggler. His last run didn't go as planned. He's looking for a new crew; I think you'll understand each other.",,jazz-maps:items.lua:30698
 481262160237,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Заточенное: высокий урон
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая цена атаки","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Sharpened: high damage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low attack AP cost",,jazz:InventoryItem/Knife_Sharpened.lua:15 | jazz:items.lua:56422
@@ -2243,7 +2243,7 @@ Gains <GameTerm('Grit')> (<em><gritOnStealthKill></em>) after a successful <Game
 484141046789,"Самозарядный газоотводный дробовик 12-го калибра.  Введение в систему газового двигателя было необходимо после критической неудачи системы ""инерционной автоматики"", дробовика М3, которая просто напросто не работала на патронах со слабой навеской.",A semi-automatic 12-gauge shotgun with a gas-operated action. The gas system was adopted after the M3's inertia-driven action proved unable to cycle lightly loaded shells.,,jazz:InventoryItem/M41Shotgun.lua:15 | jazz:items.lua:27749
 484204389251,"Современный ""маленький да удаленький"" ПП австрийского производства. Изготовлен из высокопрочных полимеров, и является очень удобным оружием, хорошо контролируемым при автоматической стрельбе.","A modern Austrian submachine gun: small but mighty. High-strength polymers make it light and comfortable, and it remains easy to control in automatic fire.",,jazz:InventoryItem/TMP.lua:16 | jazz:items.lua:19497
 484479696515,Запасной лагерь Контрабандистов,Smugglers' Backup Camp,,jazz-maps:items.lua:6812 | jazz-maps:items.lua:43325
-484530953168,Необходимо забрать из старого лагеря <em>4 Винтовки Zastava M76 и 4 Комплекта оказания мед помощи</em>.,We need to retrieve from the old camp <em>4 Zastava M76 rifles and 4 first aid kits</em>.,,jazz-maps:items.lua:59601
+484530953168,Забрать из старого лагеря <em>4 винтовки Zastava M76</em> и <em>4 комплекта Medkit</em>.,Retrieve <em>4 Zastava M76 rifles</em> and <em>4 Medkits</em> from the old camp.,,jazz-maps:items.lua:59601
 484768360157,Заводская рукоять ПКМ,Factory PKM grip,,jazz:items.lua:31158
 485347082440,МЕШОК,BAG,,jazz:items.lua:83960
 486298295383,"12-й калибр, Пуля","12 Gauge, Slug",,jazz:InventoryItem/_12gauge_Flechette.lua:10 | jazz:items.lua:8367
@@ -2272,14 +2272,18 @@ Gains <GameTerm('Grit')> (<em><gritOnStealthKill></em>) after a successful <Game
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Aiming is less effective against camouflaged targets
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Cannot be combined with padding or ceramic plates",,jazz:InventoryItem/CamoArmor_Light.lua:13 | jazz:items.lua:57417
 492075631047,Снэйр,Snare,,jazz-units:Code/Mercenary.lua:137
-492169252126,"Uno, Dos, Tres
+492169252126,"Зачистить лагерь перебежчиков в <em>секторе K6</em> и вернуться к Балумбе.
+
+Uno, Dos, Tres
 Я достану свинорез
 Ты откуда вылез, хлопчик
 Ты зачем сюда полез?
 Quatro, Cinquo, Senco, Ses
 Я протру мой свинорез
 Лучше б ты бежал на запад
-И глотал х*и в ЕС","Uno, dos, tres
+И глотал х*и в ЕС","Clear the defectors' camp in <em>sector K6</em> and return to Balumba.
+
+Uno, dos, tres
 Out comes my pig-sticker
 Where'd you crawl from, boy?
 What'd you come in here for?
@@ -2631,7 +2635,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 555407199353,Улучшенный lower,Upgraded Lower Receiver,,jazz:items.lua:46972
 555464992529,G3A4,G3A4,,jazz:InventoryItem/G3A4.lua:13 | jazz:items.lua:23963
 555517991144,"Выстрел в голову: существенное снижение вероятности попадания, огромный урон. Цель имеет шанс <color EmStyle>потерять сознание</color> или <color EmStyle>ослепнуть на 1 ход</color>","Headshot: much lower hit chance, massive damage. The target may <color EmStyle>lose consciousness</color> or <color EmStyle>be blinded for 1 turn</color>.",,jazz:items.lua:58635
-555833394027,"Нашему айболиту нужна помощь, придется заморочиться и поискать <em>медикаменты</em> ажно <em>50</em> штук, мины и боеприпасы должны быть в секторе <em>I3</em> на <em>Блок посту возле моста и в тайнике в вентилиционной шахте</em>, Также нужно поднять <em>выживших повстанцев</em>, сто процентов мы не заметили их при подъёме, коммуняки умеют в маскировку.","Our medic needs help — we’ll have to put in the work and find <em>medications</em>, as many as <em>50</em> units; mines and ammo should be in <em>sector I3</em> at the <em>checkpoint near the bridge and in a stash in the ventilation shaft</em>. We also need to raise <em>surviving rebels</em> — 100% we missed them during the climb; commies know how to camouflage.",,jazz-maps:items.lua:59070
+555833394027,"Собрать <em>50 Meds</em>, забрать в <em>секторе I3</em> ящик с боеприпасами у моста и ящик с минами в тайнике у разрушенного ангара, затем стабилизировать <em>трёх раненых повстанцев</em>.","Collect <em>50 Meds</em>, retrieve the ammunition crate by the bridge and the mine crate from the cache near the ruined hangar in <em>sector I3</em>, then stabilize <em>three wounded rebels</em>.",,jazz-maps:items.lua:59070
 556296913868,Тропы?,Paths?,,jazz-maps:items.lua:31182
 556350640822,"По сути базовый  патрон, но с трассирующей пулей, на случай необходимости сконцентрировать огонь отряда из ПКМ, ну а вдруг?","Essentially the standard round with a tracer bullet, in case the squad ever needs to concentrate its PKM fire. You never know.",,jazz:InventoryItem/JAZZ_AMMO_762x54_Tracer.lua:12 | jazz:items.lua:5863
 556429667616,Активное оружие II,Active Weapon II,,jazz:items.lua:88532
@@ -3329,7 +3333,6 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 705978782029,Давайте попробуем не повторять эту ошибку.,Let's not make that mistake again.,,jazz-units:items.lua:69904
 706193284510,Вайс,Weiss,,jazz-units:Code/Mercenary.lua:83
 706390057843,"Это как базовый армейский патрон, только он может залетать в бронированную пятку и вылетать из бронированного затылка.","Like the standard military round, except this one can enter through an armored heel and leave through an armored skull.",,jazz:InventoryItem/JAZZ_AMMO_545_EPR.lua:12 | jazz:items.lua:5114
-706580608154,<em>Martha</em> is looking for her husband who was kidnapped by the <em>Legion</em> and was last seen on the <em><SectorName('M7')></em>,<em>Martha</em> is looking for her husband who was kidnapped by the <em>Legion</em> and was last seen on the <em><SectorName('M7')></em>,,jazz-maps:items.lua:98438
 707348010242,"Ручной противотанковый гранатомет. Часто, когда говорят ""гранатомет"", или ""РПГ"", имеют в виду именно РПГ-7. Снаряжается надкалиберными 40 мм гранатами, с широкой номенклатурой используемых типов боеприпасов. ","A shoulder-fired anti-tank grenade launcher. When people say “grenade launcher” or “RPG,” they often mean the RPG-7. It fires a wide range of 40 mm over-caliber warheads.",,jazz:InventoryItem/RPG7.lua:21 | jazz:items.lua:28233
 707682431232,Ух-ты!,Wow!,,jazz-units:items.lua:70026
 707700625892,"Если мы не найдём транспорт, я начну смотреть на деревья как на посадочные площадки","If we don't find transport, I'll start seeing every tree as a landing pad.",,jazz-units:items.lua:68579
@@ -3409,7 +3412,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 723516988874,"Вы могли и догадаться, но я бывший солдат удачи, как вы сейчас. Не вдаваясь в подробности, я имею как военную подготовку, так медицинскую, когда Легион только начинал набирать обороты я поставил на ноги очень многих бойцов и выпил Легиону очень много крови. Я успел повоевать с ними, так что со многими полевыми командирами у меня сейчас свои счёты.","You could have guessed — I’m a former soldier of fortune, like you. Without going into details, I have both military and medical training. When the Legion was just gaining momentum, I got many fighters back on their feet and made the Legion bleed a lot. I fought them, so I have scores to settle with many of their field commanders.",,jazz-maps:items.lua:30280
 723660035090,defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> Families,defeated the murderous <em>Van Tassel</em> and <em>Le Domas</em> Families,,jazz-maps:items.lua:96940
 724254397142,ВЫБРАТЬ ВСЕ,SELECT ALL,,jazz:items.lua:89617
-724348814002,"<em>Спасенный</em> должен вернуться в лагерь, надо бы вернуться туда тоже.",The <em>rescued</em> has to return to camp — we should probably go back there too.,,jazz-maps:items.lua:59535
+724348814002,Спасённый повстанец возвращается в лагерь. Нужно доложить сержанту.,The rescued rebel is returning to camp. Report back to the sergeant.,,jazz-maps:items.lua:59535
 724608997137,Уровень защиты,Protection Level,,jazz:items.lua:73377
 724757939121,".44, ШОК Отключено",".44, SHOCK — Disabled",,jazz:InventoryItem/_44CAL_Shock.lua:10 | jazz:items.lua:7716
 724975034141,Шлем 6Б7,6B7 Helmet,,jazz:InventoryItem/JazzArmor_6b7Helm.lua:12 | jazz:items.lua:55091
@@ -3803,7 +3806,7 @@ Back the way you came, on the shore—right here. Take it. That's all I can give
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Heavy recoil",,jazz:InventoryItem/HK21.lua:16 | jazz:items.lua:28468
 805237805844,дышит,(breathing),,jazz-units:items.lua:68932
 805310507119,Мотоциклетная защита. Не держит пули,Motorcycle Armor. Does Not Stop Bullets.,,mag-hint-aligned
-805716788538,Мы в спасатели нанимались,We didn’t sign up to be rescuers,,jazz-maps:items.lua:59487
+805716788538,Мы в спасатели не нанимались,We didn't sign up to be rescuers,,jazz-maps:items.lua:59487
 805863336928,Отлично. Я здесь.,Great. I'm here.,,jazz-units:items.lua:69082
 806529866191,Обыскать,Loot,,jazz:items.lua:83796
 806826966692,Защита для глаз во время песчанных бурь,Eye protection during sandstorms,,mag-hint-aligned
@@ -5498,7 +5501,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 994600876666,"Мы еще потренируемся с тобой, Донна! Будешь мухам крылья отстреливать!","We'll keep practicing, Donna! Soon you'll be shooting the wings off flies!",,jazz-units:items.lua:78458
 995185159847,"С 1959 по 1995 годы - основное стрелковое оружие Бундесвера. A3 - поздний серийный вариант, с пластиковым вентилируемым цевьем и барабанным целиком. В основе автоматики - фирменная схема с роликовым замедлением полусвободного затвора. Странным путем пошла эволюция оружия, в то время как у советов уже был автомат под промежуточный патрон.","From 1959 to 1995 - the main small arms of the Bundeswehr. A3 - late production version, with a plastic ventilated forend and a drum rear sight. The automation is based on a proprietary scheme with a roller-delayed blowback action. The evolution of weapons took a strange path, while the Soviets already had an assault rifle chambered for an intermediate cartridge.",,jazz:InventoryItem/G3A3.lua:15 | jazz:items.lua:23873
 995319950975,<em>Outcome:</em> <em>Teddy</em> the Teddy Bear killer was put to rest,<em>Outcome:</em> <em>Teddy</em> the Teddy Bear killer was put to rest,,jazz-maps:items.lua:97370
-995472785344,Маленькая спасательная операция,A small rescue operation,,jazz-maps:items.lua:59581
+995472785344,Снабжение для повстанцев,Supplies for the Rebels,,jazz-maps:items.lua:59581
 995720215017,Надо было мне взять с собой противомоскитную сетку! Насекомые переносят столько заболеваний! Сетки должны быть частью обязательного снаряжения!,I should have brought a mosquito net! Insects carry so many diseases. Nets should be standard equipment!,,jazz-units:items.lua:70229
 995807055541,"Если тебе нужен настоящий профи, ну, или, по крайней мере, настоящий красавчик, обратись к Рыси.",If you need a real professional—or at least a genuinely handsome man—call Lynx.,,jazz-units:items.lua:69283 | jazz-units:UnitData/Jazz_Buzz.lua:130
 995832500650,"Вы... вы не из Легиона? Верно?.. Скажите, что нет...",Y-you... you’re not with the Legion? Right?.. Say you’re not...,,jazz-maps:items.lua:58438
@@ -6473,9 +6476,9 @@ Fires a long burst of <color EmStyle><bullets> rounds</color> with increased sup
 890000000000792,Маневр с Дробовиком,Shotgun Maneuver,,jazz:items.lua:62460
 890000000000793,Теперь не бабахать.,Took da bang right outta the flapjack.,,jazz-units:items.lua:79162
 890000000000794,"Более того, дезорганизованные группы легиона уже не смогут так эффективно атаковать виллу и вы легко с ними справитесь","What's more, the scattered Legion forces will no longer be able to assault the villa as effectively, making them much easier to handle.",,jazz-maps:items.lua:30846
-890000000000795,"Мы тут накидали примерный план лагеря в <L3>, готовили штурм, вот смотри, тут секретка, тут охранение, тут проход есть, можно ночью пройти и шомполами в ухо всех перещелкать.
-а с другими стоянками Легов извини, с собой не взял. Тут самому придется <em>разведать</em>. Походи по окрестностям, пару человек на задание можно выделить, кто сметливый и в засаду не попадет.","We sketched a rough plan of the camp in <L3> while preparing the assault. Look: hidden room here, guards here, and a way through here. At night, you could slip in and pick them off before they know what hit them.
-Sorry, I didn't bring plans for the Legion's other camps. You'll have to <em>scout</em> those yourself. Search the area and assign one or two sharp people who can avoid an ambush.",,jazz-maps:items.lua:30996
+890000000000795,"Мы набросали примерный план лагеря в <em>секторе L3</em>. Там есть скрытая позиция, охранение и проход, которым можно воспользоваться ночью.
+По остальным стоянкам Легиона данных нет — придётся провести разведку самостоятельно.","We sketched out a rough plan of the camp in <em>sector L3</em>. There's a concealed position, a guard post, and a passage that can be used at night.
+We have no intelligence on the Legion's other camps—you'll have to scout them yourselves.",,jazz-maps:items.lua:30996
 890000000000796,Я закончил задание. Если понадоблюсь - я медитирую.,I have finished my task. I'll be meditating if you need me.,,jazz-units:items.lua:78602
 890000000000797,"Мы поставили галочку. Я прямо чувствую, как стресс отступает.",We completed our to-do list. I can feel the stress melting away.,,jazz-units:items.lua:78673
 890000000000798,Да! И Фидель всегда удивляет.,Yes! And Fidel always surprises.,,jazz-maps:items.lua:25082
@@ -8349,7 +8352,12 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000005005,Hardened,Hardened,,AME_Filter
 890000000005007,Specialists,Specialists,,AME_Filter
 890000000005009,All,All,,AME_Filter
-890000000005011,My Team [<PlayerMercCount()>],My Team [<PlayerMercCount()>],,AME_Filter
+890000000005011,My Team [<AMEPlayerMercCount()>],My Team [<AMEPlayerMercCount()>],,AME_Filter
+890000000005015,Low,Low,,AME_Potential
+890000000005016,Medium,Medium,,AME_Potential
+890000000005017,High,High,,AME_Potential
+890000000005018,Category:,Category:,,AME_UI
+890000000005019,Potential:,Potential:,,AME_UI
 890000000005021,Nigeria,Nigeria,,AME_Nationality_Nigeria
 890000000005022,Kenya,Kenya,,AME_Nationality_Kenya
 890000000005023,Angola,Angola,,AME_Nationality_Angola
@@ -8378,7 +8386,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000005046,Лечение союзника не снимает с Лоры скрытность.,Healing an ally does not remove Laura's stealth.,,perk-remap-from-890000000005026
 890000000005047,Тюремная выдержка,Prison-Hardened,,perk-remap-from-890000000005027
 890000000005048,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,Below 50% HP does not Panic; wounds do not cut his rifle CTH.,,perk-remap-from-890000000005028
-890000000005049,<style AimCopyrightTextC><copyright></style> AME 2001,<style AimCopyrightTextC><copyright></style> AME 2001,,AME_Browser_copyright
+890000000005049,<style AimCopyrightTextC><copyright></style> A.M.E. 2001,<style AimCopyrightTextC><copyright></style> A.M.E. 2001,,AME_Browser_copyright
 890000000005050,Толстокожий,Thick-Skinned,,perk-remap-from-890000000005001
 890000000005051,Эта именная способность пока не действует.,This signature ability is not active yet.,,jazz:CharacterEffect/Jazz_Perk_Meat.lua
 890000000005052,Тихая тень,Quiet Shadow,,perk-remap-from-890000000005003
@@ -8390,537 +8398,537 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000005100,Kwame Mensah,Kwame Mensah,,JAZZ_AME_01
 890000000005101,Kwame,Kwame,,JAZZ_AME_01
 890000000005102,KWAME,KWAME,,JAZZ_AME_01
-890000000005103,"Кваме Менса вырос в Аккре и годы ходил в дружинном патруле, пока кому-то не надоело платить. Он крепкий, спокойный и внимательный — слушает больше, чем говорит, — а стрелять его учили урывками, между сменами. Теперь ищет нормальную работу: не очередной пост у склада, а дело, за которое не стыдно взять деньги.","Kwame Mensah is a irregulars mercenary from Ghana, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_01
-890000000005104,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_01
-890000000005105,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_01
-890000000005106,До связи.,Contract accepted.,,JAZZ_AME_01
+890000000005103,"A polished brass whistle still hangs from Kwame Mensah's belt, rarely blown but always ready. It outlasted years of walking an Accra neighbourhood after dark and settling doorstep quarrels after the watch fund ran dry. Kwame would rather hear the whole story than win an argument. Formal weapons practice came to him in scraps, so he is happiest when someone makes the purpose plain.","A polished brass whistle still hangs from Kwame Mensah's belt, rarely blown but always ready. It outlasted years of walking an Accra neighbourhood after dark and settling doorstep quarrels after the watch fund ran dry. Kwame would rather hear the whole story than win an argument. Formal weapons practice came to him in scraps, so he is happiest when someone makes the purpose plain.",,JAZZ_AME_01
+890000000005104,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_01
+890000000005105,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_01
+890000000005106,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_01
 890000000005110,Jean-Baptiste Okoro,Jean-Baptiste Okoro,,JAZZ_AME_02
 890000000005111,Jean,Jean,,JAZZ_AME_02
 890000000005112,JEAN,JEAN,,JAZZ_AME_02
-890000000005113,"Жан-Батист Окоро — охотник из Гранд-Шьен. Когда зверь ушёл дальше, чем позволяла лицензия, он остался с опустевшей сумкой и привычкой считать каждый выстрел. Крадётся тихо, смотрит зорко, а про шумные автоматы говорит с недоверием. Хочет снова есть регулярно — без вопросов, откуда добыча.","Jean-Baptiste Okoro is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_02
-890000000005114,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_02
-890000000005115,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_02
-890000000005116,До связи.,Contract accepted.,,JAZZ_AME_02
+890000000005113,"The forests of Grand Chien once paid Jean-Baptiste Okoro's way, until a licensing dispute left his traps empty and his name unwelcome. He moves with a hunter's economy and dislikes anything that scatters birds before the work begins. Weathered shell cases ride in a leather pouch, keepsakes from lean seasons he survived without complaint. Crowded streets make him wary, but stillness brings out the best in him.","The forests of Grand Chien once paid Jean-Baptiste Okoro's way, until a licensing dispute left his traps empty and his name unwelcome. He moves with a hunter's economy and dislikes anything that scatters birds before the work begins. Weathered shell cases ride in a leather pouch, keepsakes from lean seasons he survived without complaint. Crowded streets make him wary, but stillness brings out the best in him.",,JAZZ_AME_02
+890000000005114,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_02
+890000000005115,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_02
+890000000005116,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_02
 890000000005120,Ibrahim Touré,Ibrahim Touré,,JAZZ_AME_03
 890000000005121,Ibrahim,Ibrahim,,JAZZ_AME_03
 890000000005122,IBRAHIM,IBRAHIM,,JAZZ_AME_03
-890000000005123,"Ибрахим Туре служил постовым в Мали: разнимал драки, выписывал протоколы и умел успокоить толпу голосом, а не дубинкой. Когда участок сократили, он ушёл с привычкой перевязывать чужие ссадины и со служебным револьвером на память. Стреляет посредственно и сам это знает — зато не паникует, когда вокруг кричат.","Ibrahim Touré is a irregulars mercenary from Mali, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_03
-890000000005124,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_03
-890000000005125,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_03
-890000000005126,До связи.,Contract accepted.,,JAZZ_AME_03
+890000000005123,"A worn police badge shares Ibrahim Touré's pocket with a spotless handkerchief folded for the next split lip. Both survived a Malian street post where tempers caused more trouble than weapons. Ibrahim can turn a shouting match down by speaking softly, though a distant target gives him fewer clues than an angry face. When panic spreads through a crowd, he looks for the person everyone else has overlooked.","A worn police badge shares Ibrahim Touré's pocket with a spotless handkerchief folded for the next split lip. Both survived a Malian street post where tempers caused more trouble than weapons. Ibrahim can turn a shouting match down by speaking softly, though a distant target gives him fewer clues than an angry face. When panic spreads through a crowd, he looks for the person everyone else has overlooked.",,JAZZ_AME_03
+890000000005124,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_03
+890000000005125,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_03
+890000000005126,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_03
 890000000005130,Sani Abubakar,Sani Abubakar,,JAZZ_AME_04
 890000000005131,Sani,Sani,,JAZZ_AME_04
 890000000005132,SANI,SANI,,JAZZ_AME_04
-890000000005133,"Сани Абубакар — новобранец без полка. Руки сильные: таскал мешки, ломал двери, помогал на стройке казармы. Нервы тоньше тела — от чужого крика сжимается раньше, чем успевает подумать. Честно говорит, что учиться придётся на ходу, и всё равно просится в дело.","Sani Abubakar is a irregulars mercenary from Nigeria, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_04
-890000000005134,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_04
-890000000005135,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_04
-890000000005136,До связи.,Contract accepted.,,JAZZ_AME_04
+890000000005133,"Before anyone issued him a uniform, Sani Abubakar was hauling cement and forcing warped doors into place at a Nigerian barracks. Loud voices unsettle him more than he admits, yet his broad hands seldom abandon a task halfway through. A red carpenter's pencil lives behind his ear, and he marks every repaired hinge with a tiny cross. He has much to learn about danger, but none about carrying another person's share.","Before anyone issued him a uniform, Sani Abubakar was hauling cement and forcing warped doors into place at a Nigerian barracks. Loud voices unsettle him more than he admits, yet his broad hands seldom abandon a task halfway through. A red carpenter's pencil lives behind his ear, and he marks every repaired hinge with a tiny cross. He has much to learn about danger, but none about carrying another person's share.",,JAZZ_AME_04
+890000000005134,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_04
+890000000005135,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_04
+890000000005136,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_04
 890000000005140,Pierre Ndongo,Pierre Ndongo,,JAZZ_AME_05
 890000000005141,Pierre,Pierre,,JAZZ_AME_05
 890000000005142,PIERRE,PIERRE,,JAZZ_AME_05
-890000000005143,"Пьер Ндонго молчал на блокпостах Конго так долго, что коллеги перестали ждать от него шуток. Голова варит быстрее рук: запоминает лица, маршруты, кто кому должен. Оружие сдал при увольнении, карманы пусты, взгляд цепкий. Лучше слушает, чем стреляет — пока.","Pierre Ndongo is a irregulars mercenary from Congo, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_05
-890000000005144,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_05
-890000000005145,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_05
-890000000005146,До связи.,Contract accepted.,,JAZZ_AME_05
+890000000005143,"Old bus tickets fill Pierre Ndongo's breast pocket, sorted by route in neat paper bundles. They accumulated while he watched the same Congolese road until faces, debts, and detours arranged themselves into a private map. Pierre is slow to volunteer an opinion and quick to notice when a familiar traveller changes shoes. A weapon never felt as natural as remembering where people came from, so he listens before placing himself in danger.","Old bus tickets fill Pierre Ndongo's breast pocket, sorted by route in neat paper bundles. They accumulated while he watched the same Congolese road until faces, debts, and detours arranged themselves into a private map. Pierre is slow to volunteer an opinion and quick to notice when a familiar traveller changes shoes. A weapon never felt as natural as remembering where people came from, so he listens before placing himself in danger.",,JAZZ_AME_05
+890000000005144,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_05
+890000000005145,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_05
+890000000005146,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_05
 890000000005150,Moussa Diop,Moussa Diop,,JAZZ_AME_06
 890000000005151,Moussa,Moussa,,JAZZ_AME_06
 890000000005152,MOUSSA,MOUSSA,,JAZZ_AME_06
-890000000005153,"Мусса Диоп из Сенегала ходил следами лучше, чем по асфальту. Дед оставил ему старый винчестер — и Мусса бережёт его так, будто это последний родственник. Не любит шумные компании, патроны считает заранее. Говорит, что лес его ещё не отпустил — просто теперь добыча иногда ходит на двух ногах.","Moussa Diop is a irregulars mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_06
-890000000005154,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_06
-890000000005155,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_06
-890000000005156,До связи.,Contract accepted.,,JAZZ_AME_06
+890000000005153,"The Winchester inherited from his grandfather is Moussa Diop's sole indulgence, polished nightly with linen worn almost transparent. Before paved roads drew younger hunters away, Senegalese game trails provided his living. Strangers find Moussa distant, but the bush brings a loose, unhurried grace to his step. He counts cartridges before leaving camp and regards a wasted shot as a failure of patience, not equipment.","The Winchester inherited from his grandfather is Moussa Diop's sole indulgence, polished nightly with linen worn almost transparent. Before paved roads drew younger hunters away, Senegalese game trails provided his living. Strangers find Moussa distant, but the bush brings a loose, unhurried grace to his step. He counts cartridges before leaving camp and regards a wasted shot as a failure of patience, not equipment.",,JAZZ_AME_06
+890000000005154,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_06
+890000000005155,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_06
+890000000005156,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_06
 890000000005160,Abel Getachew,Abel Getachew,,JAZZ_AME_07
 890000000005161,Abel,Abel,,JAZZ_AME_07
 890000000005162,ABEL,ABEL,,JAZZ_AME_07
-890000000005163,"Абель Гетачью сбежал с учений в Эфиопии раньше, чем успел привыкнуть к строевой. Учится быстро: один раз покажи — и уже повторяет, пусть и криво. Попадает редко — руки ещё не поймали ритм. Упрямство у него сильнее опыта: хочет доказать, что из него выйдет солдат, а не вечный дезертир.","Abel Getachew is a irregulars mercenary from Ethiopia, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_07
-890000000005164,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_07
-890000000005165,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_07
-890000000005166,До связи.,Contract accepted.,,JAZZ_AME_07
+890000000005163,"Every dawn Abel Getachew relaces his boots exactly as a sergeant once taught him, preserving a small ritual of unfinished service. He left an Ethiopian training ground before the drills could sand down his doubts. A demonstration stays with Abel after a single viewing, then eagerness spoils the result. His hands have not found a calm rhythm under pressure, but embarrassment only sends him back to practise.","Every dawn Abel Getachew relaces his boots exactly as a sergeant once taught him, preserving a small ritual of unfinished service. He left an Ethiopian training ground before the drills could sand down his doubts. A demonstration stays with Abel after a single viewing, then eagerness spoils the result. His hands have not found a calm rhythm under pressure, but embarrassment only sends him back to practise.",,JAZZ_AME_07
+890000000005164,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_07
+890000000005165,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_07
+890000000005166,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_07
 890000000005170,Thabo Molefe,Thabo Molefe,,JAZZ_AME_08
 890000000005171,Thabo,Thabo,,JAZZ_AME_08
 890000000005172,THABO,THABO,,JAZZ_AME_08
-890000000005173,"Табо Молефе патрулировал фермы в Южной Африке: пугал воров, таскал мешки и спал в сарае. Корпус крепкий, шаг тяжёлый; дальше простого ружья ему ничего не выдавали — «хватит и так». У ворот стоит спокойно и от первого хлопка не бежит.","Thabo Molefe is a irregulars mercenary from South Africa, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_08
-890000000005174,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_08
-890000000005175,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_08
-890000000005176,До связи.,Contract accepted.,,JAZZ_AME_08
+890000000005173,"Thabo Molefe guarded South African farmyards, sleeping among feed sacks with a double-barrelled gun within reach. He is deliberate rather than quick, a broad presence that makes a gate feel narrower. A chipped green enamel mug travels everywhere with him, because tea tastes wrong from tin. Nobody trusted Thabo with elaborate instructions, yet sudden noise never sends him running and a long night seldom draws a complaint.","Thabo Molefe guarded South African farmyards, sleeping among feed sacks with a double-barrelled gun within reach. He is deliberate rather than quick, a broad presence that makes a gate feel narrower. A chipped green enamel mug travels everywhere with him, because tea tastes wrong from tin. Nobody trusted Thabo with elaborate instructions, yet sudden noise never sends him running and a long night seldom draws a complaint.",,JAZZ_AME_08
+890000000005174,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_08
+890000000005175,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_08
+890000000005176,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_08
 890000000005180,Daniel Kiprop,Daniel Kiprop,,JAZZ_AME_09
 890000000005181,Daniel,Daniel,,JAZZ_AME_09
 890000000005182,DANIEL,DANIEL,,JAZZ_AME_09
-890000000005183,"Даниэль Кипроп — егерь из Кении: глаза замечают движение раньше звука. Тело худое, выносливость охотничья, а не казарменная. О хорошей винтовке мечтал — дали то, что было. Ему важнее увидеть первым, чем носить красивую форму.","Daniel Kiprop is a irregulars mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_09
-890000000005184,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_09
-890000000005185,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_09
-890000000005186,До связи.,Contract accepted.,,JAZZ_AME_09
+890000000005183,"At first light Daniel Kiprop still presses two fingers to the ground, even when the only tracks belong to bicycles. A Kenyan ranger taught him to read the flicker of grass before other men heard a branch move. Bulky burdens tire Daniel, so he chooses cleaner routes through rough country. Fine rifles passed him by, but an early glimpse and a well-chosen position have often served him better.","At first light Daniel Kiprop still presses two fingers to the ground, even when the only tracks belong to bicycles. A Kenyan ranger taught him to read the flicker of grass before other men heard a branch move. Bulky burdens tire Daniel, so he chooses cleaner routes through rough country. Fine rifles passed him by, but an early glimpse and a well-chosen position have often served him better.",,JAZZ_AME_09
+890000000005184,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_09
+890000000005185,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_09
+890000000005186,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_09
 890000000005190,Emmanuel Kabongo,Emmanuel Kabongo,,JAZZ_AME_10
 890000000005191,Emmanuel,Emmanuel,,JAZZ_AME_10
 890000000005192,EMMANUEL,EMMANUEL,,JAZZ_AME_10
-890000000005193,"Эммануэль Кабонго водил связных по тропам Гранд-Шьен и знал, где не стоит шуметь после заката. Люди его слушают чуть-чуть — не как офицера, а как того, кто уже проводил таких же потерянных. Стрелять почти не умеет, зато тропы помнит лучше карт.","Emmanuel Kabongo is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_10
-890000000005194,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_10
-890000000005195,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_10
-890000000005196,До связи.,Contract accepted.,,JAZZ_AME_10
+890000000005193,"When the main roads of Grand Chien became unsafe, Emmanuel Kabongo led couriers along creek beds and forgotten footpaths. He has no taste for speeches, though frightened companions naturally match his pace. A charcoal map, softened by sweat and repeated folding, stays tucked inside his shirt. Emmanuel handles a gun like a borrowed tool, but darkness has never made him forget which fork leads home.","When the main roads of Grand Chien became unsafe, Emmanuel Kabongo led couriers along creek beds and forgotten footpaths. He has no taste for speeches, though frightened companions naturally match his pace. A charcoal map, softened by sweat and repeated folding, stays tucked inside his shirt. Emmanuel handles a gun like a borrowed tool, but darkness has never made him forget which fork leads home.",,JAZZ_AME_10
+890000000005194,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_10
+890000000005195,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_10
+890000000005196,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_10
 890000000005200,Aisha Hassan,Aisha Hassan,,JAZZ_AME_11
 890000000005201,Aisha,Aisha,,JAZZ_AME_11
 890000000005202,AISHA,AISHA,,JAZZ_AME_11
-890000000005203,"Аиша Хассан грузила ящики в кенийском порту, пока не поняла: спина ещё терпит, а нервы — уже нет. Хрупкая и вспыльчивая: любой резкий звук заставляет вздрагивать. Хочет уехать от порта подальше — даже если первая работа окажется самой грязной.","Aisha Hassan is a irregulars mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_11
-890000000005204,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_11
-890000000005205,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_11
-890000000005206,До связи.,Contract accepted.,,JAZZ_AME_11
+890000000005203,"The brass token from Aisha Hassan's old dock locker hangs on a cord, its stamped edge polished by sleepless fingers. Years of crates slamming down beside her boots ended when she finally left the Kenyan port. Sharp sounds still catch Aisha's breath, and embarrassment can turn fright into a cutting reply. She is slight and unseasoned, but knows how to keep moving through cramped spaces when everyone is tired.","The brass token from Aisha Hassan's old dock locker hangs on a cord, its stamped edge polished by sleepless fingers. Years of crates slamming down beside her boots ended when she finally left the Kenyan port. Sharp sounds still catch Aisha's breath, and embarrassment can turn fright into a cutting reply. She is slight and unseasoned, but knows how to keep moving through cramped spaces when everyone is tired.",,JAZZ_AME_11
+890000000005204,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_11
+890000000005205,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_11
+890000000005206,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_11
 890000000005210,Amadou Keita,Amadou Keita,,JAZZ_AME_12
 890000000005211,Amadou,Amadou,,JAZZ_AME_12
 890000000005212,AMADOU,AMADOU,,JAZZ_AME_12
-890000000005213,"Амаду Кейта — деревенский дружинник из Мали. Сильный, привыкший работать руками, боится взрывчатки до дрожи: однажды видел, как мина разорвала телегу, и с тех пор обходит подозрительную землю по широкой дуге. Простую работу без «сюрпризов» делает лучше многих храбрецов.","Amadou Keita is a irregulars mercenary from Mali, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_12
-890000000005214,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_12
-890000000005215,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_12
-890000000005216,До связи.,Contract accepted.,,JAZZ_AME_12
+890000000005213,"Amadou Keita joined a village watch in Mali, where broken shutters and overturned carts usually mattered more than drills. A mine took a wagon apart in front of him, leaving a fear of disturbed soil that no teasing has cured. He tests each doubtful verge with a long walnut stick and explains exactly why. Amadou may choose the widest path around hidden danger, but once a threat is visible he meets it with plain, dependable effort.","Amadou Keita joined a village watch in Mali, where broken shutters and overturned carts usually mattered more than drills. A mine took a wagon apart in front of him, leaving a fear of disturbed soil that no teasing has cured. He tests each doubtful verge with a long walnut stick and explains exactly why. Amadou may choose the widest path around hidden danger, but once a threat is visible he meets it with plain, dependable effort.",,JAZZ_AME_12
+890000000005214,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_12
+890000000005215,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_12
+890000000005216,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_12
 890000000005220,Chidi Okonkwo,Chidi Okonkwo,,JAZZ_AME_13
 890000000005221,Chidi,Chidi,,JAZZ_AME_13
 890000000005222,CHIDI,CHIDI,,JAZZ_AME_13
-890000000005223,"Чиди Оконкво провалил медкомиссию армии Нигерии — сердце «не то», бумаги «не те». Зато пальцы ловкие: вскрывал ящики улик, чинил замки, однажды утащил из архива старый служебный револьвер. Чуть понимает в механизмах, больше — в том, как не попасться.","Chidi Okonkwo is a irregulars mercenary from Nigeria, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_13
-890000000005224,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_13
-890000000005225,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_13
-890000000005226,До связи.,Contract accepted.,,JAZZ_AME_13
+890000000005223,"Tiny springs rattle in Chidi Okonkwo's matchbox, each sorted by feel and sound. The Nigerian army rejected him, so stubborn evidence crates behind a police station became his daily work. Latches made sense in a way marching never did, and a forgotten revolver eventually followed Chidi out. His fingers solve small mechanisms quickly, though a hard rush can leave him waiting for his pulse to settle.","Tiny springs rattle in Chidi Okonkwo's matchbox, each sorted by feel and sound. The Nigerian army rejected him, so stubborn evidence crates behind a police station became his daily work. Latches made sense in a way marching never did, and a forgotten revolver eventually followed Chidi out. His fingers solve small mechanisms quickly, though a hard rush can leave him waiting for his pulse to settle.",,JAZZ_AME_13
+890000000005224,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_13
+890000000005225,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_13
+890000000005226,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_13
 890000000005230,Lucien Mbarga,Lucien Mbarga,,JAZZ_AME_14
 890000000005231,Lucien,Lucien,,JAZZ_AME_14
 890000000005232,LUCIEN,LUCIEN,,JAZZ_AME_14
-890000000005233,"Люсьен Мбарга браконьерствовал в Гранд-Шьен, пока рейнджеры не отняли ружьё и не пообещали тюрьму при следующей встрече. Осталась привычка ходить тихо. Не герой и не кается вслух — просто ищет оплату там, где никто не спрашивает про лицензии.","Lucien Mbarga is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_14
-890000000005234,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_14
-890000000005235,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_14
-890000000005236,До связи.,Contract accepted.,,JAZZ_AME_14
+890000000005233,"An expired licence lies absurdly neat inside Lucien Mbarga's knife sheath after many wet seasons. It survived the day Grand Chien rangers confiscated his poaching gun and promised a cell next time. Lucien performs no regret for company, preferring to leave before questions grow specific. Empty-handed at distance, he falls back on the craft nobody managed to seize: moving without announcing himself.","An expired licence lies absurdly neat inside Lucien Mbarga's knife sheath after many wet seasons. It survived the day Grand Chien rangers confiscated his poaching gun and promised a cell next time. Lucien performs no regret for company, preferring to leave before questions grow specific. Empty-handed at distance, he falls back on the craft nobody managed to seize: moving without announcing himself.",,JAZZ_AME_14
+890000000005234,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_14
+890000000005235,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_14
+890000000005236,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_14
 890000000005240,Kofi Asante,Kofi Asante,,JAZZ_AME_15
 890000000005241,Kofi,Kofi,,JAZZ_AME_15
 890000000005242,KOFI,KOFI,,JAZZ_AME_15
-890000000005243,"Кофи Асанте сторожил школу в Гане и читал всё, что забывали на партах. Соображает отлично — схватывает быстрее многих «настоящих» бойцов, — но руками почти не владеет. Спокойно учится на чужих ошибках, лишь бы платили и давали шанс.","Kofi Asante is a irregulars mercenary from Ghana, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_15
-890000000005244,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_15
-890000000005245,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_15
-890000000005246,До связи.,Contract accepted.,,JAZZ_AME_15
+890000000005243,"A blue nub of classroom chalk follows Kofi Asante wherever a blank board might accept a question. He educated himself from books abandoned beneath desks while guarding a Ghanaian school at night. Ideas come readily, while knots, catches, and unfamiliar tools can make Kofi's hands look borrowed. Being treated as useless stings him, but he learns from a mistake before repeating it himself.","A blue nub of classroom chalk follows Kofi Asante wherever a blank board might accept a question. He educated himself from books abandoned beneath desks while guarding a Ghanaian school at night. Ideas come readily, while knots, catches, and unfamiliar tools can make Kofi's hands look borrowed. Being treated as useless stings him, but he learns from a mistake before repeating it himself.",,JAZZ_AME_15
+890000000005244,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_15
+890000000005245,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_15
+890000000005246,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_15
 890000000005250,João Domingos,João Domingos,,JAZZ_AME_16
 890000000005251,João,João,,JAZZ_AME_16
 890000000005252,JOÃO,JOÃO,,JAZZ_AME_16
-890000000005253,"Жуан Домингос из Анголы один раз видел мины — и этого хватило, чтобы навсегда обходить рыхлую землю стороной. Медленный, упрямый и честно боится взрывов. Врать про храбрость не станет — и за это его иногда ценят больше, чем за смелость.","João Domingos is a irregulars mercenary from Angola, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_16
-890000000005254,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_16
-890000000005255,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_16
-890000000005256,До связи.,Contract accepted.,,JAZZ_AME_16
+890000000005253,"One mine-struck cart was enough to shape João Domingos's years in an Angolan local watch. Loose earth slows him at once, and he refuses to disguise caution as some grand tactical instinct. A smooth iron bolt recovered from the wreck rolls between his fingers whenever a road feels wrong. Hidden danger can hold João back, but a threat he can see receives the full weight of a stubborn, unsentimental man.","One mine-struck cart was enough to shape João Domingos's years in an Angolan local watch. Loose earth slows him at once, and he refuses to disguise caution as some grand tactical instinct. A smooth iron bolt recovered from the wreck rolls between his fingers whenever a road feels wrong. Hidden danger can hold João back, but a threat he can see receives the full weight of a stubborn, unsentimental man.",,JAZZ_AME_16
+890000000005254,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_16
+890000000005255,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_16
+890000000005256,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_16
 890000000005260,Wanjiku Mwangi,Wanjiku Mwangi,,JAZZ_AME_17
 890000000005261,Wanjiku,Wanjiku,,JAZZ_AME_17
 890000000005262,WANJIKU,WANJIKU,,JAZZ_AME_17
-890000000005263,"Ванджику Мванги помогала егерю в Кении: чистила следы, носила воду, дежурила на опушке. Зоркая и лёгкая на ногу, без громких обещаний. Привыкла, что работа грязная, а деньги маленькие — и всё равно делает её тихо и до конца.","Wanjiku Mwangi is a irregulars mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_17
-890000000005264,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_17
-890000000005265,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_17
-890000000005266,До связи.,Contract accepted.,,JAZZ_AME_17
+890000000005263,"Blue threads tied to low branches tell Wanjiku Mwangi what the wind changed while she was away. A Kenyan ranger taught her fieldcraft through water runs, tracks, and long hours at the silent edge of a clearing. She is light on rough ground and sparing with conversation around boastful strangers. Heavy burdens expose her slight frame, yet Wanjiku holds a watch long after louder people grow restless.","Blue threads tied to low branches tell Wanjiku Mwangi what the wind changed while she was away. A Kenyan ranger taught her fieldcraft through water runs, tracks, and long hours at the silent edge of a clearing. She is light on rough ground and sparing with conversation around boastful strangers. Heavy burdens expose her slight frame, yet Wanjiku holds a watch long after louder people grow restless.",,JAZZ_AME_17
+890000000005264,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_17
+890000000005265,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_17
+890000000005266,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_17
 890000000005270,Serge Kouassi,Serge Kouassi,,JAZZ_AME_18
 890000000005271,Serge,Serge,,JAZZ_AME_18
 890000000005272,SERGE,SERGE,,JAZZ_AME_18
-890000000005273,"Серж Куасси — сын механика из Гранд-Шьен, и отцу за него стыдно: отвёртку Серж не берёт. Голова светлая, рук нет — зато вопросы задаёт правильные. Хочет доказать, что ум тоже бывает оружием, даже если карманы пока пусты.","Serge Kouassi is a irregulars mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_18
-890000000005274,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_18
-890000000005275,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_18
-890000000005276,До связи.,Contract accepted.,,JAZZ_AME_18
+890000000005273,"Questions rather than repair figures fill the grease-stained shop notebook in Serge Kouassi's pocket. He grew up above his father's Grand Chien garage, surrounded by tools he never learned to love. Practical work makes Serge's hands fumble, while contradictions in a story catch him immediately. He believes thought can open doors that muscle cannot and sometimes forgets that a good idea still needs someone to turn the handle.","Questions rather than repair figures fill the grease-stained shop notebook in Serge Kouassi's pocket. He grew up above his father's Grand Chien garage, surrounded by tools he never learned to love. Practical work makes Serge's hands fumble, while contradictions in a story catch him immediately. He believes thought can open doors that muscle cannot and sometimes forgets that a good idea still needs someone to turn the handle.",,JAZZ_AME_18
+890000000005274,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_18
+890000000005275,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_18
+890000000005276,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_18
 890000000005280,Bongani Dlamini,Bongani Dlamini,,JAZZ_AME_19
 890000000005281,Bongani,Bongani,,JAZZ_AME_19
 890000000005282,BONGANI,BONGANI,,JAZZ_AME_19
-890000000005283,"Бонгани Дламини работал на шахтёрской дружине в Южной Африке: таскал мешки, не бегал кроссы и спал кусками между сменами. Тяжёлый, молчаливый, привыкший к пыли. У двери стоит так, что объяснять дважды не приходится.","Bongani Dlamini is a irregulars mercenary from South Africa, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_19
-890000000005284,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_19
-890000000005285,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_19
-890000000005286,До связи.,Contract accepted.,,JAZZ_AME_19
+890000000005283,"A dented tin lunch box has survived every fall Bongani Dlamini declines to discuss. It accompanied years of guarding a South African mining compound, carrying sacks by day and stealing sleep between alarms. Bongani rises slowly, speaks rarely, and sees no virtue in hurrying merely to impress someone. He will never be first around a corner, but once his bulk settles into a doorway, moving him becomes everybody else's problem.","A dented tin lunch box has survived every fall Bongani Dlamini declines to discuss. It accompanied years of guarding a South African mining compound, carrying sacks by day and stealing sleep between alarms. Bongani rises slowly, speaks rarely, and sees no virtue in hurrying merely to impress someone. He will never be first around a corner, but once his bulk settles into a doorway, moving him becomes everybody else's problem.",,JAZZ_AME_19
+890000000005284,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_19
+890000000005285,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_19
+890000000005286,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_19
 890000000005290,Idrissa Bah,Idrissa Bah,,JAZZ_AME_20
 890000000005291,Idrissa,Idrissa,,JAZZ_AME_20
 890000000005292,IDRISSA,IDRISSA,,JAZZ_AME_20
-890000000005293,"Идрисса Бах регулировал движение в Сенегале лучше, чем стрелял: жестами командовал так, что даже пьяные водители иногда слушались. Не герой перестрелок — зато умеет остановить хаос на секунду дольше, чем другие.","Idrissa Bah is a irregulars mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_20
-890000000005294,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_20
-890000000005295,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_20
-890000000005296,До связи.,Contract accepted.,,JAZZ_AME_20
+890000000005293,"White gloves dry over the back of Idrissa Bah's only chair every Sunday. They once conducted Senegalese traffic with more success than he ever found on a firing line. Confusion unsettles Idrissa until he can give it lanes, turns, and a place to stop. He is no hero of sudden violence, but a crowd often borrows its first calm moment from his precise gestures.","White gloves dry over the back of Idrissa Bah's only chair every Sunday. They once conducted Senegalese traffic with more success than he ever found on a firing line. Confusion unsettles Idrissa until he can give it lanes, turns, and a place to stop. He is no hero of sudden violence, but a crowd often borrows its first calm moment from his precise gestures.",,JAZZ_AME_20
+890000000005294,You're through. I'm listening.,You're through. I'm listening.,,JAZZ_AME_20
+890000000005295,I'm looking for work. What do you have?,I'm looking for work. What do you have?,,JAZZ_AME_20
+890000000005296,All right. Speak soon.,All right. Speak soon.,,JAZZ_AME_20
 890000000005300,Omar Diallo,Omar Diallo,,JAZZ_AME_21
 890000000005301,Omar,Omar,,JAZZ_AME_21
 890000000005302,OMAR,OMAR,,JAZZ_AME_21
-890000000005303,"Омар Диалло дезертировал из сенегальской части, когда понял, что легион зовёт громче командования. Отказался — и ушёл с привычкой целиться один раз, но точно. Не орёт, не хвастается: делает работу и считает патроны.","Omar Diallo is a fighters mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_21
-890000000005304,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_21
-890000000005305,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_21
-890000000005306,До связи.,Contract accepted.,,JAZZ_AME_21
+890000000005303,"Pencil marks cover the inside of Omar Diallo's cartridge box, accounting for rounds that did not return. He deserted a Senegalese unit after an order treated lives as replaceable supplies. Omar keeps his distance from uniforms now and speaks only after watching a room settle. The path forward can make him hesitate, but once the rifle reaches his shoulder he wastes neither motion nor breath.","Pencil marks cover the inside of Omar Diallo's cartridge box, accounting for rounds that did not return. He deserted a Senegalese unit after an order treated lives as replaceable supplies. Omar keeps his distance from uniforms now and speaks only after watching a room settle. The path forward can make him hesitate, but once the rifle reaches his shoulder he wastes neither motion nor breath.",,JAZZ_AME_21
+890000000005304,On the line.,On the line.,,JAZZ_AME_21
+890000000005305,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_21
+890000000005306,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_21
 890000000005310,Bastien Lafontaine,Bastien Lafontaine,,JAZZ_AME_22
 890000000005311,Bastien,Bastien,,JAZZ_AME_22
 890000000005312,BASTIEN,BASTIEN,,JAZZ_AME_22
-890000000005313,Бастьен Лафонтен служил милицейским автоматчиком в Гранд-Шьен и до сих пор пахнет машинным маслом и дешёвым табаком. Очереди для него важнее красоты ствола: улица становится тесной — и он уже на линии. Платят лучше участка — и этого ему достаточно.,"Bastien Lafontaine is a fighters mercenary from Grand Chien, working as a autorifleman. Looking for paid contracts and steady work.",,JAZZ_AME_22
-890000000005314,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_22
-890000000005315,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_22
-890000000005316,До связи.,Contract accepted.,,JAZZ_AME_22
+890000000005313,"Bastien Lafontaine learned his trade with a Grand Chien militia, covering alleys where walls seemed to close in during trouble. Cheap tobacco stains his fingers, but he saves the cigarette until everything has gone quiet. A rolling paper stays folded inside the oil rag he uses on his rifle, a private promise of rest. Bastien is not imaginative under changing orders, yet in a confined street his steady bursts arrive exactly where companions expect them.","Bastien Lafontaine learned his trade with a Grand Chien militia, covering alleys where walls seemed to close in during trouble. Cheap tobacco stains his fingers, but he saves the cigarette until everything has gone quiet. A rolling paper stays folded inside the oil rag he uses on his rifle, a private promise of rest. Bastien is not imaginative under changing orders, yet in a confined street his steady bursts arrive exactly where companions expect them.",,JAZZ_AME_22
+890000000005314,On the line.,On the line.,,JAZZ_AME_22
+890000000005315,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_22
+890000000005316,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_22
 890000000005320,"Chukwuemeka ""Emeka"" Obi","Chukwuemeka ""Emeka"" Obi",,JAZZ_AME_23
 890000000005321,Emeka,Emeka,,JAZZ_AME_23
 890000000005322,EMEKA,EMEKA,,JAZZ_AME_23
-890000000005323,"Чуквуэмека Оби сидел на пулемётной точке нигерийского блокпоста, пока блокпост не стёрли с карты. Крепкий, тяжёлый, бьёт по земле увереннее, чем по мишеням — и сам над этим иногда шутит. Закрыть сектор огнём для него привычнее, чем выигрывать конкурс стрелков.","Chukwuemeka Obi is a fighters mercenary from Nigeria, working as a machinegunner. Looking for paid contracts and steady work.",,JAZZ_AME_23
-890000000005324,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_23
-890000000005325,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_23
-890000000005326,До связи.,Contract accepted.,,JAZZ_AME_23
+890000000005323,"Tea comes from Chukwuemeka “Emeka” Obi's shrapnel-dented tin cup, which nobody is allowed to repair. The dent outlived a Nigerian checkpoint erased after months behind its machine gun. Built for weight rather than delicacy, Emeka laughs first when a careful shot goes astray. He may not pick one point from the landscape elegantly, but knows how to make an entire stretch of ground feel unwelcoming.","Tea comes from Chukwuemeka “Emeka” Obi's shrapnel-dented tin cup, which nobody is allowed to repair. The dent outlived a Nigerian checkpoint erased after months behind its machine gun. Built for weight rather than delicacy, Emeka laughs first when a careful shot goes astray. He may not pick one point from the landscape elegantly, but knows how to make an entire stretch of ground feel unwelcoming.",,JAZZ_AME_23
+890000000005324,On the line.,On the line.,,JAZZ_AME_23
+890000000005325,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_23
+890000000005326,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_23
 890000000005330,Michel Kabeya,Michel Kabeya,,JAZZ_AME_24
 890000000005331,Michel,Michel,,JAZZ_AME_24
 890000000005332,MICHEL,MICHEL,,JAZZ_AME_24
-890000000005333,"Мишель Кабейа из Конго всегда любил банки больше стволов. Настоящая работа для него начинается, когда свистит чека. Шумный в баре и тихий перед броском — и не притворяется героем.","Michel Kabeya is a fighters mercenary from Congo, working as a grenadier. Looking for paid contracts and steady work.",,JAZZ_AME_24
-890000000005334,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_24
-890000000005335,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_24
-890000000005336,До связи.,Contract accepted.,,JAZZ_AME_24
+890000000005333,"Michel Kabeya once unloaded riverboats in Congo, betting his lunch on whether a dented can would land inside a distant crate. The game eventually became a practical occupation involving objects no one wanted thrown back. He is loud over drinks and utterly silent before a toss, rubbing a copper pull ring threaded onto his belt. Michel trusts his arm, but never lingers to admire the place where its delivery comes down.","Michel Kabeya once unloaded riverboats in Congo, betting his lunch on whether a dented can would land inside a distant crate. The game eventually became a practical occupation involving objects no one wanted thrown back. He is loud over drinks and utterly silent before a toss, rubbing a copper pull ring threaded onto his belt. Michel trusts his arm, but never lingers to admire the place where its delivery comes down.",,JAZZ_AME_24
+890000000005334,On the line.,On the line.,,JAZZ_AME_24
+890000000005335,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_24
+890000000005336,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_24
 890000000005340,Juma Otieno,Juma Otieno,,JAZZ_AME_25
 890000000005341,Juma,Juma,,JAZZ_AME_25
 890000000005342,JUMA,JUMA,,JAZZ_AME_25
-890000000005343,"Джума Отиено служил на кенийской границе: лёгкий на ногу, привыкший к пыли и долгим сменам. Дальнюю винтовку ему не доверили — приказали не геройствовать. Не обижается: главное — увидеть первым. Скорость ног для него важнее красивой стойки.","Juma Otieno is a fighters mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_25
-890000000005344,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_25
-890000000005345,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_25
-890000000005346,До связи.,Contract accepted.,,JAZZ_AME_25
+890000000005343,"A faded checked scarf covers Juma Otieno's mouth on the road, still faintly scented with his sister's soap. It crossed a Kenyan border where dust announced company before an engine arrived. Juma learned to relocate before a position became a trap and has little patience for theatrical last stands. Weight tires him quickly, but open ground sharpens his attention and seems to quicken every choice.","A faded checked scarf covers Juma Otieno's mouth on the road, still faintly scented with his sister's soap. It crossed a Kenyan border where dust announced company before an engine arrived. Juma learned to relocate before a position became a trap and has little patience for theatrical last stands. Weight tires him quickly, but open ground sharpens his attention and seems to quicken every choice.",,JAZZ_AME_25
+890000000005344,On the line.,On the line.,,JAZZ_AME_25
+890000000005345,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_25
+890000000005346,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_25
 890000000005350,Andile Nkosi,Andile Nkosi,,JAZZ_AME_26
 890000000005351,Andile,Andile,,JAZZ_AME_26
 890000000005352,ANDILE,ANDILE,,JAZZ_AME_26
-890000000005353,"Андиле Нкоси охранял конвои в Южной Африке и научился стрелять очередями так, чтобы охраняемый груз не превращался в решето раньше времени. Спокоен, немногословен и не любит, когда новички трогают его оружие «просто посмотреть».","Andile Nkosi is a fighters mercenary from South Africa, working as a autorifleman. Looking for paid contracts and steady work.",,JAZZ_AME_26
-890000000005354,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_26
-890000000005355,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_26
-890000000005356,До связи.,Contract accepted.,,JAZZ_AME_26
+890000000005353,"Blue electrical tape around Andile Nkosi's sling bears the plate number of the first truck he brought through untouched. South African convoy work taught him that careless fire could ruin cargo before an attacker reached it. Andile prefers routine, short instructions, and people who keep their hands to themselves. Sudden improvisation can leave him behind, but a revealed pattern brings disciplined restraint back to his weapon.","Blue electrical tape around Andile Nkosi's sling bears the plate number of the first truck he brought through untouched. South African convoy work taught him that careless fire could ruin cargo before an attacker reached it. Andile prefers routine, short instructions, and people who keep their hands to themselves. Sudden improvisation can leave him behind, but a revealed pattern brings disciplined restraint back to his weapon.",,JAZZ_AME_26
+890000000005354,On the line.,On the line.,,JAZZ_AME_26
+890000000005355,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_26
+890000000005356,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_26
 890000000005360,Sekou Camara,Sekou Camara,,JAZZ_AME_27
 890000000005361,Sekou,Sekou,,JAZZ_AME_27
 890000000005362,SEKOU,SEKOU,,JAZZ_AME_27
-890000000005363,"Секу Камара патрулировал пустыню в Мали и не считал короткий ствол унижением. Подвижный, с нервами крепче, чем у многих «настоящих» стрелков, умеет смещаться и не торчать на открытом месте. Доходит туда, куда тяжёлые ребята только собираются.","Sekou Camara is a fighters mercenary from Mali, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_27
-890000000005364,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_27
-890000000005365,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_27
-890000000005366,До связи.,Contract accepted.,,JAZZ_AME_27
+890000000005363,"A cracked compass needs one sharp tap from Sekou Camara before its needle remembers north. He carried it while patrolling the Malian desert, where an upright man against a pale horizon becomes everyone's landmark. Restlessness serves Sekou in open country and irritates patient companions. He lacks reach for distant contests, but crosses exposed ground fast enough to give slower people room to breathe.","A cracked compass needs one sharp tap from Sekou Camara before its needle remembers north. He carried it while patrolling the Malian desert, where an upright man against a pale horizon becomes everyone's landmark. Restlessness serves Sekou in open country and irritates patient companions. He lacks reach for distant contests, but crosses exposed ground fast enough to give slower people room to breathe.",,JAZZ_AME_27
+890000000005364,On the line.,On the line.,,JAZZ_AME_27
+890000000005365,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_27
+890000000005366,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_27
 890000000005370,Pascal Ngoma,Pascal Ngoma,,JAZZ_AME_28
 890000000005371,Pascal,Pascal,,JAZZ_AME_28
 890000000005372,PASCAL,PASCAL,,JAZZ_AME_28
-890000000005373,"Паскаль Нгома держал огневую точку в Гранд-Шьен с характером человека, который не любит бегать. Тяжёлый, упрямый: закрывает сектор и ждёт, пока сектор перестанет шевелиться. Под огнём не дёргается первым — и этим уже выигрывает время для остальных.","Pascal Ngoma is a fighters mercenary from Grand Chien, working as a machinegunner. Looking for paid contracts and steady work.",,JAZZ_AME_28
-890000000005374,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_28
-890000000005375,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_28
-890000000005376,До связи.,Contract accepted.,,JAZZ_AME_28
+890000000005373,"A ridiculous folding stool appears beneath Pascal Ngoma whenever waiting stretches past an hour. Grand Chien gun posts taught him to regard running as evidence of poor planning. Pascal is stubborn, durable, and happiest when a patch of ground becomes clearly his responsibility. New directions reach him slowly, but incoming noise rarely persuades him to leave the old one.","A ridiculous folding stool appears beneath Pascal Ngoma whenever waiting stretches past an hour. Grand Chien gun posts taught him to regard running as evidence of poor planning. Pascal is stubborn, durable, and happiest when a patch of ground becomes clearly his responsibility. New directions reach him slowly, but incoming noise rarely persuades him to leave the old one.",,JAZZ_AME_28
+890000000005374,On the line.,On the line.,,JAZZ_AME_28
+890000000005375,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_28
+890000000005376,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_28
 890000000005380,Kwesi Boateng,Kwesi Boateng,,JAZZ_AME_29
 890000000005381,Kwesi,Kwesi,,JAZZ_AME_29
 890000000005382,KWESI,KWESI,,JAZZ_AME_29
-890000000005383,"Квеси Боатенг из Ганы любит короткую работу и тяжёлую ладонь на банке. Взрывчатки у него немного, зато бросок уверенный — как у человека, который тренировался на пустых бутылках за складом. Улыбается редко и работает быстро: пришёл, бросил, ушёл, пока эхо ещё гуляет.","Kwesi Boateng is a fighters mercenary from Ghana, working as a grenadier. Looking for paid contracts and steady work.",,JAZZ_AME_29
-890000000005384,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_29
-890000000005385,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_29
-890000000005386,До связи.,Contract accepted.,,JAZZ_AME_29
+890000000005383,"Bottle caps fill Kwesi Boateng's old tobacco tin, shaken before work to hear whether his hand is steady. The habit began behind a Ghanaian warehouse, where he aimed empty bottles at a chalk circle after every shift. Heavier objects with shorter fuses eventually replaced the glass. Kwesi commits quickly but dislikes the seconds after impact, when the echo seems to search for whoever caused it.","Bottle caps fill Kwesi Boateng's old tobacco tin, shaken before work to hear whether his hand is steady. The habit began behind a Ghanaian warehouse, where he aimed empty bottles at a chalk circle after every shift. Heavier objects with shorter fuses eventually replaced the glass. Kwesi commits quickly but dislikes the seconds after impact, when the echo seems to search for whoever caused it.",,JAZZ_AME_29
+890000000005384,On the line.,On the line.,,JAZZ_AME_29
+890000000005385,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_29
+890000000005386,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_29
 890000000005390,Tesfaye Alemu,Tesfaye Alemu,,JAZZ_AME_30
 890000000005391,Tesfaye,Tesfaye,,JAZZ_AME_30
 890000000005392,TESFAYE,TESFAYE,,JAZZ_AME_30
-890000000005393,"Тесфайе Алем — горный стрелок из Эфиопии. Целится аккуратно, дышит ровно и не делает вид, что ему «просто забыли» выдать лучшее оружие. Хороший глаз, скромные ожидания, готов учиться на том, что дадут.","Tesfaye Alemu is a fighters mercenary from Ethiopia, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_30
-890000000005394,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_30
-890000000005395,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_30
-890000000005396,До связи.,Contract accepted.,,JAZZ_AME_30
+890000000005393,"A smooth grey stone from his Ethiopian home valley rests in Tesfaye Alemu's palm, then disappears before the shot. There he learned that a hurried breath could carry farther than a footstep. Better rifles always belonged to somebody else, a fact Tesfaye accepts without bitterness. He is not made for prolonged punishment, but patience often lets him finish before endurance becomes the question.","A smooth grey stone from his Ethiopian home valley rests in Tesfaye Alemu's palm, then disappears before the shot. There he learned that a hurried breath could carry farther than a footstep. Better rifles always belonged to somebody else, a fact Tesfaye accepts without bitterness. He is not made for prolonged punishment, but patience often lets him finish before endurance becomes the question.",,JAZZ_AME_30
+890000000005394,On the line.,On the line.,,JAZZ_AME_30
+890000000005395,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_30
+890000000005396,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_30
 890000000005400,Rafael dos Santos,Rafael dos Santos,,JAZZ_AME_31
 890000000005401,Rafael,Rafael,,JAZZ_AME_31
 890000000005402,RAFAEL,RAFAEL,,JAZZ_AME_31
-890000000005403,"Рафаэль дос Сантос из Анголы учится медленнее иных, зато не ломается от первой тяжёлой недели. Очереди для него — ремесло, выученное кровью и пылью. Не обещает чудес. Обещает явиться трезвым и не бросить позицию без приказа.","Rafael dos Santos is a fighters mercenary from Angola, working as a autorifleman. Looking for paid contracts and steady work.",,JAZZ_AME_31
-890000000005404,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_31
-890000000005405,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_31
-890000000005406,До связи.,Contract accepted.,,JAZZ_AME_31
+890000000005403,"A spare bootlace circles Rafael dos Santos's wrist, recalling the day a broken boot delayed an entire column. Angolan road crews rarely saw him understand a new drill before anyone else. Rather than pretend, Rafael repeated the motion until it belonged to him. Sudden changes make him rigid, but fatigue and dust do little to loosen a promise he has already made.","A spare bootlace circles Rafael dos Santos's wrist, recalling the day a broken boot delayed an entire column. Angolan road crews rarely saw him understand a new drill before anyone else. Rather than pretend, Rafael repeated the motion until it belonged to him. Sudden changes make him rigid, but fatigue and dust do little to loosen a promise he has already made.",,JAZZ_AME_31
+890000000005404,On the line.,On the line.,,JAZZ_AME_31
+890000000005405,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_31
+890000000005406,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_31
 890000000005410,Awa Sow,Awa Sow,,JAZZ_AME_32
 890000000005411,Awa,Awa,,JAZZ_AME_32
 890000000005412,AWA,AWA,,JAZZ_AME_32
-890000000005413,"Ава Соу из Сенегала попала в тесные коридоры не по любви, а по расписанию смен. Юркая и нервная, без армейской школы длинных очередей — зато живее многих «правильных» автоматчиков. Держится особняком и ненавидит, когда мужчины объясняют ей, как «правильно» стрелять.","Awa Sow is a fighters mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_32
-890000000005414,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_32
-890000000005415,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_32
-890000000005416,До связи.,Contract accepted.,,JAZZ_AME_32
+890000000005413,"The bent key to Awa Sow's vanished dockside job taps against her thigh whenever someone explains her own work to her. Its Senegalese storehouse had passages too narrow for grand gestures. Awa learned to slip around trouble quickly without enjoying the sound of its arrival. Sustained noise wears at her composure, but close walls give that speed somewhere useful to go.","The bent key to Awa Sow's vanished dockside job taps against her thigh whenever someone explains her own work to her. Its Senegalese storehouse had passages too narrow for grand gestures. Awa learned to slip around trouble quickly without enjoying the sound of its arrival. Sustained noise wears at her composure, but close walls give that speed somewhere useful to go.",,JAZZ_AME_32
+890000000005414,On the line.,On the line.,,JAZZ_AME_32
+890000000005415,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_32
+890000000005416,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_32
 890000000005420,Claude Mvemba,Claude Mvemba,,JAZZ_AME_33
 890000000005421,Claude,Claude,,JAZZ_AME_33
 890000000005422,CLAUDE,CLAUDE,,JAZZ_AME_33
-890000000005423,"Клод Мвемба охранял плантации в Гранд-Шьен — привык к дроби, не к оптике. Говорит мало, курит много, считает, что хороший выстрел тот, после которого никто не спорит. Работает ближе, чем любят дальние стрелки, и дальше, чем удобно трусам.","Claude Mvemba is a fighters mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_33
-890000000005424,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_33
-890000000005425,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_33
-890000000005426,До связи.,Contract accepted.,,JAZZ_AME_33
+890000000005423,"A crushed silver-coloured cigarette case still shuts for Claude Mvemba with a satisfying click, though opening it needs a thumbnail. Grand Chien plantation work taught him to let most trouble come closer to the shotgun. Conversation bores Claude; cigarettes do not. Distant contests hold little appeal, but among sheds, fences, and cane he judges space with the ease of long habit.","A crushed silver-coloured cigarette case still shuts for Claude Mvemba with a satisfying click, though opening it needs a thumbnail. Grand Chien plantation work taught him to let most trouble come closer to the shotgun. Conversation bores Claude; cigarettes do not. Distant contests hold little appeal, but among sheds, fences, and cane he judges space with the ease of long habit.",,JAZZ_AME_33
+890000000005424,On the line.,On the line.,,JAZZ_AME_33
+890000000005425,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_33
+890000000005426,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_33
 890000000005430,Emeka Nwosu,Emeka Nwosu,,JAZZ_AME_34
 890000000005431,Emeka,Emeka,,JAZZ_AME_34
 890000000005432,EMEKA,EMEKA,,JAZZ_AME_34
-890000000005433,"Эмека Нвосу — силач с нигерийским характером: здоровье и упрямство у него заметнее меткости, и он не стесняется этого. Про него шутят, что его проще нанять, чем сдвинуть. Он не возражает — лишь бы платили вовремя.","Emeka Nwosu is a fighters mercenary from Nigeria, working as a machinegunner. Looking for paid contracts and steady work.",,JAZZ_AME_34
-890000000005434,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_34
-890000000005435,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_34
-890000000005436,До связи.,Contract accepted.,,JAZZ_AME_34
+890000000005433,"An empty ammunition box serves as Emeka Nwosu's chair and carries the label, “Do not relocate with owner.” Nigerian quay work first revealed that he could carry a machine gun farther than anyone else. Finesse never followed, but good humour did whenever the joke concerns his immovable size. Emeka struggles with delicate choices at distance, yet weight, recoil, and stubborn ground suit him perfectly.","An empty ammunition box serves as Emeka Nwosu's chair and carries the label, “Do not relocate with owner.” Nigerian quay work first revealed that he could carry a machine gun farther than anyone else. Finesse never followed, but good humour did whenever the joke concerns his immovable size. Emeka struggles with delicate choices at distance, yet weight, recoil, and stubborn ground suit him perfectly.",,JAZZ_AME_34
+890000000005434,On the line.,On the line.,,JAZZ_AME_34
+890000000005435,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_34
+890000000005436,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_34
 890000000005440,Samuel Cheruiyot,Samuel Cheruiyot,,JAZZ_AME_35
 890000000005441,Samuel,Samuel,,JAZZ_AME_35
 890000000005442,SAMUEL,SAMUEL,,JAZZ_AME_35
-890000000005443,"Сэмюэл Черуйот охотился в Кении раньше, чем научился читать уставы. Охотничья винтовка ему роднее любой казённой; с длинным болтом не заигрывает и без зависти. Быстрый, зоркий, с привычкой целиться перед выстрелом. Любит воздух чаще, чем порох казармы.","Samuel Cheruiyot is a fighters mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_35
-890000000005444,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_35
-890000000005445,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_35
-890000000005446,До связи.,Contract accepted.,,JAZZ_AME_35
+890000000005443,"A polished horn button from Samuel Cheruiyot's first hunting coat is sewn into his rifle sling. Kenyan trails taught him long before regulations or military vocabulary arrived. Outdoors Samuel is quick and watchful, taking the extra breath that impatient shooters resent. Barracks make him restless and sharp-tongued, but a horizon seems to reveal movement before everyone else has decided where to look.","A polished horn button from Samuel Cheruiyot's first hunting coat is sewn into his rifle sling. Kenyan trails taught him long before regulations or military vocabulary arrived. Outdoors Samuel is quick and watchful, taking the extra breath that impatient shooters resent. Barracks make him restless and sharp-tongued, but a horizon seems to reveal movement before everyone else has decided where to look.",,JAZZ_AME_35
+890000000005444,On the line.,On the line.,,JAZZ_AME_35
+890000000005445,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_35
+890000000005446,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_35
 890000000005450,Mamadou Traoré,Mamadou Traoré,,JAZZ_AME_36
 890000000005451,Mamadou,Mamadou,,JAZZ_AME_36
 890000000005452,MAMADOU,MAMADOU,,JAZZ_AME_36
-890000000005453,"Мамаду Траоре из Мали чинит стволы соседей чаще, чем хвастается своими. Отвёртка часто чужая, зато руки помнят, куда крутить. После боя ещё и собирает то, что осталось стрелять.","Mamadou Traoré is a fighters mercenary from Mali, working as a autorifleman. Looking for paid contracts and steady work.",,JAZZ_AME_36
-890000000005454,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_36
-890000000005455,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_36
-890000000005456,До связи.,Contract accepted.,,JAZZ_AME_36
+890000000005453,"A mismatched screwdriver wrapped in red cloth shares Mamadou Traoré's pocket with a wire cutter. He began tending other men's weapons during quiet hours on a Malian road patrol. No gifted engineer, Mamadou simply remembers which small part caused trouble last time. Machinery yields to repetition rather than insight for him, but uncomplicated faults tend to stay fixed once his careful hands have visited.","A mismatched screwdriver wrapped in red cloth shares Mamadou Traoré's pocket with a wire cutter. He began tending other men's weapons during quiet hours on a Malian road patrol. No gifted engineer, Mamadou simply remembers which small part caused trouble last time. Machinery yields to repetition rather than insight for him, but uncomplicated faults tend to stay fixed once his careful hands have visited.",,JAZZ_AME_36
+890000000005454,On the line.,On the line.,,JAZZ_AME_36
+890000000005455,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_36
+890000000005456,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_36
 890000000005460,Felix Tshisekedi,Felix Tshisekedi,,JAZZ_AME_37
 890000000005461,Felix,Felix,,JAZZ_AME_37
 890000000005462,FELIX,FELIX,,JAZZ_AME_37
-890000000005463,"Феликс Чисекеди — человек конголезского блокпоста: перевяжет рану, закроет сектор, не будет спрашивать, почему смена опять без воды. Не гений ни в чём — зато не провал ни в чём. Командиры любят таких именно за отсутствие сюрпризов.","Felix Tshisekedi is a fighters mercenary from Congo, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_37
-890000000005464,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_37
-890000000005465,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_37
-890000000005466,До связи.,Contract accepted.,,JAZZ_AME_37
+890000000005463,"A sliver of soap rides in Felix Tshisekedi's tin lid to scrub the iron smell from his hands. Congolese checkpoint shifts taught him to inherit empty canteens and unfinished chores without complaint. Felix tied the bandage, watched the road, and requested explanations later. He offers no remarkable flourish, but difficult days improve simply because he does not become another problem to solve.","A sliver of soap rides in Felix Tshisekedi's tin lid to scrub the iron smell from his hands. Congolese checkpoint shifts taught him to inherit empty canteens and unfinished chores without complaint. Felix tied the bandage, watched the road, and requested explanations later. He offers no remarkable flourish, but difficult days improve simply because he does not become another problem to solve.",,JAZZ_AME_37
+890000000005464,On the line.,On the line.,,JAZZ_AME_37
+890000000005465,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_37
+890000000005466,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_37
 890000000005470,Noah van Wyk,Noah van Wyk,,JAZZ_AME_38
 890000000005471,Noah,Noah,,JAZZ_AME_38
 890000000005472,NOAH,NOAH,,JAZZ_AME_38
-890000000005473,"Ноа ван Вик — фермерский стрелок из Южной Африки с голосом, к которому прислушиваются даже те, кто старше. Люди его слушают не из страха — из привычки, что он говорит по делу. Меньше позы, больше работы.","Noah van Wyk is a fighters mercenary from South Africa, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_38
-890000000005474,Дозвонился. Слушаю.,On the line.,,JAZZ_AME_38
-890000000005475,Ищу работу. Что предлагаете?,Listening. Tell me about the job.,,JAZZ_AME_38
-890000000005476,До связи.,Contract accepted.,,JAZZ_AME_38
+890000000005473,"A pocket ledger mixes Noah van Wyk's planting dates with promises made to people, every fulfilled one neatly crossed through. South African neighbours once brought him quarrels about water, fences, and wandering cattle. Noah speaks without hurry, leaving silence to push where louder men would shout. He is capable rather than dazzling with a rifle, but tired companions often recover their sense when his plain voice gives the next step.","A pocket ledger mixes Noah van Wyk's planting dates with promises made to people, every fulfilled one neatly crossed through. South African neighbours once brought him quarrels about water, fences, and wandering cattle. Noah speaks without hurry, leaving silence to push where louder men would shout. He is capable rather than dazzling with a rifle, but tired companions often recover their sense when his plain voice gives the next step.",,JAZZ_AME_38
+890000000005474,On the line.,On the line.,,JAZZ_AME_38
+890000000005475,I'm listening. Tell me about the job.,I'm listening. Tell me about the job.,,JAZZ_AME_38
+890000000005476,Understood. I'll be here.,Understood. I'll be here.,,JAZZ_AME_38
 890000000005480,"Joseph ""Hyena"" Mukendi","Joseph ""Hyena"" Mukendi",,JAZZ_AME_39
 890000000005481,Hyena,Hyena,,JAZZ_AME_39
 890000000005482,HYENA,HYENA,,JAZZ_AME_39
-890000000005483,"Жозефа Мукенди в Гранд-Шьен зовут «Гиена»: годами делал засады так, что жертвы узнавали кличку раньше лица. В тесноте бьёт грязно и быстро — красивой стрельбы меньше, зато чаще остаётся живым. Нервы держат. Знает себе цену и не любит, когда её занижают.","Joseph Mukendi is a hardened mercenary from Grand Chien, working as a autorifleman. Looking for paid contracts and steady work.",,JAZZ_AME_39
-890000000005484,Я на линии. Говорите.,On the line.,,JAZZ_AME_39
-890000000005485,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_39
-890000000005486,Контракт принят.,Contract accepted.,,JAZZ_AME_39
+890000000005483,"A dented pocket mirror lets Joseph “Hyena” Mukendi inspect a doorway without offering it his head. Grand Chien survivors remembered his ambush laugh before they remembered the face. Joseph fights with quick, practical cruelty and considers elegance a luxury for safer rooms. Nerve carries him through ugly moments, though his appetite for nearness can place him where a wiser man would never go.","A dented pocket mirror lets Joseph “Hyena” Mukendi inspect a doorway without offering it his head. Grand Chien survivors remembered his ambush laugh before they remembered the face. Joseph fights with quick, practical cruelty and considers elegance a luxury for safer rooms. Nerve carries him through ugly moments, though his appetite for nearness can place him where a wiser man would never go.",,JAZZ_AME_39
+890000000005484,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_39
+890000000005485,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_39
+890000000005486,Send the terms.,Send the terms.,,JAZZ_AME_39
 890000000005490,Abraham Tekle,Abraham Tekle,,JAZZ_AME_40
 890000000005491,Abraham,Abraham,,JAZZ_AME_40
 890000000005492,ABRAHAM,ABRAHAM,,JAZZ_AME_40
-890000000005493,"Абрахам Текле — горный ветеран из Эфиопии. Дышит ровно, ждёт, бьёт; уставы помнит хуже, чем привычку к прицелу. Корпус крепче, чем кажется по лицу. Уже видел поражение — и не сломался.","Abraham Tekle is a hardened mercenary from Ethiopia, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_40
-890000000005494,Я на линии. Говорите.,On the line.,,JAZZ_AME_40
-890000000005495,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_40
-890000000005496,Контракт принят.,Contract accepted.,,JAZZ_AME_40
+890000000005493,"A faded wool cap becomes Abraham Tekle's tiny pillow every night, a comfort kept from colder bivouacs. It followed an Ethiopian mountain campaign that ended with more men walking home than marching. Defeat made Abraham quieter rather than bitter, and he waits for a clear sight instead of demanding one. He looks worn, but hardship has left both frame and attention surprisingly difficult to shake.","A faded wool cap becomes Abraham Tekle's tiny pillow every night, a comfort kept from colder bivouacs. It followed an Ethiopian mountain campaign that ended with more men walking home than marching. Defeat made Abraham quieter rather than bitter, and he waits for a clear sight instead of demanding one. He looks worn, but hardship has left both frame and attention surprisingly difficult to shake.",,JAZZ_AME_40
+890000000005494,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_40
+890000000005495,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_40
+890000000005496,Send the terms.,Send the terms.,,JAZZ_AME_40
 890000000005500,"Sipho ""Anvil"" Khumalo","Sipho ""Anvil"" Khumalo",,JAZZ_AME_41
 890000000005501,Anvil,Anvil,,JAZZ_AME_41
 890000000005502,ANVIL,ANVIL,,JAZZ_AME_41
-890000000005503,"Сифо Кхумало, «Наковальня», тащит тяжесть так, будто мир обязан подождать. Тяжёлый ствол и очереди делают своё дело — и меткость от этого страдает, он знает. Не спорит: его работа — давить сектор, а не выигрывать тир.","Sipho Khumalo is a hardened mercenary from South Africa, working as a machinegunner. Looking for paid contracts and steady work.",,JAZZ_AME_41
-890000000005504,Я на линии. Говорите.,On the line.,,JAZZ_AME_41
-890000000005505,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_41
-890000000005506,Контракт принят.,Contract accepted.,,JAZZ_AME_41
+890000000005503,"His mother's tiny brass thimble glints absurdly between Sipho “Anvil” Khumalo's enormous fingers while he repairs webbing. A South African gun crew gave every oversized burden to his shoulders. Sipho thinks in straight lines, advances without grace, and claims no gift for a fine shot. He adapts slowly, but once the heavy barrel settles, neither recoil nor argument moves him easily.","His mother's tiny brass thimble glints absurdly between Sipho “Anvil” Khumalo's enormous fingers while he repairs webbing. A South African gun crew gave every oversized burden to his shoulders. Sipho thinks in straight lines, advances without grace, and claims no gift for a fine shot. He adapts slowly, but once the heavy barrel settles, neither recoil nor argument moves him easily.",,JAZZ_AME_41
+890000000005504,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_41
+890000000005505,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_41
+890000000005506,Send the terms.,Send the terms.,,JAZZ_AME_41
 890000000005510,Boubacar Kane,Boubacar Kane,,JAZZ_AME_42
 890000000005511,Boubacar,Boubacar,,JAZZ_AME_42
 890000000005512,BOUBACAR,BOUBACAR,,JAZZ_AME_42
-890000000005513,"Бубакар Кане — офицер запаса из Сенегала со спокойным прицелом. С людьми получается чуть лучше, чем у многих ветеранов: объяснит задачу так, что даже усталые кивают. Не орёт. Не геройствует. За сутки на старшего позицию обычно оставляет целой.","Boubacar Kane is a hardened mercenary from Senegal, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_42
-890000000005514,Я на линии. Говорите.,On the line.,,JAZZ_AME_42
-890000000005515,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_42
-890000000005516,Контракт принят.,Contract accepted.,,JAZZ_AME_42
+890000000005513,"Reserve service in Senegal taught Boubacar Kane that exhausted people remember reasons longer than shouted commands. He explains the purpose, checks the route himself, and lets silence replace ceremony. Orders go onto the clean inside of flattened cigarette packets, then the recipient must repeat them in ordinary words. Boubacar inspires trust gradually rather than dramatically, but confusion has a way of thinning out wherever his quiet routine takes hold.","Reserve service in Senegal taught Boubacar Kane that exhausted people remember reasons longer than shouted commands. He explains the purpose, checks the route himself, and lets silence replace ceremony. Orders go onto the clean inside of flattened cigarette packets, then the recipient must repeat them in ordinary words. Boubacar inspires trust gradually rather than dramatically, but confusion has a way of thinning out wherever his quiet routine takes hold.",,JAZZ_AME_42
+890000000005514,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_42
+890000000005515,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_42
+890000000005516,Send the terms.,Send the terms.,,JAZZ_AME_42
 890000000005520,"Didier ""Smoke"" Mbemba","Didier ""Smoke"" Mbemba",,JAZZ_AME_43
 890000000005521,Smoke,Smoke,,JAZZ_AME_43
 890000000005522,SMOKE,SMOKE,,JAZZ_AME_43
-890000000005523,"Дидье Мбемба, «Дым», из Конго приходит с банками и уходит в дыму, который сам же и ставит. Не спринтер — зато сектор задымления знает наизусть. Когда тишина уже не вариант, он как раз на месте.","Didier Mbemba is a hardened mercenary from Congo, working as a grenadier. Looking for paid contracts and steady work.",,JAZZ_AME_43
-890000000005524,Я на линии. Говорите.,On the line.,,JAZZ_AME_43
-890000000005525,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_43
-890000000005526,Контракт принят.,Contract accepted.,,JAZZ_AME_43
+890000000005523,"A scorched matchbox receives Didier “Smoke” Mbemba's fresh escape arrow before every job. The habit began in Congolese demolition work, where he repeatedly vanished behind dust of his own making. Sprinting is not among Didier's ambitions, so every loud solution starts with a chosen way out. He can be ponderous while others have options, but once silence is gone he becomes the calmest man in the noise.","A scorched matchbox receives Didier “Smoke” Mbemba's fresh escape arrow before every job. The habit began in Congolese demolition work, where he repeatedly vanished behind dust of his own making. Sprinting is not among Didier's ambitions, so every loud solution starts with a chosen way out. He can be ponderous while others have options, but once silence is gone he becomes the calmest man in the noise.",,JAZZ_AME_43
+890000000005524,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_43
+890000000005525,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_43
+890000000005526,Send the terms.,Send the terms.,,JAZZ_AME_43
 890000000005530,Amina Yusuf,Amina Yusuf,,JAZZ_AME_44
 890000000005531,Amina,Amina,,JAZZ_AME_44
 890000000005532,AMINA,AMINA,,JAZZ_AME_44
-890000000005533,"Амина Юсуф бережёт хороший автомат и бинты в кармане — ветераны дольше живут, когда не стесняются собственной крови. Очереди короткие, взгляд холодный. Про неё говорят мало и уважительно — так безопаснее.","Amina Yusuf is a hardened mercenary from Nigeria, working as a autorifleman. Looking for paid contracts and steady work.",,JAZZ_AME_44
-890000000005534,Я на линии. Говорите.,On the line.,,JAZZ_AME_44
-890000000005535,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_44
-890000000005536,Контракт принят.,Contract accepted.,,JAZZ_AME_44
+890000000005533,"Spare bandages stay sealed in Amina Yusuf's waxed paper and are inspected whenever rain enters the seams. Nigerian service taught her that ammunition, sleep, and clean cloth all require conservation. Amina treats her rifle as a duty rather than a companion and keeps every burst brief. Her reserve feels severe across a table, but beside blood it becomes the steady distance needed to help.","Spare bandages stay sealed in Amina Yusuf's waxed paper and are inspected whenever rain enters the seams. Nigerian service taught her that ammunition, sleep, and clean cloth all require conservation. Amina treats her rifle as a duty rather than a companion and keeps every burst brief. Her reserve feels severe across a table, but beside blood it becomes the steady distance needed to help.",,JAZZ_AME_44
+890000000005534,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_44
+890000000005535,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_44
+890000000005536,Send the terms.,Send the terms.,,JAZZ_AME_44
 890000000005540,Léopold Sassou,Léopold Sassou,,JAZZ_AME_45
 890000000005541,Léopold,Léopold,,JAZZ_AME_45
 890000000005542,LÉOPOLD,LÉOPOLD,,JAZZ_AME_45
-890000000005543,"Леопольд Сассу — сержант Гранд-Шьен с тяжёлым корпусом, ровным прицелом и чуточкой механики, достаточной, чтобы ствол соседа не клинил в самый плохой момент. Не улыбается для камеры. Улыбается, когда магазин встаёт с первого раза.","Léopold Sassou is a hardened mercenary from Grand Chien, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_45
-890000000005544,Я на линии. Говорите.,On the line.,,JAZZ_AME_45
-890000000005545,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_45
-890000000005546,Контракт принят.,Contract accepted.,,JAZZ_AME_45
+890000000005543,"A fine cleaning brush and a corked drop of oil travel inside Sergeant Léopold Sassou's empty cigar tube. Grand Chien service meant rescuing rifles from dust, neglect, and owners who swore they had changed nothing. Solid and unsentimental, Léopold knows enough about simple faults to be dangerous to excuses. People rarely earn his smile, but a magazine seating cleanly can soften his entire face.","A fine cleaning brush and a corked drop of oil travel inside Sergeant Léopold Sassou's empty cigar tube. Grand Chien service meant rescuing rifles from dust, neglect, and owners who swore they had changed nothing. Solid and unsentimental, Léopold knows enough about simple faults to be dangerous to excuses. People rarely earn his smile, but a magazine seating cleanly can soften his entire face.",,JAZZ_AME_45
+890000000005544,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_45
+890000000005545,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_45
+890000000005546,Send the terms.,Send the terms.,,JAZZ_AME_45
 890000000005550,Kofi Mensah,Kofi Mensah,,JAZZ_AME_46
 890000000005551,Kofi,Kofi,,JAZZ_AME_46
 890000000005552,KOFI,KOFI,,JAZZ_AME_46
-890000000005553,"Кофи Менса из Ганы — силач: здоровье и мощь замечают раньше, чем меткость. Не догоняет — занимает место и делает его непригодным для врага. Там, где нужна тяжесть, а не грация, он уместен.","Kofi Mensah is a hardened mercenary from Ghana, working as a machinegunner. Looking for paid contracts and steady work.",,JAZZ_AME_46
-890000000005554,Я на линии. Говорите.,On the line.,,JAZZ_AME_46
-890000000005555,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_46
-890000000005556,Контракт принят.,Contract accepted.,,JAZZ_AME_46
+890000000005553,"Coarse rope rides at Kofi Mensah's waist for repairing crate handles everyone else has abandoned. He went from a Ghanaian dock winch to guns that made ordinary men seek another pair of hands. Immensely built, Kofi changes direction slowly and never chases what can be pinned down. Subtle plans can outrun his understanding, but weight and recoil seem to arrive at his shoulders already tamed.","Coarse rope rides at Kofi Mensah's waist for repairing crate handles everyone else has abandoned. He went from a Ghanaian dock winch to guns that made ordinary men seek another pair of hands. Immensely built, Kofi changes direction slowly and never chases what can be pinned down. Subtle plans can outrun his understanding, but weight and recoil seem to arrive at his shoulders already tamed.",,JAZZ_AME_46
+890000000005554,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_46
+890000000005555,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_46
+890000000005556,Send the terms.,Send the terms.,,JAZZ_AME_46
 890000000005560,"Hassan ""Scorpion"" Ibrahim","Hassan ""Scorpion"" Ibrahim",,JAZZ_AME_47
 890000000005561,Scorpion,Scorpion,,JAZZ_AME_47
 890000000005562,SCORPION,SCORPION,,JAZZ_AME_47
-890000000005563,"Хассана Ибрахима в Мали зовут «Скорпион»: быстрее многих ветеранов, с ухмылкой человека, который любит, когда взрыв случается вовремя. Бросок уверенный, характер ядовитый. Кличка известнее имени — и он над этим не работает.","Hassan Ibrahim is a hardened mercenary from Mali, working as a grenadier. Looking for paid contracts and steady work.",,JAZZ_AME_47
-890000000005564,Я на линии. Говорите.,On the line.,,JAZZ_AME_47
-890000000005565,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_47
-890000000005566,Контракт принят.,Contract accepted.,,JAZZ_AME_47
+890000000005563,"Tiny scorpions with different expressions crowd Hassan “Scorpion” Ibrahim's matchbook margins. The nickname followed quick deliveries between Malian outposts once those arrivals began including explosive replies. Hassan moves lightly, throws with conviction, and keeps a sting ready for conversation. He understands timing better than caution and enjoys a well-placed blast enough to stand closer than sensible people prefer.","Tiny scorpions with different expressions crowd Hassan “Scorpion” Ibrahim's matchbook margins. The nickname followed quick deliveries between Malian outposts once those arrivals began including explosive replies. Hassan moves lightly, throws with conviction, and keeps a sting ready for conversation. He understands timing better than caution and enjoys a well-placed blast enough to stand closer than sensible people prefer.",,JAZZ_AME_47
+890000000005564,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_47
+890000000005565,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_47
+890000000005566,Send the terms.,Send the terms.,,JAZZ_AME_47
 890000000005570,Patrick Omondi,Patrick Omondi,,JAZZ_AME_48
 890000000005571,Patrick,Patrick,,JAZZ_AME_48
 890000000005572,PATRICK,PATRICK,,JAZZ_AME_48
-890000000005573,"Патрик Омонди — ночной стрелок из Кении со спокойным голосом, к которому прислушиваются даже уставшие. Лучше видит в темноте и лучше ждёт. После заката говорит шёпотом так, что всё равно слушаются.","Patrick Omondi is a hardened mercenary from Kenya, working as a rifle. Looking for paid contracts and steady work.",,JAZZ_AME_48
-890000000005574,Я на линии. Говорите.,On the line.,,JAZZ_AME_48
-890000000005575,Работа есть — слушаю.,Listening. Tell me about the job.,,JAZZ_AME_48
-890000000005576,Контракт принят.,Contract accepted.,,JAZZ_AME_48
+890000000005573,"Black cloth covers Patrick Omondi's luminous watch and rises only beneath a cupped hand. Years on Kenyan night posts made footsteps as distinct to him as daytime faces. Patrick speaks softly after sunset, drawing tired people closer instead of competing with the dark. In daylight he is merely composed and competent; at night, patience and quiet authority seem to arrive at the same point.","Black cloth covers Patrick Omondi's luminous watch and rises only beneath a cupped hand. Years on Kenyan night posts made footsteps as distinct to him as daytime faces. Patrick speaks softly after sunset, drawing tired people closer instead of competing with the dark. In daylight he is merely composed and competent; at night, patience and quiet authority seem to arrive at the same point.",,JAZZ_AME_48
+890000000005574,I'm here. Talk.,I'm here. Talk.,,JAZZ_AME_48
+890000000005575,"If there's work, I'm listening.","If there's work, I'm listening.",,JAZZ_AME_48
+890000000005576,Send the terms.,Send the terms.,,JAZZ_AME_48
 890000000005580,Dr. Fatoumata Sy,Dr. Fatoumata Sy,,JAZZ_AME_49
 890000000005581,Fatoumata,Fatoumata,,JAZZ_AME_49
 890000000005582,FATOUMATA,FATOUMATA,,JAZZ_AME_49
-890000000005583,"Доктор Фатумата Си — полевой хирург из Сенегала. Руки лечат, не стреляют; пистолет носит скорее для страха и редкой необходимости. В лазарете говорит тихо, режет уверенно и ненавидит, когда «герои» приходят без бинтов. Считает, что живые бойцы дороже мёртвых легенд.","Dr. Fatoumata Sy is a specialists mercenary from Senegal, working as a medic. Looking for paid contracts and steady work.",,JAZZ_AME_49
-890000000005584,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_49
-890000000005585,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_49
-890000000005586,До связи.,Contract accepted.,,JAZZ_AME_49
+890000000005583,"A red fountain pen marks Fatoumata Sy's casualty notes and remains the one possession she refuses to lend. Senegalese field surgery taught her that clean water can feel more precious than ammunition. Fatoumata lowers her voice when a ward grows frantic, forcing everyone nearby to listen instead of shout. A pistol brings visible reluctance, but an uncovered wound replaces hesitation with exact, unsparing purpose.","A red fountain pen marks Fatoumata Sy's casualty notes and remains the one possession she refuses to lend. Senegalese field surgery taught her that clean water can feel more precious than ammunition. Fatoumata lowers her voice when a ward grows frantic, forcing everyone nearby to listen instead of shout. A pistol brings visible reluctance, but an uncovered wound replaces hesitation with exact, unsparing purpose.",,JAZZ_AME_49
+890000000005584,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_49
+890000000005585,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_49
+890000000005586,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_49
 890000000005590,Grace Wanjiru,Grace Wanjiru,,JAZZ_AME_50
 890000000005591,Grace,Grace,,JAZZ_AME_50
 890000000005592,GRACE,GRACE,,JAZZ_AME_50
-890000000005593,"Грейс Ванджиру — лазаретная медсестра из Кении. Ствола нет и не будет: её сила — набор, бинты и умение не паниковать, когда крови слишком много. Тихая и незаменимая в тылу; экономить на таких обычно заканчивается плохо.","Grace Wanjiru is a specialists mercenary from Kenya, working as a medic. Looking for paid contracts and steady work.",,JAZZ_AME_50
-890000000005594,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_50
-890000000005595,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_50
-890000000005596,До связи.,Contract accepted.,,JAZZ_AME_50
+890000000005593,"An old radio jingle follows Grace Wanjiru through folded dressings until breathing around a cot matches its rhythm. Kenyan nursing taught her this during nights when the infirmary generator failed. Grace carries no gun and never pretends suffering has become ordinary. Violence aimed at her remains frighteningly unfamiliar, but beside a patient she becomes the calm pair of hands everyone was looking for.","An old radio jingle follows Grace Wanjiru through folded dressings until breathing around a cot matches its rhythm. Kenyan nursing taught her this during nights when the infirmary generator failed. Grace carries no gun and never pretends suffering has become ordinary. Violence aimed at her remains frighteningly unfamiliar, but beside a patient she becomes the calm pair of hands everyone was looking for.",,JAZZ_AME_50
+890000000005594,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_50
+890000000005595,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_50
+890000000005596,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_50
 890000000005600,Dr. Emile Kabongo,Dr. Emile Kabongo,,JAZZ_AME_51
 890000000005601,Emile,Emile,,JAZZ_AME_51
 890000000005602,EMILE,EMILE,,JAZZ_AME_51
-890000000005603,"Доктор Эмиль Кабонго — травматолог из Гранд-Шьен. Учит младших перевязывать так, чтобы раненый дожил до настоящей помощи. Голос спокойный, руки точные. Выглядит старше своих лет — так бывает с теми, кто слишком часто видел, чем кончается «ещё одна небольшая царапина».","Dr. Emile Kabongo is a specialists mercenary from Grand Chien, working as a medic. Looking for paid contracts and steady work.",,JAZZ_AME_51
-890000000005604,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_51
-890000000005605,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_51
-890000000005606,До связи.,Contract accepted.,,JAZZ_AME_51
+890000000005603,"A blunt carpenter's pencil sits behind Emile Kabongo's ear for sketching knots on wrappers and walls. Grand Chien road injuries often made him undo the generous mistakes of whoever reached a victim first. Emile teaches simple bandaging wherever he goes, patient with ignorance but not carelessness. Emergencies have aged his face and slowed his step, yet a difficult wound still brings remarkable clarity to hands and instructions.","A blunt carpenter's pencil sits behind Emile Kabongo's ear for sketching knots on wrappers and walls. Grand Chien road injuries often made him undo the generous mistakes of whoever reached a victim first. Emile teaches simple bandaging wherever he goes, patient with ignorance but not carelessness. Emergencies have aged his face and slowed his step, yet a difficult wound still brings remarkable clarity to hands and instructions.",,JAZZ_AME_51
+890000000005604,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_51
+890000000005605,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_51
+890000000005606,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_51
 890000000005610,Captain Amara Koné,Captain Amara Koné,,JAZZ_AME_52
 890000000005611,Amara,Amara,,JAZZ_AME_52
 890000000005612,AMARA,AMARA,,JAZZ_AME_52
-890000000005613,"Капитан Амара Коне — инструктор из Мали с учительским характером. Учит жёстко, без театра: оставляет объяснения, которые потом спасают жизни. Считает, что один хороший учитель дешевле десяти свежих могил.","Captain Amara Koné is a specialists mercenary from Mali, working as a instructor. Looking for paid contracts and steady work.",,JAZZ_AME_52
-890000000005614,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_52
-890000000005615,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_52
-890000000005616,До связи.,Contract accepted.,,JAZZ_AME_52
+890000000005613,"A battered kettle goes on before Captain Amara Koné's dawn lessons, and its whistle closes the session. Malian service taught her to turn nervous soldiers into people who understood why a drill mattered. Amara rejects parade-ground drama, giving an error explanation rather than humiliation. Her own body no longer demonstrates every movement gracefully, yet the habits she plants keep working when fear makes clever advice disappear.","A battered kettle goes on before Captain Amara Koné's dawn lessons, and its whistle closes the session. Malian service taught her to turn nervous soldiers into people who understood why a drill mattered. Amara rejects parade-ground drama, giving an error explanation rather than humiliation. Her own body no longer demonstrates every movement gracefully, yet the habits she plants keep working when fear makes clever advice disappear.",,JAZZ_AME_52
+890000000005614,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_52
+890000000005615,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_52
+890000000005616,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_52
 890000000005620,Sgt. Nadia Okonkwo,Sgt. Nadia Okonkwo,,JAZZ_AME_53
 890000000005621,Nadia,Nadia,,JAZZ_AME_53
 890000000005622,NADIA,NADIA,,JAZZ_AME_53
-890000000005623,"Сержант Надия Оконкво из Нигерии учит прицелу так, будто это одна профессия со стрельбой: научить попадать важнее, чем самой красиво попасть на глазах у начальства. В бой идёт редко, говорит часто — и обычно по делу. Её слушают даже те, кто не любит женщин с голосом громче их собственного.","Sgt. Nadia Okonkwo is a specialists mercenary from Nigeria, working as a instructor. Looking for paid contracts and steady work.",,JAZZ_AME_53
-890000000005624,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_53
-890000000005625,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_53
-890000000005626,До связи.,Contract accepted.,,JAZZ_AME_53
+890000000005623,"A chipped wooden ruler draws Sergeant Nadia Okonkwo's sight lines in dust, on tables, or across a map. Teaching troops in Nigeria revealed that she diagnoses another shooter's mistake better than she displays perfection herself. Nadia's voice carries, but the lesson beneath it is precise and free of vanity. She cannot sustain every example demanded from younger bodies, yet pupils nearby soon stop snatching at the shot.","A chipped wooden ruler draws Sergeant Nadia Okonkwo's sight lines in dust, on tables, or across a map. Teaching troops in Nigeria revealed that she diagnoses another shooter's mistake better than she displays perfection herself. Nadia's voice carries, but the lesson beneath it is precise and free of vanity. She cannot sustain every example demanded from younger bodies, yet pupils nearby soon stop snatching at the shot.",,JAZZ_AME_53
+890000000005624,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_53
+890000000005625,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_53
+890000000005626,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_53
 890000000005630,Maj. Théodore Ngalula,Maj. Théodore Ngalula,,JAZZ_AME_54
 890000000005631,Maj.,Maj.,,JAZZ_AME_54
 890000000005632,MAJ.,MAJ.,,JAZZ_AME_54
-890000000005633,"Майор Теодор Нгалула помнит, как строить людей так, чтобы они не разваливались в первую же неделю. Мудрость и отвёртка у него рядом с привычкой объяснять до тех пор, пока не поймут. В Гранд-Шьен его ещё помнят по званию — и по тому, что скидок на работу он не любит.","Maj. Théodore Ngalula is a specialists mercenary from Grand Chien, working as a instructor. Looking for paid contracts and steady work.",,JAZZ_AME_54
-890000000005634,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_54
-890000000005635,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_54
-890000000005636,До связи.,Contract accepted.,,JAZZ_AME_54
+890000000005633,"Wire holds one arm of Major Théodore Ngalula's folding spectacles, a temporary fix kept for years. His Grand Chien career was spent teaching groups to survive after exhaustion stripped away ceremony. Théodore repeats an explanation until it works in ordinary language, often repairing a loose buckle while he talks. He moves like an older man now, but flawed plans still reveal themselves to him with uncomfortable speed.","Wire holds one arm of Major Théodore Ngalula's folding spectacles, a temporary fix kept for years. His Grand Chien career was spent teaching groups to survive after exhaustion stripped away ceremony. Théodore repeats an explanation until it works in ordinary language, often repairing a loose buckle while he talks. He moves like an older man now, but flawed plans still reveal themselves to him with uncomfortable speed.",,JAZZ_AME_54
+890000000005634,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_54
+890000000005635,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_54
+890000000005636,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_54
 890000000005640,Issa Camara,Issa Camara,,JAZZ_AME_55
 890000000005641,Issa,Issa,,JAZZ_AME_55
 890000000005642,ISSA,ISSA,,JAZZ_AME_55
-890000000005643,"Исса Камара стреляет редко и метко. Тело хрупкое: один выстрел, не спринт. Ровное дыхание и терпение — его религия; беготня — чужая. Штурмовиком себя не считает и другим не врёт.","Issa Camara is a specialists mercenary from Senegal, working as a sniper. Looking for paid contracts and steady work.",,JAZZ_AME_55
-890000000005644,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_55
-890000000005645,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_55
-890000000005646,До связи.,Contract accepted.,,JAZZ_AME_55
+890000000005643,"A smooth wooden bead slides beneath Issa Camara's thumb along the rifle sling during long waits. Heat on a northern Senegalese road taught him how a careful shot can end an afternoon's danger. Issa accepts his narrow frame and leaves rushing to people built for it. He suffers quickly when a position becomes a brawl, but few prevent the quiet moment from turning into one as well.","A smooth wooden bead slides beneath Issa Camara's thumb along the rifle sling during long waits. Heat on a northern Senegalese road taught him how a careful shot can end an afternoon's danger. Issa accepts his narrow frame and leaves rushing to people built for it. He suffers quickly when a position becomes a brawl, but few prevent the quiet moment from turning into one as well.",,JAZZ_AME_55
+890000000005644,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_55
+890000000005645,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_55
+890000000005646,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_55
 890000000005650,Lindiwe Mokoena,Lindiwe Mokoena,,JAZZ_AME_56
 890000000005651,Lindiwe,Lindiwe,,JAZZ_AME_56
 890000000005652,LINDIWE,LINDIWE,,JAZZ_AME_56
-890000000005653,"Линдиве Мокоена работает ночью. Хрупкая, зоркая; темнота для неё союзник, а не чужой кошмар. Не обещает чудес и не набивает цену громкими словами. Любит, когда дело заканчивается одним тихим щелчком.","Lindiwe Mokoena is a specialists mercenary from South Africa, working as a sniper. Looking for paid contracts and steady work.",,JAZZ_AME_56
-890000000005654,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_56
-890000000005655,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_56
-890000000005656,До связи.,Contract accepted.,,JAZZ_AME_56
+890000000005653,"A tiny jar of matte black paint covers every fresh glint on Lindiwe Mokoena's metal before dusk. South African night observation taught her how a bright scratch betrays more than a careless footstep. Lindiwe is reserved and careful not to confuse courage with carrying too much. Daylight bustle drains her quickly, but darkness narrows the world into patient shapes she can read with unusual confidence.","A tiny jar of matte black paint covers every fresh glint on Lindiwe Mokoena's metal before dusk. South African night observation taught her how a bright scratch betrays more than a careless footstep. Lindiwe is reserved and careful not to confuse courage with carrying too much. Daylight bustle drains her quickly, but darkness narrows the world into patient shapes she can read with unusual confidence.",,JAZZ_AME_56
+890000000005654,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_56
+890000000005655,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_56
+890000000005656,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_56
 890000000005660,Bakary Diarra,Bakary Diarra,,JAZZ_AME_57
 890000000005661,Bakary,Bakary,,JAZZ_AME_57
 890000000005662,BAKARY,BAKARY,,JAZZ_AME_57
-890000000005663,"Бакари Диарра из Мали однажды пропил пистолет на детонаторы — и не жалеет. Взрывчатку знает лучше стрельбы, и сам об этом не стесняется. Его боятся ровно настолько, насколько уважают.","Bakary Diarra is a specialists mercenary from Mali, working as a sapper. Looking for paid contracts and steady work.",,JAZZ_AME_57
-890000000005664,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_57
-890000000005665,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_57
-890000000005666,До связи.,Contract accepted.,,JAZZ_AME_57
+890000000005663,"A cotton-lined cigarette tin holds Bakary Diarra's detonators and receives a nervous tap before work. He acquired them by trading away his pistol during years handling Malian road charges. Wires obey sequence while gunfire does not, a distinction Bakary takes seriously. Beside a device he understands he is composed, but uncontrolled danger exposes how much confidence depends on preparing the ground himself.","A cotton-lined cigarette tin holds Bakary Diarra's detonators and receives a nervous tap before work. He acquired them by trading away his pistol during years handling Malian road charges. Wires obey sequence while gunfire does not, a distinction Bakary takes seriously. Beside a device he understands he is composed, but uncontrolled danger exposes how much confidence depends on preparing the ground himself.",,JAZZ_AME_57
+890000000005664,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_57
+890000000005665,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_57
+890000000005666,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_57
 890000000005670,Marie-Claire Mbala,Marie-Claire Mbala,,JAZZ_AME_58
 890000000005671,Marie,Marie,,JAZZ_AME_58
 890000000005672,MARIE,MARIE,,JAZZ_AME_58
-890000000005673,"Мари-Клер Мбала ставит мины в Конго без лишней поэзии. Взрывчатка для неё важнее патронов, и она это повторяет всем новичкам. Бросок уверенный, характер сухой — сначала любопытство, потом осторожность.","Marie-Claire Mbala is a specialists mercenary from Congo, working as a sapper. Looking for paid contracts and steady work.",,JAZZ_AME_58
-890000000005674,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_58
-890000000005675,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_58
-890000000005676,До связи.,Contract accepted.,,JAZZ_AME_58
+890000000005673,"A tailor's tape coils in Marie-Claire Mbala's left pocket, measuring fuse without trusting footsteps. Congolese quarry charges taught her that explosives reward plain measurement and punish romantic language. Her manner is dry, and every newcomer must identify the exit before touching a wire. Marie-Claire leans too close when puzzled, but once a device reveals its logic, hesitation no longer wastes anyone's time.","A tailor's tape coils in Marie-Claire Mbala's left pocket, measuring fuse without trusting footsteps. Congolese quarry charges taught her that explosives reward plain measurement and punish romantic language. Her manner is dry, and every newcomer must identify the exit before touching a wire. Marie-Claire leans too close when puzzled, but once a device reveals its logic, hesitation no longer wastes anyone's time.",,JAZZ_AME_58
+890000000005674,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_58
+890000000005675,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_58
+890000000005676,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_58
 890000000005680,Ousmane Fall,Ousmane Fall,,JAZZ_AME_59
 890000000005681,Ousmane,Ousmane,,JAZZ_AME_59
 890000000005682,OUSMANE,OUSMANE,,JAZZ_AME_59
-890000000005683,"Усман Фалл из Сенегала чинит стволы лучше, чем держит их в бою. Желания геройствовать нет. В бой его не зовут, если есть хоть кто-то другой; после боя зовут первыми. Без него отряд разваливается быстрее, чем без лишнего героя.","Ousmane Fall is a specialists mercenary from Senegal, working as a mechanic. Looking for paid contracts and steady work.",,JAZZ_AME_59
-890000000005684,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_59
-890000000005685,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_59
-890000000005686,До связи.,Contract accepted.,,JAZZ_AME_59
+890000000005683,"A magnetised teaspoon gathers screws from the dust beside Ousmane Fall's tools. Senegalese buses taught him the same enemies later found in weapons: dirt, haste, and proud owners. Ousmane wants no heroics and finds solid cover honestly when bullets move. He looks awkward in a fight, but afterward is often the first person everyone needs and the last foolish enough to boast.","A magnetised teaspoon gathers screws from the dust beside Ousmane Fall's tools. Senegalese buses taught him the same enemies later found in weapons: dirt, haste, and proud owners. Ousmane wants no heroics and finds solid cover honestly when bullets move. He looks awkward in a fight, but afterward is often the first person everyone needs and the last foolish enough to boast.",,JAZZ_AME_59
+890000000005684,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_59
+890000000005685,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_59
+890000000005686,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_59
 890000000005690,Jean-Pierre Kalala,Jean-Pierre Kalala,,JAZZ_AME_60
 890000000005691,Jean,Jean,,JAZZ_AME_60
 890000000005692,JEAN,JEAN,,JAZZ_AME_60
-890000000005693,"Жан-Пьер Калала — бывший гаражный мастер из Гранд-Шьен. Замок вскроет, очередь — вряд ли. Инструменты ему роднее любого автомата. Хорошие механики не любят рекламу — его обычно находят по рекомендации.","Jean-Pierre Kalala is a specialists mercenary from Grand Chien, working as a mechanic. Looking for paid contracts and steady work.",,JAZZ_AME_60
-890000000005694,На связи. Готов обсуждать контракт.,On the line.,,JAZZ_AME_60
-890000000005695,Слушаю. Расскажите о задаче.,Listening. Tell me about the job.,,JAZZ_AME_60
-890000000005696,До связи.,Contract accepted.,,JAZZ_AME_60
-890000000005800,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
-890000000005801,Die!,Die!,,jazz-units:items.lua:VoiceResponse AME
-890000000005802,MEURS!,MEURS!,,jazz-units:items.lua:VoiceResponse AME
-890000000005803,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
-890000000005804,Die!,Die!,,jazz-units:items.lua:VoiceResponse AME
-890000000005805,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
-890000000005806,You won't break our spirit.,You won't break our spirit.,,jazz-units:items.lua:VoiceResponse AME
-890000000005807,Huh? Enemies!,Huh? Enemies!,,jazz-units:items.lua:VoiceResponse AME
-890000000005808,Alerter! Alerter!,Alerter! Alerter!,,jazz-units:items.lua:VoiceResponse AME
-890000000005809,They are all over me!,They are all over me!,,jazz-units:items.lua:VoiceResponse AME
-890000000005810,We will water the soil with the blood of you all!,We will water the soil with the blood of you all!,,jazz-units:items.lua:VoiceResponse AME
-890000000005811,"You will pay, foreign dogs. Now it is us that will bring the pain.","You will pay, foreign dogs. Now it is us that will bring the pain.",,jazz-units:items.lua:VoiceResponse AME
-890000000005812,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
-890000000005813,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
-890000000005814,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
-890000000005815,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005816,"Uff, that hurt!","Uff, that hurt!",,jazz-units:items.lua:VoiceResponse AME
-890000000005817,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005818,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005819,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005820,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
-890000000005821,Huh? Enemies!,Huh? Enemies!,,jazz-units:items.lua:VoiceResponse AME
-890000000005822,We will water the soil with the blood of you all!,We will water the soil with the blood of you all!,,jazz-units:items.lua:VoiceResponse AME
-890000000005823,"Damn, they are hard to get. We need to aim better.","Damn, they are hard to get. We need to aim better.",,jazz-units:items.lua:VoiceResponse AME
-890000000005824,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005825,"Uff, that hurt!","Uff, that hurt!",,jazz-units:items.lua:VoiceResponse AME
-890000000005826,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005827,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
-890000000005828,Keeping my head down!,Keeping my head down!,,jazz-units:items.lua:VoiceResponse AME
-890000000005829,Take this!,Take this!,,jazz-units:items.lua:VoiceResponse AME
-890000000005830,Suppressive fire!,Suppressive fire!,,jazz-units:items.lua:VoiceResponse AME
-890000000005831,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse AME
-890000000005832,(jumping over something),(jumping over something),,jazz-units:items.lua:VoiceResponse AME
-890000000005833,They are all over me!,They are all over me!,,jazz-units:items.lua:VoiceResponse AME
-890000000005834,They are all over me!,They are all over me!,,jazz-units:items.lua:VoiceResponse AME
-890000000005835,Keeping my head down!,Keeping my head down!,,jazz-units:items.lua:VoiceResponse AME
-890000000005836,(coughing),(coughing),,jazz-units:items.lua:VoiceResponse AME
-890000000005837,"That was a beloved pet, you bastards.","That was a beloved pet, you bastards.",,jazz-units:items.lua:VoiceResponse AME
-890000000005838,Glory to Grand Chien!,Glory to Grand Chien!,,jazz-units:items.lua:VoiceResponse AME
-890000000005839,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
-890000000005840,For Grand Chien!,For Grand Chien!,,jazz-units:items.lua:VoiceResponse AME
-890000000005841,Glory to Grand Chien!,Glory to Grand Chien!,,jazz-units:items.lua:VoiceResponse AME
-890000000005842,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
-890000000005843,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
-890000000005844,Watch out. We are taking heavy fire.,Watch out. We are taking heavy fire.,,jazz-units:items.lua:VoiceResponse AME
-890000000005845,Sound the alarm!,Sound the alarm!,,jazz-units:items.lua:VoiceResponse AME
-890000000005846,Alert! Man your stations!,Alert! Man your stations!,,jazz-units:items.lua:VoiceResponse AME
-890000000005847,They have me in a pincer.,They have me in a pincer.,,jazz-units:items.lua:VoiceResponse AME
-890000000005848,Fear the might of the Grand Chien army!,Fear the might of the Grand Chien army!,,jazz-units:items.lua:VoiceResponse AME
-890000000005849,They are taking casualties!,They are taking casualties!,,jazz-units:items.lua:VoiceResponse AME
-890000000005850,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
-890000000005851,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
-890000000005852,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
-890000000005853,Agh.,Agh.,,jazz-units:items.lua:VoiceResponse AME
-890000000005854,Ouch.,Ouch.,,jazz-units:items.lua:VoiceResponse AME
-890000000005855,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse AME
-890000000005856,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse AME
-890000000005857,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse AME
-890000000005858,Glory to Grand Chien!,Glory to Grand Chien!,,jazz-units:items.lua:VoiceResponse AME
-890000000005859,Sound the alarm!,Sound the alarm!,,jazz-units:items.lua:VoiceResponse AME
-890000000005860,Fear the might of the Grand Chien army!,Fear the might of the Grand Chien army!,,jazz-units:items.lua:VoiceResponse AME
-890000000005861,Good. Now they know our might.,Good. Now they know our might.,,jazz-units:items.lua:VoiceResponse AME
-890000000005862,Agh Ugh!,Agh Ugh!,,jazz-units:items.lua:VoiceResponse AME
-890000000005863,Hagh Agh!,Hagh Agh!,,jazz-units:items.lua:VoiceResponse AME
-890000000005864,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
-890000000005865,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
-890000000005866,Digging in!,Digging in!,,jazz-units:items.lua:VoiceResponse AME
-890000000005867,Take this!,Take this!,,jazz-units:items.lua:VoiceResponse AME
-890000000005868,Suppressive fire!,Suppressive fire!,,jazz-units:items.lua:VoiceResponse AME
-890000000005869,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse AME
-890000000005870,(jumping over something),(jumping over something),,jazz-units:items.lua:VoiceResponse AME
-890000000005871,Huh?,Huh?,,jazz-units:items.lua:VoiceResponse AME
-890000000005872,They have me in a pincer.,They have me in a pincer.,,jazz-units:items.lua:VoiceResponse AME
-890000000005873,Digging in!,Digging in!,,jazz-units:items.lua:VoiceResponse AME
-890000000005874,(coughing),(coughing),,jazz-units:items.lua:VoiceResponse AME
-890000000005875,"That's one of our national symbols, you scum!","That's one of our national symbols, you scum!",,jazz-units:items.lua:VoiceResponse AME
-890000000005876,For all we have lost!,For all we have lost!,,jazz-units:items.lua:VoiceResponse AME
-890000000005877,You will all pay!,You will all pay!,,jazz-units:items.lua:VoiceResponse AME
-890000000005878,For Grand Chien!,For Grand Chien!,,jazz-units:items.lua:VoiceResponse AME
-890000000005879,For all we have lost!,For all we have lost!,,jazz-units:items.lua:VoiceResponse AME
-890000000005880,You will all pay!,You will all pay!,,jazz-units:items.lua:VoiceResponse AME
-890000000005881,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
-890000000005882,Fight harder!,Fight harder!,,jazz-units:items.lua:VoiceResponse AME
-890000000005883,We are under attack!,We are under attack!,,jazz-units:items.lua:VoiceResponse AME
-890000000005884,Enemies!,Enemies!,,jazz-units:items.lua:VoiceResponse AME
-890000000005885,They come from all sides!,They come from all sides!,,jazz-units:items.lua:VoiceResponse AME
-890000000005886,We are winning!,We are winning!,,jazz-units:items.lua:VoiceResponse AME
-890000000005887,I am proud of all of you.,I am proud of all of you.,,jazz-units:items.lua:VoiceResponse AME
-890000000005888,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
-890000000005889,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
-890000000005890,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
-890000000005891,Agh.,Agh.,,jazz-units:items.lua:VoiceResponse AME
-890000000005892,Ouch.,Ouch.,,jazz-units:items.lua:VoiceResponse AME
-890000000005893,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005894,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005895,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
-890000000005896,For all we have lost!,For all we have lost!,,jazz-units:items.lua:VoiceResponse AME
-890000000005897,We are under attack!,We are under attack!,,jazz-units:items.lua:VoiceResponse AME
-890000000005898,We are winning!,We are winning!,,jazz-units:items.lua:VoiceResponse AME
-890000000005899,We are doing well! Keep it up!,We are doing well! Keep it up!,,jazz-units:items.lua:VoiceResponse AME
-890000000005900,Agh Ugh!,Agh Ugh!,,jazz-units:items.lua:VoiceResponse AME
-890000000005901,Hagh Agh!,Hagh Agh!,,jazz-units:items.lua:VoiceResponse AME
-890000000005902,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
-890000000005903,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
-890000000005904,Laying low!,Laying low!,,jazz-units:items.lua:VoiceResponse AME
-890000000005905,Let's see how you like this!,Let's see how you like this!,,jazz-units:items.lua:VoiceResponse AME
-890000000005906,Suppressive fire!,Suppressive fire!,,jazz-units:items.lua:VoiceResponse AME
-890000000005907,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse AME
-890000000005908,(jumping over something),(jumping over something),,jazz-units:items.lua:VoiceResponse AME
-890000000005909,Huh?,Huh?,,jazz-units:items.lua:VoiceResponse AME
-890000000005910,They come from all sides!,They come from all sides!,,jazz-units:items.lua:VoiceResponse AME
-890000000005911,Laying low!,Laying low!,,jazz-units:items.lua:VoiceResponse AME
-890000000005912,(coughing),(coughing),,jazz-units:items.lua:VoiceResponse AME
-890000000005913,You are nothing but butchers!,You are nothing but butchers!,,jazz-units:items.lua:VoiceResponse AME
+890000000005693,"A blue shop rag is knotted around Jean-Pierre Kalala's wrist, wiping each tool before it returns to place. At his Grand Chien garage, footsteps revealed a customer's failed home repair before the man crossed the floor. Jean-Pierre listens to locks with the patience once reserved for stubborn engines. He is slow and uncomfortable with gunfire, but a closed mechanism seldom keeps its secrets for long.","A blue shop rag is knotted around Jean-Pierre Kalala's wrist, wiping each tool before it returns to place. At his Grand Chien garage, footsteps revealed a customer's failed home repair before the man crossed the floor. Jean-Pierre listens to locks with the patience once reserved for stubborn engines. He is slow and uncomfortable with gunfire, but a closed mechanism seldom keeps its secrets for long.",,JAZZ_AME_60
+890000000005694,I'm available. We can discuss a contract.,I'm available. We can discuss a contract.,,JAZZ_AME_60
+890000000005695,Go ahead. Tell me what the job needs.,Go ahead. Tell me what the job needs.,,JAZZ_AME_60
+890000000005696,Understood. I will wait for your terms.,Understood. I will wait for your terms.,,JAZZ_AME_60
+890000000005914,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005915,Die!,Die!,,jazz-units:items.lua:VoiceResponse AME
+890000000005916,MEURS!,MEURS!,,jazz-units:items.lua:VoiceResponse AME
+890000000005917,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005918,Die!,Die!,,jazz-units:items.lua:VoiceResponse AME
+890000000005919,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
+890000000005920,You won't break our spirit.,You won't break our spirit.,,jazz-units:items.lua:VoiceResponse AME
+890000000005921,Huh? Enemies!,Huh? Enemies!,,jazz-units:items.lua:VoiceResponse AME
+890000000005922,Alerte! Alerte!,Alerte! Alerte!,,jazz-units:items.lua:VoiceResponse AME
+890000000005923,They are all over me!,They are all over me!,,jazz-units:items.lua:VoiceResponse AME
+890000000005924,We will water the soil with the blood of you all!,We will water the soil with the blood of you all!,,jazz-units:items.lua:VoiceResponse AME
+890000000005925,"You will pay, foreign dogs. Now it is us that will bring the pain.","You will pay, foreign dogs. Now it is us that will bring the pain.",,jazz-units:items.lua:VoiceResponse AME
+890000000005926,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
+890000000005927,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
+890000000005928,I have no cover here!,I have no cover here!,,jazz-units:items.lua:VoiceResponse AME
+890000000005929,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000005930,"Uff, that hurt!","Uff, that hurt!",,jazz-units:items.lua:VoiceResponse AME
+890000000005931,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000005932,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000005933,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000005934,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005935,Huh? Enemies!,Huh? Enemies!,,jazz-units:items.lua:VoiceResponse AME
+890000000005936,We will water the soil with the blood of you all!,We will water the soil with the blood of you all!,,jazz-units:items.lua:VoiceResponse AME
+890000000005937,"Damn, they are hard to get. We need to aim better.","Damn, they are hard to get. We need to aim better.",,jazz-units:items.lua:VoiceResponse AME
+890000000005938,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000005939,"Uff, that hurt!","Uff, that hurt!",,jazz-units:items.lua:VoiceResponse AME
+890000000005940,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000005941,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
+890000000005942,Keeping my head down!,Keeping my head down!,,jazz-units:items.lua:VoiceResponse AME
+890000000005943,Take this!,Take this!,,jazz-units:items.lua:VoiceResponse AME
+890000000005944,Suppressive fire!,Suppressive fire!,,jazz-units:items.lua:VoiceResponse AME
+890000000005945,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse AME
+890000000005946,(jumping over something),(jumping over something),,jazz-units:items.lua:VoiceResponse AME
+890000000005947,They are all over me!,They are all over me!,,jazz-units:items.lua:VoiceResponse AME
+890000000005948,They are all over me!,They are all over me!,,jazz-units:items.lua:VoiceResponse AME
+890000000005949,Keeping my head down!,Keeping my head down!,,jazz-units:items.lua:VoiceResponse AME
+890000000005950,(coughing),(coughing),,jazz-units:items.lua:VoiceResponse AME
+890000000005951,"That was a beloved pet, you bastards.","That was a beloved pet, you bastards.",,jazz-units:items.lua:VoiceResponse AME
+890000000005952,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005953,Die!,Die!,,jazz-units:items.lua:VoiceResponse AME
+890000000005954,MEURS!,MEURS!,,jazz-units:items.lua:VoiceResponse AME
+890000000005955,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005956,Die!,Die!,,jazz-units:items.lua:VoiceResponse AME
+890000000005957,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
+890000000005958,Watch out. We are taking heavy fire.,Watch out. We are taking heavy fire.,,jazz-units:items.lua:VoiceResponse AME
+890000000005959,Sound the alarm!,Sound the alarm!,,jazz-units:items.lua:VoiceResponse AME
+890000000005960,Alert! Man your stations!,Alert! Man your stations!,,jazz-units:items.lua:VoiceResponse AME
+890000000005961,They have me in a pincer.,They have me in a pincer.,,jazz-units:items.lua:VoiceResponse AME
+890000000005962,They are taking casualties!,They are taking casualties!,,jazz-units:items.lua:VoiceResponse AME
+890000000005963,Good! Keep it up!,Good! Keep it up!,,jazz-units:items.lua:VoiceResponse AME
+890000000005964,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
+890000000005965,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
+890000000005966,They have breached my position!,They have breached my position!,,jazz-units:items.lua:VoiceResponse AME
+890000000005967,Agh.,Agh.,,jazz-units:items.lua:VoiceResponse AME
+890000000005968,Ouch.,Ouch.,,jazz-units:items.lua:VoiceResponse AME
+890000000005969,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse AME
+890000000005970,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse AME
+890000000005971,I'm hit!,I'm hit!,,jazz-units:items.lua:VoiceResponse AME
+890000000005972,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005973,Sound the alarm!,Sound the alarm!,,jazz-units:items.lua:VoiceResponse AME
+890000000005974,They are taking casualties!,They are taking casualties!,,jazz-units:items.lua:VoiceResponse AME
+890000000005975,Good. Now they know our might.,Good. Now they know our might.,,jazz-units:items.lua:VoiceResponse AME
+890000000005976,Agh Ugh!,Agh Ugh!,,jazz-units:items.lua:VoiceResponse AME
+890000000005977,Hagh Agh!,Hagh Agh!,,jazz-units:items.lua:VoiceResponse AME
+890000000005978,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
+890000000005979,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
+890000000005980,Digging in!,Digging in!,,jazz-units:items.lua:VoiceResponse AME
+890000000005981,Take this!,Take this!,,jazz-units:items.lua:VoiceResponse AME
+890000000005982,Suppressive fire!,Suppressive fire!,,jazz-units:items.lua:VoiceResponse AME
+890000000005983,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse AME
+890000000005984,(jumping over something),(jumping over something),,jazz-units:items.lua:VoiceResponse AME
+890000000005985,Huh?,Huh?,,jazz-units:items.lua:VoiceResponse AME
+890000000005986,They have me in a pincer.,They have me in a pincer.,,jazz-units:items.lua:VoiceResponse AME
+890000000005987,Digging in!,Digging in!,,jazz-units:items.lua:VoiceResponse AME
+890000000005988,(coughing),(coughing),,jazz-units:items.lua:VoiceResponse AME
+890000000005989,"At least, we won't have to clean out the wildlife after the battle.","At least, we won't have to clean out the wildlife after the battle.",,jazz-units:items.lua:VoiceResponse AME
+890000000005990,For all we have lost!,For all we have lost!,,jazz-units:items.lua:VoiceResponse AME
+890000000005991,You will all pay!,You will all pay!,,jazz-units:items.lua:VoiceResponse AME
+890000000005992,Take that!,Take that!,,jazz-units:items.lua:VoiceResponse AME
+890000000005993,For all we have lost!,For all we have lost!,,jazz-units:items.lua:VoiceResponse AME
+890000000005994,You will all pay!,You will all pay!,,jazz-units:items.lua:VoiceResponse AME
+890000000005995,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
+890000000005996,Fight harder!,Fight harder!,,jazz-units:items.lua:VoiceResponse AME
+890000000005997,We are under attack!,We are under attack!,,jazz-units:items.lua:VoiceResponse AME
+890000000005998,Enemies!,Enemies!,,jazz-units:items.lua:VoiceResponse AME
+890000000005999,They come from all sides!,They come from all sides!,,jazz-units:items.lua:VoiceResponse AME
+890000000006000,We are winning!,We are winning!,,jazz-units:items.lua:VoiceResponse AME
+890000000006001,I am proud of all of you.,I am proud of all of you.,,jazz-units:items.lua:VoiceResponse AME
+890000000006002,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
+890000000006003,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
+890000000006004,I have no protection against the enemy's attacks!,I have no protection against the enemy's attacks!,,jazz-units:items.lua:VoiceResponse AME
+890000000006005,Agh.,Agh.,,jazz-units:items.lua:VoiceResponse AME
+890000000006006,Ouch.,Ouch.,,jazz-units:items.lua:VoiceResponse AME
+890000000006007,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000006008,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000006009,Je suis blessé!,Je suis blessé!,,jazz-units:items.lua:VoiceResponse AME
+890000000006010,For all we have lost!,For all we have lost!,,jazz-units:items.lua:VoiceResponse AME
+890000000006011,We are under attack!,We are under attack!,,jazz-units:items.lua:VoiceResponse AME
+890000000006012,We are winning!,We are winning!,,jazz-units:items.lua:VoiceResponse AME
+890000000006013,We are doing well! Keep it up!,We are doing well! Keep it up!,,jazz-units:items.lua:VoiceResponse AME
+890000000006014,Agh Ugh!,Agh Ugh!,,jazz-units:items.lua:VoiceResponse AME
+890000000006015,Hagh Agh!,Hagh Agh!,,jazz-units:items.lua:VoiceResponse AME
+890000000006016,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
+890000000006017,(heavy breath),(heavy breath),,jazz-units:items.lua:VoiceResponse AME
+890000000006018,Laying low!,Laying low!,,jazz-units:items.lua:VoiceResponse AME
+890000000006019,Let's see how you like this!,Let's see how you like this!,,jazz-units:items.lua:VoiceResponse AME
+890000000006020,Suppressive fire!,Suppressive fire!,,jazz-units:items.lua:VoiceResponse AME
+890000000006021,(climbing),(climbing),,jazz-units:items.lua:VoiceResponse AME
+890000000006022,(jumping over something),(jumping over something),,jazz-units:items.lua:VoiceResponse AME
+890000000006023,Huh?,Huh?,,jazz-units:items.lua:VoiceResponse AME
+890000000006024,They come from all sides!,They come from all sides!,,jazz-units:items.lua:VoiceResponse AME
+890000000006025,Laying low!,Laying low!,,jazz-units:items.lua:VoiceResponse AME
+890000000006026,(coughing),(coughing),,jazz-units:items.lua:VoiceResponse AME
+890000000006027,You are nothing but butchers!,You are nothing but butchers!,,jazz-units:items.lua:VoiceResponse AME
 890000000006100,Командная аура,Command aura,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
 890000000006101,Этот командир отдаёт приказы союзникам поблизости.,This commander issues orders to nearby allies.,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
 890000000006102,Отдаёт приказы,Issuing orders,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
@@ -9319,16 +9327,14 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006906,African Mercenary Exchange — welcome,African Mercenary Exchange — welcome,,JAZZ-UI-AME-001
 890000000006907,"Commander,
 
-Welcome to the African Mercenary Exchange — the local board for fighters without an A.I.M. brand name. Cheaper because the market prices reputation, not because of where they were born. You are buying potential: people who can grow on your payroll.
+Welcome to the African Mercenary Exchange — a local board for fighters who have not spent years building an A.I.M. reputation. Their rates are lower because you are meeting them before the medals and headlines. You are hiring people with room to grow; what they make of the opportunity depends on them, and on whoever gives them the chance.
 
-We rotate the shelf about every two weeks. Open the A.M.E. tab in your PDA anytime — hire while the names below are still available.
+The board turns over roughly every two weeks. The A.M.E. tab is always open in your PDA, so talk to a candidate while the name is still there.
 
-This week's picks:
+People we would call first:
 <listing>
 
-Questions? Open A.M.E. and talk to them yourself.
-
-— A.M.E. Exchange desk","Commander,
+— A.M.E. desk","Commander,
 
 Welcome to the African Mercenary Exchange — the local board for fighters without an A.I.M. brand name. Cheaper because the market prices reputation, not because of where they were born. You are buying potential: people who can grow on your payroll.
 
@@ -9344,13 +9350,13 @@ Questions? Open A.M.E. and talk to them yourself.
 890000000006909,A.M.E. — listing update,A.M.E. — listing update,,JAZZ-UI-AME-001
 890000000006910,"Commander,
 
-Fresh names on the board — and a few contracts walked. Here is who is worth a look right now (and why):
+The board has turned over: a few contracts closed, and new names took their place. These are the people we would call first right now:
 
 <listing>
 
-Don't sleep on specialists: medics, instructors, and snipers do not stay Available forever.
+Specialists rarely wait long for an offer.
 
-— A.M.E. Exchange desk","Commander,
+— A.M.E. desk","Commander,
 
 Fresh names on the board — and a few contracts walked. Here is who is worth a look right now (and why):
 
@@ -9372,30 +9378,33 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 
 — R.I.S. Field Desk",,JAZZ-UI-RIS-002:welcome.body
 890000000006939,R.I.S. <legion-desk@ris-intel.net>,R.I.S. <legion-desk@ris-intel.net>,,JAZZ-UI-RIS-002:supply_brief.sender
-890000000006960,keeps your people on their feet,keeps your people on their feet,,JAZZ-UI-AME-001
-890000000006961,turns green recruits into fighters,turns green recruits into fighters,,JAZZ-UI-AME-001
-890000000006962,puts rounds where it hurts from far out,puts rounds where it hurts from far out,,JAZZ-UI-AME-001
-890000000006963,"handles bombs, traps, and loud solutions","handles bombs, traps, and loud solutions",,JAZZ-UI-AME-001
-890000000006964,fixes guns and gear when the bush eats them,fixes guns and gear when the bush eats them,,JAZZ-UI-AME-001
-890000000006965,"solid rifle work, no drama","solid rifle work, no drama",,JAZZ-UI-AME-001
-890000000006966,lays down automatic fire when you need volume,lays down automatic fire when you need volume,,JAZZ-UI-AME-001
-890000000006967,anchors the line with a heavy gun,anchors the line with a heavy gun,,JAZZ-UI-AME-001
-890000000006968,throws trouble over walls and into rooms,throws trouble over walls and into rooms,,JAZZ-UI-AME-001
-890000000006970,a sharp shooter,a sharp shooter,,JAZZ-UI-AME-001
-890000000006971,knows how to patch wounds,knows how to patch wounds,,JAZZ-UI-AME-001
-890000000006972,handy with tools and weapons,handy with tools and weapons,,JAZZ-UI-AME-001
-890000000006973,comfortable around explosives,comfortable around explosives,,JAZZ-UI-AME-001
-890000000006974,built like a truck,built like a truck,,JAZZ-UI-AME-001
-890000000006975,tough as nails,tough as nails,,JAZZ-UI-AME-001
-890000000006976,people listen when they speak,people listen when they speak,,JAZZ-UI-AME-001
-890000000006977,high growth potential,high growth potential,,JAZZ-UI-AME-001
-890000000006978,moves fast under fire,moves fast under fire,,JAZZ-UI-AME-001
-890000000006979,steady hands,steady hands,,JAZZ-UI-AME-001
-890000000006980,cheap entry — room to grow on your payroll,cheap entry — room to grow on your payroll,,JAZZ-UI-AME-001
-890000000006981,"ready for real jobs, not just guard duty","ready for real jobs, not just guard duty",,JAZZ-UI-AME-001
-890000000006982,already blooded — less babysitting,already blooded — less babysitting,,JAZZ-UI-AME-001
-890000000006983,scarce skill — worth the weekly,scarce skill — worth the weekly,,JAZZ-UI-AME-001
+890000000006960,keeps a squad moving after the shooting starts,keeps your people on their feet,,JAZZ-UI-AME-001
+890000000006961,knows how to turn raw hands into a team,turns green recruits into fighters,,JAZZ-UI-AME-001
+890000000006962,makes distance work in your favor,puts rounds where it hurts from far out,,JAZZ-UI-AME-001
+890000000006963,"understands mines, charges, and stubborn doors","handles bombs, traps, and loud solutions",,JAZZ-UI-AME-001
+890000000006964,keeps worn guns and gear alive,fixes guns and gear when the bush eats them,,JAZZ-UI-AME-001
+890000000006965,steady with a rifle and easy to work with,"solid rifle work, no drama",,JAZZ-UI-AME-001
+890000000006966,brings automatic fire when the line needs weight,lays down automatic fire when you need volume,,JAZZ-UI-AME-001
+890000000006967,holds ground behind a heavy gun,anchors the line with a heavy gun,,JAZZ-UI-AME-001
+890000000006968,reaches enemies who think a wall is enough,throws trouble over walls and into rooms,,JAZZ-UI-AME-001
+890000000006970,a reliable shot,a sharp shooter,,JAZZ-UI-AME-001
+890000000006971,can keep a wound from becoming a funeral,knows how to patch wounds,,JAZZ-UI-AME-001
+890000000006972,knows one end of a toolkit from the other,handy with tools and weapons,,JAZZ-UI-AME-001
+890000000006973,does not lose their nerve around explosives,comfortable around explosives,,JAZZ-UI-AME-001
+890000000006974,can carry more than their share,built like a truck,,JAZZ-UI-AME-001
+890000000006975,hard to put down,tough as nails,,JAZZ-UI-AME-001
+890000000006976,people tend to listen,people listen when they speak,,JAZZ-UI-AME-001
+890000000006977,learns quickly,high growth potential,,JAZZ-UI-AME-001
+890000000006978,moves well under fire,moves fast under fire,,JAZZ-UI-AME-001
+890000000006979,good hands under pressure,steady hands,,JAZZ-UI-AME-001
+890000000006980,an affordable start with room to grow,cheap entry — room to grow on your payroll,,JAZZ-UI-AME-001
+890000000006981,ready for field work,"ready for real jobs, not just guard duty",,JAZZ-UI-AME-001
+890000000006982,already tested under fire,already blooded — less babysitting,,JAZZ-UI-AME-001
+890000000006983,a scarce skill worth securing,scarce skill — worth the weekly,,JAZZ-UI-AME-001
 890000000006984,looking for steady work,looking for steady work,,JAZZ-UI-AME-001
+890000000006990,Joined the Legion,Joined the Legion,,AME_Terminal
+890000000006991,<style PDAMercPrice_Dead>Killed in action</style>,<style PDAMercPrice_Dead>Killed in action</style>,,AME_Terminal
+890000000006992,Signed with another employer,Signed with another employer,,AME_Terminal
 890000000007000,На связи.,Standing by.,,jazz-units:items.lua:VoiceResponse
 890000000007001,На связи.,Standing by.,,jazz-units:items.lua:VoiceResponse
 890000000007002,Тихо.,Quiet.,,jazz-units:items.lua:VoiceResponse
@@ -12737,38 +12746,6 @@ A line squad carrying one of these weapons gains a serious advantage at its inte
 A line squad carrying one of these weapons gains a serious advantage at its intended range. Identify the weapon, work out what it can reach, and change the plan before it opens fire.
 
 — R.I.S. Field Desk",,JAZZ-UI-RIS-002:supply_brief.33.body
-890000000012000,MORPHINE,MORPHINE,,JAZZ-LOC-002
-890000000012001,Остров Эрни,Ernie Island,,JAZZ-LOC-002
-890000000012002,Окрестности Порта Какао,Port Cacao Outskirts,,JAZZ-LOC-002
-890000000012003,Великая пустыня,Great Desert,,JAZZ-LOC-002
-890000000012004,Горная степь,Mountain Steppe,,JAZZ-LOC-002
-890000000012005,Чаячий остров,Seagull Island,,JAZZ-LOC-002
-890000000012006,Окрестности Флитауна,Fleatown Environs,,JAZZ-LOC-002
-890000000012007,Ла-Барьер,La Barrière,,JAZZ-LOC-002
-890000000012008,Великий лес,Great Forest,,JAZZ-LOC-002
-890000000012009,Awaiting deployment,Awaiting deployment,,JAZZ-LOC-002
-890000000012010,Medical required,Medical required,,jazz:items.lua:78800
-890000000012011,Medical too low,Medical too low,,jazz:items.lua:78799
-890000000012013,Medical too low: <current>/<required>,Medical too low: <current>/<required>,,jazz:Code/System_JazzStackableMedicine.lua:80
-939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
-968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
-1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9
-1786863112811236,Слоновая кость,Ivory,,jazz:Code/POI Extension.lua:10
-2998106563741111,отремонт,repaired,,jazz:Code/Inventory.lua:111 | jazz:Code/Inventory.lua:174
-4869897712911115,,,,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148
-5678579714391111,изношенное,worn,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
-8182360763020012,Ресурс,Resource,,jazz:items.lua:73489
-890000000006924,"Recon Intelligence Services
-
-This field channel carries confirmed Legion supply assessments, unit dossiers, and after-action summaries. Reports are revised as evidence accumulates.","Recon Intelligence Services
-
-This field channel carries confirmed Legion supply assessments, unit dossiers, and after-action summaries. Reports are revised as evidence accumulates.",,JAZZ-UI-RIS-002:welcome.description
-890000000020150,Optics,Optics,,jazz:items.lua BobbyRay Other SubCategory
-890000000020151,Magazines,Magazines,,jazz:items.lua BobbyRay Other SubCategory
-890000000020152,Muzzle,Muzzle,,jazz:items.lua BobbyRay Other SubCategory
-890000000020153,Side,Side,,jazz:items.lua BobbyRay Other SubCategory
-890000000020154,Underbarrel,Underbarrel,,jazz:items.lua BobbyRay Other SubCategory
-890000000020155,Bipod,Bipod,,jazz:items.lua BobbyRay Other SubCategory
 890000000011322,The Major's Strategy: a network of strongpoints,The Major's Strategy: a network of strongpoints,,JAZZ-UI-RIS-002:strategy.strategy_network.title
 890000000011323,"Recent reports suggest that the Major does not run the Legion as one army. He has divided the country into districts, each centered on a fort. Patrols leave from it, battered units return to it, and money and recruits gathered from nearby settlements pass through its gates.
 
@@ -12867,3 +12844,53 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000011345,Unidentified fighter,Unidentified fighter,,JAZZ-UI-RIS-002:extra.legacy_contact
 890000000011346,Unidentified opponent,Unidentified opponent,,JAZZ-UI-RIS-002:extra.legacy_opponent
 890000000011347,Archived engagement in <sector>. Record time: <time>. The available evidence is not enough to reconstruct the original field account with confidence.,Archived engagement in <sector>. Record time: <time>. The available evidence is not enough to reconstruct the original field account with confidence.,,JAZZ-UI-RIS-002:extra.legacy_body_time
+890000000012000,MORPHINE,MORPHINE,,JAZZ-LOC-002
+890000000012001,Остров Эрни,Ernie Island,,JAZZ-LOC-002
+890000000012002,Окрестности Порта Какао,Port Cacao Outskirts,,JAZZ-LOC-002
+890000000012003,Великая пустыня,Great Desert,,JAZZ-LOC-002
+890000000012004,Горная степь,Mountain Steppe,,JAZZ-LOC-002
+890000000012005,Чаячий остров,Seagull Island,,JAZZ-LOC-002
+890000000012006,Окрестности Флитауна,Fleatown Environs,,JAZZ-LOC-002
+890000000012007,Ла-Барьер,La Barrière,,JAZZ-LOC-002
+890000000012008,Великий лес,Great Forest,,JAZZ-LOC-002
+890000000012009,Awaiting deployment,Awaiting deployment,,JAZZ-LOC-002
+890000000012010,Medical required,Medical required,,jazz:items.lua:78800
+890000000012011,Medical too low,Medical too low,,jazz:items.lua:78799
+890000000012013,Medical too low: <current>/<required>,Medical too low: <current>/<required>,,jazz:Code/System_JazzStackableMedicine.lua:80
+890000000013000,Зачистить бункер,Clear the Bunker,,jazz-maps:items.lua:55159
+890000000013001,Зачистить бункер в <em>подземном секторе L6</em>.,Clear the bunker in the <em>L6 underground sector</em>.,,jazz-maps:items.lua:55178
+890000000013002,Вернуться к сержанту в <em>сектор L1</em> и доложить о зачистке.,Return to the sergeant in <em>sector L1</em> and report that the bunker is clear.,,jazz-maps:items.lua:55197
+890000000013003,Бункер снова под контролем повстанцев.,The bunker is back under rebel control.,,jazz-maps:items.lua:55208
+890000000013004,<em>Martha</em> is looking for her husband who was kidnapped by the <em>Legion</em> and was last seen on the <em><SectorName('J7')></em>,"<em>Martha</em> is looking for her husband, who was kidnapped by the <em>Legion</em> and was last seen in <em><SectorName('J7')></em>.",,jazz-maps:items.lua:94731
+890000000013005,"Сержант сказал, это вы доставили винтовки. Хороший знак. В моём деле люди чаще теряют груз, деньги или голову — иногда всё сразу.","The sergeant says you're the ones who delivered the rifles. Good sign. In my line of work, people tend to lose their cargo, their money, or their heads—sometimes all three.",,jazz-maps:items.lua:30960
+890000000013006,Пойдёшь с нами?,Want to come with us?,,jazz-maps:items.lua:30982
+890000000013007,"Почему бы и нет? Самолёта у меня больше нет, груз сгорел, а сидеть без дела я не умею. Оставьте место в отряде — маршрут обсудим по дороге.","Why not? I don't have a plane anymore, the cargo burned up, and I'm no good at sitting idle. Save me a seat—we'll discuss the route on the way.",,jazz-maps:items.lua:30986
+890000000013008,Не сейчас,Not now,,jazz-maps:items.lua:30997
+890000000013009,Как скажете. Я пока здесь.,Suit yourselves. I'll be here.,,jazz-maps:items.lua:31001
+890000000020150,Optics,Optics,,jazz:items.lua BobbyRay Other SubCategory
+890000000020151,Magazines,Magazines,,jazz:items.lua BobbyRay Other SubCategory
+890000000020152,Muzzle,Muzzle,,jazz:items.lua BobbyRay Other SubCategory
+890000000020153,Side,Side,,jazz:items.lua BobbyRay Other SubCategory
+890000000020154,Underbarrel,Underbarrel,,jazz:items.lua BobbyRay Other SubCategory
+890000000020155,Bipod,Bipod,,jazz:items.lua BobbyRay Other SubCategory
+939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
+968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
+1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9
+1786863112811236,Слоновая кость,Ivory,,jazz:Code/POI Extension.lua:10
+2998106563741111,отремонт,repaired,,jazz:Code/Inventory.lua:111 | jazz:Code/Inventory.lua:174
+4869897712911115,,,,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148
+5678579714391111,изношенное,worn,,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177
+8182360763020012,Ресурс,Resource,,jazz:items.lua:73489
+890000000005002,Irregulars,Irregulars,,AME_Filter
+890000000005004,Fighters,Fighters,,AME_Filter
+890000000005006,Hardened,Hardened,,AME_Filter
+890000000005008,Specialists,Specialists,,AME_Filter
+890000000005010,All,All,,AME_Filter
+890000000005012,My%20Team,My%20Team,,AME_Filter
+890000000005013,http://www.ame-exchange.net/,http://www.ame-exchange.net/,,AME_Browser
+890000000005014,http://www.ame-exchange.net/Roster/,http://www.ame-exchange.net/Roster/,,AME_Browser
+890000000005020,African Mercenary Exchange,African Mercenary Exchange,,AME_UI
+890000000006890,About A.M.E.,About A.M.E.,,AME_Browser_about_title
+890000000006891,"The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy.","The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy.",,AME_Browser_about_body
+890000000006892,A.M.E. terms,A.M.E. terms,,AME_Browser_terms_title
+890000000006893,"A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead.","A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead.",,AME_Browser_terms_body

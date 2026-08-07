@@ -420,7 +420,7 @@ PlaceObj('XTemplate', {
 								local bioText = self.idBioContent.idBioText
 								local iconAppend = T(381811065044, "<valign top><image UI/PDA/Event/T_Event_TextIcon 1500><valign bottom>")
 								if context.Affiliation ~= "AIM" and not context.Bio then
-									bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n\n Caution! Use at your own risk!"))
+									bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n Caution! Use at your own risk!"))
 								else
 									bioText:SetText(iconAppend .. T(606873920225, "<Bio>"))
 								end

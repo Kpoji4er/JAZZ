@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 UNITS = Path(r"C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz-units")
@@ -27,8 +28,9 @@ def gender_of_mesh(name: str) -> str | None:
         return None
     if re.search(
         r"(?i)(_F_|Female|Buns|Fox|Vicki|Meltdown|Mouse|Livewire|Kalyna|Raven|Scope|"
-        r"Fauda|Corazon|Emma|DrMangel|IMP_Female|Head_F_|Equipment(Buns|Fox|Vicki|"
-        r"Meltdown|Mouse|Livewire|Kalyna|Raven|Scope|Fauda|Corazon))",
+        r"Fauda|Corazon|Emma|DrMangel|IMPTrooper|IMPTroublemaker|IMP_Female|"
+        r"Head_F_|Equipment(Buns|Fox|Vicki|Meltdown|Mouse|Livewire|Kalyna|Raven|"
+        r"Scope|Fauda|Corazon))",
         n,
     ):
         return "Female"
@@ -115,6 +117,23 @@ def main() -> int:
         if not v.get("handcrafted_kept") and v.get("body_donor") != v.get("head_donor")
     ]
     print("combos", len(combos), combos)
+    signatures: dict[tuple, list[str]] = defaultdict(list)
+    for pid, recipe in recipes.items():
+        if recipe.get("handcrafted_kept"):
+            continue
+        signature = tuple(
+            recipe.get(field)
+            for field in (
+                "gender",
+                "body_donor",
+                "head_donor",
+                "hair_donor",
+                "hat_donor",
+            )
+        )
+        signatures[signature].append(pid)
+    duplicate_recipes = [ids for ids in signatures.values() if len(ids) > 1]
+    print("duplicate_recipes", len(duplicate_recipes), duplicate_recipes)
     return 1 if link_bad or gender_bad else 0
 
 

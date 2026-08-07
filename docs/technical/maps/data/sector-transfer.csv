@@ -19,5 +19,6 @@ H4,I7,Форт Ло-Блё (Аванпост),Ernie outpost / Global AI,sheet,ok
 H7,H14,Шахта (около Флитауна),,sheet,ok
 I1,K4,Флаговый холм,,sheet,ok
 I2,M4,Смотровая площадка,vanilla I2 ≠ maps I2 (доктор),sheet,ok
-I3,M7,Изумрудный берег (пляж с минами),sheet → M7 (заглушка); runtime Emerald Coast = J7,sheet,missing_moditem
+I3,M7,Изумрудный берег (пляж с минами),sheet → M7 (заглушка); runtime Emerald Coast = J7 (QUESTS-002 quest remap),sheet,missing_moditem
+H14,P17,Камп Де Крокодиль,crocodile camp; not mine H7→H14,suite-docs,ok
 I1,M1,Старт кампании (зона высадки),"suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill.",suite-docs,ok

@@ -10,12 +10,19 @@ GameVar("gv_JAZZ_AME_Market", function()
 		welcome_sent = false,
 		welcome_read = false,
 		listing_snapshot = false,
+		specialist_missing_ticks = {},
 	}
 end)
 
 local AME_TARGET_AVAILABLE = 15
 local AME_TICK_DAYS = 14
 local AME_SPECIALIST_ROLES = { Medic = true, Instructor = true, Sniper = true, Sapper = true, Mechanic = true }
+local AME_SOFT_GUARANTEE_ROLES = { "Medic", "Instructor", "Sniper" }
+local AME_DEPARTURE_REASON_TEXT = {
+	JoinedLegion = T(890000000006990, "Joined the Legion"),
+	Killed = T(890000000006991, "<style PDAMercPrice_Dead>Killed in action</style>"),
+	HiredElsewhere = T(890000000006992, "Signed with another employer"),
+}
 
 local AME_IDS = {}
 for i = 1, 60 do
@@ -42,6 +49,13 @@ local function lGetUd(id)
 	return gv_UnitData and gv_UnitData[id]
 end
 
+function JAZZ_AME_GetDepartureReasonText(ud)
+	local market = gv_JAZZ_AME_Market
+	local id = ud and ud.session_id
+	local slot = id and market and market.slots and market.slots[id]
+	return slot and AME_DEPARTURE_REASON_TEXT[slot.reason] or false
+end
+
 local function lCountAvailable()
 	local n = 0
 	for _, id in ipairs(AME_IDS) do
@@ -53,16 +67,23 @@ local function lCountAvailable()
 	return n
 end
 
-local function lSpecialistAvailableOrPending()
+local function lRoleAvailable(role)
 	for _, id in ipairs(AME_IDS) do
 		local ud = lGetUd(id)
-		if ud and AME_SPECIALIST_ROLES[ud.AMERole or ""] then
-			if ud.HireStatus == "Available" then
-				return true
-			end
+		if ud and ud.AMERole == role and ud.HireStatus == "Available" then
+			return true
 		end
 	end
 	return false
+end
+
+local function lInitializeSpecialistTracking(market)
+	market.specialist_missing_ticks = market.specialist_missing_ticks or {}
+	for _, role in ipairs(AME_SOFT_GUARANTEE_ROLES) do
+		if market.specialist_missing_ticks[role] == nil then
+			market.specialist_missing_ticks[role] = lRoleAvailable(role) and 0 or 1
+		end
+	end
 end
 
 local function lSetHireStatus(ud, status)
@@ -127,6 +148,8 @@ function JAZZ_AME_InitMarket(force)
 			end
 		end
 	end
+	market.specialist_missing_ticks = {}
+	lInitializeSpecialistTracking(market)
 	market.initialized = true
 	market.next_tick_day = lCampaignDay() + AME_TICK_DAYS
 	ObjModified("pda browser tabs")
@@ -206,19 +229,80 @@ local function lRefillAvailable(gameId, tick)
 	end
 end
 
-local function lEnsureSpecialistSoftGuarantee(market)
-	if lSpecialistAvailableOrPending() then
-		return
+local function lAdvanceSpecialistTracking(market)
+	lInitializeSpecialistTracking(market)
+	local due = {}
+	for _, role in ipairs(AME_SOFT_GUARANTEE_ROLES) do
+		if lRoleAvailable(role) then
+			market.specialist_missing_ticks[role] = 0
+		else
+			local missing = (market.specialist_missing_ticks[role] or 0) + 1
+			market.specialist_missing_ticks[role] = missing
+			if missing >= 2 then
+				due[#due + 1] = role
+			end
+		end
 	end
+	return due
+end
+
+local function lGuaranteedCandidates(market, role)
+	local candidates = {}
 	for _, id in ipairs(AME_IDS) do
 		local ud = lGetUd(id)
-		if ud and AME_SPECIALIST_ROLES[ud.AMERole or ""] then
-			if ud.HireStatus == "NotMet" or (ud.HireStatus == "MIA" and not (market.slots[id] and market.slots[id].reason == "Killed")) then
-				if ud.HireStatus ~= "Hired" and ud.HireStatus ~= "Dead" then
-					lOpenSlot(id)
-					break
-				end
+		local slot = market.slots[id]
+		local temporaryAway = ud and ud.HireStatus == "MIA" and not (slot and slot.reason)
+		if ud and ud.AMERole == role and (ud.HireStatus == "NotMet" or temporaryAway) then
+			candidates[#candidates + 1] = id
+		end
+	end
+	return candidates
+end
+
+local function lMakeRoomForGuaranteedRoles(gameId, tick, due)
+	local excess = lCountAvailable() + #due - AME_TARGET_AVAILABLE
+	if excess <= 0 then
+		return
+	end
+	local candidates = {}
+	for _, id in ipairs(AME_IDS) do
+		local ud = lGetUd(id)
+		if ud and ud.HireStatus == "Available" then
+			local protected = table.find(due, ud.AMERole)
+			if not protected then
+				candidates[#candidates + 1] = id
 			end
+		end
+	end
+	table.sort(candidates, function(a, b)
+		return lRoll({ gameId, a, tick, "guarantee_room" }, 0, 1000000) < lRoll({ gameId, b, tick, "guarantee_room" }, 0, 1000000)
+	end)
+	for i = 1, excess do
+		local id = candidates[i]
+		if id then
+			lTerminalize(id, "HiredElsewhere")
+		end
+	end
+end
+
+local function lOpenGuaranteedRoles(market, gameId, tick, due)
+	for _, role in ipairs(due) do
+		if not lRoleAvailable(role) then
+			local candidates = lGuaranteedCandidates(market, role)
+			table.sort(candidates, function(a, b)
+				return lRoll({ gameId, a, tick, role, "guarantee_enter" }, 0, 1000000) < lRoll({ gameId, b, tick, role, "guarantee_enter" }, 0, 1000000)
+			end)
+			if candidates[1] and lOpenSlot(candidates[1]) then
+				market.specialist_missing_ticks[role] = 0
+			end
+		end
+	end
+end
+
+local function lResetPresentSpecialistTracking(market)
+	for _, role in ipairs(AME_SOFT_GUARANTEE_ROLES) do
+		if lRoleAvailable(role) then
+			market.specialist_missing_ticks[role] = 0
 		end
 	end
 end
@@ -236,8 +320,14 @@ function JAZZ_AME_MarketTick()
 	local gameId = Game and Game.id or 0
 	local tick = market.next_tick_day or day
 	lApplyDepartures(gameId, tick)
+	local due = lAdvanceSpecialistTracking(market)
+	due = table.ifilter(due, function(_, role)
+		return #lGuaranteedCandidates(market, role) > 0
+	end)
+	lMakeRoomForGuaranteedRoles(gameId, tick, due)
+	lOpenGuaranteedRoles(market, gameId, tick, due)
 	lRefillAvailable(gameId, tick)
-	lEnsureSpecialistSoftGuarantee(market)
+	lResetPresentSpecialistTracking(market)
 	market.next_tick_day = day + AME_TICK_DAYS
 	ObjModified("pda browser tabs")
 	if rawget(_G, "JAZZ_AME_SendListingUpdateMail") then

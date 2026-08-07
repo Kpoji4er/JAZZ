@@ -24,6 +24,10 @@ write_set:
   - Russian.csv
   - Icons/Flags/
   - docs/design/ame-mercenary-exchange.md
+  - docs/tools/_ame_copy_bank.py
+  - docs/tools/_gen_ame_roster_60.py
+  - docs/tools/_gen_ame_unitdata.py
+  - docs/tools/_audit_ame_copy.py
   - docs/technical/systems/units-progression-specializations.md
   - docs/technical/systems/file-coverage.md
   - docs/wiki/
@@ -288,7 +292,7 @@ Hardened не может одновременно иметь Marksmanship ≥ 90
 AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70**; Explosives **<70**. Не AIM-уровень 85–100.
 
 - `JAZZ-UNITS-005-REQ-017` — UI карточки показывает категорию и **Potential** label от Wisdom: Low (ниже 45), Medium (45–64), High (65 и выше). Отдельного UnitData-поля Potential в v1 нет.
-- `JAZZ-UNITS-005-REQ-018` — StartingLevel bands: Irregulars 1–2; Fighters 2–4; Hardened 5–10; Specialists 4–8.
+- `JAZZ-UNITS-005-REQ-018` — `StartingLevel = 1` у всех 60 слотов. Категория задаёт исходный stat/kit/experience profile, но не бесплатные уровни: AME продаёт потенциал роста на службе.
 
 ### Внешность, голос, контент
 
@@ -297,9 +301,9 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
   - ~7/8 слотов → Jazz remesh (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) или `PierreMerc` (полный hireable Af bank); ~1/8 → IMP pool (cycle 01..03 по полу; VR → `IMP_male_01` / `IMP_female_01`);
   - bucket `(slot-1)%8`: `7` → IMP; `3` → `PierreMerc` (males); иначе Jazz remesh (Hardened/Specialists и bucket 1/5 → `Male_Hard`);
   - `FallbackMissingVR`: IMP/`PierreMerc` → тот же VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` — **не** Ice/Fox.
-  Calm slots на remesh **не** из `BecomeAware` → тишина. `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_apply_ame_voice_remap.py`; назначение `_gen_ame_roster_60.py`.
+  Calm slots на remesh **не** из `BecomeAware` → тишина; faction-specific Legion/Major/Grand Chien takes не входят в shared hireable banks. EN subtitle совпадает с audible donor line, RU переводит услышанную реплику, а не имя reused gameplay slot. `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_apply_ame_voice_remap.py`; назначение `_gen_ame_roster_60.py`.
 - `JAZZ-UNITS-005-REQ-021` — портреты: банк ≥ **16** уникальных лиц в `jazz-units/MercPortraits` (AME); reuse банка между слотами разрешён; специалисты стремятся к меньшей коллизии лиц на одной витрине.
-- `JAZZ-UNITS-005-REQ-022` — у каждого слота **полная игровая биография** (поле `Bio` на карточке найма) RU+EN: проза от 3-го лица (происхождение, прошлое, характер, слабость), без мета-цифр статов/тиров; тексты различаются (страна, background, тон). Design-roster держит канон RU; EN — в том же change set локализации. Hire chat — шаблонные фразы по категории/роли.
+- `JAZZ-UNITS-005-REQ-022` — у каждого слота **полная игровая биография** (поле `Bio` на карточке найма) RU+EN: короткий живой портрет от 3-го лица — прошлое, темперамент, одна человеческая деталь и мягко вплетённая сильная или слабая сторона; без мета-цифр, названий статов/тиров и пересказа анкеты. RU и EN редактируются как самостоятельная естественная проза, а не построчная калька; канон обеих версий хранит `_ame_copy_bank.py` и показывает design-roster. Hire chat — шаблонные фразы по категории/роли.
 - `JAZZ-UNITS-005-REQ-023` — background flavor tags в bio (не отдельный filter v1): ex-army / militia / police / hunter / rebel — без привязки «дешёвый = раса».
 - `JAZZ-UNITS-005-REQ-028` — **происхождение / Nationality + флаги (в скоупе)**:
   1. Слоты AME получают `Nationality` из африканского пула; доля **Grand Chien** **~20–35%**.
@@ -363,6 +367,7 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
 - Статус: approved (code+data+docs shipped; formal `-Phase Done` blocked until runtime/human AC-003/004/006/007/009/010)
 - Кто подтвердил: project-owner
 - Дата: 2026-08-03 (implement order: ship full DoD — site + 60 mercs + portraits; unique faces for all 60)
+- Уточнение 2026-08-07: owner оставил всем AME `StartingLevel = 1`; soft-guarantee при этом остаётся отдельной для Medic / Instructor / Sniper.
 
 ## Evidence
 
@@ -371,9 +376,9 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
 - `JAZZ-UNITS-005-AC-003`: `BLOCKED` (runtime) — код market/filters готов; нужен JA3 playtest витрины.
 - `JAZZ-UNITS-005-AC-004`: `BLOCKED` (runtime) — hire wrap static-present; нужен playtest hire→squad.
 - `JAZZ-UNITS-005-AC-005`: `PASS` (static) — 60 companions/loot; categories 20/18/10/12; flags `Icons/Flags/f_*.png` + `System_AME_Nationalities.lua`; 60 unique portraits (sha1); kit audit `_audit_ame_kit_tiers.py` violations=0.
-- `JAZZ-UNITS-005-AC-006`: `BLOCKED` (runtime) — tick logic in `System_AME_Market.lua` (`AME_TICK_DAYS = 14`); нужен +14d playtest.
+- `JAZZ-UNITS-005-AC-006`: `BLOCKED` (runtime), `PASS` (targeted static-runtime) — `_test_ame_contract.py` подтверждает deterministic 15-slot window, Hired protection и отдельную guarantee Medic/Instructor/Sniper; нужен +14d live playtest.
 - `JAZZ-UNITS-005-AC-007`: `BLOCKED` (runtime/human) — roster salaries/traits static; нужен human card check.
-- `JAZZ-UNITS-005-AC-008`: `PASS` (static) — AME loc block in RU/EN CSV; wiki `african-mercenary-exchange.md`; showcase `ru|en/ame.md` + pages.json.
+- `JAZZ-UNITS-005-AC-008`: `PASS` (static) — AME loc block in RU/EN CSV; `_audit_ame_copy.py` подтверждает 60 самостоятельных RU/EN bio + profile и точную runtime-проекцию; wiki `african-mercenary-exchange.md`; showcase `ru|en/ame.md` + pages.json.
 - `JAZZ-UNITS-005-AC-009`: `BLOCKED` (human) — owner playtest Potential/growth.
 - `JAZZ-UNITS-005-AC-010`: `BLOCKED` (runtime/human) — flag assets wired; UI visibility needs in-game card check.
 
@@ -383,4 +388,4 @@ AME soft-skill peaks (Medical / Leadership / Mechanical / Marksmanship) **≤70*
 - `docs/technical/systems/units-progression-specializations.md`, `file-coverage.md`
 - `docs/wiki/african-mercenary-exchange.md`
 - `docs/showcase/ru|en/ame.md`, `mercenaries.md`, `pages.json`
-- Tools: `_gen_ame_unitdata.py`, `_gen_ame_flags.py`, `_gen_ame_portrait_prompts.py`, `_process_ame_portraits.py`
+- Tools: `_ame_copy_bank.py`, `_audit_ame_copy.py`, `_test_ame_contract.py`, `_gen_ame_unitdata.py`, `_gen_ame_flags.py`, `_gen_ame_portrait_prompts.py`, `_process_ame_portraits.py`

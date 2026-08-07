@@ -62,8 +62,8 @@ On the island but **without** Ernie tags in ModItemSector: `I3`/`I4` (road to li
 After liberating the village while the fort is still enemy — a **quest** sat attack from the fort on the village (~16 h). Squad def `ErnieCounterAttack`: ~**37** bodies, **1** rocketeer (RPG), **2** T1 thrower grenadiers + **1** mortar (not the generic Legion “Retaliation” AI recipe). Under Global AI / Vanilla Maps this works again; ordinary vanilla periodic sorties from the managed fort stay off.
 | `ErnieSideQuests` | *(unnamed)* | yes |
 | `ErnieSideQuests_WorldFlip` | *(unnamed)* | yes |
-| `RescueTeam` | We were hired as rescuers (RU title) | no |
-| `RebelsSavior` | Small rescue op (RU title) | no |
+| `RescueTeam` | We didn't sign up to be rescuers | no |
+| `RebelsSavior` | Supplies for the Rebels | no |
 
 ### Intro / liberation
 
@@ -84,6 +84,17 @@ After liberating the village while the fort is still enemy — a **quest** sat a
 | `Jazz_Doctor_need_Help` | Unwanted doctor (RU) |
 | `JAZZ_Ernie_Locals_M2_SaveMyFamily` | Save Kiki (RU) |
 | `Jazz_ClearTheWay` | Clear camps around the villa (RU) |
+| `Jazz_DeadPigs` | Pig-sticker |
+| `Jazz_Alkatraz` | Clear the Bunker |
+
+## Repaired quest chains
+
+- At K5 the rebels accept only the full shipment: **4 Zastava M76 rifles + 4 Medkits**. Once delivered, pilot-smuggler Berriman Seal appears by the tents and can join for free.
+- The prisoner rescue on the pier succeeds only if the hostage survives; report back to the sergeant afterward.
+- The doctor's quest requires stabilizing **three** wounded rebels independently.
+- Accepting “Pig-sticker” brings **four** of Balumba's allies into the K6 fight.
+- Rebel helpers at K4 and M4 no longer disappear because of a wrong sector condition.
+- Herman's trail leads to **J7**; the bunker-clearance job runs through **L6 Underground** and returns to L1.
 
 ## Setpieces
 

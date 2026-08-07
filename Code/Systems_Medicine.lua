@@ -1388,7 +1388,8 @@ end
 
 -- ---------------------------------------------------------------------------
 -- Trauma progress timers (satellite hours): improve / worsen checks + UI text.
--- Tooltip append lives on JazzTraumaEffect:GetDescription (System_JazzTraumaEffect.lua).
+-- Tooltip append lives on JazzTraumaEffect:ResolveValue("Description") (System_JazzTraumaEffect.lua).
+-- GetDescription stays raw — save path uses it and cannot serialize T{hours=...}.
 -- ---------------------------------------------------------------------------
 
 function JazzParseTraumaEffectId(effect_id)

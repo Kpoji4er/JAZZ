@@ -24,7 +24,8 @@ profiles are authored (Sterling ~12 … Micro UZI 21).
 `Carbine` select-fire platforms get class default RPM **700** when CSV still has
 placeholder `cyclic_rpm=0` (hole from first WEAPONS-003 apply). Semi-only carbines
 keep RPM 0 → Burst/Auto 0. Authored anchors include M4A1 **800/4/8**, G36/G36c
-**BurstLimiter=2** (burst capped at 2; AutoFire length unchanged). Select-fire
+**BurstLimiter=2** (burst capped at 2; AutoFire length unchanged). `UMP45` same
+2-rd cut as balance tax for .45 damage (AutoFire stays 6). Select-fire
 snipers (SVU) use class cyclic when Burst/Auto exists — not forced rpm=0.
 Mechanical 3-rd burst: M16A2/A4, FAMAS, AUG, HK33, Sig550*, G3A3/A4.
 `M2Carbine` / `Mini14` keep semi-only `AvailableAttacks`, but author Burst/Auto from RPM for the
@@ -35,6 +36,8 @@ back to CyclicRPM when shot counts are still 0.
 `AutoShots = clamp(round(RPM / 100), 3..14)` only when the corresponding fire
 mode exists **or** the platform is component-gated autofire. `BurstLimiter` caps burst only; belt/MG auto is capped at 10
 (true MachineGun/LMG only — not SubmachineGun).
+**Exception:** `AN94` keeps `CyclicRPM=1800` for the Abakan hyperburst pair, but
+authored `AutoShots=6` (sustained length); do not derive Auto from 1800.
 There is no random burst-length variance.
 
 The 9×19 validation set deliberately differentiates platforms: Micro UZI

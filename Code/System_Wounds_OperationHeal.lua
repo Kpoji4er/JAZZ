@@ -88,13 +88,115 @@ local function JazzInstallTreatWoundsEligibility()
 	end
 end
 
+-- Vanilla OperationMerc Patient UI does:
+--   merc:GetStatusEffect("Wounded").stacks
+-- MED-001 disables Wounded stacks, so TreatWounds patients (missing HP / untreated
+-- Trauma*) open the assign dialog and Assert. Wrap GetStatusEffect on context.merc
+-- for that update only and expose PatientGetWoundedStacks as synthetic Wounded.
+-- Locals only: DAP/loadfile must not create new _G names (jazz-lua-globals).
+local function JazzResolveOperationMercUnit(merc)
+	if not merc then
+		return nil
+	end
+	if type(merc.GetStatusEffect) == "function" and (merc.HitPoints ~= nil or merc.MaxHitPoints ~= nil) then
+		return merc
+	end
+	local class = merc.class or merc.session_id or merc
+	if type(class) == "string" then
+		local unit_data = rawget(_G, "gv_UnitData")
+		if unit_data and unit_data[class] then
+			return unit_data[class]
+		end
+	end
+	return type(merc.GetStatusEffect) == "function" and merc or nil
+end
+
+local function JazzSyntheticWoundedForUI(unit)
+	local stacks = PatientGetWoundedStacks(unit) or 0
+	if stacks <= 0 then
+		return nil
+	end
+	local defs = rawget(_G, "CharacterEffectDefs")
+	local def = defs and defs.Wounded
+	return {
+		stacks = stacks,
+		DisplayName = def and def.DisplayName or "Wounded",
+		Description = def and def.Description or "",
+		Icon = def and def.Icon or "UI/Icons/Status effects/wounded",
+	}
+end
+
+local function JazzPatchOperationMercPatientWoundsUI()
+	local xt = rawget(_G, "XTemplates") and XTemplates.OperationMerc
+	if not xt then
+		return
+	end
+
+	local function walk(node, depth)
+		if type(node) ~= "table" or (depth or 0) > 64 then
+			return false
+		end
+		if node.Id == "idContent" and type(node.OnContextUpdate) == "function" then
+			if rawget(node, "jazz_patient_wounds_ui") then
+				return true
+			end
+			local base = node.OnContextUpdate
+			node.OnContextUpdate = function(self, context, ...)
+				local merc = context and context.merc
+				local unit = JazzResolveOperationMercUnit(merc)
+				local restore
+				if merc and type(merc.GetStatusEffect) == "function" then
+					local orig = merc.GetStatusEffect
+					merc.GetStatusEffect = function(this, id, ...)
+						local effect = orig(this, id, ...)
+						if id == "Wounded" and not effect then
+							-- Always a table: vanilla indexes `.stacks` without a nil check.
+							return JazzSyntheticWoundedForUI(unit or this) or { stacks = 0 }
+						end
+						return effect
+					end
+					restore = function()
+						merc.GetStatusEffect = nil
+					end
+				end
+				local ok, err = pcall(base, self, context, ...)
+				if restore then
+					restore()
+				end
+				if not ok then
+					error(err)
+				end
+			end
+			rawset(node, "jazz_patient_wounds_ui", true)
+			return true
+		end
+		for _, child in ipairs(node) do
+			if type(child) == "table" and walk(child, (depth or 0) + 1) then
+				return true
+			end
+		end
+		for key, child in pairs(node) do
+			if type(key) ~= "number" and type(child) == "table" and walk(child, (depth or 0) + 1) then
+				return true
+			end
+		end
+		return false
+	end
+
+	walk(xt, 0)
+end
+
 function OnMsg.DataLoaded()
 	JazzInstallTreatWoundsEligibility()
+	JazzPatchOperationMercPatientWoundsUI()
 end
 
 function OnMsg.ModsReloaded()
 	JazzInstallTreatWoundsEligibility()
+	JazzPatchOperationMercPatientWoundsUI()
 end
+
+JazzPatchOperationMercPatientWoundsUI()
 
 function PatientAddHealWoundProgress(merc, progress, max_progress, dont_log)
 	if IsGameRuleActive("ForgivingMode") then 

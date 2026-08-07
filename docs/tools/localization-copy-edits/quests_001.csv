@@ -1,0 +1,50 @@
+"ID","SourceText","Russian","English","Notes"
+"191474319874","Приговорённый повстанец находится на <em>пирсе</em>.","Приговорённый повстанец находится на <em>пирсе</em>.","The condemned rebel is on the <em>pier</em>.","JAZZ-QUESTS-001"
+"480799336285","Вы нас здорово выручили. У палаток ждёт один американец — Берриман Сил, пилот и контрабандист. Его последний рейс закончился здесь не по плану. Он ищет новую команду; думаю, вы найдёте общий язык.","Вы нас здорово выручили. У палаток ждёт один американец — Берриман Сил, пилот и контрабандист. Его последний рейс закончился здесь не по плану. Он ищет новую команду; думаю, вы найдёте общий язык.","You've really helped us out. There's an American waiting by the tents—Berriman Seal, a pilot and smuggler. His last run didn't go as planned. He's looking for a new crew; I think you'll understand each other.","JAZZ-QUESTS-001"
+"484530953168","Забрать из старого лагеря <em>4 винтовки Zastava M76</em> и <em>4 комплекта Medkit</em>.","Забрать из старого лагеря <em>4 винтовки Zastava M76</em> и <em>4 комплекта Medkit</em>.","Retrieve <em>4 Zastava M76 rifles</em> and <em>4 Medkits</em> from the old camp.","JAZZ-QUESTS-001"
+"492169252126","Зачистить лагерь перебежчиков в <em>секторе K6</em> и вернуться к Балумбе.
+
+Uno, Dos, Tres
+Я достану свинорез
+Ты откуда вылез, хлопчик
+Ты зачем сюда полез?
+Quatro, Cinquo, Senco, Ses
+Я протру мой свинорез
+Лучше б ты бежал на запад
+И глотал х*и в ЕС","Зачистить лагерь перебежчиков в <em>секторе K6</em> и вернуться к Балумбе.
+
+Uno, dos, tres
+Я достану свинорез.
+Ты откуда вылез, хлопчик?
+Ты зачем сюда полез?
+Cuatro, cinco, seis
+Я протру свой свинорез.
+Лучше б ты бежал на запад
+И глотал х*и в ЕС.","Clear the defectors' camp in <em>sector K6</em> and return to Balumba.
+
+Uno, dos, tres
+Out comes my pig-sticker
+Where'd you crawl from, boy?
+What'd you come in here for?
+Cuatro, cinco, seis
+I'll wipe down my pig-sticker
+Should've run away out west
+And sucked d*cks in the EU","JAZZ-QUESTS-001"
+"555833394027","Собрать <em>50 Meds</em>, забрать в <em>секторе I3</em> ящик с боеприпасами у моста и ящик с минами в тайнике у разрушенного ангара, затем стабилизировать <em>трёх раненых повстанцев</em>.","Собрать <em>50 Meds</em>, забрать в <em>секторе I3</em> ящик с боеприпасами у моста и ящик с минами в тайнике у разрушенного ангара, затем стабилизировать <em>трёх раненых повстанцев</em>.","Collect <em>50 Meds</em>, retrieve the ammunition crate by the bridge and the mine crate from the cache near the ruined hangar in <em>sector I3</em>, then stabilize <em>three wounded rebels</em>.","JAZZ-QUESTS-001"
+"724348814002","Спасённый повстанец возвращается в лагерь. Нужно доложить сержанту.","Спасённый повстанец возвращается в лагерь. Нужно доложить сержанту.","The rescued rebel is returning to camp. Report back to the sergeant.","JAZZ-QUESTS-001"
+"805716788538","Мы в спасатели не нанимались","Мы в спасатели не нанимались","We didn't sign up to be rescuers","JAZZ-QUESTS-001"
+"995472785344","Снабжение для повстанцев","Снабжение для повстанцев","Supplies for the Rebels","JAZZ-QUESTS-001"
+"890000000000795","Мы набросали примерный план лагеря в <em>секторе L3</em>. Там есть скрытая позиция, охранение и проход, которым можно воспользоваться ночью.
+По остальным стоянкам Легиона данных нет — придётся провести разведку самостоятельно.","Мы набросали примерный план лагеря в <em>секторе L3</em>. Там есть скрытая позиция, охранение и проход, которым можно воспользоваться ночью.
+По остальным стоянкам Легиона данных нет — придётся провести разведку самостоятельно.","We sketched out a rough plan of the camp in <em>sector L3</em>. There's a concealed position, a guard post, and a passage that can be used at night.
+We have no intelligence on the Legion's other camps—you'll have to scout them yourselves.","JAZZ-QUESTS-001"
+"890000000013000","Зачистить бункер","Зачистить бункер","Clear the Bunker","JAZZ-QUESTS-001"
+"890000000013001","Зачистить бункер в <em>подземном секторе L6</em>.","Зачистить бункер в <em>подземном секторе L6</em>.","Clear the bunker in the <em>L6 underground sector</em>.","JAZZ-QUESTS-001"
+"890000000013002","Вернуться к сержанту в <em>сектор L1</em> и доложить о зачистке.","Вернуться к сержанту в <em>сектор L1</em> и доложить о зачистке.","Return to the sergeant in <em>sector L1</em> and report that the bunker is clear.","JAZZ-QUESTS-001"
+"890000000013003","Бункер снова под контролем повстанцев.","Бункер снова под контролем повстанцев.","The bunker is back under rebel control.","JAZZ-QUESTS-001"
+"890000000013004","<em>Martha</em> is looking for her husband who was kidnapped by the <em>Legion</em> and was last seen on the <em><SectorName('J7')></em>","<em>Марта</em> ищет мужа, похищенного <em>Легионом</em>. Последний раз его видели в <em><SectorName('J7')></em>.","<em>Martha</em> is looking for her husband, who was kidnapped by the <em>Legion</em> and was last seen in <em><SectorName('J7')></em>.","JAZZ-QUESTS-001"
+"890000000013005","Сержант сказал, это вы доставили винтовки. Хороший знак. В моём деле люди чаще теряют груз, деньги или голову — иногда всё сразу.","Сержант сказал, это вы доставили винтовки. Хороший знак. В моём деле люди чаще теряют груз, деньги или голову — иногда всё сразу.","The sergeant says you're the ones who delivered the rifles. Good sign. In my line of work, people tend to lose their cargo, their money, or their heads—sometimes all three.","JAZZ-QUESTS-001"
+"890000000013006","Пойдёшь с нами?","Пойдёшь с нами?","Want to come with us?","JAZZ-QUESTS-001"
+"890000000013007","Почему бы и нет? Самолёта у меня больше нет, груз сгорел, а сидеть без дела я не умею. Оставьте место в отряде — маршрут обсудим по дороге.","Почему бы и нет? Самолёта у меня больше нет, груз сгорел, а сидеть без дела я не умею. Оставьте место в отряде — маршрут обсудим по дороге.","Why not? I don't have a plane anymore, the cargo burned up, and I'm no good at sitting idle. Save me a seat—we'll discuss the route on the way.","JAZZ-QUESTS-001"
+"890000000013008","Не сейчас","Не сейчас","Not now","JAZZ-QUESTS-001"
+"890000000013009","Как скажете. Я пока здесь.","Как скажете. Я пока здесь.","Suit yourselves. I'll be here.","JAZZ-QUESTS-001"

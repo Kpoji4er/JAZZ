@@ -63,9 +63,14 @@ def clamp(value: int, low: int, high: int) -> int:
 
 
 def base_jam_score(reliability: int, base_jam: int) -> int:
+    """Mirror JazzGetBaseJamScore: Rel clamped 5..95; Rel>=95 → 0 base."""
+    reliability = clamp(reliability, 5, 95)
+    if reliability >= 95:
+        return 0
     reliability_score = max(0, 100 - reliability)
     if base_jam >= 0:
-        score = max(reliability_score, base_jam)
+        scaled = (base_jam * reliability_score + 95 // 2) // 95
+        score = max(reliability_score, scaled)
     else:
         score = reliability_score + base_jam
     return clamp(score, 0, 100)
@@ -76,21 +81,21 @@ def resource_penalty(resource_percent: int) -> int:
     if resource_percent <= 0:
         return 1000
     if resource_percent < 10:
-        return 950
-    if resource_percent < 20:
         return 800
+    if resource_percent < 20:
+        return 600
     if resource_percent < 30:
-        return 650
+        return 420
     if resource_percent < 40:
-        return 500
+        return 280
     if resource_percent < 50:
-        return 350
+        return 180
     if resource_percent < 60:
-        return 250
+        return 120
     if resource_percent < 70:
-        return 150
+        return 90
     if resource_percent < 80:
-        return 100
+        return 60
     if resource_percent < 90:
         return 50
     if resource_percent < 100:
@@ -191,14 +196,14 @@ def main() -> int:
         100: 0,
         90: 10,
         80: 50,
-        70: 100,
-        60: 150,
-        50: 250,
-        40: 350,
-        30: 500,
-        20: 650,
-        10: 800,
-        1: 950,
+        70: 60,
+        60: 90,
+        50: 120,
+        40: 180,
+        30: 280,
+        20: 420,
+        10: 600,
+        1: 800,
         0: 1000,
     }
     penalty_body_match = re.search(
@@ -213,14 +218,14 @@ def main() -> int:
     else:
         penalty_body = penalty_body_match.group("body")
     runtime_steps = (
-        (10, 950),
-        (20, 800),
-        (30, 650),
-        (40, 500),
-        (50, 350),
-        (60, 250),
-        (70, 150),
-        (80, 100),
+        (10, 800),
+        (20, 600),
+        (30, 420),
+        (40, 280),
+        (50, 180),
+        (60, 120),
+        (70, 90),
+        (80, 60),
         (90, 50),
         (100, 10),
     )
@@ -287,17 +292,25 @@ def main() -> int:
         mosin_capped = display_percent(
             raw_jam_score(0, 1000, 3280, 6507, 7000)
         )
-        if mosin_base != 27:
-            failures.append(f"Mosin 3280/6507/7000 base: {mosin_base}% != 27%")
-        if mosin_capped != 36:
+        if mosin_base != 14:
+            failures.append(f"Mosin 3280/6507/7000 base: {mosin_base}% != 14%")
+        if mosin_capped != 23:
             failures.append(
-                f"Mosin 3280/6507/7000 capped base: {mosin_capped}% != 36%"
+                f"Mosin 3280/6507/7000 capped base: {mosin_capped}% != 23%"
             )
 
     if base_jam_score(50, -30) != 20:
         failures.append("negative BaseJamChance no longer reduces reliability risk")
-    if base_jam_score(90, 30) != 30:
-        failures.append("positive BaseJamChance no longer sets a risk floor")
+    if base_jam_score(90, 30) != 10:
+        failures.append(
+            "Rel90 BaseJam30 should stay on reliability_score after ammo scaling"
+        )
+    if base_jam_score(95, 1000) != 0:
+        failures.append("Rel95 must zero base jam even with extreme BaseJamChance")
+    if base_jam_score(50, 30) != 50:
+        failures.append("MP40 Rel50 BaseJam30 base score drifted from 50")
+    if display_percent(raw_jam_score(95, 1000, 1000, 1000, 1000)) != 0:
+        failures.append("Rel95 + extreme ammo still jams at perfect resource")
 
     for weapon in weapons:
         for cartridge in ammo:

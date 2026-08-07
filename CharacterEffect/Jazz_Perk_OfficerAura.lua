@@ -42,27 +42,31 @@ local function JazzOfficerAuraRawDescription(effect)
 	return ""
 end
 
--- Combat-badge INFO (MercStatusEffectsMoreInfo) renders T("<Description>") via
--- ResolveValue("Description") → GetProperty("Description"). It never calls GetDescription
--- unless a GetDescription method exists — then PropObjGetProperty re-enters it.
+-- Combat-badge INFO: T("<Description>") → ResolveValue only.
+-- GetDescription must stay arg-free: PropObjGetProperty uses it on save (TToLuaCode
+-- asserts not THasArgs; formatted line uses T{order=...}).
+local function JazzOfficerAuraFormattedDescription(effect)
+	if l_desc_reentry then
+		return JazzOfficerAuraRawDescription(effect)
+	end
+	l_desc_reentry = true
+	local base = JazzOfficerAuraRawDescription(effect)
+	local format = rawget(_G, "JazzAI_FormatOfficerAuraDescription")
+	local result = base
+	if type(format) == "function" then
+		result = format(effect, base, "source")
+	end
+	l_desc_reentry = false
+	return result
+end
+
 function Jazz_Perk_OfficerAura:ResolveValue(key)
 	if key == "Description" then
-		return self:GetDescription()
+		return JazzOfficerAuraFormattedDescription(self)
 	end
 	return CharacterEffect.ResolveValue(self, key)
 end
 
 function Jazz_Perk_OfficerAura:GetDescription()
-	if l_desc_reentry then
-		return JazzOfficerAuraRawDescription(self)
-	end
-	l_desc_reentry = true
-	local base = JazzOfficerAuraRawDescription(self)
-	local format = rawget(_G, "JazzAI_FormatOfficerAuraDescription")
-	local result = base
-	if type(format) == "function" then
-		result = format(self, base, "source")
-	end
-	l_desc_reentry = false
-	return result
+	return JazzOfficerAuraRawDescription(self)
 end

@@ -39,25 +39,29 @@ local function JazzOfficerAuraInfluenceRawDescription(effect)
 	return ""
 end
 
--- Same UI path as Jazz_Perk_OfficerAura: rollover binds <Description>, not GetDescription.
+-- Same as Jazz_Perk_OfficerAura: format in ResolveValue only; GetDescription = raw for save.
+local function JazzOfficerAuraInfluenceFormattedDescription(effect)
+	if l_desc_reentry then
+		return JazzOfficerAuraInfluenceRawDescription(effect)
+	end
+	l_desc_reentry = true
+	local base = JazzOfficerAuraInfluenceRawDescription(effect)
+	local format = rawget(_G, "JazzAI_FormatOfficerAuraDescription")
+	local result = base
+	if type(format) == "function" then
+		result = format(effect, base, "influence")
+	end
+	l_desc_reentry = false
+	return result
+end
+
 function Jazz_Perk_OfficerAuraInfluence:ResolveValue(key)
 	if key == "Description" then
-		return self:GetDescription()
+		return JazzOfficerAuraInfluenceFormattedDescription(self)
 	end
 	return CharacterEffect.ResolveValue(self, key)
 end
 
 function Jazz_Perk_OfficerAuraInfluence:GetDescription()
-	if l_desc_reentry then
-		return JazzOfficerAuraInfluenceRawDescription(self)
-	end
-	l_desc_reentry = true
-	local base = JazzOfficerAuraInfluenceRawDescription(self)
-	local format = rawget(_G, "JazzAI_FormatOfficerAuraDescription")
-	local result = base
-	if type(format) == "function" then
-		result = format(self, base, "influence")
-	end
-	l_desc_reentry = false
-	return result
+	return JazzOfficerAuraInfluenceRawDescription(self)
 end

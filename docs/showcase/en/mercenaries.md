@@ -20,7 +20,11 @@ Roles: Leader 7 · ExplosiveExpert 7 · Melee 6 · Autoriflemen 5 · Stealth 5 �
 
 Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level 21**. Contract duration in AIM/AME chat: **3–30** days (vanilla max was 14).
 
+AIM Doctors (`Specialization=Doctor`) start with **Meds** scaled by Medical — **50…200** (`50 + Medical×1.5` for Medical 0…100). AME medics use a flat **50** (see [AME](ame.md)).
+
 All 48 have a named perk in StartingPerks; **working hooks** are only a subset — see [perks](perks.md).
+
+Returning JA1/JA2/M.E.R.C. recruits use remastered portraits and classic voice-bank material. Biff intentionally keeps the vanilla JA3 portrait; Spouke keeps his approved custom appearance.
 
 ## A.M.E. (local market)
 

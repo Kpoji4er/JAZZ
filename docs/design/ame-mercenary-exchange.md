@@ -40,7 +40,7 @@ Short bio per slot + varied origins: **mostly Africa**, with a solid share from 
 
 Specialist roles: Medic, Instructor (`Teacher`), Sniper, Sapper, Mechanic — **одна вкладка Specialists** (без подтабов по роли).
 
-Full design cards (all 60): [`ame-roster-60.md`](ame-roster-60.md). Fixed inventory per slot. **Kit caps:** Irregulars ≤ **1-2**; Fighters ≤ **1-3**; Hardened/Specialists ≤ **2-1** (no T2-2+). **`Type56` = AR ceiling, Hardened only.** **`SKS` + T1 bolt = Snipers only.** **SMGs:** vintage T1 (`Thompson`, `M3GreaseGun`, `PPS43`, `PPSH`, …) — no starting `UZI`. **Bandages:** Fighters ~40%; Hardened always. **Sappers:** some `PipeBomb`. **Bios:** full in-game hire-card prose (not design stubs).
+Full design cards (all 60): [`ame-roster-60.md`](ame-roster-60.md). Fixed inventory per slot. **Kit caps:** Irregulars ≤ **1-2**; Fighters ≤ **1-3**; Hardened/Specialists ≤ **2-1** (no T2-2+). **`Type56` = AR ceiling, Hardened only.** **`SKS` + T1 bolt = Snipers only.** **SMGs:** vintage T1 (`Thompson`, `M3GreaseGun`, `PPS43`, `PPSH`, …) — no starting `UZI`. **Bandages:** Fighters ~40%; Hardened always. **Sappers:** some `PipeBomb`. **Bios:** 60 distinct 3–4-sentence character portraits in independently edited RU/EN prose. Origin, past and temperament imply one or two strengths or weaknesses; no stat/tier résumé or literal translation.
 
 ### Fighters / Hardened combat mix
 
@@ -123,7 +123,7 @@ Summary peaks:
 | Sapper | Explosives **потолок <70** | ~24–26 | mid |
 | Mechanic | Mechanical **потолок 70** | ~22–24 | mid |
 
-Potential UI label from Wisdom: Low (below 45), Medium (45–64), High (65+).
+All slots use `StartingLevel = 1`; category changes the starting stat/kit profile, not the free level. The profile displays both category and Potential from Wisdom: Low (below 45), Medium (45–64), High (65+). Terminal cards retain their concrete market reason; the AME My Team counter excludes non-AME hires.
 
 ## Names / bio / nationality
 
@@ -143,6 +143,7 @@ Voice pool (Jazz remesh majority + local hireable + small IMP minority):
 - ~1/8 → IMP pool (`IMP_male_01..03` / `IMP_female_01..03`; VR resolves to `IMP_male_01` / `IMP_female_01`)
 - Bucket `(slot-1)%8`: `7` → IMP; `3` → `PierreMerc` (males); else Jazz remesh. Hardened/Specialists and odd buckets prefer `Male_Hard`.
 - `FallbackMissingVR`: IMP/`PierreMerc` → same VR; remesh → `LegionRaider` / `ArmySoldier` / `AnneLeMitrailleur` (**not** Ice/Fox). Empty Selection/Move on remesh → silence.
+- Shared remesh excludes faction-specific Legion/Major/Grand Chien calls. EN subtitles transcribe the audible donor line; RU subtitles translate that line naturally instead of inventing text for the reused gameplay event.
 - Heads: safe Af bank only (see [`ame-appearance-assets.md`](ame-appearance-assets.md)); **no** Flay/Fidel/Magic/Blood/Fauda/Omryn; **no** `Faction_Legion_Head_*` war-paint
 - Tooling: `_import_legion_raider_alt_voices.py` + `_gen_ame_voice_responses.py` + `_gen_ame_appearances.py` + `_audit_patch_ame_heads.py` + `_apply_ame_voice_remap.py`; assignment in `_gen_ame_roster_60.py`
 - Appearance sources: **unique clone per slot** `JAZZ_AME_NN` from **Rebels** / **Militia** / **Legion** (Hardened/Specialists may use **GrandChien**); map [`ame-appearance-map.json`](ame-appearance-map.json); asset policy [`ame-appearance-assets.md`](ame-appearance-assets.md)

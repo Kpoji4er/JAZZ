@@ -60,6 +60,9 @@ function OnMsg.ClassesBuilt()
 end
 
 function JazzResolveReloadWeapon(unit, args)
+	if not unit then
+		return false
+	end
 	local weapon
 	if args and args.item_id then
 		local alternate_slot = unit.current_weapon == "Handheld A" and "Handheld B" or "Handheld A"
@@ -67,14 +70,16 @@ function JazzResolveReloadWeapon(unit, args)
 			or unit:FindWeaponInSlotById(alternate_slot, args.item_id)
 			or unit:FindWeaponInSlotById("Inventory", args.item_id)
 	end
-	if not weapon then
-		if args and args.pos then
-			weapon = unit:GetItemAtPackedPos(args.pos)
-		else
-			weapon = unit:GetWeaponByDefIdOrDefault("Firearm", args and args.weapon, args and args.pos, args and args.item_id)
-		end
+	if not IsKindOf(weapon, "Firearm") and args and args.pos and unit.GetItemAtPackedPos then
+		weapon = unit:GetItemAtPackedPos(args.pos)
 	end
-	return weapon
+	if not IsKindOf(weapon, "Firearm") then
+		-- Inventory drag reload passes weapon class + packed pos; pos can point at the
+		-- wrong container/unit (UnitData vs Unit) and yield ammo or another item.
+		weapon = unit.GetWeaponByDefIdOrDefault
+			and unit:GetWeaponByDefIdOrDefault("Firearm", args and args.weapon, args and args.pos, args and args.item_id)
+	end
+	return IsKindOf(weapon, "Firearm") and weapon or false
 end
 
 function Firearm:GetReloadUnitAP()
@@ -90,7 +95,7 @@ end
 local VanillaReloadAction = Unit.ReloadAction
 function Unit:ReloadAction(action_id, cost_ap, args)
 	local weapon = JazzResolveReloadWeapon(self, args)
-	if not weapon or not weapon:IsPerRoundReload() then
+	if not IsKindOf(weapon, "Firearm") or not weapon:IsPerRoundReload() then
 		return VanillaReloadAction(self, action_id, cost_ap, args)
 	end
 

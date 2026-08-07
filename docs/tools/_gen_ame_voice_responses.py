@@ -19,7 +19,7 @@ points at LegionRaider/ArmySoldier/Anne — never Ice/Fox).
 
 Combat remesh still OK where tone matches (AIAttack→AimAttack, Pain, etc.).
 EN subtitles = donor line text; lines mentioning Legion/Major are skipped.
-RU = short slot placeholders.
+RU subtitles translate the audible donor phrase via `_ame_voice_subtitles_ru.py`.
 
 Usage (jazz/):
   python docs/tools/_import_legion_raider_alt_voices.py   # once, if *-1.opus missing
@@ -30,6 +30,7 @@ Usage (jazz/):
 from __future__ import annotations
 
 import argparse
+import codecs
 import csv
 import re
 import shutil
@@ -37,6 +38,8 @@ import subprocess
 import sys
 from collections import OrderedDict
 from pathlib import Path
+
+from _ame_voice_subtitles_ru import russian_subtitle
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -65,7 +68,10 @@ LOC_BEGIN = f"# {SECTION}-LOC-BEGIN"
 LOC_END = f"# {SECTION}-LOC-END"
 AME_END_MARKER = "-- JAZZ-UNITS-005-AME-END"
 
-TID_START = 890000000005800
+# 5800–5913 were the unmarked legacy projection.  Keep the canonical,
+# regeneration-safe bank in its own marked range.
+TID_START = 890000000005914
+VOICE_LOC_CONTEXT = "jazz-units:items.lua:VoiceResponse AME"
 
 # preset_id, donor VoiceResponse id, unused_legacy, prefer_alt_opus (-1 takes)
 BANKS: list[tuple[str, str, str, bool]] = [
@@ -294,6 +300,7 @@ def sanitize_ame_line(text: str) -> str:
     s = text
     # Phrase-level first (order matters).
     replacements = [
+        (r"Alerter! Alerter!", "Alerte! Alerte!"),
         (
             r"Remember the Major's teaching\.",
             "Remember the training.",
@@ -367,8 +374,14 @@ def parse_donor(path: Path) -> dict[str, list[tuple[int, str]]]:
 
 
 def line_banned(text: str) -> bool:
-    """True if donor subtitle mentions Legion / Major (skip for AME audio+text)."""
-    return bool(re.search(r"\b(Legion|Major)\b", text or "", re.I))
+    """True for faction-specific donor audio unsuitable for shared AME hires."""
+    return bool(
+        re.search(
+            r"\b(Legion|Major|Grand Chien|national symbols?)\b",
+            text or "",
+            re.I,
+        )
+    )
 
 
 def has_alt_opus(donor_tid: int) -> bool:
@@ -509,19 +522,14 @@ def replace_marked(text: str, begin: str, end: str, body: str) -> str:
     return text.rstrip() + "\n" + block + "\n"
 
 
-def free_marked_loc_ids(text: str, used: set[int]) -> None:
-    """Allow regen to reuse the same AME VR T-id range."""
-    if LOC_BEGIN not in text or LOC_END not in text:
-        return
-    m = re.search(
-        re.escape(LOC_BEGIN) + r"(.*?)" + re.escape(LOC_END),
-        text,
-        flags=re.S,
-    )
-    if not m:
-        return
-    for tm in re.finditer(r"^(\d{12,}),", m.group(1), re.M):
-        used.discard(int(tm.group(1)))
+def free_managed_loc_ids(text: str, used: set[int]) -> None:
+    """Allow stable ID reuse even after another CSV round-trip strips comments."""
+    for line in text.splitlines():
+        if not line.endswith("," + VOICE_LOC_CONTEXT):
+            continue
+        match = re.match(r"^(\d{12,}),", line)
+        if match:
+            used.discard(int(match.group(1)))
 
 
 def upsert_loc(
@@ -533,7 +541,10 @@ def upsert_loc(
     """CSV: ID,Text,Translation,VoiceActor,Context (same as _inject_vr_stubs)."""
     if not path.exists():
         raise SystemExit(f"missing loc: {path}")
-    text = path.read_text(encoding="utf-8-sig")
+    raw = path.read_bytes()
+    bom = raw.startswith(codecs.BOM_UTF8)
+    text = raw[len(codecs.BOM_UTF8) if bom else 0 :].decode("utf-8")
+    newline = "\r\n" if text.count("\r\n") > text.count("\n") - text.count("\r\n") else "\n"
     by_en = dict(rows_en)
     by_ru = dict(rows_ru) if rows_ru is not None else by_en
     body_lines = []
@@ -546,24 +557,33 @@ def upsert_loc(
             return s
 
         body_lines.append(
-            f"{tid},{esc(en)},{esc(ru)},,jazz-units:items.lua:VoiceResponse AME"
+            f"{tid},{esc(en)},{esc(ru)},,{VOICE_LOC_CONTEXT}"
         )
-    body = "\n".join(body_lines)
-    block = f"{LOC_BEGIN}\n{body}\n{LOC_END}"
+    body = newline.join(body_lines)
+    block = f"{LOC_BEGIN}{newline}{body}{newline}{LOC_END}"
     if LOC_BEGIN in text and LOC_END in text:
         text = re.sub(
-            re.escape(LOC_BEGIN) + r".*?" + re.escape(LOC_END),
-            block,
+            re.escape(LOC_BEGIN)
+            + r".*?"
+            + re.escape(LOC_END)
+            + r"(?:\r?\n)?",
+            "",
             text,
             count=1,
             flags=re.S,
         )
-    else:
-        if not text.endswith("\n"):
-            text += "\n"
-        text = text + block + "\n"
+    # Remove the pre-marker projection and any interrupted generated pass.
+    text = "".join(
+        line
+        for line in text.splitlines(keepends=True)
+        if not line.rstrip("\r\n").endswith("," + VOICE_LOC_CONTEXT)
+    )
+    if text and not text.endswith(("\r", "\n")):
+        text += newline
+    text = text + block + newline
     if not dry:
-        path.write_text(text, encoding="utf-8")
+        payload = text.encode("utf-8")
+        path.write_bytes((codecs.BOM_UTF8 + payload) if bom else payload)
 
 
 def extract_voices() -> None:
@@ -599,8 +619,11 @@ def main() -> int:
         return 0
 
     if not EXTRACT.exists() or not any(EXTRACT.glob("*.opus")):
-        print("WARN: no extract cache — running extract first")
-        extract_voices()
+        if args.dry_run:
+            print("WARN: no extract cache — dry-run will report missing base opus")
+        else:
+            print("WARN: no extract cache — running extract first")
+            extract_voices()
 
     used_tids: set[int] = set()
     # Reserve against existing loc IDs in RU if present.
@@ -608,7 +631,7 @@ def main() -> int:
         ru_text = RU.read_text(encoding="utf-8-sig")
         for m in re.finditer(r"^(?:# )?(\d{12,})", ru_text, re.M):
             used_tids.add(int(m.group(1)))
-        free_marked_loc_ids(ru_text, used_tids)
+        free_managed_loc_ids(ru_text, used_tids)
 
     all_loc_ru: list[tuple[int, str]] = []
     all_loc_en: list[tuple[int, str]] = []
@@ -636,7 +659,6 @@ def main() -> int:
             if not donor_lines:
                 skipped.append(slot)
                 continue
-            ru_pool = PLACEHOLDER_RU.get(slot, ["…"])
             en_pool = PLACEHOLDER_EN.get(slot, ["…"])
             rows: list[tuple[int, str, str]] = []
             for i, (src_tid, src_text) in enumerate(donor_lines):
@@ -648,7 +670,10 @@ def main() -> int:
                 tid = next_tid(used_tids)
                 # EN = clean donor phrase (Legion/Major takes filtered out of pool).
                 en = sanitize_ame_line((src_text or "").strip()) or en_pool[i % len(en_pool)]
-                ru = ru_pool[i % len(ru_pool)]
+                try:
+                    ru = russian_subtitle(en, preset_id)
+                except KeyError as error:
+                    raise SystemExit(str(error)) from error
                 rows.append((tid, ru, en))
                 all_loc_ru.append((tid, ru))
                 all_loc_en.append((tid, en))

@@ -1725,6 +1725,18 @@ return {
 										local func = HireStatusToUITextMap[hireStatus]
 										assert(func)
 										func(context, self.idInfoContainer)
+										local departureTextFn = rawget(_G, "JAZZ_AME_GetDepartureReasonText")
+										local departureText = departureTextFn and departureTextFn(context)
+										if departureText then
+											local info = self.idInfoContainer
+											info:SetVisible(true)
+											info.idTitleContainer:SetVisible(false)
+											info.idPrice1W:SetVisible(false)
+											info.idText:SetVisible(true)
+											info.idText.idValue:SetText(departureText)
+											info.idText.idValue:SetRolloverText(false)
+											info.idText.idValue:SetRolloverTitle(false)
+										end
 								
 										local kia = hireStatus == "Dead"
 										local mia = hireStatus == "MIA"
@@ -1751,6 +1763,8 @@ return {
 										self.idClassName:SetVisible(not not specName)
 										self.idClassName:SetText(specName or Untranslated("placeholder"))
 										self.idClassIcon:SetImage(GetMercSpecIcon(context))
+										self.idAMECategory:SetText(JAZZ_AME_GetCategoryLabel(context))
+										self.idAMEPotential:SetText(JAZZ_AME_GetPotentialLabel(context))
 									end,
 								}),
 								PlaceObj('XTemplateWindow', {
@@ -1874,6 +1888,40 @@ return {
 														'TextStyle', "MercSubTitle",
 														'Translate', true,
 													}),
+													PlaceObj('XTemplateWindow', {
+														'LayoutMethod', "HList",
+														'LayoutHSpacing', 5,
+													}, {
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'TextStyle', "MercSubTitle",
+															'Translate', true,
+															'Text', T(890000000005018, --[[ModItemXTemplate PDAAIMEBrowser Text]] "Category:"),
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'Id', "idAMECategory",
+															'TextStyle', "MercSubTitle",
+															'Translate', true,
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'TextStyle', "MercSubTitle",
+															'Text', Untranslated(" · "),
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'TextStyle', "MercSubTitle",
+															'Translate', true,
+															'Text', T(890000000005019, --[[ModItemXTemplate PDAAIMEBrowser Text]] "Potential:"),
+														}),
+														PlaceObj('XTemplateWindow', {
+															'__class', "XText",
+															'Id', "idAMEPotential",
+															'TextStyle', "MercSubTitle",
+															'Translate', true,
+														}),
+														}),
 													}),
 												}),
 											}),
@@ -2842,7 +2890,7 @@ return {
 			'CodeFileName', "Code/System_BobbyRay_ECON004.lua",
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000006907, --[[ModItemEmail AME_Welcome body]] "Commander,\n\nWelcome to the African Mercenary Exchange — the local board for fighters without an A.I.M. brand name. Cheaper because the market prices reputation, not because of where they were born. You are buying potential: people who can grow on your payroll.\n\nWe rotate the shelf about every two weeks. Open the A.M.E. tab in your PDA anytime — hire while the names below are still available.\n\nThis week's picks:\n<listing>\n\nQuestions? Open A.M.E. and talk to them yourself.\n\n— A.M.E. Exchange desk"),
+			body = T(890000000006907, --[[ModItemEmail AME_Welcome body]] "Commander,\n\nWelcome to the African Mercenary Exchange — a local board for fighters who have not spent years building an A.I.M. reputation. Their rates are lower because you are meeting them before the medals and headlines. You are hiring people with room to grow; what they make of the opportunity depends on them, and on whoever gives them the chance.\n\nThe board turns over roughly every two weeks. The A.M.E. tab is always open in your PDA, so talk to a candidate while the name is still there.\n\nPeople we would call first:\n<listing>\n\n— A.M.E. desk"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "AME_Welcome",
@@ -2851,7 +2899,7 @@ return {
 			title = T(890000000006906, --[[ModItemEmail AME_Welcome title]] "African Mercenary Exchange — welcome"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000006910, --[[ModItemEmail AME_ListingUpdate body]] "Commander,\n\nFresh names on the board — and a few contracts walked. Here is who is worth a look right now (and why):\n\n<listing>\n\nDon't sleep on specialists: medics, instructors, and snipers do not stay Available forever.\n\n— A.M.E. Exchange desk"),
+			body = T(890000000006910, --[[ModItemEmail AME_ListingUpdate body]] "Commander,\n\nThe board has turned over: a few contracts closed, and new names took their place. These are the people we would call first right now:\n\n<listing>\n\nSpecialists rarely wait long for an offer.\n\n— A.M.E. desk"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "AME_ListingUpdate",

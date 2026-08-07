@@ -11,9 +11,11 @@
 | Документ | Содержание |
 |---|---|
 | [sector-atlas.md](../maps/sector-atlas.md) | Сетка A–P×32, authored sectors, ссылка на `GrandChien2.png` |
-| [sector-transfer.md](../maps/sector-transfer.md) | Трансфер vanilla HotDiamonds → maps ID |
+| [sector-transfer.md](../maps/sector-transfer.md) | Трансфер vanilla HotDiamonds → maps ID; quest remap ownership `JAZZ-QUESTS-002` |
 | [sector-sheet-vs-runtime.md](../maps/sector-sheet-vs-runtime.md) | Diff Google Sheet «Карта» ↔ `ModItemSector` |
 | Player wiki / showcase | [Карта Grand Chien](../../wiki/grand-chien-map.md), showcase slug `grand-chien-map` |
+
+Vanilla quest badges/gates/journal на maps-профиле следуют таблице трансфера (не HotDiamonds ID). Ernie custom `Jazz_*` и maps-local I2/I3 не входят в этот remap. Stub debt: quest refs на `D22`/`F23` при отсутствии полного `ModItemSector`.
 
 Пересборка данных: `python docs/tools/export-jazz-maps-sectors.py` затем `python docs/tools/build-sector-atlas-docs.py` из корня `jazz/` (выход: `docs/technical/maps/`).
 
@@ -25,7 +27,7 @@
 | CommonLib | Прямых одноимённых коллизий с каталогом квестов/секторов не подтверждено на срезе; зависимость загружается до JAZZ |
 | JAZZ | `jazz-maps/items.lua` — сектора, квесты, conversations, banters, setpieces; `jazz-units` — `ModItemEnemySquads` и UnitData архетипов `JAZZ_Legion_*`; loaded helpers `Rebels_Loyalty.lua`, `System_JAZZ_CrocodilePatrol.lua` |
 
-Снимок: **26 июля 2026**, статический разбор `jazz-maps/items.lua` + выборочный разбор `JAZZ Units/items.lua`. Runtime-прохождение каждой ветки не выполнялось.
+Снимок: **7 августа 2026**, статический разбор `jazz-maps/items.lua`, шести quest-map exports и выборочный разбор `jazz-units/items.lua`. Runtime-прохождение каждой ветки не выполнялось.
 
 ## Файлы реализации и load-state
 
@@ -52,7 +54,7 @@
 | Guardpost-сектора | 9 |
 | Сектора Эрни (label/city/`WeatherZone=Erny` / Rebels_Ernie) | 23 (J7: `Label1=Ernie`, 26 июля 2026) |
 | ModItemQuestsDef | 110 (83 видимых, 27 hidden) |
-| Conversations | 23 |
+| Conversations | 24 |
 | Banters | 41 |
 | GuardpostObjective | 4 (`Bunker`, `EmeraldCoast`, `H4_copy`, `Bastien`) |
 | SetpiecePrg | 2 (`M1Landing` → map `EPA7FVN`, `EncounterHerman` → `qJApdx`) |
@@ -92,7 +94,7 @@
 | M4 | Смотровая площадка | Label Ernie; ForceConflict; квест повстанцев | `LegionOutlook_Easy` | — |
 | M5 | Береговая линия | ForceConflict | `LegionAttackers_JazzBalanced_Easy_Assault`, `LegionExtraSquadFireArms_T2` | — |
 | M6 | Старый порт | Прибрежный бой | 2×`LegionExtraSquadFireArms_T2`, `LegionAttackers_Marksmen_Easy`, `LegionHeavyTroops_Gunners` | — |
-| I2 | Лечебница в маяке | City ErnieVillage; квест доктора | 2×Marksmen_Easy, 2×Balanced_Easy, Mobile_Easy | — |
+| I2 | Лечебница в маяке | City ErnieVillage; три независимых wounded-маркера квеста доктора | 2×Marksmen_Easy, 2×Balanced_Easy, Mobile_Easy | — |
 | I3 | Дорога к маяку | Блокпост / тайник для квеста доктора | 3×`LegionAttackers_Balanced_Easy` | — |
 | I5 | Деревня Эрни | Главный хаб; ForceConflict; setpieces `ErnieReturn_FirstEnter`, `PierreLucTalk` | `LegionErnieVillage`, `LegionExtraSquadFireArms` | — |
 | I6 | Жестянка | Связан с liberate / fortify | — | — |
@@ -100,10 +102,10 @@
 | I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost (`ErnieIsland`) | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
 | J4 | Дорога в Эрни | Переход | — | — |
 | J5 | Фермы Эрни | City ErnieVillage | FireArms, 2×Shooters_Easy, Balanced_Easy | — |
-| J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; враги на карте (не InitialSquads); music Ernie_* | — | — |
-| K4 | Флаговый холм | Label Ernie; ForceConflict | — | — |
-| K5 | Походный лагерь Легиона | Вилла / rescue rebels | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
-| K6 | Запасной лагерь контрабандистов | City ErnieVillage | — | — |
+| J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; Herman groups `HermanShaking` + `Herman`; music Ernie_* | — | — |
+| K4 | Флаговый холм | Label Ernie; ForceConflict; пять payoff-маркеров `Rebels_Help` привязаны к K4 | — | — |
+| K5 | Походный лагерь Легиона | RescueTeam / RebelsSavior; после сдачи снабжения у палаток появляется `Merc_BarrySeal` | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
+| K6 | Запасной лагерь контрабандистов | City ErnieVillage; `Jazz_DeadPigs`, четыре союзника Балумбы после принятия | — | — |
 | L1 | База партизан | City Rebels_Ernie; квест MeetTheRebels | `LegionRaidSquad_01`, Heavy, `LegionJAZZSquadT2`, FireArms | — |
 | L2 | Непроходимая местность | Rebels_Ernie | MeleeV2, Melee_T2, RaidSquad_01 | — |
 | L5 | Походный лагерь Легиона | Около виллы | Sentry AroundVilla, `JAZZ_Legion_VillaAttackers_L5` | — |
@@ -163,11 +165,11 @@
 | `Jazz_Doctor_need_Help` | Неугодный доктор | I2, I3 | Медикаменты / мины / боеприпасы |
 | `JAZZ_Ernie_Locals_M2_SaveMyFamily` | Спасти Кики | M1, M3 | Локальные NPC UnitData |
 | `Jazz_ClearTheWay` | Зачистить лагеря вокруг Виллы | K3–K5, L3–L5 | Зачистка периметра виллы |
-| `RescueTeam` | Мы в спасатели нанимались | K5 | Приговорённый партизан на пирсе |
-| `RebelsSavior` | Маленькая спасательная операция | K5 | 4× Zastava M76 + 4 медкомплекта |
+| `RescueTeam` | Мы в спасатели не нанимались | K5 | Спасти живого повстанца на пирсе и доложить сержанту |
+| `RebelsSavior` | Снабжение для повстанцев | K5 | Сдать 4× Zastava M76 + 4× Medkit; открыть найм Barry Seal |
 | `Jazz_LightHouseDefend` | Оборона маяка | — | Оборона от Легиона |
-| `Jazz_DeadPigs` | Свинорез | — | Side text |
-| `Jazz_Alkatraz` | — | — | Заготовка / без note-секторов |
+| `Jazz_DeadPigs` | Свинорез | K6 | Зачистка перебежчиков; одноразовый аванс и четыре союзника |
+| `Jazz_Alkatraz` | Зачистить бункер | L1, L6_Underground | Зачистить подземный бункер и вернуться с докладом |
 
 Линии Act2 (`04_Betrayal`, `05_TakeDown*`) ссылаются на сектора Эрни, но полный mainland-контент **вне поддерживаемого демо-scope**.
 
@@ -187,7 +189,7 @@
 
 ## Conversations, banters, локальные юниты
 
-- 23 `ModItemConversation`, 41 `ModItemBanterDef` — полный ID-список в `items.lua`; менять только вместе с speaker UnitData и quest vars.
+- 24 `ModItemConversation`, 41 `ModItemBanterDef` — полный ID-список в `items.lua`; менять только вместе с speaker UnitData и quest vars. Новая conversation `BarrySeal_Recruit` использует внешний UnitData `Merc_BarrySeal`.
 - Maps-local UnitData: гражданские квеста SaveMyFamily (M2), `JAZZ_CombatHMMWV` (транспортный MVP, см. vehicles docs).
 
 ## Runtime flow (контент)
@@ -216,7 +218,7 @@
 ## Известные ограничения и долг
 
 - Снимок статический: map-only spawners и динамические TCEs не дают полный «кто стоит на карте прямо сейчас».
-- Часть quest DisplayName/Note на английском, часть на русском — локализация неоднородна.
+- Quest source strings исторически смешивают русский и английский, но активные mod-only IDs имеют синхронные runtime-переводы RU/EN; UI-smoke обеих локалей остаётся обязательным.
 - Дубли/копии (`*_copy`, пустые DisplayName, utility quests без id в T-comment) присутствуют в данных.
 - 317+ map directories на диске ≠ 245 campaign sectors и ≠ демо-scope Эрни.
 - Temporary extract scripts не являются частью мода и не должны коммититься в `jazz-maps`.

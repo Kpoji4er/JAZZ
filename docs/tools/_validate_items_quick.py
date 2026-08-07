@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+MOJIBAKE_MARKERS = ("Р”Р", "РµР", "РѕР", "С‚Р", "СЂР", "вЂ", "в†", "в‰", "Г—")
 
 
 def missing_comma_before_placeobj(text: str, name: str) -> list[str]:
@@ -96,6 +97,14 @@ def check(path: Path) -> list[str]:
             # ModDef / metadata may start with return PlaceObj('ModDef'...
             if "ModDef" not in text[:500] and "ModContent" not in text[:500]:
                 problems.append(f"{path.name}: unexpected start: {head[:40]!r}")
+        for marker in MOJIBAKE_MARKERS:
+            if marker in text:
+                line = text.count("\n", 0, text.index(marker)) + 1
+                problems.append(
+                    f"{path.name}: L{line} likely UTF-8/Windows-1251 mojibake "
+                    f"{marker!r} (run _fix_metadata_utf8_mojibake.py --check)"
+                )
+                break
     elif not (head.startswith("return {") or head.startswith("return PlaceObj")):
         problems.append(f"{path.name}: unexpected start")
     lone = [i for i, ln in enumerate(text.splitlines(), 1) if ln.strip() == ","]

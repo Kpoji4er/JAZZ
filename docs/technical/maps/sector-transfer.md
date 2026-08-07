@@ -28,8 +28,17 @@ Machine-readable: [`data/sector-transfer.csv`](data/sector-transfer.csv).
 | `H7` | `H14` | Шахта (около Флитауна) | `ok` | sheet |  |
 | `I1` | `K4` | Флаговый холм | `ok` | sheet |  |
 | `I2` | `M4` | Смотровая площадка | `ok` | sheet | vanilla I2 ≠ maps I2 (доктор) |
-| `I3` | `M7` | Изумрудный берег (пляж с минами) | `missing_moditem` | sheet | sheet → M7 (заглушка); runtime Emerald Coast = J7 |
+| `I3` | `M7` | Изумрудный берег (пляж с минами) | `missing_moditem` | sheet | sheet → M7 (заглушка); **runtime Emerald Coast = J7** (quest remap / Herman) |
 | `I1` | `M1` | Старт кампании (зона высадки) | `ok` | suite-docs | suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill. |
+
+### Runtime overrides (quest / suite)
+
+| vanilla | maps | note |
+| --- | --- | --- |
+| `I3` (Emerald Coast) | **`J7`** | Не sheet `M7`. `JAZZ-QUESTS-002` remap + QUESTS-001 Herman. |
+| `H14` (Camp du Crocodile) | **`P17`** | Не путать с mine `H7→H14` (Mfumu’s Mine). |
+
+`JAZZ-QUESTS-002` переносит sector refs vanilla quest clone’ов **только в `jazz-maps`** по этой таблице (+ overrides). Профиль `jazz-nomaps` не затрагивается. Targets `D22` / `F23` остаются `missing_moditem` (stub debt): quest refs уже указывают на них.
 
 ## Статусы
 
@@ -41,3 +50,4 @@ Machine-readable: [`data/sector-transfer.csv`](data/sector-transfer.csv).
 - [Атлас секторов](sector-atlas.md)
 - [Сверка sheet ↔ runtime](sector-sheet-vs-runtime.md)
 - Suite: [`maps-quests-content-catalog.md`](../systems/maps-quests-content-catalog.md)
+- Spec: [`JAZZ-QUESTS-002`](../../specs/active/JAZZ-QUESTS-002.md)

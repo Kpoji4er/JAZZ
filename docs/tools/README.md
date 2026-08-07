@@ -7,21 +7,7 @@
 
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
-| `_fix_bobbyray_string_tier.py` | Bobby Ray: string `Tier` → numeric in `items.lua` + `InventoryItem/*.lua` (else restock Assert). Dry-run / `--apply`. |
-| `_apply_bobby_catalog.py` | ECON-004: apply Cost/Tier/RW/CAS/CategoryPair from `.tmp/bobby_*_prices.json` to companions + `items.lua`. `--dry-run` / `--apply`. |
-| `_patch_bobby_econ004_items.py` | ECON-004: ModItemCode + Other SubCategories (Optics/…) + `TCE_Tier4/5Unlock` in `items.lua`. Idempotent. |
-| `_audit_bobby_weapon_prices.py` | Audit weapon `Cost` / Bobby Tier. `--json` / `--tsv`. |
-| `_annotate_bobby_cas.py` | Annotate `.tmp/bobby_weapon_prices.json` with CAS action labels. |
-| `_gen_bobby_price_canvas.py` | Build canvas `bobby-ray-weapon-prices.canvas.tsx`. |
-| `_audit_bobby_armor_prices.py` | Audit armor Cost/Tier. `--json` / `--tsv`. |
-| `_gen_bobby_armor_canvas.py` | Build canvas `bobby-ray-armor-prices.canvas.tsx`. |
-| `_audit_bobby_ammo_prices.py` | Audit ammo Cost/Tier. `--json` / `--tsv`. |
-| `_gen_bobby_ammo_canvas.py` | Build canvas `bobby-ray-ammo-prices.canvas.tsx`. |
-| `_audit_bobby_consumables_prices.py` | Audit medicine/tools/Meds·Parts. `--json` / `--tsv`. |
-| `_audit_bobby_attach_prices.py` | Audit remountable attachments. `--json` / `--tsv`. |
-| `_gen_bobby_attach_canvas.py` | Build canvas `bobby-ray-attach-prices.canvas.tsx`. |
-| `_audit_bobby_explosive_prices.py` | Audit explosives/grenades. `--json` / `--tsv`. |
-| `_gen_bobby_explosive_canvas.py` | Build canvas `bobby-ray-explosive-prices.canvas.tsx`. |
+| `_fix_metadata_utf8_mojibake.py` | Аудит/обратимое исправление одного ошибочного прохода UTF-8→Windows-1251 в `title`, `description`, `last_changes`; `--check` / `--apply`, BOM сохраняется. |
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_apply_hotfix_unjam_pinned_items.py` | ACL-safe items.lua patch helper: Unjam ShowIn/GetUIState + suppressionPinned OnAdded/OnBeginTurn parity with companion. |
 
@@ -49,6 +35,15 @@
 | `_audit_med001_analgesia.py` | Static MED-001: Pain tracks the current-turn AP penalty; Analgesia consumes it once, refunds AP directly, and companion/`items.lua` stay equivalent. |
 | `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
 | `_apply_localization_copy_edit.py` | Validates and applies reviewed RU/EN waves to manual memory; optional `AllIDs` propagates one source-identical review to every listed localization ID. |
+| `_apply_maps_quest_repairs.py` | Идемпотентная generated-транзакция JAZZ-QUESTS-001: quest/conversation graph, companions и `jazz-maps/ModTextsMaps.csv`; map-object exports проверяются отдельным аудитом. |
+| `_audit_dirty_lua_syntax.py` | Компилирует через `lupa` все modified/untracked `*.lua` в `jazz`, `jazz-maps`, `jazz-units`; read-only pre-commit gate для синтаксиса. |
+| `_audit_maps_quest_contract.py` | Static JAZZ-QUESTS-001: компилирует затронутые Lua через `lupa`, проверяет quest wiring, шесть `objects.lua`, Barry Seal, wounded/ally markers, ModTexts и одинаковый RU/EN runtime ID set. |
+| `_audit_maps_vanilla_quest_sectors.py` | Inventory/contract для JAZZ-QUESTS-002: stale HotDiamonds landmark refs в `jazz-maps` QuestsDef; `--strict` = exit 1 если Wave A+B ещё stale; Ernie-local I2/I3 и crocodile H14 отдельно. |
+| `_apply_maps_vanilla_quest_sector_remap.py` | Идемпотентный apply JAZZ-QUESTS-002: remap sector refs в in-scope QuestsDef + `Pierre_2`/`FlagHill_Corazon_1` и `ModTextsMaps.csv` по transfer table (+ I3→J7, Elliot H14→P17); `--check` / `--apply`. |
+| `_bump_package_metadata.py` | Безопасно повышает package Revision на +1 и prepend-ит `last_changes` через literal `\n`, сохраняя UTF-8 BOM; default — dry-run, запись с `--apply`. |
+| `_install_localization_exports.py` | Проверяет `sep=,`, схему, numeric/unique IDs и равенство RU/EN export sets; с `--apply` атомарно устанавливает парные runtime CSV. |
+| `localization-copy-edits/quests_001.csv` | Канонические RU/EN строки ремонта квестов и разговора Barry Seal; вход для `_apply_localization_copy_edit.py`. |
+| `localization-copy-edits/ame_runtime_statuses.csv` | Закрывает восемь накопленных AME status/filter строк RU/EN, чтобы парный runtime export был полным. |
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; combat Score helpers; `AISelectHealTarget` / `AIActionBandage` Precalc; `JazzAI_TryMedicSwitch` all bleed tiers. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
 | `_bump_sniper001_meta.py` | Revision +1 + prepend `last_changes` bullet for SNIPER-001 commit. |
@@ -151,7 +146,9 @@
 | `_audit_long_scopes.py` | Снимок long-scope профилей (данные). |
 | `_calib_optic_targets.py` | Старая калибровка рычагов ×1.2 (исторически АКМ). |
 | `_rebalance_long_scope_ow.py` | Длинная оптика: `ScopeOverwatchAngle`% уже по кратности (больше зум → уже OW). |
-| `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, **raw newline inside quoted strings**, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, **raw newline inside quoted strings**, UTF-8/Windows-1251 mojibake в metadata, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_fix_bobbyray_string_tier.py` | Bobby Ray: `Tier = "4"`/`'Tier', "5"` → numeric в `items.lua` + `InventoryItem/*.lua` (иначе `PrepareShopItemsForRestock` Assert string≤number). Dry-run / `--apply`. |
+| `_fix_ame_callsign_in_name.py` | AME callsign в `Name`: `Didier Mbemba`+Nick `Smoke` → `Didier "Smoke" Mbemba` / `Дидье "Дым" Мбемба` (vanilla single-quoted `T`). Companions + `jazz-units/items.lua` + RU/EN. Dry-run / `--apply`. |
 | `_apply_strategy_021_great_desert.py` | STRATEGY-021: `GreatDesert` Region + PortCacao `LateAwakenMinTier`/Starting* =0 в `jazz/items.lua` + metadata resource. |
 | `_apply_mountain_steppe_region.py` | Trim GreatDesert (drop A9–A12/B9–B12/C8–C12) + add `MountainSteppe` / D18; metadata resource. |
 | `_fix_savanna_west_from_steppe.py` | Owner fix: restore A9–A12/B9–B12/C8–C12 to `GreatDesert`; MountainSteppe from A13…; drop D11–D12 overlap. |
@@ -257,6 +254,19 @@
 | `_wire_mp7_mag_icons.py` | MagNormal ApplyTo MP7 → `Magazine/MP7_Mag30.png`. |
 | `_wire_mini14_mag_icons.py` | MagNormal → Mini14_Mag20; MagLarge_20_30_MINI14 → Mini14_Mag30. |
 | `_enable_remountable_bobby_ray.py` | Временный shop-pass: `CanAppearInShop` + Restock/MaxStock/Tier на remountable InventoryItems (dry-run / `--apply`). |
+| `_apply_bobby_catalog.py` | ECON-004: apply Cost/Tier/RW/CAS/CategoryPair из `.tmp/bobby_*_prices.json` в companions + `items.lua`. `--dry-run` / `--apply`. |
+| `_patch_bobby_econ004_items.py` | ECON-004: ModItemCode + Other SubCategories (Optics/…) + `TCE_Tier4/5Unlock` в `items.lua`. Idempotent. |
+| `_audit_bobby_weapon_prices.py` | Аудит `Cost` active оружия (`weapons.csv` + GL/RL). `proposed` = канон `InventoryItem.Cost` для **Bobby и world** buy/sell; `shop=out_*` только вне витрины. `--json` / `--tsv`. |
+| `_annotate_bobby_cas.py` | К `.tmp/bobby_weapon_prices.json` добавляет `cas_action`/`cas_label` (нужен ли `CanAppearInShop=false`). |
+| `_gen_bobby_price_canvas.py` | Сборка canvas `bobby-ray-weapon-prices.canvas.tsx` из `.tmp/bobby_weapon_prices.json`. |
+| `_audit_bobby_armor_prices.py` | Аудит брони: JazzArmor + plates + NVG/GasMask; `out_legion` (импровиз/рейдер), `out_special`, stubs. BR 1–5 + proposed Cost. `--json` / `--tsv`. |
+| `_audit_bobby_ammo_prices.py` | Аудит `JAZZ_AMMO_*` + Flare: BR 1–5 по grade×caliber; out_craft/mortar/antique/dupe. `proposed` = stack Cost. `--json` / `--tsv`. |
+| `_gen_bobby_ammo_canvas.py` | Сборка canvas `bobby-ray-ammo-prices.canvas.tsx` из `.tmp/bobby_ammo_prices.json`. |
+| `_audit_bobby_consumables_prices.py` | Аудит медицины / инструментов / Meds·Parts: flat staples; specialty Surgical/Stim/Metaviron soft-tail. `--json` / `--tsv`. |
+| `_audit_bobby_attach_prices.py` | Аудит remountable аттачей: Optics BR из design tiers; Mag/Muzzle/Side/Under heuristic; Cost=Parts×100; out integral/GL/irons. `--json` / `--tsv`. |
+| `_gen_bobby_attach_canvas.py` | Сборка canvas `bobby-ray-attach-prices.canvas.tsx` из `.tmp/bobby_attach_prices.json`. |
+| `_audit_bobby_explosive_prices.py` | Аудит TNT/C4/PETN + fused + grenades/demo/Warhead: soft-tail BR; cross BlackPowder/40mm/mortar. `--json` / `--tsv`. |
+| `_gen_bobby_explosive_canvas.py` | Сборка canvas `bobby-ray-explosive-prices.canvas.tsx` из `.tmp/bobby_explosive_prices.json`. |
 | `_audit_chip_palette.py` | Палитра/размер `Icons/Upgrades/Chips/JAZZ_*.png` (sanity для generation). |
 | `_write_attach_design_human.py` | Пересбор `docs/design/attachments-by-category.md` из CSV. |
 | `_build_attachments_catalog.py` | HTML-каталог `docs/tools/attachments-catalog.html`. |
@@ -312,7 +322,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003/008: mass/RPM/size/limiter → Recoil/Burst/Auto; SMG floor 12; Carbine + select-fire sniper rpm holefix; G36 lim=2; M16A2/A4/FAMAS/AUG/HK33/Sig550*/G3 lim=3; M2Carbine component-gated JAZZ_Autofire shot counts; token-safe attack match. `--apply` → `.bak`. |
 | `_audit_weapons_rpm_holes.py` | WEAPONS-003 hole scan: select-fire/`MGBurst` with `cyclic_rpm=0`, Auto/Burst=0 with mode, known BurstLimiter drift, CSV↔companion, SMG mass/Long placeholders, spec anchors. |
 | `_soften_ammo_jam.py` | JAZZ-WEAPONS-008: смягчает Poor/Crafted `BaseJamChance`/`Reliability` в `items.lua` + companions. `--apply`. |
-| _audit_weapon_jam_balance.py | JAZZ-WEAPONS-010 static audit: additive condition/permanent-wear steps, Reliability/BaseJamChance base ≤10%, MP40 5/6/10/100 anchors, Mosin 3280/6507/7000 27–36%; enumerates Poor/Crafted pairs. |
+| `_audit_weapon_jam_balance.py` | JAZZ-WEAPONS-010 static audit: additive condition/permanent-wear steps, Reliability/BaseJamChance base ≤10%, MP40 5/6/10/100 anchors, Mosin `3280/6507/7000` 27–36%; enumerates Poor/Crafted pairs. |
 | `_tmp_audit_smg_jam_feedback.py` | Discord audit: SMG Recoil distribution + Poor/Crafted JamScore scenarios. |
 | `_audit_recoil_dist.py` | Static AC audit полей active firearms, recoil anchors, 9×19 differentiation и M16A2/AN94 limiters. |
 | `_fix_madman_salary.py` | Jazz_Madman: `StartingSalary`/`SalaryLv1`/`SalaryMaxLv` в `jazz-units/items.lua` (companion править отдельно). |
@@ -323,16 +333,21 @@ python docs/tools/build-sector-atlas-docs.py
 | `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps/JA2 Gold SLF + folder packs **или** `ja2mercs:…`. Combat=`SLOT_WAV`; AIM chat via `--aim-chat` / `--aim-chat-only`: classic `081–120`, MERK/RPC/Biff=`HIRE_FALLBACK_WAV`, UB ЦС=`UB_HIRE_PROXY_WAV`, Mike hire alt OLD pack. Never ATTN as hire. Map: `jazz_to_ja2_profile.csv` + folders CSV. **Never overwrite** `done_manual`: `spouke` / `lynx` / `tosca` / `spider`. |
 | `_restore_lynx_tosca_spider_voices.py` | Restore original JA3 opus for `Jazz_Lynx` / `Jazz_Buzz` / `Jazz_Spider` from pre-remesh commit `a626ebc` (after accidental overwrite in `792d1c5`). Spouke untouched. |
 | `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh majority + `PierreMerc` + IMP minority (~1/8; VR → `IMP_*_01`). Assert: line troops = AllRounder/Autoriflemen/HeavyWeapons/Marksmen; soft specs только у Specialists. |
+| `_ame_copy_bank.py` | Importable канон 60 самостоятельных RU+EN биографий и двуязычных profile blurbs; сам ничего не пишет. |
+| `_export_ame_bio_copy_edits.py` | Проецирует 60 AME biography ID из copy-bank в `localization-copy-edits/ame_bios_bilingual.csv` для безопасного обновления обеих manual memories. |
 | `_patch_ame_specializations.py` | Синхронизирует `Specialization` в `jazz-units/UnitData/JAZZ_AME_*.lua` + `items.lua` из roster generator **без** перезаписи зарплат/loc. |
 | `_apply_ame_voice_remap.py` | Патчит только `VoiceResponseId`/`FallbackMissingVR` в `jazz-units` UnitData companions + `items.lua` из `voice_for()` roster (без regen bios/kits). |
-| `_audit_ame_voices.py` | Сводка `VoiceResponseId` по `UnitData/JAZZ_AME_*.lua` (IMP / Jazz / other counts). |
+| `_audit_ame_voices.py` | Аудит `VoiceResponseId` по 60 UnitData + 114 generated T/audio: opus exists, managed Context-ID set точно совпадает с items, без faction slogans, EN совпадает с audible donor phrase, RU — с `_ame_voice_subtitles_ru.py`. |
+| `_audit_ame_copy.py` | Проверяет 60 самостоятельных RU/EN биографий и profile blurbs: 3–4 предложения, 38–105 слов, без stat/tier/meta copy и повторов; сверяет точную проекцию в roster, а с `--generated` ещё runtime CSV и `jazz-units/UnitData`. |
 | `_verify_ame_voice_items_sync.py` | Сверка AME VR в `items.lua` vs companions. |
 | `_ame_names_ru.py` | RU Name/Nick для AME (кириллица); используется `_gen_ame_unitdata.py` в RU/EN loc. |
 | `_gen_ame_unitdata.py` | JAZZ-UNITS-005: из roster → `jazz-units/UnitData/JAZZ_AME_01..60.lua`, fixed `Loot_*`, items/metadata markers, nationality presets, RU/EN loc (имена RU из `_ame_names_ru.py`), placeholder portraits. Idempotent (`JAZZ-UNITS-005-AME-*`). |
+| `_test_ame_contract.py` | Targeted lupa-harness для реальных AME Lua: синтаксис, детерминированное окно ровно 15 кандидатов, отдельная soft-guarantee Medic/Instructor/Sniper, защита нанятых, AME-only `My Team`, idempotent mail wrapper и обязательные поля сайта. Read-only; live PDA acceptance не заменяет. |
 | `_apply_ame_weekly_salaries.py` | Playtest salary ladder: weekly bands → `StartingSalary` (week≈×7); writes all `UnitData/JAZZ_AME_*.lua`. Ceiling below Igor/Barry daily. |
 | `_sync_ame_salary_items.py` | Copies companion `StartingSalary` into `jazz-units/items.lua` ModItem `'Id',"JAZZ_AME_NN"` blocks. |
 | `_import_legion_raider_alt_voices.py` | Импорт Legion Raider alt takes `*-1.opus` (rar или `--dir Downloads/1`) → `jazz-units/voices/` (донор голоса для AME Male_Low). |
-| `_gen_ame_voice_responses.py` | Три shared VR: `Jazz_AME_Male_Low` (Legion alt `*-1.opus`, без Legion/Major takes), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`. Remesh только подходящие слоты; Selection/Order/CombatMovement **omit** → тишина. UnitData `FallbackMissingVR` = Legion/Army/Anne (Pain only, не Ice/Fox). |
+| `_ame_voice_subtitles_ru.py` | Канонический RU-перевод фактически слышимой donor-фразы для shared AME voice banks; не подменяет реплику текстом gameplay event. Неизвестная новая фраза — hard fail генератора. |
+| `_gen_ame_voice_responses.py` | Три shared VR: `Jazz_AME_Male_Low` (Legion alt `*-1.opus`, без Legion/Major/Grand Chien takes), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`. Remesh только подходящие слоты; Selection/Order/CombatMovement **omit** → тишина. EN совпадает с audio, RU берётся из `_ame_voice_subtitles_ru.py`; generated loc принадлежит стабильному Context и переиспользует те же IDs даже после CSV round-trip без comment markers. |
 | `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN`; **1** синий акцент (Hat/Hat2/Shirt/BodyC2, не Pants); узкий Af bank (Chimurenga/Pierre/Jackhammer/`Head_M_IMP_01`/Rebel medic — **не** Flay/Fidel/Magic/Blood); без Legion war-paint / `GrandChien_Top_05`; red/extra-blue→slate; BodyC1 dark; HeadColor 0; map `ame-appearance-map.json`. Policy: `docs/design/ame-appearance-assets.md`. |
 | `_audit_patch_ame_heads.py` | Repair pass по `jazz-units/items.lua` AME: pale/AIM heads, ♀-on-♂, war-paint bodies, pale-hand `GrandChien_Top_05`, gloves Shirt, BodyColor C1, HeadColor 0. `--dry-run` / `--sync-map` / `--verbose`. Exit 0 ⇒ `bad_after=0`. |
 | `_audit_loot_upgrade_ids.py` | Audit `LootEntryUpgradedWeapon` upgrade IDs in `jazz-units/items.lua` vs known `JAZZ_*` WeaponComponent map. |
@@ -348,7 +363,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |
 | `_process_ame_portraits.py` | rembg BiRefNet + resize 2000 + bust_crop 300 из `*_Big_raw.png` (assets/_raw). |
 | `_append_ame_mail_loc.py` | JAZZ-UI-AME-001: RU/EN Email strings `890000000006900–6910` (welcome + listing update). Idempotent upsert; proper multiline CSV. |
-| `_update_ame_mail_sales_copy.py` | AME mail: sales-pitch listing framing + pitch loc `6960–6984`; rewrites `AME_Welcome` / `AME_ListingUpdate` bodies. |
+| `_update_ame_mail_sales_copy.py` | Канонические RU/EN письма AME + естественные listing pitches `6960–6984`; безопасно синхронизирует `AME_Welcome` / `AME_ListingUpdate`, сохраняя English source в `Text` обеих runtime CSV. |
 | `_apply_ris_mail_emails.py` | Compatibility wrapper → полный `_apply_ris_editorial.py`; отдельный Phase A mail/copy bank удалён. |
 | `_rewrite_ris_legion_briefs.py` | Отдельный канон 11 RU/EN supply briefs по loadout unlock map; loc IDs `11300…11321`. CLI делегирует полному `_apply_ris_editorial.py`, чтобы старый partial-run не рассинхронизировал CSV/catalog/items. |
 | `_gen_legion_weapon_availability_map.py` | Build `docs/design/legion-weapon-availability-by-tier.md` from `weapons.csv` `tier_label` (11…33). |
@@ -393,11 +408,12 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | `_ja2mercs_folder_map.py` | Canonical Jazz→ja2mercs (1) pid-prefixed folder map (remesh / skip_*). Writes `jazz_to_ja2mercs_folders.csv`. |
 | `_apply_ja2mercs_profile_map.py` | Apply folder map onto `jazz_to_ja2_profile.csv` (`speech_source`/`profile_id`/`status`). `--dry-run`. |
 | `_wire_ja12_chat_voice_tags.py` | WIP UnitData/items compact chat `T(id,"…")` → `voice:Jazz_*` comments. `--apply` / `--dry-run` / `--only`. |
-| `_clear_ja12_selection_chat_donors.py` | Delete AIM-chat opus that is Selection-copy or merc has no hire 081–120 (silent > ATTN). `--apply` / `--dry-run`. |
+| `_clear_ja12_selection_chat_donors.py` | Delete AIM-chat opus that byte-duplicates Selection; preserve owner-approved same-voice fallback remesh. `--strict-hire-only` restores no-081–120 purge; `--apply` / `--dry-run`. |
 | `_import_ja2mercs_subtitle_bank.py` | Import ja2mercs `*.txt` → `_voice-source/subtitles/<slug>.csv` (line index = SPEECH stem; encoding utf-8/cp1251). |
 | `_apply_ja12_subtitles.py` | Apply subtitle CSV → UnitData/items `T()` + `Russian.csv` via `AIM_CHAT_WAV`/`SLOT_WAV`. `--only` / `--slots chat,combat` / `--apply`. |
 | `_integrate_sj_khalif_mercs.py` | Shady Job `Downloads/SJ/data`: кэш → `_sj_cache`, mercedt CSV, UnitData/VR stubs Benny+Simon, ship Grom/Benny/Simon opus. WF AIM в SJ SPEECH нет. |
 | `_extract_sj_sti_faces.py` | Decode SJ `faces/bigfaces/{66,67}.sti` (+ `b66`/`b67`) → `docs/design/mercs-ja12/{simon,benny}.ja2-face.png` + `_face-source/sj/`. Indexed STCI ETRLE. |
+| `_process_ja12_facefix_portraits.py` | Preserve eight generated JA12 face-fix raws, cut with local BiRefNet, emit 2000/300 RGBA candidates + contact sheet under `jazz-units/MercPortraits/_wip/ja12-facefix/`; `--crop-only`, explicit `--apply` for runtime art. |
 | `_fill_sj_chat_voices.py` | Copy Selection opus onto missing Benny/Simon/Grom AIM-chat T-ids (`--apply`). |
 | `_fill_ja12_chat_voices.py` | Wrapper: `_ship_ja2_merc_voices.py --aim-chat-only` (classic/fallback/ub-proxy; not Selection). `--apply` / `--dry-run` / `--only`. |
 | `_pour_ja12_design_hire_chat.py` | Pour AIM-chat RU/EN from `docs/design/mercs-ja12/<slug>.md` → UnitData + `items.lua` + RU/EN CSV; sync missing PartingWords. `--apply` / `--only`. |
@@ -405,6 +421,7 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | `_stt_hire_chat_lines.py` | faster-whisper STT of hire stems → UnitData chat text (Quinten/Highball). `--apply` / `--only` / `--model`. |
 | `_expand_ja2_merc_vr_full.py` | Expand stub (~12-slot) Jazz_* VoiceResponse to Colby-like combat coverage (~52 slots / 74 lines); allocates T-ids + RU/EN. Skips Colby/Spouke/need_pack/full VR. Then run `_ship_ja2_merc_voices.py`. |
 | `_audit_ja12_merc_voices.py` | Read-only audit: Jazz_* VR T-ids vs `voices/<tid>.opus`, CSV ship status, TranslatedVoices mount, `g_VoiceVariations`. `--critical` for Selection/Aim/Movement. |
+| `_audit_ja12_hire_chat_voices.py` | Read-only AIM-chat audit: UnitData T-ids vs shipped opus, per-merc `OK`/`PARTIAL`/`SILENT`, source mode and missing-slot summary. `--only` / `--fail-on-silent`. |
 | `_inject_sj_benny_simon_vr.py` | Inject missing Benny/Simon `ModItemVoiceResponse` folders into `jazz-units/items.lua` (UnitData already via companion). |
 | `_fix_benny_simon_tid_collision.py` | Remap Benny/Simon T-ids if they collided with an expand batch (safe re-run). |
 | `_inject_vr_stubs_ja2_voices.py` | Для ready-мерков с пустым `ModItemVoiceResponse` — Ira-like stub (12 линий) из mercedt/NO EDT + T-ids `8900…6300+` в `jazz-units/items.lua` и RU/EN CSV. UB/ЦС без текстов — fallback-строки. |
@@ -412,7 +429,7 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | `_audit_nightops_speech_coverage.py` | Аудит SPEECH/BATTLESNDS/NO overlays + внешние `_ub_cs_cache` (ЦС) / `_horg_stogie_cache` (Бычок). Identity по RU greeting/self-ID в mercedt, **не** по EDT filename (они часто врут). |
 | `_extract_ja2_mercedt.py` | Распаковать/расшифровать `MERCEDT.SLF` (JA2 / NightOps) → UTF-8 CSV субтитров `000`..`116` в `docs/design/mercs-ja12/_voice-source/ja2no-mercedt/`. |
 | `_extract_wildfire_rus_arc.py` | FreeArc extract `Jagged_Alliance_2_1_13_Wildfire_RUS.arc` (7z не открывает) через PeaZip `Arc.exe` → `_voice-source/_wildfire_cache/` (SPEECH/MercEdt + Data-UB). Это 1.13 RUS+WF maps, не commercial WF AIM VO; Gaston = Data-UB/058. |
-| `_inventory_ja2mercs.py` | Read-only inventory `Downloads/ja2mercs/ja2mercs`: layout (flat/nested), audio counts/formats, profile-id guess, crosswalk к `jazz_to_ja2_profile.csv`. Не ship/convert. `--root` optional. Remesh: `_apply_ja2mercs_profile_map.py` + `_ship_ja2_merc_voices.py --ja2mercs-remesh`. |
+| `_inventory_ja2mercs.py` | Read-only inventory `Downloads/ja2mercs (1)/ja2mercs`: layout (flat/nested), audio counts/formats, profile-id guess, crosswalk к `jazz_to_ja2_profile.csv`. Не ship/convert. `--root` optional. Remesh: `_apply_ja2mercs_profile_map.py` + `_ship_ja2_merc_voices.py --ja2mercs-remesh`. |
 | `_stt_ja2mercs_sample.py` | Pilot subtitles for ja2mercs: export XLSX/mercedt ref text + optional faster-whisper RU STT (ADPCM→PCM via ffmpeg). Default pilot `но-шж/гром` pids 076+047 (both Grom). `--no-stt` = refs only. Out: `_voice-source/_stt/`. |
 | `_audit_truncated_voice_responses.py` | Find JA2-style ~80-char mid-cut VoiceResponse strings in `English.csv`; match full RU from `ja2mercs (1)` XLSX (+ known STT repairs for Carlos/Devin). Report only → `_tmp_truncated_vr_strict.txt`. |
 | `_apply_trunc_vr_and_lore_names.py` | Apply Grandier/Грандье + Khalif lore canon and truncated VR repairs into `jazz-units` `T()` + `Russian.csv`/`English.csv` (+ Manual). Canon: Grandier / Кавалье / Khalif. |

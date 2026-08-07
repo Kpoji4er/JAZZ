@@ -39,8 +39,6 @@ JAZZ_CODE_END = f"-- {SECTION}-JAZZ-CODE-END"
 LOC_BEGIN = f"# {SECTION}-LOC-BEGIN"
 LOC_END = f"# {SECTION}-LOC-END"
 
-UI_LOC_BASE = 890000000005000
-UI_LOC_END = 890000000005020
 MERC_LOC_BASE = 890000000005100
 MERC_LOC_STRIDE = 10
 NAT_LOC_BASE = 890000000005021
@@ -128,16 +126,49 @@ UI_STRINGS: list[tuple[int, str, str, str]] = [
     (890000000005008, "Specialists", "Specialists", "AME_Filter"),
     (890000000005009, "Все", "All", "AME_Filter"),
     (890000000005010, "All", "All", "AME_Filter"),
-    (890000000005011, "Моя команда [<PlayerMercCount()>]", "My Team [<PlayerMercCount()>]", "AME_Filter"),
+    (890000000005011, "Моя команда [<AMEPlayerMercCount()>]", "My Team [<AMEPlayerMercCount()>]", "AME_Filter"),
     (890000000005012, "My%20Team", "My%20Team", "AME_Filter"),
     (890000000005013, "http://www.ame-exchange.net/", "http://www.ame-exchange.net/", "AME_Browser"),
     (890000000005014, "http://www.ame-exchange.net/Roster/", "http://www.ame-exchange.net/Roster/", "AME_Browser"),
     (890000000005015, "Низкий", "Low", "AME_Potential"),
     (890000000005016, "Средний", "Medium", "AME_Potential"),
     (890000000005017, "Высокий", "High", "AME_Potential"),
-    (890000000005018, "Категория", "Category", "AME_UI"),
-    (890000000005019, "Потенциал", "Potential", "AME_UI"),
+    (890000000005018, "Категория:", "Category:", "AME_UI"),
+    (890000000005019, "Потенциал:", "Potential:", "AME_UI"),
     (890000000005020, "Африканская биржа наёмников", "African Mercenary Exchange", "AME_UI"),
+    (
+        890000000005049,
+        "<style AimCopyrightTextC><copyright></style> A.M.E. 2001",
+        "<style AimCopyrightTextC><copyright></style> A.M.E. 2001",
+        "AME_Browser_copyright",
+    ),
+    (890000000006890, "Об A.M.E.", "About A.M.E.", "AME_Browser_about_title"),
+    (
+        890000000006891,
+        "Африканская биржа наёмников сводит нанимателей с местными бойцами до того, как известность сделает их дорогими. Мы проверяем имена, доступность и условия; выбирать всё равно вам. Хороший контракт может дать человеку будущее. Плохой обычно освобождает место в списке.",
+        "The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy.",
+        "AME_Browser_about_body",
+    ),
+    (890000000006892, "Условия A.M.E.", "A.M.E. terms", "AME_Browser_terms_title"),
+    (
+        890000000006893,
+        "A.M.E. подтверждает личность и доступность, но не храбрость, здравый смысл или удачу. Оплата, лечение, перевозка и похороны остаются делом нанимателя и бойца. С погибших биржа комиссию не берёт.",
+        "A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead.",
+        "AME_Browser_terms_body",
+    ),
+    (890000000006990, "Ушёл в Легион", "Joined the Legion", "AME_Terminal"),
+    (
+        890000000006991,
+        "<style PDAMercPrice_Dead>Погиб в бою</style>",
+        "<style PDAMercPrice_Dead>Killed in action</style>",
+        "AME_Terminal",
+    ),
+    (
+        890000000006992,
+        "Подписал контракт с другим нанимателем",
+        "Signed with another employer",
+        "AME_Terminal",
+    ),
 ]
 
 
@@ -232,12 +263,30 @@ def allcaps_nick(m: dict) -> str:
     return display_nick(m).upper()
 
 
+def full_name_en(m: dict) -> str:
+    name = m.get("name") or ""
+    nick = m.get("nick")
+    if not nick:
+        return name
+    parts = name.split()
+    if len(parts) < 2:
+        return f'{name} "{nick}"'
+    return f'{parts[0]} "{nick}" {" ".join(parts[1:])}'
+
+
 def name_ru(m: dict) -> str:
     en = m.get("name") or ""
-    ru = AME_NAME_RU.get(en)
-    if not ru:
+    name = AME_NAME_RU.get(en)
+    if not name:
         raise SystemExit(f"missing AME_NAME_RU for {en!r}")
-    return ru
+    nick = m.get("nick")
+    if not nick:
+        return name
+    nick_ru = AME_NICK_RU.get(nick, nick)
+    parts = name.split()
+    if len(parts) < 2:
+        return f'{name} "{nick_ru}"'
+    return f'{parts[0]} "{nick_ru}" {" ".join(parts[1:])}'
 
 
 def display_nick_ru(m: dict) -> str:
@@ -260,18 +309,6 @@ def nat_display_en(nat: str) -> str:
     if nat == "SouthAfrica":
         return "South Africa"
     return nat
-
-
-def en_bio_short(m: dict) -> str:
-    nat = m.get("nat", "")
-    cat = m.get("cat", "mercenary")
-    role = m.get("role", "soldier")
-    name = m["name"]
-    nat_en = nat_display_en(nat)
-    return (
-        f"{name} is a {cat.lower()} mercenary from {nat_en}, working as a {role.lower().replace('_', ' ')}. "
-        f"Looking for paid contracts and steady work."
-    )
 
 
 def resolve_ammo(caliber: str, last_weapon: str | None) -> str:
@@ -343,27 +380,30 @@ def perks_lua(traits: list[str]) -> str:
     return "\n".join(lines)
 
 
-def chat_stub(cat: str) -> tuple[str, str, str, str]:
-    if cat == "Specialists":
-        return (
-            "На связи. Готов обсуждать контракт.",
-            "Слушаю. Расскажите о задаче.",
-            "Согласен. Условия приемлемы.",
-            "До связи.",
-        )
-    if cat == "Hardened":
-        return (
-            "Я на линии. Говорите.",
-            "Работа есть — слушаю.",
-            "Берусь. Не подведу.",
-            "Контракт принят.",
-        )
-    return (
-        "Дозвонился. Слушаю.",
-        "Ищу работу. Что предлагаете?",
-        "Согласен на контракт.",
-        "До связи.",
-    )
+def chat_copy(cat: str) -> dict[str, tuple[str, str]]:
+    copy = {
+        "Irregulars": {
+            "offline": ("You're through. I'm listening.", "Вы дозвонились. Слушаю."),
+            "greeting": ("I'm looking for work. What do you have?", "Ищу работу. Что предлагаете?"),
+            "parting": ("All right. Speak soon.", "Хорошо. До связи."),
+        },
+        "Fighters": {
+            "offline": ("On the line.", "На связи."),
+            "greeting": ("I'm listening. Tell me about the job.", "Слушаю. Расскажите о работе."),
+            "parting": ("Understood. I'll be here.", "Понял. Я буду на связи."),
+        },
+        "Hardened": {
+            "offline": ("I'm here. Talk.", "Я на линии. Говорите."),
+            "greeting": ("If there's work, I'm listening.", "Если есть работа — слушаю."),
+            "parting": ("Send the terms.", "Присылайте условия."),
+        },
+        "Specialists": {
+            "offline": ("I'm available. We can discuss a contract.", "На связи. Можем обсудить контракт."),
+            "greeting": ("Go ahead. Tell me what the job needs.", "Слушаю. Что требуется для этой работы?"),
+            "parting": ("Understood. I will wait for your terms.", "Понятно. Буду ждать ваших условий."),
+        },
+    }
+    return copy[cat]
 
 
 def render_companion(slot: int, m: dict, mod) -> str:
@@ -375,7 +415,7 @@ def render_companion(slot: int, m: dict, mod) -> str:
     gender = "Female" if m.get("female") else "Male"
     nick = display_nick(m)
     caps = allcaps_nick(m)
-    offline, greeting, _, parting = chat_stub(m["cat"])
+    chat = chat_copy(m["cat"])
     stats = m["stats"]
     portrait = f"Mod/Dv3mFVN/MercPortraits/{uid}.png"
     big = f"Mod/Dv3mFVN/MercPortraits/{uid}_Big.png"
@@ -393,17 +433,17 @@ def render_companion(slot: int, m: dict, mod) -> str:
         f'\tPortrait = "{portrait}",',
         f'\tBigPortrait = "{big}",',
         "\tIsMercenary = true,",
-        f"\tName = {t_expr(loc['name'], m['name'], f'ModItemUnitDataCompositeDef {uid} Name')},",
+        f"\tName = {t_expr(loc['name'], full_name_en(m), f'ModItemUnitDataCompositeDef {uid} Name')},",
         f"\tNick = {t_expr(loc['nick'], nick, f'ModItemUnitDataCompositeDef {uid} Nick')},",
         f"\tAllCapsNick = {t_expr(loc['allcaps'], caps, f'ModItemUnitDataCompositeDef {uid} AllCapsNick')},",
-        f"\tBio = {t_expr(loc['bio'], m['bio'], f'ModItemUnitDataCompositeDef {uid} Bio')},",
+        f"\tBio = {t_expr(loc['bio'], m['bio_en'], f'ModItemUnitDataCompositeDef {uid} Bio')},",
         f'\tNationality = "{m["nat"]}",',
         f"\tHireStatus = \"NotMet\",",
         f'\tAMECategory = "{m["cat"]}",',
         f'\tAMERole = "{m["role"]}",',
-        f"\tOffline = {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['offline'], offline)} }}) }},",
-        f"\tGreetingAndOffer = {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['greeting'], greeting)} }}) }},",
-        f"\tPartingWords = {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['parting'], parting)} }}) }},",
+        f"\tOffline = {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['offline'], chat['offline'][0])} }}) }},",
+        f"\tGreetingAndOffer = {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['greeting'], chat['greeting'][0])} }}) }},",
+        f"\tPartingWords = {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['parting'], chat['parting'][0])} }}) }},",
         '\tMedicalDeposit = "none",',
         f"\tStartingSalary = {m['salary']},",
         f"\tStartingLevel = {m['lvl']},",
@@ -451,7 +491,7 @@ def render_items_block(roster: list[dict], mod) -> str:
         stats = m["stats"]
         portrait = f"Mod/Dv3mFVN/MercPortraits/{uid}.png"
         big = f"Mod/Dv3mFVN/MercPortraits/{uid}_Big.png"
-        offline, greeting, _, parting = chat_stub(m["cat"])
+        chat = chat_copy(m["cat"])
 
         perk_lines = ""
         if m.get("traits"):
@@ -471,17 +511,17 @@ def render_items_block(roster: list[dict], mod) -> str:
             + f"\t\t\t\t'Portrait', \"{portrait}\",\n"
             f"\t\t\t\t'BigPortrait', \"{big}\",\n"
             f"\t\t\t\t'IsMercenary', true,\n"
-            f"\t\t\t\t'Name', {t_expr(loc['name'], m['name'], f'ModItemUnitDataCompositeDef {uid} Name')},\n"
+            f"\t\t\t\t'Name', {t_expr(loc['name'], full_name_en(m), f'ModItemUnitDataCompositeDef {uid} Name')},\n"
             f"\t\t\t\t'Nick', {t_expr(loc['nick'], nick, f'ModItemUnitDataCompositeDef {uid} Nick')},\n"
             f"\t\t\t\t'AllCapsNick', {t_expr(loc['allcaps'], caps, f'ModItemUnitDataCompositeDef {uid} AllCapsNick')},\n"
-            f"\t\t\t\t'Bio', {t_expr(loc['bio'], m['bio'], f'ModItemUnitDataCompositeDef {uid} Bio')},\n"
+            f"\t\t\t\t'Bio', {t_expr(loc['bio'], m['bio_en'], f'ModItemUnitDataCompositeDef {uid} Bio')},\n"
             f"\t\t\t\t'Nationality', \"{m['nat']}\",\n"
             f"\t\t\t\t'HireStatus', \"NotMet\",\n"
             f"\t\t\t\t'AMECategory', \"{m['cat']}\",\n"
             f"\t\t\t\t'AMERole', \"{m['role']}\",\n"
-            f"\t\t\t\t'Offline', {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['offline'], offline)} }}) }},\n"
-            f"\t\t\t\t'GreetingAndOffer', {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['greeting'], greeting)} }}) }},\n"
-            f"\t\t\t\t'PartingWords', {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['parting'], parting)} }}) }},\n"
+            f"\t\t\t\t'Offline', {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['offline'], chat['offline'][0])} }}) }},\n"
+            f"\t\t\t\t'GreetingAndOffer', {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['greeting'], chat['greeting'][0])} }}) }},\n"
+            f"\t\t\t\t'PartingWords', {{ PlaceObj('ChatMessage', {{ 'Text', {t_expr(loc['parting'], chat['parting'][0])} }}) }},\n"
             f"\t\t\t\t'MedicalDeposit', \"none\",\n"
             f"\t\t\t\t'StartingSalary', {m['salary']},\n"
             f"\t\t\t\t'StartingLevel', {m['lvl']},\n"
@@ -639,7 +679,7 @@ def render_nationalities_lua() -> str:
         tid = NAT_LOC_BASE + i
         rows.append(
             "PlaceObj('MercNationalities', {\n"
-            f"\tDisplayName = {t_expr(tid, ru, f'MercNationalities {nat_id} DisplayName')},\n"
+            f"\tDisplayName = {t_expr(tid, en, f'MercNationalities {nat_id} DisplayName')},\n"
             f'\tIcon = "{icon}",\n'
             f'\tid = "{nat_id}",\n'
             "})"
@@ -661,60 +701,46 @@ def collect_loc_rows(roster: list[dict]) -> list[tuple[int, str, str, str]]:
         uid = slot_id(slot)
         nick = display_nick(m)
         caps = allcaps_nick(m)
-        offline, greeting, _, parting = chat_stub(m["cat"])
+        chat = chat_copy(m["cat"])
         rows.extend(
             [
-                (loc["name"], name_ru(m), m["name"], uid),
+                (loc["name"], name_ru(m), full_name_en(m), uid),
                 (loc["nick"], display_nick_ru(m), nick, uid),
                 (loc["allcaps"], allcaps_nick_ru(m), caps, uid),
-                (loc["bio"], m["bio"], en_bio_short(m), uid),
-                (loc["offline"], offline, "On the line.", uid),
-                (loc["greeting"], greeting, "Listening. Tell me about the job.", uid),
-                (loc["parting"], parting, "Contract accepted.", uid),
+                (loc["bio"], m["bio"], m["bio_en"], uid),
+                (loc["offline"], chat["offline"][1], chat["offline"][0], uid),
+                (loc["greeting"], chat["greeting"][1], chat["greeting"][0], uid),
+                (loc["parting"], chat["parting"][1], chat["parting"][0], uid),
             ]
         )
     return rows
 
 
-def csv_quote(value: str) -> str:
-    if any(c in value for c in ',\n"'):
-        return '"' + value.replace('"', '""') + '"'
-    return value
-
-
 def patch_loc_csv(path: Path, rows: list[tuple[int, str, str, str]]) -> int:
     if not path.exists():
         raise RuntimeError(f"missing loc file: {path}")
-    text = path.read_text(encoding="utf-8")
-    text = replace_marked_block(text, LOC_BEGIN, LOC_END, "")
-    text = re.sub(r"\n{3,}", "\n\n", text).rstrip("\n")
+    from _apply_ris_editorial import LocEntry, parse_csv_document, upsert_runtime_csv
 
-    managed_ids = {str(r[0]) for r in rows}
-    kept: list[str] = []
-    for line in text.splitlines():
-        if not line.strip():
-            kept.append(line)
-            continue
-        m = re.match(r"^(\d+),", line)
-        if m and m.group(1) in managed_ids:
-            continue
-        kept.append(line)
-    text = "\n".join(kept).rstrip("\n")
-
-    block_lines = [LOC_BEGIN]
-    # Russian.csv: id, English, Russian — English.csv: id, Russian, English
-    is_russian = path.name.lower().startswith("russian")
-    for tid, ru, en, ctx in rows:
-        left, right = (en, ru) if is_russian else (ru, en)
-        block_lines.append(f"{tid},{csv_quote(left)},{csv_quote(right)},,{ctx}")
-    block_lines.append(LOC_END)
-    block = "\n".join(block_lines)
-
-    if LOC_BEGIN in text:
-        text = replace_marked_block(text, LOC_BEGIN, LOC_END, block)
-    else:
-        text = text + "\n" + block + "\n"
-    path.write_text(text, encoding="utf-8")
+    entries = {
+        str(tid): LocEntry(
+            source_en=en,
+            russian=ru,
+            english=en,
+            context=ctx,
+            category="ame",
+            locations="",
+        )
+        for tid, ru, en, ctx in rows
+    }
+    language = "russian" if path.name.lower().startswith("russian") else "english"
+    document = parse_csv_document(path, path.read_bytes())
+    updated = upsert_runtime_csv(
+        document,
+        entries,
+        language=language,
+        label=path.name,
+    )
+    path.write_bytes(updated.render())
     return len(rows)
 
 
@@ -798,8 +824,8 @@ def main() -> int:
     portraits_copied, portrait_warn = copy_portraits(roster)
 
     loot_count = len(roster)
-    ui_loc = sum(1 for r in loc_rows if UI_LOC_BASE <= r[0] <= UI_LOC_END)
-    merc_loc = sum(1 for r in loc_rows if r[0] >= MERC_LOC_BASE)
+    fixed_loc = len(UI_STRINGS) + len(NATIONALITIES)
+    merc_loc = len(roster) * 7
 
     print("JAZZ-UNITS-005 AME generator summary")
     print(f"  roster mercs:     {len(roster)}")
@@ -811,7 +837,7 @@ def main() -> int:
     print(f"  nationalities:    {nat_path}")
     print(f"  loc rows (RU):    {ru_count}")
     print(f"  loc rows (EN):    {en_count}")
-    print(f"    UI ids:         {ui_loc}")
+    print(f"    fixed UI/nat:   {fixed_loc}")
     print(f"    merc/chat ids:  {merc_loc}")
     print(f"  portraits copied: {portraits_copied} (warnings/skips: {portrait_warn})")
     return 0

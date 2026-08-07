@@ -4815,19 +4815,23 @@ Look: Short dark brown/black hair; olive drab military jumpsuit/two-piece unifor
 - `Wlad` = `EquipmentWlad_Top_01` (lab coat+red gloves baked) + NPC pants/head — hybrid named kit, not full AIM. `Weirdo` = Legion Top_02/Bottom_04 + militia balaclava. `test_Militia` = MilitiaCostume + `NPCCostumeMale_SkullHat_03`. `civ_Claudette` borrows `Head_Vicki`.
 - **jazz-units mod Legion*** (Butcher…Sniper + Stronger/Elite/alt; Sergant/Roceteer/Grenadir spellings): handcrafted mix-kits — **not** vanilla role color twins. Merc skins batch7–8: AIM-kit env variants (`*_Savana`/`*_Jungle`/`*_DustStorm`/`*_Hot`/`*_Forest`/`*_Snake`) + hybrid `Buzz` (Fauda top + Livewire bottom) + named `Spider`. Catalogued through `Wolf_DustStorm`; unhighlighted UI leftovers: `Horg`/`Lynx`/`Mike`, `Shadow_Savanna` (double-n).
 
-## Shipped JA12 note: Colby
+## Shipped JA12 correction notes
 
-Current `JAZZ_JA12` preset `Colby` (not a vanilla donor browse):
+Current recipes are canonical in
+[`ja12-appearance-map.json`](ja12-appearance-map.json). The 2026-08-07
+anti-clone pass uses only existing same-gender donors:
 
-| Slot | ID |
-| --- | --- |
-| Body | `Male_Body_01` |
-| Shirt | `EquipmentMale_Shirt_01` (magenta C1) |
-| Pants | `NPCCostumeMale_Pants_04` (red C2) |
-| Head | `Head_Sidney` |
-| Hair | `EquipmentSidney_Hair` |
+- `Colby`: Barry tool-vest body + Abraham head/hair.
+- `Hobbit`: Larry Addicted bomb-harness body + Larry head/hair, helmet cleared.
+- `Benny`: IMP Female Trooper body + Fox head/hair, male cap cleared.
+- `Laura`: IMP Female Troublemaker body + Raven head + WorkingGirl04 hair + medic gear.
+- `Cougar`: Adonis Heavy body + Scully head/hair.
+- `Vilde`: Adonis Soldier body + MD head/hair.
+- `Simon`: DirtyHenri jacket + Len head/hair + Grunty glasses + Adonis pants/binoculars.
 
-Map note: body donor WorkingGuy01, head/hair Sidney.
+`_audit_ja12_appearance_links.py` reports no missing links, gender mixes, or
+exact duplicate recipes. These combinations still require in-game neck,
+hair, hat and skin-seam review.
 
 ---
 

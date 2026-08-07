@@ -229,7 +229,7 @@ FirearmProperties.properties[#FirearmProperties.properties+1] = {
     category = "New Weapon System",
     id = "BaseJamChance",
     name = "Jam Chance",
-    help = "JamScore units (10 ≈ 1%): positive values set a fault-risk floor against (100 - Reliability), negative values reduce that reliability risk; serviceable base is capped at 10%",
+    help = "JamScore units (10 ≈ 1%): positive values are scaled by (100-Reliability)/95 and floored against reliability_score; Rel>=95 zeros base jam even with Poor ammo; negative values reduce reliability risk; serviceable base capped at 10%",
     editor = "number",
     default = 0,
     template = true,

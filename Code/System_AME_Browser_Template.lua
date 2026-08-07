@@ -370,14 +370,19 @@ PlaceObj('XTemplate', {
 								end,
 								'TextStyle', "AimCopyrightText",
 								'Translate', true,
-								'Text', T(890000000005049, --[[XTemplate PDAAIMEBrowser Text]] "<style AimCopyrightTextC><copyright></style> AME 2001"),
+								'Text', T(890000000005049, --[[XTemplate PDAAIMEBrowser Text]] "<style AimCopyrightTextC><copyright></style> A.M.E. 2001"),
 							}),
 							PlaceObj('XTemplateTemplate', {
 								'__template', "PDALinkButton",
 								'Id', "idAboutUs",
 								'VAlign', "center",
 								'OnPress', function (self, gamepad)
-									CreateMessageBox(self.desktop, T(193416941017, "Error Page"), T(399424889814, "HTTP Error 400. The request URL is invalid."), T({"OK"}))
+									CreateMessageBox(
+										self.desktop,
+										T(890000000006890, "About A.M.E."),
+										T(890000000006891, "The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy."),
+										T({"OK"})
+									)
 								end,
 								'TextStyle', "WebLinkButton_Hiring",
 								'Text', T(891740393419, --[[XTemplate PDAAIMEBrowser Text]] "About Us"),
@@ -388,7 +393,12 @@ PlaceObj('XTemplate', {
 								'Id', "idTermsOfService",
 								'VAlign', "center",
 								'OnPress', function (self, gamepad)
-									CreateMessageBox(self.desktop, T(193416941017, "Error Page"), T(548899058407, "HTTP Error 403. You don't have permission to access on this server."), T({"OK"}))
+									CreateMessageBox(
+										self.desktop,
+										T(890000000006892, "A.M.E. terms"),
+										T(890000000006893, "A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead."),
+										T({"OK"})
+									)
 								end,
 								'TextStyle', "WebLinkButton_Hiring",
 								'Text', T(111807730937, --[[XTemplate PDAAIMEBrowser Text]] "Terms of Service"),
@@ -426,6 +436,18 @@ PlaceObj('XTemplate', {
 								local func = HireStatusToUITextMap[hireStatus]
 								assert(func)
 								func(context, self.idInfoContainer)
+								local departureTextFn = rawget(_G, "JAZZ_AME_GetDepartureReasonText")
+								local departureText = departureTextFn and departureTextFn(context)
+								if departureText then
+									local info = self.idInfoContainer
+									info:SetVisible(true)
+									info.idTitleContainer:SetVisible(false)
+									info.idPrice1W:SetVisible(false)
+									info.idText:SetVisible(true)
+									info.idText.idValue:SetText(departureText)
+									info.idText.idValue:SetRolloverText(false)
+									info.idText.idValue:SetRolloverTitle(false)
+								end
 								
 								local kia = hireStatus == "Dead"
 								local mia = hireStatus == "MIA"
@@ -441,7 +463,7 @@ PlaceObj('XTemplate', {
 								local bioText = self.idBioContent.idBioText
 								local iconAppend = T(381811065044, "<valign top><image UI/PDA/Event/T_Event_TextIcon 1500><valign bottom>")
 								if context.Affiliation ~= "AIM" and not context.Bio then
-									bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n\n Caution! Use at your own risk!"))
+									bioText:SetText(iconAppend .. T(448145280145, "Warning! This merc is not a member of A.I.M. We are not liable for any damages, loss of limbs, accidental atrocities, or unexpected war crimes that may be caused by using unlicensed mercs. \n Caution! Use at your own risk!"))
 								else
 									bioText:SetText(iconAppend .. T(606873920225, "<Bio>"))
 								end
@@ -452,6 +474,8 @@ PlaceObj('XTemplate', {
 								self.idClassName:SetVisible(not not specName)
 								self.idClassName:SetText(specName or Untranslated("placeholder"))
 								self.idClassIcon:SetImage(GetMercSpecIcon(context))
+								self.idAMECategory:SetText(JAZZ_AME_GetCategoryLabel(context))
+								self.idAMEPotential:SetText(JAZZ_AME_GetPotentialLabel(context))
 							end,
 						}),
 						PlaceObj('XTemplateWindow', {
@@ -575,6 +599,40 @@ PlaceObj('XTemplate', {
 												'TextStyle', "MercSubTitle",
 												'Translate', true,
 											}),
+											PlaceObj('XTemplateWindow', {
+												'LayoutMethod', "HList",
+												'LayoutHSpacing', 5,
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'TextStyle', "MercSubTitle",
+													'Translate', true,
+													'Text', T(890000000005018, --[[XTemplate PDAAIMEBrowser Text]] "Category:"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'Id', "idAMECategory",
+													'TextStyle', "MercSubTitle",
+													'Translate', true,
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'TextStyle', "MercSubTitle",
+													'Text', Untranslated(" · "),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'TextStyle', "MercSubTitle",
+													'Translate', true,
+													'Text', T(890000000005019, --[[XTemplate PDAAIMEBrowser Text]] "Potential:"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'Id', "idAMEPotential",
+													'TextStyle', "MercSubTitle",
+													'Translate', true,
+												}),
+												}),
 											}),
 										}),
 									}),

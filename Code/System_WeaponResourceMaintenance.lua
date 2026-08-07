@@ -228,10 +228,12 @@ end
 -- deterministic per-shot maximum-resource wear and jam damage.
 local JazzReliabilityCheck = FirearmBase.ReliabilityCheck
 function FirearmBase:ReliabilityCheck(attacker, num_shots)
-	local jammed, condition_percent = JazzReliabilityCheck(self, attacker, num_shots)
+	local jammed, condition_percent, fired_count = JazzReliabilityCheck(self, attacker, num_shots)
+	fired_count = fired_count or 0
 	local item = self.parent_weapon or self
 	if attacker and not attacker.infinite_condition then
-		for _ = 1, num_shots or 1 do
+		-- WEAPONS-011: max-wear rolls only for bullets that actually left the barrel.
+		for _ = 1, fired_count do
 			if attacker:Random(200) == 0 then -- 0.5% per fired shot; loss is at most one unit.
 				item:DamageWeaponResourceMaxUnits(1)
 			end
@@ -252,7 +254,7 @@ function FirearmBase:ReliabilityCheck(attacker, num_shots)
 		item.jazz_last_jam_type = critical and "critical" or "ordinary"
 		NetUpdateHash("JAZZWeaponJam", item.class, item.id, item.jazz_last_jam_type, item.WeaponResource, item.WeaponResourceMax)
 	end
-	return jammed, item:GetWeaponResourcePercent()
+	return jammed, item:GetWeaponResourcePercent(), fired_count
 end
 
 -- Jam % lives only in inventory card rollover (RolloverInventoryWeaponBase XTemplate

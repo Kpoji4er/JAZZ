@@ -3,6 +3,7 @@
 
 g_JAZZ_AME_BrowserInstalled = rawget(_G, "g_JAZZ_AME_BrowserInstalled") or false
 g_JAZZ_MercCanContactBase = rawget(_G, "g_JAZZ_MercCanContactBase") or false
+g_JAZZ_AME_MercCanContactFn = rawget(_G, "g_JAZZ_AME_MercCanContactFn") or false
 g_JAZZ_PDAUrlBase = rawget(_G, "g_JAZZ_PDAUrlBase") or false
 g_JAZZ_AME_PDAUrlWrapped = rawget(_G, "g_JAZZ_AME_PDAUrlWrapped") or false
 g_JAZZ_AME_PDAUrlFn = rawget(_G, "g_JAZZ_AME_PDAUrlFn") or false
@@ -13,6 +14,28 @@ g_JAZZ_AME_DockWrap = rawget(_G, "g_JAZZ_AME_DockWrap") or false -- legacy alias
 DefineClass.PDAAIMEBrowser = {
 	__parents = { "PDAAIMBrowser" },
 }
+
+local AME_CATEGORY_LABELS = {
+	Irregulars = T(890000000005001, "Irregulars"),
+	Fighters = T(890000000005003, "Fighters"),
+	Hardened = T(890000000005005, "Hardened"),
+	Specialists = T(890000000005007, "Specialists"),
+}
+
+function JAZZ_AME_GetCategoryLabel(merc)
+	local category = merc and merc.AMECategory
+	return AME_CATEGORY_LABELS[category] or Untranslated(tostring(category or "—"))
+end
+
+function JAZZ_AME_GetPotentialLabel(merc)
+	local wisdom = tonumber(merc and merc.Wisdom) or 0
+	if wisdom < 45 then
+		return T(890000000005015, "Low")
+	elseif wisdom < 65 then
+		return T(890000000005016, "Medium")
+	end
+	return T(890000000005017, "High")
+end
 
 function PDAAIMEBrowser:Open()
 	self.show_bio = AIMBrowserSection == "bio"
@@ -97,18 +120,20 @@ function PDAAIMEBrowser:OnShortcut(shortcut, ...)
 end
 
 local function lEnsureAmeTabData()
-	if not PDABrowserTabData then
+	local tabData = rawget(_G, "PDABrowserTabData")
+	if type(tabData) ~= "table" then
 		return
 	end
-	if not table.find(PDABrowserTabData, "id", "ame") then
-		local aimIdx = table.find(PDABrowserTabData, "id", "aim") or 1
-		table.insert(PDABrowserTabData, aimIdx + 1, {
+	if not table.find(tabData, "id", "ame") then
+		local aimIdx = table.find(tabData, "id", "aim") or 1
+		table.insert(tabData, aimIdx + 1, {
 			id = "ame",
 			DisplayName = T(890000000005000, "A.M.E. Exchange"),
 		})
 	end
-	if IsKindOf(PDABrowser, "PDABrowser") or rawget(_G, "PDABrowser") then
-		PDABrowser.InternalModes = table.concat(table.map(PDABrowserTabData, "id"), ", ")
+	local browserClass = rawget(_G, "PDABrowser")
+	if type(browserClass) == "table" then
+		browserClass.InternalModes = table.concat(table.map(tabData, "id"), ", ")
 	end
 end
 
@@ -118,13 +143,14 @@ local function lEnsureAmeTabState()
 		JAZZ_AME_ApplyTabLock()
 		return
 	end
-	if not PDABrowserTabState then
+	local tabState = rawget(_G, "PDABrowserTabState")
+	if type(tabState) ~= "table" then
 		return
 	end
-	if not PDABrowserTabState.ame then
-		PDABrowserTabState.ame = { locked = false }
+	if not tabState.ame then
+		tabState.ame = { locked = false }
 	else
-		PDABrowserTabState.ame.locked = false
+		tabState.ame.locked = false
 	end
 	ObjModified("pda browser tabs")
 end
@@ -195,15 +221,17 @@ local function lInjectAmeXTemplateMode()
 end
 
 local function lInstallMercCanContactWrap()
-	if rawget(_G, "g_JAZZ_MercCanContactBase") then
-		return
+	local installed = rawget(_G, "g_JAZZ_AME_MercCanContactFn")
+	local current = rawget(_G, "MercCanContact")
+	if installed and current == installed then
+		return true
 	end
-	local base = rawget(_G, "MercCanContact")
-	if type(base) ~= "function" then
-		return
+	if type(current) ~= "function" then
+		return false
 	end
-	rawset(_G, "g_JAZZ_MercCanContactBase", base)
-	function MercCanContact(merc)
+	rawset(_G, "g_JAZZ_MercCanContactBase", current)
+	local base = current
+	local wrap = function(merc)
 		if merc and merc.Affiliation == "AME" then
 			if Platform.demo then
 				return "disabled", T(697751324120, "Not available in Demo")
@@ -227,8 +255,11 @@ local function lInstallMercCanContactWrap()
 			end
 			return false
 		end
-		return g_JAZZ_MercCanContactBase(merc)
+		return base(merc)
 	end
+	rawset(_G, "g_JAZZ_AME_MercCanContactFn", wrap)
+	rawset(_G, "MercCanContact", wrap)
+	return true
 end
 
 local function lAmeUrlSlug(filter)
@@ -253,12 +284,14 @@ local function lAmeUrlNick(unit_id)
 	if not ud then
 		return tostring(unit_id or "")
 	end
-	-- Prefer engine Nick resolve; fall back to session id (ASCII).
+	-- URL identity must not change with the active localization.
 	local nick = ud.Nick
-	if nick and type(_InternalTranslate) == "function" then
-		local ok, text = pcall(_InternalTranslate, nick)
+	local englishText = rawget(_G, "TDevModeGetEnglishText")
+	if nick and type(englishText) == "function" then
+		local ok, text = pcall(englishText, nick)
 		if ok and type(text) == "string" and text ~= "" then
-			return text:gsub("%s+", "%%20")
+			local slug = text:gsub("%s+", "%%20"):gsub("[^%w%%%-._~]", "-")
+			return slug
 		end
 	end
 	return tostring(ud.session_id or unit_id):gsub("%s+", "%%20")
@@ -278,9 +311,9 @@ local function lBuildAmePDAUrl(browserContent)
 	return url
 end
 
---- Shared re-assert wrap for mutable global/TFormat slots (avoids double-nest after ModsReloaded).
+--- Shared re-assert wrap for mutable global/TFormat slots (avoids cycles after ModsReloaded).
 -- cfg.getCurrent / cfg.setCurrent, cfg.ourFnKey, cfg.baseKey, optional cfg.wrappedKey / cfg.legacyBaseKey,
--- cfg.buildWrap = function() -> wrap (reads base via rawget baseKey).
+-- cfg.buildWrap = function(base) -> wrap (captures the base installed in this generation).
 local function lInstallReassertWrap(cfg)
 	local ourFn = rawget(_G, cfg.ourFnKey)
 	local current = cfg.getCurrent()
@@ -301,7 +334,7 @@ local function lInstallReassertWrap(cfg)
 	elseif not rawget(_G, cfg.baseKey) then
 		return false
 	end
-	local wrap = cfg.buildWrap()
+	local wrap = cfg.buildWrap(current)
 	rawset(_G, cfg.ourFnKey, wrap)
 	cfg.setCurrent(wrap)
 	if cfg.wrappedKey then
@@ -311,7 +344,8 @@ local function lInstallReassertWrap(cfg)
 end
 
 local function lInstallPDAUrlWrap()
-	if not TFormat or type(TFormat.PDAUrl) ~= "function" then
+	local tformat = rawget(_G, "TFormat")
+	if type(tformat) ~= "table" or type(tformat.PDAUrl) ~= "function" then
 		return false
 	end
 	return lInstallReassertWrap({
@@ -319,12 +353,12 @@ local function lInstallPDAUrlWrap()
 		baseKey = "g_JAZZ_PDAUrlBase",
 		wrappedKey = "g_JAZZ_AME_PDAUrlWrapped",
 		getCurrent = function()
-			return TFormat.PDAUrl
+			return tformat.PDAUrl
 		end,
 		setCurrent = function(fn)
-			TFormat.PDAUrl = fn
+			tformat.PDAUrl = fn
 		end,
-		buildWrap = function()
+		buildWrap = function(base)
 			return function(context_obj)
 				local pda = GetDialog("PDADialog")
 				if pda then
@@ -336,7 +370,6 @@ local function lInstallPDAUrlWrap()
 						return lBuildAmePDAUrl(browserContent)
 					end
 				end
-				local base = g_JAZZ_PDAUrlBase
 				if type(base) == "function" then
 					return base(context_obj)
 				end
@@ -355,11 +388,10 @@ local function lInstallDockWrap()
 			return rawget(_G, "DockBrowserTab")
 		end,
 		setCurrent = function(fn)
-			DockBrowserTab = fn
+			rawset(_G, "DockBrowserTab", fn)
 		end,
-		buildWrap = function()
+		buildWrap = function(base)
 			return function(tab)
-				local base = g_JAZZ_AME_DockBase
 				if type(base) ~= "function" then
 					return
 				end
@@ -367,11 +399,12 @@ local function lInstallDockWrap()
 				-- Landing OnDelete restores only aim(+imp). Keep AME docked with AIM (always unlocked).
 				if tab == "aim" then
 					base("ame")
-					if PDABrowserTabState then
-						if PDABrowserTabState.ame then
-							PDABrowserTabState.ame.locked = false
+					local tabState = rawget(_G, "PDABrowserTabState")
+					if type(tabState) == "table" then
+						if tabState.ame then
+							tabState.ame.locked = false
 						else
-							PDABrowserTabState.ame = { locked = false }
+							tabState.ame = { locked = false }
 						end
 						ObjModified("pda browser tabs")
 					end
@@ -385,9 +418,9 @@ local function lInstallAmeBrowser()
 	lEnsureAmeTabData()
 	lInjectAmeXTemplateMode()
 	if not rawget(_G, "g_JAZZ_AME_BrowserInstalled") then
-		lInstallMercCanContactWrap()
 		rawset(_G, "g_JAZZ_AME_BrowserInstalled", true)
 	end
+	lInstallMercCanContactWrap()
 	-- Always (re)assert wraps that can be wiped / nested on ModsReloaded.
 	lInstallDockWrap()
 	-- Always (re)assert PDAUrl wrap: PDAAIMEBrowser is KindOf PDAAIMBrowser, so a missing
@@ -408,17 +441,25 @@ end
 
 function OnMsg.ModsReloaded()
 	-- Unwrap before reinstall so we do not nest old wraps as base.
+	local contactFn = rawget(_G, "g_JAZZ_AME_MercCanContactFn")
+	local contactBase = rawget(_G, "g_JAZZ_MercCanContactBase")
+	if contactFn and rawget(_G, "MercCanContact") == contactFn and type(contactBase) == "function" then
+		rawset(_G, "MercCanContact", contactBase)
+	end
 	local pdaFn = rawget(_G, "g_JAZZ_AME_PDAUrlFn")
 	local pdaBase = rawget(_G, "g_JAZZ_PDAUrlBase")
-	if TFormat and pdaFn and TFormat.PDAUrl == pdaFn and type(pdaBase) == "function" then
-		TFormat.PDAUrl = pdaBase
+	local tformat = rawget(_G, "TFormat")
+	if type(tformat) == "table" and pdaFn and tformat.PDAUrl == pdaFn and type(pdaBase) == "function" then
+		tformat.PDAUrl = pdaBase
 	end
 	local dockFn = rawget(_G, "g_JAZZ_AME_DockFn")
 	local dockBase = rawget(_G, "g_JAZZ_AME_DockBase") or rawget(_G, "g_JAZZ_AME_DockWrap")
-	if dockFn and DockBrowserTab == dockFn and type(dockBase) == "function" then
-		DockBrowserTab = dockBase
+	if dockFn and rawget(_G, "DockBrowserTab") == dockFn and type(dockBase) == "function" then
+		rawset(_G, "DockBrowserTab", dockBase)
 	end
 	rawset(_G, "g_JAZZ_AME_BrowserInstalled", false)
+	rawset(_G, "g_JAZZ_AME_MercCanContactFn", false)
+	rawset(_G, "g_JAZZ_MercCanContactBase", false)
 	rawset(_G, "g_JAZZ_AME_DockFn", false)
 	rawset(_G, "g_JAZZ_AME_DockBase", false)
 	rawset(_G, "g_JAZZ_AME_DockWrap", false)
@@ -430,12 +471,18 @@ end
 
 function OnMsg.NewGame()
 	lEnsureAmeTabState()
-	DockBrowserTab("ame")
+	local dock = rawget(_G, "DockBrowserTab")
+	if type(dock) == "function" then
+		dock("ame")
+	end
 end
 
 function OnMsg.LoadGame()
 	lEnsureAmeTabState()
-	DockBrowserTab("ame")
+	local dock = rawget(_G, "DockBrowserTab")
+	if type(dock) == "function" then
+		dock("ame")
+	end
 end
 
 function OnMsg.BrowserOpened()
@@ -443,7 +490,9 @@ function OnMsg.BrowserOpened()
 	lInstallPDAUrlWrap()
 	lInstallDockWrap()
 	-- If landing is not shown (returning players / mid-campaign), keep tab visible.
-	if TutorialHintsState and TutorialHintsState.LandingPageShown then
-		DockBrowserTab("ame")
+	local hints = rawget(_G, "TutorialHintsState")
+	local dock = rawget(_G, "DockBrowserTab")
+	if hints and hints.LandingPageShown and type(dock) == "function" then
+		dock("ame")
 	end
 end

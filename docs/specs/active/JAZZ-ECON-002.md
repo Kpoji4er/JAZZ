@@ -57,7 +57,7 @@ Design backlog: [`docs/design/economy-ops-and-trade.md`](../../design/economy-op
 | Тема | Кандидаты |
 | --- | --- |
 | Duration | 1 день / пропорционально объёму очереди |
-| Payout formula | `%` от `item.Cost` / tier table; алмазы: face value vs haircut |
+| Payout formula | `%` от `item.Cost` / tier table; алмазы: face value vs haircut. База `Cost` стволов — таблица ECON-004 audit (все active, в т.ч. вне Bobby). |
 | Item source | sector stash + assigned merc inventories (как RepairItems queue) |
 | Who must be present | any merc / Mechanical gate / none |
 | Cooldown / capacity | per-port daily cap $ |

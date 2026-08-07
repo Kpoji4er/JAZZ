@@ -41,7 +41,7 @@ Design backlog: [`docs/design/economy-ops-and-trade.md`](../../design/economy-op
 ## Цели
 
 - Satellite `SectorOperation`, доступная при Livewire в controlled city-секторе.
-- Длительность **2** дня; выплата **lump sum** в конце ≈ **2000 $** (ставка **~1000 $/день** × 2).
+- Длительность **2** дня; ставка **~1000 $/день**; выплата **1000 × floor(days)** (complete → **2000 $**; cancel → заработанное).
 - Убрать «Пока недоступно»; выровнять RU/EN Description перка.
 - Задокументировать current-state в technical (+ wiki/showcase при player-facing ship).
 
@@ -61,7 +61,7 @@ Design backlog: [`docs/design/economy-ops-and-trade.md`](../../design/economy-op
 | Gate unit | Livewire с `InnerInfo_JAZZ` назначена на операцию / в секторе (точный assign как у прочих personal ops — при реализации mirror ближайший vanilla/JAZZ pattern) |
 | Duration | **2** дня campaign time |
 | Rate | **1000** $/день (design target) |
-| Payout | **lump sum** на complete: **2000 $** при полном прогоне (interrupt → пропорционально или 0 — зафиксировать до approve) |
+| Payout | **1000 $ × floor(completed_days)**; полный прогон → **2000 $**; **cancel/interrupt** — та же формула за фактически отработанные целые дни (не 0) |
 | Cost | только время Livewire (без Parts/Meds) |
 | Cooldown | none в v1 (открыто до approve, если owner захочет) |
 
@@ -69,8 +69,8 @@ Design backlog: [`docs/design/economy-ops-and-trade.md`](../../design/economy-op
 
 - `JAZZ-ECON-001-REQ-001` — новый `SectorOperation` id (публичный, стабильный); появляется в списке ops только при gate REQ-002.
 - `JAZZ-ECON-001-REQ-002` — gate: player-controlled sector с `City ~= "none"` и Livewire с перком `InnerInfo_JAZZ` доступна для assign.
-- `JAZZ-ECON-001-REQ-003` — duration **2** дня; on successful complete credit **2000** $ to player money (или `1000 * completed_days` если partial payout approved).
-- `JAZZ-ECON-001-REQ-004` — interrupt/cancel: поведение payout зафиксировано до `approved` (кандидат: **0** при cancel; полный **2000** только на complete).
+- `JAZZ-ECON-001-REQ-003` — duration **2** дня; on successful complete credit **2000** $ (`1000 × 2`).
+- `JAZZ-ECON-001-REQ-004` — interrupt/cancel: credit **1000 $ × floor(elapsed whole days)** (earned so far); 0 only if cancel before first whole day.
 - `JAZZ-ECON-001-REQ-005` — `InnerInfo_JAZZ` Description без «Пока недоступно»; RU и EN описывают intel + city income op; CSV sync.
 - `JAZZ-ECON-001-REQ-006` — combatlog / satellite log при выплате (кратко, с суммой).
 - `JAZZ-ECON-001-REQ-007` — technical `strategy-squads-sectors.md` + `file-coverage.md` при новом Code file; wiki/showcase при ship.
@@ -88,7 +88,7 @@ Design backlog: [`docs/design/economy-ops-and-trade.md`](../../design/economy-op
 - `JAZZ-ECON-001-AC-001` — static: op preset + gate helpers registered; `InnerInfo_JAZZ` text updated.
 - `JAZZ-ECON-001-AC-002` — editor: ModItemSectorOperation loads; loc IDs balanced RU/EN.
 - `JAZZ-ECON-001-AC-003` — runtime: Livewire in player city sector → op visible; after 2 days → +2000 $; non-city / no Livewire → op hidden or disabled.
-- `JAZZ-ECON-001-AC-004` — runtime: cancel before complete → no full 2000 (per locked interrupt rule).
+- `JAZZ-ECON-001-AC-004` — runtime: cancel after ≥1 whole day → credit **1000 × floor(days)**; cancel before day 1 → **0**; complete → **2000**.
 - `JAZZ-ECON-001-AC-005` — human: Description перка без «недоступно»; EN/RU согласованы.
 - `JAZZ-ECON-001-AC-006` — docs: technical (+ wiki/showcase on ship) match runtime.
 
@@ -111,8 +111,8 @@ Design backlog: [`docs/design/economy-ops-and-trade.md`](../../design/economy-op
 ## Решение владельца
 
 - Статус: **draft**
-- Locked payout: **1000 $/день**, lump sum **в конце 2 дней** (2026-08-06)
-- До `approved`: зафиксировать interrupt payout (кандидат: 0) и нужен ли cooldown
+- Locked payout: **1000 $/день**; complete → **2000 $**; **cancel → earned so far** (`1000 × floor(days)`) (2026-08-06)
+- До `approved`: нужен ли cooldown / loyalty / heat
 
 ## Evidence
 

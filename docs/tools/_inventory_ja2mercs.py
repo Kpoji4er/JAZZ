@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Read-only inventory of Downloads/ja2mercs/ja2mercs vs jazz_to_ja2_profile.csv.
+"""Read-only inventory of Downloads/ja2mercs (1)/ja2mercs vs voice crosswalk.
 
 Does NOT extract, convert, or ship voices. Prints folder layout, audio counts,
 profile-id guesses from filenames, and optional crosswalk to Jazz slugs.
@@ -20,7 +20,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 JAZZ = Path(__file__).resolve().parents[2]
 MAP_CSV = JAZZ / "docs/design/mercs-ja12/_voice-source/jazz_to_ja2_profile.csv"
-DEFAULT_ROOT = Path(r"C:\Users\SsAnd\Downloads\ja2mercs\ja2mercs")
+DEFAULT_ROOT = Path(r"C:\Users\SsAnd\Downloads\ja2mercs (1)\ja2mercs")
 
 AUDIO_EXT = {".wav", ".ogg", ".mp3"}
 PID_RE = re.compile(

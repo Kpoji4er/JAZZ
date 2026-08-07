@@ -107,7 +107,10 @@ Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** д�
 - `Rifleman → Marksman`;
 - `Marauder → Raider → Veteran → Mercenary`;
 - `Ambusher → Sniper → MercenarySniper`;
-- `Bonemaker` — отдельная медицинская роль без стрелки повышения; combat generator резервирует слоты по STRATEGY-015 (не только random line).
+- `Bonemaker` — отдельная медицинская роль без стрелки повышения; combat generator резервирует слоты по STRATEGY-015 (не только random line). Runtime `jazz-units/Code/LegionMedicineLoadouts.lua` на `DataLoaded` дописывает Meds в leaf Equipment loot:
+  - Legion `role == "Medic"` и AME `AMERole == "Medic"`: **`Meds` ×50** (100% generate/drop);
+  - hireable `Specialization == "Doctor"` (AIM / MERC / vanilla AIM without Affiliation): **`Meds` ×(50 + Medical×1.5)** clamped Medical 0..100 → stack **50..200**;
+  - плюс Legion tier-шансы на `JAZZ_Bandage`/`JAZZ_Morphine` и кит если в луте его ещё нет. Level-table Equipment (`MD`→`MD50`/…) патчится на leaf defs, не на selector.
 
 ### Фланкеры
 

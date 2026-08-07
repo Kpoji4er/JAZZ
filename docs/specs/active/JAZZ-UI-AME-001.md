@@ -14,6 +14,8 @@ runtime_validation: required
 write_set:
   - Code/System_AME_Market.lua
   - Code/System_AME_Browser.lua
+  - Code/System_AME_Browser_Template.lua
+  - Code/System_AME_Filters.lua
   - Code/System_AME_Mail.lua
   - items.lua
   - metadata.lua
@@ -22,7 +24,7 @@ write_set:
   - docs/specs/active/JAZZ-UI-AME-001.md
   - docs/design/ame-mercenary-exchange.md
   - docs/technical/systems/file-coverage.md
-  - docs/technical/systems/ame-exchange.md
+  - docs/technical/systems/units-progression-specializations.md
   - docs/wiki/
   - docs/showcase/
 exclusive_resources:
@@ -100,11 +102,11 @@ approved_by: project-owner
 ## Impact и совместимость
 
 - Vanilla/CommonLib/JAZZ: `ReceiveEmail`, `PDABrowserTabState.locked`, Email read hooks; AME browser уже в JAZZ.
-- Saves: старые сейвы без флагов — init welcome + lock на первом Load с модом; после прочтения — unlock.
+- Saves: старые сейвы без mail-флагов получают одно welcome на первом Load с модом; `ame.locked` сразу и повторно устанавливается в `false`, чтение письма не gate.
 - Network/determinism: mail flags в GameVar; без лишнего InteractionRand.
 - Generated data: `ModItemEmail` в `items.lua` + metadata sync.
 - Cross-package: только `jazz` runtime; UnitData AME уже в jazz-units.
-- Rollback: удалить mail code + presets; вернуть `ame.locked = false` ensure (как сейчас).
+- Rollback: удалить mail code + presets; always-open `ame.locked = false` оставить частью базового AME browser contract.
 
 ## План и ownership
 
@@ -123,14 +125,14 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-UI-AME-001-AC-001`: `BLOCKED` — awaiting approve / implement
-- `JAZZ-UI-AME-001-AC-002`: `BLOCKED`
-- `JAZZ-UI-AME-001-AC-003`: `BLOCKED`
-- `JAZZ-UI-AME-001-AC-004`: `BLOCKED`
-- `JAZZ-UI-AME-001-AC-005`: `BLOCKED`
-- `JAZZ-UI-AME-001-AC-006`: `BLOCKED`
+- `JAZZ-UI-AME-001-AC-001`: `BLOCKED` (runtime) — static wiring и always-open state готовы; нужен NewGame PDA/email playtest.
+- `JAZZ-UI-AME-001-AC-002`: `PASS` (human/static) — welcome отдельно отредактирован на RU/EN, объясняет репутационную цену, рост и двухнедельную ротацию без lock-инструкции.
+- `JAZZ-UI-AME-001-AC-003`: `BLOCKED` (runtime) — snapshot dedup реализован; нужен +14d mail playtest.
+- `JAZZ-UI-AME-001-AC-004`: `BLOCKED` (runtime) — old-save state migration и idempotent read wrap покрыты static harness; нужен LoadGame playtest.
+- `JAZZ-UI-AME-001-AC-005`: `PASS` (static) — Email presets/Code load присутствуют; `_validate_items_quick.py` и `_test_ame_contract.py` проходят.
+- `JAZZ-UI-AME-001-AC-006`: `PASS` (static/human) — sender/body/title и pitch bank используют только A.M.E.; R.I.S. branding отсутствует.
 
 ## Documentation delta
 
-- При implement: `docs/design/ame-mercenary-exchange.md` (mail + lock), technical `ame-exchange` / file-coverage, wiki/showcase если обещаем игроку оповещения AME.
+- Реализовано: `docs/design/ame-mercenary-exchange.md`, `docs/technical/systems/units-progression-specializations.md`, `docs/technical/systems/file-coverage.md`, `docs/wiki/african-mercenary-exchange.md`, `docs/showcase/ru/ame.md`, `docs/showcase/en/ame.md`.
 - Связь: [`JAZZ-UNITS-005`](JAZZ-UNITS-005.md) (рынок); [`JAZZ-UI-RIS-001`](JAZZ-UI-RIS-001.md) (отдельный канал).
