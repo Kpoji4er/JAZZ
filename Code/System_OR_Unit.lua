@@ -985,21 +985,16 @@ function UnitProperties:GetMaxActionPoints()
 
 	local level = self:GetLevel()
 	local agi = MulDivRound(self:GetProperty("Agility"),1,10)
-	--local hp = MulDivRound(self:GetProperty("Health"),1,10)
+	-- MED-002: max AP from Health attribute only. Current HitPoints debt is
+	-- expressed via BloodLoss* status effects (JazzSyncBloodLossStatus).
 	local hp = MulDivRound(self:GetProperty("Health"),1,10)
-	if self.HitPoints then
-		hp = MulDivRound(self.HitPoints,1,10)
-	end
-
 
 	local statsScale = MulDivRound(2*agi+1*hp,const.Scale.AP,3)
 	local statsScaleAP = MulDivRound(statsScale,level,10)
 
 	local ap = base + MulDivRound(statsScale,7,10) + MulDivRound(statsScaleAP,3,10)
 
-	--print(base.."Stats "..statsScale.."agi "..agi.."HP "..hp.."AP "..ap)
 	return ap
-	--return ((3 + self:GetProperty("Agility") / 10) + (level / 3)) * const.Scale.AP
 end
 
 

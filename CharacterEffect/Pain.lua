@@ -35,7 +35,7 @@ DefineClass.Pain = {
 		}),
 	},
 	DisplayName = T(890000000010007, "Pain"),
-	Description = T(890000000010008, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Analgesia suppresses the penalties."),
+	Description = T(890000000010008, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Morphine clears Pain and blocks new stacks while Analgesia lasts."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/Pain.png",
 	max_stacks = 8,

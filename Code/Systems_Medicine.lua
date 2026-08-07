@@ -1298,6 +1298,10 @@ function JazzAddPainStacks(unit, amount)
 	if not unit or type(unit.AddStatusEffect) ~= "function" then
 		return 0
 	end
+	-- MED-002: morphine clears Pain and blocks new stacks while Analgesia is active.
+	if unit.HasStatusEffect and unit:HasStatusEffect("Analgesia") then
+		return 0
+	end
 	amount = tonumber(amount) or 0
 	if amount <= 0 then
 		return 0
@@ -1473,10 +1477,209 @@ function JazzTraumaProgressChances(zone, tier, healing)
 	elseif tier == "Medium" then
 		improve, worsen = 20, 25
 	else
-		-- Heavy: rarely improves untreated; no worsen (infection deferred).
+		-- Heavy: rarely improves untreated; not-improve → WoundInfected (MED-002).
 		improve, worsen = 8, 0
 	end
 	return improve, worsen
+end
+
+-- ---------------------------------------------------------------------------
+-- MED-002: WoundInfected (alongside Heavy trauma; does not replace Trauma*).
+-- ---------------------------------------------------------------------------
+JazzWoundInfectedSurviveChance = 40 -- 1..100; fail → death
+JazzWoundInfectedCheckIntervalHours = 8
+
+function JazzInitWoundInfectedProgressTimer(effect)
+	if not effect or not Game or not Game.CampaignTime then
+		return false
+	end
+	local hours = JazzWoundInfectedCheckIntervalHours or 8
+	local scale_h = (const.Scale and const.Scale.h) or 1
+	effect:SetParameter("next_check_time", Game.CampaignTime + hours * scale_h)
+	effect:SetParameter("check_interval_h", hours)
+	return true
+end
+
+function JazzApplyWoundInfected(unit)
+	if not unit or type(unit.AddStatusEffect) ~= "function" then
+		return false
+	end
+	if unit.HasStatusEffect and unit:HasStatusEffect("WoundInfected") then
+		return false
+	end
+	unit:AddStatusEffect("WoundInfected")
+	local nick = unit.Nick or unit.Name or ""
+	CombatLog("important", T{890000000010303, "<merc>'s wound became infected", merc = nick})
+	return true
+end
+
+function JazzClearWoundInfected(unit)
+	if not unit or not unit.HasStatusEffect or not unit:HasStatusEffect("WoundInfected") then
+		return false
+	end
+	unit:RemoveStatusEffect("WoundInfected", "all")
+	local nick = unit.Nick or unit.Name or ""
+	CombatLog("short", T{890000000010304, "<merc>'s infection subsided", merc = nick})
+	return true
+end
+
+function JazzKillMercFromInfection(unit)
+	if not unit then
+		return false
+	end
+	local nick = unit.Nick or unit.Name or ""
+	CombatLog("important", T{890000000010305, "<merc> died of infection", merc = nick})
+	local sid = unit.session_id
+	local ud = (gv_UnitData and sid and gv_UnitData[sid]) or nil
+	local live = (g_Units and sid and g_Units[sid]) or (IsValid(unit) and unit) or nil
+	if live and live.Die then
+		live:Die()
+		return true
+	end
+	if ud then
+		Msg("MercHireStatusChanged", ud, ud.HireStatus, "Dead")
+		ud.HireStatus = "Dead"
+		if Game and Game.CampaignTime then
+			ud.HiredUntil = Game.CampaignTime
+		end
+		ud.HitPoints = 0
+		if RemoveUnitFromSquad then
+			RemoveUnitFromSquad(ud)
+		end
+		NetUpdateHash("UD_UnitDied", sid)
+		ObjModified(Selection)
+		if CheckGameOver then
+			CheckGameOver()
+		end
+		return true
+	end
+	return false
+end
+
+function JazzWoundInfectedResolveProgressCheck(unit, effect)
+	if not unit or (unit.IsDead and unit:IsDead()) then
+		return false
+	end
+	effect = effect or (unit.GetStatusEffect and unit:GetStatusEffect("WoundInfected"))
+	if not effect then
+		return false
+	end
+	local survive = JazzWoundInfectedSurviveChance or 40
+	local roll = (unit.Random and unit:Random(100)) or InteractionRand(100, "JazzWoundInfected")
+	roll = roll + 1 -- 1..100
+	if roll <= survive then
+		JazzClearWoundInfected(unit)
+		return "survive"
+	end
+	JazzKillMercFromInfection(unit)
+	return "death"
+end
+
+function JazzWoundInfectedProgressOnNewHour(unit)
+	if not unit or (unit.IsDead and unit:IsDead()) then
+		return
+	end
+	if not unit.HasStatusEffect or not unit:HasStatusEffect("WoundInfected") then
+		return
+	end
+	local effect = unit:GetStatusEffect("WoundInfected")
+	if not effect then
+		return
+	end
+	local next_t = effect:ResolveValue("next_check_time")
+	if not next_t or next_t == 0 then
+		JazzInitWoundInfectedProgressTimer(effect)
+		next_t = effect:ResolveValue("next_check_time")
+	end
+	if next_t and Game and Game.CampaignTime and Game.CampaignTime >= next_t then
+		JazzWoundInfectedResolveProgressCheck(unit, effect)
+	end
+end
+
+-- ---------------------------------------------------------------------------
+-- MED-002: BloodLoss ladder (HP% < 50/40/30/20/10/5/1 → −1..−7 AP).
+-- Deepest matching tier only. Cured only by raising HP.
+-- ---------------------------------------------------------------------------
+JazzBloodLossLadder = {
+	{ pct = 1, id = "BloodLoss1" },
+	{ pct = 5, id = "BloodLoss5" },
+	{ pct = 10, id = "BloodLoss10" },
+	{ pct = 20, id = "BloodLoss20" },
+	{ pct = 30, id = "BloodLoss30" },
+	{ pct = 40, id = "BloodLoss40" },
+	{ pct = 50, id = "BloodLoss50" },
+}
+
+function JazzBloodLossWantedId(unit)
+	if not unit then
+		return false
+	end
+	local maxhp = unit.MaxHitPoints or 0
+	local hp = unit.HitPoints or 0
+	if maxhp <= 0 then
+		return false
+	end
+	-- Still-conscious floor: 1 HP counts as BloodLoss1 even if MaxHP is huge.
+	if hp <= 1 and hp > 0 then
+		return "BloodLoss1"
+	end
+	local pct = MulDivRound(hp, 100, maxhp)
+	for _, row in ipairs(JazzBloodLossLadder) do
+		if pct < row.pct then
+			return row.id
+		end
+	end
+	return false
+end
+
+function JazzSyncBloodLossStatus(unit)
+	if not unit or type(unit.AddStatusEffect) ~= "function" then
+		return false
+	end
+	if unit.IsDead and unit:IsDead() then
+		return false
+	end
+	local want = JazzBloodLossWantedId(unit)
+	local changed = false
+	for _, row in ipairs(JazzBloodLossLadder) do
+		local id = row.id
+		local has = unit.HasStatusEffect and unit:HasStatusEffect(id)
+		if id == want then
+			if not has then
+				unit:AddStatusEffect(id)
+				changed = true
+			end
+		elseif has then
+			unit:RemoveStatusEffect(id, "all")
+			changed = true
+		end
+	end
+	if changed then
+		Msg("UnitAPChanged", unit)
+	end
+	return changed
+end
+
+function JazzSyncBloodLossForAll()
+	local seen = {}
+	if g_Units then
+		for _, unit in ipairs(g_Units) do
+			if IsValid(unit) then
+				local sid = unit.session_id
+				if sid then
+					seen[sid] = true
+				end
+				JazzSyncBloodLossStatus(unit)
+			end
+		end
+	end
+	if gv_UnitData then
+		for sid, ud in pairs(gv_UnitData) do
+			if ud and not seen[sid] then
+				JazzSyncBloodLossStatus(ud)
+			end
+		end
+	end
 end
 
 -- ---------------------------------------------------------------------------
@@ -1527,6 +1730,7 @@ function UnitData:Tick()
 			if healed > 0 then
 				self:OnHeal(healed)
 			end
+			JazzSyncBloodLossStatus(self)
 		end
 	end
 	Msg("UnitDataTick", self)
@@ -1595,7 +1799,7 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	elseif tier == "Medium" then
 		flavor = T(890000000010207, "Without treatment this may improve or worsen.")
 	elseif tier == "Heavy" then
-		flavor = T(890000000010208, "Heavy trauma rarely improves without hospital / field surgery.")
+		flavor = T(890000000010208, "Heavy trauma rarely improves without hospital / field surgery. Failure to improve may infect the wound.")
 	else
 		flavor = ""
 	end
@@ -1679,7 +1883,10 @@ function JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
 			return "worsen"
 		end
 	end
-	-- Stay: refresh timer.
+	-- Stay: refresh timer. Untreated Heavy that fails to improve becomes infected (MED-002).
+	if tier == "Heavy" and not healing then
+		JazzApplyWoundInfected(unit)
+	end
 	if effect then
 		JazzInitTraumaProgressTimer(effect, zone, tier)
 	else
@@ -1740,22 +1947,50 @@ function OnMsg.NewHour()
 	local seen = {}
 	if g_Units then
 		for _, unit in ipairs(g_Units) do
-			if IsValid(unit) and JazzHasAnyTrauma(unit) then
+			if IsValid(unit) then
 				local sid = unit.session_id
 				if sid then
 					seen[sid] = true
 				end
-				JazzTraumaProgressOnNewHour(unit)
+				if JazzHasAnyTrauma(unit) then
+					JazzTraumaProgressOnNewHour(unit)
+				end
+				JazzWoundInfectedProgressOnNewHour(unit)
+				JazzSyncBloodLossStatus(unit)
 			end
 		end
 	end
 	if gv_UnitData then
 		for sid, ud in pairs(gv_UnitData) do
-			if ud and not seen[sid] and JazzHasAnyTrauma(ud) then
-				JazzTraumaProgressOnNewHour(ud)
+			if ud and not seen[sid] then
+				if JazzHasAnyTrauma(ud) then
+					JazzTraumaProgressOnNewHour(ud)
+				end
+				JazzWoundInfectedProgressOnNewHour(ud)
+				JazzSyncBloodLossStatus(ud)
 			end
 		end
 	end
+end
+
+function OnMsg.UnitHealthChanged(unit)
+	JazzSyncBloodLossStatus(unit)
+end
+
+function OnMsg.DamageDone(attacker, target, damage, hit_descr)
+	JazzSyncBloodLossStatus(target)
+end
+
+function OnMsg.OnHeal(unit, amount)
+	JazzSyncBloodLossStatus(unit)
+end
+
+function OnMsg.CombatStart()
+	JazzSyncBloodLossForAll()
+end
+
+function OnMsg.CombatEnd()
+	JazzSyncBloodLossForAll()
 end
 
 -- Exploration/sat Bandage loops used medicine.Condition > 0; stack kits need Amount.

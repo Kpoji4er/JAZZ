@@ -63332,7 +63332,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010007, "Pain"),
-				'Description', T(890000000010008, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Analgesia suppresses the penalties."),
+				'Description', T(890000000010008, "Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Morphine clears Pain and blocks new stacks while Analgesia lasts."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Pain.png",
 				'max_stacks', 8,
@@ -63344,17 +63344,213 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Id', "Analgesia",
 				'object_class', "StatusEffect",
 				'DisplayName', T(890000000010009, "Analgesia"),
-				'Description', T(890000000010010, "Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries."),
+				'Description', T(890000000010010, "Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries."),
 				'OnAdded', function(self, obj)
 					local refund_ap = rawget(_G, "JazzRefundPainStartTurnAP")
 					if type(refund_ap) == "function" then
 						refund_ap(obj)
+					end
+					if obj and obj.RemoveStatusEffect then
+						obj:RemoveStatusEffect("Pain", "all")
 					end
 					Msg("UnitAPChanged", obj)
 				end,
 				'type', "Buff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Analgesia.png",
 				'RemoveOnEndCombat', true,
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "WoundInfected",
+				'object_class', "StatusEffect",
+				'DisplayName', T(890000000010300, "Infected Wound"),
+				'Description', T(890000000010301, "Festering wound. Progress checks on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected."),
+				'AddEffectText', T(890000000010302, "<color EmStyle><DisplayName></color>"),
+				'OnAdded', function(self, obj)
+					local init = rawget(_G, "JazzInitWoundInfectedProgressTimer")
+					if type(init) == "function" then
+						init(self)
+					end
+				end,
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/WoundInfected.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+				'HasFloatingText', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss50",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 1,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010310, "Weakness"),
+				'Description', T(890000000010311, "Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 50% HP. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss50.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss40",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 2,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010312, "Pallor"),
+				'Description', T(890000000010313, "Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 40% HP. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss40.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss30",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 3,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010314, "Severe Weakness"),
+				'Description', T(890000000010315, "Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 30% HP. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss30.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss20",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 4,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010316, "Heavy Blood Loss"),
+				'Description', T(890000000010317, "Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 20% HP. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss20.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss10",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 5,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010318, "Critical Weakness"),
+				'Description', T(890000000010319, "Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 10% HP. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss10.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss5",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 6,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010320, "Near Collapse"),
+				'Description', T(890000000010321, "Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 5% HP. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss5.png",
+				'Shown', true,
+				'ShownSatelliteView', true,
+			}),
+			PlaceObj('ModItemCharacterEffectCompositeDef', {
+				'Id', "BloodLoss1",
+				'Parameters', {
+					PlaceObj('PresetParamNumber', {
+						'Name', "APLoss",
+						'Value', 7,
+						'Tag', "<APLoss>",
+					}),
+				},
+				'object_class', "StatusEffect",
+				'unit_reactions', {
+					PlaceObj('UnitReaction', {
+						Event = "OnCalcStartTurnAP",
+						Handler = function (self, target, value)
+							return value - self:ResolveValue("APLoss") * const.Scale.AP
+						end,
+					}),
+				},
+				'DisplayName', T(890000000010322, "Critical Blood Loss"),
+				'Description', T(890000000010323, "Critical blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 1% HP — still conscious. Clears only when HP rises."),
+				'type', "Debuff",
+				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/BloodLoss1.png",
 				'Shown', true,
 				'ShownSatelliteView', true,
 			}),

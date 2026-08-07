@@ -12274,9 +12274,9 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010005,Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.,Heavy bleeding: <color EmStyle>12 HP</color> per stack each turn. From expanding ammo or worsened moderate bleeding. Bandage reduces one stack to moderate.,,jazz:MED-001-remap-from-890000000009200
 890000000010006,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-001-remap-from-890000000009201
 890000000010007,Pain,Pain,,jazz:MED-001-remap-from-890000000009202
-890000000010008,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Analgesia suppresses the penalties.,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Analgesia suppresses the penalties.,,jazz:MED-001-remap-from-890000000009203
+890000000010008,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Morphine clears Pain and blocks new stacks while Analgesia lasts.,Each stack costs <color EmStyle><APLoss> AP</color> and <color EmStyle><cth_penalty>% chance to hit</color>. Decreases by one stack each turn. Clears when combat ends. Morphine clears Pain and blocks new stacks while Analgesia lasts.,,jazz:MED-002
 890000000010009,Analgesia,Analgesia,,jazz:MED-001-remap-from-890000000009204
-890000000010010,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,Suppresses AP and chance-to-hit penalties from Pain. Does not stop bleeding or heal injuries.,,jazz:MED-001-remap-from-890000000009205
+890000000010010,Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries.,Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries.,,jazz:MED-002
 890000000010011,Bandage,Bandage,,jazz:MED-001-remap-from-890000000009206
 890000000010012,Bandages,Bandages,,jazz:MED-001-remap-from-890000000009207
 890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
@@ -12376,7 +12376,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010205,Next progress check in <em><hours> h</em> (may improve or worsen).,Next progress check in <em><hours> h</em> (may improve or worsen).,,jazz:MED-001-trauma-timing
 890000000010206,Light trauma can clear on its own over time.,Light trauma can clear on its own over time.,,jazz:MED-001-trauma-timing
 890000000010207,Without treatment this may improve or worsen.,Without treatment this may improve or worsen.,,jazz:MED-001-trauma-timing
-890000000010208,Heavy trauma rarely improves without hospital / field surgery.,Heavy trauma rarely improves without hospital / field surgery.,,jazz:MED-001-trauma-timing
+890000000010208,Heavy trauma rarely improves without hospital / field surgery. Failure to improve may infect the wound.,Heavy trauma rarely improves without hospital / field surgery. Failure to improve may infect the wound.,,jazz:MED-002
 890000000010210,<merc> trauma improved (cleared),<merc> trauma improved (cleared),,jazz:MED-001-trauma-timing
 890000000010211,<merc> trauma improved to a lighter tier,<merc> trauma improved to a lighter tier,,jazz:MED-001-trauma-timing
 890000000010212,<merc> trauma worsened,<merc> trauma worsened,,jazz:MED-001-trauma-timing
@@ -12894,3 +12894,23 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000006891,"The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy.","The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy.",,AME_Browser_about_body
 890000000006892,A.M.E. terms,A.M.E. terms,,AME_Browser_terms_title
 890000000006893,"A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead.","A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead.",,AME_Browser_terms_body
+890000000010300,Infected Wound,Infected Wound,,jazz:MED-002
+890000000010301,Festering wound. Progress checks on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected.,Festering wound. Progress checks on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected.,,jazz:MED-002
+890000000010302,<color EmStyle><DisplayName></color>,<color EmStyle><DisplayName></color>,,jazz:MED-002
+890000000010310,Weakness,Weakness,,jazz:MED-002
+890000000010311,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 50% HP. Clears only when HP rises.,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 50% HP. Clears only when HP rises.,,jazz:MED-002
+890000000010312,Pallor,Pallor,,jazz:MED-002
+890000000010313,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 40% HP. Clears only when HP rises.,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 40% HP. Clears only when HP rises.,,jazz:MED-002
+890000000010314,Severe Weakness,Severe Weakness,,jazz:MED-002
+890000000010315,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 30% HP. Clears only when HP rises.,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 30% HP. Clears only when HP rises.,,jazz:MED-002
+890000000010316,Heavy Blood Loss,Heavy Blood Loss,,jazz:MED-002
+890000000010317,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 20% HP. Clears only when HP rises.,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 20% HP. Clears only when HP rises.,,jazz:MED-002
+890000000010318,Critical Weakness,Critical Weakness,,jazz:MED-002
+890000000010319,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 10% HP. Clears only when HP rises.,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 10% HP. Clears only when HP rises.,,jazz:MED-002
+890000000010320,Near Collapse,Near Collapse,,jazz:MED-002
+890000000010321,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 5% HP. Clears only when HP rises.,Blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 5% HP. Clears only when HP rises.,,jazz:MED-002
+890000000010322,Critical Blood Loss,Critical Blood Loss,,jazz:MED-002
+890000000010323,Critical blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 1% HP — still conscious. Clears only when HP rises.,Critical blood loss: <color EmStyle>−<APLoss> AP</color> at the start of the turn. Below 1% HP — still conscious. Clears only when HP rises.,,jazz:MED-002
+890000000010303,<merc>'s wound became infected,<merc>'s wound became infected,,jazz:MED-002
+890000000010304,<merc>'s infection subsided,<merc>'s infection subsided,,jazz:MED-002
+890000000010305,<merc> died of infection,<merc> died of infection,,jazz:MED-002
