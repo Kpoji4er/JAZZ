@@ -1,332 +1,1621 @@
 {
   "JAZZ_Legion_AssaultT1_Roughneck": {
-    "inventory": "Roughneck_Inventory", "firearm": "Roughneck_Firearm", "class_tier": 1,
-    "primary_tags": ["pistol", "smg"], "arch3_extra_tags": ["assault"],
-    "packages_by_arch": ["m0", "cqb_m1", "cqb_m2"],
-    "sidearm": { "unlock": 12, "chance": 40 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [50, 70, 85] },
+    "inventory": "Roughneck_Inventory",
+    "firearm": "Roughneck_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "pistol",
+      "smg"
+    ],
+    "arch3_extra_tags": [
+      "assault"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "cqb_m2"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 40
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        50,
+        70,
+        85
+      ]
+    },
     "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [8, 20, 35] }, "pipe": { "unlock": 21, "chance_by_arch": [0, 20, 28] } },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 35, "mult": [0.4, 1.2] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          8,
+          20,
+          35
+        ]
+      },
+      "pipe": {
+        "unlock": 21,
+        "chance_by_arch": [
+          0,
+          20,
+          28
+        ]
+      }
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT1_Grenadier": {
-    "inventory": "Grenadier_Inventory", "firearm": "Grenadier_Firearm", "class_tier": 1,
-    "primary_tags": ["smg", "pistol"], "packages_by_arch": ["m0", "cqb_m1", "assault_m1"],
-    "sidearm": { "unlock": 12, "chance": 30 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] }, "molotov_chance": 50 },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 40, "mult": [0.5, 1.3] }
+    "inventory": "Grenadier_Inventory",
+    "firearm": "Grenadier_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "smg",
+      "pistol"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "assault_m1"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 30
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          3,
+          4,
+          5
+        ]
+      },
+      "molotov_chance": 50
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT1_Crusher": {
-    "inventory": "Crusher_Inventory", "firearm": "Crusher_Firearm", "class_tier": 1,
-    "primary_tags": ["shotgun"], "packages_by_arch": ["m0", "cqb_m1", "cqb_m1"],
-    "sidearm": { "unlock": 12, "chance": 55 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 15, 25] } },
-    "ammo_cap": "FMJ", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 35, "mult": [0.4, 1.2] }
+    "inventory": "Crusher_Inventory",
+    "firearm": "Crusher_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "shotgun"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "cqb_m1"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 55
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          15,
+          25
+        ]
+      }
+    },
+    "ammo_cap": "FMJ",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT2_Pillager": {
-    "inventory": "Pillager_Inventory", "firearm": "Pillager_Firearm", "class_tier": 2,
-    "primary_tags": ["smg"], "arch3_extra_tags": ["assault"],
-    "packages_by_arch": ["cqb_m1", "cqb_m2", "cqb_m2"],
-    "sidearm": { "unlock": 11, "chance": 35 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [70, 80, 90] },
+    "inventory": "Pillager_Inventory",
+    "firearm": "Pillager_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "smg"
+    ],
+    "arch3_extra_tags": [
+      "assault"
+    ],
+    "packages_by_arch": [
+      "cqb_m1",
+      "cqb_m2",
+      "cqb_m2"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 35
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        70,
+        80,
+        90
+      ]
+    },
     "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [15, 30, 45] }, "pipe": { "unlock": 21, "chance_by_arch": [0, 15, 22] } },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 5,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          15,
+          30,
+          45
+        ]
+      },
+      "pipe": {
+        "unlock": 21,
+        "chance_by_arch": [
+          0,
+          15,
+          22
+        ]
+      }
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT2_ShockTrooper": {
-    "inventory": "Shocktrooper_Inventory", "firearm": "Shocktrooper_Firearm", "class_tier": 2,
-    "primary_tags": ["smg", "carbine"], "arch2_extra_tags": ["carbine", "assault"], "arch3_extra_tags": ["assault", "carbine"],
-    "packages_by_arch": ["assault_m1", "assault_m2", "assault_m3"],
-    "sidearm": { "unlock": 12, "chance": 45 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [50, 60, 70] },
+    "inventory": "Shocktrooper_Inventory",
+    "firearm": "Shocktrooper_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "smg",
+      "carbine"
+    ],
+    "arch2_extra_tags": [
+      "carbine",
+      "assault"
+    ],
+    "arch3_extra_tags": [
+      "assault",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "assault_m1",
+      "assault_m2",
+      "assault_m3"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 45
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        50,
+        60,
+        70
+      ]
+    },
     "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] }, "smoke_chance": 50, "conc_chance": 40 },
-    "ammo_cap": "AP", "flaregun": 5, "misc_chance": 5,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          3,
+          4,
+          5
+        ]
+      },
+      "smoke_chance": 50,
+      "conc_chance": 40
+    },
+    "ammo_cap": "AP",
+    "flaregun": 5,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT2_Pyro": {
-    "inventory": "Pyro_Inventory", "firearm": "Pyro_Firearm", "class_tier": 2,
-    "primary_tags": ["smg", "carbine"], "packages_by_arch": ["m0", "cqb_m1", "cqb_m1"],
-    "sidearm": null, "melee": null, "armor": "Heavy",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [20, 35, 45] }, "molotov_guaranteed": 3 },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 5,
-    "valuables": { "drop_chance": 50, "mult": [0.5, 1.4] }
+    "inventory": "Pyro_Inventory",
+    "firearm": "Pyro_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "smg",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "cqb_m1"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Heavy",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          20,
+          35,
+          45
+        ]
+      },
+      "molotov_guaranteed": 3
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT3_Punisher": {
-    "inventory": "Punisher_Inventory", "firearm": "Punisher_Firearm", "class_tier": 3,
-    "primary_tags": ["carbine", "assault"], "packages_by_arch": ["assault_m2", "assault_m2", "assault_m3"],
-    "sidearm": { "unlock": 11, "chance": 50 }, "melee": null, "armor": "Heavy",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] }, "conc_chance": 50 },
-    "ammo_cap": "AP", "flaregun": 0, "misc_chance": 8,
-    "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
+    "inventory": "Punisher_Inventory",
+    "firearm": "Punisher_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "carbine",
+      "assault"
+    ],
+    "packages_by_arch": [
+      "assault_m2",
+      "assault_m2",
+      "assault_m3"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 50
+    },
+    "melee": null,
+    "armor": "Heavy",
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          3,
+          4,
+          5
+        ]
+      },
+      "conc_chance": 50
+    },
+    "ammo_cap": "AP",
+    "flaregun": 0,
+    "misc_chance": 8,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT3_SkullCrusher": {
-    "inventory": "SkullCrusher_Inventory", "firearm": "SkullCrusher_Firearm", "class_tier": 3,
-    "primary_tags": ["shotgun", "smg"], "packages_by_arch": ["cqb_m1", "cqb_m2", "cqb_m2"],
-    "sidearm": null, "melee": { "item": "Machete", "chance_by_arch": [80, 90, 100] }, "armor": "Heavy",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [20, 35, 45] }, "smoke_chance": 40, "molotov_chance": 50 },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 8,
-    "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
+    "inventory": "SkullCrusher_Inventory",
+    "firearm": "SkullCrusher_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "shotgun",
+      "smg"
+    ],
+    "packages_by_arch": [
+      "cqb_m1",
+      "cqb_m2",
+      "cqb_m2"
+    ],
+    "sidearm": null,
+    "melee": {
+      "item": "Machete",
+      "chance_by_arch": [
+        80,
+        90,
+        100
+      ]
+    },
+    "armor": "Heavy",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          20,
+          35,
+          45
+        ]
+      },
+      "smoke_chance": 40,
+      "molotov_chance": 50
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 8,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_AssaultT4_Headsman": {
-    "inventory": "Headsman_Inventory", "firearm": "Headsman_Firearm", "class_tier": 4,
-    "primary_tags": ["assault", "carbine"], "packages_by_arch": ["assault_m3", "assault_m3", "merc_m4"],
-    "sidearm": { "unlock": 11, "chance": 55 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [40, 50, 60] },
+    "inventory": "Headsman_Inventory",
+    "firearm": "Headsman_Firearm",
+    "class_tier": 4,
+    "primary_tags": [
+      "assault",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "assault_m3",
+      "assault_m3",
+      "merc_m4"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 55
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        40,
+        50,
+        60
+      ]
+    },
     "armor": "Heavy",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [4, 5, 5] }, "smoke_chance": 50, "conc_chance": 40 },
-    "ammo_cap": "AP", "flaregun": 0, "misc_chance": 12,
-    "valuables": { "drop_chance": 65, "mult": [0.6, 1.5] }
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          4,
+          5,
+          5
+        ]
+      },
+      "smoke_chance": 50,
+      "conc_chance": 40
+    },
+    "ammo_cap": "AP",
+    "flaregun": 0,
+    "misc_chance": 12,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT1_Rifleman": {
-    "inventory": "Rifleman_Inventory", "firearm": "Rifleman_Firearm", "class_tier": 1,
-    "primary_tags": ["rifle", "battle"], "packages_by_arch": ["m0", "rifle_m1", "rifle_m2"],
-    "sidearm": { "unlock": 21, "chance": 25 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 15, 30] } },
-    "ammo_cap": "Match", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 35, "mult": [0.4, 1.2] }
+    "inventory": "Rifleman_Inventory",
+    "firearm": "Rifleman_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "rifle",
+      "battle"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "rifle_m1",
+      "rifle_m2"
+    ],
+    "sidearm": {
+      "unlock": 21,
+      "chance": 25
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          15,
+          30
+        ]
+      }
+    },
+    "ammo_cap": "Match",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT1_Bonemaker": {
-    "inventory": "Bonemaker_Inventory", "firearm": "Bonemaker_Firearm", "class_tier": 1,
-    "primary_tags": ["pistol", "carbine", "smg"], "packages_by_arch": ["m0", "assault_m1", "assault_m1"],
-    "sidearm": null, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 12, 20] }, "medkit": true },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 4,
-    "valuables": { "drop_chance": 40, "mult": [0.5, 1.3] }
+    "inventory": "Bonemaker_Inventory",
+    "firearm": "Bonemaker_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "pistol",
+      "carbine",
+      "smg"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "assault_m1",
+      "assault_m1"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          12,
+          20
+        ]
+      },
+      "medkit": true
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 4,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT1_Marauder": {
-    "inventory": "Marauder_Inventory", "firearm": "Marauder_Firearm", "class_tier": 1,
-    "primary_tags": ["smg", "pistol"], "arch3_extra_tags": ["assault"],
-    "packages_by_arch": ["m0", "cqb_m1", "cqb_m2"],
-    "sidearm": { "unlock": 12, "chance": 40 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [40, 55, 65] },
+    "inventory": "Marauder_Inventory",
+    "firearm": "Marauder_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "smg",
+      "pistol"
+    ],
+    "arch3_extra_tags": [
+      "assault"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "cqb_m2"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 40
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        40,
+        55,
+        65
+      ]
+    },
     "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [8, 22, 38] } },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 35, "mult": [0.4, 1.2] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          8,
+          22,
+          38
+        ]
+      }
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT2_Ambusher": {
-    "inventory": "Ambusher_Inventory", "firearm": "Ambusher_Firearm", "class_tier": 2,
-    "primary_tags": ["rifle", "battle"], "packages_by_arch": ["rifle_m1", "rifle_m2", "sniper_m2"],
-    "sidearm": { "unlock": 21, "chance": 20 }, "melee": null, "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [10, 20, 30] }, "smoke_chance": 35 },
-    "ammo_cap": "Match", "flaregun": 8, "misc_chance": 5,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "inventory": "Ambusher_Inventory",
+    "firearm": "Ambusher_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "rifle",
+      "battle"
+    ],
+    "packages_by_arch": [
+      "rifle_m1",
+      "rifle_m2",
+      "sniper_m2"
+    ],
+    "sidearm": {
+      "unlock": 21,
+      "chance": 20
+    },
+    "melee": null,
+    "armor": "Light",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          10,
+          20,
+          30
+        ]
+      },
+      "smoke_chance": 35
+    },
+    "ammo_cap": "Match",
+    "flaregun": 8,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT2_Raider": {
-    "inventory": "Raider_Inventory", "firearm": "Raider_Firearm", "class_tier": 2,
-    "primary_tags": ["smg", "carbine"], "arch2_extra_tags": ["carbine", "assault"], "arch3_extra_tags": ["assault"],
-    "packages_by_arch": ["assault_m1", "assault_m2", "assault_m3"],
-    "sidearm": { "unlock": 12, "chance": 40 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [40, 50, 60] },
+    "inventory": "Raider_Inventory",
+    "firearm": "Raider_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "smg",
+      "carbine"
+    ],
+    "arch2_extra_tags": [
+      "carbine",
+      "assault"
+    ],
+    "arch3_extra_tags": [
+      "assault"
+    ],
+    "packages_by_arch": [
+      "assault_m1",
+      "assault_m2",
+      "assault_m3"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 40
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        40,
+        50,
+        60
+      ]
+    },
     "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [2, 3, 4] } },
-    "ammo_cap": "AP", "flaregun": 5, "misc_chance": 5,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "ammo_cap": "AP",
+    "flaregun": 5,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT2_Marksman": {
-    "inventory": "Marksman_Inventory", "firearm": "Marksman_Firearm", "class_tier": 2,
-    "primary_tags": ["rifle", "battle"], "packages_by_arch": ["rifle_m1", "rifle_m2", "sniper_m2"],
-    "sidearm": null, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [8, 15, 25] } },
-    "ammo_cap": "Match", "flaregun": 8, "misc_chance": 5,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "inventory": "Marksman_Inventory",
+    "firearm": "Marksman_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "rifle",
+      "battle"
+    ],
+    "packages_by_arch": [
+      "rifle_m1",
+      "rifle_m2",
+      "sniper_m2"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          8,
+          15,
+          25
+        ]
+      }
+    },
+    "ammo_cap": "Match",
+    "flaregun": 8,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT3_Sniper": {
-    "inventory": "Sniper_Inventory", "firearm": "Sniper_Firearm", "class_tier": 3,
-    "primary_tags": ["sniper"], "packages_by_arch": ["sniper_m2", "sniper_m2", "sniper_m3"],
-    "sidearm": { "unlock": 31, "chance": 15 }, "melee": null, "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [0, 5, 10] } },
-    "ammo_cap": "Match", "flaregun": 22, "misc_chance": 8,
-    "valuables": { "drop_chance": 60, "mult": [0.5, 1.5] }
+    "inventory": "Sniper_Inventory",
+    "firearm": "Sniper_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "sniper"
+    ],
+    "packages_by_arch": [
+      "sniper_m2",
+      "sniper_m2",
+      "sniper_m3"
+    ],
+    "sidearm": {
+      "unlock": 31,
+      "chance": 15
+    },
+    "melee": null,
+    "armor": "Light",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          0,
+          5,
+          10
+        ]
+      }
+    },
+    "ammo_cap": "Match",
+    "flaregun": 22,
+    "misc_chance": 8,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT3_Veteran": {
-    "inventory": "Veteran_Inventory", "firearm": "Veteran_Firearm", "class_tier": 3,
-    "primary_tags": ["carbine", "assault"], "packages_by_arch": ["assault_m2", "assault_m2", "assault_m3"],
-    "sidearm": { "unlock": 11, "chance": 50 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [2, 3, 4] }, "gl_5pc": true },
-    "ammo_cap": "AP", "flaregun": 5, "misc_chance": 8,
-    "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
+    "inventory": "Veteran_Inventory",
+    "firearm": "Veteran_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "carbine",
+      "assault"
+    ],
+    "packages_by_arch": [
+      "assault_m2",
+      "assault_m2",
+      "assault_m3"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 50
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          2,
+          3,
+          4
+        ]
+      },
+      "gl_5pc": true
+    },
+    "ammo_cap": "AP",
+    "flaregun": 5,
+    "misc_chance": 8,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT4_Mercenary": {
-    "inventory": "Mercenary_Inventory", "firearm": "Mercenary_Firearm", "class_tier": 4,
-    "primary_tags": ["assault", "carbine"], "packages_by_arch": ["assault_m3", "merc_m4", "merc_m4"],
-    "sidearm": { "unlock": 11, "chance": 60 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] }, "gl_5pc": true },
-    "ammo_cap": "AP", "flaregun": 0, "misc_chance": 12,
-    "valuables": { "drop_chance": 65, "mult": [0.6, 1.5] }
+    "inventory": "Mercenary_Inventory",
+    "firearm": "Mercenary_Firearm",
+    "class_tier": 4,
+    "primary_tags": [
+      "assault",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "assault_m3",
+      "merc_m4",
+      "merc_m4"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 60
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gl_5pc": true
+    },
+    "ammo_cap": "AP",
+    "flaregun": 0,
+    "misc_chance": 12,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FrontT4_MercenarySniper": {
-    "inventory": "MercenarySniper_Inventory", "firearm": "MercenarySniper_Firearm", "class_tier": 4,
-    "primary_tags": ["sniper"], "packages_by_arch": ["sniper_m3", "sniper_m3", "sniper_m3"],
-    "sidearm": null, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [0, 5, 10] } },
-    "ammo_cap": "Match", "flaregun": 22, "misc_chance": 12,
-    "valuables": { "drop_chance": 70, "mult": [0.6, 1.5] }
+    "inventory": "MercenarySniper_Inventory",
+    "firearm": "MercenarySniper_Firearm",
+    "class_tier": 4,
+    "primary_tags": [
+      "sniper"
+    ],
+    "packages_by_arch": [
+      "sniper_m3",
+      "sniper_m3",
+      "sniper_m3"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          0,
+          5,
+          10
+        ]
+      }
+    },
+    "ammo_cap": "Match",
+    "flaregun": 22,
+    "misc_chance": 12,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FlankerT1_Warden": {
-    "inventory": "Warden_Inventory", "firearm": "Warden_Firearm", "class_tier": 1,
-    "primary_tags": ["rifle", "battle", "carbine"], "packages_by_arch": ["m0", "rifle_m1", "flanker_m1"],
-    "sidearm": { "unlock": 21, "chance": 25 }, "melee": null, "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 12, 22] } },
-    "ammo_cap": "Army", "flaregun": 18, "misc_chance": 5,
-    "valuables": { "drop_chance": 35, "mult": [0.4, 1.2] }
+    "inventory": "Warden_Inventory",
+    "firearm": "Warden_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "rifle",
+      "battle",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "rifle_m1",
+      "flanker_m1"
+    ],
+    "sidearm": {
+      "unlock": 21,
+      "chance": 25
+    },
+    "melee": null,
+    "armor": "Light",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          12,
+          22
+        ]
+      }
+    },
+    "ammo_cap": "Army",
+    "flaregun": 18,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FlankerT2_Scout": {
-    "inventory": "Scout_Inventory", "firearm": "Scout_Firearm", "class_tier": 2,
-    "primary_tags": ["smg"], "arch3_extra_tags": ["assault"],
-    "packages_by_arch": ["flanker_m1", "flanker_m2", "flanker_m3"],
-    "sidearm": { "unlock": 12, "chance": 30 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [40, 55, 65] },
+    "inventory": "Scout_Inventory",
+    "firearm": "Scout_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "smg"
+    ],
+    "arch3_extra_tags": [
+      "assault"
+    ],
+    "packages_by_arch": [
+      "flanker_m1",
+      "flanker_m2",
+      "flanker_m3"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 30
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        40,
+        55,
+        65
+      ]
+    },
     "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [10, 20, 30] }, "smoke_chance": 40 },
-    "ammo_cap": "Army", "flaregun": 18, "misc_chance": 7,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          10,
+          20,
+          30
+        ]
+      },
+      "smoke_chance": 40
+    },
+    "ammo_cap": "Army",
+    "flaregun": 18,
+    "misc_chance": 7,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FlankerT2_Skirmisher": {
-    "inventory": "Skirmisher_Inventory", "firearm": "Skirmisher_Firearm", "class_tier": 2,
-    "primary_tags": ["battle"], "packages_by_arch": ["rifle_m1", "rifle_m2", "rifle_m2"],
-    "sidearm": { "unlock": 12, "chance": 35 }, "melee": null, "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [12, 25, 35] }, "smoke_chance": 35 },
-    "ammo_cap": "Match", "flaregun": 18, "misc_chance": 7,
-    "valuables": { "drop_chance": 45, "mult": [0.5, 1.4] }
+    "inventory": "Skirmisher_Inventory",
+    "firearm": "Skirmisher_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "battle"
+    ],
+    "packages_by_arch": [
+      "rifle_m1",
+      "rifle_m2",
+      "rifle_m2"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 35
+    },
+    "melee": null,
+    "armor": "Light",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          12,
+          25,
+          35
+        ]
+      },
+      "smoke_chance": 35
+    },
+    "ammo_cap": "Match",
+    "flaregun": 18,
+    "misc_chance": 7,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FlankerT3_Recon": {
-    "inventory": "Recon_Inventory", "firearm": "Recon_Firearm", "class_tier": 3,
-    "primary_tags": ["smg", "carbine"], "packages_by_arch": ["flanker_m2", "flanker_m2", "flanker_m3"],
-    "sidearm": { "unlock": 11, "chance": 40 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [40, 50, 60] },
+    "inventory": "Recon_Inventory",
+    "firearm": "Recon_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "smg",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "flanker_m2",
+      "flanker_m2",
+      "flanker_m3"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 40
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        40,
+        50,
+        60
+      ]
+    },
     "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [15, 25, 35] }, "smoke_chance": 45 },
-    "ammo_cap": "Army", "flaregun": 18, "misc_chance": 10,
-    "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          15,
+          25,
+          35
+        ]
+      },
+      "smoke_chance": 45
+    },
+    "ammo_cap": "Army",
+    "flaregun": 18,
+    "misc_chance": 10,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FlankerT3_Pathfinder": {
-    "inventory": "Pathfinder_Inventory", "firearm": "Pathfinder_Firearm", "class_tier": 3,
-    "primary_tags": ["carbine", "smg"], "packages_by_arch": ["flanker_m2", "flanker_m3", "flanker_m3"],
+    "inventory": "Pathfinder_Inventory",
+    "firearm": "Pathfinder_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "carbine",
+      "smg"
+    ],
+    "packages_by_arch": [
+      "flanker_m2",
+      "flanker_m3",
+      "flanker_m3"
+    ],
     "sidearm": null,
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [45, 55, 65] },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        45,
+        55,
+        65
+      ]
+    },
     "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [15, 25, 35] }, "smoke_chance": 50 },
-    "ammo_cap": "Army", "flaregun": 18, "misc_chance": 10,
-    "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          15,
+          25,
+          35
+        ]
+      },
+      "smoke_chance": 50
+    },
+    "ammo_cap": "Army",
+    "flaregun": 18,
+    "misc_chance": 10,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_FlankerT4_Ranger": {
-    "inventory": "Ranger_Inventory", "firearm": "Ranger_Firearm", "class_tier": 4,
-    "primary_tags": ["carbine", "smg"], "packages_by_arch": ["flanker_m3", "flanker_m3", "merc_m4"],
-    "sidearm": { "unlock": 11, "chance": 45 },
-    "melee": { "item": "Weapon_Knife", "chance_by_arch": [50, 60, 70] },
+    "inventory": "Ranger_Inventory",
+    "firearm": "Ranger_Firearm",
+    "class_tier": 4,
+    "primary_tags": [
+      "carbine",
+      "smg"
+    ],
+    "packages_by_arch": [
+      "flanker_m3",
+      "flanker_m3",
+      "merc_m4"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 45
+    },
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        50,
+        60,
+        70
+      ]
+    },
     "armor": "Light",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [20, 30, 40] }, "smoke_chance": 55 },
-    "ammo_cap": "AP", "flaregun": 22, "misc_chance": 14,
-    "valuables": { "drop_chance": 65, "mult": [0.6, 1.5] }
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          20,
+          30,
+          40
+        ]
+      },
+      "smoke_chance": 55
+    },
+    "ammo_cap": "AP",
+    "flaregun": 22,
+    "misc_chance": 14,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_GunnerT1_Gunner": {
-    "inventory": "Gunner_Inventory", "firearm": "Gunner_Firearm", "class_tier": 1,
-    "primary_tags": ["lmg", "mg"], "packages_by_arch": ["m0", "mg_m1", "mg_m2"],
-    "sidearm": { "unlock": 21, "chance": 20 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 10, 15] } },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 40, "mult": [0.5, 1.3] }
+    "inventory": "Gunner_Inventory",
+    "firearm": "Gunner_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "lmg",
+      "mg"
+    ],
+    "packages_by_arch": [
+      "m0",
+      "mg_m1",
+      "mg_m2"
+    ],
+    "sidearm": {
+      "unlock": 21,
+      "chance": 20
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          10,
+          15
+        ]
+      }
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_GunnerT2_GMPG": {
-    "inventory": "GMPG_Inventory", "firearm": "GMPG_Firearm", "class_tier": 2,
-    "primary_tags": ["mg", "lmg"], "packages_by_arch": ["mg_m1", "mg_m2", "mg_m3"],
-    "sidearm": null, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 10, 15] } },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 5,
-    "valuables": { "drop_chance": 50, "mult": [0.5, 1.4] }
+    "inventory": "GMPG_Inventory",
+    "firearm": "GMPG_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "mg",
+      "lmg"
+    ],
+    "packages_by_arch": [
+      "mg_m1",
+      "mg_m2",
+      "mg_m3"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          10,
+          15
+        ]
+      }
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_GunnerT2_AssaultGunner": {
-    "inventory": "AssaultGunner_Inventory", "firearm": "AssaultGunner_Firearm", "class_tier": 2,
-    "primary_tags": ["lmg"], "packages_by_arch": ["mg_m1", "mg_m2", "mg_m3"],
-    "sidearm": { "unlock": 12, "chance": 35 }, "melee": { "item": "Machete", "chance_by_arch": [100, 100, 100] }, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [8, 15, 20] }, "molotov_guaranteed": 1 },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 5,
-    "valuables": { "drop_chance": 50, "mult": [0.5, 1.4] }
+    "inventory": "AssaultGunner_Inventory",
+    "firearm": "AssaultGunner_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "lmg"
+    ],
+    "packages_by_arch": [
+      "mg_m1",
+      "mg_m2",
+      "mg_m3"
+    ],
+    "sidearm": {
+      "unlock": 12,
+      "chance": 35
+    },
+    "melee": {
+      "item": "Machete",
+      "chance_by_arch": [
+        100,
+        100,
+        100
+      ]
+    },
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          8,
+          15,
+          20
+        ]
+      },
+      "molotov_guaranteed": 1
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_GunnerT3_VeteranGunner": {
-    "inventory": "VeteranGunner_Inventory", "firearm": "VeteranGunner_Firearm", "class_tier": 3,
-    "primary_tags": ["mg", "lmg"], "packages_by_arch": ["mg_m2", "mg_m3", "mg_m3"],
-    "sidearm": null, "melee": null, "armor": "Heavy",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 10, 15] } },
-    "ammo_cap": "AP", "flaregun": 0, "misc_chance": 8,
-    "valuables": { "drop_chance": 60, "mult": [0.5, 1.5] }
+    "inventory": "VeteranGunner_Inventory",
+    "firearm": "VeteranGunner_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "mg",
+      "lmg"
+    ],
+    "packages_by_arch": [
+      "mg_m2",
+      "mg_m3",
+      "mg_m3"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Heavy",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          10,
+          15
+        ]
+      }
+    },
+    "ammo_cap": "AP",
+    "flaregun": 0,
+    "misc_chance": 8,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_GunnerT4_MercGunner": {
-    "inventory": "MercGunner_Inventory", "firearm": "MercGunner_Firearm", "class_tier": 4,
-    "primary_tags": ["mg", "lmg"], "packages_by_arch": ["mg_m3", "mg_m3", "merc_m4"],
-    "sidearm": null, "melee": null, "armor": "Heavy",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [5, 10, 15] } },
-    "ammo_cap": "AP", "flaregun": 0, "misc_chance": 12,
-    "valuables": { "drop_chance": 70, "mult": [0.6, 1.5] }
+    "inventory": "MercGunner_Inventory",
+    "firearm": "MercGunner_Firearm",
+    "class_tier": 4,
+    "primary_tags": [
+      "mg",
+      "lmg"
+    ],
+    "packages_by_arch": [
+      "mg_m3",
+      "mg_m3",
+      "merc_m4"
+    ],
+    "sidearm": null,
+    "melee": null,
+    "armor": "Heavy",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          5,
+          10,
+          15
+        ]
+      }
+    },
+    "ammo_cap": "AP",
+    "flaregun": 0,
+    "misc_chance": 12,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_LeaderT1_Sergeant": {
-    "inventory": "Sergeant_Inventory", "firearm": "Sergeant_Firearm", "class_tier": 1,
-    "primary_tags": ["smg"], "arch3_extra_tags": ["assault"],
-    "exclude_tags": ["pistol"],
+    "inventory": "Sergeant_Inventory",
+    "firearm": "Sergeant_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "smg"
+    ],
+    "arch3_extra_tags": [
+      "assault"
+    ],
+    "exclude_tags": [
+      "pistol"
+    ],
     "primary_max_tier_label": "2-1",
     "arch1_all_subs_from": 11,
-    "arch1_early_ids": { "M45": 11, "MAC10": 12, "UZI": 13, "Agram2000": 13 },
-    "packages_by_arch": ["m0", "cqb_m1", "assault_m1"],
-    "sidearm": { "unlock": 11, "chance": 70 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [15, 30, 40] }, "smoke_chance": 40 },
-    "ammo_cap": "Army", "flaregun": 8, "misc_chance": 5,
-    "valuables": { "drop_chance": 40, "mult": [0.5, 1.3] }
+    "arch1_early_ids": {
+      "M45": 11,
+      "MAC10": 12,
+      "UZI": 13,
+      "Agram2000": 13
+    },
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "assault_m1"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 70
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          15,
+          30,
+          40
+        ]
+      },
+      "smoke_chance": 40
+    },
+    "ammo_cap": "Army",
+    "flaregun": 8,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_LeaderT2_Lieutenant": {
-    "inventory": "Lieutenant_Inventory", "firearm": "Lieutenant_Firearm", "class_tier": 2,
-    "primary_tags": ["carbine", "smg", "assault"], "packages_by_arch": ["assault_m1", "assault_m2", "assault_m3"],
-    "sidearm": { "unlock": 11, "chance": 75 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [2, 3, 4] }, "smoke_chance": 50 },
-    "ammo_cap": "AP", "flaregun": 22, "misc_chance": 7,
-    "valuables": { "drop_chance": 50, "mult": [0.5, 1.4] }
+    "inventory": "Lieutenant_Inventory",
+    "firearm": "Lieutenant_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "carbine",
+      "smg",
+      "assault"
+    ],
+    "packages_by_arch": [
+      "assault_m1",
+      "assault_m2",
+      "assault_m3"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 75
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          2,
+          3,
+          4
+        ]
+      },
+      "smoke_chance": 50
+    },
+    "ammo_cap": "AP",
+    "flaregun": 22,
+    "misc_chance": 7,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_LeaderT3_Captain": {
-    "inventory": "Captain_Inventory", "firearm": "Captain_Firearm", "class_tier": 3,
-    "primary_tags": ["rifle", "carbine", "battle"], "packages_by_arch": ["rifle_m2", "rifle_m2", "sniper_m2"],
-    "sidearm": { "unlock": 11, "chance": 70 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [20, 30, 40] }, "smoke_chance": 45 },
-    "ammo_cap": "Match", "flaregun": 15, "misc_chance": 10,
-    "valuables": { "drop_chance": 60, "mult": [0.5, 1.5] }
+    "inventory": "Captain_Inventory",
+    "firearm": "Captain_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "rifle",
+      "carbine",
+      "battle"
+    ],
+    "packages_by_arch": [
+      "rifle_m2",
+      "rifle_m2",
+      "sniper_m2"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 70
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          20,
+          30,
+          40
+        ]
+      },
+      "smoke_chance": 45
+    },
+    "ammo_cap": "Match",
+    "flaregun": 15,
+    "misc_chance": 10,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_LeaderT4_MercenaryCaptain": {
-    "inventory": "MercenaryCaptain_Inventory", "firearm": "MercenaryCaptain_Firearm", "class_tier": 4,
-    "primary_tags": ["assault", "carbine"], "packages_by_arch": ["assault_m3", "merc_m4", "merc_m4"],
-    "sidearm": { "unlock": 11, "chance": 80 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "guaranteed", "count_by_arch": [3, 4, 5] }, "smoke_chance": 50 },
-    "ammo_cap": "AP", "flaregun": 22, "misc_chance": 14,
-    "valuables": { "drop_chance": 65, "mult": [0.6, 1.5] }
+    "inventory": "MercenaryCaptain_Inventory",
+    "firearm": "MercenaryCaptain_Firearm",
+    "class_tier": 4,
+    "primary_tags": [
+      "assault",
+      "carbine"
+    ],
+    "packages_by_arch": [
+      "assault_m3",
+      "merc_m4",
+      "merc_m4"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 80
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "guaranteed",
+        "count_by_arch": [
+          3,
+          4,
+          5
+        ]
+      },
+      "smoke_chance": 50
+    },
+    "ammo_cap": "AP",
+    "flaregun": 22,
+    "misc_chance": 14,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_HeavyT1_Rocketeer": {
-    "inventory": "Rocketeer_Inventory", "firearm": "Rocketeer_Firearm", "class_tier": 1,
-    "primary_tags": ["pistol", "smg"], "keep_existing_heavy": true,
-    "packages_by_arch": ["m0", "m0", "cqb_m1"],
-    "sidearm": { "unlock": 11, "chance": 90 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [10, 15, 20] }, "preserve_launcher": true },
-    "ammo_cap": "FMJ", "flaregun": 0, "misc_chance": 3,
-    "valuables": { "drop_chance": 40, "mult": [0.5, 1.3] }
+    "inventory": "Rocketeer_Inventory",
+    "firearm": "Rocketeer_Firearm",
+    "class_tier": 1,
+    "primary_tags": [
+      "pistol",
+      "smg"
+    ],
+    "keep_existing_heavy": true,
+    "packages_by_arch": [
+      "m0",
+      "m0",
+      "cqb_m1"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 90
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          10,
+          15,
+          20
+        ]
+      },
+      "preserve_launcher": true
+    },
+    "ammo_cap": "FMJ",
+    "flaregun": 0,
+    "misc_chance": 3,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_HeavyT2_Grenadier": {
-    "inventory": "HeavyGrenadier_Inventory", "firearm": "HeavyGrenadier_Firearm", "class_tier": 2,
-    "primary_tags": ["smg", "pistol"], "keep_existing_heavy": true,
-    "packages_by_arch": ["m0", "cqb_m1", "cqb_m1"],
-    "sidearm": { "unlock": 11, "chance": 80 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [15, 25, 30] }, "preserve_launcher": true },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 5,
-    "valuables": { "drop_chance": 50, "mult": [0.5, 1.4] }
+    "inventory": "HeavyGrenadier_Inventory",
+    "firearm": "HeavyGrenadier_Firearm",
+    "class_tier": 2,
+    "primary_tags": [
+      "smg",
+      "pistol"
+    ],
+    "keep_existing_heavy": true,
+    "packages_by_arch": [
+      "m0",
+      "cqb_m1",
+      "cqb_m1"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 80
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          15,
+          25,
+          30
+        ]
+      },
+      "preserve_launcher": true
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 5,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   },
   "JAZZ_Legion_HeavyT3_Mortarman": {
-    "inventory": "Mortarman_Inventory", "firearm": "Mortarman_Firearm", "class_tier": 3,
-    "primary_tags": ["pistol", "smg"], "keep_existing_heavy": true,
-    "packages_by_arch": ["m0", "m0", "cqb_m1"],
-    "sidearm": { "unlock": 11, "chance": 85 }, "melee": null, "armor": "Middle",
-    "utility": { "he": { "mode": "chance", "chance_by_arch": [10, 15, 20] }, "preserve_launcher": true },
-    "ammo_cap": "Army", "flaregun": 0, "misc_chance": 8,
-    "valuables": { "drop_chance": 55, "mult": [0.5, 1.5] }
+    "inventory": "Mortarman_Inventory",
+    "firearm": "Mortarman_Firearm",
+    "class_tier": 3,
+    "primary_tags": [
+      "pistol",
+      "smg"
+    ],
+    "keep_existing_heavy": true,
+    "packages_by_arch": [
+      "m0",
+      "m0",
+      "cqb_m1"
+    ],
+    "sidearm": {
+      "unlock": 11,
+      "chance": 85
+    },
+    "melee": null,
+    "armor": "Middle",
+    "utility": {
+      "he": {
+        "mode": "chance",
+        "chance_by_arch": [
+          10,
+          15,
+          20
+        ]
+      },
+      "preserve_launcher": true
+    },
+    "ammo_cap": "Army",
+    "flaregun": 0,
+    "misc_chance": 8,
+    "valuables": {
+      "drop_chance": 30,
+      "mult": [
+        0.8,
+        1.2
+      ]
+    }
   }
 }

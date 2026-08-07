@@ -35,7 +35,7 @@ Spot checks in `jazz-units/items.lua`:
 | Remnant ~1% | on Roughneck at mid: `weight = 1400` entries with Amount 20 + `<=` 29; share ≈1% of active mid weights (±0.5 pp) |
 | Logistics cargo | no `DiamondBriefcase` inside generated markers; cargo stays Global AI |
 | Heavy arty | `Rocketeer_Inventory` / `HeavyGrenadier_Inventory` / `Mortarman_Inventory` still link `*_Launcher` |
-| All recipe contracts | 37/37 UnitData `Equipment` → recipe inventory; root inventory → firearm; sidearm/melee/utility/armor/night/flare/misc/valuables materialize exactly from each recipe |
+| All recipe contracts | 37/37 UnitData `Equipment` → recipe inventory; root inventory → firearm; sidearm/melee/utility/armor/night/flare/misc/valuables (`TinyDiamonds` @30% ≈ unit price) materialize exactly from each recipe |
 | Commando | `AssaultGunner_Inventory`: Machete in all three arch bands at `generate_chance = 100`, one unconditional Molotov; UnitData equips melee in `Handheld B` |
 | Skirmisher | `Skirmisher_Firearm`: battle-only recipe, rifle packages, upgraded ammo combos from `ammo_cap = Match`; no old flanker package |
 
@@ -61,7 +61,7 @@ Expect `37`.
 | Ammo matches weapon | caliber from spawned gun |
 | Light armor on Roughneck | Light torso/legs/helm band |
 | Shock has grenades | guaranteed Frag stacks (not empty demo kit) |
-| Night | only at **Night** TOD: GlowStick / FlareStick can appear; day fights should not spam lights |
+| Night | GlowStick / FlareStick spawn into `GrenadesInventory` (arch chances); **no** CSE `IsTimeOfDay` gate; AI throws / `FireFlare` only at Night/Underground |
 
 4. Advance campaign (or cheat quest var) to mid **21–25**:
 

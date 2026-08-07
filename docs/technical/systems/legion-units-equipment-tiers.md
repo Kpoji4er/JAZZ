@@ -8,7 +8,7 @@
 
 Снаряжение прогрессирует независимо от класса юнита. Quest-переменная `JAZZ_LegionTier.JAZZ_Legion_Tier` открывает новые записи в weapon/ammo/armor/utility LootDef. Поэтому один и тот же `UnitData` при новой генерации может получить более сильный вариант экипировки, но не превращается в следующий класс своей линии.
 
-**JAZZ-UNITS-003 (loaded):** боевые `*_Inventory` / `*_Firearm` для 37 классов **генерируются** из recipes в `jazz/scripts/legion-loadouts/` (не ручной суффикс-зоопарк как основной процесс). Shared pools: `JAZZ_Gen_NightEquipment`, `JAZZ_Gen_Sidearm`, `JAZZ_Gen_FlareGun`, `JAZZ_Gen_MiscGear`, `JAZZ_Gen_Valuables_*`, плюс `JAZZ_GenW_*` (оружие+патроны). Public UnitData Equipment **имена** сохранены. Recruit без combat recipe. Cargo `tax`/`shipment` (`lEnsureMoneyCargo` / `DiamondBriefcase`) **не** эмитится class recipe.
+**JAZZ-UNITS-003 (loaded):** боевые `*_Inventory` / `*_Firearm` для 37 классов **генерируются** из recipes в `jazz/scripts/legion-loadouts/` (не ручной суффикс-зоопарк как основной процесс). Shared pools: `JAZZ_Gen_NightEquipment` (GlowStick/FlareStick, **без** CSE `IsTimeOfDay` — спавн в `GrenadesInventory` всегда; AI кидает ночью), `JAZZ_Gen_Sidearm`, `JAZZ_Gen_FlareGun`, `JAZZ_Gen_MiscGear`, `JAZZ_Gen_Valuables_*` (band fallback), плюс `JAZZ_GenW_*` (оружие+патроны). Карманные valuables на combat `*_Inventory`: inline `TinyDiamonds` ≈ `JAZZ_GetLegionUnitPrice` (стек `round(P×0.8…1.2/500)`), `generate_chance = 30`, без `LootEntryNoLoot` / без class `DiamondBriefcase`. Public UnitData Equipment **имена** сохранены. Recruit без combat recipe. Cargo `tax`/`shipment` (`lEnsureMoneyCargo` / `DiamondBriefcase`) **не** эмитится class recipe.
 
 Для игрока это проявляется в двух независимых осях сложности:
 

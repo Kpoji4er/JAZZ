@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[2]
 UNITS = ROOT.parent / "jazz-units"
 ITEMS = UNITS / "items.lua"
 RECIPES = Path(__file__).resolve().parent / "data" / "recipes.json"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from generate import parse_prices, valuables_tiny_stack  # noqa: E402
 
 fails: list[str] = []
 
@@ -144,6 +146,16 @@ def main() -> int:
     else:
         ok("AC-001 shared pools present")
 
+    night = block_for(text, "JAZZ_Gen_NightEquipment")
+    if "IsTimeOfDay" in night:
+        fail("JAZZ_Gen_NightEquipment must not gate CSE on IsTimeOfDay")
+    elif 'item = "GlowStick"' not in night or 'item = "FlareStick"' not in night:
+        fail("JAZZ_Gen_NightEquipment missing GlowStick/FlareStick")
+    elif 'loot = "all"' not in night:
+        fail("JAZZ_Gen_NightEquipment should be loot=all")
+    else:
+        ok("AC-001 night lights spawn always (no TOD gate)")
+
     # AC-002 pilots
     pilots = {
         "Roughneck_Inventory": {
@@ -176,8 +188,10 @@ def main() -> int:
             fail(f"{inv} missing firearm link")
         if expect.get("night") and "JAZZ_Gen_NightEquipment" not in b:
             fail(f"{inv} missing night")
-        if expect.get("valuables") and "JAZZ_Gen_Valuables_" not in b:
-            fail(f"{inv} missing valuables")
+        if expect.get("valuables") and 'item = "TinyDiamonds"' not in b:
+            fail(f"{inv} missing valuables TinyDiamonds")
+        if expect.get("valuables") and "generate_chance = 30" not in b:
+            fail(f"{inv} valuables drop_chance != 30")
         if expect.get("armor") and expect["armor"] not in b:
             fail(f"{inv} missing armor {expect['armor']}")
         if expect.get("frag_guaranteed"):
@@ -321,6 +335,7 @@ def main() -> int:
         if not condition:
             contract_failures.append(message)
 
+    prices = parse_prices()
     for uid, recipe in recipes.items():
         inv_id = recipe["inventory"]
         firearm_id = recipe["firearm"]
@@ -405,8 +420,15 @@ def main() -> int:
         contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_FlareGun")) == (3 if int(recipe.get("flaregun") or 0) > 0 else 0), f"{uid}: flare pool")
         contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_MiscGear")) == int(int(recipe.get("misc_chance") or 0) > 0), f"{uid}: misc pool")
         expected_values = recipe.get("valuables") not in (None, False, "none", "None")
-        actual_values = sum('loot_def = "JAZZ_Gen_Valuables_' in entry for entry in loot_entries)
-        contract(actual_values == int(expected_values), f"{uid}: valuables materialization")
+        tiny_entries = entries_with(item_entries, "item", "TinyDiamonds")
+        contract(len(tiny_entries) == int(expected_values), f"{uid}: valuables materialization")
+        if expected_values and tiny_entries:
+            drop = int(recipe["valuables"]["drop_chance"]) if isinstance(recipe.get("valuables"), dict) and recipe["valuables"].get("drop_chance") is not None else 30
+            contract(chance_values(tiny_entries) == [drop], f"{uid}: valuables drop_chance")
+            price = prices.get(uid, 500)
+            mult = recipe["valuables"].get("mult") if isinstance(recipe.get("valuables"), dict) else None
+            tmin, tmax = valuables_tiny_stack(price, mult)
+            contract(f"stack_min = {tmin}" in tiny_entries[0] and f"stack_max = {tmax}" in tiny_entries[0], f"{uid}: valuables stack ~price")
         for armor_id in armor_defs[recipe.get("armor") or "Middle"]:
             contract(len(entries_with(loot_entries, "loot_def", armor_id)) == 1, f"{uid}: armor {armor_id}")
 

@@ -17,7 +17,7 @@ JAZZ существенно меняет выбор действий AI, оце�
 Загружаемые core-файлы:
 
 - `Code/AiActions.lua` — attacks, targeting, aim/reload и action helpers;
-- `Code/AiAction_ThrowFlare.lua` — grenade/flare action;
+- `Code/AiAction_ThrowFlare.lua` — night/underground illumination: throwable `Flare` sticks **and** `FireFlare` signal pistol (`FlareHandgun`);
 - `Code/AiFastForward.lua` — auto fast-forward / PoV visibility на вражеском ходе; **союзники (Rebels `side=ally`)** при Running/Always всегда на Fast (иначе PoV их почти всегда видит и FF не срабатывал);
 - `Code/AIBehaviours.lua` — небольшой слой behavior registration;
 - `Code/AIPolicy.lua` — позиционные политики (cover/threat, ScoreMode, role anchor, anti-peek, ally spacing — POL-001…003 code loaded; specs may still be `approved`);

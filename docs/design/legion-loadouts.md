@@ -24,7 +24,7 @@ Design-only. Код не меняет. Runtime current-state: [`legion-units-equ
 | L12 | Патроны: калибр от ствола; эволюционирует **grade/элитность** (`Poor → FMJ → Army → Match/EPR → AP`). Arch поднимает пол; class — потолок. |
 | L13 | Канон сопровождения: **компактные recipes/keywords → генератор → LootDef**. Не плодить вручную варианты одной винтовки/брони/патронов. |
 | L14 | Генератор распространяется на **весь кит**: primary (+mods), sidearm, melee, armor, ammo, utility, valuables, night, misc — не только обвес. |
-| L15 | **Ночные светилки** (GlowStick / FlareStick / weapon flashlight%): упор на ночь; днём near-zero. Шанс/кол-во **чуть↑ с loot tier**. % — §5.4. |
+| L15 | **Ночные светилки** (GlowStick / FlareStick): **спавн в инвентарь всегда** (CSE часто днём); AI кидает только Night/Underground. Шанс/кол-во ↑ с loot tier — §5.4. |
 | L16 | **FlareGun** — не всем; recon/flanker/leader/sniper. База §5.4; **лёгкий↑ с loot tier**. |
 | L17 | **Misc low-roll**: очки, маски. % — §5.4 (в основном class band). |
 | L18 | **Valuables ≈ цена юнита**: ≈ `JAZZ_GetLegionUnitPrice`, диапазон + шанс. Стартовые % — §5.4. TinyDiamonds **$500**. |
@@ -217,7 +217,7 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 
 | Слой | Правило |
 | --- | --- |
-| **Night lights** | `GlowStick` / `FlareStick`; опц. gun flashlight. Ночь — on, день — near-zero. **Шанс и stack чуть↑ с loot tier** (§5.4). |
+| **Night lights** | `GlowStick` / `FlareStick` в `GrenadesInventory`; спавн всегда, AI — ночь. **Шанс и stack ↑ с loot tier** (§5.4). |
 | **FlareGun** | Role bias §5.4; **база + лёгкий↑ с arch** (не midgame-баф всех). |
 | **Misc low-roll** | Shared `Legion_MiscGear`. % по class band — §5.4 (loot tier почти не трогает). |
 | **Valuables ($)** | ≈ unit price — §5.2 / §5.4. |
@@ -267,13 +267,14 @@ sidearm: { unlock_tier: 12, chance: 50 }
 
 Ориентир «редко, но заметно»; **светилки и гранаты — чутка↑ с loot tier**.
 
-#### Night lights (ночь only; день ≈ 0)
+#### Night lights (спавн всегда → слоты; AI только ночь)
 
 | | arch1 | arch2 | arch3 |
 | --- | ---: | ---: | ---: |
-| шанс хоть чего-то (Glow/Flare stick) | **45%** | **55%** | **65%** |
+| шанс GlowStick / FlareStick каждый | **45%** | **55%** | **65%** |
 | stack (если выпало) | 3–6 | 4–8 | 5–10 |
-| gun flashlight keyword (если package позволяет) | 8% | 12% | 16% |
+
+`IsTimeOfDay` **не** гейтит CSE (иначе днём пусто). Использование — `AIActionThrowFlare` (sticks + `FireFlare`).
 
 #### FlareGun (+ ammo при успехе)
 
@@ -313,12 +314,9 @@ Loot tier misc почти не качает (или +1% на arch3 max).
 
 | Class band | `drop_chance` | `mult` при успехе |
 | --- | ---: | --- |
-| T1 | **35%** | 0.4–1.2 × P |
-| T2 | **45%** | 0.5–1.4 × P |
-| T3 | **55%** | 0.5–1.5 × P |
-| T4 / merc / leader | **65%** | 0.6–1.5 × P |
+| все combat recipes | **30%** | **0.8–1.2** × P |
 
-Специалисты (sniper/MG) опц. +5% к chance (P уже выше).
+Стек `TinyDiamonds` ($500): `stack ≈ round(P × mult / 500)`, минимум 1 при успехе. Без `LootEntryNoLoot` и без `DiamondBriefcase` на бойцах.
 
 ### 5.5 Износ (condition)
 
@@ -332,26 +330,26 @@ Loot tier misc почти не качает (или +1% на arch3 max).
 
 | Параметр | Смысл |
 | --- | --- |
-| `drop_chance` / `mult` | см. §5.4 |
-| `expected` | ≈ `drop_chance × ~P` — средний лут с трупа ниже полной цены |
-| размен | TinyDiamonds @500; при value ≥ ~4000 можно 1× BigDiamond + остаток Tiny; без портфелей на обычных бойцах |
+| `drop_chance` / `mult` | **30%** / **0.8–1.2** × P (все class bands) |
+| `expected` | ≈ `0.30 × ~P` — средний лут с трупа ниже полной цены |
+| размен | TinyDiamonds @500; без портфелей на обычных бойцах |
 
 Примеры порядка величины:
 
 | Класс | `P` | типичный дроп при успехе |
 | --- | --- | --- |
-| Roughneck | 300 | 0–1× Tiny (часто пусто) |
-| ShockTrooper | 1000 | 1–3× Tiny |
-| Sniper T3 | 2800 | 3–8× Tiny |
-| Merc / MercGunner | 3500–4500 | 4–10× Tiny или 1× Big + Tiny |
+| Roughneck | 300 | 1× Tiny ($500) |
+| ShockTrooper | 1000 | 2× Tiny |
+| Sniper T3 | 2800 | 4–7× Tiny |
+| Merc / MercGunner | 3500–4500 | 6–11× Tiny |
 
 В DSL:
 
 ```yaml
 valuables:
   mode: unit_price
-  # drop_chance / mult from class band table §5.4
-```
+  drop_chance: 30
+  mult: [0.8, 1.2]```
 
 Генератор читает `P` из того же каталога, что STRATEGY-004/008.
 
@@ -403,7 +401,7 @@ CreateStartingEquipment (runtime как сейчас)
 | Armor | band `Light\|Middle\|Heavy` + arch/sub quality | каталог брони с tier/tags |
 | Ammo | caliber от выбранного ствола + grade floor/cap | `JAZZ_AMMO_*` + grade |
 | Utility | profile + `guaranteed\|chance` + pipe unlock_tier | HE/smoke/molotov/pipe item IDs |
-| Night | `lights: night_only`, optional gun flashlight keyword | GlowStick / FlareStick + time condition |
+| Night | `lights: always_spawn`, AI night-only | GlowStick / FlareStick → `GrenadesInventory` |
 | Flaregun | `never \| rare \| sometimes` + ammo | `FlareHandgun`, `FlareAmmo` |
 | Misc | low-roll table + class chance bias | sunglasses, gas/ballistic mask, … |
 | Valuables | `unit_price` × mult range × drop_chance | `JAZZ_LegionUnitPrices` + Tiny/Big diamonds |
@@ -426,7 +424,7 @@ ShockTrooper:
   night: { lights: night_only }
   flaregun: never
   misc: { chance: 5 }
-  valuables: { mode: unit_price, drop_chance: 50, mult_min: 0.5, mult_max: 1.5 }
+  valuables: { mode: unit_price, drop_chance: 30, mult: [0.8, 1.2] }
   arch:
     2: { primary_bias: [carbine, assault], packages: [assault_m2] }
     3: { packages: [assault_m3], ammo: { floor: Army, cap: AP } }

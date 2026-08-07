@@ -207,7 +207,8 @@ def night_cond(level: int = 8) -> str:
 def emit_shared(caliber_ammo: dict, weapon_combos: dict[str, str] | None = None) -> str:
     """Shared generated LootDefs used by class inventories."""
     parts = [MARKER_BEGIN, "\t\t\t\t\t-- Shared pools owned by JAZZ-UNITS-003 generator"]
-    # Night lights — exclusive arch bands + night TOD
+    # Night lights — spawn into inventory always; AI uses only at Night/Underground.
+    # Do NOT gate on IsTimeOfDay here: CSE usually runs on daytime sat spawn.
     night_entries = []
     for arch_i, (chance, (smin, smax)) in enumerate(zip(NIGHT_CHANCE, NIGHT_STACK), start=1):
         lo = 10 * arch_i + 1
@@ -215,9 +216,6 @@ def emit_shared(caliber_ammo: dict, weapon_combos: dict[str, str] | None = None)
         for item in ("GlowStick", "FlareStick"):
             conds = [
                 "\t\t\t\t\t\t\tgame_conditions = {",
-                "\t\t\t\t\t\t\t\tPlaceObj('IsTimeOfDay', {",
-                "\t\t\t\t\t\t\t\t\tTimeOfDay = \"Night\",",
-                "\t\t\t\t\t\t\t\t}),",
                 "\t\t\t\t\t\t\t\tPlaceObj('QuestIsVariableNum', {",
                 f"\t\t\t\t\t\t\t\t\tAmount = {lo},",
                 "\t\t\t\t\t\t\t\t\tProp = \"JAZZ_Legion_Tier\",",
@@ -242,15 +240,14 @@ def emit_shared(caliber_ammo: dict, weapon_combos: dict[str, str] | None = None)
                 + f"\t\t\t\t\t\t\titem = \"{item}\",\n"
                 + f"\t\t\t\t\t\t\tstack_max = {smax},\n"
                 + f"\t\t\t\t\t\t\tstack_min = {smin},\n"
-                + f"\t\t\t\t\t\t\tweight = {10000 if item == 'FlareStick' else 3000},\n"
                 + "\t\t\t\t\t\t}),"
             )
-    night_entries.append("\t\t\t\t\t\tPlaceObj('LootEntryNoLoot', {\n\t\t\t\t\t\t\tweight = 5000,\n\t\t\t\t\t\t}),")
     parts.append(
         "\t\t\t\t\tPlaceObj('ModItemLootDef', {\n"
-        "\t\t\t\t\t\tComment = \"JAZZ-UNITS-003\",\n"
+        "\t\t\t\t\t\tComment = \"JAZZ-UNITS-003 night lights (spawn always; AI night-only)\",\n"
         "\t\t\t\t\t\tgroup = \"Enemy - Legion\",\n"
         "\t\t\t\t\t\tid = \"JAZZ_Gen_NightEquipment\",\n"
+        "\t\t\t\t\t\tloot = \"all\",\n"
         + "\n".join(night_entries)
         + "\n\t\t\t\t\t}),"
     )
@@ -318,38 +315,26 @@ def emit_shared(caliber_ammo: dict, weapon_combos: dict[str, str] | None = None)
         "\t\t\t\t\t}),"
     )
 
-    # Valuables by price bands (no DiamondBriefcase)
-    for band, pmin, pmax, drop, tiny_min, tiny_max in [
-        ("Low", 0, 600, 35, 1, 1),
-        ("Mid", 601, 1600, 45, 1, 3),
-        ("High", 1601, 3000, 55, 3, 7),
-        ("Elite", 3001, 99999, 65, 4, 10),
+    # Valuables bands kept for shared refs; stacks ≈ band mid price @ TinyDiamonds $500.
+    # Inventories prefer per-class inline entries (emit_inventory); no DiamondBriefcase / NoLoot.
+    for band, mid_price in [
+        ("Low", 400),
+        ("Mid", 1100),
+        ("High", 2300),
+        ("Elite", 4000),
     ]:
+        tmin, tmax = valuables_tiny_stack(mid_price, [0.8, 1.2])
         parts.append(
             "\t\t\t\t\tPlaceObj('ModItemLootDef', {\n"
             "\t\t\t\t\t\tComment = \"JAZZ-UNITS-003 unit_price pocket\",\n"
             "\t\t\t\t\t\tgroup = \"Enemy - Legion\",\n"
             f"\t\t\t\t\t\tid = \"JAZZ_Gen_Valuables_{band}\",\n"
+            "\t\t\t\t\t\tloot = \"all\",\n"
             "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {\n"
-            f"\t\t\t\t\t\t\tgenerate_chance = {drop},\n"
+            "\t\t\t\t\t\t\tgenerate_chance = 30,\n"
             "\t\t\t\t\t\t\titem = \"TinyDiamonds\",\n"
-            f"\t\t\t\t\t\t\tstack_max = {tiny_max},\n"
-            f"\t\t\t\t\t\t\tstack_min = {tiny_min},\n"
-            "\t\t\t\t\t\t\tweight = 10000,\n"
-            "\t\t\t\t\t\t}),\n"
-            + (
-                "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {\n"
-                f"\t\t\t\t\t\t\tgenerate_chance = {max(5, drop // 5)},\n"
-                "\t\t\t\t\t\t\titem = \"BigDiamond\",\n"
-                "\t\t\t\t\t\t\tstack_max = 1,\n"
-                "\t\t\t\t\t\t\tstack_min = 1,\n"
-                "\t\t\t\t\t\t\tweight = 2000,\n"
-                "\t\t\t\t\t\t}),\n"
-                if band == "Elite"
-                else ""
-            )
-            + "\t\t\t\t\t\tPlaceObj('LootEntryNoLoot', {\n"
-            f"\t\t\t\t\t\t\tweight = {100000 - drop * 100},\n"
+            f"\t\t\t\t\t\t\tstack_max = {tmax},\n"
+            f"\t\t\t\t\t\t\tstack_min = {tmin},\n"
             "\t\t\t\t\t\t}),\n"
             "\t\t\t\t\t}),"
         )
@@ -363,6 +348,11 @@ def emit_shared(caliber_ammo: dict, weapon_combos: dict[str, str] | None = None)
     return "\n".join(parts)
 
 
+TINY_DIAMOND_COST = 500
+VALUABLES_DROP_CHANCE_DEFAULT = 30
+VALUABLES_MULT_DEFAULT = (0.8, 1.2)
+
+
 def valuables_band(price: int) -> str:
     if price <= 600:
         return "Low"
@@ -371,6 +361,22 @@ def valuables_band(price: int) -> str:
     if price <= 3000:
         return "High"
     return "Elite"
+
+
+def valuables_tiny_stack(price: int, mult: list | tuple | None = None) -> tuple[int, int]:
+    """Stack of TinyDiamonds ≈ unit strategic price (anchor $500)."""
+    lo, hi = VALUABLES_MULT_DEFAULT
+    if mult and len(mult) >= 2:
+        lo, hi = float(mult[0]), float(mult[1])
+    tmin = max(1, int(round(price * lo / TINY_DIAMOND_COST)))
+    tmax = max(tmin, int(round(price * hi / TINY_DIAMOND_COST)))
+    return tmin, tmax
+
+
+def valuables_drop_chance(val) -> int:
+    if isinstance(val, dict) and val.get("drop_chance") is not None:
+        return int(val["drop_chance"])
+    return VALUABLES_DROP_CHANCE_DEFAULT
 
 
 def tags_for_recipe(recipe: dict, arch: int) -> set[str]:
@@ -785,13 +791,21 @@ def emit_inventory(unit_id: str, recipe: dict, prices: dict) -> str:
         ]
 
     price = prices.get(unit_id, 500)
-    band = valuables_band(price)
     val = recipe.get("valuables")
     if val not in (None, False, "none", "None"):
-        # L19: pocket valuables for combat; logistics cargo is Global AI (no class DiamondBriefcase)
+        # L18/L19: pocket TinyDiamonds ≈ unit price; logistics cargo is Global AI only.
+        # generate_chance alone (no NoLoot) — parent inventory is loot="all".
+        mult = None
+        if isinstance(val, dict):
+            mult = val.get("mult")
+        drop = valuables_drop_chance(val)
+        tmin, tmax = valuables_tiny_stack(price, mult)
         lines += [
-            "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {",
-            f"\t\t\t\t\t\t\tloot_def = \"JAZZ_Gen_Valuables_{band}\",",
+            "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+            f"\t\t\t\t\t\t\tgenerate_chance = {drop},",
+            "\t\t\t\t\t\t\titem = \"TinyDiamonds\",",
+            f"\t\t\t\t\t\t\tstack_max = {tmax},",
+            f"\t\t\t\t\t\t\tstack_min = {tmin},",
             "\t\t\t\t\t\t}),",
         ]
 
