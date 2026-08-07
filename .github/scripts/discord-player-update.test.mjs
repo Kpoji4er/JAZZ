@@ -14,6 +14,7 @@ import {
   collectPushChanges,
   combineDiffPieces,
   detectNewGameNeededMarker,
+  duplicatePublishSkipReason,
   formatNewGameNeededLabel,
   getSummarySkipReason,
   isClearlyNoiseOnly,
@@ -24,6 +25,44 @@ import {
   resolvePlayerSummary,
   safeErrorMessage,
 } from "./discord-player-update.mjs";
+
+test("duplicatePublishSkipReason skips when a peer already succeeded", () => {
+  const sha = "abc123";
+  assert.equal(
+    duplicatePublishSkipReason(
+      [
+        { id: 10, head_sha: sha, status: "completed", conclusion: "success" },
+        { id: 11, head_sha: sha, status: "in_progress", conclusion: null },
+      ],
+      sha,
+      11,
+    ),
+    "another Discord run already completed successfully for this after SHA",
+  );
+});
+
+test("duplicatePublishSkipReason defers to an older in-progress twin", () => {
+  const sha = "def456";
+  assert.equal(
+    duplicatePublishSkipReason(
+      [
+        { id: 20, head_sha: sha, status: "in_progress", conclusion: null },
+        { id: 21, head_sha: sha, status: "queued", conclusion: null },
+      ],
+      sha,
+      21,
+    ),
+    "an older Discord run for this after SHA is already in progress",
+  );
+  assert.equal(
+    duplicatePublishSkipReason(
+      [{ id: 20, head_sha: sha, status: "in_progress", conclusion: null }],
+      sha,
+      20,
+    ),
+    null,
+  );
+});
 
 test("system prompt treats merc Name/Nick as one person", async () => {
   const source = await readFile(

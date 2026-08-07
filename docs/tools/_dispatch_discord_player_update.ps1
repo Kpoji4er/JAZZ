@@ -8,12 +8,13 @@
   start GitHub Actions, so Discord stays silent. After an approved push to main,
   run this to ensure the Discord workflow actually starts.
 
-  Default mode waits briefly, then dispatches workflow_dispatch only if no
-  push-triggered Discord run exists for AfterSha.
+  Default mode polls for up to WaitSeconds. If ANY Discord run already exists
+  for AfterSha (push or workflow_dispatch, queued/in_progress/success), it exits
+  without dispatching. That prevents double posts when push Actions starts late.
 
 .EXAMPLE
   powershell -File docs/tools/_dispatch_discord_player_update.ps1
-  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units -Force
+  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
   powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz -Before 971d5d4 -After 652675d -Force -AlwaysDispatch
 #>
 [CmdletBinding()]
@@ -28,7 +29,8 @@ param(
   [switch] $Force,
   [switch] $DryRun,
   [switch] $AlwaysDispatch,
-  [int] $WaitSeconds = 20
+  [int] $WaitSeconds = 90,
+  [int] $PollSeconds = 8
 )
 
 Set-StrictMode -Version Latest
@@ -65,28 +67,41 @@ function Get-Sha([string]$rev) {
   return (git -C $RepoPath rev-parse $rev).Trim()
 }
 
+function Find-DiscordRunForSha([string]$repoSlug, [string]$sha) {
+  $existingJson = gh api "repos/$repoSlug/actions/workflows/discord-player-updates.yml/runs?branch=main&per_page=20"
+  $existing = $existingJson | ConvertFrom-Json
+  $shaLower = $sha.ToLowerInvariant()
+  return @($existing.workflow_runs) | Where-Object {
+    $_.head_sha -and ($_.head_sha.ToLowerInvariant() -eq $shaLower) -and (
+      $_.status -in @("queued", "in_progress", "waiting", "pending", "requested") -or
+      ($_.status -eq "completed" -and $_.conclusion -in @("success", "neutral"))
+    )
+  } | Select-Object -First 1
+}
+
 $afterSha = if ($After) { Get-Sha $After } else { Get-Sha "HEAD" }
 $beforeSha = if ($Before) { Get-Sha $Before } else { Get-Sha "$afterSha^" }
 
 Write-Host "Discord dispatch target: $slug"
 Write-Host "Checkout: $RepoPath"
-Write-Host "Range: $beforeSha..$afterSha  force=$Force dry_run=$DryRun"
+Write-Host "Range: $beforeSha..$afterSha  force=$Force dry_run=$DryRun always=$AlwaysDispatch"
 
 if (-not $AlwaysDispatch -and -not $DryRun) {
-  if ($WaitSeconds -gt 0) {
-    Write-Host "Waiting ${WaitSeconds}s for a push-triggered Actions run..."
-    Start-Sleep -Seconds $WaitSeconds
-  }
-  $existingJson = gh api "repos/$slug/actions/workflows/discord-player-updates.yml/runs?branch=main&per_page=15"
-  $existing = $existingJson | ConvertFrom-Json
-  $hit = @($existing.workflow_runs) | Where-Object {
-    $_.head_sha -eq $afterSha -and $_.event -eq "push"
-  } | Select-Object -First 1
-  if ($hit) {
-    Write-Host "Push-triggered Discord run already exists: $($hit.html_url) ($($hit.status)/$($hit.conclusion))"
-    return
-  }
-  Write-Host "No push-triggered Discord run for $afterSha; dispatching workflow_dispatch."
+  $deadline = [DateTime]::UtcNow.AddSeconds([Math]::Max(0, $WaitSeconds))
+  $poll = [Math]::Max(3, $PollSeconds)
+  Write-Host "Polling up to ${WaitSeconds}s for an existing Discord run for $afterSha..."
+  do {
+    $hit = Find-DiscordRunForSha -repoSlug $slug -sha $afterSha
+    if ($hit) {
+      Write-Host "Discord run already covers this SHA: $($hit.html_url) ($($hit.event) $($hit.status)/$($hit.conclusion))"
+      Write-Host "Skipping workflow_dispatch to avoid a duplicate Discord post."
+      return
+    }
+    if ([DateTime]::UtcNow -ge $deadline) { break }
+    Start-Sleep -Seconds $poll
+  } while ([DateTime]::UtcNow -lt $deadline)
+
+  Write-Host "No Discord run for $afterSha after wait; dispatching workflow_dispatch."
 }
 
 $forceValue = if ($Force) { "true" } else { "false" }

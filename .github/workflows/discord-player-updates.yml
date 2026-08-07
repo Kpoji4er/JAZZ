@@ -71,6 +71,12 @@ on:
 
 permissions:
   contents: read
+  actions: read
+
+# One live publisher per tip SHA: cancels a racing push vs workflow_dispatch twin.
+concurrency:
+  group: discord-player-updates-${{ inputs.after_sha || github.sha }}
+  cancel-in-progress: true
 
 jobs:
   publish:

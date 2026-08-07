@@ -152,7 +152,9 @@ powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz
 powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
 ```
 
-Скрипт ждёт короткий интервал, проверяет push-triggered run для `After` SHA и при отсутствии диспатчит `workflow_dispatch`. Явная перепубликация диапазона: `-Force -AlwaysDispatch -Before <sha> -After <sha>`.
+Скрипт **поллит до 90с**. Если для `After` SHA уже есть Discord run (`push` или `workflow_dispatch`, queued/in_progress/success) — **не** диспатчит (анти-дубль). Явная перепубликация: `-Force -AlwaysDispatch -Before <sha> -After <sha>`.
+
+Агентам: **не** вызывать сырой `gh workflow run discord-player-updates.yml` после push — только этот скрипт. Workflow сам дедупит twin push/dispatch перед webhook (`concurrency` + Actions API).
 
 См. также `.cursor/rules/jazz-git-push-chunks.mdc` §6.
 

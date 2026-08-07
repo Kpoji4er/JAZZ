@@ -1534,6 +1534,72 @@ export function getSummarySkipReason(summary, forcePublish) {
   return null;
 }
 
+/**
+ * Skip webhook if another Actions run for the same after SHA already published
+ * (or an older twin is still running). Stops push + workflow_dispatch double posts.
+ */
+export function duplicatePublishSkipReason(runs, afterSha, myRunId) {
+  const sha = String(afterSha || "").trim().toLowerCase();
+  const mine = Number(myRunId);
+  if (!sha || !Number.isFinite(mine) || mine <= 0 || !Array.isArray(runs)) {
+    return null;
+  }
+  const peers = runs.filter((run) => {
+    const head = String(run?.head_sha || "").trim().toLowerCase();
+    return head === sha && Number(run?.id) !== mine;
+  });
+  if (
+    peers.some(
+      (run) =>
+        run.status === "completed" &&
+        (run.conclusion === "success" || run.conclusion === "neutral"),
+    )
+  ) {
+    return "another Discord run already completed successfully for this after SHA";
+  }
+  if (
+    peers.some(
+      (run) =>
+        (run.status === "queued" ||
+          run.status === "in_progress" ||
+          run.status === "waiting" ||
+          run.status === "pending" ||
+          run.status === "requested") &&
+        Number(run.id) < mine,
+    )
+  ) {
+    return "an older Discord run for this after SHA is already in progress";
+  }
+  return null;
+}
+
+async function listDiscordWorkflowRuns({ repository, token, perPage = 30 }) {
+  if (!repository || !token) {
+    return [];
+  }
+  const url = new URL(
+    `https://api.github.com/repos/${repository}/actions/workflows/discord-player-updates.yml/runs`,
+  );
+  url.searchParams.set("per_page", String(perPage));
+  url.searchParams.set("branch", "main");
+  const response = await fetch(url, {
+    headers: {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      "User-Agent": "jazz-discord-player-update",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+  if (!response.ok) {
+    console.log(
+      `Discord dedup: GitHub runs API ${response.status}; continuing without dedup.`,
+    );
+    return [];
+  }
+  const body = await response.json();
+  return Array.isArray(body.workflow_runs) ? body.workflow_runs : [];
+}
+
 function skipReason(changeSet, markers, forcePublish) {
   if (markers.skip) {
     return "commit marker [skip discord] has priority";
@@ -1644,6 +1710,21 @@ async function main() {
     console.log("Dry run: Discord publication skipped. Sanitized payload:");
     console.log(JSON.stringify(payload, null, 2));
     return;
+  }
+
+  const githubToken = String(process.env.GITHUB_TOKEN ?? "").trim();
+  const repository = String(process.env.GITHUB_REPOSITORY ?? "").trim();
+  const runId = String(process.env.GITHUB_RUN_ID ?? "").trim();
+  if (githubToken && repository && runId) {
+    const runs = await listDiscordWorkflowRuns({
+      repository,
+      token: githubToken,
+    });
+    const dup = duplicatePublishSkipReason(runs, changeSet.afterSha, runId);
+    if (dup) {
+      console.log(`Discord update skipped: ${dup}.`);
+      return;
+    }
   }
 
   if (!process.env.DISCORD_WEBHOOK_URL) {

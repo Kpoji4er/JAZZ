@@ -19,13 +19,13 @@ alwaysApply: true
    - в конце `git status` / `rev-list` — ветка совпадает с remote, ahead = 0 (или остаток <8 ушёл последним чанком).
 4. Несколько пакетов suite (`jazz`, `jazz-units`, …) — тот же лимит **на каждый** репозиторий отдельно.
 5. Не объединять чанки «для скорости» и не `push --force` ради обхода лимита без отдельного явного запроса.
-6. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` каждого затронутого пакета обязательно:
+6. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` каждого затронутого пакета:
 
 ```text
 powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <jazz|jazz-units|jazz-maps|jazz_assets|jazz-nomaps>
 ```
 
-Скрипт ждёт push-triggered run и при его отсутствии делает `workflow_dispatch`. Для явной перепубликации: `-Force -AlwaysDispatch -Before <sha> -After <sha>`. Не полагаться только на `git push`.
+Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть (чтобы не было двух постов). **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт. `-AlwaysDispatch` — только когда пользователь явно просит перепубликовать.
 
 ## Пример
 
