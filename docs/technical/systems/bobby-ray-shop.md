@@ -40,11 +40,13 @@ Ammo ниже unlock дополнительно поднимает `Stock` до 
 
 ## Цены
 
-На restock instance: `Cost_catalog × price_mult(Δ) × jitter[0.8–1.2]`.
+На restock instance: `Cost_catalog × price_mult(Δ) × jitter[0.8–1.2]` (`MulDivRound`, thousandths).
 
+- База **всегда** из `InventoryItemCompositeDef` preset / snapshot `g_JAZZ_BobbyCatalogCost` — **не** из текущего `g_Classes[id].Cost` (ранний баг: in-place multiply сжигал class Cost до $1).
 - `price_mult`: `3^Δ` если `T>U`, `0.3^|Δ|` если `T<U`, иначе 1.
 - Staples: только jitter (без Δ).
-- GameRule **BobbyPays** остаётся на vanilla path **после** записи instance `Cost` (порядок: tier/jitter → затем pays).
+- GameRule **BobbyPays** остаётся на vanilla path **после** записи instance `Cost`.
+- При install/`LoadGame`: snapshot + restore class Cost + reprice открытого `g_BobbyRayStore.standard`.
 
 ## UI categories
 
