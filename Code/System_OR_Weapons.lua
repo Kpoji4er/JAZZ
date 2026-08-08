@@ -619,6 +619,10 @@ function Firearm:GetAttackResults(action, attack_args)
 
 	local num_shots = attack_args.num_shots or 0
 	local suppressionbonus = attack_args.suppressionbonus or 100
+	-- UNITS-006 HawksEye: sniper Will suppression ×2
+	if type(Jazz_ApplyHawksEyeSuppression) == "function" then
+		suppressionbonus = Jazz_ApplyHawksEyeSuppression(attacker, suppressionbonus)
+	end
 
 	local seed = Unit:Random()
 	local random = BraidRandomCreate(seed)

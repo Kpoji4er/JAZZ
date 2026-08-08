@@ -12457,3 +12457,27 @@ Speck","Командир!
 890000000004854,"Хорошо, что Фиделя тут нет.","Хорошо, что Фиделя тут нет.",,Jazz_Iggy
 890000000004855,Со своими — проще.,Со своими — проще.,,Jazz_Iggy
 272740235755,"<em>Сигнатурная пулемётная атака</em> игнорирует штрафы <em>без опоры</em> к точности и отдаче, даёт <em>вдвое больше пуль</em> и <em>вдвое сильнее подавление</em>, при пониженном уроне и жёстком контроле отдачи. Обычная очередь пулемёта эти бонусы не получает.","<em>Signature machine-gun attack</em> ignores <em>unsupported</em> accuracy and recoil penalties, fires <em>twice as many shots</em> with <em>double suppression</em>, reduced damage, and tight recoil control. Ordinary MG burst does not get these bonuses.",,jazz:CharacterEffect/GrizzlyPerk.lua
+890000000009861,Пусть кровоточат,Make Them Bleed,,jazz:CharacterEffect/MakeThemBleed.lua
+890000000009862,Удары в пах и по животным вызывают кровотечение. +10% урона за каждого врага с кровотечением в зоне видимости (макс. +50%).,Groin and animal hits cause bleeding. +10% damage per bleeding enemy in sight (cap +50%).,,jazz:CharacterEffect/MakeThemBleed.lua
+890000000009863,Оседлый стрелок,Dedicated Camper,,jazz:CharacterEffect/DedicatedCamper.lua
+890000000009864,Пока не сдвинулся с места в этом ходу: +25% урона. Если атака нанесла ≥25 урона — +15 Силы воли (Grit).,While stationary this turn: +25% damage. Dealing >=25 damage grants +15 Grit.,,jazz:CharacterEffect/DedicatedCamper.lua
+890000000009865,Парный заход,Tag Team,,jazz:CharacterEffect/TagTeam.lua
+890000000009866,+15% точности по целям под Pin Down союзника.,+15% chance to hit vs targets under an ally's Pin Down.,,jazz:CharacterEffect/TagTeam.lua
+890000000009867,Добить,Finish Them,,jazz:CharacterEffect/BunsPerk.lua
+890000000009868,"+10% точности по целям, которых в этом ходу уже ранил союзник.",+10% chance to hit vs targets already damaged by an ally this turn.,,jazz:CharacterEffect/BunsPerk.lua
+890000000009869,Ястребиный глаз,Hawk's Eye,,jazz:CharacterEffect/HawksEye.lua
+890000000009870,Pin Down / Focus Fire стоит 1 ОД. Снайперские атаки дают вдвое больше подавления. Печенье прилагается.,Pin Down / Focus Fire costs 1 AP. Sniper attacks apply double suppression. Biscuits included.,,jazz:CharacterEffect/HawksEye.lua
+890000000009871,Наводчик,Spotter,,jazz:CharacterEffect/Spotter.lua
+890000000009872,Pin Down помечает цель (Marked). Следующее попадание по помеченной цели — гарантированный крит.,Pin Down marks the target. The next hit on a marked Spotter target is a guaranteed crit.,,jazz:CharacterEffect/Spotter.lua
+890000000009873,Взрывной характер,Have a Blast,,jazz:CharacterEffect/HaveABlast.lua
+890000000009874,Переключатель: контратака гранатой. Получает только 50% урона от собственных взрывов.,Toggle: retaliate with a grenade. Takes only 50% damage from own blasts.,,jazz:CharacterEffect/HaveABlast.lua
+890000000009875,Убийственный ветер,Killing Wind,,jazz:CharacterEffect/KillingWind.lua
+890000000009876,Если атака задевает ≥2 целей — +8 Grit. Тяжёлая броня даёт половину штрафа Free Move; громоздкое оружие не штрафует FM.,Hitting >=2 targets grants +8 Grit. Heavy armor Free Move penalty halved; cumbersome weapons ignore FM penalty.,,jazz:CharacterEffect/KillingWind.lua
+890000000009877,Уверенность растёт,Building Confidence,,jazz:CharacterEffect/BuildingConfidence.lua
+890000000009878,На 2-м ходу боя и каждом 3-м ходу — Inspired. Лечение ±10% за уровень (макс. ±50%) в бою и на спутнике.,Inspired on combat turn 2 and every 3rd turn. Healing +/-10% per level (cap +/-50%) in combat and satellite.,,jazz:CharacterEffect/BuildingConfidence.lua
+890000000009879,Самодовольство,Smug,,jazz:CharacterEffect/SidneyPerk.lua
+890000000009880,"+2 ОД в начале хода, пока не промахнётся и не получит урон.",+2 AP at turn start until a miss or taking damage.,,jazz:CharacterEffect/SidneyPerk.lua
+890000000009881,Адский ливень,Bullet Hell,,jazz:CharacterEffect/BulletHell.lua
+890000000009882,Конусный dump 15–30 пуль с обычным CTH и подавлением Will. Перезарядка способности — после убийства.,Cone dump of 15-30 rounds with normal CTH and Will suppression. Ability recharges on kill.,,jazz:CharacterEffect/BulletHell.lua
+890000000009883,По моей цели,On My Target,,jazz:CharacterEffect/OnMyTarget.lua
+890000000009884,Отряд атакует отмеченную цель. Стоимость: 10 ОД.,Squad attacks the marked target. Cost: 10 AP.,,jazz:CharacterEffect/OnMyTarget.lua

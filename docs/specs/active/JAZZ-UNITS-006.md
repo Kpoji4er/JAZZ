@@ -280,8 +280,8 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 ## Evidence
 
 - `JAZZ-UNITS-006-AC-001` / `AC-002` / `AC-009`: `PASS` (static) — batch1 §A rewire + UNITS-003 supersede note (`b6fed5d`).
-- `JAZZ-UNITS-006-AC-004` (partial): `PASS` (static) — batch2 §C combat CHANGE: Grunty Morale, Grizzly G1 ×2, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid; Ice text-only. Spike CD / Flay / Cougar still later batches.
-- `JAZZ-UNITS-006-AC-005` / `AC-006` (batch1+2 deltas): `PASS` (static) — RU/EN rows + showcase RU|EN `perks.md` + technical/wiki combat-actions touches.
+- `JAZZ-UNITS-006-AC-004` (partial): `PASS` (static) — batch2 combat + batch3 signatures/CD-kill (Spike on-kill, Flay aura, Spotter/HawksEye/TagTeam/Buns/…); remaining soft-cuts in `_units006_batch3_notes.md`.
+- `JAZZ-UNITS-006-AC-005` / `AC-006` (batch1–3 deltas): `PASS` (static) — RU/EN + showcase RU|EN `perks.md`.
 - `JAZZ-UNITS-006-AC-003` / `AC-008`: `BLOCKED` — §B / §D not started.
 - `JAZZ-UNITS-006-AC-007`: `BLOCKED` — owner runtime/human smoke.
 

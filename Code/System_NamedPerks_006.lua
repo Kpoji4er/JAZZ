@@ -142,16 +142,39 @@ end
 OnMsg.ModsReloaded = function()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Batch2()
+	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
+		Jazz_InstallNamedPerks006Batch3()
+	end
 end
 OnMsg.DataLoaded = function()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Batch2()
+	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
+		Jazz_InstallNamedPerks006Batch3()
+	end
 end
 OnMsg.NewGame = function()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Batch2()
+	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
+		Jazz_InstallNamedPerks006Batch3()
+	end
 end
 OnMsg.LoadGame = function()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Batch2()
+	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
+		Jazz_InstallNamedPerks006Batch3()
+	end
+end
+
+OnMsg.CombatStart = function()
+	if type(Jazz_NamedPerks006Batch3OnCombatStart) == "function" then
+		Jazz_NamedPerks006Batch3OnCombatStart()
+	end
+end
+OnMsg.TurnStart = function()
+	if type(Jazz_NamedPerks006Batch3OnTurnStart) == "function" then
+		Jazz_NamedPerks006Batch3OnTurnStart()
+	end
 end

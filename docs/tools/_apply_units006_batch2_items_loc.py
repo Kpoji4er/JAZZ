@@ -336,7 +336,9 @@ def upsert_csv(path: Path, loc: dict[str, tuple[str, str, str]], lang: str) -> N
         if lid in by_id:
             i = by_id[lid]
             row = rows[i]
-            # Ensure at least 4 cols: id, col1, col2, blank?, context
+            ctx_existing = row[4] if len(row) > 4 else ""
+            if "VoiceResponse" in (ctx_existing or ""):
+                raise SystemExit(f"REFUSING to overwrite VoiceResponse id {lid} in {path.name}")
             while len(row) < 5:
                 row.append("")
             if lang == "ru":

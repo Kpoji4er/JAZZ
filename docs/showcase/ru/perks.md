@@ -43,6 +43,18 @@
 | `ShoulderToShoulder` | Scully | Конец хода рядом с союзником: **+15 Grit** себе и соседям |
 | `SteroidPunch` | Steroid | Melee CTH от Силы; melee crit → Unconscious; без штрафа стиму; **30%** урона от огня |
 | `IcePerk` | Ice | Сигнатура: пять выстрелов по конечностям (текст; shot-list runtime — см. deferred) |
+| `MakeThemBleed` | Flay | +10% урона за кровоточащего врага в LOS (cap +50%) |
+| `DedicatedCamper` | Hitman | На месте: +25% урона; ≥25 урона → +15 Grit |
+| `TagTeam` | Raider | +15 CTH по целям под Pin Down союзника |
+| `BunsPerk` | Buns | +10 CTH по целям, уже раненым союзником в этом ходу |
+| `HawksEye` | Scope | Pin Down **1 ОД**; снайпер suppress ×2 |
+| `Spotter` | Raven | Pin Down → Marked; следующий хит — 100% crit |
+| `HaveABlast` | Red | Toggle граната; **50%** урона от своих взрывов |
+| `KillingWind` | Fauda | ≥2 целей в атаке → +8 Grit (+ FM/броня как раньше) |
+| `BuildingConfidence` | MD | Inspired на ходу 2 и каждом 3-м (heal%-by-level — partial) |
+| `SidneyPerk` | Sidney | +2 ОД/ход пока не miss/урон |
+| `BulletHell` | Spike | CD **после убийства** |
+| `OnMyTarget` | Len | Отряд по отмеченной цели; **10 ОД** |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира; в тултипе — **текущий приказ**. Подробности: [Командная аура](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (личностные) | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
 | `Jazz_Perk_Veteran` | IMP (личностные) | +10 ко всем skill/stat checks |
@@ -52,7 +64,7 @@
 
 ## §A / §C (UNITS-006)
 
-§A (Madman / Blade / Nervous / Henning / Dynamo / Lucky / Shank / Laura / Vince / Steiger / Mike) и §C combat CHANGE batch2 (Grizzly G1, Grunty Morale, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid; Ice — текст) — целевой Лист2. Статусы: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
+§A + §C batch2/3 (combat + signatures/CD-kill) — целевой Лист2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list. Статусы: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
 
 ## IMP: стартовый экип
 

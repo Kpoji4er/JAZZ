@@ -74074,6 +74074,347 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/IcePerk",
 					'Tier', "Personal",
 				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "MakeThemBleed",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndEffects",
+							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+								if owner ~= attacker or not data then
+									return
+								end
+								local n = 0
+								for _, u in ipairs(attacker:GetVisibleEnemies() or empty_table) do
+									if IsValid(u) and not u:IsDead() then
+										if u:HasStatusEffect("Bleeding") or u:HasStatusEffect("BleedingMedium") or u:HasStatusEffect("BleedingHeavy") then
+											n = n + 1
+										end
+									end
+								end
+								local bonus = Min(50, n * 10)
+								if bonus > 0 then
+									data.damage_percent = (data.damage_percent or 100) + bonus
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009861, --[[ModItemCharacterEffectCompositeDef MakeThemBleed DisplayName]] "Пусть кровоточат"),
+					'Description', T(890000000009862, --[[ModItemCharacterEffectCompositeDef MakeThemBleed Description]] "Удары в пах и по животным вызывают кровотечение. +10% урона за каждого врага с кровотечением в зоне видимости (макс. +50%)."),
+					'Icon', "UI/Icons/Perks/MakeThemBleed",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "DedicatedCamper",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								target:SetEffectValue("Jazz_CamperOrigin", target:GetPos())
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndEffects",
+							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+								if owner ~= attacker or not data then
+									return
+								end
+								local origin = attacker:GetEffectValue("Jazz_CamperOrigin")
+								local moved = attack_args and attack_args.unit_moved
+								if not moved and origin and attacker:GetPos() == origin then
+									data.damage_percent = (data.damage_percent or 100) + 25
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not results then
+									return
+								end
+								local dmg = results.total_damage or results.dealt_damage or 0
+								if type(dmg) ~= "number" or dmg <= 0 then
+									for _, hit in ipairs(results.hits or empty_table) do
+										if hit and type(hit.damage) == "number" then
+											dmg = dmg + hit.damage
+										end
+									end
+								end
+								if dmg >= 25 then
+									attacker:ApplyTempHitPoints(15)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009863, --[[ModItemCharacterEffectCompositeDef DedicatedCamper DisplayName]] "Оседлый стрелок"),
+					'Description', T(890000000009864, --[[ModItemCharacterEffectCompositeDef DedicatedCamper Description]] "Пока не сдвинулся с места в этом ходу: +25% урона. Если атака нанесла ≥25 урона — +15 Силы воли (Grit)."),
+					'Icon', "UI/Icons/Perks/DedicatedCamper",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "TagTeam",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								if type(Jazz_TagTeamAllyPinDown) == "function" and Jazz_TagTeamAllyPinDown(attacker, attack_target) then
+									ApplyCthModifier_Add(self, data, 15)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009865, --[[ModItemCharacterEffectCompositeDef TagTeam DisplayName]] "Парный заход"),
+					'Description', T(890000000009866, --[[ModItemCharacterEffectCompositeDef TagTeam Description]] "+15% точности по целям под Pin Down союзника."),
+					'Icon', "UI/Icons/Perks/TagTeam",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "BunsPerk",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								if type(Jazz_BunsTargetDamagedByAlly) == "function" and Jazz_BunsTargetDamagedByAlly(attacker, attack_target) then
+									ApplyCthModifier_Add(self, data, 10)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009867, --[[ModItemCharacterEffectCompositeDef BunsPerk DisplayName]] "Добить"),
+					'Description', T(890000000009868, --[[ModItemCharacterEffectCompositeDef BunsPerk Description]] "+10% точности по целям, которых в этом ходу уже ранил союзник."),
+					'Icon', "UI/Icons/Perks/BunsPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "HawksEye",
+					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "pindownCostOverwrite",
+							'Value', 1,
+							'Tag', "<pindownCostOverwrite>",
+						}),
+					},
+					'DisplayName', T(890000000009869, --[[ModItemCharacterEffectCompositeDef HawksEye DisplayName]] "Ястребиный глаз"),
+					'Description', T(890000000009870, --[[ModItemCharacterEffectCompositeDef HawksEye Description]] "Pin Down / Focus Fire стоит 1 ОД. Снайперские атаки дают вдвое больше подавления. Печенье прилагается."),
+					'Icon', "UI/Icons/Perks/HawksEye",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Spotter",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not action then
+									return
+								end
+								if action.id == "PinDown" and IsKindOf(attack_target, "Unit") and not attack_target:IsDead() then
+									attack_target:AddStatusEffect("Marked")
+									attack_target:SetEffectValue("Jazz_SpotterCritPending", true)
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcCritChance",
+							Handler = function (self, target, attacker, attack_target, action, weapon, data)
+								if target ~= attacker or not data or not IsKindOf(attack_target, "Unit") then
+									return
+								end
+								if attack_target:GetEffectValue("Jazz_SpotterCritPending") then
+									data.crit_chance = 100
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if not IsKindOf(attack_target, "Unit") then
+									return
+								end
+								if attack_target:GetEffectValue("Jazz_SpotterCritPending") and results and not results.miss then
+									-- Consume after a resolved hit by anyone.
+									local hits = results.hits or results
+									local hit_ok = results.crit or results.high_accuracy
+									if not hit_ok then
+										for _, hit in ipairs(results.hits or empty_table) do
+											if hit and not hit.miss then
+												hit_ok = true
+												break
+											end
+										end
+									end
+									if hit_ok then
+										attack_target:SetEffectValue("Jazz_SpotterCritPending", nil)
+									end
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009871, --[[ModItemCharacterEffectCompositeDef Spotter DisplayName]] "Наводчик"),
+					'Description', T(890000000009872, --[[ModItemCharacterEffectCompositeDef Spotter Description]] "Pin Down помечает цель (Marked). Следующее попадание по помеченной цели — гарантированный крит."),
+					'Icon', "UI/Icons/Perks/Spotter",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "HaveABlast",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndEffects",
+							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+								if owner ~= target or not data then
+									return
+								end
+								local self_blast = attacker == target
+								if not self_blast and attack_args and attack_args.explosion_pos then
+									self_blast = attacker == owner
+								end
+								if self_blast and (IsKindOf(weapon, "Grenade") or (action and action.ActionType == "Ranged Attack" and weapon and weapon.class and string.find(weapon.class, "Grenade"))) then
+									data.damage_percent = MulDivRound(data.damage_percent or 100, 50, 100)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009873, --[[ModItemCharacterEffectCompositeDef HaveABlast DisplayName]] "Взрывной характер"),
+					'Description', T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель: контратака гранатой. Получает только 50% урона от собственных взрывов."),
+					'Icon', "UI/Icons/Perks/HaveABlast",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "KillingWind",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not results then
+									return
+								end
+								local hit_units = {}
+								for _, hit in ipairs(results.hits or empty_table) do
+									local obj = hit and (hit.obj or hit.unit)
+									if IsKindOf(obj, "Unit") and not obj:IsDead() then
+										hit_units[obj] = true
+									end
+								end
+								local n = 0
+								for _ in pairs(hit_units) do
+									n = n + 1
+								end
+								if n >= 2 then
+									attacker:ApplyTempHitPoints(8)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009875, --[[ModItemCharacterEffectCompositeDef KillingWind DisplayName]] "Убийственный ветер"),
+					'Description', T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "Если атака задевает ≥2 целей — +8 Grit. Тяжёлая броня даёт половину штрафа Free Move; громоздкое оружие не штрафует FM."),
+					'Icon', "UI/Icons/Perks/KillingWind",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "BuildingConfidence",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if not g_Combat then
+									return
+								end
+								local turn = g_Combat.current_turn or 1
+								if turn == 2 or (turn > 0 and turn % 3 == 0) then
+									target:AddStatusEffect("Inspired")
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009877, --[[ModItemCharacterEffectCompositeDef BuildingConfidence DisplayName]] "Уверенность растёт"),
+					'Description', T(890000000009878, --[[ModItemCharacterEffectCompositeDef BuildingConfidence Description]] "На 2-м ходу боя и каждом 3-м ходу — Inspired. Лечение ±10% за уровень (макс. ±50%) в бою и на спутнике."),
+					'Icon', "UI/Icons/Perks/BuildingConfidence",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "SidneyPerk",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatStarted",
+							Handler = function (self, target, load_game)
+								target:SetEffectValue("Jazz_SidneySmug", true)
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if target:GetEffectValue("Jazz_SidneySmug") then
+									target:GainAP(2 * const.Scale.AP)
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target == attacker and results and results.miss then
+									attacker:SetEffectValue("Jazz_SidneySmug", nil)
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnDamageTaken",
+							Handler = function (self, target, attacker, dmg)
+								if dmg and dmg > 0 then
+									target:SetEffectValue("Jazz_SidneySmug", nil)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009879, --[[ModItemCharacterEffectCompositeDef SidneyPerk DisplayName]] "Самодовольство"),
+					'Description', T(890000000009880, --[[ModItemCharacterEffectCompositeDef SidneyPerk Description]] "+2 ОД в начале хода, пока не промахнётся и не получит урон."),
+					'Icon', "UI/Icons/Perks/SidneyPerk",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "BulletHell",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009881, --[[ModItemCharacterEffectCompositeDef BulletHell DisplayName]] "Адский ливень"),
+					'Description', T(890000000009882, --[[ModItemCharacterEffectCompositeDef BulletHell Description]] "Конусный dump 15–30 пуль с обычным CTH и подавлением Will. Перезарядка способности — после убийства."),
+					'Icon', "UI/Icons/Perks/BulletHell",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "OnMyTarget",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009883, --[[ModItemCharacterEffectCompositeDef OnMyTarget DisplayName]] "По моей цели"),
+					'Description', T(890000000009884, --[[ModItemCharacterEffectCompositeDef OnMyTarget Description]] "Отряд атакует отмеченную цель. Стоимость: 10 ОД."),
+					'Icon', "UI/Icons/Perks/OnMyTarget",
+					'Tier', "Personal",
+				}),
 				PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
 					ActionType = "Ranged Attack",

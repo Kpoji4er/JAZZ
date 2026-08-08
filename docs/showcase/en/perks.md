@@ -43,6 +43,18 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `ShoulderToShoulder` | Scully | End turn next to ally: **+15 Grit** to self and neighbors |
 | `SteroidPunch` | Steroid | Melee CTH from Strength; melee crit → Unconscious; no stim pen; **30%** fire damage taken |
 | `IcePerk` | Ice | Signature: five limb shots (text; shot-list runtime deferred) |
+| `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%) |
+| `DedicatedCamper` | Hitman | Stationary: +25% damage; ≥25 damage → +15 Grit |
+| `TagTeam` | Raider | +15 CTH vs ally Pin Down targets |
+| `BunsPerk` | Buns | +10 CTH vs targets already damaged by an ally this turn |
+| `HawksEye` | Scope | Pin Down **1 AP**; sniper suppress ×2 |
+| `Spotter` | Raven | Pin Down → Marked; next hit 100% crit |
+| `HaveABlast` | Red | Toggle grenade; **50%** damage from own blasts |
+| `KillingWind` | Fauda | ≥2 targets hit → +8 Grit (+ existing FM/armor) |
+| `BuildingConfidence` | MD | Inspired on turn 2 and every 3rd (heal%-by-level partial) |
+| `SidneyPerk` | Sidney | +2 AP/turn until miss/damage taken |
+| `BulletHell` | Spike | CD **on kill** |
+| `OnMyTarget` | Len | Squad attacks marked target; **10 AP** |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura; tooltip shows the **current order**. Details: [Command aura](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (personal) | Conversation options for Negotiator/Scoundrel/Psycho without their combat/economy effects |
 | `Jazz_Perk_Veteran` | IMP (personal) | +10 to all skill/stat checks |
@@ -52,7 +64,7 @@ Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle r
 
 ## §A / §C (UNITS-006)
 
-§A (Madman / Blade / Nervous / Henning / Dynamo / Lucky / Shank / Laura / Vince / Steiger / Mike) and §C combat CHANGE batch2 (Grizzly G1, Grunty Morale, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid; Ice text) match List2. Status markers: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
+§A + §C batch2/3 (combat + signatures/CD-kill) match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list. Status markers: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
 
 ## IMP starting gear
 

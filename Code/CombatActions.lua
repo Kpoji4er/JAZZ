@@ -1056,10 +1056,9 @@ function Unit:BulletHell(action_id, cost_ap, args)
 		return
 	end
 
-	-- Vanilla BulletHell has no recharge_on_kill param; still enter timed signature recharge after use.
-	local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
+	-- UNITS-006: Spike BulletHell recharges on kill (not timed-only / 1× combat).
 	local rechargeTime = action:ResolveValue("rechargeTime") or const.Combat.SignatureAbilityRechargeTime
 	if rechargeTime and rechargeTime > 0 then
-		self:AddSignatureRechargeTime(action_id, rechargeTime, recharge_on_kill > 0)
+		self:AddSignatureRechargeTime(action_id, rechargeTime, true)
 	end
 end
