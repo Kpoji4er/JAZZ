@@ -642,6 +642,62 @@ local function JAZZ_AITryCoverMove(unit, context)
     end
 end
 
+-- JAZZ-AI-OW-001: Fallback OW only toward a known aim point; no random 360°/door/ally-front.
+-- No usable point → return false (caller reverts / Unaware), never spam OW into a wall.
+local function JazzAI_FallbackOverwatchTargetPos(unit, context)
+	if not IsValid(unit) then
+		return false
+	end
+	local known = unit.last_known_enemy_pos
+	if known then
+		local slab = GetPassSlab(known) or known
+		if slab then
+			return slab
+		end
+	end
+	local best, best_dist
+	for _, enemy in ipairs(context and context.enemies or empty_table) do
+		if IsValidTarget(enemy) then
+			local dist = unit:GetDist(enemy)
+			if not best_dist or dist < best_dist then
+				best = enemy
+				best_dist = dist
+			end
+		end
+	end
+	if best then
+		local pos = best:GetPos()
+		return GetPassSlab(pos) or pos
+	end
+	return false
+end
+
+function AIPlaceFallbackOverwatch(unit, context)
+	if not context or not IsKindOf(context.weapon, "Firearm") then
+		return false
+	end
+	if context.weapon.PreparedAttackType ~= "Overwatch"
+		and context.weapon.PreparedAttackType ~= "Both" then
+		return false
+	end
+
+	local target_pt = JazzAI_FallbackOverwatchTargetPos(unit, context)
+	if not target_pt then
+		return false
+	end
+
+	local args, has_ap = AIGetAttackArgs(context, CombatActions.Overwatch, nil, "None")
+	if args and has_ap then
+		args.target_pos = target_pt
+		args.target = target_pt
+		if AIPlayCombatAction("Overwatch", context.unit, nil, args) then
+			PlayVoiceResponse(context.unit, "AIOverwatch")
+			return true
+		end
+	end
+	return false
+end
+
 function JAZZ_AIDisengage(unit, context, did_attack)
     if not IsValid(unit) or unit:IsDead() then
         return
