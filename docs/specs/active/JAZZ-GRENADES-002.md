@@ -35,7 +35,7 @@ approved_by: project-owner
 
 ## Цели
 
-- На blast-хите живой Human проходит **skill roll**: тело (`Strength + Health`) против силы взрыва (`force` = урон **до брони**, множитель **×1**).
+- На blast-хите в **center-кольце** живой Human проходит **skill roll**: тело (`Strength + Health`) против силы взрыва (`force` = урон **до брони**, множитель **×1**).
 - `Strength` / `Health` — атрибуты юнита (1..100), не `HitPoints`.
 - Провал ролла → radial knockback как у SteroidPunch (`Punched` → prone), направление от эпицентра.
 - Успех → стоим (concussion/trauma/Will без изменений контракта).
@@ -57,7 +57,7 @@ approved_by: project-owner
 | --- | --- | --- | --- |
 | D1 | Модель проверки | **locked** | Skill roll (RNG), не голый порог |
 | D2 | Что считать `force` | **locked** | Урон blast **до брони**, множитель **×1** (не ×2) |
-| D3 | Scope источников | **locked** | Все `JazzIsBlastExplosiveHit` (frag/HE/40mm/mortar HE/demo / `aoeType none`), center и area |
+| D3 | Scope источников | **locked** | Все `JazzIsBlastExplosiveHit`; knockback **только во внутреннем кольце** = `CenterAreaOfEffect` по **Dist2D** до эпицентра (как inner mesh прицела / `min_range`). Не полагаться на строгий `hit.explosion_center` (same-slab при CAOE=1 / 3D GetDist). Outer `AreaOfEffect` — без knockback |
 | D4 | Кто отлетает | **locked** | Любой живой Human (мерки и враги); не-Human — skip |
 | D5 | Иммунитеты / skip | **locked** | Dead; Prone; Unconscious; `TempHitPoints > 0`; prediction; `hit.grazing` |
 | D6 | Дистанция push | **locked** | `pushSlabs = 1` (паритет Steroid) |
@@ -122,10 +122,10 @@ Debug CombatLog: body / force / roll / value / Pass|Fail.
 
 ## Требования
 
-- `JAZZ-GRENADES-002-REQ-001` — для `JazzIsBlastExplosiveHit` + живой Human без skip D5: skill roll `body − force` (d100); fail → knockback; pass → без смены позиции.
+- `JAZZ-GRENADES-002-REQ-001` — для `JazzIsBlastExplosiveHit` + живой Human в Dist2D ≤ `CenterAreaOfEffect` плит от эпицентра без skip D5: skill roll `body − force` (d100); fail → knockback; pass → без смены позиции. Дальше внутреннего кольца — без ролла и без отлёта.
 - `JAZZ-GRENADES-002-REQ-002` — `force` = pre-armor blast damage ×1; не post-armor applied damage.
 - `JAZZ-GRENADES-002-REQ-003` — knockback = Steroid-style push от эпицентра, `pushSlabs = 1`, без mock grenade.
-- `JAZZ-GRENADES-002-REQ-004` — smoke/tear/toxic/fire, grazing, prediction не роллят.
+- `JAZZ-GRENADES-002-REQ-004` — smoke/tear/toxic/fire, grazing, prediction, outer (non-center) area не роллят.
 - `JAZZ-GRENADES-002-REQ-005` — `force <= 0` → без ролла и без отлёта.
 - `JAZZ-GRENADES-002-REQ-006` — SteroidPunch path не меняется.
 - `JAZZ-GRENADES-002-REQ-007` — technical + wiki + showcase RU/EN: формула skill roll, pre-armor force, мерки тоже могут отлететь.
@@ -149,6 +149,7 @@ Debug CombatLog: body / force / roll / value / Pass|Fail.
 - `JAZZ-GRENADES-002-AC-007` — runtime: нет прохода → on-spot prone, не через стену.
 - `JAZZ-GRENADES-002-AC-008` — runtime: SteroidPunch без регрессии (в т.ч. kill collateral mock grenade).
 - `JAZZ-GRENADES-002-AC-009` — human: wiki + showcase RU/EN = формула.
+- `JAZZ-GRENADES-002-AC-010` — runtime: юнит только во внешнем AreaOfEffect — без knockback и без knockback-ролла; center по-прежнему может отлететь.
 
 ## Impact и совместимость
 
@@ -176,15 +177,16 @@ Debug CombatLog: body / force / roll / value / Pass|Fail.
 
 ## Evidence
 
-- `JAZZ-GRENADES-002-AC-001`: `PASS (static)` — `JazzTryBlastKnockback` / `JazzResolveBlastKnockback` / `Unit:JazzBlastKnocked` in `Systems_Medicine.lua`; hook after concussion in `System_ArmorRating.lua`; `GetAreaAttackResults` stamp wrap; `JazzIsBlastExplosiveHit` gates non-blast.
-- `JAZZ-GRENADES-002-AC-002`: `BLOCKED (runtime)` — body 100 / force 60 series
+- `JAZZ-GRENADES-002-AC-001`: `PASS (static)` — `JazzIsBlastKnockbackCenter` (Dist2D <= CAOE) + `JazzTryBlastKnockback` / resolve / `JazzBlastKnocked`; hook after concussion; GetAreaAttackResults stamp; blast gate.
+- `JAZZ-GRENADES-002-AC-002`: `BLOCKED (runtime)` — body 100 / force 60 series in inner ring
 - `JAZZ-GRENADES-002-AC-003`: `BLOCKED (runtime)` — body 160 / force 60
-- `JAZZ-GRENADES-002-AC-004`: `BLOCKED (runtime)` — body 80 / force 80 always fly
+- `JAZZ-GRENADES-002-AC-004`: `BLOCKED (runtime)` — body 80 / force 80 always fly (inner)
 - `JAZZ-GRENADES-002-AC-005`: `BLOCKED (runtime)` — prone / unconscious / grit skip
 - `JAZZ-GRENADES-002-AC-006`: `BLOCKED (runtime)` — pre-armor force with armor
 - `JAZZ-GRENADES-002-AC-007`: `BLOCKED (runtime)` — blocked path on-spot
 - `JAZZ-GRENADES-002-AC-008`: `BLOCKED (runtime)` — SteroidPunch regression
-- `JAZZ-GRENADES-002-AC-009`: `PASS (static)` — technical + wiki + showcase RU/EN updated; human skim pending
+- `JAZZ-GRENADES-002-AC-009`: `PASS (static)` — technical + wiki + showcase RU/EN; human skim pending
+- `JAZZ-GRENADES-002-AC-010`: `BLOCKED (runtime)` — outer ring only: no knockback; inner aim ring can roll/fly again
 
 ## Documentation delta
 

@@ -979,12 +979,32 @@ function Unit:JazzBlastKnocked(attacker, pos, angle, anim)
 	self:MovePlayAnim(anim, self:GetPos(), pos, 0, nil, true, angle, nil, nil, nil, true)
 end
 
+function JazzIsBlastKnockbackCenter(unit, hit)
+	-- Match the inner aim ring: GetAreaAttackParams sets min_range = CenterAreaOfEffect,
+	-- and IModeCombatAreaAim draws that as the near zone. Engine hit.explosion_center is
+	-- stricter (same-slab when CenterAreaOfEffect==1; 3D GetDist when >1) and often misses
+	-- units that are clearly in the near ring after scatter / height.
+	if not hit or not IsValid(unit) then
+		return false
+	end
+	local epicenter = hit.jazz_blast_epicenter
+	local weapon = hit.weapon
+	local center_tiles = weapon and weapon.CenterAreaOfEffect
+	if type(center_tiles) ~= "number" or center_tiles < 1 then
+		center_tiles = 1
+	end
+	if IsPoint(epicenter) then
+		return unit:GetDist2D(epicenter) <= center_tiles * const.SlabSizeX
+	end
+	return not not hit.explosion_center
+end
+
 function JazzTryBlastKnockback(unit, hit, attacker)
 	if not unit or not JazzIsBlastExplosiveHit(hit) then
 		return false
 	end
-	-- Only CenterAreaOfEffect ring (hit.explosion_center); outer AreaOfEffect skips.
-	if not hit.explosion_center then
+	-- Only near / CenterAreaOfEffect ring (same radius as the inner grenade aim mesh).
+	if not JazzIsBlastKnockbackCenter(unit, hit) then
 		return false
 	end
 	if not IsKindOf(unit, "Unit") or unit.species ~= "Human" then

@@ -40,7 +40,7 @@
 
 ### Blast knockback — JAZZ-GRENADES-002
 
-После concussion/trauma package живой Human (мерки и враги) **в center-кольце** (`hit.explosion_center` / `CenterAreaOfEffect`) проходит skill roll устоять на ногах:
+После concussion/trauma package живой Human (мерки и враги) **во внутреннем кольце** (`Dist2D(unit, epicenter) ≤ CenterAreaOfEffect × SlabSizeX` — то же, что inner mesh прицела / `min_range` в `GetAreaAttackParams`) проходит skill roll устоять на ногах:
 
 ```text
 force = pre-armor blast damage          -- jazz_pre_armor_damage (= damage + armor_prevented)
@@ -50,9 +50,9 @@ roll  = 1 + unit:Random(100)
 устоял если force ≤ 0 или roll < value
 ```
 
-Outer `AreaOfEffect` (не center) — без ролла и без отлёта (контузия/травмы по-прежнему по своим правилам).
+Outer `AreaOfEffect` (за пределами `CenterAreaOfEffect`) — без ролла и без отлёта (контузия/травмы по-прежнему по своим правилам). Не использовать голый `hit.explosion_center` (слишком узкий: same-slab при CAOE=1).
 
-Провал → отлёт как у `SteroidPunch`: свободные slab’ы от эпицентра (`pushSlabs = 1`), команда `JazzBlastKnocked` (knockdown-анимация → prone), **без** mock-`SteroidPunchGrenade`. Нет прохода → prone на месте. Skip: Dead, Prone, Unconscious, grit (`TempHitPoints > 0`), grazing, non-Human, non-blast aoe, non-center. Эпицентр штампуется в wrap `GetAreaAttackResults` → `hit.jazz_blast_epicenter`.
+Провал → отлёт как у `SteroidPunch`: свободные slab’ы от эпицентра (`pushSlabs = 1`), команда `JazzBlastKnocked` (knockdown-анимация → prone), **без** mock-`SteroidPunchGrenade`. Нет прохода → prone на месте. Skip: Dead, Prone, Unconscious, grit (`TempHitPoints > 0`), grazing, non-Human, non-blast aoe, вне inner Dist2D. Эпицентр штампуется в wrap `GetAreaAttackResults` → `hit.jazz_blast_epicenter`.
 
 Публичный ID: `Concussion`. Icon: `Icons/StatusEffects/Concussion.png`.
 
