@@ -999,88 +999,90 @@ end
 
 
 
+-- JAZZ-COMBAT-005: armor weight → FreeMove + capped start AP; see docs/specs/active/JAZZ-COMBAT-005.md
 function Unit:CalculateArmorWeight()
-	local TotalAPDebuff = const.Scale.AP
-	local TotalFreeMoveDebuff = 0
-		self:ForEachItem("Armor", function(item, slot)
-			--print(item)
-			if slot ~= "Inventory" and item.Weight then
-				--print(item)
-				--print(item.Weight)
-				 if item.Weight == 2 then 
-					--TotalAPDebuff = TotalAPDebuff + 0.25 * const.Scale.AP
-					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 0.5
-				 end
-				 if item.Weight == 3 then 
-					--TotalAPDebuff = TotalAPDebuff + 0.5 * const.Scale.AP
-					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 1 
-				 end
-				 if item.Weight == 4 then 
-					--TotalAPDebuff = TotalAPDebuff + 1 * const.Scale.AP
-					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 2
-				 end
-				 if item.Weight == 5 then 
-					--TotalAPDebuff = TotalAPDebuff + 1.5 * const.Scale.AP
-					TotalFreeMoveDebuff = TotalFreeMoveDebuff + 3
-				 end
+	local raw_fm = 0
+	local max_weight = 1
+	self:ForEachItem("Armor", function(item, slot)
+		if slot ~= "Inventory" and item.Weight then
+			local w = item.Weight
+			if w > max_weight then
+				max_weight = w
 			end
-		end)
-	--print(TotalAPDebuff..".."..TotalFreeMoveDebuff.."..")
-	if HasPerk(self, "Ironclad") then 
-		TotalAPDebuff = TotalAPDebuff/2
-		TotalFreeMoveDebuff = TotalFreeMoveDebuff/2 
+			if w == 2 then
+				raw_fm = raw_fm + 0.5
+			elseif w == 3 then
+				raw_fm = raw_fm + 1
+			elseif w == 4 then
+				raw_fm = raw_fm + 2
+			elseif w == 5 then
+				raw_fm = raw_fm + 3
+			end
+		end
+	end)
+
+	self:RemoveStatusEffect("Weight_1Class", "all")
+	self:RemoveStatusEffect("Weight_2Class", "all")
+	self:RemoveStatusEffect("Weight_3Class", "all")
+	self:RemoveStatusEffect("Weight_4Class", "all")
+	self:RemoveStatusEffect("Weight_5Class", "all")
+
+	self.jazz_armor_fm_penalty = 0
+	self.jazz_armor_ap_penalty = 0
+
+	if HasPerk(self, "KillingWind") then
+		return
 	end
-	if HasPerk(self, "KillingWind") then 
-		TotalAPDebuff = TotalAPDebuff/5
-		TotalFreeMoveDebuff = TotalFreeMoveDebuff/5 end
 
-	if self.using_cumbersome then TotalFreeMoveDebuff = MulDivRound(TotalFreeMoveDebuff,1,2) end
+	local raw_ap = 0
+	if raw_fm >= 8 then
+		raw_ap = 2
+	elseif raw_fm >= 4 then
+		raw_ap = 1
+	end
 
-		if self.Strength > 60 then
-			local StrBuff = MulDivRound(self.Strength-60,1,20)
-			TotalFreeMoveDebuff = TotalFreeMoveDebuff - StrBuff 
-			TotalAPDebuff = TotalAPDebuff - StrBuff * 2 * const.Scale.AP
+	local fm = raw_fm
+	local ap = raw_ap
+	if HasPerk(self, "Ironclad") then
+		fm = fm / 2
+		ap = ap / 2
+	end
+	if self.using_cumbersome then
+		ap = 0
+	end
+	if self.Strength > 60 then
+		local buff = MulDivRound(self.Strength - 60, 1, 20)
+		if ap >= buff then
+			ap = ap - buff
+			buff = 0
+		else
+			buff = buff - ap
+			ap = 0
 		end
+		fm = Max(0, fm - buff)
+	end
 
-		TotalAPDebuff = floatfloor(TotalAPDebuff,0.5)
-		TotalFreeMoveDebuff = floatfloor(TotalFreeMoveDebuff)
+	fm = floatfloor(fm)
+	ap = floatfloor(ap)
+	fm = Clamp(fm, 0, 12)
+	ap = Clamp(ap, 0, 2)
 
-		--print(TotalFreeMoveDebuff.." "..TotalAPDebuff)
+	self.jazz_armor_fm_penalty = fm
+	self.jazz_armor_ap_penalty = ap
 
-		TotalFreeMoveDebuff = Clamp(TotalFreeMoveDebuff, 0, 12*const.Scale.AP)
-		TotalAPDebuff = Clamp(TotalAPDebuff, 0, 5*const.Scale.AP)
+	if fm > 0 then
+		self:ConsumeAP(fm * const.Scale.AP, "Move")
+	end
+	if ap > 0 then
+		self:ConsumeAP(Min(self.ActionPoints, ap * const.Scale.AP))
+	end
 
-		--print(TotalFreeMoveDebuff.." "..TotalAPDebuff)
-		
-		self:ConsumeAP(TotalFreeMoveDebuff, "Move")
-		self:ConsumeAP(Min(self.ActionPoints, TotalAPDebuff))
-		
-		local armor = self:GetItemInSlot("Torso", "Armor")
-		local plate = self:GetItemInSlot("Torso", "ArmorPlate") or armor
-		local armorclass = 1
-		local plateclass = 1
-		if armor then armorclass = armor.PenetrationClass end
-		if plate and plate.Condition > 0 then plateclass = plate.PenetrationClass  or 0 end
- 		
-		armorclass = Max(armorclass,plateclass)
-
-
-
-		self:RemoveStatusEffect("Weight_1Class", "all")
-		self:RemoveStatusEffect("Weight_2Class", "all")
-		self:RemoveStatusEffect("Weight_3Class", "all")
-		self:RemoveStatusEffect("Weight_4Class", "all")
-		self:RemoveStatusEffect("Weight_5Class", "all")
-		--print(TotalFreeMoveDebuff)
-		if TotalFreeMoveDebuff > 1 then
-			local count = floatfloor(TotalFreeMoveDebuff)
-			--print(count)
-			for i = 1, count do
-				self:AddStatusEffect("Weight_"..armorclass.."Class")
-			end
+	if fm >= 1 then
+		local class = Clamp(max_weight, 1, 5)
+		for _ = 1, fm do
+			self:AddStatusEffect("Weight_" .. class .. "Class")
 		end
-
-	return 
+	end
 end
 
 

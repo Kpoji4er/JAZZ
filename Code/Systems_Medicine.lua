@@ -1490,6 +1490,28 @@ function JazzAddPainStacks(unit, amount)
 	return added
 end
 
+-- JAZZ-COMBAT-005: severe armor encumbrance (FM >= 6) -> +1 Pain on first move this turn.
+function JazzArmorWeightPainOnMove(unit)
+	if not unit or not g_Combat then
+		return false
+	end
+	if HasPerk(unit, "KillingWind") then
+		return false
+	end
+	if (unit.jazz_armor_fm_penalty or 0) < 6 then
+		return false
+	end
+	local turn = JazzTraumaCurrentTurnKey()
+	if unit.jazz_armor_weight_pain_turn == turn then
+		return false
+	end
+	if JazzAddPainStacks(unit, 1) <= 0 then
+		return false
+	end
+	unit.jazz_armor_weight_pain_turn = turn
+	return true
+end
+
 function JazzTraumaPainZoneTurnKey(zone, turn)
 	return tostring(zone) .. "|" .. tostring(turn or 0)
 end

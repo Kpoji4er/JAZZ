@@ -6,9 +6,17 @@ DefineClass.Weight_1Class = {
 
 	object_class = "StatusEffect",
 	msg_reactions = {},
-	unit_reactions = {},
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnCalcMoveModifier",
+			Handler = function(self, target, value, action)
+				JazzArmorWeightPainOnMove(target)
+				return value
+			end,
+		}),
+	},
 	DisplayName = T(355508047345, --[[ModItemCharacterEffectCompositeDef Weight_1Class DisplayName]] "Вес брони (1 Класс)"),
-	Description = T(538937825340, --[[ModItemCharacterEffectCompositeDef Weight_1Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+	Description = T(538937825340, --[[ModItemCharacterEffectCompositeDef Weight_1Class Description]] "Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход."),
 	AddEffectText = "",
 	OnAdded = function (self, obj)  end,
 	OnRemoved = function (self, obj)  end,
@@ -19,4 +27,3 @@ DefineClass.Weight_1Class = {
 	Shown = true,
 	ShownSatelliteView = true,
 }
-

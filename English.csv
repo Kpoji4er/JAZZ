@@ -852,7 +852,7 @@ Requires at least 30 rounds loaded",,jazz:items.lua:68076
 194915769887,<em>Lalee</em> in <em><SectorName('H19')></em> can probably provide a <em>passport</em> for <em>Karen</em>,<em>Lalee</em> in <em><SectorName('H19')></em> can probably provide a <em>passport</em> for <em>Karen</em>,,jazz-maps:items.lua:49080
 196360289661,"Хорошо, что мы прибыли вовремя",Good thing we arrived in time.,,jazz-maps:items.lua:30055
 196405827903,Ламберт,Lambert,,jazz-units:Code/Mercenary.lua:70
-197266793683,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов",Reduces AP and Free Move AP. Higher levels impose stronger penalties.,,jazz:CharacterEffect/Weight_4Class.lua:11 | jazz:items.lua:97738
+197266793683,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_4Class.lua:11 | jazz:items.lua:97738
 197268689344,Raised the Legion flag on <em><SectorName('K4')></em>,Raised the Legion flag on <em><SectorName('K4')></em>,,jazz-maps:items.lua:81402
 197360050229,Рюкзаки отряда,Squad Backpacks,,jazz:items.lua:85780
 197372367064,"Бронежилет СВМПЭ, Тяжелый",Heavy UHMWPE Body Armor,,jazz:InventoryItem/JazzArmor_UHMWPEFull.lua:12 | jazz:items.lua:56409
@@ -2549,7 +2549,7 @@ May recover over time after treatment or while at high Health.",,jazz:CharacterE
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliably penetrates Armor Class 4",,jazz:InventoryItem/_762NATO_AP.lua:14 | jazz:items.lua:9666
 538755371034,"Керамическая пластина 5 класса защиты. Очень крепкая. Керамические пластины менее долговечные, чем стальные, но лучше защищают.","Class 5 ceramic plate. Extremely tough. Ceramic plates are less durable than steel, but provide better protection.",,jazz:InventoryItem/JazzArmorPlates_Ceramics5.lua:15 | jazz:items.lua:57270
 538817396599,"Жирафьи выблядки. Лезут со всех щелей, как тараканы, мля.","Giraffe-spawned bastards. Crawling out of every crack like cockroaches, for fuck's sake.",,jazz-units:items.lua:70979
-538937825340,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов",Reduces AP and Free Move AP. Higher levels impose stronger penalties.,,jazz:CharacterEffect/Weight_1Class.lua:11 | jazz:items.lua:97686
+538937825340,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_1Class.lua:11 | jazz:items.lua:97686
 539019407378,M700,M700,,jazz:InventoryItem/M700.lua:13 | jazz:items.lua:24682
 539332597589,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
@@ -2608,7 +2608,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 548094068432,A hidden treasure found under one of the ritual stones at the <em><SectorName('J18')></em>,A hidden treasure found under one of the ritual stones at the <em><SectorName('J18')></em>,,jazz-maps:items.lua:74907
 548780115142,Коммандо,Commando,,jazz-units:items.lua:37291 | jazz-units:UnitData/ThugGunner_Stronger.lua:20
 549151219359,Фрагу - фраг!,A frag for Frag!,,jazz-units:items.lua:70874
-549247357132,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов",Reduces AP and Free Move AP. Higher levels impose stronger penalties.,,jazz:CharacterEffect/Weight_5Class.lua:11 | jazz:items.lua:97755
+549247357132,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_5Class.lua:11 | jazz:items.lua:97755
 549259538075,Ствол: Увеличивает дальность на <BarrelRangeIncrease>,Barrel: Increases range by <BarrelRangeIncrease>,,jazz:items.lua:31876
 549476191424,НСТЛ,NSTL,,jazz:items.lua:69351
 549508021001,Укреп район Какао,Port Cacao Fortifications,,jazz-maps:items.lua:8337 | jazz-maps:items.lua:44862
@@ -3811,7 +3811,7 @@ Back the way you came, on the shore—right here. Take it. That's all I can give
 805863336928,Отлично. Я здесь.,Great. I'm here.,,jazz-units:items.lua:69082
 806529866191,Обыскать,Loot,,jazz:items.lua:83796
 806826966692,Защита для глаз во время песчанных бурь,Eye protection during sandstorms,,mag-hint-aligned
-806830590860,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов",Reduces AP and Free Move AP. Higher levels impose stronger penalties.,,jazz:CharacterEffect/Weight_3Class.lua:11 | jazz:items.lua:97721
+806830590860,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_3Class.lua:11 | jazz:items.lua:97721
 807134295687,Сайленд,Silent,,jazz-units:Code/Mercenary.lua:171
 807341295104,Фордж,Forge,,jazz-units:Code/Mercenary.lua:142
 807861534450,"Ну вы чо, парни, куда вы лупите? Целик, мушка, мишень! Мишени - это вон те трафареты, мля!","Come on, guys, where are you shooting? Rear sight, front sight, target! The targets are those silhouettes over there, fuckers!",,jazz-units:items.lua:70986
@@ -5520,7 +5520,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Cannot be repaired
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:InventoryItem/Wirecutter.lua:13 | jazz:items.lua:56817
 997206919165,ВЗЯТЬ ВСЁ,TAKE ALL,,jazz:items.lua:81417
-997296420646,"ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов",Reduces AP and Free Move AP. Higher levels impose stronger penalties.,,jazz:CharacterEffect/Weight_2Class.lua:11 | jazz:items.lua:97704
+997296420646,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_2Class.lua:11 | jazz:items.lua:97704
 997322139649,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,,jazz-maps:items.lua:95529
 997417029186,Да я еще даже не вспотел!..,I haven't even broken a sweat!,,jazz-units:items.lua:69028
 997521063108,"Надоело, надоело, надоело!","I'm sick of it, sick of it, sick of it!",,jazz-units:items.lua:69479

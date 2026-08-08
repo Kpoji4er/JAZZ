@@ -106542,9 +106542,17 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Parameters', {},
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
-			'unit_reactions', {},
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcMoveModifier",
+					Handler = function(self, target, value, action)
+						JazzArmorWeightPainOnMove(target)
+						return value
+					end,
+				}),
+			},
 			'DisplayName', T(355508047345, --[[ModItemCharacterEffectCompositeDef Weight_1Class DisplayName]] "Вес брони (1 Класс)"),
-			'Description', T(538937825340, --[[ModItemCharacterEffectCompositeDef Weight_1Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'Description', T(538937825340, --[[ModItemCharacterEffectCompositeDef Weight_1Class Description]] "Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход."),
 			'AddEffectText', "",
 			'OnAdded', function (self, obj)  end,
 			'OnRemoved', function (self, obj)  end,
@@ -106560,9 +106568,17 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Parameters', {},
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
-			'unit_reactions', {},
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcMoveModifier",
+					Handler = function(self, target, value, action)
+						JazzArmorWeightPainOnMove(target)
+						return value
+					end,
+				}),
+			},
 			'DisplayName', T(118150789498, --[[ModItemCharacterEffectCompositeDef Weight_2Class DisplayName]] "Вес брони (2 Класс)"),
-			'Description', T(997296420646, --[[ModItemCharacterEffectCompositeDef Weight_2Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'Description', T(997296420646, --[[ModItemCharacterEffectCompositeDef Weight_2Class Description]] "Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход."),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -106577,9 +106593,17 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Parameters', {},
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
-			'unit_reactions', {},
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcMoveModifier",
+					Handler = function(self, target, value, action)
+						JazzArmorWeightPainOnMove(target)
+						return value
+					end,
+				}),
+			},
 			'DisplayName', T(696428661966, --[[ModItemCharacterEffectCompositeDef Weight_3Class DisplayName]] "Вес брони (3 Класс)"),
-			'Description', T(806830590860, --[[ModItemCharacterEffectCompositeDef Weight_3Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'Description', T(806830590860, --[[ModItemCharacterEffectCompositeDef Weight_3Class Description]] "Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход."),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -106594,9 +106618,17 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Parameters', {},
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
-			'unit_reactions', {},
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcMoveModifier",
+					Handler = function(self, target, value, action)
+						JazzArmorWeightPainOnMove(target)
+						return value
+					end,
+				}),
+			},
 			'DisplayName', T(617262153487, --[[ModItemCharacterEffectCompositeDef Weight_4Class DisplayName]] "Вес брони (4 Класс)"),
-			'Description', T(197266793683, --[[ModItemCharacterEffectCompositeDef Weight_4Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'Description', T(197266793683, --[[ModItemCharacterEffectCompositeDef Weight_4Class Description]] "Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход."),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",
@@ -106611,9 +106643,17 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Parameters', {},
 			'object_class', "StatusEffect",
 			'msg_reactions', {},
-			'unit_reactions', {},
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcMoveModifier",
+					Handler = function(self, target, value, action)
+						JazzArmorWeightPainOnMove(target)
+						return value
+					end,
+				}),
+			},
 			'DisplayName', T(410074002761, --[[ModItemCharacterEffectCompositeDef Weight_5Class DisplayName]] "Вес брони (5 Класс)"),
-			'Description', T(549247357132, --[[ModItemCharacterEffectCompositeDef Weight_5Class Description]] "ОД и ОД свободного перемещения уменьшены. Чем больше уровень, тем больше дебафов"),
+			'Description', T(549247357132, --[[ModItemCharacterEffectCompositeDef Weight_5Class Description]] "Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход."),
 			'AddEffectText', "",
 			'OnRemoved', function (self, obj)  end,
 			'type', "Debuff",

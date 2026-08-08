@@ -112,7 +112,16 @@ Asset contract не менялся.
 
 ## Вес и слоты
 
-Весовые эффекты: `WeightClass1`–`WeightClass5`, соответствующие Light, Medium, Heavy, Super-Heavy и дополнительной градации системы; отсутствие эффекта означает `None`. Штраф должен учитывать силу бойца и фактически надетые предметы.
+`Unit:CalculateArmorWeight` (JAZZ-COMBAT-005) на `BeginTurn` / `OnGearChanged`:
+
+1. Сырой FreeMove по надетым `Armor` (`Weight` 2/3/4/5 → +0.5/+1/+2/+3; слот ≠ Inventory; плиты с Weight входят).
+2. Сырой start AP: raw_FM &lt; 4 → 0; 4…&lt;8 → 1; ≥ 8 → 2.
+3. **KillingWind** — полный игнор (FM/AP/Pain от веса).
+4. Иначе: **Ironclad** ÷2 оба; при `using_cumbersome` AP-штраф брони = 0 (FM не half); Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
+5. Floor + cap FM ≤ 12, AP ≤ 2; списание `ConsumeAP(FM|AP * const.Scale.AP)` (Move / обычные ОД).
+6. Статусы `Weight_1Class`…`Weight_5Class`: стаки = floor(FM), класс иконки = **max Weight** экипа (не PenetrationClass). `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove`: при FM ≥ 6 первое перемещение за ход даёт +1 Pain (≤1 стек/ход от веса; Analgesia блокирует).
+
+Cumbersome на оружии по-прежнему может не выдавать FreeMove в BeginTurn (кроме KillingWind / Ironclad path).
 
 Экипировка использует `Head`, `HeadGear`, `Torso`, `Legs`, `ArmorPlate` и face/head-совместимость. `InventoryVest` как класс существует, но отдельный `Vest` slot в `System_UnitInventory.lua` сейчас закомментирован. Не считать систему vest полностью активной только по наличию класса.
 
@@ -124,7 +133,7 @@ Asset contract не менялся.
 - зональные травмы `Trauma{Arms|Legs|Ribs|Head|Burn}{Light|Medium|Heavy}` (Eye folded into Head; Burn: `Burning` OnRemoved → Light stub);
 - `Bleeding` / `BleedingMedium` / `BleedingHeavy` (3/6/12 ОЗ за стак/ход, кап суммы ~30; бинт −1 тир худшему стаку; JHP→тяжёлое; травмы ↑ шанс крови; центральный `JazzTryRollBleedFromHit`; legacy `BleedingChance` OnAdded = no-op);
 - `Pain` / `Analgesia`: Pain сохраняет точный штраф ОД, применённый на `OnCalcStartTurnAP`, вместе с номером хода; `Analgesia.OnAdded` через `JazzRefundPainStartTurnAP` один раз возвращает только этот штраф и обнуляет маркер, затем **снимает все стаки Pain**. Пока Analgesia активна, `JazzAddPainStacks` = no-op. Повторное обезболивание и Pain, полученная после начала хода, ОД не дают. В бою Pain −1 стак/`OnEndTurn`; **`RemoveOnEndCombat`** снимает Pain/Analgesia при конце боя. `Wounded` от HP **off** (`HpLossToAddStack` sentinel + `UnitProperties:AccumulateDamageTaken`/`AddWounds` no-op). `OnMsg.UnitDowned` немедленно вызывает `JazzApplyDownedHeavyTrauma`: одна физическая Heavy trauma +3 Pain, с upgrade уже выпавшей Light/Medium; более лёгкий same-hit эффект и повторный `Unconscious` не дублируют пакет;
-- **`WoundInfected`** (MED-002): отдельный Debuff рядом с Heavy (Trauma* не заменяются). Untreated Heavy progress, не improve → `JazzApplyWoundInfected`. Infected progress (**16h**, survive **40%**): успех снимает Infected; провал → `JazzKillMercFromInfection`. TreatWounds/`jazz_healing` на Heavy improve 100% → вход в Infected невозможен.
+- **`WoundInfected`** (MED-002): отдельный Debuff рядом с Heavy (Trauma* не заменяются). Untreated Heavy progress, не improve → `JazzApplyWoundInfected` (пишется и на `Unit`, и на `UnitData`; UI props `Shown`/`Icon`/`ShownSatelliteView` штампуются с Def). Infected progress (**16h**, survive **40%**): успех снимает Infected; провал → `JazzKillMercFromInfection`. TreatWounds/`jazz_healing` на Heavy improve 100% → вход в Infected невозможен. Иконка в бою (`GetUIVisibleStatusEffects`) и на глобалке (`JazzGetPartyPortraitStatusEffects`, приоритет над клипом MaxHeight).
 - **`BloodLoss50`…`BloodLoss1`** (MED-002): при HP% &lt;50/40/30/20/10/5/1 (−1…−7 start AP); 1 HP → `BloodLoss1` («критическая кровопотеря, ещё в сознании»). Sync `JazzSyncBloodLossStatus`. **`GetMaxActionPoints`** считает от attribute `Health`, не от текущих `HitPoints`.
 - `Blinded`, `Burning`, `Choking` (среда/газ; не от `*shot`); knockout merc → `JazzApplyKnockoutTraumaPackage` (heavy + Pain);
 - уровни suppression и weight class;

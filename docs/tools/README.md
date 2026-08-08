@@ -21,7 +21,8 @@
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_audit_ui002_weapon_chips.py` | UI-002 static: Fold/Flash `ShowIn = false`, Unjam stays CombatActions; `idFoldStockButton`/`idFlashlightButton` GridX=2; HUD helpers + GetUIState zzFoldingPair. |
 | `_rebuild_weapon_chip_icons.py` | UI-002: rebuild thin 54×54 Fold/Flash chip glyphs from old dual-strip `Icons/stock_*.png` / `flash_*.png` (left half, pad, light thin). |
-| `_apply_hotfix_unjam_pinned_items.py` | ACL-safe items.lua patch helper: Unjam ShowIn/GetUIState + suppressionPinned OnAdded/OnBeginTurn parity with companion. |
+| `_apply_combat_005_weight_items.py` | JAZZ-COMBAT-005: sync `Weight_*Class` Description + `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove` in `items.lua`. |
+| `_patch_combat_005_weight_loc.py` | JAZZ-COMBAT-005: RU/EN CSV text for five `Weight_*Class` Description IDs. |
 
 ## FortifyErnie / stationary MG
 
@@ -390,6 +391,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_append_ame_mail_loc.py` | JAZZ-UI-AME-001: RU/EN Email strings `890000000006900–6910` (welcome + listing update). Idempotent upsert; proper multiline CSV. |
 | `_append_merc_mail_loc.py` | JAZZ-UI-MERC-001: RU/EN Speck mail + MERC PDA strings `890000000009900+`. Idempotent upsert; multiline CSV. |
 | `_remap_merc_loc_ids.py` | One-shot: move MERC loc off VoiceResponse `007xxx` → `009900+`; restore stolen VR rows from `HEAD`. |
+| `_restore_vanilla_aim_vr_ids.py` | Restore vanilla T-IDs for AIM `ModItemVoiceResponse` Raven/Thor/Vicki/Wolf from `bb6d97a^` (LOC remap broke VO). Then run `_purge_restored_aim_vr_loc.py`. |
+| `_purge_restored_aim_vr_loc.py` | After VR id restore: delete orphaned `8900*` rows from jazz + jazz-units CSV by record (multiline-safe), no full CSV rewrite. |
 | `_apply_merc_affiliations.py` | UI-MERC-001: set `Affiliation = "MERC"` on Jazz shelf/world UnitData companions (+ Larry/Smiley overrides). |
 | `_apply_ship_iggy.py` | UNITS-002: ship `Jazz_Iggy` (perk stub, loot clone Grom, UnitData+VR, Appearance, loc RU/EN, metadata bumps). Idempotent. Uses `_grom_snippets/`. |
 | `_sync_merc_affiliation_items.py` | Sync same Affiliation into `jazz-units/items.lua` ModItem blocks. |

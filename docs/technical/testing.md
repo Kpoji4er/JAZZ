@@ -102,7 +102,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - защита от пули, взрыва и ближнего боя;
 - дробное пробитие: `PenetrationClass + 0.1×PenetrationBonus` в unit DR и корректный ammo rollover (не целое ×100);
 - непробитая закрывающая броня блокирует bleeding/body-part/ammo effects, пробитая броня и отсутствие покрытия разрешают их;
-- штраф тяжёлой брони бойцу с разной силой;
+- штраф тяжёлой брони бойцу с разной силой (JAZZ-COMBAT-005: FM × Scale.AP; AP 0/1/2 по raw; STR/Ironclad/KillingWind; Pain при FM≥6 на первом Move ≤1/ход);
 - перезарядка из ammo slot и отказ при патронах в неподходящем слоте;
 - гранаты и ordnance в специализированных слотах;
 - drag/drop на иконку мерка в party panel инвентаря (передача, не «use item»): owner PASS 2026-07-30;
