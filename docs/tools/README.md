@@ -21,17 +21,20 @@
 | `_apply_units006_batch1_items_loc.py` | UNITS-006 §A batch1: sync `items.lua` ModItem CE from companions + `Jazz_OrderAP`/`Jazz_CombatMedicBuff`, metadata.code, RU/EN CSV for touched perk/status IDs. |
 | `_apply_units006_batch1_hooks.py` | UNITS-006 batch1: register `System_NamedPerks_006` in metadata.code; Vince skip-consume wrap in `Systems_Medicine.lua`. |
 | `_apply_units006_batch2_items_loc.py` | UNITS-006 §C batch2: sync vanilla personal CE companions (`GruntyPerk_JAZZ`, `GrizzlyPerk`, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid/Ice), metadata.code, RU/EN CSV (`6500+` + Grizzly/Grunty desc). Refuses VoiceResponse overwrite. |
-| `_units006_batch2_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
+| `_units006_namedperks_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
 | `_fix_units006_batch3_loc.py` | UNITS-006 batch3: rewrite RU CE/CSV via unicode-escapes (encoding-safe). |
 | `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + cheap §B CE text/hooks sync. |
-| `_units006_batch4_notes.md` | UNITS-006 batch4: shipped Flo/Static/Cougar + soft cuts → batch5. |
+| `_units006_namedperks_notes.md` | UNITS-006 batch4: shipped Flo/Static/Cougar + soft cuts → batch5. |
 | `_units006_audit_followup.md` | UNITS-006 post-batch audit: Mike PinDown/Vince/MD heal fixes + remaining gaps. |
 | `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + Grace/Kulba/… CE text+hooks; sync items/metadata/loc (reuse CE IDs). |
-| `_units006_batch4_notes.md` | UNITS-006 batch4: before→after + soft cuts (HARD → batch5). |
+| `_units006_namedperks_notes.md` | UNITS-006 batch4: before→after + soft cuts (HARD → batch5). |
 | `_gen_units006_batch5.py` | UNITS-006 batch5 HARD/satellite + batch6 §D: Rothman/Miguel/Barry/… CE + Miguel aura statuses + Benny/Simon; items/metadata/loc (`9885+`/`9920+`). |
-| `_units006_batch5_notes.md` | UNITS-006 batch5: before→after + soft cuts (Biff economy, ECON-001 Livewire op, Thor recipes). |
-| `_units006_batch6_notes.md` | UNITS-006 §D: Benny/Simon CE + StartingPerks; CombatAction soft-cut. |
+| `_merge_units006_namedperks.py` | Merge Batch3–6 into `System_NamedPerks_006.lua`; relocate Benny/Simon/Miguel aura ModItems; add ModItemCode. |
+| `_build_system_namedperks.py` | Rebuild single `Code/System_NamedPerks.lua` (no BatchN Code files). |
+| `_units006_perk_moditem_params.py` | Add ModItem Parameters to UNITS-006 perks; wire Code via Jazz_NamedPerkParam; sync items. |
+| `_units006_namedperks_notes.md` | UNITS-006 batch5: before→after + soft cuts (Biff economy, ECON-001 Livewire op, Thor recipes). |
+| `_units006_namedperks_notes.md` | UNITS-006 §D: Benny/Simon CE + StartingPerks; CombatAction soft-cut. |
 | `_units006_batch6_startingperks.py` | Prepend `Jazz_Perk_Benny`/`Jazz_Perk_Simon` to jazz-units UnitData + items StartingPerks. |
 | `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |

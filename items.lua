@@ -73389,6 +73389,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "DesignerExplosives",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "craft_discount",
+							'Value', 30,
+							'Tag', "<craft_discount>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000009885, --[[ModItemCharacterEffectCompositeDef DesignerExplosives DisplayName]] "Конструктор взрывчатки"),
 					'Description', T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Может крафтить гранаты. Крафт патронов/гранат стоит на 30% меньше Parts."),
@@ -73415,10 +73422,15 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							'Value', 8,
 							'Tag', "<minRange>",
 						}),
-						PlaceObj('PresetParamNumber', {
+						PlaceObj('PresetParamPercent', {
 							'Name', "damageBonus",
 							'Value', 40,
 							'Tag', "<damageBonus>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "bleed_stacks",
+							'Value', 2,
+							'Tag', "<bleed_stacks>",
 						}),
 					},
 					'unit_reactions', {
@@ -73473,94 +73485,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Description', T(890000000009894, --[[ModItemCharacterEffectCompositeDef NaturalHealing Description]] "Крафт joints и sat/combat-эффекты по листу (recipes soft-cut)."),
 					'Icon', "UI/Icons/Perks/NaturalHealing",
 					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "Jazz_Perk_Benny",
-					'object_class', "Perk",
-					'unit_reactions', {},
-					'DisplayName', T(890000000009920, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Benny DisplayName]] "Вам посылка"),
-					'Description', T(890000000009921, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Benny Description]] "Актив: приманка-декой ≤8 (цель с низким Will); взрыв при подходе. CombatAction soft-cut — helpers готовы."),
-					'Icon', "UI/Icons/Perks/DesignerExplosives",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "Jazz_Perk_Simon",
-					'object_class', "Perk",
-					'unit_reactions', {},
-					'DisplayName', T(890000000009922, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Simon DisplayName]] "Абсолютный снайпер"),
-					'Description', T(890000000009923, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Simon Description]] "Актив: идеальный выстрел с оптикой ≥4×; перезарядка по убийству. CombatAction soft-cut — helpers готовы."),
-					'Icon', "UI/Icons/Perks/HawksEye",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "StatusEffect",
-					'Id', "Jazz_MiguelAuraUp",
-					'object_class', "StatusEffect",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcChanceToHit",
-							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-								if target ~= attacker then
-									return
-								end
-								ApplyCthModifier_Add(self, data, 15)
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "StatusEffectAdded",
-							Handler = function (self, target, id)
-								if id ~= self.class then
-									return
-								end
-								if type(target.WillPoints) == "number" and type(target.MaxWillPoints) == "number" then
-									target.WillPoints = Min(target.MaxWillPoints, target.WillPoints + 30)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009895, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp DisplayName]] "Команданте (+)"),
-					'Description', T(890000000009896, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp Description]] "+15 CTH и +30 Will, пока Мигель в ауре и на ногах."),
-					'Icon', "UI/Hud/Status effects/accuracy",
-					'type', "Buff",
-					'lifetime', "Until End of Turn",
-					'RemoveOnEndCombat', true,
-					'Shown', true,
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "StatusEffect",
-					'Id', "Jazz_MiguelAuraDown",
-					'object_class', "StatusEffect",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcChanceToHit",
-							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-								if target ~= attacker then
-									return
-								end
-								ApplyCthModifier_Add(self, data, -15)
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "StatusEffectAdded",
-							Handler = function (self, target, id)
-								if id ~= self.class then
-									return
-								end
-								if type(target.WillPoints) == "number" then
-									target.WillPoints = Max(0, target.WillPoints - 30)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009897, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown DisplayName]] "Команданте (−)"),
-					'Description', T(890000000009898, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown Description]] "−15 CTH и −30 Will, пока Мигель сбит в ауре."),
-					'Icon', "UI/Hud/Status effects/injured",
-					'type', "Debuff",
-					'lifetime', "Until End of Turn",
-					'RemoveOnEndCombat', true,
-					'Shown', true,
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
@@ -75023,6 +74947,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Ira",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "primary_bonus",
+							'Value', 20,
+							'Tag', "<primary_bonus>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000001900, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira DisplayName]] "Народный командир"),
 					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "Милиция, которую обучает Айра, получает +20 к случайной основной характеристике."),
@@ -75051,6 +74982,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Madman",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "will_drain",
+							'Value', 10,
+							'Tag', "<will_drain>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "radius",
+							'Value', 5,
+							'Tag', "<radius>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnUnitAttack",
@@ -75096,6 +75039,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Conrad",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "leadership_floor",
+							'Value', 90,
+							'Tag', "<leadership_floor>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000002200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad DisplayName]] "Строгий инструктор"),
 					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "Как тренер: Leadership считается не ниже 90 (скорость TrainMilitia / TrainMercs)."),
@@ -75159,6 +75109,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Rothman",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "mine_bonus_base",
+							'Value', 10,
+							'Tag', "<mine_bonus_base>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "mine_bonus_loyalty_span",
+							'Value', 30,
+							'Tag', "<mine_bonus_loyalty_span>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000002431, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Rothman DisplayName]] "Я вас научу работать!"),
 					'Description', T(890000000002432, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Rothman Description]] "Пока Ротман в секторе с шахтой: доход шахты +10…+40% (сильнее при низкой loyalty)."),
@@ -75234,6 +75196,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Nervous",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "stack_cap",
+							'Value', 10,
+							'Tag', "<stack_cap>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnUnitAttack",
@@ -75371,6 +75340,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Henning",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "radius",
+							'Value', 10,
+							'Tag', "<radius>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
@@ -75380,7 +75356,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								end
 								for _, ally in ipairs(target.team and target.team.units or empty_table) do
 									if ally ~= target and IsValid(ally) and not ally:IsDead() then
-										if DivRound(target:GetDist(ally), const.SlabSizeX) <= 10 then
+										if DivRound(target:GetDist(ally), const.SlabSizeX) <= (self:ResolveValue("radius") or 10) then
 											ally:AddStatusEffect("Jazz_OrderAP")
 										end
 									end
@@ -75397,6 +75373,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "StatusEffect",
 					'Id', "Jazz_OrderCTH",
 					'object_class', "StatusEffect",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cth_bonus",
+							'Value', 5,
+							'Tag', "<cth_bonus>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnCalcChanceToHit",
@@ -75404,7 +75387,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								if target ~= attacker then
 									return
 								end
-								ApplyCthModifier_Add(self, data, 5)
+								ApplyCthModifier_Add(self, data, self:ResolveValue("cth_bonus") or 5)
 								target:RemoveStatusEffect("Jazz_OrderCTH")
 							end,
 						}),
@@ -75451,12 +75434,19 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "StatusEffect",
 					'Id', "Jazz_OrderAP",
 					'object_class', "StatusEffect",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "ap_bonus",
+							'Value', 3,
+							'Tag', "<ap_bonus>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
 							Handler = function (self, target)
 								if not self:ResolveValue("applied") then
-									target:GainAP(3 * const.Scale.AP)
+									target:GainAP((self:ResolveValue("ap_bonus") or 3) * const.Scale.AP)
 									self:SetParameter("applied", true)
 								end
 							end,
@@ -75466,7 +75456,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Description', T(890000000006219, --[[ModItemCharacterEffectCompositeDef Jazz_OrderAP Description]] "+3 ОД на этот ход от полевого командира."),
 					'OnAdded', function (self, obj)
 						if g_Combat and g_Teams and g_Teams[g_CurrentTeam] == obj.team then
-							obj:GainAP(3 * const.Scale.AP)
+							obj:GainAP((self:ResolveValue("ap_bonus") or 3) * const.Scale.AP)
 							self:SetParameter("applied", true)
 						end
 					end,
@@ -75485,6 +75475,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Static",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "parts_per_level",
+							'Value', 5,
+							'Tag', "<parts_per_level>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "parts_cap",
+							'Value', 25,
+							'Tag', "<parts_cap>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000004100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Static DisplayName]] "Собрал на коленке"),
 					'Description', T(890000000004101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Static Description]] "Ремонт и крафт Статика стоят на −5% Parts за уровень (макс. −25%)."),
@@ -75550,6 +75552,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Cord",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "repair_parts_discount",
+							'Value', 10,
+							'Tag', "<repair_parts_discount>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "repair_time_discount",
+							'Value', 15,
+							'Tag', "<repair_time_discount>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000004400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord DisplayName]] "Тихий ремонт"),
 					'Description', T(890000000004401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord Description]] "В городском секторе: ремонт быстрее (−15% времени) и дешевле (−10% Parts). Требование бара — soft."),
@@ -75578,6 +75592,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Ricochet",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "splash_percent",
+							'Value', 35,
+							'Tag', "<splash_percent>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "splash_range",
+							'Value', 1,
+							'Tag', "<splash_range>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnUnitAttack",
@@ -75595,11 +75621,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								if type(dmg) ~= "number" or dmg <= 0 then
 									return
 								end
-								local splash = Max(1, MulDivRound(dmg, 35, 100))
+								local splash = Max(1, MulDivRound(dmg, self:ResolveValue("splash_percent") or 35, 100))
 								local slab = const.SlabSizeX
 								for _, u in ipairs(g_Units or empty_table) do
 									if IsValid(u) and u ~= attack_target and not u:IsDead() and attacker:IsOnEnemySide(u) then
-										if DivRound(attack_target:GetDist(u), slab) <= 1 then
+										if DivRound(attack_target:GetDist(u), slab) <= (self:ResolveValue("splash_range") or 1) then
 											u:TakeDirectDamage(splash)
 											break
 										end
@@ -75644,6 +75670,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Carlos",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "detection_reduction",
+							'Value', 33,
+							'Tag', "<detection_reduction>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "keep_hidden_chance",
+							'Value', 50,
+							'Tag', "<keep_hidden_chance>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000005052, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Carlos DisplayName]] "Тихая тень"),
 					'Description', T(890000000005053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Carlos Description]] "Обнаружение идёт на 33% медленнее. Провал скрытого убийства с 50% шансом оставляет Hidden."),
@@ -75741,6 +75779,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vince",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "med_skip_chance",
+							'Value', 25,
+							'Tag', "<med_skip_chance>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "med_amount_mul",
+							'Value', 75,
+							'Tag', "<med_amount_mul>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000005029, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Дефицит ресурсов"),
 					'Description', T(890000000005030, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Пока Винс в отряде, расход аптечек и медикаментов снижен примерно на 25% (шанс не потратить заряд)."),
@@ -75783,6 +75833,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Kulba",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "recoil_mul",
+							'Value', 50,
+							'Tag', "<recoil_mul>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000005035, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Kulba DisplayName]] "Оружейник старой закалки"),
 					'Description', T(890000000005036, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Kulba Description]] "Американские автоматы (M3/Thompson/M4/M16/BAR/M60/M14/M1 carbine и родственники) дают −50% отдачи."),
@@ -75827,6 +75884,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Grace",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "knife_range",
+							'Value', 12,
+							'Tag', "<knife_range>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnCalcChanceToHit",
@@ -75844,7 +75908,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									return
 								end
 								local dist = DivRound(attacker:GetDist(attack_target), const.SlabSizeX)
-								if dist <= 12 then
+								if dist <= (self:ResolveValue("knife_range") or 12) then
 									ApplyCthModifier_Add(self, data, 100)
 									data.min = 100
 								end
@@ -75875,6 +75939,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Steiger",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "radius",
+							'Value', 10,
+							'Tag', "<radius>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "cth_bonus",
+							'Value', 5,
+							'Tag', "<cth_bonus>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
@@ -75884,7 +75960,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								end
 								for _, ally in ipairs(target.team and target.team.units or empty_table) do
 									if ally ~= target and IsValid(ally) and not ally:IsDead() then
-										if DivRound(target:GetDist(ally), const.SlabSizeX) <= 10 then
+										if DivRound(target:GetDist(ally), const.SlabSizeX) <= (self:ResolveValue("radius") or 10) then
 											ally:AddStatusEffect("Jazz_OrderCTH")
 										end
 									end
@@ -76010,6 +76086,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Flo",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "buy_discount",
+							'Value', 12,
+							'Tag', "<buy_discount>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "sell_bonus",
+							'Value', 12,
+							'Tag', "<sell_bonus>",
+						}),
+					},
 					'unit_reactions', {},
 					'DisplayName', T(890000000003000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo DisplayName]] "Теоретически подкована"),
 					'Description', T(890000000003001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Flo Description]] "Пока Фло в отряде: −12% к цене покупки (Bobby Ray) и +12% к продаже/обналичиванию. Складывается с Negotiator (не умножает)."),
@@ -76024,6 +76112,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Cougar",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "noise_mul",
+							'Value', 67,
+							'Tag', "<noise_mul>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnUnitAttack",
@@ -76050,6 +76145,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Miguel",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "aura_radius",
+							'Value', 30,
+							'Tag', "<aura_radius>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnBeginTurn",
@@ -76063,6 +76165,133 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'DisplayName', T(890000000003200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel DisplayName]] "Команданте"),
 					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "Аура 30: если Мигель на ногах — союзники +30 Will / +15 CTH; если сбит — −30 Will / −15 CTH."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Miguel.png",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_MiguelAuraUp",
+					'object_class', "StatusEffect",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cth_bonus",
+							'Value', 15,
+							'Tag', "<cth_bonus>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "will_bonus",
+							'Value', 30,
+							'Tag', "<will_bonus>",
+						}),
+					},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								ApplyCthModifier_Add(self, data, self:ResolveValue("cth_bonus") or 15)
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "StatusEffectAdded",
+							Handler = function (self, target, id)
+								if id ~= self.class then
+									return
+								end
+								if type(target.WillPoints) == "number" and type(target.MaxWillPoints) == "number" then
+									target.WillPoints = Min(target.MaxWillPoints, target.WillPoints + (self:ResolveValue("will_bonus") or 30))
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009895, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp DisplayName]] "Команданте (+)"),
+					'Description', T(890000000009896, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp Description]] "+15 CTH и +30 Will, пока Мигель в ауре и на ногах."),
+					'Icon', "UI/Hud/Status effects/accuracy",
+					'type', "Buff",
+					'lifetime', "Until End of Turn",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_MiguelAuraDown",
+					'object_class', "StatusEffect",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cth_penalty",
+							'Value', 15,
+							'Tag', "<cth_penalty>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "will_penalty",
+							'Value', 30,
+							'Tag', "<will_penalty>",
+						}),
+					},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								ApplyCthModifier_Add(self, data, -(self:ResolveValue("cth_penalty") or 15))
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "StatusEffectAdded",
+							Handler = function (self, target, id)
+								if id ~= self.class then
+									return
+								end
+								if type(target.WillPoints) == "number" then
+									target.WillPoints = Max(0, target.WillPoints - (self:ResolveValue("will_penalty") or 30))
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009897, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown DisplayName]] "Команданте (−)"),
+					'Description', T(890000000009898, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown Description]] "−15 CTH и −30 Will, пока Мигель сбит в ауре."),
+					'Icon', "UI/Hud/Status effects/injured",
+					'type', "Debuff",
+					'lifetime', "Until End of Turn",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Benny",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Benny",
+					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "lure_range",
+							'Value', 8,
+							'Tag', "<lure_range>",
+						}),
+					},
+					'unit_reactions', {},
+					'DisplayName', T(890000000009920, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Benny DisplayName]] "Вам посылка"),
+					'Description', T(890000000009921, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Benny Description]] "Актив: приманка-декой ≤8 (цель с низким Will); взрыв при подходе. CombatAction soft-cut — helpers готовы."),
+					'Icon', "UI/Icons/Perks/DesignerExplosives",
+					'Tier', "Personal",
+				}),
+				}),
+			PlaceObj('ModItemFolder', {
+				'name', "Simon",
+			}, {
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Simon",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009922, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Simon DisplayName]] "Абсолютный снайпер"),
+					'Description', T(890000000009923, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Simon Description]] "Актив: идеальный выстрел с оптикой ≥4×; перезарядка по убийству. CombatAction soft-cut — helpers готовы."),
+					'Icon', "UI/Icons/Perks/HawksEye",
 					'Tier', "Personal",
 				}),
 				}),
@@ -78921,6 +79150,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'name', "System_OR_Unit",
 				'comment', "Добавляем Run N Gun / Редактируем штуки связанные с юнитами",
 				'CodeFileName', "Code/System_OR_Unit.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_NamedPerks",
+				'comment', "UNITS-006 named perks runtime (all batches)",
+				'CodeFileName', "Code/System_NamedPerks.lua",
 			}),
 			PlaceObj('ModItemCode', {
 				'name', "AccuracyRangeCTH",

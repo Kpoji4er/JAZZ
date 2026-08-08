@@ -5,6 +5,18 @@ DefineClass.Jazz_MiguelAuraUp = {
 
 
 	object_class = "StatusEffect",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "cth_bonus",
+			'Value', 15,
+			'Tag', "<cth_bonus>",
+		}),
+		PlaceObj('PresetParamNumber', {
+			'Name', "will_bonus",
+			'Value', 30,
+			'Tag', "<will_bonus>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -12,7 +24,7 @@ DefineClass.Jazz_MiguelAuraUp = {
 				if target ~= attacker then
 					return
 				end
-				ApplyCthModifier_Add(self, data, 15)
+				ApplyCthModifier_Add(self, data, self:ResolveValue("cth_bonus") or 15)
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -22,7 +34,7 @@ DefineClass.Jazz_MiguelAuraUp = {
 					return
 				end
 				if type(target.WillPoints) == "number" and type(target.MaxWillPoints) == "number" then
-					target.WillPoints = Min(target.MaxWillPoints, target.WillPoints + 30)
+					target.WillPoints = Min(target.MaxWillPoints, target.WillPoints + (self:ResolveValue("will_bonus") or 30))
 				end
 			end,
 		}),

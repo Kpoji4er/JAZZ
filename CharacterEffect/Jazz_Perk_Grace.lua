@@ -5,6 +5,13 @@ DefineClass.Jazz_Perk_Grace = {
 
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "knife_range",
+			'Value', 12,
+			'Tag', "<knife_range>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -22,7 +29,7 @@ DefineClass.Jazz_Perk_Grace = {
 					return
 				end
 				local dist = DivRound(attacker:GetDist(attack_target), const.SlabSizeX)
-				if dist <= 12 then
+				if dist <= (self:ResolveValue("knife_range") or 12) then
 					ApplyCthModifier_Add(self, data, 100)
 					data.min = 100
 				end

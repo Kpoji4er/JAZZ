@@ -5,6 +5,13 @@ DefineClass.Jazz_Perk_Cougar = {
 
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamPercent', {
+			'Name', "noise_mul",
+			'Value', 67,
+			'Tag', "<noise_mul>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",

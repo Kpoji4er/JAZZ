@@ -5,6 +5,13 @@ DefineClass.Jazz_OrderCTH = {
 
 
 	object_class = "StatusEffect",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "cth_bonus",
+			'Value', 5,
+			'Tag', "<cth_bonus>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -12,7 +19,7 @@ DefineClass.Jazz_OrderCTH = {
 				if target ~= attacker then
 					return
 				end
-				ApplyCthModifier_Add(self, data, 5)
+				ApplyCthModifier_Add(self, data, self:ResolveValue("cth_bonus") or 5)
 				target:RemoveStatusEffect("Jazz_OrderCTH")
 			end,
 		}),

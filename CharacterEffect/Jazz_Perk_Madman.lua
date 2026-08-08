@@ -4,6 +4,18 @@ DefineClass.Jazz_Perk_Madman = {
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "will_drain",
+			'Value', 10,
+			'Tag', "<will_drain>",
+		}),
+		PlaceObj('PresetParamNumber', {
+			'Name', "radius",
+			'Value', 5,
+			'Tag', "<radius>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",

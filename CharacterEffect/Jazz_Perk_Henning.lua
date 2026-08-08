@@ -4,6 +4,13 @@ DefineClass.Jazz_Perk_Henning = {
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "radius",
+			'Value', 10,
+			'Tag', "<radius>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -13,7 +20,7 @@ DefineClass.Jazz_Perk_Henning = {
 				end
 				for _, ally in ipairs(target.team and target.team.units or empty_table) do
 					if ally ~= target and IsValid(ally) and not ally:IsDead() then
-						if DivRound(target:GetDist(ally), const.SlabSizeX) <= 10 then
+						if DivRound(target:GetDist(ally), const.SlabSizeX) <= (self:ResolveValue("radius") or 10) then
 							ally:AddStatusEffect("Jazz_OrderAP")
 						end
 					end

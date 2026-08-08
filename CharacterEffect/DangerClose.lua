@@ -11,10 +11,15 @@ DefineClass.DangerClose = {
 			'Value', 8,
 			'Tag', "<minRange>",
 		}),
-		PlaceObj('PresetParamNumber', {
+		PlaceObj('PresetParamPercent', {
 			'Name', "damageBonus",
 			'Value', 40,
 			'Tag', "<damageBonus>",
+		}),
+		PlaceObj('PresetParamNumber', {
+			'Name', "bleed_stacks",
+			'Value', 2,
+			'Tag', "<bleed_stacks>",
 		}),
 	},
 	unit_reactions = {

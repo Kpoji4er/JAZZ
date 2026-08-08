@@ -45,7 +45,7 @@ Personal (Personality) pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Sco
 
 ## Named perks (JAZZ-UNITS-006)
 
-Loaded code: `System_NamedPerks_006.lua` (install hub) + Batch3…Batch6.
+Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCode `System_NamedPerks`). Tunables live on ModItem `Parameters` (editor); runtime reads via `Jazz_NamedPerkParam` / `ResolveValue`.
 
 §B batch4 (static): Flo/Static/Cougar + Grace/Kulba/Grom/Ricochet/Highball (see `_units006_batch4_notes.md`).
 

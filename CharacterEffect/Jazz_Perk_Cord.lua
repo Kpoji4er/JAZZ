@@ -5,6 +5,18 @@ DefineClass.Jazz_Perk_Cord = {
 
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamPercent', {
+			'Name', "repair_parts_discount",
+			'Value', 10,
+			'Tag', "<repair_parts_discount>",
+		}),
+		PlaceObj('PresetParamPercent', {
+			'Name', "repair_time_discount",
+			'Value', 15,
+			'Tag', "<repair_time_discount>",
+		}),
+	},
 	unit_reactions = {},
 	DisplayName = T(890000000004400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord DisplayName]] "Тихий ремонт"),
 	Description = T(890000000004401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord Description]] "В городском секторе: ремонт быстрее (−15% времени) и дешевле (−10% Parts). Требование бара — soft."),

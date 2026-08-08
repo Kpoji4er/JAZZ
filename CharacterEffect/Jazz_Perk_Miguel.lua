@@ -5,6 +5,13 @@ DefineClass.Jazz_Perk_Miguel = {
 
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "aura_radius",
+			'Value', 30,
+			'Tag', "<aura_radius>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",

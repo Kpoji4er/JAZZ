@@ -506,7 +506,7 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 		end
 		-- JAZZ-UNITS-006 Batch5: Carlos detection builds 33% slower.
 		if HasPerk(ally, "Jazz_Perk_Carlos") then
-			allyDetectionModifier = allyDetectionModifier - 33
+			allyDetectionModifier = allyDetectionModifier - Jazz_NamedPerkParam(ally, "Jazz_Perk_Carlos", "detection_reduction", 33)
 		end
 		if ally:HasStatusEffect("Darkness") then
 			allyDetectionModifier = allyDetectionModifier + const.EnvEffects.DarknessDetectionRate

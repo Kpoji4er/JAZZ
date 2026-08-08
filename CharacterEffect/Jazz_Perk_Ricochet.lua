@@ -5,6 +5,18 @@ DefineClass.Jazz_Perk_Ricochet = {
 
 
 	object_class = "Perk",
+	Parameters = {
+		PlaceObj('PresetParamPercent', {
+			'Name', "splash_percent",
+			'Value', 35,
+			'Tag', "<splash_percent>",
+		}),
+		PlaceObj('PresetParamNumber', {
+			'Name', "splash_range",
+			'Value', 1,
+			'Tag', "<splash_range>",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
@@ -22,11 +34,11 @@ DefineClass.Jazz_Perk_Ricochet = {
 				if type(dmg) ~= "number" or dmg <= 0 then
 					return
 				end
-				local splash = Max(1, MulDivRound(dmg, 35, 100))
+				local splash = Max(1, MulDivRound(dmg, self:ResolveValue("splash_percent") or 35, 100))
 				local slab = const.SlabSizeX
 				for _, u in ipairs(g_Units or empty_table) do
 					if IsValid(u) and u ~= attack_target and not u:IsDead() and attacker:IsOnEnemySide(u) then
-						if DivRound(attack_target:GetDist(u), slab) <= 1 then
+						if DivRound(attack_target:GetDist(u), slab) <= (self:ResolveValue("splash_range") or 1) then
 							u:TakeDirectDamage(splash)
 							break
 						end
