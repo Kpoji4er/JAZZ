@@ -415,10 +415,12 @@ visible_actions =
 
 ### `BulletHell` — сигнатура Bullet Hell (Спайк)
 
-- **Тип:** vanilla SignatureAbility (конусный dump); в JAZZ выдана Спайку (`StartingPerks`).
-- **Совместимость оружия:** vanilla `GetUIState` требует `AvailableAttacks` с `AutoFire` или `MGBurstFire`. JAZZ wrap в `Code/System_OR_Weapons.lua` также принимает `AbakanAutoFire` и `JAZZ_LargeAutoFire` (иначе АН-94 / burst-only ШВ с LargeAuto давали `WrongWeapon`, а пулемёт с `MGBurstFire` — нет).
-- **Поведение / AP / ammo:** без изменения vanilla preset (`min_ammo` 15…`max_ammo` 30, recharge, cone AOE).
-- **Целевая роль:** именная длинная подавляющая очередь; не отдельный JAZZ CombatAction preset.
+- **Тип:** vanilla SignatureAbility id; в JAZZ выдана Спайку (`StartingPerks`). **JAZZ-COMBAT-006** меняет runtime-модель.
+- **Совместимость оружия:** vanilla `GetUIState` требует `AvailableAttacks` с `AutoFire` или `MGBurstFire`. JAZZ wrap также принимает `AbakanAutoFire` и `JAZZ_LargeAutoFire`.
+- **Прицеливание:** конус (`AimType = cone`) как раньше.
+- **Поведение (JAZZ):** не AlwaysHits AOE. `Unit:BulletHell` делает dump `min_ammo`…`max_ammo` (15…30) **одиночных Firearm-пуль** round-robin по врагам с LOS в конусе — обычный CTH, броня, LoF. Пустой конус → refund AP, без recharge.
+- **Подавление:** JAZZ Will (`suppressionbonus` 200 на выстрел) → `QueueSuppressionApplication` / тиры `suppressionLight`…`Pinned`. **Не** vanilla `Suppressed` / `SuppressionChangeStance` из AOE `applied_status`.
+- **Целевая роль:** именной секторный dump снарядами, не гарантированный area hit.
 
 ### `JAZZ_VovaVist` — огонь полным поясом по сектору
 

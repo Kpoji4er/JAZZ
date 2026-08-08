@@ -624,7 +624,9 @@ function Firearm:GetAttackResults(action, attack_args)
 		consumed_ammo = Max(consumed_ammo, aoe_params and aoe_params.used_ammo or 0)
 	end
 
-	if action.id == "BulletHell"  or action.id == "JAZZ_VovaVist"  then
+	-- Vanilla BulletHell/VovaVist push aim to max cone range for AlwaysHits AOE.
+	-- JAZZ-COMBAT-006: BulletHell is projectile CTH — only keep push when AOE params remain (VovaVist).
+	if aoe_params and (action.id == "BulletHell" or action.id == "JAZZ_VovaVist") then
 		target_pos = attack_args.step_pos + SetLen2D((target_pos - attack_args.step_pos):SetZ(0), aoe_params.max_range * const.SlabSizeX)
 		if not target_pos:IsValidZ() then
 			target_pos = target_pos:SetTerrainZ()
@@ -2228,8 +2230,9 @@ local function JazzWrapFAMASAutoAP()
 	rawset(_G, "g_JAZZ_FAMAS_AutoAPWrapped", true)
 end
 
--- BulletHell (Spike signature): vanilla GetUIState requires AvailableAttacks AutoFire or MGBurstFire.
--- JAZZ AN94 / burst-only ARs expose AbakanAutoFire / JAZZ_LargeAutoFire instead — WrongWeapon with Abakan.
+-- BulletHell (Spike signature):
+-- 1) GetUIState: accept AbakanAutoFire / JAZZ_LargeAutoFire (vanilla only AutoFire/MGBurstFire).
+-- 2) JAZZ-COMBAT-006: projectiles with CTH + Will suppression — not AlwaysHits AOE + vanilla Suppressed.
 local function JazzFirearmHasBulletHellAutofire(weapon)
 	local atts = weapon and weapon.AvailableAttacks
 	if not atts then
@@ -2241,12 +2244,8 @@ local function JazzFirearmHasBulletHellAutofire(weapon)
 		or table.find(atts, "JAZZ_LargeAutoFire")
 end
 
-local function JazzWrapBulletHellAutofireGate()
-	local action = CombatActions and CombatActions.BulletHell
-	if not action or type(action.GetUIState) ~= "function" then
-		return
-	end
-	if rawget(action, "JazzAutofireGateWrapped") then
+local function JazzWrapBulletHellAutofireGate(action)
+	if type(action.GetUIState) ~= "function" or rawget(action, "JazzAutofireGateWrapped") then
 		return
 	end
 	local base = action.GetUIState
@@ -2278,11 +2277,69 @@ local function JazzWrapBulletHellAutofireGate()
 	rawset(action, "JazzAutofireGateWrapped", true)
 end
 
+local function JazzInstallBulletHellProjectiles()
+	local action = CombatActions and CombatActions.BulletHell
+	if not action then
+		return
+	end
+	JazzWrapBulletHellAutofireGate(action)
+
+	action.AlwaysHits = false
+
+	if rawget(action, "JazzProjectileResultsWrapped") then
+		return
+	end
+	action.GetActionResults = function(self, unit, args)
+		local args = table.copy(args)
+		args.weapon = args.weapon or self:GetAttackWeapons(unit, args)
+		if not args.weapon or not args.weapon.ammo then
+			return
+		end
+		args.num_shots = Clamp(args.weapon.ammo.Amount, self:ResolveValue("min_ammo"), self:ResolveValue("max_ammo"))
+		args.multishot = true
+		args.suppressionbonus = args.suppressionbonus or 200
+		-- Prediction/UI: resolve a unit in the cone so CTH is meaningful (execution uses Unit:BulletHell dump).
+		if IsPoint(args.target) then
+			local aoeParams = args.weapon:GetAreaAttackParams(self.id, unit)
+			if aoeParams then
+				local attackData = unit:ResolveAttackParams(self.id, args.target, {})
+				local attackerPos = attackData.step_pos
+				local attackerPos3D = attackerPos:IsValidZ() and attackerPos or attackerPos:SetTerrainZ()
+				local targetAngle = CalcOrientation(attackerPos, args.target)
+				local distance = Clamp(attackerPos3D:Dist(args.target), aoeParams.min_range * const.SlabSizeX, aoeParams.max_range * const.SlabSizeX)
+				local enemies = GetEnemies(unit)
+				local maxValue, losValues = CheckLOS(enemies, attackerPos, distance, attackData.stance, aoeParams.cone_angle, targetAngle, false)
+				if maxValue then
+					for i, los in ipairs(losValues) do
+						if los and enemies[i] and IsValidTarget(enemies[i]) then
+							args.target = enemies[i]
+							break
+						end
+					end
+				end
+			end
+		end
+		-- No AOE damage / vanilla Suppressed — Will suppression comes from Firearm shot pipeline.
+		args.aoe_action_id = false
+		args.aoe_params = false
+		args.applied_status = false
+		args.aoe_damage_bonus = nil
+		args.aoe_fx_action = nil
+		local attack_args = unit:PrepareAttackArgs(self.id, args)
+		attack_args.aoe_action_id = false
+		attack_args.aoe_params = false
+		attack_args.applied_status = false
+		local results = attack_args.weapon:GetAttackResults(self, attack_args)
+		return results, attack_args
+	end
+	rawset(action, "JazzProjectileResultsWrapped", true)
+end
+
 function OnMsg.ClassesBuilt()
 	JazzWrapFAMASAutoAP()
-	JazzWrapBulletHellAutofireGate()
+	JazzInstallBulletHellProjectiles()
 end
 
 function OnMsg.ModsReloaded()
-	JazzWrapBulletHellAutofireGate()
+	JazzInstallBulletHellProjectiles()
 end

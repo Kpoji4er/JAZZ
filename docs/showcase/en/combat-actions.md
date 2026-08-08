@@ -53,6 +53,6 @@ Folding stocks and tactical flashlights toggle via **small buttons next to the w
 | Mobile Shotgun | shotgun | close in, then area shot |
 | MG Suppression | machine gun | two suppressing bursts into one zone |
 
-Spike’s **Bullet Hell** signature works with machine guns and with the AN-94 / other JAZZ full-auto rifles — not only weapons that still list vanilla `AutoFire`.
+Spike’s **Bullet Hell** keeps cone aiming, but fires a **real bullet dump** with hit chance and Will suppression (not guaranteed AOE). It works with machine guns and with the AN-94 / other JAZZ full-auto rifles.
 
 Full ID tables and edge cases live in the repository `docs/wiki/combat-actions.md`.

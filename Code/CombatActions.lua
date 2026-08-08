@@ -957,3 +957,109 @@ function Unit:TargetSweep(action_id, cost_ap, args)
 	local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
 	self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
 end
+-- JAZZ-COMBAT-006: BulletHell as real Firearm projectiles (CTH + Will suppression), not AlwaysHits AOE.
+-- Cone aim stays; dump min_ammo..max_ammo singles round-robin across LOS enemies in the cone.
+local function JazzBulletHellConeTargets(attacker, weapon, action_id, args)
+	if not attacker or not weapon or not args or not args.target then
+		return empty_table
+	end
+	local aoeParams = weapon:GetAreaAttackParams(action_id, attacker)
+	if not aoeParams then
+		return empty_table
+	end
+	local attackData = attacker:ResolveAttackParams(action_id, args.target, {})
+	local attackerPos = attackData.step_pos
+	local attackerPos3D = attackerPos
+	if not attackerPos3D:IsValidZ() then
+		attackerPos3D = attackerPos3D:SetTerrainZ()
+	end
+	local targetPos = args.target
+	if IsValid(targetPos) then
+		targetPos = targetPos:GetPos()
+	end
+	if not IsPoint(targetPos) then
+		return empty_table
+	end
+	local targetAngle = CalcOrientation(attackerPos, targetPos)
+	local distance = Clamp(attackerPos3D:Dist(targetPos), aoeParams.min_range * const.SlabSizeX, aoeParams.max_range * const.SlabSizeX)
+	local enemies = GetEnemies(attacker)
+	local maxValue, losValues = CheckLOS(enemies, attackerPos, distance, attackData.stance, aoeParams.cone_angle, targetAngle, false)
+	if not maxValue then
+		return empty_table
+	end
+	local targets = {}
+	for i, los in ipairs(losValues) do
+		if los and enemies[i] and IsValidTarget(enemies[i]) then
+			targets[#targets + 1] = enemies[i]
+		end
+	end
+	return targets
+end
+
+function Unit:BulletHell(action_id, cost_ap, args)
+	args = args or {}
+	local action = CombatActions[action_id]
+	local weapon = self:GetActiveWeapons()
+	if not action or not weapon then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
+	local min_ammo = action:ResolveValue("min_ammo") or 15
+	local max_ammo = action:ResolveValue("max_ammo") or 30
+	local ammo_amt = weapon.ammo and weapon.ammo.Amount or 0
+	local num_shots = Clamp(ammo_amt, min_ammo, max_ammo)
+	if ammo_amt < min_ammo or num_shots <= 0 then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
+	local targets = JazzBulletHellConeTargets(self, weapon, action_id, args)
+	if #(targets or empty_table) == 0 then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
+	local shot_action = CombatActions.SingleShot
+	if not shot_action then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
+	local fired_any = false
+	for i = 1, num_shots do
+		if not self:CanUseWeapon(weapon, 1) then
+			break
+		end
+		local tempArgs = table.copy(args)
+		tempArgs.target = targets[((i - 1) % #targets) + 1]
+		tempArgs.target_spot_group = "Torso"
+		tempArgs.aim = 0
+		tempArgs.distance = nil
+		tempArgs.attack_anim_delay = 50
+		-- Signature dump: stronger Will pressure than a basic single; no vanilla Suppressed AOE.
+		tempArgs.suppressionbonus = tempArgs.suppressionbonus or 200
+		tempArgs.origin_action_id = action_id
+		if self:CanAttack(tempArgs.target, weapon, shot_action, nil, nil, "skip_ap_check") then
+			self:FirearmAttack(shot_action.id, 0, tempArgs)
+			fired_any = true
+		end
+	end
+
+	if not fired_any then
+		self:GainAP(cost_ap)
+		CombatActionInterruped(self)
+		return
+	end
+
+	-- Vanilla BulletHell has no recharge_on_kill param; still enter timed signature recharge after use.
+	local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
+	local rechargeTime = action:ResolveValue("rechargeTime") or const.Combat.SignatureAbilityRechargeTime
+	if rechargeTime and rechargeTime > 0 then
+		self:AddSignatureRechargeTime(action_id, rechargeTime, recharge_on_kill > 0)
+	end
+end
