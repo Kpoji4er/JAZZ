@@ -96,7 +96,7 @@ Entity export является инкрементальным и не удаля
 - `Code/Debug.lua` — loaded empty placeholder. Рабочий набор console/cheat-команд (включая satellite teleport Ctrl-T) — в [debug.md](../debug.md).
 - `Code/UtilityFunc.lua` — loaded utility с gameplay side effect при satellite open.
 - `Code/Savefix.lua` — dormant/unlisted.
-- `Code/Save_CharacterEffectSerialize.lua` — loaded HOTFIX: empty CharacterEffect `__toluacode` emits `{}` (vanilla left `PlaceCharacterEffect('Id', )`); sanitize on `LoadGameSessionData` for mid-combat `suppressionPinned` saves.
+- `Code/Save_CharacterEffectSerialize.lua` — loaded HOTFIX: empty CharacterEffect `__toluacode` emits `{}` (vanilla left `PlaceCharacterEffect('Id', )`); sanitize via `string.gsub` on the session blob (often **pstr**, not `type()=="string"`) inside `LoadGameSessionData` and a per-load gate on `GameSpecificLoadCallback`.
 - `Code/EmptySquadFix.lua` — dormant/unlisted.
 - `Code/PatrollingFix.lua` — dormant/unlisted.
 - `Code/AimHiringScreen_Template.lua` — dormant/unlisted.
