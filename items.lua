@@ -73727,20 +73727,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "GrizzlyPerk",
 					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnModifyCTHModifier",
-							Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
-								if action.id == self.id and target == attacker then
-									data.mod_mul = AutoWeapons:ResolveValue("automatics_penalty_reduction")
-									data.meta_text[#data.meta_text+1] = T{776394275735, "Perk: <name>", name = self.DisplayName}
-								end
-							end,
-							param_bindings = false,
-						}),
-					},
 					'DisplayName', T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Off the Hip"),
-					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Machine Gun attack</em> with reduced <em>Accuracy</em> penalty that does not suffer increased penalties if firing without <GameTerm('Setup')>."),
+					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Signature machine-gun attack</em> ignores <em>unsupported</em> accuracy and recoil penalties, fires a longer burst with reduced damage, and keeps much tighter recoil control."),
 					'Icon', "UI/Icons/Perks/GrizzlyPerk",
 					'Tier', "Personal",
 				}),

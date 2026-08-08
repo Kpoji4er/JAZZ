@@ -468,6 +468,7 @@ ID,Text,Translation,VoiceActor,Context
 102970979232,"Ого! Господи, что со мной могло случится!","Whoa! Dear God, what could've happened to me!",,jazz-units:items.lua:70217
 103474241264,"Вот черт! Я, конечно, терпеть не могла Монику, но уж точно не желала ей смерти. И уж точно не хотела убивать ее сама! Записываю время смерти...","Damn it! I couldn't stand Monica, but I never wanted her dead—and I certainly never wanted to kill her myself. Recording the time of death...",,jazz-units:items.lua:70048
 104635909892,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный
+272740235755,"Сигнатурная атака из пулемета игнорирует штрафы <em>без опоры</em> к точности и отдаче, дает более длинную очередь с пониженным уроном и гораздо лучше удерживает отдачу.","<em>Signature machine-gun attack</em> ignores <em>unsupported</em> accuracy and recoil penalties, fires a longer burst with reduced damage, and keeps much tighter recoil control.",,jazz:CharacterEffect/GrizzlyPerk.lua
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Как УЗИшка, только не УЗИ","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One-handed
@@ -5433,6 +5434,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 982641736202,Оптика,Optics,,jazz:Code/System_OR_Unit.lua:3119 | jazz:Code/System_OR_Unit.lua:3134
 982641736203,Пули<right><values>,Bullets<right><values>,,jazz:Code/CrossHairUI.lua:656
 982641736210,Ближняя зона,Close range,,jazz:Code/System_OR_Unit.lua
+982641736220,Без опоры,Without support,,jazz:Code/System_OR_Unit.lua
 982641736301,Ближняя зона: Увеличивает ближнюю зону на <CloseRangeIncrease>,Close range: Increases close-range zone by <CloseRangeIncrease>,,jazz:items.lua
 982641736302,Ближняя зона: Уменьшает ближнюю зону на <CloseRangeDecrease>,Close range: Decreases close-range zone by <CloseRangeDecrease>,,jazz:items.lua
 982641736303,Ближняя зона: Усиливает эффективность на ближней дистанции на <CloseRangeFactorIncrease>,Close range: Improves close-range effectiveness by <CloseRangeFactorIncrease>,,jazz:items.lua

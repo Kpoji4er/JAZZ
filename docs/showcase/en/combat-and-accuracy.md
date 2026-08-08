@@ -71,7 +71,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 The first bullet uses the normal final chance. Each next bullet keeps only part of the previous accuracy (**recoil retention**).
 
-Strength and Marksmanship equally improve control, alongside stance, bipods/setup, components, perks, and special actions. Compact high-RPM platforms are less controllable than heavier, slower examples in the same caliber. Recoil changes hit probability once; burst misses climb upward further along the string (the same control tightens both chance decay and climb). Hits on the aimed target are not shifted by climb. Shotgun pellet packets have no queue-climb.
+Strength and Marksmanship equally improve control, alongside stance, bipods/setup, components, perks, and special actions. **Unsupported machine guns** (no Setup / bipod / deployed sector): first-bullet accuracy penalty (**−50** heavy / **−25** light) reduced by Strength (0 at Strength 100), plus heavier burst recoil (**×2** / **×1.5**). Grizzly’s signature attack ignores both penalties; his normal MG burst does not. Compact high-RPM platforms are less controllable than heavier, slower examples in the same caliber. Recoil changes hit probability once; burst misses climb upward further along the string (the same control tightens both chance decay and climb). Hits on the aimed target are not shifted by climb. Shotgun pellet packets have no queue-climb.
 
 ## Grenades and launchers
 

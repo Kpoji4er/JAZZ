@@ -3208,6 +3208,26 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 		)
 	end
 
+	-- JAZZ-WEAPONS-012: unsupported MG/LMG first-bullet penalty (Strength-scaled).
+	local unsupported_stance = args and args.stance or self.stance
+	local unsupported_penalty = JAZZ_CTHGetUnsupportedFirePenalty(
+		weapon,
+		self,
+		action,
+		unsupported_stance,
+		args
+	)
+	if unsupported_penalty ~= 0 then
+		JAZZ_CTHAddFactor(
+			factors,
+			"UnsupportedMG",
+			T(982641736220, "Без опоры"),
+			JAZZ_CTHPercentToFactor(unsupported_penalty),
+			nil,
+			"Weapon"
+		)
+	end
+
 	local possible = range_profile.possible and mod_data.enabled ~= false
 	local min_chance = Max(JAZZ_CTH_VALID_SHOT_FLOOR, mod_data.min or JAZZ_CTH_VALID_SHOT_FLOOR)
 	local max_chance = Clamp(mod_data.max or 100, min_chance, 100)

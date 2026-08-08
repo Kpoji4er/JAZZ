@@ -276,6 +276,11 @@ $machineGunActionRetention = Get-RecoilRetention 30 50
 Assert-True ($machineGunActionRetention -eq $standingRetention) 'MGBurstFire must use full authored weapon recoil'
 $grizzlyActionRetention = Get-RecoilRetention 30 50 1 1 1 1 (0.8 * 0.55)
 Assert-True ($grizzlyActionRetention -gt $machineGunActionRetention) 'GrizzlyPerk must retain its 0.8 severity and 0.55 action factor'
+$unsupportedMgRetention = Get-RecoilRetention 18 80 1 1 1 1 1 2.0
+$supportedMgRetention = Get-RecoilRetention 18 80 0.75 0.65 1 1 1 1.0
+Assert-True ($supportedMgRetention -gt $unsupportedMgRetention) 'unsupported MG class_factor 2.0 must hurt retention vs supported'
+$unsupportedLmgRetention = Get-RecoilRetention 18 80 1 1 1 1 1 1.5
+Assert-True ($unsupportedLmgRetention -gt $unsupportedMgRetention) 'unsupported LMG class_factor 1.5 must be milder than MG 2.0'
 $fanningRetention = Get-RecoilRetention 20 50
 Assert-True ($fanningRetention -gt $standingRetention) 'Fanning must keep its dedicated recoil profile'
 Assert-True ((Get-BulletChance 85 2 $standingRetention 1) -eq 85) 'protected action shot must ignore recoil'
@@ -319,6 +324,14 @@ Assert-True (
     $accuracySource -match 'action_id == "GrizzlyPerk"' -and
     $accuracySource -match 'action_id == "JAZZ_Fanning"'
 ) 'action-specific recoil contracts must remain in the shared model'
+Assert-True (
+    $accuracySource -match 'JAZZ_CTH_UNSUPPORTED_MG_PENALTY = -50' -and
+    $accuracySource -match 'JAZZ_CTH_UNSUPPORTED_LMG_PENALTY = -25' -and
+    $accuracySource -match 'JAZZ_CTH_UNSUPPORTED_MG_RECOIL = 2.0' -and
+    $accuracySource -match 'JAZZ_CTH_UNSUPPORTED_LMG_RECOIL = 1.5' -and
+    $accuracySource -match 'action\.id == "GrizzlyPerk"' -and
+    $accuracySource -notmatch 'HasPerk\(attacker, "GrizzlyPerk"\)'
+) 'unsupported MG CTH/recoil must use Strength-scaled penalties; Grizzly ignore is signature-only'
 Assert-True (
     $mgBurstSource -match 'ActionPointDelta = 1000' -and
     $mgBurstSource -match 'autofire_shots > burst_shots and 2 or 1' -and

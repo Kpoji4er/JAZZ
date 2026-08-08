@@ -32,7 +32,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `Jazz_Perk_Laura` | Laura | After bandaging an ally, becomes Hidden again |
 | `Jazz_Perk_Vince` | Vince | 1×/combat: first ally bandage → target +4 AP |
 | `Jazz_Perk_Steiger` | Steiger | At night: allies ≤5 get +5 CTH |
-| `GrizzlyPerk` | Grizzly | Personal MG attack + CTH/recoil |
+| `GrizzlyPerk` | Grizzly | Signature MG: ignore unsupported penalties; −dmg / recoil control |
 | `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP first turn |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura; tooltip shows the **current order**. Details: [Command aura](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (personal) | Conversation options for Negotiator/Scoundrel/Psycho without their combat/economy effects |

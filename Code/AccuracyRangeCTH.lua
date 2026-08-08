@@ -498,6 +498,77 @@ function GetRangeDamageReduction(weapon, distance, unit, action)
 	return Clamp(JAZZ_CTHRound(factor / 10), 1, 100)
 end
 
+-- JAZZ-WEAPONS-012: unsupported MG/LMG first-bullet CTH + recoil class factors.
+JAZZ_CTH_UNSUPPORTED_MG_PENALTY = -50
+JAZZ_CTH_UNSUPPORTED_LMG_PENALTY = -25
+JAZZ_CTH_UNSUPPORTED_MG_RECOIL = 2.0
+JAZZ_CTH_UNSUPPORTED_LMG_RECOIL = 1.5
+
+--- Returns whether the attack has bipod/setup/deployed support for recoil+CTH.
+function JAZZ_CTHIsAttackSupported(weapon, attacker, stance, attack_args)
+	local deployed = attack_args and attack_args.deployed
+	if not deployed and g_Overwatch and attacker and g_Overwatch[attacker] then
+		deployed = g_Overwatch[attacker].permanent
+	end
+	if deployed then
+		return true
+	end
+	if attacker and attacker.HasStatusEffect and attacker:HasStatusEffect("BipodUnfolded") then
+		return true
+	end
+	local bipod_shots = JAZZ_CTHGetComponentValue(weapon, "ShotsBeforeRecoilProne", "ShotsBeforeRecoilProne")
+	if stance == "Prone" and bipod_shots then
+		return true
+	end
+	return false
+end
+
+--- Strength-scaled first-bullet percent penalty when firing MG/LMG without support.
+--- Signature `GrizzlyPerk` action fully ignores. Ordinary MGBurstFire does not.
+function JAZZ_CTHGetUnsupportedFirePenalty(weapon, attacker, action, stance, attack_args)
+	if not weapon then
+		return 0
+	end
+	local is_mg = IsKindOf(weapon, "MachineGun")
+	local is_lmg = IsKindOf(weapon, "LightMachineGun")
+	if not is_mg and not is_lmg then
+		return 0
+	end
+	if action and action.id == "GrizzlyPerk" then
+		return 0
+	end
+	if JAZZ_CTHIsAttackSupported(weapon, attacker, stance, attack_args) then
+		return 0
+	end
+	local base = is_mg and JAZZ_CTH_UNSUPPORTED_MG_PENALTY or JAZZ_CTH_UNSUPPORTED_LMG_PENALTY
+	local strength = Clamp(attacker and attacker.Strength or 50, 0, 100)
+	return MulDivRound(base, Max(0, 100 - strength), 100)
+end
+
+--- Recoil class_factor for unsupported MG/LMG (2.0 / 1.5), else cumbersome 1.10, else 1.
+--- Signature `GrizzlyPerk` action ignores the unsupported class multiplier.
+function JAZZ_CTHGetUnsupportedClassRecoilFactor(weapon, attacker, action, stance, attack_args)
+	if not weapon then
+		return 1
+	end
+	if action and action.id == "GrizzlyPerk" then
+		return 1
+	end
+	if JAZZ_CTHIsAttackSupported(weapon, attacker, stance, attack_args) then
+		return 1
+	end
+	if IsKindOf(weapon, "MachineGun") then
+		return JAZZ_CTH_UNSUPPORTED_MG_RECOIL
+	end
+	if IsKindOf(weapon, "LightMachineGun") then
+		return JAZZ_CTH_UNSUPPORTED_LMG_RECOIL
+	end
+	if weapon.IsCumbersome and weapon:IsCumbersome() then
+		return 1.10
+	end
+	return 1
+end
+
 local JAZZ_CTHProtectedShotsByAction = {
 	AbakanBurst = 1,
 	AbakanAutoFire = 1,
@@ -546,16 +617,12 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 	end
 
 
-	local deployed = attack_args and attack_args.deployed
-	if not deployed and g_Overwatch and attacker and g_Overwatch[attacker] then
-		deployed = g_Overwatch[attacker].permanent
-	end
-
+	local supported = JAZZ_CTHIsAttackSupported(weapon, attacker, stance, attack_args)
 	local bipod_shots = JAZZ_CTHGetComponentValue(weapon, "ShotsBeforeRecoilProne", "ShotsBeforeRecoilProne")
 	if stance == "Prone" and bipod_shots then
 		support_factor = 0.65
 		shots_before_recoil = shots_before_recoil + Max(0, bipod_shots)
-	elseif deployed or attacker and attacker.HasStatusEffect and attacker:HasStatusEffect("BipodUnfolded") then
+	elseif supported then
 		support_factor = 0.65
 	end
 
@@ -566,15 +633,8 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 		action_factor = 0.55
 	end
 
-	if not deployed and not (support_factor < 1) then
-		if IsKindOf(weapon, "MachineGun") then
-			class_factor = 1.35
-		elseif IsKindOf(weapon, "LightMachineGun") then
-			class_factor = 1.15
-		elseif weapon.IsCumbersome and weapon:IsCumbersome() then
-			class_factor = 1.10
-		end
-	end
+	-- JAZZ-WEAPONS-012: unsupported MG ×2 / LMG ×1.5; Grizzly ignores.
+	class_factor = JAZZ_CTHGetUnsupportedClassRecoilFactor(weapon, attacker, action, stance, attack_args)
 
 	local effective_recoil =
 		action_recoil

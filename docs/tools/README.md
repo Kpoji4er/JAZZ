@@ -176,6 +176,7 @@
 | `_fix_metadata_last_changes_and_audit_code.py` | HOTFIX-001: чинит raw newline в `metadata.lua` `last_changes` (иначе local mod не грузится → Steam packed); аудитит все `metadata.code` пути vs disk/git (missing/case). |
 | `_append_imp001_loc.py` | JAZZ-IMP-001: RU/EN строки `890000000001931–936` (Russian.csv: Translation=RU; English.csv: Translation=EN). |
 | `_append_close_range_rollover_loc.py` | CloseRange card-row values RU/EN `890000000001937–938` (`+N (tiles)` / `−N% (tiles)`); label = `982641736210`. |
+| `_upsert_grizzly_perk_loc.py` | JAZZ-WEAPONS-012: upsert `272740235755` GrizzlyPerk Description RU/EN (signature ignores unsupported penalties). |
 | `_bump_close_range_stg_anchor.py` | Scale Firearm `CloseRange` by StG-44 anchor (6→8, ×4/3 tiers: 2→3, 4→5, 6→8, 8→11, 12→16); companions + `items.lua` + `BASE_CLOSE_RANGE`. Dry-run / `--apply`; idempotent if STG already 8. |
 | `_check_imp_certificate_fix.py` | Static: IMP loc Translation columns + Sniper `Perk-Specialization` + Veteran `OldDog` + personal wrap. |
 | `_insert_imp_personality_perks.py` | JAZZ-IMP-001: вставляет `Jazz_Perk_{Mimicry,Veteran,Sniper}` в Personality-папку `items.lua`. |

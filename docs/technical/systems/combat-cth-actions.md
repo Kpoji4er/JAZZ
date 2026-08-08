@@ -72,6 +72,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 `Firearm:GetAttackResults` получает шанс первой пули из общего CTH pipeline, строит один recoil profile и применяет `recoil_retention` к каждой последующей пуле. `PredictCTH` использует тот же профиль. Strength, стойка, сошки/развёртывание, resolved component `Recoil`, `AutoWeapons`, класс оружия и действие входят в effective recoil множителями.
 
+**Без опоры (JAZZ-WEAPONS-012):** для `MachineGun` / `LightMachineGun` без setup/permanent OW / `BipodUnfolded` / prone+bipod первая пуля получает CTH-фактор «Без опоры»: base **−50** / **−25**, масштабируется Силой `×(100−Str)/100` (Str 100 → 0). Одновременно recoil `class_factor` **×2.0** / **×1.5** (вместо прежних 1.35/1.15). Сигнатурный CombatAction `GrizzlyPerk` игнорирует оба штрафа; обычный `MGBurstFire` у Гризли — нет.
+
 Для non-pellet очередей true-miss LoF после protected-окон уводится нарастающим climb’ом вверх (`JAZZ-WEAPONS-007`, якорь `/400` от `effective_recoil`); hit placement и CTH не меняются. Дробовый `pellet_pack` остаётся пакетным конусом без queue-climb.
 
 `cth_loss_per_shot` и `shots_before_recoil` сохранены как совместимые входы существующих CombatAction, но больше не означают линейное вычитание CTH. Первый задаёт action recoil severity, второй — число дополнительных пуль после первой до начала retention. `AbakanBurst`, `AbakanAutoFire` и `JAZZ_ControllableBurst` защищают вторую пулю; обычный `MGBurstFire` использует полный authored `Recoil`; только `GrizzlyPerk` задаёт пулемётную severity `0.8` и затем action factor `0.55`; `JAZZ_Fanning` получает собственную severity.

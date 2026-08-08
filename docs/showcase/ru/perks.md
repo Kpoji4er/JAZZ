@@ -32,7 +32,7 @@
 | `Jazz_Perk_Laura` | Лора | После перевязки союзника снова Hidden |
 | `Jazz_Perk_Vince` | Винс | 1×/бой: первая перевязка союзника → цели +4 ОД |
 | `Jazz_Perk_Steiger` | Штайгер | Ночью: союзники ≤5 получают +5 CTH |
-| `GrizzlyPerk` | Grizzly | Личная MG-атака + CTH/recoil |
+| `GrizzlyPerk` | Grizzly | Сигнатура MG: игнор штрафов без опоры; −урон / контроль отдачи |
 | `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP первый ход |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира; в тултипе — **текущий приказ**. Подробности: [Командная аура](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (личностные) | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
