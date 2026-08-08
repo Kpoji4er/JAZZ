@@ -88,8 +88,9 @@ executable: true
 
 ## Hire
 
-- Access: MERC roster (standard contract, no quest gate)
+- Access: **world-gated MERC** — Speck Day-2 mail unlocks the M.E.R.C. site and asks the player to find Biff; Biff is not on the shelf until RescueBiff/meet (`JAZZ_MERC_MarkMet`). Then hire on the spot **or** he returns as Available on MERC.
 - MedicalDeposit: small; Haggling: normal; DaysUntilOnline: 0
+- Affiliation: `MERC` (`Jazz_Biff`)
 
 ## Inventory
 

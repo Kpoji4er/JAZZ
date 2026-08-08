@@ -12,6 +12,7 @@
 | `_check_grandchien_map_lfs.py` | `../jazz-maps/Images/GrandChien2.png`: real PNG (~70MB) vs Git LFS pointer (чёрная sat map). Игрокам — `…/releases/download/playable/jazz-maps-playable.zip`, не archive ZIP. |
 | `_fix_metadata_utf8_mojibake.py` | Аудит/обратимое исправление одного ошибочного прохода UTF-8→Windows-1251 в `title`, `description`, `last_changes`; `--check` / `--apply`, BOM сохраняется. |
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
+| `_audit_ui002_weapon_chips.py` | UI-002 static: Fold/Flash `ShowIn = false`, Unjam stays CombatActions; `idFoldStockButton`/`idFlashlightButton` GridX=2; HUD helpers + GetUIState zzFoldingPair. |
 | `_apply_hotfix_unjam_pinned_items.py` | ACL-safe items.lua patch helper: Unjam ShowIn/GetUIState + suppressionPinned OnAdded/OnBeginTurn parity with companion. |
 
 ## FortifyErnie / stationary MG
@@ -356,7 +357,10 @@ python docs/tools/build-sector-atlas-docs.py
 | `_import_legion_raider_alt_voices.py` | Импорт Legion Raider alt takes `*-1.opus` (rar или `--dir Downloads/1`) → `jazz-units/voices/` (донор голоса для AME Male_Low). |
 | `_ame_voice_subtitles_ru.py` | Канонический RU-перевод фактически слышимой donor-фразы для shared AME voice banks; не подменяет реплику текстом gameplay event. Неизвестная новая фраза — hard fail генератора. |
 | `_gen_ame_voice_responses.py` | Три shared VR: `Jazz_AME_Male_Low` (Legion alt `*-1.opus`, без Legion/Major/Grand Chien takes), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`. Remesh только подходящие слоты; Selection/Order/CombatMovement **omit** → тишина. EN совпадает с audio, RU берётся из `_ame_voice_subtitles_ru.py`; generated loc принадлежит стабильному Context и переиспользует те же IDs даже после CSV round-trip без comment markers. |
-| `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN`; **1** синий акцент (Hat/Hat2/Shirt/BodyC2, не Pants); узкий Af bank (Chimurenga/Pierre/Jackhammer/`Head_M_IMP_01`/Rebel medic — **не** Flay/Fidel/Magic/Blood); без Legion war-paint / `GrandChien_Top_05`; red/extra-blue→slate; BodyC1 dark; HeadColor 0; map `ame-appearance-map.json`. Policy: `docs/design/ame-appearance-assets.md`. |
+| `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN` full regen from **vanilla** AP only; **1** синий акцент; Af head bank; без Legion war-paint / `GrandChien_Top_05`; red/extra-blue→slate; map `ame-appearance-map.json`. Policy: `docs/design/ame-appearance-assets.md`. |
+| `_patch_ame_appearance_clothes_from_map.py` | Clothing shuffle from map: jazz-units **canon `Legion*`** + Rebels/GC/keep; preserve Head/BodyC1/HeadColor; blue on **shirt/torso** (not hats); strip helmets/turbans/`FactionMale_Hat`/`Equipment*_Hat`; keep mask/scarf/glasses/headband; ♀ `NPCFemale_Hair_*` or empty if Hat/Hat2. `--dry-run` / `--write-map-only`. |
+| `_audit_ame_appearance_clothes_qa.py` | Static QA: Irregular jazz `Legion*` lean; no war-paint heads; no AIM hair; no hat+hair; no hard helmets. |
+| `_list_jazz_legion_appearances.py` | List handcrafted jazz-units `Legion*` AppearancePreset ids (canon pool). |
 | `_audit_patch_ame_heads.py` | Repair pass по `jazz-units/items.lua` AME: pale/AIM heads, ♀-on-♂, war-paint bodies, pale-hand `GrandChien_Top_05`, gloves Shirt, BodyColor C1, HeadColor 0. `--dry-run` / `--sync-map` / `--verbose`. Exit 0 ⇒ `bad_after=0`. |
 | `_audit_loot_upgrade_ids.py` | Audit `LootEntryUpgradedWeapon` upgrade IDs in `jazz-units/items.lua` vs known `JAZZ_*` WeaponComponent map. |
 | `_apply_loot_upgrade_id_remap.py` | Remap legacy vanilla upgrade IDs on loot entries to `JAZZ_*` companions (dry-run default). |
@@ -371,6 +375,12 @@ python docs/tools/build-sector-atlas-docs.py
 | `_gen_ame_portrait_prompts.py` | JSONL prompt-bank 60 слотов → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl`. |
 | `_process_ame_portraits.py` | rembg BiRefNet + resize 2000 + bust_crop 300 из `*_Big_raw.png` (assets/_raw). |
 | `_append_ame_mail_loc.py` | JAZZ-UI-AME-001: RU/EN Email strings `890000000006900–6910` (welcome + listing update). Idempotent upsert; proper multiline CSV. |
+| `_append_merc_mail_loc.py` | JAZZ-UI-MERC-001: RU/EN Speck mail + MERC PDA strings `890000000009900+`. Idempotent upsert; multiline CSV. |
+| `_remap_merc_loc_ids.py` | One-shot: move MERC loc off VoiceResponse `007xxx` → `009900+`; restore stolen VR rows from `HEAD`. |
+| `_apply_merc_affiliations.py` | UI-MERC-001: set `Affiliation = "MERC"` on Jazz shelf/world UnitData companions (+ Larry/Smiley overrides). |
+| `_sync_merc_affiliation_items.py` | Sync same Affiliation into `jazz-units/items.lua` ModItem blocks. |
+| `_fork_ame_template_to_merc.py` / `_polish_merc_template.py` | Fork/polish `System_MERC_Browser_Template.lua` from AME skin. |
+| `_install_merc_xtemplate_moditem.py` | Install `PDAMERCBrowser` ModItemXTemplate + Emails + metadata code/resource (не Code-load шаблона). |
 | `_update_ame_mail_sales_copy.py` | Канонические RU/EN письма AME + естественные listing pitches `6960–6984`; безопасно синхронизирует `AME_Welcome` / `AME_ListingUpdate`, сохраняя English source в `Text` обеих runtime CSV. |
 | `_apply_ris_mail_emails.py` | Compatibility wrapper → полный `_apply_ris_editorial.py`; отдельный Phase A mail/copy bank удалён. |
 | `_rewrite_ris_legion_briefs.py` | Отдельный канон 11 RU/EN supply briefs по loadout unlock map; loc IDs `11300…11321`. CLI делегирует полному `_apply_ris_editorial.py`, чтобы старый partial-run не рассинхронизировал CSV/catalog/items. |

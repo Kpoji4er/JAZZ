@@ -2955,7 +2955,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 619215783391,"прыгает, гоп",(jumps) Hop!,,jazz-units:items.lua:70039
 619300101686,"Бронежилет ""Interceptor""",Interceptor Body Armor,,jazz:InventoryItem/JazzArmor_IBALight.lua:13 | jazz:items.lua:56235
 619491844894,"Помедленнее, а то у меня будут проблемы с легкими!",Slow down or my lungs will give out!,,jazz-units:items.lua:70010
-619706015798,"Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.","Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.",,jazz:items.lua:58885
+619706015798,"Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.",Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.,,jazz:items.lua:58885
 619763824975,"Не парься, сестра, я тя и в пушках и в движках прикрою! ","Don't worry, sis. I've got you covered with guns and engines alike!",,jazz-units:items.lua:79183
 619787402322,Один алмаз? Маловато,One diamond? That’s not much,,jazz-maps:items.lua:58621
 620020470489,Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ,Couldn't be better. You don't often get this much satisfaction from the job.,,jazz-units:items.lua:68894
@@ -9421,8 +9421,6 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000007015,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
 890000000007016,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
 890000000007017,Есть цель!,Target spotted!,,jazz-units:items.lua:VoiceResponse
-890000000007018,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
-890000000007019,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
 890000000007020,Сложный выстрел.,Tough shot.,,jazz-units:items.lua:VoiceResponse
 890000000007021,Плохой угол.,Bad angle.,,jazz-units:items.lua:VoiceResponse
 890000000007022,Вижу их!,I see them!,,jazz-units:items.lua:VoiceResponse
@@ -9452,7 +9450,6 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000007046,Готово.,Done.,,jazz-units:items.lua:VoiceResponse
 890000000007047,В укрытие!,Take cover!,,jazz-units:items.lua:VoiceResponse
 890000000007048,Граната!,Grenade!,,jazz-units:items.lua:VoiceResponse
-890000000007049,Очередь!,Burst!,,jazz-units:items.lua:VoiceResponse
 890000000007050,(лезет),(climbing),,jazz-units:items.lua:VoiceResponse
 890000000007051,(прыжок),(jump),,jazz-units:items.lua:VoiceResponse
 890000000007052,Что?!,What?!,,jazz-units:items.lua:VoiceResponse
@@ -9503,10 +9500,6 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000007097,Жду.,Waiting.,,jazz-units:items.lua:VoiceResponse
 890000000007098,Жду.,Waiting.,,jazz-units:items.lua:VoiceResponse
 890000000007099,Прячусь.,I'm hiding.,,jazz-units:items.lua:VoiceResponse
-890000000007100,Прячусь.,I'm hiding.,,jazz-units:items.lua:VoiceResponse
-890000000007101,Интересно…,Interesting...,,jazz-units:items.lua:VoiceResponse
-890000000007102,Интересно…,Interesting...,,jazz-units:items.lua:VoiceResponse
-890000000007103,Закрыто.,Locked.,,jazz-units:items.lua:VoiceResponse
 890000000007104,Устал…,Tired...,,jazz-units:items.lua:VoiceResponse
 890000000007105,(пыхтит),(huffing),,jazz-units:items.lua:VoiceResponse
 890000000007106,Спасибо.,Thanks.,,jazz-units:items.lua:VoiceResponse
@@ -9523,8 +9516,6 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000007117,Наготове.,Ready.,,jazz-units:items.lua:VoiceResponse
 890000000007118,(кашляет),(coughs),,jazz-units:items.lua:VoiceResponse
 890000000007119,Почти…,Almost...,,jazz-units:items.lua:VoiceResponse
-890000000007120,Зверь!,Beast!,,jazz-units:items.lua:VoiceResponse
-890000000007121,Есть идея.,I've got an idea.,,jazz-units:items.lua:VoiceResponse
 890000000007122,Сделано.,Done.,,jazz-units:items.lua:VoiceResponse
 890000000007123,Не вышло.,Didn't work.,,jazz-units:items.lua:VoiceResponse
 890000000007124,На связи.,Standing by.,,jazz-units:items.lua:VoiceResponse
@@ -9603,19 +9594,8 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000007197,Крадусь.,Sneaking.,,jazz-units:items.lua:VoiceResponse
 890000000007198,Крадусь.,Sneaking.,,jazz-units:items.lua:VoiceResponse
 890000000007199,Крадусь.,Sneaking.,,jazz-units:items.lua:VoiceResponse
-890000000007200,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
-890000000007201,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
-890000000007202,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
-890000000007203,Есть цель!,Target spotted!,,jazz-units:items.lua:VoiceResponse
-890000000007204,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
-890000000007205,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
-890000000007206,Сложный выстрел.,Tough shot.,,jazz-units:items.lua:VoiceResponse
-890000000007207,Плохой угол.,Bad angle.,,jazz-units:items.lua:VoiceResponse
-890000000007208,Вижу их!,I see them!,,jazz-units:items.lua:VoiceResponse
 890000000007209,Вижу их!,I see them!,,jazz-units:items.lua:VoiceResponse
 890000000007210,Их много!,There's a lot of them!,,jazz-units:items.lua:VoiceResponse
-890000000007211,Готов.,Ready.,,jazz-units:items.lua:VoiceResponse
-890000000007212,Патроны кончились.,Out of ammo.,,jazz-units:items.lua:VoiceResponse
 890000000007213,Клин!,Jammed!,,jazz-units:items.lua:VoiceResponse
 890000000007214,Аргх!,Argh!,,jazz-units:items.lua:VoiceResponse
 890000000007215,Аргх!,Argh!,,jazz-units:items.lua:VoiceResponse
@@ -12912,3 +12892,87 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000010303,<merc>'s wound became infected,<merc>'s wound became infected,,jazz:MED-002
 890000000010304,<merc>'s infection subsided,<merc>'s infection subsided,,jazz:MED-002
 890000000010305,<merc> died of infection,<merc> died of infection,,jazz:MED-002
+890000000007018,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
+890000000007019,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
+890000000007049,Очередь!,Burst!,,jazz-units:items.lua:VoiceResponse
+890000000007100,Прячусь.,I'm hiding.,,jazz-units:items.lua:VoiceResponse
+890000000007101,Интересно…,Interesting...,,jazz-units:items.lua:VoiceResponse
+890000000007102,Интересно…,Interesting...,,jazz-units:items.lua:VoiceResponse
+890000000007103,Закрыто.,Locked.,,jazz-units:items.lua:VoiceResponse
+890000000007120,Зверь!,Beast!,,jazz-units:items.lua:VoiceResponse
+890000000007121,Есть идея.,I've got an idea.,,jazz-units:items.lua:VoiceResponse
+890000000007200,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000007201,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000007202,С вами.,With you.,,jazz-units:items.lua:VoiceResponse
+890000000007203,Есть цель!,Target spotted!,,jazz-units:items.lua:VoiceResponse
+890000000007204,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
+890000000007205,Тихо сниму.,I'll take them out quietly.,,jazz-units:items.lua:VoiceResponse
+890000000007206,Сложный выстрел.,Tough shot.,,jazz-units:items.lua:VoiceResponse
+890000000007207,Плохой угол.,Bad angle.,,jazz-units:items.lua:VoiceResponse
+890000000007208,Вижу их!,I see them!,,jazz-units:items.lua:VoiceResponse
+890000000007211,Готов.,Ready.,,jazz-units:items.lua:VoiceResponse
+890000000007212,Патроны кончились.,Out of ammo.,,jazz-units:items.lua:VoiceResponse
+890000000009900,Орг.:,Org:,,JAZZ-UI-MERC-001
+890000000009901,Статус:,Status:,,JAZZ-UI-MERC-001
+890000000009902,<style AimCopyrightTextC><copyright></style> M.E.R.C.,<style AimCopyrightTextC><copyright></style> M.E.R.C.,,JAZZ-UI-MERC-001
+890000000009903,Все,All,,JAZZ-UI-MERC-001
+890000000009904,Доступны,Available,,JAZZ-UI-MERC-001
+890000000009905,Моя команда [<MERCPlayerMercCount()>],My Team [<MERCPlayerMercCount()>],,JAZZ-UI-MERC-001
+890000000009906,M.E.R.C.,M.E.R.C.,,JAZZ-UI-MERC-001
+890000000009907,<style PDAMercPrice_Dead>Погиб в бою</style>,<style PDAMercPrice_Dead>Killed in action</style>,,JAZZ-UI-MERC-001
+890000000009908,Пропал без вести,Missing in action,,JAZZ-UI-MERC-001
+890000000009909,Спек <speck@merc.com>,Speck <speck@merc.com>,,JAZZ-UI-MERC-001
+890000000009910,"Командир!
+
+Отличные новости — M.E.R.C. СНОВА ОТКРЫТ. Новый сайт, те же низкие дневные ставки, и платить вперёд не надо. Нанимайте сейчас, счёт закроете когда сможете. (Я напомню. Дружески.)
+
+Одна загвоздка. Партнёр Бифф должен был вести книги — и пропал. Если наткнётесь на него в поле, передайте: Спеку он нужен за столом. Желательно живым.
+
+Откройте M.E.R.C. в браузере КПК и выбирайте бойца. Мы не A.I.M. — мы дешевле.
+
+Ваш друг по найму,
+Спек Т. Клайн
+M.E.R.C. — More Economic Recruiting Center","Commander!
+
+Great news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)
+
+One snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.
+
+Open M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.
+
+Your friend in the hiring business,
+Speck T. Kline
+M.E.R.C. — More Economic Recruiting Center",,JAZZ-UI-MERC-001
+890000000009911,M.E.R.C. ОТКРЫТ — а где Бифф?,M.E.R.C. is OPEN — and where's Biff?,,JAZZ-UI-MERC-001
+890000000009912,Спек <accounts@merc.com>,Speck <accounts@merc.com>,,JAZZ-UI-MERC-001
+890000000009913,"Командир!
+
+Не люблю дёргать ценного клиента, но на счету M.E.R.C. всё ещё $<balance>.
+
+Дневные ставки, помните? Жмите Pay Account на сайте, пока мои люди не начнут писать заявления об уходе в грязных ботинках.
+
+Спек","Commander!
+
+Hate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.
+
+Daily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.
+
+Speck",,JAZZ-UI-MERC-001
+890000000009914,M.E.R.C. — закройте счёт,M.E.R.C. — please settle up,,JAZZ-UI-MERC-001
+890000000009915,Спек <accounts@merc.com>,Speck <accounts@merc.com>,,JAZZ-UI-MERC-001
+890000000009916,"Командир!
+
+Я предупреждал. $<balance> так и висит. Контрактники ушли.
+
+Хотите вернуть — сначала закройте счёт. Если кто-то ещё возьмёт трубку.
+
+Спек","Commander!
+
+I warned you. $<balance> still unpaid. My contractors walked.
+
+Want them back? Clear the ledger first — if any of them still answer the phone.
+
+Speck",,JAZZ-UI-MERC-001
+890000000009917,M.E.R.C. — они уходят,M.E.R.C. — they're walking,,JAZZ-UI-MERC-001
+890000000009918,Долг MERC: $<balance>,MERC due: $<balance>,,JAZZ-UI-MERC-001
+890000000009919,Оплатить счёт,Pay Account,,JAZZ-UI-MERC-001

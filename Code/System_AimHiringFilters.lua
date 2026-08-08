@@ -37,7 +37,7 @@ function GetAIMScreenFilters()
 			-- Class portrait icon (not UI/Icons/hf_<id> — those assets do not exist).
 			icon = Specialization.icon,
 			func = function(item)
-				return IsMetAIMMerc(item) and item.Specialization == Specialization.id
+				return IsMetAIMMerc(item) and item.Affiliation == "AIM" and item.Specialization == Specialization.id
 			end,
 			id = i,
 			premium = false,
@@ -50,7 +50,7 @@ function GetAIMScreenFilters()
 		name = T(470357587467, "All"),
 		nameString = "all",
 		urlName = Untranslated("All"),
-		func = function(item) return IsMetAIMMerc(item) end,
+		func = function(item) return IsMetAIMMerc(item) and item.Affiliation == "AIM" end,
 		id = #AIMScreenFilters + 1
 	})
 	table.insert(AIMScreenFilters, {

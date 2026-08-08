@@ -23,6 +23,7 @@
 | `WeaponClasses.lua` | loaded | [Оружие](weapons-ammo-components.md) |
 | `System_DisposableLaunchers.lua` | loaded | [Оружие](weapons-ammo-components.md), [взрывчатка](explosives-traps-heavy-weapons.md) |
 | `Systems_Compontents_FoldingStocks.lua` | loaded | [Оружие](weapons-ammo-components.md) |
+| `System_WeaponCompHUD.lua` | loaded | [Оружие](weapons-ammo-components.md), [combat-actions](../weapons/combat-actions.md) — JAZZ-UI-002 Fold/Flash chips у иконки |
 | `GetScrapParts.lua` | loaded | [Оружие](weapons-ammo-components.md), [инвентарь](inventory-items-loot-crafting.md) |
 | `System_OR_Grenade.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |
 | `System_OR_Traps.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |

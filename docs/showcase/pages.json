@@ -11,6 +11,7 @@
     "bobby-ray",
     "mercenaries",
     "ame",
+    "merc",
     "ris",
     "perks",
     "officer-aura",
@@ -72,6 +73,11 @@
       "wikiBase": "African-Mercenary-Exchange",
       "ru": "Биржа A.M.E.",
       "en": "A.M.E. Exchange"
+    },
+    "merc": {
+      "wikiBase": "MERC-Recruiting-Center",
+      "ru": "M.E.R.C.",
+      "en": "M.E.R.C."
     },
     "ris": {
       "wikiBase": "Recon-Intelligence-Services",
