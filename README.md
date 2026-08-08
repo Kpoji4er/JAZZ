@@ -47,6 +47,22 @@ JAZZ находится в стадии демо.
 - Расширяются квесты, разговоры, события, патрули, guardposts и стратегические отряды.
 - Меняются источники дохода, операции и развитие мира кампании.
 
+## Скачать для игры (GitHub, без git)
+
+Не используй **Code → Download ZIP** / `archive/…/main.zip` — у `jazz-maps` там нет LFS-карты (~70 MB) → чёрная sat-карта.
+
+Бери готовые ZIP (обновляются на каждый push в `main`):
+
+| Пакет | Ссылка |
+| --- | --- |
+| jazz | https://github.com/Kpoji4er/JAZZ/releases/download/playable/jazz-playable.zip |
+| jazz_assets | https://github.com/Kpoji4er/JAZZ-assets/releases/download/playable/jazz_assets-playable.zip |
+| jazz-maps | https://github.com/Kpoji4er/JAZZ-maps/releases/download/playable/jazz-maps-playable.zip |
+| jazz-units | https://github.com/Kpoji4er/JAZZ-units/releases/download/playable/jazz-units-playable.zip |
+| jazz-nomaps (вместо maps) | https://github.com/Kpoji4er/JAZZ-nomaps/releases/download/playable/jazz-nomaps-playable.zip |
+
+Распаковать в `Mods/` под именами папок из таблицы. Нужны все пакеты профиля + `JA3_CommonLib`. Steam Workshop — тоже нормальный путь.
+
 ## Состав комплекта
 
 JAZZ разделён на четыре технических пакета с отдельными Git-границами. Это один мод-комплект, а не четыре самостоятельных мода.

@@ -1,0 +1,137 @@
+# Player-ready ZIP with Git LFS objects materialized.
+# GitHub Code → Download ZIP / archive/refs/heads/*.zip omit LFS blobs.
+name: Publish playable zip
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      package_dirname:
+        description: Folder name inside the ZIP (Mods/<name>)
+        required: true
+        type: string
+      artifact_name:
+        description: Release asset filename
+        required: true
+        type: string
+      verify_file:
+        description: Optional relative path that must exist as a real file (not LFS pointer)
+        required: false
+        default: ""
+        type: string
+      verify_min_bytes:
+        description: Minimum size for verify_file (0 = skip size check)
+        required: false
+        default: 0
+        type: number
+
+permissions:
+  contents: write
+
+concurrency:
+  group: playable-zip-${{ github.repository }}
+  cancel-in-progress: true
+
+jobs:
+  pack:
+    name: Pack and publish playable ZIP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve package inputs
+        id: meta
+        run: |
+          set -euo pipefail
+          pkg="${{ inputs.package_dirname }}"
+          art="${{ inputs.artifact_name }}"
+          vfile="${{ inputs.verify_file }}"
+          vmin="${{ inputs.verify_min_bytes }}"
+          if [ -z "$pkg" ]; then pkg="jazz"; fi
+          if [ -z "$art" ]; then art="jazz-playable.zip"; fi
+          if [ -z "$vmin" ]; then vmin="0"; fi
+          echo "package_dirname=$pkg" >> "$GITHUB_OUTPUT"
+          echo "artifact_name=$art" >> "$GITHUB_OUTPUT"
+          echo "verify_file=$vfile" >> "$GITHUB_OUTPUT"
+          echo "verify_min_bytes=$vmin" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout with LFS
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Verify optional critical file
+        if: ${{ steps.meta.outputs.verify_file != '' }}
+        run: |
+          set -euo pipefail
+          f="${{ steps.meta.outputs.verify_file }}"
+          min="${{ steps.meta.outputs.verify_min_bytes }}"
+          if [ ! -f "$f" ]; then
+            echo "::error::Missing $f"
+            exit 1
+          fi
+          sz=$(wc -c < "$f")
+          echo "$f size=$sz (min=$min)"
+          head_txt=$(head -c 64 "$f" || true)
+          if printf '%s' "$head_txt" | grep -q 'git-lfs.github.com/spec/v1'; then
+            echo "::error::$f is still a Git LFS pointer"
+            exit 1
+          fi
+          if [ "$min" -gt 0 ] && [ "$sz" -lt "$min" ]; then
+            echo "::error::$f too small ($sz < $min)"
+            exit 1
+          fi
+
+      - name: Build ZIP
+        run: |
+          set -euo pipefail
+          pkg="${{ steps.meta.outputs.package_dirname }}"
+          art="${{ steps.meta.outputs.artifact_name }}"
+          stage="${RUNNER_TEMP}/${pkg}"
+          out="${RUNNER_TEMP}/${art}"
+          rm -rf "$stage"
+          mkdir -p "$stage"
+          if command -v rsync >/dev/null 2>&1; then
+            rsync -a \
+              --exclude '.git/' \
+              --exclude '.github/' \
+              --exclude '.gitignore' \
+              --exclude '.gitattributes' \
+              ./ "$stage/"
+          else
+            tar --exclude='.git' --exclude='.github' --exclude='.gitignore' --exclude='.gitattributes' \
+              -cf - . | (cd "$stage" && tar -xf -)
+          fi
+          (cd "${RUNNER_TEMP}" && zip -r -q "$out" "$pkg")
+          echo "ZIP_PATH=$out" >> "$GITHUB_ENV"
+          echo "ARTIFACT_NAME=$art" >> "$GITHUB_ENV"
+          ls -lh "$out"
+
+      - name: Publish rolling release playable
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          repo="${{ github.repository }}"
+          notes=$(cat <<EOF
+          Player-ready package (**${{ steps.meta.outputs.package_dirname }}**) — unpack into \`Mods/\`.
+
+          Do **not** use GitHub **Code → Download ZIP** / \`archive/refs/heads/main.zip\` (LFS map/art may be missing → black satellite map on maps).
+
+          Direct download:
+          https://github.com/${repo}/releases/download/playable/${{ steps.meta.outputs.artifact_name }}
+
+          Built from \`${{ github.sha }}\`.
+          EOF
+          )
+          if gh release view playable >/dev/null 2>&1; then
+            gh release upload playable "$ZIP_PATH" --clobber
+            gh release edit playable --notes "$notes" --target "${{ github.sha }}"
+          else
+            gh release create playable "$ZIP_PATH" \
+              --title "${{ steps.meta.outputs.package_dirname }} (playable download)" \
+              --notes "$notes" \
+              --target "${{ github.sha }}" \
+              --latest=false
+          fi

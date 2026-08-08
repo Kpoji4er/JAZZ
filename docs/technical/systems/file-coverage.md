@@ -119,7 +119,7 @@
 
 ## `jazz`: звук и FX
 
-- `CodeSounds.lua`, `CodeSounds_AK.lua`, `CodeSounds_AR.lua`, `CodeSounds_AR15.lua`, `CodeSounds_BoltR.lua`, `CodeSounds_MG.lua`, `CodeSounds_Pistols.lua`, `CodeSounds_SHOTGUNS.lua`, `CodeSounds_SMG.lua`, `CodeSounds_SVD.lua`, `CodeSounds_WW2Rifles.lua` — все 11 loaded; владелец [UI, звук и FX](ui-audio-fx.md).
+- `CodeSounds.lua`, `CodeSounds_AK.lua`, `CodeSounds_AR.lua`, `CodeSounds_AR15.lua`, `CodeSounds_BoltR.lua`, `CodeSounds_MG.lua`, `CodeSounds_Pistols.lua`, `CodeSounds_SHOTGUNS.lua`, `CodeSounds_SVD.lua`, `CodeSounds_WW2Rifles.lua` — 10 loaded; `CodeSounds_SMG.lua` — empty stub, **не** в `metadata.code`; владелец [UI, звук и FX](ui-audio-fx.md).
 - Все 113 `FX_*.lua` в текущем `Code/` перечислены в metadata и считаются loaded; владелец [UI, звук и FX](ui-audio-fx.md). Добавление/удаление проверять одновременно с metadata, SoundPreset, entity/state/spot и ресурсами.
 
 ## `jazz-maps`

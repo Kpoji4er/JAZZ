@@ -8,6 +8,8 @@
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
+| `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |
+| `_check_grandchien_map_lfs.py` | `../jazz-maps/Images/GrandChien2.png`: real PNG (~70MB) vs Git LFS pointer (чёрная sat map). Игрокам — `…/releases/download/playable/jazz-maps-playable.zip`, не archive ZIP. |
 | `_fix_metadata_utf8_mojibake.py` | Аудит/обратимое исправление одного ошибочного прохода UTF-8→Windows-1251 в `title`, `description`, `last_changes`; `--check` / `--apply`, BOM сохраняется. |
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_apply_hotfix_unjam_pinned_items.py` | ACL-safe items.lua patch helper: Unjam ShowIn/GetUIState + suppressionPinned OnAdded/OnBeginTurn parity with companion. |
@@ -335,7 +337,9 @@ python docs/tools/build-sector-atlas-docs.py
 | `_ship_colby_voices_ja2_only.py` | Jazz_Colby: пересобрать `jazz-units/voices/<T-id>.opus` **только** из JA2 Trevor WAV (`trevor.rar` / `trevor_extract/trevor`); пробелы — дубли родственных реплик. `--dry-run` / apply. |
 | `_ship_ja2_merc_voices.py` | Batch: JA2/NightOps/JA2 Gold SLF + folder packs **или** `ja2mercs:…`. Combat=`SLOT_WAV`; AIM chat via `--aim-chat` / `--aim-chat-only`: classic `081–120`, MERK/RPC/Biff=`HIRE_FALLBACK_WAV`, UB ЦС=`UB_HIRE_PROXY_WAV`, Mike hire alt OLD pack. Never ATTN as hire. Map: `jazz_to_ja2_profile.csv` + folders CSV. **Never overwrite** `done_manual`: `spouke` / `lynx` / `tosca` / `spider`. |
 | `_restore_lynx_tosca_spider_voices.py` | Restore original JA3 opus for `Jazz_Lynx` / `Jazz_Buzz` / `Jazz_Spider` from pre-remesh commit `a626ebc` (after accidental overwrite in `792d1c5`). Spouke untouched. |
-| `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh majority + `PierreMerc` + IMP minority (~1/8; VR → `IMP_*_01`). Assert: line troops = AllRounder/Autoriflemen/HeavyWeapons/Marksmen; soft specs только у Specialists. |
+| `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh majority + `PierreMerc` + IMP minority (~1/8; VR → `IMP_*_01`). Assert: line troops = AllRounder/Autoriflemen/HeavyWeapons/Marksmen; soft specs только у Specialists. Sparse personality map **12/60**. |
+| `_apply_ame_personality_traits.py` | Пишет Personality-tier perk (~12/60) в `jazz-units` UnitData companions + `items.lua`, сохраняя common traits. Dry-run / `--apply`. |
+| `_bump_metadata_last_changes.py` | Commit helper: `version` +1 and prepend `last_changes` bullet with escaped `\\n` (no raw LF). Args: metadata path, bullet, optional `--version-minor`. |
 | `_ame_copy_bank.py` | Importable канон 60 самостоятельных RU+EN биографий и двуязычных profile blurbs; сам ничего не пишет. |
 | `_export_ame_bio_copy_edits.py` | Проецирует 60 AME biography ID из copy-bank в `localization-copy-edits/ame_bios_bilingual.csv` для безопасного обновления обеих manual memories. |
 | `_patch_ame_specializations.py` | Синхронизирует `Specialization` в `jazz-units/UnitData/JAZZ_AME_*.lua` + `items.lua` из roster generator **без** перезаписи зарплат/loc. |
