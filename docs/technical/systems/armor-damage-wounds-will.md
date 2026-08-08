@@ -209,6 +209,8 @@ JAZZ добавляет unit attribute `Will` и derived `WillPoints`/`MaxWillPo
 
 CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток. При переходе в `suppressionPinned` дополнительно прерываются подготовленные атаки: обычный и постоянный пулемётный Overwatch, Pin Down и Bombard; более слабые ступени их не снимают.
 
+**Save caveat:** vanilla `CharacterEffect:__toluacode` emits `PlaceCharacterEffect('Id', )` when the effect has no non-default props (typical for fresh mid-combat `suppressionPinned`). That is invalid Lua and blocks load. JAZZ `Code/Save_CharacterEffectSerialize.lua` writes `{}` instead and sanitizes the broken form on load.
+
 ### Psycho и восстановление Will
 
 - `Psycho` не получает Will damage от огневого подавления и не получает suppression tiers; при низком Will может уйти в `Berserk`.

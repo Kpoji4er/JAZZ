@@ -34,6 +34,7 @@
 | `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
 | `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — `JazzStackableMedicine` (Bandage/Morphine stacks) + kit charge UI helper |
 | `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`ResolveValue("Description")` progress line; `GetDescription` raw for save) |
+| `Save_CharacterEffectSerialize.lua` | loaded | [Runtime](runtime-editor-integration.md) — HOTFIX: empty `CharacterEffect` props → `{}`; sanitize `PlaceCharacterEffect('Id', )` on load (mid-combat `suppressionPinned` saves) |
 | `Systems_Wounds_HealWounds.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `System_Wounds_OperationHeal.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |
 | `WillPointsBar.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md), [UI](ui-audio-fx.md) |

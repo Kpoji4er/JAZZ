@@ -4251,6 +4251,10 @@ return {
 			'CodeFileName', "Code/System_JazzTraumaEffect.lua",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "Save_CharacterEffectSerialize",
+			'CodeFileName', "Code/Save_CharacterEffectSerialize.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "LegionTierProgression",
 			'CodeFileName', "Code/LegionTierProgression.lua",
 		}),
