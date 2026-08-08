@@ -983,6 +983,10 @@ function JazzTryBlastKnockback(unit, hit, attacker)
 	if not unit or not JazzIsBlastExplosiveHit(hit) then
 		return false
 	end
+	-- Only CenterAreaOfEffect ring (hit.explosion_center); outer AreaOfEffect skips.
+	if not hit.explosion_center then
+		return false
+	end
 	if not IsKindOf(unit, "Unit") or unit.species ~= "Human" then
 		return false
 	end
@@ -1331,7 +1335,8 @@ end
 
 -- Body-part *shot rollers → trauma. Grit (Temp HP) still blocks like legacy *shot.
 -- Fixed d100 base (not Random(HP)): low HP no longer collapses almost all rolls into Medium+.
--- Limbs favor Light; Head still biased toward Medium/Heavy.
+-- Limbs favor Light; Head still slightly hotter on Medium (not instant Heavy).
+-- Instant Heavy from a single hit is rare — knockout / untreated worsen carry Heavy.
 -- Armor covering the zone scales thresholds down (JazzGetTraumaArmorChanceFactor).
 function JazzTryRollTraumaFromBodyPart(unit, zone)
 	if not unit or not zone or (unit.TempHitPoints or 0) > 0 then
@@ -1340,11 +1345,11 @@ function JazzTryRollTraumaFromBodyPart(unit, zone)
 	local factor = JazzGetTraumaArmorChanceFactor(unit, zone)
 	local thr_heavy, thr_medium, thr_light
 	if zone == "Head" then
-		-- Head: Light harder; Medium/Heavy more common than limbs.
-		thr_heavy, thr_medium, thr_light = 15, 45, 65
+		-- Head: a bit more Medium than limbs; Heavy stays rare (stray ≠ cripple).
+		thr_heavy, thr_medium, thr_light = 3, 20, 55
 	else
-		-- Limbs/Ribs/Burn: all three tiers remain visible in ordinary combat.
-		thr_heavy, thr_medium, thr_light = 8, 28, 60
+		-- Limbs/Ribs/Burn: mostly Light; Medium uncommon; Heavy very rare.
+		thr_heavy, thr_medium, thr_light = 2, 12, 55
 	end
 	if factor < 100 then
 		thr_heavy = Max(1, MulDivRound(thr_heavy, factor, 100))
