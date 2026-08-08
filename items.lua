@@ -66931,8 +66931,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					id = "BuckshotBurst",
 				}),
 				PlaceObj('ModItemCombatAction', {
-					ActionPointDelta = 1000,
-					ActionPoints = 1000,
+					ActionPointDelta = 0,
 					ActionType = "Ranged Attack",
 					AimType = "line",
 					Comment = "-> ShotgunAttack FiringMode",
@@ -66943,10 +66942,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					DisplayNameShort = T(425861398044, --[[ModItemCombatAction DoubleBarrel DisplayNameShort]] "Double"),
 					Execute = function (self, units, args)
 						local unit = units[1]
-						args.multishot = true
-						local weapon = self:GetAttackWeapons(unit, args)
-						args.weapon = weapon
-						args.num_shots = (weapon and weapon.BuckshotProjectiles or 1) * 2
 						local ap = self:GetAPCost(unit, args)
 						NetStartCombatAction(self.id, unit, ap, args)
 					end,
@@ -66997,6 +66992,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						--args.aoe_damage_type = "percent"
 						--args.aoe_damage_value = const.Weapons.ShotgunCollateralDamage
 						args.consumed_ammo = 2
+						args.multishot = true
 						--args.damage_bonus = const.Weapons.DoubleBarrelDamageBonus
 						--args.buckshot_scatter_fx = 20
 						local attack_args = unit:PrepareAttackArgs(self.id, args)

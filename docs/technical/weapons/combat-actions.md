@@ -161,7 +161,8 @@ visible_actions =
 - **Тип:** уникальный физический режим двухстволки.
 - **Совместимость:** `DoubleBarrelShotgun` и `Stoeger`.
 - **Поведение:** одновременно использует два патрона и создаёт два пакета дроби.
-- **Стоимость:** штатная атака +1 AP.
+- **Стоимость:** как у `Buckshot` (штатная атака оружия, без `ActionPointDelta`); цена — двойной расход патронов, не AP.
+- **Sync:** `Execute` не кладёт `weapon` / `num_shots` в args `NetStartCombatAction` (объект оружия без handle → assert «serialize without a handle» и зависание юнита). Пакет и `consumed_ammo = 2` задаются в `GetActionResults` / `Firearm:GetAttackResults`.
 - **CTH:** shotgun/area-aim pipeline применяется к удвоенному пакету.
 - **Целевая роль:** разовый пик урона с очевидной ценой в боезапасе и следующем темпе огня.
 
