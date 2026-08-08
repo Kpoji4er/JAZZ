@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Manuel = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000003700, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Manuel DisplayName]] "Под прикрытием"),
-	Description = T(890000000003701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Manuel Description]] "Эта именная способность пока не действует."),
+	Description = T(890000000003701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Manuel Description]] "Актив: гарантированное скрытое убийство пистолетом/SMG/ближним без раскрытия; CD по убийству (signature TBD)."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Manuel.png",
 	Tier = "Personal",
 }

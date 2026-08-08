@@ -43,6 +43,19 @@ Hire path: `CreateImpMercData(sync)` после статов/перков очи
 
 Personal (Personality) pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Scoundrel/Psycho), `Jazz_Perk_Veteran` (+10 SkillCheck/RollSkillCheck/UnitHasStat; icon `OldDog`). Tactical (`Perk-Specialization`) extra: `Jazz_Perk_Sniper` (`OnCalcMaxAimActions` +1; icon `Deadeye`). Certificate UI lists all `Perk-Specialization` presets in the tactical grid (vanilla Teacher/MrFixit/Throwing/… plus Sniper).
 
+## Named perks (JAZZ-UNITS-006)
+
+Loaded code: `System_NamedPerks_006.lua` (install hub) + `System_NamedPerks_006_Batch3.lua` + `System_NamedPerks_006_Batch4.lua`.
+
+§B batch4 (static):
+
+- `Jazz_Perk_Flo` — while Flo in a player squad: Bobby Ray buy ×0.88; `CashInItem` Cost ×1.12 (Negotiator still ops/boat only; additive systems).
+- `Jazz_Perk_Static` — Parts −5%×`GetLevel()` (cap −25%) on `ModifyWeaponDlg:GetChangesCost` and `SectorOperation_ItemsCalcRes` when Static is the op/mod owner.
+- `Jazz_Perk_Cougar` — gunshot `PushUnitAlert` noise ×0.67; stealth kill → `Inspired` once per turn.
+- Cheap hooks: Grace first `KnifeThrow` ≤12 auto-hit; Kulba US autos recoil ×0.5; Grom GL/mortar/AT suppress ×2; Ricochet melee splash; Highball heal_modifier ±50%; Meat floors negative personal morale.
+
+Soft-cuts / batch5: Rothman/Biff/Ira/Miguel/Livewire/Barry/Thor; Carlos detection; Iggy bombard call-site; Monk/Horg/Manuel/Hitman/Bull actives — see `docs/tools/_units006_batch4_notes.md`.
+
 ## Снимок generated data
 
 `jazz-units`:

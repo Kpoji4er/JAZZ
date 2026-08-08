@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Grom = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000002400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom DisplayName]] "Артподготовка"),
-	Description = T(890000000002401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom Description]] "Эта именная способность пока не действует."),
+	Description = T(890000000002401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Grom Description]] "Гранатомёт/миномёт/ПТР дают вдвое подавление Will."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Grom.png",
 	Tier = "Personal",
 }

@@ -1071,15 +1071,18 @@ function JazzFindInventoryItem(unit, class_id)
 end
 
 function JazzConsumeInventoryItem(unit, class_id, amount)
-	-- UNITS-006 Vince: 25% chance to skip one med charge when Vince is in the squad
-	if type(Jazz_VinceShouldSkipMedConsume) == "function" and Jazz_VinceShouldSkipMedConsume(unit) then
+	-- UNITS-006 Vince: EV −25% med consume (skip charge 25% when amount=1; scale larger amounts).
+	amount = amount or 1
+	if type(Jazz_VinceAdjustMedConsumeAmount) == "function" then
+		amount = Jazz_VinceAdjustMedConsumeAmount(unit, amount)
+	end
+	if type(Jazz_VinceShouldSkipMedConsume) == "function" and amount <= 1 and Jazz_VinceShouldSkipMedConsume(unit) then
 		return true
 	end
 	local item = JazzFindInventoryItem(unit, class_id)
 	if not item then
 		return false
 	end
-	amount = amount or 1
 	if IsKindOf(item, "InventoryStack") and (item.Amount or 0) > amount then
 		item.Amount = item.Amount - amount
 	else

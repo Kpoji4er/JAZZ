@@ -55,6 +55,15 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `SidneyPerk` | Sidney | +2 AP/turn until miss/damage taken |
 | `BulletHell` | Spike | CD **on kill** |
 | `OnMyTarget` | Len | Squad attacks marked target; **10 AP** |
+| `Jazz_Perk_Flo` | Flo | Squad: **−12%** Bobby Ray buy / **+12%** cash-in (additive with Negotiator) |
+| `Jazz_Perk_Static` | Static | Repair/craft Parts **−5%/level** (cap **−25%**) |
+| `Jazz_Perk_Cougar` | Cougar | Shots **−33%** noise; Stealth Kill → Inspired **1×/turn** |
+| `Jazz_Perk_Grace` | Grace | First knife throw/turn auto-hit ≤**12** |
+| `Jazz_Perk_Kulba` | Kulba | US autos **−50%** recoil |
+| `Jazz_Perk_Grom` | Grom | GL/mortar/AT Will suppress **×2** |
+| `Jazz_Perk_Ricochet` | Ricochet | Melee splash to enemy ≤1 from target |
+| `Jazz_Perk_Highball` | Highball | Heal **±50%** if ally doctor Med≥80 within 5 |
+| `Jazz_Perk_Meat` | Meat | Morale never drops Will (partial) |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura; tooltip shows the **current order**. Details: [Command aura](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (personal) | Conversation options for Negotiator/Scoundrel/Psycho without their combat/economy effects |
 | `Jazz_Perk_Veteran` | IMP (personal) | +10 to all skill/stat checks |
@@ -62,9 +71,11 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 
 Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle remains Spouke-only (`Jazz_Perk_00`).
 
-## §A / §C (UNITS-006)
+## §A / §C / §B (UNITS-006)
 
-§A + §C batch2/3 (combat + signatures/CD-kill) match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list. Status markers: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
+§A + §C batch2/3 match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list.
+
+§B batch4 priority: **Flo / Static / Cougar** wired. Also text+hooks: Grace, Kulba, Grom, Ricochet, Highball, Meat (partial). Soft-cut actives/HARD: Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Carlos failed-SK stay hidden, Iggy bombard scatter call-site, Rothman/Biff/Ira/Miguel/Livewire/Barry/Thor → batch5. Status markers: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
 
 ## IMP starting gear
 
@@ -72,8 +83,8 @@ After the IMP test, loadout is built from stats and perks (JA2-style): primary f
 
 ## Still stubs
 
-Other wave named perks (Ira, Miguel, Grom, Biff, …) — Wave B/C; see `docs/design/mercs-ja12/_named-perks-plan.md` and `JAZZ-UNITS-003` / `JAZZ-UNITS-006`.
+Remaining HARD / satellite §B+§C (Rothman mine, Biff troopers, Ira/Miguel militia, Livewire money, Barry craft, Thor joints, …) — batch5+. See `JAZZ-UNITS-006` and `_units006_batch4_notes.md`.
 
 ## Player takeaway
 
-Working named effects: **Spouke, Tosca, Lynx, Spider, Colby** + §A + §C batch2 (**Grizzly G1, Grunty Morale, Ivan, Gus, Nails, Wolf, Magic, Scully, Steroid**; Ice text/vanilla signature) and Grizzly/Grunty.
+Working named effects: **Spouke, Tosca, Lynx, Spider, Colby** + §A + §C batch2/3 + §B batch4 (**Flo, Static, Cougar**, Grace/Kulba/Grom/Ricochet/Highball/Meat partial).

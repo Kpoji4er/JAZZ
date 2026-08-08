@@ -44,12 +44,24 @@ function Jazz_SquadHasVince(unit)
 	return false
 end
 
--- Probabilistic −25% med consume: 25% chance to skip one charge when Vince in squad.
+-- Soft lock EV −25% med consume: skip one charge with 25% chance when Vince in squad.
+-- (Equivalent expected cost; amount>1 also reduced by MulDivRound 75%.)
 function Jazz_VinceShouldSkipMedConsume(healer)
 	if not Jazz_SquadHasVince(healer) then
 		return false
 	end
 	return InteractionRand(100, "Jazz_Perk_Vince") < 25
+end
+
+function Jazz_VinceAdjustMedConsumeAmount(healer, amount)
+	if not Jazz_SquadHasVince(healer) then
+		return amount
+	end
+	amount = amount or 1
+	if amount <= 1 then
+		return amount
+	end
+	return Max(1, MulDivRound(amount, 75, 100))
 end
 
 function Jazz_MadmanDrainWill(center_unit)
@@ -139,42 +151,43 @@ local function lInstallNamedPerks006Batch2()
 	rawset(_G, "g_JAZZ_NamedPerks006Batch2Wrapped", true)
 end
 
-OnMsg.ModsReloaded = function()
+local function lInstallAllNamedPerks006()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Batch2()
 	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
 		Jazz_InstallNamedPerks006Batch3()
 	end
+	if type(Jazz_InstallNamedPerks006Batch4) == "function" then
+		Jazz_InstallNamedPerks006Batch4()
+	end
+end
+
+OnMsg.ModsReloaded = function()
+	lInstallAllNamedPerks006()
 end
 OnMsg.DataLoaded = function()
-	lInstallNamedPerks006()
-	lInstallNamedPerks006Batch2()
-	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
-		Jazz_InstallNamedPerks006Batch3()
-	end
+	lInstallAllNamedPerks006()
 end
 OnMsg.NewGame = function()
-	lInstallNamedPerks006()
-	lInstallNamedPerks006Batch2()
-	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
-		Jazz_InstallNamedPerks006Batch3()
-	end
+	lInstallAllNamedPerks006()
 end
 OnMsg.LoadGame = function()
-	lInstallNamedPerks006()
-	lInstallNamedPerks006Batch2()
-	if type(Jazz_InstallNamedPerks006Batch3) == "function" then
-		Jazz_InstallNamedPerks006Batch3()
-	end
+	lInstallAllNamedPerks006()
 end
 
 OnMsg.CombatStart = function()
 	if type(Jazz_NamedPerks006Batch3OnCombatStart) == "function" then
 		Jazz_NamedPerks006Batch3OnCombatStart()
 	end
+	if type(Jazz_NamedPerks006Batch4OnCombatStart) == "function" then
+		Jazz_NamedPerks006Batch4OnCombatStart()
+	end
 end
 OnMsg.TurnStart = function()
 	if type(Jazz_NamedPerks006Batch3OnTurnStart) == "function" then
 		Jazz_NamedPerks006Batch3OnTurnStart()
+	end
+	if type(Jazz_NamedPerks006Batch4OnTurnStart) == "function" then
+		Jazz_NamedPerks006Batch4OnTurnStart()
 	end
 end

@@ -24,7 +24,11 @@
 | `_units006_batch2_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
 | `_fix_units006_batch3_loc.py` | UNITS-006 batch3: rewrite RU CE/CSV via unicode-escapes (encoding-safe). |
-| `_units006_batch3_notes.md` | UNITS-006 batch3: Spike CD-kill + signature hooks; soft cuts list. |
+| `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + cheap §B CE text/hooks sync. |
+| `_units006_batch4_notes.md` | UNITS-006 batch4: shipped Flo/Static/Cougar + soft cuts → batch5. |
+| `_units006_audit_followup.md` | UNITS-006 post-batch audit: Mike PinDown/Vince/MD heal fixes + remaining gaps. |
+| `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + Grace/Kulba/… CE text+hooks; sync items/metadata/loc (reuse CE IDs). |
+| `_units006_batch4_notes.md` | UNITS-006 batch4: before→after + soft cuts (HARD → batch5). |
 | `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |

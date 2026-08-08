@@ -71,7 +71,9 @@
 | `NoSoundsInRooms.lua` | loaded, inert/commented | [Видимость](visibility-weather-appearance.md), [UI/audio](ui-audio-fx.md) |
 | `Camera.lua` | loaded | [Видимость](visibility-weather-appearance.md), [бой](combat-cth-actions.md) |
 | `SpecializationGiver.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
-| `System_NamedPerks_006.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — UNITS-006 §A + §C batch2 (Nervous/Vince/Madman/Dynamo/Mike; Grizzly 2× suppress wrap; JackOfAll ops −33%) |
+| `System_NamedPerks_006.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — UNITS-006 §A + §C batch2 install hub (also calls Batch3/Batch4) |
+| `System_NamedPerks_006_Batch3.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — §C batch3 signatures (Spike CD-kill, TagTeam/Buns/HawksEye helpers) |
+| `System_NamedPerks_006_Batch4.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — §B batch4 Flo/Static/Cougar + Grace/Kulba/Grom wraps |
 | `System_AimHiringFilters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_HireContractDuration.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AIM/AME chat `MaxDuration` 14→30; `GetMercDurationDiscountPercent` maxDay 14→30 |
 | `System_AME_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME PDA filters (UNITS-005) |

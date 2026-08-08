@@ -5,9 +5,21 @@ DefineClass.Jazz_Perk_Cougar = {
 
 
 	object_class = "Perk",
-	unit_reactions = {},
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitAttack",
+			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+				if target ~= attacker or not results then
+					return
+				end
+				if results.stealth_kill and type(Jazz_CougarOnStealthKill) == "function" then
+					Jazz_CougarOnStealthKill(attacker)
+				end
+			end,
+		}),
+	},
 	DisplayName = T(890000000003100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar DisplayName]] "Мягкая лапа"),
-	Description = T(890000000003101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar Description]] "Эта именная способность пока не действует."),
+	Description = T(890000000003101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cougar Description]] "Выстрелы Пумы на 33% тише. Скрытое убийство даёт Inspired 1×/ход (не возврат ОД)."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Cougar.png",
 	Tier = "Personal",
 }

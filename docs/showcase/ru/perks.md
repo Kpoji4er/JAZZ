@@ -55,6 +55,15 @@
 | `SidneyPerk` | Sidney | +2 ОД/ход пока не miss/урон |
 | `BulletHell` | Spike | CD **после убийства** |
 | `OnMyTarget` | Len | Отряд по отмеченной цели; **10 ОД** |
+| `Jazz_Perk_Flo` | Фло | В отряде: **−12%** покупка Bobby Ray / **+12%** обналичивание (аддитивно с Negotiator) |
+| `Jazz_Perk_Static` | Статик | Ремонт/крафт Parts **−5%/уровень** (кап **−25%**) |
+| `Jazz_Perk_Cougar` | Пума | Выстрелы **−33%** шума; SK → Inspired **1×/ход** |
+| `Jazz_Perk_Grace` | Грейс | Первый бросок ножа/ход auto-hit ≤**12** |
+| `Jazz_Perk_Kulba` | Кульба | US autos **−50%** отдачи |
+| `Jazz_Perk_Grom` | Гром | Гранатомёт/миномёт/ПТР — Will suppress **×2** |
+| `Jazz_Perk_Ricochet` | Рикошет | Melee splash на врага ≤1 от цели |
+| `Jazz_Perk_Highball` | Хайболл | Лечение **±50%**, если союзник-врач Med≥80 в ≤5 |
+| `Jazz_Perk_Meat` | Мясо | Мораль не роняет Will (partial) |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира; в тултипе — **текущий приказ**. Подробности: [Командная аура](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (личностные) | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
 | `Jazz_Perk_Veteran` | IMP (личностные) | +10 ко всем skill/stat checks |
@@ -62,9 +71,11 @@
 
 Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
 
-## §A / §C (UNITS-006)
+## §A / §C / §B (UNITS-006)
 
-§A + §C batch2/3 (combat + signatures/CD-kill) — целевой Лист2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list. Статусы: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
+§A + §C batch2/3 — целевой Лист2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list.
+
+§B batch4 приоритет: **Flo / Static / Cougar**. Также text+hooks: Grace, Kulba, Grom, Ricochet, Highball, Meat (partial). Soft-cut actives/HARD: Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Carlos failed-SK, Iggy bombard call-site, Rothman/Biff/Ira/Miguel/Livewire/Barry/Thor → batch5. Статусы: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
 
 ## IMP: стартовый экип
 
@@ -72,8 +83,8 @@
 
 ## Ещё stubs
 
-Остальные именные перки волны (Ira, Miguel, Grom, Biff, …) — Wave B/C, см. `docs/design/mercs-ja12/_named-perks-plan.md` и `JAZZ-UNITS-003` / `JAZZ-UNITS-006`.
+Оставшиеся HARD / satellite §B+§C (Rothman mine, Biff troopers, Ira/Miguel militia, Livewire money, Barry craft, Thor joints, …) — batch5+. См. `JAZZ-UNITS-006` и `_units006_batch4_notes.md`.
 
 ## Итог для игрока
 
-Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + §A + §C batch2 (**Гризли G1, Хряпти Morale, Иван, Гас, Нейлс, Вульф, Мэджик, Скалли, Анаболик**; Ice — текст/сигнатура vanilla) и Grizzly/Grunty.
+Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + §A + §C batch2/3 + §B batch4 (**Фло, Статик, Пума**, Грейс/Кульба/Гром/Рикошет/Хайболл/Мясо partial).

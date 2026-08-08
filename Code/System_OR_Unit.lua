@@ -1398,7 +1398,17 @@ function Unit:BeginTurn(new_turn)
 				WaitMsg("UnitDied", 20) -- can also go in VillainDefeat instead, so wait with timeout
 			end
 		elseif pindown then
-			pindown.target:ProvokeOpportunityAttack_Pindown(self, pindown)
+			-- UNITS-006 Mike: PinDown fires +2 extra prepared shots when eligible.
+			local n = 1
+			if HasPerk(self, "Jazz_Perk_Mike") then
+				n = n + 2
+			end
+			for i = 1, n do
+				if not IsValidTarget(pindown.target) then
+					break
+				end
+				pindown.target:ProvokeOpportunityAttack_Pindown(self, pindown)
+			end
 		elseif self.prepared_bombard_zone then
 			self:StartBombard()
 		end

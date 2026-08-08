@@ -279,11 +279,12 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 
 ## Evidence
 
-- `JAZZ-UNITS-006-AC-001` / `AC-002` / `AC-009`: `PASS` (static) — batch1 §A rewire + UNITS-003 supersede note (`b6fed5d`).
-- `JAZZ-UNITS-006-AC-004` (partial): `PASS` (static) — batch2 combat + batch3 signatures/CD-kill (Spike on-kill, Flay aura, Spotter/HawksEye/TagTeam/Buns/…); remaining soft-cuts in `_units006_batch3_notes.md`.
-- `JAZZ-UNITS-006-AC-005` / `AC-006` (batch1–3 deltas): `PASS` (static) — RU/EN + showcase RU|EN `perks.md`.
-- `JAZZ-UNITS-006-AC-003` / `AC-008`: `BLOCKED` — §B / §D not started.
-- `JAZZ-UNITS-006-AC-007`: `BLOCKED` — owner runtime/human smoke.
+- JAZZ-UNITS-006-AC-001 / AC-002 / AC-009: PASS (static) - batch1 §A + Mike PinDown +2 follow-up.
+- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit.
+- JAZZ-UNITS-006-AC-005 / AC-006 (batch1-4 deltas): PASS (static) - RU/EN + showcase RU|EN perks.md.
+- JAZZ-UNITS-006-AC-003 (partial): PASS (static) - §B batch4 Flo/Static/Cougar + Grace/Kulba/Grom/...; soft-cuts _units006_batch4_notes.md.
+- JAZZ-UNITS-006-AC-008: BLOCKED - §D not started.
+- JAZZ-UNITS-006-AC-007: BLOCKED - owner runtime/human smoke.
 
 ## Documentation delta
 

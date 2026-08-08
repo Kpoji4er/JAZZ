@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Monk = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000003800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Monk DisplayName]] "Маскировка"),
-	Description = T(890000000003801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Monk Description]] "Эта именная способность пока не действует."),
+	Description = T(890000000003801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Monk Description]] "Актив: бесшумное скрытое убийство при CTH>70% всегда; перезарядка после убийства (signature TBD)."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Monk.png",
 	Tier = "Personal",
 }
