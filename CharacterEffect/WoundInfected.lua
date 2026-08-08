@@ -11,10 +11,15 @@ DefineClass.WoundInfected = {
 		if type(init) == "function" then
 			init(self)
 		end
+		local stamp = rawget(_G, "JazzStampStatusEffectUIProps")
+		if type(stamp) == "function" then
+			stamp(self, "WoundInfected")
+		end
 	end,
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/WoundInfected.png",
 	Shown = true,
 	ShownSatelliteView = true,
 	HasFloatingText = true,
+	SortKey = 1,
 }

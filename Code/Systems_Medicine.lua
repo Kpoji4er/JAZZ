@@ -1490,7 +1490,7 @@ function JazzAddPainStacks(unit, amount)
 	return added
 end
 
--- JAZZ-COMBAT-005: severe armor encumbrance (FM >= 6) -> +1 Pain on first move this turn.
+-- JAZZ-COMBAT-005: severe armor encumbrance (FM ≥ 6) → +1 Pain on first move this turn.
 function JazzArmorWeightPainOnMove(unit)
 	if not unit or not g_Combat then
 		return false
@@ -1692,24 +1692,130 @@ function JazzInitWoundInfectedProgressTimer(effect)
 	return true
 end
 
+-- Instance template props (Shown/Icon) can fail to resolve for UI filters; stamp from Def.
+-- Also repairs MissingEffect placeholders keyed as WoundInfected in StatusEffects.
+function JazzStampStatusEffectUIProps(effect, preset_id)
+	if not effect then
+		return false
+	end
+	preset_id = preset_id or effect.class
+	local defs = lG("CharacterEffectDefs")
+	local def = defs and preset_id and defs[preset_id]
+	if not def or type(effect.SetProperty) ~= "function" then
+		return false
+	end
+	local icon = (def.GetProperty and def:GetProperty("Icon")) or def.Icon
+	if icon then
+		effect:SetProperty("Icon", icon)
+	end
+	local shown = (def.GetProperty and def:GetProperty("Shown")) or def.Shown
+	if shown then
+		effect:SetProperty("Shown", true)
+	end
+	local sat = (def.GetProperty and def:GetProperty("ShownSatelliteView")) or def.ShownSatelliteView
+	if sat then
+		effect:SetProperty("ShownSatelliteView", true)
+	end
+	return true
+end
+
+local function lJazzWoundInfectedTargets(unit)
+	local sid = unit and unit.session_id
+	local units = lG("g_Units")
+	local ud_map = lG("gv_UnitData")
+	local live = (sid and units and units[sid]) or nil
+	if not live and unit and IsKindOf(unit, "Unit") and IsValid(unit) then
+		live = unit
+	end
+	local ud = (sid and ud_map and ud_map[sid]) or nil
+	if not ud and unit and IsKindOf(unit, "UnitData") then
+		ud = unit
+	end
+	return live, ud
+end
+
+local function lJazzApplyWoundInfectedOne(obj)
+	if not obj or type(obj.AddStatusEffect) ~= "function" then
+		return false
+	end
+	if obj.HasStatusEffect and obj:HasStatusEffect("WoundInfected") then
+		JazzStampStatusEffectUIProps(obj:GetStatusEffect("WoundInfected"), "WoundInfected")
+		return true
+	end
+	local effect = obj:AddStatusEffect("WoundInfected")
+	if not effect then
+		return false
+	end
+	JazzStampStatusEffectUIProps(effect, "WoundInfected")
+	ObjModified(obj)
+	if obj.StatusEffects then
+		ObjModified(obj.StatusEffects)
+	end
+	return true
+end
+
 function JazzApplyWoundInfected(unit)
-	if not unit or type(unit.AddStatusEffect) ~= "function" then
+	if not unit then
 		return false
 	end
-	if unit.HasStatusEffect and unit:HasStatusEffect("WoundInfected") then
+	local classes = lG("g_Classes")
+	local defs = lG("CharacterEffectDefs")
+	if not (classes and classes.WoundInfected) then
+		print("[JAZZ] WoundInfected class missing — skip apply")
 		return false
 	end
-	unit:AddStatusEffect("WoundInfected")
+	if not (defs and defs.WoundInfected) then
+		print("[JAZZ] WoundInfected def missing — skip apply")
+		return false
+	end
+	local live, ud = lJazzWoundInfectedTargets(unit)
+	local ok = false
+	if live then
+		ok = lJazzApplyWoundInfectedOne(live) or ok
+	end
+	if ud then
+		ok = lJazzApplyWoundInfectedOne(ud) or ok
+	end
+	if not ok then
+		ok = lJazzApplyWoundInfectedOne(unit)
+	end
+	if not ok then
+		return false
+	end
 	local nick = unit.Nick or unit.Name or ""
 	CombatLog("important", T{890000000010303, "<merc>'s wound became infected", merc = nick})
 	return true
 end
 
 function JazzClearWoundInfected(unit)
-	if not unit or not unit.HasStatusEffect or not unit:HasStatusEffect("WoundInfected") then
+	if not unit then
 		return false
 	end
-	unit:RemoveStatusEffect("WoundInfected", "all")
+	local live, ud = lJazzWoundInfectedTargets(unit)
+	local cleared = false
+	local function clear_one(obj)
+		if not obj or not obj.HasStatusEffect or not obj:HasStatusEffect("WoundInfected") then
+			return false
+		end
+		obj:RemoveStatusEffect("WoundInfected", "all")
+		ObjModified(obj)
+		if obj.StatusEffects then
+			ObjModified(obj.StatusEffects)
+		end
+		return true
+	end
+	if live then
+		cleared = clear_one(live) or cleared
+	end
+	if ud then
+		cleared = clear_one(ud) or cleared
+	end
+	if not cleared then
+		cleared = clear_one(unit)
+	end
+	if not cleared then
+		return false
+	end
 	local nick = unit.Nick or unit.Name or ""
 	CombatLog("short", T{890000000010304, "<merc>'s infection subsided", merc = nick})
 	return true
@@ -1778,6 +1884,7 @@ function JazzWoundInfectedProgressOnNewHour(unit)
 	if not effect then
 		return
 	end
+	JazzStampStatusEffectUIProps(effect, "WoundInfected")
 	local next_t = effect:ResolveValue("next_check_time")
 	if not next_t or next_t == 0 then
 		JazzInitWoundInfectedProgressTimer(effect)

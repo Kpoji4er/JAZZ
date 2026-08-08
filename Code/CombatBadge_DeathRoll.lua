@@ -166,13 +166,142 @@ end
 
 -- Party portrait: combat used to show only Wounded/Tired; match satellite ShownSatelliteView list.
 -- Always keep Tired/Exhausted (vanilla combat party showed them even without satellite flag).
+-- Resolve ShownSatelliteView from CharacterEffectDefs when instance/template props do not stick
+-- (MissingEffect placeholders keyed under the real preset id).
+local function lJazzStatusEffectPresetId(effect, status_effects)
+	if status_effects then
+		for key, idx in pairs(status_effects) do
+			if type(key) == "string" and type(idx) == "number" and status_effects[idx] == effect then
+				return key
+			end
+		end
+	end
+	return effect and effect.class
+end
+
+local function lJazzStatusEffectDefProp(effect, status_effects, prop)
+	local id = lJazzStatusEffectPresetId(effect, status_effects)
+	local def = id and CharacterEffectDefs and CharacterEffectDefs[id]
+	if not def then
+		return nil
+	end
+	if def.GetProperty then
+		return def:GetProperty(prop)
+	end
+	return def[prop]
+end
+
+function JazzStatusEffectShownSatelliteView(effect, status_effects)
+	if not effect then
+		return false
+	end
+	if effect.ShownSatelliteView then
+		return true
+	end
+	return not not lJazzStatusEffectDefProp(effect, status_effects, "ShownSatelliteView")
+end
+
+-- Critical statuses first so satellite MaxHeight clip does not hide infection.
+local JazzPartyStatusPriority = {
+	WoundInfected = 10,
+	BleedingHeavy = 20,
+	BleedingMedium = 21,
+	Bleeding = 22,
+	BloodLoss1 = 30,
+	BloodLoss5 = 31,
+	BloodLoss10 = 32,
+	BloodLoss20 = 33,
+	BloodLoss30 = 34,
+	BloodLoss40 = 35,
+	BloodLoss50 = 36,
+	Unconscious = 40,
+	Exhausted = 50,
+	Tired = 51,
+}
+
 function JazzGetPartyPortraitStatusEffects(status_effects)
-	local list = table.ifilter(status_effects or empty_table, "ShownSatelliteView")
+	status_effects = status_effects or empty_table
+	local list = {}
+	for _, effect in ipairs(status_effects) do
+		if JazzStatusEffectShownSatelliteView(effect, status_effects) then
+			list[#list + 1] = effect
+			local stamp = rawget(_G, "JazzStampStatusEffectUIProps")
+			if type(stamp) == "function" then
+				stamp(effect, lJazzStatusEffectPresetId(effect, status_effects))
+			end
+		end
+	end
 	for _, id in ipairs({ "Tired", "Exhausted" }) do
-		local effect = table.find_value(status_effects or empty_table, "class", id)
+		local effect = table.find_value(status_effects, "class", id)
 		if effect and not table.find(list, effect) then
 			list[#list + 1] = effect
 		end
 	end
+	table.sort(list, function(a, b)
+		local ida = lJazzStatusEffectPresetId(a, status_effects)
+		local idb = lJazzStatusEffectPresetId(b, status_effects)
+		local pa = (ida and JazzPartyStatusPriority[ida]) or 1000
+		local pb = (idb and JazzPartyStatusPriority[idb]) or 1000
+		if pa ~= pb then
+			return pa < pb
+		end
+		local defa = ida and CharacterEffectDefs and CharacterEffectDefs[ida]
+		local defb = idb and CharacterEffectDefs and CharacterEffectDefs[idb]
+		local sa = (defa and defa.SortKey) or 0
+		local sb = (defb and defb.SortKey) or 0
+		return sa < sb
+	end)
 	return list
+end
+
+-- Combat badge / rollover: same Def-aware Shown+Icon resolution.
+g_JAZZ_GetUIVisibleStatusEffectsBase = rawget(_G, "g_JAZZ_GetUIVisibleStatusEffectsBase") or false
+g_JAZZ_GetUIVisibleStatusEffectsFn = rawget(_G, "g_JAZZ_GetUIVisibleStatusEffectsFn") or false
+
+local function lInstallJazzGetUIVisibleStatusEffects()
+	if not StatusEffectObject or type(StatusEffectObject.GetUIVisibleStatusEffects) ~= "function" then
+		return
+	end
+	local our = rawget(_G, "g_JAZZ_GetUIVisibleStatusEffectsFn")
+	if our and StatusEffectObject.GetUIVisibleStatusEffects == our then
+		return
+	end
+	rawset(_G, "g_JAZZ_GetUIVisibleStatusEffectsBase", StatusEffectObject.GetUIVisibleStatusEffects)
+	local function jazz_get_ui_visible_status_effects(self, addBadgeHidden)
+		local vis = {}
+		local effects = self.StatusEffects or empty_table
+		for _, effect in ipairs(effects) do
+			if effect then
+				local shown = effect.Shown or lJazzStatusEffectDefProp(effect, effects, "Shown")
+				local icon = effect.Icon or lJazzStatusEffectDefProp(effect, effects, "Icon")
+				local hide = effect.HideOnBadge
+				if hide == nil then
+					hide = lJazzStatusEffectDefProp(effect, effects, "HideOnBadge")
+				end
+				if shown and icon and (addBadgeHidden or not hide) then
+					local stamp = rawget(_G, "JazzStampStatusEffectUIProps")
+					if type(stamp) == "function" then
+						stamp(effect, lJazzStatusEffectPresetId(effect, effects))
+						icon = effect.Icon or icon
+					end
+					if icon then
+						vis[#vis + 1] = effect
+					end
+				end
+			end
+		end
+		return vis
+	end
+	StatusEffectObject.GetUIVisibleStatusEffects = jazz_get_ui_visible_status_effects
+	rawset(_G, "g_JAZZ_GetUIVisibleStatusEffectsFn", jazz_get_ui_visible_status_effects)
+end
+
+lInstallJazzGetUIVisibleStatusEffects()
+
+function OnMsg.DataLoaded()
+	lInstallJazzGetUIVisibleStatusEffects()
+end
+
+function OnMsg.ModsReloaded()
+	lInstallJazzGetUIVisibleStatusEffects()
 end

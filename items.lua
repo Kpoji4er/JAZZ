@@ -64793,6 +64793,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			}),
 			PlaceObj('ModItemCharacterEffectCompositeDef', {
 				'Id', "WoundInfected",
+				'SortKey', 1,
 				'object_class', "StatusEffect",
 				'DisplayName', T(890000000010300, "Infected Wound"),
 				'Description', T(890000000010301, "Festering wound. Checked about every 16 hours on the campaign map: failure can be fatal. Heavy trauma that fails to improve may become infected."),
@@ -64801,6 +64802,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					local init = rawget(_G, "JazzInitWoundInfectedProgressTimer")
 					if type(init) == "function" then
 						init(self)
+					end
+					local stamp = rawget(_G, "JazzStampStatusEffectUIProps")
+					if type(stamp) == "function" then
+						stamp(self, "WoundInfected")
 					end
 				end,
 				'type', "Debuff",
@@ -83401,11 +83406,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 										}),
 										PlaceObj('XTemplateWindow', {
 											'HAlign', "right",
-											'MaxHeight', 105,
+											'MaxHeight', 200,
 											'LayoutMethod', "VList",
 										}, {
 											PlaceObj('XTemplateWindow', {
-												'comment', "only shows wounded and tired effect",
+												'comment', "ShownSatelliteView statuses (Def-aware; infection prioritized)",
 												'__context', function (parent, context) return context.StatusEffects end,
 												'__class', "XContentTemplate",
 												'Id', "idStatusEffectsContainer",
@@ -83413,7 +83418,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'Dock', "top",
 												'HAlign', "left",
 												'VAlign', "top",
-												'MaxHeight', 80,
+												'MaxHeight', 160,
 												'LayoutMethod', "VList",
 												'LayoutVSpacing', -2,
 												'UseClipBox', false,
@@ -83423,7 +83428,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 											}, {
 												PlaceObj('XTemplateForEach', {
 													'comment', "status effect",
-													'array', function (parent, context) return table.ifilter(context or empty_table, "ShownSatelliteView") end,
+													'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
 													'__context', function (parent, context, item, i, n) return item end,
 												}, {
 													PlaceObj('XTemplateTemplate', {
@@ -84995,11 +85000,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 										}),
 										PlaceObj('XTemplateWindow', {
 											'HAlign', "right",
-											'MaxHeight', 105,
+											'MaxHeight', 200,
 											'LayoutMethod', "VList",
 										}, {
 											PlaceObj('XTemplateWindow', {
-												'comment', "only shows wounded and tired effect",
+												'comment', "ShownSatelliteView statuses (Def-aware; infection prioritized)",
 												'__context', function (parent, context) return context.StatusEffects end,
 												'__class', "XContentTemplate",
 												'Id', "idStatusEffectsContainer",
@@ -85007,7 +85012,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'Dock', "top",
 												'HAlign', "left",
 												'VAlign', "top",
-												'MaxHeight', 80,
+												'MaxHeight', 160,
 												'LayoutMethod', "VList",
 												'LayoutVSpacing', -2,
 												'UseClipBox', false,
@@ -85017,7 +85022,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 											}, {
 												PlaceObj('XTemplateForEach', {
 													'comment', "status effect",
-													'array', function (parent, context) return table.ifilter(context or empty_table, "ShownSatelliteView") end,
+													'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
 													'__context', function (parent, context, item, i, n) return item end,
 												}, {
 													PlaceObj('XTemplateTemplate', {
@@ -86580,11 +86585,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 											}),
 											PlaceObj('XTemplateWindow', {
 												'HAlign', "right",
-												'MaxHeight', 105,
+												'MaxHeight', 200,
 												'LayoutMethod', "VList",
 											}, {
 												PlaceObj('XTemplateWindow', {
-													'comment', "only shows wounded and tired effect",
+													'comment', "ShownSatelliteView statuses (Def-aware; infection prioritized)",
 													'__context', function (parent, context) return context.StatusEffects end,
 													'__class', "XContentTemplate",
 													'Id', "idStatusEffectsContainer",
@@ -86592,7 +86597,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													'Dock', "top",
 													'HAlign', "left",
 													'VAlign', "top",
-													'MaxHeight', 80,
+													'MaxHeight', 160,
 													'LayoutMethod', "VList",
 													'LayoutVSpacing', -2,
 													'UseClipBox', false,
@@ -86602,7 +86607,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												}, {
 													PlaceObj('XTemplateForEach', {
 														'comment', "status effect",
-														'array', function (parent, context) return table.ifilter(context or empty_table, "ShownSatelliteView") end,
+														'array', function (parent, context) return JazzGetPartyPortraitStatusEffects(context) end,
 														'__context', function (parent, context, item, i, n) return item end,
 													}, {
 														PlaceObj('XTemplateTemplate', {

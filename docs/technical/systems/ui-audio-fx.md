@@ -60,7 +60,7 @@ Generated `ActionCameraCrosshair` не вызывает `Open` для `idContain
 - bandage;
 - danger/death state.
 
-Иконки статусов на бейдже — **под** HP-баром (`GetUIVisibleStatusEffects`), не рядом с ником. Party HUD в бою (`SquadsAndMercs2` / `idWounded`) больше не режет список до `Wounded`/`Tired`: тот же фильтр `ShownSatelliteView`, что и на глобалке (`JazzGetPartyPortraitStatusEffects`).
+Иконки статусов на бейдже — **под** HP-баром (`GetUIVisibleStatusEffects`, Def-aware Shown/Icon). Party HUD в бою и на глобалке (`SquadsAndMercs*` / `idStatusEffectsContainer`) использует `JazzGetPartyPortraitStatusEffects` (`ShownSatelliteView` + fallback с CharacterEffectDefs; `WoundInfected`/bleed/BloodLoss выше в списке, контейнер MaxHeight 160).
 
 Это модифицированная tactical UI часть, чувствительная к новым vanilla status fields и action lifecycle.
 
