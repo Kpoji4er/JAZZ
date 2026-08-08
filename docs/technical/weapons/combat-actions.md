@@ -413,6 +413,13 @@ visible_actions =
 - **CTH и отдача:** каждый пакет сохраняет пулемётную последовательность и отдачу.
 - **Целевая роль:** максимальное давление по одной зоне с огромным расходом боезапаса.
 
+### `BulletHell` — сигнатура Bullet Hell (Спайк)
+
+- **Тип:** vanilla SignatureAbility (конусный dump); в JAZZ выдана Спайку (`StartingPerks`).
+- **Совместимость оружия:** vanilla `GetUIState` требует `AvailableAttacks` с `AutoFire` или `MGBurstFire`. JAZZ wrap в `Code/System_OR_Weapons.lua` также принимает `AbakanAutoFire` и `JAZZ_LargeAutoFire` (иначе АН-94 / burst-only ШВ с LargeAuto давали `WrongWeapon`, а пулемёт с `MGBurstFire` — нет).
+- **Поведение / AP / ammo:** без изменения vanilla preset (`min_ammo` 15…`max_ammo` 30, recharge, cone AOE).
+- **Целевая роль:** именная длинная подавляющая очередь; не отдельный JAZZ CombatAction preset.
+
 ### `JAZZ_VovaVist` — огонь полным поясом по сектору
 
 - **Тип:** персональная/уникальная конусная техника.

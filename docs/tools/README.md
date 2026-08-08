@@ -5,6 +5,8 @@
 
 Запуск из корня пакета `jazz/` (если не указано иное).
 
+| `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |
+| `_check_bullethell_autofire_gate.py` | Static: `JazzWrapBulletHellAutofireGate` present; AN94 keeps `AbakanAutoFire` without vanilla `AutoFire`. |
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_scan_saves_broken_placecharacterffect.py` | Scan JA3 `.sav` under Saved Games: extract zstd `game_session`, count `PlaceCharacterEffect('Id', )` (empty props — load-breaking). |
 | `_extract_ja3_game_session.py` | Extract concatenated zstd frames of `game_session` from BPUL `.sav` to `.lua` for syntax debug. |

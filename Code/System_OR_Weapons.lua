@@ -2228,6 +2228,61 @@ local function JazzWrapFAMASAutoAP()
 	rawset(_G, "g_JAZZ_FAMAS_AutoAPWrapped", true)
 end
 
+-- BulletHell (Spike signature): vanilla GetUIState requires AvailableAttacks AutoFire or MGBurstFire.
+-- JAZZ AN94 / burst-only ARs expose AbakanAutoFire / JAZZ_LargeAutoFire instead — WrongWeapon with Abakan.
+local function JazzFirearmHasBulletHellAutofire(weapon)
+	local atts = weapon and weapon.AvailableAttacks
+	if not atts then
+		return false
+	end
+	return table.find(atts, "AutoFire")
+		or table.find(atts, "MGBurstFire")
+		or table.find(atts, "AbakanAutoFire")
+		or table.find(atts, "JAZZ_LargeAutoFire")
+end
+
+local function JazzWrapBulletHellAutofireGate()
+	local action = CombatActions and CombatActions.BulletHell
+	if not action or type(action.GetUIState) ~= "function" then
+		return
+	end
+	if rawget(action, "JazzAutofireGateWrapped") then
+		return
+	end
+	local base = action.GetUIState
+	action.GetUIState = function(self, units, args)
+		local state, reason = base(self, units, args)
+		if state ~= "disabled" or reason ~= AttackDisableReasons.WrongWeapon then
+			return state, reason
+		end
+		local unit = units and units[1]
+		if not unit then
+			return state, reason
+		end
+		local weapon1 = self:GetAttackWeapons(unit, args)
+		if not JazzFirearmHasBulletHellAutofire(weapon1) then
+			return state, reason
+		end
+		if not weapon1.ammo or weapon1.ammo.Amount < self:ResolveValue("min_ammo") then
+			return "disabled", AttackDisableReasons.OutOfAmmo
+		end
+		local cost = self:GetAPCost(unit, args)
+		if cost < 0 then
+			return "disabled"
+		end
+		if not unit:UIHasAP(cost) then
+			return "disabled"
+		end
+		return "enabled"
+	end
+	rawset(action, "JazzAutofireGateWrapped", true)
+end
+
 function OnMsg.ClassesBuilt()
 	JazzWrapFAMASAutoAP()
+	JazzWrapBulletHellAutofireGate()
+end
+
+function OnMsg.ModsReloaded()
+	JazzWrapBulletHellAutofireGate()
 end
