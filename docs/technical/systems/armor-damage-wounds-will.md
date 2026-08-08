@@ -92,7 +92,9 @@ weapon_pen = PenetrationClass + 0.1 × PenetrationBonus
 5. Суммировать DR по всем покрывающим предметам; `hit.damage = max(1, damage − dr)`.
 6. Деградация ресурса: `MulDivRound(item.Degradation, hit.damage, 100)` в `hit.armor_decay`.
 
-`IsArmorPiercedBy` (криты и т.п.) сравнивает `damage − DR` с `Min(damage/2, 10)` по тому же `GetAttackPenetrationClass` и **не** использует тот же pierce-флаг, что статусы.
+**`ignore_armor`** (KalynaPerk Inevitable Strike, `JAZZ_Bullseye`, и т.п.): если `PrecalcDamageAndStatusEffects` передал `ignore_armor`/`data.ignore_armor`, `ApplyHitDamageReduction` **не** вычитает `CalculateArmorRating*` и не деградирует броню (только `armor_pen`). Раньше jazz ставил pierce, но всё равно снимал DR — из‑за этого перк Калины «не работал» по JazzArmor (в т.ч. при тесте огнём по своим).
+
+`IsArmorPiercedBy` (криты и т.п.) сравнивает `damage − DR` с `Min(damage/2, 10)` по тому же `GetAttackPenetrationClass` и **не** использует тот же pierce-флаг, что статусы. Для `KalynaPerk` / `JAZZ_Bullseye` сразу `true, "ignored"`.
 
 Урон по не-юнитам (`System_OR_Weapons.lua`) использует ту же `GetAttackPenetrationClass(self)` против `target.armor_class`.
 

@@ -372,21 +372,23 @@ function Unit:ApplyHitDamageReduction(hit, weapon, hit_body_part, ignore_cover, 
 	local cachedrandom = Unit:Random(100)
 	self:ForEachItem("Armor", function(item, slot, left, top, hit, ignore_armor, record_breakdown, weapon_pen_class)
 		if hit.damage > 0 and slot ~= "Inventory" and item.ProtectedBodyParts and item.ProtectedBodyParts[hit_body_part] then
+			-- KalynaPerk / Bullseye / other ignore_armor: skip JazzArmor absolute DR entirely
+			-- (vanilla sets dr=0 when ignore_armor; jazz previously still subtracted CalculateArmorRating).
+			if ignore_armor or item.Condition <= 0 then
+				if not hit.armor_pen then hit.armor_pen = {} end
+				hit.armor_pen[item] = true
+				return
+			end
+
             --Нанесенный урон считается по формуле: Урон - Порог урона * (КБ/П) * Сост
             
 			--print(item.ProtectedBodyParts)
 			--print(item.ProtectedBodyParts[hit_body_part])
 			local dr, degrade, pierced
 			pierced = false
-			if not ignore_armor and item.Condition > 0 then
-			--	dr = item.DamageReduction
-			--	degrade = item.Degradation
-				if weapon_pen_class < item.PenetrationClass then
+			if weapon_pen_class < item.PenetrationClass then
 			--		dr = dr + item.AdditionalReduction
 			--		degrade = MulDivRound(degrade, const.Combat.ArmorDegradePercent, 100)
-				else
-					pierced = true
-				end
 			else
 				pierced = true
 			end
