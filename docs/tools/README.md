@@ -339,6 +339,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_restore_lynx_tosca_spider_voices.py` | Restore original JA3 opus for `Jazz_Lynx` / `Jazz_Buzz` / `Jazz_Spider` from pre-remesh commit `a626ebc` (after accidental overwrite in `792d1c5`). Spouke untouched. |
 | `_gen_ame_roster_60.py` | Генерация design-карточек AME: `docs/design/ame-roster-60.md`. Voice pool: Jazz remesh majority + `PierreMerc` + IMP minority (~1/8; VR → `IMP_*_01`). Assert: line troops = AllRounder/Autoriflemen/HeavyWeapons/Marksmen; soft specs только у Specialists. Sparse personality map **12/60**. |
 | `_apply_ame_personality_traits.py` | Пишет Personality-tier perk (~12/60) в `jazz-units` UnitData companions + `items.lua`, сохраняя common traits. Dry-run / `--apply`. |
+| `_verify_ame_personality.py` | Static assert: ровно 12 AME companions + items.lua содержат mapped Personality. |
 | `_bump_metadata_last_changes.py` | Commit helper: `version` +1 and prepend `last_changes` bullet with escaped `\\n` (no raw LF). Args: metadata path, bullet, optional `--version-minor`. |
 | `_ame_copy_bank.py` | Importable канон 60 самостоятельных RU+EN биографий и двуязычных profile blurbs; сам ничего не пишет. |
 | `_export_ame_bio_copy_edits.py` | Проецирует 60 AME biography ID из copy-bank в `localization-copy-edits/ame_bios_bilingual.csv` для безопасного обновления обеих manual memories. |
