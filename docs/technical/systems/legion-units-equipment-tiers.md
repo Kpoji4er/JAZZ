@@ -75,7 +75,7 @@ Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** д�
 | T1 | `JAZZ_Legion_AssaultT1_Crusher` | Громила | 4 | `Stormer` | `Legion_Assaulter` | `Crusher_Inventory` |
 | T2 | `JAZZ_Legion_AssaultT2_Pillager` | Грабитель | 5 | `Stormer` | `Legion_Assaulter` | `Pillager_Inventory` |
 | T2 | `JAZZ_Legion_AssaultT2_ShockTrooper` | Штурмовик | 6 | `Stormer` | `Legion_Assaulter` | `Shocktrooper_Inventory` |
-| T2 | `JAZZ_Legion_AssaultT2_Pyro` | Пироман | 7 | `Demolitions` | `Legion_Assaulter` | `Pyro_Inventory` |
+| T2 | `JAZZ_Legion_AssaultT2_Pyro` | Пироман | 7 | `Demolitions` | `Legion_Assaulter` | `Pyro_Inventory` (Molotov ×3 only; no frag) |
 | T3 | `JAZZ_Legion_AssaultT3_Punisher` | Каратель | 10 | `Stormer` | `Legion_Assaulter` | `Punisher_Inventory` |
 | T3 | `JAZZ_Legion_AssaultT3_SkullCrusher` | Череполом | 12 | `Stormer` | `Legion_Assaulter` | `SkullCrusher_Inventory` |
 | T4 | `JAZZ_Legion_AssaultT4_Headsman` | Палач | 15 | `Stormer` | `Legion_Assaulter` | `Headsman_Inventory` |

@@ -14,7 +14,7 @@
 | Specialists | 12 | Medic×3, Instructor×3, Sniper×2, Sapper×2, Mechanic×2 |
 
 - Инвентарь: **1 фиксированный вариант** на слот (без `Randomization`).
-- **Appearance:** на слот свой клон `JAZZ_AME_NN` (donor Rebels/Legion/Militia; Hardened/Spec — ещё GrandChien). Красное → синее; кожа с пресета. Карта: [`ame-appearance-map.json`](ame-appearance-map.json).
+- **Appearance:** на слот свой клон `JAZZ_AME_NN` (donor jazz-units `Legion*` / Rebels / GrandChien / keep; Irregulars lean jazz Legion*; blue recolor; каски снимаются). Карта: [`ame-appearance-map.json`](ame-appearance-map.json).
 - **Кит:** Irr ≤ **1-2**; Fight ≤ **1-3**; Hard/Spec ≤ **2-1**. **`Type56` — потолок AR, только Hardened.** `SKS`/bolt — только Sniper.
 - **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**
 - **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.
@@ -35,7 +35,7 @@
 - **Traits (common):** —
 - **Personality:** `Negotiator`
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_01` ← donor `MilitiaRookie_Male_01` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_01` ← donor `LegionGoon` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -70,7 +70,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_02` ← donor `MilitiaRookie_Male_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_02` ← donor `LegionGoon_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×6 · Knife
 
 | Stat | |
@@ -105,7 +105,7 @@
 - **Traits (common):** —
 - **Personality:** `Negotiator`
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_03` ← donor `Militia_Artillery` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_03` ← donor `LegionGoon_alt_2` (male; blue recolor, source не править)
 - **Inventory (fixed):** SWModel10 · .38×12 · Knife
 
 | Stat | |
@@ -140,7 +140,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `PierreMerc` → VR `PierreMerc`
-- **Appearance:** `JAZZ_AME_04` ← donor `Militia_Demolition` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_04` ← donor `LegionGoon_alt_3` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -175,7 +175,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_05` ← donor `Militia_Heavy` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_05` ← donor `LegionButcher` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -210,7 +210,7 @@
 - **Traits (common):** —
 - **Personality:** `Loner`
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_06` ← donor `Militia_Marksman` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_06` ← donor `LegionButcher_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×14 · Knife
 
 | Stat | |
@@ -245,7 +245,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_07` ← donor `Militia_Medic` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_07` ← donor `LegionButcher_alt_2` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -280,7 +280,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `IMP_male_02` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_08` ← donor `Militia_Officer` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_08` ← donor `LegionButcher_alt_3` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×8 · Knife
 
 | Stat | |
@@ -315,7 +315,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_09` ← donor `Militia_Recon` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_09` ← donor `LegionRaider` (male; blue recolor, source не править)
 - **Inventory (fixed):** DoubleBarrelShotgun · 12g×6 · Knife
 
 | Stat | |
@@ -350,7 +350,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_10` ← donor `Militia_Soldier` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_10` ← donor `LegionRaider_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -420,7 +420,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `PierreMerc` → VR `PierreMerc`
-- **Appearance:** `JAZZ_AME_12` ← donor `Militia_Stormer` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_12` ← donor `LegionRaider_alt_2` (male; blue recolor, source не править)
 - **Inventory (fixed):** Machete
 
 | Stat | |
@@ -490,7 +490,7 @@
 - **Traits (common):** —
 - **Personality:** `Scoundrel`
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_14` ← donor `Artillery_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_14` ← donor `LegionScout` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife
 
 | Stat | |
@@ -525,7 +525,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_15` ← donor `Artillery_Rebels_03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_15` ← donor `LegionScout_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** — (empty hands)
 
 | Stat | |
@@ -665,7 +665,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_19` ← donor `Demolitions_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_19` ← donor `LegionMedic` (male; blue recolor, source не править)
 - **Inventory (fixed):** ColtM1917 · .45×12 · Knife
 
 | Stat | |
@@ -700,7 +700,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `PierreMerc` → VR `PierreMerc`
-- **Appearance:** `JAZZ_AME_20` ← donor `Demolitions_Rebels_03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_20` ← donor `LegionSharpShooter_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** SWModel10 · .38×6 · Knife
 
 | Stat | |
@@ -737,7 +737,7 @@
 - **Traits (common):** —
 - **Personality:** `Pessimist`
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_21` ← donor `Heavy_Rebels` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_21` ← donor `LegionGunner` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×40 · Knife
 
 | Stat | |
@@ -807,7 +807,7 @@
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_23` ← donor `Heavy_Rebels_03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_23` ← donor `LegionGunner_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
 | Stat | |
@@ -877,7 +877,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_25` ← donor `Marksman_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_25` ← donor `LegionSniper` (male; blue recolor, source не править)
 - **Inventory (fixed):** Winchester1894 · .44×28 · Knife · Bandage×1
 
 | Stat | |
@@ -982,7 +982,7 @@
 - **Traits (common):** `HeavyWeaponsTraining`
 - **Personality:** —
 - **Voice:** `PierreMerc` → VR `PierreMerc`
-- **Appearance:** `JAZZ_AME_28` ← donor `Medic_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_28` ← donor `LegionMedic_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** BAR · .30-06×60 · Knife · Bandage×1
 
 | Stat | |
@@ -1087,7 +1087,7 @@
 - **Traits (common):** `AutoWeapons`
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_31` ← donor `Recon_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_31` ← donor `LegionScout_alt_2` (male; blue recolor, source не править)
 - **Inventory (fixed):** STG44 · 7.92Kurz×60 · Knife
 
 | Stat | |
@@ -1192,7 +1192,7 @@
 - **Traits (common):** `HeavyWeaponsTraining`, `AutoWeapons`
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_34` ← donor `Soldier_Rebels` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_34` ← donor `LegionManiac` (male; blue recolor, source не править)
 - **Inventory (fixed):** MAC2429 · 7.5French×60 · Knife · Bandage×1
 
 | Stat | |
@@ -1297,7 +1297,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Low` → VR `Jazz_AME_Male_Low`
-- **Appearance:** `JAZZ_AME_37` ← donor `Soldier_Rebels_04` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_37` ← donor `LegionManiac_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** Auto5 · 12g×16 · Knife · Bandage×2
 
 | Stat | |
@@ -1404,7 +1404,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `IMP_male_01` → VR `IMP_male_01`
-- **Appearance:** `JAZZ_AME_40` ← donor `GrandChien_Demolition` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_40` ← donor `LegionGrenadir_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** Mini14 · 5.56×40 · Knife · Bandage×1
 
 | Stat | |
@@ -1649,7 +1649,7 @@
 - **Traits (common):** `Throwing`
 - **Personality:** `Scoundrel`
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_47` ← donor `GrandChien_Soldier` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_47` ← donor `LegionRaidLeader_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×30 · FragGrenade×2 · Molotov×1 · Knife · Bandage×1
 
 | Stat | |
@@ -1791,7 +1791,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_51` ← donor `Stormer_Rebels_02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_51` ← donor `LegionSharpShooter` (male; blue recolor, source не править)
 - **Inventory (fixed):** HiPower · 9mm×24 · Medkit · Bandage×6 · Knife
 
 | Stat | |
@@ -1931,7 +1931,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_55` ← donor `Legion_Jose` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_55` ← donor `LegionRaidLeader` (male; blue recolor, source не править)
 - **Inventory (fixed):** Gewehr98 · 7.62×20 · Knife
 
 | Stat | |
@@ -2001,7 +2001,7 @@
 - **Traits (common):** `Throwing`
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_57` ← donor `Legion_Artillery` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_57` ← donor `LegionGrenadir` (male; blue recolor, source не править)
 - **Inventory (fixed):** Knife · ShapedCharge×2 · TNT×1 · PipeBomb×2 · Detonator · Wirecutter
 
 | Stat | |
@@ -2071,7 +2071,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `Jazz_AME_Male_Hard` → VR `Jazz_AME_Male_Hard`
-- **Appearance:** `JAZZ_AME_59` ← donor `Legion_Artillery02` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_59` ← donor `LegionScout_Stronger_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** Wirecutter · Crowbar · Knife
 
 | Stat | |
@@ -2106,7 +2106,7 @@
 - **Traits (common):** —
 - **Personality:** —
 - **Voice:** `PierreMerc` → VR `PierreMerc`
-- **Appearance:** `JAZZ_AME_60` ← donor `Legion_Artillery03` (male; blue recolor, source не править)
+- **Appearance:** `JAZZ_AME_60` ← donor `LegionRaider_Stronger_alt` (male; blue recolor, source не править)
 - **Inventory (fixed):** Wirecutter · Lockpick · Knife · Bandage×1
 
 | Stat | |

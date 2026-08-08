@@ -8,6 +8,11 @@
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_scan_saves_broken_placecharacterffect.py` | Scan JA3 `.sav` under Saved Games: extract zstd `game_session`, count `PlaceCharacterEffect('Id', )` (empty props — load-breaking). |
 | `_extract_ja3_game_session.py` | Extract concatenated zstd frames of `game_session` from BPUL `.sav` to `.lua` for syntax debug. |
+| `_audit_ame_appearance_clothes_qa.py` | AME appearance clothes QA vs appearance-map (bank/channel checks). |
+| `_audit_ame_hat_not_blue.py` | Flag AME hats that violate no-blue accent policy. |
+| `_patch_ame_appearance_clothes_from_map.py` | Apply clothes fields from `ame-appearance-map.json` into generated appearance data. |
+| `_list_jazz_legion_appearances.py` | List Jazz Legion appearance IDs for portrait tooling. |
+| `_scan_ame_hats.py` / `_dump_ame17.py` | Hat scan / AME-17 dump helpers for appearance audits. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |

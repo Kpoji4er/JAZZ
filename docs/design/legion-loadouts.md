@@ -155,7 +155,7 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 | Crusher T1 | shotgun | pistol mid+ | — | Middle | мало | M0–M1 | shotgun↑ | combat SG + sidearm; M2 |
 | Pillager T2 | SMG | — | knife | Light | мало | M1–M2 | SMG↑, carbine редко | АК/SMG; light; M2 |
 | ShockTrooper T2 | SMG→**carbine** | knife + sidearm% | knife | Middle | HE + smoke%/conc% | M1–M3 | **carbine норма** | AR/carbine + M2–M3 |
-| Pyro T2 | SMG/carbine% | — | — | Heavy | **molotov** + HE% | M0–M2 | SMG↑ | АК/SMG + molotov; mods скромно |
+| Pyro T2 | SMG/carbine% | — | — | Heavy | **molotov only** (×3) | M0–M2 | SMG↑ | АК/SMG + molotov; без frag/HE |
 | Punisher T3 | carbine→AR | sidearm | — | Heavy | HE + conc | M2–M3 | carbine/AR + AP ammo | AR+mods M3 |
 | SkullCrusher T3 | shotgun/SMG | — | machete | Heavy | smoke% + molotov% | M1–M2 | shotgun↑ | SG/АК-CQB + machete |
 | Headsman T4 | AR | sidearm | knife% | Heavy | HE + smoke/conc | M3–M4 | high AR | full kit M3–M4 |
@@ -229,7 +229,8 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 
 | Кто | HE / frag / smoke (по профилю) | Pipe bomb |
 | --- | --- | --- |
-| **Специалист** (Grenadier, Pyro, Shock с HE-профилем, Punisher, Headsman, Raider/Veteran с HE, …) | **гарантированно**; counts **чуть↑ с loot tier** | по вкусу / редко |
+| **Специалист** (Grenadier, Shock с HE-профилем, Punisher, Headsman, Raider/Veteran с HE, …) | **гарантированно**; counts **чуть↑ с loot tier** | по вкусу / редко |
+| **Pyro** | **только Molotov** (гарантированный stack); без frag/HE | — |
 | **Неспециалист** (Roughneck, Rifleman, Warden, line trash…) | **шанс↑** с class-tier **и** loot tier | в пуле low-class с ~`21`, chance тоже чуть↑ с arch |
 
 Эволюция возможностей (не только «лучший ствол»):
@@ -239,7 +240,8 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 | Sidearm | Crusher/Roughneck pistol | не с `11`, а с mid sub / arch2 (как сейчас «не сразу») |
 | Pipe bomb | Roughneck | с ~`21` (`2-1`) в пуле с шансом; на `1x` чаще нет |
 | HE chance↑ | non-spec | каждый arch и class-tier поднимают % |
-| Specialist HE | Grenadier/Pyro… | всегда, counts↑ с arch |
+| Specialist HE | Grenadier/Shock… | всегда, counts↑ с arch |
+| Pyro molotov | Pyro | всегда ×3; без HE |
 
 Черновые % для non-spec HE (тюнить в spec):
 

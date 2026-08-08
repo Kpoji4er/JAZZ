@@ -744,7 +744,7 @@ def render() -> str:
     lines.append("| Specialists | 12 | Medic×3, Instructor×3, Sniper×2, Sapper×2, Mechanic×2 |")
     lines.append("")
     lines.append("- Инвентарь: **1 фиксированный вариант** на слот (без `Randomization`).")
-    lines.append("- **Appearance:** на слот свой клон `JAZZ_AME_NN` (donor Rebels/Legion/Militia; Hardened/Spec — ещё GrandChien). Красное → синее; кожа с пресета. Карта: [`ame-appearance-map.json`](ame-appearance-map.json).")
+    lines.append("- **Appearance:** на слот свой клон `JAZZ_AME_NN` (donor jazz-units `Legion*` / Rebels / GrandChien / keep; Irregulars lean jazz Legion*; blue recolor; каски снимаются). Карта: [`ame-appearance-map.json`](ame-appearance-map.json).")
     lines.append("- **Кит:** Irr ≤ **1-2**; Fight ≤ **1-3**; Hard/Spec ≤ **2-1**. **`Type56` — потолок AR, только Hardened.** `SKS`/bolt — только Sniper.")
     lines.append("- **ПП:** винтаж T1 — `Thompson` / `M3GreaseGun` / `PPS43` / `PPSH` / `MP40` / `MAT49` / `Sterling`. **`UZI` и прочий T2 ПП в стартовых китах нет.**")
     lines.append("- **Бинты:** Fighters ~40%; Hardened всегда. **Sapper:** часть с `PipeBomb`.")

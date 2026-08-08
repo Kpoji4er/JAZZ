@@ -268,14 +268,6 @@
     "melee": null,
     "armor": "Heavy",
     "utility": {
-      "he": {
-        "mode": "chance",
-        "chance_by_arch": [
-          20,
-          35,
-          45
-        ]
-      },
       "molotov_guaranteed": 3
     },
     "ammo_cap": "Army",
