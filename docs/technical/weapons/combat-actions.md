@@ -462,11 +462,15 @@ visible_actions =
 
 ### `FoldStock` / `UnFoldStock`
 
-Переключают состояние складного приклада. Само действие не рассчитывает CTH и не расходует патрон; последующая атака читает активные характеристики/эффекты компонента.
+Переключают состояние складного приклада через `zzFoldingPair` на Stock. Само действие не считает CTH и не расходует патрон; последующая атака читает активные характеристики/эффекты компонента.
+
+**UI (JAZZ-UI-002):** `ShowIn = false` — не в hotbar / SignatureAbilities. Кнопка живёт во **второй колонке** `UIWeaponDisplay` `idButtons` (`idFoldStockButton`, `GridX = 2`) рядом со Switch/Reload. `GetUIState` — Stock с non-empty `zzFoldingPair`; Unfolded → Fold, Folded → UnFold. Иконки чипов — одиночные 54×54 HUD-глифы `Icons/Hud/weapon_stock_fold.png` / `weapon_stock_unfold.png` (не dual-strip hotbar).
 
 ### `FlashlightOn` / `FlashlightOff`
 
-Переключают режим фонаря. Конкретный эффект задаётся компонентом и состоянием освещения; действие не должно отдельно дублировать тот же модификатор в CTH.
+Переключают режим фонаря на Side. Конкретный эффект задаётся компонентом и освещением; действие не дублирует тот же модификатор в CTH.
+
+**UI (JAZZ-UI-002):** `ShowIn = false`; чип `idFlashlightButton` в той же 2-й колонке (`GridY = 2`). Без доступного flashlight Side кнопка скрыта (`FoldWhenHidden`). Иконки: `Icons/Hud/weapon_flash_on.png` / `weapon_flash_off.png`.
 
 ### `Unjam`
 

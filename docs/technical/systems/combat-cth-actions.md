@@ -88,7 +88,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 - `JAZZ_DoubleTap`, `JAZZ_Mozambique`, `JAZZ_Fanning`, `JAZZ_Zipper`, `JAZZ_JokerShot`, `JAZZ_Bullseye`;
 - `JAZZ_SmgStorm`, `JAZZ_RunAndSMGStorm`, `JAZZ_MobileShotgun`, `JAZZ_ManeuverAR`;
 - именные perk-actions `Jazz_Perk_00`, `Jazz_Perk_Buzz`, `Jazz_Perk_Lynx`, `Jazz_Perk_Spider`, `JAZZ_VovaVist`, `GrizzlyPerk`;
-- режимы компонентов `FoldStock`, `UnFoldStock`, `FlashlightOn`, `FlashlightOff`;
+- режимы компонентов `FoldStock`, `UnFoldStock`, `FlashlightOn`, `FlashlightOff` (JAZZ-UI-002: не hotbar — вторая колонка у иконки оружия в `UIWeaponDisplay`);
 - уникальные `AbakanBurst`, `AbakanAutoFire`, `DoubleBarrel`, `CancelShotCone`.
 
 Фактическое поведение каждого стрелкового ID, совместимость с классами оружия, AP, пакеты пуль, отдача, подавление, perk hooks и известные расхождения собраны в [справочнике стрелковых Combat Actions](../weapons/combat-actions.md).

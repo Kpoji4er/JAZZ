@@ -82,6 +82,8 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 `Systems_Compontents_FoldingStocks.lua` добавляет `zzFoldingPair`; runtime использует `zzStockEquipped` и actions `FoldStock`/`UnFoldStock`. Эти имена являются межфайловым контрактом generated components, UI и визуального состояния entity. В кабинете модификации сложенный half (`*Folded`, не `*UnFolded`) скрыт — крафтится разложенный; Cost Folded = UnFolded (= Light), `StockNormal` чуть дороже (см. `docs/design/stock-tiers.md`).
 
+**UI surface (JAZZ-UI-002):** `FoldStock` / `UnFoldStock` / `FlashlightOn` / `FlashlightOff` имеют `ShowIn = false` и не входят в боевой hotbar. Чипы — вторая колонка `UIWeaponDisplay` `idButtons` (`GridX = 2`) рядом со Switch/Reload; helpers в `Code/System_WeaponCompHUD.lua`.
+
 После JAZZ-ATTACH-001 live components больше не используют `*Handling*` или `Cumbersome` effect presets; Firearm property `Handling` удалён вместе с UI/GameTerm/CTH-modifier presets. Все модифицируемые live component IDs, созданные JAZZ, используют канонический префикс `JAZZ_`; сохранённые `vanilla_ref` stubs отражают ссылки companion-файлов без JAZZ definition и не получают выдуманных effects. Четыре pure-ergo components (`JAZZ_TacGrip`, `JAZZ_Handgrip_Ergo`, `JAZZ_SigErgoHandGrip`, `JAZZ_HandlingWrap`) теперь дают `RecoilDecrease`.
 
 `RocketLauncher.DisposableLauncher` имеет default `false`; `EmbeddedOrdnance` определяет единственный встроенный выстрел одноразового launcher. В v1 JAZZ-WEAPONS-005 этим контрактом пользуется только `M72LAW` (`Warhead_Frag`, magazine 1); RPG-7 не имеет флага и продолжает использовать отдельный ordnance.
