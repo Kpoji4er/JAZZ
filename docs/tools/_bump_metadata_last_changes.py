@@ -8,6 +8,10 @@ from pathlib import Path
 
 
 def bump(path: Path, bullet: str, version_minor: int | None = None) -> None:
+    if "{" in bullet or "}" in bullet:
+        raise SystemExit(
+            "bullet must not contain '{' or '}' — they break metadata brace validation"
+        )
     text = path.read_text(encoding="utf-8")
     versions = list(re.finditer(r"'version', (\d+),", text))
     if not versions:

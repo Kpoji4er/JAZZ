@@ -84,9 +84,19 @@ def patch_companion(path: Path, personality: str, apply: bool) -> tuple[list[str
     if old == new:
         return old, new
     repl = render_companion_perks(new)
-    new_text, n = re.subn(r"StartingPerks\s*=\s*\{[^}]*\}", repl, text, count=1, flags=re.S)
+    # Include optional trailing comma after `}` so `StartingPerks = {},` does not
+    # become `},,` (Lua: unexpected symbol near ',').
+    new_text, n = re.subn(
+        r"[ \t]*StartingPerks\s*=\s*\{[^}]*\}\s*,?",
+        repl,
+        text,
+        count=1,
+        flags=re.S,
+    )
     if n != 1:
         raise RuntimeError(f"{path.name}: StartingPerks replace failed (n={n})")
+    if "},," in new_text:
+        raise RuntimeError(f"{path.name}: double comma after StartingPerks")
     if apply:
         path.write_text(new_text, encoding="utf-8", newline="\n")
     return old, new
