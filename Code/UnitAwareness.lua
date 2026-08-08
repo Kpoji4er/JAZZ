@@ -504,6 +504,10 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 		if HasPerk(ally, "Untraceable") then
 			allyDetectionModifier = allyDetectionModifier - Untraceable:ResolveValue("enemy_detection_reduction")
 		end
+		-- JAZZ-UNITS-006 Batch5: Carlos detection builds 33% slower.
+		if HasPerk(ally, "Jazz_Perk_Carlos") then
+			allyDetectionModifier = allyDetectionModifier - 33
+		end
 		if ally:HasStatusEffect("Darkness") then
 			allyDetectionModifier = allyDetectionModifier + const.EnvEffects.DarknessDetectionRate
 		end
@@ -624,6 +628,11 @@ function UpdateSuspicion(alliedUnits, enemyUnits, intermediate_update)
 			end
 		end
 		
+		-- Apply detection modifiers (Untraceable / Carlos / Darkness) that were previously computed but unused.
+		if raiseSusLargest > 0 and allyDetectionModifier ~= 100 then
+			raiseSusLargest = Max(0, MulDivRound(raiseSusLargest, allyDetectionModifier, 100))
+		end
+
 		local oldSus = ally.suspicion
 		if raiseSusLargest > 0 then
 			ally.suspicion = ally.suspicion + raiseSusLargest

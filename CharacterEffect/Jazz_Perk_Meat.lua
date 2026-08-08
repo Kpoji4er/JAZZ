@@ -16,7 +16,7 @@ DefineClass.Jazz_Perk_Meat = {
 		}),
 	},
 	DisplayName = T(890000000005050, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Meat DisplayName]] "Толстокожий"),
-	Description = T(890000000005051, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Meat Description]] "Воля не падает от морали. Урон по Will переходит в Grit. Не подавляется (partial)."),
+	Description = T(890000000005051, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Meat Description]] "Воля не падает от морали. Урон по Will переходит в Grit. Не подавляется."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Meat.png",
 	Tier = "Personal",
 }

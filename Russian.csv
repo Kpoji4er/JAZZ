@@ -1832,9 +1832,7 @@ ID,Text,Translation,VoiceActor,Context
 391588411003,"M60 ""Свиньи""",M60 «Свинья»,,jazz:InventoryItem/M60.lua:14 | jazz:items.lua:26701
 391748044376,Сравнить,Сравнить,,jazz:items.lua:88631
 391782617851,Оптический Прицел 1-6x,Оптический прицел (1–6x),,jazz:items.lua:44836
-391831963748,"Получает больше разведданных при хакинге
-Открывает операцию по заработку денег в городском секторе (Пока недоступно)","Получает больше разведданных при взломе
-Открывает операцию по заработку денег в городском секторе (пока недоступно)",,jazz:CharacterEffect/InnerInfo_JAZZ.lua:21 | jazz:items.lua:71194
+391831963748,Получает больше разведданных при хакинге. Городская операция заработка ($2000 / 2 дня) — soft-cut до ECON-001.,Gains more intel from hacks. City money-making op ($2000 / 2 days) soft-cut pending ECON-001.,,jazz:CharacterEffect/InnerInfo_JAZZ.lua
 391843332947,Замечательно!,Замечательно!,,jazz-units:items.lua:70013
 391984240592,Армейский Спецназ,Армейский Спецназ,,jazz-units:items.lua:56560
 392209165367,ППШ-41 (Пистолет-Пулемет конструкции Шпагина) был создан в 1941 году для замены более сложного и дорогого ППД-40. В этом же году принят на вооружение РККА. Впоследствии же стал символом доблести советского солдата и победы советского народа над фашизмом.,"ППШ-41, пистолет-пулемёт конструкции Шпагина, создали в 1941 году на замену более сложному и дорогому ППД-40. В том же году его приняла на вооружение Красная армия. Впоследствии ППШ стал символом доблести советского солдата и победы советского народа над фашизмом.",,jazz:InventoryItem/PPSH.lua:16 | jazz:items.lua:18750
@@ -5852,7 +5850,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000000441,"Меня зовут Дьяло, но люди обычно называют меня Призрак","Меня зовут Дьяло, но обычно меня называют Призраком.",,jazz-maps:items.lua:31000
 890000000000442,"Ха... вот это бойня. Рад, что мы на одной стороне.","Ха... вот это бойня. Рад, что мы на одной стороне.",,jazz-maps:items.lua:30995
 890000000000444,"9х19 мм, Luger JHP","9х19 мм, Luger JHP",,jazz:InventoryItem/JAZZ_AMMO_9x19_JHP.lua:9 | jazz:items.lua:2624
-890000000000446,Секретные данные,Секретные данные,,jazz:CharacterEffect/InnerInfo_JAZZ.lua:20 | jazz:items.lua:65612
+890000000000446,Секретные данные,Inside Info,,jazz:CharacterEffect/InnerInfo_JAZZ.lua
 890000000000452,"Сработало! Видали? Сработало! О, да, здаров!. Я <em>Бомбическая Диди</em>! Вы ведь пришли за моими хлопушками? Последнюю партию я только что взорвала, но я могу сделать еще!","Сработало! Видали? Сработало! О, да, здаров!. Я <em>Бомбическая Диди</em>! Вы ведь пришли за моими хлопушками? Последнюю партию я только что взорвала, но я могу сделать еще!",,jazz-maps:items.lua:23981
 890000000000453,"А в <em>Жестянке</em> вы были? Там в бункере полно всяких классных штук, из которых можно делать помпезные взрывы!","А в <em>Жестянке</em> вы были? Там в бункере полно всяких классных штук, из которых можно делать помпезные взрывы!",,jazz-maps:items.lua:24373
 890000000000454,"Потому что меня так и прозвали. Ну, или я сама себя прозвала. Старый брюзга <em>Базиль</em> называет меня всякими другими словами, половину из которых я даже не понимаю. Кстати, а что значит «раздолбайка»?","Потому что меня так и прозвали. Ну, или я сама себя прозвала. Старый брюзга <em>Базиль</em> называет меня всякими другими словами, половину из которых я даже не понимаю. Кстати, а что значит «раздолбайка»?",,jazz-maps:items.lua:24744
@@ -6977,8 +6975,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001830,Ну где веселье?,Ну где веселье?,,jazz-units:items.lua:71765
 890000000001831,Опять этот зануда рядом.,Опять этот зануда рядом.,,jazz-units:items.lua:71771
 890000000001832,Хорошая компания подобралась.,Хорошая компания подобралась.,,jazz-units:items.lua:71777
-890000000001900,Народный командир,Народный командир,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
-890000000001901,Эта именная способность пока не действует.,Эта именная способность пока не действует.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua
+890000000001900,Народный командир,People's Commander,,jazz:CharacterEffect/Jazz_Perk_Ira.lua
+890000000001901,"Милиция, которую обучает Айра, получает +20 к случайной основной характеристике.",Militia Ira trains gains +20 to a random primary stat.,,jazz:CharacterEffect/Jazz_Perk_Ira.lua
 890000000001902,Айра Смит,Айра Смит,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
 890000000001903,Айра,Айра,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
 890000000001904,АЙРА,АЙРА,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
@@ -7076,8 +7074,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002126,Патроны? Кому они нужны!,Патроны? Кому они нужны!,,jazz-units:items.lua:72342
 890000000002127,Скучно! Дай мне что-нибудь сломать.,Скучно! Дай мне что-нибудь сломать.,,jazz-units:items.lua:72336
 890000000002128,Лиска рядом — день удался.,Лиска рядом — день удался.,,jazz-units:items.lua:72348
-890000000002200,Строгий инструктор,Строгий инструктор,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
-890000000002201,Эта именная способность пока не действует.,Эта именная способность пока не действует.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua
+890000000002200,Строгий инструктор,Strict Instructor,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua
+890000000002201,Как тренер: Leadership считается не ниже 90 (скорость TrainMilitia / TrainMercs).,"As a trainer, Leadership is treated as at least 90 (TrainMilitia / TrainMercs pace).",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua
 890000000002202,Лейтенант Конрад Джиллет,Лейтенант Конрад Джиллет,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
 890000000002203,Конрад,Конрад,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
 890000000002204,КОНРАД,КОНРАД,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
@@ -7169,8 +7167,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002428,"Ну, до дяди ему далеко... Но паренек толковый.","Ну, до дяди ему далеко... Но паренек толковый.",,jazz-units:items.lua:72935
 890000000002429,"Скоуп бы тут что-то поправил, наверное.","Скоуп бы тут что-то поправил, наверное.",,jazz-units:items.lua:72941
 890000000002430,"Отлично, землячок!","Отлично, землячок!",,jazz-units:items.lua:72947
-890000000002431,Шахтёрский надзор,Шахтёрский надзор,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
-890000000002432,"Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты","Пока Ротман гарнизоном стоит в секторе с шахтой, он может провести спецоперацию, ловящую ворующих штейгеров и временно поднимающую доход шахты",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002431,Я вас научу работать!,I'll Teach You to Work!,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua
+890000000002432,Пока Ротман в секторе с шахтой: доход шахты +10…+40% (сильнее при низкой loyalty).,While Rothman garrisons a mine sector: mine income +10…+40% (stronger at low loyalty).,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua
 890000000002433,Стефан Ротман,Стефан Ротман,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002434,Ротман,Ротман,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002435,РОТМАН,РОТМАН,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
@@ -7243,8 +7241,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000002717,"Я уже еду — и, конечно, красиво.","Я уже еду — и, конечно, красиво.",,jazz-units:items.lua:120758 | jazz-units:UnitData/Jazz_Vicious.lua:120
 890000000002718,"Контракт заканчивается. Продлеваем, chérie?","Контракт заканчивается. Продлеваем, chérie?",,jazz-units:items.lua:120763 | jazz-units:UnitData/Jazz_Vicious.lua:125
 890000000002719,"Остаюсь. Здесь веселее, чем дома.","Остаюсь. Здесь веселее, чем дома.",,jazz-units:items.lua:120768 | jazz-units:UnitData/Jazz_Vicious.lua:130
-890000000002800,Вербовка MERC,Вербовка M.E.R.C.,,jazz:CharacterEffect/Jazz_Perk_Biff.lua:9
-890000000002801,Эта именная способность пока не действует.,Эта именная способность пока не действует.,,jazz:CharacterEffect/Jazz_Perk_Biff.lua
+890000000002800,Вербовка MERC,MERC Recruitment Drive,,jazz:CharacterEffect/Jazz_Perk_Biff.lua
+890000000002801,Бифф может набирать платных труперов MERC (перемещение/охрана; ежедневная оплата). Полная экономика труперов — soft-cut.,Biff can raise paid MERC troopers (move/guard; daily pay). Full trooper economy soft-cut.,,jazz:CharacterEffect/Jazz_Perk_Biff.lua
 890000000002802,Бифф Апскотт,Бифф Апскотт,,jazz-units:items.lua:121014 | jazz-units:UnitData/Jazz_Biff.lua:22
 890000000002803,Бифф,Бифф,,jazz-units:items.lua:121015 | jazz-units:UnitData/Jazz_Biff.lua:23
 890000000002804,БИФФ,БИФФ,,jazz-units:items.lua:121016 | jazz-units:UnitData/Jazz_Biff.lua:24
@@ -7322,8 +7320,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000003117,Уже в тени. Иду.,Уже в тени. Иду.,,jazz-units:items.lua:122141 | jazz-units:UnitData/Jazz_Cougar.lua:115
 890000000003118,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,jazz-units:items.lua:122146 | jazz-units:UnitData/Jazz_Cougar.lua:120
 890000000003119,"Остаюсь. Тихо, но остаюсь.","Остаюсь. Тихо, но остаюсь.",,jazz-units:items.lua:122151 | jazz-units:UnitData/Jazz_Cougar.lua:125
-890000000003200,Команданте,Команданте,,jazz:CharacterEffect/Jazz_Perk_Miguel.lua:9 | jazz:items.lua:72760
-890000000003201,Эта именная способность пока не действует.,Эта именная способность пока не действует.,,jazz:CharacterEffect/Jazz_Perk_Miguel.lua
+890000000003200,Команданте,El Comandante,,jazz:CharacterEffect/Jazz_Perk_Miguel.lua
+890000000003201,Аура 30: если Мигель на ногах — союзники +30 Will / +15 CTH; если сбит — −30 Will / −15 CTH.,"Aura 30: while Miguel is up, allies get +30 Will / +15 CTH; while downed, −30 Will / −15 CTH.",,jazz:CharacterEffect/Jazz_Perk_Miguel.lua
 890000000003202,Мигель Кордона,Мигель Кордона,,jazz-units:items.lua:122397 | jazz-units:UnitData/Jazz_Miguel.lua:22
 890000000003203,Мигель,Мигель,,jazz-units:items.lua:122398 | jazz-units:UnitData/Jazz_Miguel.lua:23
 890000000003204,МИГЕЛЬ,МИГЕЛЬ,,jazz-units:items.lua:122399 | jazz-units:UnitData/Jazz_Miguel.lua:24
@@ -7555,8 +7553,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000004317,Угх. Иду бить.,Угх. Иду бить.,,jazz-units:items.lua:126266 | jazz-units:UnitData/Jazz_Bull.lua:113
 890000000004318,Контракт заканчивается. Продлеваем?,Контракт заканчивается. Продлеваем?,,jazz-units:items.lua:126271 | jazz-units:UnitData/Jazz_Bull.lua:118
 890000000004319,Остаюсь. Тут есть кого бить.,Остаюсь. Тут есть кого бить.,,jazz-units:items.lua:126276 | jazz-units:UnitData/Jazz_Bull.lua:123
-890000000004400,Тихий ремонт,Тихий ремонт,,jazz:CharacterEffect/Jazz_Perk_Cord.lua:9
-890000000004401,Эта именная способность пока не действует.,Эта именная способность пока не действует.,,jazz:CharacterEffect/Jazz_Perk_Cord.lua
+890000000004400,Тихий ремонт,Quiet Repair,,jazz:CharacterEffect/Jazz_Perk_Cord.lua
+890000000004401,В городском секторе: ремонт быстрее (−15% времени) и дешевле (−10% Parts). Требование бара — soft.,In a city sector: repairs are faster (−15% time) and cheaper (−10% Parts). Bar POI gate soft.,,jazz:CharacterEffect/Jazz_Perk_Cord.lua
 890000000004402,Даг «Кардан» Милтон,Даг «Кардан» Милтон,,jazz-units:items.lua:126522 | jazz-units:UnitData/Jazz_Cord.lua:22
 890000000004403,Кардан,Кардан,,jazz-units:items.lua:126523 | jazz-units:UnitData/Jazz_Cord.lua:23
 890000000004404,КАРДАН,КАРДАН,,jazz-units:items.lua:126524 | jazz-units:UnitData/Jazz_Cord.lua:24
@@ -7833,9 +7831,9 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000005048,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,Ниже 50% HP не получает Панику; раны не режут его CTH из винтовки.,,perk-remap-from-890000000005028
 890000000005049,<style AimCopyrightTextC><copyright></style> A.M.E. 2001,<style AimCopyrightTextC><copyright></style> A.M.E. 2001,,AME_Browser_copyright
 890000000005050,Толстокожий,Thick-Skinned,,jazz:CharacterEffect/Jazz_Perk_Meat.lua
-890000000005051,Воля не падает от морали. Урон по Will переходит в Grit. Не подавляется (partial).,Will never drops from morale. Will-point damage converts to Grit. Unsuppressible (partial).,,jazz:CharacterEffect/Jazz_Perk_Meat.lua
+890000000005051,Воля не падает от морали. Урон по Will переходит в Grit. Не подавляется.,Will never drops from morale. Will-point damage converts to Grit. Unsuppressible.,,jazz:CharacterEffect/Jazz_Perk_Meat.lua
 890000000005052,Тихая тень,Quiet Shadow,,jazz:CharacterEffect/Jazz_Perk_Carlos.lua
-890000000005053,Обнаружение идёт на 33% медленнее. Провал скрытого убийства может оставить в скрытности (partial).,Detection builds 33% slower. A failed stealth kill may keep him Hidden (partial).,,jazz:CharacterEffect/Jazz_Perk_Carlos.lua
+890000000005053,Обнаружение идёт на 33% медленнее. Провал скрытого убийства с 50% шансом оставляет Hidden.,Detection builds 33% slower. A failed stealth kill has a 50% chance to keep him Hidden.,,jazz:CharacterEffect/Jazz_Perk_Carlos.lua
 890000000005054,IRA,IRA,,perk-remap-from-890000000005005
 890000000005055,Эта именная способность пока не действует.,Эта именная способность пока не действует.,,jazz:CharacterEffect/Jazz_Perk_Devin.lua
 890000000005056,Не подходи ко мне!,Не подходи ко мне!,,jazz:CharacterEffect/Jazz_Perk_Shank.lua
@@ -12481,3 +12479,21 @@ Speck","Командир!
 890000000009882,Конусный dump 15–30 пуль с обычным CTH и подавлением Will. Перезарядка способности — после убийства.,Cone dump of 15-30 rounds with normal CTH and Will suppression. Ability recharges on kill.,,jazz:CharacterEffect/BulletHell.lua
 890000000009883,По моей цели,On My Target,,jazz:CharacterEffect/OnMyTarget.lua
 890000000009884,Отряд атакует отмеченную цель. Стоимость: 10 ОД.,Squad attacks the marked target. Cost: 10 AP.,,jazz:CharacterEffect/OnMyTarget.lua
+890000000009885,Конструктор взрывчатки,Explosives Designer,,jazz:CharacterEffect/DesignerExplosives.lua
+890000000009886,Может крафтить гранаты. Крафт патронов/гранат стоит на 30% меньше Parts.,Can craft grenades. Ammo/grenade craft Parts cost −30%.,,jazz:CharacterEffect/DesignerExplosives.lua
+890000000009887,Наздаровье,Nazdarovya,,jazz:CharacterEffect/Nazdarovya.lua
+890000000009888,Стаки ≤5: лечение/боль/−15 CTH/+20 melee; похмелье 8–10ч (3ч/стак). Hangover retune soft.,Stacks ≤5: heal/pain/−15 CTH/+20 melee; hangover 8–10h (3h/stack). Hangover retune soft.,,jazz:CharacterEffect/Nazdarovya.lua
+890000000009889,Опасная близость,Danger Close,,jazz:CharacterEffect/DangerClose.lua
+890000000009890,По целям ≥8 клеток: +40% урона и +2 Bleeding (без штрафа стимов — soft).,Vs targets ≥8 tiles: +40% damage and +2 Bleeding (stim pen removal soft).,,jazz:CharacterEffect/DangerClose.lua
+890000000009891,Взрывная ладонь,Exploding Palm,,jazz:CharacterEffect/ExplodingPalm.lua
+890000000009892,Удары кулаком: статусы по HP. Satellite trauma heal +30%; сопротивление инфекции (partial).,Fist hits apply HP-tier statuses. Satellite trauma heal +30%; infection resist (partial).,,jazz:CharacterEffect/ExplodingPalm.lua
+890000000009893,Естественное исцеление,Natural Healing,,jazz:CharacterEffect/NaturalHealing.lua
+890000000009894,Крафт joints и sat/combat-эффекты по листу (recipes soft-cut).,Crafts joints plus sat/combat effects per sheet (recipes soft-cut).,,jazz:CharacterEffect/NaturalHealing.lua
+890000000009920,Вам посылка,Package for You,,jazz:CharacterEffect/Jazz_Perk_Benny.lua
+890000000009921,Актив: приманка-декой ≤8 (цель с низким Will); взрыв при подходе. CombatAction soft-cut — helpers готовы.,Active: decoy lure ≤8 (lowest-Will target); explodes on arrival. CombatAction soft-cut — helpers ready.,,jazz:CharacterEffect/Jazz_Perk_Benny.lua
+890000000009922,Абсолютный снайпер,Absolute Sniper,,jazz:CharacterEffect/Jazz_Perk_Simon.lua
+890000000009923,Актив: идеальный выстрел с оптикой ≥4×; перезарядка по убийству. CombatAction soft-cut — helpers готовы.,Active: perfect shot with ≥4× optic; recharges on kill. CombatAction soft-cut — helpers ready.,,jazz:CharacterEffect/Jazz_Perk_Simon.lua
+890000000009895,Команданте (+),Comandante (+),,jazz:CharacterEffect/Jazz_MiguelAuraUp.lua
+890000000009896,"+15 CTH и +30 Will, пока Мигель в ауре и на ногах.",+15 CTH and +30 Will while Miguel is up in aura.,,jazz:CharacterEffect/Jazz_MiguelAuraUp.lua
+890000000009897,Команданте (−),Comandante (−),,jazz:CharacterEffect/Jazz_MiguelAuraDown.lua
+890000000009898,"−15 CTH и −30 Will, пока Мигель сбит в ауре.",−15 CTH and −30 Will while Miguel is downed in aura.,,jazz:CharacterEffect/Jazz_MiguelAuraDown.lua

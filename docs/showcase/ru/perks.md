@@ -71,11 +71,15 @@
 
 Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
 
-## §A / §C / §B (UNITS-006)
+## §A / §C / §B / §D (UNITS-006)
 
 §A + §C batch2/3 — целевой Лист2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list.
 
-§B batch4 приоритет: **Flo / Static / Cougar**. Также text+hooks: Grace, Kulba, Grom, Ricochet, Highball, Meat (partial). Soft-cut actives/HARD: Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Carlos failed-SK, Iggy bombard call-site, Rothman/Biff/Ira/Miguel/Livewire/Barry/Thor → batch5. Статусы: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
+§B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
+
+**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), Barry craft −30% Parts, Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. Soft: Biff troopers economy, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover.
+
+**Batch6 §D:** `Jazz_Perk_Benny` («Вам посылка») и `Jazz_Perk_Simon` («Абсолютный снайпер») — CE + StartingPerks; CombatAction soft-cut. Статусы: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 
 ## IMP: стартовый экип
 
@@ -83,8 +87,8 @@
 
 ## Ещё stubs
 
-Оставшиеся HARD / satellite §B+§C (Rothman mine, Biff troopers, Ira/Miguel militia, Livewire money, Barry craft, Thor joints, …) — batch5+. См. `JAZZ-UNITS-006` и `_units006_batch4_notes.md`.
+Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Iggy bombard call-site, full Biff/Livewire/Thor ops — см. `_units006_batch5_notes.md` / `_units006_batch6_notes.md`.
 
 ## Итог для игрока
 
-Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + §A + §C batch2/3 + §B batch4 (**Фло, Статик, Пума**, Грейс/Кульба/Гром/Рикошет/Хайболл/Мясо partial).
+Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + §A + §C batch2/3 + §B batch4 + batch5 (Ротман/Мигель/Барри/Мясо/Карлос/…) + §D Бенни/Саймон (helpers).

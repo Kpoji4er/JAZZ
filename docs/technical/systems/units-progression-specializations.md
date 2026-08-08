@@ -45,16 +45,21 @@ Personal (Personality) pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Sco
 
 ## Named perks (JAZZ-UNITS-006)
 
-Loaded code: `System_NamedPerks_006.lua` (install hub) + `System_NamedPerks_006_Batch3.lua` + `System_NamedPerks_006_Batch4.lua`.
+Loaded code: `System_NamedPerks_006.lua` (install hub) + Batch3…Batch6.
 
-§B batch4 (static):
+§B batch4 (static): Flo/Static/Cougar + Grace/Kulba/Grom/Ricochet/Highball (see `_units006_batch4_notes.md`).
 
-- `Jazz_Perk_Flo` — while Flo in a player squad: Bobby Ray buy ×0.88; `CashInItem` Cost ×1.12 (Negotiator still ops/boat only; additive systems).
-- `Jazz_Perk_Static` — Parts −5%×`GetLevel()` (cap −25%) on `ModifyWeaponDlg:GetChangesCost` and `SectorOperation_ItemsCalcRes` when Static is the op/mod owner.
-- `Jazz_Perk_Cougar` — gunshot `PushUnitAlert` noise ×0.67; stealth kill → `Inspired` once per turn.
-- Cheap hooks: Grace first `KnifeThrow` ≤12 auto-hit; Kulba US autos recoil ×0.5; Grom GL/mortar/AT suppress ×2; Ricochet melee splash; Highball heal_modifier ±50%; Meat floors negative personal morale.
+§ HARD/satellite batch5 (static):
 
-Soft-cuts / batch5: Rothman/Biff/Ira/Miguel/Livewire/Barry/Thor; Carlos detection; Iggy bombard call-site; Monk/Horg/Manuel/Hitman/Bull actives — see `docs/tools/_units006_batch4_notes.md`.
+- `Jazz_Perk_Rothman` — mine garrison loyalty-scaled income (`_GetMineIncome` +10…+40%).
+- `Jazz_Perk_Miguel` — aura 30 via `Jazz_MiguelAuraUp`/`Down` (±15 CTH, ±30 Will).
+- `DesignerExplosives` — CraftAmmo/CraftExplosives Parts −30%.
+- `Jazz_Perk_Meat` — Will dmg → Grit; skip suppression queue.
+- `Jazz_Perk_Carlos` — detection −33%; failed SK 50% keep Hidden.
+- `Jazz_Perk_Cord` / `Jazz_Perk_Conrad` — city repair time/Parts; trainer Leadership floor 90.
+- Soft: Biff trooper economy, Ira militia call-site, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover — `_units006_batch5_notes.md`.
+
+§D batch6: `Jazz_Perk_Benny` / `Jazz_Perk_Simon` CE + StartingPerks; CombatAction soft-cut (`_units006_batch6_notes.md`).
 
 ## Снимок generated data
 

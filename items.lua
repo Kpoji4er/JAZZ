@@ -73368,7 +73368,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "InnerInfo_JAZZ",
-					'comment', "Фаза",
 					'object_class', "Perk",
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
@@ -73379,13 +73378,189 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									CombatLog("important", T{312197955233, "Livewire used her custom PDA to discover additional Intel for <em><SectorName(sectorId)></em>", sectorId = discoveredFor})
 								end
 							end,
-							param_bindings = false,
 						}),
 					},
 					'DisplayName', T(890000000000446, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ DisplayName]] "Секретные данные"),
-					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге\nОткрывает операцию по заработку денег в городском секторе (Пока недоступно)"),
+					'Description', T(391831963748, --[[ModItemCharacterEffectCompositeDef InnerInfo_JAZZ Description]] "Получает больше разведданных при хакинге. Городская операция заработка ($2000 / 2 дня) — soft-cut до ECON-001."),
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "DesignerExplosives",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009885, --[[ModItemCharacterEffectCompositeDef DesignerExplosives DisplayName]] "Конструктор взрывчатки"),
+					'Description', T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Может крафтить гранаты. Крафт патронов/гранат стоит на 30% меньше Parts."),
+					'Icon', "UI/Icons/Perks/DesignerExplosives",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Nazdarovya",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009887, --[[ModItemCharacterEffectCompositeDef Nazdarovya DisplayName]] "Наздаровье"),
+					'Description', T(890000000009888, --[[ModItemCharacterEffectCompositeDef Nazdarovya Description]] "Стаки ≤5: лечение/боль/−15 CTH/+20 melee; похмелье 8–10ч (3ч/стак). Hangover retune soft."),
+					'Icon', "UI/Icons/Perks/Nazdarovya",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "DangerClose",
+					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "minRange",
+							'Value', 8,
+							'Tag', "<minRange>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "damageBonus",
+							'Value', 40,
+							'Tag', "<damageBonus>",
+						}),
+					},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndChance",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker or not data or not IsKindOf(attack_target, "Unit") then
+									return
+								end
+								local dist = DivRound(attacker:GetDist(attack_target), const.SlabSizeX)
+								local min_r = self:ResolveValue("minRange") or 8
+								if dist < min_r then
+									return
+								end
+								local bonus = self:ResolveValue("damageBonus") or 40
+								data.base_damage = MulDivRound(data.base_damage or data.damage or 0, 100 + bonus, 100)
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009889, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная близость"),
+					'Description', T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "По целям ≥8 клеток: +40% урона и +2 Bleeding (без штрафа стимов — soft)."),
+					'Icon', "UI/Icons/Perks/DangerClose",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "ExplodingPalm",
+					'object_class', "Perk",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcHealAmount",
+							Handler = function (self, target, patient, medic, medkit, data)
+								if target ~= medic or not data then
+									return
+								end
+								-- Soft: +30% heal when treating (trauma-specific ops deferred).
+								data.heal_modifier = MulDivRound(data.heal_modifier or 100, 130, 100)
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009891, --[[ModItemCharacterEffectCompositeDef ExplodingPalm DisplayName]] "Взрывная ладонь"),
+					'Description', T(890000000009892, --[[ModItemCharacterEffectCompositeDef ExplodingPalm Description]] "Удары кулаком: статусы по HP. Satellite trauma heal +30%; сопротивление инфекции (partial)."),
+					'Icon', "UI/Icons/Perks/ExplodingPalm",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "NaturalHealing",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009893, --[[ModItemCharacterEffectCompositeDef NaturalHealing DisplayName]] "Естественное исцеление"),
+					'Description', T(890000000009894, --[[ModItemCharacterEffectCompositeDef NaturalHealing Description]] "Крафт joints и sat/combat-эффекты по листу (recipes soft-cut)."),
+					'Icon', "UI/Icons/Perks/NaturalHealing",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Benny",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009920, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Benny DisplayName]] "Вам посылка"),
+					'Description', T(890000000009921, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Benny Description]] "Актив: приманка-декой ≤8 (цель с низким Will); взрыв при подходе. CombatAction soft-cut — helpers готовы."),
+					'Icon', "UI/Icons/Perks/DesignerExplosives",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "Jazz_Perk_Simon",
+					'object_class', "Perk",
+					'unit_reactions', {},
+					'DisplayName', T(890000000009922, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Simon DisplayName]] "Абсолютный снайпер"),
+					'Description', T(890000000009923, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Simon Description]] "Актив: идеальный выстрел с оптикой ≥4×; перезарядка по убийству. CombatAction soft-cut — helpers готовы."),
+					'Icon', "UI/Icons/Perks/HawksEye",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_MiguelAuraUp",
+					'object_class', "StatusEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								ApplyCthModifier_Add(self, data, 15)
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "StatusEffectAdded",
+							Handler = function (self, target, id)
+								if id ~= self.class then
+									return
+								end
+								if type(target.WillPoints) == "number" and type(target.MaxWillPoints) == "number" then
+									target.WillPoints = Min(target.MaxWillPoints, target.WillPoints + 30)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009895, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp DisplayName]] "Команданте (+)"),
+					'Description', T(890000000009896, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp Description]] "+15 CTH и +30 Will, пока Мигель в ауре и на ногах."),
+					'Icon', "UI/Hud/Status effects/accuracy",
+					'type', "Buff",
+					'lifetime', "Until End of Turn",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_MiguelAuraDown",
+					'object_class', "StatusEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker then
+									return
+								end
+								ApplyCthModifier_Add(self, data, -15)
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "StatusEffectAdded",
+							Handler = function (self, target, id)
+								if id ~= self.class then
+									return
+								end
+								if type(target.WillPoints) == "number" then
+									target.WillPoints = Max(0, target.WillPoints - 30)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009897, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown DisplayName]] "Команданте (−)"),
+					'Description', T(890000000009898, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown Description]] "−15 CTH и −30 Will, пока Мигель сбит в ауре."),
+					'Icon', "UI/Hud/Status effects/injured",
+					'type', "Debuff",
+					'lifetime', "Until End of Turn",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
@@ -74850,7 +75025,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000001900, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira DisplayName]] "Народный командир"),
-					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "Эта именная способность пока не действует."),
+					'Description', T(890000000001901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Ira Description]] "Милиция, которую обучает Айра, получает +20 к случайной основной характеристике."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Ira.png",
 					'Tier', "Personal",
 				}),
@@ -74923,7 +75098,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000002200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad DisplayName]] "Строгий инструктор"),
-					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "Эта именная способность пока не действует."),
+					'Description', T(890000000002201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Conrad Description]] "Как тренер: Leadership считается не ниже 90 (скорость TrainMilitia / TrainMercs)."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Conrad.png",
 					'Tier', "Personal",
 				}),
@@ -74985,8 +75160,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Rothman",
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'DisplayName', T(890000000002431, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Rothman DisplayName]] "Я вас научу работать!"),
+					'Description', T(890000000002432, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Rothman Description]] "Пока Ротман в секторе с шахтой: доход шахты +10…+40% (сильнее при низкой loyalty)."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Rothman.png",
 					'Tier', "Personal",
 				}),
@@ -75046,8 +75221,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Biff",
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'DisplayName', T(890000000002800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff DisplayName]] "Вербовка MERC"),
+					'Description', T(890000000002801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff Description]] "Бифф может набирать платных труперов MERC (перемещение/охрана; ежедневная оплата). Полная экономика труперов — soft-cut."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Biff.png",
 					'Tier', "Personal",
 				}),
@@ -75376,8 +75551,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Cord",
 					'object_class', "Perk",
 					'unit_reactions', {},
-					'DisplayName', T("Perk"),
-					'Description', T("WIP"),
+					'DisplayName', T(890000000004400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord DisplayName]] "Тихий ремонт"),
+					'Description', T(890000000004401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Cord Description]] "В городском секторе: ремонт быстрее (−15% времени) и дешевле (−10% Parts). Требование бара — soft."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Cord.png",
 					'Tier', "Personal",
 				}),
@@ -75457,7 +75632,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(890000000005050, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Meat DisplayName]] "Толстокожий"),
-					'Description', T(890000000005051, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Meat Description]] "Воля не падает от морали. Урон по Will переходит в Grit. Не подавляется (partial)."),
+					'Description', T(890000000005051, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Meat Description]] "Воля не падает от морали. Урон по Will переходит в Grit. Не подавляется."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Meat.png",
 					'Tier', "Personal",
 				}),
@@ -75471,7 +75646,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000005052, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Carlos DisplayName]] "Тихая тень"),
-					'Description', T(890000000005053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Carlos Description]] "Обнаружение идёт на 33% медленнее. Провал скрытого убийства может оставить в скрытности (partial)."),
+					'Description', T(890000000005053, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Carlos Description]] "Обнаружение идёт на 33% медленнее. Провал скрытого убийства с 50% шансом оставляет Hidden."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Carlos.png",
 					'Tier', "Personal",
 				}),
@@ -75875,9 +76050,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Miguel",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if type(Jazz_MiguelRefreshAura) == "function" then
+									Jazz_MiguelRefreshAura()
+								end
+							end,
+						}),
+					},
 					'DisplayName', T(890000000003200, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel DisplayName]] "Команданте"),
-					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "Эта именная способность пока не действует."),
+					'Description', T(890000000003201, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Miguel Description]] "Аура 30: если Мигель на ногах — союзники +30 Will / +15 CTH; если сбит — −30 Will / −15 CTH."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Miguel.png",
 					'Tier', "Personal",
 				}),

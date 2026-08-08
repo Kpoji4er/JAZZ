@@ -71,11 +71,15 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 
 Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle remains Spouke-only (`Jazz_Perk_00`).
 
-## §A / §C / §B (UNITS-006)
+## §A / §C / §B / §D (UNITS-006)
 
 §A + §C batch2/3 match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list.
 
-§B batch4 priority: **Flo / Static / Cougar** wired. Also text+hooks: Grace, Kulba, Grom, Ricochet, Highball, Meat (partial). Soft-cut actives/HARD: Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Carlos failed-SK stay hidden, Iggy bombard scatter call-site, Rothman/Biff/Ira/Miguel/Livewire/Barry/Thor → batch5. Status markers: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
+§B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
+
+**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), Barry craft −30% Parts, Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. Soft: Biff trooper economy, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover.
+
+**Batch6 §D:** `Jazz_Perk_Benny` (“Package for You”) and `Jazz_Perk_Simon` (“Absolute Sniper”) — CE + StartingPerks; CombatAction soft-cut. Statuses: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 
 ## IMP starting gear
 
@@ -83,8 +87,8 @@ After the IMP test, loadout is built from stats and perks (JA2-style): primary f
 
 ## Still stubs
 
-Remaining HARD / satellite §B+§C (Rothman mine, Biff troopers, Ira/Miguel militia, Livewire money, Barry craft, Thor joints, …) — batch5+. See `JAZZ-UNITS-006` and `_units006_batch4_notes.md`.
+Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Iggy bombard call-site, full Biff/Livewire/Thor ops — see `_units006_batch5_notes.md` / `_units006_batch6_notes.md`.
 
 ## Player takeaway
 
-Working named effects: **Spouke, Tosca, Lynx, Spider, Colby** + §A + §C batch2/3 + §B batch4 (**Flo, Static, Cougar**, Grace/Kulba/Grom/Ricochet/Highball/Meat partial).
+Working named effects: **Spouke, Tosca, Lynx, Spider, Colby** + §A + §C batch2/3 + §B batch4 + batch5 (Rothman/Miguel/Barry/Meat/Carlos/…) + §D Benny/Simon (helpers).

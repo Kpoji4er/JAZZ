@@ -280,10 +280,10 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 ## Evidence
 
 - JAZZ-UNITS-006-AC-001 / AC-002 / AC-009: PASS (static) - batch1 §A + Mike PinDown +2 follow-up.
-- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit.
-- JAZZ-UNITS-006-AC-005 / AC-006 (batch1-4 deltas): PASS (static) - RU/EN + showcase RU|EN perks.md.
-- JAZZ-UNITS-006-AC-003 (partial): PASS (static) - §B batch4 Flo/Static/Cougar + Grace/Kulba/Grom/...; soft-cuts _units006_batch4_notes.md.
-- JAZZ-UNITS-006-AC-008: BLOCKED - §D not started.
+- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit; batch5 DangerClose/ExplodingPalm/Nazdarovya CE companions.
+- JAZZ-UNITS-006-AC-005 / AC-006 (batch1-6 deltas): PASS (static) - RU/EN + showcase RU|EN perks.md.
+- JAZZ-UNITS-006-AC-003 (partial): PASS (static) - §B through batch5 Rothman/Miguel/Ira/Biff/Cord/Conrad/Meat/Carlos; soft-cuts `_units006_batch5_notes.md`.
+- JAZZ-UNITS-006-AC-008: PASS (static) - §D `Jazz_Perk_Benny`/`Jazz_Perk_Simon` CE + StartingPerks + non-WIP Description; CombatAction soft-cut `_units006_batch6_notes.md`.
 - JAZZ-UNITS-006-AC-007: BLOCKED - owner runtime/human smoke.
 
 ## Documentation delta

@@ -29,6 +29,10 @@
 | `_units006_audit_followup.md` | UNITS-006 post-batch audit: Mike PinDown/Vince/MD heal fixes + remaining gaps. |
 | `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + Grace/Kulba/… CE text+hooks; sync items/metadata/loc (reuse CE IDs). |
 | `_units006_batch4_notes.md` | UNITS-006 batch4: before→after + soft cuts (HARD → batch5). |
+| `_gen_units006_batch5.py` | UNITS-006 batch5 HARD/satellite + batch6 §D: Rothman/Miguel/Barry/… CE + Miguel aura statuses + Benny/Simon; items/metadata/loc (`9885+`/`9920+`). |
+| `_units006_batch5_notes.md` | UNITS-006 batch5: before→after + soft cuts (Biff economy, ECON-001 Livewire op, Thor recipes). |
+| `_units006_batch6_notes.md` | UNITS-006 §D: Benny/Simon CE + StartingPerks; CombatAction soft-cut. |
+| `_units006_batch6_startingperks.py` | Prepend `Jazz_Perk_Benny`/`Jazz_Perk_Simon` to jazz-units UnitData + items StartingPerks. |
 | `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |

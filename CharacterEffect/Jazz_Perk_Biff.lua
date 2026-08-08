@@ -7,7 +7,7 @@ DefineClass.Jazz_Perk_Biff = {
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000002800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff DisplayName]] "Вербовка MERC"),
-	Description = T(890000000002801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff Description]] "Эта именная способность пока не действует."),
+	Description = T(890000000002801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Biff Description]] "Бифф может набирать платных труперов MERC (перемещение/охрана; ежедневная оплата). Полная экономика труперов — soft-cut."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Biff.png",
 	Tier = "Personal",
 }
