@@ -31,6 +31,8 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 
 # JAZZ-UNITS-003: Named perks Wave A (EASY + hygiene)
 
+> **Supersede (partial):** Mechanics для Ids §A из Wave A (**Henning, Laura, Lucky, Dynamo, Nervous, Madman, Blade, Shank, Steiger, Vince**; плюс целевой контракт **Mike**) заменены контрактом [`JAZZ-UNITS-006`](JAZZ-UNITS-006.md). Hygiene / Lynx / Vicious / Eskimo / Vilde / orphan / HUD-hide из этой спеки остаются в силе, пока 006 их явно не трогает.
+
 ## Проблема
 
 После JAZZ-UNITS-002 у ~43 мерков слот `Jazz_Perk_*` есть, но `unit_reactions = {}` / WIP-текст — фирменного эффекта нет. План уточнения: `docs/design/mercs-ja12/_named-perks-plan.md`. Нужна первая реализуемая волна.

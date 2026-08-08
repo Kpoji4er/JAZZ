@@ -17,6 +17,8 @@
 | `_list_jazz_legion_appearances.py` | List Jazz Legion appearance IDs for portrait tooling. |
 | `_scan_ame_hats.py` / `_dump_ame17.py` | Hat scan / AME-17 dump helpers for appearance audits. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
+| `_diff_list2_sheet.py` (alias `_tmp_diff_list2_sheet.py`) | Diff Google Sheet Лист2 perk cols (fresh TSV export vs prior WebFetch) for JAZZ-UNITS-006. |
+| `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |
 | `_check_grandchien_map_lfs.py` | `../jazz-maps/Images/GrandChien2.png`: real PNG (~70MB) vs Git LFS pointer (чёрная sat map). Игрокам — `…/releases/download/playable/jazz-maps-playable.zip`, не archive ZIP. |
