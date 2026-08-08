@@ -27,6 +27,54 @@ def build_moditem_block() -> str:
     return f"\t\t{BEGIN}\n{indented.rstrip()},\n\t\t{END}\n"
 
 
+def _find_moditem_xtemplate_span(text: str, template_id: str) -> tuple[int, int] | None:
+    """Return [start, end) of PlaceObj('ModItemXTemplate' … id=<template_id> …), or None."""
+    needle = f'id = "{template_id}"'
+    id_idx = text.find(needle)
+    if id_idx < 0:
+        return None
+    start = text.rfind("PlaceObj('ModItemXTemplate'", 0, id_idx)
+    if start < 0:
+        return None
+    # Walk braces from the PlaceObj '(' after ModItemXTemplate
+    open_paren = text.find("(", start)
+    if open_paren < 0:
+        return None
+    depth = 0
+    i = open_paren
+    in_str = False
+    str_ch = ""
+    escape = False
+    while i < len(text):
+        ch = text[i]
+        if in_str:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == str_ch:
+                in_str = False
+        else:
+            if ch in ("'", '"'):
+                in_str = True
+                str_ch = ch
+            elif ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    if end < len(text) and text[end] == ",":
+                        end += 1
+                    while end < len(text) and text[end] in " \t\r":
+                        end += 1
+                    if end < len(text) and text[end] == "\n":
+                        end += 1
+                    return start, end
+        i += 1
+    return None
+
+
 def patch_items(block: str) -> None:
     text = ITEMS.read_text(encoding="utf-8")
     # Match markers with any leading whitespace so reinstalls don't leave orphan tabs.
@@ -42,6 +90,14 @@ def patch_items(block: str) -> None:
             raise RuntimeError(f"AME XTemplate replace count={n}")
         ITEMS.write_text(text, encoding="utf-8")
         print("replaced existing AME XTemplate block in items.lua")
+        return
+    # Editor save can strip install markers; replace by ModItem id instead of duplicating.
+    span = _find_moditem_xtemplate_span(text, "PDAAIMEBrowser")
+    if span is not None:
+        start, end = span
+        text = text[:start] + block + text[end:]
+        ITEMS.write_text(text, encoding="utf-8")
+        print("replaced markerless PDAAIMEBrowser ModItemXTemplate in items.lua")
         return
     # Insert before Constants folder (first occurrence after PDAAIMBrowser)
     needle = "\tPlaceObj('ModItemFolder', {\n\t\t'name', \"Constants\","

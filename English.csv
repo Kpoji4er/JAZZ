@@ -2955,7 +2955,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 619215783391,"прыгает, гоп",(jumps) Hop!,,jazz-units:items.lua:70039
 619300101686,"Бронежилет ""Interceptor""",Interceptor Body Armor,,jazz:InventoryItem/JazzArmor_IBALight.lua:13 | jazz:items.lua:56235
 619491844894,"Помедленнее, а то у меня будут проблемы с легкими!",Slow down or my lungs will give out!,,jazz-units:items.lua:70010
-619706015798,Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.,,jazz:items.lua:58885
+619706015798,"Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.","Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.",,jazz:items.lua:58885
 619763824975,"Не парься, сестра, я тя и в пушках и в движках прикрою! ","Don't worry, sis. I've got you covered with guns and engines alike!",,jazz-units:items.lua:79183
 619787402322,Один алмаз? Маловато,One diamond? That’s not much,,jazz-maps:items.lua:58621
 620020470489,Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ,Couldn't be better. You don't often get this much satisfaction from the job.,,jazz-units:items.lua:68894
@@ -9336,16 +9336,14 @@ People we would call first:
 
 — A.M.E. desk","Commander,
 
-Welcome to the African Mercenary Exchange — the local board for fighters without an A.I.M. brand name. Cheaper because the market prices reputation, not because of where they were born. You are buying potential: people who can grow on your payroll.
+Welcome to the African Mercenary Exchange — a local board for fighters who have not spent years building an A.I.M. reputation. Their rates are lower because you are meeting them before the medals and headlines. You are hiring people with room to grow; what they make of the opportunity depends on them, and on whoever gives them the chance.
 
-We rotate the shelf about every two weeks. Open the A.M.E. tab in your PDA anytime — hire while the names below are still available.
+The board turns over roughly every two weeks. The A.M.E. tab is always open in your PDA, so talk to a candidate while the name is still there.
 
-This week's picks:
+People we would call first:
 <listing>
 
-Questions? Open A.M.E. and talk to them yourself.
-
-— A.M.E. Exchange desk",,JAZZ-UI-AME-001
+— A.M.E. desk",,JAZZ-UI-AME-001
 890000000006908,AME Exchange <desk@ame-exchange.net>,AME Exchange <desk@ame-exchange.net>,,JAZZ-UI-AME-001
 890000000006909,A.M.E. — listing update,A.M.E. — listing update,,JAZZ-UI-AME-001
 890000000006910,"Commander,
@@ -9358,13 +9356,13 @@ Specialists rarely wait long for an offer.
 
 — A.M.E. desk","Commander,
 
-Fresh names on the board — and a few contracts walked. Here is who is worth a look right now (and why):
+The board has turned over: a few contracts closed, and new names took their place. These are the people we would call first right now:
 
 <listing>
 
-Don't sleep on specialists: medics, instructors, and snipers do not stay Available forever.
+Specialists rarely wait long for an offer.
 
-— A.M.E. Exchange desk",,JAZZ-UI-AME-001
+— A.M.E. desk",,JAZZ-UI-AME-001
 890000000006920,R.I.S.,R.I.S.,,JAZZ-UI-RIS-002:brand
 890000000006921,R.I.S. <desk@ris-intel.net>,R.I.S. <desk@ris-intel.net>,,JAZZ-UI-RIS-002:welcome.sender
 890000000006922,R.I.S. field-intelligence channel,R.I.S. field-intelligence channel,,JAZZ-UI-RIS-002:welcome.title
@@ -9378,29 +9376,29 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 
 — R.I.S. Field Desk",,JAZZ-UI-RIS-002:welcome.body
 890000000006939,R.I.S. <legion-desk@ris-intel.net>,R.I.S. <legion-desk@ris-intel.net>,,JAZZ-UI-RIS-002:supply_brief.sender
-890000000006960,keeps a squad moving after the shooting starts,keeps your people on their feet,,JAZZ-UI-AME-001
-890000000006961,knows how to turn raw hands into a team,turns green recruits into fighters,,JAZZ-UI-AME-001
-890000000006962,makes distance work in your favor,puts rounds where it hurts from far out,,JAZZ-UI-AME-001
-890000000006963,"understands mines, charges, and stubborn doors","handles bombs, traps, and loud solutions",,JAZZ-UI-AME-001
-890000000006964,keeps worn guns and gear alive,fixes guns and gear when the bush eats them,,JAZZ-UI-AME-001
-890000000006965,steady with a rifle and easy to work with,"solid rifle work, no drama",,JAZZ-UI-AME-001
-890000000006966,brings automatic fire when the line needs weight,lays down automatic fire when you need volume,,JAZZ-UI-AME-001
-890000000006967,holds ground behind a heavy gun,anchors the line with a heavy gun,,JAZZ-UI-AME-001
-890000000006968,reaches enemies who think a wall is enough,throws trouble over walls and into rooms,,JAZZ-UI-AME-001
-890000000006970,a reliable shot,a sharp shooter,,JAZZ-UI-AME-001
-890000000006971,can keep a wound from becoming a funeral,knows how to patch wounds,,JAZZ-UI-AME-001
-890000000006972,knows one end of a toolkit from the other,handy with tools and weapons,,JAZZ-UI-AME-001
-890000000006973,does not lose their nerve around explosives,comfortable around explosives,,JAZZ-UI-AME-001
-890000000006974,can carry more than their share,built like a truck,,JAZZ-UI-AME-001
-890000000006975,hard to put down,tough as nails,,JAZZ-UI-AME-001
-890000000006976,people tend to listen,people listen when they speak,,JAZZ-UI-AME-001
-890000000006977,learns quickly,high growth potential,,JAZZ-UI-AME-001
-890000000006978,moves well under fire,moves fast under fire,,JAZZ-UI-AME-001
-890000000006979,good hands under pressure,steady hands,,JAZZ-UI-AME-001
-890000000006980,an affordable start with room to grow,cheap entry — room to grow on your payroll,,JAZZ-UI-AME-001
-890000000006981,ready for field work,"ready for real jobs, not just guard duty",,JAZZ-UI-AME-001
-890000000006982,already tested under fire,already blooded — less babysitting,,JAZZ-UI-AME-001
-890000000006983,a scarce skill worth securing,scarce skill — worth the weekly,,JAZZ-UI-AME-001
+890000000006960,keeps a squad moving after the shooting starts,keeps a squad moving after the shooting starts,,JAZZ-UI-AME-001
+890000000006961,knows how to turn raw hands into a team,knows how to turn raw hands into a team,,JAZZ-UI-AME-001
+890000000006962,makes distance work in your favor,makes distance work in your favor,,JAZZ-UI-AME-001
+890000000006963,"understands mines, charges, and stubborn doors","understands mines, charges, and stubborn doors",,JAZZ-UI-AME-001
+890000000006964,keeps worn guns and gear alive,keeps worn guns and gear alive,,JAZZ-UI-AME-001
+890000000006965,steady with a rifle and easy to work with,steady with a rifle and easy to work with,,JAZZ-UI-AME-001
+890000000006966,brings automatic fire when the line needs weight,brings automatic fire when the line needs weight,,JAZZ-UI-AME-001
+890000000006967,holds ground behind a heavy gun,holds ground behind a heavy gun,,JAZZ-UI-AME-001
+890000000006968,reaches enemies who think a wall is enough,reaches enemies who think a wall is enough,,JAZZ-UI-AME-001
+890000000006970,a reliable shot,a reliable shot,,JAZZ-UI-AME-001
+890000000006971,can keep a wound from becoming a funeral,can keep a wound from becoming a funeral,,JAZZ-UI-AME-001
+890000000006972,knows one end of a toolkit from the other,knows one end of a toolkit from the other,,JAZZ-UI-AME-001
+890000000006973,does not lose their nerve around explosives,does not lose their nerve around explosives,,JAZZ-UI-AME-001
+890000000006974,can carry more than their share,can carry more than their share,,JAZZ-UI-AME-001
+890000000006975,hard to put down,hard to put down,,JAZZ-UI-AME-001
+890000000006976,people tend to listen,people tend to listen,,JAZZ-UI-AME-001
+890000000006977,learns quickly,learns quickly,,JAZZ-UI-AME-001
+890000000006978,moves well under fire,moves well under fire,,JAZZ-UI-AME-001
+890000000006979,good hands under pressure,good hands under pressure,,JAZZ-UI-AME-001
+890000000006980,an affordable start with room to grow,an affordable start with room to grow,,JAZZ-UI-AME-001
+890000000006981,ready for field work,ready for field work,,JAZZ-UI-AME-001
+890000000006982,already tested under fire,already tested under fire,,JAZZ-UI-AME-001
+890000000006983,a scarce skill worth securing,a scarce skill worth securing,,JAZZ-UI-AME-001
 890000000006984,looking for steady work,looking for steady work,,JAZZ-UI-AME-001
 890000000006990,Joined the Legion,Joined the Legion,,AME_Terminal
 890000000006991,<style PDAMercPrice_Dead>Killed in action</style>,<style PDAMercPrice_Dead>Killed in action</style>,,AME_Terminal

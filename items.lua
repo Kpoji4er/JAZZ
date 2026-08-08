@@ -1669,14 +1669,19 @@ return {
 										end,
 										'TextStyle', "AimCopyrightText",
 										'Translate', true,
-										'Text', T(890000000005049, --[[ModItemXTemplate PDAAIMEBrowser Text]] "<style AimCopyrightTextC><copyright></style> AME 2001"),
+										'Text', T(890000000005049, --[[ModItemXTemplate PDAAIMEBrowser Text]] "<style AimCopyrightTextC><copyright></style> A.M.E. 2001"),
 									}),
 									PlaceObj('XTemplateTemplate', {
 										'__template', "PDALinkButton",
 										'Id', "idAboutUs",
 										'VAlign', "center",
 										'OnPress', function (self, gamepad)
-											CreateMessageBox(self.desktop, T(193416941017, "Error Page"), T(399424889814, "HTTP Error 400. The request URL is invalid."), T({"OK"}))
+											CreateMessageBox(
+										self.desktop,
+										T(890000000006890, "About A.M.E."),
+										T(890000000006891, "The African Mercenary Exchange connects employers with local fighters before reputation makes them expensive. We verify names, availability, and terms; judgment remains yours. A good contract can make a career. A bad one usually makes a vacancy."),
+										T({"OK"})
+									)
 										end,
 										'TextStyle', "WebLinkButton_Hiring",
 										'Text', T(891740393419, --[[ModItemXTemplate PDAAIMEBrowser Text]] "About Us"),
@@ -1687,7 +1692,12 @@ return {
 										'Id', "idTermsOfService",
 										'VAlign', "center",
 										'OnPress', function (self, gamepad)
-											CreateMessageBox(self.desktop, T(193416941017, "Error Page"), T(548899058407, "HTTP Error 403. You don't have permission to access on this server."), T({"OK"}))
+											CreateMessageBox(
+										self.desktop,
+										T(890000000006892, "A.M.E. terms"),
+										T(890000000006893, "A.M.E. confirms identity and availability, not courage, judgment, or luck. Pay, medical care, transport, and burial arrangements are settled between employer and contractor. The board takes no commission from the dead."),
+										T({"OK"})
+									)
 										end,
 										'TextStyle', "WebLinkButton_Hiring",
 										'Text', T(111807730937, --[[ModItemXTemplate PDAAIMEBrowser Text]] "Terms of Service"),
