@@ -62,6 +62,7 @@
 | `_apply_medic_heal_first.py` | Patch `jazz-units/items.lua` Medic/Medic_Low: combat behaviors Score=0 when heal needed; Healer Early/Weight 1000; Priority Bandage before MobileShot; SelfHealMod 100. |
 | `_key_med_item_icons.py` | Flood-fill near-black → alpha для `Icons/Items/JAZZ_{Bandage,Morphine,IFAK,Medkit,SurgicalKit}.png` (не трогает тёмные молнии/ремни). |
 | `_key_merc_mark_white_bg.py` | Flood-fill near-white → alpha для `Icons/PDA/MERC_Mark.png` (белый studio plate; жёлтый `$`/teal не трогает). |
+| `_check_merc_credit_hire_gate.py` | Static: `System_MERC_Account.lua` — `CanAffordMerc` wrap для MERC + waive `MedicalPaidWhenHired`. |
 | `_apply_med001_loot_jazz_units.py` | В `jazz-units/items.lua` к LootDef с `FirstAidKit`/`Medkit`/`Meds`/`MedsDrop` добавляет `JAZZ_Bandage` / `JAZZ_Morphine` / редко `JAZZ_SurgicalKit`. Идемпотентен (сначала снимает старые JAZZ med entries). |
 | `_apply_med001_loot_equipment_kits.py` | Phase 2: бинт/морфий (± IFAK у мерков) в Equipment-киты без медицины (`loot=all` враги + Mercs leaf tiers). Не трогает ammo/Drop_/Armor. Merc insert: Bandage 10, IFAK 5. |
 | `_apply_merc_med_full_stacks.py` | Mercs `group=Mercs` в `jazz-units/items.lua`: существующий `JAZZ_Bandage` → stack 10; `FirstAidKit` → 5; `Medkit` → 3 (MaxStacks). Идемпотентен. |
@@ -285,7 +286,7 @@
 | `_build_attachments_catalog.py` | HTML-каталог `docs/tools/attachments-catalog.html`. |
 | `_attach_live_summary.py` | JSON-сводка live comps (вспомогательный). |
 | `_export_merc_salary_json.py` | Roster зарплат: vanilla AIM (`IsMercenary`) + Jazz/AME из `jazz-units` → `merc-salary-data.json` (Affiliation из `items.lua`). Нужен `JA3_ROOT`/ModTools для vanilla. |
-| `_gen_merc_salary_calculator.py` | HTML-калькулятор `merc-salary-calculator.html`: `GetMercPrice` / daily / medical / duration discount / squad sum. |
+| `_gen_merc_salary_calculator.py` | HTML-калькулятор `merc-salary-calculator.html`: `GetMercPrice` / daily / medical / duration discount (JAZZ maxDay=30) / squad sum. |
 
 Типичный post-migrate конвейер:
 

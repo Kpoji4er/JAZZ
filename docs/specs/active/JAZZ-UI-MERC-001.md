@@ -184,7 +184,8 @@ approved_by: project-owner
 
 ## Evidence
 
-- Все `AC-*`: `BLOCKED`.
+- `JAZZ-UI-MERC-001-AC-003`: `PASS` (static) — `System_MERC_Account.lua` wraps `PDAMessengerClass:CanAffordMerc` for `Affiliation=MERC` (Offer without prepaid cash); `MercHired` refunds prepaid into credit + first-day balance; `MedicalPaidWhenHired` cleared for MERC. Runtime/human hire-at-$0 still recommended.
+- Остальные `AC-*`: `BLOCKED` (runtime/human) unless previously closed.
 
 ## Documentation delta
 

@@ -1,6 +1,11 @@
 -- M.E.R.C. credit account: daily accrual, Pay, reminder → quit (JAZZ-UI-MERC-001).
 -- Hire path: vanilla chat / HireMerc still runs prepaid; OnMsg.MercHired refunds into
 -- the credit account and charges the first day only (no HireMerc wrap — avoids double refund).
+-- Gate: PDAMessengerClass:CanAffordMerc must allow Affiliation=MERC with $0 cash
+-- (otherwise Offer stays disabled / "Insufficient funds" like AIM prepaid).
+
+g_JAZZ_MERC_CanAffordBase = rawget(_G, "g_JAZZ_MERC_CanAffordBase") or false
+g_JAZZ_MERC_CanAffordFn = rawget(_G, "g_JAZZ_MERC_CanAffordFn") or false
 
 GameVar("gv_JAZZ_MERC_Account", function()
 	return {
@@ -20,6 +25,49 @@ end)
 
 local MERC_REMINDER_DAYS = 7
 local MERC_GRACE_DAYS = 3
+
+local function lIsMERCUnit(ud)
+	return ud and ud.Affiliation == "MERC"
+end
+
+--- JA2-style credit: messenger Offer must not require prepaid cash.
+local function lInstallCanAffordMercWrap()
+	local cls = rawget(_G, "PDAMessengerClass")
+	if not cls or type(cls.CanAffordMerc) ~= "function" then
+		return false
+	end
+	local ourFn = rawget(_G, "g_JAZZ_MERC_CanAffordFn")
+	if ourFn and cls.CanAffordMerc == ourFn then
+		return true
+	end
+	local current = cls.CanAffordMerc
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_MERC_CanAffordBase", current)
+	elseif not rawget(_G, "g_JAZZ_MERC_CanAffordBase") then
+		return false
+	end
+	local base = g_JAZZ_MERC_CanAffordBase
+	local function wrap(self, moneyOverride)
+		local merc = self and self.context
+		if lIsMERCUnit(merc) then
+			return true
+		end
+		return base(self, moneyOverride)
+	end
+	rawset(_G, "g_JAZZ_MERC_CanAffordFn", wrap)
+	cls.CanAffordMerc = wrap
+	return true
+end
+
+function OnMsg.ModsReloaded()
+	lInstallCanAffordMercWrap()
+end
+
+function OnMsg.DataLoaded()
+	lInstallCanAffordMercWrap()
+end
+
+lInstallCanAffordMercWrap()
 
 local function lCampaignDay()
 	local game = rawget(_G, "Game")
@@ -272,9 +320,11 @@ end
 
 --- After vanilla HireMerc succeeds: refund prepaid into credit model; charge first day only.
 -- AIM/AME prepaid unchanged (Affiliation ~= MERC). Extensions: refund prepaid; NewDay keeps accrual.
+-- Clear MedicalPaidWhenHired: full prepaid (incl. medical) was refunded, so vanilla end-of-contract
+-- deposit return would otherwise double-pay medical for MERC credit hires.
 function JAZZ_MERC_OnHired(merc_id, price, days, alreadyHired)
 	local ud = gv_UnitData and gv_UnitData[merc_id]
-	if not ud or ud.Affiliation ~= "MERC" then
+	if not lIsMERCUnit(ud) then
 		return false
 	end
 	local account = JAZZ_MERC_EnsureAccount()
@@ -287,6 +337,10 @@ function JAZZ_MERC_OnHired(merc_id, price, days, alreadyHired)
 		if type(addMoney) == "function" then
 			addMoney(refund, "salary", "noCombatLog")
 		end
+	end
+	local setFlag = rawget(_G, "SetMercStateFlag")
+	if type(setFlag) == "function" then
+		setFlag(merc_id, "MedicalPaidWhenHired", 0)
 	end
 	-- New hire first day: only if NewDay already accrued today (otherwise NewDay will charge them).
 	-- Avoids double-charging when hire happens before the day's accrual tick.
@@ -305,6 +359,20 @@ function JAZZ_MERC_OnHired(merc_id, price, days, alreadyHired)
 	end
 	ObjModified(account)
 	return true
+end
+
+-- Vanilla sets MedicalPaidWhenHired on Available→Hired; credit refund already returned the
+-- prepaid medical, so clear the flag after vanilla handlers (mod OnMsg runs later).
+function OnMsg.MercHireStatusChanged(unit_data, previousState, newState)
+	if not lIsMERCUnit(unit_data) then
+		return
+	end
+	if previousState == "Available" and newState == "Hired" then
+		local setFlag = rawget(_G, "SetMercStateFlag")
+		if type(setFlag) == "function" and unit_data.session_id then
+			setFlag(unit_data.session_id, "MedicalPaidWhenHired", 0)
+		end
+	end
 end
 
 function OnMsg.MercHired(merc_id, price, days, alreadyHired)

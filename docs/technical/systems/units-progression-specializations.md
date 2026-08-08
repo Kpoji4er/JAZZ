@@ -29,7 +29,7 @@
 - `Code/System_AimHiringFilters.lua` — фильтры AIM и детерминированный offline randomization;
 - `Code/System_HireContractDuration.lua` — AIM/AME messenger `MaxDuration` 14→30;
 - `Code/System_AME_Filters.lua`, `System_AME_Browser.lua`, `System_AME_Market.lua`, `System_AME_Mail.lua`, `System_AME_Browser_Template.lua`, `System_AME_Nationalities.lua` — African Mercenary Exchange (UNITS-005 / UI-AME-001): PDA mode `ame`, market tick, welcome/listing Email, tab lock until welcome read, nationality flags;
-- `Code/System_MERC_Filters.lua`, `System_MERC_Account.lua`, `System_MERC_Browser.lua`, `System_MERC_Mail.lua`, `System_MERC_World.lua`, `System_MERC_Browser_Template.lua` — M.E.R.C. (UI-MERC-001): PDA mode `merc` locked until Day-2 Speck mail, credit account, world-gated Biff/Larry/Smiley;
+- `Code/System_MERC_Filters.lua`, `System_MERC_Account.lua`, `System_MERC_Browser.lua`, `System_MERC_Mail.lua`, `System_MERC_World.lua`, `System_MERC_Browser_Template.lua` — M.E.R.C. (UI-MERC-001): PDA mode `merc` locked until Day-2 Speck mail, credit account (wrap `PDAMessengerClass:CanAffordMerc` for MERC so Offer works without prepaid cash; refund prepaid on `MercHired` + waive medical deposit flag), world-gated Biff/Larry/Smiley;
 - `Code/System_OR_Unit.lua`, `System_UnitInventory.lua`, `System_UnitAppearance.lua` — runtime schema;
 - `Code/System_IMP_StartingGear.lua` — JA2-style динамический стартовый экип IMP (`JazzBuildImpStartingGear` / `JazzApplyImpStartingGear`);
 - `Code/System_IMP_Perks.lua` — Mimicry/Veteran dialogue+skill hooks, `ImpGetPersonalPerks` wrap (Mimicry+Veteran only), sanitize `ImpCalcAnswers` tactical (drop `perk=false` slots), personal row HList spacing 12 (not HWrap — stole clicks from tactical Grid), tactical specialization Grid **6 columns** + HSpacing 18 so Sniper stays on 2 rows (no Prev/Done overlap).
@@ -77,6 +77,8 @@ Offline merc randomization детерминирован. Это означает
 
 **Срок контракта (AIM + AME chat):** vanilla `AIMHiringScreen` / messenger slider `MaxDuration = 14`. JAZZ `System_HireContractDuration.lua` wraps `GetNextMercConversation` **and** `PDAMessengerClass:SetupUIForChat` (resume path) и поднимает `MaxDuration` **14 → 30** сразу (с day 1); min остаётся 3, default offer по-прежнему ~7 via `GetMercMinDaysCanAfford`. Duration-refusal ветки с `MaxDuration = 7` не трогаются. AME и AIM делят один `StartMercChat` path — отдельного AME hire-duration cap нет. Это **не** AME market tick (`AME_TICK_DAYS = 14`).
 
+**Скидка за срок (`GetMercDurationDiscountPercent`):** vanilla линейно 3–14 → до 25% (`normal`) / 7–14 → до 35% (`long only`); при `days > 14` возвращает **0%**. Тот же `System_HireContractDuration.lua` подменяет функцию: окно растянуто до **30** дней (те же пики %), чтобы длинный контракт не откатывался на полную суточную ставку.
+
 ## African Mercenary Exchange (JAZZ-UNITS-005)
 
 Отдельный PDA hire site (не вкладка внутри AIM):
@@ -90,7 +92,7 @@ Offline merc randomization детерминирован. Это означает
 | Витрина | ~15 `Available` на старте; `NotListed` скрыты; terminal (`JoinedLegion`/`Killed`/`HiredElsewhere`) — серые карточки с конкретной причиной ухода |
 | Tick | **14** дней кампании (2 недели); отдельные missing-cycle counters гарантируют возврат Medic / Instructor / Sniper не позднее следующего tick, пока в пуле есть не-terminal кандидат этой роли; окно после ротации остаётся у цели **15 Available** |
 | Mail / lock | `System_AME_Mail.lua` (UI-AME-001): одно welcome-письмо + письма при реальной смене листинга; tab `ame` **always unlocked** (mail informational) |
-| Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap; contract slider max **30** days (`System_HireContractDuration`, shared with AIM) |
+| Hire | reuse `MercCanContact` → chat → `HireMerc` / `LocalHireMerc`; AME вне AIM contact-cap; contract slider max **30** days + duration discount peak at **30** (`System_HireContractDuration`, shared with AIM) |
 | VR | Pool: Jazz remesh majority (`Male_Low`/`Male_Hard`/`Female`) + `PierreMerc` (~10%) + small IMP minority (~12%; VR→`IMP_male_01`/`IMP_female_01`); Fallback remesh→Legion/Army/Anne, IMP/PierreMerc→self (not Ice/Fox). Shared banks отбрасывают Legion/Major/Grand Chien faction calls; EN subtitle совпадает с audible donor line, RU переводит именно услышанную фразу через `_ame_voice_subtitles_ru.py`, а не gameplay slot. |
 | Heads | Safe Af bank only: `Chimurenga`/`Pierre`/`Jackhammer`/`Head_M_IMP_01`/`Faction_Rebels_M_HeadMedic` + female `Head_F_Af_NPC_*`; **not** Flay/Fidel/Magic/Blood/Fauda/Omryn; no `Faction_Legion_Head_*` ([ame-appearance-assets.md](../../design/ame-appearance-assets.md)) |
 | Appearance | per-slot clone `JAZZ_AME_NN`; **Legion clothing canon** = jazz-units handcrafted `Legion*` (not vanilla `Legion_*`); shuffle Rebels + `Legion*` + GrandChien + keep (Irregulars lean `Legion*`); **1** blue accent on **shirt/torso** (not Hat/Hat2); preserve Af Head + BodyC1 + HeadColor; no war-paint heads/tops / no `GrandChien_Top_05`; strip helmets/turbans/`FactionMale_Hat`/`Equipment*_Hat` (keep mask/scarf/glasses/headband); ♀ Hair = `NPCFemale_Hair_*` only, empty if Hat/Hat2 set; map [ame-appearance-map.json](../../design/ame-appearance-map.json); policy [ame-appearance-assets.md](../../design/ame-appearance-assets.md) |
