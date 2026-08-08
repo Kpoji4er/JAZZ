@@ -63,7 +63,7 @@ Reload берёт патроны только из `AmmoInventory`; наличи
 | Unit slots / разгрузка | personal `MaxStacks` (InventoryItem def) | `Amount/MaxStacks` |
 | `SquadBag`, `SectorStash` | `const.JazzStorageStackMax` = `10000` | только `Amount` (без `/max`) |
 
-Реализация: `Code/System_InventoryStacks.lua` (`JazzGetStackMax` / `JazzApplyStackContext`) + merge/`CanAddItem`/bag-sort/AddItem hooks. В storage instance `MaxStacks` поднимается до storage cap (чтобы vanilla `MoveItem` считал стек верно); при переносе в unit восстанавливается personal max. Перенос склад→мерк заливает до personal max, остаток остаётся на складе.
+Реализация: `Code/System_InventoryStacks.lua` (`JazzGetStackMax` / `JazzApplyStackContext`) + merge/`CanAddItem`/bag-sort/AddItem hooks. В storage instance `MaxStacks` поднимается до storage cap (чтобы vanilla `MoveItem` считал стек верно); при переносе в unit восстанавливается personal max. Перенос склад→мерк заливает до personal max, остаток остаётся на складе. UI amount-only также в `InventoryStack:GetItemSlotUI` (`System_OR_Weapons.lua`): если `MaxStacks == JazzStorageStackMax` / `JazzIsStorageStackUI` — без `/max` (защита от Mod Editor rewrite, который выкидывал `System_InventoryStacks.lua` из `metadata.code`).
 
 Known issue (не data loss): плавающее **визуальное** пропадание тайлов в SquadBag до регенерации UI bag; данные `squad_bag` сохраняются.
 

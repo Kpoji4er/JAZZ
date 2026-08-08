@@ -1556,13 +1556,24 @@ TFormat.bullets =  function(context_obj, bullets, max, icon)
 	end		 
 end
 
+-- JAZZ-INV-001: storage (SquadBag/SectorStash) shows Amount only; loadout keeps cur/max.
+-- Keep this override storage-aware so a Mod Editor metadata rewrite that drops
+-- System_InventoryStacks.lua cannot bring back "/10000" on bag tiles.
 function InventoryStack:GetItemSlotUI()
-	if self.colorStyle then
-			return  Untranslated("<style "..self.colorStyle..">"..self.Amount.."<valign bottom 0><style "..self.colorStyle..">/"..self.MaxStacks.."</style>")
-	else
-			return T{709831548750, "<style InventoryItemsCount><cur><valign bottom 0><style InventoryItemsCountMax>/<max></style>", 
-				 cur = self.Amount, max = self.MaxStacks}
+	local storage = (rawget(_G, "JazzIsStorageStackUI") and JazzIsStorageStackUI(self))
+		or (rawget(self, "MaxStacks") == (rawget(const, "JazzStorageStackMax") or 10000))
+	if storage then
+		if self.colorStyle then
+			return Untranslated("<style " .. self.colorStyle .. ">" .. self.Amount .. "<valign bottom 0></style>")
+		end
+		return Untranslated("<style InventoryItemsCount>" .. self.Amount .. "<valign bottom 0></style>")
 	end
+	local max = (rawget(_G, "JazzGetPersonalMaxStacks") and JazzGetPersonalMaxStacks(self)) or self.MaxStacks
+	if self.colorStyle then
+		return Untranslated("<style " .. self.colorStyle .. ">" .. self.Amount .. "<valign bottom 0><style " .. self.colorStyle .. ">/" .. max .. "</style>")
+	end
+	return T{709831548750, "<style InventoryItemsCount><cur><valign bottom 0><style InventoryItemsCountMax>/<max></style>",
+		cur = self.Amount, max = max}
 end
 
 

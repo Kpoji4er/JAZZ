@@ -7,6 +7,7 @@
 
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
+| `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_fix_metadata_utf8_mojibake.py` | Аудит/обратимое исправление одного ошибочного прохода UTF-8→Windows-1251 в `title`, `description`, `last_changes`; `--check` / `--apply`, BOM сохраняется. |
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_apply_hotfix_unjam_pinned_items.py` | ACL-safe items.lua patch helper: Unjam ShowIn/GetUIState + suppressionPinned OnAdded/OnBeginTurn parity with companion. |
@@ -402,7 +403,7 @@ python -B docs/tools/_test_ris_contract.py
 apply обязан вернуть `0`. Legacy wrapper-команды не запускать для частичных волн:
 они намеренно выполняют тот же полный pipeline.
 
-| `_install_ame_xtemplate_moditem.py` | Ставит `PDAAIMEBrowser` как `ModItemXTemplate` в `items.lua` + `ModResourcePreset`; убирает Code-load шаблона (иначе XTemplate not found). После правок `System_AME_Browser_Template.lua` (в т.ч. savannah chrome). Replace через callable `re.sub` — plain string ломает Lua `\\n` в T(...). Затем `_validate_items_quick.py`. |
+| `_install_ame_xtemplate_moditem.py` | Ставит `PDAAIMEBrowser` как `ModItemXTemplate` в `items.lua` + `ModResourcePreset`; убирает Code-load шаблона (иначе XTemplate not found). После правок `System_AME_Browser_Template.lua` (в т.ч. savannah chrome). Replace через markers или, если editor их снял, по `id = "PDAAIMEBrowser"` (без дубля). Callable `re.sub` — plain string ломает Lua `\\n` в T(...). Затем `_validate_items_quick.py`. |
 | `_theme_ame_pda_savannah.py` / `_fix_ame_xtemplate_imagecolor.py` | Helpers: savannah chrome на template; снять незаконный `ImageColor` с XFrame. |
 | `_gen_ame_portrait_prompts.py` | AME identity prompt bank: roster → `jazz-units/MercPortraits/_ame_face_refs/prompts.jsonl` + README (60 unique `face_traits`, `big_prompt`/`bust_prompt` for GenerateImage; no image gen). |
 | `_gen_ame_flags.py` | JAZZ-UNITS-005: Pillow → `Icons/Flags/f_{nigeria,kenya,angola,mali,congo,ghana,senegal,ethiopia}.png` (128×80 simplified UI flags). |
