@@ -3,31 +3,10 @@ DefineClass.Jazz_Perk_Vince = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
-
 	object_class = "Perk",
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnUnitBandaged",
-			Handler = function (self, target, healer, patient, hp_restored)
-				if target ~= healer or not patient or patient == healer then
-					return
-				end
-				if healer:GetEffectValue("Jazz_Perk_Vince") then
-					return
-				end
-				healer:SetEffectValue("Jazz_Perk_Vince", true)
-				patient:GainAP(4 * const.Scale.AP)
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCombatEnd",
-			Handler = function (self, target)
-				target:SetEffectValue("Jazz_Perk_Vince", nil)
-			end,
-		}),
-	},
-	DisplayName = T(890000000005029, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Полевой наставник"),
-	Description = T(890000000005030, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД."),
+	unit_reactions = {},
+	DisplayName = T(890000000005029, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Дефицит ресурсов"),
+	Description = T(890000000005030, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Пока Винс в отряде, расход аптечек и медикаментов снижен примерно на 25% (шанс не потратить заряд)."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Vince.png",
 	Tier = "Personal",
 }

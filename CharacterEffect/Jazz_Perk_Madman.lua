@@ -3,13 +3,15 @@ DefineClass.Jazz_Perk_Madman = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
-
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
 			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
 				if target ~= attacker or not results or results.miss then
+					return
+				end
+				if not action or action.ActionType ~= "Melee Attack" then
 					return
 				end
 				if not IsKindOf(attack_target, "Unit") then
@@ -24,17 +26,18 @@ DefineClass.Jazz_Perk_Madman = {
 						end
 					end
 				end
-				if not is_kill then
+				local is_crit = results.crit or results.high_accuracy
+				if not is_kill and not is_crit then
 					return
 				end
-				if DivRound(attacker:GetDist(attack_target), const.SlabSizeX) <= 1 then
-					attacker:AddStatusEffect("Inspired")
+				if type(Jazz_MadmanDrainWill) == "function" then
+					Jazz_MadmanDrainWill(attacker)
 				end
 			end,
 		}),
 	},
-	DisplayName = T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Штурм в упор"),
-	Description = T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Убийство в упор (дистанция 1 клетка) даёт Воодушевление."),
+	DisplayName = T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Бешеный пес"),
+	Description = T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Критический удар или убийство в ближнем бою снижает силу воли всех в радиусе 5 клеток на 10 (включая союзников)."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Madman.png",
 	Tier = "Personal",
 }

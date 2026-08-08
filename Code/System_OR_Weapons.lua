@@ -271,6 +271,7 @@ function FirearmBase:GetAutofireShots(action)
 end
 
 -- Jazz_Perk_Nervous / Jazz_Perk_Buzz shot-count helpers (shared by CombatAction GetAutofireShots call sites).
+-- UNITS-006: Nervous uses stacked bonus shots (cap 10), not flat +2.
 function Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 	if not unit or not num_shots then
 		return num_shots
@@ -279,7 +280,11 @@ function Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 		num_shots = MulDivRound(num_shots, 150, 100)
 	end
 	if HasPerk(unit, "Jazz_Perk_Nervous") then
-		num_shots = num_shots + 2
+		local bonus = 0
+		if type(Jazz_NervousGetBonusShots) == "function" then
+			bonus = Jazz_NervousGetBonusShots(unit)
+		end
+		num_shots = num_shots + bonus
 	end
 	return num_shots
 end
@@ -850,14 +855,21 @@ shot_attack_args.num_shots = num_shots
 			shot_miss = (not stealth_kill or i > 1) and roll > shot_cth
 			shot_crit = crit and (i == 1)
 		end
-		-- Jazz_Perk_Lucky: once per combat, first firearm miss becomes a hit
-		if shot_miss and attacker and HasPerk(attacker, "Jazz_Perk_Lucky") and not attacker:GetEffectValue("Jazz_Perk_Lucky") then
-			shot_miss = false
-			attacker:SetEffectValue("Jazz_Perk_Lucky", true)
+		-- Jazz_Perk_Lucky (UNITS-006): if CTH>=70% and miss → reroll once per shot
+		if shot_miss and attacker and HasPerk(attacker, "Jazz_Perk_Lucky") and shot_cth >= 70 then
+			local reroll = 1 + InteractionRand(100, "Jazz_Perk_Lucky")
+			if shot_attack_args.multishot and attack_results.attack_roll then
+				attack_results.attack_roll[i] = reroll
+			else
+				roll = reroll
+			end
+			shot_miss = reroll > shot_cth
 			if shot_attack_args.multishot then
 				miss = miss and shot_miss
 				shot_crit = (not shot_miss) and (attack_results.crit_roll[i] <= attack_results.crit_chance)
 				crit = crit or shot_crit
+			else
+				shot_crit = crit and (i == 1)
 			end
 		end
 

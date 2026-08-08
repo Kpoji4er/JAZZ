@@ -18,6 +18,8 @@
 | `_scan_ame_hats.py` / `_dump_ame17.py` | Hat scan / AME-17 dump helpers for appearance audits. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
 | `_diff_list2_sheet.py` (alias `_tmp_diff_list2_sheet.py`) | Diff Google Sheet Лист2 perk cols (fresh TSV export vs prior WebFetch) for JAZZ-UNITS-006. |
+| `_apply_units006_batch1_items_loc.py` | UNITS-006 §A batch1: sync `items.lua` ModItem CE from companions + `Jazz_OrderAP`/`Jazz_CombatMedicBuff`, metadata.code, RU/EN CSV for touched perk/status IDs. |
+| `_apply_units006_batch1_hooks.py` | UNITS-006 batch1: register `System_NamedPerks_006` in metadata.code; Vince skip-consume wrap in `Systems_Medicine.lua`. |
 | `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |

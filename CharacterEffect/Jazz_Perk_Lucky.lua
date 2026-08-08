@@ -3,18 +3,10 @@ DefineClass.Jazz_Perk_Lucky = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
-
 	object_class = "Perk",
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnCombatEnd",
-			Handler = function (self, target)
-				target:SetEffectValue("Jazz_Perk_Lucky", nil)
-			end,
-		}),
-	},
-	DisplayName = T(890000000005043, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Второе дыхание"),
-	Description = T(890000000005044, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Раз за бой первый промах из огнестрела становится попаданием."),
+	unit_reactions = {},
+	DisplayName = T(890000000005043, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Госпожа Удача"),
+	Description = T(890000000005044, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Если шанс попадания был 70% и выше и выстрел промахнулся, бросок повторяется."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Lucky.png",
 	Tier = "Personal",
 }

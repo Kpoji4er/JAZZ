@@ -3,7 +3,6 @@ DefineClass.Jazz_Perk_Laura = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
-
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -12,15 +11,12 @@ DefineClass.Jazz_Perk_Laura = {
 				if target ~= healer or not patient or patient == healer then
 					return
 				end
-				healer:AddStatusEffect("Hidden")
-				if healer.UpdateMoveAnim then
-					healer:UpdateMoveAnim()
-				end
+				healer:AddStatusEffect("Jazz_CombatMedicBuff")
 			end,
 		}),
 	},
-	DisplayName = T(890000000005045, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura DisplayName]] "Скрытный врач"),
-	Description = T(890000000005046, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "Лечение союзника не снимает с Лоры скрытность."),
+	DisplayName = T(890000000005045, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura DisplayName]] "Боевой медик"),
+	Description = T(890000000005046, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "После лечения союзника Лора получает +15 к шансу попадания и критическому удару до конца следующего хода."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Laura.png",
 	Tier = "Personal",
 }

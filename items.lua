@@ -74109,25 +74109,42 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Blade",
 					'object_class', "Perk",
 					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcChanceToHit",
-			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-				if target == attacker and action and action.ActionType == "Melee Attack" then
-					ApplyCthModifier_Add(self, data, 20)
-				end
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcCritChance",
-			Handler = function (self, target, attacker, attack_target, action, weapon, data)
-				if target == attacker and action and action.ActionType == "Melee Attack" then
-					data.crit_chance = 0
-				end
-			end,
-		}),
-	},
-					'DisplayName', T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Ураган клинков"),
-					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "Атаки ближнего боя: +20 к шансу попадания, критические удары невозможны."),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not results or results.miss then
+									return
+								end
+								if not action or action.id ~= "Brutalize" then
+									return
+								end
+								if not IsKindOf(attack_target, "Unit") or attack_target:IsDead() then
+									return
+								end
+								-- Extra hit: deal another Brutalize-scale damage package once per successful strike.
+								if attacker:GetEffectValue("Jazz_BladeExtraBusy") then
+									return
+								end
+								attacker:SetEffectValue("Jazz_BladeExtraBusy", true)
+								local dmg = results.total_damage or results.damage or 0
+								if dmg <= 0 and results.hit_objs then
+									for _, hit in ipairs(results.hit_objs) do
+										if hit == attack_target or (IsKindOf(hit, "table") and hit.obj == attack_target) then
+											dmg = hit.damage or dmg
+										end
+									end
+								end
+								if dmg > 0 and attack_target.TakeDirectDamage then
+									attack_target:TakeDirectDamage(dmg, false, "Brutalize", attacker)
+								elseif dmg > 0 and attack_target.TakeDamage then
+									attack_target:TakeDamage(dmg, attacker)
+								end
+								attacker:SetEffectValue("Jazz_BladeExtraBusy", nil)
+							end,
+						}),
+					},
+					'DisplayName', T(890000000001800, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade DisplayName]] "Вырезать алфавит"),
+					'Description', T(890000000001801, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Blade Description]] "Зверство: за каждый успешный удар в цепочке наносится ещё один удар."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Blade.png",
 					'Tier', "Personal",
 				}),
@@ -74168,35 +74185,39 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Madman",
 					'object_class', "Perk",
 					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnUnitAttack",
-			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-				if target ~= attacker or not results or results.miss then
-					return
-				end
-				if not IsKindOf(attack_target, "Unit") then
-					return
-				end
-				local is_kill = attack_target:IsDead()
-				if not is_kill and results.killed_units then
-					for _, u in ipairs(results.killed_units) do
-						if u == attack_target then
-							is_kill = true
-							break
-						end
-					end
-				end
-				if not is_kill then
-					return
-				end
-				if DivRound(attacker:GetDist(attack_target), const.SlabSizeX) <= 1 then
-					attacker:AddStatusEffect("Inspired")
-				end
-			end,
-		}),
-	},
-					'DisplayName', T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Штурм в упор"),
-					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Убийство в упор (дистанция 1 клетка) даёт Воодушевление."),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not results or results.miss then
+									return
+								end
+								if not action or action.ActionType ~= "Melee Attack" then
+									return
+								end
+								if not IsKindOf(attack_target, "Unit") then
+									return
+								end
+								local is_kill = attack_target:IsDead()
+								if not is_kill and results.killed_units then
+									for _, u in ipairs(results.killed_units) do
+										if u == attack_target then
+											is_kill = true
+											break
+										end
+									end
+								end
+								local is_crit = results.crit or results.high_accuracy
+								if not is_kill and not is_crit then
+									return
+								end
+								if type(Jazz_MadmanDrainWill) == "function" then
+									Jazz_MadmanDrainWill(attacker)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000002100, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman DisplayName]] "Бешеный пес"),
+					'Description', T(890000000002101, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Madman Description]] "Критический удар или убийство в ближнем бою снижает силу воли всех в радиусе 5 клеток на 10 (включая союзников)."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Madman.png",
 					'Tier', "Personal",
 				}),
@@ -74222,9 +74243,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Mike",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcOverwatchAttacks",
+							Handler = function (self, target, value, ...)
+								return (value or 0) + 2
+							end,
+						}),
+					},
 					'DisplayName', T(890000000002300, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike DisplayName]] "Быстрая реакция"),
-					'Description', T(890000000002301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike Description]] "Эта именная способность пока не действует."),
+					'Description', T(890000000002301, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mike Description]] "Овервотч и контроль получают +2 дополнительные атаки. Ответные атаки срабатывают, когда доступны."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Mike.png",
 					'Tier', "Personal",
 				}),
@@ -74339,9 +74367,48 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Nervous",
 					'object_class', "Perk",
-					'unit_reactions', {},
-					'DisplayName', T("Perk"),
-					'Description', T(890000000002901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Nervous Description]] "Автоогонь и очередь выпускают на 2 пули больше."),
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not results or not action then
+									return
+								end
+								local aid = action.id or ""
+								local is_auto = aid == "BurstFire" or aid == "AutoFire" or aid == "MGBurstFire"
+									or aid == "Fanning" or string.find(aid, "AutoFire", 1, true) or string.find(aid, "Burst", 1, true)
+								if not is_auto then
+									return
+								end
+								local hits = 0
+								if results.hit_objs then
+									hits = #(results.hit_objs) 
+								elseif not results.miss then
+									hits = 1
+								end
+								if results.killed_units then
+									-- keep hit count from bullets if available
+								end
+								if type(results.shots) == "table" then
+									hits = 0
+									for _, sh in ipairs(results.shots) do
+										if sh and not sh.miss then
+											hits = hits + 1
+										end
+									end
+								end
+								attacker:SetEffectValue("Jazz_NervousBonusShots", Clamp(hits, 0, 10))
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target:SetEffectValue("Jazz_NervousBonusShots", nil)
+							end,
+						}),
+					},
+					'DisplayName', T(890000000002900, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Nervous DisplayName]] "Нервный, но азартный"),
+					'Description', T(890000000002901, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Nervous Description]] "Каждое попадание очереди или автоогня добавляет пулю к следующей очереди (максимум +10)."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Nervous.png",
 					'Tier', "Personal",
 				}),
@@ -74353,25 +74420,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Dynamo",
 					'object_class', "Perk",
-					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcDamageAndEffects",
-			Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
-				if owner ~= attacker or not hit or hit.stray then
-					return
-				end
-				if not IsKindOf(target, "Unit") or not attacker:IsOnEnemySide(target) then
-					return
-				end
-				local spot = hit.spot_group or hit.target_spot_group or (attack_args and attack_args.target_spot_group)
-				if spot == "Head" and InteractionRand(100, "Jazz_Perk_Dynamo") < 25 then
-					target:AddStatusEffect("Blinded")
-				end
-			end,
-		}),
-	},
-					'DisplayName', T("Perk"),
-					'Description', T(890000000003401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dynamo Description]] "Попадание в голову: 25% шанс ослепить цель на 1 ход."),
+					'unit_reactions', {},
+					'DisplayName', T(890000000003400, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dynamo DisplayName]] "Медвежатник"),
+					'Description', T(890000000003401, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Dynamo Description]] "Взлом замков не активирует ловушки на замках."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Dynamo.png",
 					'Tier', "Personal",
 				}),
@@ -74454,24 +74505,24 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Henning",
 					'object_class', "Perk",
 					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function (self, target)
-				if not g_Combat then
-					return
-				end
-				for _, ally in ipairs(target.team and target.team.units or empty_table) do
-					if ally ~= target and IsValid(ally) and not ally:IsDead() then
-						if DivRound(target:GetDist(ally), const.SlabSizeX) <= 5 then
-							ally:AddStatusEffect("Jazz_OrderCTH")
-						end
-					end
-				end
-			end,
-		}),
-	},
-					'DisplayName', T("Perk"),
-					'Description', T(890000000004001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Henning Description]] "В начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания на следующую атаку."),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if not g_Combat then
+									return
+								end
+								for _, ally in ipairs(target.team and target.team.units or empty_table) do
+									if ally ~= target and IsValid(ally) and not ally:IsDead() then
+										if DivRound(target:GetDist(ally), const.SlabSizeX) <= 10 then
+											ally:AddStatusEffect("Jazz_OrderAP")
+										end
+									end
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000004000, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Henning DisplayName]] "Полевой командир"),
+					'Description', T(890000000004001, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Henning Description]] "В начале хода союзники в радиусе 10 клеток получают +3 ОД."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Henning.png",
 					'Tier', "Personal",
 				}),
@@ -74493,6 +74544,65 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					},
 					'DisplayName', T(890000000006200, --[[ModItemCharacterEffectCompositeDef Jazz_OrderCTH DisplayName]] "Приказ: точность"),
 					'Description', T(890000000006201, --[[ModItemCharacterEffectCompositeDef Jazz_OrderCTH Description]] "+5 к шансу попадания на следующую атаку."),
+					'type', "Buff",
+					'lifetime', "Until End of Turn",
+					'Icon', "UI/Hud/Status effects/accuracy",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_CombatMedicBuff",
+					'object_class', "StatusEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target == attacker then
+									ApplyCthModifier_Add(self, data, 15)
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcCritChance",
+							Handler = function (self, target, attacker, attack_target, action, weapon, data)
+								if target == attacker and data then
+									data.crit_chance = (data.crit_chance or 0) + 15
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000006220, --[[ModItemCharacterEffectCompositeDef Jazz_CombatMedicBuff DisplayName]] "Боевой медик"),
+					'Description', T(890000000006221, --[[ModItemCharacterEffectCompositeDef Jazz_CombatMedicBuff Description]] "+15 к шансу попадания и критическому удару до конца следующего хода."),
+					'type', "Buff",
+					'lifetime', "Until End of Next Turn",
+					'Icon', "UI/Hud/Status effects/accuracy",
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "StatusEffect",
+					'Id', "Jazz_OrderAP",
+					'object_class', "StatusEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if not self:ResolveValue("applied") then
+									target:GainAP(3 * const.Scale.AP)
+									self:SetParameter("applied", true)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000006218, --[[ModItemCharacterEffectCompositeDef Jazz_OrderAP DisplayName]] "Приказ: ОД"),
+					'Description', T(890000000006219, --[[ModItemCharacterEffectCompositeDef Jazz_OrderAP Description]] "+3 ОД на этот ход от полевого командира."),
+					'OnAdded', function (self, obj)
+						if g_Combat and g_Teams and g_Teams[g_CurrentTeam] == obj.team then
+							obj:GainAP(3 * const.Scale.AP)
+							self:SetParameter("applied", true)
+						end
+					end,
 					'type', "Buff",
 					'lifetime', "Until End of Turn",
 					'Icon', "UI/Hud/Status effects/accuracy",
@@ -74635,17 +74745,63 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Shank",
 					'object_class', "Perk",
 					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcChanceToHit",
-			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-				if target == attack_target and action and action.ActionType == "Melee Attack" then
-					ApplyCthModifier_Add(self, data, -50)
-				end
-			end,
-		}),
-	},
-					'DisplayName', T(890000000005056, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank DisplayName]] "Не трогай меня"),
-					'Description', T(890000000005057, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank Description]] "Враги в ближнем бою по Шенку получают −50 к шансу попадания."),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target == attack_target and action and action.ActionType == "Melee Attack" then
+									-- 50% melee defense ≈ −50 CTH vs melee (shipping baseline kept / named as defense)
+									ApplyCthModifier_Add(self, data, -50)
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								-- target here is the perk owner when reacting on owner; for defense we need owner == attack_target
+								local owner = self and (IsKindOf(self, "StatusEffect") and self.owner) or nil
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								-- When Shank is the attack_target and melee misses, throw knife back if attacker within 8
+								if target ~= attack_target then
+									return
+								end
+								if not results or not results.miss then
+									return
+								end
+								if not action or action.ActionType ~= "Melee Attack" then
+									return
+								end
+								if not IsKindOf(attacker, "Unit") or attacker:IsDead() then
+									return
+								end
+								if DivRound(attack_target:GetDist(attacker), const.SlabSizeX) > 8 then
+									return
+								end
+								local knife
+								attack_target:ForEachItemInSlot("Handheld A", "MeleeWeapon", function(item)
+									if not knife then knife = item end
+								end)
+								if not knife then
+									attack_target:ForEachItemInSlot("Handheld B", "MeleeWeapon", function(item)
+										if not knife then knife = item end
+									end)
+								end
+								if knife and attack_target.ThrowKnife then
+									attack_target:ThrowKnife(attacker, knife)
+								elseif knife and CombatActions and CombatActions.KnifeThrow then
+									local ca = CombatActions.KnifeThrow
+									if ca and ca.Run then
+										ca:Run(attack_target, { target = attacker, weapon = knife })
+									end
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000005056, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank DisplayName]] "Не подходи ко мне!"),
+					'Description', T(890000000005057, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Shank Description]] "50% защита в ближнем бою. При промахе по Шенку он отбрасывает нож, если цель в 8 клетках."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Shank.png",
 					'Tier', "Personal",
 				}),
@@ -74657,29 +74813,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vince",
 					'object_class', "Perk",
-					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnUnitBandaged",
-			Handler = function (self, target, healer, patient, hp_restored)
-				if target ~= healer or not patient or patient == healer then
-					return
-				end
-				if healer:GetEffectValue("Jazz_Perk_Vince") then
-					return
-				end
-				healer:SetEffectValue("Jazz_Perk_Vince", true)
-				patient:GainAP(4 * const.Scale.AP)
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCombatEnd",
-			Handler = function (self, target)
-				target:SetEffectValue("Jazz_Perk_Vince", nil)
-			end,
-		}),
-	},
-					'DisplayName', T(890000000005029, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Полевой наставник"),
-					'Description', T(890000000005030, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Раз за бой первое лечение или перевязка союзника даёт цели +4 ОД."),
+					'unit_reactions', {},
+					'DisplayName', T(890000000005029, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince DisplayName]] "Дефицит ресурсов"),
+					'Description', T(890000000005030, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vince Description]] "Пока Винс в отряде, расход аптечек и медикаментов снижен примерно на 25% (шанс не потратить заряд)."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Vince.png",
 					'Tier', "Personal",
 				}),
@@ -74778,24 +74914,24 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Steiger",
 					'object_class', "Perk",
 					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function (self, target)
-				if not g_Combat or not (GameState.Night or GameState.Underground) then
-					return
-				end
-				for _, ally in ipairs(target.team and target.team.units or empty_table) do
-					if ally ~= target and IsValid(ally) and not ally:IsDead() then
-						if DivRound(target:GetDist(ally), const.SlabSizeX) <= 5 then
-							ally:AddStatusEffect("Jazz_OrderCTH")
-						end
-					end
-				end
-			end,
-		}),
-	},
-					'DisplayName', T(890000000005041, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger DisplayName]] "Ночной инструктор"),
-					'Description', T(890000000005042, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger Description]] "Ночью и под землёй в начале хода союзники в радиусе 5 клеток получают +5 к шансу попадания."),
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if not g_Combat or not (GameState.Night or GameState.Underground) then
+									return
+								end
+								for _, ally in ipairs(target.team and target.team.units or empty_table) do
+									if ally ~= target and IsValid(ally) and not ally:IsDead() then
+										if DivRound(target:GetDist(ally), const.SlabSizeX) <= 10 then
+											ally:AddStatusEffect("Jazz_OrderCTH")
+										end
+									end
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(890000000005041, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger DisplayName]] "Вожак стаи"),
+					'Description', T(890000000005042, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Steiger Description]] "Ночью и под землёй в начале хода союзники в радиусе 10 клеток получают +5 к шансу попадания."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Steiger.png",
 					'Tier', "Personal",
 				}),
@@ -74807,16 +74943,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Lucky",
 					'object_class', "Perk",
-					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnCombatEnd",
-			Handler = function (self, target)
-				target:SetEffectValue("Jazz_Perk_Lucky", nil)
-			end,
-		}),
-	},
-					'DisplayName', T(890000000005043, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Второе дыхание"),
-					'Description', T(890000000005044, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Раз за бой первый промах из огнестрела становится попаданием."),
+					'unit_reactions', {},
+					'DisplayName', T(890000000005043, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Госпожа Удача"),
+					'Description', T(890000000005044, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky Description]] "Если шанс попадания был 70% и выше и выстрел промахнулся, бросок повторяется."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Lucky.png",
 					'Tier', "Personal",
 				}),
@@ -74829,21 +74958,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "Jazz_Perk_Laura",
 					'object_class', "Perk",
 					'unit_reactions', {
-		PlaceObj('UnitReaction', {
-			Event = "OnUnitBandaged",
-			Handler = function (self, target, healer, patient, hp_restored)
-				if target ~= healer or not patient or patient == healer then
-					return
-				end
-				healer:AddStatusEffect("Hidden")
-				if healer.UpdateMoveAnim then
-					healer:UpdateMoveAnim()
-				end
-			end,
-		}),
-	},
-					'DisplayName', T(890000000005045, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura DisplayName]] "Скрытный врач"),
-					'Description', T(890000000005046, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "Лечение союзника не снимает с Лоры скрытность."),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitBandaged",
+							Handler = function (self, target, healer, patient, hp_restored)
+								if target ~= healer or not patient or patient == healer then
+									return
+								end
+								healer:AddStatusEffect("Jazz_CombatMedicBuff")
+							end,
+						}),
+					},
+					'DisplayName', T(890000000005045, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura DisplayName]] "Боевой медик"),
+					'Description', T(890000000005046, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Laura Description]] "После лечения союзника Лора получает +15 к шансу попадания и критическому удару до конца следующего хода."),
 					'Icon', "Mod/e6L4ECj/Perks/Personal/Laura.png",
 					'Tier', "Personal",
 				}),

@@ -1071,6 +1071,10 @@ function JazzFindInventoryItem(unit, class_id)
 end
 
 function JazzConsumeInventoryItem(unit, class_id, amount)
+	-- UNITS-006 Vince: 25% chance to skip one med charge when Vince is in the squad
+	if type(Jazz_VinceShouldSkipMedConsume) == "function" and Jazz_VinceShouldSkipMedConsume(unit) then
+		return true
+	end
 	local item = JazzFindInventoryItem(unit, class_id)
 	if not item then
 		return false
