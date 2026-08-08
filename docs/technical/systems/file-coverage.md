@@ -72,7 +72,7 @@
 | `Camera.lua` | loaded | [Видимость](visibility-weather-appearance.md), [бой](combat-cth-actions.md) |
 | `SpecializationGiver.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_AimHiringFilters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
-| `System_HireContractDuration.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AIM/AME chat `MaxDuration` 14→30 |
+| `System_HireContractDuration.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AIM/AME chat `MaxDuration` 14→30; `GetMercDurationDiscountPercent` maxDay 14→30 |
 | `System_AME_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME PDA filters (UNITS-005) |
 | `System_AME_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAAIMEBrowser` + tab/hire wrap (UNITS-005) |
 | `System_AME_Market.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME market tick/state (UNITS-005) |

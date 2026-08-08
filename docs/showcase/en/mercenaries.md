@@ -18,7 +18,7 @@ Hire tiers: Regular **21** · Veteran **16** · Elite **10** · blank (Spider) *
 
 Roles: Leader 7 · ExplosiveExpert 7 · Melee 6 · Autoriflemen 5 · Stealth 5 · Doctor 5 · Mechanic 4 · Marksmen 4 · HeavyWeapons 2 · AllRounder 2 · Negotiator 1.
 
-Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level 21**. Contract duration in AIM/AME chat: **3–30** days (vanilla max was 14).
+Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level 21**. Contract duration in AIM/AME chat: **3–30** days (vanilla max was 14); the duration discount curve also peaks at **30** days (vanilla cut it off after 14).
 
 AIM Doctors (`Specialization=Doctor`) start with **Meds** scaled by Medical — **50…200** (`50 + Medical×1.5` for Medical 0…100). AME medics use a flat **50** (see [AME](ame.md)).
 

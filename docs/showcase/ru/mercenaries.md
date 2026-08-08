@@ -18,7 +18,7 @@
 
 Роли (Specialization): Leader 7 · ExplosiveExpert 7 · Melee 6 · Autoriflemen 5 · Stealth 5 · Doctor 5 · Mechanic 4 · Marksmen 4 · HeavyWeapons 2 · AllRounder 2 · Negotiator 1.
 
-Фильтры AIM в core: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP до **21** уровня. Срок контракта в чате AIM/AME: **3–30** дней (vanilla max был 14).
+Фильтры AIM в core: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP до **21** уровня. Срок контракта в чате AIM/AME: **3–30** дней (vanilla max был 14); скидка за длительный контракт растёт до **30** дней (vanilla обрезала её на 14).
 
 Доктора AIM (`Specialization=Doctor`): в стартовом ките **Meds** масштабируются от Medical — **50…200** (`50 + Medical×1.5` при Medical 0…100). Медики AME — фиксированные **50** (см. [AME](ame.md)).
 

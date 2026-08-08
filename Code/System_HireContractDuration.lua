@@ -2,11 +2,16 @@
 -- Vanilla AIMHiringScreen lNextNodeMap hardcodes MaxDuration = 14; duration-refusal
 -- paths that set MaxDuration = 7 are left alone. AME market tick (AME_TICK_DAYS = 14)
 -- is unrelated — AME hire uses the same StartMercChat / GetNextMercConversation path as AIM.
+--
+-- Also stretch GetMercDurationDiscountPercent maxDay 14 → 30 so long contracts keep the
+-- duration discount (vanilla returns 0% for days > 14, which made 15–30 worse than 14).
 
 g_JAZZ_GetNextMercConversationBase = rawget(_G, "g_JAZZ_GetNextMercConversationBase") or false
 g_JAZZ_HireContractDurationFn = rawget(_G, "g_JAZZ_HireContractDurationFn") or false
 g_JAZZ_PDAMessengerSetupUIBase = rawget(_G, "g_JAZZ_PDAMessengerSetupUIBase") or false
 g_JAZZ_HireSetupUIFn = rawget(_G, "g_JAZZ_HireSetupUIFn") or false
+g_JAZZ_GetMercDurationDiscountPercentBase = rawget(_G, "g_JAZZ_GetMercDurationDiscountPercentBase") or false
+g_JAZZ_HireDurationDiscountFn = rawget(_G, "g_JAZZ_HireDurationDiscountFn") or false
 
 local JAZZ_HIRE_MAX_DURATION = 30
 local VANILLA_HIRE_MAX_DURATION = 14
@@ -70,9 +75,53 @@ local function lInstallSetupUIForChatWrap()
 	return true
 end
 
+-- Vanilla Mercenary.lua: linear discount 3–14 (normal →25%) / 7–14 (long only →35%);
+-- days outside the window → 0%. Stretch maxDay to JAZZ_HIRE_MAX_DURATION.
+local function lInstallDurationDiscountWrap()
+	local ourFn = rawget(_G, "g_JAZZ_HireDurationDiscountFn")
+	local current = rawget(_G, "GetMercDurationDiscountPercent")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_GetMercDurationDiscountPercentBase", current)
+	elseif not rawget(_G, "g_JAZZ_GetMercDurationDiscountPercentBase") then
+		return false
+	end
+	local function wrap(merc, duration)
+		local discount = merc and merc:GetProperty("DurationDiscount")
+		if discount == "none" then
+			return 0
+		end
+		local minDay, minDiscount, maxDay, maxDiscount = 0, 0, 0, 0
+		if discount == "normal" then
+			minDay = 3
+			minDiscount = 0
+			maxDay = JAZZ_HIRE_MAX_DURATION
+			maxDiscount = 25
+		elseif discount == "long only" then
+			minDay = 7
+			minDiscount = 0
+			maxDay = JAZZ_HIRE_MAX_DURATION
+			maxDiscount = 35
+		end
+		if duration >= minDay and duration <= maxDay then
+			return minDiscount + MulDivRound(duration - minDay, (maxDiscount - minDiscount), maxDay - minDay)
+		end
+		return 0
+	end
+	rawset(_G, "g_JAZZ_HireDurationDiscountFn", wrap)
+	rawset(_G, "GetMercDurationDiscountPercent", wrap)
+	return true
+end
+
 local function lInstallHireContractDuration()
 	lInstallGetNextMercConversationWrap()
 	lInstallSetupUIForChatWrap()
+	lInstallDurationDiscountWrap()
 end
 
 function OnMsg.ModsReloaded()
