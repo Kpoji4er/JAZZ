@@ -1,0 +1,343 @@
+PlaceObj('ModItemFolder', {
+				'name', "Jazz_Grom",
+			}, {
+				PlaceObj('ModItemUnitDataCompositeDef', {
+					'Group', "MercenariesOld",
+					'Id', "Jazz_Grom",
+					'object_class', "UnitData",
+					'Health', 85,
+					'Agility', 75,
+					'Dexterity', 75,
+					'Strength', 85,
+					'Wisdom', 70,
+					'Will', 80,
+					'Leadership', 45,
+					'Marksmanship', 75,
+					'Mechanical', 67,
+					'Explosives', 47,
+					'Medical', 25,
+					'Portrait', "Mod/Dv3mFVN/MercPortraits/Grom.png",
+					'BigPortrait', "Mod/Dv3mFVN/MercPortraits/Grom_Big.png",
+					'IsMercenary', true,
+					'Name', T(890000000002402, --[[ModItemUnitDataCompositeDef Jazz_Grom Name]] "Майор Сергей «Гром» Громов"),
+					'Nick', T(890000000002403, --[[ModItemUnitDataCompositeDef Jazz_Grom Nick]] "Гром"),
+					'AllCapsNick', T(890000000002404, --[[ModItemUnitDataCompositeDef Jazz_Grom AllCapsNick]] "ГРОМ"),
+					'Bio', T(890000000002405, --[[ModItemUnitDataCompositeDef Jazz_Grom Bio]] "Сослуживец Ивана по Afghan war. Shady Job переводит его в Night Ops. Найм: захват аэропорта и подавление местной ПВО — после этого он сам ждёт вербовщиков на лётном поле. Приходит с собственным гранатомётом. Дружит с Иваном, Игорем и Игги; недолюбливает Скоупа за манеру критиковать чужую наводку."),
+					'Nationality', "Russia",
+					'Title', T(890000000002406, --[[ModItemUnitDataCompositeDef Jazz_Grom Title]] "Афганец"),
+					'Email', T(890000000002407, --[[ModItemUnitDataCompositeDef Jazz_Grom Email]] "Grom@vvs.ru"),
+					'snype_nick', T(890000000002408, --[[ModItemUnitDataCompositeDef Jazz_Grom snype_nick]] "gromov"),
+					'Refusals', {
+						PlaceObj('MercChatRefusal', {
+							'Lines', {
+								PlaceObj('ChatMessage', {
+									'Text', T(890000000002409, --[[ModItemUnitDataCompositeDef Jazz_Grom Text MercChatRefusal Lines ChatMessage voice:Jazz_Grom]] "Пока Скоуп у вас — нет. Он вечно критикует чужую наводку, а я его слышать не хочу."),
+								}),
+							},
+							'Conditions', {
+								PlaceObj('UnitHireStatus', {
+									Status = "Hired",
+									TargetUnit = "Scope",
+								}),
+							},
+							'chanceToRoll', 100,
+						}),
+					},
+					'Haggles', {},
+					'HaggleRehire', {},
+					'Mitigations', {
+						PlaceObj('MercChatMitigation', {
+							'Lines', {
+								PlaceObj('ChatMessage', {
+									'Text', T(890000000002410, --[[ModItemUnitDataCompositeDef Jazz_Grom Text MercChatMitigation Lines ChatMessage voice:Jazz_Grom]] "Иван, Игорь или Игги уже здесь? Тогда своих не бросаю."),
+								}),
+							},
+							'Conditions', {
+								PlaceObj('CheckExpression', {
+									Expression = function (self, obj)
+										return table.count(gv_UnitData, function(k, ud)
+											return IsKindOf(ud, "UnitData") and ud.HireStatus == "Hired" and (k == "Ivan" or k == "Igor" or k == "Jazz_Iggy")
+										end) >= 1
+									end,
+								}),
+							},
+							'chanceToRoll', 100,
+						}),
+					},
+					'ExtraPartingWords', {
+						PlaceObj('MercChatBranch', {
+							'Lines', {
+								PlaceObj('ChatMessage', {
+									'Text', T(890000000002411, --[[ModItemUnitDataCompositeDef Jazz_Grom Text MercChatBranch Lines ChatMessage voice:Jazz_Grom]] "Найдёте Ивана или Игоря — берите без раздумий, проверенные бойцы."),
+								}),
+							},
+							'Conditions', {
+								PlaceObj('CheckExpression', {
+									Expression = function (self, obj)
+										return table.count(gv_UnitData, function(k, ud)
+											return IsKindOf(ud, "UnitData") and ud.HireStatus == "Hired" and (k == "Ivan" or k == "Igor")
+										end) < 1
+									end,
+								}),
+							},
+						}),
+					},
+					'Offline', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002412, --[[ModItemUnitDataCompositeDef Jazz_Grom Text Offline ChatMessage voice:Jazz_Grom]] "Громов. Связь позже — сейчас занят проверкой боекомплекта."),
+						}),
+					},
+					'GreetingAndOffer', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002413, --[[ModItemUnitDataCompositeDef Jazz_Grom Text GreetingAndOffer ChatMessage voice:Jazz_Grom]] "Майор Громов. Аэродром ваш — значит, и я ваш."),
+						}),
+					},
+					'ConversationRestart', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002414, --[[ModItemUnitDataCompositeDef Jazz_Grom Text ConversationRestart ChatMessage voice:Jazz_Grom]] "Связь прервалась. Продолжайте, товарищ."),
+						}),
+					},
+					'IdleLine', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002415, --[[ModItemUnitDataCompositeDef Jazz_Grom Text IdleLine ChatMessage voice:Jazz_Grom]] "Жду приказа. Гранатомёт заряжен."),
+						}),
+					},
+					'PartingWords', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002416, --[[ModItemUnitDataCompositeDef Jazz_Grom Text PartingWords ChatMessage voice:Jazz_Grom]] "Гранатомёт с собой. Идём."),
+						}),
+					},
+					'RehireIntro', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002417, --[[ModItemUnitDataCompositeDef Jazz_Grom Text RehireIntro ChatMessage voice:Jazz_Grom]] "Контракт заканчивается. Продлеваем службу, или мне искать другой аэродром?"),
+						}),
+					},
+					'RehireOutro', {
+						PlaceObj('ChatMessage', {
+							'Text', T(890000000002418, --[[ModItemUnitDataCompositeDef Jazz_Grom Text RehireOutro ChatMessage voice:Jazz_Grom]] "Остаюсь. Служба есть служба."),
+						}),
+					},
+					'MedicalDeposit', "none",
+					'StartingSalary', 2500,
+					'SalaryIncrease', 200,
+					'SalaryLv1', 1000,
+					'SalaryMaxLv', 6000,
+					'StartingLevel', 5,
+					'CustomEquipGear', function (self, items)
+						self:TryEquip(items, "Handheld A", "Firearm")
+						self:TryEquip(items, "Handheld B", "Firearm")
+					end,
+					'MaxHitPoints', 85,
+					'Likes', {
+						"Ivan",
+						"Igor",
+						"Jazz_Iggy",
+					},
+					'Dislikes', {
+						"Scope",
+					},
+					'StartingPerks', {
+						"Jazz_Perk_Grom",
+						"HeavyWeaponsTraining",
+						"Throwing",
+						"Hardened",
+					},
+					'AppearancesList', {
+						PlaceObj('AppearanceWeight', {
+							'Preset', "Grom",
+						}),
+					},
+					'Equipment', {
+						"Loot_JAZZ_Grom",
+					},
+					'Tier', "Veteran",
+					'Specialization', "HeavyWeapons",
+					'pollyvoice', "Matthew",
+					'gender', "Male",
+					'VoiceResponseId', "Jazz_Grom",
+					'FallbackMissingVR', "Ice",
+					'DaysUntilOnline', 0,
+				}),
+								PlaceObj('ModItemVoiceResponse', {
+					Selection = TConcat({
+						T(890000000002419, --[[ModItemVoiceResponse Jazz_Grom Selection VoiceResponse Selection voice:Jazz_Grom]] "Майор Громов на позиции."),
+						T(890000000007868, --[[ModItemVoiceResponse Jazz_Grom Selection VoiceResponse Selection voice:Jazz_Grom]] "На связи."),
+						T(890000000007869, --[[ModItemVoiceResponse Jazz_Grom Selection VoiceResponse Selection voice:Jazz_Grom]] "На связи.")
+					}),
+					SelectionStealth = TConcat({
+						T(890000000007870, --[[ModItemVoiceResponse Jazz_Grom SelectionStealth VoiceResponse SelectionStealth voice:Jazz_Grom]] "Тихо."),
+						T(890000000007871, --[[ModItemVoiceResponse Jazz_Grom SelectionStealth VoiceResponse SelectionStealth voice:Jazz_Grom]] "Тихо."),
+						T(890000000007872, --[[ModItemVoiceResponse Jazz_Grom SelectionStealth VoiceResponse SelectionStealth voice:Jazz_Grom]] "Тихо.")
+					}),
+					Order = TConcat({
+						T(890000000007873, --[[ModItemVoiceResponse Jazz_Grom Order VoiceResponse Order voice:Jazz_Grom]] "Есть."),
+						T(890000000007874, --[[ModItemVoiceResponse Jazz_Grom Order VoiceResponse Order voice:Jazz_Grom]] "Есть."),
+						T(890000000007875, --[[ModItemVoiceResponse Jazz_Grom Order VoiceResponse Order voice:Jazz_Grom]] "Есть.")
+					}),
+					CombatMovement = TConcat({
+						T(890000000007876, --[[ModItemVoiceResponse Jazz_Grom CombatMovement VoiceResponse CombatMovement voice:Jazz_Grom]] "Двигаюсь."),
+						T(890000000007877, --[[ModItemVoiceResponse Jazz_Grom CombatMovement VoiceResponse CombatMovement voice:Jazz_Grom]] "Двигаюсь."),
+						T(890000000007878, --[[ModItemVoiceResponse Jazz_Grom CombatMovement VoiceResponse CombatMovement voice:Jazz_Grom]] "Двигаюсь.")
+					}),
+					CombatMovementStealth = TConcat({
+						T(890000000007879, --[[ModItemVoiceResponse Jazz_Grom CombatMovementStealth VoiceResponse CombatMovementStealth voice:Jazz_Grom]] "Крадусь."),
+						T(890000000007880, --[[ModItemVoiceResponse Jazz_Grom CombatMovementStealth VoiceResponse CombatMovementStealth voice:Jazz_Grom]] "Крадусь."),
+						T(890000000007881, --[[ModItemVoiceResponse Jazz_Grom CombatMovementStealth VoiceResponse CombatMovementStealth voice:Jazz_Grom]] "Крадусь.")
+					}),
+					GroupOrder = TConcat({
+						T(890000000007882, --[[ModItemVoiceResponse Jazz_Grom GroupOrder VoiceResponse GroupOrder voice:Jazz_Grom]] "Во-во дело говоришь!"),
+						T(890000000007883, --[[ModItemVoiceResponse Jazz_Grom GroupOrder VoiceResponse GroupOrder voice:Jazz_Grom]] "Во-во дело говоришь!"),
+						T(890000000007884, --[[ModItemVoiceResponse Jazz_Grom GroupOrder VoiceResponse GroupOrder voice:Jazz_Grom]] "Во-во дело говоришь!")
+					}),
+					AimAttack = TConcat({
+						T(890000000002420, --[[ModItemVoiceResponse Jazz_Grom AimAttack VoiceResponse AimAttack voice:Jazz_Grom]] "Опп-а! Вижу цель."),
+						T(890000000002421, --[[ModItemVoiceResponse Jazz_Grom AimAttack VoiceResponse AimAttack voice:Jazz_Grom]] "Опп-а! Вижу цель."),
+						T(890000000007885, --[[ModItemVoiceResponse Jazz_Grom AimAttack VoiceResponse AimAttack voice:Jazz_Grom]] "И звать тебя теперь \"двухсотый\"!")
+					}),
+					AimAttackStealth = TConcat({
+						T(890000000007886, --[[ModItemVoiceResponse Jazz_Grom AimAttackStealth VoiceResponse AimAttackStealth voice:Jazz_Grom]] "А ну тихо!"),
+						T(890000000007887, --[[ModItemVoiceResponse Jazz_Grom AimAttackStealth VoiceResponse AimAttackStealth voice:Jazz_Grom]] "А ну тихо!")
+					}),
+					AimAttack_Low = TConcat({
+						T(890000000007888, --[[ModItemVoiceResponse Jazz_Grom AimAttack_Low VoiceResponse AimAttack_Low voice:Jazz_Grom]] "Ты в уме?")
+					}),
+					AimAttack_LowStealth = TConcat({
+						T(890000000007889, --[[ModItemVoiceResponse Jazz_Grom AimAttack_LowStealth VoiceResponse AimAttack_LowStealth voice:Jazz_Grom]] "Ты знаешь... никак!")
+					}),
+					OpponentFound = TConcat({
+						T(890000000007890, --[[ModItemVoiceResponse Jazz_Grom OpponentFound VoiceResponse OpponentFound voice:Jazz_Grom]] "Опп-а! Вижу цель."),
+						T(890000000007891, --[[ModItemVoiceResponse Jazz_Grom OpponentFound VoiceResponse OpponentFound voice:Jazz_Grom]] "Начнем что ли?")
+					}),
+					ManyEnemiesSelection = TConcat({
+						T(890000000007892, --[[ModItemVoiceResponse Jazz_Grom ManyEnemiesSelection VoiceResponse ManyEnemiesSelection voice:Jazz_Grom]] "Тю-ю! В очередь, сукины дети!")
+					}),
+					OpponentKilled = TConcat({
+						T(890000000002422, --[[ModItemVoiceResponse Jazz_Grom OpponentKilled VoiceResponse OpponentKilled voice:Jazz_Grom]] "И звать тебя теперь \"двухсотый\"!"),
+						T(890000000007893, --[[ModItemVoiceResponse Jazz_Grom OpponentKilled VoiceResponse OpponentKilled voice:Jazz_Grom]] "И звать тебя теперь \"двухсотый\"!")
+					}),
+					NoAmmo = TConcat({
+						T(890000000007894, --[[ModItemVoiceResponse Jazz_Grom NoAmmo VoiceResponse NoAmmo voice:Jazz_Grom]] "И рад бы, да стрелять нечем.")
+					}),
+					AmmoLow = TConcat({
+						T(890000000002427, --[[ModItemVoiceResponse Jazz_Grom AmmoLow VoiceResponse AmmoLow voice:Jazz_Grom]] "И рад бы, да стрелять нечем.")
+					}),
+					WeaponJammed = TConcat({
+						T(890000000007895, --[[ModItemVoiceResponse Jazz_Grom WeaponJammed VoiceResponse WeaponJammed voice:Jazz_Grom]] "В самый подходящий момент! Это хуже афганской берданки!")
+					}),
+					Pain = TConcat({
+						T(890000000007896, --[[ModItemVoiceResponse Jazz_Grom Pain VoiceResponse Pain voice:Jazz_Grom]] "Аргх!"),
+						T(890000000007897, --[[ModItemVoiceResponse Jazz_Grom Pain VoiceResponse Pain voice:Jazz_Grom]] "Аргх!")
+					}),
+					Wounded = TConcat({
+						T(890000000007898, --[[ModItemVoiceResponse Jazz_Grom Wounded VoiceResponse Wounded voice:Jazz_Grom]] "Е-мое! Больно!")
+					}),
+					Downed = TConcat({
+						T(890000000002424, --[[ModItemVoiceResponse Jazz_Grom Downed VoiceResponse Downed voice:Jazz_Grom]] "Ранен, но держу оружие.")
+					}),
+					HeavilyWoundedSelection = TConcat({
+						T(890000000007899, --[[ModItemVoiceResponse Jazz_Grom HeavilyWoundedSelection VoiceResponse HeavilyWoundedSelection voice:Jazz_Grom]] "Да-а! С таким командиром навоюешь пожалуй!")
+					}),
+					CombatStartPlayer = TConcat({
+						T(890000000007900, --[[ModItemVoiceResponse Jazz_Grom CombatStartPlayer VoiceResponse CombatStartPlayer voice:Jazz_Grom]] "Ну вот, а теперь и повоевать можно!")
+					}),
+					CombatStartDetected = TConcat({
+						T(890000000002425, --[[ModItemVoiceResponse Jazz_Grom CombatStartDetected VoiceResponse CombatStartDetected voice:Jazz_Grom]] "Начнем что ли?")
+					}),
+					CombatEndNoEnemies = TConcat({
+						T(890000000007901, --[[ModItemVoiceResponse Jazz_Grom CombatEndNoEnemies VoiceResponse CombatEndNoEnemies voice:Jazz_Grom]] "И сразу тихо так стало! Хор-рошо!")
+					}),
+					CombatEndEnemiesRemain = TConcat({
+						T(890000000007902, --[[ModItemVoiceResponse Jazz_Grom CombatEndEnemiesRemain VoiceResponse CombatEndEnemiesRemain voice:Jazz_Grom]] "Пару \"шмелей\" бы сюда на зачистку... Ну да придется самим.")
+					}),
+					DeathGeneral = TConcat({
+						T(890000000002423, --[[ModItemVoiceResponse Jazz_Grom DeathGeneral VoiceResponse DeathGeneral voice:Jazz_Grom]] "Держитесь, ребята...")
+					}),
+					Idle = TConcat({
+						T(890000000002428, --[[ModItemVoiceResponse Jazz_Grom Idle VoiceResponse Idle voice:Jazz_Grom]] "Ну, до дяди ему далеко... Но паренек толковый."),
+						T(890000000007903, --[[ModItemVoiceResponse Jazz_Grom Idle VoiceResponse Idle voice:Jazz_Grom]] "Ну, до дяди ему далеко... Но паренек толковый."),
+						T(890000000007904, --[[ModItemVoiceResponse Jazz_Grom Idle VoiceResponse Idle voice:Jazz_Grom]] "Ну, до дяди ему далеко... Но паренек толковый.")
+					}),
+					BecomeHidden = TConcat({
+						T(890000000007905, --[[ModItemVoiceResponse Jazz_Grom BecomeHidden VoiceResponse BecomeHidden voice:Jazz_Grom]] "А ну тихо!"),
+						T(890000000007906, --[[ModItemVoiceResponse Jazz_Grom BecomeHidden VoiceResponse BecomeHidden voice:Jazz_Grom]] "А ну тихо!")
+					}),
+					LevelUp = TConcat({
+						T(890000000002426, --[[ModItemVoiceResponse Jazz_Grom LevelUp VoiceResponse LevelUp voice:Jazz_Grom]] "Прям... расту над собой!")
+					}),
+					LootFound = TConcat({
+						T(890000000007907, --[[ModItemVoiceResponse Jazz_Grom LootFound VoiceResponse LootFound voice:Jazz_Grom]] "Че-т нашел."),
+						T(890000000007908, --[[ModItemVoiceResponse Jazz_Grom LootFound VoiceResponse LootFound voice:Jazz_Grom]] "Чужое. Халява. Взять-взять! Хы! Фильм \"ДМБ\" смотрел?")
+					}),
+					DoorLocked = TConcat({
+						T(890000000007909, --[[ModItemVoiceResponse Jazz_Grom DoorLocked VoiceResponse DoorLocked voice:Jazz_Grom]] "Закрыто.")
+					}),
+					Exhausted = TConcat({
+						T(890000000007910, --[[ModItemVoiceResponse Jazz_Grom Exhausted VoiceResponse Exhausted voice:Jazz_Grom]] "Меня не кантовать... При пожаре выносить первым...")
+					}),
+					HeavyBreathing = TConcat({
+						T(890000000007911, --[[ModItemVoiceResponse Jazz_Grom HeavyBreathing VoiceResponse HeavyBreathing voice:Jazz_Grom]] "Выключаюсь, однако!")
+					}),
+					HealReceived = TConcat({
+						T(890000000007912, --[[ModItemVoiceResponse Jazz_Grom HealReceived VoiceResponse HealReceived voice:Jazz_Grom]] "А хорошие люди есть не только в России!")
+					}),
+					NotNow = TConcat({
+						T(890000000007913, --[[ModItemVoiceResponse Jazz_Grom NotNow VoiceResponse NotNow voice:Jazz_Grom]] "Никак нет, товарищ генерал!")
+					}),
+					ActivityFinished = TConcat({
+						T(890000000007914, --[[ModItemVoiceResponse Jazz_Grom ActivityFinished VoiceResponse ActivityFinished voice:Jazz_Grom]] "Все. Сделал.")
+					}),
+					TakeCover = TConcat({
+						T(890000000007915, --[[ModItemVoiceResponse Jazz_Grom TakeCover VoiceResponse TakeCover voice:Jazz_Grom]] "Ложись!")
+					}),
+					ThrowGrenade = TConcat({
+						T(890000000007916, --[[ModItemVoiceResponse Jazz_Grom ThrowGrenade VoiceResponse ThrowGrenade voice:Jazz_Grom]] "И звать тебя теперь \"двухсотый\"!")
+					}),
+					Autofire = TConcat({
+						T(890000000007917, --[[ModItemVoiceResponse Jazz_Grom Autofire VoiceResponse Autofire voice:Jazz_Grom]] "И звать тебя теперь \"двухсотый\"!")
+					}),
+					Climbing = TConcat({
+						T(890000000007918, --[[ModItemVoiceResponse Jazz_Grom Climbing VoiceResponse Climbing voice:Jazz_Grom]] "Выключаюсь, однако!")
+					}),
+					Jumping = TConcat({
+						T(890000000007919, --[[ModItemVoiceResponse Jazz_Grom Jumping VoiceResponse Jumping voice:Jazz_Grom]] "Выключаюсь, однако!")
+					}),
+					Startled = TConcat({
+						T(890000000007920, --[[ModItemVoiceResponse Jazz_Grom Startled VoiceResponse Startled voice:Jazz_Grom]] "А ну тихо!")
+					}),
+					ThreatSelection = TConcat({
+						T(890000000007921, --[[ModItemVoiceResponse Jazz_Grom ThreatSelection VoiceResponse ThreatSelection voice:Jazz_Grom]] "Опасно!")
+					}),
+					Overwatch = TConcat({
+						T(890000000007922, --[[ModItemVoiceResponse Jazz_Grom Overwatch VoiceResponse Overwatch voice:Jazz_Grom]] "Этт еще не все!")
+					}),
+					OverwatchSelection = TConcat({
+						T(890000000007923, --[[ModItemVoiceResponse Jazz_Grom OverwatchSelection VoiceResponse OverwatchSelection voice:Jazz_Grom]] "Этт еще не все!")
+					}),
+					GasAreaSelection = TConcat({
+						T(890000000007924, --[[ModItemVoiceResponse Jazz_Grom GasAreaSelection VoiceResponse GasAreaSelection voice:Jazz_Grom]] "(кашляет)")
+					}),
+					MissedByKillShot = TConcat({
+						T(890000000007925, --[[ModItemVoiceResponse Jazz_Grom MissedByKillShot VoiceResponse MissedByKillShot voice:Jazz_Grom]] "Ч-чижики!")
+					}),
+					AnimalFound = TConcat({
+						T(890000000007926, --[[ModItemVoiceResponse Jazz_Grom AnimalFound VoiceResponse AnimalFound voice:Jazz_Grom]] "Эх... Ну, здравствуй, Мурзик!")
+					}),
+					CombatTaskGiven = TConcat({
+						T(890000000007927, --[[ModItemVoiceResponse Jazz_Grom CombatTaskGiven VoiceResponse CombatTaskGiven voice:Jazz_Grom]] "Все. Сделал.")
+					}),
+					CombatTaskCompleted = TConcat({
+						T(890000000007928, --[[ModItemVoiceResponse Jazz_Grom CombatTaskCompleted VoiceResponse CombatTaskCompleted voice:Jazz_Grom]] "Стареем, что ли? Да ну, быть не может!")
+					}),
+					CombatTaskFailed = TConcat({
+						T(890000000007929, --[[ModItemVoiceResponse Jazz_Grom CombatTaskFailed VoiceResponse CombatTaskFailed voice:Jazz_Grom]] "А ты еще раз подумай!")
+					}),
+					MockDislike1 = TConcat({
+						T(890000000002429, --[[ModItemVoiceResponse Jazz_Grom MockDislike1 VoiceResponse MockDislike1 voice:Jazz_Grom]] "Скоуп бы тут что-то поправил, наверное.")
+					}),
+					PraisesBuddy1 = TConcat({
+						T(890000000002430, --[[ModItemVoiceResponse Jazz_Grom PraisesBuddy1 VoiceResponse PraisesBuddy1 voice:Jazz_Grom]] "Отлично, землячок!")
+					}),
+					group = "MercenariesOld",
+					id = "Jazz_Grom",
+				}),
+				}),

@@ -38,6 +38,7 @@
 | [conrad](conrad.md) | Конрад | `Jazz_Conrad` |
 | [mike](mike.md) | Майк | `Jazz_Mike` |
 | [grom](grom.md) | Гром | `Jazz_Grom` |
+| [iggy](iggy.md) | Игги | `Jazz_Iggy` |
 | [rothman](rothman.md) | Ротман | `Jazz_Rothman` |
 | [quinten](quinten.md) | Дэнни | `Jazz_Quinten` |
 | [vicious](vicious.md) | Злобный | `Jazz_Vicious` |

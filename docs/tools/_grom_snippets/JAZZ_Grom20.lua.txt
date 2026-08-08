@@ -1,0 +1,12 @@
+PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "JAZZ_Grom20",
+					loot = "all",
+					PlaceObj('LootEntryInventoryItem', { item = "JazzArmor_TireArmor" }),
+					PlaceObj('LootEntryInventoryItem', { item = "JAZZ_Bandage", stack_min = 10, stack_max = 10 }),
+					PlaceObj('LootEntryInventoryItem', { item = "JAZZ_Morphine", stack_min = 1, stack_max = 2, drop_chance = 80 }),
+					PlaceObj('LootEntryInventoryItem', { item = "FirstAidKit", stack_min = 5, stack_max = 5 }),
+					PlaceObj('LootEntryInventoryItem', { item = "AK47", stack_max = 1, stack_min = 1 }),
+					PlaceObj('LootEntryInventoryItem', { Double = true, item = "JAZZ_AMMO_762x39_FMJ", stack_max = 60, stack_min = 60 }),
+				}),

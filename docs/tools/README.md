@@ -61,6 +61,7 @@
 | `_bump_sniper001_meta.py` | Revision +1 + prepend `last_changes` bullet for SNIPER-001 commit. |
 | `_apply_medic_heal_first.py` | Patch `jazz-units/items.lua` Medic/Medic_Low: combat behaviors Score=0 when heal needed; Healer Early/Weight 1000; Priority Bandage before MobileShot; SelfHealMod 100. |
 | `_key_med_item_icons.py` | Flood-fill near-black → alpha для `Icons/Items/JAZZ_{Bandage,Morphine,IFAK,Medkit,SurgicalKit}.png` (не трогает тёмные молнии/ремни). |
+| `_key_merc_mark_white_bg.py` | Flood-fill near-white → alpha для `Icons/PDA/MERC_Mark.png` (белый studio plate; жёлтый `$`/teal не трогает). |
 | `_apply_med001_loot_jazz_units.py` | В `jazz-units/items.lua` к LootDef с `FirstAidKit`/`Medkit`/`Meds`/`MedsDrop` добавляет `JAZZ_Bandage` / `JAZZ_Morphine` / редко `JAZZ_SurgicalKit`. Идемпотентен (сначала снимает старые JAZZ med entries). |
 | `_apply_med001_loot_equipment_kits.py` | Phase 2: бинт/морфий (± IFAK у мерков) в Equipment-киты без медицины (`loot=all` враги + Mercs leaf tiers). Не трогает ammo/Drop_/Armor. Merc insert: Bandage 10, IFAK 5. |
 | `_apply_merc_med_full_stacks.py` | Mercs `group=Mercs` в `jazz-units/items.lua`: существующий `JAZZ_Bandage` → stack 10; `FirstAidKit` → 5; `Medkit` → 3 (MaxStacks). Идемпотентен. |
@@ -283,6 +284,8 @@
 | `_write_attach_design_human.py` | Пересбор `docs/design/attachments-by-category.md` из CSV. |
 | `_build_attachments_catalog.py` | HTML-каталог `docs/tools/attachments-catalog.html`. |
 | `_attach_live_summary.py` | JSON-сводка live comps (вспомогательный). |
+| `_export_merc_salary_json.py` | Roster зарплат: vanilla AIM (`IsMercenary`) + Jazz/AME из `jazz-units` → `merc-salary-data.json` (Affiliation из `items.lua`). Нужен `JA3_ROOT`/ModTools для vanilla. |
+| `_gen_merc_salary_calculator.py` | HTML-калькулятор `merc-salary-calculator.html`: `GetMercPrice` / daily / medical / duration discount / squad sum. |
 
 Типичный post-migrate конвейер:
 
@@ -385,6 +388,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_append_merc_mail_loc.py` | JAZZ-UI-MERC-001: RU/EN Speck mail + MERC PDA strings `890000000009900+`. Idempotent upsert; multiline CSV. |
 | `_remap_merc_loc_ids.py` | One-shot: move MERC loc off VoiceResponse `007xxx` → `009900+`; restore stolen VR rows from `HEAD`. |
 | `_apply_merc_affiliations.py` | UI-MERC-001: set `Affiliation = "MERC"` on Jazz shelf/world UnitData companions (+ Larry/Smiley overrides). |
+| `_apply_ship_iggy.py` | UNITS-002: ship `Jazz_Iggy` (perk stub, loot clone Grom, UnitData+VR, Appearance, loc RU/EN, metadata bumps). Idempotent. Uses `_grom_snippets/`. |
 | `_sync_merc_affiliation_items.py` | Sync same Affiliation into `jazz-units/items.lua` ModItem blocks. |
 | `_fork_ame_template_to_merc.py` / `_polish_merc_template.py` | Fork/polish `System_MERC_Browser_Template.lua` from AME skin. |
 | `_install_merc_xtemplate_moditem.py` | Install `PDAMERCBrowser` ModItemXTemplate + Emails + metadata code/resource (не Code-load шаблона). |
@@ -464,6 +468,7 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 - `_attach_001_audit.tsv` — dry-run/apply audit от `_apply_attach_001.py`
 - `attachments-catalog.html` — generated catalog
 - `_attach_*.json` — промежуточные summary (можно регенерировать)
+- `merc-salary-data.json` / `merc-salary-calculator.html` — калькулятор зарплат AIM/AME/MERC (`python docs/tools/_export_merc_salary_json.py` → `_gen_merc_salary_calculator.py`)
 
 ## Добавление нового скрипта
 

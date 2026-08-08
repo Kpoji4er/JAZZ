@@ -1,0 +1,9 @@
+PlaceObj('ModItemLootDef', {
+					Comment = "merc",
+					group = "Mercs",
+					id = "Loot_JAZZ_Grom",
+					PlaceObj('LootEntryLootDef', { loot_def = "JAZZ_Grom50", weight = 50000 }),
+					PlaceObj('LootEntryLootDef', { loot_def = "JAZZ_Grom35", weight = 35000 }),
+					PlaceObj('LootEntryLootDef', { loot_def = "JAZZ_Grom25", weight = 25000 }),
+					PlaceObj('LootEntryLootDef', { loot_def = "JAZZ_Grom20", weight = 20000 }),
+				}),
