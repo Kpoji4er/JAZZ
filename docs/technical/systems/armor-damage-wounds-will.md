@@ -134,7 +134,7 @@ Asset contract не менялся.
 
 `hit.effects` содержит только непустые строковые ID CharacterEffect. Обычный эффект попадания применяется, если закрывающая точку броня не участвовала в расчёте либо хотя бы один участвовавший предмет присутствует в `hit.armor_pen`. Поэтому непробитая броня блокирует `Bleeding`, body-part `*shot` и другие физические статусы из `hit.effects`, даже когда минимальный урон попадания остался ненулевым.
 
-**Исключение — blast (`hit.explosion`):** статусы из `hit.effects` (в т.ч. `*shot` → trauma) применяются **без** требования pierce; bleed всё ещё только при pierce. BAT на explosion не вызывается. Отдельно `JazzTryApplyExplosionConcussionAndTrauma` **гарантированно** вешает `Concussion` и, при отсутствии `*shot` в effects, роллит зональную травму (шанс) — см. [explosives-traps-heavy-weapons.md](explosives-traps-heavy-weapons.md).
+**Исключение — blast (`hit.explosion`):** статусы из `hit.effects` (в т.ч. `*shot` → trauma) применяются **без** требования pierce; bleed всё ещё только при pierce. BAT на explosion не вызывается. Отдельно `JazzTryApplyExplosionConcussionAndTrauma` **гарантированно** вешает `Concussion` и, при отсутствии `*shot` в effects, роллит зональную травму (шанс). Затем `JazzTryBlastKnockback` (JAZZ-GRENADES-002): skill roll Strength+Health vs pre-armor force → Steroid-style отлёт — см. [explosives-traps-heavy-weapons.md](explosives-traps-heavy-weapons.md).
 
 **Заброневое (BAT):** если был `armor_decay` и **нет** `armor_pen` (**и не explosion**), `ApplyDamageAndEffects` вызывает `JazzTryBehindArmorTrauma` — шанс Light (редко Medium) травмы зоны попадания + `Pain`, без крови. Шанс ~`15 + energy/2` (cap 65), `energy = armor_prevented + residual damage`; порог energy ≥ 8.
 

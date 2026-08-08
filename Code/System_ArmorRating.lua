@@ -519,6 +519,10 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			end
 			if explosion then
 				JazzTryApplyExplosionConcussionAndTrauma(self, hit, attacker)
+				-- JAZZ-GRENADES-002: skill-roll knockback after concussion/trauma package.
+				if not self:IsDead() and IsValid(self) then
+					JazzTryBlastKnockback(self, hit, attacker)
+				end
 			end
 			-- MED-001: solid damaging hits grant +1 Pain (separate from zone-use / heavy ramp).
 			JazzPainOnDamagingHit(self, hit, damage)

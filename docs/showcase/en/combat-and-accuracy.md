@@ -81,7 +81,7 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 - **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
 - Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
 - While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair. Up close (0% mishap) the color can still warm as scatter grows.
-- Frag / HE / flashbang: **guaranteed concussion** on blast-hit units, plus a chance of **zone trauma**. Smoke / gas / Molotov use their own packages, not concussion.
+- Frag / HE / flashbang: **guaranteed concussion** on blast-hit units, plus a chance of **zone trauma**. A strong blast can also **knock units back** one tile from the epicenter (mercs included) — **Strength + Health** skill check vs **pre-armor** damage; already prone units stay put. Smoke / gas / Molotov use their own packages, not concussion/knockback.
 
 ## Enemy positioning
 

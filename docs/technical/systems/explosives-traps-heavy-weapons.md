@@ -38,6 +38,20 @@
 - Травма: если в `CenterAppliedEffects` уже есть `Headshot`/`Armsshot`/`Legsshot` (Frag/HE) — ролл через эти rollers после pierce-bypass; иначе (напр. 40mm только `Exposed`) — dedicated gate **100%** center / **40%** area → `JazzTryRollTraumaFromBodyPart` (случайная зона, center bias Head/Ribs).
 - Hits штампуют `aoe_type`/`weapon` в `Grenade`/`HeavyWeapon` `GetAttackResults`, чтобы smoke/fire не получали concussion.
 
+### Blast knockback — JAZZ-GRENADES-002
+
+После concussion/trauma package живой Human (мерки и враги) проходит skill roll устоять на ногах:
+
+```text
+force = pre-armor blast damage          -- jazz_pre_armor_damage (= damage + armor_prevented)
+body  = Strength + Health [+10 Veteran]
+value = Clamp(body − force, 0, 100)
+roll  = 1 + unit:Random(100)
+устоял если force ≤ 0 или roll < value
+```
+
+Провал → отлёт как у `SteroidPunch`: свободные slab’ы от эпицентра (`pushSlabs = 1`), команда `JazzBlastKnocked` (knockdown-анимация → prone), **без** mock-`SteroidPunchGrenade`. Нет прохода → prone на месте. Skip: Dead, Prone, Unconscious, grit (`TempHitPoints > 0`), grazing, non-Human, non-blast aoe. Эпицентр штампуется в wrap `GetAreaAttackResults` → `hit.jazz_blast_epicenter`.
+
 Публичный ID: `Concussion`. Icon: `Icons/StatusEffects/Concussion.png`.
 
 AI использует собственную оценку допустимой дальности, targeting options и специальное действие flare. Поскольку `AIGetAttackTargetingOptions` в JAZZ заменяет и vanilla, и CommonLib версию, тест grenade/flare обязателен после обновления dependency.

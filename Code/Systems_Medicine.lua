@@ -880,6 +880,151 @@ function JazzTryApplyExplosionConcussionAndTrauma(unit, hit, attacker)
 	return applied_conc or applied_trauma
 end
 
+-- JAZZ-GRENADES-002: blast knockback (skill roll Strength+Health vs pre-armor force).
+g_JAZZ_GetAreaAttackResultsBlastStampWrapped = rawget(_G, "g_JAZZ_GetAreaAttackResultsBlastStampWrapped") or false
+g_JAZZ_GetAreaAttackResultsBlastStampBase = rawget(_G, "g_JAZZ_GetAreaAttackResultsBlastStampBase") or false
+
+local function lStampBlastHitEpicenterAndPreArmor(results)
+	if not results or not results.explosion then
+		return
+	end
+	local epicenter = results.target_pos or results.explosion_pos
+	for _, hit in ipairs(results) do
+		if epicenter then
+			hit.jazz_blast_epicenter = epicenter
+		end
+		-- Recover pre-armor when DR already ran; else equals nominal blast damage.
+		hit.jazz_pre_armor_damage = (hit.damage or 0) + (hit.armor_prevented or 0)
+	end
+end
+
+local function lInstallGetAreaAttackResultsBlastStamp()
+	local base = rawget(_G, "g_JAZZ_GetAreaAttackResultsBlastStampBase")
+	if rawget(_G, "g_JAZZ_GetAreaAttackResultsBlastStampWrapped") and type(base) == "function" then
+		-- Engine may have restored vanilla global; rebind wrapper onto saved base.
+		function GetAreaAttackResults(...)
+			local results, total_damage, friendly_fire_dmg, targets = base(...)
+			lStampBlastHitEpicenterAndPreArmor(results)
+			return results, total_damage, friendly_fire_dmg, targets
+		end
+		return
+	end
+	base = lG("GetAreaAttackResults")
+	if type(base) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_GetAreaAttackResultsBlastStampBase", base)
+	rawset(_G, "g_JAZZ_GetAreaAttackResultsBlastStampWrapped", true)
+	function GetAreaAttackResults(...)
+		local results, total_damage, friendly_fire_dmg, targets = g_JAZZ_GetAreaAttackResultsBlastStampBase(...)
+		lStampBlastHitEpicenterAndPreArmor(results)
+		return results, total_damage, friendly_fire_dmg, targets
+	end
+end
+
+function JazzGetBlastPreArmorDamage(hit)
+	if not hit then
+		return 0
+	end
+	if hit.jazz_pre_armor_damage ~= nil then
+		return Max(0, hit.jazz_pre_armor_damage)
+	end
+	return Max(0, (hit.damage or 0) + (hit.armor_prevented or 0))
+end
+
+--- Steroid-style slab push from blast epicenter; no SteroidPunchGrenade collateral.
+function JazzResolveBlastKnockback(unit, epicenter, attacker, pushSlabs)
+	if not IsValid(unit) or not IsPoint(epicenter) then
+		return false
+	end
+	pushSlabs = pushSlabs or 1
+	local angle = CalcOrientation(epicenter, unit)
+	local fromPos = GetPassSlab(unit) or unit:GetPos()
+	local curPos = fromPos
+	local toPos = fromPos
+	local free_slabs = 0
+	while free_slabs < pushSlabs + 1 do
+		local nextPos = GetPassSlab(RotateRadius((free_slabs + 1) * const.SlabSizeX, angle, fromPos))
+		if not nextPos then
+			break
+		elseif not IsPassSlabStep(curPos, nextPos, const.TunnelTypeWalk) then
+			break
+		elseif IsOccupiedExploration(nil, nextPos:xyz()) then
+			break
+		end
+		toPos = curPos
+		curPos = nextPos
+		free_slabs = free_slabs + 1
+	end
+	angle = angle + 180 * 60
+	local anim
+	if free_slabs > 0 then
+		anim = unit:GetRandomAnim("civ_KnockDown_B")
+	else
+		anim = unit:GetRandomAnim("civ_KnockDown_OnSpot_B")
+		if unit.species == "Human" then
+			angle = FindProneAngle(unit, toPos, angle)
+		end
+	end
+	unit:SetCommand("JazzBlastKnocked", attacker, toPos, angle, anim)
+	return true
+end
+
+--- Unit command: knockdown move without SteroidPunchExplosion mock grenade.
+function Unit:JazzBlastKnocked(attacker, pos, angle, anim)
+	anim = anim or "civ_KnockDown_OnSpot_B"
+	if self.species == "Human" then
+		self.stance = "Prone"
+	end
+	self:MovePlayAnim(anim, self:GetPos(), pos, 0, nil, true, angle, nil, nil, nil, true)
+end
+
+function JazzTryBlastKnockback(unit, hit, attacker)
+	if not unit or not JazzIsBlastExplosiveHit(hit) then
+		return false
+	end
+	if not IsKindOf(unit, "Unit") or unit.species ~= "Human" then
+		return false
+	end
+	if unit:IsDead() or not IsValid(unit) then
+		return false
+	end
+	if unit.stance == "Prone" or unit:HasStatusEffect("Unconscious") then
+		return false
+	end
+	if (unit.TempHitPoints or 0) > 0 then
+		return false
+	end
+	local force = JazzGetBlastPreArmorDamage(hit)
+	if force <= 0 then
+		return false
+	end
+	local body = (unit.Strength or 0) + (unit.Health or 0)
+	local add = 0
+	if HasPerk(unit, "Jazz_Perk_Veteran") then
+		add = add + 10
+	end
+	local value = Clamp(body + add - force, 0, 100)
+	local roll = 1 + unit:Random(100)
+	local pass = roll < value
+	CombatLog("debug", T{Untranslated("<em><name></em> blast knockback check body <body> force <force> roll <roll>/<value>: <result>"),
+		name = unit:GetLogName(),
+		body = body + add,
+		force = force,
+		roll = roll,
+		value = value,
+		result = pass and Untranslated("<em>Pass</em>") or Untranslated("<em>Fail</em>"),
+	})
+	if pass then
+		return false
+	end
+	local epicenter = hit.jazz_blast_epicenter
+	if not IsPoint(epicenter) then
+		return false
+	end
+	return JazzResolveBlastKnockback(unit, epicenter, attacker, 1)
+end
+
 function JazzRemapHitBleedEffect(effect, hit, attacker)
 	if effect ~= "Bleeding" then
 		return effect
@@ -2339,6 +2484,7 @@ function OnMsg.ClassesBuilt()
 	lInstallMedicineStackBandageHooks()
 	lInstallCombatActionAttackStartMedHook()
 	lInstallMedicineMeleeUIHooks()
+	lInstallGetAreaAttackResultsBlastStamp()
 end
 
 function OnMsg.ModsReloaded()
@@ -2348,8 +2494,10 @@ function OnMsg.ModsReloaded()
 	lInstallMedicineMeleeUIHooks()
 	-- Identity rebind in lInstall* handles wiped Unit methods; no sticky-flag skip.
 	lInstallMedicineStackBandageHooks()
+	lInstallGetAreaAttackResultsBlastStamp()
 end
 
 lInstallCombatActionAttackStartMedHook()
 lInstallMedicineMeleeUIHooks()
 lInstallMedicineStackBandageHooks()
+lInstallGetAreaAttackResultsBlastStamp()
