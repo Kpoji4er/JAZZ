@@ -640,7 +640,10 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 
 --	end
 
-	if action.id == "SteroidPunch" then
+	-- UNITS-006 SteroidPunch: Strength drives CTH for all melee (not only the signature).
+	if action.id == "SteroidPunch"
+		or (HasPerk(self, "SteroidPunch") and action.ActionType == "Melee Attack")
+	then
 		skill = self["Strength"]
 	end
 	base = base + skill

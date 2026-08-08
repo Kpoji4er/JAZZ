@@ -33,8 +33,16 @@
 | `Jazz_Perk_Vince` | Винс | Пока в отряде: ~−25% расход аптечек/Meds (шанс не потратить заряд) |
 | `Jazz_Perk_Steiger` | Штайгер | Ночь/подземка: союзники ≤10 получают +5 CTH |
 | `Jazz_Perk_Mike` | Майк | Overwatch/PinDown +2 атаки; реакции, когда доступны |
-| `GrizzlyPerk` | Grizzly | Сигнатура MG: игнор штрафов без опоры; −урон / контроль отдачи |
-| `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP первый ход |
+| `GrizzlyPerk` | Grizzly | Сигнатура MG: игнор без опоры; **2×** пули и **2×** подавление; −урон / контроль отдачи |
+| `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP; далее шанс `10%×БД` снова дать +50% AP |
+| `YouSeeIgor` | Ivan | Убийство → **+3 ОД** |
+| `WeGotThis` | Gus | Убийство → **+10 Grit** всему отряду |
+| `NailsPerk` | Nails | После первого убийства в бою **+20%** урона |
+| `JackOfAllTrades` | Wolf | Спутниковые операции **−33%** времени |
+| `SecondStoryMan` | Magic | С высоты **+50%** крит |
+| `ShoulderToShoulder` | Scully | Конец хода рядом с союзником: **+15 Grit** себе и соседям |
+| `SteroidPunch` | Steroid | Melee CTH от Силы; melee crit → Unconscious; без штрафа стиму; **30%** урона от огня |
+| `IcePerk` | Ice | Сигнатура: пять выстрелов по конечностям (текст; shot-list runtime — см. deferred) |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI-офицеры | Аура командира; в тултипе — **текущий приказ**. Подробности: [Командная аура](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (личностные) | Диалоговые опции Negotiator/Scoundrel/Psycho без их боевых/эконом. эффектов |
 | `Jazz_Perk_Veteran` | IMP (личностные) | +10 ко всем skill/stat checks |
@@ -42,9 +50,9 @@
 
 Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
 
-## §A (UNITS-006) — переписанная Wave A
+## §A / §C (UNITS-006)
 
-Перечень выше для Madman / Blade / Nervous / Henning / Dynamo / Lucky / Shank / Laura / Vince / Steiger / Mike — целевой Лист2 (не старый Wave A текст). Статусы: `Jazz_OrderAP` (Хеннинг), `Jazz_CombatMedicBuff` (Лора), `Jazz_OrderCTH` (Штайгер).
+§A (Madman / Blade / Nervous / Henning / Dynamo / Lucky / Shank / Laura / Vince / Steiger / Mike) и §C combat CHANGE batch2 (Grizzly G1, Grunty Morale, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid; Ice — текст) — целевой Лист2. Статусы: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
 
 ## IMP: стартовый экип
 
@@ -56,4 +64,4 @@
 
 ## Итог для игрока
 
-Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + §A (**Бешеный, Бритва, Нервный, Хеннинг, Злобный, Динамо, Эскимо, Лаки, Шенк, Зануда, Лора, Винс, Штайгер, Майк**) и Grizzly/Grunty.
+Рабочие именные эффекты: **Фраг, Тоска, Рысь, Паук, Колби** + §A + §C batch2 (**Гризли G1, Хряпти Morale, Иван, Гас, Нейлс, Вульф, Мэджик, Скалли, Анаболик**; Ice — текст/сигнатура vanilla) и Grizzly/Grunty.

@@ -20,6 +20,8 @@
 | `_diff_list2_sheet.py` (alias `_tmp_diff_list2_sheet.py`) | Diff Google Sheet Лист2 perk cols (fresh TSV export vs prior WebFetch) for JAZZ-UNITS-006. |
 | `_apply_units006_batch1_items_loc.py` | UNITS-006 §A batch1: sync `items.lua` ModItem CE from companions + `Jazz_OrderAP`/`Jazz_CombatMedicBuff`, metadata.code, RU/EN CSV for touched perk/status IDs. |
 | `_apply_units006_batch1_hooks.py` | UNITS-006 batch1: register `System_NamedPerks_006` in metadata.code; Vince skip-consume wrap in `Systems_Medicine.lua`. |
+| `_apply_units006_batch2_items_loc.py` | UNITS-006 §C batch2: sync vanilla personal CE companions (`GruntyPerk_JAZZ`, `GrizzlyPerk`, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid/Ice), metadata.code, RU/EN CSV (`6500+` + Grizzly/Grunty desc). |
+| `_units006_batch2_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
 | `_restore_metadata_code_load.py` | После Mod Editor rewrite: вернуть в `metadata.code` критичные `Code/*.lua` (InventoryStacks, ReloadStyle, RemovableModify, …) и пути `InventoryItem/vanillunique/*`; убрать плоские дубликаты. |
 | `_audit_metadata_code_coverage.py` | Disk/git `Code/**/*.lua` ↔ `metadata.code`: unexpected MISS / EXTRA; allowlist dormant/source-only (`AME_Browser_Template`, empty stubs, …). Exit 1 = FAIL. |

@@ -1,7 +1,9 @@
--- JAZZ-UNITS-006 §A (+ shared helpers for Nervous stack / Lucky / Dynamo / Vince / Mike / Blade Brutalize)
--- Loc exclusive note: 6300-6499 occupied by VR; new CE text uses free 6218+ and existing perk IDs.
+-- JAZZ-UNITS-006 §A + §C Batch2 (Grizzly G1, JackOfAll ops, Steroid melee CTH, …)
+-- Loc exclusive note: 6300-6499 occupied by VR; batch2 CE text uses 6500+.
 
 g_JAZZ_NamedPerks006Wrapped = rawget(_G, "g_JAZZ_NamedPerks006Wrapped") or false
+g_JAZZ_NamedPerks006Batch2Wrapped = rawget(_G, "g_JAZZ_NamedPerks006Batch2Wrapped") or false
+g_JAZZ_JackOfAllOpsBase = rawget(_G, "g_JAZZ_JackOfAllOpsBase") or false
 
 local function lHas(unit, perk)
 	return unit and HasPerk(unit, perk)
@@ -101,7 +103,55 @@ local function lInstallNamedPerks006()
 	rawset(_G, "g_JAZZ_NamedPerks006Wrapped", true)
 end
 
-OnMsg.ModsReloaded = lInstallNamedPerks006
-OnMsg.DataLoaded = lInstallNamedPerks006
-OnMsg.NewGame = lInstallNamedPerks006
-OnMsg.LoadGame = lInstallNamedPerks006
+local function lInstallNamedPerks006Batch2()
+	if rawget(_G, "g_JAZZ_NamedPerks006Batch2Wrapped") then
+		return
+	end
+
+	-- GrizzlyPerk signature: 2× suppression on GetActionResults (shots doubled in GetAutofireShots).
+	local ca = CombatActions and CombatActions.GrizzlyPerk
+	if ca and type(ca.GetActionResults) == "function" and not rawget(ca, "JazzUnits006GrizzlyWrapped") then
+		local base_grizzly = ca.GetActionResults
+		ca.GetActionResults = function(self, unit, args)
+			args = args and table.copy(args) or {}
+			local base_sup = args.suppressionbonus or 100
+			args.suppressionbonus = base_sup * 2
+			return base_grizzly(self, unit, args)
+		end
+		rawset(ca, "JazzUnits006GrizzlyWrapped", true)
+	end
+
+	-- Wolf JackOfAllTrades: −33% satellite operation time (JAZZ wrap; CE param jazz_ops_bonus is display-only).
+	local base_ops = rawget(_G, "GetOperationTimeLeft")
+	if type(base_ops) == "function" and not rawget(_G, "g_JAZZ_JackOfAllOpsBase") then
+		rawset(_G, "g_JAZZ_JackOfAllOpsBase", base_ops)
+		rawset(_G, "GetOperationTimeLeft", function(merc, operation_id, ...)
+			local t = g_JAZZ_JackOfAllOpsBase(merc, operation_id, ...)
+			if type(t) == "number" and merc and HasPerk(merc, "JackOfAllTrades") then
+				local perk = merc.GetStatusEffect and merc:GetStatusEffect("JackOfAllTrades")
+				local bonus = (perk and perk.ResolveValue and perk:ResolveValue("jazz_ops_bonus")) or 33
+				t = MulDivRound(t, 100 - bonus, 100)
+			end
+			return t
+		end)
+	end
+
+	rawset(_G, "g_JAZZ_NamedPerks006Batch2Wrapped", true)
+end
+
+OnMsg.ModsReloaded = function()
+	lInstallNamedPerks006()
+	lInstallNamedPerks006Batch2()
+end
+OnMsg.DataLoaded = function()
+	lInstallNamedPerks006()
+	lInstallNamedPerks006Batch2()
+end
+OnMsg.NewGame = function()
+	lInstallNamedPerks006()
+	lInstallNamedPerks006Batch2()
+end
+OnMsg.LoadGame = function()
+	lInstallNamedPerks006()
+	lInstallNamedPerks006Batch2()
+end

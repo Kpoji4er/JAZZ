@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -468,10 +468,9 @@ ID,Text,Translation,VoiceActor,Context
 102970979232,"Ого! Господи, что со мной могло случится!","Whoa! Dear God, what could've happened to me!",,jazz-units:items.lua:70217
 103474241264,"Вот черт! Я, конечно, терпеть не могла Монику, но уж точно не желала ей смерти. И уж точно не хотела убивать ее сама! Записываю время смерти...","Damn it! I couldn't stand Monica, but I never wanted her dead—and I certainly never wanted to kill her myself. Recording the time of death...",,jazz-units:items.lua:70048
 104635909892,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одноручный
-272740235755,"Сигнатурная атака из пулемета игнорирует штрафы <em>без опоры</em> к точности и отдаче, дает более длинную очередь с пониженным уроном и гораздо лучше удерживает отдачу.","<em>Signature machine-gun attack</em> ignores <em>unsupported</em> accuracy and recoil penalties, fires a longer burst with reduced damage, and keeps much tighter recoil control.",,jazz:CharacterEffect/GrizzlyPerk.lua
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Складной приклад
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Скорострельный
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Как УЗИшка, только не УЗИ","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One-handed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Как УЗИшка, только не УЗИ""""""","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One-handed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Folding stock
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> High rate of fire
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Like an Uzi, except it isn't one",,jazz:InventoryItem/MAC10.lua:16 | jazz:items.lua:18746
@@ -852,7 +851,7 @@ Requires at least 30 rounds loaded",,jazz:items.lua:68076
 194915769887,<em>Lalee</em> in <em><SectorName('H19')></em> can probably provide a <em>passport</em> for <em>Karen</em>,<em>Lalee</em> in <em><SectorName('H19')></em> can probably provide a <em>passport</em> for <em>Karen</em>,,jazz-maps:items.lua:49080
 196360289661,"Хорошо, что мы прибыли вовремя",Good thing we arrived in time.,,jazz-maps:items.lua:30055
 196405827903,Ламберт,Lambert,,jazz-units:Code/Mercenary.lua:70
-197266793683,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_4Class.lua:11 | jazz:items.lua:97738
+197266793683,Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.,Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_4Class.lua:11 | jazz:items.lua:97738
 197268689344,Raised the Legion flag on <em><SectorName('K4')></em>,Raised the Legion flag on <em><SectorName('K4')></em>,,jazz-maps:items.lua:81402
 197360050229,Рюкзаки отряда,Squad Backpacks,,jazz:items.lua:85780
 197372367064,"Бронежилет СВМПЭ, Тяжелый",Heavy UHMWPE Body Armor,,jazz:InventoryItem/JazzArmor_UHMWPEFull.lua:12 | jazz:items.lua:56409
@@ -2549,7 +2548,7 @@ May recover over time after treatment or while at high Health.",,jazz:CharacterE
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Reliably penetrates Armor Class 4",,jazz:InventoryItem/_762NATO_AP.lua:14 | jazz:items.lua:9666
 538755371034,"Керамическая пластина 5 класса защиты. Очень крепкая. Керамические пластины менее долговечные, чем стальные, но лучше защищают.","Class 5 ceramic plate. Extremely tough. Ceramic plates are less durable than steel, but provide better protection.",,jazz:InventoryItem/JazzArmorPlates_Ceramics5.lua:15 | jazz:items.lua:57270
 538817396599,"Жирафьи выблядки. Лезут со всех щелей, как тараканы, мля.","Giraffe-spawned bastards. Crawling out of every crack like cockroaches, for fuck's sake.",,jazz-units:items.lua:70979
-538937825340,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_1Class.lua:11 | jazz:items.lua:97686
+538937825340,Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.,Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_1Class.lua:11 | jazz:items.lua:97686
 539019407378,M700,M700,,jazz:InventoryItem/M700.lua:13 | jazz:items.lua:24682
 539332597589,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный 
@@ -2608,7 +2607,7 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 548094068432,A hidden treasure found under one of the ritual stones at the <em><SectorName('J18')></em>,A hidden treasure found under one of the ritual stones at the <em><SectorName('J18')></em>,,jazz-maps:items.lua:74907
 548780115142,Коммандо,Commando,,jazz-units:items.lua:37291 | jazz-units:UnitData/ThugGunner_Stronger.lua:20
 549151219359,Фрагу - фраг!,A frag for Frag!,,jazz-units:items.lua:70874
-549247357132,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_5Class.lua:11 | jazz:items.lua:97755
+549247357132,Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.,Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_5Class.lua:11 | jazz:items.lua:97755
 549259538075,Ствол: Увеличивает дальность на <BarrelRangeIncrease>,Barrel: Increases range by <BarrelRangeIncrease>,,jazz:items.lua:31876
 549476191424,НСТЛ,NSTL,,jazz:items.lua:69351
 549508021001,Укреп район Какао,Port Cacao Fortifications,,jazz-maps:items.lua:8337 | jazz-maps:items.lua:44862
@@ -3811,7 +3810,7 @@ Back the way you came, on the shore—right here. Take it. That's all I can give
 805863336928,Отлично. Я здесь.,Great. I'm here.,,jazz-units:items.lua:69082
 806529866191,Обыскать,Loot,,jazz:items.lua:83796
 806826966692,Защита для глаз во время песчанных бурь,Eye protection during sandstorms,,mag-hint-aligned
-806830590860,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_3Class.lua:11 | jazz:items.lua:97721
+806830590860,Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.,Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_3Class.lua:11 | jazz:items.lua:97721
 807134295687,Сайленд,Silent,,jazz-units:Code/Mercenary.lua:171
 807341295104,Фордж,Forge,,jazz-units:Code/Mercenary.lua:142
 807861534450,"Ну вы чо, парни, куда вы лупите? Целик, мушка, мишень! Мишени - это вон те трафареты, мля!","Come on, guys, where are you shooting? Rear sight, front sight, target! The targets are those silhouettes over there, fuckers!",,jazz-units:items.lua:70986
@@ -3990,7 +3989,7 @@ Gain <color EmStyle>Grit</color> (<color EmStyle><nextToEnemyGrit></color>) when
 845156775611,"<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
 ","<em>Outcome:</em> Fortified the <em><SectorName('I5')></em> with Militia but no Machine Gun
 ",,jazz-maps:items.lua:95921
-845332100943,Дает +50% од на первом ходу,Grants +50% AP on the first turn,,jazz:CharacterEffect/GruntyPerk_JAZZ.lua:19 | jazz:items.lua:65675
+845332100943,В начале боя получает +50% ОД на первый ход. На каждом следующем ходу с шансом <em>10% × уровень боевого духа</em> снова получает тот же бонус (+50% ОД).,"At combat start gains +50% AP for the first turn. On each later turn, with chance <em>10% × personal morale level</em>, gains the same +50% AP buff again.",,jazz:CharacterEffect/GruntyPerk_JAZZ.lua
 845823474288,<DisplayName>,<DisplayName>,,jazz-maps:items.lua:9412
 845995818811,Мультивыбор,Multiselect,,jazz:items.lua:85636
 846025204149,"Бронежилет Зилон, Тяжелый",Heavy Zylon Body Armor,,jazz:InventoryItem/JazzArmor_ZylonFull.lua:13 | jazz:items.lua:55967
@@ -5520,7 +5519,7 @@ Move to a new location and then shoot the closest enemy.",,jazz-units:items.lua:
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Cannot be repaired
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:InventoryItem/Wirecutter.lua:13 | jazz:items.lua:56817
 997206919165,ВЗЯТЬ ВСЁ,TAKE ALL,,jazz:items.lua:81417
-997296420646,"Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.",Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_2Class.lua:11 | jazz:items.lua:97704
+997296420646,Каждый стак: −1 ОД свободного перемещения. Тяжёлый комплект может снизить стартовые ОД (до −2). При 6+ стаках: +1 боль при первом перемещении за ход.,Each stack: -1 Free Move AP. A heavy kit may also cut start-of-turn AP (up to -2). At 6+ stacks: +1 Pain on the first move this turn.,,jazz:CharacterEffect/Weight_2Class.lua:11 | jazz:items.lua:97704
 997322139649,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,,jazz-maps:items.lua:95529
 997417029186,Да я еще даже не вспотел!..,I haven't even broken a sweat!,,jazz-units:items.lua:69028
 997521063108,"Надоело, надоело, надоело!","I'm sick of it, sick of it, sick of it!",,jazz-units:items.lua:69479
@@ -8625,22 +8624,22 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006497,Мои раны незначительны. Невосстановимых поражений быть не должно.,My wounds are minor. There should be no permanent damage.,,jazz-units:items.lua:VoiceResponse
 890000000006498,Мне нужны боеприпасы к оружию.,I need ammunition.,,jazz-units:items.lua:VoiceResponse
 890000000006499,Силы врага в пределах прямой видимости.,Enemy forces within line of sight.,,jazz-units:items.lua:VoiceResponse
-890000000006500,Задание выполнено. Жду приказаний.,Mission accomplished. Awaiting orders.,,jazz-units:items.lua:VoiceResponse
-890000000006501,"Всегда можно найти, в чем стать лучше.",There's always something you can improve.,,jazz-units:items.lua:VoiceResponse
-890000000006502,Только не это.,Not this.,,jazz-units:items.lua:VoiceResponse
-890000000006503,"Просто еще один пример того, как отлично работает Волк.",Just another example of Wolf's excellent work.,,jazz-units:items.lua:VoiceResponse
-890000000006504,Теперь я работаю.,Now I work.,,jazz-units:items.lua:VoiceResponse
-890000000006505,Ничтожество!,Worthless!,,jazz-units:items.lua:VoiceResponse
-890000000006506,Вижу их! Вижу эти ничтожества!,I see them! I see those wretches!,,jazz-units:items.lua:VoiceResponse
-890000000006507,"Прощай, ничтожество!","Farewell, wretch!",,jazz-units:items.lua:VoiceResponse
-890000000006508,Мне больно. Очень больно.,I'm in pain. A lot of pain.,,jazz-units:items.lua:VoiceResponse
-890000000006509,"Больно, Мистер Джек.","It hurts, Mr. Jack.",,jazz-units:items.lua:VoiceResponse
-890000000006510,Ищу пулю. Нет больше пуля.,Looking for bullet. No more bullet.,,jazz-units:items.lua:VoiceResponse
-890000000006511,Вижу их! Вижу эти ничтожества!,I see them! I see those wretches!,,jazz-units:items.lua:VoiceResponse
-890000000006512,"Я закончил, босс.","I'm finished, boss.",,jazz-units:items.lua:VoiceResponse
-890000000006513,У меня все в порядке.,I'm all right.,,jazz-units:items.lua:VoiceResponse
-890000000006514,Только не это.,Not this.,,jazz-units:items.lua:VoiceResponse
-890000000006515,Отличная работа.,Great work.,,jazz-units:items.lua:VoiceResponse
+890000000006500,"Видишь, Игорь…","You See, Igor…",,jazz:CharacterEffect/YouSeeIgor.lua
+890000000006501,За каждое убийство получает <em>+3 ОД</em> (не полное восстановление ОД).,Each kill grants <em>+3 AP</em> (not a full AP restore).,,jazz:CharacterEffect/YouSeeIgor.lua
+890000000006502,Мы справимся,We Got This,,jazz:CharacterEffect/WeGotThis.lua
+890000000006503,После убийства весь отряд получает <em>+10 Силы воли (Grit)</em>.,"After a kill, the whole squad gains <em>+10 Grit</em>.",,jazz:CharacterEffect/WeGotThis.lua
+890000000006504,Гвоздь в цель,Nailed It,,jazz:CharacterEffect/NailsPerk.lua
+890000000006505,После первого убийства в бою все атаки наносят <em>+20% урона</em> до конца боя.,"After the first kill in combat, all attacks deal <em>+20% damage</em> until combat ends.",,jazz:CharacterEffect/NailsPerk.lua
+890000000006506,Мастер на все руки,Jack of All Trades,,jazz:CharacterEffect/JackOfAllTrades.lua
+890000000006507,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,Any satellite operations complete about <em>33% faster</em>.,,jazz:CharacterEffect/JackOfAllTrades.lua
+890000000006508,Человек со второго этажа,Second Story Man,,jazz:CharacterEffect/SecondStoryMan.lua
+890000000006509,Атаки <em>сверху</em> получают <em>+50%</em> к шансу критического удара.,Attacks from <em>high ground</em> gain <em>+50%</em> crit chance.,,jazz:CharacterEffect/SecondStoryMan.lua
+890000000006510,Плечом к плечу,Shoulder to Shoulder,,jazz:CharacterEffect/ShoulderToShoulder.lua
+890000000006511,"В конце хода, если рядом есть союзник (≤1 клетка), Скалли и ближайшие союзники получают <em>+15 Силы воли (Grit)</em>.","At turn end, if an ally is adjacent (≤1 tile), Scully and nearby allies gain <em>+15 Grit</em>.",,jazz:CharacterEffect/ShoulderToShoulder.lua
+890000000006512,Удар анаболика,Steroid Smash,,jazz:CharacterEffect/SteroidPunch.lua
+890000000006513,Точность всего ближнего боя считается от <em>Силы</em>. Критический удар в ближнем бою валит цель (<em>Нокаут</em>). Нет штрафа от стимуляторов. От огня получает только <em>30%</em> урона.,All melee accuracy uses <em>Strength</em>. A melee crit knocks the target out (<em>Unconscious</em>). No stim accuracy penalty. Takes only <em>30%</em> fire damage.,,jazz:CharacterEffect/SteroidPunch.lua
+890000000006514,Ледяной шторм,Ice Storm,,jazz:CharacterEffect/IcePerk.lua
+890000000006515,Сигнатурная атака: пять выстрелов по конечностям цели.,Signature attack: five shots at the target's limbs.,,jazz:CharacterEffect/IcePerk.lua
 890000000006516,Я включился.,I'm switched on.,,jazz-units:items.lua:VoiceResponse
 890000000006517,Солдаты.,Soldiers.,,jazz-units:items.lua:VoiceResponse
 890000000006518,"Я знал, что они близко.",I knew they were close.,,jazz-units:items.lua:VoiceResponse
@@ -12466,3 +12465,4 @@ Speck",,JAZZ-UI-MERC-001
 890000000004853,Внутри я тёплый и пушистый.,Inside I am warm and fuzzy.,,Jazz_Iggy
 890000000004854,"Хорошо, что Фиделя тут нет.",Good thing Fidel's not here.,,Jazz_Iggy
 890000000004855,Со своими — проще.,Easier with our own.,,Jazz_Iggy
+272740235755,"<em>Сигнатурная пулемётная атака</em> игнорирует штрафы <em>без опоры</em> к точности и отдаче, даёт <em>вдвое больше пуль</em> и <em>вдвое сильнее подавление</em>, при пониженном уроне и жёстком контроле отдачи. Обычная очередь пулемёта эти бонусы не получает.","<em>Signature machine-gun attack</em> ignores <em>unsupported</em> accuracy and recoil penalties, fires <em>twice as many shots</em> with <em>double suppression</em>, reduced damage, and tight recoil control. Ordinary MG burst does not get these bonuses.",,jazz:CharacterEffect/GrizzlyPerk.lua

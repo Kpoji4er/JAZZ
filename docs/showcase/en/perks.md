@@ -33,8 +33,16 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `Jazz_Perk_Vince` | Vince | While in squad: ~−25% medkit/Meds spend (chance to skip a charge) |
 | `Jazz_Perk_Steiger` | Steiger | Night/underground: allies ≤10 get +5 CTH |
 | `Jazz_Perk_Mike` | Mike | Overwatch/PinDown +2 attacks; reactions when available |
-| `GrizzlyPerk` | Grizzly | Signature MG: ignore unsupported penalties; −dmg / recoil control |
-| `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP first turn |
+| `GrizzlyPerk` | Grizzly | Signature MG: ignore unsupported; **2×** shots and **2×** suppression; −dmg / recoil control |
+| `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP; later turns `10%×morale` chance for the same buff |
+| `YouSeeIgor` | Ivan | Kill → **+3 AP** |
+| `WeGotThis` | Gus | Kill → **+10 Grit** to whole squad |
+| `NailsPerk` | Nails | After first kill in combat **+20%** damage |
+| `JackOfAllTrades` | Wolf | Satellite ops **−33%** time |
+| `SecondStoryMan` | Magic | From high ground **+50%** crit |
+| `ShoulderToShoulder` | Scully | End turn next to ally: **+15 Grit** to self and neighbors |
+| `SteroidPunch` | Steroid | Melee CTH from Strength; melee crit → Unconscious; no stim pen; **30%** fire damage taken |
+| `IcePerk` | Ice | Signature: five limb shots (text; shot-list runtime deferred) |
 | `Jazz_Perk_OfficerAura` / `…Influence` | AI officers | Commander aura; tooltip shows the **current order**. Details: [Command aura](officer-aura.md) |
 | `Jazz_Perk_Mimicry` | IMP (personal) | Conversation options for Negotiator/Scoundrel/Psycho without their combat/economy effects |
 | `Jazz_Perk_Veteran` | IMP (personal) | +10 to all skill/stat checks |
@@ -42,9 +50,9 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 
 Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle remains Spouke-only (`Jazz_Perk_00`).
 
-## §A (UNITS-006) — rewritten Wave A
+## §A / §C (UNITS-006)
 
-Rows above for Madman / Blade / Nervous / Henning / Dynamo / Lucky / Shank / Laura / Vince / Steiger / Mike match List2 (not old Wave A copy). Status markers: `Jazz_OrderAP` (Henning), `Jazz_CombatMedicBuff` (Laura), `Jazz_OrderCTH` (Steiger).
+§A (Madman / Blade / Nervous / Henning / Dynamo / Lucky / Shank / Laura / Vince / Steiger / Mike) and §C combat CHANGE batch2 (Grizzly G1, Grunty Morale, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid; Ice text) match List2. Status markers: `Jazz_OrderAP`, `Jazz_CombatMedicBuff`, `Jazz_OrderCTH`, `Grunty_AdditionalAP`.
 
 ## IMP starting gear
 
@@ -56,4 +64,4 @@ Other wave named perks (Ira, Miguel, Grom, Biff, …) — Wave B/C; see `docs/de
 
 ## Player takeaway
 
-Working named effects: **Spouke, Tosca, Lynx, Spider, Colby** + §A (**Madman, Blade, Nervous, Henning, Vicious, Dynamo, Eskimo, Lucky, Shank, Vilde, Laura, Vince, Steiger, Mike**) and Grizzly/Grunty.
+Working named effects: **Spouke, Tosca, Lynx, Spider, Colby** + §A + §C batch2 (**Grizzly G1, Grunty Morale, Ivan, Gus, Nails, Wolf, Magic, Scully, Steroid**; Ice text/vanilla signature) and Grizzly/Grunty.

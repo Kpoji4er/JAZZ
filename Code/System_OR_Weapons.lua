@@ -266,6 +266,10 @@ function FirearmBase:GetAutofireShots(action)
 			burst = shots_from_rpm(200, 2, 8) or 3
 		end
 		shots = burst * 2
+	elseif action.id == "GrizzlyPerk" then
+		-- UNITS-006 G1: signature only — 2× authored num_shots (default 8 → 16).
+		shots = action:ResolveValue("num_shots") or shots
+		shots = shots * 2
 	end
 	return Max(1, shots or 1)
 end

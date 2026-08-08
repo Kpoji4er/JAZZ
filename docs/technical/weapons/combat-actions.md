@@ -439,6 +439,7 @@ visible_actions =
 - **Совместимость:** `MachineGun` и `LightMachineGun`; перк выдан Гризли в stable `jazz-units`.
 - **Поведение:** одна атака через исполнитель `MGBurstFire`.
 - **Урон:** preset содержит штраф урона 50%.
+- **Очередь / подавление (UNITS-006 G1):** только `action.id == "GrizzlyPerk"` → **2×** `num_shots` (`GetAutofireShots`) и **2×** `suppressionbonus` (wrap `GetActionResults`). Обычный `MGBurstFire` — без этого.
 - **Отдача:** severity `0.8 × Recoil` и action factor `0.55`; **игнорирует** unsupported recoil `class_factor` ×2/×1.5. Обычный `MGBurstFire` Гризли по-прежнему получает полный unsupported class_factor.
 - **CTH:** игнорирует first-bullet штраф «Без опоры» (−50/−25 × Сила); обычная очередь — нет.
 - **Целевая роль:** фирменная длинная управляемая очередь с бедра без упора, не пассив на все MG-атаки.
