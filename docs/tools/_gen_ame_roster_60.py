@@ -47,6 +47,35 @@ SPECIALIZATION_TRAITS = frozenset(
     }
 )
 
+# Sparse Personality-tier perks (~12/60). Not Mimicry/Veteran (IMP-only).
+# Slot numbers are 1-based roster indices (JAZZ_AME_NN).
+PERSONALITY_TRAITS = frozenset(
+    {
+        "Negotiator",
+        "Scoundrel",
+        "Psycho",
+        "Stealthy",
+        "Optimist",
+        "Pessimist",
+        "Loner",
+    }
+)
+
+AME_PERSONALITY_BY_SLOT: dict[int, str] = {
+    1: "Negotiator",
+    3: "Negotiator",
+    6: "Loner",
+    11: "Psycho",
+    14: "Scoundrel",
+    21: "Pessimist",
+    32: "Stealthy",
+    38: "Optimist",
+    39: "Psycho",
+    47: "Scoundrel",
+    50: "Optimist",
+    56: "Stealthy",
+}
+
 
 def stable_roll(name: str, mod: int = 5) -> int:
     return sum(ord(c) for c in name) % mod
@@ -72,7 +101,20 @@ def add(**kw):
     kw["lvl"] = 1
     traits = kw.get("traits") or []
     kw["traits"] = [t for t in traits if t in SPECIALIZATION_TRAITS]
+    # Personality attached after full roster build (slot-stable map).
+    kw.setdefault("personality", None)
     ROSTER.append(kw)
+
+
+def apply_personality_map() -> None:
+    assert len(AME_PERSONALITY_BY_SLOT) == 12, "AME personality sparsity target is 12/60"
+    for slot, perk in AME_PERSONALITY_BY_SLOT.items():
+        if perk not in PERSONALITY_TRAITS:
+            raise ValueError(f"slot {slot}: unknown personality {perk}")
+        ROSTER[slot - 1]["personality"] = perk
+    for i, m in enumerate(ROSTER, start=1):
+        if i not in AME_PERSONALITY_BY_SLOT:
+            m["personality"] = None
 
 
 def _roster_slot(m: dict) -> int:
@@ -671,6 +713,8 @@ AME_STARTING_SALARIES = (
 for _slot, _salary in enumerate(AME_STARTING_SALARIES, 1):
     ROSTER[_slot - 1]["salary"] = _salary
 
+apply_personality_map()
+
 # Specialization icons: role specialists only; line troops = combat quartet.
 _LINE_SPECS = frozenset({"AllRounder", "Autoriflemen", "HeavyWeapons", "Marksmen"})
 _SPECIALIST_SPECS = frozenset({"Doctor", "Leader", "Marksmen", "ExplosiveExpert", "Mechanic"})
@@ -707,6 +751,11 @@ def render() -> str:
     lines.append("- Voice pool: Jazz remesh majority (`Jazz_AME_Male_Low` / `Male_Hard` / `Female`) + `PierreMerc` variety (~1/8 males on bucket) + small IMP minority (~1/8; VR → `IMP_male_01` / `IMP_female_01`).")
     lines.append("- **Bio canon:** самостоятельные RU+EN биографии и двуязычные profile blurbs; без мета-цифр статов/тиров.")
     lines.append("- Nick: в основном Hardened. Grand Chien: заметная доля.")
+    lines.append(
+        "- **Personality:** sparse — **12/60** slots get one Personality-tier perk "
+        "(`Negotiator`/`Scoundrel`/`Psycho`/`Stealthy`/`Optimist`/`Pessimist`/`Loner`); "
+        "no Mimicry/Veteran. AME hire Loadout still hides Traits strip."
+    )
     lines.append("")
 
     by_cat: dict[str, list[tuple[int, dict]]] = {}
@@ -729,6 +778,8 @@ def render() -> str:
             lines.append(f"- **Potential (Wisdom):** {pot(m['stats']['Wisdom'])}")
             traits = ", ".join(f"`{t}`" for t in m["traits"]) if m["traits"] else "—"
             lines.append(f"- **Traits (common):** {traits}")
+            pers = m.get("personality")
+            lines.append(f"- **Personality:** `{pers}`" if pers else "- **Personality:** —")
             lines.append(f"- **Voice:** `{voice_pool_label(m)}` → VR `{voice_for(m)}`")
             app = appearance_for(m, i)
             donor = appearance_donor_for(m, i)

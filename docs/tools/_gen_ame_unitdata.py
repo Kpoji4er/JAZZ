@@ -370,6 +370,15 @@ def loot_entry_rows(items: list[tuple[str, int]]) -> list[str]:
     return rows
 
 
+def starting_perks_list(m: dict) -> list[str]:
+    """Common specialization traits + optional sparse Personality-tier perk."""
+    perks = list(m.get("traits") or [])
+    pers = m.get("personality")
+    if pers and pers not in perks:
+        perks.append(pers)
+    return perks
+
+
 def perks_lua(traits: list[str]) -> str:
     if not traits:
         return "\tStartingPerks = {},"
@@ -447,7 +456,7 @@ def render_companion(slot: int, m: dict, mod) -> str:
         '\tMedicalDeposit = "none",',
         f"\tStartingSalary = {m['salary']},",
         f"\tStartingLevel = {m['lvl']},",
-        perks_lua(m.get("traits") or []),
+        perks_lua(starting_perks_list(m)),
         f'\tSpecialization = "{m["spec"]}",',
         f"\tMaxHitPoints = {stats['Health']},",
         f"\tAppearancesList = {{ PlaceObj('AppearanceWeight', {{ 'Preset', \"{appearance}\" }}) }},",
@@ -494,8 +503,9 @@ def render_items_block(roster: list[dict], mod) -> str:
         chat = chat_copy(m["cat"])
 
         perk_lines = ""
-        if m.get("traits"):
-            perk_lines = "\n".join(f"\t\t\t\t'{p}'," for p in m["traits"])
+        perks = starting_perks_list(m)
+        if perks:
+            perk_lines = "\n".join(f"\t\t\t\t'{p}'," for p in perks)
 
         unit_folders.append(
             f"\t\tPlaceObj('ModItemFolder', {{\n"

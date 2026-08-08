@@ -18,6 +18,7 @@ The PDA gets a separate site, **African Mercenary Exchange (A.M.E.)** — not a 
 - Real callsigns appear in the full name AIM-style: **Didier "Smoke" Mbemba**.
 - A.M.E. medics start with **50 medical supplies**, enough to treat wounds during operations.
 - A.M.E. cards omit the **Traits/Perks** strip (equipment only); AIM cards still show perks.
+- About **12 of 60** fighters still carry one personality trait (`Negotiator` / `Psycho` / `Stealthy`, etc.) — it applies after hire, but the A.M.E. shelf does not preview it.
 - Specialization icons: line troops only All-Rounder / Autorifleman / Heavy Weapons / Marksman; Doctor / Mechanic / Explosives / Leader icons are Specialists-only.
 - The cheapest irregulars cost about **$50** a week; most rates fall around **$100–$1000**, while specialists reach **$2000** — still below affordable AIM professionals such as Igor or Barry (~$3150–$3290).
 - Same chat/contract hire path; contract duration slider goes up to **30** days from the start (vanilla capped at 14). A.M.E. hires **do not** consume the AIM contact cap. Board rotation (~14 days) is separate from contract length.

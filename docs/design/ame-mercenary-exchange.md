@@ -19,7 +19,7 @@ Short bio per slot + varied origins: **mostly Africa**, with a solid share from 
 - Org / Affiliation: `AME`
 - UnitData slots: `JAZZ_AME_01` … `JAZZ_AME_60`
 - UI class: subclass of `PDAAIMBrowser` + separate XTemplate skin
-- Hire card **Loadout**: shows Equipment / Backpack only — **no Traits/Perks strip** (AIM keeps Perks)
+- Hire card **Loadout**: shows Equipment / Backpack only — **no Traits/Perks strip** (AIM keeps Perks). Sparse Personality still lives on UnitData (`StartingPerks`) for ~12/60 slots and applies after hire.
 - Hire pipeline: vanilla chat / `HireMerc` (no custom messenger)
 
 ### Logo (draft)
@@ -54,6 +54,10 @@ Inside Fighters + Hardened (not the Specialists filter), a share of slots are:
 | Grenadier | `HeavyWeapons` | often `Throwing` / `HeavyWeaponsTraining` |
 
 Line-troop Specialization icons are **only** that quartet. Soft roles `Doctor` / `Mechanic` / `ExplosiveExpert` / `Leader` appear **only** on Specialists (Medic / Mechanic / Sapper / Instructor). Sniper specialists use `Marksmen`.
+
+### Personality sparsity
+
+Exactly **12 / 60** slots get **one** Personality-tier perk (`Negotiator` / `Scoundrel` / `Psycho` / `Stealthy` / `Optimist` / `Pessimist` / `Loner`). No Mimicry/Veteran. Map: `01/03 Negotiator`, `06 Loner`, `11/39 Psycho`, `14/47 Scoundrel`, `21 Pessimist`, `32/56 Stealthy`, `38/50 Optimist`. Remaining slots have no personality.
 
 Target: at least ~30% of Fighters+Hardened slots are Autorifleman / Machinegunner / Grenadier.
 
