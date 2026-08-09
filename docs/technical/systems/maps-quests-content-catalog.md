@@ -122,7 +122,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | Squad ID | Смысл для локации | Типичный состав (сжато) |
 |---|---|---|
 | `LegionErnieVillage` | Гарнизон I5 | Много assault/pillager/crusher, marksmen, gunners (~десятки бойцов суммарно по слотам) |
-| `LegionOutlook_Easy` | M4 смотровая | Veteran + 5 gunners + assault + marksman + flankers |
+| `LegionOutlook_Easy` | M4 смотровая | ~30: 2× Grenadier, 1× Pyro, Marksman/Ambusher, Roughneck/Crusher, 1× Gunner (без T3 SkullCrusher) |
 | `LegionAttackers_JazzBalanced_Easy_Assault` | M5 | Крупный штурмовой пакет (лидеры, assault, gunners, grenadiers) |
 | `JAZZ_Legion_SentrySquad_AroundVilla` | K5/L5 охрана | Flankers/scouts + front T1 + optional gunner |
 | `JAZZ_Legion_VillaAttackers_K5` / `_L5` | Атакующие у виллы | Captain/Headsman + pillagers/raiders + gunner; L5 тяжелее (mortarman) |
