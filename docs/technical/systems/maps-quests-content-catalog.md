@@ -99,11 +99,11 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | I5 | Деревня Эрни | Главный хаб; ForceConflict; setpieces `ErnieReturn_FirstEnter`, `PierreLucTalk` | `LegionErnieVillage`, `LegionExtraSquadFireArms` | — |
 | I6 | Жестянка | Связан с liberate / fortify | — | — |
 | I6_Underground | Бункер FB45-68 | Underground I6; ForceConflict | — | — |
-| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost (`ErnieIsland`) | `FortressPierre`, `FortressDefenders`, `LegionFortressDefenders`, `LegionAttackers_Ordnance_Easy` | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
+| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost (`ErnieIsland`) | Target: `FortressPierre` + locked `FortressDefenders` (~48). `LegionFortressDefenders` **removed**; Ordnance drop planned | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
 | J4 | Дорога в Эрни | Переход | — | — |
 | J5 | Фермы Эрни | City ErnieVillage | FireArms, 2×Shooters_Easy, Balanced_Easy | — |
 | J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; Herman groups `HermanShaking` + `Herman`; music Ernie_* | — | — |
-| K4 | Флаговый холм | Label Ernie; ForceConflict; пять payoff-маркеров `Rebels_Help` привязаны к K4 | — | — |
+| K4 | Флаговый холм | Label Ernie; ForceConflict; `Jazz_VillaCounterAttack` after Emma Guests | — (no InitialSquads; Raiders map + sat siege) | — |
 | K5 | Походный лагерь Легиона | RescueTeam / RebelsSavior; после сдачи снабжения у палаток появляется `Merc_BarrySeal` | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
 | K6 | Запасной лагерь контрабандистов | City ErnieVillage; `Jazz_DeadPigs`, четыре союзника Балумбы после принятия | — | — |
 | L1 | База партизан | City Rebels_Ernie; квест MeetTheRebels | `LegionRaidSquad_01`, Heavy, `LegionJAZZSquadT2`, FireArms | — |
@@ -124,8 +124,10 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | `LegionErnieVillage` | Гарнизон I5 | Много assault/pillager/crusher, marksmen, gunners (~десятки бойцов суммарно по слотам) |
 | `LegionOutlook_Easy` | M4 смотровая | ~30: 2× Grenadier, 1× Pyro, Marksman/Ambusher, Roughneck/Crusher, 1× Gunner (без T3 SkullCrusher) |
 | `LegionAttackers_JazzBalanced_Easy_Assault` | M5 | Крупный штурмовой пакет (лидеры, assault, gunners, grenadiers) |
-| `JAZZ_Legion_SentrySquad_AroundVilla` | K5/L5 охрана | Flankers/scouts + front T1 + optional gunner |
-| `JAZZ_Legion_VillaAttackers_K5` / `_L5` | Атакующие у виллы | Captain/Headsman + pillagers/raiders + gunner; L5 тяжелее (mortarman) |
+| `JAZZ_Legion_SentrySquad_AroundVilla` | K3/K5/L3/L4/L5 охрана | **base 10** camp guard (не уходит в осаду) |
+| `JAZZ_Legion_VillaAttackers_K3`…`_L5` | Осадные волны лагерей | movable → K4 в `Jazz_VillaCounterAttack`; wipe camp = skip |
+| `JAZZ_Legion_VillaAttackers_Ernie` | Колонна с Эрни | **base 30**, всегда; не ClearTheWay |
+| `Jazz_VillaCounterAttack` | Flag Hill siege | Emma Guests → route + lock; AdvanceTo Emma; Wave2 CombatTurn≥3 (~25); late dump |
 | `FortressDefenders` | I7 | Sniper, gunners, pillager, grenadier, captain, rocketeer |
 | `LegionJAZZSquadT1` / `T2` | Патруль/strong I7 и L1 | Смешанные JAZZ_Legion tiers + bombard на T1 |
 | `LegionJAZZSquadT1_Early` | NoMaps default remap (COMPAT-005) | **Только** class T1; alias → T2/T3 при gear major II/III |
@@ -151,7 +153,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | `PierreDefeated` | Pierre | нет | I5, I7, K4, F19 | Пьер и информация о Майоре |
 | `JoseFamily` | Bastien | нет | I6, E9 | Bastien |
 | `LegionFlag` | Fooling Pierre | да | I7 | Скрытая ветка |
-| `Ernie_CounterAttack` | — | да | I5, I7 | Контратака; squad def `ErnieCounterAttack` (~37; 1 RPG + 2 AssaultT1_Grenadier + 1 mortar) |
+| `Ernie_CounterAttack` | — | да | I5, I7 | Контратака; squad def `ErnieCounterAttack` (**base 30** Normal; Easy−10/Hard+10 later; 1 RPG + 2 AssaultT1_Grenadier + 1 mortar; was ~37) |
 | `ErnieSideQuests` | — | да | I6, I7, M4 | Side logic Intro |
 | `ErnieSideQuests_WorldFlip` | — | да | I5, I7 | Side после betrayal |
 | `Demo` | — | нет | I7 | Demo marker |

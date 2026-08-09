@@ -163,6 +163,10 @@
 | `_retire_legion_fortress_defenders.py` | Удаляет `LegionFortressDefenders`; добавляет `FortressDefenders_NoMaps` (~16); NoMaps remap/garrison → half-size pack. |
 | `_dump_villa_squads.py` | Dump min–max composition of AroundVilla Sentry + VillaAttackers_K3/K5/L3/L4/L5 and sector Init totals. |
 | `_tighten_villa_squads.py` | Set Villa Sentry=10 + Attackers 12/13/14/15/16 (sector Normal 22–26); Easy/Hard ±10 documented in baseline. |
+| `_purge_k4_house_ambushers.py` | Remove K4 `HouseAmbushers`+`Legion` AdvanceTo; insert `VillaSiege_Wave2`×25 gated by `Jazz_VillaCounterAttack.Wave2Spawn`. |
+| `_add_villa_attackers_ernie.py` | Insert `JAZZ_Legion_VillaAttackers_Ernie` base 30 + metadata. |
+| `_wire_villa_counterattack.py` | Quest `Jazz_VillaCounterAttack` + FlagHill Guests + ModItemCode/metadata. |
+| `_verify_villa_counterattack_static.py` | Static: Ernie size, Wave2 count, old siege remaining=0. |
 | `_verify_guardpost_scripted_attack.py` | Guardpost: `ForceSet` does not call `CanSpawnNewSquad`; managed early-out kept on CanSpawn/Update/Spawn (scripted Ernie attack OK, vanilla auto muted). |
 | `_verify_nomaps_early_squad.py` | COMPAT-005: `LegionJAZZSquadT1_Early` all `T1_`; metadata Id; NoMaps remap/cap wiring. |
 | `_verify_nomaps_globals_predeclare.py` | NoMaps wrap flags predeclared at file top + `rawset` + `lQuestVarSafeSet`. |

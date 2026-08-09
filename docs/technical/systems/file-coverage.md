@@ -133,6 +133,7 @@
 | `System_JAZZ_CrocodilePatrol.lua` | loaded | [Карты](maps-quests-dialogue.md) |
 | `System_JAZZ_Vehicles.lua` | loaded | [Автотранспорт](satellite-vehicles.md), [дизайн maps](../../../JAZZ%20Maps/docs/combat-vehicle-design.md), [стратегия](strategy-squads-sectors.md) |
 | `System_JAZZ_VehicleCombat.lua` | loaded; tactical spawn dormant (`tactical_enabled=false`); stub устарел vs design | [Автотранспорт](satellite-vehicles.md), [дизайн maps](../../../JAZZ%20Maps/docs/combat-vehicle-design.md) |
+| `System_VillaCounterAttack.lua` | loaded | [Каталог карт/квестов](maps-quests-content-catalog.md), JAZZ-QUESTS-003 |
 | `UnitData/JAZZ_CombatHMMWV.lua` | loaded companion stub (не спавнится) | [Автотранспорт](satellite-vehicles.md) |
 | Appearance `JAZZ_HMMWV_Stub` | loaded stub (items) | [Автотранспорт](satellite-vehicles.md); будущий tactical Unit |
 | `System_JAZZ_CombatVehicle.lua` | **planned** (ещё нет в metadata) | [дизайн maps](../../../JAZZ%20Maps/docs/combat-vehicle-design.md) |
