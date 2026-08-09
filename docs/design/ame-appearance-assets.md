@@ -104,9 +104,10 @@ Never put male heads on female bodies or female heads on male bodies.
 - Any `Faction_Legion_Top_*` (war-paint / bare ceremonial torsos) → clothed safe top
 - `Faction_GrandChien_Top_05` — pale hands/arms despite dark BodyColor C1 (Claude)
 - `Shirt` meshes matching `*Glove*` — clear Shirt so arm skin shows
-- **Hard helmets / hats / turbans** on AME: strip `*Helmet*`, `LarryAddicted_Hat`, `FactionMale_Hat_*`, `NPCTraditional*_Hat*`, `NPCCostumeFemale_Hat*`, `Equipment*_Hat` — keep masks / scarves / glasses / headbands
-- **AME blue accent:** on **non-camo** gear only (`Shirt` if not camo → Chest → Hip → Armor → Body C2 → Hat2 scarf) — **never** Hat brim, **never** camo `Equipment*_(Shirt|Pants)_02` / militia camo tops
-- **Camo earth tones:** urban/woodland camo shirt+pants stay olive/brown (`_CAMO_EARTH`); if the kit is camo-only, add `Faction_Acc_Soldier` hip pouches (or similar) as the blue carrier so the uniform is not tinted blue
+- **Hard helmets / hats / turbans / balaclavas** on AME: strip `*Helmet*`, `LarryAddicted_Hat`, most `FactionMale_Hat_*`, `NPCTraditional*_Hat*`, `NPCCostumeFemale_Hat*`, `Equipment*_Hat`, `MilitiaCostumeMale_Mask_*`, `Faction_Thugs_Mask_*` — keep glasses / headbands / scarves
+- **Partial berets:** ~12 male slots get `FactionMale_Hat_01` or `NPCCostumeMale_Hat_03` in olive/brown/slate — **never** AME-blue berets
+- **AME blue accent:** on **non-camo** gear only (`Shirt` if not camo → Chest → Armor → Body C2 → Hat2 scarf) — **never** Hat/beret, **never** Hip pouches (blue pouches look bad), **never** camo `Equipment*_(Shirt|Pants)_02`
+- **Camo earth tones:** urban/woodland camo shirt+pants stay olive/brown; if camo-only kit, add `Faction_Acc_Recon_02` chest (not hip pouches) as blue carrier
 
 **Safe male pants (when replacing bad gear):** `Faction_Militia_Bottom_01`, `Faction_Rebels_Bottom_01`, `Faction_GrandChien_Bottom_03`
 

@@ -14,6 +14,12 @@
 | `_audit_ame_appearance_clothes_qa.py` | AME appearance clothes QA vs appearance-map (bank/channel checks). |
 | `_audit_ame_hat_not_blue.py` | Flag AME hats that violate no-blue accent policy. |
 | `_patch_ame_appearance_clothes_from_map.py` | Apply clothes fields from `ame-appearance-map.json` into generated appearance data. |
+| `_export_ammo_stats.py` | Parse `InventoryItem/JAZZ_AMMO_*.lua` → `Ammopics/_gen/ammo_stats.json` + `.csv` (pen/dmg/jam/crit/BR). |
+| `_gen_ammo_stats_canvas.py` | Rebuild `canvases/ammo-stats.canvas.tsx` from `ammo_stats_compact.json`. |
+| `_normalize_ammo_icon_bbox.py` | Crop near-black, fit ammo-box content into fixed `fit_w`×`fit_h` on 110×110 black canvas (series size lock). |
+| `_lock_ammo_icon_silhouette.py` | Silhouette lock per caliber. Cut: `--key auto\|magenta\|black\|alpha`, `--choke` after downscale, `--alpha-from draft\|sil`, `--thr`, `--hard-alpha`. Soft edge: `--soft-outline 0.45` / `--outline-only`. Prefer **magenta plate** gens. |
+| `_finalize_ammo_gen_batch.py` | Batch: lock Cursor `assets/gen_*.png` → `Ammopics/_gen` + soft outline + `--key` + optional `--purge-assets` (only listed files). |
+| `_paint_ammo_carton_family.py` | EXPERIMENT only — paint onto blank plate. Visual QA rejected for 9×18 (looks procedural). Prefer GenerateImage + `_lock_ammo_icon_silhouette.py`. |
 | `_list_jazz_legion_appearances.py` | List Jazz Legion appearance IDs for portrait tooling. |
 | `_scan_ame_hats.py` / `_dump_ame17.py` | Hat scan / AME-17 dump helpers for appearance audits. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
@@ -395,8 +401,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_ame_voice_subtitles_ru.py` | Канонический RU-перевод фактически слышимой donor-фразы для shared AME voice banks; не подменяет реплику текстом gameplay event. Неизвестная новая фраза — hard fail генератора. |
 | `_gen_ame_voice_responses.py` | Три shared VR: `Jazz_AME_Male_Low` (Legion alt `*-1.opus`, без Legion/Major/Grand Chien takes), `Jazz_AME_Male_Hard`, `Jazz_AME_Female`. Remesh только подходящие слоты; Selection/Order/CombatMovement **omit** → тишина. EN совпадает с audio, RU берётся из `_ame_voice_subtitles_ru.py`; generated loc принадлежит стабильному Context и переиспользует те же IDs даже после CSV round-trip без comment markers. |
 | `_gen_ame_appearances.py` | 60 `JAZZ_AME_NN` full regen from **vanilla** AP only; **1** синий акцент; Af head bank; без Legion war-paint / `GrandChien_Top_05`; red/extra-blue→slate; map `ame-appearance-map.json`. Policy: `docs/design/ame-appearance-assets.md`. |
-| `_patch_ame_appearance_clothes_from_map.py` | Clothing shuffle from map: jazz-units **canon `Legion*`** + Rebels/GC/keep; preserve Head/BodyC1/HeadColor; blue on **shirt/torso** (not hats); strip helmets/turbans/`FactionMale_Hat`/`Equipment*_Hat`; keep mask/scarf/glasses/headband; ♀ `NPCFemale_Hair_*` or empty if Hat/Hat2. `--dry-run` / `--write-map-only`. |
-| `_audit_ame_appearance_clothes_qa.py` | Static QA: Irregular jazz `Legion*` lean; no war-paint heads; no AIM hair; no hat+hair; no hard helmets. |
+| `_patch_ame_appearance_clothes_from_map.py` | Clothing shuffle from map: jazz-units **canon `Legion*`** + Rebels/GC/keep; preserve Head/BodyC1/HeadColor; strip helmets/turbans/balaclavas/`Equipment*_Hat`; ~12 male **berets** (earth, never blue); blue accent on non-camo Shirt/Chest/Armor/BodyC2/scarf — **not** Hat, **not** Hip pouches; camo earth + Recon chest carrier; ♀ `NPCFemale_Hair_*` or empty if Hat/Hat2. `--dry-run` / `--write-map-only`. Do **not** replace with bare `_gen_ame_appearances.py` (wipes jazz clothing). |
+| `_audit_ame_appearance_clothes_qa.py` | Static QA: Irregular jazz `Legion*` lean; no war-paint/AIM hair/hat+hair/helmets/balaclavas/blue hips; beret count. |
 | `_list_jazz_legion_appearances.py` | List handcrafted jazz-units `Legion*` AppearancePreset ids (canon pool). |
 | `_audit_patch_ame_heads.py` | Repair pass по `jazz-units/items.lua` AME: pale/AIM heads, ♀-on-♂, war-paint bodies, pale-hand `GrandChien_Top_05`, gloves Shirt, BodyColor C1, HeadColor 0. `--dry-run` / `--sync-map` / `--verbose`. Exit 0 ⇒ `bad_after=0`. |
 | `_audit_loot_upgrade_ids.py` | Audit `LootEntryUpgradedWeapon` upgrade IDs in `jazz-units/items.lua` vs known `JAZZ_*` WeaponComponent map. |

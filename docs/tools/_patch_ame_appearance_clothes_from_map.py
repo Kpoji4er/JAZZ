@@ -45,21 +45,36 @@ NPC_FEMALE_HAIR = [
     "NPCFemale_Hair_04",
 ]
 
-# Hard helmets + most hats/turbans look busy on AME — strip from Hat/Hat2.
-# Keep: face masks, shemagh/scarves, glasses, headbands.
+# Headwear policy (owner feedback):
+# - Strip: helmets, turbans, most caps, balaclavas/face masks, AIM Equipment*_Hat
+# - Keep: glasses, headbands, scarves
+# - Partial berets: FactionMale_Hat_01 / NPCCostumeMale_Hat_03 (slate, never blue)
 _HELMET_RE = re.compile(
     r"Helmet|WW2Helmet|SkullHat|LarryAddicted_Hat|"
     r"^FactionMale_Hat_08$|^FactionMale_Hat_09$",
     re.I,
+)
+_BALACLAVA_RE = re.compile(
+    r"MilitiaCostumeMale_Mask_|Faction_Thugs_Mask_|Mask_0",
+    re.I,
+)
+_BERET_MESHES = frozenset(
+    {
+        "FactionMale_Hat_01",  # Adonis/Rebel beret
+        "NPCCostumeMale_Hat_03",  # olive/brown beret
+    }
 )
 _STRIP_HEADWEAR_RE = re.compile(
     r"Helmet|WW2Helmet|SkullHat|LarryAddicted_Hat|"
     r"TraditionalMale_Hat|TraditionalFemale_Hat|"
     r"NPCCostumeFemale_Hat|"
     r"FactionMale_Hat_|"
+    r"NPCCostumeMale_Hat_|"  # strip all then re-add berets selectively
     r"NPCHyenaGilbert_Hat|"
-    r"Equipment\w+_Hat|"  # Red/Magic/Pierre/Blood/… hats — not Glasses/Headband
-    r"Equipment\w+_Cap",
+    r"Equipment\w+_Hat|"
+    r"Equipment\w+_Cap|"
+    r"MilitiaCostumeMale_Mask_|"
+    r"Faction_Thugs_Mask_",
     re.I,
 )
 # Urban/woodland camo shirts+pants — keep earth tones; never AME-blue these meshes.
@@ -78,6 +93,16 @@ _CAMO_EARTH = [
     ((56, 50, 32), (46, 42, 24), (38, 34, 20)),
     ((44, 48, 26), (60, 50, 30), (32, 36, 18)),
 ]
+# Neutral beret colors (never AME blue).
+_BERET_COLORS = [
+    (28, 32, 24),
+    (40, 28, 22),
+    (22, 26, 20),
+    (48, 36, 28),
+    (34, 38, 30),
+]
+# Slots that get a beret (~1/3 of male roster, prefers leaders/officers).
+_BERET_SLOTS = frozenset({8, 16, 24, 27, 35, 39, 45, 47, 51, 55, 57, 60})
 
 # Curated donor shuffle (plan proportions). Keys = slot int.
 # Irregulars lean jazz Legion*; Fighters mix; Hardened mostly GC; Spec swap vanilla Legion_* → canon.
@@ -248,20 +273,69 @@ def is_helmet_mesh(mesh: str) -> bool:
 
 
 def is_strip_headwear(mesh: str) -> bool:
-    """Turbans, brimmed hats, NPC female hats — strip. Masks/scarves/glasses/headbands stay."""
+    """Strip turbans/caps/helmets/balaclavas. Keep glasses/headband/scarf. Berets handled separately."""
     if not mesh:
         return False
-    # Keep eyewear / headbands / scarves / face masks explicitly.
-    if re.search(r"Glasses|Headband|Scarf|Mask", mesh, re.I):
+    if mesh in _BERET_MESHES:
+        return False  # may keep if already present; assign_partial_berets decides
+    if re.search(r"Glasses|Headband|Scarf", mesh, re.I):
         return False
+    if _BALACLAVA_RE.search(mesh):
+        return True
     return bool(_STRIP_HEADWEAR_RE.search(mesh) or _HELMET_RE.search(mesh))
 
 
 def strip_helmets(inner: str) -> str:
-    """Clear Hat/Hat2 helmets and most hats/turbans (see is_strip_headwear)."""
+    """Clear Hat/Hat2 helmets, balaclavas, most hats/turbans."""
     for key in ("Hat", "Hat2"):
         if is_strip_headwear(mesh_of(inner, key)):
             inner = clear_field(inner, key)
+    return inner
+
+
+def assign_partial_berets(inner: str, slot: int, female: bool) -> str:
+    """Give ~12 male slots a slate/olive beret (never blue). Skip females."""
+    if female or slot not in _BERET_SLOTS:
+        # Drop leftover berets on non-beret slots.
+        for key in ("Hat", "Hat2"):
+            if mesh_of(inner, key) in _BERET_MESHES:
+                inner = clear_field(inner, key)
+        return inner
+    # Prefer Hat; if Hat holds glasses, put beret on Hat and move glasses to Hat2.
+    hat = mesh_of(inner, "Hat")
+    hat2 = mesh_of(inner, "Hat2")
+    beret = "FactionMale_Hat_01" if slot % 2 else "NPCCostumeMale_Hat_03"
+    if hat and re.search(r"Glasses", hat, re.I):
+        if not hat2:
+            inner = set_or_insert_field(inner, "Hat2", hat)
+        inner = set_or_insert_field(inner, "Hat", beret)
+    elif hat2 and re.search(r"Glasses", hat2, re.I):
+        inner = set_or_insert_field(inner, "Hat", beret)
+    elif not hat or hat in _BERET_MESHES or is_strip_headwear(hat):
+        inner = set_or_insert_field(inner, "Hat", beret)
+    else:
+        # Hat has scarf/headband — beret wins for these slots.
+        if not hat2 and re.search(r"Scarf|Headband", hat, re.I):
+            inner = set_or_insert_field(inner, "Hat2", hat)
+        inner = set_or_insert_field(inner, "Hat", beret)
+    # Force earth beret tint (not blue).
+    r, g, b = _BERET_COLORS[(slot - 1) % len(_BERET_COLORS)]
+    prop = (
+        "HatColor = PlaceObj('ColorizationPropSet', {\n"
+        f"\t\t\t'EditableColor1', RGBA({r}, {g}, {b}, 255),\n"
+        f"\t\t\t'EditableColor2', RGBA({max(r-6,0)}, {max(g-4,0)}, {max(b-4,0)}, 255),\n"
+        f"\t\t\t'EditableColor3', RGBA({max(r-10,0)}, {max(g-8,0)}, {max(b-6,0)}, 255),\n"
+        "\t\t\t})"
+    )
+    if re.search(r"HatColor\s*=\s*PlaceObj", inner):
+        inner = re.sub(
+            r"HatColor\s*=\s*PlaceObj\('ColorizationPropSet',\s*\{[\s\S]*?\}\)",
+            prop,
+            inner,
+            count=1,
+        )
+    else:
+        inner = replace_propset(inner, "HatColor", prop)
     return inner
 
 
@@ -270,14 +344,12 @@ def is_camo_mesh(mesh: str) -> bool:
 
 
 def choose_blue_accent_clothes(block: str) -> tuple[str, int]:
-    """One muted blue on a non-camo cloth accent — never Hat brim, never camo Shirt/Pants."""
+    """One muted blue on non-camo cloth — never Hat, never Hip pouches, never camo."""
     shirt = mesh_of(block, "Shirt")
     if shirt and not is_camo_mesh(shirt):
         return "ShirtColor", 1
     if mesh_of(block, "Chest"):
         return "ChestColor", 1
-    if mesh_of(block, "Hip"):
-        return "HipColor", 1
     if mesh_of(block, "Armor"):
         return "ArmorColor", 1
     body = mesh_of(block, "Body")
@@ -286,20 +358,17 @@ def choose_blue_accent_clothes(block: str) -> tuple[str, int]:
     hat2 = mesh_of(block, "Hat2")
     if hat2 and re.search(r"Scarf", hat2, re.I):
         return "Hat2Color", 1
+    # Do NOT use HipColor — blue pouches look bad.
     return "BodyColor", 2
 
 
 def ensure_blue_accent_carrier(inner: str, female: bool) -> str:
-    """If kit is mostly camo with no accent gear, add pouches (prefer) or scarf for AME blue.
-
-    Prefer Hip pouches over Hat2 scarf so female Hair stays (hat+hair collision rule).
-    """
+    """Camo-only kits get a chest carrier for blue — never Hip pouches."""
     shirt = mesh_of(inner, "Shirt")
     pants = mesh_of(inner, "Pants")
     body = mesh_of(inner, "Body")
     has_carrier = bool(
         mesh_of(inner, "Chest")
-        or mesh_of(inner, "Hip")
         or mesh_of(inner, "Armor")
         or (shirt and not is_camo_mesh(shirt))
         or (body.startswith("Faction_") and not is_camo_mesh(body))
@@ -307,12 +376,16 @@ def ensure_blue_accent_carrier(inner: str, female: bool) -> str:
     )
     camo_kit = is_camo_mesh(shirt) or is_camo_mesh(pants)
     if camo_kit and not has_carrier:
-        if not mesh_of(inner, "Hip"):
-            inner = set_or_insert_field(inner, "Hip", "Faction_Acc_Soldier")
-        elif not mesh_of(inner, "Chest"):
+        if not mesh_of(inner, "Chest"):
+            # Light recon chest kit — blue tint OK; not hip pouches.
             inner = set_or_insert_field(inner, "Chest", "Faction_Acc_Recon_02")
         elif not mesh_of(inner, "Hat2"):
             inner = set_or_insert_field(inner, "Hat2", "Faction_Militia_Scarf_01")
+    # Strip blue-carrier Hip Acc_Soldier we may have added earlier.
+    if mesh_of(inner, "Hip") == "Faction_Acc_Soldier":
+        # Only clear if it was our camo carrier hack (no other hip role gear needed here).
+        # Keep demo/medic/heavy hip if present from donor — Acc_Soldier alone → clear.
+        inner = clear_field(inner, "Hip")
     return inner
 
 
@@ -489,7 +562,7 @@ def build_from_donor(
         inner = gen.gender_fix_gear(inner, slot, female)
         inner = strip_helmets(inner)
         inner = ensure_blue_accent_carrier(inner, female)
-        # Recolor: blue on non-camo carrier — never hats / camo shirt-pants.
+        # Recolor: blue on non-camo carrier — never hats / camo shirt-pants / hip pouches.
         _orig_choose = gen.choose_blue_accent
         gen.choose_blue_accent = choose_blue_accent_clothes
         try:
@@ -501,6 +574,7 @@ def build_from_donor(
         inner = strip_group_id(inner)
         inner = preserve_head_skin(inner, old_ame)
         inner = force_camo_earth_tones(inner, slot)
+        inner = assign_partial_berets(inner, slot, female)
         inner, hair = apply_hair_rules(inner, slot, female)
         return format_moditem(inner, new_id), head_swap, hair
 
@@ -528,6 +602,7 @@ def build_from_donor(
     if mesh_of(inner2, "Head").startswith("Faction_Legion_Head_"):
         head = mesh_of(old_ame, "Head") or gen.african_head_for(slot, female)
         inner2 = set_or_insert_field(inner2, "Head", head)
+    inner2 = assign_partial_berets(inner2, slot, female)
     inner2, hair = apply_hair_rules(inner2, slot, female)
     return format_moditem(inner2, new_id), head_swap, hair
 

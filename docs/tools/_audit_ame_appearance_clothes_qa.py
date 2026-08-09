@@ -68,6 +68,8 @@ def main() -> int:
     aim_hair = []
     hat_with_hair = []
     helmets = []
+    masks = []
+    blue_hips = []
     for aid, blk in sorted(ame.items()):
         h = mesh(blk, "Head")
         if h.startswith("Faction_Legion_Head_"):
@@ -87,16 +89,39 @@ def main() -> int:
                 re.I,
             ):
                 helmets.append((aid, label, m))
+            if m and re.search(r"MilitiaCostumeMale_Mask_|Faction_Thugs_Mask_", m, re.I):
+                masks.append((aid, label, m))
+        # Blue hip pouches
+        hm = re.search(
+            r"HipColor\s*=\s*PlaceObj\('ColorizationPropSet',\s*\{([\s\S]*?)\}\)",
+            blk,
+        )
+        if hm:
+            for cm in re.finditer(
+                r"'EditableColor(\d+)',\s*RGBA\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)",
+                hm.group(1),
+            ):
+                r, g, b = int(cm.group(2)), int(cm.group(3)), int(cm.group(4))
+                if b >= 90 and b > r + 20 and b >= g:
+                    blue_hips.append((aid, r, g, b))
+                    break
     irreg = [r for r in rows if r["cat"] == "Irregulars" and not r.get("female")]
     irreg_leg = sum(
         1
         for r in irreg
         if r["donor"].startswith("Legion") and not r["donor"].startswith("Legion_")
     )
+    berets = sum(
+        1
+        for aid, blk in ame.items()
+        if mesh(blk, "Hat") in ("FactionMale_Hat_01", "NPCCostumeMale_Hat_03")
+        or mesh(blk, "Hat2") in ("FactionMale_Hat_01", "NPCCostumeMale_Hat_03")
+    )
     print(f"Irregular male jazz_Legion* donors={irreg_leg}/{len(irreg)}")
     print(
         f"Legion warpaint heads={len(legion_heads)} AIM hair={len(aim_hair)} "
-        f"hat+hair={len(hat_with_hair)} helmets={len(helmets)}"
+        f"hat+hair={len(hat_with_hair)} helmets={len(helmets)} "
+        f"balaclavas={len(masks)} blue_hips={len(blue_hips)} berets={berets}"
     )
     for x in legion_heads[:5]:
         print("  legion head", x)
@@ -106,10 +131,17 @@ def main() -> int:
         print("  hat+hair", x)
     for x in helmets[:8]:
         print("  helmet", x)
+    for x in masks[:8]:
+        print("  mask", x)
+    for x in blue_hips[:5]:
+        print("  blue hip", x)
     fem = [r for r in rows if r.get("female")]
     for r in fem:
         print(f"  {r['id']} donor={r['donor']} hair={r.get('hair','?')!r}")
-    if legion_heads or aim_hair or hat_with_hair or helmets:
+    if legion_heads or aim_hair or hat_with_hair or helmets or masks or blue_hips:
+        return 1
+    if berets < 8:
+        print(f"FAIL: expected ≥8 berets, got {berets}")
         return 1
     if irreg_leg < 10:
         print("FAIL: expected ≥10 Irregular jazz Legion* donors")
