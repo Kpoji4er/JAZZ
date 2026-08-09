@@ -1697,26 +1697,23 @@ end
 
 
 ---Для контекста чтобы знать какие базовые атаки есть среди одиночный-очередь-автоогонь и тд
+--- JAZZ-AI-ACT-005: result.all = real enabled AvailableAttacks (minus mobile / positional).
 function Unit:GetBasicAttackModes()
 	local result = {}
-	local weapon, weapon2 = self:GetActiveWeapons()
+	local weapon = self:GetActiveWeapons()
 	if not weapon then return result end
 
 	local default_attack = self:GetDefaultAttackAction()
 
 	local function find_mode(id, fallback_shots)
-		for _, attack_id in ipairs(weapon.AvailableAttacks or empty_table) do
-			if attack_id == id then
-				local action = CombatActions[attack_id]
-				if action:GetUIState({self}) == "enabled" then
-					return {
-						action = action,
-						ap = action:GetAPCost(self),
-						shots = fallback_shots or 1,
-						mode = id
-					}
-				end
-			end
+		if JazzAI_IsAttackActionAvailable and JazzAI_IsAttackActionAvailable(self, id) then
+			local action = CombatActions[id]
+			return {
+				action = action,
+				ap = action:GetAPCost(self),
+				shots = fallback_shots or 1,
+				mode = id
+			}
 		end
 		return false
 	end
@@ -1729,17 +1726,58 @@ function Unit:GetBasicAttackModes()
 	result.dual = find_mode("DualShot", 2) or find_mode("Dualshot", 2)
 
 	result.all = {}
-	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double,result.dual}) do
-		if type(mode) == "table" and mode.mode then
-			table.insert(result.all, mode)
+	local seen = {}
+	local function add_mode(mode)
+		if type(mode) ~= "table" or not mode.mode or seen[mode.mode] then
+			return
 		end
+		seen[mode.mode] = true
+		table.insert(result.all, mode)
+	end
+
+	for _, mode in pairs({result.single, result.burst, result.auto, result.buck, result.double, result.dual}) do
+		add_mode(mode)
+	end
+
+	for _, attack_id in ipairs(weapon.AvailableAttacks or empty_table) do
+		if seen[attack_id] then
+			goto continue
+		end
+		if JazzAI_IsMobileAttackId and JazzAI_IsMobileAttackId(attack_id) then
+			goto continue
+		end
+		if JazzAI_PickBestExcludeIds and JazzAI_PickBestExcludeIds[attack_id] then
+			goto continue
+		end
+		if not (JazzAI_IsAttackActionAvailable and JazzAI_IsAttackActionAvailable(self, attack_id)) then
+			goto continue
+		end
+		local action = CombatActions[attack_id]
+		local shots = 1
+		if JazzAI_EstimateAttackShots then
+			shots = JazzAI_EstimateAttackShots(weapon, action) or 1
+		elseif attack_id == "BurstFire" or attack_id == "MGBurstFire" then
+			shots = weapon.BurstShots or 3
+		elseif attack_id == "AutoFire" then
+			shots = weapon.AutoShots or 5
+		elseif attack_id == "DualShot" or attack_id == "Dualshot" or attack_id == "DoubleBarrel" then
+			shots = 2
+		end
+		add_mode({
+			action = action,
+			ap = action:GetAPCost(self),
+			shots = shots,
+			mode = attack_id,
+		})
+		::continue::
 	end
 
 	if #result.all == 0 and default_attack then
 		local mode = default_attack.id
 		local shots = 1
-		
-		if mode == "BurstFire" then
+		if JazzAI_EstimateAttackShots then
+			shots = JazzAI_EstimateAttackShots(weapon, default_attack) or 1
+		elseif mode == "BurstFire" then
 			shots = weapon.BurstShots or 3
 		elseif mode == "AutoFire" then
 			shots = weapon.AutoShots or 5
@@ -1751,7 +1789,6 @@ function Unit:GetBasicAttackModes()
 		elseif mode == "DualShot" then
 			shots = 2
 		end
-
 		table.insert(result.all, {
 			action = default_attack,
 			ap = default_attack:GetAPCost(self),

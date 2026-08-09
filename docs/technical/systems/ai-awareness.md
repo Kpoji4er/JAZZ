@@ -63,6 +63,8 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 В Dump (`AIPlayAttacks`) `PickBestAttack` липкий по режиму огня на той же цели: `context.dump_attack_mode` предпочитается, пока score режима ≥ `AIDecisionThreshold`% от best и режим влезает в AP; смена/потеря цели сбрасывает sticky. Для `MGBurstFire` score использует фактическую длину `weapon:GetAutofireShots(action)` вместо `BurstShots` и фактический `action:GetAPCost(unit)`, включая authored наценку +1/+2 AP.
 
+**Weapon attacks / mobile (JAZZ-AI-ACT-005):** `AISignatureAction:MatchUnit` больше не смотрит `unit.ui_actions`. Gate = `JazzAI_IsAttackActionAvailable` (`AvailableAttacks` или `EnableRunNGun`→`RunAndGun`, плюс `GetUIState == "enabled"`). `AIActionMobileShot` резолвит ID через `JazzAI_ResolveMobileAttackId` (приоритет `JAZZ_MobileShotgun` → `RunAndGun` → `RunAndGun_Carbine` → `MobileShot`). `Unit:GetBasicAttackModes` кладёт в `result.all` все enabled ID из `AvailableAttacks`, кроме mobile set и positional/utility (`MGSetup`/`Overwatch`/`Reload`/…). Dump `PickBestAttack` scoring знает class techniques (Zipper, ControllableBurst, LargeAutoFire, DoubleTap, …) через `JazzAI_EstimateAttackShots`; mobile ID в Dump не выбираются. Perk-unlock / tier weights class techniques — follow-up.
+
 ## Policies и тактические расширения
 
 JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Machine gun setup согласован с AP, action availability и visual/entity state.

@@ -476,11 +476,17 @@ end
 
 function OnMsg.DataLoaded()
     JazzAI_PatchMGPositioningScores()
+    if JazzAI_InstallMobileShotResolve then
+        JazzAI_InstallMobileShotResolve()
+    end
 end
 
 function OnMsg.ModsReloaded()
     rawset(_G, "JazzAI_MGPositioningScoresPatched", false)
     JazzAI_PatchMGPositioningScores()
+    if JazzAI_InstallMobileShotResolve then
+        JazzAI_InstallMobileShotResolve()
+    end
 end
 
 if type(ForEachPreset) == "function" then
@@ -1627,41 +1633,194 @@ context.last_ai_destination = picked
 
 end
 
+-- JAZZ-AI-ACT-005: weapon availability + mobile resolve (not ui_actions).
+JazzAI_MobileAttackIds = {
+	MobileShot = true,
+	RunAndGun = true,
+	RunAndGun_Carbine = true,
+	JAZZ_MobileShotgun = true,
+	JAZZ_RunAndSMGStorm = true,
+}
+
+JazzAI_PickBestExcludeIds = {
+	MGSetup = true,
+	MGPack = true,
+	MGRotate = true,
+	Overwatch = true,
+	PinDown = true,
+	Reload = true,
+	Unjam = true,
+	ChangeWeapon = true,
+	Bandage = true,
+	JazzBandage = true,
+	JazzMorphine = true,
+	TakeCover = true,
+	Hide = true,
+	LeaveCover = true,
+}
+
+function JazzAI_IsMobileAttackId(action_id)
+	return not not (action_id and JazzAI_MobileAttackIds[action_id])
+end
+
+function JazzAI_IsAttackActionAvailable(unit, action_id)
+	if not IsValid(unit) or not action_id then
+		return false
+	end
+	local action = CombatActions[action_id]
+	if not action then
+		return false
+	end
+	local weapon = unit:GetActiveWeapons()
+	if not weapon then
+		return false
+	end
+	local in_list = table.find(weapon.AvailableAttacks or empty_table, action_id)
+	if not in_list then
+		if action_id == "RunAndGun" and weapon:HasComponent("EnableRunNGun") then
+			in_list = true
+		else
+			return false
+		end
+	end
+	return action:GetUIState({unit}) == "enabled"
+end
+
+function JazzAI_ResolveMobileAttackId(unit)
+	if not IsValid(unit) then
+		return false
+	end
+	local order = {
+		"JAZZ_MobileShotgun",
+		"RunAndGun",
+		"RunAndGun_Carbine",
+		"MobileShot",
+	}
+	for _, id in ipairs(order) do
+		if JazzAI_IsAttackActionAvailable(unit, id) then
+			return id
+		end
+	end
+	return false
+end
+
+g_JAZZ_AIActionMobileShotWrapped = rawget(_G, "g_JAZZ_AIActionMobileShotWrapped") or false
+g_JAZZ_AIActionMobileShotPrecalcBase = rawget(_G, "g_JAZZ_AIActionMobileShotPrecalcBase") or false
+g_JAZZ_AIActionMobileShotExecuteBase = rawget(_G, "g_JAZZ_AIActionMobileShotExecuteBase") or false
+
+function JazzAI_InstallMobileShotResolve()
+	if rawget(_G, "g_JAZZ_AIActionMobileShotWrapped") then
+		return
+	end
+	if not rawget(_G, "AIActionMobileShot") then
+		return
+	end
+	local precalc = AIActionMobileShot.PrecalcAction
+	local execute = AIActionMobileShot.Execute
+	if type(precalc) ~= "function" or type(execute) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_AIActionMobileShotPrecalcBase", precalc)
+	rawset(_G, "g_JAZZ_AIActionMobileShotExecuteBase", execute)
+	rawset(_G, "g_JAZZ_AIActionMobileShotWrapped", true)
+
+	function AIActionMobileShot:PrecalcAction(context, action_state)
+		local resolved = JazzAI_ResolveMobileAttackId(context and context.unit)
+		if not resolved then
+			return
+		end
+		action_state.jazz_mobile_action_id = resolved
+		local prev = self.action_id
+		self.action_id = resolved
+		local base = g_JAZZ_AIActionMobileShotPrecalcBase
+		local ok, err = pcall(base, self, context, action_state)
+		self.action_id = prev
+		if not ok then
+			assert(false, tostring(err))
+		end
+	end
+
+	function AIActionMobileShot:Execute(context, action_state)
+		local resolved = (action_state and action_state.jazz_mobile_action_id)
+			or JazzAI_ResolveMobileAttackId(context and context.unit)
+		if not resolved then
+			return
+		end
+		local prev = self.action_id
+		self.action_id = resolved
+		local base = g_JAZZ_AIActionMobileShotExecuteBase
+		local ok, err = pcall(base, self, context, action_state)
+		self.action_id = prev
+		if not ok then
+			assert(false, tostring(err))
+		end
+	end
+end
+
+JazzAI_InstallMobileShotResolve()
+
+function JazzAI_EstimateAttackShots(weapon, action)
+	if not weapon or not action then
+		return 1
+	end
+	local id = action.id or action
+	if id == "BurstFire" or id == "AbakanBurst" or id == "JAZZ_ControllableBurst" or id == "JAZZ_Zipper" then
+		return weapon.BurstShots or 3
+	end
+	if id == "AutoFire" or id == "AbakanAutoFire" or id == "JAZZ_LargeAutoFire"
+		or id == "JAZZ_SmgStorm" or id == "JAZZ_MGSuppressionFire" then
+		return weapon.AutoShots or 5
+	end
+	if id == "MGBurstFire" then
+		if weapon.GetAutofireShots then
+			return weapon:GetAutofireShots(action) or (weapon.BurstShots or 3)
+		end
+		return weapon.BurstShots or 3
+	end
+	if id == "JAZZ_DoubleTap" or id == "JAZZ_Salvo" or id == "DualShot" or id == "Dualshot"
+		or id == "DoubleBarrel" then
+		return 2
+	end
+	if id == "JAZZ_Mozambique" or id == "JAZZ_Fanning" then
+		return 3
+	end
+	if id == "Buckshot" or id == "BuckshotBurst" or id == "AttackShotgun" then
+		return weapon.BuckshotProjectiles or 1
+	end
+	if weapon.GetAutofireShots and IsKindOf(action, "CombatAction") then
+		local n = weapon:GetAutofireShots(action)
+		if type(n) == "number" and n > 1 then
+			return n
+		end
+	end
+	return 1
+end
+
 function AISignatureAction:MatchUnit(unit)
-    for state, _ in pairs(self.AvailableInState) do
-        if not GameState[state] then return end
-    end
-    for state, _ in pairs(self.ForbiddenInState) do
-        if GameState[state] then return end
-    end
-    for _, keyword in ipairs(self.RequiredKeywords) do
-        if not table.find(unit.AIKeywords or empty_table, keyword) then
-            return
-        end
-    end
-    --------------------------
-    if unit then
-        local actions = unit.ui_actions
-        local attack_type = self.action_id
-        local weapon = unit:GetActiveWeapons()
+	for state, _ in pairs(self.AvailableInState) do
+		if not GameState[state] then return end
+	end
+	for state, _ in pairs(self.ForbiddenInState) do
+		if GameState[state] then return end
+	end
+	for _, keyword in ipairs(self.RequiredKeywords) do
+		if not table.find(unit.AIKeywords or empty_table, keyword) then
+			return
+		end
+	end
 
-        if attack_type == "BurstFire" or attack_type == "AutoFire" or
-            attack_type == "RunAndGun" then
-            if actions[attack_type] ~= nil then
-                local ui_status = actions[attack_type]
-                if ui_status and ui_status == "Hidden" then
-                    ----print("noburst")
-                    return
-                end
-            else
-                return
-            end
-        end
+	if IsKindOf(self, "AIActionMobileShot") then
+		return JazzAI_ResolveMobileAttackId(unit) and true
+	end
 
-    end
-    --------------------------
+	local attack_type = self.action_id
+	if attack_type and CombatActions[attack_type] then
+		if not JazzAI_IsAttackActionAvailable(unit, attack_type) then
+			return
+		end
+	end
 
-    return true
+	return true
 end
 
 -- ACT-003: same halfcover predicate as player Unit:MGSetup / Bipod CTH,

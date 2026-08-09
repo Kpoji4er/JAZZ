@@ -335,7 +335,8 @@ Keyword `Smoke` желателен на доверенных носителях 
 | `AIActionBasicAttack` | patched Precalc | ок |
 | `AIActionThrowGrenade` | multi-slot, smoke/fire grid | раздельный smoke score; bias disable после броска |
 | `AIActionThrowFlare` | night/underground | связка flare→Press на last pos |
-| `AIActionCharge` / MobileShot / RunAndGun | по keywords | Assaulter/Flanker; не Front sniper |
+| `AIActionCharge` / MobileShot / RunAndGun | **ACT-005:** resolve по `AvailableAttacks` (не keywords/`ui_actions`); mobile auto-pick | perk-layer later |
+| `PickBestAttack` / `GetBasicAttackModes` | **ACT-005:** real `AvailableAttacks` в Dump (Zipper/Sweep/…); mobile excluded | тюнинг score later |
 | `AIConeAttack` Overwatch | Control/Soldier | anti-peek bias (§7) |
 | `AIActionMGSetup` / burst | Machinegunner | не Melee-switch; cone на peek voxel |
 | `AIActionHeavyWeaponAttack` | Ordnance | без CQB melee |

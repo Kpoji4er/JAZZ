@@ -192,6 +192,10 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 	for _, attack in ipairs(basic_attacks.all or empty_table) do
 		local action = attack.action
 		if not action or attack.id == "Melee Attack" or attack.id == "MeleeAttack" then goto continue end
+		-- ACT-005: mobile signatures own these; Dump must not PickBest them.
+		if JazzAI_IsMobileAttackId and JazzAI_IsMobileAttackId(action.id) then
+			goto continue
+		end
 
 		local ap_cost = action:GetAPCost(unit)
 		local aim_levels = GetCTHByAimLevels(unit, enemy, action, weapon.MaxAimActions or 3)
@@ -209,6 +213,10 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 			local mode_type = action.id
 			local dist_penalty = dist_ratio * 0.5
 
+			if JazzAI_EstimateAttackShots then
+				shots = JazzAI_EstimateAttackShots(weapon, action) or 1
+			end
+
 			if mode_type == "BurstFire" then
 				shots = burst
 				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
@@ -221,13 +229,15 @@ function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
 				shots = auto
 				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
 				dist_penalty = dist_ratio * 1.2
-			end
-			if mode_type == "DoubleBarrel" then
+			elseif mode_type == "DoubleBarrel" then
 				shots = 2
 				dist_penalty = dist_ratio * 1.25
-			end
-			if mode_type == "DualShot" or mode_type == "Dualshot" then
+			elseif mode_type == "DualShot" or mode_type == "Dualshot" then
 				shots = 2
+			elseif shots > 1 then
+				-- Class techniques (Zipper, ControllableBurst, LargeAutoFire, …)
+				predicted = PredictCTH(cth, recoil, shots, weapon, unit, unit.stance, action)
+				dist_penalty = dist_ratio * (shots >= 5 and 1.2 or 1.0)
 			end
 
 			predicted = Max(0, predicted)
