@@ -378,6 +378,9 @@ N,AnchorID,SourceText,Russian,Notes
 377,890000000001633,<role> — moving to reinforce sector <target>,<role> — идёт усиливать сектор <target>,manual-translation
 378,890000000001634,Tax collector,Сборщик налогов,manual-translation
 379,890000000001635,<role> — collecting taxes ($<money>); next: <target>,<role> — собирает налоги ($<money>); далее: <target>,manual-translation
+10001,890000000001651,Support,Поддержка,manual-translation
+10002,890000000001652,<role> — providing fire support at <target>,<role> — обеспечивает огневую поддержку в <target>,manual-translation
+10003,890000000001653,<role> — moving to support sector <target>,<role> — идёт усиливать сектор поддержкой <target>,manual-translation
 380,872401100001,HMMWV,HMMWV,technical-copy
 381,872401100070,HMMWV,HMMWV,technical-copy
 382,890000000001465,Long Distance Relations,Отношения на расстоянии,manual-translation

@@ -165,6 +165,29 @@ JAZZ_LegionRoleRecipes = {
 			"JAZZ_Legion_Leader",
 		},
 	},
+	-- STRATEGY-024: small specialist detachments (sniper / MG / mortar), T3–T4.
+	-- Fixed size band (no early→mature growth).
+	support = {
+		size_early_min = 4,
+		size_early_max = 7,
+		size_min = 4,
+		size_max = 7,
+		tier_bias = "specialty",
+		allow_prefixes = {
+			"JAZZ_Legion_FrontT3",
+			"JAZZ_Legion_FrontT4",
+			"JAZZ_Legion_GunnerT3",
+			"JAZZ_Legion_GunnerT4",
+			"JAZZ_Legion_HeavyT3",
+			"JAZZ_Legion_FlankerT3",
+			"JAZZ_Legion_FlankerT4",
+			"JAZZ_Legion_AssaultT3",
+			"JAZZ_Legion_AssaultT4",
+			"JAZZ_Legion_LeaderT2",
+			"JAZZ_Legion_LeaderT3",
+			"JAZZ_Legion_LeaderT4",
+		},
+	},
 	retribution = {
 		size_early_min = 10,
 		size_early_max = 14,
@@ -258,6 +281,37 @@ JAZZ_LegionRoleRecipes = {
 	},
 }
 
+-- STRATEGY-024: specialty detachments for role `support`.
+-- One archetype per squad; generator picks by weight then fills specialists + escort.
+JAZZ_LegionSupportArchetypes = {
+	sniper = {
+		weight = 34,
+		specialist_min = 2,
+		specialist_max = 3,
+		specialists = {
+			"JAZZ_Legion_FrontT3_Sniper",
+			"JAZZ_Legion_FrontT4_MercenarySniper",
+		},
+	},
+	mg = {
+		weight = 33,
+		specialist_min = 2,
+		specialist_max = 3,
+		specialists = {
+			"JAZZ_Legion_GunnerT3_VeteranGunner",
+			"JAZZ_Legion_GunnerT4_MercGunner",
+		},
+	},
+	mortar = {
+		weight = 33,
+		specialist_min = 1,
+		specialist_max = 1,
+		specialists = {
+			"JAZZ_Legion_HeavyT3_Mortarman",
+		},
+	},
+}
+
 -- NoMaps (mainland) size bands — owner lock 2026-08-02 (smaller than Ernie STRATEGY-016).
 -- Applied only when JAZZ_NoMapsIsActive(); Ernie/maps keep JAZZ_LegionRoleRecipes sizes.
 JAZZ_LegionRoleSizeOverrideNoMaps = {
@@ -265,6 +319,8 @@ JAZZ_LegionRoleSizeOverrideNoMaps = {
 	patrol = { size_early_min = 4, size_early_max = 6, size_min = 8, size_max = 12 },
 	qrf = { size_early_min = 4, size_early_max = 7, size_min = 8, size_max = 14 },
 	reinforce = { size_early_min = 4, size_early_max = 7, size_min = 10, size_max = 16 },
+	-- support stays 4–7 (no NoMaps shrink; already a micro detachment).
+	support = { size_early_min = 4, size_early_max = 7, size_min = 4, size_max = 7 },
 	retribution = { size_early_min = 8, size_early_max = 12, size_min = 14, size_max = 22 },
 	garrison = { size_early_min = 12, size_early_max = 20, size_min = 12, size_max = 20 },
 	tax = { size_early_min = 3, size_early_max = 5, size_min = 5, size_max = 8 },
@@ -371,6 +427,7 @@ function JAZZ_LegionUnitAllowedForRole(unit_id, role)
 			or role == "recon"
 			or role == "qrf"
 			or role == "reinforce"
+			or role == "support"
 			or role == "retribution"
 			or role == "major"
 		then

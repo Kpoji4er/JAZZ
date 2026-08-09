@@ -4,8 +4,10 @@
 
 Новые иконки создавать по skill [`.agents/skills/create-jazz-squad-icons/SKILL.md`](../../../.agents/skills/create-jazz-squad-icons/SKILL.md).
 
-Пути runtime: `Mod/e6L4ECj/SquadsIcons/Enemy/<file>.png`  
-Ассеты: [`SquadsIcons/Enemy/`](../../../SquadsIcons/Enemy/)  
+Пути runtime: `Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png`  
+Ассеты: [`SquadsIcons/Enemy/`](../../../SquadsIcons/Enemy/)
+
+Раскладка: `_shields/` (пустые щиты), `<faction>/` (ролевые PNG), `_misc/` (прочее).  
 Стратегический контекст: [strategy-squads-sectors.md](strategy-squads-sectors.md) · wiki: [legion-global-ai.md](../../wiki/legion-global-ai.md)
 
 ---
@@ -16,13 +18,13 @@
 
 | Фракция | Файл | Щит |
 | --- | --- | --- |
-| Legion | `legion.png` | ![legion](../../../SquadsIcons/Enemy/legion.png) |
-| Army | `army.png` | ![army](../../../SquadsIcons/Enemy/army.png) |
-| Adonis | `adonis.png` | ![adonis](../../../SquadsIcons/Enemy/adonis.png) |
-| Rebels | `rebels.png` | ![rebels](../../../SquadsIcons/Enemy/rebels.png) |
-| Smugglers | `smugglers.png` | ![smugglers](../../../SquadsIcons/Enemy/smugglers.png) |
+| Legion | `_shields/legion.png` | ![legion](../../../SquadsIcons/Enemy/_shields/legion.png) |
+| Army | `_shields/army.png` | ![army](../../../SquadsIcons/Enemy/_shields/army.png) |
+| Adonis | `_shields/adonis.png` | ![adonis](../../../SquadsIcons/Enemy/_shields/adonis.png) |
+| Rebels | `_shields/rebels.png` | ![rebels](../../../SquadsIcons/Enemy/_shields/rebels.png) |
+| Smugglers | `_shields/smugglers.png` | ![smugglers](../../../SquadsIcons/Enemy/_shields/smugglers.png) |
 
-Доп. варианты щитов (не ролевые): `army2.png`, `army3.png`, `rebels2.png`, `rebels3.png`, `enemy_squad.png`, `nazi.png`.
+Доп. варианты щитов (не ролевые): `_shields/army2.png`, `_shields/army3.png`, `_shields/rebels2.png`, `_shields/rebels3.png`; прочее: `_misc/enemy_squad.png`, `_misc/nazi.png`.
 
 ---
 
@@ -30,15 +32,16 @@
 
 | Role ID | Смысл | Символ | Статус runtime (Legion) |
 | --- | --- | --- | --- |
-| `major` / BASE | Штаб / Major response | череп | wired → `legion_BASE_squad.png` |
+| `major` / BASE | Штаб / Major response | череп | wired → `legion/legion_BASE_squad.png` |
 | `garrison` | Держит сектор | башня / rook | wired |
 | `patrol` | Патруль ключевых точек | скрещённые стрелы | wired |
 | `recon` | Наблюдение / разведка | бинокль | wired |
 | `qrf` | Быстрая реакция | тесак / cutlass | wired |
 | `supply` | Конвой снабжения | грузовик | wired |
 | `shipment` | Алмазный груз в HQ | грузовик + ромб | wired |
-| `reinforce` | Пограничное усиление гарнизона | плюс | asset only |
-| `retribution` | Карательный удар Major с HQ | кулак | asset only |
+| `reinforce` | Пограничное усиление гарнизона | плюс | wired |
+| `support` | Малая огневая поддержка (снайпер/MG/миномёт) | прицел / reticle | wired → `legion/legion_SUPPORT_squad.png` |
+| `retribution` | Карательный удар Major с HQ | кулак | wired |
 | `recruiter` | Вербовщик / агитатор | мегафон | asset only |
 | `manpower` | Конвой живой силы | колонна солдат с флагом | asset only |
 | `tax` | Сбор налогов / дани | мешок с монетами | asset only |
@@ -46,7 +49,7 @@
 `wired` = путь в `Guardpost_Patrols.lua` → `JAZZ_GetLegionAISquadIcon`.  
 `asset only` = PNG есть у всех фракций, роль в director ещё не привязана.
 
-Имена файлов: `<faction>_<ROLE>_squad.png`  
+Имена файлов: `<faction>/<faction>_<ROLE>_squad.png`  
 `faction` ∈ `legion` · `army` · `adonis` · `rebels` · `smugglers`
 
 ---
@@ -57,73 +60,79 @@
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_BASE_squad.png) | ![A](../../../SquadsIcons/Enemy/army_BASE_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_BASE_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_BASE_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_BASE_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_BASE_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_BASE_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_BASE_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_BASE_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_BASE_squad.png) |
 
 ### GARRISON — башня
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_GARRISON_squad.png) | ![A](../../../SquadsIcons/Enemy/army_GARRISON_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_GARRISON_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_GARRISON_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_GARRISON_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_GARRISON_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_GARRISON_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_GARRISON_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_GARRISON_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_GARRISON_squad.png) |
 
 ### PATROL — скрещённые стрелы
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_PATROL_squad.png) | ![A](../../../SquadsIcons/Enemy/army_PATROL_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_PATROL_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_PATROL_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_PATROL_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_PATROL_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_PATROL_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_PATROL_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_PATROL_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_PATROL_squad.png) |
 
 ### RECON — бинокль
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_RECON_squad.png) | ![A](../../../SquadsIcons/Enemy/army_RECON_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_RECON_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_RECON_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_RECON_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_RECON_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_RECON_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_RECON_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_RECON_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_RECON_squad.png) |
 
 ### QRF — тесак
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_QRF_squad.png) | ![A](../../../SquadsIcons/Enemy/army_QRF_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_QRF_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_QRF_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_QRF_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_QRF_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_QRF_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_QRF_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_QRF_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_QRF_squad.png) |
 
 ### SUPPLY — грузовик
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_SUPPLY_squad.png) | ![A](../../../SquadsIcons/Enemy/army_SUPPLY_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_SUPPLY_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_SUPPLY_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_SUPPLY_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_SUPPLY_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_SUPPLY_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_SUPPLY_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_SUPPLY_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_SUPPLY_squad.png) |
 
 ### SHIPMENT — грузовик + ромб
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_SHIPMENT_squad.png) | ![A](../../../SquadsIcons/Enemy/army_SHIPMENT_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_SHIPMENT_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_SHIPMENT_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_SHIPMENT_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_SHIPMENT_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_SHIPMENT_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_SHIPMENT_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_SHIPMENT_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_SHIPMENT_squad.png) |
 
-### REINFORCE — плюс *(asset only)*
-
-| Legion | Army | Adonis | Rebels | Smugglers |
-| --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_REINFORCE_squad.png) | ![A](../../../SquadsIcons/Enemy/army_REINFORCE_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_REINFORCE_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_REINFORCE_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_REINFORCE_squad.png) |
-
-### RETRIBUTION — кулак *(asset only)*
+### REINFORCE — плюс
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_RETRIBUTION_squad.png) | ![A](../../../SquadsIcons/Enemy/army_RETRIBUTION_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_RETRIBUTION_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_RETRIBUTION_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_RETRIBUTION_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_REINFORCE_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_REINFORCE_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_REINFORCE_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_REINFORCE_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_REINFORCE_squad.png) |
+
+### SUPPORT — прицел *(STRATEGY-024)*
+
+| Legion | Army | Adonis | Rebels | Smugglers |
+| --- | --- | --- | --- | --- |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_SUPPORT_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_SUPPORT_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_SUPPORT_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_SUPPORT_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_SUPPORT_squad.png) |
+
+### RETRIBUTION — кулак
+
+| Legion | Army | Adonis | Rebels | Smugglers |
+| --- | --- | --- | --- | --- |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_RETRIBUTION_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_RETRIBUTION_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_RETRIBUTION_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_RETRIBUTION_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_RETRIBUTION_squad.png) |
 
 ### RECRUITER — мегафон *(asset only)*
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_RECRUITER_squad.png) | ![A](../../../SquadsIcons/Enemy/army_RECRUITER_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_RECRUITER_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_RECRUITER_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_RECRUITER_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_RECRUITER_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_RECRUITER_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_RECRUITER_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_RECRUITER_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_RECRUITER_squad.png) |
 
 ### MANPOWER — колонна солдат *(asset only)*
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_MANPOWER_squad.png) | ![A](../../../SquadsIcons/Enemy/army_MANPOWER_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_MANPOWER_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_MANPOWER_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_MANPOWER_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_MANPOWER_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_MANPOWER_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_MANPOWER_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_MANPOWER_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_MANPOWER_squad.png) |
 
 ### TAX — мешок с монетами *(asset only)*
 
 | Legion | Army | Adonis | Rebels | Smugglers |
 | --- | --- | --- | --- | --- |
-| ![L](../../../SquadsIcons/Enemy/legion_TAX_squad.png) | ![A](../../../SquadsIcons/Enemy/army_TAX_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis_TAX_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels_TAX_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers_TAX_squad.png) |
+| ![L](../../../SquadsIcons/Enemy/legion/legion_TAX_squad.png) | ![A](../../../SquadsIcons/Enemy/army/army_TAX_squad.png) | ![D](../../../SquadsIcons/Enemy/adonis/adonis_TAX_squad.png) | ![R](../../../SquadsIcons/Enemy/rebels/rebels_TAX_squad.png) | ![S](../../../SquadsIcons/Enemy/smugglers/smugglers_TAX_squad.png) |
 
 ---
 

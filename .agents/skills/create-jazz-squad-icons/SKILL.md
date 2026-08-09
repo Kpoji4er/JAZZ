@@ -9,7 +9,7 @@ description: >-
 
 # Создание squad role icons
 
-Пакет-владелец ассетов: `jazz` → `SquadsIcons/Enemy/`.  
+Пакет-владелец ассетов: `jazz` → `SquadsIcons/Enemy/<faction>/` (+ `_shields/`, `_misc/`).  
 Current-state каталог: `docs/technical/systems/squad-role-icons.md`.  
 Детали стиля и промпта: [references/style-and-naming.md](references/style-and-naming.md).
 
@@ -42,15 +42,16 @@ Asset-only PNG **не** требует spec. Привязка role → path в `
 
 ### 1. Имя и конфликты
 
-- Файл: `<faction>_<ROLE>_squad.png`
+- Файл: `<faction>/<faction>_<ROLE>_squad.png`
 - `faction` ∈ `legion` · `army` · `adonis` · `rebels` · `smugglers`
-- Runtime path: `Mod/e6L4ECj/SquadsIcons/Enemy/<file>.png`
+- Runtime path: `Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png`
+- Пустые щиты: `SquadsIcons/Enemy/_shields/<faction>.png`
 - Не затирать существующий ROLE без явного «заменить».
 
 ### 2. Draft символа
 
 1. Прочитать style bible в [style-and-naming.md](references/style-and-naming.md).
-2. Взять референсы: `legion.png` + 2–3 близких `legion_*_squad.png`.
+2. Взять референсы: `_shields/legion.png` + 2–3 близких `legion/legion_*_squad.png`.
 3. Сгенерировать draft через `GenerateImage` (`aspect_ratio` `1:1`), промпт из reference.
 4. Итерировать, пока силуэт читается на 64×64 и не путается с соседними ролями.
 
@@ -76,8 +77,8 @@ Asset-only PNG **не** требует spec. Привязка role → path в `
 
 ### 4. Порты фракций
 
-Тот же силуэт на `army.png` / `adonis.png` / `rebels.png` / `smugglers.png`.  
-Скрипт с `-Factions` без `legion` — только порты с уже готового `legion_<ROLE>_squad.png`:
+Тот же силуэт на `_shields/army.png` / `adonis.png` / `rebels.png` / `smugglers.png`.  
+Скрипт с `-Factions` без `legion` — только порты с уже готового `legion/legion_<ROLE>_squad.png`:
 
 ```powershell
 .agents/skills/create-jazz-squad-icons/scripts/compose-role-icon.ps1 `

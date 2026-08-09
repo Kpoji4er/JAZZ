@@ -1560,6 +1560,9 @@ Task: <task>",manual-translation
 1557,890000000001633,<role> — moving to reinforce sector <target>,<role> — moving to reinforce sector <target>,manual-translation
 1558,890000000001634,Tax collector,Tax collector,manual-translation
 1559,890000000001635,<role> — collecting taxes ($<money>); next: <target>,<role> — collecting taxes ($<money>); next: <target>,manual-translation
+10001,890000000001651,Support,Support,manual-translation
+10002,890000000001652,<role> — providing fire support at <target>,<role> — providing fire support at <target>,manual-translation
+10003,890000000001653,<role> — moving to support sector <target>,<role> — moving to support sector <target>,manual-translation
 1560,666643530404,"Потеря удержания точности последующих пуль. Чем меньше отдача, тем медленнее снижается шанс попадания в очереди. Сила, стойка, опора и модификации уменьшают её влияние.","Accuracy retention loss for subsequent bullets. The lower the recoil, the slower the chance to hit decreases during a burst. Strength, stance, bracing, and modifications reduce its impact.",manual-translation
 1561,756735304143,Оптика <ScopeMagnification>.<ScopeSubMagnification>× сдвигает эффективную зону дальше после <ScopeAimLevel>-го уровня прицеливания. Сильная оптика менее удобна вблизи.,Optics with <ScopeMagnification>.<ScopeSubMagnification>× magnification shift the effective range farther after aim level <ScopeAimLevel>. Powerful optics are less convenient at close range.,manual-translation
 1562,872401100010,Прибывающий отряд не может сесть в транспорт,The arriving squad cannot board the vehicle,manual-translation

@@ -166,6 +166,7 @@ if (-not (Test-Path $EnemyDir)) {
   throw "EnemyDir not found: $EnemyDir"
 }
 
+$shieldsDir = Join-Path $EnemyDir "_shields"
 $Role = $Role.ToUpperInvariant()
 $factionList = @($Factions.Split(",") | ForEach-Object { $_.Trim().ToLowerInvariant() } | Where-Object { $_ })
 $shieldMap = @{
@@ -176,9 +177,9 @@ $shieldMap = @{
   smugglers = "smugglers.png"
 }
 
-$paletteSrcPath = Join-Path $EnemyDir "legion_GARRISON_squad.png"
+$paletteSrcPath = Join-Path (Join-Path $EnemyDir "legion") "legion_GARRISON_squad.png"
 if (-not (Test-Path $paletteSrcPath)) {
-  $paletteSrcPath = Join-Path $EnemyDir "legion.png"
+  $paletteSrcPath = Join-Path $shieldsDir "legion.png"
 }
 $paletteBmp = [System.Drawing.Bitmap]::FromFile($paletteSrcPath)
 $ivory = Find-IvoryColor $paletteBmp
@@ -188,7 +189,7 @@ Write-Output ("Palette ivory=({0},{1},{2}) outline=({3},{4},{5})" -f $ivory.R,$i
 
 $sourcePath = $null
 if ($SourceLegion) {
-  $sourcePath = Join-Path $EnemyDir ("legion_{0}_squad.png" -f $Role)
+  $sourcePath = Join-Path (Join-Path $EnemyDir "legion") ("legion_{0}_squad.png" -f $Role)
 } elseif ($SourceDraft) {
   $sourcePath = $SourceDraft
 } else {
@@ -205,24 +206,28 @@ if ($maskInfo.Count -lt 40) {
   throw "Ivory mask too small ($($maskInfo.Count) px). Check draft colors/alpha."
 }
 if ($maskInfo.Count -gt 1200) {
-  Write-Warning "Ivory mask unusually large ($($maskInfo.Count) px) — possible background bleed."
+  Write-Warning "Ivory mask unusually large ($($maskInfo.Count) px) - possible background bleed."
 }
 
 foreach ($fid in $factionList) {
   if (-not $shieldMap.ContainsKey($fid)) {
     throw "Unknown faction: $fid"
   }
-  $shieldPath = Join-Path $EnemyDir $shieldMap[$fid]
+  $shieldPath = Join-Path $shieldsDir $shieldMap[$fid]
   if (-not (Test-Path $shieldPath)) {
     throw "Missing shield: $shieldPath"
   }
-  $outPath = Join-Path $EnemyDir ("{0}_{1}_squad.png" -f $fid, $Role)
+  $factionDir = Join-Path $EnemyDir $fid
+  if (-not (Test-Path $factionDir)) {
+    New-Item -ItemType Directory -Path $factionDir | Out-Null
+  }
+  $outPath = Join-Path $factionDir ("{0}_{1}_squad.png" -f $fid, $Role)
   Compose-OntoShield -Mask $maskInfo.Mask -ShieldPath $shieldPath -OutPath $outPath -IvoryColor $ivory -OutlineColor $outline
 }
 
 # Verify transparent corner on first faction
 $first = $factionList[0]
-$verifyPath = Join-Path $EnemyDir ("{0}_{1}_squad.png" -f $first, $Role)
+$verifyPath = Join-Path (Join-Path $EnemyDir $first) ("{0}_{1}_squad.png" -f $first, $Role)
 $v = [System.Drawing.Bitmap]::FromFile($verifyPath)
 $c0 = $v.GetPixel(0, 0)
 Write-Output ("VERIFY {0} 0,0 A={1} (expect 0)" -f (Split-Path $verifyPath -Leaf), $c0.A)

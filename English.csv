@@ -6851,6 +6851,9 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001644,<role> - resting and refitting at <home>,<role> - resting and refitting at <home>,,jazz:Code/Guardpost_Patrols.lua
 890000000001645,<role> - holding patrol sector <target>,<role> - holding patrol sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001646,<role> - reinforcing garrison at <target>,<role> - reinforcing garrison at <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001651,Support,Support,,jazz:Code/Guardpost_Patrols.lua
+890000000001652,<role> — providing fire support at <target>,<role> — providing fire support at <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001653,<role> — moving to support sector <target>,<role> — moving to support sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001700,Цепная паника,Chain Panic,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001701,Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне взрыва.,Colby's blasts sow panic: +20% blast radius and 20% chance to panic wounded enemies in the blast.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001702,Тревор Колби,Trevor Colby,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua

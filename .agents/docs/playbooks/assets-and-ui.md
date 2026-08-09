@@ -11,7 +11,7 @@
 - Изменения в entity/ресурсах не должны отрывать контракты с юнитами и карты.
 - `jazz` использует `jazz_assets`; любая новая ссылка `Mod/<id>/...` требует metadata-задекларированной зависимости.
 - При работе с FX/UI избегать скрытых глобальных side effects, которые не очищаются при `reload`.
-- Новые сателлитные role icons (`SquadsIcons/Enemy/<faction>_<ROLE>_squad.png`) — по skill `$create-jazz-squad-icons`; каталог: `docs/technical/systems/squad-role-icons.md`.
+- Новые сателлитные role icons (`SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png`) — по skill `$create-jazz-squad-icons`; каталог: `docs/technical/systems/squad-role-icons.md`.
 - Status effect icons (`Icons/StatusEffects/*.png`, 40×40) — skill `$create-jazz-status-icons`; style/prompts — `Icons/StatusEffects/references/PROMPT.md`.
 - HUD / hotbar **action** icons (`Perks/SignatureAbilities/*.png` 108×54 dual strip; medical subset `Icons/Med/`) — skill `$create-jazz-action-icons`; style bank `Icons/Hud/references/PROMPT.md`. Не путать с Personal perk tiles.
 - Attachment icons — **два разных skill**:

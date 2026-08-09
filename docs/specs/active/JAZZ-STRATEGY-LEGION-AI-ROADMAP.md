@@ -24,7 +24,7 @@ approved_by: project-owner
 # JAZZ Legion Global AI — roadmap после STRATEGY-002/003
 
 Утверждённый порядок работ. Каждый пункт дальше оформляется отдельным change spec перед реализацией.  
-Иконки (часть уже в `SquadsIcons/Enemy/`): REINFORCE, RETRIBUTION, RECRUITER, MANPOWER; TAX — у владельца/рисовальщика.
+Иконки (в `SquadsIcons/Enemy/<faction>/`): REINFORCE, SUPPORT, RETRIBUTION, RECRUITER, MANPOWER, TAX, …
 
 ## Сделано
 
@@ -106,6 +106,7 @@ Vanilla якоря:
 | garrison | оборона + тяжёлая поддержка | 25–40 |
 | qrf | тяжелее patrol (T2+), без «фармового» T1-спама | ~T2 band |
 | reinforce | garrison-lite на границе | отдельный band |
+| support | малая спецгруппа sniper/MG/mortar (T3–T4) к существующей обороне | **4–7** fixed ([STRATEGY-024](JAZZ-STRATEGY-024.md)) |
 | retribution | тяжёлый ударный с HQ | отдельный band |
 | supply / shipment / tax / recruiter / manpower | логистика: малый escort + носители | малые составы |
 
@@ -164,7 +165,7 @@ Major держит свои пулы (`major.money`, `major.manpower`) с capaci
 JA3 не имеет матрицы фракций и faction-vs-faction войны. Контракт (owner 2026-08-02, **implemented** static; runtime AC open):
 
 - Фракции: Legion / Adonis / Army / Rebels (+ player); **Smugglers** — минифракция (иконка есть, director later).
-- Темы/цвета щитов: `SquadsIcons/Enemy/{legion,army,adonis,rebels,smugglers}.png` — таблица hex в STRATEGY-014.
+- Темы/цвета щитов: `SquadsIcons/Enemy/_shields/{legion,army,adonis,rebels,smugglers}.png` — таблица hex в STRATEGY-014.
 - Rebels — союз игроку; **всегда** враг остальным AI-фракциям.
 - Adonis ↔ Army — мир; оба **враг Легиону**.
 - Adonis/Army → player: **нейтрал до World Flip**, враг после.

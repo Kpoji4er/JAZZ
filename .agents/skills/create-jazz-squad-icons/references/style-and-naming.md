@@ -15,18 +15,21 @@
 
 | faction | файл | вид |
 | --- | --- | --- |
-| `legion` | `legion.png` | madder-red |
-| `army` | `army.png` | красно-коричневый camo |
-| `adonis` | `adonis.png` | purple |
-| `rebels` | `rebels.png` | green camo |
-| `smugglers` | `smugglers.png` | money/orange |
+| `legion` | `_shields/legion.png` | madder-red |
+| `army` | `_shields/army.png` | красно-коричневый camo |
+| `adonis` | `_shields/adonis.png` | purple |
+| `rebels` | `_shields/rebels.png` | green camo |
+| `smugglers` | `_shields/smugglers.png` | money/orange |
 
 ## Naming
 
 ```text
-<faction>_<ROLE>_squad.png
-Mod/e6L4ECj/SquadsIcons/Enemy/<faction>_<ROLE>_squad.png
+<faction>/<faction>_<ROLE>_squad.png
+Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png
 ```
+
+Пустые щиты: `SquadsIcons/Enemy/_shields/<faction>.png`  
+Прочее: `SquadsIcons/Enemy/_misc/`.
 
 `ROLE` — `SCREAMING_SNAKE` без пробелов (`TAX`, `REINFORCE`, `QRF`).
 
@@ -42,6 +45,7 @@ Mod/e6L4ECj/SquadsIcons/Enemy/<faction>_<ROLE>_squad.png
 | SUPPLY | грузовик |
 | SHIPMENT | грузовик + ромб |
 | REINFORCE | плюс |
+| SUPPORT | прицел / reticle |
 | RETRIBUTION | кулак |
 | RECRUITER | мегафон |
 | MANPOWER | колонна солдат с флагом |
@@ -66,8 +70,8 @@ Thick chunky shapes for tiny-size readability.
 SYMBOL: SYMBOL_DESCRIPTION
 
 MUST NOT collide with: skull, single garrison tower, crossed arrows, binoculars,
-cutlass, supply truck, diamond truck, plus sign, fist, megaphone, marching soldiers,
-money bag — unless replacing that exact role.
+cutlass, supply truck, diamond truck, plus sign, targeting reticle, fist, megaphone,
+marching soldiers, money bag — unless replacing that exact role.
 
 Colors ONLY: black draft bg, muted red shield, ivory/cream symbol.
 ```

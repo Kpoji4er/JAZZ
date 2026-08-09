@@ -17,6 +17,7 @@ Vanilla-map starting squads whose compositions are replaced by `jazz-units` are 
 | Recon | Deploys on noticeable “noise”; return names the sector where you were spotted | ~4–6 → 8–12; **NoMaps ~3–5 → 6–9** |
 | QRF | Only under threat: recon report or a key point you took | grows with time/Heat |
 | Reinforcement | Holds border key points near you | grows with time/Heat |
+| Support | Small specialist detachment (snipers / MGs / mortar, T3–T4) attached to an existing garrison or reinforcement on the border | **4–7** |
 | Tax collector | Tours towns/farms and brings `$` to the fort; loot matches the run’s `$` | small escort early |
 | Recruiter | Tours towns/farms and brings recruits to the fort | small escort |
 | Reinforcement convoy | People from HQ to the fort | small escort |
@@ -32,7 +33,7 @@ Legion mine/town/farm income and starting cash pools are about **4× lower** tha
 
 - Whoever captures a fort owns it; after World Flip, Adonis/Army lanes can keep ownership.
 - Before Flip, Adonis/Army do not open sat conflict on your sectors; after Flip they are hostile on sat and in combat.
-- Convoys route around your sectors; if there is no bypass, a new convoy does not spawn (one already en route finishes). Patrol / recon / retaliation can still enter your territory.
+- Convoys route around your sectors; if there is no bypass, a new convoy does not spawn (one already en route finishes). Patrol / recon / retaliation can still enter your territory. Reinforcement and support may spawn and wait for a safe path.
 
 ## Recon and Heat
 

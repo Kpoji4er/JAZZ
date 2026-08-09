@@ -6842,6 +6842,9 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001644,<role> - resting and refitting at <home>,<role> - отдыхает и пополняется на <home>,,jazz:Code/Guardpost_Patrols.lua
 890000000001645,<role> - holding patrol sector <target>,<role> - стоит в секторе патруля <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001646,<role> - reinforcing garrison at <target>,<role> - усиливает гарнизон в <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001651,Support,Поддержка,,jazz:Code/Guardpost_Patrols.lua
+890000000001652,<role> — providing fire support at <target>,<role> — обеспечивает огневую поддержку в <target>,,jazz:Code/Guardpost_Patrols.lua
+890000000001653,<role> — moving to support sector <target>,<role> — идёт усиливать сектор поддержкой <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001700,Цепная паника,Цепная паника,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001701,Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне взрыва.,Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне взрыва.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001702,Тревор Колби,Тревор Колби,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
