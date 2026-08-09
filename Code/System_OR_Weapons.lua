@@ -276,6 +276,8 @@ end
 
 -- Jazz_Perk_Nervous / Jazz_Perk_Buzz shot-count helpers (shared by CombatAction GetAutofireShots call sites).
 -- UNITS-006: Nervous uses stacked bonus shots (cap 10), not flat +2.
+-- Peek-only consume: stack is cleared in Jazz_Perk_Nervous OnUnitAttack after the consumer autofire.
+-- Idempotent for Execute→GetActionResults (same base or already-boosted value must not double-add).
 function Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 	if not unit or not num_shots then
 		return num_shots
@@ -288,7 +290,20 @@ function Jazz_ApplyNamedPerkAutofireShots(unit, num_shots)
 		if type(Jazz_NervousGetBonusShots) == "function" then
 			bonus = Jazz_NervousGetBonusShots(unit)
 		end
-		num_shots = num_shots + bonus
+		local last_base = tonumber(unit:GetEffectValue("Jazz_NervousLastBaseShots"))
+		local last_out = tonumber(unit:GetEffectValue("Jazz_NervousLastOutShots"))
+		if last_base and last_out then
+			if num_shots == last_out and (last_out - last_base) == bonus then
+				return num_shots
+			end
+			if num_shots == last_base then
+				return last_out
+			end
+		end
+		local out = num_shots + bonus
+		unit:SetEffectValue("Jazz_NervousLastBaseShots", num_shots)
+		unit:SetEffectValue("Jazz_NervousLastOutShots", out)
+		num_shots = out
 	end
 	return num_shots
 end

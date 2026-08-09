@@ -43,11 +43,11 @@ approved_by: "project-owner chat 2026-08-08 (Лист2 sync + locked decisions; 
 source_sheet: "https://docs.google.com/spreadsheets/d/1h6Q_NXa3M1W8nQ59KQAJZIn58SNbDcR7_6IvdfpPuLY/edit?gid=1481453815#gid=1481453815 (Лист2)"
 ---
 
-# JAZZ-UNITS-006: Named perks — sync Лист2 (rewire deltas + vanilla)
+# uJAZZ-UNITS-006: Named perks — sync Лист2 (rewire deltas + vanilla)
 
 ## Проблема
 
-Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена/механики именных перков (`сигна` + `JAZZ MOD`) для всего ростера: JA12/`Jazz_Perk_*` и оригинальных JA3. Часть JA12 уже зашита по `JAZZ-UNITS-003` и расходится с листом; ванильные personal часто тоже ≠ лист. Нужна единая каноническая сверка **оригинал → Лист2** и реализация батчами.
+Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена/механики именных перков (`сигна` + `JAZZ MOD`) для всего ростера: JA12/`Jazz_Perk_`* и оригинальных JA3. Часть JA12 уже зашита по `JAZZ-UNITS-003` и расходится с листом; ванильные personal часто тоже ≠ лист. Нужна единая каноническая сверка **оригинал → Лист2** и реализация батчами.
 
 **Канон дизайна:** Лист2 + Locked decisions / Mechanics ниже.  
 **Оригинал:** текущий wired эффект (vanilla CE / JAZZ override / `JAZZ-UNITS-003` / stub article).
@@ -82,88 +82,96 @@ Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена
 
 ## Locked decisions (chat 2026-08-08)
 
-| Тема | Решение |
-| --- | --- |
-| Канон | Эта спека supersede `JAZZ-UNITS-003` §A Mechanics |
-| Nervous | стек +пуль за хит очереди, **cap = 10** |
-| Lucky | CTH≥**70%** miss → **reroll** |
-| Grizzly | **микс G1:** только на `GrizzlyPerk` — WEAPONS-012 ignore + **2×** очередь + **2×** suppress |
-| Henning / Steiger / Rothman | как на листе (см. Mechanics) |
-| §C | in scope; **батчи ok** |
-| §C числа | явные числа листа → лист; Verdict≈ → shipping vanilla/JAZZ ядро |
-| Grunty | T1 +50% AP + каждый ход **10% × уровень БД (Morale)** |
-| Blade | ванильный **`Brutalize`** («Зверство»), не Wave A +20 CTH |
-| Cougar | SK → Inspired 1×/turn (не ОД) |
-| Flay | +10% dmg per **enemy** with bleed, не по стакам |
-| Spike | CD убийством; убрать 1×/бой |
-| Flo / Static | в scope; числа locked ниже |
-| Soft gaps | Vince **−25%** med cost; Madman Will drain **10** |
+
+| Тема                        | Решение                                                                                      |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| Канон                       | Эта спека supersede `JAZZ-UNITS-003` §A Mechanics                                            |
+| Nervous                     | стек +пуль за хит очереди, **cap = 10**                                                      |
+| Lucky                       | CTH≥**70%** miss → **reroll**                                                                |
+| Grizzly                     | **микс G1:** только на `GrizzlyPerk` — WEAPONS-012 ignore + **2×** очередь + **2×** suppress |
+| Henning / Steiger / Rothman | как на листе (см. Mechanics)                                                                 |
+| §C                          | in scope; **батчи ok**                                                                       |
+| §C числа                    | явные числа листа → лист; Verdict≈ → shipping vanilla/JAZZ ядро                              |
+| Grunty                      | T1 +50% AP + каждый ход **10% × уровень БД (Morale)**                                        |
+| Blade                       | ванильный `**Brutalize**` («Зверство»), не Wave A +20 CTH                                    |
+| Cougar                      | SK → Inspired 1×/turn (не ОД)                                                                |
+| Flay                        | +10% dmg per **enemy** with bleed, не по стакам                                              |
+| Spike                       | CD убийством; убрать 1×/бой                                                                  |
+| Flo / Static                | в scope; числа locked ниже                                                                   |
+| Soft gaps                   | Vince **−25%** med cost; Madman Will drain **10**                                            |
+
 
 ### Mechanics (locked)
 
-| Id | Целевой эффект |
-| --- | --- |
-| `Jazz_Perk_Henning` | «Полевой командир»: +**3 AP** союзникам в **10** slabs в начале их хода / aura на ход (реализация: status AP buff на allies ≤10 при OnBeginTurn Henning или эквивалент) |
-| `Jazz_Perk_Steiger` | «Вожак стаи»: Night/Underground: allies ≤**10** → +**5** CTH (переименовать с «Ночной инструктор»; радиус 5→10) |
-| `Jazz_Perk_Rothman` | «Я вас научу работать!»: mine sector op — доход/охрана; эффект сильнее при низкой loyalty |
-| `Jazz_Perk_Nervous` | каждый хит burst/auto стекает +1 пулю на следующую очередь/авто; **cap +10**; сброс после атаки-потребителя |
-| `Jazz_Perk_Lucky` | если CTH≥70% и miss → один reroll того же shot |
-| `Jazz_Perk_Laura` | после heal/bandage союзника: Laura +**15** CTH и +**15** crit до конца следующего хода |
-| `Jazz_Perk_Dynamo` | lockpick не триггерит lock traps |
-| `Jazz_Perk_Madman` | melee crit или kill → всем в ≤5 slabs (включая союзников) **−10 Will** (один proc на событие) |
-| `Jazz_Perk_Blade` | модифицирует **`Brutalize`**: каждый успешный удар в цепочке → ещё один hit |
-| `Jazz_Perk_Shank` | 50% melee defense; при промахе melee по нему — knife throwback если цель ≤8 |
-| `Jazz_Perk_Vince` | squad-wide **−25%** расход medkit charges / Meds на combat heal и satellite medical ops, пока Vince в отряде |
-| `Jazz_Perk_Mike` | Overwatch и PinDown: **+2** атаки; reaction/interrupt always fire when eligible |
-| `Jazz_Perk_Flo` | «Теоретически подкована»: **−12% buy / +12% sell**; Flo в active squad; аддитивно с Negotiator |
-| `Jazz_Perk_Static` | «Собрал на коленке»: Parts cost repair/craft Static **−5% × Level**, **cap −25%** |
-| `GrizzlyPerk` | G1: signature only — WEAPONS-012 unsupported ignore + 2× shots + 2× suppression |
-| `GruntyPerk_JAZZ` | (1) combat start → +50% AP first turn; (2) each later turn: proc +50% AP with chance **`10 × MoraleLevel`%** where MoraleLevel = unit personal morale integer used by JA3 UI/combat (floor 0); `InteractionRand(100) < chance` |
+
+| Id                  | Целевой эффект                                                                                                                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Jazz_Perk_Henning` | «Полевой командир»: +**3 AP** союзникам в **10** slabs в начале их хода / aura на ход (реализация: status AP buff на allies ≤10 при OnBeginTurn Henning или эквивалент)                                                        |
+| `Jazz_Perk_Steiger` | «Вожак стаи»: Night/Underground: allies ≤**10** → +**5** CTH (переименовать с «Ночной инструктор»; радиус 5→10)                                                                                                                |
+| `Jazz_Perk_Rothman` | «Я вас научу работать!»: mine sector op — доход/охрана; эффект сильнее при низкой loyalty                                                                                                                                      |
+| `Jazz_Perk_Nervous` | каждый хит burst/auto стекает +1 пулю на следующую очередь/авто; **cap +10**; сброс после атаки-потребителя                                                                                                                    |
+| `Jazz_Perk_Lucky`   | если CTH≥70% и miss → один reroll того же shot                                                                                                                                                                                 |
+| `Jazz_Perk_Laura`   | после heal/bandage союзника: Laura +**15** CTH и +**15** crit до конца следующего хода                                                                                                                                         |
+| `Jazz_Perk_Dynamo`  | lockpick не триггерит lock traps                                                                                                                                                                                               |
+| `Jazz_Perk_Madman`  | melee crit или kill → всем в ≤5 slabs (включая союзников) **−10 Will** (один proc на событие)                                                                                                                                  |
+| `Jazz_Perk_Blade`   | модифицирует `**Brutalize**`: каждый успешный удар в цепочке → ещё один hit                                                                                                                                                    |
+| `Jazz_Perk_Shank`   | 50% melee defense; при промахе melee по нему — knife throwback если цель ≤8                                                                                                                                                    |
+| `Jazz_Perk_Vince`   | squad-wide **−25%** расход medkit charges / Meds на combat heal и satellite medical ops, пока Vince в отряде                                                                                                                   |
+| `Jazz_Perk_Mike`    | Overwatch и PinDown: **+2** атаки; reaction/interrupt always fire when eligible                                                                                                                                                |
+| `Jazz_Perk_Flo`     | «Теоретически подкована»: **−12% buy / +12% sell**; Flo в active squad; аддитивно с Negotiator                                                                                                                                 |
+| `Jazz_Perk_Static`  | «Собрал на коленке»: Parts cost repair/craft Static **−5% × Level**, **cap −25%**                                                                                                                                              |
+| `GrizzlyPerk`       | G1: signature only — WEAPONS-012 unsupported ignore + 2× shots + 2× suppression                                                                                                                                                |
+| `GruntyPerk_JAZZ`   | (1) combat start → +50% AP first turn; (2) each later turn: proc +50% AP with chance `**10 × MoraleLevel`%** where MoraleLevel = unit personal morale integer used by JA3 UI/combat (floor 0); `InteractionRand(100) < chance` |
+
 
 ## §A — CHANGE vs WIRED JA12
 
-| Merc / Id | Оригинал | Цель |
-| --- | --- | --- |
-| Henning / `Jazz_Perk_Henning` | OrderCTH +5 @5 | +3 AP aura @10 |
-| Laura / `Jazz_Perk_Laura` | Heal → Hidden | +15 CTH & crit after heal |
-| Lucky / `Jazz_Perk_Lucky` | 1×/combat miss→hit | CTH≥70% miss → reroll |
-| Dynamo / `Jazz_Perk_Dynamo` | Head 25% Blinded | Lockpick skips lock traps |
-| Nervous / `Jazz_Perk_Nervous` | Autofire/burst +2 | Stack +bullets, cap 10 |
-| Madman / `Jazz_Perk_Madman` | Kill Dist≤1 → Inspired | Melee crit/kill → −10 Will ≤5 all |
-| Blade / `Jazz_Perk_Blade` | Melee +20 CTH, crit=0 | Brutalize: success → extra hit |
-| Shank / `Jazz_Perk_Shank` | Melee vs him −50 CTH | 50% melee def + knife counter ≤8 |
-| Steiger / `Jazz_Perk_Steiger` | Night OrderCTH @5 | «Вожак стаи» night/UG +5 CTH @10 |
-| Vince / `Jazz_Perk_Vince` | Bandage → +4 AP | −25% med cost squad |
-| Mike / `Jazz_Perk_Mike` | Stub | OW/PinDown +2; reactions always |
+
+| Merc / Id                     | Оригинал               | Цель                              |
+| ----------------------------- | ---------------------- | --------------------------------- |
+| Henning / `Jazz_Perk_Henning` | OrderCTH +5 @5         | +3 AP aura @10                    |
+| Laura / `Jazz_Perk_Laura`     | Heal → Hidden          | +15 CTH & crit after heal         |
+| Lucky / `Jazz_Perk_Lucky`     | 1×/combat miss→hit     | CTH≥70% miss → reroll             |
+| Dynamo / `Jazz_Perk_Dynamo`   | Head 25% Blinded       | Lockpick skips lock traps         |
+| Nervous / `Jazz_Perk_Nervous` | Autofire/burst +2      | Stack +bullets, cap 10            |
+| Madman / `Jazz_Perk_Madman`   | Kill Dist≤1 → Inspired | Melee crit/kill → −10 Will ≤5 all |
+| Blade / `Jazz_Perk_Blade`     | Melee +20 CTH, crit=0  | Brutalize: success → extra hit    |
+| Shank / `Jazz_Perk_Shank`     | Melee vs him −50 CTH   | 50% melee def + knife counter ≤8  |
+| Steiger / `Jazz_Perk_Steiger` | Night OrderCTH @5      | «Вожак стаи» night/UG +5 CTH @10  |
+| Vince / `Jazz_Perk_Vince`     | Bandage → +4 AP        | −25% med cost squad               |
+| Mike / `Jazz_Perk_Mike`       | Stub                   | OW/PinDown +2; reactions always   |
+
 
 ## §B — CHANGE stub/article JA12
 
-| Id | Цель (Лист2 / locked) | Было |
-| --- | --- | --- |
-| `Jazz_Perk_Iggy` | Mortar scatter −33% | «Совесть дезертира» |
-| `Jazz_Perk_Grom` | GL/mortar/AT 2× suppress | «Артподготовка» |
-| `Jazz_Perk_Rothman` | Mine op loyalty-scaled | «Шахтёрский надзор» |
-| `Jazz_Perk_Highball` | Med ±50% if ally doctor Med≥80 within 5 / sat in squad | «Полевой химик» |
-| `Jazz_Perk_Hitman` | Active mark always-see; no vision CTH pen; CD kill | «Вырубить» |
-| `Jazz_Perk_Bull` | Fist trauma by body part; +2 ammo/grenade slots | «Грудная клетка» |
-| `Jazz_Perk_Meat` | Will never drops; WP dmg→Grit; unsuppressible | «Толстокожий» |
-| `Jazz_Perk_Ricochet` | Melee splash dmg to enemy ≤1 from target | «Рикошет» |
-| `Jazz_Perk_Monk` | Active silenced SK if CTH>70% always; CD kill | «Маскировка» |
-| `Jazz_Perk_Horg` | Active perfect 40mm/AT; CD kill | «Тяжёлая рука» |
-| `Jazz_Perk_Kulba` | US autos −50% recoil (M3/Thompson/M4/M16/BAR/M60/M14/M1 carbine auto) | «Оружейник…» |
-| `Jazz_Perk_Carlos` | Detected 33% slower; failed SK may stay hidden | «Тихая тень» |
-| `Jazz_Perk_Cougar` | Shots −33% noise; SK → Inspired 1×/turn | «Мягкая лапа» |
-| `Jazz_Perk_Grace` | First knife throw/turn auto-hit ≤12 | ≤4 plan |
-| `Jazz_Perk_Allik` | Med/Exp/Mech checks +15–25 random (not sat) | XP checks |
-| `Jazz_Perk_Biggens` | Each successive own blast +10% dmg | Mines plan |
-| `Jazz_Perk_Manuel` | Active pistol/SMG/melee guaranteed SK no reveal; CD kill | Stealth near |
-| `Jazz_Perk_Ira` | Militia she trains: +20 random primary stat | Training speed |
-| `Jazz_Perk_Miguel` | Aura 30: +30 Will/+15 CTH if up; −30/−15 if downed | Militia AP |
-| `Jazz_Perk_Conrad` | As trainer, Leadership treated as floor 90 | Teacher stacking |
-| `Jazz_Perk_Cord` | Faster/cheaper repair in city sector with bar | Generic repair |
-| `Jazz_Perk_Biff` | Train paid MERC troopers (move/attach/guard; daily pay; mass leave if unpaid) | Same theme stub |
-| `Jazz_Perk_Flo` | −12% buy / +12% sell | «Барахольщица» WIP |
-| `Jazz_Perk_Static` | Parts −5%/level repair/craft, cap −25% | «Экономия запчастей» WIP |
+
+| Id                   | Цель (Лист2 / locked)                                                         | Было                     |
+| -------------------- | ----------------------------------------------------------------------------- | ------------------------ |
+| `Jazz_Perk_Iggy`     | Mortar scatter −33%                                                           | «Совесть дезертира»      |
+| `Jazz_Perk_Grom`     | GL/mortar/AT 2× suppress                                                      | «Артподготовка»          |
+| `Jazz_Perk_Rothman`  | Mine op loyalty-scaled                                                        | «Шахтёрский надзор»      |
+| `Jazz_Perk_Highball` | Med ±50% if ally doctor Med≥80 within 5 / sat in squad                        | «Полевой химик»          |
+| `Jazz_Perk_Hitman`   | Active mark always-see; no vision CTH pen; CD kill                            | «Вырубить»               |
+| `Jazz_Perk_Bull`     | Fist trauma by body part; +2 ammo/grenade slots                               | «Грудная клетка»         |
+| `Jazz_Perk_Meat`     | Will never drops; WP dmg→Grit; unsuppressible                                 | «Толстокожий»            |
+| `Jazz_Perk_Ricochet` | Melee splash dmg to enemy ≤1 from target                                      | «Рикошет»                |
+| `Jazz_Perk_Monk`     | Active silenced SK if CTH>70% always; CD kill                                 | «Маскировка»             |
+| `Jazz_Perk_Horg`     | Active perfect 40mm/AT; CD kill                                               | «Тяжёлая рука»           |
+| `Jazz_Perk_Kulba`    | US autos −50% recoil (M3/Thompson/M4/M16/BAR/M60/M14/M1 carbine auto)         | «Оружейник…»             |
+| `Jazz_Perk_Carlos`   | Detected 33% slower; failed SK may stay hidden                                | «Тихая тень»             |
+| `Jazz_Perk_Cougar`   | Shots −33% noise; SK → Inspired 1×/turn                                       | «Мягкая лапа»            |
+| `Jazz_Perk_Grace`    | First knife throw/turn auto-hit ≤12                                           | ≤4 plan                  |
+| `Jazz_Perk_Allik`    | Med/Exp/Mech checks +15–25 random (not sat)                                   | XP checks                |
+| `Jazz_Perk_Biggens`  | Each successive own blast +10% dmg                                            | Mines plan               |
+| `Jazz_Perk_Manuel`   | Active pistol/SMG/melee guaranteed SK no reveal; CD kill                      | Stealth near             |
+| `Jazz_Perk_Ira`      | Militia she trains: +20 random primary stat                                   | Training speed           |
+| `Jazz_Perk_Miguel`   | Aura 30: +30 Will/+15 CTH if up; −30/−15 if downed                            | Militia AP               |
+| `Jazz_Perk_Conrad`   | As trainer, Leadership treated as floor 90                                    | Teacher stacking         |
+| `Jazz_Perk_Cord`     | Faster/cheaper repair in city sector with bar                                 | Generic repair           |
+| `Jazz_Perk_Biff`     | Train paid MERC troopers (move/attach/guard; daily pay; mass leave if unpaid) | Same theme stub          |
+| `Jazz_Perk_Flo`      | −12% buy / +12% sell                                                          | «Барахольщица» WIP       |
+| `Jazz_Perk_Static`   | Parts −5%/level repair/craft, cap −25%                                        | «Экономия запчастей» WIP |
+
 
 ## §C — Оригинальные JA3
 
@@ -171,56 +179,60 @@ Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена
 
 Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre→`PierreMerc`.
 
-| Merc | Perk id | Цель | Verdict |
-| --- | --- | --- | --- |
-| Ice | `IcePerk` | Пять выстрелов по конечностям | CHANGE |
-| Steroid | `SteroidPunch` | Melee CTH from Strength all melee; crit→prone+KO; no stim pen; 30% fire dmg taken | CHANGE |
-| Barry | `DesignerExplosives` | Craft grenades; ammo/grenade craft −30% | CHANGE |
-| Blood | `HundredKnives` | Run and throw knives | ≈ |
-| Vicki | `WeaponPersonalization` | Self-repair 1%/h; full-mod +dmg/+crit (vanilla magnitudes) | ≈ |
-| Wolf | `JackOfAllTrades` | Any op −33% time | CHANGE |
-| Gus | `WeGotThis` | Kill → +10 Grit squad | CHANGE |
-| Nails | `NailsPerk` | After first kill +20% dmg | CHANGE |
-| Grizzly | `GrizzlyPerk` | Mix G1 | CHANGE |
-| Reaper | `TheGrim` | Active; kill Panic ≤8 | ≈ |
-| Ivan | `YouSeeIgor` | Kill → +3 AP | CHANGE |
-| Igor | `Nazdarovya` | Stacks≤5: heal/pain/−15 CTH/+20 melee; hangover 8–10h (3h/stack) | CHANGE |
-| Kalyna | `KalynaPerk` | Armor-ignore shot | ≈ |
-| Meltdown | `VengefulTemperament` | ≤5 Panic/Berserk | ≈ |
-| Len | `OnMyTarget` | Squad attacks marked target; **10 AP** | CHANGE |
-| Fox | `FoxPerk` | First attack no alert / free AP | ≈ |
-| Scully | `ShoulderToShoulder` | End turn +15 Grit self+nearby | CHANGE |
-| Magic | `SecondStoryMan` | +50% crit from above | CHANGE |
-| MD | `BuildingConfidence` | Inspired 2nd turn & every 3; heal ±10%/lvl cap ±50% combat+sat | CHANGE |
-| Mouse | `LightStep` | Does not trigger OW zones | ≈ |
-| Omryn | `EyesOnTheBack` | Active 360 OW | ≈ |
-| Raider | `TagTeam` | +15% CTH vs ally PinDown targets | CHANGE |
-| Red | `HaveABlast` | Toggle retaliate grenade; self blast dmg −50% | CHANGE |
-| Buns | `BunsPerk` | +10% CTH vs ally-damaged this turn | CHANGE |
-| Sidney | `SidneyPerk` | +2 AP start until miss/dmg taken | CHANGE |
-| Raven | `Spotter` | PinDown→Marked→ next hit 100% crit | CHANGE |
-| Scope | `HawksEye` | Focus Fire 1 AP + biscuits; sniper suppress ×2 | CHANGE |
-| Hitman | `DedicatedCamper` | Stationary +25% dmg; ≥25 dmg → +15 Grit | CHANGE |
-| Tex | `DanceForMe` | Legs AoE + OW | ≈ |
-| Shadow | `FleetingShadow` | Stealth run; +10 Grit on SK | ≈ |
-| Thor | `NaturalHealing` | Joints craft + sat/combat effects per лист | CHANGE |
-| Livewire | `InnerInfo_JAZZ` | More intel from hacks; money-making op | CHANGE |
-| Fauda | `KillingWind` | 8 grit if attack hits ≥2; heavy armor half FM pen; no cumbersome FM pen | CHANGE |
-| Fidel | `DoubleToss` | Two grenades/bombs | ≈ |
-| Grunty | `GruntyPerk_JAZZ` | T1 +50% AP + per-turn 10%×Morale | CHANGE |
-| DrQ | `ExplodingPalm` | Fist statuses by HP; sat trauma heal +30%; infection resist | CHANGE |
-| Flay | `MakeThemBleed` | Groin/animal bleed; +10%/enemy with bleed in sight cap 50% | CHANGE |
-| Larry / Larry_Clean | `DangerClose` | ≥8 tiles +40% +2 bleed; no stim pen | CHANGE |
-| PierreMerc | `GloryHog` | Charge not only straight +15 grit; recruit 1 enemy/combat (not bosses) | CHANGE |
-| Smiley | `RecklessAssault` | Maneuver SMG/carbine/AR 4 attacks + CTH | CHANGE |
-| Spike | `BulletHell` | AoE 15/30 (100/200% dmg) prone+suppress; **CD on kill** | CHANGE |
+
+| Merc                | Perk id                 | Цель                                                                              | Verdict |
+| ------------------- | ----------------------- | --------------------------------------------------------------------------------- | ------- |
+| Ice                 | `IcePerk`               | Пять выстрелов по конечностям                                                     | CHANGE  |
+| Steroid             | `SteroidPunch`          | Melee CTH from Strength all melee; crit→prone+KO; no stim pen; 30% fire dmg taken | CHANGE  |
+| Barry               | `DesignerExplosives`    | Craft grenades; ammo/grenade craft −30%                                           | CHANGE  |
+| Blood               | `HundredKnives`         | Run and throw knives                                                              | ≈       |
+| Vicki               | `WeaponPersonalization` | Self-repair 1%/h; full-mod +dmg/+crit (vanilla magnitudes)                        | ≈       |
+| Wolf                | `JackOfAllTrades`       | Any op −33% time                                                                  | CHANGE  |
+| Gus                 | `WeGotThis`             | Kill → +10 Grit squad                                                             | CHANGE  |
+| Nails               | `NailsPerk`             | After first kill +20% dmg                                                         | CHANGE  |
+| Grizzly             | `GrizzlyPerk`           | Mix G1                                                                            | CHANGE  |
+| Reaper              | `TheGrim`               | Active; kill Panic ≤8                                                             | ≈       |
+| Ivan                | `YouSeeIgor`            | Kill → +3 AP                                                                      | CHANGE  |
+| Igor                | `Nazdarovya`            | Stacks≤5: heal/pain/−15 CTH/+20 melee; hangover 8–10h (3h/stack)                  | CHANGE  |
+| Kalyna              | `KalynaPerk`            | Armor-ignore shot                                                                 | ≈       |
+| Meltdown            | `VengefulTemperament`   | ≤5 Panic/Berserk                                                                  | ≈       |
+| Len                 | `OnMyTarget`            | Squad attacks marked target; **10 AP**                                            | CHANGE  |
+| Fox                 | `FoxPerk`               | First attack no alert / free AP                                                   | ≈       |
+| Scully              | `ShoulderToShoulder`    | End turn +15 Grit self+nearby                                                     | CHANGE  |
+| Magic               | `SecondStoryMan`        | +50% crit from above                                                              | CHANGE  |
+| MD                  | `BuildingConfidence`    | Inspired 2nd turn & every 3; heal ±10%/lvl cap ±50% combat+sat                    | CHANGE  |
+| Mouse               | `LightStep`             | Does not trigger OW zones                                                         | ≈       |
+| Omryn               | `EyesOnTheBack`         | Active 360 OW                                                                     | ≈       |
+| Raider              | `TagTeam`               | +15% CTH vs ally PinDown targets                                                  | CHANGE  |
+| Red                 | `HaveABlast`            | Toggle retaliate grenade; self blast dmg −50%                                     | CHANGE  |
+| Buns                | `BunsPerk`              | +10% CTH vs ally-damaged this turn                                                | CHANGE  |
+| Sidney              | `SidneyPerk`            | +2 AP start until miss/dmg taken                                                  | CHANGE  |
+| Raven               | `Spotter`               | PinDown→Marked→ next hit 100% crit                                                | CHANGE  |
+| Scope               | `HawksEye`              | Focus Fire 1 AP + biscuits; sniper suppress ×2                                    | CHANGE  |
+| Hitman              | `DedicatedCamper`       | Stationary +25% dmg; ≥25 dmg → +15 Grit                                           | CHANGE  |
+| Tex                 | `DanceForMe`            | Legs AoE + OW                                                                     | ≈       |
+| Shadow              | `FleetingShadow`        | Stealth run; +10 Grit on SK                                                       | ≈       |
+| Thor                | `NaturalHealing`        | Joints craft + sat/combat effects per лист                                        | CHANGE  |
+| Livewire            | `InnerInfo_JAZZ`        | More intel from hacks; money-making op                                            | CHANGE  |
+| Fauda               | `KillingWind`           | 8 grit if attack hits ≥2; heavy armor half FM pen; no cumbersome FM pen           | CHANGE  |
+| Fidel               | `DoubleToss`            | Two grenades/bombs                                                                | ≈       |
+| Grunty              | `GruntyPerk_JAZZ`       | T1 +50% AP + per-turn 10%×Morale                                                  | CHANGE  |
+| DrQ                 | `ExplodingPalm`         | Fist statuses by HP; sat trauma heal +30%; infection resist                       | CHANGE  |
+| Flay                | `MakeThemBleed`         | Groin/animal bleed; +10%/enemy with bleed in sight cap 50%                        | CHANGE  |
+| Larry / Larry_Clean | `DangerClose`           | ≥8 tiles +40% +2 bleed; no stim pen                                               | CHANGE  |
+| PierreMerc          | `GloryHog`              | Charge not only straight +15 grit; recruit 1 enemy/combat (not bosses)            | CHANGE  |
+| Smiley              | `RecklessAssault`       | Maneuver SMG/carbine/AR 4 attacks + CTH                                           | CHANGE  |
+| Spike               | `BulletHell`            | AoE 15/30 (100/200% dmg) prone+suppress; **CD on kill**                           | CHANGE  |
+
 
 ## §D — Missing CE (create)
 
-| Merc | Цель с листа | Deliverable |
-| --- | --- | --- |
+
+| Merc  | Цель с листа                                                                           | Deliverable                             |
+| ----- | -------------------------------------------------------------------------------------- | --------------------------------------- |
 | Benni | «Вам посылка»: active lure decoy ≤8, Will-based (or lowest Will); explosion on arrival | `Jazz_Perk_Benny` + StartingPerks + loc |
-| Simon | «Абсолютный снайпер»: active perfect shot any weapon with ≥4× optic; CD kill | `Jazz_Perk_Simon` + StartingPerks + loc |
+| Simon | «Абсолютный снайпер»: active perfect shot any weapon with ≥4× optic; CD kill           | `Jazz_Perk_Simon` + StartingPerks + loc |
+
 
 ## Батчи реализации (порядок)
 
@@ -279,11 +291,11 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 
 ## Evidence
 
-- JAZZ-UNITS-006-AC-001 / AC-002 / AC-009: PASS (static) - batch1 §A + Mike PinDown +2 follow-up.
-- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit; batch5 DangerClose/ExplodingPalm/Nazdarovya CE companions.
-- JAZZ-UNITS-006-AC-005 / AC-006 (batch1-6 deltas): PASS (static) - RU/EN + showcase RU|EN perks.md.
-- JAZZ-UNITS-006-AC-003 (partial): PASS (static) - §B through batch5 Rothman/Miguel/Ira/Biff/Cord/Conrad/Meat/Carlos; soft-cuts `_units006_batch5_notes.md`.
-- JAZZ-UNITS-006-AC-008: PASS (static) - §D `Jazz_Perk_Benny`/`Jazz_Perk_Simon` CE + StartingPerks + non-WIP Description; CombatAction soft-cut `_units006_batch6_notes.md`.
+- JAZZ-UNITS-006-AC-001 / AC-002 / AC-009: PASS (static) - batch1 §A + Mike PinDown +2 follow-up; **Nervous** rewired 2026-08-09 (Consume + AddHitStack, idempotent Apply).
+- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit.
+- JAZZ-UNITS-006-AC-005 / AC-006 (batch1-4 deltas): PASS (static) - RU/EN + showcase RU|EN perks.md.
+- JAZZ-UNITS-006-AC-003 (partial): PASS (static) - §B batch4 Flo/Static/Cougar + Grace/Kulba/Grom/...; soft-cuts _units006_batch4_notes.md.
+- JAZZ-UNITS-006-AC-008: PASS partial (static) - §D CE + StartingPerks shipped; CombatAction actives soft-cut (batch6 notes).
 - JAZZ-UNITS-006-AC-007: BLOCKED - owner runtime/human smoke.
 
 ## Documentation delta
@@ -291,3 +303,4 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 - Этот файл = approved contract.
 - При батче: showcase RU/EN, wiki, technical, `_named-perks-plan.md`, JA12 articles; `JAZZ-UNITS-003` supersede note (батч 1).
 - Tools snapshot: `docs/tools/_tmp_list2_perks_fresh.tsv`, `_tmp_list2_sheet_diff.md`, `_tmp_diff_list2_sheet.py` (agent tooling keep).
+

@@ -75233,13 +75233,31 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 										end
 									end
 								end
-								attacker:SetEffectValue("Jazz_NervousBonusShots", Clamp(hits, 0, 10))
+								-- This autofire already consumed prior stack via shot-count peek at fire time.
+								-- Reset, then stack this attack's hits for the next burst/auto (cap via helper).
+								if type(Jazz_NervousConsumeBonus) == "function" then
+									Jazz_NervousConsumeBonus(attacker)
+								else
+									attacker:SetEffectValue("Jazz_NervousBonusShots", nil)
+								end
+								if hits > 0 then
+									if type(Jazz_NervousAddHitStack) == "function" then
+										Jazz_NervousAddHitStack(attacker, hits)
+									else
+										local cap = self:ResolveValue("stack_cap") or 10
+										attacker:SetEffectValue("Jazz_NervousBonusShots", Clamp(hits, 0, cap))
+									end
+								end
 							end,
 						}),
 						PlaceObj('UnitReaction', {
 							Event = "OnCombatEnd",
 							Handler = function (self, target)
-								target:SetEffectValue("Jazz_NervousBonusShots", nil)
+								if type(Jazz_NervousConsumeBonus) == "function" then
+									Jazz_NervousConsumeBonus(target)
+								else
+									target:SetEffectValue("Jazz_NervousBonusShots", nil)
+								end
 							end,
 						}),
 					},

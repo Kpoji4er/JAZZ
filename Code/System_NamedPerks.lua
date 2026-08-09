@@ -36,6 +36,14 @@ function Jazz_NervousGetBonusShots(unit)
 	return Clamp(tonumber(unit:GetEffectValue("Jazz_NervousBonusShots")) or 0, 0, Jazz_NamedPerkParam(unit, "Jazz_Perk_Nervous", "stack_cap", 10))
 end
 
+local function Jazz_NervousClearApplyCache(unit)
+	if not unit then
+		return
+	end
+	unit:SetEffectValue("Jazz_NervousLastBaseShots", nil)
+	unit:SetEffectValue("Jazz_NervousLastOutShots", nil)
+end
+
 function Jazz_NervousAddHitStack(unit, hits)
 	if not lHas(unit, "Jazz_Perk_Nervous") then
 		return
@@ -43,6 +51,7 @@ function Jazz_NervousAddHitStack(unit, hits)
 	hits = hits or 1
 	local cur = Jazz_NervousGetBonusShots(unit)
 	unit:SetEffectValue("Jazz_NervousBonusShots", Clamp(cur + hits, 0, Jazz_NamedPerkParam(unit, "Jazz_Perk_Nervous", "stack_cap", 10)))
+	Jazz_NervousClearApplyCache(unit)
 end
 
 function Jazz_NervousConsumeBonus(unit)
@@ -50,6 +59,7 @@ function Jazz_NervousConsumeBonus(unit)
 		return
 	end
 	unit:SetEffectValue("Jazz_NervousBonusShots", nil)
+	Jazz_NervousClearApplyCache(unit)
 end
 
 function Jazz_SquadHasVince(unit)

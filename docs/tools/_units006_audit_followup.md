@@ -10,6 +10,12 @@ Static audit vs Mechanics / §A / §C CHANGE after batches 1–4.
 | Vince −25% | Keep EV 25% skip for amount=1; scale amount>1 ×75% |
 | BuildingConfidence heal | `OnCalcHealAmount` +10%×Level cap +50% |
 
+## Fixed later (same day)
+
+| Gap | Fix |
+| --- | --- |
+| Nervous stack | CE: `Jazz_NervousConsumeBonus` then `Jazz_NervousAddHitStack(hits)`; Apply peek-only + idempotent cache (Execute→GetActionResults); cap via `stack_cap` |
+
 ## Still PARTIAL / deferred
 
 | Id | Note |
@@ -18,10 +24,11 @@ Static audit vs Mechanics / §A / §C CHANGE after batches 1–4.
 | Blade Brutalize | Damage replay, not full chain fidelity |
 | Ice shot-list | Text only |
 | MakeThemBleed apply | Aura only; groin/animal apply soft |
-| GloryHog / RecklessAssault / Nazdarovya / DesignerExplosives / DangerClose / ExplodingPalm / NaturalHealing | Batch 5/6 or later |
-| §B HARD | Rothman/Biff/Ira/Miguel/Livewire → batch5 |
-| §D Benni/Simon | batch6 |
+| GloryHog / RecklessAssault | Soft / no JAZZ CE rewrite |
+| Nazdarovya / NaturalHealing / ExplodingPalm / DangerClose stim | Partial / soft |
+| §B HARD leftovers | Biff economy, Livewire money op, Thor joints, … |
+| §D Benny/Simon | CE + StartingPerks shipped; CombatAction soft-cut |
 
 ## Spec Evidence
 
-Updated in `JAZZ-UNITS-006.md` Evidence section for batch4 + audit fixes.
+Updated in `JAZZ-UNITS-006.md` Evidence (Nervous AC-002; AC-008 partial).
