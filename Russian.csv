@@ -6630,7 +6630,7 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001431,<role> — outpost <home> lost; no contact,<role> — без связи: аванпост <home> потерян,,jazz:Code/Guardpost_Patrols.lua
 890000000001432,<role> — awaiting orders from outpost <home>,<role> — ожидает приказов аванпоста <home>,,jazz:Code/Guardpost_Patrols.lua
 890000000001433,<role> — returning with intelligence about <sector> to <home>,<role> — возвращается с разведданными о <sector> в <home>,,jazz:Code/Guardpost_Patrols.lua
-890000000001434,<role> — returning to base <home>,<role> — возвращается на базу <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001434,<role> — returning to rest at <target>,<role> — возвращается отдыхать в <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001435,<role> — awaiting assignment,<role> — ожидает задачу,,jazz:Code/Guardpost_Patrols.lua
 890000000001436,<role> — holding sector <target>,<role> — удерживает сектор <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001437,<role> — moving to hold sector <target>,<role> — идёт удерживать сектор <target>,,jazz:Code/Guardpost_Patrols.lua
@@ -6836,10 +6836,10 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000001638,<role> — recruiting (<people> people); next: <target>,<role> — вербует (<people> чел.); далее: <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001639,<role> — delivering <people> recruits to <target>,<role> — везёт <people> рекрутов в <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001640,Not enough local recruits,Недостаточно местных рекрутов,,jazz:Code/LegionMilitiaRecruits.lua
-890000000001641,<role> — wounded at outpost <home>; awaiting reinforcements,<role> — ранен на аванпосте <home>; ждёт пополнения,,jazz:Code/Guardpost_Patrols.lua
-890000000001642,<role> — retreating wounded to <home>,<role> — раненый отходит на <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001641,<role> — wounded at <sector>; awaiting reinforcements,<role> — ранен в <sector>; ждёт пополнения,,jazz:Code/Guardpost_Patrols.lua
+890000000001642,<role> — retreating wounded to <target>,<role> — раненый отходит в <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001643,Новобранец,Новобранец,,jazz-units:items.lua | jazz-units:UnitData/JAZZ_Legion_Recruit.lua
-890000000001644,<role> - resting and refitting at <home>,<role> - отдыхает и пополняется на <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001644,<role> - resting and refitting at <sector>,<role> - отдыхает и восстанавливается в <sector>,,jazz:Code/Guardpost_Patrols.lua
 890000000001645,<role> - holding patrol sector <target>,<role> - стоит в секторе патруля <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001646,<role> - reinforcing garrison at <target>,<role> - усиливает гарнизон в <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001651,Support,Поддержка,,jazz:Code/Guardpost_Patrols.lua

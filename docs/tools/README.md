@@ -94,6 +94,7 @@
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; combat Score helpers; `AISelectHealTarget` / `AIActionBandage` Precalc; `JazzAI_TryMedicSwitch` all bleed tiers. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
 | `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc wiring. |
+| `_check_legion_rest_025.py` | Static JAZZ-STRATEGY-025: city/bunker/outpost rest helpers, top-up gate, loc/wiki smoke. |
 | `_reorg_squad_icons_folders.py` | One-shot: move `SquadsIcons/Enemy/*.png` into `_shields/`, `_misc/`, `<faction>/`. |
 | `_rewrite_squad_icon_doc_paths.py` | Rewrite `squad-role-icons.md` image links after folder reorg. |
 | `_bump_sniper001_meta.py` | Revision +1 + prepend `last_changes` bullet for SNIPER-001 commit. |

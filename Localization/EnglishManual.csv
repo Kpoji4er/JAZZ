@@ -1535,7 +1535,7 @@ N,AnchorID,SourceText,English,Notes
 1534,890000000001431,<role> — outpost <home> lost; no contact,<role> — outpost <home> lost; no contact,manual-translation
 1535,890000000001432,<role> — awaiting orders from outpost <home>,<role> — awaiting orders from outpost <home>,manual-translation
 1536,890000000001433,<role> — returning with intelligence about <sector> to <home>,<role> — returning with intelligence about <sector> to <home>,manual-translation
-1537,890000000001434,<role> — returning to base <home>,<role> — returning to base <home>,manual-translation
+1537,890000000001434,<role> — returning to rest at <target>,<role> — returning to rest at <target>,manual-translation
 1538,890000000001435,<role> — awaiting assignment,<role> — awaiting assignment,manual-translation
 1539,890000000001436,<role> — holding sector <target>,<role> — holding sector <target>,manual-translation
 1540,890000000001437,<role> — moving to hold sector <target>,<role> — moving to hold sector <target>,manual-translation

@@ -6639,7 +6639,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001431,<role> — outpost <home> lost; no contact,<role> — outpost <home> lost; no contact,,jazz:Code/Guardpost_Patrols.lua
 890000000001432,<role> — awaiting orders from outpost <home>,<role> — awaiting orders from outpost <home>,,jazz:Code/Guardpost_Patrols.lua
 890000000001433,<role> — returning with intelligence about <sector> to <home>,<role> — returning with intelligence about <sector> to <home>,,jazz:Code/Guardpost_Patrols.lua
-890000000001434,<role> — returning to base <home>,<role> — returning to base <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001434,<role> — returning to rest at <target>,<role> — returning to rest at <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001435,<role> — awaiting assignment,<role> — awaiting assignment,,jazz:Code/Guardpost_Patrols.lua
 890000000001436,<role> — holding sector <target>,<role> — holding sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001437,<role> — moving to hold sector <target>,<role> — moving to hold sector <target>,,jazz:Code/Guardpost_Patrols.lua
@@ -6845,10 +6845,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001638,<role> — recruiting (<people> people); next: <target>,<role> — recruiting (<people> people); next: <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001639,<role> — delivering <people> recruits to <target>,<role> — delivering <people> recruits to <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001640,Not enough local recruits,Not enough local recruits,,jazz:Code/LegionMilitiaRecruits.lua
-890000000001641,<role> — wounded at outpost <home>; awaiting reinforcements,<role> — wounded at outpost <home>; awaiting reinforcements,,jazz:Code/Guardpost_Patrols.lua
-890000000001642,<role> — retreating wounded to <home>,<role> — retreating wounded to <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001641,<role> — wounded at <sector>; awaiting reinforcements,<role> — wounded at <sector>; awaiting reinforcements,,jazz:Code/Guardpost_Patrols.lua
+890000000001642,<role> — retreating wounded to <target>,<role> — retreating wounded to <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001643,Новобранец,Recruit,,jazz-units:items.lua | jazz-units:UnitData/JAZZ_Legion_Recruit.lua
-890000000001644,<role> - resting and refitting at <home>,<role> - resting and refitting at <home>,,jazz:Code/Guardpost_Patrols.lua
+890000000001644,<role> - resting and refitting at <sector>,<role> - resting and refitting at <sector>,,jazz:Code/Guardpost_Patrols.lua
 890000000001645,<role> - holding patrol sector <target>,<role> - holding patrol sector <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001646,<role> - reinforcing garrison at <target>,<role> - reinforcing garrison at <target>,,jazz:Code/Guardpost_Patrols.lua
 890000000001651,Support,Support,,jazz:Code/Guardpost_Patrols.lua

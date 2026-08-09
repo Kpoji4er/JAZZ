@@ -2173,6 +2173,102 @@ local function lSquadNeedsWoundedRetreat(squad, role)
 	return false
 end
 
+-- STRATEGY-025: rest at Legion city / bunker / home outpost (not farms/mines/ports).
+local function lSectorIsLocalRestSite(root, sector_id, home_sector)
+	local sector = gv_Sectors[sector_id]
+	if not sector or not JAZZ_IsLegionSide(sector.Side) then
+		return false
+	end
+	if home_sector and sector_id == home_sector then
+		local outpost = root and root.outposts and root.outposts[home_sector]
+		if outpost and outpost.enabled ~= false then
+			return true
+		end
+	end
+	if sector.Bunker then
+		return true
+	end
+	if sector.City and sector.City ~= "none" then
+		return true
+	end
+	return false
+end
+
+local function lNearestLocalRestSite(root, region, from_sector, home_sector)
+	if not from_sector or not region then
+		return false
+	end
+	local best_id, best_d = false, false
+	for _, sector_id in ipairs(region.Sectors or empty_table) do
+		if lSectorIsLocalRestSite(root, sector_id, home_sector) then
+			local distance = GetSectorDistance(from_sector, sector_id)
+			if type(distance) ~= "number" then
+				distance = 9999
+			end
+			if not best_d
+				or distance < best_d
+				or (distance == best_d and (not best_id or sector_id < best_id))
+			then
+				best_id, best_d = sector_id, distance
+			end
+		end
+	end
+	return best_id
+end
+
+--- True if home outpost can pay for at least one top-up body toward optimal.
+local function lOutpostCanAffordTopUp(root, region, outpost, squad, squad_state)
+	if not outpost or not squad or not squad_state or not JAZZ_GenerateLegionSquadTopUp then
+		return false
+	end
+	local living, _, templates = lSquadLivingUnitInfos(squad)
+	local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
+		root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
+	) or 0
+	local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role, growth) or living
+	if living >= optimal then
+		return false
+	end
+	local topup = JAZZ_GenerateLegionSquadTopUp(
+		templates,
+		squad_state.role,
+		outpost.money or 0,
+		outpost.manpower,
+		squad_state.role .. "_cantopup_" .. tostring(squad.UniqueId) .. "_" .. tostring(root.spawn_serial or 0),
+		growth,
+		squad_state.support_archetype
+	)
+	if not topup or #(topup.units or empty_table) == 0 then
+		return false
+	end
+	if (outpost.money or 0) < (topup.money_cost or 0) then
+		return false
+	end
+	if outpost.manpower ~= nil and (outpost.manpower or 0) < (topup.manpower_cost or 0) then
+		return false
+	end
+	return true
+end
+
+--- Pick where a regular squad should park for rest / wounded recovery (STRATEGY-025).
+--- Normal rest: stay if already at city/bunker/home outpost; else nearest of those
+--- (outpost is valid; a closer city/bunker wins). Wounded: home only when top-up affordable.
+local function lPickRestTarget(root, region, squad, squad_state, reason)
+	local home = squad_state and squad_state.home_sector
+	local cur = squad and squad.CurrentSector
+	if reason == "wounded" then
+		local outpost = home and root.outposts[home]
+		if outpost and lOutpostCanAffordTopUp(root, region, outpost, squad, squad_state) then
+			return home
+		end
+	end
+	if cur and lSectorIsLocalRestSite(root, cur, home) then
+		return cur
+	end
+	local nearest = lNearestLocalRestSite(root, region, cur or home, home)
+	return nearest or home
+end
+
 local function lTryTopUpSquad(root, region, outpost, squad, squad_state)
 	if not squad or not squad_state or not outpost or not JAZZ_GenerateLegionSquadTopUp then
 		return false
@@ -2242,8 +2338,9 @@ local function lRandDuration(min_t, max_t, context)
 end
 
 -- After mission budget (or logistics delivery): heal/top-up, then mandatory rest
--- at home for all roles except garrison. Empty squads still retire.
-local function lBeginBaseRest(root, squad, squad_state)
+-- (STRATEGY-025: city/bunker/outpost for regular roles). Empty squads still retire.
+-- wait_for_topup: after wounded path, park as wounded if still under optimal.
+local function lBeginBaseRest(root, squad, squad_state, wait_for_topup)
 	if not squad or not squad_state then
 		return false
 	end
@@ -2255,15 +2352,22 @@ local function lBeginBaseRest(root, squad, squad_state)
 	end
 	squad_state.task = false
 	local region = lGetRegionPreset(squad_state.region_id)
+	local at_home = squad.CurrentSector == squad_state.home_sector
 	local outpost = root.outposts[squad_state.home_sector]
-	if outpost and lRegularRoles[squad_state.role] then
+	-- STRATEGY-025: top-up only at home outpost; city/bunker rest is heal + timer.
+	if at_home and outpost and lRegularRoles[squad_state.role] then
 		lTryTopUpSquad(root, region, outpost, squad, squad_state)
 		living = lSquadLivingUnitInfos(squad)
 		if living <= 0 then
 			lRetireSquad(root, squad.UniqueId)
 			return true
 		end
-		local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+	end
+	if lRegularRoles[squad_state.role] and (at_home or wait_for_topup) then
+		local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
+			root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
+		) or 0
+		local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role, growth) or living
 		if living < optimal then
 			squad_state.state = "wounded"
 			squad_state.rest_until = nil
@@ -2295,17 +2399,24 @@ local function lFinishBaseRest(root, squad, squad_state)
 		return false
 	end
 	local region = lGetRegionPreset(squad_state.region_id)
+	local at_home = squad.CurrentSector == squad_state.home_sector
 	local outpost = root.outposts[squad_state.home_sector]
-	if outpost and lRegularRoles[squad_state.role] then
-		lPurgeDeadAndHealSquad(squad)
+	lPurgeDeadAndHealSquad(squad)
+	if at_home and outpost and lRegularRoles[squad_state.role] then
 		lTryTopUpSquad(root, region, outpost, squad, squad_state)
-		local living = lSquadLivingUnitInfos(squad)
-		if living <= 0 then
-			lRetireSquad(root, squad.UniqueId)
-			return true
-		end
-		local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+	end
+	local living = lSquadLivingUnitInfos(squad)
+	if living <= 0 then
+		lRetireSquad(root, squad.UniqueId)
+		return true
+	end
+	if lRegularRoles[squad_state.role] then
+		local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
+			root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
+		) or 0
+		local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role, growth) or living
 		if living < optimal then
+			-- Understrength after rest: wait (at home for top-up; off-home until fort can refill).
 			squad_state.state = "wounded"
 			squad_state.rest_until = nil
 			ObjModified(squad)
@@ -2329,21 +2440,29 @@ local function lBeginReturn(root, squad, squad_state, reason)
 		return false
 	end
 	reason = reason or "rest"
-	if squad.CurrentSector == squad_state.home_sector then
-		if reason == "wounded" then
+	local region = lGetRegionPreset(squad_state.region_id)
+	-- STRATEGY-025 local rest is for regular combat roles only; logistics still home.
+	local target = squad_state.home_sector
+	if lRegularRoles[squad_state.role] then
+		target = lPickRestTarget(root, region, squad, squad_state, reason) or squad_state.home_sector
+	end
+	if squad.CurrentSector == target then
+		if reason == "wounded" and target == squad_state.home_sector then
 			lPurgeDeadAndHealSquad(squad)
 			local living = lSquadLivingUnitInfos(squad)
 			if living <= 0 then
 				lRetireSquad(root, squad.UniqueId)
 				return true
 			end
-			local region = lGetRegionPreset(squad_state.region_id)
 			local outpost = root.outposts[squad_state.home_sector]
 			if outpost then
 				lTryTopUpSquad(root, region, outpost, squad, squad_state)
 			end
 			living = lSquadLivingUnitInfos(squad)
-			local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role) or living
+			local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
+				root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
+			) or 0
+			local optimal = JAZZ_GetLegionRoleOptimalSize and JAZZ_GetLegionRoleOptimalSize(squad_state.role, growth) or living
 			if living > 0 and living < optimal then
 				squad_state.task = false
 				squad_state.state = "wounded"
@@ -2351,15 +2470,16 @@ local function lBeginReturn(root, squad, squad_state, reason)
 				return true
 			end
 		end
-		return lBeginBaseRest(root, squad, squad_state)
+		return lBeginBaseRest(root, squad, squad_state, reason == "wounded")
 	end
+	local going_home_for_topup = reason == "wounded" and target == squad_state.home_sector
 	squad_state.task = {
-		task_type = reason == "wounded" and "return_wounded" or "return",
-		target_sector = squad_state.home_sector,
+		task_type = going_home_for_topup and "return_wounded" or "return",
+		target_sector = target,
 	}
 	squad_state.state = "returning"
 	ObjModified(squad)
-	local routed = lSetRoute(squad, squad_state.home_sector)
+	local routed = lSetRoute(squad, target)
 	if not routed then
 		squad_state.state = "orphaned"
 		ObjModified(squad)
@@ -2938,14 +3058,19 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 		then
 			local squad = gv_Squads[squad_id]
 			if squad and not IsSquadTravelling(squad, "skip_tick_pass") and not IsConflictMode(squad.CurrentSector) then
-				if squad.CurrentSector == outpost.sector_id then
+				local at_home = squad.CurrentSector == outpost.sector_id
+				local at_rest = lSectorIsLocalRestSite(root, squad.CurrentSector, squad_state.home_sector)
+				-- STRATEGY-025: finish rest / heal at city/bunker/outpost; top-up only at home.
+				if at_rest then
 					if squad_state.state == "resting" then
 						if (squad_state.rest_until or 0) <= lNow() then
 							lFinishBaseRest(root, squad, squad_state)
 						end
 					elseif squad_state.state == "wounded" or squad_state.state == "ready_for_orders" then
 						lPurgeDeadAndHealSquad(squad)
-						lTryTopUpSquad(root, region, outpost, squad, squad_state)
+						if at_home then
+							lTryTopUpSquad(root, region, outpost, squad, squad_state)
+						end
 						local living = lSquadLivingUnitInfos(squad)
 						local growth = JAZZ_GetLegionSquadGrowthProgress and JAZZ_GetLegionSquadGrowthProgress(
 							root.regions[squad_state.region_id] and root.regions[squad_state.region_id].heat
@@ -2954,9 +3079,14 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 						if living <= 0 then
 							lRetireSquad(root, squad_id)
 						elseif living < optimal then
-							squad_state.state = "wounded"
-							squad_state.task = false
-							ObjModified(squad)
+							-- Off-outpost wounded: ride home only when fort can refill.
+							if not at_home and lOutpostCanAffordTopUp(root, region, outpost, squad, squad_state) then
+								lBeginReturn(root, squad, squad_state, "wounded")
+							else
+								squad_state.state = "wounded"
+								squad_state.task = false
+								ObjModified(squad)
+							end
 						elseif squad_state.state == "wounded" then
 							-- Healed/topped to optimal after wounded wait → mandatory rest before new orders.
 							lBeginBaseRest(root, squad, squad_state)
@@ -2971,7 +3101,7 @@ local function lAssignReadySquads(root, region, region_state, outpost)
 					if request then
 						lAssignTask(root, region, region_state, outpost, squad, squad_state, request)
 					end
-					-- else: sit idle at base — no despawn
+					-- else: sit idle at rest site — no despawn
 				elseif squad_state.state == "ready_for_orders" and (squad_state.missions_left or 0) <= 0 then
 					lBeginReturn(root, squad, squad_state, "rest")
 				end
@@ -4563,20 +4693,26 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 		return false
 	end
 
+	local squad_id = lGetSquadLookupId(squad_or_id)
+	local squad = (type(squad_or_id) == "table" and squad_or_id.CurrentSector and squad_or_id)
+		or (squad_id and gv_Squads[squad_id])
+		or false
+	local here = squad and squad.CurrentSector
+
 	local role = lRoleDisplayNames[squad_state.role] or Untranslated(tostring(squad_state.role))
 	local task = squad_state.task
 	local target = task and task.target_sector
 	if squad_state.state == "orphaned" then
 		return T{890000000001431, "<role> — outpost <home> lost; no contact", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "resting" then
-		return T{890000000001644, "<role> - resting and refitting at <home>", role = role, home = Untranslated(tostring(squad_state.home_sector or "?"))}
+		return T{890000000001644, "<role> - resting and refitting at <sector>", role = role, sector = Untranslated(tostring(here or squad_state.home_sector or "?"))}
 	elseif squad_state.state == "wounded" then
-		return T{890000000001641, "<role> — wounded at outpost <home>; awaiting reinforcements", role = role, home = Untranslated(squad_state.home_sector)}
+		return T{890000000001641, "<role> — wounded at <sector>; awaiting reinforcements", role = role, sector = Untranslated(tostring(here or squad_state.home_sector or "?"))}
 	elseif squad_state.state == "ready_for_orders" then
 		return T{890000000001432, "<role> — awaiting orders from outpost <home>", role = role, home = Untranslated(squad_state.home_sector)}
 	elseif squad_state.state == "returning" then
 		if task and task.task_type == "return_wounded" then
-			return T{890000000001642, "<role> — retreating wounded to <home>", role = role, home = Untranslated(squad_state.home_sector)}
+			return T{890000000001642, "<role> — retreating wounded to <target>", role = role, target = Untranslated(tostring(target or squad_state.home_sector))}
 		end
 		if task and task.task_type == "return_with_intel" then
 			local intel_sector = (task.report and task.report.target_sector)
@@ -4590,7 +4726,7 @@ function JAZZ_GetLegionAISquadTaskText(squad_or_id)
 				home = Untranslated(squad_state.home_sector),
 			}
 		end
-		return T{890000000001434, "<role> — returning to base <home>", role = role, home = Untranslated(squad_state.home_sector)}
+		return T{890000000001434, "<role> — returning to rest at <target>", role = role, target = Untranslated(tostring(target or squad_state.home_sector))}
 	elseif not task then
 		return T{890000000001435, "<role> — awaiting assignment", role = role}
 	elseif task.task_type == "patrol_dwell" then

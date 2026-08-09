@@ -355,7 +355,7 @@ N,AnchorID,SourceText,Russian,Notes
 354,890000000001431,<role> — outpost <home> lost; no contact,<role> — без связи: аванпост <home> потерян,manual-translation
 355,890000000001432,<role> — awaiting orders from outpost <home>,<role> — ожидает приказов аванпоста <home>,manual-translation
 356,890000000001433,<role> — returning with intelligence about <sector> to <home>,<role> — возвращается с разведданными о <sector> в <home>,manual-translation
-357,890000000001434,<role> — returning to base <home>,<role> — возвращается на базу <home>,manual-translation
+357,890000000001434,<role> — returning to rest at <target>,<role> — возвращается отдыхать в <target>,manual-translation
 358,890000000001435,<role> — awaiting assignment,<role> — ожидает задачу,manual-translation
 359,890000000001436,<role> — holding sector <target>,<role> — удерживает сектор <target>,manual-translation
 360,890000000001437,<role> — moving to hold sector <target>,<role> — идёт удерживать сектор <target>,manual-translation

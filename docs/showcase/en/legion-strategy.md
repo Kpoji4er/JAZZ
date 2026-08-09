@@ -25,7 +25,7 @@ Vanilla-map starting squads whose compositions are replaced by `jazz-units` are 
 | Diamond / cash convoy | `$` from fort to HQ; loot is briefcase/diamonds for that sum | small escort (not a day-one platoon) |
 | Retaliation | Heavy strike from the Major’s HQ at very high regional Heat | large dedicated force |
 
-Bloodied squads may fall back to the fort and wait for replacements. After a run of orders a squad **returns to base to rest and refill**, then goes out again. Patrols **linger** in route sectors and travel **over land** when a land path exists.
+Bloodied squads may fall back to the fort for replacements **when** the outpost can afford `$`/manpower; otherwise they heal at the nearest Legion city/bunker (or at the outpost itself). After a run of orders a squad rests at the **nearest** valid site — city, bunker, or its home outpost (if already there, it does not ride to the fort just to rest); topping up bodies happens only at the outpost. Then it goes out again. Patrols **linger** in route sectors and travel **over land** when a land path exists.
 
 Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately. On the mainland, tax/recruiters from a new fort wait ~3 days, and the daily cap on **new** Legion squads map-wide scales with tier (1 → 2 → 3).
 

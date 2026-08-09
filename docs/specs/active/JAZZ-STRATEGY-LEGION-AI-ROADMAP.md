@@ -50,6 +50,8 @@ approved_by: project-owner
 | JAZZ-STRATEGY-021 | `GreatDesert` / `E10` + late-awaken ≤T2-1 + Major neediest supply |
 | JAZZ-STRATEGY-022 | `LaBarrier` / L15 + export patrol / garrison bonus / Major priority |
 | JAZZ-STRATEGY-023 | `GreatForest` / G22+K21 + shared multi-outpost resources + orphan rehome |
+| JAZZ-STRATEGY-024 | Legion `support` role (sniper/MG/mortar specialists, 4–7) |
+| JAZZ-STRATEGY-025 | Local rest at city/bunker/outpost (nearest); outpost trip for top-up only when affordable |
 
 ## Валюта (утверждено)
 
