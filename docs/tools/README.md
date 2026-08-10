@@ -539,3 +539,7 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | `_audit_additionalhint_newlines.py` | Audit/restore weapon `AdditionalHint` bullets: compare `InventoryItem/**/*.lua` `\n` vs CSV; `--apply` inserts newlines before bullet markers. |
 | `_restore_csv_newlines_from_head.py` | Restore any CSV cell newlines lost vs `HEAD` when wording still matches (whitespace-insensitive). `--apply`. |
 | `_purge_workshop_aim_mercs.py` | One-shot purge of six Steam Workshop AIM mercs from jazz + jazz-units (ModItems, companions, voices, loc, design). |
+| _dump_legion_unit_dossiers.py | Dump Legion UnitData dossiers for design catalog. |
+| _check_carlos_iggy.py / _check_iggy_insert.py | Verify Iggy/Carlos UnitData insert integrity. |
+| _find_grom_id.py / _probe_grom_loot.py | Locate Grom UnitData/loot wiring. |
+| _purge_restored_aim_vr_loc.py / _restore_vanilla_aim_vr_ids.py | AIM VR localization ID restore/purge helpers. |
