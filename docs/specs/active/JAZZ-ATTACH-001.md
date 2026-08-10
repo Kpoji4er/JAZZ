@@ -196,7 +196,7 @@ approved_by: project-owner
 Owner 2026-08-01 initially locked the canon as docs-only. The later MagSizeSet data migration adds the preset/resource and rewires `items.lua` plus companions; it does not claim editor/game acceptance.
 
 - Live magazine comps **не** должны использовать `MagazineSizeMultiplier` (после data-pass).
-- Канон: эффект **`MagazineSizeSet`** — `ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=0, add=N)` (vanilla `SetWeaponComponent` знает только Add/Multiply/Subtract; JAZZ патчит ветку `Set`).
+- Канон: эффект **`MagazineSizeSet`** — `ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=1000, add=N−base)` (vanilla `SetWeaponComponent` знает только Add/Multiply/Subtract; JAZZ патчит ветку `Set`; `mul=0` ломал формулу `MulDivRound(base+add,mul,1000)` → MagSize 0/1).
 - Display «Магазин на 45» ⇒ параметр **`MagazineSize = 45`** (перезапись), не `+15` и не `×150%`.
 - `MagNormal` — без size-эффекта (база оружия).
 - Shared `JAZZ_MagLarge` (×166) **разрезать** по целевой ёмкости (50 / 28 / …), не один Multiply.
@@ -236,7 +236,7 @@ Owner 2026-08-01 initially locked the canon as docs-only. The later MagSizeSet d
 - `JAZZ-ATTACH-001-REQ-003` — замена следует матрице; отклонения только с явной строкой в `attachments-rebalance.md`.
 - `JAZZ-ATTACH-001-REQ-004` — Phase C: каждый слот имеет documented tier table (роль + ключ чисел) в `docs/design/*-tiers.md` / `attachments-rebalance.md` до merge в main. Все слоты Phase C — scope этого SPEC-ID.
 - `JAZZ-ATTACH-001-REQ-015` — Magazine: ReloadAP ladder small **−1** / expanded **+1** / large **+2**; Rel−/AA− только large; Fine expanded может быть без Reload+.
-- `JAZZ-ATTACH-001-REQ-016` — Magazine size: live mag comps без `MagazineSizeMultiplier`; ёмкость — **абсолютный Set** («на 45» ⇒ `MagazineSize=45`); Small тоже Set; shared `%`-MagLarge разрезан по target. Runtime: `MagazineSizeSet` + `ModificationType=Set` → `AddModifier(..., mul=0, add=N)` (`Code/System_WeaponComponent_Set.lua`). Data+Code applied; runtime smoke still in wave test.
+- `JAZZ-ATTACH-001-REQ-016` — Magazine size: live mag comps без `MagazineSizeMultiplier`; ёмкость — **абсолютный Set** («на 45» ⇒ `MagazineSize=45`); Small тоже Set; shared `%`-MagLarge разрезан по target. Runtime: `MagazineSizeSet` + `ModificationType=Set` → `AddModifier(..., mul=1000, add=N−base)` (`Code/System_WeaponComponent_Set.lua`). Data+Code applied; LoadGame heal for broken `mul=0` saves.
 - `JAZZ-ATTACH-001-REQ-017` — Magazine **families** (mag well): remountable/expanded/large/quick/small/fine/drum ids не шарятся между несовместимыми платформами; public id `JAZZ_Mag*_<Family>`; внутри семьи (АК↔РПК) — общие options; АК expanded = **40** (`JAZZ_MagLarge_30_40`, без `MagLarge_50_AK`); InventoryItem `Id == component id` на каждый live family mag; канон в `magazine-tiers.md`. Accepted save break на rename id.
 - `JAZZ-ATTACH-001-REQ-005` — generated sync: companion + `items.lua` + weapons CSV export согласованы; human design doc пересобран.
 - `JAZZ-ATTACH-001-REQ-006` — UI/hints не обещают «Эргономику» как боевой бонус обвеса (если такие строки есть — RU/EN sync).
@@ -332,7 +332,7 @@ Owner 2026-08-01 initially locked the canon as docs-only. The later MagSizeSet d
 | AC-007 | `PASS` (static) | Handling/legacy flat orphans removed; whitelist `PointBlankBonus`/`TwoHanded` kept; Firearm `Handling` property/UI presets **removed** (owner 2026-08-01). |
 | AC-008 | `PASS` (static) | `_audit_attach_ids.py`: live WITHOUT jazz prefix `0`; Mount `0`; unused `0`. Promoted 9 vanilla_ref → `JAZZ_*` with Visuals (`_promote_vanilla_refs_visuals.py`). |
 | AC-009 | `PASS` (static) | Phase C tier canons: Scope/Barrel/Muzzle/Magazine/Stock/Under-grips/Bipod/Side. Bayonet distant backlog (out of AC-009). |
-| AC-010 | `PASS` (static) / `BLOCKED` (runtime) | `_apply_mag_size_set.py`: live `JAZZ_Mag*` → `MagazineSizeSet`; generic MagLarge split `_50/_28/…`; `_30_45=45`; `Code/System_WeaponComponent_Set.lua` registered. Runtime smoke «на 45» → в общем тесте. Auto5 barrel LMag multiplier = tracked exception. |
+| AC-010 | `PASS` (static) / `PASS` (runtime formula fix 2026-08-10) | `_apply_mag_size_set.py`: live `JAZZ_Mag*` → `MagazineSizeSet`; generic MagLarge split `_50/_28/…`; `_30_45=45`; `Code/System_WeaponComponent_Set.lua` Set=`mul=1000,add=N−base` (+ LoadGame heal). Auto5 barrel LMag multiplier = tracked exception. |
 | AC-011 | `PASS` (static) / `BLOCKED` (runtime) | `_split_mag_families.py` + `_union_mag_family_options.py`: family-suffixed mag ids; AK options use `MagLarge_30_40` (40), no `MagLarge_50_AK`; RPK lists AK family mags; AR15 uses `…_AR15`. InventoryItem companions for family ids. Runtime DnD smoke (АК item → RPK / not M16) — wave test. |
 
 Status remains **`approved`** (не `implemented`): закрыть AC-004 / AC-006 + runtime AC-010/AC-011 в общем тесте волны. MagSizeSet + mag families data shipped.

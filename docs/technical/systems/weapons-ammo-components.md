@@ -88,7 +88,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 
 `RocketLauncher.DisposableLauncher` имеет default `false`; `EmbeddedOrdnance` определяет единственный встроенный выстрел одноразового launcher. В v1 JAZZ-WEAPONS-005 этим контрактом пользуется только `M72LAW` (`Warhead_Frag`, magazine 1); RPG-7 не имеет флага и продолжает использовать отдельный ordnance.
 
-Magazine data uses `MagazineSizeSet` with `ModificationType = "Set"` and an absolute `MagazineSize` parameter: named magazines, drums and belts no longer use a live `MagazineSizeMultiplier`. The former generic `JAZZ_MagLarge` was split into `_50`, `_28`, `_27`, `_25`, `_13` and `_8` variants and rewired in `items.lua` plus the weapon companions; PSG1 no longer offers `MagLargeFine`. The barrel-specific `JAZZ_Auto5_*_LMag` multiplier remains a tracked exception. Static data checks pass; editor round-trip and in-game Set behavior remain unverified.
+Magazine data uses `MagazineSizeSet` with `ModificationType = "Set"` and an absolute `MagazineSize` parameter: named magazines, drums and belts no longer use a live `MagazineSizeMultiplier`. Runtime (`Code/System_WeaponComponent_Set.lua`): engine applies `MulDivRound(base + mod_add, mod_mul, 1000)`, so Set uses `mul=1000`, `add=N−base` (not `mul=0`, which always yielded MagSize 0/1 — e.g. stock CAR-15 / Glock 18 on Vicky/IMP). `LoadGame`/`NewGame` re-seat MagSizeSet magazines and refill ammo when the broken `mul=0` modifier is detected. The former generic `JAZZ_MagLarge` was split into `_50`, `_28`, `_27`, `_25`, `_13` and `_8` variants; PSG1 no longer offers `MagLargeFine`. The barrel-specific `JAZZ_Auto5_*_LMag` multiplier remains a tracked exception.
 
 ## Inventory icons (JAZZ-UI-001)
 

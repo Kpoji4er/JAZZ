@@ -49,7 +49,8 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `BunsPerk` | Buns | +10 CTH vs targets already damaged by an ally this turn |
 | `HawksEye` | Scope | Pin Down **1 AP**; sniper suppress ×2 |
 | `Spotter` | Raven | Pin Down → Marked; next hit 100% crit |
-| `HaveABlast` | Red | Toggle grenade; **50%** damage from own blasts |
+| `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss; **50%** explosion damage taken while active; grenades from hands/inventory |
+
 | `KillingWind` | Fauda | ≥2 targets hit → +8 Grit (+ existing FM/armor) |
 | `BuildingConfidence` | MD | Inspired on turn 2 and every 3rd (heal%-by-level partial) |
 | `SidneyPerk` | Sidney | +2 AP/turn until miss/damage taken |

@@ -54,7 +54,7 @@ Shipped in working tree / commit after this note.
 | `BunsPerk` | +10 CTH vs ally-damaged targets this turn |
 | `HawksEye` | `pindownCostOverwrite=1`; sniper Will suppress ×2 |
 | `Spotter` | Pin Down → Marked + next hit 100% crit pending |
-| `HaveABlast` | Own grenade blast dmg ×50% |
+| `HaveABlast` | Toggle on: grenade retaliate hit/miss; explosion dmg taken ×50%; hands+inventory |
 | `KillingWind` | ≥2 hit units → +8 Grit (FM/armor path kept from COMBAT-005) |
 | `BuildingConfidence` | Inspired turn 2 and every 3rd turn |
 | `SidneyPerk` | +2 AP/turn until miss or damage taken |

@@ -18,7 +18,8 @@ def main() -> None:
     out: list[str] = [
         "-- JAZZ-ATTACH-001: MagazineSizeSet via ModificationType = \"Set\"",
         "-- Vanilla FirearmBase:SetWeaponComponent only handles Add/Multiply/Subtract.",
-        "-- Set -> AddModifier(id, prop, mul=0, add=N): value = MulDivRound(base, 0, 1000) + N = N.",
+        "-- Engine: MulDivRound(base + mod_add, mod_mul, 1000).",
+        "-- Set must use mul=1000, add=N-base (mul=0 always yields 0 → MagSize 1 in UI).",
         "",
     ]
     i = 0
@@ -37,9 +38,10 @@ def main() -> None:
                     indent + 'elseif mod.ModificationType == "Subtract" then',
                     indent + "\tadd = -value",
                     indent + 'elseif mod.ModificationType == "Set" then',
-                    indent + "\t-- Absolute overwrite (MagazineSizeSet / absolute MagazineSize).",
-                    indent + "\tmul = 0",
-                    indent + "\tadd = value",
+                    indent + "\t-- Absolute overwrite: (base + (N - base)) * 1000/1000 = N.",
+                    indent + "\tmul = 1000",
+                    indent + '\tlocal base = self["base_" .. mod.StatToModify] or 0',
+                    indent + "\tadd = value - base",
                     indent + "end",
                     indent,
                     indent + "self:AddModifier(id, mod.StatToModify, mul, add)",
@@ -58,7 +60,7 @@ def main() -> None:
     DEST.write_text("\n".join(out) + "\n", encoding="utf-8")
     text = DEST.read_text(encoding="utf-8")
     assert 'ModificationType == "Set"' in text
-    assert "mul = 0" in text
+    assert "add = value - base" in text
     print(f"wrote {DEST} ({len(out)} lines)")
 
 

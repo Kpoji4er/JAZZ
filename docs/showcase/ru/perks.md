@@ -49,7 +49,7 @@
 | `BunsPerk` | Buns | +10 CTH по целям, уже раненым союзником в этом ходу |
 | `HawksEye` | Scope | Pin Down **1 ОД**; снайпер suppress ×2 |
 | `Spotter` | Raven | Pin Down → Marked; следующий хит — 100% crit |
-| `HaveABlast` | Red | Toggle граната; **50%** урона от своих взрывов |
+| `HaveABlast` | Red | Toggle: контратака гранатой при попадании **или** промахе; **50%** урона от взрывов по себе пока активен; гранаты из рук/инвентаря |
 | `KillingWind` | Fauda | ≥2 целей в атаке → +8 Grit (+ FM/броня как раньше) |
 | `BuildingConfidence` | MD | Inspired на ходу 2 и каждом 3-м (heal%-by-level — partial) |
 | `SidneyPerk` | Sidney | +2 ОД/ход пока не miss/урон |

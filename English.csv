@@ -12495,7 +12495,7 @@ Speck",,JAZZ-UI-MERC-001
 890000000009871,Наводчик,Spotter,,jazz:CharacterEffect/Spotter.lua
 890000000009872,Pin Down помечает цель (Marked). Следующее попадание по помеченной цели — гарантированный крит.,Pin Down marks the target. The next hit on a marked Spotter target is a guaranteed crit.,,jazz:CharacterEffect/Spotter.lua
 890000000009873,Взрывной характер,Have a Blast,,jazz:CharacterEffect/HaveABlast.lua
-890000000009874,Переключатель: контратака гранатой. Получает только 50% урона от собственных взрывов.,Toggle: retaliate with a grenade. Takes only 50% damage from own blasts.,,jazz:CharacterEffect/HaveABlast.lua
+890000000009874,Переключатель. Пока активен: контратака гранатой на вражеские выстрелы по себе (попадание или промах); урон от взрывов по себе −50%. Выключен — без эффекта. Гранаты: руки или инвентарь.,Toggle. While active: retaliate with a grenade when shot at (hit or miss); take 50% explosion damage. Off: no effect. Grenades: hands or inventory.,,jazz:CharacterEffect/HaveABlast.lua
 890000000009875,Убийственный ветер,Killing Wind,,jazz:CharacterEffect/KillingWind.lua
 890000000009876,Если атака задевает ≥2 целей — +8 Grit. Тяжёлая броня даёт половину штрафа Free Move; громоздкое оружие не штрафует FM.,Hitting >=2 targets grants +8 Grit. Heavy armor Free Move penalty halved; cumbersome weapons ignore FM penalty.,,jazz:CharacterEffect/KillingWind.lua
 890000000009877,Уверенность растёт,Building Confidence,,jazz:CharacterEffect/BuildingConfidence.lua

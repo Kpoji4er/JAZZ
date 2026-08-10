@@ -173,17 +173,6 @@ local function find_first_hit(attack_results, hit_obj)
 	end
 end
 
-local function PerkHaveABlastAttackAndWeapon(unit)
-	local actions = { "ThrowGrenadeA", "ThrowGrenadeB", "ThrowGrenadeC", "ThrowGrenadeD","ThrowGrenadeAG", "ThrowGrenadeBG", "ThrowGrenadeCG", "ThrowGrenadeDG","ThrowGrenadeAO", "ThrowGrenadeBO" }
-	for _, id in ipairs(actions) do
-		local action = CombatActions[id]
-		local weapon = action:GetAttackWeapons(unit)
-		if weapon then
-			return action, weapon
-		end
-	end
-end
-
 function Firearm:GetOverwatchConeParam(param)
 	if param == "Angle" then
 		return self.OverwatchAngle

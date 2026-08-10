@@ -204,7 +204,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Mouse               | `LightStep`             | Does not trigger OW zones                                                         | ≈       |
 | Omryn               | `EyesOnTheBack`         | Active 360 OW                                                                     | ≈       |
 | Raider              | `TagTeam`               | +15% CTH vs ally PinDown targets                                                  | CHANGE  |
-| Red                 | `HaveABlast`            | Toggle retaliate grenade; self blast dmg −50%                                     | CHANGE  |
+| Red                 | `HaveABlast`            | Toggle: grenade retaliate on hit/miss; blast dmg taken −50% while on; hands+inv | CHANGE  |
 | Buns                | `BunsPerk`              | +10% CTH vs ally-damaged this turn                                                | CHANGE  |
 | Sidney              | `SidneyPerk`            | +2 AP start until miss/dmg taken                                                  | CHANGE  |
 | Raven               | `Spotter`               | PinDown→Marked→ next hit 100% crit                                                | CHANGE  |

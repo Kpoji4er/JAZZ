@@ -1,6 +1,7 @@
 -- JAZZ-ATTACH-001: MagazineSizeSet via ModificationType = "Set"
 -- Vanilla FirearmBase:SetWeaponComponent only handles Add/Multiply/Subtract.
--- Set -> AddModifier(id, prop, mul=0, add=N): value = MulDivRound(base, 0, 1000) + N = N.
+-- Engine formula: MulDivRound(base + mod_add, mod_mul, 1000).
+-- Set must NOT use mul=0 (that always yields 0 → UI MagSize 1). Use mul=1000, add=N-base.
 
 function FirearmBase:SetWeaponComponent(slot, id, is_init)
 	local def = WeaponComponents[id]
@@ -106,9 +107,10 @@ function FirearmBase:SetWeaponComponent(slot, id, is_init)
 					elseif mod.ModificationType == "Subtract" then
 						add = -value
 					elseif mod.ModificationType == "Set" then
-						-- Absolute overwrite (MagazineSizeSet / absolute MagazineSize).
-						mul = 0
-						add = value
+						-- Absolute overwrite: (base + (N - base)) * 1000/1000 = N.
+						mul = 1000
+						local base = self["base_" .. mod.StatToModify] or 0
+						add = value - base
 					end
 					
 					self:AddModifier(id, mod.StatToModify, mul, add)
@@ -151,5 +153,84 @@ function FirearmBase:SetWeaponComponent(slot, id, is_init)
 	end
 	
 	ObjModified(self)
+end
+
+-- Old MagSizeSet used mul=0 → MagSize 0/1. Re-seat magazine comps so saves get N.
+local function JazzFirearmHasBrokenMagSizeSet(weapon)
+	for _, data in ipairs(weapon.applied_modifiers or empty_table) do
+		if data.prop == "MagazineSize" and data.params and data.params[1] == 0 then
+			return true
+		end
+	end
+	return false
+end
+
+local function JazzFirearmUsesMagazineSizeSet(weapon)
+	local mag_id = weapon.components and weapon.components.Magazine
+	if not mag_id or mag_id == "" then
+		return false
+	end
+	local def = WeaponComponents and WeaponComponents[mag_id]
+	for _, modId in ipairs(def and def.ModificationEffects or empty_table) do
+		local mod = WeaponComponentEffects and WeaponComponentEffects[modId]
+		if mod and mod.ModificationType == "Set" and mod.StatToModify == "MagazineSize" then
+			return true
+		end
+	end
+	return false
+end
+
+local function JazzHealMagazineSizeSetOnFirearm(weapon)
+	if not IsKindOf(weapon, "FirearmBase") then
+		return
+	end
+	if not JazzFirearmUsesMagazineSizeSet(weapon) then
+		return
+	end
+	local broken = JazzFirearmHasBrokenMagSizeSet(weapon)
+	if not broken and (weapon.MagazineSize or 0) > 1 then
+		return
+	end
+	local mag_id = weapon.components.Magazine
+	weapon:SetWeaponComponent("Magazine", mag_id, "init")
+	if broken and weapon.ammo and (weapon.ammo.Amount or 0) <= 1 and (weapon.MagazineSize or 0) > 1 then
+		weapon.ammo.Amount = weapon.MagazineSize
+	end
+end
+
+local function JazzHealMagazineSizeSetEverywhere()
+	local function heal_container(container)
+		if not container or not container.ForEachItem then
+			return
+		end
+		container:ForEachItem("FirearmBase", function(item)
+			JazzHealMagazineSizeSetOnFirearm(item)
+		end)
+	end
+	if type(gv_UnitData) == "table" then
+		for _, ud in sorted_pairs(gv_UnitData) do
+			heal_container(ud)
+		end
+	end
+	if type(gv_Squads) == "table" then
+		for _, squad in sorted_pairs(gv_Squads) do
+			local squad_id = squad and (squad.UniqueId or squad.squad_id)
+			local bag = squad_id and GetSquadBagInventory and GetSquadBagInventory(squad_id)
+			heal_container(bag)
+		end
+	end
+	if type(g_Units) == "table" then
+		for _, unit in sorted_pairs(g_Units) do
+			heal_container(unit)
+		end
+	end
+end
+
+function OnMsg.LoadGame()
+	JazzHealMagazineSizeSetEverywhere()
+end
+
+function OnMsg.NewGame()
+	JazzHealMagazineSizeSetEverywhere()
 end
 

@@ -21,8 +21,9 @@ Apply (ReloadAP/roles): `docs/tools/_rebalance_magazine_tiers.py`.
 ### Runtime
 
 Vanilla `SetWeaponComponent` знает только `Add` / `Multiply` / `Subtract`.  
-`ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=0, add=N)`.  
-Data содержит effect preset `MagazineSizeSet`; загрузка runtime-ветки `Set` и smoke в игре должны быть подтверждены отдельно.
+`ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=1000, add=N−base)`  
+(формула движка `MulDivRound(base + mod_add, mod_mul, 1000)`; `mul=0` давал MagSize 0/1).  
+Data содержит effect preset `MagazineSizeSet`; heal на `LoadGame`/`NewGame` в `Code/System_WeaponComponent_Set.lua`.
 
 ### Правила данных
 

@@ -74371,23 +74371,35 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
+							Event = "OnCombatEnd",
+							Handler = function (self, target)
+								target:SetEffectValue("HaveABlast", nil)
+							end,
+						}),
+						PlaceObj('UnitReaction', {
 							Event = "OnCalcDamageAndEffects",
 							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
+								-- Incoming only, and only while the signature toggle is ON.
+								-- (Outgoing grenade damage must never be scaled here.)
 								if owner ~= target or not data then
 									return
 								end
-								local self_blast = attacker == target
-								if not self_blast and attack_args and attack_args.explosion_pos then
-									self_blast = attacker == owner
+								if not owner:GetEffectValue("HaveABlast") then
+									return
 								end
-								if self_blast and (IsKindOf(weapon, "Grenade") or (action and action.ActionType == "Ranged Attack" and weapon and weapon.class and string.find(weapon.class, "Grenade"))) then
+								local is_blast = (hit and (hit.explosion or hit.aoe or hit.explosion_center))
+									or (attack_args and attack_args.explosion_pos)
+									or IsKindOf(weapon, "Grenade")
+									or IsKindOf(weapon, "Ordnance")
+									or (weapon and weapon.class and string.find(weapon.class, "Grenade", 1, true))
+								if is_blast then
 									data.damage_percent = MulDivRound(data.damage_percent or 100, 50, 100)
 								end
 							end,
 						}),
 					},
 					'DisplayName', T(890000000009873, --[[ModItemCharacterEffectCompositeDef HaveABlast DisplayName]] "Взрывной характер"),
-					'Description', T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель: контратака гранатой. Получает только 50% урона от собственных взрывов."),
+					'Description', T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель. Пока активен: контратака гранатой на вражеские выстрелы по себе (попадание или промах); урон от взрывов по себе −50%. Выключен — без эффекта. Гранаты: руки или инвентарь."),
 					'Icon', "UI/Icons/Perks/HaveABlast",
 					'Tier', "Personal",
 				}),
@@ -79167,6 +79179,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'name', "System_NamedPerks",
 				'comment', "UNITS-006 named perks runtime (all batches)",
 				'CodeFileName', "Code/System_NamedPerks.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_HaveABlast",
+				'comment', "HaveABlast: miss/hit grenade retaliate + inventory pull",
+				'CodeFileName', "Code/System_HaveABlast.lua",
 			}),
 			PlaceObj('ModItemCode', {
 				'name', "AccuracyRangeCTH",
