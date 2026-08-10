@@ -38,7 +38,7 @@
 | `YouSeeIgor` | Ivan | Убийство → **+3 ОД** |
 | `WeGotThis` | Gus | Убийство → **+10 Grit** всему отряду |
 | `NailsPerk` | Nails | После первого убийства в бою **+20%** урона |
-| `JackOfAllTrades` | Wolf | Спутниковые операции **−33%** времени |
+| `JackOfAllTrades` | Wolf | Спутниковые операции **−33%** времени (не прибытие/переход) |
 | `SecondStoryMan` | Magic | С высоты **+50%** крит |
 | `ShoulderToShoulder` | Scully | Конец хода рядом с союзником: **+15 Grit** себе и соседям |
 | `SteroidPunch` | Steroid | Melee CTH от Силы; melee crit → Unconscious; без штрафа стиму; **30%** урона от огня |

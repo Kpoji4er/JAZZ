@@ -164,12 +164,15 @@ local function lInstallNamedPerks006Ops()
 	end
 
 	-- Wolf JackOfAllTrades: −33% satellite operation time (JAZZ wrap; CE param jazz_ops_bonus is display-only).
+	-- Exclude Arriving/Traveling: vanilla LocalSetArrivingMercSector only co-groups mercs with equal
+	-- GetOperationTimeLeft(..., "Arriving"); a shorter ETA put Wolf in his own arrival/real squad.
 	local base_ops = rawget(_G, "GetOperationTimeLeft")
 	if type(base_ops) == "function" and not rawget(_G, "g_JAZZ_JackOfAllOpsBase") then
 		rawset(_G, "g_JAZZ_JackOfAllOpsBase", base_ops)
 		rawset(_G, "GetOperationTimeLeft", function(merc, operation_id, ...)
 			local t = g_JAZZ_JackOfAllOpsBase(merc, operation_id, ...)
-			if type(t) == "number" and merc and HasPerk(merc, "JackOfAllTrades") then
+			if type(t) == "number" and merc and HasPerk(merc, "JackOfAllTrades")
+				and operation_id ~= "Arriving" and operation_id ~= "Traveling" then
 				local perk = merc.GetStatusEffect and merc:GetStatusEffect("JackOfAllTrades")
 				local bonus = (perk and perk.ResolveValue and perk:ResolveValue("jazz_ops_bonus")) or 33
 				t = MulDivRound(t, 100 - bonus, 100)

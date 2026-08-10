@@ -20,7 +20,7 @@ Shipped in working tree / commit after this note.
 | `YouSeeIgor` | Kill → +3 AP |
 | `WeGotThis` | Kill → +10 Grit squad |
 | `NailsPerk` | After first kill → +20% damage until combat end |
-| `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100 |
+| `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100; **not** `Arriving`/`Traveling` (arrival-squad ETA match) |
 | `SecondStoryMan` | High ground → +50 crit chance |
 | `ShoulderToShoulder` | End turn adjacent ally → +15 Grit self+neighbors |
 | `SteroidPunch` | All melee CTH from Strength; melee crit → Prone+Unconscious; Stimmed CTH pen cleared; ~30% fire dmg taken |
@@ -30,7 +30,7 @@ Shipped in working tree / commit after this note.
 
 - **Ice**: five-limb shot list still vanilla CombatAction engine; CE text only (batch 3+ if CA rewrite needed).
 - **Steroid fire dmg**: heuristic hit/action/weapon flags; not every Burning surface path guaranteed.
-- **Wolf ops**: wraps `GetOperationTimeLeft` only (not every ETA helper).
+- **Wolf ops**: wraps `GetOperationTimeLeft` only (not every ETA helper); skips `Arriving`/`Traveling` so hire co-group works.
 - Loc IDs `890000000006500–6515` (outside VR-clogged 6300–6499 exclusive band).
 
 ## Validate
