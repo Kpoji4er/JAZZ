@@ -20,13 +20,18 @@ alwaysApply: true
 4. Несколько пакетов suite (`jazz`, `jazz-units`, …) — тот же лимит **на каждый** репозиторий отдельно.
 5. Не объединять чанки «для скорости» и не `push --force` ради обхода лимита без отдельного явного запроса.
 6. **Итеративный hotfix одной фичи** (несколько уточняющих коммитов подряд про одно поведение): не пушить каждый коммит отдельно — иначе Discord получит N постов с разными AI-заголовками. Накопить локально → **один** push; либо промежуточные коммиты с `[skip discord]`, финальный без skip.
-7. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` каждого затронутого пакета:
+7. **Один логический change set на несколько пакетов** (`jazz` + `jazz-units` + `jazz-maps` / `jazz-nomaps` про одну фичу): в Discord — **один** пост, не три «примерно про одно».
+   - Выбрать **primary** пакет (обычно тот, где player-facing runtime/items: `jazz-units` / `jazz-maps` / код в `jazz`).
+   - Sibling-пакеты (docs-only, remap, metadata bump, tools): commit message с **`[skip discord]`**.
+   - После push вызывать `_dispatch_discord_player_update.ps1` **только для primary**. Не гонять `-Force -AlwaysDispatch` по всем репам «на всякий случай».
+   - `-Force` / `-AlwaysDispatch` — только по явной просьбе перепубликовать **один** диапазон.
+8. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` — диспатч **по правилу п.7** (один primary на feature), не «каждый затронутый пакет»:
 
 ```text
-powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <jazz|jazz-units|jazz-maps|jazz_assets|jazz-nomaps>
+powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <primary>
 ```
 
-Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть (чтобы не было двух постов). **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт. `-AlwaysDispatch` — только когда пользователь явно просит перепубликовать.
+Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть (чтобы не было двух постов). **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт.
 
 ## Пример
 

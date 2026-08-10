@@ -12,6 +12,11 @@
   for AfterSha (push or workflow_dispatch, queued/in_progress/success), it exits
   without dispatching. That prevents double posts when push Actions starts late.
 
+  Suite rule (one logical feature across jazz / jazz-units / jazz-maps / nomaps):
+  call this script ONCE for the primary player-facing package. Sibling packages
+  should use commit marker [skip discord]. Do NOT -Force -AlwaysDispatch on every
+  repo of the same change set — that creates 3 near-duplicate Discord posts.
+
 .EXAMPLE
   powershell -File docs/tools/_dispatch_discord_player_update.ps1
   powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
@@ -85,6 +90,9 @@ $beforeSha = if ($Before) { Get-Sha $Before } else { Get-Sha "$afterSha^" }
 Write-Host "Discord dispatch target: $slug"
 Write-Host "Checkout: $RepoPath"
 Write-Host "Range: $beforeSha..$afterSha  force=$Force dry_run=$DryRun always=$AlwaysDispatch"
+if ($Force -or $AlwaysDispatch) {
+  Write-Host "NOTE: suite = one Discord post per logical feature. Do not Force/AlwaysDispatch sibling repos for the same change."
+}
 
 if (-not $AlwaysDispatch -and -not $DryRun) {
   $deadline = [DateTime]::UtcNow.AddSeconds([Math]::Max(0, $WaitSeconds))

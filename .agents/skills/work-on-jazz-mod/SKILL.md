@@ -56,11 +56,13 @@ Runtime guardrails читать в `.agents/docs/reference/runtime-model.md`; п
 
 ## Discord-новости по пакетам
 
-Push в `main` каждого репозитория даёт **отдельную** player-сводку в Discord. Не агрегировать `jazz`, `jazz-units`, `jazz-maps`, `jazz_assets` и optional `jazz-nomaps` в одно сообщение.
+Push в `main` **может** дать player-сводку на пакет. Не склеивать разные **независимые** фичи разных реп в одно сообщение.
 
-При завершении межпакетной работы (например мерк: `jazz` + `jazz-units`):
+При **одном** логическом change set на несколько пакетов (пример: NoMaps remap + `jazz-units` pack + docs в `jazz`):
 
-1. Коммитить и при одобренном push выкладывать **каждый пакет своим push** — тогда уйдут отдельные новости с compare-ссылками пакета-источника.
-2. Не рассчитывать, что новость из `jazz-units` «покроет» изменения в `jazz`, и наоборот.
-3. Технические docs/CI-коммиты с `[skip discord]` не должны отменять сводку соседних игровых коммитов того же push: маркер исключает только помеченный коммит. Всё же предпочтительно не смешивать большой player-facing диапазон с чисто техническим docs-only коммитом в одном push.
+1. **Один** Discord-пост с **primary** пакета (player-facing runtime/items).
+2. Sibling (docs, remap-only, tools, metadata): commit с **`[skip discord]`**.
+3. После одобренного push диспатчить `_dispatch_discord_player_update.ps1` **только** для primary — не `-Force -AlwaysDispatch` на каждый репозиторий.
 4. Если правка ломает текущий сейв или требует новой кампании — ставить в commit message `[new game]` (или `[new game recommended]` / `[no new game]`). Discord-сводка всегда показывает поле «Новая игра»; маркер владельца важнее AI-оценки.
+
+Независимые фичи в разных пакетах в разных push — отдельные новости ок.
