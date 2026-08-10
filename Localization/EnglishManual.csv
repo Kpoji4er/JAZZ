@@ -7463,7 +7463,7 @@ Task: <task>",manual-translation
 7457,890000000009191,Задание выполнено.,Objective completed.,manual-translation
 7458,890000000006624,[WIP] Александра «Бенни» Бенедикт,Alexandra “Benny” Benedict,manual-translation
 7459,890000000006650,Саймон Грандье,Simon Grandier,manual-translation
-7460,890000000010213,"Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action.","Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action.",manual-translation
+7460,890000000010213,"Treat an ally with a small, medium, or large medkit. Restores HP based on Medical and stops bleeding. Small and medium medkits remove all bleeding. Large medkit starts healing on the heaviest untreated trauma. Field bandages use a separate action.","Treat an ally with a small, medium, or large medkit. Restores HP based on Medical and stops bleeding. Small and medium medkits remove all bleeding. Large medkit starts healing on the heaviest untreated trauma. Field bandages use a separate action.",manual-translation
 7461,890000000012010,Medical required,Medical required,manual-translation
 7462,890000000012011,Medical too low,Medical too low,manual-translation
 7463,890000000012013,Medical too low: <current>/<required>,Medical too low: <current>/<required>,manual-translation

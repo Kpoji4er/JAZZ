@@ -17,6 +17,7 @@ The PDA gets a separate site, **African Mercenary Exchange (A.M.E.)** — not a 
 - Each slot has a fixed starting kit and its own portrait — no random hire inventory roll.
 - Real callsigns appear in the full name AIM-style: **Didier "Smoke" Mbemba**.
 - A.M.E. medics start with **50 medical supplies**, enough to treat wounds during operations.
+- Starting medicine: everyone gets **bandages**; Medical **&lt; 20** means bandages only (no kits, no morphine). A.M.E. kits are **Small** only (medics and slots with Medical ≥ 30).
 - A.M.E. cards omit the **Traits/Perks** strip (equipment only); AIM cards still show perks.
 - About **12 of 60** fighters still carry one personality trait (`Negotiator` / `Psycho` / `Stealthy`, etc.) — it applies after hire, but the A.M.E. shelf does not preview it.
 - Specialization icons: line troops only All-Rounder / Autorifleman / Heavy Weapons / Marksman; Doctor / Mechanic / Explosives / Leader icons are Specialists-only.

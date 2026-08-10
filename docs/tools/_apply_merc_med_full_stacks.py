@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Merc starting kits: Bandage stack 10, FirstAidKit/Medkit to MaxStacks.
+"""Merc starting kits: Bandage stack 10, kits to MaxStacks.
 
 Only touches ModItemLootDef with group = \"Mercs\" in jazz-units/items.lua.
 - JAZZ_Bandage -> stack_min/max = 10 (where present; does not add)
 - FirstAidKit  -> stack_min/max = 5  (MaxStacks)
-- Medkit       -> stack_min/max = 3  (MaxStacks)
+- Medkit       -> stack_min/max = 10 (MaxStacks)
+- Reanimationsset -> stack_min/max = 15 (MaxStacks)
 
 Idempotent. Leaves drop_chance / other fields intact.
 """
@@ -19,7 +20,8 @@ UNITS = Path(r"C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz-units\
 FULL = {
     "JAZZ_Bandage": 10,  # intentional merc kit size (item MaxStacks=30)
     "FirstAidKit": 5,
-    "Medkit": 3,
+    "Medkit": 10,
+    "Reanimationsset": 15,
 }
 
 

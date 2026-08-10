@@ -416,6 +416,27 @@ def main() -> int:
         contract(len(entries_with(item_entries, "item", "Medkit")) == int(bool(util.get("medkit"))), f"{uid}: medkit materialization")
         contract(len(entries_with(loot_entries, "loot_def", "LegionGL_5pc")) == int(bool(util.get("gl_5pc"))), f"{uid}: GL materialization")
 
+        # MED-003 Legion field medicine by class_tier / medic
+        band_entries = entries_with(item_entries, "item", "JAZZ_Bandage")
+        morph_entries = entries_with(item_entries, "item", "JAZZ_Morphine")
+        fak_entries = entries_with(item_entries, "item", "FirstAidKit")
+        tier = int(recipe.get("class_tier") or 0)
+        if util.get("medkit"):
+            contract(len(fak_entries) == 1 and "stack_min = 5" in fak_entries[0], f"{uid}: medic FirstAidKit×5")
+            medkit_entries = entries_with(item_entries, "item", "Medkit")
+            contract(len(medkit_entries) == 1 and 5 in chance_values(medkit_entries), f"{uid}: medic Medkit 5%")
+            contract(len(band_entries) == 1 and "stack_min = 1" in band_entries[0] and "stack_max = 10" in band_entries[0], f"{uid}: medic bandage 1-10")
+            contract(len(morph_entries) == 1 and "stack_min = 0" in morph_entries[0] and "stack_max = 3" in morph_entries[0], f"{uid}: medic morphine 0-3")
+        elif tier == 2:
+            contract(len(band_entries) == 1 and "stack_min = 1" in band_entries[0] and "stack_max = 2" in band_entries[0], f"{uid}: T2 bandage 1-2")
+            contract(not morph_entries, f"{uid}: T2 no morphine")
+        elif tier == 3:
+            contract(len(morph_entries) == 1 and 30 in chance_values(morph_entries), f"{uid}: T3 morphine 30%")
+            contract(not band_entries, f"{uid}: T3 no bandage")
+        else:
+            contract(not band_entries and not morph_entries, f"{uid}: T{tier} no field medicine")
+            contract(not fak_entries, f"{uid}: non-medic no FirstAidKit")
+
         contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_NightEquipment")) == 1, f"{uid}: night pool")
         contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_FlareGun")) == (3 if int(recipe.get("flaregun") or 0) > 0 else 0), f"{uid}: flare pool")
         contract(len(entries_with(loot_entries, "loot_def", "JAZZ_Gen_MiscGear")) == int(int(recipe.get("misc_chance") or 0) > 0), f"{uid}: misc pool")

@@ -746,13 +746,50 @@ def emit_inventory(unit_id: str, recipe: dict, prices: dict) -> str:
             "\t\t\t\t\t\t}),",
         ]
     if util.get("medkit"):
+        # MED-003: Small guaranteed + Medium 5%; medic bandages/morphine ranges
         lines += [
             "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+            "\t\t\t\t\t\t\titem = \"FirstAidKit\",",
+            "\t\t\t\t\t\t\tstack_max = 5,",
+            "\t\t\t\t\t\t\tstack_min = 5,",
+            "\t\t\t\t\t\t}),",
+            "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+            "\t\t\t\t\t\t\tgenerate_chance = 5,",
             "\t\t\t\t\t\t\titem = \"Medkit\",",
             "\t\t\t\t\t\t\tstack_max = 1,",
             "\t\t\t\t\t\t\tstack_min = 1,",
             "\t\t\t\t\t\t}),",
+            "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+            "\t\t\t\t\t\t\titem = \"JAZZ_Bandage\",",
+            "\t\t\t\t\t\t\tstack_max = 10,",
+            "\t\t\t\t\t\t\tstack_min = 1,",
+            "\t\t\t\t\t\t}),",
+            "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+            "\t\t\t\t\t\t\titem = \"JAZZ_Morphine\",",
+            "\t\t\t\t\t\t\tstack_max = 3,",
+            "\t\t\t\t\t\t\tstack_min = 0,",
+            "\t\t\t\t\t\t}),",
         ]
+    else:
+        # Non-medic field medicine by class_tier (not quest arch)
+        tier = int(recipe.get("class_tier") or 0)
+        if tier == 2:
+            lines += [
+                "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+                "\t\t\t\t\t\t\titem = \"JAZZ_Bandage\",",
+                "\t\t\t\t\t\t\tstack_max = 2,",
+                "\t\t\t\t\t\t\tstack_min = 1,",
+                "\t\t\t\t\t\t}),",
+            ]
+        elif tier == 3:
+            lines += [
+                "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+                "\t\t\t\t\t\t\tgenerate_chance = 30,",
+                "\t\t\t\t\t\t\titem = \"JAZZ_Morphine\",",
+                "\t\t\t\t\t\t\tstack_max = 1,",
+                "\t\t\t\t\t\t\tstack_min = 1,",
+                "\t\t\t\t\t\t}),",
+            ]
 
     # Pre-003 frontliner secondary launcher roll (M79 / ChinaLake / M72 LAW).
     # LootDef LegionGL_5pc embeds ~15% weight vs NoLoot despite the "5pc" name.

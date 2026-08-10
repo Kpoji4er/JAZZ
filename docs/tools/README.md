@@ -81,6 +81,12 @@
 | `_apply_med002_statuses.py` | MED-002: insert `WoundInfected` + `BloodLoss50`…`1` companions/items/metadata + RU/EN loc rows. |
 | `_audit_med001_analgesia.py` | Static MED-001: Pain tracks the current-turn AP penalty; Analgesia consumes it once, refunds AP directly, and companion/`items.lua` stay equivalent. |
 | `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
+| `_audit_med003_kits.py` | Static MED-003: Medical 30/50/80, heal +0/+50/+100, MaxStacks 5/10/15, trauma ranks, full bleed, Analgesia+infection, Large Bobby soft-tail, Bonemaker 5% medium. |
+| `_apply_med003_kits.py` | Apply MED-003 companion parity into `items.lua` + Bonemaker FirstAidKit/5% Medkit. |
+| `_list_merc_medkits.py` | List Mercs loot defs with FirstAidKit/Medkit/Reanimationsset (`_merc_medkits_list.txt`). |
+| `_audit_merc_med_loot_redistribute.py` | Static MED-003 hire loot: Med&lt;20 bandages-only, kit cascade, AME Small, bandage/morphine spreads vs plan. |
+| `_audit_legion_med_loot_redistribute.py` | Static MED-003 Legion class loot: T2 bandage 1–2, T3 morphine 30%, medic 1–10/0–3 + kits. |
+| `_audit_med001_large_kit_trauma.py` | Static MED-001 AC-017: Large Medkit (`Reanimationsset`) marks heaviest unhealed Trauma* with `jazz_healing`; targeting + GetBandaged + loc/hint wiring. |
 | `_apply_localization_copy_edit.py` | Validates and applies reviewed RU/EN waves to manual memory; optional `AllIDs` propagates one source-identical review to every listed localization ID. |
 | `_apply_maps_quest_repairs.py` | Идемпотентная generated-транзакция JAZZ-QUESTS-001: quest/conversation graph, companions и `jazz-maps/ModTextsMaps.csv`; map-object exports проверяются отдельным аудитом. |
 | `_audit_dirty_lua_syntax.py` | Компилирует через `lupa` все modified/untracked `*.lua` в `jazz`, `jazz-maps`, `jazz-units`; read-only pre-commit gate для синтаксиса. |
@@ -104,7 +110,9 @@
 | `_check_merc_credit_hire_gate.py` | Static: `System_MERC_Account.lua` — `CanAffordMerc` wrap для MERC + waive `MedicalPaidWhenHired`. |
 | `_apply_med001_loot_jazz_units.py` | В `jazz-units/items.lua` к LootDef с `FirstAidKit`/`Medkit`/`Meds`/`MedsDrop` добавляет `JAZZ_Bandage` / `JAZZ_Morphine` / редко `JAZZ_SurgicalKit`. Идемпотентен (сначала снимает старые JAZZ med entries). |
 | `_apply_med001_loot_equipment_kits.py` | Phase 2: бинт/морфий (± IFAK у мерков) в Equipment-киты без медицины (`loot=all` враги + Mercs leaf tiers). Не трогает ammo/Drop_/Armor. Merc insert: Bandage 10, IFAK 5. |
-| `_apply_merc_med_full_stacks.py` | Mercs `group=Mercs` в `jazz-units/items.lua`: существующий `JAZZ_Bandage` → stack 10; `FirstAidKit` → 5; `Medkit` → 3 (MaxStacks). Идемпотентен. |
+| `_apply_merc_med_full_stacks.py` | Mercs `group=Mercs` в `jazz-units/items.lua`: существующий `JAZZ_Bandage` → stack 10; `FirstAidKit` → 5; `Medkit` → 10; `Reanimationsset` → 15 (MaxStacks). Идемпотентен. |
+| `_apply_merc_med_loot_redistribute.py` | Hire medicine by Medical/Doctor/Tier (MED-003): Med&lt;20 bandages only; kit cascade; AME Small; bandage/morphine spreads. Idempotent. |
+| `_apply_legion_med_loot_redistribute.py` | Legion class inventories (recipes.json): T2 Bandage 1–2; T3 Morphine 30%; medic Bandage 1–10 + Morphine 0–3; strip Mortarman_Launcher junk. Idempotent. |
 | `_apply_enemy_med_stacks_min.py` | Не-Mercs LootDef: `JAZZ_Bandage` / Morphine / Surgical / FirstAidKit / Medkit → `stack_min/max = 1`. Mercs не трогает. |
 | `_fix_med001_loot_drop_lists.py` | Снимает ошибочные JAZZ med entries с `Drop_*` / Comment=list ammo pools; патчит `PierreGuard_Ordnance`. |
 | `_audit_med001_loot_jazz_units.py` / `_audit_med001_unit_kits.py` | Аудит покрытия Bandage по medical LootDef и UnitData Equipment. |

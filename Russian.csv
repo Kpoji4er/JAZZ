@@ -11734,35 +11734,50 @@ R.I.S. открыла для вашего отряда канал полевой
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Редкий предмет; позже врачи смогут использовать его для полевой хирургии",,jazz:InventoryItem/JAZZ_SurgicalKit.lua:10 | jazz:items.lua:56653
 890000000010020,USE,ИСПОЛЬЗОВАТЬ,,jazz:MED-001-remap-from-890000000009215
 890000000010021,<target> bleeding reduced by bandage,<target> кровотечение снижено бинтом,,jazz:MED-001-remap-from-890000000009216
-890000000010022,IFAK,ИФАК,,jazz:MED-001-remap-from-890000000009217
-890000000010023,IFAKs,ИФАК,,jazz:MED-001-remap-from-890000000009218
+890000000010022,Small Medkit,Маленькая аптечка,,jazz:MED-001-remap-from-890000000009217
+890000000010023,Small Medkits,Маленькие аптечки,,jazz:MED-001-remap-from-890000000009218
 890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated light trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающего бойца
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает все кровотечения
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление одной необработанной лёгкой травмы
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре",,jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:56678
-890000000010025,Med Kit,Аптечка,,jazz:MED-001-remap-from-890000000009220
-890000000010026,Med Kits,Аптечки,,jazz:MED-001-remap-from-890000000009221
+890000000010025,Medium Medkit,Средняя аптечка,,jazz:MED-001-remap-from-890000000009220
+890000000010026,Medium Medkits,Средние аптечки,,jazz:MED-001-remap-from-890000000009221
 890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated medium or light trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающего бойца
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 50%.
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает все кровотечения
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление одной необработанной средней или лёгкой травмы
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака",,jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706
 890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,Вколоть морфий: глушит Боль или поднимает из downed (без хила ОЗ). Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Can be used for Bandage
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 60%
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on any untreated trauma
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует умирающих бойцов
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для действия «Перевязка»
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 60%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 100%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает все кровотечения
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление любой необработанной травмы
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре",,jazz:InventoryItem/Reanimationsset.lua:21 | jazz:items.lua:56759
+890000000010031,Large Medkit,Большая аптечка,,jazz:Reanimationsset-rename
+890000000010032,Large Medkits,Большие аптечки,,jazz:Reanimationsset-rename
+890000000010033,<target> trauma set to healing,<target>: запущено заживление травмы,,jazz:LargeMedkit-trauma-healing
 890000000010100,Arm Trauma (Light),Травма рук (лёгкая),,jazz:MED-001-trauma-remap-from-890000000009226
 890000000010101,Pain when shooting or using arms. No direct accuracy penalty.,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,,jazz:MED-001-trauma-remap-from-890000000009227
 890000000010102,Arm Trauma (Medium),Травма рук (средняя),,jazz:MED-001-trauma-remap-from-890000000009228
@@ -11808,7 +11823,7 @@ R.I.S. открыла для вашего отряда канал полевой
 890000000010210,<merc> trauma improved (cleared),<merc>: травма улучшилась (снята),,jazz:MED-001-trauma-timing
 890000000010211,<merc> trauma improved to a lighter tier,<merc>: травма улучшилась до более лёгкого тира,,jazz:MED-001-trauma-timing
 890000000010212,<merc> trauma worsened,<merc>: травма ухудшилась,,jazz:MED-001-trauma-timing
-890000000010213,"Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action.","Лечит союзника при помощи ИФАК, аптечки или реанимационного набора. Восстанавливает ОЗ с учётом Медицины и останавливает кровотечение. ИФАК и аптечка снимают все кровотечения. Для бинтов есть отдельное действие.",,jazz:MED-001-Bandage-kit
+890000000010213,"Treat an ally with a small, medium, or large medkit. Restores HP based on Medical, clears all bleeding, eases pain, clears wound infection, and can rally the downed. Small starts healing on a light trauma; medium on medium or light; large on any trauma. Field bandages use a separate action.","Лечит союзника маленькой, средней или большой аптечкой. Восстанавливает ОЗ с учётом Медицины, снимает все кровотечения, боль и загноение, поднимает из downed. Маленькая запускает заживление лёгкой травмы; средняя — средней или лёгкой; большая — любой. Для бинтов есть отдельное действие.",,jazz:MED-001-Bandage-kit
 890000000010214,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
 890000000010215,На связи.,На связи.,,jazz-units:items.lua:VoiceResponse
 890000000010216,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse

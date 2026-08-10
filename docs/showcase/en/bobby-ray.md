@@ -18,7 +18,7 @@ Mail-order shop in the PDA. JAZZ expands it to **five** unlock tiers and ties re
 
 - Guns / armor / attachments / specialty medicine / demo: most stock matches your unlock; higher-tier jackpots are rare and expensive (~**×3** per tier above; cheaper when below).
 - Ammo: older packs restock **more** as you unlock; **Poor** ammo fades and disappears by unlock **4+**.
-- Staples (Meds, Parts, IFAK, Medkit, tools, barrel/scope parts): from unlock **1**, no tier markup.
+- Staples (Meds, Parts, small/medium medkits, tools…): from unlock **1**, no tier markup. **Large** medkit is in the shop but expensive and rare (soft-tail, not a staple).
 - Attachments under **Other**: Optics · Magazines · Muzzle · Side · Underbarrel · Bipod.
 
 Campaign stays viable without Bobby; the shop is resupply, not a skip-ahead armory.

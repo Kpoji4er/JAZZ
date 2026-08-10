@@ -1,4 +1,4 @@
-﻿ID,SourceText,VanillaText,Russian,English,Status,Context,Packages,Locations,Notes
+ID,SourceText,VanillaText,Russian,English,Status,Context,Packages,Locations,Notes
 987654321,<style WeaponModHeader><DisplayName></style>,,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,russian-override;new-id,jazz:Code/System_Firearm_AddProperties.lua:477,jazz,jazz:Code/System_Firearm_AddProperties.lua:601 | jazz:Code/System_WeaponRemovableModify.lua:528,
 990002002,Ствольные запчасти,,Ствольные запчасти,Barrel Parts,russian-override;new-id,jazz:InventoryItem/JAZZ_BarrelParts.lua,jazz,jazz:Code/System_WeaponResourceMaintenance.lua:309 | jazz:InventoryItem/JAZZ_BarrelParts.lua:8 | jazz:items.lua:53817,manual-translation
 990002003,Ствольные запчасти,,Ствольные запчасти,Barrel Parts,russian-override;new-id,jazz:InventoryItem/JAZZ_BarrelParts.lua,jazz,jazz:InventoryItem/JAZZ_BarrelParts.lua:9 | jazz:items.lua:53818,manual-translation
@@ -12992,8 +12992,8 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later",russian-override;new-id,jazz:InventoryItem/JAZZ_SurgicalKit.lua:10 | jazz:items.lua:56653,jazz,jazz:InventoryItem/JAZZ_SurgicalKit.lua:10 | jazz:items.lua:57150,
 890000000010020,USE,,ИСПОЛЬЗОВАТЬ,USE,russian-override;new-id,jazz:MED-001-remap-from-890000000009215,jazz,jazz:InventoryItem/JAZZ_SurgicalKit.lua:23 | jazz:items.lua:57163,
 890000000010021,<target> bleeding reduced by bandage,,<target> кровотечение снижено бинтом,<target> bleeding reduced by bandage,russian-override;new-id,jazz:MED-001-remap-from-890000000009216,jazz,jazz:Code/System_UnitInventory.lua:589,
-890000000010022,IFAK,,ИФАК,IFAK,russian-override;new-id,jazz:MED-001-remap-from-890000000009217,jazz,jazz:InventoryItem/FirstAidKit.lua:9 | jazz:items.lua:57173,
-890000000010023,IFAKs,,ИФАК,IFAKs,russian-override;new-id,jazz:MED-001-remap-from-890000000009218,jazz,jazz:InventoryItem/FirstAidKit.lua:10 | jazz:items.lua:57174,
+890000000010022,Small Medkit,,Маленькая аптечка,Small Medkit,russian-override;new-id,jazz:MED-001-remap-from-890000000009217,jazz,jazz:InventoryItem/FirstAidKit.lua:9 | jazz:items.lua:57173,
+890000000010023,Small Medkits,,Маленькие аптечки,Small Medkits,russian-override;new-id,jazz:MED-001-remap-from-890000000009218,jazz,jazz:InventoryItem/FirstAidKit.lua:10 | jazz:items.lua:57174,
 890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
@@ -13004,8 +13004,8 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",russian-override;new-id,jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:56678,jazz,jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:57175,
-890000000010025,Med Kit,,Аптечка,Med Kit,russian-override;new-id,jazz:MED-001-remap-from-890000000009220,jazz,jazz:InventoryItem/Medkit.lua:19 | jazz:items.lua:57202,
-890000000010026,Med Kits,,Аптечки,Med Kits,russian-override;new-id,jazz:MED-001-remap-from-890000000009221,jazz,jazz:InventoryItem/Medkit.lua:20 | jazz:items.lua:57203,
+890000000010025,Medium Medkit,,Средняя аптечка,Medium Medkit,russian-override;new-id,jazz:MED-001-remap-from-890000000009220,jazz,jazz:InventoryItem/Medkit.lua:19 | jazz:items.lua:57202,
+890000000010026,Medium Medkits,,Средние аптечки,Medium Medkits,russian-override;new-id,jazz:MED-001-remap-from-890000000009221,jazz,jazz:InventoryItem/Medkit.lua:20 | jazz:items.lua:57203,
 890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
@@ -13021,16 +13021,22 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Can be used for Bandage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 60%
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on the heaviest untreated trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует умирающих бойцов
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Требуется для действия «Перевязка»
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 60%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление самой тяжёлой необработанной травмы
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Can be used for Bandage
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 60%
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on the heaviest untreated trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",russian-override;new-id,jazz:InventoryItem/Reanimationsset.lua:21 | jazz:items.lua:56759,jazz,jazz:InventoryItem/Reanimationsset.lua:22 | jazz:items.lua:57257,
+890000000010031,Large Medkit,,Большая аптечка,Large Medkit,russian-override;new-id,jazz:Reanimationsset-rename,jazz,jazz:InventoryItem/Reanimationsset.lua:20 | jazz:items.lua,
+890000000010032,Large Medkits,,Большие аптечки,Large Medkits,russian-override;new-id,jazz:Reanimationsset-rename,jazz,jazz:InventoryItem/Reanimationsset.lua:21 | jazz:items.lua,
+890000000010033,<target> heaviest trauma set to healing,,<target>: запущено заживление самой тяжёлой травмы,<target> heaviest trauma set to healing,russian-override;new-id,jazz:LargeMedkit-trauma-healing,jazz,jazz:Code/System_UnitInventory.lua,
 890000000010100,Arm Trauma (Light),,Травма рук (лёгкая),Arm Trauma (Light),russian-override;new-id,jazz:MED-001-trauma-remap-from-890000000009226,jazz,jazz:CharacterEffect/TraumaArmsLight.lua:16 | jazz:items.lua:63362,
 890000000010101,Pain when shooting or using arms. No direct accuracy penalty.,,Боль при стрельбе или нагрузке на руки. Без прямого штрафа к точности.,Pain when shooting or using arms. No direct accuracy penalty.,russian-override;new-id,jazz:MED-001-trauma-remap-from-890000000009227,jazz,jazz:CharacterEffect/TraumaArmsLight.lua:17 | jazz:items.lua:63363,
 890000000010102,Arm Trauma (Medium),,Травма рук (средняя),Arm Trauma (Medium),russian-override;new-id,jazz:MED-001-trauma-remap-from-890000000009228,jazz,jazz:CharacterEffect/TraumaArmsMedium.lua:31 | jazz:items.lua:63398,
@@ -13076,7 +13082,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010210,<merc> trauma improved (cleared),,<merc>: травма улучшилась (снята),<merc> trauma improved (cleared),russian-override;new-id,jazz:MED-001-trauma-timing,jazz,jazz:Code/Systems_Medicine.lua:1665,
 890000000010211,<merc> trauma improved to a lighter tier,,<merc>: травма улучшилась до более лёгкого тира,<merc> trauma improved to a lighter tier,russian-override;new-id,jazz:MED-001-trauma-timing,jazz,jazz:Code/Systems_Medicine.lua:1667,
 890000000010212,<merc> trauma worsened,,<merc>: травма ухудшилась,<merc> trauma worsened,russian-override;new-id,jazz:MED-001-trauma-timing,jazz,jazz:Code/Systems_Medicine.lua:1678,
-890000000010213,"Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action.",,"Лечит союзника при помощи ИФАК, аптечки или реанимационного набора. Восстанавливает ОЗ с учётом Медицины и останавливает кровотечение. ИФАК и аптечка снимают все кровотечения. Для бинтов есть отдельное действие.","Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action.",russian-override;new-id,jazz:MED-001-Bandage-kit,jazz,jazz:items.lua:62591,
+890000000010213,"Treat an ally with a small, medium, or large medkit. Restores HP based on Medical and stops bleeding. Small and medium medkits remove all bleeding. Large medkit starts healing on the heaviest untreated trauma. Field bandages use a separate action.",,"Лечит союзника маленькой, средней или большой аптечкой. Восстанавливает ОЗ с учётом Медицины и останавливает кровотечение. Маленькая и средняя аптечки снимают все кровотечения. Большая запускает заживление самой тяжёлой необработанной травмы. Для бинтов есть отдельное действие.","Treat an ally with a small, medium, or large medkit. Restores HP based on Medical and stops bleeding. Small and medium medkits remove all bleeding. Large medkit starts healing on the heaviest untreated trauma. Field bandages use a separate action.",russian-override;new-id,jazz:MED-001-Bandage-kit,jazz,jazz:items.lua:62591,
 890000000010214,На связи.,,На связи.,Standing by.,russian-override;new-id,jazz-units:items.lua:VoiceResponse,jazz-units,jazz-units:items.lua:118869,
 890000000010215,На связи.,,На связи.,Standing by.,russian-override;new-id,jazz-units:items.lua:VoiceResponse,jazz-units,jazz-units:items.lua:118870,
 890000000010216,Тихо.,,Тихо.,Quiet.,russian-override;new-id,jazz-units:items.lua:VoiceResponse,jazz-units,jazz-units:items.lua:118873,

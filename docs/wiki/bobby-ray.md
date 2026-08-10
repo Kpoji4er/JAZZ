@@ -18,7 +18,7 @@ Higher unlock prefers matching gear, but a rare higher-tier item can still appea
 
 - **Guns, armor, attachments, specialty meds, explosives:** items near your current unlock show up most often; neighbors are rarer. Price scales with how far the item’s tier is from your unlock (about **×3** per step up, **×0.3** per step down), plus a small stock jitter (~±20%).
 - **Ammo:** lower-tier packs get **more common** as your shop unlock rises; junk (**Poor**) ammo fades out and is gone from restock by unlock **4+**.
-- **Staples** (Meds, Parts, IFAK, Medkit, basic tools, barrel/scope parts, black powder): available from unlock **1** with stable stock weight — no tier markup.
+- **Staples** (Meds, Parts, small/medium medkits, basic tools, barrel/scope parts, black powder): available from unlock **1** with stable stock weight — no tier markup. **Large** medkit is shoppable but expensive/rare (soft-tail, not a staple).
 
 ## Attachments tab
 

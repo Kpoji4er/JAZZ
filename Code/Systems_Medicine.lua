@@ -249,6 +249,34 @@ function JazzUnitNeedsFieldOrKitBandage(unit)
 	return false
 end
 
+-- Kit Bandage also treats Pain, infection, and kit-eligible unhealed trauma.
+function JazzUnitNeedsKitBandage(target, healer)
+	if JazzUnitNeedsFieldOrKitBandage(target) then
+		return true
+	end
+	if not target or target:IsDead() then
+		return false
+	end
+	if target:HasStatusEffect("Pain") then
+		return true
+	end
+	if target:HasStatusEffect("WoundInfected") then
+		return true
+	end
+	local kit = healer and JazzGetEquippedKitMedicine(healer)
+	if kit and JazzFindKitEligibleUnhealedTrauma(target, kit.class) then
+		return true
+	end
+	return false
+end
+
+function JazzKitBandageLoopContinue(healer, target)
+	if not IsValid(target) or target:IsDead() then
+		return false
+	end
+	return JazzUnitNeedsKitBandage(target, healer)
+end
+
 -- Stack bandage action: only bleeding (any Jazz tier), not HP debt alone.
 function JazzUnitNeedsFieldBandage(unit)
 	return unit and not unit:IsDead() and JazzHasAnyBleed(unit)
@@ -354,7 +382,9 @@ local function lInstallBandageTargetsHook()
 	end
 	JazzGetBandageTargets_Vanilla = current
 	jazz_get_bandage_targets_fn = function(unit, mode, range_mode)
-		return JazzGetAllyMedicineTargets(unit, mode, range_mode, JazzUnitNeedsFieldOrKitBandage, "Bandage")
+		return JazzGetAllyMedicineTargets(unit, mode, range_mode, function(target)
+			return JazzUnitNeedsKitBandage(target, unit)
+		end, "Bandage")
 	end
 	GetBandageTargets = jazz_get_bandage_targets_fn
 end
@@ -567,7 +597,8 @@ local function lInstallMedicineMeleeUIHooks()
 			if not ok and err == AttackDisableReasons.FullHP then
 				local target = args and args.target
 				-- Vanilla only checked status id "Bleeding"; Medium/Heavy looked like FullHP.
-				if target and JazzUnitNeedsFieldOrKitBandage(target) then
+				-- Large kit can also treat an unhealed trauma at full HP.
+				if target and JazzUnitNeedsKitBandage(target, attacker) then
 					return true
 				end
 			end
@@ -1663,6 +1694,68 @@ function JazzMarkUnitTraumasHealing(unit)
 	return any
 end
 
+-- Heaviest Trauma* that is not already jazz_healing (Heavy > Medium > Light; zone order on ties).
+-- Returns zone, tier, effect — or nil when none.
+function JazzFindHeaviestUnhealedTrauma(unit)
+	return JazzFindKitEligibleUnhealedTrauma(unit, "Reanimationsset")
+end
+
+-- MED-003: max trauma tier a kit may put into jazz_healing (not instant clear).
+JazzKitTraumaMaxRank = {
+	FirstAidKit = 1, -- Light only
+	Medkit = 2, -- Medium or Light
+	Reanimationsset = 3, -- any
+}
+
+-- Heaviest unhealed Trauma* with rank <= kit max (prefer heavier within cap).
+function JazzFindKitEligibleUnhealedTrauma(unit, kit_class)
+	if not unit then
+		return
+	end
+	local max_rank = JazzKitTraumaMaxRank[kit_class or false] or 0
+	if max_rank <= 0 then
+		return
+	end
+	local best_zone, best_tier, best_effect, best_rank
+	best_rank = 0
+	for _, zone in ipairs(JazzTraumaZones) do
+		local tier = JazzGetTraumaTier(unit, zone)
+		if tier then
+			local rank = JazzTraumaTierRank[tier] or 0
+			if rank > 0 and rank <= max_rank then
+				local effect = unit:GetStatusEffect(lTraumaId(zone, tier))
+				if effect and not JazzTraumaIsHealing(effect) and rank > best_rank then
+					best_rank = rank
+					best_zone = zone
+					best_tier = tier
+					best_effect = effect
+				end
+			end
+		end
+	end
+	if not best_effect then
+		return
+	end
+	return best_zone, best_tier, best_effect
+end
+
+-- Start field healing on one kit-eligible unhealed trauma.
+function JazzMarkKitTraumaHealing(unit, kit_class)
+	local zone, tier, effect = JazzFindKitEligibleUnhealedTrauma(unit, kit_class)
+	if not effect then
+		return false
+	end
+	JazzSetTraumaHealing(effect, true)
+	JazzInitTraumaProgressTimer(effect, zone, tier)
+	ObjModified(unit)
+	return true, zone, tier
+end
+
+-- Large Medkit alias (MED-001 REQ-018 → MED-003).
+function JazzMarkHeaviestTraumaHealing(unit)
+	return JazzMarkKitTraumaHealing(unit, "Reanimationsset")
+end
+
 -- Chance table: roll 1..100 → improve / worsen / stay.
 -- healing=true (after OperationHeal): worsen blocked; improve guaranteed (100).
 -- Successful improve still uses JazzDowngradeTrauma (Light clear / Medium→Light / Heavy→Medium).
@@ -2447,8 +2540,7 @@ local function lInstallMedicineStackBandageHooks()
 						SetInGameInterfaceMode("IModeExploration")
 					end
 				elseif not g_Combat and not is_field then
-					while IsValid(target) and not target:IsDead()
-						and (target.HitPoints < target.MaxHitPoints or JazzHasAnyBleed(target)) do
+					while JazzKitBandageLoopContinue(self, target) do
 						medicine = GetUnitEquippedMedicine(self)
 						if not JazzMedicineIsUsable(medicine) then
 							break
@@ -2542,8 +2634,7 @@ local function lInstallMedicineStackBandageHooks()
 						ObjModified(self)
 					end)
 					self:AddStatusEffect("BandageInCombat")
-					while IsValid(target) and not target:IsDead()
-						and (target.HitPoints < target.MaxHitPoints or JazzHasAnyBleed(target)) do
+					while JazzKitBandageLoopContinue(self, target) do
 						medicine = GetUnitEquippedMedicine(self)
 						if not JazzMedicineIsUsable(medicine) then
 							break

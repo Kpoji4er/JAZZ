@@ -558,7 +558,16 @@ function UnitInventory:InventoryBandage()
 end
 
 function UnitInventory:GetBandaged(medkit, healer)
-	if not JazzHasAnyBleed(self) and self.HitPoints >= self.MaxHitPoints then
+	local kit_class = medkit and medkit.class
+	local is_kit = kit_class and JazzMedicineIsKitClass and JazzMedicineIsKitClass(kit_class)
+	local can_mark_trauma = is_kit and JazzFindKitEligibleUnhealedTrauma
+		and JazzFindKitEligibleUnhealedTrauma(self, kit_class)
+	local can_clear_infection = is_kit and self.HasStatusEffect and self:HasStatusEffect("WoundInfected")
+	local can_ease_pain = is_kit and self.HasStatusEffect and self:HasStatusEffect("Pain")
+	local can_rally = is_kit and JazzUnitNeedsMorphineRally and JazzUnitNeedsMorphineRally(self)
+	if not JazzHasAnyBleed(self) and self.HitPoints >= self.MaxHitPoints
+		and not can_mark_trauma and not can_clear_infection and not can_ease_pain and not can_rally
+	then
 		return
 	end
 	if medkit and not JazzMedicineMeetsRequirement(healer, medkit) then
@@ -600,7 +609,9 @@ function UnitInventory:GetBandaged(medkit, healer)
 
 	local heal_amount = healer:CalcHealAmount(medkit, self)
 	local can_clear_bleed = JazzHasAnyBleed(self)
-	if (heal_amount or 0) <= 0 and not can_clear_bleed then
+	if (heal_amount or 0) <= 0 and not can_clear_bleed and not can_mark_trauma
+		and not can_clear_infection and not can_ease_pain and not can_rally
+	then
 		return
 	end
 
@@ -611,13 +622,40 @@ function UnitInventory:GetBandaged(medkit, healer)
 		restored = self.HitPoints - old_hp
 		self:OnHeal(restored, medkit, healer)
 	end
-	if can_clear_bleed and medkit then
-		if medkit.class == "FirstAidKit" or medkit.class == "Medkit" then
-			JazzClearAllBleeding(self)
-		else
-			local stacks = medkit.class == "Reanimationsset" and 2 or 1
-			JazzClearBleedStrong(self, stacks)
+	-- MED-003: all kits clear every bleed stack.
+	if can_clear_bleed and is_kit then
+		JazzClearAllBleeding(self)
+	elseif can_clear_bleed and medkit then
+		JazzClearBleedStrong(self, 1)
+	end
+
+	local trauma_marked = false
+	if can_mark_trauma and JazzMarkKitTraumaHealing then
+		trauma_marked = JazzMarkKitTraumaHealing(self, kit_class) and true or false
+		if trauma_marked then
+			CombatLog("short", T{890000000010033, "<target> trauma set to healing",
+				target = self.Nick or self.Name,
+			})
 		end
+	end
+
+	local infection_cleared = false
+	if can_clear_infection and JazzClearWoundInfected then
+		infection_cleared = JazzClearWoundInfected(self) and true or false
+	end
+
+	local support_applied = false
+	if is_kit and type(self.AddStatusEffect) == "function" then
+		self:AddStatusEffect("Analgesia")
+		if JazzRefundPainStartTurnAP then
+			JazzRefundPainStartTurnAP(self)
+		end
+		support_applied = true
+	end
+
+	-- Rally only when still downed and not already inside DownedRally (wrap calls GetBandaged).
+	if can_rally and self.SetCommand and self.command ~= "DownedRally" then
+		self:SetCommand("DownedRally")
 	end
 
 	if healer == self then
@@ -634,8 +672,10 @@ function UnitInventory:GetBandaged(medkit, healer)
 		PlayVoiceResponse(self, "HealReceived")
 	end
 
-	-- MED-001: kits are stack items — one successful treat spends one.
-	if medkit and healer and (restored > 0 or can_clear_bleed) then
+	-- MED-001/003: kits are stack items — one successful treat spends one.
+	if medkit and healer and (restored > 0 or can_clear_bleed or trauma_marked
+		or infection_cleared or support_applied or can_rally)
+	then
 		local before = medkit.Amount
 		if JazzConsumeInventoryItem(healer, medkit.class, 1) then
 			if (before or 1) <= 1 then

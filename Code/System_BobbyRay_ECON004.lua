@@ -22,6 +22,7 @@ local JAZZ_BOBBY_FLAT = {
 	JAZZ_Morphine = true,
 	FirstAidKit = true,
 	Medkit = true,
+	-- Large Medkit (Reanimationsset): soft-tail specialty, not flat staple (MED-003).
 	Lockpick = true,
 	Wirecutter = true,
 	Crowbar = true,

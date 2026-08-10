@@ -6311,7 +6311,7 @@ N,AnchorID,SourceText,Russian,Notes
 6307,890000000009191,Задание выполнено.,Задание выполнено.,manual-translation
 6308,890000000006624,[WIP] Александра «Бенни» Бенедикт,Александра «Бенни» Бенедикт,manual-translation
 6309,890000000006650,Саймон Грандье,Саймон Грандье,manual-translation
-6310,890000000010213,"Treat an ally with an IFAK, Medkit, or resuscitation kit. Restores HP based on Medical and stops bleeding. IFAK and Medkit remove all bleeding. Field bandages use a separate action.","Лечит союзника при помощи ИФАК, аптечки или реанимационного набора. Восстанавливает ОЗ с учётом Медицины и останавливает кровотечение. ИФАК и аптечка снимают все кровотечения. Для бинтов есть отдельное действие.",manual-translation
+6310,890000000010213,"Treat an ally with a small, medium, or large medkit. Restores HP based on Medical and stops bleeding. Small and medium medkits remove all bleeding. Large medkit starts healing on the heaviest untreated trauma. Field bandages use a separate action.","Лечит союзника маленькой, средней или большой аптечкой. Восстанавливает ОЗ с учётом Медицины и останавливает кровотечение. Маленькая и средняя аптечки снимают все кровотечения. Большая запускает заживление самой тяжёлой необработанной травмы. Для бинтов есть отдельное действие.",manual-translation
 6311,890000000012010,Medical required,Требуется медицина,manual-translation
 6312,890000000012011,Medical too low,Недостаточно медицины,manual-translation
 6313,890000000012013,Medical too low: <current>/<required>,Недостаточно медицины: <current>/<required>,manual-translation

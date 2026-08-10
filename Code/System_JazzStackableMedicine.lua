@@ -66,6 +66,9 @@ function JazzMedicineRequiredMedical(item_or_class)
 	if class_id == "Medkit" then
 		return 50
 	end
+	if class_id == "Reanimationsset" then
+		return 80
+	end
 	return 0
 end
 

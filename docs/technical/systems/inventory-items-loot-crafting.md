@@ -50,7 +50,7 @@ Unit inventory schema включает:
 | `PocketInventory` | `Max(0, (Mechanical-30)/20)` |
 | `KnifeInventory` | +1 NightOps/Stealthy, +1 Throwing |
 
-`EquipStartingGear` делает несколько `TryEquip` в эти ряды, но **не** расширяет вместимость: лишние Medicine/ToolItem уходят в общий `Inventory`. Стеки `JazzStackableMedicine`: Bandage **30**, Morphine **10**, IFAK **5**, Medkit **3**, Reanimationsset **2** (1 юз = 1 штука).
+`EquipStartingGear` делает несколько `TryEquip` в эти ряды, но **не** расширяет вместимость: лишние Medicine/ToolItem уходят в общий `Inventory`. Стеки `JazzStackableMedicine`: Bandage **30**, Morphine **10**, Small Medkit **5**, Medium Medkit **10**, Large Medkit **15** (1 юз = 1 штука).
 
 Reload берёт патроны только из `AmmoInventory`; наличие ammo в другом допустимом контейнере не гарантирует возможность перезарядки. Четыре `InventoryTab`: `Grenades`, `Meds`, `Melee`, `resources`.
 
