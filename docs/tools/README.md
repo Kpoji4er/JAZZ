@@ -31,6 +31,7 @@
 | `_apply_units006_batch1_items_loc.py` | UNITS-006 §A batch1: sync `items.lua` ModItem CE from companions + `Jazz_OrderAP`/`Jazz_CombatMedicBuff`, metadata.code, RU/EN CSV for touched perk/status IDs. |
 | `_apply_units006_batch1_hooks.py` | UNITS-006 batch1: register `System_NamedPerks_006` in metadata.code; Vince skip-consume wrap in `Systems_Medicine.lua`. |
 | `_apply_units006_batch2_items_loc.py` | UNITS-006 §C batch2: sync vanilla personal CE companions (`GruntyPerk_JAZZ`, `GrizzlyPerk`, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid/Ice), metadata.code, RU/EN CSV (`6500+` + Grizzly/Grunty desc). Refuses VoiceResponse overwrite. |
+| `_apply_steroidpunch_passive.py` | UNITS-006 SteroidPunch: sync companion → `items.lua` + RU/EN `890000000009930/9931` (passive text). Restores Gamos VR `6512/6513` if overwritten. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
 | `_fix_units006_batch3_loc.py` | UNITS-006 batch3: rewrite RU CE/CSV via unicode-escapes (encoding-safe). |

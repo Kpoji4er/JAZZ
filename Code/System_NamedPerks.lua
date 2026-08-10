@@ -28,6 +28,8 @@ g_JAZZ_JackOfAllArrivingThreshWrapped = rawget(_G, "g_JAZZ_JackOfAllArrivingThre
 g_JAZZ_JackOfAllArrivingThreshBase = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshBase") or false
 g_JAZZ_SteroidPunchSigHidden = rawget(_G, "g_JAZZ_SteroidPunchSigHidden") or false
 g_JAZZ_SteroidPunchUIStateBase = rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") or false
+g_JAZZ_SteroidBurningTickWrapped = rawget(_G, "g_JAZZ_SteroidBurningTickWrapped") or false
+g_JAZZ_EnvEffectBurningTickBase = rawget(_G, "g_JAZZ_EnvEffectBurningTickBase") or false
 
 local function lHas(unit, perk)
 	return unit and HasPerk(unit, perk)
@@ -166,22 +168,57 @@ end
 local function lInstallSteroidPunchPassiveOnly()
 	-- Hide vanilla Steroid smash signature; perk reactions cover all melee.
 	local ca = CombatActions and CombatActions.SteroidPunch
-	if not ca or rawget(_G, "g_JAZZ_SteroidPunchSigHidden") then
+	if not ca then
+		return
+	end
+	ca.ShowIn = false
+	ca.ActionType = "Passive"
+	if rawget(_G, "g_JAZZ_SteroidPunchSigHidden") then
 		return
 	end
 	if type(ca.GetUIState) == "function" and not rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") then
 		rawset(_G, "g_JAZZ_SteroidPunchUIStateBase", ca.GetUIState)
 	end
-	ca.ShowIn = false
 	ca.GetUIState = function(self, units, args)
 		return "hidden"
 	end
 	rawset(_G, "g_JAZZ_SteroidPunchSigHidden", true)
 end
 
+local function lInstallSteroidBurningDotReduce()
+	-- Burning DoT uses EnvEffectBurningTick → TakeDirectDamage (not OnCalcDamageAndEffects).
+	if rawget(_G, "g_JAZZ_SteroidBurningTickWrapped") then
+		return
+	end
+	local base = rawget(_G, "EnvEffectBurningTick")
+	if type(base) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_EnvEffectBurningTickBase", base)
+	rawset(_G, "EnvEffectBurningTick", function(unit, voxels, combat_moment)
+		if not (unit and HasPerk(unit, "SteroidPunch") and unit.TakeDirectDamage) then
+			return g_JAZZ_EnvEffectBurningTickBase(unit, voxels, combat_moment)
+		end
+		local take = unit.TakeDirectDamage
+		unit.TakeDirectDamage = function(self, damage, ...)
+			if type(damage) == "number" then
+				damage = MulDivRound(damage, 70, 100)
+			end
+			return take(self, damage, ...)
+		end
+		local ok, err = pcall(g_JAZZ_EnvEffectBurningTickBase, unit, voxels, combat_moment)
+		unit.TakeDirectDamage = take
+		if not ok then
+			error(err)
+		end
+	end)
+	rawset(_G, "g_JAZZ_SteroidBurningTickWrapped", true)
+end
+
 local function lInstallNamedPerks006Ops()
 	lInstallJackOfAllArrivingThresh()
 	lInstallSteroidPunchPassiveOnly()
+	lInstallSteroidBurningDotReduce()
 
 	if rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") then
 		return

@@ -23,13 +23,13 @@ Shipped in working tree / commit after this note.
 | `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100 except Traveling/Arriving; no Arriving threshold wrap (one ETA in shared arrival squad); hire co-group ignores ETA match |
 | `SecondStoryMan` | High ground → +50 crit chance |
 | `ShoulderToShoulder` | End turn adjacent ally → +15 Grit self+neighbors |
-| `SteroidPunch` | All melee CTH from Strength; melee crit → Prone+Unconscious; Stimmed CTH pen cleared; ~30% fire dmg taken; **signature CA hidden** (passive) |
+| `SteroidPunch` | Passive: all melee CTH from Strength; successful melee → KnockDown+Unconscious; OnCalcStimmedTiredness=0; Burning DoT ×70% (`EnvEffectBurningTick` wrap); signature CA hidden |
 | `IcePerk` | DisplayName/Description only |
 
 ## Soft cuts / deferred
 
 - **Ice**: five-limb shot list still vanilla CombatAction engine; CE text only (batch 3+ if CA rewrite needed).
-- **Steroid fire dmg**: heuristic hit/action/weapon flags; not every Burning surface path guaranteed.
+- **Steroid fire dmg**: Burning DoT via `EnvEffectBurningTick` TakeDirectDamage ×70 (−30%); instant fire hits via OnCalcDamageAndEffects ×70.
 - **Wolf ops**: wraps `GetOperationTimeLeft` (skip Traveling/Arriving); no Arriving threshold speed — shared arrival_squad keeps one timeline; `LocalSetArrivingMercSector` co-groups without equal ETA.
 - Loc IDs `890000000006500–6515` (outside VR-clogged 6300–6499 exclusive band).
 

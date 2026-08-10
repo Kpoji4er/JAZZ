@@ -41,7 +41,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `JackOfAllTrades` | Wolf | Satellite ops **−33%** time (not arrival/Traveling) |
 | `SecondStoryMan` | Magic | From high ground **+50%** crit |
 | `ShoulderToShoulder` | Scully | End turn next to ally: **+15 Grit** to self and neighbors |
-| `SteroidPunch` | Steroid | Passive: melee CTH from Strength; melee crit → Unconscious; no stim pen; **30%** fire damage taken (no hotbar smash) |
+| `SteroidPunch` | Steroid | Passive: melee CTH from Strength; hit → Knockdown+Unconscious; no stim tiredness; Burning DoT **−30%** |
 | `IcePerk` | Ice | Signature: five limb shots (text; shot-list runtime deferred) |
 | `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%) |
 | `DedicatedCamper` | Hitman | Stationary: +25% damage; ≥25 damage → +15 Grit |

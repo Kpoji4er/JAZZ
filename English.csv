@@ -8637,8 +8637,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006509,Атаки <em>сверху</em> получают <em>+50%</em> к шансу критического удара.,Attacks from <em>high ground</em> gain <em>+50%</em> crit chance.,,jazz:CharacterEffect/SecondStoryMan.lua
 890000000006510,Плечом к плечу,Shoulder to Shoulder,,jazz:CharacterEffect/ShoulderToShoulder.lua
 890000000006511,"В конце хода, если рядом есть союзник (≤1 клетка), Скалли и ближайшие союзники получают <em>+15 Силы воли (Grit)</em>.","At turn end, if an ally is adjacent (≤1 tile), Scully and nearby allies gain <em>+15 Grit</em>.",,jazz:CharacterEffect/ShoulderToShoulder.lua
-890000000006512,Удар анаболика,Steroid Smash,,jazz:CharacterEffect/SteroidPunch.lua
-890000000006513,Точность всего ближнего боя считается от <em>Силы</em>. Критический удар в ближнем бою валит цель (<em>Нокаут</em>). Нет штрафа от стимуляторов. От огня получает только <em>30%</em> урона.,All melee accuracy uses <em>Strength</em>. A melee crit knocks the target out (<em>Unconscious</em>). No stim accuracy penalty. Takes only <em>30%</em> fire damage.,,jazz:CharacterEffect/SteroidPunch.lua
+890000000006512,"Я закончил, босс.","I'm finished, boss.",,jazz-units:VoiceResponse Jazz_Gamos
+890000000006513,У меня все в порядке.,I'm all right.,,jazz-units:VoiceResponse Jazz_Gamos
 890000000006514,Ледяной шторм,Ice Storm,,jazz:CharacterEffect/IcePerk.lua
 890000000006515,Сигнатурная атака: пять выстрелов по конечностям цели.,Signature attack: five shots at the target's limbs.,,jazz:CharacterEffect/IcePerk.lua
 890000000006516,Я включился.,I'm switched on.,,jazz-units:items.lua:VoiceResponse
@@ -12524,3 +12524,5 @@ Speck",,JAZZ-UI-MERC-001
 890000000009896,"+15 CTH и +30 Will, пока Мигель в ауре и на ногах.",+15 CTH and +30 Will while Miguel is up in aura.,,jazz:CharacterEffect/Jazz_MiguelAuraUp.lua
 890000000009897,Команданте (−),Comandante (−),,jazz:CharacterEffect/Jazz_MiguelAuraDown.lua
 890000000009898,"−15 CTH и −30 Will, пока Мигель сбит в ауре.",−15 CTH and −30 Will while Miguel is downed in aura.,,jazz:CharacterEffect/Jazz_MiguelAuraDown.lua
+890000000009930,Удар анаболика,Steroid Smash,,jazz:CharacterEffect/SteroidPunch.lua
+890000000009931,Пассивный навык. Точность всех ударов кулаками и оружием ближнего боя зависит от <em>Силы</em> вместо Ловкости. Успешные удары кулаками и оружием ближнего боя дают <em>Нокдаун</em> и <em>Без сознания</em>. Стимуляторы не вызывают потери <em>энергии</em> (усталости). Урон со временем от эффекта <em>горения</em> снижен на <em>30%</em>.,Passive skill. Accuracy with fists and melee weapons uses <em>Strength</em> instead of Dexterity. Successful fist and melee hits apply <em>Knockdown</em> and <em>Unconscious</em>. Combat stims do not cause <em>Energy</em> (tiredness) loss. Burning damage-over-time is reduced by <em>30%</em>.,,jazz:CharacterEffect/SteroidPunch.lua
