@@ -73,6 +73,8 @@ test("system prompt treats merc Name/Nick as one person", async () => {
   assert.match(source, /Trevor Colby/);
   assert.match(source, /не второй персонаж/);
   assert.match(source, /Колби и Тревор/);
+  assert.match(source, /Вольф/);
+  assert.match(source, /не «Волк»/);
 });
 
 function git(cwd, args) {
