@@ -81,85 +81,119 @@ def always(types: list[tuple[str, int | None]], lo: int, hi: int | None = None) 
     return slot(types, lo, hi, eng=None)
 
 
-# --- pools ---
-LINE_A = [
+# --- pools (island: all T1–T2 roles appear; T2 lean toward I7; rare T3 on keys) ---
+LINE_T1 = [
     ("JAZZ_Legion_FrontT1_Marauder", None),
     ("JAZZ_Legion_FrontT1_Rifleman", None),
-    ("JAZZ_Legion_AssaultT1_Roughneck", 40),
+    ("JAZZ_Legion_AssaultT1_Roughneck", 50),
+    ("JAZZ_Legion_FrontT2_Raider", 25),
 ]
-LINE_B = [
+LINE_BAL = [
+    ("JAZZ_Legion_FrontT1_Marauder", None),
+    ("JAZZ_Legion_FrontT1_Rifleman", None),
     ("JAZZ_Legion_FrontT2_Raider", None),
-    ("JAZZ_Legion_FrontT1_Marauder", None),
-    ("JAZZ_Legion_FrontT1_Rifleman", None),
-    ("JAZZ_Legion_FrontT3_Veteran", 25),
+    ("JAZZ_Legion_AssaultT1_Roughneck", 30),
 ]
-MEAT = [
+LINE_T2 = [
+    ("JAZZ_Legion_FrontT2_Raider", None),
+    ("JAZZ_Legion_FrontT1_Marauder", 50),
+    ("JAZZ_Legion_FrontT1_Rifleman", 40),
+    ("JAZZ_Legion_FrontT3_Veteran", 20),
+]
+# legacy aliases used below
+LINE_A = LINE_T1
+LINE_B = LINE_T2
+MEAT_T1 = [
     ("JAZZ_Legion_AssaultT1_Roughneck", None),
-    ("JAZZ_Legion_Recruit", 50),
+    ("JAZZ_Legion_Recruit", 60),
     ("JAZZ_Legion_FrontT1_Marauder", 40),
 ]
+MEAT_T2 = [
+    ("JAZZ_Legion_AssaultT1_Roughneck", None),
+    ("JAZZ_Legion_FrontT1_Marauder", None),
+    ("JAZZ_Legion_Recruit", 25),
+    ("JAZZ_Legion_FrontT2_Raider", 30),
+]
+MEAT = MEAT_T1
 FLANK = [
-    ("JAZZ_Legion_FlankerT2_Scout", None),
     ("JAZZ_Legion_FlankerT1_Warden", None),
-    ("JAZZ_Legion_FlankerT2_Skirmisher", 40),
+    ("JAZZ_Legion_FlankerT2_Scout", None),
+    ("JAZZ_Legion_FlankerT2_Skirmisher", None),
+]
+FLANK_T2 = [
+    ("JAZZ_Legion_FlankerT2_Scout", None),
+    ("JAZZ_Legion_FlankerT2_Skirmisher", None),
+    ("JAZZ_Legion_FlankerT1_Warden", 35),
 ]
 MARKS = [
     ("JAZZ_Legion_FrontT2_Marksman", None),
-    ("JAZZ_Legion_FrontT1_Rifleman", None),
-    ("JAZZ_Legion_FrontT2_Ambusher", 40),
-]
-AMBUSH = [
     ("JAZZ_Legion_FrontT2_Ambusher", None),
-    ("JAZZ_Legion_FrontT3_Sniper", 20),
+    ("JAZZ_Legion_FrontT1_Rifleman", 40),
 ]
-ASSAULT = [
+ASSAULT_T1 = [
+    ("JAZZ_Legion_AssaultT1_Crusher", None),
+    ("JAZZ_Legion_AssaultT1_Grenadier", None),
+    ("JAZZ_Legion_AssaultT2_ShockTrooper", 35),
+    ("JAZZ_Legion_AssaultT2_Pillager", 35),
+]
+ASSAULT_T2 = [
     ("JAZZ_Legion_AssaultT2_ShockTrooper", None),
-    ("JAZZ_Legion_AssaultT2_Pillager", 50),
+    ("JAZZ_Legion_AssaultT2_Pillager", None),
     ("JAZZ_Legion_AssaultT1_Crusher", 40),
+    ("JAZZ_Legion_AssaultT1_Grenadier", 30),
+    ("JAZZ_Legion_AssaultT2_Pyro", 25),
 ]
+ASSAULT = ASSAULT_T2
 GUN = [
     ("JAZZ_Legion_GunnerT1_Gunner", None),
-    ("JAZZ_Legion_GunnerT2_GMPG", 40),
+    ("JAZZ_Legion_GunnerT2_GMPG", None),
+    ("JAZZ_Legion_GunnerT2_AssaultGunner", 35),
 ]
 GUN_PORT = [
-    ("JAZZ_Legion_GunnerT1_Gunner", None),
     ("JAZZ_Legion_GunnerT2_GMPG", None),
-    ("JAZZ_Legion_GunnerT2_AssaultGunner", 40),
+    ("JAZZ_Legion_GunnerT2_AssaultGunner", None),
+    ("JAZZ_Legion_GunnerT1_Gunner", 40),
 ]
 MELEE = [
     ("JAZZ_Legion_AssaultT1_Crusher", None),
-    ("JAZZ_Legion_AssaultT2_Pillager", 50),
-    ("JAZZ_Legion_AssaultT3_SkullCrusher", 15),
+    ("JAZZ_Legion_AssaultT2_Pillager", None),
+    ("JAZZ_Legion_AssaultT1_Roughneck", 40),
+    ("JAZZ_Legion_AssaultT3_SkullCrusher", 12),
 ]
 GRENADE = [
     ("JAZZ_Legion_AssaultT1_Grenadier", None),
-    ("JAZZ_Legion_AssaultT2_Pyro", 30),
+    ("JAZZ_Legion_AssaultT2_Pyro", None),
 ]
 VET = [
     ("JAZZ_Legion_FrontT2_Raider", None),
-    ("JAZZ_Legion_FrontT3_Veteran", 50),
+    ("JAZZ_Legion_FrontT3_Veteran", 45),
     ("JAZZ_Legion_AssaultT2_ShockTrooper", 40),
+    ("JAZZ_Legion_FlankerT3_Recon", 20),
 ]
 FOREST_FLANK = [
     ("JAZZ_Legion_FlankerT2_Scout", None),
-    ("JAZZ_Legion_FrontT2_Ambusher", None),
-    ("JAZZ_Legion_FlankerT1_Warden", 40),
-    ("JAZZ_Legion_FlankerT2_Skirmisher", 30),
+    ("JAZZ_Legion_FlankerT2_Skirmisher", None),
+    ("JAZZ_Legion_FrontT2_Ambusher", 40),
+    ("JAZZ_Legion_FlankerT1_Warden", 35),
 ]
 LITTLE_T3 = [
-    ("JAZZ_Legion_AssaultT3_Punisher", None),
-    ("JAZZ_Legion_FrontT3_Veteran", 50),
+    ("JAZZ_Legion_FrontT3_Veteran", None),
+    ("JAZZ_Legion_AssaultT3_Punisher", 50),
     ("JAZZ_Legion_AssaultT3_SkullCrusher", 40),
+    ("JAZZ_Legion_FlankerT3_Recon", 35),
+    ("JAZZ_Legion_FlankerT3_Pathfinder", 25),
 ]
+# coast/early: no T3 in base spice
+# keys near I7: LITTLE_T3 rare
 
 
 def medium_base(
     *,
-    line=LINE_A,
-    meat=MEAT,
+    line=LINE_BAL,
+    meat=MEAT_T1,
     flank=FLANK,
     marks=MARKS,
-    assault=ASSAULT,
+    assault=ASSAULT_T1,
     gun=GUN,
     spice_t3: list | None = None,
     extra_gun: bool = False,
@@ -200,12 +234,12 @@ def large_outpost_b() -> str:
             gated([("JAZZ_Legion_LeaderT2_Lieutenant", None)], (2, 2), (2, 2), (4, 4)),
             gated([("JAZZ_Legion_LeaderT3_Captain", None)], (1, 1), (1, 1), (2, 2)),
             gated([("JAZZ_Legion_FrontT1_Bonemaker", None)], (3, 3), (2, 2), (3, 3)),
-            gated(MEAT, (4, 5), (7, 7), (12, 14)),
-            gated(LINE_B, (5, 6), (7, 8), (12, 14)),
-            gated(FLANK, (2, 3), (3, 4), (6, 7)),
+            gated(MEAT_T2, (4, 5), (7, 7), (12, 14)),
+            gated(LINE_T2, (5, 6), (7, 8), (12, 14)),
+            gated(FLANK_T2, (2, 3), (3, 4), (6, 7)),
             gated(MARKS, (2, 3), (3, 4), (5, 6)),
-            gated(ASSAULT, (3, 3), (4, 5), (8, 9)),
-            gated(GUN, (2, 2), (3, 3), (5, 6)),
+            gated(ASSAULT_T2, (3, 3), (4, 5), (8, 9)),
+            gated(GUN_PORT, (2, 2), (3, 3), (5, 6)),
             gated(GRENADE, (1, 1), (1, 2), (2, 3)),
             gated(LITTLE_T3, (1, 1), (2, 2), (3, 3)),
         ]
@@ -244,36 +278,33 @@ def fortress_48() -> str:
                 3,
             ),
             always([("JAZZ_Legion_FrontT2_Ambusher", None)], 2),
-            # Flank 6± : E4 N6 H8
+            # Flank locked: 1× Recon (T3) + Warden/Scout/Skirmisher rest
+            always([("JAZZ_Legion_FlankerT3_Recon", None)], 1),
             gated(
                 [
                     ("JAZZ_Legion_FlankerT1_Warden", None),
                     ("JAZZ_Legion_FlankerT2_Scout", None),
-                    ("JAZZ_Legion_FlankerT2_Skirmisher", 40),
+                    ("JAZZ_Legion_FlankerT2_Skirmisher", None),
                 ],
-                (4, 4),
-                (6, 6),
-                (8, 8),
+                (3, 3),
+                (5, 5),
+                (7, 7),
             ),
             # Line 8± : E6 N8 H10
-            gated(LINE_B, (6, 6), (8, 8), (10, 10)),
-            # Assault 8± : E6 N8 H10
-            gated(
-                [
-                    ("JAZZ_Legion_AssaultT2_ShockTrooper", None),
-                    ("JAZZ_Legion_AssaultT1_Grenadier", 40),
-                    ("JAZZ_Legion_AssaultT1_Crusher", 40),
-                    ("JAZZ_Legion_AssaultT2_Pillager", 40),
-                    ("JAZZ_Legion_AssaultT2_Pyro", 25),
-                ],
-                (6, 6),
-                (8, 8),
-                (10, 10),
-            ),
+            gated(LINE_T2, (6, 6), (8, 8), (10, 10)),
+            # Assault 8± : E6 N8 H10 — full T1–T2 assault roles
+            gated(ASSAULT_T2, (6, 6), (8, 8), (10, 10)),
             # Meat 6± : E4 N6 H8
-            gated(MEAT, (4, 4), (6, 6), (8, 8)),
-            # Little T3 3
-            always(LITTLE_T3, 3),
+            gated(MEAT_T2, (4, 4), (6, 6), (8, 8)),
+            # Little T3 3 (Veteran/Punisher/Skull; Pathfinder rare)
+            always(
+                [
+                    ("JAZZ_Legion_FrontT3_Veteran", None),
+                    ("JAZZ_Legion_AssaultT3_Punisher", 50),
+                    ("JAZZ_Legion_AssaultT3_SkullCrusher", 40),
+                ],
+                3,
+            ),
         ]
         if p
     )
@@ -301,45 +332,61 @@ PACKS: dict[str, tuple[str, str, str, int]] = {}  # id -> (units, comment, ru_na
 
 
 def define_packs() -> None:
+    # Far/coast/forest: T1-lean, full T1–T2 roles in pools, no base T3
     PACKS["LegionErnie_Medium_Coast_A"] = (
-        medium_base(flank=FOREST_FLANK, gun=GUN),
-        "-- UNITS-007 Medium Coast A; design E/N/H 20/25/40 (engine Normal/Hard/VeryHard)",
+        medium_base(line=LINE_T1, meat=MEAT_T1, flank=FOREST_FLANK, assault=ASSAULT_T1, gun=GUN),
+        "-- UNITS-007 Medium Coast A T1-lean; design E/N/H 20/25/40",
         "Гарнизон побережья",
         1,
     )
     PACKS["LegionErnie_Medium_Port_A"] = (
-        medium_base(gun=GUN_PORT, flank=FLANK),
-        "-- UNITS-007 Medium Port A; design E/N/H 20/25/40",
+        medium_base(line=LINE_T1, meat=MEAT_T1, flank=FLANK, assault=ASSAULT_T1, gun=GUN_PORT),
+        "-- UNITS-007 Medium Port A T1-lean; design E/N/H 20/25/40",
         "Гарнизон старого порта",
         2,
     )
     PACKS["LegionErnie_Medium_Road_A"] = (
-        medium_base(line=LINE_A, flank=FLANK),
-        "-- UNITS-007 Medium Road A; design E/N/H 20/25/40",
+        medium_base(line=LINE_BAL, meat=MEAT_T1, flank=FLANK, assault=ASSAULT_T1, gun=GUN),
+        "-- UNITS-007 Medium Road A balanced T1–T2; design E/N/H 20/25/40",
         "Дорожный гарнизон",
         3,
     )
     PACKS["LegionErnie_Medium_Forest_A"] = (
-        medium_base(flank=FOREST_FLANK, assault=MELEE, gun=GUN),
-        "-- UNITS-007 Medium Forest A; design E/N/H 20/25/40",
+        medium_base(line=LINE_T1, meat=MEAT_T1, flank=FOREST_FLANK, assault=MELEE, gun=GUN),
+        "-- UNITS-007 Medium Forest A T1-lean; design E/N/H 20/25/40",
         "Лесной гарнизон",
         4,
     )
+    # Near fort / bunker: T2-lean + rare T3
     PACKS["LegionErnie_Medium_Bunker_AB"] = (
-        medium_base(gun=GUN_PORT, spice_t3=LITTLE_T3),
-        "-- UNITS-007 Medium Bunker A/B; design E/N/H 20/25/40",
+        medium_base(
+            line=LINE_T2,
+            meat=MEAT_T2,
+            flank=FLANK_T2,
+            assault=ASSAULT_T2,
+            gun=GUN_PORT,
+            spice_t3=LITTLE_T3,
+        ),
+        "-- UNITS-007 Medium Bunker A/B T2-lean + rare T3; design E/N/H 20/25/40",
         "Гарнизон бункера",
         5,
     )
     PACKS["LegionErnie_Large_Outpost_B"] = (
         large_outpost_b(),
-        "-- UNITS-007 Large Outpost B; design E/N/H 30/40/70",
+        "-- UNITS-007 Large Outpost B T2-lean + rare T3; design E/N/H 30/40/70",
         "Крупный аванпост",
         6,
     )
     PACKS["LegionErnie_I2_Lighthouse"] = (
-        medium_base(line=LINE_B, spice_t3=LITTLE_T3),
-        "-- UNITS-007 I2 lighthouse band B; design E/N/H 20/25/40 + Veterans Extra",
+        medium_base(
+            line=LINE_T2,
+            meat=MEAT_T2,
+            flank=FLANK_T2,
+            assault=ASSAULT_T2,
+            gun=GUN,
+            spice_t3=LITTLE_T3,
+        ),
+        "-- UNITS-007 I2 lighthouse B T2-lean + rare T3; + Veterans Extra",
         "Гарнизон маяка",
         7,
     )
@@ -621,8 +668,10 @@ def main() -> None:
     meta = META.read_text(encoding="utf-8")
     maps = MAPS.read_text(encoding="utf-8")
 
-    # --- Outlook rewrite (keep id) ---
-    outlook_units = medium_base(flank=FLANK, marks=MARKS, gun=GUN)
+    # --- Outlook rewrite (keep id) — mid-island Outpost, balanced/T1 lean ---
+    outlook_units = medium_base(
+        line=LINE_BAL, meat=MEAT_T1, flank=FLANK, assault=ASSAULT_T1, gun=GUN
+    )
     units = replace_units_block(units, "LegionOutlook_Easy", outlook_units)
     units = upsert_comment(
         units,

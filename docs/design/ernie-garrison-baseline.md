@@ -38,6 +38,8 @@ Quest / story между тирами ок (CounterAttack 30, Wave2 ~25), есл
 
 Island budget: большинство Init — **A/B**; C–E точечно. **T4** не размазывать: 1–2 на весь остров вне story, плюс явные story packs (I7 Pierre Headsman suite, L5 Headsman, …).
 
+**Role gradient (owner):** Init в сумме покрывают **все T1–T2 роли**. Дальше от I7 → T1-lean; ближе к форту/аванпосту → T2-lean. Редкие T3 — только сложные сектора (I2/L1/L6_UG/I7). `FlankerT3_Recon` (не T1) — якорь flank на FortressDefenders.
+
 **3. Усиления (Extra)**
 
 Отдельные добор-паки **5–10** чел. Init = **`база` + 0…1 Extra**.

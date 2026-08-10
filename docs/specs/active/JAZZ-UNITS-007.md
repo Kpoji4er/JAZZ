@@ -64,8 +64,10 @@ approved_by: project-owner
 | Band | Где |
 | --- | --- |
 | **A** T1–T2 | Большинство Init Эрни (coast, road, forest, thin outpost) |
-| **B** T1–T2–T3 (мало T3) | Ключевые: **I5** (уже A meat — ок), **J5**, **I7**, **L1**, опционально **I2** маяк |
+| **B** T1–T2–T3 (мало T3) | Ключевые ближе к форту: **I7**, **L1**, **I2**, **L6_UG**; **J5** rifle hub |
 | C–E | Не для обычного Init Эрни (story/elite точечно: villa L5 Headsman, Pierre suite) |
+
+**Role coverage (owner):** на острове в сумме Init должны встречаться **все T1–T2 роли** Легиона (line/assault/flank/marks/gun/grenade + Recruit meat). Градиент к **I7**: дальше от форта — **T1-lean** пулы; ближе к аванпосту/форту — **T2-lean**. **Редкие T3** (Veteran / Punisher / Skull / Recon / Pathfinder) — только сложные сектора (I2/L1/L6_UG/I7), не размазывать по побережью.
 
 ## Целевые Init (перегибы + ключи) — Normal base
 
@@ -83,7 +85,7 @@ approved_by: project-owner
 | **L2** | 27 | **25+Melee** | Medium+Extra | **A** | Forest | forest + Melee |
 | **L6** | 30 | **25+Flankers** | Medium+Extra | **A** | Forest | bunker approach + Flankers |
 | **L6_UG** | 37 | **25+Grenadiers** | Medium+Extra | **A/B** | Fort | bunker + Grenadiers/Gunners |
-| **I7** | Pierre+Def12+Ordnance | Pierre+**48** | Fort special | **B** | Fort | Pierre + FortressDefenders(48); drop Ordnance — **still TODO** |
+| **I7** | Pierre+Def12+Ordnance | Pierre+**48** | Fort special | **B** | Fort | Pierre + FortressDefenders(48); drop Ordnance |
 
 Already OK / locked (не трогать размер в этой спеке):
 
