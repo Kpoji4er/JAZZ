@@ -40,6 +40,23 @@ const NEW_GAME_NEEDED_LABELS = {
   unknown: "Не определено — при сомнении начните новую игру.",
 };
 
+/** Canonical suite package keys (folder / Discord list labels). */
+const SUITE_PACKAGE_KEYS = [
+  "jazz",
+  "jazz-units",
+  "jazz-maps",
+  "jazz_assets",
+  "jazz-nomaps",
+];
+
+const GITHUB_REPO_TO_SUITE = {
+  "Kpoji4er/JAZZ": "jazz",
+  "Kpoji4er/JAZZ-units": "jazz-units",
+  "Kpoji4er/JAZZ-maps": "jazz-maps",
+  "Kpoji4er/JAZZ-assets": "jazz_assets",
+  "Kpoji4er/JAZZ-nomaps": "jazz-nomaps",
+};
+
 const BINARY_EXTENSIONS = new Set([
   ".7z",
   ".a",
@@ -372,6 +389,66 @@ export function resolveNewGameNeeded(markerValue, aiValue) {
 export function formatNewGameNeededLabel(value) {
   const resolved = resolveNewGameNeeded(null, value);
   return NEW_GAME_NEEDED_LABELS[resolved];
+}
+
+/**
+ * Normalize suite package list for Discord.
+ * Env SUITE_PACKAGES: comma/space/newline separated keys.
+ * Always includes the posting repository's suite key.
+ */
+export function resolveSuitePackages({
+  repository,
+  suitePackagesEnv = process.env.SUITE_PACKAGES,
+} = {}) {
+  const allowed = new Set(SUITE_PACKAGE_KEYS);
+  const aliases = {
+    jazz_units: "jazz-units",
+    "jazz-assets": "jazz_assets",
+    jazzassets: "jazz_assets",
+    nomaps: "jazz-nomaps",
+    units: "jazz-units",
+    maps: "jazz-maps",
+    assets: "jazz_assets",
+  };
+  const normalizeOne = (raw) => {
+    let key = String(raw ?? "")
+      .trim()
+      .toLowerCase()
+      .replace(/^kpoji4er\//, "");
+    if (!key) {
+      return null;
+    }
+    if (aliases[key]) {
+      key = aliases[key];
+    }
+    if (key === "jazz-assets") {
+      key = "jazz_assets";
+    }
+    return allowed.has(key) ? key : null;
+  };
+
+  const fromEnv = String(suitePackagesEnv ?? "")
+    .split(/[\s,;]+/)
+    .map(normalizeOne)
+    .filter(Boolean);
+
+  const fromRepo =
+    GITHUB_REPO_TO_SUITE[String(repository ?? "").trim()] ||
+    normalizeOne(String(repository ?? "").split("/").at(-1));
+
+  const seen = new Set();
+  for (const key of [...fromEnv, fromRepo].filter(Boolean)) {
+    seen.add(key);
+  }
+  return SUITE_PACKAGE_KEYS.filter((key) => seen.has(key));
+}
+
+export function formatSuitePackagesField(packages) {
+  const list = Array.isArray(packages) ? packages.filter(Boolean) : [];
+  if (list.length === 0) {
+    return null;
+  }
+  return list.map((name) => `• \`${name}\``).join("\n");
 }
 
 export function analyzeCommitMarkers(commits) {
@@ -1404,6 +1481,7 @@ export function buildDiscordPayload({
   changeSet,
   mentionRole = false,
   roleId = "",
+  suitePackages = null,
 }) {
   const title =
     sanitizeForDiscord(summary.title, MAX_DISCORD_TITLE) ||
@@ -1413,8 +1491,15 @@ export function buildDiscordPayload({
   const summaryText =
     sanitizeForDiscord(summary.summary, 3_200) ||
     "Изменения добавлены в основную ветку JAZZ.";
+  const packages =
+    suitePackages ??
+    resolveSuitePackages({ repository: changeSet.repository });
+  const packagesField = formatSuitePackagesField(packages);
+  const packagesBlock = packagesField
+    ? `\n\n**Пакеты:**\n${packagesField}`
+    : "";
   const description = truncateText(
-    `**Новая игра:** ${sanitizeForDiscord(newGameLabel, 400)}\n\n${summaryText}\n\n${compareLink}`,
+    `**Новая игра:** ${sanitizeForDiscord(newGameLabel, 400)}\n\n${summaryText}${packagesBlock}\n\n${compareLink}`,
     MAX_DISCORD_DESCRIPTION,
   );
   const fields = [
@@ -1423,6 +1508,15 @@ export function buildDiscordPayload({
       value: sanitizeForDiscord(newGameLabel, MAX_DISCORD_FIELD_VALUE),
       inline: false,
     },
+  ];
+  if (packagesField) {
+    fields.push({
+      name: "Пакеты",
+      value: sanitizeForDiscord(packagesField, MAX_DISCORD_FIELD_VALUE),
+      inline: false,
+    });
+  }
+  fields.push(
     ...summary.sections
       .filter((section) => section.items.length > 0)
       .map((section) => ({
@@ -1434,7 +1528,7 @@ export function buildDiscordPayload({
         inline: false,
       }))
       .filter((field) => field.name && field.value),
-  ];
+  );
 
 
   const commitWord = russianCountWord(changeSet.commitCount, [
@@ -1449,8 +1543,10 @@ export function buildDiscordPayload({
   ]);
   const repositoryLabel = validateRepositoryName(changeSet.repository)
     .split("/").at(-1);
+  const packagesFooter =
+    packages.length > 1 ? `${packages.join(", ")} · ` : "";
   const footerText = sanitizeForDiscord(
-    `${repositoryLabel} · ${changeSet.commitCount} ${commitWord} · ${changeSet.changedFiles.length} ${fileWord} · +${changeSet.additions} / −${changeSet.deletions} · ${changeSet.afterSha.slice(0, 7)}`,
+    `${packagesFooter}${repositoryLabel} · ${changeSet.commitCount} ${commitWord} · ${changeSet.changedFiles.length} ${fileWord} · +${changeSet.additions} / −${changeSet.deletions} · ${changeSet.afterSha.slice(0, 7)}`,
     MAX_DISCORD_FOOTER,
   );
   const embed = enforceEmbedTotalLimit({
@@ -1709,6 +1805,10 @@ async function main() {
     changeSet,
     mentionRole: parseBoolean(process.env.DISCORD_MENTION_UPDATE_ROLE),
     roleId: process.env.DISCORD_UPDATE_ROLE_ID,
+    suitePackages: resolveSuitePackages({
+      repository: changeSet.repository,
+      suitePackagesEnv: process.env.SUITE_PACKAGES,
+    }),
   });
 
   if (parseBoolean(process.env.DRY_RUN)) {

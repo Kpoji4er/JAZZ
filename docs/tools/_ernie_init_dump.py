@@ -1,4 +1,8 @@
+# -*- coding: utf-8 -*-
 """Dump Ernie sector InitialSquads + design-Normal UnitCountMin sums.
+
+Canon source: ModItemSector blocks (not CampaignPreset). Campaign drift is a
+separate check in `_audit_ernie_empty_squad_risk.py` / `_sync_ernie_campaign_inits.py`.
 
 For difficulty-gated packs (CheckDifficulty):
   design Easy   -> engine Normal
@@ -18,6 +22,10 @@ ENG_NORMAL_DESIGN = "Hard"  # design Normal
 
 maps = MAPS.read_text(encoding="utf-8")
 units = UNITS.read_text(encoding="utf-8")
+camp_start = maps.find("PlaceObj('ModItemCampaignPreset'")
+if camp_start < 0:
+    camp_start = len(maps)
+mod_region = maps[:camp_start]
 
 
 def squad_design_normal_sum(block: str) -> int:
@@ -33,7 +41,7 @@ def squad_design_normal_sum(block: str) -> int:
         n = int(lo.group(1))
         if "CheckDifficulty" not in body:
             total += n
-        elif f"'Difficulty', \"{ENG_NORMAL_DESIGN}\"" in body:
+        elif f"'Difficulty', \"{ENG_NORMAL_DESIGN}\"" in body or f'Difficulty = "{ENG_NORMAL_DESIGN}"' in body:
             total += n
     return total
 
@@ -58,28 +66,43 @@ SECTORS = [
     "L1", "L2", "L3", "L4", "L5", "L6", "L6_Underground", "L7",
 ]
 
+
+def moditem_packs(sid: str) -> list[str] | None:
+    """Return Init pack ids for ModItemSector, or None if sector missing.
+
+    Empty list = sector exists with no InitialSquads / empty {}.
+    Does not cross into the next ModItemSector (loose sectorId…InitialSquads is unsafe).
+    """
+    m = re.search(rf"'sectorId', \"{re.escape(sid)}\"", mod_region)
+    if not m:
+        return None
+    start = maps.rfind("PlaceObj('ModItemSector'", 0, m.start())
+    if start < 0:
+        return None
+    nxt = maps.find("PlaceObj('ModItemSector'", start + 1)
+    end = nxt if 0 < nxt < camp_start else camp_start
+    block = maps[start:end]
+    im = re.search(r"'InitialSquads', \{([\s\S]*?)\}", block)
+    if not im:
+        return []
+    return re.findall(r'"([^"]+)"', im.group(1))
+
+
 for sid in SECTORS:
-    hits = list(
-        re.finditer(
-            rf"'sectorId', \"{re.escape(sid)}\"[\s\S]{{0,2000}}?'InitialSquads', \{{([\s\S]*?)\}},",
-            maps,
-        )
-    )
-    if not hits:
-        print(f"{sid}\t—\t(no InitialSquads block)")
+    packs = moditem_packs(sid)
+    if packs is None:
+        print(f"{sid}\t—\t(no ModItemSector)")
         continue
-    for h in hits:
-        ids = re.findall(r'"([^"]+)"', h.group(1))
-        if not ids:
-            print(f"{sid}\t0\t(empty)")
-            continue
-        parts = []
-        total = 0
-        for i in ids:
-            n = squad_sum.get(i)
-            if n is None:
-                parts.append(f"{i}(?)")
-            else:
-                parts.append(f"{i}({n})")
-                total += n
-        print(f"{sid}\t{total}\t{'; '.join(parts)}")
+    if not packs:
+        print(f"{sid}\t0\t(empty / no InitialSquads)")
+        continue
+    parts = []
+    total = 0
+    for i in packs:
+        n = squad_sum.get(i)
+        if n is None:
+            parts.append(f"{i}(?)")
+        else:
+            parts.append(f"{i}({n})")
+            total += n
+    print(f"{sid}\t{total}\t{'; '.join(parts)}")

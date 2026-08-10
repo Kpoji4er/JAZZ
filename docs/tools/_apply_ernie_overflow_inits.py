@@ -42,7 +42,7 @@ def wentry(ut: str, weight: int | None, eng: str | None) -> str:
     if eng is not None:
         lines.append("\t\t\t\t\t\t\t\t'conditions', {")
         lines.append("\t\t\t\t\t\t\t\t\tPlaceObj('CheckDifficulty', {")
-        lines.append(f'\t\t\t\t\t\t\t\t\t\t\'Difficulty\', "{eng}",')
+        lines.append(f'\t\t\t\t\t\t\t\t\t\tDifficulty = "{eng}",')
         lines.append("\t\t\t\t\t\t\t\t\t}),")
         lines.append("\t\t\t\t\t\t\t\t},")
     lines.append("\t\t\t\t\t\t\t}),")
@@ -314,6 +314,16 @@ def extra_pack(types: list[tuple[str, int | None]], lo: int, hi: int) -> str:
     return always(types, lo, hi)
 
 
+def extra_pack_mixed(types: list[tuple[str, int | None]], lo: int, hi: int) -> str:
+    """One roll per unit. Vanilla GenerateRandEnemySquadUnits picks type once per
+    EnemySquadUnit slot then clones UnitCount — a single 6–9 slot always looks mono.
+    """
+    parts = [slot(types, 1, 1) for _ in range(lo)]
+    for _ in range(max(0, hi - lo)):
+        parts.append(slot(types, 0, 1))
+    return "\n".join(p for p in parts if p)
+
+
 def moditem(squad_id: str, units: str, comment: str, display: str, group: str, t_off: int) -> str:
     return (
         f"\t\t\t\tPlaceObj('ModItemEnemySquads', {{\n"
@@ -444,19 +454,19 @@ def define_packs() -> None:
         15,
     )
     PACKS["LegionExtra_Ernie_Mixed"] = (
-        extra_pack(
+        extra_pack_mixed(
             [
                 ("JAZZ_Legion_GunnerT1_Gunner", None),
                 ("JAZZ_Legion_FrontT2_Marksman", None),
                 ("JAZZ_Legion_AssaultT1_Grenadier", None),
                 ("JAZZ_Legion_FrontT2_Raider", None),
                 ("JAZZ_Legion_AssaultT1_Crusher", None),
-                ("JAZZ_Legion_FlankerT2_Scout", 40),
+                ("JAZZ_Legion_FlankerT2_Scout", None),
             ],
             6,
             9,
         ),
-        "-- UNITS-007 Extra Mixed 6-9 random specialties",
+        "-- UNITS-007 Extra Mixed 6-9; per-unit specialty roll (not one type×N)",
         "Усиление: смешанное",
         16,
     )
@@ -657,7 +667,7 @@ def normal_sum_estimate(units_src: str) -> int:
         n = int(lo.group(1))
         if "CheckDifficulty" not in body:
             total += n
-        elif f"'Difficulty', \"{ENG_NORMAL}\"" in body:
+        elif f"'Difficulty', \"{ENG_NORMAL}\"" in body or f'Difficulty = "{ENG_NORMAL}"' in body:
             total += n
     return total
 

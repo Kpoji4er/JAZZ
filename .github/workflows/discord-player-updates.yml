@@ -26,6 +26,11 @@ on:
         required: false
         default: false
         type: boolean
+      suite_packages:
+        description: "Comma-separated suite packages touched (e.g. jazz,jazz-units,jazz-nomaps)"
+        required: false
+        default: ""
+        type: string
       openai_model:
         description: Optional model override from the caller repository
         required: false
@@ -68,6 +73,10 @@ on:
         required: true
         default: false
         type: boolean
+      suite_packages:
+        description: "Comma-separated suite packages touched (e.g. jazz,jazz-units,jazz-nomaps)"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -93,6 +102,7 @@ jobs:
       MANUAL_AFTER_SHA: ${{ inputs.after_sha }}
       MANUAL_BEFORE_SHA: ${{ inputs.before_sha }}
       MANUAL_FORCE_PUBLISH: ${{ inputs.force_publish && 'true' || 'false' }}
+      SUITE_PACKAGES: ${{ inputs.suite_packages }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_MODEL: ${{ inputs.openai_model || vars.OPENAI_MODEL }}
 

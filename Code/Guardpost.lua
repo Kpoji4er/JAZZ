@@ -655,6 +655,12 @@ function GenerateEnemySquad(enemy_squad_id, sector_id, base_session_id, unit_tem
 	end
 	
 	local units = GenerateUnitsFromTemplates(sector_id, generated_unit_ids, base_session_id, generated_unit_names, generated_appearances)
+	-- Do not create satellite ghost squads with 0 members (UI [0] + SquadRollover assert).
+	-- Happens when EnemySquadDef is fully difficulty-gated and no slot matches, or def
+	-- yields an empty weighted pool after conditions.
+	if not units or #units == 0 then
+		return
+	end
 	local diamondBriefcase = false
 	if enemy_squad_def.DiamondBriefcase and enemy_squad_def.DiamondBriefcaseCarrier then
 		local carrierId = enemy_squad_def.DiamondBriefcaseCarrier

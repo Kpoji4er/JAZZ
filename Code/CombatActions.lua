@@ -4,6 +4,101 @@ if FirstLoad then
 	MapVar("g_JAZZ_FirearmAttackArgs", false)
 end
 
+--- Rollover-compatible mobile damage for AimType=mobile actions.
+--- Vanilla/JAZZ used `return base, base/volleys` → UI shows `volleys × (base/volleys)` (e.g. 3×7),
+--- which understates each volley (burst/auto). Match BurstFire convention: total, per_bullet.
+--- @param attack_id string|nil fixed attack id (e.g. "JAZZ_SmgStorm"); nil → BurstFire if possible else SingleShot
+function Jazz_GetMobileActionDamage(action, unit, args, attack_id)
+	local weapon = action:GetAttackWeapons(unit, args)
+	if not weapon then
+		return 0
+	end
+	local base = unit:GetBaseDamage(weapon)
+	local volleys = Max(1, action:ResolveValue("mobile_num_shots") or 1)
+	if not attack_id then
+		if IsKindOf(weapon, "Firearm") and weapon:CanBurstfire() then
+			attack_id = "BurstFire"
+		else
+			attack_id = "SingleShot"
+		end
+	end
+	local bullets_per = 1
+	if attack_id ~= "SingleShot" then
+		bullets_per = weapon:GetAutofireShots(attack_id)
+		if not bullets_per or bullets_per < 1 then
+			local ca = CombatActions[attack_id]
+			bullets_per = (ca and ca:ResolveValue("num_shots")) or 1
+		end
+		bullets_per = Max(1, bullets_per)
+	end
+	local total_bullets = volleys * bullets_per
+	local total = base * total_bullets
+	return total, base, total - base
+end
+
+-- Vanilla OnAttack: signature kills (and shots with Signature origin_action_id, e.g. HundredKnives→KnifeThrow)
+-- skip UpdateSignatureRecharges entirely. JAZZ WeaponAttacks with recharge_on_kill (ControllableBurst,
+-- RnG, Zipper, …) therefore stayed on CD after Blood knives / other signature kills.
+-- Fix: on signature kill, still clear other recharge_on_kill abilities; re-apply CD only for the killer.
+g_JAZZ_SigRechargeKillWrapped = rawget(_G, "g_JAZZ_SigRechargeKillWrapped") or false
+g_JAZZ_SigRechargeKillOnAttackBase = rawget(_G, "g_JAZZ_SigRechargeKillOnAttackBase") or false
+
+local function Jazz_SignatureKillExcludeId(action, attack_args)
+	local origin = attack_args and attack_args.origin_action_id and CombatActions[attack_args.origin_action_id]
+	if origin and origin.group == "SignatureAbilities" then
+		return origin.id
+	end
+	if type(action) == "string" then
+		action = CombatActions[action]
+	end
+	if action and action.group == "SignatureAbilities" then
+		return action.id
+	end
+end
+
+local function lInstallSigRechargeKillFix()
+	if rawget(_G, "g_JAZZ_SigRechargeKillWrapped") then
+		return
+	end
+	if not Unit or type(Unit.OnAttack) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_SigRechargeKillOnAttackBase", Unit.OnAttack)
+	rawset(_G, "g_JAZZ_SigRechargeKillWrapped", true)
+
+	function Unit:OnAttack(action, target, results, attack_args, ...)
+		local ret = g_JAZZ_SigRechargeKillOnAttackBase(self, action, target, results, attack_args, ...)
+		local kill = results and #(results.killed_units or empty_table) > 0
+		if not kill then
+			return ret
+		end
+		local exclude_id = Jazz_SignatureKillExcludeId(action, attack_args)
+		if not exclude_id then
+			return ret
+		end
+		if string.match(exclude_id, "DoubleToss") then
+			exclude_id = "DoubleToss"
+		end
+		local keep = self:GetSignatureRecharge(exclude_id)
+		self:UpdateSignatureRecharges("kill")
+		if keep and keep.on_kill then
+			local remain = Max(1, (keep.expire_campaign_time or Game.CampaignTime) - Game.CampaignTime)
+			self:AddSignatureRechargeTime(exclude_id, remain, true)
+		end
+		return ret
+	end
+end
+
+function OnMsg.ModsReloaded()
+	lInstallSigRechargeKillFix()
+end
+
+function OnMsg.DataLoaded()
+	lInstallSigRechargeKillFix()
+end
+
+lInstallSigRechargeKillFix()
+
 function GetMeleeAttackAPCost(action, unit, args)
 	local cost
 	if action.CostBasedOnWeapon then

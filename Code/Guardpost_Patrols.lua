@@ -8,7 +8,9 @@ g_JAZZ_LegionAIPendingSquadImage = false
 
 g_JAZZ_BaseGetSatelliteIconImages = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImages") or GetSatelliteIconImages
 g_JAZZ_BaseGetSatelliteIconImagesSquad = rawget(_G, "g_JAZZ_BaseGetSatelliteIconImagesSquad") or GetSatelliteIconImagesSquad
-g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or TFormat.SquadNameColored
+-- Do NOT capture TFormat.SquadNameColored at file load — Utility.lua may not have
+-- registered it yet; assigning nil later wipes the vanilla formatter (raw tag UI).
+g_JAZZ_BaseTFormatSquadNameColored = rawget(_G, "g_JAZZ_BaseTFormatSquadNameColored") or false
 
 g_JAZZ_BaseSquadWindowCreateRolloverWindow = rawget(_G, "g_JAZZ_BaseSquadWindowCreateRolloverWindow") or SquadWindow.CreateRolloverWindow
 
@@ -4876,7 +4878,29 @@ local function lAttachLegionAITaskPanel(rollover)
 end
 
 function JAZZ_LegionAICreateRolloverWindow(self, gamepad, context, pos)
-	local rollover = g_JAZZ_BaseSquadWindowCreateRolloverWindow(self, gamepad, context, pos)
+	local base = g_JAZZ_BaseSquadWindowCreateRolloverWindow
+	-- Avoid recursion if install captured our wrapper as base.
+	if type(base) ~= "function" or base == JAZZ_LegionAICreateRolloverWindow then
+		base = nil
+	end
+	local rollover
+	if base then
+		rollover = base(self, gamepad, context, pos)
+	else
+		context = SubContext(self.context, {
+			control = self,
+			anchor = self:ResolveRolloverAnchor(context, pos),
+			gamepad = gamepad,
+		})
+		local tmpl = self:GetRolloverTemplate()
+		if not tmpl then
+			return false
+		end
+		rollover = XTemplateSpawn(tmpl, nil, context)
+		if rollover then
+			rollover:Open()
+		end
+	end
 	if rollover then
 		local ok, err = pcall(lAttachLegionAITaskPanel, rollover)
 		if not ok then
@@ -4888,6 +4912,16 @@ end
 
 function SquadWindow:GetRolloverText()
 	return self.context
+end
+
+local function lEnsureSquadNameColoredFormatter()
+	local current = TFormat and TFormat.SquadNameColored
+	if type(current) == "function" and type(g_JAZZ_BaseTFormatSquadNameColored) ~= "function" then
+		g_JAZZ_BaseTFormatSquadNameColored = current
+	end
+	if type(g_JAZZ_BaseTFormatSquadNameColored) == "function" then
+		TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
+	end
 end
 
 -- POI Extension.lua loads after this file and replaces GetSatelliteIconImages.
@@ -4905,17 +4939,20 @@ local function lInstallLegionAIUIWrappers()
 		g_JAZZ_BaseSquadWindowCreateRolloverWindow = SquadWindow.CreateRolloverWindow
 		SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
 	end
-	TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
+	lEnsureSquadNameColoredFormatter()
 end
 
 GetSatelliteIconImages = JAZZ_LegionAIGetSatelliteIconImages
 GetSatelliteIconImagesSquad = JAZZ_LegionAIGetSatelliteIconImagesSquad
 SquadWindow.CreateRolloverWindow = JAZZ_LegionAICreateRolloverWindow
-TFormat.SquadNameColored = g_JAZZ_BaseTFormatSquadNameColored
 
 function OnMsg.ModsReloaded()
 	lInstallLegionAIUIWrappers()
 	JAZZ_LegionAIEnsureState()
+end
+
+function OnMsg.DataLoaded()
+	lInstallLegionAIUIWrappers()
 end
 
 function OnMsg.NewGame()

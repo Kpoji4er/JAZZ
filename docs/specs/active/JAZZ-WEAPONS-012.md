@@ -62,7 +62,7 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-012-REQ-002` — без опоры base CTH penalty: `MachineGun` **−50**, `LightMachineGun` **−25**; `penalty = MulDivRound(base, Max(0, 100 − Strength), 100)`; фактор через `JAZZ_CTHPercentToFactor`.
 - `JAZZ-WEAPONS-012-REQ-003` — без опоры recoil `class_factor`: MG **2.0**, LMG **1.5** (замена прежних 1.35/1.15); cumbersome non-MG **1.10** без изменений.
 - `JAZZ-WEAPONS-012-REQ-004` — только `action.id == "GrizzlyPerk"` → penalty 0 и class_factor 1 без опоры; `HasPerk` сам по себе не снимает штраф с `MGBurstFire`.
-- `JAZZ-WEAPONS-012-REQ-005` — текст `GrizzlyPerk` описывает игнор штрафа без опоры на сигнатурной атаке + recoil/dmg tradeoff, не мёртвый Autofire CTH.
+- `JAZZ-WEAPONS-012-REQ-005` — текст `GrizzlyPerk` описывает игнор штрафа без опоры на сигнатурной атаке + 2× long burst + полный урон (без −50% dmg), не мёртвый Autofire CTH.
 - `JAZZ-WEAPONS-012-REQ-006` — technical + wiki + showcase RU/EN обновлены в том же change set.
 
 ## Инварианты и ограничения

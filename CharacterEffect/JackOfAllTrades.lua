@@ -6,10 +6,12 @@ DefineClass.JackOfAllTrades = {
 
 	object_class = "Perk",
 	Parameters = {
+		-- Vanilla id: SectorOperation.ProgressPerTick reads this via CharacterEffectDefs.
+		-- Renaming to jazz_ops_bonus broke MulDivRound (nil) on every Wolf op assign.
 		PlaceObj('PresetParamPercent', {
-			'Name', "jazz_ops_bonus",
+			'Name', "activityDurationMod",
 			'Value', 33,
-			'Tag', "<jazz_ops_bonus>%",
+			'Tag', "<activityDurationMod>%",
 		}),
 	},
 	DisplayName = T(890000000006506, --[[ModItemCharacterEffectCompositeDef JackOfAllTrades DisplayName]] "Мастер на все руки"),

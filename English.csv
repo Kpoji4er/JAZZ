@@ -8625,22 +8625,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006497,Мои раны незначительны. Невосстановимых поражений быть не должно.,My wounds are minor. There should be no permanent damage.,,jazz-units:items.lua:VoiceResponse
 890000000006498,Мне нужны боеприпасы к оружию.,I need ammunition.,,jazz-units:items.lua:VoiceResponse
 890000000006499,Силы врага в пределах прямой видимости.,Enemy forces within line of sight.,,jazz-units:items.lua:VoiceResponse
-890000000006500,"Видишь, Игорь…","You See, Igor…",,jazz:CharacterEffect/YouSeeIgor.lua
-890000000006501,За каждое убийство получает <em>+3 ОД</em> (не полное восстановление ОД).,Each kill grants <em>+3 AP</em> (not a full AP restore).,,jazz:CharacterEffect/YouSeeIgor.lua
-890000000006502,Мы справимся,We Got This,,jazz:CharacterEffect/WeGotThis.lua
-890000000006503,После убийства весь отряд получает <em>+10 Силы воли (Grit)</em>.,"After a kill, the whole squad gains <em>+10 Grit</em>.",,jazz:CharacterEffect/WeGotThis.lua
-890000000006504,Гвоздь в цель,Nailed It,,jazz:CharacterEffect/NailsPerk.lua
-890000000006505,После первого убийства в бою все атаки наносят <em>+20% урона</em> до конца боя.,"After the first kill in combat, all attacks deal <em>+20% damage</em> until combat ends.",,jazz:CharacterEffect/NailsPerk.lua
 890000000006506,Мастер на все руки,Jack of All Trades,,jazz:CharacterEffect/JackOfAllTrades.lua
 890000000006507,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,Any satellite operations complete about <em>33% faster</em>.,,jazz:CharacterEffect/JackOfAllTrades.lua
-890000000006508,Человек со второго этажа,Second Story Man,,jazz:CharacterEffect/SecondStoryMan.lua
-890000000006509,Атаки <em>сверху</em> получают <em>+50%</em> к шансу критического удара.,Attacks from <em>high ground</em> gain <em>+50%</em> crit chance.,,jazz:CharacterEffect/SecondStoryMan.lua
-890000000006510,Плечом к плечу,Shoulder to Shoulder,,jazz:CharacterEffect/ShoulderToShoulder.lua
-890000000006511,"В конце хода, если рядом есть союзник (≤1 клетка), Скалли и ближайшие союзники получают <em>+15 Силы воли (Grit)</em>.","At turn end, if an ally is adjacent (≤1 tile), Scully and nearby allies gain <em>+15 Grit</em>.",,jazz:CharacterEffect/ShoulderToShoulder.lua
 890000000006512,"Я закончил, босс.","I'm finished, boss.",,jazz-units:VoiceResponse Jazz_Gamos
 890000000006513,У меня все в порядке.,I'm all right.,,jazz-units:VoiceResponse Jazz_Gamos
-890000000006514,Ледяной шторм,Ice Storm,,jazz:CharacterEffect/IcePerk.lua
-890000000006515,Сигнатурная атака: пять выстрелов по конечностям цели.,Signature attack: five shots at the target's limbs.,,jazz:CharacterEffect/IcePerk.lua
 890000000006516,Я включился.,I'm switched on.,,jazz-units:items.lua:VoiceResponse
 890000000006517,Солдаты.,Soldiers.,,jazz-units:items.lua:VoiceResponse
 890000000006518,"Я знал, что они близко.",I knew they were close.,,jazz-units:items.lua:VoiceResponse
@@ -12481,33 +12469,21 @@ Speck",,JAZZ-UI-MERC-001
 890000000004853,Внутри я тёплый и пушистый.,Inside I am warm and fuzzy.,,Jazz_Iggy
 890000000004854,"Хорошо, что Фиделя тут нет.",Good thing Fidel's not here.,,Jazz_Iggy
 890000000004855,Со своими — проще.,Easier with our own.,,Jazz_Iggy
-272740235755,"<em>Сигнатурная пулемётная атака</em> игнорирует штрафы <em>без опоры</em> к точности и отдаче, даёт <em>вдвое больше пуль</em> и <em>вдвое сильнее подавление</em>, при пониженном уроне и жёстком контроле отдачи. Обычная очередь пулемёта эти бонусы не получает.","<em>Signature machine-gun attack</em> ignores <em>unsupported</em> accuracy and recoil penalties, fires <em>twice as many shots</em> with <em>double suppression</em>, reduced damage, and tight recoil control. Ordinary MG burst does not get these bonuses.",,jazz:CharacterEffect/GrizzlyPerk.lua
+272740235755,"<em>Сигнатурная пулемётная атака</em>: вдвое больше пуль, чем у длинной очереди, полный урон, игнор штрафов <em>без опоры</em> к точности и отдаче, <em>вдвое сильнее подавление</em>. Обычная очередь пулемёта эти бонусы не получает.","<em>Signature machine-gun attack</em>: twice the shots of a long burst, full damage, ignores <em>unsupported</em> accuracy and recoil penalties, <em>double suppression</em>. Ordinary MG burst does not get these bonuses.",,jazz:CharacterEffect/GrizzlyPerk.lua
 890000000009861,Пусть кровоточат,Make Them Bleed,,jazz:CharacterEffect/MakeThemBleed.lua
 890000000009862,Удары в пах и по животным вызывают кровотечение. +10% урона за каждого врага с кровотечением в зоне видимости (макс. +50%).,Groin and animal hits cause bleeding. +10% damage per bleeding enemy in sight (cap +50%).,,jazz:CharacterEffect/MakeThemBleed.lua
-890000000009863,Оседлый стрелок,Dedicated Camper,,jazz:CharacterEffect/DedicatedCamper.lua
-890000000009864,Пока не сдвинулся с места в этом ходу: +25% урона. Если атака нанесла ≥25 урона — +15 Силы воли (Grit).,While stationary this turn: +25% damage. Dealing >=25 damage grants +15 Grit.,,jazz:CharacterEffect/DedicatedCamper.lua
-890000000009865,Парный заход,Tag Team,,jazz:CharacterEffect/TagTeam.lua
-890000000009866,+15% точности по целям под Pin Down союзника.,+15% chance to hit vs targets under an ally's Pin Down.,,jazz:CharacterEffect/TagTeam.lua
-890000000009867,Добить,Finish Them,,jazz:CharacterEffect/BunsPerk.lua
-890000000009868,"+10% точности по целям, которых в этом ходу уже ранил союзник.",+10% chance to hit vs targets already damaged by an ally this turn.,,jazz:CharacterEffect/BunsPerk.lua
 890000000009869,Ястребиный глаз,Hawk's Eye,,jazz:CharacterEffect/HawksEye.lua
 890000000009870,Pin Down / Focus Fire стоит 1 ОД. Снайперские атаки дают вдвое больше подавления. Печенье прилагается.,Pin Down / Focus Fire costs 1 AP. Sniper attacks apply double suppression. Biscuits included.,,jazz:CharacterEffect/HawksEye.lua
-890000000009871,Наводчик,Spotter,,jazz:CharacterEffect/Spotter.lua
-890000000009872,Pin Down помечает цель (Marked). Следующее попадание по помеченной цели — гарантированный крит.,Pin Down marks the target. The next hit on a marked Spotter target is a guaranteed crit.,,jazz:CharacterEffect/Spotter.lua
 890000000009873,Взрывной характер,Have a Blast,,jazz:CharacterEffect/HaveABlast.lua
 890000000009874,Переключатель. Пока активен: контратака гранатой на вражеские выстрелы по себе (попадание или промах); урон от взрывов по себе −50%. Выключен — без эффекта. Гранаты: руки или инвентарь.,Toggle. While active: retaliate with a grenade when shot at (hit or miss); take 50% explosion damage. Off: no effect. Grenades: hands or inventory.,,jazz:CharacterEffect/HaveABlast.lua
 890000000009875,Убийственный ветер,Killing Wind,,jazz:CharacterEffect/KillingWind.lua
 890000000009876,Если атака задевает ≥2 целей — +8 Grit. Тяжёлая броня даёт половину штрафа Free Move; громоздкое оружие не штрафует FM.,Hitting >=2 targets grants +8 Grit. Heavy armor Free Move penalty halved; cumbersome weapons ignore FM penalty.,,jazz:CharacterEffect/KillingWind.lua
 890000000009877,Уверенность растёт,Building Confidence,,jazz:CharacterEffect/BuildingConfidence.lua
 890000000009878,На 2-м ходу боя и каждом 3-м ходу — Inspired. Лечение ±10% за уровень (макс. ±50%) в бою и на спутнике.,Inspired on combat turn 2 and every 3rd turn. Healing +/-10% per level (cap +/-50%) in combat and satellite.,,jazz:CharacterEffect/BuildingConfidence.lua
-890000000009879,Самодовольство,Smug,,jazz:CharacterEffect/SidneyPerk.lua
-890000000009880,"+2 ОД в начале хода, пока не промахнётся и не получит урон.",+2 AP at turn start until a miss or taking damage.,,jazz:CharacterEffect/SidneyPerk.lua
 890000000009881,Адский ливень,Bullet Hell,,jazz:CharacterEffect/BulletHell.lua
 890000000009882,Конусный dump 15–30 пуль с обычным CTH и подавлением Will. Перезарядка способности — после убийства.,Cone dump of 15-30 rounds with normal CTH and Will suppression. Ability recharges on kill.,,jazz:CharacterEffect/BulletHell.lua
-890000000009883,По моей цели,On My Target,,jazz:CharacterEffect/OnMyTarget.lua
-890000000009884,Отряд атакует отмеченную цель. Стоимость: 10 ОД.,Squad attacks the marked target. Cost: 10 AP.,,jazz:CharacterEffect/OnMyTarget.lua
 890000000009885,Конструктор взрывчатки,Explosives Designer,,jazz:CharacterEffect/DesignerExplosives.lua
-890000000009886,Может крафтить гранаты. Крафт патронов/гранат стоит на 30% меньше Parts.,Can craft grenades. Ammo/grenade craft Parts cost −30%.,,jazz:CharacterEffect/DesignerExplosives.lua
+890000000009886,Каждые <hoursToProduce> ч производит <amountToProduce> кумулятивных заряда. Может крафтить их через «Изготовление взрывчатки». Крафт патронов и взрывчатки: −<craft_discount>% Parts.,Produces <amountToProduce> Shaped Charges every <hoursToProduce> hours. Can craft them via Craft Explosives. Ammo/explosives craft Parts −<craft_discount>%.,,jazz:CharacterEffect/DesignerExplosives.lua
 890000000009887,Наздаровье,Nazdarovya,,jazz:CharacterEffect/Nazdarovya.lua
 890000000009888,Стаки ≤5: лечение/боль/−15 CTH/+20 melee; похмелье 8–10ч (3ч/стак). Hangover retune soft.,Stacks ≤5: heal/pain/−15 CTH/+20 melee; hangover 8–10h (3h/stack). Hangover retune soft.,,jazz:CharacterEffect/Nazdarovya.lua
 890000000009889,Опасная близость,Danger Close,,jazz:CharacterEffect/DangerClose.lua

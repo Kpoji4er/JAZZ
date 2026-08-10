@@ -3,7 +3,11 @@
 Runtime: one Code module `Code/System_NamedPerks.lua` (ModItemCode `System_NamedPerks`).
 Tunables: ModItem CharacterEffect Parameters / unit_reactions; Code uses Jazz_NamedPerkParam / ResolveValue.
 
-Historical batch notes below (implementation order only).
+## Rollback (owner 2026-08-11): vanilla JA3 personal perks restored
+
+Removed JAZZ CE overrides for: Hitman (`DedicatedCamper`), Buns, Sidney, Raven (`Spotter`), Raider (`TagTeam`), Len (`OnMyTarget`), Scully (`ShoulderToShoulder`), Magic (`SecondStoryMan`), Ivan (`YouSeeIgor`), Gus (`WeGotThis`), Nails, Ice — plus jazz-units `TheGrim` (Reaper). Tex/Shadow/Mouse/Omryn/Fox/Blood had no jazz CE. Tool: `docs/tools/_rollback_units006_vanilla_merc_perks.py`.
+
+Historical batch notes below (implementation order only; rolled-back Ids below are superseded by stock JA3).
 
 # _units006_batch2_notes.md
 
@@ -16,22 +20,14 @@ Shipped in working tree / commit after this note.
 | Id | Effect |
 | --- | --- |
 | `GruntyPerk_JAZZ` | Combat start +50% AP; later turns `10%×max(0,GetPersonalMorale())` → same buff |
-| `GrizzlyPerk` | Signature only: WEAPONS-012 ignore (existing) + `GetAutofireShots` ×2 + `suppressionbonus` ×2 |
-| `YouSeeIgor` | Kill → +3 AP |
-| `WeGotThis` | Kill → +10 Grit squad |
-| `NailsPerk` | After first kill → +20% damage until combat end |
-| `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100 except Traveling/Arriving; no Arriving threshold wrap (one ETA in shared arrival squad); hire co-group ignores ETA match |
-| `SecondStoryMan` | High ground → +50 crit chance |
-| `ShoulderToShoulder` | End turn adjacent ally → +15 Grit self+neighbors |
+| `GrizzlyPerk` | Signature only: WEAPONS-012 ignore + `GetAutofireShots` = 2× MGBurstFire length + `dmg_penalty=0` + suppression ×2 |
+| `JackOfAllTrades` | Keep vanilla param `activityDurationMod`=33 (SectorOperation.ProgressPerTick); no GetOperationTimeLeft wrap; hire co-group ignores ETA match (`SatelliteSquad`) |
 | `SteroidPunch` | Passive: all melee CTH from Strength; successful melee → KnockDown+Unconscious; OnCalcStimmedTiredness=0; Burning DoT ×70% (`EnvEffectBurningTick` wrap); signature CA hidden |
-| `IcePerk` | DisplayName/Description only |
 
 ## Soft cuts / deferred
 
-- **Ice**: five-limb shot list still vanilla CombatAction engine; CE text only (batch 3+ if CA rewrite needed).
 - **Steroid fire dmg**: Burning DoT via `EnvEffectBurningTick` TakeDirectDamage ×70 (−30%); instant fire hits via OnCalcDamageAndEffects ×70.
-- **Wolf ops**: wraps `GetOperationTimeLeft` (skip Traveling/Arriving); no Arriving threshold speed — shared arrival_squad keeps one timeline; `LocalSetArrivingMercSector` co-groups without equal ETA.
-- Loc IDs `890000000006500–6515` (outside VR-clogged 6300–6499 exclusive band).
+- **Wolf ops**: vanilla `activityDurationMod` on `JackOfAllTrades` (SectorOperation.ProgressPerTick); no `GetOperationTimeLeft` wrap. Hire co-group without equal ETA in `LocalSetArrivingMercSector`.
 
 ## Validate
 
@@ -49,18 +45,13 @@ Shipped in working tree / commit after this note.
 | --- | --- |
 | `BulletHell` | Signature recharge **on kill** (`Unit:BulletHell` + `recharge_on_kill` param) |
 | `MakeThemBleed` | +10% dmg per bleeding enemy in sight, cap +50% |
-| `DedicatedCamper` | Stationary +25% dmg; ≥25 dmg → +15 Grit |
-| `TagTeam` | +15 CTH vs ally Pin Down targets |
-| `BunsPerk` | +10 CTH vs ally-damaged targets this turn |
 | `HawksEye` | `pindownCostOverwrite=1`; sniper Will suppress ×2 |
-| `Spotter` | Pin Down → Marked + next hit 100% crit pending |
 | `HaveABlast` | Toggle on: grenade retaliate hit/miss; explosion dmg taken ×50%; hands+inventory |
+| `VengefulTemperament` | Meltdown signature: CombatAction id **must** be `VengefulTemperament` (not `…1`) so `EnumUIActions`/`HasSignatures` and `action.id == self.class` fear AoE fire; ≤5 Panic/Berserk by Wisdom |
 | `KillingWind` | ≥2 hit units → +8 Grit (FM/armor path kept from COMBAT-005) |
 | `BuildingConfidence` | Inspired turn 2 and every 3rd turn |
-| `SidneyPerk` | +2 AP/turn until miss or damage taken |
-| `OnMyTarget` | Text: 10 AP (vanilla ActionPoints already 10000) |
 
-Loc IDs: `890000000009861–9884` (never 6300–6599 VR band). Upsert refuses VoiceResponse overwrite.
+Loc IDs: remaining batch3 IDs after vanilla rollback purge.
 
 ## Soft cuts
 
@@ -68,13 +59,12 @@ Loc IDs: `890000000009861–9884` (never 6300–6599 VR band). Upsert refuses Vo
 - RecklessAssault 4-attack rewrite
 - BuildingConfidence heal ±10%/level combat+sat
 - MakeThemBleed groin/animal bleed apply (aura only)
-- Ice five-limb shot list
-- Buns tracking depends on `Unit.OnAttack` wrap (fallback if missing)
 
 ## Tools
 
 - `docs/tools/_gen_units006_batch3.py`
 - `docs/tools/_fix_units006_batch3_loc.py`
+- `docs/tools/_rollback_units006_vanilla_merc_perks.py`
 
 ---
 
@@ -137,7 +127,7 @@ Loc IDs: `890000000009861–9884` (never 6300–6599 VR band). Upsert refuses Vo
 | `Jazz_Perk_Carlos` | Text partial | Detection −33% (`UpdateSuspicion` + apply modifier); failed SK 50% keep Hidden |
 | `Jazz_Perk_Cord` | WIP stub | City sector repair −15% time / −10% Parts (bar POI soft) |
 | `Jazz_Perk_Conrad` | WIP stub | Trainer Leadership floor 90 on TrainMilitia/TrainMercs pace |
-| `DesignerExplosives` | vanilla only | JAZZ CE: CraftAmmo/CraftExplosives Parts −30% |
+| `DesignerExplosives` | vanilla restore + JAZZ | 2× ShapedCharge / 168h (`OnNewHour`); CraftExplosives recipe; CraftAmmo/CraftExplosives Parts −30% |
 | `DangerClose` | vanilla close-range UI | CE Parameters minRange 8 +40% dmg reaction; bleed stacks on attack ≥8 (stim soft) |
 | `ExplodingPalm` | vanilla | CE: heal_modifier +30% (fist HP statuses / infection soft) |
 | `InnerInfo_JAZZ` | «Пока недоступно» | Text: intel + city money op pending ECON-001 |

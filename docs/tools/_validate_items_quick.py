@@ -122,6 +122,16 @@ def check(path: Path) -> list[str]:
         problems.append(f"{path.name}: brace imbalance {brace}")
     problems.extend(missing_comma_before_placeobj(text, path.name))
     problems.extend(raw_newlines_in_quoted_strings(text, path.name))
+    # FunctionObject/Condition StoreAsTable=true: 'Difficulty', "X" asserts at load
+    if path.name == "items.lua":
+        cd_false = len(
+            re.findall(r"PlaceObj\('CheckDifficulty',\s*\{\s*'Difficulty',", text)
+        )
+        if cd_false:
+            problems.append(
+                f"{path.name}: {cd_false} CheckDifficulty StoreAsTable-false props "
+                f"(use Difficulty = \"...\"; see _fix_checkdifficulty_storeastable.py)"
+            )
     # Corrupt id lines from partial MagLarge_50_AK remove / bad insert
     for i, ln in enumerate(text.splitlines(), 1):
         s = ln.strip()

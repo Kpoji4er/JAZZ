@@ -53,6 +53,8 @@ Folding stocks and tactical flashlights toggle via **small buttons next to the w
 | Mobile Shotgun | shotgun | close in, then area shot |
 | MG Suppression | machine gun | two suppressing bursts into one zone |
 
+Actions that “recharge on kill” also clear after a **signature** kill (Blood’s flying knives, etc.); the killing signature does not recharge itself.
+
 Spike’s **Bullet Hell** keeps cone aiming, but fires a **real bullet dump** with hit chance and Will suppression (not guaranteed AOE). It works with machine guns and with the AN-94 / other JAZZ full-auto rifles.
 
 Full ID tables and edge cases live in the repository `docs/wiki/combat-actions.md`.

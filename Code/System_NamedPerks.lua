@@ -23,7 +23,6 @@ end
 
 g_JAZZ_NamedPerks006Wrapped = rawget(_G, "g_JAZZ_NamedPerks006Wrapped") or false
 g_JAZZ_NamedPerks006OpsWrapped = rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") or false
-g_JAZZ_JackOfAllOpsBase = rawget(_G, "g_JAZZ_JackOfAllOpsBase") or false
 g_JAZZ_JackOfAllArrivingThreshWrapped = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped") or false
 g_JAZZ_JackOfAllArrivingThreshBase = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshBase") or false
 g_JAZZ_SteroidPunchSigHidden = rawget(_G, "g_JAZZ_SteroidPunchSigHidden") or false
@@ -237,87 +236,18 @@ local function lInstallNamedPerks006Ops()
 		rawset(ca, "JazzUnits006GrizzlyWrapped", true)
 	end
 
-	-- Wolf JackOfAllTrades: −33% satellite operation time (JAZZ wrap; CE param jazz_ops_bonus is display-only).
-	-- Skip Traveling (squad-shared) and Arriving (shared arrival_squad must keep one ETA / timeline).
-	local base_ops = rawget(_G, "GetOperationTimeLeft")
-	if type(base_ops) == "function" and not rawget(_G, "g_JAZZ_JackOfAllOpsBase") then
-		rawset(_G, "g_JAZZ_JackOfAllOpsBase", base_ops)
-		rawset(_G, "GetOperationTimeLeft", function(merc, operation_id, ...)
-			local t = g_JAZZ_JackOfAllOpsBase(merc, operation_id, ...)
-			if type(t) == "number" and merc and HasPerk(merc, "JackOfAllTrades")
-				and operation_id ~= "Traveling" and operation_id ~= "Arriving" then
-				local perk = merc.GetStatusEffect and merc:GetStatusEffect("JackOfAllTrades")
-				local bonus = (perk and perk.ResolveValue and perk:ResolveValue("jazz_ops_bonus")) or 33
-				t = MulDivRound(t, 100 - bonus, 100)
-			end
-			return t
-		end)
-	end
+	-- Wolf JackOfAllTrades: vanilla SectorOperation.ProgressPerTick already applies
+	-- CharacterEffectDefs.JackOfAllTrades activityDurationMod (+33% progress). Do NOT
+	-- wrap GetOperationTimeLeft — that double-dipped and renaming the param to
+	-- jazz_ops_bonus made ResolveValue("activityDurationMod") nil → MulDivRound assert
+	-- on every Wolf op assign (GetOperationTimeLeftAssign → ProgressPerTick).
+	-- Arriving hire co-group stays in SatelliteSquad.LocalSetArrivingMercSector.
 
 	rawset(_G, "g_JAZZ_NamedPerks006OpsWrapped", true)
 end
 
 
 g_JAZZ_NamedPerks006SignaturesWrapped = rawget(_G, "g_JAZZ_NamedPerks006SignaturesWrapped") or false
-g_JAZZ_BunsDamagedTargets = rawget(_G, "g_JAZZ_BunsDamagedTargets") or {}
-
-function Jazz_TagTeamAllyPinDown(attacker, attack_target)
-	if not attacker or not attack_target or not g_Pindown then
-		return false
-	end
-	for _, ally in ipairs(attacker.team and attacker.team.units or empty_table) do
-		if ally ~= attacker and IsValid(ally) and not ally:IsDead() then
-			local pd = g_Pindown[ally]
-			if pd then
-				local t = pd.target
-				if t == attack_target or (IsValid(t) and t == attack_target) then
-					return true
-				end
-			end
-		end
-	end
-	return false
-end
-
-function Jazz_BunsTargetDamagedByAlly(attacker, attack_target)
-	if not attacker or not attack_target then
-		return false
-	end
-	local bag = rawget(_G, "g_JAZZ_BunsDamagedTargets")
-	if type(bag) ~= "table" then
-		return false
-	end
-	local key = attack_target.handle or tostring(attack_target)
-	local entry = bag[key]
-	return entry and entry ~= attacker
-end
-
-function Jazz_BunsMarkDamaged(attacker, attack_target, results)
-	if not attacker or not attack_target or not results or results.miss then
-		return
-	end
-	local dmg = results.total_damage or results.dealt_damage or 0
-	if type(dmg) ~= "number" or dmg <= 0 then
-		dmg = 0
-		for _, hit in ipairs(results.hits or empty_table) do
-			if hit and type(hit.damage) == "number" and hit.damage > 0 then
-				dmg = dmg + hit.damage
-			end
-		end
-	end
-	if dmg <= 0 then
-		return
-	end
-	local bag = rawget(_G, "g_JAZZ_BunsDamagedTargets")
-	if type(bag) ~= "table" then
-		bag = {}
-		rawset(_G, "g_JAZZ_BunsDamagedTargets", bag)
-	end
-	local key = attack_target.handle or tostring(attack_target)
-	if not bag[key] then
-		bag[key] = attacker
-	end
-end
 
 function Jazz_ApplyHawksEyeSuppression(attacker, suppressionbonus)
 	if not attacker or not HasPerk(attacker, "HawksEye") then
@@ -356,31 +286,13 @@ local function lInstallNamedPerks006Signatures()
 		end
 	end
 
-	-- Track damage for Buns via Unit.OnAttack reaction-style wrap of ExecAttack results path.
-	if type(Unit.OnAttack) == "function" and not rawget(Unit, "JazzUnits006BunsWrapped") then
-		local base = Unit.OnAttack
-		function Unit:OnAttack(action, target, results, attack_args, ...)
-			local ret = base(self, action, target, results, attack_args, ...)
-			if type(Jazz_BunsMarkDamaged) == "function" and IsKindOf(target, "Unit") then
-				Jazz_BunsMarkDamaged(self, target, results)
-			end
-			return ret
-		end
-		rawset(Unit, "JazzUnits006BunsWrapped", true)
-	elseif not rawget(Unit, "JazzUnits006BunsWrapped") then
-		-- Fallback: wrap FirearmAttack return path is too invasive; Buns CE still works if MapVar filled elsewhere.
-		rawset(Unit, "JazzUnits006BunsWrapped", true)
-	end
-
 	rawset(_G, "g_JAZZ_NamedPerks006SignaturesWrapped", true)
 end
 
 local function lNamedPerks006OnCombatStart_Signatures()
-	rawset(_G, "g_JAZZ_BunsDamagedTargets", {})
 end
 
 local function lNamedPerks006OnTurnStart_Signatures()
-	rawset(_G, "g_JAZZ_BunsDamagedTargets", {})
 end
 
 g_JAZZ_NamedPerks006EconomyWrapped = rawget(_G, "g_JAZZ_NamedPerks006EconomyWrapped") or false
@@ -388,6 +300,7 @@ g_JAZZ_FloBuySellBase_BR = rawget(_G, "g_JAZZ_FloBuySellBase_BR") or false
 g_JAZZ_FloBuySellBase_Cash = rawget(_G, "g_JAZZ_FloBuySellBase_Cash") or false
 g_JAZZ_StaticPartsBase_ModCost = rawget(_G, "g_JAZZ_StaticPartsBase_ModCost") or false
 g_JAZZ_StaticPartsBase_ItemsCalc = rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc") or false
+g_JAZZ_CraftPartsDiscountWrapped = rawget(_G, "g_JAZZ_CraftPartsDiscountWrapped") or false
 g_JAZZ_PushUnitAlertBase_B4 = rawget(_G, "g_JAZZ_PushUnitAlertBase_B4") or false
 g_JAZZ_RecoilProfileBase_B4 = rawget(_G, "g_JAZZ_RecoilProfileBase_B4") or false
 
@@ -520,6 +433,7 @@ function Jazz_CougarOnStealthKill(attacker)
 end
 
 local function lInstallNamedPerks006Economy()
+	Jazz_InstallCraftPartsDiscountWrap()
 	if rawget(_G, "g_JAZZ_NamedPerks006EconomyWrapped") then
 		return
 	end
@@ -578,26 +492,8 @@ local function lInstallNamedPerks006Economy()
 		end
 	end
 
-	-- Static: repair/craft Parts estimate.
-	local calc = rawget(_G, "SectorOperation_ItemsCalcRes")
-	if type(calc) == "function" and not rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc") then
-		rawset(_G, "g_JAZZ_StaticPartsBase_ItemsCalc", calc)
-		rawset(_G, "SectorOperation_ItemsCalcRes", function(sector_id, operation_id)
-			local parts = g_JAZZ_StaticPartsBase_ItemsCalc(sector_id, operation_id)
-			if type(parts) ~= "number" or parts <= 0 then
-				return parts
-			end
-			local mercs = GetOperationProfessionals and GetOperationProfessionals(sector_id, operation_id) or empty_table
-			local best = 0
-			for _, merc in ipairs(mercs) do
-				best = Max(best, Jazz_StaticPartsDiscountPercent(merc))
-			end
-			if best > 0 then
-				parts = Max(0, MulDivRound(parts, 100 - best, 100))
-			end
-			return parts
-		end)
-	end
+	-- Static repair/craft Parts + Barry CraftAmmo/CraftExplosives −craft_discount%.
+	Jazz_InstallCraftPartsDiscountWrap()
 
 	-- Cougar: shot noise −33%.
 	local alert = rawget(_G, "PushUnitAlert")
@@ -785,6 +681,59 @@ function Jazz_BarryCraftDiscountPercent(unit)
 	return 0
 end
 
+-- Single wrap for SectorOperation_ItemsCalcRes: Static Parts + Barry craft + Cord repair.
+-- Retries until the vanilla calc exists (DataLoaded order).
+function Jazz_InstallCraftPartsDiscountWrap()
+	local calc = rawget(_G, "SectorOperation_ItemsCalcRes")
+	if type(calc) ~= "function" then
+		return false
+	end
+	if rawget(_G, "g_JAZZ_CraftPartsDiscountWrapped") then
+		return true
+	end
+	-- Prefer unwrapped vanilla / earliest captured base.
+	local base = rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc")
+	if type(base) ~= "function" then
+		base = calc
+		rawset(_G, "g_JAZZ_StaticPartsBase_ItemsCalc", base)
+	end
+	rawset(_G, "g_JAZZ_BarryCraftBase_ItemsCalc", base)
+	rawset(_G, "SectorOperation_ItemsCalcRes", function(sector_id, operation_id)
+		local parts = g_JAZZ_StaticPartsBase_ItemsCalc(sector_id, operation_id)
+		if type(parts) ~= "number" or parts <= 0 then
+			return parts
+		end
+		local mercs = GetOperationProfessionals and GetOperationProfessionals(sector_id, operation_id) or empty_table
+		local best = 0
+		for _, merc in ipairs(mercs) do
+			best = Max(best, Jazz_StaticPartsDiscountPercent(merc))
+		end
+		if best > 0 then
+			parts = Max(0, MulDivRound(parts, 100 - best, 100))
+		end
+		if operation_id == "CraftAmmo" or operation_id == "CraftExplosives" then
+			local barry = 0
+			for _, merc in ipairs(mercs) do
+				barry = Max(barry, Jazz_BarryCraftDiscountPercent(merc))
+			end
+			if barry > 0 then
+				parts = Max(0, MulDivRound(parts, 100 - barry, 100))
+			end
+		elseif operation_id == "RepairItems" or operation_id == "Repair" then
+			for _, merc in ipairs(mercs) do
+				if Jazz_CordInBarCity(merc) then
+					local disc = Jazz_NamedPerkParam(merc, "Jazz_Perk_Cord", "repair_parts_discount", 10)
+					parts = Max(0, MulDivRound(parts, 100 - disc, 100))
+					break
+				end
+			end
+		end
+		return parts
+	end)
+	rawset(_G, "g_JAZZ_CraftPartsDiscountWrapped", true)
+	return true
+end
+
 function Jazz_CordInBarCity(merc)
 	if not merc then
 		return false
@@ -825,7 +774,8 @@ local REPAIR_OPS = {
 }
 
 local function lInstallNamedPerks006Satellite()
-	-- Ira hook may need SectorOperations after first wrap attempt.
+	-- Ira / craft-Parts wraps may need SectorOperations after first attempt.
+	Jazz_InstallCraftPartsDiscountWrap()
 	if rawget(_G, "g_JAZZ_NamedPerks006SatelliteWrapped") then
 		Jazz_InstallIraMilitiaTrainHook()
 		return
@@ -845,37 +795,6 @@ local function lInstallNamedPerks006Satellite()
 				income = MulDivRound(income, 100 + bonus, 100)
 			end
 			return income
-		end)
-	end
-
-	-- Barry: CraftAmmo / CraftExplosives Parts −30%.
-	local calc = rawget(_G, "SectorOperation_ItemsCalcRes")
-	if type(calc) == "function" and not rawget(_G, "g_JAZZ_BarryCraftBase_ItemsCalc") then
-		rawset(_G, "g_JAZZ_BarryCraftBase_ItemsCalc", calc)
-		rawset(_G, "SectorOperation_ItemsCalcRes", function(sector_id, operation_id)
-			local parts = g_JAZZ_BarryCraftBase_ItemsCalc(sector_id, operation_id)
-			if type(parts) ~= "number" or parts <= 0 then
-				return parts
-			end
-			local mercs = GetOperationProfessionals and GetOperationProfessionals(sector_id, operation_id) or empty_table
-			if operation_id == "CraftAmmo" or operation_id == "CraftExplosives" then
-				local best = 0
-				for _, merc in ipairs(mercs) do
-					best = Max(best, Jazz_BarryCraftDiscountPercent(merc))
-				end
-				if best > 0 then
-					parts = Max(0, MulDivRound(parts, 100 - best, 100))
-				end
-			elseif REPAIR_OPS[operation_id] then
-				for _, merc in ipairs(mercs) do
-					if Jazz_CordInBarCity(merc) then
-						local disc = Jazz_NamedPerkParam(merc, "Jazz_Perk_Cord", "repair_parts_discount", 10)
-						parts = Max(0, MulDivRound(parts, 100 - disc, 100))
-						break
-					end
-				end
-			end
-			return parts
 		end)
 	end
 

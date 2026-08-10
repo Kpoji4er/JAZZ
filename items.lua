@@ -67444,11 +67444,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Description = T(890000000001073, --[[ModItemCombatAction MobileShot Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию и два выстрела по ближайшим целям."),
 					DisplayName = T(890000000000791, --[[ModItemCombatAction MobileShot DisplayName]] "Маневр с Пистолетом"),
 					GetActionDamage = function (self, unit, target, args)
-						local rangedAttack = unit:GetDefaultAttackAction("ranged") 
-						local weapon1, weapon2 = self:GetAttackWeapons(unit, args)
-						if weapon1 and weapon2 then args.attack_id = "AttackDual" end
-						
-						return rangedAttack:GetActionDamage(unit, target, args)
+						return Jazz_GetMobileActionDamage(self, unit, args, "SingleShot")
 					end,
 					GetActionDescription = function (self, units)
 						local description = self.Description
@@ -67549,11 +67545,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Description = T(890000000000492, --[[ModItemCombatAction RunAndGun Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> коротких очередей</em> по ближайшим целям. "),
 					DisplayName = T(890000000000550, --[[ModItemCombatAction RunAndGun DisplayName]] "Стрельба на бегу"),
 					GetActionDamage = function (self, unit, target, args)
-						local weapon = self:GetAttackWeapons(unit, args)
-						if not weapon then return 0 end
-						local damage = unit:GetBaseDamage(weapon)
-						local num_shots = self:ResolveValue("mobile_num_shots")
-						return damage, damage / num_shots, 0
+						return Jazz_GetMobileActionDamage(self, unit, args)
 					end,
 					GetActionDescription = function (self, units)
 						local description = self.Description
@@ -67575,9 +67567,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					end,
 					GetActionResults = function (self, unit, args)
 						local weapon = self:GetAttackWeapons(unit)
-						args.attack_id =  weapon:CanBurstfire() and "BurstFire" or "SingleShot"
-						args.num_shots = weapon and weapon:GetAutofireShots(args.attack_id) 
-						and weapon:CanBurstfire() or 1
+						local can_burst = weapon and weapon:CanBurstfire()
+						args.attack_id = can_burst and "BurstFire" or "SingleShot"
+						args.num_shots = can_burst and (weapon:GetAutofireShots(args.attack_id) or 1) or 1
 						args.multishot = true
 						return GetMobileShotResults(self, unit, args)
 					end,
@@ -67651,11 +67643,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Description = T(890000000000491, --[[ModItemCombatAction RunAndGun_Carbine Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы аттакуете до <em><num_shots></em> ближайших целей. "),
 					DisplayName = T(890000000000551, --[[ModItemCombatAction RunAndGun_Carbine DisplayName]] "Стрельба на бегу (Карабин)"),
 					GetActionDamage = function (self, unit, target, args)
-						local weapon = self:GetAttackWeapons(unit, args)
-						if not weapon then return 0 end
-						local damage = unit:GetBaseDamage(weapon)
-						local num_shots = self:ResolveValue("mobile_num_shots")
-						return damage, damage / num_shots, 0
+						return Jazz_GetMobileActionDamage(self, unit, args)
 					end,
 					GetActionDescription = function (self, units)
 						local description = self.Description
@@ -69075,11 +69063,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Description = T(890000000000076, --[[ModItemCombatAction JAZZ_RunAndSMGStorm Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого вы выпускаете до <em><num_shots> шквалов</em> по ближайшим целям. "),
 					DisplayName = T(890000000000810, --[[ModItemCombatAction JAZZ_RunAndSMGStorm DisplayName]] "Шквал на бегу"),
 					GetActionDamage = function (self, unit, target, args)
-						local weapon = self:GetAttackWeapons(unit, args)
-						if not weapon then return 0 end
-						local damage = unit:GetBaseDamage(weapon)
-						local num_shots = self:ResolveValue("mobile_num_shots") * weapon:GetAutofireShots("JAZZ_SmgStorm")
-						return damage, damage / num_shots, 0
+						return Jazz_GetMobileActionDamage(self, unit, args, "JAZZ_SmgStorm")
 					end,
 					GetActionDescription = function (self, units)
 						local description = self.Description
@@ -69528,11 +69512,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Description = T(890000000000075, --[[ModItemCombatAction JAZZ_ManeuverAR Description]] "<color EmStyle>Заряжается после убийства другим способом.</color>.\nПереход на новую позицию, в процессе которого выпускается двойная длинная очередь по врагу "),
 					DisplayName = T(890000000000809, --[[ModItemCombatAction JAZZ_ManeuverAR DisplayName]] "Огонь и манёвр"),
 					GetActionDamage = function (self, unit, target, args)
-						local weapon = self:GetAttackWeapons(unit, args)
-						if not weapon then return 0 end
-						local damage = unit:GetBaseDamage(weapon)
-						local num_shots = self:ResolveValue("mobile_num_shots") * weapon:GetAutofireShots("JAZZ_SmgStorm")
-						return damage, damage / num_shots, 0
+						return Jazz_GetMobileActionDamage(self, unit, args, "JAZZ_LargeAutoFire")
 					end,
 					GetActionDescription = function (self, units)
 						local description = self.Description
@@ -73397,15 +73377,76 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "DesignerExplosives",
 					'object_class', "Perk",
 					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "hoursToProduce",
+							'Value', 168,
+							'Tag', "<hoursToProduce>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "amountToProduce",
+							'Value', 2,
+							'Tag', "<amountToProduce>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "nextProductionTime",
+							'Tag', "<nextProductionTime>",
+						}),
 						PlaceObj('PresetParamPercent', {
 							'Name', "craft_discount",
 							'Value', 30,
 							'Tag', "<craft_discount>",
 						}),
 					},
-					'unit_reactions', {},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnNewHour",
+							Handler = function (self, target)
+								if target.HireStatus ~= "Hired" then return end
+
+								local next_production = self:ResolveValue("nextProductionTime")
+								-- Saves that loaded the broken CE rewrite may lack nextProductionTime.
+								if not next_production or next_production == 0 then
+									self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
+									return
+								end
+								if Game.CampaignTime < next_production or gv_Squads[target.Squad].water_travel then return end
+
+								local amountToProduce = self:ResolveValue("amountToProduce")
+								local item_name = amountToProduce > 1 and g_Classes["ShapedCharge"].DisplayNamePlural or g_Classes["ShapedCharge"].DisplayName
+								self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
+
+								local slots = { "Handheld A", "Handheld B", "Inventory" }
+								local canPlaceError, amountLeft
+								local amountToPlace = amountToProduce
+								for _, slot in ipairs(slots) do
+									canPlaceError, amountLeft = CanPlaceItemInInventory("ShapedCharge", amountToPlace, target, slot)
+									if not canPlaceError then
+										PlaceItemInInventory("ShapedCharge", amountToPlace, target, nil, nil, slot)
+										if not amountLeft then
+											break
+										else
+											amountToPlace = amountLeft
+										end
+									end
+								end
+
+								local text = T{318623454402, "<merc> produced <amount> <item_name>.", merc = target.Nick, amount = amountToProduce, item_name = item_name}
+								if canPlaceError or (amountLeft and amountLeft > 0) then
+									amountToPlace = amountToPlace or amountToProduce
+									PlaceItemInInventory("ShapedCharge", amountToPlace, gv_Squads[target.Squad].CurrentSector)
+									text = text .. T(447763084369, " Some were placed in the sector stash.")
+									CombatLog("important", text)
+								else
+									CombatLog("important", text)
+								end
+							end,
+						}),
+					},
 					'DisplayName', T(890000000009885, --[[ModItemCharacterEffectCompositeDef DesignerExplosives DisplayName]] "Конструктор взрывчатки"),
-					'Description', T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Может крафтить гранаты. Крафт патронов/гранат стоит на 30% меньше Parts."),
+					'Description', T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Каждые <hoursToProduce> ч производит <amountToProduce> кумулятивных заряда. Может крафтить их через «Изготовление взрывчатки». Крафт патронов и взрывчатки: −<craft_discount>% Parts."),
+					'OnAdded', function (self, obj)
+						self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
+					end,
 					'Icon', "UI/Icons/Perks/DesignerExplosives",
 					'Tier', "Personal",
 				}),
@@ -73855,159 +73896,19 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Id', "GrizzlyPerk",
 					'object_class', "Perk",
 					'DisplayName', T(380626033173, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk DisplayName]] "Off the Hip"),
-					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Сигнатурная пулемётная атака</em> игнорирует штрафы <em>без опоры</em> к точности и отдаче, даёт <em>вдвое больше пуль</em> и <em>вдвое сильнее подавление</em>, при пониженном уроне и жёстком контроле отдачи. Обычная очередь пулемёта эти бонусы не получает."),
+					'Description', T(272740235755, --[[ModItemCharacterEffectCompositeDef GrizzlyPerk Description]] "<em>Сигнатурная пулемётная атака</em>: вдвое больше пуль, чем у длинной очереди, полный урон, игнор штрафов <em>без опоры</em> к точности и отдаче, <em>вдвое сильнее подавление</em>. Обычная очередь пулемёта эти бонусы не получает."),
 					'Icon', "UI/Icons/Perks/GrizzlyPerk",
 					'Tier', "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "YouSeeIgor",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target ~= attacker or not results then
-									return
-								end
-								local killed = false
-								if results.killed_units then
-									for _, u in ipairs(results.killed_units) do
-										if IsValid(u) then
-											killed = true
-											break
-										end
-									end
-								end
-								if not killed and IsKindOf(attack_target, "Unit") and attack_target:IsDead() then
-									killed = true
-								end
-								if not killed then
-									return
-								end
-								attacker:GainAP(3 * const.Scale.AP)
-							end,
-						}),
-					},
-					'DisplayName', T(890000000006500, --[[ModItemCharacterEffectCompositeDef YouSeeIgor DisplayName]] "Видишь, Игорь…"),
-					'Description', T(890000000006501, --[[ModItemCharacterEffectCompositeDef YouSeeIgor Description]] "За каждое убийство получает <em>+3 ОД</em> (не полное восстановление ОД)."),
-					'Icon', "UI/Icons/Perks/YouSeeIgor",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "WeGotThis",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target ~= attacker or not results then
-									return
-								end
-								local killed = false
-								if results.killed_units then
-									for _, u in ipairs(results.killed_units) do
-										if IsValid(u) then
-											killed = true
-											break
-										end
-									end
-								end
-								if not killed and IsKindOf(attack_target, "Unit") and attack_target:IsDead() then
-									killed = true
-								end
-								if not killed then
-									return
-								end
-								for _, ally in ipairs(attacker.team and attacker.team.units or empty_table) do
-									if IsValid(ally) and not ally:IsDead() then
-										ally:ApplyTempHitPoints(10)
-									end
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000006502, --[[ModItemCharacterEffectCompositeDef WeGotThis DisplayName]] "Мы справимся"),
-					'Description', T(890000000006503, --[[ModItemCharacterEffectCompositeDef WeGotThis Description]] "После убийства весь отряд получает <em>+10 Силы воли (Grit)</em>."),
-					'Icon', "UI/Icons/Perks/WeGotThis",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "NailsPerk",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target ~= attacker or not results then
-									return
-								end
-								if self:ResolveValue("bloodthirst") then
-									return
-								end
-								local killed = false
-								if results.killed_units then
-									for _, u in ipairs(results.killed_units) do
-										if IsValid(u) then
-											killed = true
-											break
-										end
-									end
-								end
-								if not killed and IsKindOf(attack_target, "Unit") and attack_target:IsDead() then
-									killed = true
-								end
-								if killed then
-									self:SetParameter("bloodthirst", true)
-								end
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnCombatEnd",
-							Handler = function (self, target)
-								self:SetParameter("bloodthirst", nil)
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnCombatStarting",
-							Handler = function (self, target)
-								self:SetParameter("bloodthirst", nil)
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnCombatStarted",
-							Handler = function (self, target, load_game)
-								self:SetParameter("bloodthirst", nil)
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcDamageAndEffects",
-							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
-								if owner ~= attacker or not data then
-									return
-								end
-								if self:ResolveValue("bloodthirst") then
-									data.damage_percent = (data.damage_percent or 100) + 20
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000006504, --[[ModItemCharacterEffectCompositeDef NailsPerk DisplayName]] "Гвоздь в цель"),
-					'Description', T(890000000006505, --[[ModItemCharacterEffectCompositeDef NailsPerk Description]] "После первого убийства в бою все атаки наносят <em>+20% урона</em> до конца боя."),
-					'Icon', "UI/Icons/Perks/NailsPerk",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+																PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "JackOfAllTrades",
 					'object_class', "Perk",
 					'Parameters', {
 						PlaceObj('PresetParamPercent', {
-							'Name', "jazz_ops_bonus",
+							'Name', "activityDurationMod",
 							'Value', 33,
-							'Tag', "<jazz_ops_bonus>%",
+							'Tag', "<activityDurationMod>%",
 						}),
 					},
 					'DisplayName', T(890000000006506, --[[ModItemCharacterEffectCompositeDef JackOfAllTrades DisplayName]] "Мастер на все руки"),
@@ -74015,79 +73916,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/JackOfAllTrades",
 					'Tier', "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "SecondStoryMan",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcCritChance",
-							Handler = function (self, target, attacker, attack_target, action, weapon, data)
-								if target ~= attacker or not data or not IsKindOf(attack_target, "Unit") then
-									return
-								end
-								local apos = attacker:GetPos()
-								local tpos = attack_target:GetPos()
-								if not apos or not tpos then
-									return
-								end
-								local az = apos:IsValidZ() and apos:z() or terrain.GetHeight(apos)
-								local tz = tpos:IsValidZ() and tpos:z() or terrain.GetHeight(tpos)
-								local threshold = const.SlabSizeZ / 2
-								local presets = Presets.ChanceToHitModifier and Presets.ChanceToHitModifier.Default
-								local gd = presets and presets.GroundDifference
-								if gd and gd.ResolveValue then
-									local pct = gd:ResolveValue("RangeThreshold")
-									if pct then
-										threshold = MulDivRound(const.SlabSizeZ, pct, 100)
-									end
-								end
-								if az > tz + threshold then
-									data.crit_chance = (data.crit_chance or 0) + 50
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000006508, --[[ModItemCharacterEffectCompositeDef SecondStoryMan DisplayName]] "Человек со второго этажа"),
-					'Description', T(890000000006509, --[[ModItemCharacterEffectCompositeDef SecondStoryMan Description]] "Атаки <em>сверху</em> получают <em>+50%</em> к шансу критического удара."),
-					'Icon', "UI/Icons/Perks/SecondStoryMan",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "ShoulderToShoulder",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnEndTurn",
-							Handler = function (self, target)
-								if not g_Combat then
-									return
-								end
-								local nearby = {}
-								for _, ally in ipairs(target.team and target.team.units or empty_table) do
-									if ally ~= target and IsValid(ally) and not ally:IsDead() then
-										if DivRound(target:GetDist(ally), const.SlabSizeX) <= 1 then
-											nearby[#nearby + 1] = ally
-										end
-									end
-								end
-								if #nearby == 0 then
-									return
-								end
-								target:ApplyTempHitPoints(15)
-								for _, ally in ipairs(nearby) do
-									ally:ApplyTempHitPoints(15)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000006510, --[[ModItemCharacterEffectCompositeDef ShoulderToShoulder DisplayName]] "Плечом к плечу"),
-					'Description', T(890000000006511, --[[ModItemCharacterEffectCompositeDef ShoulderToShoulder Description]] "В конце хода, если рядом есть союзник (≤1 клетка), Скалли и ближайшие союзники получают <em>+15 Силы воли (Grit)</em>."),
-					'Icon', "UI/Icons/Perks/ShoulderToShoulder",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+												PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "SteroidPunch",
 						object_class = "Perk",
@@ -74157,17 +73986,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Icon = "UI/Icons/Perks/SteroidPunch",
 						Tier = "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "IcePerk",
-					'comment', "UNITS-006 batch2: signature CombatAction IcePerk (five limb shots) still vanilla engine; CE text updated. Runtime shot list deferred.",
-					'object_class', "Perk",
-					'DisplayName', T(890000000006514, --[[ModItemCharacterEffectCompositeDef IcePerk DisplayName]] "Ледяной шторм"),
-					'Description', T(890000000006515, --[[ModItemCharacterEffectCompositeDef IcePerk Description]] "Сигнатурная атака: пять выстрелов по конечностям цели."),
-					'Icon', "UI/Icons/Perks/IcePerk",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+								PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "MakeThemBleed",
 					'object_class', "Perk",
@@ -74198,100 +74017,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/MakeThemBleed",
 					'Tier', "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "DedicatedCamper",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnBeginTurn",
-							Handler = function (self, target)
-								target:SetEffectValue("Jazz_CamperOrigin", target:GetPos())
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcDamageAndEffects",
-							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
-								if owner ~= attacker or not data then
-									return
-								end
-								local origin = attacker:GetEffectValue("Jazz_CamperOrigin")
-								local moved = attack_args and attack_args.unit_moved
-								if not moved and origin and attacker:GetPos() == origin then
-									data.damage_percent = (data.damage_percent or 100) + 25
-								end
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target ~= attacker or not results then
-									return
-								end
-								local dmg = results.total_damage or results.dealt_damage or 0
-								if type(dmg) ~= "number" or dmg <= 0 then
-									for _, hit in ipairs(results.hits or empty_table) do
-										if hit and type(hit.damage) == "number" then
-											dmg = dmg + hit.damage
-										end
-									end
-								end
-								if dmg >= 25 then
-									attacker:ApplyTempHitPoints(15)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009863, --[[ModItemCharacterEffectCompositeDef DedicatedCamper DisplayName]] "Оседлый стрелок"),
-					'Description', T(890000000009864, --[[ModItemCharacterEffectCompositeDef DedicatedCamper Description]] "Пока не сдвинулся с места в этом ходу: +25% урона. Если атака нанесла ≥25 урона — +15 Силы воли (Grit)."),
-					'Icon', "UI/Icons/Perks/DedicatedCamper",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "TagTeam",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcChanceToHit",
-							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-								if target ~= attacker then
-									return
-								end
-								if type(Jazz_TagTeamAllyPinDown) == "function" and Jazz_TagTeamAllyPinDown(attacker, attack_target) then
-									ApplyCthModifier_Add(self, data, 15)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009865, --[[ModItemCharacterEffectCompositeDef TagTeam DisplayName]] "Парный заход"),
-					'Description', T(890000000009866, --[[ModItemCharacterEffectCompositeDef TagTeam Description]] "+15% точности по целям под Pin Down союзника."),
-					'Icon', "UI/Icons/Perks/TagTeam",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "BunsPerk",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcChanceToHit",
-							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-								if target ~= attacker then
-									return
-								end
-								if type(Jazz_BunsTargetDamagedByAlly) == "function" and Jazz_BunsTargetDamagedByAlly(attacker, attack_target) then
-									ApplyCthModifier_Add(self, data, 10)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009867, --[[ModItemCharacterEffectCompositeDef BunsPerk DisplayName]] "Добить"),
-					'Description', T(890000000009868, --[[ModItemCharacterEffectCompositeDef BunsPerk Description]] "+10% точности по целям, которых в этом ходу уже ранил союзник."),
-					'Icon', "UI/Icons/Perks/BunsPerk",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+																PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "HawksEye",
 					'object_class', "Perk",
@@ -74307,65 +74033,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/HawksEye",
 					'Tier', "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "Spotter",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target ~= attacker or not action then
-									return
-								end
-								if action.id == "PinDown" and IsKindOf(attack_target, "Unit") and not attack_target:IsDead() then
-									attack_target:AddStatusEffect("Marked")
-									attack_target:SetEffectValue("Jazz_SpotterCritPending", true)
-								end
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnCalcCritChance",
-							Handler = function (self, target, attacker, attack_target, action, weapon, data)
-								if target ~= attacker or not data or not IsKindOf(attack_target, "Unit") then
-									return
-								end
-								if attack_target:GetEffectValue("Jazz_SpotterCritPending") then
-									data.crit_chance = 100
-								end
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if not IsKindOf(attack_target, "Unit") then
-									return
-								end
-								if attack_target:GetEffectValue("Jazz_SpotterCritPending") and results and not results.miss then
-									-- Consume after a resolved hit by anyone.
-									local hits = results.hits or results
-									local hit_ok = results.crit or results.high_accuracy
-									if not hit_ok then
-										for _, hit in ipairs(results.hits or empty_table) do
-											if hit and not hit.miss then
-												hit_ok = true
-												break
-											end
-										end
-									end
-									if hit_ok then
-										attack_target:SetEffectValue("Jazz_SpotterCritPending", nil)
-									end
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009871, --[[ModItemCharacterEffectCompositeDef Spotter DisplayName]] "Наводчик"),
-					'Description', T(890000000009872, --[[ModItemCharacterEffectCompositeDef Spotter Description]] "Pin Down помечает цель (Marked). Следующее попадание по помеченной цели — гарантированный крит."),
-					'Icon', "UI/Icons/Perks/Spotter",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+								PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "HaveABlast",
 					'object_class', "Perk",
@@ -74473,48 +74141,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/BuildingConfidence",
 					'Tier', "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "SidneyPerk",
-					'object_class', "Perk",
-					'unit_reactions', {
-						PlaceObj('UnitReaction', {
-							Event = "OnCombatStarted",
-							Handler = function (self, target, load_game)
-								target:SetEffectValue("Jazz_SidneySmug", true)
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnBeginTurn",
-							Handler = function (self, target)
-								if target:GetEffectValue("Jazz_SidneySmug") then
-									target:GainAP(2 * const.Scale.AP)
-								end
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnUnitAttack",
-							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target == attacker and results and results.miss then
-									attacker:SetEffectValue("Jazz_SidneySmug", nil)
-								end
-							end,
-						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnDamageTaken",
-							Handler = function (self, target, attacker, dmg)
-								if dmg and dmg > 0 then
-									target:SetEffectValue("Jazz_SidneySmug", nil)
-								end
-							end,
-						}),
-					},
-					'DisplayName', T(890000000009879, --[[ModItemCharacterEffectCompositeDef SidneyPerk DisplayName]] "Самодовольство"),
-					'Description', T(890000000009880, --[[ModItemCharacterEffectCompositeDef SidneyPerk Description]] "+2 ОД в начале хода, пока не промахнётся и не получит урон."),
-					'Icon', "UI/Icons/Perks/SidneyPerk",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
+								PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "BulletHell",
 					'object_class', "Perk",
@@ -74524,17 +74151,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/BulletHell",
 					'Tier', "Personal",
 				}),
-				PlaceObj('ModItemCharacterEffectCompositeDef', {
-					'Group', "Perk-Personal",
-					'Id', "OnMyTarget",
-					'object_class', "Perk",
-					'unit_reactions', {},
-					'DisplayName', T(890000000009883, --[[ModItemCharacterEffectCompositeDef OnMyTarget DisplayName]] "По моей цели"),
-					'Description', T(890000000009884, --[[ModItemCharacterEffectCompositeDef OnMyTarget Description]] "Отряд атакует отмеченную цель. Стоимость: 10 ОД."),
-					'Icon', "UI/Icons/Perks/OnMyTarget",
-					'Tier', "Personal",
-				}),
-				PlaceObj('ModItemCombatAction', {
+								PlaceObj('ModItemCombatAction', {
 					ActionCamera = true,
 					ActionType = "Ranged Attack",
 					AimType = "line",
@@ -74549,7 +74166,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						return self.ActionPoints
 					end,
 					GetActionDamage = function (self, unit, target, args)
-						return CombatActions.MGBurstFire:GetActionDamage(unit, target, args)
+						local weapon = args and args.weapon or self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local base = unit and unit:GetBaseDamage(weapon) or weapon.Damage
+						local penalty = self:ResolveValue("dmg_penalty") or 0
+						local num_shots = weapon:GetAutofireShots(self)
+						base = MulDivRound(base, Max(0, 100 + penalty), 100)
+						local damage = num_shots * base
+						return damage, base, damage - base
 					end,
 					GetActionDescription = function (self, units)
 						return GetSignatureActionDescription(self)
@@ -74591,7 +74215,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 						PlaceObj('PresetParamPercent', {
 							'Name', "dmg_penalty",
-							'Value', -50,
+							'Value', 0,
 							'Tag', "<dmg_penalty>%",
 						}),
 						PlaceObj('PresetParamNumber', {

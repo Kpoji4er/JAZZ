@@ -34,6 +34,10 @@ param(
   [switch] $Force,
   [switch] $DryRun,
   [switch] $AlwaysDispatch,
+
+  # Comma-separated suite packages for Discord "Пакеты" field, e.g. jazz,jazz-units,jazz-nomaps
+  [string] $SuitePackages = "",
+
   [int] $WaitSeconds = 90,
   [int] $PollSeconds = 8
 )
@@ -90,6 +94,9 @@ $beforeSha = if ($Before) { Get-Sha $Before } else { Get-Sha "$afterSha^" }
 Write-Host "Discord dispatch target: $slug"
 Write-Host "Checkout: $RepoPath"
 Write-Host "Range: $beforeSha..$afterSha  force=$Force dry_run=$DryRun always=$AlwaysDispatch"
+if ($SuitePackages) {
+  Write-Host "Suite packages: $SuitePackages"
+}
 if ($Force -or $AlwaysDispatch) {
   Write-Host "NOTE: suite = one Discord post per logical feature. Do not Force/AlwaysDispatch sibling repos for the same change."
 }
@@ -114,6 +121,7 @@ if (-not $AlwaysDispatch -and -not $DryRun) {
 
 $forceValue = if ($Force) { "true" } else { "false" }
 $dryValue = if ($DryRun) { "true" } else { "false" }
+$suiteValue = if ($SuitePackages) { $SuitePackages.Trim() } else { $Repo }
 
 gh workflow run discord-player-updates.yml `
   --repo $slug `
@@ -121,7 +129,8 @@ gh workflow run discord-player-updates.yml `
   -f "dry_run=$dryValue" `
   -f "force_publish=$forceValue" `
   -f "before_sha=$beforeSha" `
-  -f "after_sha=$afterSha"
+  -f "after_sha=$afterSha" `
+  -f "suite_packages=$suiteValue"
 
 Start-Sleep -Seconds 3
 $runs = gh run list --repo $slug --workflow=discord-player-updates.yml --limit 1 --json databaseId,url,status,event,displayTitle |

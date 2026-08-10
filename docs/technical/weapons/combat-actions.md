@@ -49,6 +49,7 @@ visible_actions =
 - **Отдача** — штраф последующим пулям одной серии. Действие определяет порядок и особые окна без отдачи, оружие — базовую силу отдачи.
 - **Подавление** — отдельный результат огня; высокий suppression bonus не означает автоматическое повышение урона или CTH.
 - **Перезарядка действия** — cooldown способности, а не смена магазина. `recharge_on_kill` возвращает готовность после убийства, если это задано preset.
+- **JAZZ:** убийство сигнатурой (в т.ч. HundredKnives / `origin_action_id`) тоже снимает CD с **других** `recharge_on_kill` действий (`JAZZ_ControllableBurst`, RnG, …). Сама убившая сигнатура себя не перезаряжает. Vanilla блокировала весь `UpdateSignatureRecharges` на signature-kill.
 
 ## Матрица классов
 
@@ -211,6 +212,7 @@ visible_actions =
 - **Тип:** классовая мобильная техника ПП.
 - **Совместимость:** пистолеты-пулемёты.
 - **Поведение:** движение с атаками максимум по трём выбранным целям; используется `BurstFire`, если оружие его поддерживает, иначе `SingleShot`.
+- **UI урон (rollover):** `Jazz_GetMobileActionDamage` → `N×D` как у BurstFire (`mobile_num_shots × bullets_per × base`). Не ванильный `base, base/volleys` (давал «3×7» при base 21).
 - **Стоимость:** preset имеет базовую мобильную цену и надбавку +2 AP к атаке.
 - **CTH и отдача:** каждый пакет считается в своей позиции и сохраняет отдачу соответствующей очереди.
 - **Перезарядка:** готовность возвращается после убийства.
@@ -221,6 +223,7 @@ visible_actions =
 - **Тип:** классовая мобильная техника карабина.
 - **Совместимость:** карабины.
 - **Поведение:** движение с атаками максимум по двум целям; выбирает `BurstFire`, если он доступен, иначе `SingleShot`.
+- **UI урон:** тот же helper, что у `RunAndGun`.
 - **Стоимость:** общая мобильная цена с надбавкой действия.
 - **CTH:** использует фактическую дистанцию из точек выполнения атаки.
 - **Перезарядка:** готовность возвращается после убийства.
@@ -438,11 +441,18 @@ visible_actions =
 - **Тип:** именное действие персонажа.
 - **Совместимость:** `MachineGun` и `LightMachineGun`; перк выдан Гризли в stable `jazz-units`.
 - **Поведение:** одна атака через исполнитель `MGBurstFire`.
-- **Урон:** preset содержит штраф урона 50%.
-- **Очередь / подавление (UNITS-006 G1):** только `action.id == "GrizzlyPerk"` → **2×** `num_shots` (`GetAutofireShots`) и **2×** `suppressionbonus` (wrap `GetActionResults`). Обычный `MGBurstFire` — без этого.
+- **Урон:** полный (`dmg_penalty=0`; раньше −50%).
+- **Очередь / подавление:** только `action.id == "GrizzlyPerk"` → **2×** длина длинной очереди (`AutoShots`/`BurstShots` как у `MGBurstFire`) и **2×** `suppressionbonus`. Обычный `MGBurstFire` — без этого.
 - **Отдача:** severity `0.8 × Recoil` и action factor `0.55`; **игнорирует** unsupported recoil `class_factor` ×2/×1.5. Обычный `MGBurstFire` Гризли по-прежнему получает полный unsupported class_factor.
 - **CTH:** игнорирует first-bullet штраф «Без опоры» (−50/−25 × Сила); обычная очередь — нет.
-- **Целевая роль:** фирменная длинная управляемая очередь с бедра без упора, не пассив на все MG-атаки.
+- **Целевая роль:** фирменная удвоенная длинная очередь с бедра без упора, не пассив на все MG-атаки.
+
+### `VengefulTemperament` — Meltdown («Ураган Норма»)
+
+- **Пакет:** `jazz-units` (`CharacterEffect/VengefulTemperament.lua` + ModItemCombatAction).
+- **Тип:** именная сигнатура; **CombatAction `id` обязан совпадать с perk class** (`VengefulTemperament`). Id `VengefulTemperament1` ломает `EnumUIActions` / `HasSignatures` (хотбар показывает ванильный Passive stub) и gate `action.id == self.class`.
+- **Поведение:** mobile `RunAndGun`; на `OnUnitAttack` этой атаки союзники цели в `fearAoE` (5) → fail Wisdom(50) → `Panicked`, иначе `Berserk`, затем refresh AP.
+- **Не shipping:** vanilla Hard Feelings (пометка `VengeanceTarget` на последнем ударившем).
 
 ## Перки, которые меняют стрельбу
 

@@ -256,9 +256,10 @@ function FirearmBase:GetAutofireShots(action)
 		end
 		shots = burst * 2
 	elseif action.id == "GrizzlyPerk" then
-		-- UNITS-006 G1: signature only — 2× authored num_shots (default 8 → 16).
-		shots = action:ResolveValue("num_shots") or shots
-		shots = shots * 2
+		-- Bayun / UNITS-006: 2× Long Burst (MGBurstFire) length; full damage (dmg_penalty=0 on CA).
+		local auto = self.AutoShots or 0
+		local long_burst = (auto > 0) and auto or (self.BurstShots or 1)
+		shots = Max(1, long_burst) * 2
 	end
 	return Max(1, shots or 1)
 end

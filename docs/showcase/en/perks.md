@@ -33,29 +33,18 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `Jazz_Perk_Vince` | Vince | While in squad: ~−25% medkit/Meds spend (chance to skip a charge) |
 | `Jazz_Perk_Steiger` | Steiger | Night/underground: allies ≤10 get +5 CTH |
 | `Jazz_Perk_Mike` | Mike | Overwatch/PinDown +2 attacks; reactions when available |
-| `GrizzlyPerk` | Grizzly | Signature MG: ignore unsupported; **2×** shots and **2×** suppression; −dmg / recoil control |
+| `GrizzlyPerk` | Grizzly | MG signature: **2×** long-burst shots, **full** damage, ignore unsupported CTH/recoil, **2×** suppression |
 | `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP; later turns `10%×morale` chance for the same buff |
-| `YouSeeIgor` | Ivan | Kill → **+3 AP** |
-| `WeGotThis` | Gus | Kill → **+10 Grit** to whole squad |
-| `NailsPerk` | Nails | After first kill in combat **+20%** damage |
-| `JackOfAllTrades` | Wolf | Satellite ops **−33%** time (not arrival/Traveling) |
-| `SecondStoryMan` | Magic | From high ground **+50%** crit |
-| `ShoulderToShoulder` | Scully | End turn next to ally: **+15 Grit** to self and neighbors |
+| `JackOfAllTrades` | Wolf | Satellite ops about **33% faster** (vanilla `activityDurationMod`) |
 | `SteroidPunch` | Steroid | Passive: melee CTH from Strength; hit → Knockdown+Unconscious; no stim tiredness; Burning DoT **−30%** |
-| `IcePerk` | Ice | Signature: five limb shots (text; shot-list runtime deferred) |
 | `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%) |
-| `DedicatedCamper` | Hitman | Stationary: +25% damage; ≥25 damage → +15 Grit |
-| `TagTeam` | Raider | +15 CTH vs ally Pin Down targets |
-| `BunsPerk` | Buns | +10 CTH vs targets already damaged by an ally this turn |
 | `HawksEye` | Scope | Pin Down **1 AP**; sniper suppress ×2 |
-| `Spotter` | Raven | Pin Down → Marked; next hit 100% crit |
 | `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss; **50%** explosion damage taken while active; grenades from hands/inventory |
+| `VengefulTemperament` | Meltdown | Signature “Hurricane Norma”: mobile shot; enemies ≤5 from target — Panic or Berserk (Wisdom) |
 
 | `KillingWind` | Fauda | ≥2 targets hit → +8 Grit (+ existing FM/armor) |
 | `BuildingConfidence` | MD | Inspired on turn 2 and every 3rd (heal%-by-level partial) |
-| `SidneyPerk` | Sidney | +2 AP/turn until miss/damage taken |
 | `BulletHell` | Spike | CD **on kill** |
-| `OnMyTarget` | Len | Squad attacks marked target; **10 AP** |
 | `Jazz_Perk_Flo` | Flo | Squad: **−12%** Bobby Ray buy / **+12%** cash-in (additive with Negotiator) |
 | `Jazz_Perk_Static` | Static | Repair/craft Parts **−5%/level** (cap **−25%**) |
 | `Jazz_Perk_Cougar` | Cougar | Shots **−33%** noise; Stealth Kill → Inspired **1×/turn** |
@@ -74,11 +63,11 @@ Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle r
 
 ## §A / §C / §B / §D (UNITS-006)
 
-§A + §C batch2/3 match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only), Ice shot-list.
+§A + §C batch2/3 match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only). **Owner 2026-08-11:** personal perks for Hitman/Tex/Shadow/Buns/Sidney/Raven/Mouse/Omryn/Raider/Len/Fox/Scully/Magic/Reaper/Ivan/Gus/Nails/Ice/Blood are **stock JA3** again (JAZZ CE overrides removed).
 
 §B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
 
-**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), Barry craft −30% Parts, Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. Soft: Biff trooper economy, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover.
+**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), **Barry** (`DesignerExplosives`): every **168 h** produces **2× Shaped Charge**; craft via Craft Explosives; **−30% Parts** on CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. Soft: Biff trooper economy, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover.
 
 **Batch6 §D:** `Jazz_Perk_Benny` (“Package for You”) and `Jazz_Perk_Simon` (“Absolute Sniper”) — CE + StartingPerks; CombatAction soft-cut. Statuses: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 
