@@ -24,6 +24,8 @@ end
 g_JAZZ_NamedPerks006Wrapped = rawget(_G, "g_JAZZ_NamedPerks006Wrapped") or false
 g_JAZZ_NamedPerks006OpsWrapped = rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") or false
 g_JAZZ_JackOfAllOpsBase = rawget(_G, "g_JAZZ_JackOfAllOpsBase") or false
+g_JAZZ_JackOfAllArrivingThreshWrapped = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped") or false
+g_JAZZ_JackOfAllArrivingThreshBase = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshBase") or false
 
 local function lHas(unit, perk)
 	return unit and HasPerk(unit, perk)
@@ -145,7 +147,32 @@ local function lInstallNamedPerks006()
 	rawset(_G, "g_JAZZ_NamedPerks006Wrapped", true)
 end
 
+local function lInstallJackOfAllArrivingThresh()
+	-- Real Arriving duration (vanilla Tick uses ProgressCompleteThreshold, not GetOperationTimeLeft).
+	-- Own flag: install even if g_JAZZ_NamedPerks006OpsWrapped already true from an older load.
+	local arriving = SectorOperations and SectorOperations.Arriving
+	if not arriving or type(arriving.ProgressCompleteThreshold) ~= "function" then
+		return
+	end
+	if rawget(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped") then
+		return
+	end
+	rawset(_G, "g_JAZZ_JackOfAllArrivingThreshBase", arriving.ProgressCompleteThreshold)
+	arriving.ProgressCompleteThreshold = function(self, merc, sector, prediction)
+		local t = g_JAZZ_JackOfAllArrivingThreshBase(self, merc, sector, prediction)
+		if type(t) == "number" and merc and HasPerk(merc, "JackOfAllTrades") then
+			local perk = merc.GetStatusEffect and merc:GetStatusEffect("JackOfAllTrades")
+			local bonus = (perk and perk.ResolveValue and perk:ResolveValue("jazz_ops_bonus")) or 33
+			t = MulDivRound(t, 100 - bonus, 100)
+		end
+		return t
+	end
+	rawset(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped", true)
+end
+
 local function lInstallNamedPerks006Ops()
+	lInstallJackOfAllArrivingThresh()
+
 	if rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") then
 		return
 	end
@@ -164,15 +191,15 @@ local function lInstallNamedPerks006Ops()
 	end
 
 	-- Wolf JackOfAllTrades: −33% satellite operation time (JAZZ wrap; CE param jazz_ops_bonus is display-only).
-	-- Exclude Arriving/Traveling: vanilla LocalSetArrivingMercSector only co-groups mercs with equal
-	-- GetOperationTimeLeft(..., "Arriving"); a shorter ETA put Wolf in his own arrival/real squad.
+	-- Skip Traveling (squad-shared). Arriving: ProgressCompleteThreshold wrap shortens real arrival;
+	-- GetOperationTimeLeft(Arriving) already reads that threshold — do not MulDiv again.
 	local base_ops = rawget(_G, "GetOperationTimeLeft")
 	if type(base_ops) == "function" and not rawget(_G, "g_JAZZ_JackOfAllOpsBase") then
 		rawset(_G, "g_JAZZ_JackOfAllOpsBase", base_ops)
 		rawset(_G, "GetOperationTimeLeft", function(merc, operation_id, ...)
 			local t = g_JAZZ_JackOfAllOpsBase(merc, operation_id, ...)
 			if type(t) == "number" and merc and HasPerk(merc, "JackOfAllTrades")
-				and operation_id ~= "Arriving" and operation_id ~= "Traveling" then
+				and operation_id ~= "Traveling" and operation_id ~= "Arriving" then
 				local perk = merc.GetStatusEffect and merc:GetStatusEffect("JackOfAllTrades")
 				local bonus = (perk and perk.ResolveValue and perk:ResolveValue("jazz_ops_bonus")) or 33
 				t = MulDivRound(t, 100 - bonus, 100)

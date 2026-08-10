@@ -1877,27 +1877,13 @@ function LocalSetArrivingMercSector(merc_id, sector_id, days)
 	local squadToAddIn
 	for i, s in ipairs(GetPlayerMercSquads()) do
 		if s.Side == "player1" and s.CurrentSector == newMercSector and s.arrival_squad then
-
-			-- Check when the arrival will end for units in this squad
-			local willArriveWithThisSquad = true
-			for i, u in ipairs(s.units) do
-				local ud = gv_UnitData[u]
-				local left = GetOperationTimeLeft(ud, "Arriving")
-				if left ~= unitArriveTime then
-					willArriveWithThisSquad = false
-					break
-				end
-			end
-			
-			if #s.units >= const.Satellite.MercSquadMaxPeople then
-				willArriveWithThisSquad = false
-			end
-			
-			if willArriveWithThisSquad then
+			-- Arriving is per-unit (own arriving_progress). Do not require equal ETA:
+			-- JackOfAllTrades (and similar) shortens GetOperationTimeLeft and would otherwise
+			-- force a solo arrival_squad, then a separate real squad on land.
+			if #s.units < const.Satellite.MercSquadMaxPeople then
 				squadToAddIn = s
 				break
 			end
-			
 		end
 	end
 	
