@@ -41,7 +41,7 @@
 | `JackOfAllTrades` | Wolf | Спутниковые операции **−33%** времени (в т.ч. прибытие; не Traveling) |
 | `SecondStoryMan` | Magic | С высоты **+50%** крит |
 | `ShoulderToShoulder` | Scully | Конец хода рядом с союзником: **+15 Grit** себе и соседям |
-| `SteroidPunch` | Steroid | Melee CTH от Силы; melee crit → Unconscious; без штрафа стиму; **30%** урона от огня |
+| `SteroidPunch` | Steroid | Пассивка: melee CTH от Силы; melee crit → Unconscious; без штрафа стиму; **30%** урона от огня (без smash на хотбаре) |
 | `IcePerk` | Ice | Сигнатура: пять выстрелов по конечностям (текст; shot-list runtime — см. deferred) |
 | `MakeThemBleed` | Flay | +10% урона за кровоточащего врага в LOS (cap +50%) |
 | `DedicatedCamper` | Hitman | На месте: +25% урона; ≥25 урона → +15 Grit |

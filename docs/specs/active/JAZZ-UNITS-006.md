@@ -183,7 +183,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Merc                | Perk id                 | Цель                                                                              | Verdict |
 | ------------------- | ----------------------- | --------------------------------------------------------------------------------- | ------- |
 | Ice                 | `IcePerk`               | Пять выстрелов по конечностям                                                     | CHANGE  |
-| Steroid             | `SteroidPunch`          | Melee CTH from Strength all melee; crit→prone+KO; no stim pen; 30% fire dmg taken | CHANGE  |
+| Steroid             | `SteroidPunch`          | Passive: melee CTH from Strength all melee; crit→prone+KO; no stim pen; 30% fire; **no smash CA** | CHANGE  |
 | Barry               | `DesignerExplosives`    | Craft grenades; ammo/grenade craft −30%                                           | CHANGE  |
 | Blood               | `HundredKnives`         | Run and throw knives                                                              | ≈       |
 | Vicki               | `WeaponPersonalization` | Self-repair 1%/h; full-mod +dmg/+crit (vanilla magnitudes)                        | ≈       |

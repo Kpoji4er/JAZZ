@@ -23,7 +23,7 @@ Shipped in working tree / commit after this note.
 | `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100 except Traveling/Arriving; Arriving via `ProgressCompleteThreshold`; hire co-group ignores ETA match |
 | `SecondStoryMan` | High ground → +50 crit chance |
 | `ShoulderToShoulder` | End turn adjacent ally → +15 Grit self+neighbors |
-| `SteroidPunch` | All melee CTH from Strength; melee crit → Prone+Unconscious; Stimmed CTH pen cleared; ~30% fire dmg taken |
+| `SteroidPunch` | All melee CTH from Strength; melee crit → Prone+Unconscious; Stimmed CTH pen cleared; ~30% fire dmg taken; **signature CA hidden** (passive) |
 | `IcePerk` | DisplayName/Description only |
 
 ## Soft cuts / deferred

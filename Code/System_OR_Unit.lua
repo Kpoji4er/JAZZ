@@ -1640,7 +1640,8 @@ function Unit:EnumUIActions()
 		if string.match(id, "DoubleToss") then 
 			id = "DoubleToss"
 		end
-		if id and self:HasStatusEffect(id) then
+		-- UNITS-006: SteroidPunch is passive (all melee); hide vanilla smash signature.
+		if id ~= "SteroidPunch" and id and self:HasStatusEffect(id) then
 			actions[#actions + 1] = skill.id
 		end
 	end

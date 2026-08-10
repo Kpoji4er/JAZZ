@@ -20,7 +20,7 @@ JAZZ разделяет физическую защиту по покрытию,
 - `Code/UnitPropertiesStats.lua` — свойства юнита, Will и связанные derived values;
 - `Code/System_OR_Unit.lua` — damage/status/unit runtime;
 - `Code/System_Vest.lua` — классы/поведение vest, хотя отдельный Vest slot в текущем inventory-коде закомментирован;
-- `Code/GritOnStart.lua` — только `GetInitialMaxHitPoints` (75% Health / villain / BeefedUp); **Temp HP grit на CombatStart отключён** (JAZZ-MED-001);
+- `Code/GritOnStart.lua` — только `GetInitialMaxHitPoints` (**100%** Health / villain / BeefedUp); **Temp HP grit на CombatStart отключён** (JAZZ-MED-001);
 - `Code/Systems_Medicine.lua` — тиры крови, Pain/Analgesia helpers, зональные травмы API, бинт/морфий;
 - `Code/Systems_Wounds_HealWounds.lua` — лечение ран;
 - `Code/System_Wounds_OperationHeal.lua` — стратегическая операция лечения;
@@ -206,7 +206,7 @@ Zone specifics (Medium / Heavy params): Arms −20/−50 CTH; Legs +50%/+150% mo
 
 ## Grit и временное здоровье
 
-**JAZZ-MED-001:** на старте боя Temp HP grit (~25% Health) **не выдаётся**. Базовая часть HP по-прежнему вокруг 75% Health (`GetInitialMaxHitPoints`); для villains — отдельный constant modifier. Перк `TrueGrit` не связан с отключённым CombatStart grit.
+**JAZZ-MED-001:** на старте боя Temp HP grit (~25% Health) **не выдаётся**. Max HP снова = **100% Health** (`GetInitialMaxHitPoints`, как vanilla; villains — `LieutenantHpMod`). Раньше JAZZ держал базу на 75% под grit-подушку — после снятия grit это оставляло дыру −25%; закрыто. Перк `TrueGrit` не связан с отключённым CombatStart grit.
 
 ## Will Points и подавление
 

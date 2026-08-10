@@ -26,6 +26,8 @@ g_JAZZ_NamedPerks006OpsWrapped = rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") or
 g_JAZZ_JackOfAllOpsBase = rawget(_G, "g_JAZZ_JackOfAllOpsBase") or false
 g_JAZZ_JackOfAllArrivingThreshWrapped = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped") or false
 g_JAZZ_JackOfAllArrivingThreshBase = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshBase") or false
+g_JAZZ_SteroidPunchSigHidden = rawget(_G, "g_JAZZ_SteroidPunchSigHidden") or false
+g_JAZZ_SteroidPunchUIStateBase = rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") or false
 
 local function lHas(unit, perk)
 	return unit and HasPerk(unit, perk)
@@ -170,8 +172,25 @@ local function lInstallJackOfAllArrivingThresh()
 	rawset(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped", true)
 end
 
+local function lInstallSteroidPunchPassiveOnly()
+	-- Hide vanilla Steroid smash signature; perk reactions cover all melee.
+	local ca = CombatActions and CombatActions.SteroidPunch
+	if not ca or rawget(_G, "g_JAZZ_SteroidPunchSigHidden") then
+		return
+	end
+	if type(ca.GetUIState) == "function" and not rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") then
+		rawset(_G, "g_JAZZ_SteroidPunchUIStateBase", ca.GetUIState)
+	end
+	ca.ShowIn = false
+	ca.GetUIState = function(self, units, args)
+		return "hidden"
+	end
+	rawset(_G, "g_JAZZ_SteroidPunchSigHidden", true)
+end
+
 local function lInstallNamedPerks006Ops()
 	lInstallJackOfAllArrivingThresh()
+	lInstallSteroidPunchPassiveOnly()
 
 	if rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") then
 		return
