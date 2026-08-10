@@ -113,7 +113,7 @@ Regen: flag → open satellite → rebuild starting equipment for **Legion only*
 
 **Veteran** and **Mercenary** have a small chance of a secondary launcher (M79 / disposable **M72 LAW** / late China Lake). **Rocketeer** launchers roll RPG-7 or M72 LAW.
 
-Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bonemaker (medic) per 10–20 fighters** (at least one once the squad is 10+). He carries a Med Kit and **50 Meds** in loot (useful for satellite Treat Wounds).
+Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bonemaker (medic) per 10–20 fighters** (at least one once the squad is 10+). He carries a Med Kit and **50 Meds** in loot (useful for satellite Treat Wounds). Easy difficulty fields slightly more medics; Hard slightly fewer — they are the main enemy source of medical supplies.
 
 ## Strategic prices
 

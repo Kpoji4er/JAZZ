@@ -86,7 +86,7 @@ Managed Regions с `LegionAIEnabled`: **`ErnieIsland`** (`I7`, MajorSupplyPriori
 - Combat spawn (`garrison`/`patrol`/`recon`/`qrf`/`reinforce`/`support`/`major`): composition generator с **STRATEGY-016** early→mature sizes (time/heat/tier); `support` — фиксированные **4–7** (STRATEGY-024); всегда `$` + manpower;
 - **NoMaps size override:** `JAZZ_LegionRoleSizeOverrideNoMaps` — меньшие bands (patrol early 4–6 / mature 8–12; garrison **12–20**); Ernie/maps без override;
 - Logistics escorts (`tax`/`shipment`/`supply`/`recruiter`/`manpower`): composition templates at effective escort size (не сырой EnemySquadDef 15–25);
-- **Medic density (JAZZ-STRATEGY-015):** combat generator резервирует Bonemaker на effective `n`;
+- **Medic density (JAZZ-STRATEGY-015):** combat generator резервирует Bonemaker на effective `n` (`floor(n/15)`, min 1 at `n≥10`); **Easy +1 / Hard −1** vs Normal (`JAZZ_GetLegionMaxMedics`, loot);
 - **Spawn cadence (JAZZ-STRATEGY-019):** tax/recruiter только после `logistics_open_at` (новые аванпосты +**72h**); глобальный пул новых `lSpawnManaged` / **24h** = **1/2/3** при Legion major tier I/II/III; в окне: tax → recruiter → combat → supply/shipment/manpower;
 - garrison cap runtime = число важных Legion-секторов + 1; ослабленный гарнизон возвращается на базу;
 - максимум 1 managed combat spawn / **48h** / аванпост;

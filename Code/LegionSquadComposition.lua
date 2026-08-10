@@ -8,9 +8,12 @@ JAZZ_LegionOfficerDensity = {
 }
 
 -- Owner band ~1 medic / 10–20 men (2026-08-02). Mid = 15; min 1 once n >= 10.
+-- Difficulty (owner 2026-08-10): Easy +1 / Hard −1 vs Normal — Bonemaker is primary Meds loot.
 JAZZ_LegionMedicDensity = {
 	MedicPerMen = 15,
 	MedicMinSquadSize = 10,
+	EasyMedicBonus = 1,
+	HardMedicPenalty = 1,
 	UnitId = "JAZZ_Legion_FrontT1_Bonemaker",
 }
 
@@ -22,18 +25,42 @@ function JAZZ_IsLegionMedicUnit(unit_id)
 	return type(unit_id) == "string" and unit_id == JAZZ_LegionMedicDensity.UnitId
 end
 
+--- Easy/VeryEasy → +EasyMedicBonus; Hard/VeryHard → −HardMedicPenalty; else 0.
+--- Optional override: pass difficulty id string, or omit to read Game.game_difficulty.
+function JAZZ_GetLegionMedicDifficultyDelta(difficulty)
+	local diff = difficulty
+	if diff == nil and Game then
+		diff = Game.game_difficulty
+	end
+	if diff == "Easy" or diff == "VeryEasy" then
+		return JAZZ_LegionMedicDensity.EasyMedicBonus or 1
+	end
+	if diff == "Hard" or diff == "VeryHard" then
+		return -(JAZZ_LegionMedicDensity.HardMedicPenalty or 1)
+	end
+	return 0
+end
+
 --- Max Bonemaker slots for squad size n (STRATEGY-015).
-function JAZZ_GetLegionMaxMedics(squad_size)
+--- Optional difficulty: string id, or nil to use Game.game_difficulty.
+function JAZZ_GetLegionMaxMedics(squad_size, difficulty)
 	local n = tonumber(squad_size) or 0
 	if n < 1 then
 		return 0
 	end
 	local dens = JAZZ_LegionMedicDensity
 	local by_ratio = math.floor(n / dens.MedicPerMen)
+	local base
 	if n >= dens.MedicMinSquadSize then
-		return math.max(1, by_ratio)
+		base = math.max(1, by_ratio)
+	else
+		base = by_ratio
 	end
-	return by_ratio
+	local result = base + JAZZ_GetLegionMedicDifficultyDelta(difficulty)
+	if n >= dens.MedicMinSquadSize then
+		return math.max(1, result)
+	end
+	return math.max(0, result)
 end
 
 --- Max LeaderT1_Sergeant slots for squad size n.
@@ -71,13 +98,14 @@ end
 
 --- Officer caps summary for generator / debug.
 -- Returns table { sergeants, lieutenants, captains, merc_captain_required, medics }.
-function JAZZ_GetLegionOfficerCaps(squad_size, squad_tier)
+-- Optional difficulty forwarded to medic density (STRATEGY-015).
+function JAZZ_GetLegionOfficerCaps(squad_size, squad_tier, difficulty)
 	return {
 		sergeants = JAZZ_GetLegionMaxSergeants(squad_size),
 		lieutenants = JAZZ_GetLegionMaxLieutenants(squad_size),
 		captains = JAZZ_GetLegionMaxCaptains(squad_size),
 		merc_captain_required = JAZZ_LegionSquadRequiresMercenaryCaptain(squad_tier) and 1 or 0,
-		medics = JAZZ_GetLegionMaxMedics(squad_size),
+		medics = JAZZ_GetLegionMaxMedics(squad_size, difficulty),
 	}
 end
 

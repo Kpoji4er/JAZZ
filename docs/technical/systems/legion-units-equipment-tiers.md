@@ -60,7 +60,7 @@
 
 Стрелка на диаграмме означает линию дизайна/эскалации состава. В runtime нет функции, которая заменяет объект `JAZZ_Legion_*T1*` объектом `*T2*`. Конкретный public UnitData ID выбирается squad/map/spawn data.
 
-Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** друг друга (T3/T4 добавляются к line, не вычищают T1/T2). Офицеры по density: Sergeant `/8`, Lieutenant `/15–20`, Captain `/30`; `MercenaryCaptain` обязателен для T4-отрядов. Медики: `Bonemaker` — при размере отряда `n≥10` минимум 1, далее `floor(n/15)` (≈1 на 10–20).
+Strategic generator (STRATEGY-005 / 015): class-tiers **дополняют** друг друга (T3/T4 добавляются к line, не вычищают T1/T2). Офицеры по density: Sergeant `/8`, Lieutenant `/15–20`, Captain `/30`; `MercenaryCaptain` обязателен для T4-отрядов. Медики: `Bonemaker` — при размере отряда `n≥10` минимум 1, далее `floor(n/15)` (≈1 на 10–20); **Easy +1 / Hard −1** к этому числу (`JAZZ_GetLegionMedicDifficultyDelta`) — основной loot Meds.
 
 ## Таксономия UnitData
 

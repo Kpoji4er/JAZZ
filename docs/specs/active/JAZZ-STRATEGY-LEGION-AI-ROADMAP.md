@@ -43,7 +43,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-011 | Player recruit accrual + militia API (Operation hook morning Q) |
 | JAZZ-STRATEGY-012 | Base refit / wounded retreat / idle top-up for regular combat roles |
 | JAZZ-STRATEGY-013 | Persistent squads (no despawn); mission-budget rest 12–36h; patrol sector dwell; recon/QRF idle garrison assist |
-| JAZZ-STRATEGY-015 | Medic density: Bonemaker reserved ~1 / 10–20 (min 1 at n≥10, `floor(n/15)`) in combat generator |
+| JAZZ-STRATEGY-015 | Medic density: Bonemaker reserved ~1 / 10–20 (min 1 at n≥10, `floor(n/15)`); **Easy +1 / Hard −1** loot skew |
 | JAZZ-STRATEGY-016 | Early→mature squad sizes (B+C); diamond/`$` income ×0.25 (÷4); slower cadence; **NoMaps smaller size table** |
 | JAZZ-STRATEGY-017 | Tagged money cargo in inventory for tax/shipment/supply; survives loot regen; live resync |
 | JAZZ-STRATEGY-020 | Maps: `PortCacaoEnvirons` / `P17` (approved; runtime playtest open) |
@@ -125,7 +125,7 @@ Vanilla якоря:
 
 Уровни офицеров **сосуществуют** в пределах caps (не «только один командир»).
 
-**Медики (утверждено, STRATEGY-015):** `JAZZ_Legion_FrontT1_Bonemaker` — при `n≥10` минимум 1, иначе/`далее` `floor(n/15)` (≈1 на 10–20). Reserved slots в combat generator; не random line-spam.
+**Медики (утверждено, STRATEGY-015):** `JAZZ_Legion_FrontT1_Bonemaker` — при `n≥10` минимум 1, иначе/`далее` `floor(n/15)` (≈1 на 10–20). **Easy +1 / Hard −1** vs Normal (основной Meds loot). Reserved slots в combat generator; не random line-spam.
 
 **Class-tier complementarity:** T1…T4 **дополняют** состав; старший tier сильнее, но не вытесняет младших. Poor = больше T1/T2; full/elite **добавляет** T3/T4.
 
