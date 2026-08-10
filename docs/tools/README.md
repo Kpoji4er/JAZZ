@@ -163,6 +163,11 @@
 | `_retire_legion_fortress_defenders.py` | Удаляет `LegionFortressDefenders`; добавляет `FortressDefenders_NoMaps` (~16); NoMaps remap/garrison → half-size pack. |
 | `_dump_villa_squads.py` | Dump min–max composition of AroundVilla Sentry + VillaAttackers_K3/K5/L3/L4/L5 and sector Init totals. |
 | `_tighten_villa_squads.py` | Set Villa Sentry=10 + Attackers 12/13/14/15/16 (sector Normal 22–26); Easy/Hard ±10 documented in baseline. |
+| `_rewrite_legion_ernie_village.py` | Rewrite `LegionErnieVillage` (I5=60 meat+10 Pillager) + `Shooters_Easy_Ernie` (J5=40); strip Extra stacking from I5/J5 Init. |
+| `_ernie_init_dump.py` | Dump Ernie `InitialSquads` + **design-Normal** sums (gated: engine Hard; ungated always). |
+| `_apply_ernie_overflow_inits.py` | UNITS-007: Medium/Large/Extra Ernie packs (E/N/H via CheckDifficulty), Init rewire, FortressDefenders 48, retire audit. |
+| `_apply_ernie_i2_lighthouse.py` | Earlier I2 lighthouse draft (superseded by overflow apply). |
+| `_probe_ernie_init_blocks.py` | Probe `InitialSquads` by `sectorId`. |
 | `_purge_k4_house_ambushers.py` | Remove K4 `HouseAmbushers`+`Legion` AdvanceTo; insert `VillaSiege_Wave2`×25 gated by `Jazz_VillaCounterAttack.Wave2Spawn`. |
 | `_add_villa_attackers_ernie.py` | Insert `JAZZ_Legion_VillaAttackers_Ernie` base 30 + metadata. |
 | `_wire_villa_counterattack.py` | Quest `Jazz_VillaCounterAttack` + FlagHill Guests + ModItemCode/metadata. |

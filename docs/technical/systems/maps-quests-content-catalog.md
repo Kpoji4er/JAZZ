@@ -91,26 +91,27 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 |---|---|---|---|---|
 | M1 | Зона высадки | Старт кампании; ForceConflict; event `JAZZ_LegionTier` | — | — |
 | M2 | Скалистый берег | ForceConflict; квест «Спасти Кики» | — | — |
-| M4 | Смотровая площадка | Label Ernie; ForceConflict; квест повстанцев | `LegionOutlook_Easy` | — |
-| M5 | Береговая линия | ForceConflict | `LegionAttackers_JazzBalanced_Easy_Assault`, `LegionExtraSquadFireArms_T2` | — |
-| M6 | Старый порт | Прибрежный бой | 2×`LegionExtraSquadFireArms_T2`, `LegionAttackers_Marksmen_Easy`, `LegionHeavyTroops_Gunners` | — |
-| I2 | Лечебница в маяке | City ErnieVillage; три независимых wounded-маркера квеста доктора | 2×Marksmen_Easy, 2×Balanced_Easy, Mobile_Easy | — |
-| I3 | Дорога к маяку | Блокпост / тайник для квеста доктора | 3×`LegionAttackers_Balanced_Easy` | — |
-| I5 | Деревня Эрни | Главный хаб; ForceConflict; setpieces `ErnieReturn_FirstEnter`, `PierreLucTalk` | `LegionErnieVillage`, `LegionExtraSquadFireArms` | — |
+| M4 | Смотровая площадка | Label Ernie; ForceConflict; квест повстанцев | `LegionOutlook_Easy` + `LegionExtra_Ernie_Marksmen` (~25+6) | — |
+| M5 | Береговая линия | ForceConflict | `LegionErnie_Medium_Coast_A` + `LegionExtra_Ernie_Mixed` (~25+6) | — |
+| M6 | Старый порт | Прибрежный бой | `LegionErnie_Medium_Port_A` + `LegionExtra_Ernie_Gunners` (~25+6) | — |
+| I2 | Лечебница в маяке | City ErnieVillage; три независимых wounded-маркера квеста доктора | `LegionErnie_I2_Lighthouse` + `LegionExtra_Ernie_Veterans` (~25+5–7) | — |
+| I3 | Дорога к маяку | Блокпост / тайник для квеста доктора | `LegionErnie_Medium_Road_A` + `LegionExtra_Ernie_Flankers` (~25+6) | — |
+| I4 | Филер дорога | Обрыв / дорога к мосту | `LegionErnie_Medium_Road_A` + `LegionExtra_Ernie_Mixed` (~25+6) | — |
+| I5 | Деревня Эрни | Главный хаб; ForceConflict; setpieces `ErnieReturn_FirstEnter`, `PierreLucTalk` | `LegionErnieVillage` (~60 meat) | — |
 | I6 | Жестянка | Связан с liberate / fortify | — | — |
 | I6_Underground | Бункер FB45-68 | Underground I6; ForceConflict | — | — |
-| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost (`ErnieIsland`) | Target: `FortressPierre` + locked `FortressDefenders` (~48). `LegionFortressDefenders` **removed**; Ordnance drop planned | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
+| I7 | Форт Ло-Блё | Guardpost; ForceConflict; цель `TakeTheFortress`; Global AI outpost (`ErnieIsland`) | `FortressPierre` + `FortressDefenders` (design Normal **48**; E/H 38/58 via CheckDifficulty). Ordnance removed from Init | Global AI: `LegionGlobalAI_Garrison` / `_Patrol` / `_Recon`, QRF `LegionJAZZSquadT2`; legacy Patrol/Strong/Extra списки без изменений |
 | J4 | Дорога в Эрни | Переход | — | — |
-| J5 | Фермы Эрни | City ErnieVillage | FireArms, 2×Shooters_Easy, Balanced_Easy | — |
+| J5 | Фермы Эрни | City ErnieVillage | `LegionDefenders_Shooters_Easy_Ernie` (~40) | — |
 | J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; Herman groups `HermanShaking` + `Herman`; music Ernie_* | — | — |
 | K4 | Флаговый холм | Label Ernie; ForceConflict; `Jazz_VillaCounterAttack` after Emma Guests | — (no InitialSquads; Raiders map + sat siege) | — |
 | K5 | Походный лагерь Легиона | RescueTeam / RebelsSavior; после сдачи снабжения у палаток появляется `Merc_BarrySeal` | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
 | K6 | Запасной лагерь контрабандистов | City ErnieVillage; `Jazz_DeadPigs`, четыре союзника Балумбы после принятия | — | — |
-| L1 | База партизан | City Rebels_Ernie; квест MeetTheRebels | `LegionRaidSquad_01`, Heavy, `LegionJAZZSquadT2`, FireArms | — |
-| L2 | Непроходимая местность | Rebels_Ernie | MeleeV2, Melee_T2, RaidSquad_01 | — |
+| L1 | База партизан | City Rebels_Ernie; квест MeetTheRebels | `LegionErnie_Large_Outpost_B` (~40; E/H 30/70) | — |
+| L2 | Непроходимая местность | Rebels_Ernie | `LegionErnie_Medium_Forest_A` + `LegionExtra_Ernie_Melee` (~25+6) | — |
 | L5 | Походный лагерь Легиона | Около виллы | Sentry AroundVilla, `JAZZ_Legion_VillaAttackers_L5` | — |
-| L6 | Заброшенный вход в бункер | Rebels_Ernie; Luigi / underground | `Legion_Patrol_1`, Melee_T2 | — |
-| L6_Underground | Бункер партизан | Ground L6 | FireArms_T2, 2×RaidSquad_01, MeleeV2 | — |
+| L6 | Заброшенный вход в бункер | Rebels_Ernie; Luigi / underground | `LegionErnie_Medium_Forest_A` + `LegionExtra_Ernie_Flankers` (~25+6) | — |
+| L6_Underground | Бункер партизан | Ground L6 | `LegionErnie_Medium_Bunker_AB` + `LegionExtra_Ernie_Grenadiers` (~25+5–7) | — |
 | L7 | Рыбацкая деревня | City ErnieVillage | — | — |
 
 Сектора `K3`/`L3`/`L4` упоминаются квестом `Jazz_ClearTheWay`, но не попали в фильтр Erny/Ernie label; проверять отдельно при работе с виллой.
@@ -121,9 +122,11 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 
 | Squad ID | Смысл для локации | Типичный состав (сжато) |
 |---|---|---|
-| `LegionErnieVillage` | Гарнизон I5 | Много assault/pillager/crusher, marksmen, gunners (~десятки бойцов суммарно по слотам) |
-| `LegionOutlook_Easy` | M4 смотровая | ~30: 2× Grenadier, 1× Pyro, Marksman/Ambusher, Roughneck/Crusher, 1× Gunner (без T3 SkullCrusher) |
-| `LegionAttackers_JazzBalanced_Easy_Assault` | M5 | Крупный штурмовой пакет (лидеры, assault, gunners, grenadiers) |
+| `LegionErnieVillage` | Гарнизон I5 | Meat hub Normal **60**: Recruit×12, Pillager×10, Roughneck/line/crush, 1 Pyro; mostly T1 |
+| `LegionOutlook_Easy` | M4 смотровая | UNITS-007 Medium Outpost A design Normal ~25 (+ Marksmen Extra); E/H via CheckDifficulty |
+| `LegionErnie_Medium_*` / `LegionErnie_Large_Outpost_B` / `LegionErnie_I2_Lighthouse` | Ernie overflow Init | UNITS-007 base packs; design E/N/H = engine Normal/Hard/VeryHard |
+| `LegionExtra_Ernie_*` | Ernie Extra spice | Gunners/Marksmen/Grenadiers/Veterans/Melee/Flankers/Mixed (5–10) |
+| `FortressDefenders` | I7 | Locked fort roles; design Normal **48** (E38/H58 gated) |
 | `JAZZ_Legion_SentrySquad_AroundVilla` | K3/K5/L3/L4/L5 охрана | **base 10** camp guard (не уходит в осаду) |
 | `JAZZ_Legion_VillaAttackers_K3`…`_L5` | Осадные волны лагерей | movable → K4 в `Jazz_VillaCounterAttack`; wipe camp = skip |
 | `JAZZ_Legion_VillaAttackers_Ernie` | Колонна с Эрни | **base 30**, всегда; не ClearTheWay |

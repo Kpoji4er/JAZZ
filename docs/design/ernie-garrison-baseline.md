@@ -4,29 +4,146 @@ Snapshot before full Ernie / Legion squad rework. **Do not treat as target desig
 
 ## Locked targets (owner 2026-08-10)
 
-| Band | N |
-| --- | --- |
-| Typical starting garrison (one Init) | 20–30 |
-| Filler coastal (e.g. M5) | 22–26 |
-| Hub / story seed (I5, I7) | ~35–45 |
-| Extra / spice (if any) | +3–6 |
-| M1–M3 | 0 Init (map markers); ~⅓ Roughneck → Recruit on map |
-| Class mix (UnitData T1–T4) | **majority T1–T2**; **a little T3**; **T4 = 1–2 on whole island**, random spots (not per sector). **Story spend:** I7 `FortressPierre` suite = **2× Headsman** (Pierre kept). |
-| `FortressDefenders` (I7 maps) | **LOCKED** base ~48 for Ernie maps. |
-| `FortressDefenders_NoMaps` | **~16** (half of retired `LegionFortressDefenders` 32). NoMaps `SQUAD_REMAP` / garrison lists use this — not the Ernie 48 pack. |
-| `LegionFortressDefenders` | **Deleted** (was maps+NoMaps fat ~32). |
-| Difficulty size delta (future setting) | Authored **base** N (Normal). **Easy = base − 10**, **Hard = base + 10**. Applies to starting garrison / authored Init packs going forward (not a one-off for I7 only). Difficulty UI/settings = follow-up work; lock the delta now. |
-| Squad slot variance (replayability) | Authored packs use **weighted / alternate unit pools** in slots. Keep role+count stable; swap siblings within band. Anchors fixed: named story, officers/NCOs, medics, **≤1 HeavyT2_Grenadier**, Mortarman, RPG, key precision. |
+### Pack taxonomy (size × class band × Extra)
 
-**Class tier ≠ gear tier:** `JAZZ_Legion_*T1…T4*` = experience / archetype / role kit. Campaign `JAZZ_Legion_Tier` = loot/equipment progression only. Do not use Ernie class mix as a stand-in for gear tier, or vice versa.
+Обычные отряды — не «один N на остров», а **каталог паков**:
+
+**1. Size tier × difficulty (Normal = authored base)**
+
+| Size | Easy | Normal | Hard | Role |
+| --- | ---: | ---: | ---: | --- |
+| **Small** | **5** | **10** | **15** | пост / sentry / spice / thin road |
+| **Medium** | **20** | **25** | **40** | обычный гарнизон / forest / coastal / road Init |
+| **Large** | **30** | **40** | **70** | людный узел (не hub-исключения) |
+
+**Easy/Hard = сразу в authored packs (owner 2026-08-10):** цели headcount по таблице выше — **в scope UNITS-007**, не follow-up.  
+В пресете `EnemySquads` нет отдельных полей EasyAmount/HardAmount: слот считает `UnitCountMin`/`UnitCountMax` через `InteractionRandRange` (это **variance**, не game difficulty). Чтобы Easy/Normal/Hard давали **разные** суммы, на телесных ролях — **difficulty-gated слоты** (`conditions` / `Difficulty Easy|Normal|Hard` на `weightedList`, пустой list → слот пропускается) с count = E/N/H цели роли; якоря по-прежнему Min=Max и обычно на всех сложностях. Альтернатива — тонкий JAZZ-wrap `GenerateRandEnemySquadUnits` (только если gated slots окажутся слишком шумными).  
+**Slot count variance (owner):** внутри одной сложности на телесных слотах допустим рандом **±10…20%** вокруг цели роли этой сложности. Якоря (officer/medic/mortar/RPG/named/≤1 GL) — **фиксированные** Min=Max.  
+**Исключения (уже locked, не эта шкала):** I5 XL **60**, J5 **40**, villa Sentry+Attackers 22–26, quest packs.  
+Quest / story между тирами ок (CounterAttack 30, Wave2 ~25), если роль ясна.
+
+Старый глобальный «Easy = base−10 / Hard = base+10» для Init Эрни **superseded** этой таблицей (для Small/Medium/Large). Medic Easy+/Hard− (STRATEGY-015) — отдельно, не путать с body count.
+
+**2. Class band (UnitData T1–T4 experience — не gear `JAZZ_Legion_Tier`)**
+
+Каждый пак явно в одной полосе; пулы слотов не вылезают за неё (якоря story/T4 — только если band это допускает).
+
+| Band | Mix | Feel |
+| --- | --- | --- |
+| **A** | predominantly **T1–T2** | мясо / рекруты / ранний остров |
+| **B** | **T1–T2–T3** | обычный гарнизон с щепоткой ветеранов |
+| **C** | **T2–T3** | кадровые, без зелени |
+| **D** | **T2–T3–T4** | жёсткий узел / элита лагеря |
+| **E** | **T3–T4** | редкий elite / story spend |
+
+Island budget: большинство Init — **A/B**; C–E точечно. **T4** не размазывать: 1–2 на весь остров вне story, плюс явные story packs (I7 Pierre Headsman suite, L5 Headsman, …).
+
+**3. Усиления (Extra)**
+
+Отдельные добор-паки **5–10** чел. Init = **`база` + 0…1 Extra**.
+
+**Специализированные Extra** (узкий фокус):
+
+| Id (план) | Specialty |
+| --- | --- |
+| `LegionExtra_Ernie_Gunners` | MG / GMPG |
+| `LegionExtra_Ernie_Marksmen` | Marksman / Sniper (мало T3) |
+| `LegionExtra_Ernie_Grenadiers` | throwers / light demo |
+| `LegionExtra_Ernie_Veterans` | Raider / Veteran / Shock (band A–B) |
+| `LegionExtra_Ernie_Melee` | Crusher / Pillager / flank melee |
+| `LegionExtra_Ernie_Flankers` | Scout / Warden / Ambusher |
+
+**Универсальный Extra:** `LegionExtra_Ernie_Mixed` (5–10) — в слотах **широкий рандом специальностей**: gunner / sniper-marksman / grenadier / veteran-line / melee-crush (weights), без офицеров/медиков. Один ID на много секторов; replayability за счёт пулов.
+
+Правила: Extra не = второй Medium; ставить где карта велика относительно base; **не** 2×Extra. Старый `LegionExtraSquadFireArms`(15) на Эрни Init — заменить на эти 5–10 packs.  
+**UNITS-007 retire:** старые overflow-стеки (`*_Easy` Attackers/Defenders, толстые ExtraFireArms…), после смены Init и zero refs — в jazz-units `ModItemFolder` **Deprecated** (Id не hard-delete, если ещё referenced).
+
+**4. Terrain / site presets (роль локации)**
+
+Один и тот же size+band **не** значит один состав. Пресет задаёт **какие роли** в пулах (лес ≠ город ≠ аванпост):
+
+| Preset | Где | Упор в составе |
+| --- | --- | --- |
+| **Forest / bush** | дебри, река, непроходимое (L2…) | flankers, Ambusher, Scout/Warden, melee/crush, меньше open MG |
+| **Urban / village** | I5, J5, прибрежные посёлки | line rifle/marauder, Recruit/meat, Pillager/Shock в улицах, medic |
+| **Outpost / camp** | villa camps, guard posts, M4 Outlook | sentry/flank perimeter, MG, marksman, NCO; меньше чистого мяса |
+| **Fort / bunker** | I7, L6_UG… | entrenched: mortar/RPG/GL cap, gunners, officers — по story lock |
+| **Coast / road** (optional) | M5–M6, I3–I4 | thin patrol / filler; чаще S–M, band A/B |
+
+Пресет + band вместе: например Forest/**A** = зелёное мясо в кустах; Outpost/**C** = кадровый периметр без рекрутов. Не копировать Urban XL на лесной сектор.
+
+**Difficulty:** body count по size-таблице Small/Medium/Large выше. Class band / preset не сдвигаются Easy/Hard. Medic count — Easy+1 / Hard−1 (STRATEGY-015), отдельно от body.
+
+**Variance (owner lock — strong):** базовые отряды должны быть **очень вариативны по классам** (рандом внутри band+preset). Не «слот = один unitType», а **широкие weighted pools** siblings одной роли. Плюс **±10…20%** по числу тел на не-якорных слотах (`UnitCountMin`/`Max`). Стабильны только **role mean** и **якоря** (named story, officer/NCO/medic **по density**, mortar/RPG, ≤1 HeavyT2_GL, key sniper если band/preset требует). Extra-доборы тоже с пулами, разброс уже узже базы ок.
+
+**Leaders / medics = Legion Global AI density (STRATEGY-005 / 015):** authored **Init** на Эрни считает якоря **так же**, как `JAZZ_GetLegionMax*` в `Code/LegionSquadComposition.lua` (не «1 сержант на сектор»). Уровни **сосуществуют** в пределах caps. **Quest packs — исключение** (см. ниже).
+
+| Role | Formula | Unit |
+| --- | --- | --- |
+| Sergeant | `floor(n / 8)` | `LeaderT1_Sergeant` |
+| Lieutenant | `floor(n / 15)` (band ~15–20) | `LeaderT2_Lieutenant` |
+| Captain | `floor(n / 30)` | `LeaderT3_Captain` |
+| MercCaptain | обязателен только для **band E / T4-squad**, не density | `LeaderT4_MercenaryCaptain` |
+| Medic (Normal) | `n < 10` → 0; else `max(1, floor(n / 15))` | `FrontT1_Bonemaker` |
+
+**Medic × difficulty (owner lock — loot):** Bonemaker = основной источник медикаментов. Сдвиг **обратный** body-count: **Easy больше медиков**, **Hard меньше**. Wired в Global AI: `JAZZ_GetLegionMaxMedics` / STRATEGY-015 (`Easy +1` / `Hard −1`; при `n≥10` не ниже 1). Пример n=60 → **5 / 4 / 3**; n=40 → **3 / 2 / 1**. Authored Init на Эрни: medic anchors тоже Easy+/Hard− (тот же сдвиг), вместе с body E/N/H gated slots.
+
+Примеры размера (Normal): **n=10** → 1 SGT, 0 LT, 0 CPT, 1 medic · **n=20** → 2 SGT, 1 LT, 0 CPT, 1 medic · **n=40** → 5 SGT, 2 LT, 1 CPT, 2 medic · **n=60** → 7 SGT, 4 LT, 2 CPT, 4 medic. Named story bosses (Pierre, Headsman suite) **сверх** / вместо density, если sector lock так говорит.
+
+Текущие I5/J5 packs по офицерам **не** подтягиваем под AI density — **исключение** (owner): authored meat/rifle hubs. **Медики Init** на прочих секторах — по AI density; I5 уже 4 Bonemaker.
+
+**Quest packs = исключение** из officer/medic density (свой authored состав). `ErnieCounterAttack` и villa siege waves не обязаны совпадать с `floor(n/8)` и т.п.; у CounterAttack медики уже есть (3× Bonemaker) — ок как quest exception. Difficulty-сдвиг медиков на quest — по желанию отдельно, не автоматом.
+
+| Special | N / note |
+| --- | --- |
+| M1–M3 | **исключение:** 0 Init (map markers); Roughneck→Recruit — отдельный pass |
+| J4 | **исключение Init:** дорога J5↔I4; ~map markers only (нет sat InitialSquads) |
+| J6 | **исключение Init:** аванпост контрабандистов; большой map fight (~50+ markers), не Legion Init pack |
+| I5 / J5 officers | **исключение** density STRATEGY-005 |
+| I7 maps | FortressPierre + `FortressDefenders` (~48); no Ordnance / deleted `LegionFortressDefenders` stack |
+| `FortressDefenders_NoMaps` | ~16 for NoMaps remap only |
+| `LegionFortressDefenders` | **Deleted** |
+
+**Class tier ≠ gear tier:** `JAZZ_Legion_*T1…T4*` = experience / archetype / role kit. Campaign `JAZZ_Legion_Tier` = loot/equipment progression only.
 
 **I7 Init target shape (LOCKED):** only `FortressPierre` (Pierre + Headsman suite) + **`FortressDefenders` (base 48)**. **Do not** stack `LegionFortressDefenders` or `LegionAttackers_Ordnance_Easy` — the locked Defenders pack already covers balanced fort defense (incl. mortar / RPG / single GL).
 
-**Difficulty (owner lock):** size bands in this doc are **Normal base**. Easy/Hard shift body count by **±10** once difficulty settings exist; class-mix rules (T1–T2 majority, little T3, island T4 budget) stay unless overridden per pack. Applies to authored Init **and** quest punitive packs (e.g. `ErnieCounterAttack`).
+### Assigned so far (taxonomy tags)
+
+| Pack / sector | Size | Band | Preset | Notes |
+| --- | --- | --- | --- | --- |
+| I5 `LegionErnieVillage` | XL ~60 | **A** | **Urban** | Recruit+Pillager meat; no Extra |
+| J5 `Shooters_Easy_Ernie` | L ~40 | **A/B** | **Urban** | farms/village rifle; no Extra |
+| Villa Sentry | S ~10 | A/B | **Outpost** | stays on camp |
+| VillaAttackers_* | S–M 12–16 | varies | **Outpost** | siege waves; Ranger→Headsman |
+| `ErnieCounterAttack` | ~30 | B | Urban→I5 | quest I7→I5 |
+| `FortressDefenders` | ~48 | B/C | **Fort** | I7 maps; **applied** UNITS-007 (E/N/H 38/48/58) |
+
+Remaining Init — тег **size × band × preset × Extra?**; перегибы → [`JAZZ-UNITS-007`](../specs/active/JAZZ-UNITS-007.md).
+
+### UNITS-007 overflow targets (Normal; band A unless noted)
+
+Size = Small/Medium/Large per owner table (E/N/H = 5–10–15 / 20–**25**–40 / 30–**40**–70).
+
+| Sector | Target Normal | Size | Band | Preset | Extra (0…1, 5–10) |
+| --- | ---: | --- | --- | --- | --- |
+| M4 | **25** | Medium | A | Outpost | `Marksmen` (смотровая) |
+| M5 | **25** | Medium | A | Coast | `Mixed` (скалы/заброс, карта тянет) |
+| M6 | **25** | Medium | A | Coast/port | `Gunners` (порт) |
+| I2 | **25+Veterans** | Medium+Extra | **B** | Outpost | `Veterans` **light** (5–7, не жирный 10) → сумма ~30–32 |
+| I3 | **25+Flankers** | Medium+Extra | A | Road | `Flankers` (мост) |
+| I4 | **25** | Medium | A | Road | `Mixed` (длинный обрыв) |
+| L1 | **40** | Large | **B** | Outpost | — (Large сам по себе) |
+| L2 | **25** | Medium | A | Forest | `Melee` (гора/дебри) |
+| L6 | **25** | Medium | A | Forest | `Flankers` |
+| L6_UG | **25** | Medium | A/B | Fort | `Grenadiers` или `Gunners` |
+| I7 | Pierre+48 | Fort | **B** | Fort | — (Defenders covers) |
+
+Island: mostly **A**; keys **B** with little T3. Apply pending UNITS-007.
 
 ### LOCKED `ErnieCounterAttack` (quest I7→I5; Normal base **30**; owner 2026-08-10)
 
-Soft-nerf vs old ~37 (NoMaps complaints: too big/strong). Easy **20** / Hard **40** when difficulty settings exist.
+Soft-nerf vs old ~37 (NoMaps complaints: too big/strong). Easy **20** / Hard **40** — same gated-slot approach as UNITS-007 (quest exception on officers/medics density).
 
 | N | Unit |
 |--:|---|
@@ -82,41 +199,85 @@ Shared `JAZZ_Legion_SentrySquad_AroundVilla` **base 10** (camp guard; stays) + s
 
 Applied camp sizes via `docs/tools/_tighten_villa_squads.py`. Counts fixed (Min=Max); role variance stays in weighted pools.
 
+### LOCKED `LegionErnieVillage` (I5; Normal base **60**; owner 2026-08-10)
+
+Meat hub — largest island Init. Mostly T1 + Recruit; up to **10 Pillager**; few pyro; little T2–T3 spice. Init = this pack only (no Extra stacking). Easy 50 / Hard 70 later.
+
+| N | Unit |
+|--:|---|
+| 1 | `LeaderT1_Sergeant` |
+| **4** | **`FrontT1_Bonemaker`** (AI density `floor(60/15)`) |
+| 12 | `JAZZ_Legion_Recruit` |
+| 8 | `AssaultT1_Roughneck` |
+| 6 | Marauder / Rifleman pool |
+| 6 | Crusher (SkullCrusher low weight) |
+| **10** | **`AssaultT2_Pillager`** |
+| 2 | `AssaultT1_Grenadier` |
+| 2 | `FrontT2_Raider` |
+| 2 | Shock / Pillager pool |
+| 1 | `AssaultT2_Pyro` |
+| 2 | Marksman / Rifleman |
+| 2 | Ambusher (Sniper low weight) |
+| 2 | Gunner / GMPG |
+
+**Total 60.** Applied via `docs/tools/_rewrite_legion_ernie_village.py`.
+
+### LOCKED `LegionDefenders_Shooters_Easy_Ernie` (J5 farms; Normal base **40**)
+
+Second-largest island Init. More rifle line than I5; still meat+Recruit. J5 Init = this pack only. Easy 30 / Hard 50 later. Same apply script.
+
 Policy: with Legion Global AI, static `InitialSquads` = starting garrisons or quest packs — not the living army. Living pressure = AI (patrol / reinforce / QRF).
+
+## Owner sector map (Ernie grid, 2026-08-10)
+
+Канон описаний владельца (для preset/ролей). Где `display_name` в `jazz-maps` расходится — в скобках факт items.
+
+| | I | J | K | L | M |
+| --- | --- | --- | --- | --- | --- |
+| **2** | I2 жильё доктора / бывшие укр. | — море — | — | L2 гора, водопад, оттоки | M2 скалистый берег / побережье |
+| **3** | I3 мост/дорога над рекой | — | K3 лагерь Легиона 1 | L3 лагерь Легиона 2 | M3 **водопад** (актуально) |
+| **4** | I4 филер дорога Эрни–мост, обрыв | J4 дорога J5→I4 | K4 Флаговый холм | L4 лагерь Легиона 3 | M4 смотровая |
+| **5** | I5 деревня Эрни (берег) | J5 фермы / деревня без берега | K5 лагерь Легиона 5 | L5 лагерь Легиона 4 | M5 заброс, скалы |
+| **6** | I6 Жестянка | J6 дорога контрабандистов *(OK)* | K6 резерв. лагерь контрабандистов | L6 бункер (+UG) | M6 **Старый порт** |
+| **7** | I7 Форт Ло-Блё | J7 Изумрудный берег | K7 сожж. деревня / скалистый берег | L7 малая береговая деревня | — заглушка — |
+| **1** | — | — | — | L1 лагерь повстанцев | M1 зона высадки |
+
+**Init scope:** перегибы UNITS-007 = M4–M6, I2–I4, L1–L2, L6/UG, I7.  
+**Исключения Init:** M1–M3 map-only; J4/J6 map-only; I5/J5 size+officers locked/exception; villa K3/K5/L3–L5 locked; I6/J7/K6/K7/L7 — отдельно (часто 0 Init или non-Legion map).
 
 ## Counts by sector
 
 | Sector | Name | Init sum | Init packs | Patrol/Strong/Extra | Map enemies≈ | Notes |
 | --- | --- | ---: | --- | --- | ---: | --- |
 | M1 | Зона высадки | 0 | — | — | 1 | Стартовый берег; map-only enemies |
-| M2 | Скалистый берег | 0 | — | — | 24 | Филер_2я локация; map-only enemies |
-| M3 | Водопад | 0 | — | — | 33 | Водопад; map-only enemies |
-| M4 | The Outlook | 30 | LegionOutlook_Easy(30) | — | 0 | Смотровая площадка |
-| M5 | Береговая линия | 53 | LegionAttackers_JazzBalanced_Easy_Assault(35), LegionExtraSquadFireArms_T2(18) | — | 0 | Филер по пути к пляжу |
-| M6 | Старый порт | 36 | LegionExtraSquadFireArms_T2(18), LegionAttackers_Marksmen_Easy(12), LegionHeavyTroops_Gunners(6) | — | 0 | Филер_2 по пути к пляжу |
-| I2 | Лечебница в маяке | 32 | LegionAttackers_Marksmen_Easy(12), LegionAttackers_Balanced_Easy(8), LegionDefenders_Mobile_Easy(12) | — | 0 | Маяк доктора |
-| I3 | Дорога к маяку | 8 | LegionAttackers_Balanced_Easy(8) | — | 0 | Мост в Эрни |
-| I4 | Дорога на маяк | 8 | LegionDefenders_Entrenched_Easy(8) | — | 0 | Дорога на острове эрни |
-| I5 | Village of Ernie | 61 | LegionErnieVillage(46), LegionExtraSquadFireArms(15) | — | 10 | Деревня Эрни |
+| M2 | Скалистый берег | 0 | — | — | 24 | map-only |
+| M3 | Водопад | 0 | — | — | 33 | map-only; водопад здесь |
+| M4 | The Outlook | 30 | LegionOutlook_Easy(30) | — | 0 | Смотровая |
+| M5 | Береговая линия | 53 | … | — | 0 | UNITS-007 Medium → **25** |
+| M6 | Старый порт | 54 | … | — | 0 | UNITS-007 Medium → **25** |
+| I2 | Лечебница в маяке | 32 | Marksmen / Balanced / Mobile stacks | — | 0 | жильё доктора / бывш. укр.; UNITS-007 B ~20–22 |
+| I3 | Дорога к маяку | 8 | Balanced_Easy stack | — | 0 | Medium → **25** |
+| I4 | Дорога на маяк | 8 | Entrenched_Easy stack | — | 0 | Medium → **25** |
+| I5 | Village of Ernie | **60** | LegionErnieVillage(60) | — | 10 | LOCKED meat hub; берег |
 | I6 | The Rust | 0 | — | — | 0 | Жестянка |
 | I6_Underground | Bunker FB45-68 | 0 | — | — | 0 | Бункер_Жестянки |
-| I7 | Fort L'Eau Bleu | (pre-rework snapshot) | … | … | 0 | **Target Init:** only FortressPierre + FortressDefenders(48). Drop LegionFortressDefenders + Ordnance |
-| J4 | Дорога в Эрни | 0 | — | — | 4 | Дорога; map-only enemies |
-| J5 | Фермы Эрни | 56 | LegionExtraSquadFireArms(15), LegionDefenders_Shooters_Easy(33), LegionDefenders_Balanced_Easy(8) | — | 0 | Фермы Эрни |
-| J6 | Аванпост контрабандистов | 0 | — | — | 55 | Аванпост туда ходи; map-only enemies |
+| I7 | Fort L'Eau Bleu | (pre-rework) | Pierre + Defenders + Ordnance… | — | 0 | Target: Pierre + Defenders(48); drop Ordnance |
+| J4 | Дорога в Эрни | 0 | — | — | 4 | J5→I4; map-only |
+| J5 | Фермы Эрни | **40** | Shooters_Easy_Ernie(40) | — | 0 | LOCKED; деревня без берега |
+| J6 | Аванпост контрабандистов | 0 | — | — | 55 | дорога контрабандистов; map-only; **owner OK — не трогать** |
 | J7 | Emerald Coast | 0 | — | — | 0 | Изумрудный берег |
-| K3 | Походный лагерь Легиона | **22** | Sentry(10) + VillaAttackers_K3(12) | — | 0 | LOCKED Normal; Easy 12 / Hard 32 |
-| K4 | Flag Hill | (map Raiders) | — | — | ~24 Raiders | HouseAmbushers AdvanceTo **purged**; siege = sat `Jazz_VillaCounterAttack` |
-| K5 | Походный лагерь Легиона | **23** | Sentry(10) + VillaAttackers_K5(13) | — | 2 | LOCKED Normal; Easy 13 / Hard 33 |
-| K6 | Запасной лагерь Контрабандистов | 0 | — | — | 91 | Запасной лагерь Контрабандистов; map-only enemies |
-| L1 | База партизан на острове Эрни | 65 | LegionRaidSquad_01(6), LegionHeavyTroops(10), LegionJAZZSquadT2(34), LegionExtraSquadFireArms(15) | — | 0 | База партизан на острове |
-| L2 | Непроходимая местность | 27 | LegionExtraSquadMeleeV2(7), LegionExtraSquadMelee_T2(14), LegionRaidSquad_01(6) | — | 0 | Река, дебри |
-| L3 | Походный лагерь Легиона | **24** | Sentry(10) + VillaAttackers_L3(14) | — | 0 | LOCKED Normal; Easy 14 / Hard 34 |
-| L4 | Походный лагерь Легиона | **25** | Sentry(10) + VillaAttackers_L4(15) | — | 1 | LOCKED Normal; Easy 15 / Hard 35 |
-| L5 | Походный Лагерь Легиона | **26** | Sentry(10) + VillaAttackers_L5(16) | — | 1 | LOCKED Normal; Easy 16 / Hard 36 |
-| L6 | Заброшенный вход в бункер | 30 | Legion_Patrol_1(16), LegionExtraSquadMelee_T2(14) | — | 0 | Вход в бункер, соединенный с L1 |
-| L6_Underground | Бункер партизан | 31 | LegionExtraSquadFireArms_T2(18), LegionRaidSquad_01(6), LegionExtraSquadMeleeV2(7) | — | 0 | Бункер партизан |
-| L7 | Рыбацкая деревня | 0 | — | — | 0 | Небольшая рыбацкая деревня |
+| K3 | Походный лагерь Легиона | **22** | Sentry(10)+Attackers_K3(12) | — | 0 | лагерь 1; LOCKED |
+| K4 | Flag Hill | (map Raiders) | — | — | ~24 | Флаговый холм; siege QUESTS-003 |
+| K5 | Походный лагерь Легиона | **23** | Sentry+Attackers_K5 | — | 2 | лагерь 5; LOCKED |
+| K6 | Запасной лагерь Контрабандистов | 0 | — | — | 91 | резервный лагерь; map-only |
+| L1 | База партизан | 65 | Raid+Heavy+JAZZT2+Extra | — | 0 | Large → **40** |
+| L2 | Непроходимая местность | 27 | Melee+Raid | — | 0 | Forest Medium → **25** (E20/H40) |
+| L3 | Походный лагерь Легиона | **24** | Sentry+Attackers_L3 | — | 0 | лагерь 2; LOCKED |
+| L4 | Походный лагерь Легиона | **25** | Sentry+Attackers_L4 | — | 1 | лагерь 3; LOCKED |
+| L5 | Походный Лагерь Легиона | **26** | Sentry+Attackers_L5 | — | 1 | лагерь 4; LOCKED |
+| L6 | Вход в бункер | 30 | Patrol+Melee | — | 0 | Medium → **25** |
+| L6_Underground | Бункер партизан | 31 | FireArms+Raid+Melee | — | 0 | Medium → **25** |
+| L7 | Рыбацкая деревня | 0 | — | — | 0 | малая береговая деревня |
 
 ## Notes on measurement
 
