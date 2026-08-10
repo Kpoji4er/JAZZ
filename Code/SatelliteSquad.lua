@@ -1877,9 +1877,8 @@ function LocalSetArrivingMercSector(merc_id, sector_id, days)
 	local squadToAddIn
 	for i, s in ipairs(GetPlayerMercSquads()) do
 		if s.Side == "player1" and s.CurrentSector == newMercSector and s.arrival_squad then
-			-- Arriving is per-unit (own arriving_progress). Do not require equal ETA:
-			-- JackOfAllTrades (and similar) shortens GetOperationTimeLeft and would otherwise
-			-- force a solo arrival_squad, then a separate real squad on land.
+			-- Arriving is per-unit, but JackOfAllTrades must not speed Arriving (dual timeline).
+			-- Still co-group by sector/capacity so hire never splits a solo arrival_squad.
 			if #s.units < const.Satellite.MercSquadMaxPeople then
 				squadToAddIn = s
 				break

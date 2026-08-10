@@ -38,7 +38,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `YouSeeIgor` | Ivan | Kill → **+3 AP** |
 | `WeGotThis` | Gus | Kill → **+10 Grit** to whole squad |
 | `NailsPerk` | Nails | After first kill in combat **+20%** damage |
-| `JackOfAllTrades` | Wolf | Satellite ops **−33%** time (incl. arrival; not Traveling) |
+| `JackOfAllTrades` | Wolf | Satellite ops **−33%** time (not arrival/Traveling) |
 | `SecondStoryMan` | Magic | From high ground **+50%** crit |
 | `ShoulderToShoulder` | Scully | End turn next to ally: **+15 Grit** to self and neighbors |
 | `SteroidPunch` | Steroid | Passive: melee CTH from Strength; melee crit → Unconscious; no stim pen; **30%** fire damage taken (no hotbar smash) |

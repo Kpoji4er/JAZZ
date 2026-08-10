@@ -20,7 +20,7 @@ Shipped in working tree / commit after this note.
 | `YouSeeIgor` | Kill → +3 AP |
 | `WeGotThis` | Kill → +10 Grit squad |
 | `NailsPerk` | After first kill → +20% damage until combat end |
-| `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100 except Traveling/Arriving; Arriving via `ProgressCompleteThreshold`; hire co-group ignores ETA match |
+| `JackOfAllTrades` | `GetOperationTimeLeft` ×(100−33)/100 except Traveling/Arriving; no Arriving threshold wrap (one ETA in shared arrival squad); hire co-group ignores ETA match |
 | `SecondStoryMan` | High ground → +50 crit chance |
 | `ShoulderToShoulder` | End turn adjacent ally → +15 Grit self+neighbors |
 | `SteroidPunch` | All melee CTH from Strength; melee crit → Prone+Unconscious; Stimmed CTH pen cleared; ~30% fire dmg taken; **signature CA hidden** (passive) |
@@ -30,7 +30,7 @@ Shipped in working tree / commit after this note.
 
 - **Ice**: five-limb shot list still vanilla CombatAction engine; CE text only (batch 3+ if CA rewrite needed).
 - **Steroid fire dmg**: heuristic hit/action/weapon flags; not every Burning surface path guaranteed.
-- **Wolf ops**: wraps `GetOperationTimeLeft` (skip Traveling/Arriving double-count) + Arriving `ProgressCompleteThreshold`; `LocalSetArrivingMercSector` co-groups without equal ETA.
+- **Wolf ops**: wraps `GetOperationTimeLeft` (skip Traveling/Arriving); no Arriving threshold speed — shared arrival_squad keeps one timeline; `LocalSetArrivingMercSector` co-groups without equal ETA.
 - Loc IDs `890000000006500–6515` (outside VR-clogged 6300–6499 exclusive band).
 
 ## Validate
