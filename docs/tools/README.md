@@ -8,6 +8,7 @@
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
 | `_audit_ai_rng_wiring.py` | Brace-aware RunAndGun wiring audit: real vs default MobileShot, keyword gates, `AIAttackSingleTarget` action_ids. |
 | `_apply_ai_act005_mobile_signatures.py` | ACT-005: strip `RequiredKeywords` Control/RunAndGun/MobileShot from `AIActionMobileShot` in `jazz-units/items.lua` (weapon gate owns availability). |
+| `_apply_mobile_action_damage_ui.py` | Fix AimType=mobile `GetActionDamage` (RnG/Carbine/SMGStorm/ManeuverAR/MobileShot) + RnG `GetActionResults` num_shots; uses `Jazz_GetMobileActionDamage` in `Code/CombatActions.lua`. |
 | `_normalize_ernie_flare_carriers.py` | Set Ernie island `Min/MaxFlareCarriers` to 12/15 in `jazz-maps/items.lua` (ModItemSector + HotDiamonds SatelliteSector). |
 | `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |
 | `_check_bullethell_autofire_gate.py` | Static: `JazzWrapBulletHellAutofireGate` present; AN94 keeps `AbakanAutoFire` without vanilla `AutoFire`. |
@@ -161,6 +162,7 @@
 | `_rebalance_magazine_tiers.py` | Магазины: small / standard / expanded(no-tax) / large(tax). Канон: `docs/design/magazine-tiers.md`. |
 | `_apply_mag_size_set.py` | JAZZ-ATTACH-001 MagSizeSet: добавляет effect/resource/localization, разрезает generic `JAZZ_MagLarge` на абсолютные варианты, rewires items + companions и проверяет отсутствие live mag multiplier. `--apply` пишет `.bak`. |
 | `_gen_setweaponcomponent_override.py` | Генерирует `Code/System_WeaponComponent_Set.lua` из vanilla `FirearmBase:SetWeaponComponent` + ветка `ModificationType=Set` (`mul=1000`, `add=N−base`). |
+| `_apply_grizzly_perk_full_damage.py` | GrizzlyPerk: `dmg_penalty` −50→0 + sync CE description in `items.lua`. |
 | `_apply_haveablast_fix.py` | HaveABlast: sync CE reactions/description into `items.lua` (optional helper; primary edit is companion + items). |
 | `_audit_mag_size_set_defaults.py` | Список оружия с default-магазином на `MagazineSizeSet` (поверхность бага MagSize=1 при `mul=0`). |
 | `_validate_wave_weapons.py` | Статическая валидация волны ATTACH-001 MagSizeSet + WEAPONS-002..005 (якоря, metadata load, loc, CSV). |
@@ -172,11 +174,16 @@
 | `_verify_nomaps_unit_remap_named_skip.py` | COMPAT-004: static mirror remap families — Bastien skip; `WeakFlagHill`→assault; `*_Tutorial` stems; Hyena skip. |
 | `_verify_nomaps_fortress_pierre_squad.py` | NoMaps: `FortressPierre` must stay out of `SQUAD_REMAP` (vanilla Pierre boss; not `LegionJAZZSquadT2`). |
 | `_retire_legion_fortress_defenders.py` | Удаляет `LegionFortressDefenders`; добавляет `FortressDefenders_NoMaps` (~16); NoMaps remap/garrison → half-size pack. |
+| `_apply_ernie_counterattack_nomaps.py` | Adds `ErnieCounterAttack_NoMaps` (20, no mortar) + NoMaps `SQUAD_REMAP` from `ErnieCounterAttack`. |
 | `_dump_villa_squads.py` | Dump min–max composition of AroundVilla Sentry + VillaAttackers_K3/K5/L3/L4/L5 and sector Init totals. |
 | `_tighten_villa_squads.py` | Set Villa Sentry=10 + Attackers 12/13/14/15/16 (sector Normal 22–26); Easy/Hard ±10 documented in baseline. |
 | `_rewrite_legion_ernie_village.py` | Rewrite `LegionErnieVillage` (I5=60 meat+10 Pillager) + `Shooters_Easy_Ernie` (J5=40); strip Extra stacking from I5/J5 Init. |
-| `_ernie_init_dump.py` | Dump Ernie `InitialSquads` + **design-Normal** sums (gated: engine Hard; ungated always). |
-| `_apply_ernie_overflow_inits.py` | UNITS-007: Medium/Large/Extra Ernie packs (E/N/H via CheckDifficulty), Init rewire, FortressDefenders 48, retire audit. |
+| `_ernie_init_dump.py` | Dump Ernie ModItemSector `InitialSquads` + **design-Normal** sums (gated: engine Hard; ungated always). Does not cross ModItemSector boundaries. |
+| `_sync_ernie_campaign_inits.py` | Sync HotDiamonds CampaignPreset Ernie Init → ModItemSector canon (UNITS-007 + locked hubs); clear map-only I6/J6/L7/K4/K6. Dry-run / `--apply`. Edits only CampaignPreset span + ModItem clears. |
+| `_audit_ernie_empty_squad_risk.py` | Ernie Init empty-spawn risk + Campaign vs ModItem drift (boundary-safe). |
+| `_fix_ernie_mixed_per_unit.py` | `LegionExtra_Ernie_Mixed`: split 6–9 into per-unit slots (vanilla rolls type once per EnemySquadUnit). |
+| `_fix_checkdifficulty_storeastable.py` | Mass-fix `CheckDifficulty` `'Difficulty', "X"` → `Difficulty = "X"` (FunctionObject StoreAsTable=true; prevents load assert). Also syncs CampaignPreset M4 Init + Extra. Dry-run / `--apply`. |
+| `_audit_units_squad_load.py` | Audit jazz-units CheckDifficulty format + M4 InitialSquads ModItemSector vs CampaignPreset drift. |
 | `_apply_ernie_i2_lighthouse.py` | Earlier I2 lighthouse draft (superseded by overflow apply). |
 | `_probe_ernie_init_blocks.py` | Probe `InitialSquads` by `sectorId`. |
 | `_purge_k4_house_ambushers.py` | Remove K4 `HouseAmbushers`+`Legion` AdvanceTo; insert `VillaSiege_Wave2`×25 gated by `Jazz_VillaCounterAttack.Wave2Spawn`. |
@@ -222,7 +229,7 @@
 | `_audit_long_scopes.py` | Снимок long-scope профилей (данные). |
 | `_calib_optic_targets.py` | Старая калибровка рычагов ×1.2 (исторически АКМ). |
 | `_rebalance_long_scope_ow.py` | Длинная оптика: `ScopeOverwatchAngle`% уже по кратности (больше зум → уже OW). |
-| `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, **raw newline inside quoted strings**, UTF-8/Windows-1251 mojibake в metadata, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
+| `_validate_items_quick.py` | Быстрый структурный check `items.lua`/`metadata.lua` (lone commas, braces, stacked closers, **missing comma before PlaceObj**, **raw newline inside quoted strings**, **CheckDifficulty StoreAsTable-false**, UTF-8/Windows-1251 mojibake в metadata, corrupt `id = }),`) без JA3. **Обязателен после mass apply / family split**. Опционально: `python docs/tools/_validate_items_quick.py [pkg…]` (напр. `.` и `../jazz-units`). |
 | `_fix_bobbyray_string_tier.py` | Bobby Ray: `Tier = "4"`/`'Tier', "5"` → numeric в `items.lua` + `InventoryItem/*.lua` (иначе `PrepareShopItemsForRestock` Assert string≤number). Dry-run / `--apply`. |
 | `_fix_ame_callsign_in_name.py` | AME callsign в `Name`: `Didier Mbemba`+Nick `Smoke` → `Didier "Smoke" Mbemba` / `Дидье "Дым" Мбемба` (vanilla single-quoted `T`). Companions + `jazz-units/items.lua` + RU/EN. Dry-run / `--apply`. |
 | `_apply_strategy_021_great_desert.py` | STRATEGY-021: `GreatDesert` Region + PortCacao `LateAwakenMinTier`/Starting* =0 в `jazz/items.lua` + metadata resource. |

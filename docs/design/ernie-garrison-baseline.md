@@ -55,7 +55,7 @@ Island budget: большинство Init — **A/B**; C–E точечно. **
 | `LegionExtra_Ernie_Melee` | Crusher / Pillager / flank melee |
 | `LegionExtra_Ernie_Flankers` | Scout / Warden / Ambusher |
 
-**Универсальный Extra:** `LegionExtra_Ernie_Mixed` (5–10) — в слотах **широкий рандом специальностей**: gunner / sniper-marksman / grenadier / veteran-line / melee-crush (weights), без офицеров/медиков. Один ID на много секторов; replayability за счёт пулов.
+**Универсальный Extra:** `LegionExtra_Ernie_Mixed` (6–9) — **по одному роллу на юнита** из пула специальностей (gunner / marksman / grenadier / raider / crusher / scout). Не один `EnemySquadUnit` 6–9: ванильный `GenerateRandEnemySquadUnits` иначе берёт тип один раз и клонирует → монотип в UI. Без офицеров/медиков. Один ID на много секторов.
 
 Правила: Extra не = второй Medium; ставить где карта велика относительно base; **не** 2×Extra. Старый `LegionExtraSquadFireArms`(15) на Эрни Init — заменить на эти 5–10 packs.  
 **UNITS-007 retire:** старые overflow-стеки (`*_Easy` Attackers/Defenders, толстые ExtraFireArms…), после смены Init и zero refs — в jazz-units `ModItemFolder` **Deprecated** (Id не hard-delete, если ещё referenced).
@@ -118,7 +118,8 @@ Island budget: большинство Init — **A/B**; C–E точечно. **
 | J5 `Shooters_Easy_Ernie` | L ~40 | **A/B** | **Urban** | farms/village rifle; no Extra |
 | Villa Sentry | S ~10 | A/B | **Outpost** | stays on camp |
 | VillaAttackers_* | S–M 12–16 | varies | **Outpost** | siege waves; Ranger→Headsman |
-| `ErnieCounterAttack` | ~30 | B | Urban→I5 | quest I7→I5 |
+| `ErnieCounterAttack` | ~30 | B | Urban→I5 | quest I7→I5 (maps) |
+| `ErnieCounterAttack_NoMaps` | **20**, no mortar | B | Urban→I5 | NoMaps remap of quest pack |
 | `FortressDefenders` | ~48 | B/C | **Fort** | I7 maps; **applied** UNITS-007 (E/N/H 38/48/58) |
 
 Remaining Init — тег **size × band × preset × Extra?**; перегибы → [`JAZZ-UNITS-007`](../specs/active/JAZZ-UNITS-007.md).

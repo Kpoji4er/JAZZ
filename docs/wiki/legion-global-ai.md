@@ -10,7 +10,7 @@
 
 Эта страница описывает наблюдаемое поведение. Внутренние ID и код — в [технической документации](../technical/systems/strategy-squads-sectors.md).
 
-Квестовая контратака на деревню Эрни (`Ernie_CounterAttack` → squad `ErnieCounterAttack`) после освобождения деревни при живом форте снова уходит с аванпоста как **единственная** scripted sat-атака: ~37 бойцов, **1** ракетчик (РПГ), **2** гренадёра T1 (метатели, не ручной ГП) + **1** миномётчик. Обычные ванильные периодические вылазки Guardpost с managed форта под Global AI / Vanilla Maps **не** возвращаются. Generic Legion Retribution (`major`) этим составом не трогается.
+Квестовая контратака на деревню Эрни (`Ernie_CounterAttack` → squad `ErnieCounterAttack`) после освобождения деревни при живом форте снова уходит с аванпоста как **единственная** scripted sat-атака: на maps ~**30** бойцов (РПГ + 2 гренадёра T1 + миномёт); на **Vanilla Maps** remap → `ErnieCounterAttack_NoMaps` (~**20**, без миномёта). Обычные ванильные периодические вылазки Guardpost с managed форта под Global AI / Vanilla Maps **не** возвращаются. Generic Legion Retribution (`major`) этим составом не трогается.
 
 ## Роли отрядов
 
