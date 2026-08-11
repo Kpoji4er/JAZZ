@@ -155,6 +155,29 @@ function FirearmBase:SetWeaponComponent(slot, id, is_init)
 	ObjModified(self)
 end
 
+-- MP40 is MagNormal-only (32). Legacy MagLarge_50_MP40 from GenW loot / old saves → reseat.
+local JazzObsoleteMagazineReseat = {
+	JAZZ_MagLarge_50_MP40 = "JAZZ_MagNormal",
+}
+
+local function JazzReseatObsoleteMagazineOnFirearm(weapon)
+	if not IsKindOf(weapon, "FirearmBase") then
+		return
+	end
+	local mag_id = weapon.components and weapon.components.Magazine
+	local replacement = mag_id and JazzObsoleteMagazineReseat[mag_id]
+	if not replacement then
+		return
+	end
+	local had_broken_one = weapon.ammo and (weapon.ammo.Amount or 0) <= 1
+	weapon:SetWeaponComponent("Magazine", replacement, "init")
+	if had_broken_one and weapon.ammo and (weapon.MagazineSize or 0) > 1 then
+		weapon.ammo.Amount = weapon.MagazineSize
+	elseif weapon.ammo and (weapon.ammo.Amount or 0) > (weapon.MagazineSize or 0) then
+		weapon.ammo.Amount = weapon.MagazineSize
+	end
+end
+
 -- Old MagSizeSet used mul=0 → MagSize 0/1. Re-seat magazine comps so saves get N.
 local function JazzFirearmHasBrokenMagSizeSet(weapon)
 	for _, data in ipairs(weapon.applied_modifiers or empty_table) do
@@ -204,6 +227,7 @@ local function JazzHealMagazineSizeSetEverywhere()
 			return
 		end
 		container:ForEachItem("FirearmBase", function(item)
+			JazzReseatObsoleteMagazineOnFirearm(item)
 			JazzHealMagazineSizeSetOnFirearm(item)
 		end)
 	end

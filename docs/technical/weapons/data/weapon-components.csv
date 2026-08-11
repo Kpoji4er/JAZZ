@@ -132,7 +132,6 @@ JAZZ_MagLarge_30_42,Магазин на 42 патрона,Magazine,25,0,Increase
 JAZZ_MagLarge_30_45,Магазин на 45 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=45;ReloadAPIncrease=1,,Clip,4,jazz,working-tree
 JAZZ_MagLarge_50,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,0,jazz,working-tree
 JAZZ_MagLarge_50_AR15,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,7,jazz,working-tree
-JAZZ_MagLarge_50_MP40,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,1,jazz,working-tree
 JAZZ_MagLarge_50_MP5,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,5,jazz,working-tree
 JAZZ_MagLarge_50_SIG,Расширенный магазин,Magazine,40,0,IncreaseReloadAP;MagazineSizeSet;ReduceAimAccuracy15Percent;ReduceReliability,MagazineSize=50;ReliabilityDecrease=15;ReloadAPIncrease=2,,Clip,6,jazz,working-tree
 JAZZ_MagLarge_5_10,Магазин на 10 патрон,Magazine,25,0,IncreaseReloadAP;MagazineSizeSet,MagazineSize=10;ReloadAPIncrease=1,,Clip,1,jazz,working-tree

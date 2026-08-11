@@ -21811,7 +21811,6 @@ PlaceObj('ModItemEmail', {
 							'Modifiable', false,
 							'AvailableComponents', {
 								"JAZZ_MagNormal",
-								"JAZZ_MagLarge_50_MP40",
 							},
 							'DefaultComponent', "JAZZ_MagNormal",
 						}),
@@ -52091,54 +52090,7 @@ PlaceObj('WeaponComponentVisual', {
 							group = "Clip",
 							id = "JAZZ_MagLarge_50_AR15",
 						}),
-PlaceObj('ModItemWeaponComponent', {
-							Cost = 40,
-							DisplayName = T(213094233610, --[[ModItemWeaponComponent MagLarge DisplayName]] "Расширенный магазин"),
-							Icon = "UI/Icons/Upgrades/galil_magazine_large",
-					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_MagLarge.png",
-							ModificationDifficulty = 0,
-							ModificationEffects = {
-								"MagazineSizeSet",
-								"IncreaseReloadAP",
-								"ReduceReliability",
-								"ReduceAimAccuracy15Percent",
-							},
-							Parameters = {
-								PlaceObj('PresetParamNumber', {
-									'Name', "MagazineSize",
-									'Value', 50,
-									'Tag', "<MagazineSize>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ReloadAPIncrease",
-									'Value', 2,
-									'Tag', "<ReloadAPIncrease>",
-								}),
-								PlaceObj('PresetParamNumber', {
-									'Name', "ReliabilityDecrease",
-									'Value', 15,
-									'Tag', "<ReliabilityDecrease>",
-								}),
-							},
-							comment = "Mag family MP40 — split from JAZZ_MagLarge_50",
-							Slot = "Magazine",
-							Visuals = {
-PlaceObj('WeaponComponentVisual', {
-									Entity = "WeaponAttA_Magazine_01",
-									Slot = "Magazine",
-									param_bindings = false,
-								}),
-PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP40",
-									Entity = "WeaponAttA_MagazineMP40_02",
-									Icon = "UI/Icons/Upgrades/expanded_MP40_magazine",
-									Slot = "Magazine",
-									param_bindings = false,
-								}),
-							},
-							group = "Clip",
-							id = "JAZZ_MagLarge_50_MP40",
-						}),
+
 PlaceObj('ModItemWeaponComponent', {
 							Cost = 40,
 							DisplayName = T(213094233610, --[[ModItemWeaponComponent MagLarge DisplayName]] "Расширенный магазин"),
@@ -57651,25 +57603,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'RemovableComponentId', "JAZZ_MagLarge_50_AR15",
 				}),
 
-				PlaceObj('ModItemInventoryItemCompositeDef', {
-					'Group', "RemovableAttachments",
-					'Id', "JAZZ_MagLarge_50_MP40",
-					'comment', "WEAPONS-002 remountable → component JAZZ_MagLarge_50_MP40",
-					'object_class', "JAZZ_RemovableAttachment",
-					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/galil_magazine_large",
-					'DisplayName', T(990002568, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_50_MP40 DisplayName]] "Расширенный магазин"),
-					'DisplayNamePlural', T(990002569, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_50_MP40 DisplayNamePlural]] "Расширенный магазин"),
-					'AdditionalHint', T(990002570, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_50_MP40 AdditionalHint]] "Семья магазинов: MP40. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
-					'Cost', 4000,
-					'CanAppearInShop', false,
-					'RestockWeight', 10,
-					'MaxStock', 1,
-					'Tier', 1,
-					'CategoryPair', "Components",
-					'MaxStacks', 1,
-					'RemovableComponentId', "JAZZ_MagLarge_50_MP40",
-				}),
+				
 
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "RemovableAttachments",

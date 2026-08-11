@@ -36,7 +36,6 @@ DefineClass.MP40 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_50_MP40",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),

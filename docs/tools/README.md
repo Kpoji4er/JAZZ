@@ -164,6 +164,9 @@
 | `_rebalance_muzzle_tiers.py` | Дуло: Recoil vs Silent; choke pattern; без R/BDR. Канон: `docs/design/muzzle-tiers.md`. |
 | `_rebalance_magazine_tiers.py` | Магазины: small / standard / expanded(no-tax) / large(tax). Канон: `docs/design/magazine-tiers.md`. |
 | `_apply_mag_size_set.py` | JAZZ-ATTACH-001 MagSizeSet: добавляет effect/resource/localization, разрезает generic `JAZZ_MagLarge` на абсолютные варианты, rewires items + companions и проверяет отсутствие live mag multiplier. `--apply` пишет `.bak`. |
+| `_apply_mp40_mag_normal_only.py` | MP40: только `JAZZ_MagNormal` (32). Убирает `JAZZ_MagLarge_50_MP40` из слота/компонента/remountable/metadata и из GenW `LootEntryUpgradedWeapon` в `jazz-units`. `--apply`. |
+| `_verify_mp40_mag_normal_only.py` | Smoke: MP40 MagNormal-only, no MagLarge_50_MP40 in jazz/jazz-units, LoadGame reseat map present. |
+| `_verify_mp40_mag_normal_only.py` | Smoke: нет `JAZZ_MagLarge_50_MP40` в jazz/units data; GenW assault_m1 = InventoryItem; reseat map в `System_WeaponComponent_Set.lua`. |
 | `_gen_setweaponcomponent_override.py` | Генерирует `Code/System_WeaponComponent_Set.lua` из vanilla `FirearmBase:SetWeaponComponent` + ветка `ModificationType=Set` (`mul=1000`, `add=N−base`). |
 | `_apply_grizzly_perk_full_damage.py` | GrizzlyPerk: `dmg_penalty` −50→0 + sync CE description in `items.lua`. |
 | `_apply_haveablast_fix.py` | HaveABlast: sync CE reactions/description into `items.lua` (optional helper; primary edit is companion + items). |
