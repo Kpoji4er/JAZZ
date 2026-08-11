@@ -62,7 +62,7 @@ Push в `main` **может** дать player-сводку на пакет. Не
 
 1. **Один** Discord-пост с **primary** пакета (player-facing runtime/items).
 2. Sibling (docs, remap-only, tools, metadata): commit с **`[skip discord]`**.
-3. После одобренного push диспатчить `_dispatch_discord_player_update.ps1` **только** для primary — не `-Force -AlwaysDispatch` на каждый репозиторий.
+3. После одобренного push диспатчить `_dispatch_discord_player_update.ps1` **только** для primary — не `-Force -AlwaysDispatch` на каждый репозиторий. Передавать `-SuitePackages` со всеми затронутыми пакетами (например `jazz,jazz-units,jazz-nomaps`), чтобы в Discord было поле «Пакеты».
 4. Если правка ломает текущий сейв или требует новой кампании — ставить в commit message `[new game]` (или `[new game recommended]` / `[no new game]`). Discord-сводка всегда показывает поле «Новая игра»; маркер владельца важнее AI-оценки.
 
 Независимые фичи в разных пакетах в разных push — отдельные новости ок.

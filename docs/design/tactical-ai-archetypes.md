@@ -274,17 +274,22 @@ Leader (`JAZZ_Legion_Leader*`, RebelSergeant, keyword `Leader`) раз в ход
 
 | Directive | Условие (runtime picker) | Эффект в радиусе (сейчас) |
 | --- | --- | --- |
-| `FallBack` | тяжёлые потери (≥2 dead и ≥25% отряда, или ≥50% живых ≤45% HP) | Scout/Pusher/Recruit/Line → Frontliner; melee off |
-| `GoHidden` | Night/Fog/Dust **или** «перестрел» на дистанции, если ≥40% команды может `CanStealth` | `unit:Hide()` в ауре (не в PickCustom); → Frontliner; melee off |
-| `LowVisHold` | Night/Fog/Dust, если стелс недоступен большинству | Line не уходит в CQB Assaulter; OW/LowVis profile |
-| `FocusFire` | видимый враг ≤40% HP (минимальный HP%) | MapVar `focus_target`; attack score ×1.45 у allies |
-| `TakeCover` | дистанция ≥18 и «перестрел», стелс недоступен | → Frontliner; melee off |
-| `Push` | nearest enemy ≤ **12** тайлов | Scout → Assaulter |
-| `OccupyBuildings` | Urban / indoor≥30%; mid-range (&lt;24) или нет врага | Scout/Pusher/Recruit/Line → Frontliner |
-| `Envelop` | nearest enemy ≥ **24** тайлов | Pusher → Flanker |
-| `HoldLine` | 13–23 тайлов (не urban occupy) / fallback | default семьи |
+| `FallBack` | ≥2 dead и ≥30% отряда (без sticky wounds) | Scout/Pusher/Recruit/Line → Frontliner (не Sniper); cover/retreat bias; −5 CTH defense |
+| `GoHidden` | Night/Fog/Dust **или** outshot + ≥40% CanStealth | `Hide()`; → Frontliner; melee off |
+| `LowVisHold` | Night/Fog/Dust без массового стелса | hold; +2 CTH |
+| `FocusFire` | threat score (sniper/MG/close≤8 / HP≤55) | `focus_target`; attack ×1.8; +5 CTH |
+| `TakeCover` | ≥18 + outshot | Frontliner; −3 CTH defense |
+| `OccupyHeights` | elevation variance, enemy ≥10, не indoor-heavy | HighGround ×175%; +2 CTH |
+| `Push` | nearest ≤12 | Scout → Assaulter; +1 AP |
+| `OccupyBuildings` | Urban / indoor; mid-range | Frontliner; +2 CTH |
+| `Envelop` | nearest ≥24 | Pusher → Flanker; +2 CTH |
+| `HoldLine` | default | family default; +2 CTH |
 
-Офицер **не** pathfind’ит за всех: stance hints + FocusFire targeting bias + `GoHidden`→`Hide()`. Полные weight-множители cover/OW/smoke — поэтапно. Без офицера — локальные default stance. При нескольких офицерах — более высокий ранг / больший радиус побеждает (Captain перекрывает Sgt).
+**Fatigue:** `JazzAI_TeamDirectiveFatigue` — повторный приказ −turns×80 (FallBack ×0.25).
+
+**Aura role assigns:** `WriteOfficerAura` пишет `semi_sniper` / `pseudo_mg` / **`pusher`** среди allies в радиусе (приоритет без пересечения). Push → Assaulter только у assigned pusher (+ dedicated Pusher family).
+
+Офицер **не** pathfind’ит за всех: stance + FocusFire bias + heights/cover + `GoHidden`→`Hide()` + role fill-ins.
 
 Leaders сейчас имеют **пустой** PickCustom — как раз место для aura writer, а не для copy-paste panic.
 

@@ -1,6 +1,7 @@
 -- JAZZ-AI-CTX-001 / CMD-001 helpers: context profiles + officer aura directives.
 
 MapVar("JazzAI_TeamDirectives", {})
+MapVar("JazzAI_TeamDirectiveFatigue", {})
 MapVar("JazzAI_PeekStreak", {})
 MapVar("JazzAI_SniperUselessStreak", {})
 MapVar("JazzAI_FlarePushUntil", false)
@@ -110,6 +111,83 @@ function JazzAI_ApplyProfileToContext(context)
 		return
 	end
 	context.jazz_profile = JazzAI_ResolveContextProfile()
+	local unit = context.unit
+	local directive = unit and JazzAI_GetTeamDirective and JazzAI_GetTeamDirective(unit)
+	context.jazz_directive = directive or false
+	context.jazz_fallback = directive == "FallBack"
+	context.jazz_occupy_heights = directive == "OccupyHeights"
+	if context.jazz_fallback then
+		context.jazz_profile.TakeCoverMul = Max(context.jazz_profile.TakeCoverMul or 100, 180)
+	end
+	-- Heavy / Rocketeer / Ordnance: prefer staying behind the front.
+	if unit and JazzAI_UnitWantsRearGuard and JazzAI_UnitWantsRearGuard(unit) then
+		context.jazz_rear_guard = true
+	end
+	-- Mortar (Bombard) cannot fire indoors — never sit in buildings.
+	if unit and JazzAI_UnitNeedsOutdoorFire and JazzAI_UnitNeedsOutdoorFire(unit) then
+		context.jazz_need_outdoors = true
+	end
+	-- Dynamic pseudo-MG: bias toward Overwatch like Machinegunner.
+	if unit and JazzAI_UnitIsDynamicPseudoMG and JazzAI_UnitIsDynamicPseudoMG(unit) then
+		context.jazz_pseudo_mg = true
+		context.jazz_profile.OverwatchMinScore = Min(context.jazz_profile.OverwatchMinScore or 300, 80)
+	end
+end
+
+function JazzAI_UnitNeedsOutdoorFire(unit)
+	if not IsValid(unit) then
+		return false
+	end
+	local class = (unit.unitdatadef_id or unit.className or unit.class or "")
+	if type(class) == "string" and class:find("Mortar", 1, true) then
+		return true
+	end
+	if unit.GetEquippedWeapons then
+		for _, slot in ipairs({ "Handheld A", "Handheld B" }) do
+			for _, w in ipairs(unit:GetEquippedWeapons(slot) or empty_table) do
+				if IsKindOf(w, "Mortar") then
+					return true
+				end
+			end
+		end
+	end
+	local wep = unit.GetActiveWeapons and unit:GetActiveWeapons()
+	if IsKindOf(wep, "Mortar") then
+		return true
+	end
+	return false
+end
+
+function JazzAI_UnitWantsRearGuard(unit)
+	if not IsValid(unit) then
+		return false
+	end
+	if JazzAI_InferRoleFamily and JazzAI_InferRoleFamily(unit) == "Heavy" then
+		return true
+	end
+	local keys = unit.AIKeywords
+	if keys then
+		for _, k in ipairs(keys) do
+			if k == "Ordnance" then
+				return true
+			end
+		end
+	end
+	local class = (unit.unitdatadef_id or unit.className or unit.class or "")
+	if type(class) == "string" and (class:find("Rocketeer", 1, true) or class:find("Mortar", 1, true)
+		or class:find("Heavy", 1, true)) then
+		return true
+	end
+	if unit.GetEquippedWeapons then
+		for _, slot in ipairs({ "Handheld A", "Handheld B" }) do
+			for _, w in ipairs(unit:GetEquippedWeapons(slot) or empty_table) do
+				if IsKindOfClasses(w, "RocketLauncher", "MissileLauncher", "Mortar") then
+					return true
+				end
+			end
+		end
+	end
+	return false
 end
 
 -- CMD-001 officer aura
@@ -170,6 +248,10 @@ JazzAI_OfficerAuraCaptainUnitDefs = {
 local JazzAI_DirectivePushMax = 12
 local JazzAI_DirectiveEnvelopMin = 24
 local JazzAI_DirectiveHideMin = 18
+local JazzAI_DirectiveHeightsMin = 10
+local JazzAI_DirectiveCloseThreat = 8
+local JazzAI_DirectiveFatiguePerTurn = 80
+local JazzAI_FocusFireMinThreat = 40
 
 function JazzAI_UnitHpPercent(unit)
 	if not IsValid(unit) then
@@ -178,59 +260,102 @@ function JazzAI_UnitHpPercent(unit)
 	return MulDivRound(unit.HitPoints or 0, 100, Max(1, unit.MaxHitPoints or 1))
 end
 
--- Heavy losses: ≥2 dead and ≥25% of squad dead, or ≥50% of living allies ≤45% HP (≥2 wounded).
+-- Heavy losses: ≥2 dead and ≥30% of squad dead (wound branch removed — was sticky all combat).
 function JazzAI_TeamNeedsFallBack(unit)
 	local team = unit and unit.team
 	if not team or not team.units then
 		return false
 	end
-	local living, wounded, dead = 0, 0, 0
+	local living, dead = 0, 0
 	for _, ally in ipairs(team.units) do
 		if ally:IsDead() then
 			dead = dead + 1
 		else
 			living = living + 1
-			if JazzAI_UnitHpPercent(ally) <= 45 then
-				wounded = wounded + 1
-			end
 		end
 	end
 	local total = living + dead
 	if total <= 0 then
 		return false
 	end
-	if dead >= 2 and MulDivRound(dead, 100, total) >= 25 then
-		return true
-	end
-	if living > 0 and wounded >= 2 and MulDivRound(wounded, 100, living) >= 50 then
-		return true
-	end
-	return false
+	return dead >= 2 and MulDivRound(dead, 100, total) >= 30
 end
 
--- Lowest-HP visible enemy at ≤40% HP (clear finish target).
+function JazzAI_EnemyFocusThreatScore(officer, enemy)
+	if not IsValid(officer) or not IsValid(enemy) or enemy:IsDead() then
+		return 0
+	end
+	local score = 10
+	local wep = enemy.GetActiveWeapons and enemy:GetActiveWeapons()
+	if wep then
+		if IsKindOf(wep, "SniperRifle") then
+			score = score + 80
+		elseif IsKindOfClasses(wep, "MachineGun", "HeavyWeapon") then
+			score = score + 70
+		end
+	end
+	-- Also check secondary / all equipped firearms for MG/sniper.
+	if enemy.GetEquippedWeapons then
+		for _, slot in ipairs({ "Handheld A", "Handheld B" }) do
+			for _, w in ipairs(enemy:GetEquippedWeapons(slot) or empty_table) do
+				if IsKindOf(w, "SniperRifle") then
+					score = Max(score, 90)
+				elseif IsKindOfClasses(w, "MachineGun", "HeavyWeapon") then
+					score = Max(score, 80)
+				end
+			end
+		end
+	end
+	local scale = const.SlabSizeX
+	local closest = DivRound(officer:GetDist(enemy), scale)
+	local team = officer.team
+	if team and team.units then
+		local radius = JazzAI_OfficerAuraRadius(officer)
+		for _, ally in ipairs(team.units) do
+			if not ally:IsDead() and (ally == officer or JazzAI_IsInOfficerAura(ally, officer, radius)) then
+				local d = DivRound(ally:GetDist(enemy), scale)
+				if d < closest then
+					closest = d
+				end
+			end
+		end
+	end
+	if closest <= JazzAI_DirectiveCloseThreat then
+		score = score + 90 - closest * 5
+	end
+	local hpp = JazzAI_UnitHpPercent(enemy)
+	if hpp <= 55 then
+		score = score + (55 - hpp)
+	end
+	return score
+end
+
+-- Threat-priority focus target (sniper / MG / close / finish). Returns unit, score.
 function JazzAI_FindFocusFireTarget(unit)
 	if not IsValid(unit) then
-		return false
+		return false, 0
 	end
 	local enemies = GetEnemies and GetEnemies(unit)
 	if not enemies then
-		return false
+		return false, 0
 	end
-	local best, best_hpp = false, 101
+	local best, best_score = false, 0
 	for _, enemy in ipairs(enemies) do
 		if IsValid(enemy) and not enemy:IsDead() then
 			local visible = (HasVisibilityTo and HasVisibilityTo(unit.team, enemy))
 				or (HasVisibilityTo and HasVisibilityTo(unit, enemy))
 			if visible then
-				local hpp = JazzAI_UnitHpPercent(enemy)
-				if hpp <= 40 and hpp < best_hpp then
-					best, best_hpp = enemy, hpp
+				local s = JazzAI_EnemyFocusThreatScore(unit, enemy)
+				if s > best_score then
+					best, best_score = enemy, s
 				end
 			end
 		end
 	end
-	return best
+	if best and best_score >= JazzAI_FocusFireMinThreat then
+		return best, best_score
+	end
+	return false, 0
 end
 
 -- Player winning a long-range firefight: distant healthy mercs + wounded allies / peek pressure.
@@ -349,47 +474,152 @@ function JazzAI_ShouldOccupyBuildings(unit)
 	return (JazzAI_CountIndoorRatio and JazzAI_CountIndoorRatio() or 0) >= 30
 end
 
+-- Outdoor elevation worth taking: not indoor-dominant, some height variance among units.
+function JazzAI_MapHasHeightVariance(unit)
+	local indoor = JazzAI_CountIndoorRatio and JazzAI_CountIndoorRatio() or 0
+	if indoor >= 40 then
+		return false
+	end
+	local min_z, max_z, n = nil, nil, 0
+	for _, u in ipairs(g_Units or empty_table) do
+		if IsValid(u) and not u:IsDead() then
+			local x, y, z = u:GetGridCoords()
+			if z then
+				n = n + 1
+				min_z = min_z and Min(min_z, z) or z
+				max_z = max_z and Max(max_z, z) or z
+			end
+		end
+	end
+	if n < 2 or not min_z or not max_z then
+		-- Flat / tiny maps: still allow heights if clearly outdoor.
+		return indoor <= 15
+	end
+	return (max_z - min_z) >= 1
+end
+
+function JazzAI_ShouldOccupyHeights(unit, tiles)
+	if not JazzAI_MapHasHeightVariance(unit) then
+		return false
+	end
+	if JazzAI_ShouldOccupyBuildings(unit) and (JazzAI_CountIndoorRatio() or 0) >= 35 then
+		return false -- prefer houses when heavily indoor/urban
+	end
+	tiles = tiles or 99
+	return tiles >= JazzAI_DirectiveHeightsMin
+end
+
+function JazzAI_TeamDirectiveKey(team)
+	if not team then
+		return false
+	end
+	return team.side or team.handle or tostring(team)
+end
+
+function JazzAI_GetDirectiveFatigue(team)
+	local key = JazzAI_TeamDirectiveKey(team)
+	if not key then
+		return false, 0
+	end
+	JazzAI_TeamDirectiveFatigue = JazzAI_TeamDirectiveFatigue or {}
+	local fat = JazzAI_TeamDirectiveFatigue[key]
+	if not fat then
+		return false, 0
+	end
+	return fat.last or false, fat.turns or 0
+end
+
+function JazzAI_NoteDirectiveFatigue(team, directive)
+	local key = JazzAI_TeamDirectiveKey(team)
+	if not key or not directive then
+		return
+	end
+	JazzAI_TeamDirectiveFatigue = JazzAI_TeamDirectiveFatigue or {}
+	local fat = JazzAI_TeamDirectiveFatigue[key]
+	local turn = g_Combat and g_Combat.current_turn or 0
+	if fat and fat.last == directive then
+		-- RefreshAllOfficerAuras runs every UnitBeginTurn — count at most once per combat turn.
+		if fat.turn == turn then
+			return
+		end
+		fat.turns = (fat.turns or 1) + 1
+		fat.turn = turn
+	else
+		fat = { last = directive, turns = 1, turn = turn }
+	end
+	JazzAI_TeamDirectiveFatigue[key] = fat
+end
+
+local function JazzAI_FatiguePenalty(directive, last, turns)
+	if not last or last ~= directive or (turns or 0) <= 0 then
+		return 0
+	end
+	local per = JazzAI_DirectiveFatiguePerTurn
+	if directive == "FallBack" then
+		per = MulDivRound(per, 25, 100) -- survival: almost no fatigue
+	end
+	return turns * per
+end
+
+-- Score-based officer directive picker with fatigue on the repeated order.
 function JazzAI_PickOfficerDirective(unit, profile)
 	profile = profile or JazzAI_ResolveContextProfile()
-	-- Survival first.
-	if JazzAI_TeamNeedsFallBack(unit) then
-		return "FallBack"
+	local team = unit and unit.team
+	local last, turns = JazzAI_GetDirectiveFatigue(team)
+	local enemy, dist = GetNearestEnemy(unit)
+	local tiles = enemy and dist and DivRound(dist, const.SlabSizeX) or 99
+	local focus, threat = JazzAI_FindFocusFireTarget(unit)
+	local candidates = {}
+
+	local function add(id, base)
+		if not id or not base then
+			return
+		end
+		local score = base - JazzAI_FatiguePenalty(id, last, turns)
+		candidates[#candidates + 1] = { id = id, score = score }
 	end
-	-- Low vis: prefer real Hidden when enough of the team can stealth.
+
+	if JazzAI_TeamNeedsFallBack(unit) then
+		add("FallBack", 1000)
+	end
 	if profile.SniperHold or profile.id == "FogDust" then
 		if JazzAI_TeamCanMostlyStealth(unit) then
-			return "GoHidden"
+			add("GoHidden", 800)
+		else
+			add("LowVisHold", 750)
 		end
-		return "LowVisHold"
 	end
-	local enemy, dist = GetNearestEnemy(unit)
-	if not enemy then
-		if JazzAI_ShouldOccupyBuildings(unit) then
-			return "OccupyBuildings"
-		end
-		return "HoldLine"
+	if focus then
+		add("FocusFire", 700 + Min(80, threat or 0))
 	end
-	local tiles = dist and DivRound(dist, const.SlabSizeX) or 99
-	if JazzAI_FindFocusFireTarget(unit) then
-		return "FocusFire"
-	end
-	if JazzAI_ShouldTakeCoverFromRange(unit, tiles) then
+	if enemy and JazzAI_ShouldTakeCoverFromRange(unit, tiles) then
 		if JazzAI_TeamCanMostlyStealth(unit) then
-			return "GoHidden"
+			add("GoHidden", 650)
+		else
+			add("TakeCover", 600)
 		end
-		return "TakeCover"
 	end
-	if tiles <= JazzAI_DirectivePushMax then
-		return "Push"
+	if JazzAI_ShouldOccupyHeights(unit, tiles) then
+		add("OccupyHeights", 520)
 	end
-	-- Urban mid-range: hold buildings instead of open HoldLine.
-	if JazzAI_ShouldOccupyBuildings(unit) and tiles < JazzAI_DirectiveEnvelopMin then
-		return "OccupyBuildings"
+	if enemy and tiles <= JazzAI_DirectivePushMax then
+		add("Push", 500)
 	end
-	if tiles >= JazzAI_DirectiveEnvelopMin then
-		return "Envelop"
+	if JazzAI_ShouldOccupyBuildings(unit) and (not enemy or tiles < JazzAI_DirectiveEnvelopMin) then
+		add("OccupyBuildings", 450)
 	end
-	return "HoldLine"
+	if enemy and tiles >= JazzAI_DirectiveEnvelopMin then
+		add("Envelop", 400)
+	end
+	add("HoldLine", 300)
+
+	local best_id, best_score = "HoldLine", -999999
+	for _, c in ipairs(candidates) do
+		if c.score > best_score or (c.score == best_score and c.id < best_id) then
+			best_id, best_score = c.id, c.score
+		end
+	end
+	return best_id
 end
 
 function JazzAI_GetTeamFocusTarget(unit)
@@ -454,8 +684,55 @@ function JazzAI_GetDirectiveDisplayName(directive)
 		return T(890000000006116, --[[JazzAI directive TakeCover]] "Спрятаться")
 	elseif directive == "GoHidden" then
 		return T(890000000006117, --[[JazzAI directive GoHidden]] "Скрыться")
+	elseif directive == "OccupyHeights" then
+		return T(890000000006118, --[[JazzAI directive OccupyHeights]] "Занять высоты")
 	end
 	return false
+end
+
+-- Small Influence buffs by current order (player-facing tooltip line).
+function JazzAI_GetDirectiveBuffDisplay(directive)
+	if directive == "HoldLine" or directive == "Envelop" or directive == "OccupyBuildings"
+		or directive == "LowVisHold" or directive == "OccupyHeights" then
+		return T(890000000006119, --[[JazzAI directive buff CTH2]] "+2 к шансу попадания")
+	elseif directive == "Push" then
+		return T(890000000006120, --[[JazzAI directive buff AP1]] "+1 ОД на ход")
+	elseif directive == "FocusFire" then
+		return T(890000000006121, --[[JazzAI directive buff CTH5]] "+5 к шансу попадания")
+	elseif directive == "FallBack" then
+		return T(890000000006122, --[[JazzAI directive buff def5]] "−5 к шансу попадания по этому бойцу")
+	elseif directive == "TakeCover" then
+		return T(890000000006123, --[[JazzAI directive buff def3]] "−3 к шансу попадания по этому бойцу")
+	end
+	return false
+end
+
+function JazzAI_GetDirectiveCthAttackBonus(directive)
+	if directive == "FocusFire" then
+		return 5
+	end
+	if directive == "HoldLine" or directive == "Envelop" or directive == "OccupyBuildings"
+		or directive == "LowVisHold" or directive == "OccupyHeights" then
+		return 2
+	end
+	return 0
+end
+
+function JazzAI_GetDirectiveCthDefenseBonus(directive)
+	if directive == "FallBack" then
+		return 5
+	end
+	if directive == "TakeCover" then
+		return 3
+	end
+	return 0
+end
+
+function JazzAI_GetDirectiveApBonus(directive)
+	if directive == "Push" then
+		return 1
+	end
+	return 0
 end
 
 function JazzAI_FindStatusEffectOwner(effect)
@@ -521,7 +798,10 @@ local function JazzAI_StripOfficerAuraOrderLine(base_desc)
 	if type(base_desc) ~= "string" then
 		return base_desc
 	end
-	local markers = { "Текущий приказ:", "Следует приказу:", "Current order:", "Following order:" }
+	local markers = {
+		"Текущий приказ:", "Следует приказу:", "Current order:", "Following order:",
+		"Эффект приказа:", "Order effect:",
+	}
 	for _, marker in ipairs(markers) do
 		local cut = string.find(base_desc, marker, 1, true)
 		if cut and cut > 1 then
@@ -556,7 +836,8 @@ end
 -- Consumed via ResolveValue("Description") on Jazz_Perk_OfficerAura* (combat-badge INFO).
 function JazzAI_FormatOfficerAuraDescription(effect, base, kind)
 	base = JazzAI_StripOfficerAuraOrderLine(base or "")
-	local order = JazzAI_GetDirectiveDisplayName(JazzAI_EnsureEffectDirective(effect))
+	local directive = JazzAI_EnsureEffectDirective(effect)
+	local order = JazzAI_GetDirectiveDisplayName(directive)
 	if not order then
 		-- Last resort: default HoldLine so a visible officer badge never shows "not chosen".
 		order = JazzAI_GetDirectiveDisplayName("HoldLine")
@@ -568,7 +849,14 @@ function JazzAI_FormatOfficerAuraDescription(effect, base, kind)
 	else
 		line = T{890000000006112, --[[JazzAI officer aura current order]] "Текущий приказ: <em><order></em>", order = order}
 	end
-	return table.concat({ base, line }, "\n\n")
+	local parts = { base, line }
+	if kind == "influence" then
+		local buff = JazzAI_GetDirectiveBuffDisplay(directive)
+		if buff then
+			parts[#parts + 1] = T{890000000006124, --[[JazzAI officer aura order effect]] "Эффект приказа: <em><buff></em>", buff = buff}
+		end
+	end
+	return table.concat(parts, "\n\n")
 end
 
 function JazzAI_WriteOfficerAura(unit)
@@ -583,6 +871,7 @@ function JazzAI_WriteOfficerAura(unit)
 	local profile = JazzAI_ResolveContextProfile()
 	local directive = JazzAI_PickOfficerDirective(unit, profile)
 	local team = unit.team
+	JazzAI_NoteDirectiveFatigue(team, directive)
 	JazzAI_TeamDirectives = JazzAI_TeamDirectives or {}
 	local key = team.side or team.handle or tostring(team)
 	local entry = JazzAI_TeamDirectives[key] or {}
@@ -594,6 +883,43 @@ function JazzAI_WriteOfficerAura(unit)
 		entry.focus_target = JazzAI_FindFocusFireTarget(unit) or false
 	else
 		entry.focus_target = false
+	end
+	-- Commander assigns fill-in roles inside the aura (not whole map outside radius).
+	-- Priority: semi_sniper > pseudo_mg > pusher (one role per fighter).
+	local exclude = {}
+	if JazzAI_PickTeamSemiSniper then
+		entry.semi_sniper = JazzAI_PickTeamSemiSniper(team, unit, radius) or false
+	else
+		entry.semi_sniper = false
+	end
+	if entry.semi_sniper then
+		exclude[entry.semi_sniper] = true
+	end
+	if JazzAI_PickTeamPseudoMG then
+		entry.pseudo_mg = false
+		local best, best_score = false, 0
+		for _, ally in ipairs(JazzAI_AuraRoleCandidates and JazzAI_AuraRoleCandidates(team, unit, radius) or empty_table) do
+			if not exclude[ally] and JazzAI_UnitPseudoMGScore then
+				local s = JazzAI_UnitPseudoMGScore(ally)
+				-- Skip if dedicated MG already on team (PickTeamPseudoMG would no-op).
+				if s > best_score then
+					best, best_score = ally, s
+				end
+			end
+		end
+		if not JazzAI_TeamHasDedicatedMG or not JazzAI_TeamHasDedicatedMG(team) then
+			entry.pseudo_mg = (best_score > 0 and best) or false
+		end
+	else
+		entry.pseudo_mg = false
+	end
+	if entry.pseudo_mg then
+		exclude[entry.pseudo_mg] = true
+	end
+	if JazzAI_PickTeamPusher then
+		entry.pusher = JazzAI_PickTeamPusher(team, unit, radius, exclude) or false
+	else
+		entry.pusher = false
 	end
 	JazzAI_TeamDirectives[key] = entry
 
@@ -690,6 +1016,7 @@ end
 
 function OnMsg.CombatStart()
 	JazzAI_TeamDirectives = {}
+	JazzAI_TeamDirectiveFatigue = {}
 	JazzAI_PeekStreak = {}
 	JazzAI_SniperUselessStreak = {}
 	JazzAI_FlarePushUntil = false
@@ -706,6 +1033,7 @@ function OnMsg.CombatEnd()
 		JazzAI_SetAuraEffect(u, "Jazz_Perk_OfficerAuraInfluence", false)
 	end
 	JazzAI_TeamDirectives = {}
+	JazzAI_TeamDirectiveFatigue = {}
 end
 
 function OnMsg.UnitBeginTurn(unit)

@@ -448,7 +448,7 @@ export function formatSuitePackagesField(packages) {
   if (list.length === 0) {
     return null;
   }
-  return list.map((name) => `• \`${name}\``).join("\n");
+  return list.map((name) => `• ${name}`).join("\n");
 }
 
 export function analyzeCommitMarkers(commits) {

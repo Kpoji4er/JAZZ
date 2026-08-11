@@ -20,6 +20,7 @@
 .EXAMPLE
   powershell -File docs/tools/_dispatch_discord_player_update.ps1
   powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
+  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units -SuitePackages jazz,jazz-units,jazz-nomaps
   powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz -Before 971d5d4 -After 652675d -Force -AlwaysDispatch
 #>
 [CmdletBinding()]

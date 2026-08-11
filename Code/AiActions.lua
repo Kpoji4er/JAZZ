@@ -523,6 +523,9 @@ function JAZZ_AIBunkerDown(unit, context, did_attack)
         local take = did_attack
         if not take then
             local chance = context and context.behavior and context.behavior.TakeCoverChance or 0
+            if context and context.jazz_fallback then
+                chance = Max(chance, 85)
+            end
             take = chance >= 100 or (chance > 0 and unit:Random(100) < chance)
         end
         if take then

@@ -10,8 +10,10 @@ IDs:
   6106–6111 — directive display names (HoldLine…FocusFire)
   6112–6113 — current-order tooltip lines
   6114 — no-order fallback label
-  6115–6116 — OccupyBuildings / TakeCover
-  6117 — GoHidden
+  6115–6117 — OccupyBuildings / TakeCover / GoHidden
+  6118 — OccupyHeights
+  6119–6123 — per-directive buff labels
+  6124 — order effect tooltip line
 """
 from __future__ import annotations
 
@@ -45,8 +47,8 @@ ROWS = [
     ),
     (
         "890000000006104",
-        "Боец следует приказам командира. Эффект снимается, если командир погиб или боец вышел из зоны влияния.",
-        "This fighter follows the commander's orders. Removed if the commander dies or the fighter leaves the influence zone.",
+        "Боец следует приказам командира и получает небольшой бонус текущего приказа. Эффект снимается, если командир погиб или боец вышел из зоны влияния.",
+        "This fighter follows the commander's orders and gains a small bonus from the current order. Removed if the commander dies or the fighter leaves the influence zone.",
         "jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua",
     ),
     (
@@ -125,6 +127,48 @@ ROWS = [
         "890000000006117",
         "Скрыться",
         "Go hidden",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006118",
+        "Занять высоты",
+        "Take the high ground",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006119",
+        "+2 к шансу попадания",
+        "+2 chance to hit",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006120",
+        "+1 ОД на ход",
+        "+1 AP per turn",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006121",
+        "+5 к шансу попадания",
+        "+5 chance to hit",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006122",
+        "−5 к шансу попадания по этому бойцу",
+        "−5 chance to hit against this fighter",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006123",
+        "−3 к шансу попадания по этому бойцу",
+        "−3 chance to hit against this fighter",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006124",
+        "Эффект приказа: <em><buff></em>",
+        "Order effect: <em><buff></em>",
         "jazz:Code/AIContextProfiles.lua",
     ),
 ]

@@ -28,10 +28,10 @@ alwaysApply: true
 8. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` — диспатч **по правилу п.7** (один primary на feature), не «каждый затронутый пакет»:
 
 ```text
-powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <primary>
+powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <primary> -SuitePackages jazz,jazz-units,jazz-nomaps
 ```
 
-Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть (чтобы не было двух постов). **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт.
+`-SuitePackages` — все затронутые пакеты suite для поля **«Пакеты»** в Discord (порядок канонический). Без флага в пост попадает только primary. Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть. **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт.
 
 ## Пример
 

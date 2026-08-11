@@ -428,6 +428,9 @@ function AICreateContext(unit, context)
 	-- Collapsing Extreme==Effective pulled WeaponRange OptLoc/EndTurn into mid-close and
 	-- made snipers abandon long high-ground shots they can still take.
 	context.ExtremeRange = IsKindOf(weapon, "Firearm") and (weapon.WeaponRange or 1) or context.EffectiveRange
+
+	-- Sniper/Marksman: stretch preferred band by optics (OpticReach / min_range / mag).
+	JazzAI_ApplySniperOpticRangeToContext(context, weapon)
 	context.enemies = enemies
 	context.attack_target = {}
 	context.enemy_visible = {}
@@ -543,7 +546,7 @@ function AICreateContext(unit, context)
 				if best_attack and JazzAI_GetTeamFocusTarget then
 					local focus = JazzAI_GetTeamFocusTarget(unit)
 					if focus and enemy == focus then
-						best_attack.score = best_attack.score * 1.45
+						best_attack.score = best_attack.score * 1.8
 					end
 				end
 				--local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim[enemy])
@@ -603,7 +606,9 @@ function AICreateContext(unit, context)
 	end
 	-- ACT-001: one-turn Push bias after flare
 	if JazzAI_FlarePushUntil and g_Combat and (g_Combat.current_turn or 0) <= JazzAI_FlarePushUntil then
-		context.jazz_flare_push = true
+		if context.jazz_directive ~= "FallBack" then
+			context.jazz_flare_push = true
+		end
 	end
 	unit.ai_context = context
 	return context
@@ -1549,6 +1554,10 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		if hg_pct and hg_pct ~= 100 and IsKindOf(policy, "AIPolicyHighGround") then
 			pscore = MulDivRound(pscore, hg_pct, 100)
 		end
+		-- CMD-001 OccupyHeights: boost HighGround for aura members.
+		if context.jazz_occupy_heights and IsKindOf(policy, "AIPolicyHighGround") then
+			pscore = MulDivRound(pscore, 175, 100)
+		end
 		local failed = policy.Required and pscore <= 0
 		score = score + pscore
 		if score_details then
@@ -1572,6 +1581,126 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 			if score_details then
 				score_details[#score_details + 1] = "SNIPER USELESS STAY"
 				score_details[#score_details + 1] = -stay_pen
+			end
+		end
+	end
+
+	-- CMD-001 FallBack: prefer dest farther from nearest enemy + cover already via TakeCoverMul.
+	if context.jazz_fallback and context.unit then
+		local enemy = GetNearestEnemy and GetNearestEnemy(context.unit)
+		if enemy then
+			local stay = context.unit_stance_pos
+			local cur_dist = stay and stance_pos_dist(stay, GetPackedPosAndStance(enemy)) or 0
+			local dest_dist = stance_pos_dist(dest, GetPackedPosAndStance(enemy))
+			if dest_dist < cur_dist then
+				local close_pen = MulDivRound(cur_dist - dest_dist, 40, const.SlabSizeX)
+				score = score - close_pen
+				if score_details then
+					score_details[#score_details + 1] = "FALLBACK CLOSE"
+					score_details[#score_details + 1] = -close_pen
+				end
+			end
+		end
+	end
+
+	-- Rocketeer / Heavy / Ordnance: stay behind the nearest ally front.
+	-- Mortars still want rear, but never indoors (Bombard breaks if AICheckIndoors).
+	if context.jazz_rear_guard and context.unit then
+		local enemy = GetNearestEnemy and GetNearestEnemy(context.unit)
+		if enemy then
+			local epos = GetPackedPosAndStance(enemy)
+			local my_dist = stance_pos_dist(dest, epos) / const.SlabSizeX
+			local front = my_dist
+			for _, ally in ipairs(context.allies or empty_table) do
+				if ally ~= context.unit and IsValid(ally) and not ally:IsDead() then
+					local apos = (ally.ai_context and ally.ai_context.ai_destination)
+						or (context.ally_pack_pos_stance and context.ally_pack_pos_stance[ally])
+						or GetPackedPosAndStance(ally)
+					if apos then
+						-- Prefer outdoor rear for mortar: ignore indoor ally "front" when scoring.
+						if context.jazz_need_outdoors and AICheckIndoors and AICheckIndoors(apos) then
+							-- skip indoor allies as front reference
+						else
+							local ad = stance_pos_dist(apos, epos) / const.SlabSizeX
+							if ad < front then
+								front = ad
+							end
+						end
+					end
+				end
+			end
+			-- Penalize being as close or closer than the front line (want ≥2 tiles behind).
+			if my_dist < front + 2 then
+				local rear_pen = (front + 2 - my_dist) * 35
+				score = score - rear_pen
+				if score_details then
+					score_details[#score_details + 1] = "REAR GUARD"
+					score_details[#score_details + 1] = -rear_pen
+				end
+			end
+		end
+	end
+
+	-- Mortar / Bombard: hard prefer outdoors (cannot Bombard from indoors).
+	if context.jazz_need_outdoors and dest then
+		local indoors = AICheckIndoors and AICheckIndoors(dest)
+		if indoors then
+			score = score - 400
+			if score_details then
+				score_details[#score_details + 1] = "MORTAR INDOORS"
+				score_details[#score_details + 1] = -400
+			end
+		else
+			score = score + 120
+			if score_details then
+				score_details[#score_details + 1] = "MORTAR OUTDOORS"
+				score_details[#score_details + 1] = 120
+			end
+		end
+	end
+
+	-- Sniper optics: avoid CQB below OpticMinRange; prefer ideal (BDR + OpticReach) band.
+	local optic_min = context.jazz_optic_min_range or 0
+	local optic_ideal = context.jazz_optic_ideal_range or 0
+	if (optic_min > 0 or optic_ideal > 0) and JazzAI_UnitHasSniperHoldKeyword and JazzAI_UnitHasSniperHoldKeyword(context.unit) then
+		local best_enemy_dist
+		for _, enemy in ipairs(context.enemies or empty_table) do
+			if context.enemy_visible and context.enemy_visible[enemy] then
+				local epos = context.enemy_pack_pos_stance and context.enemy_pack_pos_stance[enemy]
+				if epos then
+					local d = stance_pos_dist(dest, epos) / const.SlabSizeX
+					if not best_enemy_dist or d < best_enemy_dist then
+						best_enemy_dist = d
+					end
+				end
+			end
+		end
+		if best_enemy_dist then
+			if optic_min > 0 and best_enemy_dist < optic_min then
+				local near_pen = (optic_min - best_enemy_dist) * 45
+				score = score - near_pen
+				if score_details then
+					score_details[#score_details + 1] = "OPTIC TOO CLOSE"
+					score_details[#score_details + 1] = -near_pen
+				end
+			elseif optic_ideal > 0 then
+				local delta = Abs(best_enemy_dist - optic_ideal)
+				local band = Max(3, DivRound(optic_ideal, 4))
+				if delta <= band then
+					local bonus = MulDivRound(band - delta, 25, band)
+					score = score + bonus
+					if score_details then
+						score_details[#score_details + 1] = "OPTIC SWEET SPOT"
+						score_details[#score_details + 1] = bonus
+					end
+				elseif best_enemy_dist < optic_ideal - band then
+					local close_pen = (optic_ideal - band - best_enemy_dist) * 20
+					score = score - close_pen
+					if score_details then
+						score_details[#score_details + 1] = "OPTIC SHORT"
+						score_details[#score_details + 1] = -close_pen
+					end
+				end
 			end
 		end
 	end
@@ -2487,6 +2616,53 @@ g_JAZZ_AIScoreReachableVoxelsFn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsFn") 
 -- Decay starts after the 2nd useless turn (shifted +1 from first playtest).
 JazzAI_SniperUselessTurns = 3
 
+--- Stretch EffectiveRange / preferred band from mounted optics (ScopeMagnification / OpticMinRange).
+function JazzAI_ApplySniperOpticRangeToContext(context, weapon)
+	if not context or not IsKindOf(weapon, "Firearm") then
+		return
+	end
+	local unit = context.unit
+	if not JazzAI_UnitHasSniperHoldKeyword(unit) then
+		context.jazz_optic_min_range = 0
+		context.jazz_optic_ideal_range = context.EffectiveRange or 1
+		return
+	end
+	-- Assume sniper will meet ScopeAimLevel for reach unlock.
+	local aim = 3
+	if type(JAZZ_CTHGetOpticProfile) == "function" then
+		local probe = JAZZ_CTHGetOpticProfile(weapon, 0)
+		if probe and (probe.aim_level or 0) > 0 then
+			aim = probe.aim_level
+		end
+	end
+	local optic = type(JAZZ_CTHGetOpticProfile) == "function" and JAZZ_CTHGetOpticProfile(weapon, aim) or false
+	local min_range = 0
+	local reach = 0
+	local mag = 1
+	if optic then
+		min_range = optic.min_range or 0
+		reach = optic.reach or 0
+		mag = optic.magnification or 1
+	end
+	local wr = weapon.WeaponRange or context.ExtremeRange or 1
+	local bdr = weapon.BulletDropRange or MulDivRound(wr, 50, 100)
+	-- Preferred engagement: past optic near-penalty, inside BDR+reach (capped by WeaponRange).
+	local ideal = Min(wr - 1, bdr + reach)
+	if ideal < min_range + 2 then
+		ideal = Min(wr - 1, min_range + Max(4, DivRound(wr, 4)))
+	end
+	context.jazz_optic_min_range = min_range
+	context.jazz_optic_ideal_range = Max(1, ideal)
+	context.jazz_optic_mag = mag
+	-- Pull WeaponRange OptLoc toward the optic sweet spot (not iron-sight mid-close).
+	if ideal > (context.EffectiveRange or 0) then
+		context.EffectiveRange = ideal
+	end
+	if min_range > 0 and (context.EffectiveRange or 0) < min_range then
+		context.EffectiveRange = Min(wr - 1, min_range + 2)
+	end
+end
+
 --- HighGround policy Weight multiplier (%). streak0–1=100, streak2=40, streak3+=0.
 function JazzAI_SniperHighGroundWeightPct(streak)
 	streak = streak or 0
@@ -2530,13 +2706,16 @@ end
 
 function JazzAI_UnitHasSniperHoldKeyword(unit)
 	local keys = unit and unit.AIKeywords
-	if not keys then
-		return false
-	end
-	for _, k in ipairs(keys) do
-		if k == "Sniper" or k == "Marksman" then
-			return true
+	if keys then
+		for _, k in ipairs(keys) do
+			if k == "Sniper" or k == "Marksman" then
+				return true
+			end
 		end
+	end
+	-- Dynamic fill-in: best optic/bolt when the team has no dedicated sniper.
+	if JazzAI_UnitIsDynamicSemiSniper and JazzAI_UnitIsDynamicSemiSniper(unit) then
+		return true
 	end
 	return false
 end

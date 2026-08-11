@@ -16,6 +16,7 @@ import {
   detectNewGameNeededMarker,
   duplicatePublishSkipReason,
   formatNewGameNeededLabel,
+  formatSuitePackagesField,
   getSummarySkipReason,
   isClearlyNoiseOnly,
   neutralizeDiscordMentions,
@@ -23,6 +24,7 @@ import {
   redactSecrets,
   resolveNewGameNeeded,
   resolvePlayerSummary,
+  resolveSuitePackages,
   safeErrorMessage,
 } from "./discord-player-update.mjs";
 
@@ -681,9 +683,27 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
     safePayload.embeds[0].fields[0].value,
     /можно продолжить текущий сейв/,
   );
+  assert.equal(safePayload.embeds[0].fields[1].name, "Пакеты");
+  assert.match(safePayload.embeds[0].fields[1].value, /jazz-maps/);
+  assert.match(safePayload.embeds[0].description, /\*\*Пакеты:\*\*/);
   assert.match(
     safePayload.embeds[0].footer.text,
     /JAZZ-maps · 2 коммита · 1 файл/,
+  );
+
+  const multiPayload = buildDiscordPayload({
+    summary,
+    changeSet,
+    suitePackages: ["jazz", "jazz-units", "jazz-nomaps"],
+  });
+  assert.equal(multiPayload.embeds[0].fields[1].name, "Пакеты");
+  assert.match(
+    multiPayload.embeds[0].fields[1].value,
+    /jazz[\s\S]*jazz-units[\s\S]*jazz-nomaps/,
+  );
+  assert.match(
+    multiPayload.embeds[0].footer.text,
+    /jazz, jazz-units, jazz-nomaps · /,
   );
 
   const rolePayload = buildDiscordPayload({
@@ -696,6 +716,27 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
   assert.deepEqual(rolePayload.allowed_mentions.roles, [
     "123456789012345678",
   ]);
+});
+
+test("resolveSuitePackages merges env list with posting repo", () => {
+  assert.deepEqual(
+    resolveSuitePackages({
+      repository: "Kpoji4er/JAZZ",
+      suitePackagesEnv: "jazz,jazz-units,jazz-nomaps",
+    }),
+    ["jazz", "jazz-units", "jazz-nomaps"],
+  );
+  assert.deepEqual(
+    resolveSuitePackages({
+      repository: "Kpoji4er/JAZZ-units",
+      suitePackagesEnv: "",
+    }),
+    ["jazz-units"],
+  );
+  assert.equal(
+    formatSuitePackagesField(["jazz", "jazz-units"]),
+    "• jazz\n• jazz-units",
+  );
 });
 
 test("Discord embed remains inside field and total size limits", () => {

@@ -38,8 +38,11 @@ Leaders не пишут aura directives (F8).
 ## Цели
 
 - Sgt 15 / Lt 25 / Capt map; Leaders WriteOfficerAura; stance reacts to directive.
-- Directives: HoldLine / Push / Envelop / LowVisHold / FallBack / FocusFire / OccupyBuildings / TakeCover / GoHidden.
+- Directives: HoldLine / Push / Envelop / LowVisHold / FallBack / FocusFire / OccupyBuildings / OccupyHeights / TakeCover / GoHidden.
 - Distance bands: Push ≤12, HoldLine 13–23, Envelop ≥24 (tiles from officer to nearest enemy).
+- Score-picker + directive fatigue; FallBack = dead≥2 & ≥30% (no sticky wounds).
+- FocusFire = threat priority (sniper/MG/close/finish); bias ×1.8.
+- Influence buffs by directive; aura assigns `semi_sniper` / `pseudo_mg` fill-ins in radius.
 - На командире — видимый System-`Perk` **Командная аура**; на союзниках в радиусе — **Под влиянием ауры**.
 
 ## Non-goals
@@ -54,15 +57,16 @@ Leaders не пишут aura directives (F8).
 - `JAZZ-AI-CMD-001-REQ-002` — MapVar team directives (`directive` / `source` / `radius` / optional `focus_target`).
 - `JAZZ-AI-CMD-001-REQ-003` — PickCombatStance respects Push/Envelop/FallBack/TakeCover/OccupyBuildings/GoHidden.
 - `JAZZ-AI-CMD-001-REQ-004` — `Jazz_Perk_OfficerAura` / `Jazz_Perk_OfficerAuraInfluence`; Apply/Remove по радиусу; RemoveOnEndCombat; RU+EN loc.
-- `JAZZ-AI-CMD-001-REQ-005` — PickOfficerDirective bands Push≤12 / Envelop≥24; FallBack on heavy losses; FocusFire on visible ≤40% HP enemy; OccupyBuildings on urban/indoor; TakeCover when outshot at range (≥18); GoHidden when ≥40% team CanStealth (low-vis or outshot).
-- `JAZZ-AI-CMD-001-REQ-006` — FocusFire stores `focus_target`; aura allies get attack-score bias in CombatAI.
-- `JAZZ-AI-CMD-001-REQ-007` — GoHidden calls `Hide()` via `JazzAI_TryUnitGoHidden` on WriteOfficerAura + UnitBeginTurn (not PickCustom).
+- `JAZZ-AI-CMD-001-REQ-005` — Score-picker + fatigue; FallBack dead≥2&≥30%; FocusFire threat-score; OccupyHeights; TakeCover/GoHidden as before; bands Push≤12 / Envelop≥24.
+- `JAZZ-AI-CMD-001-REQ-006` — FocusFire `focus_target` + attack bias ×1.8; Influence CTH/AP/defense by directive.
+- `JAZZ-AI-CMD-001-REQ-007` — GoHidden → `JazzAI_TryUnitGoHidden` on WriteOfficerAura + UnitBeginTurn.
+- `JAZZ-AI-CMD-001-REQ-008` — WriteOfficerAura assigns `semi_sniper` / `pseudo_mg` among aura allies when no dedicated role.
 
 ## Инварианты и ограничения
 
 - Ephemeral combat state; clear on CombatStart/CombatEnd.
 - Иконки: stub paths под `Icons/StatusEffects/`.
-- Loc IDs 890000000006100–6117.
+- Loc IDs 890000000006100–6124.
 
 ## Acceptance criteria
 
