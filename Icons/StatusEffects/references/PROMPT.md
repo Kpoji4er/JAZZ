@@ -102,6 +102,13 @@ Style-референсы: **только** PNG в этой папке + runtime 
 | `Bleeding.png` | `#E03838` | `Bleeding` | MED-001 light bleed: 1 drop |
 | `BleedingMedium.png` | `#C82828` | `BleedingMedium` | MED-001 moderate: 2 drops |
 | `BleedingHeavy.png` | `#A02020` | `BleedingHeavy` | MED-001 heavy: cascade + spray |
+| `BloodLoss50.png` | `#E87878` | `BloodLoss50` | MED-002 Weakness: torso + 3↓ chevrons (not bleed drop) |
+| `BloodLoss40.png` | `#E06060` | `BloodLoss40` | same glyph, darker |
+| `BloodLoss30.png` | `#D84848` | `BloodLoss30` | |
+| `BloodLoss20.png` | `#D03030` | `BloodLoss20` | |
+| `BloodLoss10.png` | `#C02020` | `BloodLoss10` | |
+| `BloodLoss5.png` | `#A01818` | `BloodLoss5` | |
+| `BloodLoss1.png` | `#781010` | `BloodLoss1` | darkest critical |
 | `Pain.png` | `#A02020` | `Pain` | MED-001 ache burst + zigzags (not bleed drop) |
 | `Analgesia.png` | `#B8B880` | `Analgesia` | MED-001 buff: autoinjector + calm waves |
 | `Concussion.png` | `#E03838` | `Concussion` | blast daze: head profile + swirl + impact rings (not TraumaHead cracked skull) |
