@@ -522,3 +522,185 @@ function GetHealingBonus(sector, operation_id)
 	end
 	return bonus
 end
+
+-- Large stacked squads (Jazz MercSquadMaxPeople=12 + multi-squad sectors) blow up
+-- SectorOperationsAssignDlgUI: merc grid uses float / rows, no scroll, ActionBar
+-- slides off-screen. Parent MainUI "Start" stays disabled while Assign is open, so
+-- the player only sees a grey Start — Enter still confirms and charges money.
+local function JazzAssignDlgId(dlg)
+	return dlg and (dlg.Id or dlg.xtemplate or rawget(dlg, "xtemplate"))
+end
+
+local function JazzIsSectorOperationsAssignDlg(dlg)
+	if not dlg then
+		return false
+	end
+	local open = GetDialog("SectorOperationsAssignDlgUI")
+	if open and open == dlg then
+		return true
+	end
+	local id = JazzAssignDlgId(dlg)
+	return id == "SectorOperationsAssignDlgUI" or id == "SectorOperationsAssignDlgUI_1"
+end
+
+function JazzFixSectorOperationsAssignDlgLayout(dlg)
+	if not dlg or rawget(dlg, "jazz_assign_layout_fixed") then
+		return
+	end
+	rawset(dlg, "jazz_assign_layout_fixed", true)
+
+	local list = dlg.idMercsList or dlg:ResolveId("idMercsList")
+	local bar = dlg.idActionBar or dlg:ResolveId("idActionBar")
+	local screen = UIL and UIL.GetScreenSize and UIL.GetScreenSize()
+	local max_h = 360
+	if screen then
+		max_h = Min(420, Max(220, MulDivRound(screen:y(), 42, 100)))
+	end
+
+	-- Clamp portrait grid so the assign card cannot push Confirm below the screen.
+	-- Top rows stay selectable (Idle list is skill-sorted); full scroll is a follow-up.
+	if list then
+		list:SetMaxHeight(max_h)
+		list:SetClip("self")
+	end
+
+	-- Keep Confirm/Close on the visible dialog frame, not under an oversized card.
+	if bar and bar.parent ~= dlg then
+		bar:SetParent(dlg)
+		bar:SetDock(false)
+		bar:SetHAlign("center")
+		bar:SetVAlign("bottom")
+		bar:SetZOrder(50)
+		bar:SetMargins(box(20, 0, 20, 28))
+		bar:SetDrawOnTop(true)
+	end
+end
+
+local function JazzPatchAssignDlgMercGrid()
+	local xt = rawget(_G, "XTemplates") and XTemplates.SectorOperationsAssignDlgUI
+	if not xt then
+		return
+	end
+
+	local function patch_foreach_run_after(foreach_node)
+		if type(foreach_node) ~= "table" or type(foreach_node.run_after) ~= "function" then
+			return false
+		end
+		if rawget(foreach_node, "jazz_assign_grid_int") then
+			return true
+		end
+		local base = foreach_node.run_after
+		foreach_node.run_after = function(child, context, item, i, n, last)
+			base(child, context, item, i, n, last)
+			local total = tonumber(last) or 0
+			local idx = tonumber(i) or 0
+			local dev = 10
+			if total > 10 and (total % 10) < 3 then
+				dev = math.floor(total / 2) + (total % 2)
+			end
+			if dev < 1 then
+				dev = 1
+			end
+			local col = idx % dev
+			if col == 0 then
+				col = dev
+			end
+			local row = math.floor((idx + dev - 1) / dev)
+			child:SetGridY(row)
+			child:SetGridX(col)
+		end
+		rawset(foreach_node, "jazz_assign_grid_int", true)
+		return true
+	end
+
+	local function walk(node, depth)
+		if type(node) ~= "table" or (depth or 0) > 80 then
+			return false
+		end
+		if node.Id == "idMercsList" then
+			for _, child in ipairs(node) do
+				-- XTemplateForEach carrying assign portrait grid run_after
+				if type(child) == "table" and patch_foreach_run_after(child) then
+					return true
+				end
+			end
+		end
+		for _, child in ipairs(node) do
+			if type(child) == "table" and walk(child, (depth or 0) + 1) then
+				return true
+			end
+		end
+		for key, child in pairs(node) do
+			if type(key) ~= "number" and type(child) == "table" and walk(child, (depth or 0) + 1) then
+				return true
+			end
+		end
+		return false
+	end
+
+	walk(xt, 0)
+end
+
+local function JazzPatchMainUIHideStartWhileAssignOpen()
+	local xt = rawget(_G, "XTemplates") and XTemplates.SectorOperationMainUI
+	if not xt then
+		return
+	end
+
+	local function wrap_action(node)
+		if rawget(node, "jazz_hide_start_while_assign") then
+			return
+		end
+		if node.ActionId ~= "Start" or type(node.ActionState) ~= "function" then
+			return
+		end
+		local base = node.ActionState
+		node.ActionState = function(self, host)
+			if GetDialog("SectorOperationsAssignDlgUI") then
+				return "hidden"
+			end
+			return base(self, host)
+		end
+		rawset(node, "jazz_hide_start_while_assign", true)
+	end
+
+	local function walk(node, depth)
+		if type(node) ~= "table" or (depth or 0) > 80 then
+			return
+		end
+		wrap_action(node)
+		for _, child in ipairs(node) do
+			if type(child) == "table" then
+				walk(child, (depth or 0) + 1)
+			end
+		end
+		for key, child in pairs(node) do
+			if type(key) ~= "number" and type(child) == "table" then
+				walk(child, (depth or 0) + 1)
+			end
+		end
+	end
+
+	walk(xt, 0)
+end
+
+function JazzInstallSectorOperationsAssignUIFixes()
+	JazzPatchAssignDlgMercGrid()
+	JazzPatchMainUIHideStartWhileAssignOpen()
+end
+
+function OnMsg.DialogOpen(dlg, init_mode)
+	if JazzIsSectorOperationsAssignDlg(dlg) then
+		JazzFixSectorOperationsAssignDlgLayout(dlg)
+	end
+end
+
+function OnMsg.DataLoaded()
+	JazzInstallSectorOperationsAssignUIFixes()
+end
+
+function OnMsg.ModsReloaded()
+	JazzInstallSectorOperationsAssignUIFixes()
+end
+
+JazzInstallSectorOperationsAssignUIFixes()

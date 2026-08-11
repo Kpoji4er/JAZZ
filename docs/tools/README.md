@@ -36,6 +36,8 @@
 | `_apply_steroidpunch_passive.py` | UNITS-006 SteroidPunch: sync companion → `items.lua` + RU/EN `890000000009930/9931` (passive text). Restores Gamos VR `6512/6513` if overwritten. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
+| `_audit_jazz_perk_combat_actions.py` | Audit `Jazz_Perk_*` CE vs `ModItemCombatAction` SignatureAbilities companions; flags missing CA and `GetUIState→hidden` stubs. |
+| `_gen_jazz_perk_passive_combat_actions.py` | Generate/fix Passive `SignatureAbilities` CombatAction companions for `Jazz_Perk_*` (skip `00` Toggle + OfficerAuraInfluence); sync metadata presets. |
 | `_fix_units006_batch3_loc.py` | UNITS-006 batch3: rewrite RU CE/CSV via unicode-escapes (encoding-safe). |
 | `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + cheap §B CE text/hooks sync. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch4: shipped Flo/Static/Cougar + soft cuts → batch5. |

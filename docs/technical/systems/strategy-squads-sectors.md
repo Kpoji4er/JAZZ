@@ -142,6 +142,12 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 `System_SectorOperations.lua` расширяет operations, включая взаимодействие с wounds/healing. Стоимость, длительность, merc assignment и результат должны согласоваться с tactical statuses и переходом времени.
 
+Assign UI hotfix (large multi-squad sectors): vanilla `SectorOperationsAssignDlgUI` grows with every Idle merc and uses float grid math, so **Подтвердить** can leave the screen while parent **Начать** stays disabled for the open Assign dialog — money still charges on Enter/Confirm. Jazz pins Assign ActionBar, clamps the merc grid height, forces integer grid cells, and hides MainUI Start while Assign is open.
+
+## Named perk SignatureAbilities HUD
+
+Personal `Jazz_Perk_*` CharacterEffects need a matching `ModItemCombatAction` (`id` = perk class, `ActionType = Passive`, `ShowIn/group = SignatureAbilities`, vanilla-style `GetUIState` → `enabled`) or they never appear on the combat signature hotbar. Tools: `docs/tools/_gen_jazz_perk_passive_combat_actions.py`, `_audit_jazz_perk_combat_actions.py`. `Jazz_Perk_00` stays Toggle; `Jazz_Perk_OfficerAuraInfluence` has no CA (aura status).
+
 ## Deployment и World Flip
 
 `Deployment.lua` — изменённый аналог vanilla deployment. NetSync `DeploymentToExploration` участвует в смене режима. `WorldFlipSpawnUnits.lua` создаёт attacks/units при смене состояния мира. Оба модуля зависят от map markers, sector IDs и UnitData.

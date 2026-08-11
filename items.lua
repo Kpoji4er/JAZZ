@@ -72612,6 +72612,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/Negotiator",
 					'Tier', "Personality",
 				}),
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Mimicry DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Perks/Bond",
+					IdDefault = "Jazz_Perk_Mimicrydefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Mimicry",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personality",
 					'Id', "Scoundrel",
@@ -72622,6 +72654,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/Scoundrel",
 					'Tier', "Personality",
 				}),
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Veteran DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Perks/OldDog",
+					IdDefault = "Jazz_Perk_Veterandefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Veteran",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personality",
 					'Id', "Jazz_Perk_Mimicry",
@@ -72631,6 +72695,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Description', T(890000000001932, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Mimicry Description]] "Проходит проверки на разговорные перки <em>Переговорщик</em>, <em>Тёртый калач</em> и <em>Псих</em> без их боевых и экономических эффектов."),
 					'Icon', "UI/Icons/Perks/Bond",
 					'Tier', "Personality",
+				}),
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Sniper DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Perks/Deadeye",
+					IdDefault = "Jazz_Perk_Sniperdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Sniper",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personality",
@@ -74255,10 +74351,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Lynx",
 			}, {
-				PlaceObj('ModItemCombatAction', {
+								PlaceObj('ModItemCombatAction', {
 					ActionType = "Passive",
 					ActivePauseBehavior = "instant",
-					Comment = "toggle",
+					Comment = "passive",
 					ConfigurableKeybind = false,
 					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Lynx DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
@@ -74268,18 +74364,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						return "hidden"
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Lynx6.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Lynx.png",
 					IdDefault = "Jazz_Perk_Lynxdefault",
-					IsToggledOn = function (self, unit)
-						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
-					end,
+					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					RequireState = "any",
 					Run = function (self, unit, ap, ...)
-						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
-						ObjModified("combat_bar")
 						return false
 					end,
 					ShowIn = "SignatureAbilities",
@@ -74315,10 +74411,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Buzz",
 			}, {
-				PlaceObj('ModItemCombatAction', {
+								PlaceObj('ModItemCombatAction', {
 					ActionType = "Passive",
 					ActivePauseBehavior = "instant",
-					Comment = "toggle",
+					Comment = "passive",
 					ConfigurableKeybind = false,
 					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Buzz DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
@@ -74328,19 +74424,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						return "hidden"
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Buzz2.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Buzz.png",
 					IdDefault = "Jazz_Perk_Buzzdefault",
 					IsAimableAttack = false,
-					IsToggledOn = function (self, unit)
-						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
-					end,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					RequireState = "any",
 					Run = function (self, unit, ap, ...)
-						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
-						ObjModified("combat_bar")
 						return false
 					end,
 					ShowIn = "SignatureAbilities",
@@ -74362,10 +74457,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Spider",
 			}, {
-				PlaceObj('ModItemCombatAction', {
+								PlaceObj('ModItemCombatAction', {
 					ActionType = "Passive",
 					ActivePauseBehavior = "instant",
-					Comment = "toggle",
+					Comment = "passive",
 					ConfigurableKeybind = false,
 					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Spider DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
@@ -74375,18 +74470,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						return "hidden"
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Spider2.png",
+					Icon = "Mod/e6L4ECj/Perks/Personal/Spider.png",
 					IdDefault = "Jazz_Perk_Spiderdefault",
-					IsToggledOn = function (self, unit)
-						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
-					end,
+					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					RequireState = "any",
 					Run = function (self, unit, ap, ...)
-						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
-						ObjModified("combat_bar")
 						return false
 					end,
 					ShowIn = "SignatureAbilities",
@@ -74408,10 +74503,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Colby",
 			}, {
-				PlaceObj('ModItemCombatAction', {
+								PlaceObj('ModItemCombatAction', {
 					ActionType = "Passive",
 					ActivePauseBehavior = "instant",
-					Comment = "toggle",
+					Comment = "passive",
 					ConfigurableKeybind = false,
 					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Colby DisplayName]] "<placeholder>"),
 					GetActionDescription = function (self, units)
@@ -74421,18 +74516,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						return GetSignatureActionDisplayName(self)
 					end,
 					GetUIState = function (self, units, args)
-						return "hidden"
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
 					end,
 					Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
 					IdDefault = "Jazz_Perk_Colbydefault",
-					IsToggledOn = function (self, unit)
-						return unit and unit:GetEffectValue("Jazz_Perk_00") or false
-					end,
+					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					RequireState = "any",
 					Run = function (self, unit, ap, ...)
-						unit:SetEffectValue("Jazz_Perk_00", not unit:GetEffectValue("Jazz_Perk_00"))
-						ObjModified("combat_bar")
 						return false
 					end,
 					ShowIn = "SignatureAbilities",
@@ -74476,6 +74571,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Blade",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Blade DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Blade.png",
+					IdDefault = "Jazz_Perk_Bladedefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Blade",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Blade",
@@ -74524,6 +74651,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Ira",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Ira DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Ira.png",
+					IdDefault = "Jazz_Perk_Iradefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Ira",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Ira",
@@ -74545,6 +74704,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Dimitri",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Dimitri DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Dimitri.png",
+					IdDefault = "Jazz_Perk_Dimitridefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Dimitri",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Dimitri",
@@ -74559,6 +74750,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Madman",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Madman DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Madman.png",
+					IdDefault = "Jazz_Perk_Madmandefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Madman",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Madman",
@@ -74616,6 +74839,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Conrad",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Conrad DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Conrad.png",
+					IdDefault = "Jazz_Perk_Conraddefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Conrad",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Conrad",
@@ -74637,6 +74892,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Mike",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Mike DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Mike.png",
+					IdDefault = "Jazz_Perk_Mikedefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Mike",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Mike",
@@ -74658,6 +74945,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Grom",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Grom DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Grom.png",
+					IdDefault = "Jazz_Perk_Gromdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Grom",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Grom",
@@ -74672,6 +74991,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Iggy",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Iggy DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Iggy.png",
+					IdDefault = "Jazz_Perk_Iggydefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Iggy",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Iggy",
@@ -74686,6 +75037,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Rothman",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Rothman DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Rothman.png",
+					IdDefault = "Jazz_Perk_Rothmandefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Rothman",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Rothman",
@@ -74712,6 +75095,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Quinten",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Quinten DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Quinten.png",
+					IdDefault = "Jazz_Perk_Quintendefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Quinten",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Quinten",
@@ -74726,6 +75141,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Vicious",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Vicious DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Vicious.png",
+					IdDefault = "Jazz_Perk_Viciousdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Vicious",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vicious",
@@ -74759,6 +75206,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Biff",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Biff DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Biff.png",
+					IdDefault = "Jazz_Perk_Biffdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Biff",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Biff",
@@ -74773,6 +75252,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Nervous",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Nervous DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Nervous.png",
+					IdDefault = "Jazz_Perk_Nervousdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Nervous",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Nervous",
@@ -74851,6 +75362,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Dynamo",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Dynamo DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Dynamo.png",
+					IdDefault = "Jazz_Perk_Dynamodefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Dynamo",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Dynamo",
@@ -74865,6 +75408,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Gaston",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Gaston DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Gaston.png",
+					IdDefault = "Jazz_Perk_Gastondefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Gaston",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Gaston",
@@ -74879,6 +75454,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Horg",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Horg DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Horg.png",
+					IdDefault = "Jazz_Perk_Horgdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Horg",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Horg",
@@ -74893,6 +75500,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Manuel",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Manuel DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Manuel.png",
+					IdDefault = "Jazz_Perk_Manueldefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Manuel",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Manuel",
@@ -74907,6 +75546,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Monk",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Monk DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Monk.png",
+					IdDefault = "Jazz_Perk_Monkdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Monk",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Monk",
@@ -74921,6 +75592,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Allik",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Allik DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Allik.png",
+					IdDefault = "Jazz_Perk_Allikdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Allik",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Allik",
@@ -74935,6 +75638,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Henning",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Henning DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Henning.png",
+					IdDefault = "Jazz_Perk_Henningdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Henning",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Henning",
@@ -75070,6 +75805,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Static",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Static DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Static.png",
+					IdDefault = "Jazz_Perk_Staticdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Static",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Static",
@@ -75096,6 +75863,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Highball",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Highball DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Highball.png",
+					IdDefault = "Jazz_Perk_Highballdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Highball",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Highball",
@@ -75133,6 +75932,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Bull",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Bull DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Bull.png",
+					IdDefault = "Jazz_Perk_Bulldefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Bull",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Bull",
@@ -75147,6 +75978,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Cord",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Cord DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Cord.png",
+					IdDefault = "Jazz_Perk_Corddefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Cord",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Cord",
@@ -75173,6 +76036,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Hobbit",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Hobbit DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Hobbit.png",
+					IdDefault = "Jazz_Perk_Hobbitdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Hobbit",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Hobbit",
@@ -75187,6 +76082,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Ricochet",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Ricochet DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Ricochet.png",
+					IdDefault = "Jazz_Perk_Ricochetdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Ricochet",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Ricochet",
@@ -75242,6 +76169,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Meat",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Meat DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Meat.png",
+					IdDefault = "Jazz_Perk_Meatdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Meat",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Meat",
@@ -75265,6 +76224,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Carlos",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Carlos DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Carlos.png",
+					IdDefault = "Jazz_Perk_Carlosdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Carlos",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Carlos",
@@ -75291,6 +76282,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Devin",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Devin DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Devin.png",
+					IdDefault = "Jazz_Perk_Devindefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Devin",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Devin",
@@ -75305,6 +76328,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Shank",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Shank DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Shank.png",
+					IdDefault = "Jazz_Perk_Shankdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Shank",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Shank",
@@ -75374,6 +76429,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Vince",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Vince DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Vince.png",
+					IdDefault = "Jazz_Perk_Vincedefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Vince",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vince",
@@ -75400,6 +76487,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Hitman",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Hitman DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Hitman.png",
+					IdDefault = "Jazz_Perk_Hitmandefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Hitman",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Hitman",
@@ -75414,6 +76533,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Biggens",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Biggens DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Biggens.png",
+					IdDefault = "Jazz_Perk_Biggensdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Biggens",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Biggens",
@@ -75428,6 +76579,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Kulba",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Kulba DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Kulba.png",
+					IdDefault = "Jazz_Perk_Kulbadefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Kulba",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Kulba",
@@ -75449,6 +76632,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Vilde",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Vilde DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Vilde.png",
+					IdDefault = "Jazz_Perk_Vildedefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Vilde",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Vilde",
@@ -75479,6 +76694,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Grace",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Grace DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Grace.png",
+					IdDefault = "Jazz_Perk_Gracedefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Grace",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Grace",
@@ -75534,6 +76781,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Steiger",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Steiger DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Steiger.png",
+					IdDefault = "Jazz_Perk_Steigerdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Steiger",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Steiger",
@@ -75576,6 +76855,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Lucky",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Lucky DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Lucky.png",
+					IdDefault = "Jazz_Perk_Luckydefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Lucky",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Lucky",
@@ -75590,6 +76901,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Laura",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Laura DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Laura.png",
+					IdDefault = "Jazz_Perk_Lauradefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Laura",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Laura",
@@ -75614,6 +76957,70 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Eskimo",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Eskimo DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
+					IdDefault = "Jazz_Perk_Eskimodefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Eskimo",
+				}),
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_OfficerAura DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Icons/StatusEffects/Jazz_OfficerAura.png",
+					IdDefault = "Jazz_Perk_OfficerAuradefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_OfficerAura",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Eskimo",
@@ -75730,6 +77137,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Flo",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Flo DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Flo.png",
+					IdDefault = "Jazz_Perk_Flodefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Flo",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Flo",
@@ -75756,6 +77195,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Cougar",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Cougar DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Cougar.png",
+					IdDefault = "Jazz_Perk_Cougardefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Cougar",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Cougar",
@@ -75789,6 +77260,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Miguel",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Miguel DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Miguel.png",
+					IdDefault = "Jazz_Perk_Migueldefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Miguel",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Miguel",
@@ -75911,6 +77414,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Benny",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Benny DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Perks/DesignerExplosives",
+					IdDefault = "Jazz_Perk_Bennydefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Benny",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Benny",
@@ -75932,6 +77467,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Simon",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Simon DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Perks/HawksEye",
+					IdDefault = "Jazz_Perk_Simondefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Simon",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Simon",
@@ -75946,6 +77513,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemFolder', {
 				'name', "Gamos",
 			}, {
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "passive",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction Jazz_Perk_Gamos DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "Mod/e6L4ECj/Perks/Personal/Gamos.png",
+					IdDefault = "Jazz_Perk_Gamosdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "Jazz_Perk_Gamos",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Jazz_Perk_Gamos",
