@@ -37867,6 +37867,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						Cost = 20,
 						DisplayName = T(624748134446, --[[ModItemWeaponComponent StockLightFolded DisplayName]] "Складной приклад (Сложенный)"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
+						ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_StockLightFolded.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 								"ReduceShootAP",
@@ -38195,6 +38196,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						Cost = 20,
 						DisplayName = T(158002281979, --[[ModItemWeaponComponent StockLightUnFolded DisplayName]] "Рамочный приклад (Разложенный)"),
 						Icon = "UI/Icons/Upgrades/MP5_stock_light",
+						ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_StockLightUnFolded.png",
 						ModificationDifficulty = 0,
 						ModificationEffects = {
 								"RecoilIncrease",
@@ -38497,6 +38499,7 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						Cost = 15,
 						DisplayName = T(775383830180, --[[ModItemWeaponComponent StockNo DisplayName]] "No Stock"),
 						Icon = "UI/Icons/Upgrades/default_stock",
+						ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_StockNo.png",
 						ModificationDifficulty = 10,
 						ModificationEffects = {
 								"ReduceShootAP",
@@ -58488,7 +58491,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Bandage.png",
 				'DisplayName', T(890000000010011, "Bandage"),
 				'DisplayNamePlural', T(890000000010012, "Bandages"),
-				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 25,
 				'CanAppearInShop', true,
 					'Tier', 1,

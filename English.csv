@@ -11686,10 +11686,10 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010010,Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries.,Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries.,,jazz:MED-002
 890000000010011,Bandage,Bandage,,jazz:MED-001-remap-from-890000000009206
 890000000010012,Bandages,Bandages,,jazz:MED-001-remap-from-890000000009207
-890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
+890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — reduce worst bleeding by one tier
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:InventoryItem/JAZZ_Bandage.lua:10 | jazz:items.lua:56621
@@ -11712,7 +11712,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Grants long analgesia (v1)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Rare; doctors use this for field surgery later",,jazz:InventoryItem/JAZZ_SurgicalKit.lua:10 | jazz:items.lua:56653
 890000000010020,USE,USE,,jazz:MED-001-remap-from-890000000009215
-890000000010021,<target> bleeding reduced by bandage,<target> bleeding reduced by bandage,,jazz:MED-001-remap-from-890000000009216
+890000000010021,<target> bleeding reduced by bandage ×<amount>,<target> bleeding reduced by bandage ×<amount>,,jazz:MED-001-remap-from-890000000009216
 890000000010022,Small Medkit,Small Medkit,,jazz:MED-001-remap-from-890000000009217
 890000000010023,Small Medkits,Small Medkits,,jazz:MED-001-remap-from-890000000009218
 890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters

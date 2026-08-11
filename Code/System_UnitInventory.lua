@@ -589,14 +589,29 @@ function UnitInventory:GetBandaged(medkit, healer)
 		end
 	end
 
-	-- Stackable bandage item: -1 bleed tier, no HP heal, no Medical.
+	-- Stackable bandage item: −1 bleed tier per bandage, up to current bleed stacks (one action).
 	if medkit and (IsKindOf(medkit, "JAZZ_Bandage") or medkit.class == "JAZZ_Bandage") then
-		if not JazzReduceBleedOneTier(self) then
+		local stacks = JazzCountBleedStacks and JazzCountBleedStacks(self) or 0
+		local have = JazzCountInventoryItem and JazzCountInventoryItem(healer, "JAZZ_Bandage") or 0
+		local n = Min(stacks, have)
+		if n < 1 then
 			return
 		end
-		JazzConsumeInventoryItem(healer, "JAZZ_Bandage", 1)
-		CombatLog("short", T{890000000010021, "<target> bleeding reduced by bandage",
+		local applied = 0
+		for _ = 1, n do
+			if JazzReduceBleedOneTier(self) then
+				applied = applied + 1
+			else
+				break
+			end
+		end
+		if applied < 1 then
+			return
+		end
+		JazzConsumeInventoryItem(healer, "JAZZ_Bandage", applied)
+		CombatLog("short", T{890000000010021, "<target> bleeding reduced by bandage ×<amount>",
 			target = self.Nick or self.Name,
+			amount = applied,
 		})
 		ObjModified(self)
 		Msg("OnBandage", healer, self, 0)

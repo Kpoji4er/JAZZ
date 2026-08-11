@@ -220,6 +220,33 @@ function JazzClearAllBleeding(patient)
 	return changed
 end
 
+function JazzCountBleedStacks(patient)
+	if not patient then
+		return 0
+	end
+	local n = 0
+	for _, id in ipairs(JazzBleedTierOrder) do
+		n = n + lBleedStacks(patient, id)
+	end
+	return n
+end
+
+function JazzCountInventoryItem(unit, class_id)
+	local n = 0
+	if unit and class_id then
+		unit:ForEachItem(function(item)
+			if item and (item.class == class_id or item.id == class_id) then
+				if IsKindOf(item, "InventoryStack") then
+					n = n + Max(0, item.Amount or 0)
+				else
+					n = n + 1
+				end
+			end
+		end)
+	end
+	return n
+end
+
 function JazzHasAnyBleed(unit)
 	for _, id in ipairs(JazzBleedTierOrder) do
 		if lBleedStacks(unit, id) > 0 then
@@ -1110,21 +1137,36 @@ function JazzConsumeInventoryItem(unit, class_id, amount)
 	if type(Jazz_VinceShouldSkipMedConsume) == "function" and amount <= 1 and Jazz_VinceShouldSkipMedConsume(unit) then
 		return true
 	end
-	local item = JazzFindInventoryItem(unit, class_id)
-	if not item then
-		return false
+	if amount < 1 then
+		return true
 	end
-	if IsKindOf(item, "InventoryStack") and (item.Amount or 0) > amount then
-		item.Amount = item.Amount - amount
-	else
-		local slot = unit:GetItemSlot(item)
-		if slot then
-			unit:RemoveItem(slot, item)
+	local left = amount
+	while left > 0 do
+		local item = JazzFindInventoryItem(unit, class_id)
+		if not item then
+			break
 		end
-		DoneObject(item)
+		local have = IsKindOf(item, "InventoryStack") and Max(0, item.Amount or 0) or 1
+		if have <= 0 then
+			local slot = unit:GetItemSlot(item)
+			if slot then
+				unit:RemoveItem(slot, item)
+			end
+			DoneObject(item)
+		elseif have > left then
+			item.Amount = have - left
+			left = 0
+		else
+			left = left - have
+			local slot = unit:GetItemSlot(item)
+			if slot then
+				unit:RemoveItem(slot, item)
+			end
+			DoneObject(item)
+		end
 	end
 	Msg("InventoryChange", unit)
-	return true
+	return left < amount
 end
 
 function GetUnitEquippedMedicine(unit)
@@ -1178,15 +1220,34 @@ function JazzGetBlockedKitMedicine(unit)
 	return result
 end
 
+-- Field bandage: one action spends Min(bleed stacks, bandages) and applies −1 tier that many times.
 function JazzApplyBandageAction(healer, patient)
 	patient = JazzResolveMedicinePatient(healer, patient)
 	if not healer or not patient or not JazzGetBandageItem(healer) then
 		return false
 	end
-	if not JazzReduceBleedOneTier(patient) then
+	local stacks = JazzCountBleedStacks(patient)
+	local have = JazzCountInventoryItem(healer, "JAZZ_Bandage")
+	local n = Min(stacks, have)
+	if n < 1 then
 		return false
 	end
-	JazzConsumeInventoryItem(healer, "JAZZ_Bandage", 1)
+	local applied = 0
+	for _ = 1, n do
+		if JazzReduceBleedOneTier(patient) then
+			applied = applied + 1
+		else
+			break
+		end
+	end
+	if applied < 1 then
+		return false
+	end
+	JazzConsumeInventoryItem(healer, "JAZZ_Bandage", applied)
+	CombatLog("short", T{890000000010021, "<target> bleeding reduced by bandage ×<amount>",
+		target = patient.Nick or patient.Name,
+		amount = applied,
+	})
 	Msg("OnBandaged", healer, patient, 0)
 	return true
 end

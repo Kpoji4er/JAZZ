@@ -91,7 +91,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 - Убрать `GritOnStart` Temp HP ~25% на старте боя.
 - Кровь: три тира (`Bleeding` = лёгкое / `BleedingMedium` / `BleedingHeavy`), стаки, урон 3/6/12 за стак/ход, кап суммарного урона крови ~30/ход.
-- Бинт (−1 тир худшему стаку), морфий (Analgesia), IFAK=`FirstAidKit`, Medkit, Surgical kit; self+ally через CombatActions на хотбаре.
+- Бинт (кумулятивно: 1 бинт × стак крови за одно применение, каждый шаг −1 тир худшему стаку), морфий (Analgesia), IFAK=`FirstAidKit`, Medkit, Surgical kit; self+ally через CombatActions на хотбаре.
 - `Pain` (−AP/−CTH, −1 стак/ход); морфий глушит штрафы боли. **Pain уже есть** в runtime v1.
 - Тяжёлая кровь с хита только от экспансивных (`JHP`/`HP` AppliedEffects remap).
 - Отключить выдачу `Wounded` от HP (`HpLossToAddStack` effectively off).
@@ -113,7 +113,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 - `JAZZ-MED-001-REQ-001` — `CombatStart` не выдаёт Temp HP grit 25%.
 - `JAZZ-MED-001-REQ-002` — три bleed ID; урон 3/6/12 × stacks; суммарный tick capped ~30.
-- `JAZZ-MED-001-REQ-003` — бинт: −1 тир одному худшему стаку; без Medical; мало AP.
+- `JAZZ-MED-001-REQ-003` — бинт: одно применение тратит **по 1 бинту на каждый текущий стак крови** (cap = запас в инвентаре) и столько же раз делает −1 тир худшему стаку; без Medical; мало AP.
 - `JAZZ-MED-001-REQ-004` — морфий: `Analgesia` глушит штрафы `Pain`; не снимает кровь/травму.
 - `JAZZ-MED-001-REQ-005` — экспансив: hit effect `Bleeding` → `BleedingHeavy`; обычные попадания могут вешать лёгкое/среднее по шансу.
 - `JAZZ-MED-001-REQ-006` — `HpLossToAddStack` не добавляет `Wounded` в нормальном бою (sentinel / bypass).
@@ -141,11 +141,11 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 ## Acceptance criteria
 
 - `JAZZ-MED-001-AC-001` — static: нет grit TempHP на CombatStart.
-- `JAZZ-MED-001-AC-002` — static: bleed damage params 3/6/12 + shared tick/cap + bandage −1 tier API.
+- `JAZZ-MED-001-AC-002` — static: bleed damage params 3/6/12 + shared tick/cap + cumulative field bandage API (`Min(stacks, stock)` × −1 tier).
 - `JAZZ-MED-001-AC-003` — static: JHP/HP remap to BleedingHeavy; Pain/Analgesia effects exist.
 - `JAZZ-MED-001-AC-004` — static: items Bandage/Morphine/Surgical + FirstAidKit/Medkit icons+hints.
 - `JAZZ-MED-001-AC-005` — docs synced; design marked implemented-scope v1.
-- `JAZZ-MED-001-AC-006` — runtime/human: бинт снижает тир; морфий глушит боль; без grit на старте.
+- `JAZZ-MED-001-AC-006` — runtime/human: бинт кумулятивно по стакам крови; морфий глушит боль; без grit на старте.
 - `JAZZ-MED-001-AC-007` — static: 15 trauma CharacterEffects + *shot/Unconscious/Burning wiring + icons + loc RU/EN; `UnitDowned` immediately guarantees one Heavy trauma and repeated Unconscious is idempotent.
 - `JAZZ-MED-001-AC-008` — runtime/human: body hit rolls trauma; knockout applies heavy package; zone debuffs match design formula.
 - `JAZZ-MED-001-AC-009` — static: `JazzGetTraumaArmorChanceFactor` scales thresholds when covering armor Condition>0; Burn/knockout untouched.
@@ -185,11 +185,11 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 ## Evidence
 
 - `JAZZ-MED-001-AC-001`: `PASS` — static: `GritOnStart.lua` без CombatStart Temp HP.
-- `JAZZ-MED-001-AC-002`: `PASS` — static: `Systems_Medicine.lua` + bleed effects 3/6/12 + bandage −1 tier.
+- `JAZZ-MED-001-AC-002`: `PASS` — static: `Systems_Medicine.lua` + bleed effects 3/6/12 + cumulative field bandage.
 - `JAZZ-MED-001-AC-003`: `PASS` — static: JHP remap + Pain/Analgesia companions.
 - `JAZZ-MED-001-AC-004`: `PASS` — static: Bandage/Morphine/Surgical + IFAK/Medkit icons/items wired.
 - `JAZZ-MED-001-AC-005`: `PASS` — static: technical + wiki + showcase RU/EN + design status (trauma included).
-- `JAZZ-MED-001-AC-006`: `BLOCKED` — runtime/human playtest pending.
+- `JAZZ-MED-001-AC-006`: `BLOCKED` — runtime/human: бинт кумулятивно по стакам; морфий глушит боль; без grit на старте.
 - `JAZZ-MED-001-AC-007`: `PASS` — static: Trauma* companions/items/metadata/icons/loc; *shot → `JazzTryRollTraumaFromBodyPart`; Unconscious → knockout package; Burning → `TraumaBurnLight`; `_audit_med001_downed_heavy.py` verifies immediate Heavy upgrade and idempotence.
 - `JAZZ-MED-001-AC-008`: `BLOCKED` — runtime/human trauma playtest pending.
 - `JAZZ-MED-001-AC-009`: `PASS` — static: armor zone→factor wired in `Systems_Medicine.lua`.
