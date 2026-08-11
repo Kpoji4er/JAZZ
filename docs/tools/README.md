@@ -25,6 +25,7 @@
 | `_lock_ammo_icon_silhouette.py` | Silhouette lock per caliber. Cut: `--key auto\|magenta\|black\|alpha`, `--choke` after downscale, `--alpha-from draft\|sil`, `--thr`, `--hard-alpha`. Soft edge: `--soft-outline 0.45` / `--outline-only`. Prefer **magenta plate** gens. |
 | `_finalize_ammo_gen_batch.py` | Batch: lock Cursor `assets/gen_*.png` → `Ammopics/_gen` + soft outline + `--key` + optional `--purge-assets` (only listed files). |
 | `_paint_ammo_carton_family.py` | EXPERIMENT only — paint onto blank plate. Visual QA rejected for 9×18 (looks procedural). Prefer GenerateImage + `_lock_ammo_icon_silhouette.py`. |
+| `_list_jazz_helms.py` | List `JazzArmor_*` Head-slot items (id/DisplayName/comment) for JAZZ-APPEAR-001 mapping. |
 | `_list_jazz_legion_appearances.py` | List Jazz Legion appearance IDs for portrait tooling. |
 | `_scan_ame_hats.py` / `_dump_ame17.py` | Hat scan / AME-17 dump helpers for appearance audits. |
 | `_bump_metadata_revision.py` | `metadata.lua` Revision +1 + prepend `last_changes` bullet (`--bullet`, escape `\\n` only). |
