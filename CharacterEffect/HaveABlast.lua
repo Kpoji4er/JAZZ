@@ -41,7 +41,7 @@ DefineClass.HaveABlast = {
 		}),
 	},
 	DisplayName = T(890000000009873, --[[ModItemCharacterEffectCompositeDef HaveABlast DisplayName]] "Взрывной характер"),
-	Description = T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель. Пока активен: контратака гранатой на вражеские выстрелы по себе (попадание или промах); урон от взрывов по себе −50%. Выключен — без эффекта. Гранаты: руки или инвентарь."),
+	Description = T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель. Пока активен: после атаки по себе (попадание или промах) отвечает гранатой (руки или из инвентаря); урон от взрывов по себе −50%. Выключен — без эффекта."),
 	Icon = "UI/Icons/Perks/HaveABlast",
 	Tier = "Personal",
 }

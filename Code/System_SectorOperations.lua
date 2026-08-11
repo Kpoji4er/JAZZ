@@ -1,3 +1,7 @@
+-- Flag for NamedPerks craft wrap: Parts discounts for Static/Barry/Cord are inlined
+-- in SectorOperation_ItemsCalcRes below (this file loads after System_NamedPerks.lua).
+g_JAZZ_SectorOpsCraftDiscountInlined = true
+
 function SectorOperationRepairItems_FillMostDamagedItems(sector_id)
 	local all = table.icopy(gv_Sectors[sector_id].sector_repair_items)
 	table.iappend(all, table.icopy(gv_Sectors[sector_id].sector_repair_items_queued))
@@ -500,6 +504,43 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 				end
 			end
 		end	
+	end
+
+	-- UNITS-006 Parts discounts must live here: NamedPerks wrap of this global is
+	-- overwritten by this file (metadata load order: NamedPerks → SectorOperations).
+	if parts > 0 and type(GetOperationProfessionals) == "function" then
+		local mercs = GetOperationProfessionals(sector_id, operation_id) or empty_table
+		local best = 0
+		for _, merc in ipairs(mercs) do
+			if type(Jazz_StaticPartsDiscountPercent) == "function" then
+				best = Max(best, Jazz_StaticPartsDiscountPercent(merc) or 0)
+			end
+		end
+		if best > 0 then
+			parts = Max(0, MulDivRound(parts, 100 - best, 100))
+		end
+		if operation_id == "CraftAmmo" or operation_id == "CraftExplosives" then
+			-- Barry DesignerExplosives: −30% Parts on ammo/grenade craft (vanilla ShapedCharge recipes).
+			local barry = 0
+			for _, merc in ipairs(mercs) do
+				if type(Jazz_BarryCraftDiscountPercent) == "function" then
+					barry = Max(barry, Jazz_BarryCraftDiscountPercent(merc) or 0)
+				end
+			end
+			if barry > 0 then
+				parts = Max(0, MulDivRound(parts, 100 - barry, 100))
+			end
+		elseif operation_id == "RepairItems" or operation_id == "Repair" then
+			for _, merc in ipairs(mercs) do
+				if type(Jazz_CordInBarCity) == "function" and Jazz_CordInBarCity(merc) then
+					local disc = (type(Jazz_NamedPerkParam) == "function"
+						and Jazz_NamedPerkParam(merc, "Jazz_Perk_Cord", "repair_parts_discount", 10))
+						or 10
+					parts = Max(0, MulDivRound(parts, 100 - disc, 100))
+					break
+				end
+			end
+		end
 	end
 	return parts
 end

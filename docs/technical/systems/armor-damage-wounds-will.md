@@ -118,12 +118,11 @@ Asset contract не менялся.
 
 1. Сырой FreeMove по надетым `Armor` (`Weight` 2/3/4/5 → +0.5/+1/+2/+3; слот ≠ Inventory; плиты с Weight входят).
 2. Сырой start AP: raw_FM &lt; 4 → 0; 4…&lt;8 → 1; ≥ 8 → 2.
-3. **KillingWind** — полный игнор (FM/AP/Pain от веса).
-4. Иначе: **Ironclad** ÷2 оба; при `using_cumbersome` AP-штраф брони = 0 (FM не half); Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
-5. Floor + cap FM ≤ 12, AP ≤ 2; списание `ConsumeAP(FM|AP * const.Scale.AP)` (Move / обычные ОД).
-6. Статусы `Weight_1Class`…`Weight_5Class`: стаки = floor(FM), класс иконки = **max Weight** экипа (не PenetrationClass). `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove`: при FM ≥ 6 первое перемещение за ход даёт +1 Pain (≤1 стек/ход от веса; Analgesia блокирует).
+3. **Ironclad** или **KillingWind** → FM ÷2 **один раз** (Fauda с обоими не получает ÷4). **Ironclad** дополнительно ÷2 AP. При `using_cumbersome` AP-штраф брони = 0 (FM брони не half от cumbersome). Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
+4. Floor + cap FM ≤ 12, AP ≤ 2; списание `ConsumeAP(FM|AP * const.Scale.AP)` (Move / обычные ОД).
+5. Статусы `Weight_1Class`…`Weight_5Class`: стаки = floor(FM), класс иконки = **max Weight** экипа (не PenetrationClass). `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove`: при FM ≥ 6 первое перемещение за ход даёт +1 Pain (≤1 стек/ход от веса; Analgesia блокирует).
 
-Cumbersome на оружии по-прежнему может не выдавать FreeMove в BeginTurn (кроме KillingWind / Ironclad path).
+Cumbersome на оружии по-прежнему может не выдавать FreeMove в BeginTurn (**KillingWind** всегда получает FreeMove с cumbersome; иначе Ironclad path).
 
 Экипировка использует `Head`, `HeadGear`, `Torso`, `Legs`, `ArmorPlate` и face/head-совместимость. `InventoryVest` как класс существует, но отдельный `Vest` slot в `System_UnitInventory.lua` сейчас закомментирован. Не считать систему vest полностью активной только по наличию класса.
 

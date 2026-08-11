@@ -1386,7 +1386,7 @@ function JazzApplyTrauma(unit, zone, tier)
 	unit:AddStatusEffect(id)
 	local effect = unit:GetStatusEffect(id)
 	if effect then
-		JazzInitTraumaProgressTimer(effect, zone, tier)
+		JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, tier)
 	return true
@@ -1594,9 +1594,6 @@ function JazzArmorWeightPainOnMove(unit)
 	if not unit or not g_Combat then
 		return false
 	end
-	if HasPerk(unit, "KillingWind") then
-		return false
-	end
 	if (unit.jazz_armor_fm_penalty or 0) < 6 then
 		return false
 	end
@@ -1747,7 +1744,7 @@ function JazzMarkUnitTraumasHealing(unit)
 			local effect = unit:GetStatusEffect(lTraumaId(zone, tier))
 			if effect then
 				JazzSetTraumaHealing(effect, true)
-				JazzInitTraumaProgressTimer(effect, zone, tier)
+				JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 				any = true
 			end
 		end
@@ -1807,7 +1804,7 @@ function JazzMarkKitTraumaHealing(unit, kit_class)
 		return false
 	end
 	JazzSetTraumaHealing(effect, true)
-	JazzInitTraumaProgressTimer(effect, zone, tier)
+	JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 	ObjModified(unit)
 	return true, zone, tier
 end
@@ -1917,6 +1914,9 @@ end
 
 function JazzApplyWoundInfected(unit)
 	if not unit then
+		return false
+	end
+	if type(Jazz_SquadBlocksWoundInfected) == "function" and Jazz_SquadBlocksWoundInfected(unit) then
 		return false
 	end
 	local classes = lG("g_Classes")
@@ -2182,6 +2182,11 @@ function UnitData:Tick()
 		if self.Operation == "RAndR" then
 			rate = const.Satellite.RandRActivityHealingMultiplier * rate
 		end
+		local sat_mul = type(Jazz_SatDebtSpeedMul) == "function" and Jazz_SatDebtSpeedMul(self)
+			or (type(Jazz_NaturalHealingDebtSpeedMul) == "function" and Jazz_NaturalHealingDebtSpeedMul(self))
+		if type(sat_mul) == "number" then
+			rate = MulDivRound(rate, sat_mul, 100)
+		end
 		local add = lJazzSatelliteHealHpThisTick(self, rate)
 		if add > 0 then
 			local old_hp = self.HitPoints
@@ -2196,7 +2201,7 @@ function UnitData:Tick()
 	Msg("UnitDataTick", self)
 end
 
-function JazzInitTraumaProgressTimer(effect, zone, tier)
+function JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 	if not effect or not Game or not Game.CampaignTime then
 		return false
 	end
@@ -2206,9 +2211,16 @@ function JazzInitTraumaProgressTimer(effect, zone, tier)
 	if not zone or not tier then
 		return false
 	end
+	unit = unit or effect.obj
 	local hours = JazzTraumaCheckIntervalHours(zone, tier)
 	if JazzTraumaIsHealing(effect) then
 		hours = Max(2, DivRound(hours, 2))
+	end
+	-- Thor NaturalHealing: trauma + burn intervals −15%; never applied to WoundInfected.
+	local sat_h = type(Jazz_SatDebtHoursMul) == "function" and Jazz_SatDebtHoursMul(unit)
+		or (type(Jazz_NaturalHealingDebtHoursMul) == "function" and Jazz_NaturalHealingDebtHoursMul(unit))
+	if type(sat_h) == "number" then
+		hours = Max(1, MulDivRound(hours, sat_h, 100))
 	end
 	local scale_h = (const.Scale and const.Scale.h) or 1
 	effect:SetParameter("next_check_time", Game.CampaignTime + hours * scale_h)
@@ -2223,7 +2235,7 @@ function JazzTraumaHoursUntilNextCheck(effect)
 	local next_t = effect:ResolveValue("next_check_time")
 	if not next_t or next_t == 0 then
 		local zone, tier = JazzParseTraumaEffectId(effect.class)
-		JazzInitTraumaProgressTimer(effect, zone, tier)
+		JazzInitTraumaProgressTimer(effect, zone, tier, effect.obj)
 		next_t = effect:ResolveValue("next_check_time")
 	end
 	if not next_t then
@@ -2308,7 +2320,7 @@ function JazzDowngradeTrauma(unit, zone)
 		if was_healing then
 			JazzSetTraumaHealing(effect, true)
 		end
-		JazzInitTraumaProgressTimer(effect, zone, new_tier)
+		JazzInitTraumaProgressTimer(effect, zone, new_tier, unit)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, new_tier)
 	return new_tier
@@ -2348,12 +2360,12 @@ function JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
 		JazzApplyWoundInfected(unit)
 	end
 	if effect then
-		JazzInitTraumaProgressTimer(effect, zone, tier)
+		JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 	else
 		local id = lTraumaId(zone, tier)
 		local e = unit:GetStatusEffect(id)
 		if e then
-			JazzInitTraumaProgressTimer(e, zone, tier)
+			JazzInitTraumaProgressTimer(e, zone, tier, unit)
 		end
 	end
 	return "stay"
@@ -2374,7 +2386,7 @@ function JazzTraumaProgressOnNewHour(unit)
 			if effect then
 				local next_t = effect:ResolveValue("next_check_time")
 				if not next_t or next_t == 0 then
-					JazzInitTraumaProgressTimer(effect, zone, tier)
+					JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 					next_t = effect:ResolveValue("next_check_time")
 				end
 				if next_t and Game and Game.CampaignTime and Game.CampaignTime >= next_t then

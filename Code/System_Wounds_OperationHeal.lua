@@ -204,6 +204,12 @@ function PatientAddHealWoundProgress(merc, progress, max_progress, dont_log)
 		local boost = GameRuleDefs.ForgivingMode:ResolveValue("HealingProgressBoost") or 0
 		progress = MulDivRound(progress, 100 + boost, 100)
 	end
+	-- Thor NaturalHealing: +15% TreatWounds progress (trauma/HP debt path; not infection).
+	local sat_mul = type(Jazz_SatDebtSpeedMul) == "function" and Jazz_SatDebtSpeedMul(merc)
+		or (type(Jazz_NaturalHealingDebtSpeedMul) == "function" and Jazz_NaturalHealingDebtSpeedMul(merc))
+	if type(sat_mul) == "number" then
+		progress = MulDivRound(progress, sat_mul, 100)
+	end
 	merc.heal_wound_progress = merc.heal_wound_progress + progress
 	local wounds_healed = false
 	while merc.heal_wound_progress > max_progress do

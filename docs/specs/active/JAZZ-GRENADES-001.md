@@ -277,6 +277,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-001`: `PASS` — static: shared `ApplyImpactDeviation`; ByDist free functions removed; Min/Max integer path.
 - `JAZZ-GRENADES-001-AC-002`: `PASS` — static: mishap flag/notification only on Max band in ApplyImpactDeviation.
 - `JAZZ-GRENADES-001-AC-003`: `PASS` — static/editor data: GL MinMishapRange; Demo MaxMishapChance; RU/EN hints updated.
+  - **Exception 2026-08-11 (owner):** `ShapedCharge` MaxMishapChance restored to **60** (pre-Demo bump) — Barry homemade charges stay vanilla-shaped identity.
 - `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime: общий playtest (Dex/MS blends, half-range zero, CapTiles).
 - `JAZZ-GRENADES-001-AC-005`: `BLOCKED` — runtime: общий playtest (suppression/Inaccurate).
 - `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP: общий playtest smoke.

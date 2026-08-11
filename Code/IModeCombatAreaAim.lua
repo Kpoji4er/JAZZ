@@ -286,10 +286,13 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
         HasPerk(attacker, "DangerClose") then
         local targetRange = attacker:GetDist(pt)
         local dangerClose = CharacterEffectDefs.DangerClose
-        local rangeTiles = dangerClose and dangerClose:ResolveValue("rangeThreshold")
+        local rangeTiles = dangerClose and
+                               (dangerClose:ResolveValue("minRange") or
+                                dangerClose:ResolveValue("rangeThreshold")) or 8
         if rangeTiles then
             local rangeThreshold = rangeTiles * const.SlabSizeX
-            if targetRange <= rangeThreshold then
+            -- List2: bonus at long range (≥minRange), not vanilla close ≤5.
+            if targetRange >= rangeThreshold then
                 SetAPIndicator(1, "danger-close", T {
                     190936138167,
                     "<perkName> - in range",

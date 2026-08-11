@@ -42,6 +42,10 @@ PASSIVE_RUN = '''\
 
 
 def ce_icon(perk_id: str) -> str:
+    # Prefer HUD dual-strip when present (Passive hotbar); CE Personal stays for perk tiles.
+    sig = ROOT / "Perks" / "SignatureAbilities" / f"{perk_id}.png"
+    if sig.exists():
+        return f"Mod/e6L4ECj/Perks/SignatureAbilities/{perk_id}.png"
     path = CE_DIR / f"{perk_id}.lua"
     if path.exists():
         m = re.search(r'Icon\s*=\s*"([^"]+)"', path.read_text(encoding="utf-8"))

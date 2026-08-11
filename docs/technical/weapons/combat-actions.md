@@ -184,6 +184,7 @@ visible_actions =
 - **Совместимость:** стрелковое оружие, которое проходит проверки overwatch.
 - **Поведение:** резервирует оставшиеся AP и создаёт конус; движение или действие противника внутри условий может вызвать один или несколько реакционных выстрелов.
 - **Стоимость:** тратит все доступные AP; число возможных реакций связано с их запасом и стоимостью атаки.
+- **HawksEye (Scope) + `SniperRifle`:** Overwatch стоит **1 ОД** (`overwatchCostOverwrite`); остальные ОД остаются. Число interrupt у снайперок по-прежнему **1** (`GetOverwatchAttacksAndAim`).
 - **Прицеливание:** реакционные выстрелы получают ограниченное число aim-ступеней.
 - **CTH:** стабильное описание упоминает Dexterity, но целевой контракт требует общего двухканального CTH pipeline без отдельной скрытой формулы.
 - **Целевая роль:** контроль пространства, а не бесплатный способ повысить точность.
@@ -193,9 +194,15 @@ visible_actions =
 - **Тип:** отложенная реакционная атака.
 - **Совместимость:** оружие и персонаж, прошедшие проверки действия.
 - **Поведение:** отмечает видимую цель; в начале следующего хода стреляет, если цель всё ещё доступна и видима.
-- **Стоимость:** тратит все AP при постановке.
+- **Стоимость:** тратит все AP при постановке; **HawksEye** снижает минимум до **1 ОД** (`pindownCostOverwrite`), но всё ещё тратит все оставшиеся.
 - **CTH:** действие имеет собственный бонус точности поверх общего pipeline; взаимодействует с `HawksEye`.
 - **Целевая роль:** заставить выбранного противника учитывать угрозу, в отличие от широкого конуса `Overwatch`.
+
+### `HawksEye` (Scope) — снайперский овервотч / печенье / suppress
+
+- **Overwatch + SniperRifle:** **1 ОД**, остальные ОД остаются; interrupt count у снайперок = 1.
+- **Подавление:** снайперские выстрелы → Will-suppression ×2 (`Jazz_ApplyHawksEyeSuppression`).
+- **Печенье:** `OnMercHired` → `Cookie` × days (RechargeCDs + 5 HP).
 
 ### `MobileShot` — пистолетный огонь после движения
 
@@ -418,12 +425,32 @@ visible_actions =
 
 ### `BulletHell` — сигнатура Bullet Hell (Спайк)
 
-- **Тип:** vanilla SignatureAbility id; в JAZZ выдана Спайку (`StartingPerks`). **JAZZ-COMBAT-006** меняет runtime-модель.
+- **Тип:** vanilla SignatureAbility id; в JAZZ выдана Спайку (`StartingPerks`). **JAZZ-COMBAT-006 v2**.
 - **Совместимость оружия:** vanilla `GetUIState` требует `AvailableAttacks` с `AutoFire` или `MGBurstFire`. JAZZ wrap также принимает `AbakanAutoFire` и `JAZZ_LargeAutoFire`.
-- **Прицеливание:** конус (`AimType = cone`) как раньше.
-- **Поведение (JAZZ):** не AlwaysHits AOE. `Unit:BulletHell` делает dump `min_ammo`…`max_ammo` (15…30) **одиночных Firearm-пуль** round-robin по врагам с LOS в конусе — обычный CTH, броня, LoF. Пустой конус → refund AP, без recharge.
-- **Подавление:** JAZZ Will (`suppressionbonus` 200 на выстрел) → `QueueSuppressionApplication` / тиры `suppressionLight`…`Pinned`. **Не** vanilla `Suppressed` / `SuppressionChangeStance` из AOE `applied_status`.
-- **Целевая роль:** именной секторный dump снарядами, не гарантированный area hit.
+- **Прицеливание:** конус (`AimType = cone`).
+- **Поведение:** `Unit:BulletHell` → `FirearmAttack` (как vanilla). `AlwaysHits = false`; без AOE-урона / vanilla Suppressed. `min_ammo`…`max_ammo` (15…30) **реальных** пуль: aim points размазаны по дуге конуса **до** LoF (`jazz_bh_arc_sprayed`) — попадают в тех, кто в луче; промахи могут шально задеть. Will-подавление (`suppressionbonus` 200).
+- **Перезарядка:** UNITS-006 — `recharge_on_kill`.
+- **Целевая роль:** именной конусный ливень снарядами с CTH, не гарантированный AlwaysHits AOE.
+
+### `VengefulTemperament` — Meltdown («Тяжелый характер» / Ураган Норма)
+
+- **Пакет:** `jazz-units` (ModItemCombatAction + CE) + `jazz` `Unit:VengefulTemperament` в `Code/CombatActions.lua`.
+- **Тип:** именная **активка** (SignatureAbilities); id CA = perk class.
+- **Поведение:** по нажатию — враги в радиусе **≤5** плит от Meltdown: fail Wisdom(50) → `Panicked`, иначе `Berserk`, refresh AP. Timed signature recharge. **Не** RunAndGun / mobile shot / on-hit passive. **Не** Hard Feelings / Vengeance mark.
+
+### `Nazdarovya` — Igor («Наздаровье»)
+
+- **Пакет:** `jazz` ModItemCombatAction + CE perk + `Drunk` CE override; `Unit:Nazdarovya` в `Code/CombatActions.lua`.
+- **Тип:** именная **активка** (SignatureAbilities); **2 AP**; **без** signature recharge (каждый ход при наличии ОД).
+- **Поведение:** снимает `Pain` (с refund AP как у морфия); лечит **15–20** HP; `AddStatusEffect("Drunk", 1)` до **5** стаков. При 5 стаках кнопка disabled («Слишком пьян»).
+- **`Drunk`:** −15 ranged CTH и **+20 flat** melee damage **за стак**; `RemoveOnEndCombat=false`; `OnNewHour` −1 стак каждые **3** ч (типичные 3 стака ≈ 9 ч ≈ «8–10»).
+
+### `DoubleToss` — Fidel («Двойной бросок»)
+
+- **Пакет:** vanilla `DoubleTossA–D` (Handheld) + JAZZ `DoubleTossAG–DG` (`GrenadesInventory` карманы); `Unit:HasSignatures` учитывает AG–DG.
+- **Тип:** именная сигнатура; два броска из **одного** стака (≥2).
+- **Поведение:** как vanilla DoubleToss; слоты карманов 1…4 зеркалят `ThrowGrenadeAG–DG`.
+- **Перезарядка:** signature recharge id `DoubleToss` (общий для A–DG).
 
 ### `JAZZ_VovaVist` — огонь полным поясом по сектору
 
@@ -446,13 +473,6 @@ visible_actions =
 - **Отдача:** severity `0.8 × Recoil` и action factor `0.55`; **игнорирует** unsupported recoil `class_factor` ×2/×1.5. Обычный `MGBurstFire` Гризли по-прежнему получает полный unsupported class_factor.
 - **CTH:** игнорирует first-bullet штраф «Без опоры» (−50/−25 × Сила); обычная очередь — нет.
 - **Целевая роль:** фирменная удвоенная длинная очередь с бедра без упора, не пассив на все MG-атаки.
-
-### `VengefulTemperament` — Meltdown («Ураган Норма»)
-
-- **Пакет:** `jazz-units` (`CharacterEffect/VengefulTemperament.lua` + ModItemCombatAction).
-- **Тип:** именная сигнатура; **CombatAction `id` обязан совпадать с perk class** (`VengefulTemperament`). Id `VengefulTemperament1` ломает `EnumUIActions` / `HasSignatures` (хотбар показывает ванильный Passive stub) и gate `action.id == self.class`.
-- **Поведение:** mobile `RunAndGun`; на `OnUnitAttack` этой атаки союзники цели в `fearAoE` (5) → fail Wisdom(50) → `Panicked`, иначе `Berserk`, затем refresh AP.
-- **Не shipping:** vanilla Hard Feelings (пометка `VengeanceTarget` на последнем ударившем).
 
 ## Перки, которые меняют стрельбу
 

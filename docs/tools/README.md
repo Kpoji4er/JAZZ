@@ -12,7 +12,7 @@
 | `_normalize_ernie_flare_carriers.py` | Set Ernie island `Min/MaxFlareCarriers` to 12/15 in `jazz-maps/items.lua` (ModItemSector + HotDiamonds SatelliteSector). |
 | `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |
 | `_check_bullethell_autofire_gate.py` | Static: `JazzWrapBulletHellAutofireGate` present; AN94 keeps `AbakanAutoFire` without vanilla `AutoFire`. |
-| `_check_bullethell_projectiles.py` | Static JAZZ-COMBAT-006: `Unit:BulletHell` projectile dump + `AlwaysHits=false` / clear AOE `applied_status`. |
+| `_check_bullethell_projectiles.py` | Static COMBAT-006 v2: `FirearmAttack` + cone-arc projectiles (`jazz_bh_arc_sprayed`, `AlwaysHits=false`); no SingleShot dump. |
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_scan_saves_broken_placecharacterffect.py` | Scan JA3 `.sav` under Saved Games: extract zstd `game_session`, count `PlaceCharacterEffect('Id', )` (empty props — load-breaking). |
 | `_extract_ja3_game_session.py` | Extract concatenated zstd frames of `game_session` from BPUL `.sav` to `.lua` for syntax debug. |
@@ -37,7 +37,9 @@
 | `_units006_namedperks_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
 | `_audit_jazz_perk_combat_actions.py` | Audit `Jazz_Perk_*` CE vs `ModItemCombatAction` SignatureAbilities companions; flags missing CA and `GetUIState→hidden` stubs. |
-| `_gen_jazz_perk_passive_combat_actions.py` | Generate/fix Passive `SignatureAbilities` CombatAction companions for `Jazz_Perk_*` (skip `00` Toggle + OfficerAuraInfluence); sync metadata presets. |
+| `_gen_jazz_perk_passive_combat_actions.py` | Generate/fix Passive `SignatureAbilities` CombatAction companions for `Jazz_Perk_*` (skip `00` Toggle + OfficerAuraInfluence); sync metadata presets. Prefer `Perks/SignatureAbilities/<id>.png` for CA Icon when present. |
+| `_build_jazz_perk_sig_icons_from_personal.py` | Build 108×54 dual-strip HUD icons for Lynx/Buzz/Spider/Colby Passive CAs from `Perks/Personal/*.png` (key black bg → transparent); wire `CombatAction.Icon` in `items.lua`. CE Personal icons unchanged. |
+| `_apply_thegrim_recharge_5kills.py` | UNITS-006 Reaper `TheGrim`: ensure RU/EN loc for 5-kill recharge tooltip; runtime is `Code/System_NamedPerks.lua` (`Jazz_TheGrimKillsToRecharge`). |
 | `_fix_units006_batch3_loc.py` | UNITS-006 batch3: rewrite RU CE/CSV via unicode-escapes (encoding-safe). |
 | `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + cheap §B CE text/hooks sync. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch4: shipped Flo/Static/Cougar + soft cuts → batch5. |
@@ -49,6 +51,17 @@
 | `_build_system_namedperks.py` | Rebuild single `Code/System_NamedPerks.lua` (no BatchN Code files). |
 | `_units006_perk_moditem_params.py` | Add ModItem Parameters to UNITS-006 perks; wire Code via Jazz_NamedPerkParam; sync items. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch5: before→after + soft cuts (Biff economy, ECON-001 Livewire op, Thor recipes). |
+| `_add_doubletoss_pocket_cas.py` | Fidel: insert `DoubleTossAG–DG` (GrenadesInventory) ModItemCombatAction + metadata presets. |
+| `_fix_grunty_passive_ca.py` | Grunty: Passive CA `GruntyPerk_JAZZ` + HUD icon; strip AdditionalAP double `GainAP`; metadata bump. |
+| `_apply_explodingpalm_drq.py` | DrQ: ExplodingPalm unarmed HP-tier statuses + sat debt +30% + WoundInfected block + Passive CA. |
+| `_apply_makethembleed_buff_icon.py` | Flay: `Jazz_MakeThemBleedBuff` HUD stacks = visible bleeding enemies (cap 5). |
+| `_apply_dangerclose_larry.py` | Larry: DangerClose List2 (explosives ≥8 +40%, blast +2 bleed, stim immune) + loc IDs + items sync. |
+| `_apply_gloryhog_pierre.py` | Pierre: GloryHog CE override + `Jazz_PierreRecruit` signature CA (1 recruit/combat) + loc/metadata. |
+| `_fix_gloryhog_loc_collision.py` | Restore SteroidPunch 9930/9931 if overwrite; remap Pierre recruit desc/used → 9933/9934. |
+| `_apply_recklessassault_smiley.py` | Smiley: RecklessAssault List2 — 4 mobile attacks, SMG/carbine/AR, +15 CTH, no Tiredness; CA+CE+loc. |
+| `_patch_buildingconfidence_loc.py` / `_patch_explodingpalm_metadata.py` / `_patch_hawkseye_loc.py` / `_patch_nazdarovya_loc.py` | UNITS-006 loc/metadata helpers for MD / DrQ / Scope / Igor. |
+| `_bump_metadata_thegrim.py` / `_fix_last_changes_head.py` | Bump jazz Revision + prepend TheGrim / SignatureAbilities bullets in `last_changes`. |
+| `_bump_units_meltdown_meta.py` | Bump jazz-units Revision + Meltdown `[skip discord]` last_changes bullet. |
 | `_units006_namedperks_notes.md` | UNITS-006 §D: Benny/Simon CE + StartingPerks; CombatAction soft-cut. |
 | `_units006_batch6_startingperks.py` | Prepend `Jazz_Perk_Benny`/`Jazz_Perk_Simon` to jazz-units UnitData + items StartingPerks. |
 | `_tmp_list2_perks_fresh.tsv` / `_tmp_list2_sheet_diff.md` | Snapshot + human diff notes for Лист2 perk sync. |
@@ -175,6 +188,10 @@
 | `_gen_setweaponcomponent_override.py` | Генерирует `Code/System_WeaponComponent_Set.lua` из vanilla `FirearmBase:SetWeaponComponent` + ветка `ModificationType=Set` (`mul=1000`, `add=N−base`). |
 | `_apply_grizzly_perk_full_damage.py` | GrizzlyPerk: `dmg_penalty` −50→0 + sync CE description in `items.lua`. |
 | `_apply_haveablast_fix.py` | HaveABlast: sync CE reactions/description into `items.lua` (optional helper; primary edit is companion + items). |
+| `_patch_haveablast_loc.py` | HaveABlast: patch RU/EN description rows in `English.csv`/`Russian.csv` without full CSV rewrite. |
+| `_patch_nazdarovya_loc.py` | Nazdarovya/Drunk: upsert RU/EN rows for perk, status, CombatAction strings. |
+| `_patch_buildingconfidence_loc.py` | MD BuildingConfidence: upsert RU/EN perk description (Inspired turns + heal level-diff). |
+| `_patch_hawkseye_loc.py` | Scope HawksEye: upsert RU/EN (sniper OW 1 AP + biscuits + suppress ×2). |
 | `_audit_mag_size_set_defaults.py` | Список оружия с default-магазином на `MagazineSizeSet` (поверхность бага MagSize=1 при `mul=0`). |
 | `_validate_wave_weapons.py` | Статическая валидация волны ATTACH-001 MagSizeSet + WEAPONS-002..005 (якоря, metadata load, loc, CSV). |
 | `_peek_mag45_kobra.py` / `_peek_mag45_kobra2.py` / `_list_reload_effects.py` | Peek Mag45 / Reflex_Cobra effects+params и Reload* effect presets в `items.lua`. |

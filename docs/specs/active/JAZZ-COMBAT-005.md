@@ -56,7 +56,7 @@ approved_by: project-owner
 - Починить wiring FreeMove: списание в `const.Scale.AP`.
 - Убрать плоский −1 ОД; вернуть **весовой** AP-штраф с жёстким капом.
 - FreeMove — основной налог; AP — вторичный.
-- Сохранить таблицу веса слотов, STR-смягчение, Ironclad ÷2; **KillingWind полностью игнорирует** штрафы веса брони (FM, AP и Pain от перевеса).
+- Сохранить таблицу веса слотов, STR-смягчение, Ironclad ÷2; **KillingWind** (UNITS-006 / Fauda): FM от брони ÷2 **один раз** вместе с Ironclad (не полный игнор; не ÷4 при обоих); cumbersome по-прежнему даёт FreeMove в BeginTurn.
 - При **сильном перевесе** первое перемещение за ход даёт **+1 Pain** (не больше одного стека за ход); правило читаемо в статусе.
 - Иконки/текст статуса отражают **фактический** штраф веса (не PenetrationClass).
 - Player-facing docs (technical + wiki + showcase RU/EN) описывают контракт.
@@ -79,9 +79,9 @@ approved_by: project-owner
 | Плоский −1 AP | удалить |
 | Сырой FM по `Weight` | 2→+0.5, 3→+1, 4→+2, 5→+3 (сумма по надетым Armor вне Inventory) |
 | AP из сырого FM | пороги: raw &lt; 4 → 0; 4…7.999 → 1; ≥ 8 → 2 (до смягчений) |
-| Порядок смягчений | Ironclad ÷2 → STR → floor → clamp; **KillingWind** = полный игнор (оба штрафа = 0, без иконки веса) |
-| STR | при Strength &gt; 60: `StrBuff = MulDivRound(Strength−60, 1, 20)`; **сначала** вычитать из AP (до 0), остаток — из FM (не применяется при KillingWind) |
-| Cumbersome | не удваивать боль: при `using_cumbersome` **не** применять AP-штраф брони; FM-штраф брони **не** делить пополам (убрать текущий `MulDivRound(FM,1,2)`); BeginTurn FreeMove grant от cumbersome без изменений (KillingWind по-прежнему получает FreeMove с cumbersome) |
+| Порядок смягчений | **Ironclad или KillingWind** → FM ÷2 один раз; Ironclad → AP ÷2; затем STR → floor → clamp |
+| STR | при Strength &gt; 60: `StrBuff = MulDivRound(Strength−60, 1, 20)`; **сначала** вычитать из AP (до 0), остаток — из FM |
+| Cumbersome | не удваивать боль: при `using_cumbersome` **не** применять AP-штраф брони; FM брони не half от cumbersome; BeginTurn: **KillingWind** получает FreeMove с cumbersome |
 | Иконка | стаки = `floor(FM_penalty_AP_units)` при &gt; 0; класс иконки = **max Weight** среди учтённых предметов (1…5 → `Weight_1Class`…`Weight_5Class`); FM/AP через ConsumeAP; Pain — отдельный hook |
 | Капы | FM ≤ 12 ОД; AP ≤ 2 ОД |
 | Сильный перевес | после всех смягчений `floor(FM) ≥ 6` (мягкий порог: средний/лёгкий кит и сильный STR на heavy без плиты — без Pain) |
@@ -92,11 +92,11 @@ approved_by: project-owner
 
 - `JAZZ-COMBAT-005-REQ-001` — Сырой FreeMove: для каждого надетого `Armor` с `Weight` в слоте ≠ `Inventory` добавить вклад `{2:0.5, 3:1, 4:2, 5:3}` (Weight 1 = 0). Плиты/`ArmorPlate`, наследующие Armor+Weight, входят в сумму.
 - `JAZZ-COMBAT-005-REQ-002` — Сырой AP: `0` если raw_FM &lt; 4; `1` если 4 ≤ raw_FM &lt; 8; `2` если raw_FM ≥ 8. **Не** инициализировать AP-штраф константой `const.Scale.AP`.
-- `JAZZ-COMBAT-005-REQ-003` — Смягчения: если `HasPerk(KillingWind)` → **оба** штрафа (FM и AP от брони) = 0, статусы веса не вешать, Pain от перевеса невозможен. Иначе: Ironclad → ÷2 оба raw; затем STR: `StrBuff` вычитается из AP до 0, остаток — из FM. Cumbersome: AP-штраф брони = 0; FM не half.
+- `JAZZ-COMBAT-005-REQ-003` — Смягчения: **Ironclad или KillingWind** → FM ÷2 **один раз** (оба перка не стакаются в ÷4). Ironclad → AP ÷2. Затем STR: `StrBuff` вычитается из AP до 0, остаток — из FM. Cumbersome: AP-штраф брони = 0; FM брони не half от cumbersome. KillingWind **не** обнуляет штрафы веса целиком (UNITS-006 supersede полного игнора).
 - `JAZZ-COMBAT-005-REQ-004` — После floor: `FM = Clamp(FM, 0, 12)`, `AP = Clamp(AP, 0, 2)`. Списание: `ConsumeAP(FM * const.Scale.AP, "Move")` и `ConsumeAP(Min(ActionPoints, AP * const.Scale.AP))` на том же вызове `CalculateArmorWeight`, что и сейчас (BeginTurn + OnGearChanged). Не списывать повторно в одном BeginTurn сверх одного вызова. Сохранять на юните актуальные `FM`/`AP` после расчёта (или эквивалент), чтобы move-hook и UI читали один источник.
 - `JAZZ-COMBAT-005-REQ-005` — Статусы `Weight_1Class`…`Weight_5Class`: снять все, затем при `FM ≥ 1` добавить `floor(FM)` стаков класса `max equipped Armor.Weight` (clamp 1…5). Без reactions, меняющих AP/FreeMove. Description RU/EN: FreeMove (−N), при AP&gt;0 старт ОД (−M); если `FM ≥ 6` — строка про +1 Pain при перемещении раз за ход; без PenetrationClass.
 - `JAZZ-COMBAT-005-REQ-006` — BeginTurn: порядок «выдать FreeMove (cumbersome/KillingWind/Ironclad) → затем `CalculateArmorWeight`» сохранить. Cumbersome без перка по-прежнему не выдаёт FreeMove. Сброс per-turn флага Pain-от-веса в начале хода юнита.
-- `JAZZ-COMBAT-005-REQ-007` — **Pain при перевесе:** если после REQ-003/004 `floor(FM) ≥ 6` и юнит в бою совершает перемещение, тратящее FreeMove и/или Move AP → один вызов `JazzAddPainStacks(unit, 1)` за ход (флаг turn-key; повторные клетки/второе Move — no-op). Не применять вне боя, при KillingWind, если Analgesia уже блокирует Pain. Не копить больше 1 стека **от этого источника** за ход.
+- `JAZZ-COMBAT-005-REQ-007` — **Pain при перевесе:** если после REQ-003/004 `floor(FM) ≥ 6` и юнит в бою совершает перемещение, тратящее FreeMove и/или Move AP → один вызов `JazzAddPainStacks(unit, 1)` за ход (флаг turn-key; повторные клетки/второе Move — no-op). Не применять вне боя, если Analgesia уже блокирует Pain. Не копить больше 1 стека **от этого источника** за ход. KillingWind не даёт отдельного exempt (после ÷2 FM порог 6 реже).
 - `JAZZ-COMBAT-005-REQ-008` — Docs: `armor-damage-wounds-will.md` (вес + Pain), `testing.md`, wiki + showcase RU/EN combat. Loc: обе CSV для `Weight_*` и любого floating text.
 
 ## Инварианты и ограничения
@@ -113,10 +113,10 @@ approved_by: project-owner
 - `JAZZ-COMBAT-005-AC-001` — Static: в `CalculateArmorWeight` нет плоского `TotalAPDebuff = const.Scale.AP`; FM/AP consume умножены на `const.Scale.AP`; cumbersome не half FM и обнуляет AP-штраф брони.
 - `JAZZ-COMBAT-005-AC-002` — Runtime: мерк STR 60, medium kit raw≈2.5–3.5 → AP-штраф 0, FM-штраф заметен (≥1 ОД FreeMove после floor); иконка стаков = floor(FM), класс = max Weight.
 - `JAZZ-COMBAT-005-AC-003` — Runtime: STR 60, heavy full raw≈6 → AP 1, FM ≈6 (до perk); STR 100 → AP 0 (StrBuff съедает AP), FM снижен на 2.
-- `JAZZ-COMBAT-005-AC-004` — Runtime: heavy+plate/EOD raw≥8, STR 60 → AP 2 (кап); тот же кит с KillingWind → FM 0, AP 0 от брони, без `Weight_*Class`.
+- `JAZZ-COMBAT-005-AC-004` — Runtime: heavy+plate/EOD raw≥8, STR 60 → AP 2 (кап); тот же кит с KillingWind → FM ≈ half raw (Ironclad+KW still half once), AP как у Ironclad; Weight_* при floor(FM)≥1.
 - `JAZZ-COMBAT-005-AC-005` — Runtime: Grizzly с cumbersome MG — FreeMove 0 от BeginTurn; AP-штраф брони не применяется; без MG в том же бронекомплекте FreeMove выдаётся и режется весом.
 - `JAZZ-COMBAT-005-AC-006` — Runtime: STR 60, kit с `floor(FM) ≥ 6` (heavy full / EOD) — первое Move даёт +1 Pain; второе Move / продолжение пути в том же ходу — без второго стека от веса; без Move — Pain от веса нет. Статус явно предупреждает о перевесе.
-- `JAZZ-COMBAT-005-AC-007` — Runtime: medium или heavy после STR с `floor(FM) &lt; 6` — Move не даёт Pain от веса. KillingWind в EOD — Move без Pain от веса.
+- `JAZZ-COMBAT-005-AC-007` — Runtime: medium или heavy после STR с `floor(FM) &lt; 6` — Move не даёт Pain от веса. KillingWind в EOD — Pain только если после ÷2 всё ещё `floor(FM) ≥ 6`.
 - `JAZZ-COMBAT-005-AC-008` — Human/docs: technical + wiki + showcase RU/EN согласованы; статус не обещает FM/AP/Pain, которых код не делает.
 
 ## Impact и совместимость
@@ -138,13 +138,13 @@ approved_by: project-owner
 
 ## Решение владельца
 
-- Статус: **approved** — пороги AP 4/8; Pain при `FM ≥ 6`; KillingWind = полный игнор; Pain ≤1 стек/ход.
+- Статус: **approved** — пороги AP 4/8; Pain при `FM ≥ 6`; KillingWind = FM ÷2 (UNITS-006 supersede полного игнора); Pain ≤1 стек/ход.
 - Кто подтвердил: project-owner («делаем»)
 - Дата: 2026-08-08
 
 ## Evidence
 
-- `JAZZ-COMBAT-005-AC-001`: `PASS (static)` — `CalculateArmorWeight` без плоского 1 AP; FM/AP × `const.Scale.AP`; cumbersome не half FM, AP брони = 0; KillingWind early return.
+- `JAZZ-COMBAT-005-AC-001`: `PASS (static)` — `CalculateArmorWeight` без плоского 1 AP; FM/AP × `const.Scale.AP`; cumbersome не half FM, AP брони = 0; KillingWind/Ironclad FM ÷2 once.
 - `JAZZ-COMBAT-005-AC-002`…`005`, `007`: `BLOCKED (runtime)` — нужен JA3Debug smoke (medium/heavy/EOD, STR, MG, KillingWind, Pain once).
 - `JAZZ-COMBAT-005-AC-006`: `BLOCKED (runtime)` — Pain на первом Move при FM≥6.
 - `JAZZ-COMBAT-005-AC-008`: `PASS (static)` — technical + wiki + showcase RU/EN + Weight loc CSV.

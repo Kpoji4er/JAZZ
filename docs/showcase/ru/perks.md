@@ -37,13 +37,19 @@
 | `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP; далее шанс `10%×БД` снова дать +50% AP |
 | `JackOfAllTrades` | Wolf | Спутниковые операции примерно **на 33% быстрее** (vanilla `activityDurationMod`) |
 | `SteroidPunch` | Steroid | Пассивка: melee CTH от Силы; успешный удар → Нокдаун+Без сознания; стим без усталости; Burning DoT **−30%** |
-| `MakeThemBleed` | Flay | +10% урона за кровоточащего врага в LOS (cap +50%) |
-| `HawksEye` | Scope | Pin Down **1 ОД**; снайпер suppress ×2 |
-| `HaveABlast` | Red | Toggle: контратака гранатой при попадании **или** промахе; **50%** урона от взрывов по себе пока активен; гранаты из рук/инвентаря |
-| `VengefulTemperament` | Meltdown (Лава) | Сигнатура «Ураган Норма»: mobile shot; враги ≤5 от цели — Panic или Berserk (Wisdom) |
-| `KillingWind` | Fauda | ≥2 целей в атаке → +8 Grit (+ FM/броня как раньше) |
-| `BuildingConfidence` | MD | Inspired на ходу 2 и каждом 3-м (heal%-by-level — partial) |
-| `BulletHell` | Spike | CD **после убийства** |
+| `ExplodingPalm` | DrQ | Удар голыми руками: статус по HP цели (KO / контузия / рёбра / руки / ноги / пах); сателлит **+30%** долг травм; **блок** инфекции |
+| `MakeThemBleed` | Flay | +10% урона за кровоточащего врага в LOS (cap +50%); HUD-стак «Кровавый след» = число видимых |
+| `DangerClose` | Larry / Larry_Clean | Взрывчатка ≥**8** клеток: **+40%** урона; взрывы **+2** стака кровотечения; без штрафов от боевых стимов |
+| `GloryHog` | PierreMerc | Мачете **Charge** (не только по прямой) +**15** Grit; активка **Вербовка** 1 видимого врага → союзник ИИ / бой (не боссы) |
+| `RecklessAssault` | Smiley | Улучшенный Run and Gun: **4** атаки с ПП/карабином/автоматом, **+15** СТН; **без** потери энергии/усталости |
+| `HawksEye` | Scope | Со снайперкой: Overwatch за **1 ОД** (остальные ОД остаются); Pin Down мин. 1 ОД; снайпер suppress **×2**; при найме — печенье (сброс CD сигнатур) |
+| `HaveABlast` | Red | Toggle: ответ гранатой при попадании **или** промахе (руки или автоподтягивание из инвентаря); **−50%** урона от взрывов по себе пока активен |
+| `Nazdarovya` | Igor | Активка **каждый ход** (2 ОД, без CD): снимает боль, лечит **15–20** HP, стак опьянения ≤**5** (−15 CTH / +20 ближний урон за стак); −1 стак / **3 ч** |
+| `VengefulTemperament` | Meltdown (Лава) | Активка «Ураган Норма»: враги ≤5 клеток — Panic или Berserk (Wisdom). **Без** Run and Gun. |
+| `KillingWind` | Fauda | ≥2 врагов: **+8 Grit за каждого**; штраф FM от брони **÷2** (с Ironclad не ÷4); громоздкое оружие **сохраняет** Free Move |
+| `DoubleToss` | Fidel | Двойной бросок (≥2 в стаке): руки **или** карманы гранат |
+| `BuildingConfidence` | MD | Inspired (+4 ОД) на ходах **2/5/8…**; лечение **±10%** за разницу уровней с пациентом (кап **±50%**), бой и спутник |
+| `BulletHell` | Spike | Конусный ливень **реальных пуль по дуге** (CTH + шальные); CD **после убийства** |
 | `Jazz_Perk_Flo` | Фло | В отряде: **−12%** покупка Bobby Ray / **+12%** обналичивание (аддитивно с Negotiator) |
 | `Jazz_Perk_Static` | Статик | Ремонт/крафт Parts **−5%/уровень** (кап **−25%**) |
 | `Jazz_Perk_Cougar` | Пума | Выстрелы **−33%** шума; SK → Inspired **1×/ход** |
@@ -58,15 +64,15 @@
 | `Jazz_Perk_Veteran` | IMP (личностные) | +10 ко всем skill/stat checks |
 | `Jazz_Perk_Sniper` | IMP (тактические) | +1 макс. уровень прицеливания (любое оружие) |
 
-Пассивные Lynx/Buzz/Spider/Colby **без** HUD-toggle (кнопки скрыты). Toggle только у Фрага (`Jazz_Perk_00`).
+Пассивные Lynx/Buzz/Spider/Colby видны на signature-хотбаре (кнопки Passive только для информации; иконки из `Perks/SignatureAbilities/`). Toggle только у Фрага (`Jazz_Perk_00`).
 
 ## §A / §C / §B / §D (UNITS-006)
 
-§A + §C batch2/3 — целевой Лист2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only). **Owner 2026-08-11:** личные перки Hitman/Tex/Shadow/Buns/Sidney/Raven/Mouse/Omryn/Raider/Len/Fox/Scully/Magic/Reaper/Ivan/Gus/Nails/Ice/Blood — снова **vanilla JA3** (JAZZ CE overrides сняты).
+§A + §C batch2/3 — целевой Лист2. Soft-cut batch3: Flay groin/animal apply (dmg aura only). **GloryHog recruit** и **RecklessAssault** wired. **MD** heal%-by-level wired. **Reaper `TheGrim`:** перезарядка после **5** убийств (не одного). **Owner 2026-08-11:** личные перки Hitman/Tex/Shadow/Buns/Sidney/Raven/Mouse/Omryn/Raider/Len/Fox/Scully/Magic/Ivan/Gus/Nails/Ice/Blood — снова **vanilla JA3** (JAZZ CE overrides сняты; Reaper — CHANGE только CD×5).
 
 §B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
 
-**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), **Barry** (`DesignerExplosives`): каждые **168 ч** — **2× Shaped Charge**; крафт через «Изготовление взрывчатки»; **−30% Parts** на CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. Soft: Biff troopers economy, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover.
+**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), **Barry** (`DesignerExplosives`): каждые **168 ч** — **2× Shaped Charge**; крафт через «Изготовление взрывчатки»; **−30% Parts** на CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. **Igor** (`Nazdarovya`): drink каждый ход — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): косяки каждые 48 ч; в отряде sat +15% к восстановлению травм/ожогов/HP-долга (не инфекция); перевязка +20–25 Will. Soft: Biff troopers economy, Livewire money op (ECON-001).
 
 **Batch6 §D:** `Jazz_Perk_Benny` («Вам посылка») и `Jazz_Perk_Simon` («Абсолютный снайпер») — CE + StartingPerks; CombatAction soft-cut. Статусы: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 
@@ -76,7 +82,7 @@
 
 ## Ещё stubs
 
-Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Iggy bombard call-site, full Biff/Livewire/Thor ops — см. `_units006_batch5_notes.md` / `_units006_batch6_notes.md`.
+Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Iggy bombard call-site, full Biff/Livewire ops — см. `_units006_batch5_notes.md` / `_units006_batch6_notes.md`.
 
 ## Итог для игрока
 

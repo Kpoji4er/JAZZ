@@ -33106,14 +33106,14 @@ PlaceObj('ModItemEmail', {
 					'ItemType', "Grenade",
 					'DisplayName', T(380012367478, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayName]] "Shaped Charge"),
 					'DisplayNamePlural', T(622567247516, --[[ModItemInventoryItemCompositeDef ShapedCharge DisplayNamePlural]] "Shaped Charges"),
-					'AdditionalHint', T(622419236578, --[[ModItemInventoryItemCompositeDef ShapedCharge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сильно зависит от Взрывчатки; высокая вероятность неудачи при использовании всеми, кроме Барри"),
+					'AdditionalHint', T(622419236578, --[[ModItemInventoryItemCompositeDef ShapedCharge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи при использовании всеми, кроме Барри"),
 					'UnitStat', "Explosives",
 					'Cost', 1500,
 					'CanAppearInShop', false,
 					'RestockWeight', 0,
 					'MaxStacks', 2,
 					'MinMishapChance', 2,
-					'MaxMishapChance', 80,
+					'MaxMishapChance', 60,
 					'MaxMishapRange', 6,
 					'CenterObjDamageMod', 300,
 					'AreaOfEffect', 8,
@@ -66665,6 +66665,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end
 						local weapon = self:GetAttackWeapons(unit, args)
 						if not weapon or (weapon.PreparedAttackType ~= "Overwatch" and weapon.PreparedAttackType ~= "Both") then return -1 end
+						-- Scope HawksEye: sniper Overwatch costs 1 AP (keep remaining AP).
+						if HasPerk(unit, "HawksEye") and IsKindOf(weapon, "SniperRifle") then
+							local ap = (CharacterEffectDefs.HawksEye and CharacterEffectDefs.HawksEye:ResolveValue("overwatchCostOverwrite") or 1) * const.Scale.AP
+							return ap, ap
+						end
 						local attack = unit:GetDefaultAttackAction("ranged", "ungrouped")
 						
 						
@@ -70660,6 +70665,338 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					id = "ThrowGrenadeDG",
 				}),
 				PlaceObj('ModItemCombatAction', {
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(355737085755, --[[ModItemCombatAction DoubleTossAG DisplayName]] "<placeholder>"),
+					GetAPCost = function (self, unit, args)
+						if self.CostBasedOnWeapon then
+							local weapon = self:GetAttackWeapons(unit)
+							return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
+						end
+						return self.ActionPoints
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						local action = {id = "DoubleToss", Description = self.Description}
+						local description = GetSignatureActionDescription(action)
+						local grenadeDescription = CombatActionGrenadeDescription(self, units)
+						description = description .. T(866574791377, "<newline><newline>") .. grenadeDescription
+						return description
+					end,
+					GetActionDisplayName = function (self, units)
+						local action = {id = "DoubleToss", DisplayName = self.DisplayName}
+						local name = GetSignatureActionDisplayName(action)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								name = name .. T{279081600107, " <name>", name = weapon.DisplayName}
+							end
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.DoubleTossA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						return unit:GetItemInSlot("GrenadesInventory", "Grenade", 1, 1)
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						return weapon:GetMaxAimRange(unit)
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.DoubleTossA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/perk_double_toss",
+					IdDefault = "DoubleTossAGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamPercent', {
+							'Name', "target_offset",
+							'Value', 75,
+							'Tag', "<target_offset>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("DoubleToss", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "SignatureAbilities",
+					id = "DoubleTossAG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(355737085755, --[[ModItemCombatAction DoubleTossBG DisplayName]] "<placeholder>"),
+					GetAPCost = function (self, unit, args)
+						if self.CostBasedOnWeapon then
+							local weapon = self:GetAttackWeapons(unit)
+							return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
+						end
+						return self.ActionPoints
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						local action = {id = "DoubleToss", Description = self.Description}
+						local description = GetSignatureActionDescription(action)
+						local grenadeDescription = CombatActionGrenadeDescription(self, units)
+						description = description .. T(866574791377, "<newline><newline>") .. grenadeDescription
+						return description
+					end,
+					GetActionDisplayName = function (self, units)
+						local action = {id = "DoubleToss", DisplayName = self.DisplayName}
+						local name = GetSignatureActionDisplayName(action)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								name = name .. T{279081600107, " <name>", name = weapon.DisplayName}
+							end
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.DoubleTossA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						return unit:GetItemInSlot("GrenadesInventory", "Grenade", 2, 1)
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						return weapon:GetMaxAimRange(unit)
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.DoubleTossA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/perk_double_toss",
+					IdDefault = "DoubleTossBGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamPercent', {
+							'Name', "target_offset",
+							'Value', 75,
+							'Tag', "<target_offset>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("DoubleToss", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "SignatureAbilities",
+					id = "DoubleTossBG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(355737085755, --[[ModItemCombatAction DoubleTossCG DisplayName]] "<placeholder>"),
+					GetAPCost = function (self, unit, args)
+						if self.CostBasedOnWeapon then
+							local weapon = self:GetAttackWeapons(unit)
+							return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
+						end
+						return self.ActionPoints
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						local action = {id = "DoubleToss", Description = self.Description}
+						local description = GetSignatureActionDescription(action)
+						local grenadeDescription = CombatActionGrenadeDescription(self, units)
+						description = description .. T(866574791377, "<newline><newline>") .. grenadeDescription
+						return description
+					end,
+					GetActionDisplayName = function (self, units)
+						local action = {id = "DoubleToss", DisplayName = self.DisplayName}
+						local name = GetSignatureActionDisplayName(action)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								name = name .. T{279081600107, " <name>", name = weapon.DisplayName}
+							end
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.DoubleTossA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						return unit:GetItemInSlot("GrenadesInventory", "Grenade", 3, 1)
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						return weapon:GetMaxAimRange(unit)
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.DoubleTossA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/perk_double_toss",
+					IdDefault = "DoubleTossCGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamPercent', {
+							'Name', "target_offset",
+							'Value', 75,
+							'Tag', "<target_offset>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("DoubleToss", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "SignatureAbilities",
+					id = "DoubleTossCG",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionPoints = 6000,
+					ActionType = "Ranged Attack",
+					AimType = "parabola aoe",
+					AlwaysHits = true,
+					ConfigurableKeybind = false,
+					DisplayName = T(355737085755, --[[ModItemCombatAction DoubleTossDG DisplayName]] "<placeholder>"),
+					GetAPCost = function (self, unit, args)
+						if self.CostBasedOnWeapon then
+							local weapon = self:GetAttackWeapons(unit)
+							return weapon and unit:GetAttackAPCost(self, weapon, nil, args and args.aim or 0, self.ActionPointDelta) or -1
+						end
+						return self.ActionPoints
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit)
+						local base = unit:GetBaseDamage(weapon)
+						local bonus = GetGrenadeDamageBonus(unit)
+						return MulDivRound(base, Max(0, 100 + bonus), 100)
+					end,
+					GetActionDescription = function (self, units)
+						local action = {id = "DoubleToss", Description = self.Description}
+						local description = GetSignatureActionDescription(action)
+						local grenadeDescription = CombatActionGrenadeDescription(self, units)
+						description = description .. T(866574791377, "<newline><newline>") .. grenadeDescription
+						return description
+					end,
+					GetActionDisplayName = function (self, units)
+						local action = {id = "DoubleToss", DisplayName = self.DisplayName}
+						local name = GetSignatureActionDisplayName(action)
+						local unit = units[1]
+						if unit then
+							local weapon = self:GetAttackWeapons(unit)
+							if weapon then
+								name = name .. T{279081600107, " <name>", name = weapon.DisplayName}
+							end
+						end
+						return name
+					end,
+					GetActionIcon = function (self, units)
+						return GetThrowItemIcon(self, units and units[1])
+					end,
+					GetActionResults = function (self, unit, args)
+						return CombatActions.DoubleTossA.GetActionResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						return unit:GetItemInSlot("GrenadesInventory", "Grenade", 4, 1)
+					end,
+					GetMaxAimRange = function (self, unit, weapon)
+						return weapon:GetMaxAimRange(unit)
+					end,
+					GetUIState = function (self, units, args)
+						return CombatActions.DoubleTossA.GetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/perk_double_toss",
+					IdDefault = "DoubleTossDGdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamPercent', {
+							'Name', "target_offset",
+							'Value', 75,
+							'Tag', "<target_offset>%",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
+						}),
+					},
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("DoubleToss", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatAreaAim")
+					end,
+					group = "SignatureAbilities",
+					id = "DoubleTossDG",
+				}),
+				PlaceObj('ModItemCombatAction', {
 					ActionType = "Ranged Attack",
 					AimType = "parabola aoe",
 					AlwaysHits = true,
@@ -71127,6 +71464,83 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemCode', {
 				'name', "CombatActions",
 				'CodeFileName', "Code/CombatActions.lua",
+			}),
+			PlaceObj('ModItemCombatAction', {
+				ActionPoints = 2000,
+				ActionType = "Other",
+				ActivePauseBehavior = "instant",
+				ConfigurableKeybind = false,
+				Description = T(890000000009890, --[[ModItemCombatAction Nazdarovya Description]] "Снимает боль, лечит 15–20 HP, даёт стак опьянения (до 5). За стак: −15 CTH и +20 урона в ближке. Без перезарядки — каждый ход (2 ОД). Опьянение сходит по 1 стаку / 3 ч."),
+				DisplayName = T(890000000009887, --[[ModItemCombatAction Nazdarovya DisplayName]] "Наздаровье"),
+				GetAPCost = function (self, unit, args)
+					return self.ActionPoints or 0
+				end,
+				GetActionDescription = function (self, units)
+					return GetSignatureActionDescription(self)
+				end,
+				GetActionDisplayName = function (self, units)
+					return GetSignatureActionDisplayName(self)
+				end,
+				GetUIState = function (self, units, args)
+					local unit = units and units[1]
+					if not unit then
+						return "hidden"
+					end
+					local cost = self:GetAPCost(unit, args)
+					if cost < 0 then
+						return "hidden"
+					end
+					if not g_Combat then
+						return "disabled", AttackDisableReasons.CombatOnly
+					end
+					if not unit:UIHasAP(cost) then
+						return "disabled"
+					end
+					local max_stacks = self:ResolveValue("maxStacks") or 5
+					local drunk = unit:GetStatusEffect("Drunk")
+					local stacks = drunk and (drunk.stacks or 1) or 0
+					if stacks >= max_stacks then
+						return "disabled", T(890000000009891, --[[ModItemCombatAction Nazdarovya]] "Слишком пьян")
+					end
+					return "enabled"
+				end,
+				Icon = "UI/Icons/Hud/perk_nazdarovya",
+				IdDefault = "Nazdarovyadefault",
+				IsAimableAttack = false,
+				KeybindingFromAction = "actionRedirectSignatureAbility",
+				MultiSelectBehavior = "first",
+				Parameters = {
+					PlaceObj('PresetParamNumber', {
+						'Name', "healMin",
+						'Value', 15,
+						'Tag', "<healMin>",
+					}),
+					PlaceObj('PresetParamNumber', {
+						'Name', "healMax",
+						'Value', 20,
+						'Tag', "<healMax>",
+					}),
+					PlaceObj('PresetParamNumber', {
+						'Name', "maxStacks",
+						'Value', 5,
+						'Tag', "<maxStacks>",
+					}),
+				},
+				QueuedBadgeText = T(975564787824, --[[ModItemCombatAction Nazdarovya QueuedBadgeText]] "DRINK"),
+				RequireState = "any",
+				RequireWeapon = false,
+				Run = function (self, unit, ap, ...)
+					unit:SetActionCommand("Nazdarovya", self.id, ap, ...)
+				end,
+				ShowIn = "SignatureAbilities",
+				SortKey = 100,
+				UIBegin = function (self, units, args)
+					local unit = units[1]
+					local ap = self:GetAPCost(unit, args)
+					NetStartCombatAction(self.id, unit, ap, args)
+				end,
+				group = "SignatureAbilities",
+				id = "Nazdarovya",
 			}),
 			}),
 		PlaceObj('ModItemFolder', {
@@ -73469,11 +73883,78 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/InnerInfo",
 					'Tier', "Personal",
 				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "Фаза / Livewire passive signature (id must match CE)",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction InnerInfo_JAZZ DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Hud/perk_inners_info",
+					IdDefault = "InnerInfo_JAZZdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "InnerInfo_JAZZ",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "InnerInfo_JAZZ",
+					'comment', "Фаза",
 					'object_class', "Perk",
 					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitEnterMapVisual",
+							Handler = function (self, target)
+								local sector = gv_Sectors[gv_CurrentSectorId]
+								if target.HireStatus ~= "Hired" or not sector or not sector.intel_discovered then
+									return
+								end
+
+								CreateGameTimeThread(function()
+									local playVr
+									while GetInGameInterfaceMode() == "IModeDeployment" do
+										Sleep(20)
+									end
+									for _, unit in ipairs(g_Units) do
+										if unit:IsOnEnemySide(target) then
+											unit:RevealTo(target.team)
+											unit.innerInfoRevealed = true
+											playVr = true
+											break
+										end
+									end
+									if playVr then
+										Sleep(2000)
+										PlayVoiceResponse(target, "PersonalPerkSubtitled")
+									end
+								end)
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCheckIntelVisible",
+							Handler = function (self, target)
+								return gv_CurrentSectorId and gv_Sectors[gv_CurrentSectorId].intel_discovered
+							end,
+						}),
 						PlaceObj('UnitReaction', {
 							Event = "OnHackIntelDsicovered",
 							Handler = function (self, target)
@@ -73560,7 +74041,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(890000000009885, --[[ModItemCharacterEffectCompositeDef DesignerExplosives DisplayName]] "Конструктор взрывчатки"),
-					'Description', T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Каждые <hoursToProduce> ч производит <amountToProduce> кумулятивных заряда. Может крафтить их через «Изготовление взрывчатки». Крафт патронов и взрывчатки: −<craft_discount>% Parts."),
+					'Description', T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Делает самодельные гранаты (ванильные Shaped Charge): каждые <hoursToProduce> ч — <amountToProduce> шт.; крафт через «Изготовление взрывчатки». Крафт патронов и гранат: −<craft_discount>% Parts."),
 					'OnAdded', function (self, obj)
 						self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
 					end,
@@ -73570,11 +74051,352 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "Nazdarovya",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "healMin",
+							'Value', 15,
+							'Tag', "<healMin>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "healMax",
+							'Value', 20,
+							'Tag', "<healMax>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "maxStacks",
+							'Value', 5,
+							'Tag', "<maxStacks>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "melee_damage_flat",
+							'Value', 20,
+							'Tag', "<melee_damage_flat>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "range_cth_mod",
+							'Value', -15,
+							'Tag', "<range_cth_mod>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "hoursPerStack",
+							'Value', 3,
+							'Tag', "<hoursPerStack>",
+						}),
+					},
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000009887, --[[ModItemCharacterEffectCompositeDef Nazdarovya DisplayName]] "Наздаровье"),
-					'Description', T(890000000009888, --[[ModItemCharacterEffectCompositeDef Nazdarovya Description]] "Стаки ≤5: лечение/боль/−15 CTH/+20 melee; похмелье 8–10ч (3ч/стак). Hangover retune soft."),
+					'Description', T(890000000009888, --[[ModItemCharacterEffectCompositeDef Nazdarovya Description]] "Активка каждый ход: снимает боль, лечит <healMin>–<healMax> HP, даёт стак опьянения (до <maxStacks>). За стак: <range_cth_mod> CTH, +<melee_damage_flat> урона в ближке. Опьянение в долг — −1 стак каждые <hoursPerStack> ч."),
 					'Icon', "UI/Icons/Perks/Nazdarovya",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "Drunk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "melee_damage_flat",
+							'Value', 20,
+							'Tag', "<melee_damage_flat>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "range_cth_mod",
+							'Value', -15,
+							'Tag', "<range_cth_mod>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "hoursPerStack",
+							'Value', 3,
+							'Tag', "<hoursPerStack>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "nextDecayTime",
+							'Tag', "<nextDecayTime>",
+						}),
+					},
+					'Comment', "Nazdarovya intoxication: stacks ≤5; sat debt 3h/stack",
+					'object_class', "CharacterEffect",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker or not action or action.ActionType ~= "Ranged Attack" then
+									return
+								end
+								local stacks = self.stacks or 1
+								local per = self:ResolveValue("range_cth_mod") or -15
+								ApplyCthModifier_Add(self, data, stacks * per, T{776394275735, "Perk: <name>", name = self.DisplayName})
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcDamageAndEffects",
+							Handler = function (self, target, attacker, attack_target, action, weapon, attack_args, hit, data)
+								if target ~= attacker or not action or action.ActionType ~= "Melee Attack" then
+									return
+								end
+								local stacks = self.stacks or 1
+								local flat = self:ResolveValue("melee_damage_flat") or 20
+								local bonus = stacks * flat
+								data.base_damage = (data.base_damage or 0) + bonus
+								data.breakdown[#data.breakdown + 1] = { name = self.DisplayName, value = bonus }
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnNewHour",
+							Handler = function (self, target)
+								local next_decay = self:ResolveValue("nextDecayTime")
+								local hours = self:ResolveValue("hoursPerStack") or 3
+								if not next_decay or next_decay == 0 then
+									self:SetParameter("nextDecayTime", Game.CampaignTime + hours * const.Scale.h)
+									return
+								end
+								if Game.CampaignTime < next_decay then
+									return
+								end
+								target:RemoveStatusEffect("Drunk", 1)
+								local left = target:GetStatusEffect("Drunk")
+								if left then
+									left:SetParameter("nextDecayTime", Game.CampaignTime + hours * const.Scale.h)
+								end
+							end,
+						}),
+					},
+					'DisplayName', T(356009705485, --[[ModItemCharacterEffectCompositeDef Drunk DisplayName]] "Inebriated"),
+					'Description', T(890000000009889, --[[ModItemCharacterEffectCompositeDef Drunk Description]] "Опьянение (стаки ≤5): −15 точности дальнего боя и +20 урона в ближнем бою за стак. Спадает по 1 стаку каждые 3 часа."),
+					'AddEffectText', T(464514537198, --[[ModItemCharacterEffectCompositeDef Drunk AddEffectText]] "<DisplayName> is drunk"),
+					'RemoveEffectText', T(456783400197, --[[ModItemCharacterEffectCompositeDef Drunk RemoveEffectText]] "<DisplayName> is no longer drunk"),
+					'OnAdded', function (self, obj)
+						obj:RemoveStatusEffect("Conscience_Sinful")
+						obj:RemoveStatusEffect("Conscience_Guilty")
+						local hours = self:ResolveValue("hoursPerStack") or 3
+						local next_decay = self:ResolveValue("nextDecayTime")
+						if not next_decay or next_decay == 0 then
+							self:SetParameter("nextDecayTime", Game.CampaignTime + hours * const.Scale.h)
+						end
+					end,
+					'Icon', "UI/Hud/Status effects/drunk",
+					'max_stacks', 5,
+					'RemoveOnEndCombat', false,
+					'Shown', true,
+					'ShownSatelliteView', true,
+					'HasFloatingText', true,
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionPoints = 4000,
+					ActionType = "Other",
+					ActivePauseBehavior = "instant",
+					Comment = "Pierre GloryHog List2 recruit (hotbar via GloryHog perk)",
+					ConfigurableKeybind = false,
+					Description = T(890000000009933, --[[ModItemCombatAction Jazz_PierreRecruit Description]] "Перевербовать видимого врага в союзника под управлением ИИ. Один раз за бой. Не действует на боссов."),
+					DisplayName = T(890000000009929, --[[ModItemCombatAction Jazz_PierreRecruit DisplayName]] "Вербовка"),
+					GetAPCost = function (self, unit, args)
+						return self.ActionPoints or 0
+					end,
+					GetActionDescription = function (self, units)
+						return self.Description
+					end,
+					GetActionDisplayName = function (self, units)
+						return self.DisplayName
+					end,
+					GetAnyTarget = function (self, units)
+						local t = Jazz_PierreRecruitGetTargets and Jazz_PierreRecruitGetTargets(units and units[1])
+						return t and t[1]
+					end,
+					GetTargets = function (self, units)
+						return Jazz_PierreRecruitGetTargets and Jazz_PierreRecruitGetTargets(units and units[1]) or empty_table
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units and units[1]
+						if not unit or not HasPerk(unit, "GloryHog") then
+							return "hidden"
+						end
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then
+							return "hidden"
+						end
+						if not g_Combat then
+							return "disabled", AttackDisableReasons.CombatOnly
+						end
+						if unit.GetEffectValue and unit:GetEffectValue("Jazz_PierreRecruitUsed") then
+							return "disabled", T(890000000009934, "Уже использовано в этом бою")
+						end
+						if not unit:UIHasAP(cost) then
+							return "disabled"
+						end
+						local targets = self:GetTargets(units)
+						if not targets or not targets[1] then
+							return "disabled", AttackDisableReasons.NoTarget
+						end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Hud/perk_glory_hog",
+					IdDefault = "Jazz_PierreRecruitdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					RequireState = "any",
+					RequireTargets = true,
+					Execute = function (self, units, args)
+						local unit = units[1]
+						if CombatActionIsBusy(self, unit) then return end
+						local ap = self:GetAPCost(unit, args)
+						NetStartCombatAction(self.id, unit, ap, args)
+					end,
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("Jazz_PierreRecruit", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 110,
+					UIBegin = function (self, units, args)
+						local mode_dlg = GetInGameInterfaceModeDlg()
+						local targets = self:GetTargets(units)
+						if IsKindOf(mode_dlg, "IModeCommonUnitControl") and targets and targets[1] then
+							local list = {}
+							for _, t in ipairs(targets) do
+								list[#list + 1] = {
+									DisplayName = t.GetLogName and t:GetLogName() or (t.Name or Untranslated("?")),
+									target = t,
+									uiCtx = t,
+								}
+							end
+							mode_dlg:ShowCombatActionTargetChoice(self, units, list, function(u, entry)
+								self:Execute({ u }, { target = entry.target })
+							end)
+							return
+						end
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+					end,
+					group = "SignatureAbilities",
+					id = "Jazz_PierreRecruit",
+				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionCamera = true,
+					ActionPoints = 5000,
+					ActionType = "Ranged Attack",
+					AimType = "mobile",
+					ConfigurableKeybind = false,
+					CostBasedOnWeapon = true,
+					DisplayName = T(586171031351, --[[ModItemCombatAction RecklessAssault DisplayName]] "<placeholder>"),
+					GetAPCost = function (self, unit, args)
+						local add = (unit.stance ~= "Standing") and CombatActions.StanceStanding:GetAPCost(unit, args) or 0
+						return self.ActionPoints + add
+					end,
+					GetActionDamage = function (self, unit, target, args)
+						local weapon = self:GetAttackWeapons(unit, args)
+						if not weapon then return 0 end
+						local damage = unit:GetBaseDamage(weapon)
+						local num_shots = self:ResolveValue("mobile_num_shots")
+						return damage, damage / num_shots, 0
+					end,
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetActionResults = function (self, unit, args)
+						local weapon = self:GetAttackWeapons(unit)
+						args.attack_id = "BurstFire"
+						args.num_shots = weapon and weapon:GetAutofireShots("BurstFire") or CombatActions.BurstFire:ResolveValue("num_shots")
+						args.multishot = true
+						return GetMobileShotResults(self, unit, args)
+					end,
+					GetAttackWeapons = function (self, unit, args)
+						return Jazz_RecklessAssaultGetWeapon(unit, args)
+					end,
+					GetTargets = function (self, units)
+						local unit = units[1]
+						if unit then
+							return table.ifilter(GetEnemies(unit), function(i, enemy)
+								return IsValidTarget(enemy)
+							end)
+						end
+						return {}
+					end,
+					GetUIState = function (self, units, args)
+						if not g_Combat then
+							return "disabled", AttackDisableReasons.CombatOnly
+						end
+						local unit = units and units[1]
+						if unit and not Jazz_RecklessAssaultGetWeapon(unit, args) then
+							return "disabled", AttackDisableReasons.WrongWeapon
+						end
+						return CombatActionGenericAttackGetUIState(self, units, args)
+					end,
+					Icon = "UI/Icons/Hud/perk_reckless_assault",
+					IdDefault = "RecklessAssaultdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					MultiSelectBehavior = "first",
+					Parameters = {
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_move_ap",
+							'Value', 12,
+							'Tag', "<mobile_move_ap>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "mobile_num_shots",
+							'Value', 4,
+							'Tag', "<mobile_num_shots>",
+						}),
+					},
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						unit:SetActionCommand("RecklessAssault", self.id, ap, ...)
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					UIBegin = function (self, units, args)
+						CombatActionAttackStart(self, units, args, "IModeCombatMovingAttack")
+					end,
+					group = "SignatureAbilities",
+					id = "RecklessAssault",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "RecklessAssault",
+					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "cth_bonus",
+							'Value', 15,
+							'Tag', "<cth_bonus>",
+						}),
+					},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnCalcChanceToHit",
+							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
+								if target ~= attacker or not data or not action then
+									return
+								end
+								if action.id ~= "RecklessAssault" then
+									return
+								end
+								local bonus = self:ResolveValue("cth_bonus") or 15
+								ApplyCthModifier_Add(self, data, bonus)
+							end,
+						}),
+					},
+					'DisplayName', T(890000000009935, --[[ModItemCharacterEffectCompositeDef RecklessAssault DisplayName]] "Безрассудный натиск"),
+					'Description', T(890000000009936, --[[ModItemCharacterEffectCompositeDef RecklessAssault Description]] "Улучшенный <em>Run and Gun</em>: до <em>4</em> атак с пистолет-пулемётом, карабином или автоматом. <em>+<cth_bonus></em> к точности. Без потери <GameTerm('Energy')>."),
+					'Icon', "UI/Icons/Perks/RecklessAssault",
+					'Tier', "Personal",
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Perk-Personal",
+					'Id', "GloryHog",
+					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "temp_hp",
+							'Value', 15,
+							'Tag', "<temp_hp>",
+						}),
+					},
+					'DisplayName', T(890000000009927, --[[ModItemCharacterEffectCompositeDef GloryHog DisplayName]] "Жажда славы"),
+					'Description', T(890000000009928, --[[ModItemCharacterEffectCompositeDef GloryHog Description]] "Спецатака мачете <em>Charge</em> без прямой линии пути и даёт <em><temp_hp></em> <GameTerm('Grit')>. Активка: один раз за бой перевербовать видимого врага в союзника под ИИ (не боссы)."),
+					'Icon', "UI/Icons/Perks/GloryHog",
 					'Tier', "Personal",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
@@ -73584,7 +74406,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Parameters', {
 						PlaceObj('PresetParamNumber', {
 							'Name', "rangeThreshold",
-							'Value', 5,
+							'Value', 8,
 							'Tag', "<rangeThreshold>",
 						}),
 						PlaceObj('PresetParamPercent', {
@@ -73610,54 +74432,189 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
-							Event = "OnCalcDamageAndChance",
-							Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-								if target ~= attacker or not data or not IsKindOf(attack_target, "Unit") then
+							Event = "OnCalcStimmedTiredness",
+							Handler = function (self, target, value)
+								return 0
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnModifyCTHModifier",
+							Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+								if target ~= attacker then
 									return
 								end
-								local dist = DivRound(attacker:GetDist(attack_target), const.SlabSizeX)
-								local min_r = self:ResolveValue("minRange") or 8
-								if dist < min_r then
-									return
+								if id == "Stimmed" or id == "Stim" then
+									data.mod_add = 0
+									data.mod_mul = 100
 								end
-								local bonus = self:ResolveValue("damageBonus") or 40
-								data.base_damage = MulDivRound(data.base_damage or data.damage or 0, 100 + bonus, 100)
 							end,
 						}),
 					},
-					'DisplayName', T(890000000009889, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная близость"),
-					'Description', T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "Взрывы по целям ≤5 клеток: +40% урона. Стрельба по целям ≥8 клеток: +40% урона и +2 Bleeding."),
+					'DisplayName', T(890000000009925, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная дальность"),
+					'Description', T(890000000009926, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "Гранаты и взрывчатка на дистанции ≥<minRange> клеток: +<percent(damageBonus)> урона. Взрывы дополнительно накладывают <bleed_stacks> стака кровотечения. Нет штрафов от боевых стимуляторов."),
 					'Icon', "UI/Icons/Perks/DangerClose",
 					'Tier', "Personal",
+				}),
+								PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "DrQ ExplodingPalm passive signature (id must match CE)",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction ExplodingPalm DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Hud/perk_exploding_palm",
+					IdDefault = "ExplodingPalmdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "ExplodingPalm",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "ExplodingPalm",
 					'object_class', "Perk",
+					'Parameters', {
+						PlaceObj('PresetParamPercent', {
+							'Name', "sat_debt_speed_percent",
+							'Value', 30,
+							'Tag', "<sat_debt_speed_percent>",
+						}),
+					},
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
-							Event = "OnCalcHealAmount",
-							Handler = function (self, target, patient, medic, medkit, data)
-								if target ~= medic or not data then
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target ~= attacker or not results or results.miss then
 									return
 								end
-								-- Soft: +30% heal when treating (trauma-specific ops deferred).
-								data.heal_modifier = MulDivRound(data.heal_modifier or 100, 130, 100)
+								if type(Jazz_ExplodingPalmOnUnarmedHit) == "function" then
+									Jazz_ExplodingPalmOnUnarmedHit(attacker, action, attack_target, results, attack_args)
+								end
 							end,
 						}),
 					},
-					'DisplayName', T(890000000009891, --[[ModItemCharacterEffectCompositeDef ExplodingPalm DisplayName]] "Взрывная ладонь"),
-					'Description', T(890000000009892, --[[ModItemCharacterEffectCompositeDef ExplodingPalm Description]] "Удары кулаком: статусы по HP. Satellite trauma heal +30%; сопротивление инфекции (partial)."),
+					'DisplayName', T(890000000009924, --[[ModItemCharacterEffectCompositeDef ExplodingPalm DisplayName]] "Взрывная ладонь"),
+					'Description', T(890000000009892, --[[ModItemCharacterEffectCompositeDef ExplodingPalm Description]] "Пассивно. Удары <em>голыми руками</em> по живому противнику в зависимости от его текущего HP: ≤20% — нокдаун и без сознания; ≤35% — контузия; ≤50% — травма рёбер; ≤65% — травма рук; ≤80% — травма ног; иначе — травма паха (рёбра/«яйца»). В отряде на сателлите: восстановление травм, ожогов и HP-долга на <sat_debt_speed_percent>% быстрее; защищает от инфекции ран."),
 					'Icon', "UI/Icons/Perks/ExplodingPalm",
 					'Tier', "Personal",
 				}),
+
+
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "NaturalHealing",
 					'object_class', "Perk",
-					'unit_reactions', {},
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "hoursToProduce",
+							'Value', 48,
+							'Tag', "<hoursToProduce>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "amountToProduce",
+							'Value', 1,
+							'Tag', "<amountToProduce>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "nextProductionTime",
+							'Tag', "<nextProductionTime>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "sat_debt_speed_percent",
+							'Value', 15,
+							'Tag', "<sat_debt_speed_percent>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "willRestoreMin",
+							'Value', 20,
+							'Tag', "<willRestoreMin>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "willRestoreMax",
+							'Value', 25,
+							'Tag', "<willRestoreMax>",
+						}),
+					},
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnNewHour",
+							Handler = function (self, target)
+								if target.HireStatus ~= "Hired" then return end
+
+								local next_production = self:ResolveValue("nextProductionTime")
+								if not next_production or next_production == 0 then
+									self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
+									return
+								end
+								if Game.CampaignTime < next_production then return end
+								local squad = target.Squad and gv_Squads[target.Squad]
+								if squad and squad.water_travel then return end
+
+								local amountToProduce = self:ResolveValue("amountToProduce")
+								local item_name = amountToProduce > 1 and g_Classes["HerbalMedicine"].DisplayNamePlural or g_Classes["HerbalMedicine"].DisplayName
+								self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
+
+								local slots = { "Inventory" }
+								local canPlaceError, amountLeft
+								local amountToPlace = amountToProduce
+								for _, slot in ipairs(slots) do
+									canPlaceError, amountLeft = CanPlaceItemInInventory("HerbalMedicine", amountToPlace, target, slot)
+									if not canPlaceError then
+										PlaceItemInInventory("HerbalMedicine", amountToPlace, target, nil, nil, slot)
+										if not amountLeft then
+											break
+										else
+											amountToPlace = amountLeft
+										end
+									end
+								end
+
+								local text = T{318623454402, "<merc> produced <amount> <item_name>.", merc = target.Nick, amount = amountToProduce, item_name = item_name}
+								if canPlaceError or (amountLeft and amountLeft > 0) then
+									amountToPlace = amountToPlace or amountToProduce
+									if squad and squad.CurrentSector then
+										PlaceItemInInventory("HerbalMedicine", amountToPlace, squad.CurrentSector)
+									end
+									text = text .. T(447763084369, " Some were placed in the sector stash.")
+									CombatLog("important", text)
+								else
+									CombatLog("important", text)
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitBandaged",
+							Handler = function (self, target, healer, patient, hp_restored)
+								if target ~= healer then return end
+								if type(Jazz_NaturalHealingRestoreWill) == "function" then
+									Jazz_NaturalHealingRestoreWill(healer, patient)
+								end
+							end,
+						}),
+					},
 					'DisplayName', T(890000000009893, --[[ModItemCharacterEffectCompositeDef NaturalHealing DisplayName]] "Естественное исцеление"),
-					'Description', T(890000000009894, --[[ModItemCharacterEffectCompositeDef NaturalHealing Description]] "Крафт joints и sat/combat-эффекты по листу (recipes soft-cut)."),
+					'Description', T(890000000009894, --[[ModItemCharacterEffectCompositeDef NaturalHealing Description]] "Каждые <hoursToProduce> ч — <amountToProduce>× Herbal Medicine. В отряде на сателлите: восстановление травм, ожогов и HP-долга на <sat_debt_speed_percent>% быстрее (инфекции не затрагивает). При перевязке: +<willRestoreMin>–<willRestoreMax> силы воли пациенту."),
+					'OnAdded', function (self, obj)
+						self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
+					end,
 					'Icon', "UI/Icons/Perks/NaturalHealing",
 					'Tier', "Personal",
 				}),
@@ -73697,6 +74654,38 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/GruntyPerk",
 					'Tier', "Personal",
 				}),
+				PlaceObj('ModItemCombatAction', {
+					ActionType = "Passive",
+					ActivePauseBehavior = "instant",
+					Comment = "Grunty / Юберрашунг passive signature (id must match CE)",
+					ConfigurableKeybind = false,
+					DisplayName = T(115026001164, --[[ModItemCombatAction GruntyPerk_JAZZ DisplayName]] "<placeholder>"),
+					GetActionDescription = function (self, units)
+						return GetSignatureActionDescription(self)
+					end,
+					GetActionDisplayName = function (self, units)
+						return GetSignatureActionDisplayName(self)
+					end,
+					GetUIState = function (self, units, args)
+						local unit = units[1]
+						local cost = self:GetAPCost(unit, args)
+						if cost < 0 then return "hidden" end
+						if not unit:UIHasAP(cost) then return "disabled" end
+						return "enabled"
+					end,
+					Icon = "UI/Icons/Hud/perk_grunty_perk",
+					IdDefault = "GruntyPerk_JAZZdefault",
+					IsAimableAttack = false,
+					KeybindingFromAction = "actionRedirectSignatureAbility",
+					RequireState = "any",
+					Run = function (self, unit, ap, ...)
+						return false
+					end,
+					ShowIn = "SignatureAbilities",
+					SortKey = 100,
+					group = "SignatureAbilities",
+					id = "GruntyPerk_JAZZ",
+				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "GruntyPerk_JAZZ",
@@ -73707,6 +74696,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						PlaceObj('UnitReaction', {
 							Event = "OnCombatStarted",
 							Handler = function (self, target, load_game)
+								if load_game then
+									return
+								end
 								target:AddStatusEffect("Grunty_AdditionalAP")
 							end,
 						}),
@@ -73720,6 +74712,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								if target:HasStatusEffect("Grunty_AdditionalAP") then
 									return
 								end
+								-- Personal morale = team BD + likes/wounds/etc (UI «боевой дух»), clamped −5…5.
 								local morale = 0
 								if target.GetPersonalMorale then
 									morale = target:GetPersonalMorale() or 0
@@ -73750,19 +74743,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							Handler = function (self, target, value)
 								if not self:ResolveValue("applied") then
 									local ap = target:GetMaxActionPoints()
-									return value + DivRound(ap,2) 
+									return value + DivRound(ap,2)
 								end
 							end,
 							param_bindings = false,
 						}),
-						PlaceObj('UnitReaction', {
-							Event = "OnBeginTurn",
-							Handler = function (self, target)
-								local ap = target:GetMaxActionPoints()
-								target:GainAP(DivRound(ap,2) )
-							end,
-							param_bindings = false,
-						}),
+					
 					},
 					'Conditions', {
 						PlaceObj('CheckExpression', {
@@ -74113,11 +75099,19 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Icon = "UI/Icons/Perks/SteroidPunch",
 						Tier = "Personal",
 				}),
-								PlaceObj('ModItemCharacterEffectCompositeDef', {
+												PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "MakeThemBleed",
 					'object_class', "Perk",
 					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnBeginTurn",
+							Handler = function (self, target)
+								if type(Jazz_MakeThemBleedSyncBuff) == "function" then
+									Jazz_MakeThemBleedSyncBuff(target)
+								end
+							end,
+						}),
 						PlaceObj('UnitReaction', {
 							Event = "OnCalcDamageAndEffects",
 							Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
@@ -74125,16 +75119,20 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									return
 								end
 								local n = 0
-								for _, u in ipairs(attacker:GetVisibleEnemies() or empty_table) do
-									if IsValid(u) and not u:IsDead() then
-										if u:HasStatusEffect("Bleeding") or u:HasStatusEffect("BleedingMedium") or u:HasStatusEffect("BleedingHeavy") then
-											n = n + 1
-										end
-									end
+								if type(Jazz_MakeThemBleedCountVisible) == "function" then
+									n = Jazz_MakeThemBleedCountVisible(attacker) or 0
 								end
 								local bonus = Min(50, n * 10)
 								if bonus > 0 then
 									data.damage_percent = (data.damage_percent or 100) + bonus
+								end
+							end,
+						}),
+						PlaceObj('UnitReaction', {
+							Event = "OnUnitAttack",
+							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+								if target == attacker and type(Jazz_MakeThemBleedSyncBuff) == "function" then
+									Jazz_MakeThemBleedSyncBuff(attacker)
 								end
 							end,
 						}),
@@ -74144,6 +75142,20 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Icon', "UI/Icons/Perks/MakeThemBleed",
 					'Tier', "Personal",
 				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "System",
+					'Id', "Jazz_MakeThemBleedBuff",
+					'object_class', "CharacterEffect",
+					'DisplayName', T(890000000009863, --[[ModItemCharacterEffectCompositeDef Jazz_MakeThemBleedBuff DisplayName]] "Кровавый след"),
+					'Description', T(890000000009864, --[[ModItemCharacterEffectCompositeDef Jazz_MakeThemBleedBuff Description]] "Видимые враги с кровотечением: <em><stacks></em> (+10% урона за каждого, макс. +50%)."),
+					'type', "Buff",
+					'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Jazz_MakeThemBleedBuff.png",
+					'max_stacks', 5,
+					'RemoveOnEndCombat', true,
+					'Shown', true,
+				}),
+
+
 																PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "HawksEye",
@@ -74154,9 +75166,31 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							'Value', 1,
 							'Tag', "<pindownCostOverwrite>",
 						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "overwatchCostOverwrite",
+							'Value', 1,
+							'Tag', "<overwatchCostOverwrite>",
+						}),
+					},
+					'Comment', "Scope: OW/PinDown 1 AP with snipers; biscuits; sniper suppress ×2",
+					'unit_reactions', {
+						PlaceObj('UnitReaction', {
+							Event = "OnMercHired",
+							Handler = function (self, target, price, days, alreadyHired)
+								if days > 0 then
+									local canPlaceError = CanPlaceItemInInventory("Cookie", days, target)
+									if canPlaceError then
+										CombatLog("important", T(667077082306, "Scope has baked some biscuits. Unfortunately the inventory is full. "))
+										return
+									end
+									CombatLog("important", T(754424382903, "Scope has baked some biscuits"))
+									PlaceItemInInventory("Cookie", days, target)
+								end
+							end,
+						}),
 					},
 					'DisplayName', T(890000000009869, --[[ModItemCharacterEffectCompositeDef HawksEye DisplayName]] "Ястребиный глаз"),
-					'Description', T(890000000009870, --[[ModItemCharacterEffectCompositeDef HawksEye Description]] "Pin Down / Focus Fire стоит 1 ОД. Снайперские атаки дают вдвое больше подавления. Печенье прилагается."),
+					'Description', T(890000000009870, --[[ModItemCharacterEffectCompositeDef HawksEye Description]] "Со снайперской винтовкой: Overwatch за <overwatchCostOverwrite> ОД (остальные ОД остаются). Pin Down / Focus Fire — мин. <pindownCostOverwrite> ОД. Снайперские выстрелы дают ×2 подавления. При найме печёт печенье (перезарядка сигнатур)."),
 					'Icon', "UI/Icons/Perks/HawksEye",
 					'Tier', "Personal",
 				}),
@@ -74200,46 +75234,63 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(890000000009873, --[[ModItemCharacterEffectCompositeDef HaveABlast DisplayName]] "Взрывной характер"),
-					'Description', T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель. Пока активен: контратака гранатой на вражеские выстрелы по себе (попадание или промах); урон от взрывов по себе −50%. Выключен — без эффекта. Гранаты: руки или инвентарь."),
+					'Description', T(890000000009874, --[[ModItemCharacterEffectCompositeDef HaveABlast Description]] "Переключатель. Пока активен: после атаки по себе (попадание или промах) отвечает гранатой (руки или из инвентаря); урон от взрывов по себе −50%. Выключен — без эффекта."),
 					'Icon', "UI/Icons/Perks/HaveABlast",
 					'Tier', "Personal",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "KillingWind",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "gritPerEnemyHit",
+							'Value', 8,
+							'Tag', "<gritPerEnemyHit>",
+						}),
+					},
 					'object_class', "Perk",
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
 							Event = "OnUnitAttack",
 							Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-								if target ~= attacker or not results then
-									return
-								end
-								local hit_units = {}
-								for _, hit in ipairs(results.hits or empty_table) do
-									local obj = hit and (hit.obj or hit.unit)
-									if IsKindOf(obj, "Unit") and not obj:IsDead() then
-										hit_units[obj] = true
+								if target ~= attacker then return end
+
+								local enemiesHit = 0
+								if results and results.hit_objs then
+									for _, obj in ipairs(results.hit_objs) do
+										if IsKindOf(obj, "Unit") and obj:IsOnEnemySide(attacker) then
+											enemiesHit = enemiesHit + 1
+										end
 									end
 								end
-								local n = 0
-								for _ in pairs(hit_units) do
-									n = n + 1
-								end
-								if n >= 2 then
-									attacker:ApplyTempHitPoints(8)
+
+								if enemiesHit >= 2 then
+									local grit = self:ResolveValue("gritPerEnemyHit") * enemiesHit
+									attacker:ApplyTempHitPoints(grit)
 								end
 							end,
 						}),
 					},
 					'DisplayName', T(890000000009875, --[[ModItemCharacterEffectCompositeDef KillingWind DisplayName]] "Убийственный ветер"),
-					'Description', T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "Если атака задевает ≥2 целей — +8 Grit. Тяжёлая броня даёт половину штрафа Free Move; громоздкое оружие не штрафует FM."),
+					'Description', T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "При попадании по ≥2 врагам: +<gritPerEnemyHit> Grit за каждого. Штраф Free Move от тяжёлой брони −50%; громоздкое оружие не лишает Free Move."),
 					'Icon', "UI/Icons/Perks/KillingWind",
 					'Tier', "Personal",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "BuildingConfidence",
+					'Parameters', {
+						PlaceObj('PresetParamNumber', {
+							'Name', "percentPerLevel",
+							'Value', 10,
+							'Tag', "<percentPerLevel>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "percentCap",
+							'Value', 50,
+							'Tag', "<percentCap>",
+						}),
+					},
 					'object_class', "Perk",
 					'unit_reactions', {
 						PlaceObj('UnitReaction', {
@@ -74248,8 +75299,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								if not g_Combat then
 									return
 								end
+								-- Turn 2, then every 3 turns after: 2, 5, 8, 11…
 								local turn = g_Combat.current_turn or 1
-								if turn == 2 or (turn > 0 and turn % 3 == 0) then
+								if turn >= 2 and ((turn - 2) % 3 == 0) then
 									target:AddStatusEffect("Inspired")
 								end
 							end,
@@ -74257,20 +75309,29 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						PlaceObj('UnitReaction', {
 							Event = "OnCalcHealAmount",
 							Handler = function (self, target, patient, medic, medkit, data)
-								if target ~= medic or not data then
+								if target ~= medic or not data or not patient then
 									return
 								end
-								local lvl = 1
-								if medic.GetLevel then
-									lvl = medic:GetLevel() or 1
+								local apply = rawget(_G, "Jazz_BuildingConfidenceApplyHealMod")
+								if type(apply) == "function" then
+									apply(medic, patient, data)
+									return
 								end
-								local bonus = Clamp((tonumber(lvl) or 1) * 10, 0, 50)
+								local per = self:ResolveValue("percentPerLevel") or 10
+								local cap = self:ResolveValue("percentCap") or 50
+								local medic_lvl = (medic.GetLevel and medic:GetLevel()) or 1
+								local patient_lvl = (patient.GetLevel and patient:GetLevel()) or 1
+								local delta = (tonumber(medic_lvl) or 1) - (tonumber(patient_lvl) or 1)
+								local bonus = Clamp(delta * per, -cap, cap)
+								if bonus == 0 then
+									return
+								end
 								data.heal_modifier = MulDivRound(data.heal_modifier or 100, 100 + bonus, 100)
 							end,
 						}),
 					},
 					'DisplayName', T(890000000009877, --[[ModItemCharacterEffectCompositeDef BuildingConfidence DisplayName]] "Уверенность растёт"),
-					'Description', T(890000000009878, --[[ModItemCharacterEffectCompositeDef BuildingConfidence Description]] "На 2-м ходу боя и каждом 3-м ходу — Inspired. Лечение ±10% за уровень (макс. ±50%) в бою и на спутнике."),
+					'Description', T(890000000009878, --[[ModItemCharacterEffectCompositeDef BuildingConfidence Description]] "На 2-м ходу и каждые 3 хода после (2/5/8…) — Inspired (+4 ОД). Лечение: ±<percentPerLevel>% за разницу уровней с пациентом (макс. ±<percentCap>%), в бою и на спутнике."),
 					'Icon', "UI/Icons/Perks/BuildingConfidence",
 					'Tier', "Personal",
 				}),
@@ -74280,7 +75341,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'unit_reactions', {},
 					'DisplayName', T(890000000009881, --[[ModItemCharacterEffectCompositeDef BulletHell DisplayName]] "Адский ливень"),
-					'Description', T(890000000009882, --[[ModItemCharacterEffectCompositeDef BulletHell Description]] "Конусный dump 15–30 пуль с обычным CTH и подавлением Will. Перезарядка способности — после убийства."),
+					'Description', T(890000000009882, --[[ModItemCharacterEffectCompositeDef BulletHell Description]] "Конусный ливень реальных пуль по дуге (15–30) с обычным CTH: попадают в тех, кто в секторе, возможны шальные. Подавление Will. Перезарядка — после убийства."),
 					'Icon', "UI/Icons/Perks/BulletHell",
 					'Tier', "Personal",
 				}),
@@ -74456,7 +75517,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Lynx.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Jazz_Perk_Lynx.png",
 					IdDefault = "Jazz_Perk_Lynxdefault",
 					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
@@ -74516,7 +75577,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Buzz.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Jazz_Perk_Buzz.png",
 					IdDefault = "Jazz_Perk_Buzzdefault",
 					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
@@ -74562,7 +75623,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Spider.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Jazz_Perk_Spider.png",
 					IdDefault = "Jazz_Perk_Spiderdefault",
 					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
@@ -74608,7 +75669,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit:UIHasAP(cost) then return "disabled" end
 						return "enabled"
 					end,
-					Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
+					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/Jazz_Perk_Colby.png",
 					IdDefault = "Jazz_Perk_Colbydefault",
 					IsAimableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",

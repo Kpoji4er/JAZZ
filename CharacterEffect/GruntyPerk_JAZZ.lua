@@ -11,6 +11,9 @@ DefineClass.GruntyPerk_JAZZ = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCombatStarted",
 			Handler = function (self, target, load_game)
+				if load_game then
+					return
+				end
 				target:AddStatusEffect("Grunty_AdditionalAP")
 			end,
 		}),
@@ -24,6 +27,7 @@ DefineClass.GruntyPerk_JAZZ = {
 				if target:HasStatusEffect("Grunty_AdditionalAP") then
 					return
 				end
+				-- Personal morale = team BD + likes/wounds/etc (UI «боевой дух»), clamped −5…5.
 				local morale = 0
 				if target.GetPersonalMorale then
 					morale = target:GetPersonalMorale() or 0

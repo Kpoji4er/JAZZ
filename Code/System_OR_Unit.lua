@@ -1033,10 +1033,6 @@ function Unit:CalculateArmorWeight()
 	self.jazz_armor_fm_penalty = 0
 	self.jazz_armor_ap_penalty = 0
 
-	if HasPerk(self, "KillingWind") then
-		return
-	end
-
 	local raw_ap = 0
 	if raw_fm >= 8 then
 		raw_ap = 2
@@ -1046,8 +1042,11 @@ function Unit:CalculateArmorWeight()
 
 	local fm = raw_fm
 	local ap = raw_ap
-	if HasPerk(self, "Ironclad") then
+	-- Ironclad / KillingWind: each halves FM once (Fauda has both — not quarter).
+	if HasPerk(self, "Ironclad") or HasPerk(self, "KillingWind") then
 		fm = fm / 2
+	end
+	if HasPerk(self, "Ironclad") then
 		ap = ap / 2
 	end
 	if self.using_cumbersome then
@@ -1677,7 +1676,12 @@ function Unit:EnumUIActions()
 			id = "DoubleToss"
 		end
 		-- UNITS-006: SteroidPunch is passive (all melee); hide vanilla smash signature.
-		if id ~= "SteroidPunch" and id and self:HasStatusEffect(id) then
+		-- Pierre recruit CA unlocks from GloryHog (id ≠ perk id).
+		if id == "Jazz_PierreRecruit" then
+			if HasPerk(self, "GloryHog") then
+				actions[#actions + 1] = skill.id
+			end
+		elseif id ~= "SteroidPunch" and id and self:HasStatusEffect(id) then
 			actions[#actions + 1] = skill.id
 		end
 	end
@@ -1989,7 +1993,7 @@ function Unit:RecalcUIActions(force)
 						state = "hidden"
 						if action_type == "DoubleToss" then
 							doubleTossCount = doubleTossCount + 1
-							if doubleTossCount == 4 then
+							if doubleTossCount == 8 then
 								state = "disabled"
 							end
 						end
@@ -1999,7 +2003,8 @@ function Unit:RecalcUIActions(force)
 						local equipped = self.current_weapon == "Handheld A" and (id == "ThrowGrenadeA" or  id == "ThrowGrenadeB") or
 						                 self.current_weapon == "Handheld B" and (id == "ThrowGrenadeC" or  id == "ThrowGrenadeD") or
 										 (id == "ThrowGrenadeAG" or  id == "ThrowGrenadeBG" or  id == "ThrowGrenadeCG" or  id == "ThrowGrenadeDG"
-										or id == "ThrowGrenadeAO" or  id == "ThrowGrenadeBO")
+										or id == "ThrowGrenadeAO" or  id == "ThrowGrenadeBO"
+										or id == "DoubleTossAG" or id == "DoubleTossBG" or id == "DoubleTossCG" or id == "DoubleTossDG")
 						grenadeModes[action_type][weapon.class][id] = equipped
 					end
 				end
@@ -3443,4 +3448,27 @@ function OnMsg.CombatEnd()
 			end
 		end
 	end
+end
+
+-- Fidel DoubleToss: also count GrenadesInventory pocket variants (AG–DG).
+local DOUBLE_TOSS_UI_IDS = {
+	"DoubleTossA", "DoubleTossB", "DoubleTossC", "DoubleTossD",
+	"DoubleTossAG", "DoubleTossBG", "DoubleTossCG", "DoubleTossDG",
+}
+
+function Unit:HasSignatures()
+	for _, perk in ipairs(self:GetPerks()) do
+		if perk.Tier == "Personal" then
+			if perk.class == "DoubleToss" then
+				for _, id in ipairs(DOUBLE_TOSS_UI_IDS) do
+					if (self.ui_actions[id] or "hidden") ~= "hidden" then
+						return true
+					end
+				end
+			elseif (self.ui_actions[perk.class] or "hidden") ~= "hidden" then
+				return true
+			end
+		end
+	end
+	return false
 end

@@ -149,8 +149,11 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	local base_weapon_damage = 0
 	for attackIdx, attack in ipairs(attacks) do
 		local attackArg = attackArgs[attackIdx]
-		if action.id == "BulletHell"  then
-			BulletHellOverwriteShots(attack)
+		if action.id == "BulletHell" then
+			-- COMBAT-006 v2: arc spray already applied in GetAttackResults before LoF.
+			if not attack.jazz_bh_arc_sprayed then
+				BulletHellOverwriteShots(attack)
+			end
 		end
 		-- Pace fire-anim segments. Vanilla uses Min(3, #shots) / #shots for burst.
 		-- JAZZ keeps AutoShots/2 for full-auto, but AutoShots==0 on semi-autos (WEAPONS-003)

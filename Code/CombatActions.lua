@@ -898,6 +898,39 @@ function Unit:RunAndGun(action_id, cost_ap, args)
 	
 end
 
+-- Smiley RecklessAssault List2: improved RnG; no Energy/Tiredness loss (vanilla SetTired).
+function Unit:RecklessAssault(action_id, cost_ap, args)
+	self:RunAndGun(action_id, cost_ap, args)
+end
+
+--- Weapon gate for RecklessAssault: SMG / Carbine / AssaultRifle.
+function Jazz_RecklessAssaultWeaponOk(weapon)
+	if not weapon then
+		return false
+	end
+	if IsKindOfClasses(weapon, "SubmachineGun", "AssaultRifle", "Carbine") then
+		return true
+	end
+	if weapon.WeaponSizeClass == "Carbine" then
+		return true
+	end
+	return false
+end
+
+function Jazz_RecklessAssaultGetWeapon(unit, args)
+	if args and args.weapon then
+		return Jazz_RecklessAssaultWeaponOk(args.weapon) and args.weapon or nil
+	end
+	if not unit then
+		return nil
+	end
+	local w = unit:GetActiveWeapons("Firearm")
+	if Jazz_RecklessAssaultWeaponOk(w) then
+		return w
+	end
+	return nil
+end
+
 
 function Unit:FirearmAttack(action_id, cost_ap, args, applied_status) -- SingleShot/DualShot
 	if true then	 -- net debug code
@@ -1052,128 +1085,115 @@ function Unit:TargetSweep(action_id, cost_ap, args)
 	local recharge_on_kill = action:ResolveValue("recharge_on_kill") or 0
 	self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
 end
--- JAZZ-COMBAT-006: BulletHell as real Firearm projectiles (CTH + Will suppression), not AlwaysHits AOE.
--- Cone aim stays; dump min_ammo..max_ammo singles round-robin across LOS enemies in the cone.
-local function JazzBulletHellConeTargets(attacker, weapon, action_id, args)
-	if not attacker or not weapon or not args or not args.target then
-		return empty_table
-	end
-	local aoeParams = weapon:GetAreaAttackParams(action_id, attacker)
-	if not aoeParams then
-		return empty_table
-	end
-	local attackData = attacker:ResolveAttackParams(action_id, args.target, {})
-	local attackerPos = attackData.step_pos
-	local attackerPos3D = attackerPos
-	if not attackerPos3D:IsValidZ() then
-		attackerPos3D = attackerPos3D:SetTerrainZ()
-	end
-	local targetPos = args.target
-	if IsValid(targetPos) then
-		targetPos = targetPos:GetPos()
-	end
-	if not IsPoint(targetPos) then
-		return empty_table
-	end
-	local targetAngle = CalcOrientation(attackerPos, targetPos)
-	local distance = Clamp(attackerPos3D:Dist(targetPos), aoeParams.min_range * const.SlabSizeX, aoeParams.max_range * const.SlabSizeX)
-	local enemies = GetEnemies(attacker)
-	local maxValue, losValues = CheckLOS(enemies, attackerPos, distance, attackData.stance, aoeParams.cone_angle, targetAngle, false)
-	if not maxValue then
-		return empty_table
-	end
-	local targets = {}
-	for i, los in ipairs(losValues) do
-		if los and enemies[i] and IsValidTarget(enemies[i]) then
-			targets[#targets + 1] = enemies[i]
-		end
-	end
-	return targets
-end
 
+-- Spike BulletHell: FirearmAttack (fires reliably) + real cone-arc projectiles (COMBAT-006 v2).
+-- AlwaysHits AOE / vanilla Suppressed cleared in System_OR_Weapons JazzInstallBulletHellProjectiles.
+-- Autofire gate for AN94 / JAZZ_LargeAutoFire lives in System_OR_Weapons.lua.
 function Unit:BulletHell(action_id, cost_ap, args)
 	args = args or {}
+	args.attack_anim_delay = 50
+	self:SetActionCommand("FirearmAttack", action_id, cost_ap, args)
+end
+
+-- Meltdown signature «Ураган Норма»: active fear AoE (not RunAndGun / not on-hit passive).
+-- Enemies within fearAoE slabs → fail Wisdom(50) → Panicked, else Berserk; refresh their AP.
+function Unit:VengefulTemperament(action_id, cost_ap, args)
 	local action = CombatActions[action_id]
-	local weapon = self:GetActiveWeapons()
-	if not action or not weapon then
-		self:GainAP(cost_ap)
-		CombatActionInterruped(self)
-		return
-	end
-
-	local min_ammo = action:ResolveValue("min_ammo") or 15
-	local max_ammo = action:ResolveValue("max_ammo") or 30
-	local ammo_amt = weapon.ammo and weapon.ammo.Amount or 0
-	local num_shots = Clamp(ammo_amt, min_ammo, max_ammo)
-	if ammo_amt < min_ammo or num_shots <= 0 then
-		self:GainAP(cost_ap)
-		CombatActionInterruped(self)
-		return
-	end
-
-	local targets = JazzBulletHellConeTargets(self, weapon, action_id, args)
-	if #(targets or empty_table) == 0 then
-		-- Soft fallback: aim-point unit or nearest living enemy (cone empty / no LOS).
-		local aim = args.target
-		if IsKindOf(aim, "Unit") and IsValidTarget(aim) and self:IsOnEnemySide(aim) then
-			targets = { aim }
-		else
-			local best, best_dist
-			for _, enemy in ipairs(GetEnemies(self) or empty_table) do
-				if IsValidTarget(enemy) then
-					local dist = self:GetDist(enemy)
-					if not best_dist or dist < best_dist then
-						best, best_dist = enemy, dist
-					end
-				end
+	local aoe = (action and action:ResolveValue("fearAoE")) or 5
+	for _, unit in ipairs(g_Units) do
+		if unit ~= self and IsValidTarget(unit) and self:IsOnEnemySide(unit)
+			and DivRound(self:GetDist(unit), const.SlabSizeX) <= aoe then
+			if not RollSkillCheck(unit, "Wisdom", 50) then
+				unit:AddStatusEffect("Panicked")
+			else
+				unit:AddStatusEffect("Berserk")
 			end
-			if best then
-				targets = { best }
-			end
+			unit.ActionPoints = unit:GetMaxActionPoints()
 		end
 	end
-	if #(targets or empty_table) == 0 then
-		self:GainAP(cost_ap)
-		CombatActionInterruped(self)
+	self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, false)
+end
+
+-- Igor Nazdarovya: every-turn drink — clear Pain, heal 15–20 HP, stack Drunk (≤5). No signature recharge.
+function Unit:Nazdarovya(action_id, cost_ap, args)
+	local action = CombatActions[action_id]
+	local max_stacks = (action and action:ResolveValue("maxStacks")) or 5
+	local drunk = self:GetStatusEffect("Drunk")
+	local stacks = drunk and (drunk.stacks or 1) or 0
+	if stacks >= max_stacks then
 		return
 	end
 
-	local shot_action = CombatActions.SingleShot
-	if not shot_action then
-		self:GainAP(cost_ap)
-		CombatActionInterruped(self)
+	local heal_min = (action and action:ResolveValue("healMin")) or 15
+	local heal_max = (action and action:ResolveValue("healMax")) or 20
+	local span = Max(0, heal_max - heal_min)
+	local heal = heal_min + InteractionRand(span + 1, "NazdarovyaHeal")
+	if type(self.HitPoints) == "number" and type(self.MaxHitPoints) == "number" then
+		self.HitPoints = Min(self.MaxHitPoints, self.HitPoints + heal)
+		ObjModified(self)
+	end
+
+	local refund_ap = rawget(_G, "JazzRefundPainStartTurnAP")
+	if type(refund_ap) == "function" then
+		refund_ap(self)
+	end
+	self:RemoveStatusEffect("Pain", "all")
+	Msg("UnitAPChanged", self)
+
+	self:AddStatusEffect("Drunk", 1)
+	-- No AddSignatureRechargeTime — usable every turn (AP cost only).
+end
+
+-- Pierre GloryHog List2: once/combat recruit visible non-boss enemy → ally (AI-controlled).
+function Jazz_IsPierreRecruitBossBlocked(unit)
+	if not unit then
+		return true
+	end
+	if unit.villain or unit.ImportantNPC then
+		return true
+	end
+	local sid = unit.session_id
+	local ud = sid and gv_UnitData and gv_UnitData[sid]
+	if ud and (ud.villain or ud.ImportantNPC) then
+		return true
+	end
+	return false
+end
+
+function Jazz_PierreRecruitGetTargets(attacker)
+	local out = {}
+	if not attacker or not attacker.GetVisibleEnemies then
+		return out
+	end
+	for _, u in ipairs(attacker:GetVisibleEnemies() or empty_table) do
+		if IsValidTarget(u) and attacker:IsOnEnemySide(u) and not Jazz_IsPierreRecruitBossBlocked(u) then
+			out[#out + 1] = u
+		end
+	end
+	return out
+end
+
+function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
+	args = args or empty_table
+	local target = args.target
+	if self.GetEffectValue and self:GetEffectValue("Jazz_PierreRecruitUsed") then
 		return
 	end
-
-	local fired_any = false
-	for i = 1, num_shots do
-		if not self:CanUseWeapon(weapon, 1) then
-			break
-		end
-		local tempArgs = table.copy(args)
-		tempArgs.target = targets[((i - 1) % #targets) + 1]
-		tempArgs.target_spot_group = "Torso"
-		tempArgs.aim = 0
-		tempArgs.distance = nil
-		tempArgs.attack_anim_delay = 50
-		-- Signature dump: stronger Will pressure than a basic single; no vanilla Suppressed AOE.
-		tempArgs.suppressionbonus = tempArgs.suppressionbonus or 200
-		tempArgs.origin_action_id = action_id
-		if self:CanAttack(tempArgs.target, weapon, shot_action, nil, nil, "skip_ap_check") then
-			self:FirearmAttack(shot_action.id, 0, tempArgs)
-			fired_any = true
-		end
-	end
-
-	if not fired_any then
-		self:GainAP(cost_ap)
-		CombatActionInterruped(self)
+	if not IsKindOf(target, "Unit") or not IsValidTarget(target) then
 		return
 	end
-
-	-- UNITS-006: Spike BulletHell recharges on kill (not timed-only / 1× combat).
-	local rechargeTime = action:ResolveValue("rechargeTime") or const.Combat.SignatureAbilityRechargeTime
-	if rechargeTime and rechargeTime > 0 then
-		self:AddSignatureRechargeTime(action_id, rechargeTime, true)
+	if not self:IsOnEnemySide(target) or Jazz_IsPierreRecruitBossBlocked(target) then
+		return
 	end
+	if target.SetSide then
+		target:SetSide("ally")
+	end
+	if target.SetEffectValue then
+		target:SetEffectValue("Jazz_PierreRecruited", true)
+	end
+	if self.SetEffectValue then
+		self:SetEffectValue("Jazz_PierreRecruitUsed", true)
+	end
+	ObjModified(self)
+	ObjModified(target)
 end

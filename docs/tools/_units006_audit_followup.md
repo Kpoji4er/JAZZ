@@ -8,7 +8,7 @@ Static audit vs Mechanics / §A / §C CHANGE after batches 1–4.
 | --- | --- |
 | Mike PinDown +2 | `BeginTurn` PinDown loop fires +2 extra `ProvokeOpportunityAttack_Pindown` |
 | Vince −25% | Keep EV 25% skip for amount=1; scale amount>1 ×75% |
-| BuildingConfidence heal | `OnCalcHealAmount` +10%×Level cap +50% |
+| BuildingConfidence heal | `OnCalcHealAmount` + `Unit:CalcHealAmount` wrap: ±10% × (MD level − patient level), cap ±50% |
 
 ## Fixed later (same day)
 
@@ -24,9 +24,9 @@ Static audit vs Mechanics / §A / §C CHANGE after batches 1–4.
 | Blade Brutalize | Damage replay, not full chain fidelity |
 | Ice shot-list | Text only |
 | MakeThemBleed apply | Aura only; groin/animal apply soft |
-| GloryHog / RecklessAssault | Soft / no JAZZ CE rewrite |
-| Nazdarovya / NaturalHealing / ExplodingPalm / DangerClose stim | Partial / soft |
-| §B HARD leftovers | Biff economy, Livewire money op, Thor joints, … |
+| GloryHog / RecklessAssault | GloryHog recruit + RecklessAssault List2 wired |
+| Nazdarovya / ExplodingPalm / DangerClose stim | ExplodingPalm wired; DangerClose List2 + stim immune + ExplosionPrecalc wrap |
+| §B HARD leftovers | Biff economy, Livewire money op, … |
 | §D Benny/Simon | CE + StartingPerks shipped; CombatAction soft-cut |
 
 ## Spec Evidence

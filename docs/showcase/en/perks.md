@@ -37,14 +37,20 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP; later turns `10%×morale` chance for the same buff |
 | `JackOfAllTrades` | Wolf | Satellite ops about **33% faster** (vanilla `activityDurationMod`) |
 | `SteroidPunch` | Steroid | Passive: melee CTH from Strength; hit → Knockdown+Unconscious; no stim tiredness; Burning DoT **−30%** |
-| `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%) |
-| `HawksEye` | Scope | Pin Down **1 AP**; sniper suppress ×2 |
-| `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss; **50%** explosion damage taken while active; grenades from hands/inventory |
-| `VengefulTemperament` | Meltdown | Signature “Hurricane Norma”: mobile shot; enemies ≤5 from target — Panic or Berserk (Wisdom) |
+| `ExplodingPalm` | DrQ | Unarmed hit → status by target HP (KO / concussion / ribs / arms / legs / groin); sat **+30%** trauma debt; **blocks** infection |
+| `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%); HUD stack “Blood Trail” = visible count |
+| `DangerClose` | Larry / Larry_Clean | Explosives ≥**8** tiles: **+40%** damage; explosions **+2** Bleeding stacks; no combat stim penalties |
+| `GloryHog` | PierreMerc | Machete **Charge** (non-straight) +**15** Grit; active **Recruit** 1 visible enemy → AI ally / combat (not bosses) |
+| `RecklessAssault` | Smiley | Improved Run and Gun: **4** attacks with SMG/carbine/AR, **+15** CTH; **no** Energy/Tiredness |
+| `HawksEye` | Scope | With sniper: Overwatch **1 AP** (keeps leftover AP); Pin Down min 1 AP; sniper suppress **×2**; biscuits on hire (recharge signatures) |
+| `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss (hands or auto-pull from inventory); **−50%** explosion damage taken while active |
+| `Nazdarovya` | Igor | Active **every turn** (2 AP, no CD): clears Pain, heals **15–20** HP, intoxication stack ≤**5** (−15 CTH / +20 melee per stack); −1 stack / **3 h** |
+| `VengefulTemperament` | Meltdown | Active “Hurricane Norma”: enemies ≤5 tiles — Panic or Berserk (Wisdom). **No** Run and Gun. |
 
-| `KillingWind` | Fauda | ≥2 targets hit → +8 Grit (+ existing FM/armor) |
-| `BuildingConfidence` | MD | Inspired on turn 2 and every 3rd (heal%-by-level partial) |
-| `BulletHell` | Spike | CD **on kill** |
+| `KillingWind` | Fauda | ≥2 enemies: **+8 Grit each**; armor FM pen **halved** (with Ironclad: still once); cumbersome **keeps** Free Move |
+| `DoubleToss` | Fidel | Twin throw (≥2 in stack): hands **or** grenade pockets |
+| `BuildingConfidence` | MD | Inspired (+4 AP) on turns **2/5/8…**; heal **±10%** per level difference vs patient (cap **±50%**), combat and satellite |
+| `BulletHell` | Spike | Cone **real projectile arc** (CTH + strays); CD **on kill** |
 | `Jazz_Perk_Flo` | Flo | Squad: **−12%** Bobby Ray buy / **+12%** cash-in (additive with Negotiator) |
 | `Jazz_Perk_Static` | Static | Repair/craft Parts **−5%/level** (cap **−25%**) |
 | `Jazz_Perk_Cougar` | Cougar | Shots **−33%** noise; Stealth Kill → Inspired **1×/turn** |
@@ -59,15 +65,15 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `Jazz_Perk_Veteran` | IMP (personal) | +10 to all skill/stat checks |
 | `Jazz_Perk_Sniper` | IMP (tactical) | +1 max aim level (any weapon) |
 
-Passive Lynx/Buzz/Spider/Colby have **no** HUD toggle (buttons hidden). Toggle remains Spouke-only (`Jazz_Perk_00`).
+Passive Lynx/Buzz/Spider/Colby show on the signature hotbar (info-only Passive buttons; HUD icons from `Perks/SignatureAbilities/`). Toggle remains Spouke-only (`Jazz_Perk_00`).
 
 ## §A / §C / §B / §D (UNITS-006)
 
-§A + §C batch2/3 match List2. Soft-cut batch3: GloryHog recruit, RecklessAssault rewrite, MD heal%-by-level, Flay groin/animal apply (dmg aura only). **Owner 2026-08-11:** personal perks for Hitman/Tex/Shadow/Buns/Sidney/Raven/Mouse/Omryn/Raider/Len/Fox/Scully/Magic/Reaper/Ivan/Gus/Nails/Ice/Blood are **stock JA3** again (JAZZ CE overrides removed).
+§A + §C batch2/3 match List2. Soft-cut batch3: Flay groin/animal apply (dmg aura only). **GloryHog recruit** and **RecklessAssault** wired. **MD** heal%-by-level wired. **Reaper `TheGrim`:** recharges after **5** kills (not one). **Owner 2026-08-11:** personal perks for Hitman/Tex/Shadow/Buns/Sidney/Raven/Mouse/Omryn/Raider/Len/Fox/Scully/Magic/Ivan/Gus/Nails/Ice/Blood are **stock JA3** again (JAZZ CE overrides removed; Reaper CHANGE is CD×5 only).
 
 §B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
 
-**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), **Barry** (`DesignerExplosives`): every **168 h** produces **2× Shaped Charge**; craft via Craft Explosives; **−30% Parts** on CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. Soft: Biff trooper economy, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover.
+**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), **Barry** (`DesignerExplosives`): every **168 h** produces **2× Shaped Charge**; craft via Craft Explosives; **−30% Parts** on CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. **Igor** (`Nazdarovya`): every-turn drink — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): joints every 48 h; sat squad +15% trauma/burn/HP debt recovery (not infection); bandage restores 20–25 Will. Soft: Biff trooper economy, Livewire money op (ECON-001).
 
 **Batch6 §D:** `Jazz_Perk_Benny` (“Package for You”) and `Jazz_Perk_Simon` (“Absolute Sniper”) — CE + StartingPerks; CombatAction soft-cut. Statuses: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 
@@ -77,7 +83,7 @@ After the IMP test, loadout is built from stats and perks (JA2-style): primary f
 
 ## Still stubs
 
-Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Iggy bombard call-site, full Biff/Livewire/Thor ops — see `_units006_batch5_notes.md` / `_units006_batch6_notes.md`.
+Monk/Horg/Manuel/Hitman JA12 signatures, Bull inventory, Iggy bombard call-site, full Biff/Livewire ops — see `_units006_batch5_notes.md` / `_units006_batch6_notes.md`.
 
 ## Player takeaway
 

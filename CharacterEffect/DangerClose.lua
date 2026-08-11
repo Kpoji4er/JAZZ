@@ -6,11 +6,10 @@ DefineClass.DangerClose = {
 
 	object_class = "Perk",
 	Parameters = {
-		-- Vanilla explosive path (Bombard/IModeCombatAreaAim): MUST keep rangeThreshold/damageMod
-		-- or ResolveValue(nil)*SlabSizeX crashes grenade aim for Larry.
+		-- Keep rangeThreshold/damageMod for any leftover vanilla callers; List2 uses ≥minRange.
 		PlaceObj('PresetParamNumber', {
 			'Name', "rangeThreshold",
-			'Value', 5,
+			'Value', 8,
 			'Tag', "<rangeThreshold>",
 		}),
 		PlaceObj('PresetParamPercent', {
@@ -18,7 +17,6 @@ DefineClass.DangerClose = {
 			'Value', 40,
 			'Tag', "<damageMod>%",
 		}),
-		-- List2 firearm: ≥minRange tiles +damageBonus% and bleed stacks (Code Jazz_DangerCloseOnAttack).
 		PlaceObj('PresetParamNumber', {
 			'Name', "minRange",
 			'Value', 8,
@@ -37,23 +35,26 @@ DefineClass.DangerClose = {
 	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
-			Event = "OnCalcDamageAndChance",
-			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
-				if target ~= attacker or not data or not IsKindOf(attack_target, "Unit") then
+			Event = "OnCalcStimmedTiredness",
+			Handler = function (self, target, value)
+				return 0
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnModifyCTHModifier",
+			Handler = function (self, target, id, attacker, attack_target, action, weapon1, weapon2, data)
+				if target ~= attacker then
 					return
 				end
-				local dist = DivRound(attacker:GetDist(attack_target), const.SlabSizeX)
-				local min_r = self:ResolveValue("minRange") or 8
-				if dist < min_r then
-					return
+				if id == "Stimmed" or id == "Stim" then
+					data.mod_add = 0
+					data.mod_mul = 100
 				end
-				local bonus = self:ResolveValue("damageBonus") or 40
-				data.base_damage = MulDivRound(data.base_damage or data.damage or 0, 100 + bonus, 100)
 			end,
 		}),
 	},
-	DisplayName = T(890000000009889, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная близость"),
-	Description = T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "Взрывы по целям ≤5 клеток: +40% урона. Стрельба по целям ≥8 клеток: +40% урона и +2 Bleeding."),
+	DisplayName = T(890000000009925, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная дальность"),
+	Description = T(890000000009926, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "Гранаты и взрывчатка на дистанции ≥<minRange> клеток: +<percent(damageBonus)> урона. Взрывы дополнительно накладывают <bleed_stacks> стака кровотечения. Нет штрафов от боевых стимуляторов."),
 	Icon = "UI/Icons/Perks/DangerClose",
 	Tier = "Personal",
 }

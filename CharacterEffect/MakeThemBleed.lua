@@ -7,22 +7,35 @@ DefineClass.MakeThemBleed = {
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
+			Event = "OnBeginTurn",
+			Handler = function (self, target)
+				if type(Jazz_MakeThemBleedSyncBuff) == "function" then
+					Jazz_MakeThemBleedSyncBuff(target)
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
 			Event = "OnCalcDamageAndEffects",
 			Handler = function (self, owner, attacker, target, action, weapon, attack_args, hit, data)
 				if owner ~= attacker or not data then
 					return
 				end
 				local n = 0
-				for _, u in ipairs(attacker:GetVisibleEnemies() or empty_table) do
-					if IsValid(u) and not u:IsDead() then
-						if u:HasStatusEffect("Bleeding") or u:HasStatusEffect("BleedingMedium") or u:HasStatusEffect("BleedingHeavy") then
-							n = n + 1
-						end
-					end
+				if type(Jazz_MakeThemBleedCountVisible) == "function" then
+					n = Jazz_MakeThemBleedCountVisible(attacker) or 0
 				end
 				local bonus = Min(50, n * 10)
 				if bonus > 0 then
 					data.damage_percent = (data.damage_percent or 100) + bonus
+				end
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitAttack",
+			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+				-- Refresh after Flay's attack (bleed may have been applied).
+				if target == attacker and type(Jazz_MakeThemBleedSyncBuff) == "function" then
+					Jazz_MakeThemBleedSyncBuff(attacker)
 				end
 			end,
 		}),

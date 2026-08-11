@@ -53,11 +53,23 @@ Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCod
 
 - `Jazz_Perk_Rothman` — mine garrison loyalty-scaled income (`_GetMineIncome` +10…+40%).
 - `Jazz_Perk_Miguel` — aura 30 via `Jazz_MiguelAuraUp`/`Down` (±15 CTH, ±30 Will).
-- `DesignerExplosives` (Barry) — every **168 h** produce **2× Shaped Charge** (`OnNewHour`); craft via Craft Explosives (`Barry_ShapedCharge`); CraftAmmo/CraftExplosives Parts **−30%** (`Jazz_InstallCraftPartsDiscountWrap`).
+- `DesignerExplosives` (Barry) — homemade **vanilla** `ShapedCharge`: every **168 h** produce **2×**; craft via Craft Explosives; CraftAmmo/CraftExplosives Parts **−30%** (inlined in `System_SectorOperations.SectorOperation_ItemsCalcRes` — NamedPerks wrap alone was overwritten by load order).
 - `Jazz_Perk_Meat` — Will dmg → Grit; skip suppression queue.
 - `Jazz_Perk_Carlos` — detection −33%; failed SK 50% keep Hidden.
 - `Jazz_Perk_Cord` / `Jazz_Perk_Conrad` — city repair time/Parts; trainer Leadership floor 90.
-- Soft: Biff trooper economy, Ira militia call-site, Livewire money op (ECON-001), Thor joints recipes, Nazdarovya hangover — `_units006_batch5_notes.md`.
+- Soft: Biff trooper economy, Ira militia call-site, Livewire money op (ECON-001) — `_units006_batch5_notes.md`.
+- **Igor `Nazdarovya`:** every-turn signature (2 AP, no kill CD): clear Pain, heal 15–20 HP, `Drunk` stacks ≤5 (−15 ranged CTH / +20 flat melee per stack); sat `OnNewHour` removes 1 stack / 3 h (`RemoveOnEndCombat=false`).
+- **Thor `NaturalHealing`:** every **48 h** produce **1× HerbalMedicine** (joints); same sat squad — trauma/burn check intervals and HP/TreatWounds debt recovery **+15%** faster (`sat_debt_speed_percent`; **not** `WoundInfected`); bandage by Thor restores patient **WillPoints 20–25**.
+- **Fauda `KillingWind`:** on `OnUnitAttack`, if `results.hit_objs` has ≥2 enemy units → **+8 Grit × count**; armor FM penalty ÷2 once (with Ironclad; not ÷4); BeginTurn grants FreeMove even with cumbersome; MGPack refreshes FreeMove.
+- **Fidel `DoubleToss`:** signature throws two from the same grenade stack (≥2); hands (`DoubleTossA–D`) **or** grenade pockets `GrenadesInventory` (`DoubleTossAG–DG`).
+- **Grunty `GruntyPerk_JAZZ`:** Passive CA + HUD `perk_grunty_perk`; combat start → `Grunty_AdditionalAP` (+50% max AP, one turn); later turns proc same buff at `10% × max(0, GetPersonalMorale())` (team BD + personal mods, clamp −5…5).
+- **Lynx / Buzz / Spider / Colby Passive CA icons:** hotbar `CombatAction.Icon` → `Perks/SignatureAbilities/Jazz_Perk_*.png` (108×54 dual-strip); CE perk tiles stay `Perks/Personal/*.png`. Rebuild: `docs/tools/_build_jazz_perk_sig_icons_from_personal.py`.
+- **DrQ `ExplodingPalm`:** Passive (vanilla smash hidden); successful **unarmed** hit → status by target HP%: ≤20 KO, ≤35 Concussion, ≤50 Ribs Medium, ≤65 Arms Medium, ≤80 Legs Medium, else Ribs Light+Pain (groin/«яйца»). Sat squad: trauma/burn/HP debt **+30%** (`Jazz_SatDebt*`, stacks with Thor); **blocks** `WoundInfected`.
+- **Flay `MakeThemBleed`:** +10% damage per **visible enemy** with any `Bleeding`/`BleedingMedium`/`BleedingHeavy` (not stacks), cap +50%; HUD buff `Jazz_MakeThemBleedBuff` shows count (1…5 stacks).
+- **Larry / Larry_Clean `DangerClose`:** explosives (grenade/ordnance) impact ≥**8** tiles → **+40%** explosion damage; every unit hit by his blast gets **+2** light `Bleeding` stacks; `OnCalcStimmedTiredness=0` + clears Stimmed CTH penalty. Runtime replaces vanilla `ExplosionPrecalcDamageAndStatusEffects` (nil-safe; grenade aim no longer dies on missing `rangeThreshold`). HUD “in range” at ≥8.
+- **PierreMerc `GloryHog`:** vanilla machete **Charge** (non-straight) +**15** Grit kept; List2 active `Jazz_PierreRecruit` (4 AP): once/combat convert a **visible** non-boss (`villain`/`ImportantNPC`) enemy to side `ally` (AI-controlled). Hotbar inject when `HasPerk(GloryHog)`.
+- **Smiley `RecklessAssault`:** improved mobile attack — **4** volleys (`mobile_num_shots`), weapons **SMG / Carbine / AssaultRifle** (`Jazz_RecklessAssaultGetWeapon`); **+15** CTH via CE `OnCalcChanceToHit`; `Unit:RecklessAssault` no longer calls `SetTired`.
+- **Reaper `TheGrim`:** stock crit + Panic ≤8 on signature kill; CD is `recharge_on_kill` but needs **5** kills (`Jazz_TheGrimKillsToRecharge`; kill count from `OnKill` / `killed_units`). Tooltip shows progress `done/need`.
 
 §D batch6: `Jazz_Perk_Benny` / `Jazz_Perk_Simon` CE + StartingPerks; CombatAction soft-cut (`_units006_batch6_notes.md`).
 

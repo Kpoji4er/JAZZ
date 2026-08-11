@@ -1,5 +1,5 @@
--- HaveABlast (Red): toggle retaliate with grenade on hit OR miss; inventory grenades.
--- Incoming blast −50% while toggled ON: CharacterEffect/HaveABlast.lua.
+-- HaveABlast (Red): toggle retaliate with grenade on hit OR miss; inventory pull if none in hands.
+-- Incoming blast −50% while toggled ON: CharacterEffect/HaveABlast.lua (once-flag).
 
 g_JAZZ_AttackReactionHaveABlastWrapped = rawget(_G, "g_JAZZ_AttackReactionHaveABlastWrapped") or false
 g_JAZZ_AttackReactionHaveABlastBase = rawget(_G, "g_JAZZ_AttackReactionHaveABlastBase") or false
@@ -73,7 +73,7 @@ local function JazzHaveABlastShouldRetaliate(target, attacker, results, can_reta
 	if target.stance == "Prone" or target:HasStatusEffect("KnockDown") then
 		return false
 	end
-	-- Bayun: miss OR hit (vanilla was hit-only via `not results.miss`).
+	-- Hit or miss (vanilla AttackReaction is hit-only via `not results.miss`).
 	return true
 end
 
@@ -100,7 +100,7 @@ local function lInstallAttackReactionHaveABlast()
 			and not (attack_args and attack_args.opportunity_attack)
 
 		local want_blast = JazzHaveABlastShouldRetaliate(target, attacker, results, can, teamPlaying)
-		-- Suppress vanilla hit-only / hands-only HaveABlast for this call.
+		-- Suppress vanilla hit-only HaveABlast for this call (we handle hit+miss ourselves).
 		if want_blast then
 			target:SetEffectValue("HaveABlast", nil)
 		end

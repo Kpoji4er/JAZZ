@@ -59,7 +59,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 - In combat, party portraits show the same statuses as satellite (not only Wounded).
 - Leg hits apply zone trauma (`Legsshot`), not the old **Slowed** status.
 - Combat-start grit (~25% Temp HP) is **removed**. Max HP is full **Health** again (not the old 75% base under grit).
-- **Armor weight:** reduces Free Move (status stacks = Free Move AP lost). A heavy kit may also cut up to **2** start-of-turn AP. Strength / Ironclad mitigate; **KillingWind** ignores. At **6+** weight stacks, the first move this turn adds **+1 Pain** (at most one stack per turn from weight).
+- **Armor weight:** reduces Free Move (status stacks = Free Move AP lost). A heavy kit may also cut up to **2** start-of-turn AP. Strength / Ironclad / KillingWind: FM halved once; KillingWind keeps Free Move with cumbersome weapons. At **6+** weight stacks, the first move this turn adds **+1 Pain** (at most one stack per turn from weight).
 
 ## Grazing hits
 

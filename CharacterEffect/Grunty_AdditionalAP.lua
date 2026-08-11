@@ -11,15 +11,8 @@ DefineClass.Grunty_AdditionalAP = {
 			Handler = function (self, target, value)
 				if not self:ResolveValue("applied") then
 					local ap = target:GetMaxActionPoints()
-					return value + DivRound(ap,2) 
+					return value + DivRound(ap,2)
 				end
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function (self, target)
-				local ap = target:GetMaxActionPoints()
-				target:GainAP(DivRound(ap,2) )
 			end,
 		}),
 	},
@@ -43,4 +36,3 @@ DefineClass.Grunty_AdditionalAP = {
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
-

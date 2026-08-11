@@ -646,13 +646,15 @@ function Firearm:GetAttackResults(action, attack_args)
 		consumed_ammo = Max(consumed_ammo, aoe_params and aoe_params.used_ammo or 0)
 	end
 
-	-- Vanilla BulletHell/VovaVist push aim to max cone range for AlwaysHits AOE.
-	-- JAZZ-COMBAT-006: BulletHell is projectile CTH — only keep push when AOE params remain (VovaVist).
-	if aoe_params and (action.id == "BulletHell" or action.id == "JAZZ_VovaVist") then
-		target_pos = attack_args.step_pos + SetLen2D((target_pos - attack_args.step_pos):SetZ(0), aoe_params.max_range * const.SlabSizeX)
-		if not target_pos:IsValidZ() then
-			target_pos = target_pos:SetTerrainZ()
-			target = target_pos
+	-- Vanilla BulletHell/VovaVist: push aim to max cone range for AlwaysHits AOE.
+	if action.id == "BulletHell" or action.id == "JAZZ_VovaVist" then
+		local push = aoe_params or self:GetAreaAttackParams(action.id, attacker, target_pos, attack_args.step_pos)
+		if push then
+			target_pos = attack_args.step_pos + SetLen2D((target_pos - attack_args.step_pos):SetZ(0), push.max_range * const.SlabSizeX)
+			if not target_pos:IsValidZ() then
+				target_pos = target_pos:SetTerrainZ()
+				target = target_pos
+			end
 		end
 	end
 
@@ -991,6 +993,29 @@ shot_attack_args.num_shots = num_shots
 		end
 	end
 
+	-- COMBAT-006 v2: Spike BulletHell — spray aim points across the overwatch cone BEFORE LoF,
+	-- so real projectiles travel the arc (hits anyone in the ray; misses can stray).
+	if action.id == "BulletHell" and precalc_shots and #precalc_shots > 0 then
+		local origin = attack_results.attack_pos or attack_results.lof_pos1 or shot_attack_args.step_pos
+		if origin then
+			local halfAngle = DivRound(self.OverwatchAngle or 0, 2)
+			if halfAngle > 0 then
+				local newAngle = halfAngle
+				local angleStep = MulDivRound(self.OverwatchAngle, 2, #precalc_shots)
+				for i, ps in ipairs(precalc_shots) do
+					if ps.target_pos then
+						ps.target_pos = RotateAxis(ps.target_pos, point(0, 0, 4096), newAngle, origin)
+					end
+					if abs(newAngle) >= halfAngle then
+						angleStep = -angleStep
+					end
+					newAngle = newAngle + angleStep
+				end
+				attack_results.jazz_bh_arc_sprayed = true
+			end
+		end
+	end
+
 	local misses
 	local precalc_damage_data = {}
 	local killed_colliders = {}
@@ -1134,7 +1159,21 @@ shot_attack_args.num_shots = num_shots
 			shot_attack_args.inside_attack_area_check = attack_args.inside_attack_area_check
 			shot_attack_args.forced_hit_on_eye_contact = attack_args.forced_hit_on_eye_contact
 			local shot_target
-			if shot_miss then
+			if action.id == "BulletHell" then
+				-- Arc ray: hit and miss both follow sprayed target_pos so bullets can hit anyone in the cone.
+				shot_target = precalc_shot.target_pos
+				if shot_miss then
+					miss_target_pos = precalc_shot.target_pos
+					if not allow_grazing then
+						shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, target_unit)
+					end
+					shot_attack_args.ignore_los = true
+					shot_attack_args.inside_attack_area_check = false
+					shot_attack_args.forced_hit_on_eye_contact = false
+				else
+					shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, attack_args.ignore_colliders)
+				end
+			elseif shot_miss then
 				shot_target = precalc_shot.target_pos
 				miss_target_pos = precalc_shot.target_pos
 				if not allow_grazing then
@@ -2280,7 +2319,7 @@ end
 
 -- BulletHell (Spike signature):
 -- 1) GetUIState: accept AbakanAutoFire / JAZZ_LargeAutoFire (vanilla only AutoFire/MGBurstFire).
--- 2) JAZZ-COMBAT-006: projectiles with CTH + Will suppression — not AlwaysHits AOE + vanilla Suppressed.
+-- 2) COMBAT-006 v2: FirearmAttack + real multishot projectiles (CTH/Will), cone-arc LoF, no AlwaysHits AOE.
 local function JazzFirearmHasBulletHellAutofire(weapon)
 	local atts = weapon and weapon.AvailableAttacks
 	if not atts then
@@ -2346,7 +2385,7 @@ local function JazzInstallBulletHellProjectiles()
 		args.num_shots = Clamp(args.weapon.ammo.Amount, self:ResolveValue("min_ammo"), self:ResolveValue("max_ammo"))
 		args.multishot = true
 		args.suppressionbonus = args.suppressionbonus or 200
-		-- Prediction/UI: resolve a unit in the cone so CTH is meaningful (execution uses Unit:BulletHell dump).
+		-- Prediction/UI: resolve a unit in the cone so CTH modifiers have a Unit target.
 		if IsPoint(args.target) then
 			local aoeParams = args.weapon:GetAreaAttackParams(self.id, unit)
 			if aoeParams then
@@ -2367,7 +2406,7 @@ local function JazzInstallBulletHellProjectiles()
 				end
 			end
 		end
-		-- No AOE damage / vanilla Suppressed — Will suppression comes from Firearm shot pipeline.
+		-- No AOE damage / vanilla Suppressed — Will suppression from Firearm shot pipeline.
 		args.aoe_action_id = false
 		args.aoe_params = false
 		args.applied_status = false

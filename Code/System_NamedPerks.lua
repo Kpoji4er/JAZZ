@@ -29,6 +29,58 @@ g_JAZZ_SteroidPunchSigHidden = rawget(_G, "g_JAZZ_SteroidPunchSigHidden") or fal
 g_JAZZ_SteroidPunchUIStateBase = rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") or false
 g_JAZZ_SteroidBurningTickWrapped = rawget(_G, "g_JAZZ_SteroidBurningTickWrapped") or false
 g_JAZZ_EnvEffectBurningTickBase = rawget(_G, "g_JAZZ_EnvEffectBurningTickBase") or false
+g_JAZZ_BuildingConfidenceHealWrapped = rawget(_G, "g_JAZZ_BuildingConfidenceHealWrapped") or false
+g_JAZZ_BuildingConfidenceHealBase = rawget(_G, "g_JAZZ_BuildingConfidenceHealBase") or false
+g_JAZZ_DangerCloseExplosionWrapped = rawget(_G, "g_JAZZ_DangerCloseExplosionWrapped") or false
+g_JAZZ_TheGrimRechargeWrapped = rawget(_G, "g_JAZZ_TheGrimRechargeWrapped") or false
+g_JAZZ_AddSignatureRechargeTimeBase = rawget(_G, "g_JAZZ_AddSignatureRechargeTimeBase") or false
+g_JAZZ_UpdateSignatureRechargesBase = rawget(_G, "g_JAZZ_UpdateSignatureRechargesBase") or false
+g_JAZZ_TheGrimGetActionDescriptionBase = rawget(_G, "g_JAZZ_TheGrimGetActionDescriptionBase") or false
+g_JAZZ_PendingSigKillCount = rawget(_G, "g_JAZZ_PendingSigKillCount") or 0
+
+-- Reaper TheGrim: kills required to clear recharge_on_kill CD (UNITS-006).
+Jazz_TheGrimKillsToRecharge = 5
+
+--- Merc/unit level for MD BuildingConfidence (±heal by level delta).
+function Jazz_BuildingConfidenceUnitLevel(unit)
+	if not unit then
+		return 1
+	end
+	if type(unit.GetLevel) == "function" then
+		local ok, lvl = pcall(unit.GetLevel, unit)
+		if ok and lvl ~= nil then
+			return tonumber(lvl) or 1
+		end
+	end
+	local sid = unit.session_id
+	local ud = sid and gv_UnitData and gv_UnitData[sid]
+	if ud and type(ud.GetLevel) == "function" then
+		local ok, lvl = pcall(ud.GetLevel, ud)
+		if ok and lvl ~= nil then
+			return tonumber(lvl) or 1
+		end
+	end
+	return 1
+end
+
+--- Apply ±10%/level-diff heal_modifier (cap ±50%). Sets data.jazz_buildingconfidence to avoid double apply.
+function Jazz_BuildingConfidenceApplyHealMod(medic, patient, data)
+	if not data or data.jazz_buildingconfidence then
+		return
+	end
+	if not medic or not patient or not HasPerk(medic, "BuildingConfidence") then
+		return
+	end
+	local per = Jazz_NamedPerkParam(medic, "BuildingConfidence", "percentPerLevel", 10)
+	local cap = Jazz_NamedPerkParam(medic, "BuildingConfidence", "percentCap", 50)
+	local delta = Jazz_BuildingConfidenceUnitLevel(medic) - Jazz_BuildingConfidenceUnitLevel(patient)
+	local bonus = Clamp(delta * per, -cap, cap)
+	data.jazz_buildingconfidence = true
+	if bonus == 0 then
+		return
+	end
+	data.heal_modifier = MulDivRound(data.heal_modifier or 100, 100 + bonus, 100)
+end
 
 local function lHas(unit, perk)
 	return unit and HasPerk(unit, perk)
@@ -77,6 +129,262 @@ function Jazz_SquadHasVince(unit)
 		end
 	end
 	return false
+end
+
+--- Thor NaturalHealing: same sat squad (or self) has the perk.
+function Jazz_SquadHasNaturalHealing(unit)
+	if not unit then
+		return false
+	end
+	if HasPerk(unit, "NaturalHealing") then
+		return true
+	end
+	local squad_id = unit.Squad
+	local squad = squad_id and gv_Squads and gv_Squads[squad_id]
+	if not squad then
+		return false
+	end
+	for _, uid in ipairs(squad.units or empty_table) do
+		local u = gv_UnitData and gv_UnitData[uid]
+		if not u and g_Units then
+			u = g_Units[uid]
+		end
+		if u and HasPerk(u, "NaturalHealing") and not (u.IsDead and u:IsDead()) then
+			return true
+		end
+	end
+	return false
+end
+
+--- Interval mul for trauma/burn checks: 15% faster → 85. Infection timers must not use this.
+function Jazz_NaturalHealingDebtHoursMul(unit)
+	if not Jazz_SquadHasNaturalHealing(unit) then
+		return 100
+	end
+	local pct = Jazz_NamedPerkParam(unit, "NaturalHealing", "sat_debt_speed_percent", 15)
+	return Max(1, 100 - (tonumber(pct) or 15))
+end
+
+--- HP / TreatWounds progress mul: +15% when Thor in squad.
+function Jazz_NaturalHealingDebtSpeedMul(unit)
+	if not Jazz_SquadHasNaturalHealing(unit) then
+		return 100
+	end
+	local pct = Jazz_NamedPerkParam(unit, "NaturalHealing", "sat_debt_speed_percent", 15)
+	return 100 + (tonumber(pct) or 15)
+end
+
+--- Bandage by Thor: restore patient WillPoints in [willRestoreMin, willRestoreMax].
+function Jazz_NaturalHealingRestoreWill(healer, patient)
+	if not patient then
+		return false
+	end
+	if not healer or not HasPerk(healer, "NaturalHealing") then
+		return false
+	end
+	local lo = Jazz_NamedPerkParam(healer, "NaturalHealing", "willRestoreMin", 20)
+	local hi = Jazz_NamedPerkParam(healer, "NaturalHealing", "willRestoreMax", 25)
+	lo = tonumber(lo) or 20
+	hi = tonumber(hi) or 25
+	if hi < lo then
+		hi = lo
+	end
+	local amount = lo + InteractionRand(hi - lo + 1, "NaturalHealingWill")
+	local cur = patient.WillPoints or 0
+	local max_wp = patient.MaxWillPoints or cur
+	patient.WillPoints = Min(max_wp, cur + amount)
+	local sid = patient.session_id
+	if sid and gv_UnitData and gv_UnitData[sid] and gv_UnitData[sid] ~= patient then
+		gv_UnitData[sid].WillPoints = patient.WillPoints
+	end
+	ObjModified(patient)
+	return amount
+end
+
+--- DrQ ExplodingPalm: same sat squad (or self) has the perk.
+function Jazz_SquadHasExplodingPalm(unit)
+	if not unit then
+		return false
+	end
+	if HasPerk(unit, "ExplodingPalm") then
+		return true
+	end
+	local squad_id = unit.Squad
+	local squad = squad_id and gv_Squads and gv_Squads[squad_id]
+	if not squad then
+		return false
+	end
+	for _, uid in ipairs(squad.units or empty_table) do
+		local u = gv_UnitData and gv_UnitData[uid]
+		if not u and g_Units then
+			u = g_Units[uid]
+		end
+		if u and HasPerk(u, "ExplodingPalm") and not (u.IsDead and u:IsDead()) then
+			return true
+		end
+	end
+	return false
+end
+
+function Jazz_ExplodingPalmDebtHoursMul(unit)
+	if not Jazz_SquadHasExplodingPalm(unit) then
+		return 100
+	end
+	local pct = Jazz_NamedPerkParam(unit, "ExplodingPalm", "sat_debt_speed_percent", 30)
+	return Max(1, 100 - (tonumber(pct) or 30))
+end
+
+function Jazz_ExplodingPalmDebtSpeedMul(unit)
+	if not Jazz_SquadHasExplodingPalm(unit) then
+		return 100
+	end
+	local pct = Jazz_NamedPerkParam(unit, "ExplodingPalm", "sat_debt_speed_percent", 30)
+	return 100 + (tonumber(pct) or 30)
+end
+
+--- Combined sat debt mul: Thor NaturalHealing + DrQ ExplodingPalm (stack).
+function Jazz_SatDebtHoursMul(unit)
+	local mul = 100
+	if type(Jazz_NaturalHealingDebtHoursMul) == "function" then
+		mul = MulDivRound(mul, Jazz_NaturalHealingDebtHoursMul(unit), 100)
+	end
+	if type(Jazz_ExplodingPalmDebtHoursMul) == "function" then
+		mul = MulDivRound(mul, Jazz_ExplodingPalmDebtHoursMul(unit), 100)
+	end
+	return Max(1, mul)
+end
+
+function Jazz_SatDebtSpeedMul(unit)
+	local mul = 100
+	if type(Jazz_NaturalHealingDebtSpeedMul) == "function" then
+		mul = MulDivRound(mul, Jazz_NaturalHealingDebtSpeedMul(unit), 100)
+	end
+	if type(Jazz_ExplodingPalmDebtSpeedMul) == "function" then
+		mul = MulDivRound(mul, Jazz_ExplodingPalmDebtSpeedMul(unit), 100)
+	end
+	return mul
+end
+
+function Jazz_SquadBlocksWoundInfected(unit)
+	return Jazz_SquadHasExplodingPalm(unit)
+end
+
+local function lExplodingPalmIsUnarmedWeapon(weapon)
+	if not weapon then
+		return false
+	end
+	if weapon.IsUnarmed then
+		return true
+	end
+	return IsKindOf(weapon, "UnarmedWeapon")
+end
+
+--- Successful bare-hand hit → status by target current HP%.
+function Jazz_ExplodingPalmOnUnarmedHit(attacker, action, attack_target, results, attack_args)
+	if not attacker or not HasPerk(attacker, "ExplodingPalm") then
+		return false
+	end
+	if not IsKindOf(attack_target, "Unit") or (attack_target.IsDead and attack_target:IsDead()) then
+		return false
+	end
+	if action and action.ActionType and action.ActionType ~= "Melee Attack" then
+		return false
+	end
+	local weapon = attack_args and attack_args.weapon
+	if not weapon and results then
+		weapon = results.weapon
+	end
+	if not weapon and attacker.GetActiveWeapons then
+		weapon = attacker:GetActiveWeapons()
+	end
+	if not lExplodingPalmIsUnarmedWeapon(weapon) then
+		return false
+	end
+	local max_hp = Max(1, attack_target.MaxHitPoints or 1)
+	local hp = attack_target.HitPoints or 0
+	local pct = MulDivRound(hp, 100, max_hp)
+	if pct <= 20 then
+		attack_target:AddStatusEffect("KnockDown")
+		attack_target:AddStatusEffect("Unconscious")
+		return "ko"
+	elseif pct <= 35 then
+		if CharacterEffectDefs and CharacterEffectDefs.Concussion then
+			attack_target:AddStatusEffect("Concussion")
+		end
+		return "concussion"
+	elseif pct <= 50 then
+		if type(JazzApplyTrauma) == "function" then
+			JazzApplyTrauma(attack_target, "Ribs", "Medium")
+		end
+		return "ribs"
+	elseif pct <= 65 then
+		if type(JazzApplyTrauma) == "function" then
+			JazzApplyTrauma(attack_target, "Arms", "Medium")
+		end
+		return "arms"
+	elseif pct <= 80 then
+		if type(JazzApplyTrauma) == "function" then
+			JazzApplyTrauma(attack_target, "Legs", "Medium")
+		end
+		return "legs"
+	else
+		-- «яйцы» / groin → same trauma zone as Groinshot (Ribs).
+		if type(JazzApplyTrauma) == "function" then
+			JazzApplyTrauma(attack_target, "Ribs", "Light")
+		end
+		attack_target:AddStatusEffect("Pain")
+		return "groin"
+	end
+end
+
+--- Flay MakeThemBleed: count distinct visible enemies with any bleeding tier.
+function Jazz_MakeThemBleedCountVisible(unit)
+	if not unit or not unit.GetVisibleEnemies then
+		return 0
+	end
+	local n = 0
+	for _, u in ipairs(unit:GetVisibleEnemies() or empty_table) do
+		if IsValid(u) and not (u.IsDead and u:IsDead()) then
+			if u:HasStatusEffect("Bleeding")
+				or u:HasStatusEffect("BleedingMedium")
+				or u:HasStatusEffect("BleedingHeavy")
+			then
+				n = n + 1
+			end
+		end
+	end
+	return n
+end
+
+--- HUD stacks = min(5, visible bleeders); remove buff when 0.
+function Jazz_MakeThemBleedSyncBuff(unit)
+	if not unit or not HasPerk(unit, "MakeThemBleed") then
+		return false
+	end
+	if not g_Combat then
+		if unit.HasStatusEffect and unit:HasStatusEffect("Jazz_MakeThemBleedBuff") then
+			unit:RemoveStatusEffect("Jazz_MakeThemBleedBuff", "all")
+		end
+		return false
+	end
+	local n = Min(5, Jazz_MakeThemBleedCountVisible(unit) or 0)
+	if unit.HasStatusEffect and unit:HasStatusEffect("Jazz_MakeThemBleedBuff") then
+		unit:RemoveStatusEffect("Jazz_MakeThemBleedBuff", "all")
+	end
+	if n <= 0 then
+		return false
+	end
+	unit:AddStatusEffect("Jazz_MakeThemBleedBuff", n)
+	return true
+end
+
+function Jazz_MakeThemBleedSyncAll()
+	local units = g_Units or empty_table
+	for _, u in pairs(units) do
+		if IsValid(u) and HasPerk(u, "MakeThemBleed") then
+			Jazz_MakeThemBleedSyncBuff(u)
+		end
+	end
 end
 
 -- Soft lock EV −25% med consume: skip one charge with 25% chance when Vince in squad.
@@ -164,6 +472,27 @@ local function lInstallJackOfAllArrivingThresh()
 	end
 end
 
+g_JAZZ_ExplodingPalmSigHidden = rawget(_G, "g_JAZZ_ExplodingPalmSigHidden") or false
+
+local function lInstallExplodingPalmPassiveOnly()
+	-- If ModItem Passive CA already owns ExplodingPalm, leave hotbar icon alone.
+	-- Otherwise hide leftover vanilla palm-strike smash.
+	local ca = CombatActions and CombatActions.ExplodingPalm
+	if not ca or rawget(_G, "g_JAZZ_ExplodingPalmSigHidden") then
+		return
+	end
+	if ca.ActionType == "Passive" and ca.ShowIn == "SignatureAbilities" then
+		rawset(_G, "g_JAZZ_ExplodingPalmSigHidden", true)
+		return
+	end
+	ca.ShowIn = false
+	ca.ActionType = "Passive"
+	ca.GetUIState = function(self, units, args)
+		return "hidden"
+	end
+	rawset(_G, "g_JAZZ_ExplodingPalmSigHidden", true)
+end
+
 local function lInstallSteroidPunchPassiveOnly()
 	-- Hide vanilla Steroid smash signature; perk reactions cover all melee.
 	local ca = CombatActions and CombatActions.SteroidPunch
@@ -217,6 +546,7 @@ end
 local function lInstallNamedPerks006Ops()
 	lInstallJackOfAllArrivingThresh()
 	lInstallSteroidPunchPassiveOnly()
+	lInstallExplodingPalmPassiveOnly()
 	lInstallSteroidBurningDotReduce()
 
 	if rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") then
@@ -248,6 +578,8 @@ end
 
 
 g_JAZZ_NamedPerks006SignaturesWrapped = rawget(_G, "g_JAZZ_NamedPerks006SignaturesWrapped") or false
+g_JAZZ_HawksEyeOverwatchWrapped = rawget(_G, "g_JAZZ_HawksEyeOverwatchWrapped") or false
+g_JAZZ_HawksEyeOverwatchBase = rawget(_G, "g_JAZZ_HawksEyeOverwatchBase") or false
 
 function Jazz_ApplyHawksEyeSuppression(attacker, suppressionbonus)
 	if not attacker or not HasPerk(attacker, "HawksEye") then
@@ -260,8 +592,173 @@ function Jazz_ApplyHawksEyeSuppression(attacker, suppressionbonus)
 	return suppressionbonus
 end
 
+function Jazz_HawksEyeSniperOverwatchAP(unit, weapon)
+	if not unit or not HasPerk(unit, "HawksEye") then
+		return
+	end
+	weapon = weapon or (unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm"))
+	if not weapon or not IsKindOf(weapon, "SniperRifle") then
+		return
+	end
+	if weapon.PreparedAttackType ~= "Overwatch" and weapon.PreparedAttackType ~= "Both" then
+		return
+	end
+	local n = Jazz_NamedPerkParam(unit, "HawksEye", "overwatchCostOverwrite", 1)
+	return n * const.Scale.AP
+end
+
+local function lInstallHawksEyeOverwatchCost()
+	if rawget(_G, "g_JAZZ_HawksEyeOverwatchWrapped") then
+		return
+	end
+	local ow = CombatActions and CombatActions.Overwatch
+	if not ow or type(ow.GetAPCost) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_HawksEyeOverwatchBase", ow.GetAPCost)
+	rawset(_G, "g_JAZZ_HawksEyeOverwatchWrapped", true)
+	function ow.GetAPCost(self, unit, args)
+		if not (args and args.action_cost_only) then
+			local weapon = self:GetAttackWeapons(unit, args)
+			local ap = Jazz_HawksEyeSniperOverwatchAP(unit, weapon)
+			if ap then
+				return ap, ap
+			end
+		end
+		return g_JAZZ_HawksEyeOverwatchBase(self, unit, args)
+	end
+end
+
+local function lEnsureTheGrimRechargeParam()
+	local ca = CombatActions and CombatActions.TheGrim
+	if not ca then
+		return
+	end
+	local need = rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5
+	local params = ca.Parameters or {}
+	local has = false
+	for _, p in ipairs(params) do
+		if p and p.Name == "recharge_on_kill" then
+			p.Value = need
+			has = true
+			break
+		end
+	end
+	if not has then
+		params[#params + 1] = PlaceObj("PresetParamNumber", {
+			"Name", "recharge_on_kill",
+			"Value", need,
+			"Tag", "<recharge_on_kill>",
+		})
+		ca.Parameters = params
+	end
+	if type(ca.GetActionDescription) == "function" and not rawget(_G, "g_JAZZ_TheGrimGetActionDescriptionBase") then
+		rawset(_G, "g_JAZZ_TheGrimGetActionDescriptionBase", ca.GetActionDescription)
+		ca.GetActionDescription = function(self, units)
+			local desc = g_JAZZ_TheGrimGetActionDescriptionBase(self, units)
+			local unit = units and units[1]
+			local rec = unit and unit.GetSignatureRecharge and unit:GetSignatureRecharge("TheGrim")
+			local need = self:ResolveValue("recharge_on_kill") or (rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5)
+			if rec and rec.on_kill and (rec.kills_needed or need) > 1 then
+				local done = rec.kills_done or 0
+				local req = rec.kills_needed or need
+				return desc
+					.. T({
+						890000000009941,
+						"<newline><newline>Перезарядка: <em><done>/<need></em> убийств.",
+						done = done,
+						need = req,
+					})
+			end
+			return desc
+				.. T({
+					890000000009940,
+					"<newline><newline>Перезаряжается после <em><need></em> убийств (другой атакой).",
+					need = need,
+				})
+		end
+	end
+end
+
+local function lInstallTheGrimMultiKillRecharge()
+	lEnsureTheGrimRechargeParam()
+	if rawget(_G, "g_JAZZ_TheGrimRechargeWrapped") then
+		return
+	end
+	if not Unit or type(Unit.AddSignatureRechargeTime) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_AddSignatureRechargeTimeBase", Unit.AddSignatureRechargeTime)
+	rawset(_G, "g_JAZZ_UpdateSignatureRechargesBase", Unit.UpdateSignatureRecharges)
+	rawset(_G, "g_JAZZ_TheGrimRechargeWrapped", true)
+
+	function Unit:AddSignatureRechargeTime(id, duration, recharge_on_kill)
+		g_JAZZ_AddSignatureRechargeTimeBase(self, id, duration, recharge_on_kill and true or false)
+		if id ~= "TheGrim" then
+			return
+		end
+		local rec = self:GetSignatureRecharge("TheGrim")
+		if not (rec and rec.on_kill) then
+			return
+		end
+		local ca = CombatActions and CombatActions.TheGrim
+		local need = (ca and ca.ResolveValue and ca:ResolveValue("recharge_on_kill"))
+			or (rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5)
+		if need > 1 then
+			rec.kills_needed = need
+			rec.kills_done = 0
+		end
+	end
+
+	function Unit:UpdateSignatureRecharges(trigger)
+		local n = 1
+		if trigger == "kill" then
+			n = tonumber(rawget(_G, "g_JAZZ_PendingSigKillCount")) or 1
+			if n < 1 then
+				n = 1
+			end
+			local recharges = self.signature_recharge or empty_table
+			for i = #recharges, 1, -1 do
+				local recharge = recharges[i]
+				local need = recharge and recharge.kills_needed or 1
+				if recharge and recharge.on_kill and need > 1 then
+					recharge.kills_done = (recharge.kills_done or 0) + n
+					if recharge.kills_done < need then
+						-- Keep CD; block vanilla one-kill clear for this entry.
+						recharge.on_kill = false
+						recharge._jazz_multikill_hold = true
+					end
+					ObjModified(self)
+				end
+			end
+		end
+		g_JAZZ_UpdateSignatureRechargesBase(self, trigger)
+		if trigger == "kill" then
+			local recharges = self.signature_recharge or empty_table
+			for i = 1, #recharges do
+				local recharge = recharges[i]
+				if recharge and recharge._jazz_multikill_hold then
+					recharge.on_kill = true
+					recharge._jazz_multikill_hold = nil
+				end
+			end
+		end
+		rawset(_G, "g_JAZZ_PendingSigKillCount", 0)
+	end
+end
+
+function OnMsg.OnKill(attacker, killed_units)
+	local n = #(killed_units or empty_table)
+	if n < 1 then
+		n = 1
+	end
+	rawset(_G, "g_JAZZ_PendingSigKillCount", n)
+end
+
 local function lInstallNamedPerks006Signatures()
 	if rawget(_G, "g_JAZZ_NamedPerks006SignaturesWrapped") then
+		lInstallHawksEyeOverwatchCost()
+		lInstallTheGrimMultiKillRecharge()
 		return
 	end
 
@@ -286,6 +783,8 @@ local function lInstallNamedPerks006Signatures()
 		end
 	end
 
+	lInstallHawksEyeOverwatchCost()
+	lInstallTheGrimMultiKillRecharge()
 	rawset(_G, "g_JAZZ_NamedPerks006SignaturesWrapped", true)
 end
 
@@ -301,6 +800,7 @@ g_JAZZ_FloBuySellBase_Cash = rawget(_G, "g_JAZZ_FloBuySellBase_Cash") or false
 g_JAZZ_StaticPartsBase_ModCost = rawget(_G, "g_JAZZ_StaticPartsBase_ModCost") or false
 g_JAZZ_StaticPartsBase_ItemsCalc = rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc") or false
 g_JAZZ_CraftPartsDiscountWrapped = rawget(_G, "g_JAZZ_CraftPartsDiscountWrapped") or false
+g_JAZZ_CraftPartsDiscountFn = rawget(_G, "g_JAZZ_CraftPartsDiscountFn") or false
 g_JAZZ_PushUnitAlertBase_B4 = rawget(_G, "g_JAZZ_PushUnitAlertBase_B4") or false
 g_JAZZ_RecoilProfileBase_B4 = rawget(_G, "g_JAZZ_RecoilProfileBase_B4") or false
 
@@ -683,24 +1183,38 @@ end
 
 -- Single wrap for SectorOperation_ItemsCalcRes: Static Parts + Barry craft + Cord repair.
 -- Retries until the vanilla calc exists (DataLoaded order).
+-- NOTE: jazz Code/System_SectorOperations.lua redefines SectorOperation_ItemsCalcRes after
+-- NamedPerks in metadata.code — discounts are applied inside that redefine. This wrap is a
+-- safety net if SectorOperations is absent/dormant; it must rebind when overwritten.
 function Jazz_InstallCraftPartsDiscountWrap()
 	local calc = rawget(_G, "SectorOperation_ItemsCalcRes")
 	if type(calc) ~= "function" then
 		return false
 	end
-	if rawget(_G, "g_JAZZ_CraftPartsDiscountWrapped") then
+	local wrapped_fn = rawget(_G, "g_JAZZ_CraftPartsDiscountFn")
+	if wrapped_fn and calc == wrapped_fn then
 		return true
 	end
-	-- Prefer unwrapped vanilla / earliest captured base.
-	local base = rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc")
-	if type(base) ~= "function" then
+	-- Prefer unwrapped vanilla / earliest captured base, unless a later Code file replaced us.
+	local base = calc
+	if wrapped_fn and calc ~= wrapped_fn then
+		-- Our wrap was overwritten (typical: System_SectorOperations.lua) — new base.
 		base = calc
-		rawset(_G, "g_JAZZ_StaticPartsBase_ItemsCalc", base)
+	elseif type(rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc")) == "function" then
+		base = g_JAZZ_StaticPartsBase_ItemsCalc
 	end
+	rawset(_G, "g_JAZZ_StaticPartsBase_ItemsCalc", base)
 	rawset(_G, "g_JAZZ_BarryCraftBase_ItemsCalc", base)
-	rawset(_G, "SectorOperation_ItemsCalcRes", function(sector_id, operation_id)
-		local parts = g_JAZZ_StaticPartsBase_ItemsCalc(sector_id, operation_id)
+	local function discount_fn(sector_id, operation_id)
+		-- If SectorOperations already applies Jazz discounts, skip double-apply.
+		-- Detect by source identity: Jazz SectorOperations embeds DesignerExplosives comment path
+		-- via Jazz_BarryCraftDiscountPercent call — calling base is enough when base IS that file.
+		local parts = base(sector_id, operation_id)
 		if type(parts) ~= "number" or parts <= 0 then
+			return parts
+		end
+		-- When base is jazz System_SectorOperations (already discounted), do not stack.
+		if rawget(_G, "g_JAZZ_SectorOpsCraftDiscountInlined") then
 			return parts
 		end
 		local mercs = GetOperationProfessionals and GetOperationProfessionals(sector_id, operation_id) or empty_table
@@ -729,7 +1243,9 @@ function Jazz_InstallCraftPartsDiscountWrap()
 			end
 		end
 		return parts
-	end)
+	end
+	rawset(_G, "SectorOperation_ItemsCalcRes", discount_fn)
+	rawset(_G, "g_JAZZ_CraftPartsDiscountFn", discount_fn)
 	rawset(_G, "g_JAZZ_CraftPartsDiscountWrapped", true)
 	return true
 end
@@ -956,24 +1472,67 @@ function Jazz_InstallIraMilitiaTrainHook()
 	end
 end
 
+-- List2 Larry: grenade/explosive damage + bleed live in Jazz_InstallDangerCloseExplosionWrap
+-- (ExplosionPrecalcDamageAndStatusEffects). Firearm OnAttack path retired.
 function Jazz_DangerCloseOnAttack(attacker, action, target, results, attack_args)
-	if not attacker or not HasPerk(attacker, "DangerClose") or not results or results.miss then
+	return
+end
+
+--- Nil-safe List2 DangerClose for grenades/ordnance/traps.
+--- Vanilla Bombard does ResolveValue("rangeThreshold")*SlabSizeX with no guard → Larry cannot throw.
+function Jazz_InstallDangerCloseExplosionWrap()
+	if rawget(_G, "g_JAZZ_DangerCloseExplosionWrapped") then
 		return
 	end
-	if not IsKindOf(target, "Unit") then
+	if type(rawget(_G, "ExplosionPrecalcDamageAndStatusEffects")) ~= "function" then
 		return
 	end
-	local dist = DivRound(attacker:GetDist(target), const.SlabSizeX)
-	if dist < Jazz_NamedPerkParam(attacker, "DangerClose", "minRange", 8) then
-		return
-	end
-	-- Soft partial: mark bleed stacks if status exists; damage bonus is via CE reaction when present.
-	local stacks = Jazz_NamedPerkParam(attacker, "DangerClose", "bleed_stacks", 2)
-	if CharacterEffectDefs and CharacterEffectDefs.Bleeding and target.AddStatusEffect then
-		for _ = 1, stacks do
-			target:AddStatusEffect("Bleeding")
+	function ExplosionPrecalcDamageAndStatusEffects(self, attacker, target, attack_pos, damage, hit, effect, attack_args, record_breakdown, action, prediction)
+		local dmg_mod, effects
+		local is_unit = IsKindOf(target, "Unit")
+		if is_unit then
+			dmg_mod = hit.explosion_center and self.CenterUnitDamageMod or self.AreaUnitDamageMod
+			effects = hit.explosion_center and self.CenterAppliedEffects or self.AreaAppliedEffects
+		else
+			dmg_mod = hit.explosion_center and self.CenterObjDamageMod or self.AreaObjDamageMod
+		end
+		damage = MulDivRound(damage, dmg_mod, 100)
+
+		local bleed_stacks_to_add = 0
+		if attacker and HasPerk(attacker, "DangerClose") and attack_pos then
+			local min_r = Jazz_NamedPerkParam(attacker, "DangerClose", "minRange", 8)
+			local bonus = Jazz_NamedPerkParam(attacker, "DangerClose", "damageBonus", 40)
+			if not bonus or bonus == 0 then
+				bonus = Jazz_NamedPerkParam(attacker, "DangerClose", "damageMod", 40)
+			end
+			local dist = DivRound(attacker:GetDist(attack_pos), const.SlabSizeX)
+			if dist >= min_r then
+				damage = damage + MulDivRound(damage, bonus, 100)
+			end
+			if is_unit then
+				bleed_stacks_to_add = Jazz_NamedPerkParam(attacker, "DangerClose", "bleed_stacks", 2) or 0
+			end
+		end
+
+		BaseWeapon.PrecalcDamageAndStatusEffects(self, attacker, target, attack_pos, damage, hit, effect, attack_args, record_breakdown, action, prediction)
+		if is_unit then
+			for _, eff in ipairs(effects) do
+				table.insert_unique(hit.effects, eff)
+			end
+			if bleed_stacks_to_add > 0 and hit.effects then
+				for _ = 1, bleed_stacks_to_add do
+					table.insert(hit.effects, "Bleeding")
+				end
+			end
 		end
 	end
+	if rawget(_G, "Grenade") then
+		Grenade.PrecalcDamageAndStatusEffects = ExplosionPrecalcDamageAndStatusEffects
+	end
+	if rawget(_G, "Ordnance") then
+		Ordnance.PrecalcDamageAndStatusEffects = ExplosionPrecalcDamageAndStatusEffects
+	end
+	rawset(_G, "g_JAZZ_DangerCloseExplosionWrapped", true)
 end
 
 local function lNamedPerks006OnCombatStart_Satellite()
@@ -1091,12 +1650,55 @@ local function lInstallNamedPerks006SectionD()
 	rawset(_G, "g_JAZZ_NamedPerks006SectionDWrapped", true)
 end
 
+-- MD BuildingConfidence: ensure ±heal-by-level-diff after OnCalcHealAmount (combat + sat UnitData).
+local function lInstallBuildingConfidenceHeal()
+	if rawget(_G, "g_JAZZ_BuildingConfidenceHealWrapped") then
+		return
+	end
+	if type(Unit) ~= "table" or type(Unit.CalcHealAmount) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_BuildingConfidenceHealBase", Unit.CalcHealAmount)
+	rawset(_G, "g_JAZZ_BuildingConfidenceHealWrapped", true)
+	function Unit:CalcHealAmount(medkit, target)
+		if not medkit then
+			return 0
+		end
+		local base_heal = CombatActions.Bandage:ResolveValue("base_heal")
+		local medical_heal = CombatActions.Bandage:ResolveValue("medical_max_heal")
+		local heal_percent = base_heal + MulDivRound(self.Medical or 0, medical_heal, 100)
+		local data = {
+			heal_amount = 0,
+			heal_percent = heal_percent,
+			self_heal_percent = 50,
+			heal_modifier = 100,
+		}
+		self:CallReactions("OnCalcHealAmount", target, self, medkit, data)
+		if target ~= self and IsKindOf(target, "UnitBase") then
+			target:CallReactions("OnCalcHealAmount", target, self, medkit, data)
+		end
+		Jazz_BuildingConfidenceApplyHealMod(self, target, data)
+		heal_percent = data.heal_percent
+		if target == self then
+			heal_percent = MulDivRound(heal_percent, data.self_heal_percent, 100)
+		end
+		local heal_mod = MulDivRound(heal_percent, data.heal_modifier, 100)
+		local max_hp = (IsValid(target) and target.MaxHitPoints) or self.MaxHitPoints
+		return data.heal_amount + MulDivRound(max_hp, heal_mod, 100), MulDivRound(heal_percent, 100, Max(1, heal_mod))
+	end
+	local ud = rawget(_G, "UnitData")
+	if type(ud) == "table" then
+		ud.CalcHealAmount = Unit.CalcHealAmount
+	end
+end
+
 local function lNamedPerks006OnCombatStart_SectionD()
 	for _, u in ipairs(g_Units or empty_table) do
 		if IsValid(u) and u.SetEffectValue then
 			u:SetEffectValue("Jazz_BennyDecoyCd", nil)
 			-- Simon starts charged (no CD) each combat; CD set after use until kill.
 			u:SetEffectValue("Jazz_SimonPerfectCd", nil)
+			u:SetEffectValue("Jazz_PierreRecruitUsed", nil)
 		end
 	end
 end
@@ -1108,6 +1710,8 @@ local function lInstallAllNamedPerks006()
 	lInstallNamedPerks006Economy()
 	lInstallNamedPerks006Satellite()
 	lInstallNamedPerks006SectionD()
+	lInstallBuildingConfidenceHeal()
+	Jazz_InstallDangerCloseExplosionWrap()
 end
 
 function Jazz_NamedPerks006OnCombatStart()
@@ -1115,12 +1719,18 @@ function Jazz_NamedPerks006OnCombatStart()
 	lNamedPerks006OnCombatStart_Economy()
 	lNamedPerks006OnCombatStart_Satellite()
 	lNamedPerks006OnCombatStart_SectionD()
+	if type(Jazz_MakeThemBleedSyncAll) == "function" then
+		Jazz_MakeThemBleedSyncAll()
+	end
 end
 
 function Jazz_NamedPerks006OnTurnStart()
 	lNamedPerks006OnTurnStart_Signatures()
 	lNamedPerks006OnTurnStart_Economy()
 	lNamedPerks006OnTurnStart_Satellite()
+	if type(Jazz_MakeThemBleedSyncAll) == "function" then
+		Jazz_MakeThemBleedSyncAll()
+	end
 end
 
 OnMsg.ModsReloaded = function()

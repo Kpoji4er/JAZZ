@@ -72,7 +72,7 @@ DefineClass.DesignerExplosives = {
 		}),
 	},
 	DisplayName = T(890000000009885, --[[ModItemCharacterEffectCompositeDef DesignerExplosives DisplayName]] "Конструктор взрывчатки"),
-	Description = T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Каждые <hoursToProduce> ч производит <amountToProduce> кумулятивных заряда. Может крафтить их через «Изготовление взрывчатки». Крафт патронов и взрывчатки: −<craft_discount>% Parts."),
+	Description = T(890000000009886, --[[ModItemCharacterEffectCompositeDef DesignerExplosives Description]] "Делает самодельные гранаты (ванильные Shaped Charge): каждые <hoursToProduce> ч — <amountToProduce> шт.; крафт через «Изготовление взрывчатки». Крафт патронов и гранат: −<craft_discount>% Parts."),
 	OnAdded = function (self, obj)
 		self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
 	end,

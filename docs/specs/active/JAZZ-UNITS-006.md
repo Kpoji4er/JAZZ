@@ -89,7 +89,7 @@ Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена
 | Nervous                     | стек +пуль за хит очереди, **cap = 10**                                                      |
 | Lucky                       | CTH≥**70%** miss → **reroll**                                                                |
 | Grizzly                     | **микс G1:** только на `GrizzlyPerk` — WEAPONS-012 ignore + **2×** длинная очередь + полный урон + **2×** suppress |
-| Meltdown                    | **CHANGE:** CombatAction id = perk id `VengefulTemperament` (не `…1`); mobile «Ураган Норма»; ≤5 Panic/Berserk по Wisdom; **не** vanilla Hard Feelings / Vengeance mark |
+| Meltdown                    | **CHANGE:** активка `VengefulTemperament` («Ураган Норма») — враги ≤5 от Meltdown → Panic/Berserk по Wisdom; **не** RunAndGun; **не** vanilla Hard Feelings / Vengeance mark |
 | Henning / Steiger / Rothman | как на листе (см. Mechanics)                                                                 |
 | §C                          | in scope; **батчи ok**                                                                       |
 | §C числа                    | явные числа листа → лист; Verdict≈ → shipping vanilla/JAZZ ядро                              |
@@ -122,7 +122,7 @@ Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена
 | `Jazz_Perk_Flo`     | «Теоретически подкована»: **−12% buy / +12% sell**; Flo в active squad; аддитивно с Negotiator                                                                                                                                 |
 | `Jazz_Perk_Static`  | «Собрал на коленке»: Parts cost repair/craft Static **−5% × Level**, **cap −25%**                                                                                                                                              |
 | `GrizzlyPerk`       | G1: signature only — WEAPONS-012 unsupported ignore + 2× long-burst shots + full damage + 2× suppression                                                                                                                          |
-| `VengefulTemperament` | Meltdown signature: CombatAction **`id` = `VengefulTemperament`** (must match perk class for `EnumUIActions` / `HasSignatures` / `action.id == self.class`); mobile RunAndGun; on that attack allies of the hit target within **≤5** slabs → fail Wisdom(50) → `Panicked`, else `Berserk`, then refresh AP; replaces vanilla Hard Feelings (Vengeance mark) |
+| `VengefulTemperament` | Meltdown **active** signature («Ураган Норма», CombatAction id = perk class): enemies within **≤5** slabs of Meltdown → fail Wisdom(50) → `Panicked`, else `Berserk`, then refresh AP; timed signature recharge; **not** RunAndGun; replaces vanilla Hard Feelings (Vengeance mark) |
 | `GruntyPerk_JAZZ`   | (1) combat start → +50% AP first turn; (2) each later turn: proc +50% AP with chance `**10 × MoraleLevel`%** where MoraleLevel = unit personal morale integer used by JA3 UI/combat (floor 0); `InteractionRand(100) < chance` |
 
 
@@ -186,38 +186,38 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | ------------------- | ----------------------- | --------------------------------------------------------------------------------- | ------- |
 | Ice                 | `IcePerk`               | Пять выстрелов по конечностям                                                     | CHANGE  |
 | Steroid             | `SteroidPunch`          | Passive: melee CTH from Strength; hit→KnockDown+Unconscious; no stim tiredness; Burning DoT −30%; no smash CA | CHANGE  |
-| Barry               | `DesignerExplosives`    | 2× ShapedCharge / 168h; Craft Explosives; ammo/grenade craft −30% Parts | CHANGE  |
+| Barry               | `DesignerExplosives`    | vanilla ShapedCharge 2×/168h + Craft Explosives; ammo/grenade craft −30% Parts | CHANGE  |
 | Blood               | `HundredKnives`         | Run and throw knives                                                              | ≈       |
 | Vicki               | `WeaponPersonalization` | Self-repair 1%/h; full-mod +dmg/+crit (vanilla magnitudes)                        | ≈       |
 | Wolf                | `JackOfAllTrades`       | Any op −33% time                                                                  | CHANGE  |
 | Gus                 | `WeGotThis`             | Kill → +10 Grit squad                                                             | CHANGE  |
 | Nails               | `NailsPerk`             | After first kill +20% dmg                                                         | CHANGE  |
 | Grizzly             | `GrizzlyPerk`           | G1: 2× long burst + full dmg + WEAPONS-012 ignore + 2× suppress (signature only) | CHANGE  |
-| Reaper              | `TheGrim`               | Active; kill Panic ≤8                                                             | ≈       |
+| Reaper              | `TheGrim`               | Active; kill Panic ≤8; **recharge after 5 kills** (not 1)                          | CHANGE  |
 | Ivan                | `YouSeeIgor`            | Kill → +3 AP                                                                      | CHANGE  |
-| Igor                | `Nazdarovya`            | Stacks≤5: heal/pain/−15 CTH/+20 melee; hangover 8–10h (3h/stack)                  | CHANGE  |
+| Igor                | `Nazdarovya`            | Active every turn (2 AP, no CD): clear Pain, heal 15–20 HP, Drunk stack≤5 (−15 CTH / +20 melee per stack); sat decay 1 stack / 3h | CHANGE  |
 | Kalyna              | `KalynaPerk`            | Armor-ignore shot                                                                 | ≈       |
-| Meltdown            | `VengefulTemperament`   | CA id=`VengefulTemperament`; mobile shot; ≤5 Panic/Berserk (Wisdom); not vanilla Vengeance | CHANGE  |
+| Meltdown            | `VengefulTemperament`   | Active fear ≤5 Panic/Berserk (Wisdom); no RnG; not vanilla Vengeance | CHANGE  |
 | Len                 | `OnMyTarget`            | Squad attacks marked target; **10 AP**                                            | CHANGE  |
 | Fox                 | `FoxPerk`               | First attack no alert / free AP                                                   | ≈       |
 | Scully              | `ShoulderToShoulder`    | End turn +15 Grit self+nearby                                                     | CHANGE  |
 | Magic               | `SecondStoryMan`        | +50% crit from above                                                              | CHANGE  |
-| MD                  | `BuildingConfidence`    | Inspired 2nd turn & every 3; heal ±10%/lvl cap ±50% combat+sat                    | CHANGE  |
+| MD                  | `BuildingConfidence`    | Inspired (+4 AP) turns 2/5/8…; heal ±10%/level-diff vs patient, cap ±50%, combat+sat | CHANGE  |
 | Mouse               | `LightStep`             | Does not trigger OW zones                                                         | ≈       |
 | Omryn               | `EyesOnTheBack`         | Active 360 OW                                                                     | ≈       |
 | Raider              | `TagTeam`               | +15% CTH vs ally PinDown targets                                                  | CHANGE  |
-| Red                 | `HaveABlast`            | Toggle: grenade retaliate on hit/miss; blast dmg taken −50% while on; hands+inv | CHANGE  |
+| Red                 | `HaveABlast`            | Toggle: grenade retaliate on hit/miss; blast dmg −50% while on; hands+inventory pull | CHANGE  |
 | Buns                | `BunsPerk`              | +10% CTH vs ally-damaged this turn                                                | CHANGE  |
 | Sidney              | `SidneyPerk`            | +2 AP start until miss/dmg taken                                                  | CHANGE  |
 | Raven               | `Spotter`               | PinDown→Marked→ next hit 100% crit                                                | CHANGE  |
-| Scope               | `HawksEye`              | Focus Fire 1 AP + biscuits; sniper suppress ×2                                    | CHANGE  |
+| Scope               | `HawksEye`              | Sniper Overwatch 1 AP (keep leftover); PinDown min 1 AP; biscuits on hire; sniper suppress ×2 | CHANGE  |
 | Hitman              | `DedicatedCamper`       | Stationary +25% dmg; ≥25 dmg → +15 Grit                                           | CHANGE  |
 | Tex                 | `DanceForMe`            | Legs AoE + OW                                                                     | ≈       |
 | Shadow              | `FleetingShadow`        | Stealth run; +10 Grit on SK                                                       | ≈       |
-| Thor                | `NaturalHealing`        | Joints craft + sat/combat effects per лист                                        | CHANGE  |
+| Thor                | `NaturalHealing`        | Joints (`HerbalMedicine` / 48h); sat squad +15% trauma/burn/HP debt recovery (not infection); bandage +20–25 Will | CHANGE  |
 | Livewire            | `InnerInfo_JAZZ`        | More intel from hacks; money-making op                                            | CHANGE  |
-| Fauda               | `KillingWind`           | 8 grit if attack hits ≥2; heavy armor half FM pen; no cumbersome FM pen           | CHANGE  |
-| Fidel               | `DoubleToss`            | Two grenades/bombs                                                                | ≈       |
+| Fauda               | `KillingWind`           | ≥2 enemies hit → +8 Grit **each**; armor FM pen ×½ (with Ironclad: still ×½ once); cumbersome keeps FreeMove | CHANGE  |
+| Fidel               | `DoubleToss`            | Two grenades; hands **or** `GrenadesInventory` pockets (`DoubleTossAG–DG`, stack ≥2) | CHANGE  |
 | Grunty              | `GruntyPerk_JAZZ`       | T1 +50% AP + per-turn 10%×Morale                                                  | CHANGE  |
 | DrQ                 | `ExplodingPalm`         | Fist statuses by HP; sat trauma heal +30%; infection resist                       | CHANGE  |
 | Flay                | `MakeThemBleed`         | Groin/animal bleed; +10%/enemy with bleed in sight cap 50%                        | CHANGE  |
@@ -240,9 +240,9 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 
 1. **§A combat** — Henning, Laura, Lucky, Dynamo, Nervous, Madman, Blade, Shank, Steiger, Vince, Mike + UNITS-003 supersede note.
 2. **§C combat CHANGE** — Ice, Steroid, Grizzly G1, Grunty Morale, Ivan, Nails, Gus, Wolf, Magic, Scully, … (явные боёвые).
-3. **§C signatures / CD-kill** — Spike CD, Raven, Scope, Hitman, Pierre recruit, Smiley, Red, Meltdown (`VengefulTemperament` CA id), …
+3. **§C signatures / CD-kill** — Spike CD, Raven, Scope, Hitman, Pierre recruit, Smiley, Red, Meltdown (active fear AoE `VengefulTemperament`), …
 4. **§B text+hooks** — Cougar Inspired, Flo, Static, Grace, Kulba, …
-5. **HARD / satellite** — Rothman mine, Biff, Ira, Miguel, Livewire money, Barry craft, Thor joints, Vince economy already in §A if cheap.
+5. **HARD / satellite** — Rothman mine, Biff, Ira, Miguel, Livewire money, Barry craft, Thor NaturalHealing (joints + sat debt + bandage Will), Vince economy already in §A if cheap.
 6. **§D** — Benni, Simon.
 
 Каждый батч: CE/Code + loc + showcase RU/EN (+ wiki/technical при player-facing) + Evidence AC updates.
@@ -294,7 +294,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 ## Evidence
 
 - JAZZ-UNITS-006-AC-001 / AC-002 / AC-009: PASS (static) - batch1 §A + Mike PinDown +2 follow-up; **Nervous** rewired 2026-08-09 (Consume + AddHitStack, idempotent Apply).
-- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit; **Meltdown** 2026-08-10: CombatAction `VengefulTemperament1`→`VengefulTemperament` so signature + fear AoE wire (`EnumUIActions` / `action.id == self.class`).
+- JAZZ-UNITS-006-AC-004 (partial): PASS (static) - batch2/3 §C + BuildingConfidence heal%-by-level; soft-cuts in notes/audit; **Meltdown** 2026-08-11: active fear AoE CombatAction (no RunAndGun).
 - JAZZ-UNITS-006-AC-005 / AC-006 (batch1-4 deltas): PASS (static) - RU/EN + showcase RU|EN perks.md (incl. Meltdown row).
 - JAZZ-UNITS-006-AC-003 (partial): PASS (static) - §B batch4 Flo/Static/Cougar + Grace/Kulba/Grom/...; soft-cuts _units006_batch4_notes.md.
 - JAZZ-UNITS-006-AC-008: PASS partial (static) - §D CE + StartingPerks shipped; CombatAction actives soft-cut (batch6 notes).
