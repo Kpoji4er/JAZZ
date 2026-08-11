@@ -236,7 +236,7 @@ Full regen wipes hand-tuned colors unless these keys (or KEEP_HANDCRAFTED) prese
 | --- | --- |
 | `Head_M_Ca_NPC_Camo_01` (GrandChien_Recon, Adonis_Recon) | Explicit face paint — only when wanted (Monk). |
 | `Head_Shadow` | JA3 Shadow has **baked face camo**. **Vilde** → Raider. **Simon** must not use `AppearancesList → Shadow` (face/arm camo bleed) — own preset: Shadow body + Raider head. |
-| Vanilla **Hitman** pink AIM kit | Flashy pink shirt + aviators — not sheet «inconspicuous hoodie». **Jazz_Hitman / Убийца** → Ice jacket + Hitman face (own ModItem `Hitman`). Do not leave UnitData aliased to flashy AIM clone only. |
+| Vanilla **Hitman** pink AIM kit | Flashy pink shirt + aviators — not sheet «inconspicuous hoodie». **Jazz_Hitman / Убийца** → Ice jacket + Hitman face (own ModItem `Jazz_Hitman` — **never** override vanilla AIM `Hitman` preset id). |
 | **Tex** | Asian face in JA3; Hair often `""`. Not for Arulco Latino (**Carlos**, **Gamos** → Blood). |
 
 ### Mustache donors (Caucasian)

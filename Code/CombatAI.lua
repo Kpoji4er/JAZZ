@@ -1711,7 +1711,7 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 					score_details[#score_details + 1] = -near_pen
 				end
 			elseif optic_ideal > 0 then
-				local delta = Abs(best_enemy_dist - optic_ideal)
+				local delta = abs(best_enemy_dist - optic_ideal)
 				local band = Max(3, DivRound(optic_ideal, 4))
 				if delta <= band then
 					local bonus = MulDivRound(band - delta, 25, band)
