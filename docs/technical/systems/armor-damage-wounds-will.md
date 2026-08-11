@@ -222,7 +222,7 @@ JAZZ добавляет unit attribute `Will` и derived `WillPoints`/`MaxWillPo
 | `suppressionHeavy2` | Подавлен | −50 | ×60% | ×60% → **30%** |
 | `suppressionPinned` | Прижат | −70 | **нет** (0%) | **0%** |
 
-CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток. При переходе в `suppressionPinned` дополнительно прерываются подготовленные атаки: обычный и постоянный пулемётный Overwatch, Pin Down и Bombard; более слабые ступени их не снимают.
+CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток. При переходе в `suppressionPinned` и пока статус активен снимаются подготовленные атаки: обычный и постоянный пулемётный Overwatch, Pin Down и Bombard (`Jazz_StripPinnedPreparedAttacks` + gate в OW provoke); более слабые ступени их не снимают.
 
 **Save caveat:** vanilla `CharacterEffect:__toluacode` emits `PlaceCharacterEffect('Id', )` when the effect has no non-default props (typical for fresh mid-combat `suppressionPinned`). That is invalid Lua and blocks load. JAZZ `Code/Save_CharacterEffectSerialize.lua` writes `{}` instead and sanitizes via `string.gsub` on the session blob (often **pstr**, not `type()=="string"`) on load.
 

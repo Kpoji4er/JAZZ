@@ -24,13 +24,17 @@ DefineClass.suppressionPinned = {
 			Handler = function (self, target)
 				-- Pinned units cannot keep prepared attacks (incl. permanent MG OW).
 				-- Jazz BeginTurn otherwise preserves permanent overwatch across turns.
-				target:InterruptPreparedAttack()
-				if g_Overwatch and g_Overwatch[target] then
-					g_Overwatch[target] = nil
-					Msg("OverwatchChanged")
-				end
-				if target:HasStatusEffect("StationedMachineGun") then
-					target:RemoveStatusEffect("StationedMachineGun")
+				if type(Jazz_StripPinnedPreparedAttacks) == "function" then
+					Jazz_StripPinnedPreparedAttacks(target)
+				else
+					target:InterruptPreparedAttack()
+					if g_Overwatch and g_Overwatch[target] then
+						g_Overwatch[target] = nil
+						Msg("OverwatchChanged")
+					end
+					if target:HasStatusEffect("StationedMachineGun") then
+						target:RemoveStatusEffect("StationedMachineGun")
+					end
 				end
 				target.ActionPoints = Clamp(target.ActionPoints, 0, 4*const.Scale.AP)
 				target:RemoveStatusEffect("FreeMove")
@@ -47,19 +51,22 @@ DefineClass.suppressionPinned = {
 	Description = T(890000000001235, --[[ModItemCharacterEffectCompositeDef suppressionPinned Description]] "Количество ОД — не более 4.\nНе может контратаковать или поддерживать подготовленные атаки."),
 	AddEffectText = T(890000000000704, --[[ModItemCharacterEffectCompositeDef suppressionPinned AddEffectText]] "Под плотным огнем"),
 	OnAdded = function (self, obj)
-		if IsValid(obj) then
-			obj:InterruptPreparedAttack()
-			-- Permanent MG OW can leave StationedMachineGun if Interrupt raced
-			-- with SetActionCommand; strip residual prepared-attack state.
-			if g_Overwatch and g_Overwatch[obj] then
-				g_Overwatch[obj] = nil
-				Msg("OverwatchChanged")
+		local function strip_prepared()
+			if type(Jazz_StripPinnedPreparedAttacks) == "function" then
+				Jazz_StripPinnedPreparedAttacks(obj)
+			elseif IsValid(obj) then
+				obj:InterruptPreparedAttack()
+				if g_Overwatch and g_Overwatch[obj] then
+					g_Overwatch[obj] = nil
+					Msg("OverwatchChanged")
+				end
+				if obj:HasStatusEffect("StationedMachineGun") then
+					obj:RemoveStatusEffect("StationedMachineGun")
+				end
+				obj:RecalcUIActions(true)
 			end
-			if obj:HasStatusEffect("StationedMachineGun") then
-				obj:RemoveStatusEffect("StationedMachineGun")
-			end
-			obj:RecalcUIActions(true)
 		end
+		strip_prepared()
 		local unitStance = obj.stance
 		if unitStance ~= "Prone" or not (obj:CanTakeCover()) then
 			obj:SetActionCommand("ChangeStance", nil, nil, "Prone")
@@ -68,6 +75,13 @@ DefineClass.suppressionPinned = {
 			obj:TakeCover();
 			obj:SetActionCommand("TakeCover", nil, nil, "Prone")
 		end
+		-- Stance/cover SetActionCommand can race Interrupt; strip again after commands settle.
+		CreateGameTimeThread(function()
+			Sleep(1)
+			if IsValid(obj) and obj:HasStatusEffect("suppressionPinned") then
+				strip_prepared()
+			end
+		end)
 
 		obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
 

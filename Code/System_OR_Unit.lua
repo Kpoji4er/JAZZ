@@ -1248,24 +1248,56 @@ function Unit:GetNumMGInterruptAttacks(skip_check)
 	return  PerkBonus + ap / ap_cost + const.Combat.MGFreeInterruptAttacks + bonus
 end
 
+--- Drop Overwatch / PinDown / Bombard residuals that can survive Interrupt + SetActionCommand races.
+function Jazz_StripPinnedPreparedAttacks(unit)
+	if not IsValid(unit) then
+		return
+	end
+	unit:InterruptPreparedAttack()
+	if g_Overwatch and g_Overwatch[unit] then
+		g_Overwatch[unit] = nil
+		Msg("OverwatchChanged")
+	end
+	if g_Pindown and g_Pindown[unit] then
+		g_Pindown[unit] = nil
+		Msg("OverwatchChanged")
+	end
+	if unit:HasStatusEffect("StationedMachineGun") then
+		unit:RemoveStatusEffect("StationedMachineGun")
+	end
+	if IsValid(unit.prepared_bombard_zone) then
+		DoneObject(unit.prepared_bombard_zone)
+	end
+	unit.prepared_bombard_zone = nil
+	if unit.RemovePreparedAttackVisuals then
+		unit:RemovePreparedAttackVisuals()
+	end
+	unit:RecalcUIActions(true)
+end
+
 function Unit:BeginTurn(new_turn)	
 	NetUpdateHash("BeginTurn_Start")
 	self:SetAttackReason()
 	local should_interrupt = true
 	local pindown = g_Pindown[self]
 	local overwatch = g_Overwatch[self]
-	if pindown and IsValidTarget(pindown.target) and self:HasPindownLine(pindown.target, pindown.target_spot_group) then
+	-- Max suppression: always drop Overwatch / PinDown / Bombard (incl. permanent MG).
+	if self:HasStatusEffect("suppressionPinned") then
+		should_interrupt = true
+	elseif pindown and IsValidTarget(pindown.target) and self:HasPindownLine(pindown.target, pindown.target_spot_group) then
 		-- pindown will be handled differently when the attack is executed
 		should_interrupt = false
 	elseif overwatch and (overwatch.permanent or not g_Combat or overwatch.expiration_turn > g_Combat.current_turn) then
-		-- JAZZ-HOTFIX-003: pinned cancels even permanent MG overwatch.
-		should_interrupt = self:HasStatusEffect("suppressionPinned")
+		should_interrupt = false
 	elseif self.prepared_bombard_zone then
 		should_interrupt = false
 	end	
 	if new_turn and should_interrupt then 
 		self:InterruptPreparedAttack("begin turn")
 		pindown = false
+		if self:HasStatusEffect("suppressionPinned") then
+			Jazz_StripPinnedPreparedAttacks(self)
+		end
 	end
 	self:UpdateMeleeTrainingVisual()
 	self:IsThreatened() -- update the is_melee_aim_last_turn flag for the vr
@@ -1292,10 +1324,14 @@ function Unit:BeginTurn(new_turn)
 --			end
 		end
 		if g_Overwatch[self] then
-			table.clear(g_Overwatch[self].triggered_by) -- reset triggers in case somebody already triggered in our turn
-			if self:HasStatusEffect("ManningEmplacement") or self:HasStatusEffect("StationedMachineGun") then
-				g_Overwatch[self].num_attacks = self:GetNumMGInterruptAttacks()
-				self:UpdateOverwatchVisual()
+			if self:HasStatusEffect("suppressionPinned") then
+				Jazz_StripPinnedPreparedAttacks(self)
+			else
+				table.clear(g_Overwatch[self].triggered_by) -- reset triggers in case somebody already triggered in our turn
+				if self:HasStatusEffect("ManningEmplacement") or self:HasStatusEffect("StationedMachineGun") then
+					g_Overwatch[self].num_attacks = self:GetNumMGInterruptAttacks()
+					self:UpdateOverwatchVisual()
+				end
 			end
 		end
 		g_Pindown[self] = nil -- clear from the global table to stop the prepared attack blocking any AP gains
@@ -1397,7 +1433,7 @@ function Unit:BeginTurn(new_turn)
 			while self.command == "Die" do
 				WaitMsg("UnitDied", 20) -- can also go in VillainDefeat instead, so wait with timeout
 			end
-		elseif pindown then
+		elseif pindown and not self:HasStatusEffect("suppressionPinned") then
 			-- UNITS-006 Mike: PinDown fires +2 extra prepared shots when eligible.
 			local n = 1
 			if HasPerk(self, "Jazz_Perk_Mike") then
@@ -1409,7 +1445,7 @@ function Unit:BeginTurn(new_turn)
 				end
 				pindown.target:ProvokeOpportunityAttack_Pindown(self, pindown)
 			end
-		elseif self.prepared_bombard_zone then
+		elseif self.prepared_bombard_zone and not self:HasStatusEffect("suppressionPinned") then
 			self:StartBombard()
 		end
 	end
@@ -2296,7 +2332,7 @@ function Unit:ApplySuppressionStatus()
 			elseif data.effect == "suppressionPinned" then
 				-- Already pinned: OnAdded will not re-fire; still drop prepared attacks
 				-- (permanent MG OW can be restored or left residual across ticks).
-				self:InterruptPreparedAttack()
+				Jazz_StripPinnedPreparedAttacks(self)
 			end
 			applied = data.effect
 			break
@@ -2708,6 +2744,11 @@ end
 --- @param target_dummy boolean Whether the current unit is a target dummy.
 ---
 function Unit:ProvokeOpportunityAttack_Overwatch(obj, attack_args, target_dummy)
+	-- Max suppression: never fire residual Overwatch (stance-command races can leave g_Overwatch).
+	if IsKindOf(obj, "Unit") and obj:HasStatusEffect("suppressionPinned") then
+		Jazz_StripPinnedPreparedAttacks(obj)
+		return
+	end
 	local overwatch = g_Overwatch[obj]
 	if not overwatch then return end
 	--local action = CombatActions[overwatch.action_id]
