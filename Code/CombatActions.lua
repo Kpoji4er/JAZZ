@@ -1113,6 +1113,26 @@ function Unit:BulletHell(action_id, cost_ap, args)
 
 	local targets = JazzBulletHellConeTargets(self, weapon, action_id, args)
 	if #(targets or empty_table) == 0 then
+		-- Soft fallback: aim-point unit or nearest living enemy (cone empty / no LOS).
+		local aim = args.target
+		if IsKindOf(aim, "Unit") and IsValidTarget(aim) and self:IsOnEnemySide(aim) then
+			targets = { aim }
+		else
+			local best, best_dist
+			for _, enemy in ipairs(GetEnemies(self) or empty_table) do
+				if IsValidTarget(enemy) then
+					local dist = self:GetDist(enemy)
+					if not best_dist or dist < best_dist then
+						best, best_dist = enemy, dist
+					end
+				end
+			end
+			if best then
+				targets = { best }
+			end
+		end
+	end
+	if #(targets or empty_table) == 0 then
 		self:GainAP(cost_ap)
 		CombatActionInterruped(self)
 		return

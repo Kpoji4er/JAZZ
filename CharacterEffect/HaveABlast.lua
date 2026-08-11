@@ -28,9 +28,15 @@ DefineClass.HaveABlast = {
 					or IsKindOf(weapon, "Grenade")
 					or IsKindOf(weapon, "Ordnance")
 					or (weapon and weapon.class and string.find(weapon.class, "Grenade", 1, true))
-				if is_blast then
-					data.damage_percent = MulDivRound(data.damage_percent or 100, 50, 100)
+				if not is_blast then
+					return
 				end
+				-- Apply once; avoid re-entry / stacking with a second damage_percent pass to ~-90%.
+				if data.jazz_haveablast_dr then
+					return
+				end
+				data.jazz_haveablast_dr = true
+				data.damage_percent = MulDivRound(data.damage_percent or 100, 50, 100)
 			end,
 		}),
 	},

@@ -12460,7 +12460,7 @@ Speck","Командир!
 890000000009887,Наздаровье,Nazdarovya,,jazz:CharacterEffect/Nazdarovya.lua
 890000000009888,Стаки ≤5: лечение/боль/−15 CTH/+20 melee; похмелье 8–10ч (3ч/стак). Hangover retune soft.,Stacks ≤5: heal/pain/−15 CTH/+20 melee; hangover 8–10h (3h/stack). Hangover retune soft.,,jazz:CharacterEffect/Nazdarovya.lua
 890000000009889,Опасная близость,Danger Close,,jazz:CharacterEffect/DangerClose.lua
-890000000009890,По целям ≥8 клеток: +40% урона и +2 Bleeding (без штрафа стимов — soft).,Vs targets ≥8 tiles: +40% damage and +2 Bleeding (stim pen removal soft).,,jazz:CharacterEffect/DangerClose.lua
+890000000009890,Взрывы по целям ≤5 клеток: +40% урона. Стрельба по целям ≥8 клеток: +40% урона и +2 Bleeding.,Explosives vs targets ≤5 tiles: +40% damage. Guns vs targets ≥8 tiles: +40% damage and +2 Bleeding.,,jazz:CharacterEffect/DangerClose.lua
 890000000009891,Взрывная ладонь,Exploding Palm,,jazz:CharacterEffect/ExplodingPalm.lua
 890000000009892,Удары кулаком: статусы по HP. Satellite trauma heal +30%; сопротивление инфекции (partial).,Fist hits apply HP-tier statuses. Satellite trauma heal +30%; infection resist (partial).,,jazz:CharacterEffect/ExplodingPalm.lua
 890000000009893,Естественное исцеление,Natural Healing,,jazz:CharacterEffect/NaturalHealing.lua

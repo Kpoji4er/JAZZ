@@ -46,8 +46,9 @@ Shipped in working tree / commit after this note.
 | `BulletHell` | Signature recharge **on kill** (`Unit:BulletHell` + `recharge_on_kill` param) |
 | `MakeThemBleed` | +10% dmg per bleeding enemy in sight, cap +50% |
 | `HawksEye` | `pindownCostOverwrite=1`; sniper Will suppress ×2 |
-| `HaveABlast` | Toggle on: grenade retaliate hit/miss; explosion dmg taken ×50%; hands+inventory |
-| `VengefulTemperament` | Meltdown signature: CombatAction id **must** be `VengefulTemperament` (not `…1`) so `EnumUIActions`/`HasSignatures` and `action.id == self.class` fear AoE fire; ≤5 Panic/Berserk by Wisdom |
+| `HaveABlast` | Toggle on: grenade retaliate hit/miss; explosion dmg taken ×50% (once-flag); hands+inventory |
+| `VengefulTemperament` | Meltdown: CA id=`VengefulTemperament`; fear AoE on `action.id` **or** `origin_action_id` (RunAndGun child shots); ≤5 Panic/Berserk by Wisdom |
+| `DangerClose` | Keep vanilla `rangeThreshold`/`damageMod` (grenade aim + Bombard); List2 firearm ≥8 +40% +2 bleed |
 | `KillingWind` | ≥2 hit units → +8 Grit (FM/armor path kept from COMBAT-005) |
 | `BuildingConfidence` | Inspired turn 2 and every 3rd turn |
 

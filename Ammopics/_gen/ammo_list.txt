@@ -1,0 +1,197 @@
+﻿TOTAL 134
+
+## 12gauge
+- _12gauge_APSlug	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨С╨С ╨Я╤Г╨╗╤П	TEST.png	OK
+- _12gauge_Breacher	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨Ъ╨░╤А╤В╨╡╤З╤М	TEST.png	OK
+- _12gauge_Buckshot	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨┤╤А╨╛╨▒╤М	TEST.png	OK
+- _12gauge_Flechette	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨Я╤Г╨╗╤П	TEST.png	OK
+- _12gauge_Saltshot	12-gauge Saltshot	TEST.png	OK
+
+## 44CAL
+- _44CAL_Basic	.44, FMJ	TEST.png	OK
+- _44CAL_HP	.44, JHP	TEST.png	OK
+- _44CAL_Match	.44, Match	TEST.png	OK
+
+## 50BMG
+- _50BMG_Basic	.50 Standard	TEST.png	OK
+- _50BMG_HE	.50 Explosive	TEST.png	OK
+- _50BMG_Incendiary	.50 Frag	TEST.png	OK
+- _50BMG_SLAP	.50 SLAP	TEST.png	OK
+
+## 556
+- _556_AP	5,56 ╨╝╨╝, M855	TEST.png	OK
+- _556_Basic	5,56╨╝╨╝, FMJ	TEST.png	OK
+- _556_HP	5,56 ╨╝╨╝, Mk262	TEST.png	OK
+- _556_Tracer	5,56 ╨╝╨╝, M856	TEST.png	OK
+
+## 762NATO
+- _762NATO_AP	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M61	TEST.png	OK
+- _762NATO_Basic	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M80	TEST.png	OK
+- _762NATO_HP	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, FMJ	TEST.png	OK
+- _762NATO_Match	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M118LR	TEST.png	OK
+- _762NATO_Tracer	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M62	TEST.png	OK
+
+## 762WP
+- _762WP_Basic	7,62╤Е39╨╝╨╝, ╨Я╨б	TEST.png	OK
+- _762WP_HP	7,62╤Е39╨╝╨╝, FMJ	TEST.png	OK
+- _762WP_Subsonic	7,62╤Е39╨╝╨╝, ╨г╨б	TEST.png	OK
+- _762WP_Tracer	7.62 mm WP Tracer	TEST.png	OK
+
+## 9mm
+- _9mm_AP	9╤Е19 ╨╝╨╝, ╨С╨С	TEST.png	OK
+- _9mm_Basic	9╤Е19 ╨╝╨╝, FMJ	TEST.png	OK
+- _9mm_HP	9╤Е19 ╨╝╨╝, JHP	TEST.png	OK
+- _9mm_Match	9╤Е19 ╨╝╨╝, Match	TEST.png	OK
+- _9mm_Shock	9mm Shock╨Ю╨в╨Ъ╨Ы╨о╨з╨Х╨Э╨Ю	TEST.png	OK
+- _9mm_Subsonic	9mmSubsonic╨Ю╨в╨Ъ╨Ы╨о╨з╨Х╨Э╨Ю	TEST.png	OK
+- _9mm_Tracer	9mmTracer╨Ю╨в╨Ъ╨Ы╨о╨з╨Х╨Э╨Ю	TEST.png	OK
+
+## ?
+- _44CAL_AP	.44, ╨С╨С ╨Ю╤В╨║╨╗╤О╤З╨╡╨╜╨╛	TEST.png	OK
+- _44CAL_Shock	.44, ╨и╨Ю╨Ъ ╨Ю╤В╨║╨╗╤О╤З╨╡╨╜╨╛	TEST.png	OK
+- _556_Match	556Match ╨Ю╨в╨Ъ╨Ы╨о╨з╨Х╨Э╨Ю	TEST.png	OK
+- _762WP_AP	7,62 ╨╝╨╝ ╨б╨б╨б╨а, ╨Ю╤В╨║╨╗╤О╤З╨╡╨╜╨╛	TEST.png	OK
+- _762WP_Match	7.62 mm WP Match	TEST.png	OK
+
+## JAZZ_Caliber_12gauge
+- JAZZ_AMMO_12gauge_APSlug	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨С╨С ╨Я╤Г╨╗╤П	12gAPSLUG.png	OK
+- JAZZ_AMMO_12gauge_Birdshot	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨┤╤А╨╛╨▒╤М	12gBIRDSHOT.png	OK
+- JAZZ_AMMO_12gauge_Buckshot	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨Ъ╨░╤А╤В╨╡╤З╤М	12gBUCKSHOT.png	OK
+- JAZZ_AMMO_12gauge_Saltshot	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╤Б╨╛╨╗╤М	12gSALT.png	OK
+- JAZZ_AMMO_12gauge_Slug	12-╨╣ ╨║╨░╨╗╨╕╨▒╤А, ╨Я╤Г╨╗╤П	12gSLUG.png	OK
+
+## JAZZ_Caliber_3006
+- JAZZ_AMMO_3006_AP	╨Я╨░╤В╤А╨╛╨╜ 30-06 M2 AP	3006AP.png	OK
+- JAZZ_AMMO_3006_FMJ	╨Я╨░╤В╤А╨╛╨╜ 30-06	3006.png	OK
+- JAZZ_AMMO_3006_Match	╨Я╨░╤В╤А╨╛╨╜ 30-06 M25 Match	3006Match.png	OK
+
+## JAZZ_Caliber_30CAL
+- JAZZ_AMMO_30_FMJ	.30 Cal M1 Ball	30cal.png	OK
+- JAZZ_AMMO_30_P	.30 Cal M18 +P	30calHP.png	OK
+- JAZZ_AMMO_30_Tracer	.30 Cal M27 ╨в╤А╨░╤Б╤Б╨╡╤А	30calTracer.png	OK
+
+## JAZZ_Caliber_357
+- JAZZ_AMMO_357_FMJ	.357 Mag FMJ	357.png	OK
+- JAZZ_AMMO_357_JHP	.357 Mag JHP	357JHP.png	OK
+
+## JAZZ_Caliber_38
+- JAZZ_AMMO_38special_FMJ	.38 Special FMJ	38Sp.png	OK
+- JAZZ_AMMO_38special_JHP	.38 Special JHP	38Sp.png	OK
+
+## JAZZ_Caliber_44CAL
+- JAZZ_AMMO_44CAL_FMJ	.44, FMJ	44FMJ.png	OK
+- JAZZ_AMMO_44CAL_JHP	.44, JHP	44JHP.png	OK
+- JAZZ_AMMO_44CAL_Match	.44, Match	44MATCH.png	OK
+
+## JAZZ_Caliber_45ACP
+- JAZZ_AMMO_45ACP_Crafted	.45ACP, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	45ACPCrafted.png	OK
+- JAZZ_AMMO_45ACP_FMJ	.45ACP, FMJ	45ACP.png	OK
+- JAZZ_AMMO_45ACP_JHP	.45ACP, JHP	45ACPHP.png	OK
+- JAZZ_AMMO_45ACP_P	.45ACP, +P	45ACPP.png	OK
+- JAZZ_AMMO_45ACP_Poor	.45ACP, M1911 Substandard	45ACPsub.png	OK
+
+## JAZZ_Caliber_46
+- JAZZ_AMMO_46_AP	4,6 ╨╝╨╝, DM11 ╨С╨С	46AP.png	OK
+- JAZZ_AMMO_46_FMJ	4,6 ╨╝╨╝, FMJ	46.png	OK
+- JAZZ_AMMO_46_JHP	4,6 ╨╝╨╝, V-Max JHP	46JHP.png	OK
+
+## JAZZ_Caliber_50AE
+- JAZZ_AMMO_50AE_FMJ	.50AE FMJ	50AE.png	OK
+- JAZZ_AMMO_50AE_JHP	.50AE JHP	50AEJHP.png	OK
+
+## JAZZ_Caliber_50BMG
+- JAZZ_AMMO_50BMG_APIT	.50, ╨Ч╨Ц	50bmg_incendiary	MISSING
+- JAZZ_AMMO_50BMG_API_HEI	.50, ╨а╨Р╨Ч╨а	50bmg_he	MISSING
+- JAZZ_AMMO_50BMG_Basic	.50, ╨╛╨▒╤Л╤З╨╜╤Л╨╣	50bmg_basic	MISSING
+
+## JAZZ_Caliber_545
+- JAZZ_AMMO_545_AP	5,45 ╨╝╨╝, ╨С╨Я ╨С╤А╨╛╨╜╨╡╨▒╨╛╨╣╨╜╤Л╨╣	545AP.png	OK
+- JAZZ_AMMO_545_Army	5,45 ╨╝╨╝, ╨Я╨б ╨Р╤А╨╝╨╡╨╣╤Б╨║╨╕╨╣	545.png	OK
+- JAZZ_AMMO_545_Crafted	5,45 ╨╝╨╝, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	545Crafted.png	OK
+- JAZZ_AMMO_545_EPR	5,45 ╨╝╨╝, ╨Я╨Я ╨Я╨╛╨▓╤Л╤И╨╡╨╜╨╜╨╛╨╣ ╨Я╤А╨╛╨▒╨╕╨▓╨░╨╡╨╝╨╛╤Б╤В╨╕	545EPR.png	OK
+- JAZZ_AMMO_545_Poor	5,45 ╨╝╨╝, ╨С╨░╤А╨╜╨░╤Г╨╗ SP Substandard	545SP.png	OK
+- JAZZ_AMMO_545_Tracer	5,45 ╨╝╨╝, 7╨в3 ╨в╤А╨░╤Б╤Б╨╡╤А	545T.png	OK
+
+## JAZZ_Caliber_556
+- JAZZ_AMMO_556_AP	5,56 ╨╝╨╝, M995 ╨С╤А╨╛╨╜╨╡╨▒╨╛╨╣╨╜╤Л╨╣	556AP.png	OK
+- JAZZ_AMMO_556_Army	5,56 ╨╝╨╝, M855 ╨Р╤А╨╝╨╡╨╣╤Б╨║╨╕╨╣	556M855.png	OK
+- JAZZ_AMMO_556_Crafted	5,56╨╝╨╝, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	556Crafted.png	OK
+- JAZZ_AMMO_556_EPR	5,56 ╨╝╨╝, M855A1 ╨Я╨╛╨▓╤Л╤И╨╡╨╜╨╜╨╛╨╣ ╨Я╤А╨╛╨▒╨╕╨▓╨░╨╡╨╝╨╛╤Б╤В╨╕	556HP.png	OK
+- JAZZ_AMMO_556_FMJ	5,56╨╝╨╝, FMJ	556.png	OK
+- JAZZ_AMMO_556_Match	5,56 ╨╝╨╝, Mk262	556Match.png	OK
+- JAZZ_AMMO_556_Poor	5,56╨╝╨╝, .223 Rem Commercial Substandard	556Sub.png	OK
+- JAZZ_AMMO_556_Tracer	5,56 ╨╝╨╝, M856 ╨в╤А╨░╤Б╤Б╨╡╤А	556T.png	OK
+
+## JAZZ_Caliber_57
+- JAZZ_AMMO_57_AP	5,7 ╨╝╨╝, S109 ╨С╨С	57AP.png	OK
+- JAZZ_AMMO_57_JHP	5,7 ╨╝╨╝, SS197SR JHP	57JHP.png	OK
+- JAZZ_AMMO_57_Subsonic	5,7 ╨╝╨╝, SB193 ╨Ф╨╛╨╖╨▓╤Г╨║╨╛╨▓╨╛╨╣	57sb.png	OK
+
+## JAZZ_Caliber_75French
+- JAZZ_AMMO_75French_AP	7,5╤Е54 ╨╝╨╝, Balle P (AP)	75AP.png	OK
+- JAZZ_AMMO_75French_FMJ	7,5╤Е54 ╨╝╨╝, Balle C (FMJ)	75.png	OK
+
+## JAZZ_Caliber_762x25
+- JAZZ_AMMO_762x25_AP	7.62x25, ╨Я╨б╨в (╨С╨С)	762x25ap.png	OK
+- JAZZ_AMMO_762x25_FMJ	7.62x25, 57-╨Э-134╨б (FMJ)	762x25.png	OK
+- JAZZ_AMMO_762x25_JHP	7.62x25, Wolf JHP	762x25jhp.png	OK
+- JAZZ_AMMO_762x25_Poor	7.62x25, Lot 66-3 CN Substandard	762x25Sub.png	OK
+
+## JAZZ_Caliber_762x39
+- JAZZ_AMMO_762x39_APP	7,62╤Е39╨╝╨╝, ╨С╨Ч	762x39API.png	OK
+- JAZZ_AMMO_762x39_Army	7,62╤Е39╨╝╨╝, ╨Я╨б	762x39PS.png	OK
+- JAZZ_AMMO_762x39_Crafted	7,62╤Е39╨╝╨╝, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	762x39Crafted.png	OK
+- JAZZ_AMMO_762x39_FMJ	7,62╤Е39╨╝╨╝, Norinco FMJ	762x39CHN.png	OK
+- JAZZ_AMMO_762x39_JHP	7,62╤Е39╨╝╨╝, ╨Я╨б	762x39JHP.png	OK
+- JAZZ_AMMO_762x39_Poor	7,62╤Е39╨╝╨╝, Norinco Lot 66-3 CN Substandard	762x39SUB.png	OK
+- JAZZ_AMMO_762x39_Tracer	7,62 ╨╝╨╝ ╨б╨б╨б╨а, ╨в╨а╨Р╨б	762x39T.png	OK
+- JAZZ_AMMO_762x39_US	7,62╤Е39╨╝╨╝, ╨г╨б	762x39SS.png	OK
+
+## JAZZ_Caliber_762x51
+- JAZZ_AMMO_762x51_AP	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M61	762NATOM61.png	OK
+- JAZZ_AMMO_762x51_Army	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M80	762NATOM80.png	OK
+- JAZZ_AMMO_762x51_Crafted	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, FMJ	762NATOCrafted.png	OK
+- JAZZ_AMMO_762x51_FMJ	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, FMJ	762NATO.png	OK
+- JAZZ_AMMO_762x51_Match	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M118LR	762NATOM118.png	OK
+- JAZZ_AMMO_762x51_Poor	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, FMJ Substandard	762NATOSub.png	OK
+- JAZZ_AMMO_762x51_Tracer	7.62╤Е51╨╝╨╝ ╨Э╨Р╨в╨Ю, M62	762NATOM62.png	OK
+
+## JAZZ_Caliber_762x54R
+- JAZZ_AMMO_762x54_APIT	7,62x54R ╨╝╨╝ ╨С╨Ч╨в (API-T)	762x54RBZT.png	OK
+- JAZZ_AMMO_762x54_Crafted	7,62x54R ╨╝╨╝ ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	762x54RCrafted.png	OK
+- JAZZ_AMMO_762x54_FMJ	7,62x54R ╨╝╨╝ ╨Ы╨Я╨б (FMJ)	762x54RLPS.png	OK
+- JAZZ_AMMO_762x54_Match	7,62x54R ╨╝╨╝ ╨б╨Э╨С (AP / match)	762x54RSNB.png	OK
+- JAZZ_AMMO_762x54_Poor	7,62x54R ╨╝╨╝ 188-57 CN Type 53 Substandard	762x54RPoor.png	OK
+- JAZZ_AMMO_762x54_Tracer	7,62x54R ╨╝╨╝ ╨в	762x54RTracer.png	OK
+
+## JAZZ_Caliber_792
+- JAZZ_AMMO_792_AP	7,92╤Е57 ╨╝╨╝, SmK (╨С╨С)	792x57AP.png	OK
+- JAZZ_AMMO_792_APIT	7,92╤Е57 ╨╝╨╝, SmK L'spur (API-T)	792x57API.png	OK
+- JAZZ_AMMO_792_FMJ	7,92╤Е57 ╨╝╨╝, s.S. Patrone (FMJ)	792x57.png	OK
+
+## JAZZ_Caliber_792x33
+- JAZZ_AMMO_792x33_AP	792x33╨╝╨╝ Pist. Patr. 43 m.E. (╨С╨С)	792x33AP.png	OK
+- JAZZ_AMMO_792x33_FMJ	792x33╨╝╨╝ Pist. Patr. 43 Ball	792x33.png	OK
+- JAZZ_AMMO_792x33_Tracer	792x33╨╝╨╝ L'spur ╨в╤А╨░╤Б╤Б╨╡╤А	792x33Tracer.png	OK
+
+## JAZZ_Caliber_9x18
+- JAZZ_AMMO_9x18_AP	9x18╨╝╨╝, ╨Я╨б╨в ╨С╨С	9x18AP.png	OK
+- JAZZ_AMMO_9x18_APP	9x18╨╝╨╝, 7╨╜25 ╨С╨С+	9x18APP.png	OK
+- JAZZ_AMMO_9x18_Crafted	9x18╨╝╨╝, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	9x18Crafted.png	OK
+- JAZZ_AMMO_9x18_FMJ	9x18╨╝╨╝, ╨Я╨б╨Ю FMJ	9x18.png	OK
+- JAZZ_AMMO_9x18_JHP	9x18╨╝╨╝, ╨б╨Я7 JHP+	9x18JHP.png	OK
+- JAZZ_AMMO_9x18_Poor	9x18╨╝╨╝, 57-╨Э-181╨б Substandard	9x18substandart.png	OK
+
+## JAZZ_Caliber_9x19
+- JAZZ_AMMO_9x19_AP	9╤Е19 ╨╝╨╝, 7╨╜21 ╨С╨С	919AP.png	OK
+- JAZZ_AMMO_9x19_APP	9╤Е19 ╨╝╨╝, 7╨╜31 ╨С╨С+	919APP.png	OK
+- JAZZ_AMMO_9x19_Crafted	9╤Е19 ╨╝╨╝, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╡	919Crafted.png	OK
+- JAZZ_AMMO_9x19_FMJ	9╤Е19 ╨╝╨╝, Luger FMJ	919FMJ.png	OK
+- JAZZ_AMMO_9x19_JHP	9╤Е19 ╨╝╨╝, Luger JHP	919JHP.png	OK
+- JAZZ_AMMO_9x19_Match	9╤Е19 ╨╝╨╝, Match 124gr OTM	919McH.png	OK
+- JAZZ_AMMO_9x19_Poor	9╤Е19 ╨╝╨╝, 9mm Ball Substandard	919Substandart.png	OK
+
+## JAZZ_Caliber_9x39
+- JAZZ_AMMO_9x39_AP	9x39 ╨╝╨╝, ╨б╨Я-6 (╨▒╤А╨╛╨╜╨╡╨▒╨╛╨╣╨╜╤Л╨╣)	939SP6.png	OK
+- JAZZ_AMMO_9x39_Crafted	9x39 ╨╝╨╝, ╨Ъ╤Г╤Б╤В╨░╤А╨╜╤Л╨╣	939Crafted.png	OK
+- JAZZ_AMMO_9x39_JHP	9x39 ╨╝╨╝, ╨б╨Я-5 (╤Н╨║╤Б╨┐╨░╨╜╤Б╨╕╨▓╨╜╤Л╨╣)	939SP5.png	OK

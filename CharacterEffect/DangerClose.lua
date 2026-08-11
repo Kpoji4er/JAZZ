@@ -6,6 +6,19 @@ DefineClass.DangerClose = {
 
 	object_class = "Perk",
 	Parameters = {
+		-- Vanilla explosive path (Bombard/IModeCombatAreaAim): MUST keep rangeThreshold/damageMod
+		-- or ResolveValue(nil)*SlabSizeX crashes grenade aim for Larry.
+		PlaceObj('PresetParamNumber', {
+			'Name', "rangeThreshold",
+			'Value', 5,
+			'Tag', "<rangeThreshold>",
+		}),
+		PlaceObj('PresetParamPercent', {
+			'Name', "damageMod",
+			'Value', 40,
+			'Tag', "<damageMod>%",
+		}),
+		-- List2 firearm: ≥minRange tiles +damageBonus% and bleed stacks (Code Jazz_DangerCloseOnAttack).
 		PlaceObj('PresetParamNumber', {
 			'Name', "minRange",
 			'Value', 8,
@@ -40,7 +53,7 @@ DefineClass.DangerClose = {
 		}),
 	},
 	DisplayName = T(890000000009889, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная близость"),
-	Description = T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "По целям ≥8 клеток: +40% урона и +2 Bleeding (без штрафа стимов — soft)."),
+	Description = T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "Взрывы по целям ≤5 клеток: +40% урона. Стрельба по целям ≥8 клеток: +40% урона и +2 Bleeding."),
 	Icon = "UI/Icons/Perks/DangerClose",
 	Tier = "Personal",
 }

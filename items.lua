@@ -73583,6 +73583,16 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "Perk",
 					'Parameters', {
 						PlaceObj('PresetParamNumber', {
+							'Name', "rangeThreshold",
+							'Value', 5,
+							'Tag', "<rangeThreshold>",
+						}),
+						PlaceObj('PresetParamPercent', {
+							'Name', "damageMod",
+							'Value', 40,
+							'Tag', "<damageMod>%",
+						}),
+						PlaceObj('PresetParamNumber', {
 							'Name', "minRange",
 							'Value', 8,
 							'Tag', "<minRange>",
@@ -73616,7 +73626,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(890000000009889, --[[ModItemCharacterEffectCompositeDef DangerClose DisplayName]] "Опасная близость"),
-					'Description', T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "По целям ≥8 клеток: +40% урона и +2 Bleeding (без штрафа стимов — soft)."),
+					'Description', T(890000000009890, --[[ModItemCharacterEffectCompositeDef DangerClose Description]] "Взрывы по целям ≤5 клеток: +40% урона. Стрельба по целям ≥8 клеток: +40% урона и +2 Bleeding."),
 					'Icon', "UI/Icons/Perks/DangerClose",
 					'Tier', "Personal",
 				}),
@@ -74177,9 +74187,15 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 									or IsKindOf(weapon, "Grenade")
 									or IsKindOf(weapon, "Ordnance")
 									or (weapon and weapon.class and string.find(weapon.class, "Grenade", 1, true))
-								if is_blast then
-									data.damage_percent = MulDivRound(data.damage_percent or 100, 50, 100)
+								if not is_blast then
+									return
 								end
+								-- Apply once; avoid re-entry / stacking with a second damage_percent pass to ~-90%.
+								if data.jazz_haveablast_dr then
+									return
+								end
+								data.jazz_haveablast_dr = true
+								data.damage_percent = MulDivRound(data.damage_percent or 100, 50, 100)
 							end,
 						}),
 					},

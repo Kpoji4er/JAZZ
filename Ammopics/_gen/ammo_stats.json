@@ -1,0 +1,5126 @@
+[
+  {
+    "id": "JAZZ_AMMO_12gauge_APSlug",
+    "name": "12-й калибр, ББ Пуля",
+    "caliber": "12gauge",
+    "colorStyle": "AmmoAPColor",
+    "cost": 1800,
+    "tier": 4,
+    "rw": 14,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 20,
+    "icon": "12gAPSLUG.png",
+    "effects": [],
+    "pen": "1.5",
+    "penClassAdd": 2,
+    "dmg": "+38",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": "50%",
+    "reliability": null,
+    "jamPct": 2.0,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": 15,
+    "bulletDrop": 9,
+    "buckshot": null,
+    "overwatch": "50%",
+    "mods_raw": {
+      "OverwatchAngle": {
+        "mod_mul": 500
+      },
+      "WeaponRange": {
+        "mod_add": 15
+      },
+      "Damage": {
+        "mod_add": 38
+      },
+      "ObjDamageMod": {
+        "mod_mul": 500
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 9
+      },
+      "PenetrationClass": {
+        "mod_add": 2
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_12gauge_Birdshot",
+    "name": "12-й калибр, дробь",
+    "caliber": "12gauge",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 120,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 20,
+    "icon": "12gBIRDSHOT.png",
+    "effects": [
+      "BleedingChance"
+    ],
+    "pen": "0.5",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "125%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 3,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": "2000%",
+    "overwatch": null,
+    "mods_raw": {
+      "BuckshotProjectiles": {
+        "mod_mul": 20000
+      },
+      "Grouping": {
+        "mod_mul": 1250
+      },
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -5
+      },
+      "CritChance": {
+        "mod_add": 3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_12gauge_Buckshot",
+    "name": "12-й калибр, Картечь",
+    "caliber": "12gauge",
+    "colorStyle": "AmmoArmyColor",
+    "cost": 400,
+    "tier": 2,
+    "rw": 85,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 20,
+    "icon": "12gBUCKSHOT.png",
+    "effects": [],
+    "pen": "1.2",
+    "penClassAdd": null,
+    "dmg": "400%",
+    "grouping": "112%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 6,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": "900%",
+    "overwatch": null,
+    "mods_raw": {
+      "BuckshotProjectiles": {
+        "mod_mul": 9000
+      },
+      "Damage": {
+        "mod_mul": 4000
+      },
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "Grouping": {
+        "mod_mul": 1120
+      },
+      "CritChance": {
+        "mod_add": 6
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_12gauge_Saltshot",
+    "name": "12-й калибр, соль",
+    "caliber": "12gauge",
+    "colorStyle": "AmmoHPColor",
+    "cost": 70,
+    "tier": 1,
+    "rw": 80,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 20,
+    "icon": "12gSALT.png",
+    "effects": [
+      "HeadshotTorsoshotArmsshotLegsshot"
+    ],
+    "pen": "0.1",
+    "penClassAdd": null,
+    "dmg": "20%",
+    "grouping": "130%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -2,
+    "buckshot": "2000%",
+    "overwatch": "170%",
+    "mods_raw": {
+      "Damage": {
+        "mod_mul": 200
+      },
+      "WeaponRange": {
+        "mod_mul": 700
+      },
+      "OverwatchAngle": {
+        "mod_mul": 1700
+      },
+      "BuckshotProjectiles": {
+        "mod_mul": 20000
+      },
+      "Grouping": {
+        "mod_mul": 1300
+      },
+      "BulletDropRange": {
+        "mod_add": -2
+      },
+      "PenetrationClass": {
+        "mod_mul": 0
+      },
+      "PenetrationBonus": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_12gauge_Slug",
+    "name": "12-й калибр, Пуля",
+    "caliber": "12gauge",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 600,
+    "tier": 3,
+    "rw": 40,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 20,
+    "icon": "12gSLUG.png",
+    "effects": [],
+    "pen": "1.5",
+    "penClassAdd": null,
+    "dmg": "+40",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": "50%",
+    "reliability": null,
+    "jamPct": 12.0,
+    "crit": 25,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": 15,
+    "bulletDrop": 8,
+    "buckshot": null,
+    "overwatch": "50%",
+    "mods_raw": {
+      "OverwatchAngle": {
+        "mod_mul": 500
+      },
+      "WeaponRange": {
+        "mod_add": 15
+      },
+      "Damage": {
+        "mod_add": 40
+      },
+      "ObjDamageMod": {
+        "mod_mul": 500
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BulletDropRange": {
+        "mod_add": 8
+      },
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "CritChance": {
+        "mod_add": 25
+      },
+      "BaseJamChance": {
+        "mod_add": 120
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_3006_AP",
+    "name": "Патрон 30-06 M2 AP",
+    "caliber": "3006",
+    "colorStyle": "AmmoAPColor",
+    "cost": 1350,
+    "tier": 5,
+    "rw": 10,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "3006AP.png",
+    "effects": [],
+    "pen": "3.3",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": null,
+    "recoil": 5,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 5
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_3006_FMJ",
+    "name": "Патрон 30-06",
+    "caliber": "3006",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 250,
+    "tier": 2,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "3006.png",
+    "effects": [],
+    "pen": "2.4",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 4
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_3006_Match",
+    "name": "Патрон 30-06 M25 Match",
+    "caliber": "3006",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 840,
+    "tier": 4,
+    "rw": 18,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "3006Match.png",
+    "effects": [],
+    "pen": "2.6",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": "120%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": 3,
+    "jamPct": null,
+    "crit": 8,
+    "recoil": 3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "Reliability": {
+        "mod_add": 3
+      },
+      "Grouping": {
+        "mod_mul": 1200
+      },
+      "BulletDropRange": {
+        "mod_add": 3
+      },
+      "Recoil": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 8
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_30_FMJ",
+    "name": ".30 Cal M1 Ball",
+    "caliber": "30CAL",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 1200,
+    "tier": 2,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 120,
+    "icon": "30cal.png",
+    "effects": [],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_mul": 0,
+        "mod_add": 6
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_30_P",
+    "name": ".30 Cal M18 +P",
+    "caliber": "30CAL",
+    "colorStyle": "AmmoHPColor",
+    "cost": 1300,
+    "tier": 2,
+    "rw": 80,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 120,
+    "icon": "30calHP.png",
+    "effects": [],
+    "pen": "2.1",
+    "penClassAdd": null,
+    "dmg": "70%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 3.0,
+    "crit": null,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 1
+      },
+      "Damage": {
+        "mod_mul": 700
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 2
+      },
+      "Recoil": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_30_Tracer",
+    "name": ".30 Cal M27 Трассер",
+    "caliber": "30CAL",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 2100,
+    "tier": 3,
+    "rw": 45,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 120,
+    "icon": "30calTracer.png",
+    "effects": [
+      "ExposedMarkedTraccers"
+    ],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -2,
+    "jamPct": 2.0,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Reliability": {
+        "mod_add": -2
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_357_FMJ",
+    "name": ".357 Mag FMJ",
+    "caliber": "357",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 270,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 120,
+    "icon": "357.png",
+    "effects": [],
+    "pen": "1.3",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 8,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 8
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_357_JHP",
+    "name": ".357 Mag JHP",
+    "caliber": "357",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 324,
+    "tier": 2,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 120,
+    "icon": "357JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "0.8",
+    "penClassAdd": null,
+    "dmg": "130%",
+    "grouping": "96%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -8,
+    "jamPct": 9.0,
+    "crit": 25,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -2
+      },
+      "Damage": {
+        "mod_mul": 1300
+      },
+      "Reliability": {
+        "mod_add": -8
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 25
+      },
+      "Grouping": {
+        "mod_mul": 960
+      },
+      "BaseJamChance": {
+        "mod_add": 90
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_38special_FMJ",
+    "name": ".38 Special FMJ",
+    "caliber": "38",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 400,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "38Sp.png",
+    "effects": [],
+    "pen": "0.9",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_38special_JHP",
+    "name": ".38 Special JHP",
+    "caliber": "38",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 500,
+    "tier": 1,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "38Sp.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "0.7",
+    "penClassAdd": null,
+    "dmg": "120%",
+    "grouping": "97%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -7,
+    "jamPct": 7.0,
+    "crit": 18,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 1200
+      },
+      "Reliability": {
+        "mod_add": -7
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 18
+      },
+      "Grouping": {
+        "mod_mul": 970
+      },
+      "BaseJamChance": {
+        "mod_add": 70
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_40mmFlashbangGrenade",
+    "name": "40-мм с/ш граната",
+    "caliber": "40mmGrenade",
+    "colorStyle": "",
+    "cost": 1800,
+    "tier": 2,
+    "rw": 30,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": null,
+    "maxStacks": 6,
+    "icon": "40mm_flashbang_grenade",
+    "effects": [
+      "IncreaseTirednessSuppressed"
+    ],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {}
+  },
+  {
+    "id": "JAZZ_AMMO_40mmFragGrenade",
+    "name": "40-мм о/ф граната",
+    "caliber": "40mmGrenade",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 2400,
+    "tier": 2,
+    "rw": 35,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": null,
+    "maxStacks": 6,
+    "icon": "40mm_frag_grenade",
+    "effects": [
+      "Exposed"
+    ],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {}
+  },
+  {
+    "id": "JAZZ_AMMO_44CAL_FMJ",
+    "name": ".44, FMJ",
+    "caliber": "44CAL",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 300,
+    "tier": 3,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 80,
+    "icon": "44FMJ.png",
+    "effects": [],
+    "pen": "1.5",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 10,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "CritChance": {
+        "mod_add": 10
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_44CAL_JHP",
+    "name": ".44, JHP",
+    "caliber": "44CAL",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 400,
+    "tier": 3,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 80,
+    "icon": "44JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "0.9",
+    "penClassAdd": null,
+    "dmg": "140%",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -10,
+    "jamPct": 12.0,
+    "crit": 30,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -1
+      },
+      "Damage": {
+        "mod_mul": 1400
+      },
+      "Reliability": {
+        "mod_add": -10
+      },
+      "BulletDropRange": {
+        "mod_add": -2
+      },
+      "CritChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BaseJamChance": {
+        "mod_add": 120
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_44CAL_Match",
+    "name": ".44, Match",
+    "caliber": "44CAL",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 1100,
+    "tier": 3,
+    "rw": 18,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": 80,
+    "icon": "44MATCH.png",
+    "effects": [],
+    "pen": "1.3",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "120%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": 3,
+    "jamPct": null,
+    "crit": 15,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 4,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": 3
+      },
+      "Grouping": {
+        "mod_mul": 1200
+      },
+      "BulletDropRange": {
+        "mod_add": 4
+      },
+      "CritChance": {
+        "mod_add": 15
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_45ACP_Crafted",
+    "name": ".45ACP, Кустарный",
+    "caliber": "45ACP",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 60,
+    "tier": null,
+    "rw": null,
+    "maxStock": 50,
+    "shop": false,
+    "shopStack": 50,
+    "maxStacks": 80,
+    "icon": "45ACPCrafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.2",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 20,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_45ACP_FMJ",
+    "name": ".45ACP, FMJ",
+    "caliber": "45ACP",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 450,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 80,
+    "icon": "45ACP.png",
+    "effects": [],
+    "pen": "0.9",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 10,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 10
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_45ACP_JHP",
+    "name": ".45ACP, JHP",
+    "caliber": "45ACP",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 650,
+    "tier": 2,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 80,
+    "icon": "45ACPHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "0.7",
+    "penClassAdd": null,
+    "dmg": "130%",
+    "grouping": "97%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -8,
+    "jamPct": null,
+    "crit": 30,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 1300
+      },
+      "Reliability": {
+        "mod_add": -8
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 970
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_45ACP_P",
+    "name": ".45ACP, +P",
+    "caliber": "45ACP",
+    "colorStyle": "AmmoHPColor",
+    "cost": 540,
+    "tier": 1,
+    "rw": 80,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 80,
+    "icon": "45ACPP.png",
+    "effects": [],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": "120%",
+    "grouping": "96%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -6,
+    "jamPct": 6.0,
+    "crit": 18,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Damage": {
+        "mod_mul": 1200
+      },
+      "Reliability": {
+        "mod_add": -6
+      },
+      "BaseJamChance": {
+        "mod_add": 60
+      },
+      "Grouping": {
+        "mod_mul": 960
+      },
+      "BulletDropRange": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 18
+      },
+      "Recoil": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_45ACP_Poor",
+    "name": ".45ACP, M1911 Substandard",
+    "caliber": "45ACP",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 180,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 80,
+    "icon": "45ACPsub.png",
+    "effects": [],
+    "pen": "0.6",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "90%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -10,
+    "jamPct": 10.0,
+    "crit": 5,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -4
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -10
+      },
+      "BaseJamChance": {
+        "mod_add": 100
+      },
+      "Grouping": {
+        "mod_mul": 900
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_46_AP",
+    "name": "4,6 мм, DM11 ББ",
+    "caliber": "46",
+    "colorStyle": "AmmoAPColor",
+    "cost": 4100,
+    "tier": 5,
+    "rw": 10,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 60,
+    "icon": "46AP.png",
+    "effects": [],
+    "pen": "2.8",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 6,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 8
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 6
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_46_FMJ",
+    "name": "4,6 мм, FMJ",
+    "caliber": "46",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 750,
+    "tier": 3,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 60,
+    "icon": "46.png",
+    "effects": [],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 3,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "CritChance": {
+        "mod_add": 3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_46_JHP",
+    "name": "4,6 мм, V-Max JHP",
+    "caliber": "46",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 900,
+    "tier": 3,
+    "rw": 15,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 60,
+    "icon": "46JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.9",
+    "penClassAdd": null,
+    "dmg": "130%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 16,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 9
+      },
+      "Damage": {
+        "mod_mul": 1300
+      },
+      "CritChance": {
+        "mod_add": 16
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_50AE_FMJ",
+    "name": ".50AE FMJ",
+    "caliber": "50AE",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 450,
+    "tier": 4,
+    "rw": 25,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": null,
+    "icon": "50AE.png",
+    "effects": [],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 12,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "CritChance": {
+        "mod_add": 12
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_50AE_JHP",
+    "name": ".50AE JHP",
+    "caliber": "50AE",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 550,
+    "tier": 4,
+    "rw": 25,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 25,
+    "maxStacks": null,
+    "icon": "50AEJHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.2",
+    "penClassAdd": null,
+    "dmg": "130%",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -10,
+    "jamPct": 12.0,
+    "crit": 30,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "Damage": {
+        "mod_mul": 1300
+      },
+      "Reliability": {
+        "mod_add": -10
+      },
+      "BulletDropRange": {
+        "mod_add": -2
+      },
+      "CritChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BaseJamChance": {
+        "mod_add": 120
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_50BMG_APIT",
+    "name": ".50, ЗЖ",
+    "caliber": "50BMG",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 22000,
+    "tier": 5,
+    "rw": 1,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 5,
+    "maxStacks": null,
+    "icon": "50bmg_incendiary",
+    "effects": [
+      "ExposedBurning"
+    ],
+    "pen": "4.0",
+    "penClassAdd": null,
+    "dmg": "130%",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 20.0,
+    "crit": 30,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 6,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 4000
+      },
+      "PenetrationBonus": {},
+      "Reliability": {
+        "mod_add": -5
+      },
+      "Damage": {
+        "mod_mul": 1300
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BaseJamChance": {
+        "mod_add": 200
+      },
+      "Recoil": {
+        "mod_add": 2
+      },
+      "BulletDropRange": {
+        "mod_add": 6
+      },
+      "CritChance": {
+        "mod_add": 30
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_50BMG_API_HEI",
+    "name": ".50, РАЗР",
+    "caliber": "50BMG",
+    "colorStyle": "AmmoHPColor",
+    "cost": 9000,
+    "tier": 4,
+    "rw": 3,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 5,
+    "maxStacks": null,
+    "icon": "50bmg_he",
+    "effects": [
+      "Exposed"
+    ],
+    "pen": "3.8",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 2.0,
+    "crit": 10,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 4,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": 8
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 2
+      },
+      "BulletDropRange": {
+        "mod_add": 4
+      },
+      "CritChance": {
+        "mod_add": 10
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_50BMG_Basic",
+    "name": ".50, обычный",
+    "caliber": "50BMG",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 4500,
+    "tier": 3,
+    "rw": 12,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 5,
+    "maxStacks": null,
+    "icon": "50bmg_basic",
+    "effects": [],
+    "pen": "3.5",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_545_AP",
+    "name": "5,45 мм, БП Бронебойный",
+    "caliber": "545",
+    "colorStyle": "AmmoAPColor",
+    "cost": 4500,
+    "tier": 5,
+    "rw": 8,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "545AP.png",
+    "effects": [],
+    "pen": "3.0",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 0.4,
+    "crit": 8,
+    "recoil": 3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 0
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 4
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 2
+      },
+      "CritChance": {
+        "mod_add": 8
+      },
+      "Recoil": {
+        "mod_add": 3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_545_Army",
+    "name": "5,45 мм, ПС Армейский",
+    "caliber": "545",
+    "colorStyle": "AmmoArmyColor",
+    "cost": 2300,
+    "tier": 3,
+    "rw": 50,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "545.png",
+    "effects": [
+      "BleedingChance"
+    ],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 20,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {},
+      "CritChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_545_Crafted",
+    "name": "5,45 мм, Кустарный",
+    "caliber": "545",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 90,
+    "tier": null,
+    "rw": null,
+    "maxStock": null,
+    "shop": false,
+    "shopStack": 30,
+    "maxStacks": 90,
+    "icon": "545Crafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.8",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 25,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": -2
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 25
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_545_EPR",
+    "name": "5,45 мм, ПП Повышенной Пробиваемости",
+    "caliber": "545",
+    "colorStyle": "AmmoHPColor",
+    "cost": 4000,
+    "tier": 4,
+    "rw": 22,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "545EPR.png",
+    "effects": [
+      "BleedingChance"
+    ],
+    "pen": "2.5",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 10,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "CritChance": {
+        "mod_add": 10
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_545_Poor",
+    "name": "5,45 мм, Барнаул SP Substandard",
+    "caliber": "545",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 400,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "545SP.png",
+    "effects": [
+      "BleedingChance"
+    ],
+    "pen": "1.4",
+    "penClassAdd": null,
+    "dmg": "120%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 7.0,
+    "crit": 20,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 4
+      },
+      "Damage": {
+        "mod_mul": 1200
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "BaseJamChance": {
+        "mod_add": 70
+      },
+      "BulletDropRange": {
+        "mod_add": -2
+      },
+      "CritChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_545_Tracer",
+    "name": "5,45 мм, 7Т3 Трассер",
+    "caliber": "545",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 2000,
+    "tier": 3,
+    "rw": 45,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "545T.png",
+    "effects": [
+      "ExposedBleedingChanceMarkedTraccers"
+    ],
+    "pen": "1.8",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "96%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": -2
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 960
+      },
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_AP",
+    "name": "5,56 мм, M995 Бронебойный",
+    "caliber": "556",
+    "colorStyle": "AmmoAPColor",
+    "cost": 4800,
+    "tier": 5,
+    "rw": 8,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556AP.png",
+    "effects": [],
+    "pen": "3.0",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "96%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": 1,
+    "recoil": 3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 6000
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 960
+      },
+      "BulletDropRange": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_Army",
+    "name": "5,56 мм, M855 Армейский",
+    "caliber": "556",
+    "colorStyle": "AmmoArmyColor",
+    "cost": 2400,
+    "tier": 3,
+    "rw": 50,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556M855.png",
+    "effects": [],
+    "pen": "2.4",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "97%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": 2,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 4
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 970
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 2
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_Crafted",
+    "name": "5,56мм, Кустарный",
+    "caliber": "556",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 60,
+    "tier": 2,
+    "rw": 50,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 30,
+    "maxStacks": 90,
+    "icon": "556Crafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 20,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_EPR",
+    "name": "5,56 мм, M855A1 Повышенной Пробиваемости",
+    "caliber": "556",
+    "colorStyle": "AmmoHPColor",
+    "cost": 4200,
+    "tier": 4,
+    "rw": 22,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556HP.png",
+    "effects": [],
+    "pen": "2.5",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "99%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -2,
+    "jamPct": 3.0,
+    "crit": 6,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -2
+      },
+      "BaseJamChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 990
+      },
+      "BulletDropRange": {
+        "mod_add": 2
+      },
+      "CritChance": {
+        "mod_add": 6
+      },
+      "Recoil": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_FMJ",
+    "name": "5,56мм, FMJ",
+    "caliber": "556",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 1200,
+    "tier": 2,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556.png",
+    "effects": [],
+    "pen": "2.2",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_Match",
+    "name": "5,56 мм, Mk262",
+    "caliber": "556",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 2800,
+    "tier": 4,
+    "rw": 18,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556Match.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "118%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": 10,
+    "jamPct": null,
+    "crit": 18,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Damage": {},
+      "Reliability": {
+        "mod_add": 10
+      },
+      "Grouping": {
+        "mod_mul": 1180
+      },
+      "BulletDropRange": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 18
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_Poor",
+    "name": "5,56мм, .223 Rem Commercial Substandard",
+    "caliber": "556",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 400,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556Sub.png",
+    "effects": [],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": 7.0,
+    "crit": 5,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "BaseJamChance": {
+        "mod_add": 70
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_556_Tracer",
+    "name": "5,56 мм, M856 Трассер",
+    "caliber": "556",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 1800,
+    "tier": 3,
+    "rw": 45,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 120,
+    "maxStacks": 90,
+    "icon": "556T.png",
+    "effects": [
+      "ExposedMarkedTraccers"
+    ],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -2,
+    "jamPct": 2.0,
+    "crit": 2,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -2
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_57_AP",
+    "name": "5,7 мм, S109 ББ",
+    "caliber": "57",
+    "colorStyle": "AmmoAPColor",
+    "cost": 4300,
+    "tier": 5,
+    "rw": 10,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 60,
+    "icon": "57AP.png",
+    "effects": [],
+    "pen": "2.5",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 2,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 2
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_57_JHP",
+    "name": "5,7 мм, SS197SR JHP",
+    "caliber": "57",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 1200,
+    "tier": 5,
+    "rw": 12,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 60,
+    "icon": "57JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": "130%",
+    "grouping": "99%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 15,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Damage": {
+        "mod_mul": 1300
+      },
+      "CritChance": {
+        "mod_add": 15
+      },
+      "Grouping": {
+        "mod_mul": 990
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_57_Subsonic",
+    "name": "5,7 мм, SB193 Дозвуковой",
+    "caliber": "57",
+    "colorStyle": "AmmoSubsonicColor",
+    "cost": 2200,
+    "tier": 5,
+    "rw": 12,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 60,
+    "icon": "57sb.png",
+    "effects": [],
+    "pen": "1.9",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": "-20",
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 4,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 9
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Noise": {
+        "mod_add": -20
+      },
+      "CritChance": {
+        "mod_add": 4
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_75French_AP",
+    "name": "7,5х54 мм, Balle P (AP)",
+    "caliber": "75French",
+    "colorStyle": "AmmoAPColor",
+    "cost": 850,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "75AP.png",
+    "effects": [],
+    "pen": "3.0",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": null,
+    "recoil": 5,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {},
+      "Reliability": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 5
+      },
+      "BulletDropRange": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_75French_FMJ",
+    "name": "7,5х54 мм, Balle C (FMJ)",
+    "caliber": "75French",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 200,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "75.png",
+    "effects": [],
+    "pen": "2.5",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x25_AP",
+    "name": "7.62x25, ПСТ (ББ)",
+    "caliber": "762x25",
+    "colorStyle": "AmmoAPColor",
+    "cost": 1600,
+    "tier": 1,
+    "rw": 10,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "762x25ap.png",
+    "effects": [],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": 4.0,
+    "crit": 5,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "BaseJamChance": {
+        "mod_add": 40
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x25_FMJ",
+    "name": "7.62x25, 57-Н-134С (FMJ)",
+    "caliber": "762x25",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 400,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "762x25.png",
+    "effects": [],
+    "pen": "1.2",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 6,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "CritChance": {
+        "mod_add": 6
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x25_JHP",
+    "name": "7.62x25, Wolf JHP",
+    "caliber": "762x25",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 450,
+    "tier": 1,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "762x25jhp.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": "120%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -8,
+    "jamPct": 10.0,
+    "crit": 20,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 1200
+      },
+      "Reliability": {
+        "mod_add": -8
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BaseJamChance": {
+        "mod_add": 100
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x25_Poor",
+    "name": "7.62x25, Lot 66-3 CN Substandard",
+    "caliber": "762x25",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 90,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "762x25Sub.png",
+    "effects": [],
+    "pen": "0.9",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": -10,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -1
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -10
+      },
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_APP",
+    "name": "7,62х39мм, БЗ",
+    "caliber": "762x39",
+    "colorStyle": "AmmoAPPColor",
+    "cost": 2200,
+    "tier": 5,
+    "rw": 12,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39API.png",
+    "effects": [
+      "Burning"
+    ],
+    "pen": "3.2",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 2.0,
+    "crit": 2,
+    "recoil": 3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 0,
+        "mod_add": 2
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 2
+      },
+      "Recoil": {
+        "mod_add": 3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_Army",
+    "name": "7,62х39мм, ПС",
+    "caliber": "762x39",
+    "colorStyle": "AmmoArmyColor",
+    "cost": 1900,
+    "tier": 3,
+    "rw": 50,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39PS.png",
+    "effects": [],
+    "pen": "2.3",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_Crafted",
+    "name": "7,62х39мм, Кустарный",
+    "caliber": "762x39",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 100,
+    "tier": null,
+    "rw": 150,
+    "maxStock": null,
+    "shop": false,
+    "shopStack": 30,
+    "maxStacks": 60,
+    "icon": "762x39Crafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 20,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_FMJ",
+    "name": "7,62х39мм, Norinco FMJ",
+    "caliber": "762x39",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 950,
+    "tier": 2,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39CHN.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.1",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_JHP",
+    "name": "7,62х39мм, ПС",
+    "caliber": "762x39",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 1150,
+    "tier": 2,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.5",
+    "penClassAdd": null,
+    "dmg": "120%",
+    "grouping": "97%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -8,
+    "jamPct": null,
+    "crit": 20,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "Damage": {
+        "mod_mul": 1200
+      },
+      "Reliability": {
+        "mod_add": -8
+      },
+      "BulletDropRange": {
+        "mod_add": -2
+      },
+      "CritChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 970
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_Poor",
+    "name": "7,62х39мм, Norinco Lot 66-3 CN Substandard",
+    "caliber": "762x39",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 270,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39SUB.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": 7.0,
+    "crit": 5,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "BaseJamChance": {
+        "mod_add": 70
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_Tracer",
+    "name": "7,62 мм СССР, ТРАС",
+    "caliber": "762x39",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 1650,
+    "tier": 3,
+    "rw": 45,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39T.png",
+    "effects": [
+      "ExposedMarkedTraccers"
+    ],
+    "pen": "2.1",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "99%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -2,
+    "jamPct": 3.0,
+    "crit": 6,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 1
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Reliability": {
+        "mod_add": -2
+      },
+      "BaseJamChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 990
+      },
+      "CritChance": {
+        "mod_add": 6
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x39_US",
+    "name": "7,62х39мм, УС",
+    "caliber": "762x39",
+    "colorStyle": "AmmoSubsonicColor",
+    "cost": 500,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "762x39SS.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.5",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "99%",
+    "noise": "-20",
+    "objDmg": null,
+    "reliability": -2,
+    "jamPct": 3.0,
+    "crit": 10,
+    "recoil": -3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 5
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "CritChance": {
+        "mod_add": 10
+      },
+      "Reliability": {
+        "mod_add": -2
+      },
+      "BaseJamChance": {
+        "mod_add": 30
+      },
+      "BulletDropRange": {
+        "mod_add": -3
+      },
+      "Grouping": {
+        "mod_mul": 990
+      },
+      "Recoil": {
+        "mod_add": -3
+      },
+      "Noise": {
+        "mod_add": -20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_AP",
+    "name": "7.62х51мм НАТО, M61",
+    "caliber": "762x51",
+    "colorStyle": "AmmoAPColor",
+    "cost": 3200,
+    "tier": 5,
+    "rw": 8,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762NATOM61.png",
+    "effects": [],
+    "pen": "3.2",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": null,
+    "recoil": 5,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 0,
+        "mod_add": 2
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 3
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_Army",
+    "name": "7.62х51мм НАТО, M80",
+    "caliber": "762x51",
+    "colorStyle": "AmmoArmyColor",
+    "cost": 500,
+    "tier": 3,
+    "rw": 50,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762NATOM80.png",
+    "effects": [],
+    "pen": "2.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": 2.0,
+    "crit": 5,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_Crafted",
+    "name": "7.62х51мм НАТО, FMJ",
+    "caliber": "762x51",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 80,
+    "tier": 2,
+    "rw": 150,
+    "maxStock": 50,
+    "shop": false,
+    "shopStack": 30,
+    "maxStacks": 40,
+    "icon": "762NATOCrafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 15,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 4000
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 15
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_FMJ",
+    "name": "7.62х51мм НАТО, FMJ",
+    "caliber": "762x51",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 250,
+    "tier": 2,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762NATO.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.2",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_Match",
+    "name": "7.62х51мм НАТО, M118LR",
+    "caliber": "762x51",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 2800,
+    "tier": 4,
+    "rw": 6,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762NATOM118.png",
+    "effects": [],
+    "pen": "2.9",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": "120%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": 3,
+    "jamPct": null,
+    "crit": 10,
+    "recoil": 3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 6,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": -1
+      },
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "Reliability": {
+        "mod_add": 3
+      },
+      "Grouping": {
+        "mod_mul": 1200
+      },
+      "BulletDropRange": {
+        "mod_add": 6
+      },
+      "Recoil": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 10
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_Poor",
+    "name": "7.62х51мм НАТО, FMJ Substandard",
+    "caliber": "762x51",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 80,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762NATOSub.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": 7.0,
+    "crit": null,
+    "recoil": -3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "BaseJamChance": {
+        "mod_add": 70
+      },
+      "BulletDropRange": {
+        "mod_add": -3
+      },
+      "Recoil": {
+        "mod_add": -3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x51_Tracer",
+    "name": "7.62х51мм НАТО, M62",
+    "caliber": "762x51",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 450,
+    "tier": 3,
+    "rw": 45,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762NATOM62.png",
+    "effects": [
+      "ExposedMarkedTraccers"
+    ],
+    "pen": "2.4",
+    "penClassAdd": null,
+    "dmg": "95%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 4
+      },
+      "Damage": {
+        "mod_mul": 950
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x54_APIT",
+    "name": "7,62x54R мм БЗТ (API-T)",
+    "caliber": "762x54R",
+    "colorStyle": "AmmoAPPColor",
+    "cost": 2800,
+    "tier": 5,
+    "rw": 4,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762x54RBZT.png",
+    "effects": [
+      "BurningBleedingExposedMarkedTraccers"
+    ],
+    "pen": "3.5",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 20.0,
+    "crit": 10,
+    "recoil": 5,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 0,
+        "mod_add": 5
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "BaseJamChance": {
+        "mod_add": 200
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 10
+      },
+      "Recoil": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x54_Crafted",
+    "name": "7,62x54R мм Кустарный",
+    "caliber": "762x54R",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 60,
+    "tier": 2,
+    "rw": null,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 30,
+    "maxStacks": 40,
+    "icon": "762x54RCrafted.png",
+    "effects": [],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 15,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 15
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x54_FMJ",
+    "name": "7,62x54R мм ЛПС (FMJ)",
+    "caliber": "762x54R",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 200,
+    "tier": 2,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762x54RLPS.png",
+    "effects": [],
+    "pen": "2.4",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 4
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x54_Match",
+    "name": "7,62x54R мм СНБ (AP / match)",
+    "caliber": "762x54R",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 2400,
+    "tier": 4,
+    "rw": 18,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762x54RSNB.png",
+    "effects": [],
+    "pen": "3.2",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "120%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": null,
+    "crit": 6,
+    "recoil": 3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 5,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "Grouping": {
+        "mod_mul": 1200
+      },
+      "BulletDropRange": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": 3
+      },
+      "CritChance": {
+        "mod_add": 6
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x54_Poor",
+    "name": "7,62x54R мм 188-57 CN Type 53 Substandard",
+    "caliber": "762x54R",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 70,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762x54RPoor.png",
+    "effects": [],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": 7.0,
+    "crit": null,
+    "recoil": -3,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -3,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "BaseJamChance": {
+        "mod_add": 70
+      },
+      "BulletDropRange": {
+        "mod_add": -3
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "Recoil": {
+        "mod_add": -3
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_762x54_Tracer",
+    "name": "7,62x54R мм Т",
+    "caliber": "762x54R",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 350,
+    "tier": 3,
+    "rw": 45,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "762x54RTracer.png",
+    "effects": [
+      "ExposedMarkedTraccers"
+    ],
+    "pen": "2.2",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_792_AP",
+    "name": "7,92х57 мм, SmK (ББ)",
+    "caliber": "792",
+    "colorStyle": "AmmoAPColor",
+    "cost": 850,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "792x57AP.png",
+    "effects": [],
+    "pen": "3.3",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": null,
+    "recoil": 5,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 5
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_792_APIT",
+    "name": "7,92х57 мм, SmK L'spur (API-T)",
+    "caliber": "792",
+    "colorStyle": "AmmoAPPColor",
+    "cost": 1100,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "792x57API.png",
+    "effects": [],
+    "pen": "3.4",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 2.0,
+    "crit": 10,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 8,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_add": 4
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 2
+      },
+      "BulletDropRange": {
+        "mod_add": 8
+      },
+      "CritChance": {
+        "mod_add": 10
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_792_FMJ",
+    "name": "7,92х57 мм, s.S. Patrone (FMJ)",
+    "caliber": "792",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 200,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 5,
+    "shop": false,
+    "shopStack": 20,
+    "maxStacks": 40,
+    "icon": "792x57.png",
+    "effects": [],
+    "pen": "2.5",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_792x33_AP",
+    "name": "792x33мм Pist. Patr. 43 m.E. (ББ)",
+    "caliber": "792x33",
+    "colorStyle": "AmmoAPColor",
+    "cost": 4200,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 10,
+    "shop": false,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "792x33AP.png",
+    "effects": [],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "96%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 2.0,
+    "crit": 1,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      },
+      "Grouping": {
+        "mod_mul": 960
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_792x33_FMJ",
+    "name": "792x33мм Pist. Patr. 43 Ball",
+    "caliber": "792x33",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 1000,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 10,
+    "shop": false,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "792x33.png",
+    "effects": [],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_mul": 0,
+        "mod_add": 6
+      },
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_792x33_Tracer",
+    "name": "792x33мм L'spur Трассер",
+    "caliber": "792x33",
+    "colorStyle": "AmmoTracerColor",
+    "cost": 1600,
+    "tier": null,
+    "rw": 1,
+    "maxStock": 10,
+    "shop": false,
+    "shopStack": 100,
+    "maxStacks": 60,
+    "icon": "792x33Tracer.png",
+    "effects": [
+      "Exposed"
+    ],
+    "pen": "1.6",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -2,
+    "jamPct": 2.0,
+    "crit": 2,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 6
+      },
+      "Reliability": {
+        "mod_add": -2
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 2
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BaseJamChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x18_AP",
+    "name": "9x18мм, ПСТ ББ",
+    "caliber": "9x18",
+    "colorStyle": "AmmoAPColor",
+    "cost": 1950,
+    "tier": 3,
+    "rw": 10,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "9x18AP.png",
+    "effects": [],
+    "pen": "1.8",
+    "penClassAdd": null,
+    "dmg": "85%",
+    "grouping": "98%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -4,
+    "jamPct": 4.0,
+    "crit": 3,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 8
+      },
+      "Damage": {
+        "mod_mul": 850
+      },
+      "Reliability": {
+        "mod_add": -4
+      },
+      "BaseJamChance": {
+        "mod_add": 40
+      },
+      "Grouping": {
+        "mod_mul": 980
+      },
+      "BulletDropRange": {
+        "mod_add": 1
+      },
+      "CritChance": {
+        "mod_add": 3
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x18_APP",
+    "name": "9x18мм, 7н25 ББ+",
+    "caliber": "9x18",
+    "colorStyle": "AmmoAPPColor",
+    "cost": 1850,
+    "tier": 3,
+    "rw": 16,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "9x18APP.png",
+    "effects": [],
+    "pen": "2.2",
+    "penClassAdd": null,
+    "dmg": "85%",
+    "grouping": "95%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 4.0,
+    "crit": 1,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "Damage": {
+        "mod_mul": 850
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "BaseJamChance": {
+        "mod_add": 40
+      },
+      "Grouping": {
+        "mod_mul": 950
+      },
+      "BulletDropRange": {
+        "mod_add": 2
+      },
+      "CritChance": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x18_Crafted",
+    "name": "9x18мм, Кустарный",
+    "caliber": "9x18",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 30,
+    "tier": null,
+    "rw": null,
+    "maxStock": 50,
+    "shop": false,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "9x18Crafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.1",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 20,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 1
+      },
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 20
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x18_FMJ",
+    "name": "9x18мм, ПСО FMJ",
+    "caliber": "9x18",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 350,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "9x18.png",
+    "effects": [],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 10,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {},
+      "CritChance": {
+        "mod_add": 10
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x18_JHP",
+    "name": "9x18мм, СП7 JHP+",
+    "caliber": "9x18",
+    "colorStyle": "AmmoJHPPColor",
+    "cost": 600,
+    "tier": 2,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "9x18JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "0.7",
+    "penClassAdd": null,
+    "dmg": "140%",
+    "grouping": "97%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -10,
+    "jamPct": 12.0,
+    "crit": 40,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -3
+      },
+      "Damage": {
+        "mod_mul": 1400
+      },
+      "Reliability": {
+        "mod_add": -10
+      },
+      "BaseJamChance": {
+        "mod_add": 120
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 40
+      },
+      "Grouping": {
+        "mod_mul": 970
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x18_Poor",
+    "name": "9x18мм, 57-Н-181С Substandard",
+    "caliber": "9x18",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 120,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "9x18substandart.png",
+    "effects": [],
+    "pen": "0.6",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -4
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 5
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_AP",
+    "name": "9х19 мм, 7н21 ББ",
+    "caliber": "9x19",
+    "colorStyle": "AmmoAPColor",
+    "cost": 2300,
+    "tier": 3,
+    "rw": 10,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919AP.png",
+    "effects": [],
+    "pen": "2.0",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "97%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": 3.0,
+    "crit": 3,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "BaseJamChance": {
+        "mod_add": 30
+      },
+      "Grouping": {
+        "mod_mul": 970
+      },
+      "BulletDropRange": {
+        "mod_add": 2
+      },
+      "CritChance": {
+        "mod_add": 3
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_APP",
+    "name": "9х19 мм, 7н31 ББ+",
+    "caliber": "9x19",
+    "colorStyle": "AmmoAPPColor",
+    "cost": 2200,
+    "tier": 3,
+    "rw": 16,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919APP.png",
+    "effects": [],
+    "pen": "2.3",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": "96%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -5,
+    "jamPct": 4.0,
+    "crit": 1,
+    "recoil": 2,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 4,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -5
+      },
+      "BaseJamChance": {
+        "mod_add": 40
+      },
+      "Grouping": {
+        "mod_mul": 960
+      },
+      "BulletDropRange": {
+        "mod_add": 4
+      },
+      "CritChance": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 2
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_Crafted",
+    "name": "9х19 мм, Кустарные",
+    "caliber": "9x19",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 60,
+    "tier": null,
+    "rw": null,
+    "maxStock": 50,
+    "shop": false,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919Crafted.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "1.3",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 20,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": 3
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_FMJ",
+    "name": "9х19 мм, Luger FMJ",
+    "caliber": "9x19",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 500,
+    "tier": 1,
+    "rw": 100,
+    "maxStock": 8,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919FMJ.png",
+    "effects": [],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": 5,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {},
+      "CritChance": {
+        "mod_add": 5
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_JHP",
+    "name": "9х19 мм, Luger JHP",
+    "caliber": "9x19",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 600,
+    "tier": 2,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919JHP.png",
+    "effects": [
+      "Bleeding"
+    ],
+    "pen": "0.8",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": -6,
+    "jamPct": 6.0,
+    "crit": 25,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -2
+      },
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "Reliability": {
+        "mod_add": -6
+      },
+      "BaseJamChance": {
+        "mod_add": 60
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 25
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_Match",
+    "name": "9х19 мм, Match 124gr OTM",
+    "caliber": "9x19",
+    "colorStyle": "AmmoMatchColor",
+    "cost": 1900,
+    "tier": 3,
+    "rw": 18,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919McH.png",
+    "effects": [],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": "118%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": 15,
+    "jamPct": null,
+    "crit": 15,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": 4,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {},
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "Reliability": {
+        "mod_add": 15
+      },
+      "Grouping": {
+        "mod_mul": 1180
+      },
+      "BulletDropRange": {
+        "mod_add": 4
+      },
+      "CritChance": {
+        "mod_add": 15
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x19_Poor",
+    "name": "9х19 мм, 9mm Ball Substandard",
+    "caliber": "9x19",
+    "colorStyle": "AmmoSubstandardColor",
+    "cost": 150,
+    "tier": 1,
+    "rw": 90,
+    "maxStock": 3,
+    "shop": true,
+    "shopStack": 50,
+    "maxStacks": 120,
+    "icon": "919Substandart.png",
+    "effects": [],
+    "pen": "0.9",
+    "penClassAdd": null,
+    "dmg": "90%",
+    "grouping": "90%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -10,
+    "jamPct": 12.0,
+    "crit": 1,
+    "recoil": -1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -2,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {},
+      "PenetrationBonus": {
+        "mod_add": -1
+      },
+      "Damage": {
+        "mod_mul": 900
+      },
+      "Reliability": {
+        "mod_add": -10
+      },
+      "BaseJamChance": {
+        "mod_add": 120
+      },
+      "Grouping": {
+        "mod_mul": 900
+      },
+      "BulletDropRange": {
+        "mod_add": -2
+      },
+      "CritChance": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": -1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x39_AP",
+    "name": "9x39 мм, СП-6 (бронебойный)",
+    "caliber": "9x39",
+    "colorStyle": "AmmoAPColor",
+    "cost": 1600,
+    "tier": 5,
+    "rw": 8,
+    "maxStock": 2,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 60,
+    "icon": "939SP6.png",
+    "effects": [],
+    "pen": "3.0",
+    "penClassAdd": null,
+    "dmg": "80%",
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": -3,
+    "jamPct": null,
+    "crit": 1,
+    "recoil": 1,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 3000
+      },
+      "PenetrationBonus": {
+        "mod_mul": 0
+      },
+      "Damage": {
+        "mod_mul": 800
+      },
+      "Reliability": {
+        "mod_add": -3
+      },
+      "CritChance": {
+        "mod_add": 1
+      },
+      "Recoil": {
+        "mod_add": 1
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x39_Crafted",
+    "name": "9x39 мм, Кустарный",
+    "caliber": "9x39",
+    "colorStyle": "AmmoCraftedColor",
+    "cost": 80,
+    "tier": 3,
+    "rw": 10,
+    "maxStock": 99,
+    "shop": false,
+    "shopStack": 30,
+    "maxStacks": 60,
+    "icon": "939Crafted.png",
+    "effects": [],
+    "pen": "2.2",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": "85%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": -18,
+    "jamPct": 14.0,
+    "crit": 20,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": 2
+      },
+      "Reliability": {
+        "mod_add": -18
+      },
+      "BaseJamChance": {
+        "mod_add": 140
+      },
+      "Grouping": {
+        "mod_mul": 850
+      },
+      "CritChance": {
+        "mod_add": 20
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_9x39_JHP",
+    "name": "9x39 мм, СП-5 (экспансивный)",
+    "caliber": "9x39",
+    "colorStyle": "AmmoJHPColor",
+    "cost": 350,
+    "tier": 3,
+    "rw": 75,
+    "maxStock": 5,
+    "shop": true,
+    "shopStack": 20,
+    "maxStacks": 60,
+    "icon": "939SP5.png",
+    "effects": [],
+    "pen": "1.8",
+    "penClassAdd": null,
+    "dmg": "110%",
+    "grouping": "110%",
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": 10.0,
+    "crit": 15,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": -1,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {
+      "PenetrationClass": {
+        "mod_mul": 2000
+      },
+      "PenetrationBonus": {
+        "mod_add": -2
+      },
+      "Damage": {
+        "mod_mul": 1100
+      },
+      "BaseJamChance": {
+        "mod_add": 100
+      },
+      "BulletDropRange": {
+        "mod_add": -1
+      },
+      "CritChance": {
+        "mod_add": 15
+      },
+      "Grouping": {
+        "mod_mul": 1100
+      }
+    }
+  },
+  {
+    "id": "JAZZ_AMMO_MortarShell_Gas",
+    "name": "Газ. выстрел миномета",
+    "caliber": "MortarShell",
+    "colorStyle": "",
+    "cost": 350,
+    "tier": 3,
+    "rw": 25,
+    "maxStock": 10,
+    "shop": false,
+    "shopStack": null,
+    "maxStacks": 3,
+    "icon": "mortar_shell_gas",
+    "effects": [],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {}
+  },
+  {
+    "id": "JAZZ_AMMO_MortarShell_HE",
+    "name": "Выстрел для миномета",
+    "caliber": "MortarShell",
+    "colorStyle": "AmmoBasicColor",
+    "cost": 350,
+    "tier": 2,
+    "rw": 50,
+    "maxStock": 25,
+    "shop": false,
+    "shopStack": null,
+    "maxStacks": 3,
+    "icon": "mortar_shell_he",
+    "effects": [
+      "suppressionHeavy2"
+    ],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {}
+  },
+  {
+    "id": "JAZZ_AMMO_MortarShell_Smoke",
+    "name": "Дым. выстрел миномета",
+    "caliber": "MortarShell",
+    "colorStyle": "",
+    "cost": 350,
+    "tier": 2,
+    "rw": 25,
+    "maxStock": 10,
+    "shop": false,
+    "shopStack": null,
+    "maxStacks": 3,
+    "icon": "mortar_shell_smoke",
+    "effects": [],
+    "pen": "1.0",
+    "penClassAdd": null,
+    "dmg": null,
+    "grouping": null,
+    "noise": null,
+    "objDmg": null,
+    "reliability": null,
+    "jamPct": null,
+    "crit": null,
+    "recoil": null,
+    "aimAccuracy": null,
+    "weaponRange": null,
+    "bulletDrop": null,
+    "buckshot": null,
+    "overwatch": null,
+    "mods_raw": {}
+  }
+]

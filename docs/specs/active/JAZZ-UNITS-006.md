@@ -221,7 +221,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Grunty              | `GruntyPerk_JAZZ`       | T1 +50% AP + per-turn 10%×Morale                                                  | CHANGE  |
 | DrQ                 | `ExplodingPalm`         | Fist statuses by HP; sat trauma heal +30%; infection resist                       | CHANGE  |
 | Flay                | `MakeThemBleed`         | Groin/animal bleed; +10%/enemy with bleed in sight cap 50%                        | CHANGE  |
-| Larry / Larry_Clean | `DangerClose`           | ≥8 tiles +40% +2 bleed; no stim pen                                               | CHANGE  |
+| Larry / Larry_Clean | `DangerClose`           | Explosives ≤5 +40% (vanilla params); guns ≥8 +40% +2 bleed; keep rangeThreshold (grenade UI) | CHANGE  |
 | PierreMerc          | `GloryHog`              | Charge not only straight +15 grit; recruit 1 enemy/combat (not bosses)            | CHANGE  |
 | Smiley              | `RecklessAssault`       | Maneuver SMG/carbine/AR 4 attacks + CTH                                           | CHANGE  |
 | Spike               | `BulletHell`            | AoE 15/30 (100/200% dmg) prone+suppress; **CD on kill**                           | CHANGE  |
