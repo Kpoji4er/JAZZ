@@ -47,8 +47,10 @@ Vanilla `AIPlaceFallbackOverwatch` при no-sight целится в случа�
 - `JAZZ-AI-OW-001-REQ-001` — override `AIPlaceFallbackOverwatch` в `jazz/Code/AiActions.lua`.
 - `JAZZ-AI-OW-001-REQ-002` — порядок выбора `target_pt` (первый валидный):
   1. `unit.last_known_enemy_pos` (если slab/pos валиден);
-  2. ближайший живой enemy из `context.enemies` по `GetDist` (даже без LOS — known map position);
-  3. иначе `false` — **не** ставить OW.
+  2. ближайший живой enemy из `context.enemies` по `GetDist` (даже без LOS к юниту — known map position);
+  3. каждый кандидат: **CheckLOS** unit→pos; **Night/Underground**: принять только если voxel **освещён** (`vsFlagIlluminated`) **или** `dist ≤` night `GetSightRadius` к этой точке;
+  4. ночь, если primary кандидаты отпали: ближайшая **освещённая** pass-slab в ±4 тайла вокруг якоря (last_known / nearest enemy), с LOS, без RNG;
+  5. иначе `false` — **не** ставить OW.
 - `JAZZ-AI-OW-001-REQ-003` — **не** использовать: `InteractionRand(360°)`, weighted door/window, ally-front scout points.
 - `JAZZ-AI-OW-001-REQ-004` — deterministic apart from existing InteractionRand in `AIPlayCombatAction` path; no new RNG for aim.
 - `JAZZ-AI-OW-001-REQ-005` — сохранить firearm / PreparedAttackType gates и `AIGetAttackArgs` + `AIPlayCombatAction("Overwatch")` как vanilla.
@@ -81,9 +83,9 @@ Vanilla `AIPlaceFallbackOverwatch` при no-sight целится в случа�
 
 ## Решение владельца
 
-- Статус: implemented — aim last_known → nearest enemy; **no point → revert** (owner 2026-08-08).
+- Статус: implemented — aim last_known → nearest enemy; **LOS**; night **lit / night-sight** (+ lit-cell retarget ±4); **no point → revert** (owner 2026-08-08 / night filter 2026-08-11).
 - Кто подтвердил: project-owner
-- Дата: 2026-08-08
+- Дата: 2026-08-11
 
 ## Evidence
 

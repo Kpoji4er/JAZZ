@@ -587,7 +587,7 @@ StartAI → archetype (+ PickCustom)
 | Charge | Melee keyword | связка F9 |
 | MGSetup | ACT-003 halfcover + ACT-004 close fire | crouch+bipod behind CoverLow; else Prone; dest +45; close threat → Dump not distant OW; permanent OW allows Dump burst |
 | Bandage | Priority | MED-001 |
-| Fallback OW | `AIPlaceFallbackOverwatch` (JAZZ-AI-OW-001) | no-sight: last_known → nearest enemy; **no point → revert** (no random 360°) |
+| Fallback OW | `AIPlaceFallbackOverwatch` (JAZZ-AI-OW-001) | no-sight: last_known → nearest enemy + LOS; night lit/night-sight or lit-cell ±4; **no point → revert** |
 
 ### 17.3. Overwatch — как устроен и куда крутить
 

@@ -651,19 +651,49 @@ local function JAZZ_AITryCoverMove(unit, context)
     end
 end
 
--- JAZZ-AI-OW-001: Fallback OW only toward a known aim point; no random 360°/door/ally-front.
--- No usable point → return false (caller reverts / Unaware), never spam OW into a wall.
-local function JazzAI_FallbackOverwatchTargetPos(unit, context)
-	if not IsValid(unit) then
+-- JAZZ-AI-OW-001: Fallback OW toward known aim; LOS; night = lit or night-sight (no deep-dark spam).
+-- No usable point → false (revert). No random 360° / door / ally-front.
+local JazzAI_OW_LIT_SCAN_TILES = 4
+
+local function JazzAI_IsPosLit(pos)
+	if not pos then
 		return false
 	end
-	local known = unit.last_known_enemy_pos
-	if known then
-		local slab = GetPassSlab(known) or known
-		if slab then
-			return slab
-		end
+	if not GameState.Night and not GameState.Underground then
+		return true
 	end
+	local env = GetVoxelStealthParams(pos) or 0
+	return env ~= 0 and band(env, const.vsFlagIlluminated) ~= 0
+end
+
+local function JazzAI_HasLosToPos(unit, pos)
+	if not IsValid(unit) or not pos then
+		return false
+	end
+	local sight = const.Combat.AwareSightRange * const.SlabSizeX
+	return not not CheckLOS(pos, unit, sight)
+end
+
+--- Night/Underground: lit cell OR within effective night sight to that voxel (OW interrupt floor).
+local function JazzAI_PosOWViable(unit, pos)
+	if not pos then
+		return false
+	end
+	if not JazzAI_HasLosToPos(unit, pos) then
+		return false
+	end
+	if not GameState.Night and not GameState.Underground then
+		return true
+	end
+	if JazzAI_IsPosLit(pos) then
+		return true
+	end
+	-- Dark: GetSightRadius(self, self, step_pos) applies DarknessSightMod using illumination at step_pos.
+	local sight = unit:GetSightRadius(unit, const.Combat.AwareSightRange, pos)
+	return unit:GetDist(pos) <= sight
+end
+
+local function JazzAI_NearestEnemyPos(unit, context)
 	local best, best_dist
 	for _, enemy in ipairs(context and context.enemies or empty_table) do
 		if IsValidTarget(enemy) then
@@ -675,9 +705,81 @@ local function JazzAI_FallbackOverwatchTargetPos(unit, context)
 		end
 	end
 	if best then
-		local pos = best:GetPos()
-		return GetPassSlab(pos) or pos
+		return GetPassSlab(best:GetPos()) or best:GetPos()
 	end
+	return false
+end
+
+--- Night: nearest lit pass slab around anchor with LOS (deterministic grid, no RNG).
+local function JazzAI_NearestLitAimNear(unit, anchor)
+	if not IsValid(unit) or not anchor then
+		return false
+	end
+	if not GameState.Night and not GameState.Underground then
+		return false
+	end
+	local slab_size = const.SlabSizeX
+	local best, best_dist, best_key
+	local ax, ay, az = anchor:xyz()
+	if not ax then
+		return false
+	end
+	for dx = -JazzAI_OW_LIT_SCAN_TILES, JazzAI_OW_LIT_SCAN_TILES do
+		for dy = -JazzAI_OW_LIT_SCAN_TILES, JazzAI_OW_LIT_SCAN_TILES do
+			local cand = GetPassSlab(point(ax + dx * slab_size, ay + dy * slab_size, az))
+			if cand and JazzAI_IsPosLit(cand) and JazzAI_HasLosToPos(unit, cand) then
+				local dist = unit:GetDist(cand)
+				local key = dx * 1000 + dy
+				if not best_dist or dist < best_dist or (dist == best_dist and key < best_key) then
+					best = cand
+					best_dist = dist
+					best_key = key
+				end
+			end
+		end
+	end
+	return best or false
+end
+
+local function JazzAI_FallbackOverwatchTargetPos(unit, context)
+	if not IsValid(unit) then
+		return false
+	end
+
+	local candidates = {}
+	local known = unit.last_known_enemy_pos
+	if known then
+		local slab = GetPassSlab(known) or known
+		if slab then
+			candidates[#candidates + 1] = slab
+		end
+	end
+	local enemy_pos = JazzAI_NearestEnemyPos(unit, context)
+	if enemy_pos then
+		local dup = false
+		if candidates[1] and enemy_pos == candidates[1] then
+			dup = true
+		end
+		if not dup then
+			candidates[#candidates + 1] = enemy_pos
+		end
+	end
+
+	for _, pos in ipairs(candidates) do
+		if JazzAI_PosOWViable(unit, pos) then
+			return pos
+		end
+	end
+
+	-- Night: retarget to illuminated cells near last_known / nearest enemy.
+	local anchor = candidates[1] or enemy_pos
+	if anchor then
+		local lit = JazzAI_NearestLitAimNear(unit, anchor)
+		if lit then
+			return lit
+		end
+	end
+
 	return false
 end
 

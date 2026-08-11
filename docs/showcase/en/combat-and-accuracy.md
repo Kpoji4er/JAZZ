@@ -93,7 +93,7 @@ This remains a soft preference rather than a movement ban: narrow passages stay 
 
 A panicked fighter may flee and **despawn** at a map exit. While your mercs are within about **16** tiles, they will not vanish just by stepping behind the nearest rock — they keep running in plain sight.
 
-Without sight, AI will not plant Overwatch in a random direction: the cone aims at a known target, or they skip it.
+Without sight, AI will not plant Overwatch into a wall at random: the cone needs a known aim with LOS; at night it prefers lit ground / night-sight, or they skip it.
 
 ## What the UI shows
 
