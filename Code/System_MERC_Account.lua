@@ -191,16 +191,20 @@ function JAZZ_MERC_AccrueDaily(force)
 end
 
 --- Spend player money against the MERC credit balance.
+-- Returns paid amount (number > 0) on success, or false.
 function JAZZ_MERC_PayAccount(amount)
 	local account = JAZZ_MERC_EnsureAccount()
 	if not account then
 		return false
 	end
-	amount = tonumber(amount) or 0
+	amount = tonumber(amount)
+	if not amount or amount <= 0 then
+		amount = tonumber(account.balance) or 0
+	end
 	if amount <= 0 then
 		return false
 	end
-	local due = account.balance or 0
+	local due = tonumber(account.balance) or 0
 	if due <= 0 then
 		return false
 	end
@@ -220,7 +224,8 @@ function JAZZ_MERC_PayAccount(amount)
 	if type(addMoney) ~= "function" then
 		return false
 	end
-	addMoney(-pay, "salary", "noCombatLog")
+	-- Visible CombatLog "Spent …" so Pay Account is not silent when the strip button is clipped.
+	addMoney(-pay, "salary")
 	account.balance = due - pay
 	account.paid_total = (account.paid_total or 0) + pay
 	if account.balance <= 0 then
@@ -229,7 +234,22 @@ function JAZZ_MERC_PayAccount(amount)
 		account.last_reminder_day = false
 	end
 	ObjModified(account)
-	return true
+	ObjModified(game)
+	return pay
+end
+
+function JAZZ_MERC_CanPayAccount()
+	local account = JAZZ_MERC_EnsureAccount()
+	if not account then
+		return false
+	end
+	local due = tonumber(account.balance) or 0
+	if due <= 0 then
+		return false
+	end
+	local game = rawget(_G, "Game")
+	local money = game and tonumber(game.Money) or 0
+	return money > 0
 end
 
 local function lReleaseHiredMerc(merc_id)

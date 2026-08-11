@@ -229,6 +229,7 @@ PlaceObj('XTemplate', {
 							PlaceObj('XTemplateWindow', {
 								'Margins', box(50, 0, 50, 7),
 								'Dock', "bottom",
+								'MinHeight', 56,
 							}, {
 								PlaceObj('XTemplateWindow', {
 									'comment', "vertical sep",
@@ -255,63 +256,84 @@ PlaceObj('XTemplate', {
 									'Margins', box(0, 5, 0, 0),
 									'Dock', "right",
 									'VAlign', "center",
-									'LayoutMethod', "HList",
+									'LayoutMethod', "VList",
+									'LayoutVSpacing', 2,
 								}, {
 									PlaceObj('XTemplateWindow', {
-										'__class', "XText",
+										'LayoutMethod', "HList",
 										'VAlign', "center",
-										'TextStyle', "PDAAIMMoneyDisplayLabel",
-										'Translate', true,
-										'Text', T(266087238479, --[[XTemplate PDAMERCBrowser Text]] "Bank Account"),
-									}),
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__class', "XText",
+											'VAlign', "center",
+											'TextStyle', "PDAAIMMoneyDisplayLabel",
+											'Translate', true,
+											'Text', T(266087238479, --[[XTemplate PDAMERCBrowser Text]] "Bank Account"),
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__context', function (parent, context) return Game end,
+											'__class', "PDAMoneyText",
+											'Margins', box(30, 0, 0, 0),
+											'VAlign', "center",
+											'TextStyle', "PDAAIMMoneyDisplay",
+											'OnContextUpdate', function (self, context, ...)
+												self:SetMoneyAmount(Game.Money)
+											end,
+											'Translate', true,
+										}),
+										}),
 									PlaceObj('XTemplateWindow', {
-										'__context', function (parent, context) return Game end,
-										'__class', "PDAMoneyText",
-										'Margins', box(30, 0, 0, 0),
+										'LayoutMethod', "HList",
 										'VAlign', "center",
-										'TextStyle', "PDAAIMMoneyDisplay",
-										'OnContextUpdate', function (self, context, ...)
-											self:SetMoneyAmount(Game.Money)
-										end,
-										'Translate', true,
-									}),
-									PlaceObj('XTemplateWindow', {
-										'__context', function (parent, context) return rawget(_G, "gv_JAZZ_MERC_Account") or empty_table end,
-										'__class', "XText",
-										'Margins', box(24, 0, 0, 0),
-										'VAlign', "center",
-										'TextStyle', "PDAAIMMoneyDisplayLabel",
-										'Translate', true,
-										'Text', T(890000000009918, --[[XTemplate PDAMERCBrowser Text]] "MERC due: $<balance>"),
-										'ContextUpdateOnOpen', true,
-										'OnContextUpdate', function (self, context, ...)
-											local account = rawget(_G, "gv_JAZZ_MERC_Account")
-											local due = account and tonumber(account.balance) or 0
-											self:SetText(T{890000000009918, "MERC due: $<balance>", balance = due})
-										end,
-									}),
-									PlaceObj('XTemplateWindow', {
-										'__class', "XTextButton",
-										'Margins', box(16, 0, 0, 0),
-										'VAlign', "center",
-										'Background', RGBA(0, 0, 0, 0),
-										'FocusedBackground', RGBA(0, 0, 0, 0),
-										'DisabledBackground', RGBA(0, 0, 0, 0),
-										'RolloverBackground', RGBA(0, 0, 0, 0),
-										'PressedBackground', RGBA(0, 0, 0, 0),
-										'TextStyle', "PDAAIMButton",
-										'Translate', true,
-										'Text', T(890000000009919, --[[XTemplate PDAMERCBrowser Text]] "Pay Account"),
-										'OnPress', function (self, gamepad)
-											local pay = rawget(_G, "JAZZ_MERC_PayAccount")
-											local account = rawget(_G, "gv_JAZZ_MERC_Account")
-											if type(pay) == "function" and account then
-												pay(account.balance or 0)
-												ObjModified(account)
+									}, {
+										PlaceObj('XTemplateWindow', {
+											'__context', function (parent, context) return rawget(_G, "gv_JAZZ_MERC_Account") or empty_table end,
+											'__class', "XText",
+											'VAlign', "center",
+											'TextStyle', "PDAAIMMoneyDisplayLabel",
+											'Translate', true,
+											'Text', T(890000000009918, --[[XTemplate PDAMERCBrowser Text]] "MERC due: $<balance>"),
+											'ContextUpdateOnOpen', true,
+											'OnContextUpdate', function (self, context, ...)
+												local account = rawget(_G, "gv_JAZZ_MERC_Account")
+												local due = account and tonumber(account.balance) or 0
+												self:SetText(T{890000000009918, "MERC due: $<balance>", balance = due})
+											end,
+										}),
+										PlaceObj('XTemplateWindow', {
+											'__class', "XTextButton",
+											'Id', "idPayAccountStrip",
+											'Margins', box(12, 0, 0, 0),
+											'VAlign', "center",
+											'MinWidth', 110,
+											'Padding', box(10, 2, 10, 2),
+											'Background', RGBA(52, 55, 61, 255),
+											'FocusedBackground', RGBA(52, 55, 61, 255),
+											'DisabledBackground', RGBA(52, 55, 61, 128),
+											'RolloverBackground', RGBA(72, 78, 86, 255),
+											'PressedBackground', RGBA(32, 35, 40, 255),
+											'TextStyle', "PDACommonButton",
+											'Translate', true,
+											'Text', T(890000000009919, --[[XTemplate PDAMERCBrowser Text]] "Pay Account"),
+											'OnPress', function (self, gamepad)
+												local pay = rawget(_G, "JAZZ_MERC_PayAccount")
+												if type(pay) ~= "function" then
+													return
+												end
+												pay()
+												local account = rawget(_G, "gv_JAZZ_MERC_Account")
+												if account then
+													ObjModified(account)
+												end
 												ObjModified(Game)
-											end
-										end,
-									}),
+												local browser = self:ResolveId("node")
+												local host = GetDialog(self)
+												if browser and browser.idToolBar and host then
+													browser.idToolBar:RebuildActions(host)
+												end
+											end,
+										}),
+										}),
 									}),
 								}),
 							PlaceObj('XTemplateWindow', {
@@ -1190,11 +1212,59 @@ PlaceObj('XTemplate', {
 		PlaceObj('XTemplateWindow', nil, {
 			PlaceObj('XTemplateAction', {
 				'RolloverTemplate', "RolloverGeneric",
+				'RolloverText', T(890000000009919, --[[XTemplate PDAMERCBrowser RolloverText]] "Pay Account"),
+				'RolloverOffset', box(0, 0, 0, 8),
+				'ActionId', "idPayAccount",
+				'ActionName', T(890000000009919, --[[XTemplate PDAMERCBrowser ActionName]] "Pay Account"),
+				'ActionToolbar', "ActionBar",
+				'ActionShortcut', "P",
+				'ActionGamepad', "ButtonY",
+				'ActionButtonTemplate', "PDACommonButton",
+				'ActionState', function (self, host)
+					local content = host.idContent
+					if not IsKindOf(content, "PDABrowser") then return end
+					content = content.idBrowserContent
+					if not IsKindOf(content, "PDAMERCBrowser") then return end
+
+					local canPay = rawget(_G, "JAZZ_MERC_CanPayAccount")
+					if type(canPay) == "function" then
+						return canPay() and "enabled" or "hidden"
+					end
+					local account = rawget(_G, "gv_JAZZ_MERC_Account")
+					local due = account and tonumber(account.balance) or 0
+					if due <= 0 then return "hidden" end
+					local money = Game and tonumber(Game.Money) or 0
+					return money > 0 and "enabled" or "disabled"
+				end,
+				'OnAction', function (self, host, source, ...)
+					local content = host.idContent
+					if not IsKindOf(content, "PDABrowser") then return end
+					content = content.idBrowserContent
+					if not IsKindOf(content, "PDAMERCBrowser") then return end
+
+					local pay = rawget(_G, "JAZZ_MERC_PayAccount")
+					if type(pay) ~= "function" then
+						return
+					end
+					pay()
+					local account = rawget(_G, "gv_JAZZ_MERC_Account")
+					if account then
+						ObjModified(account)
+					end
+					ObjModified(Game)
+					if content.idToolBar then
+						content.idToolBar:RebuildActions(host)
+					end
+				end,
+			}),
+			PlaceObj('XTemplateAction', {
+				'RolloverTemplate', "RolloverGeneric",
 				'RolloverOffset', box(0, 0, 0, 8),
 				'ActionId', "idContact",
 				'ActionName', T(284104494351, --[[XTemplate PDAMERCBrowser ActionName]] "Contact"),
 				'ActionToolbar', "ActionBar",
 				'ActionGamepad', "ButtonX",
+				'ActionShortcut', "C",
 				'ActionButtonTemplate', "PDACommonButtonBlueSnype",
 				'ActionState', function (self, host)
 					local content = host.idContent

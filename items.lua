@@ -2835,6 +2835,7 @@ return {
 									PlaceObj('XTemplateWindow', {
 										'Margins', box(50, 0, 50, 7),
 										'Dock', "bottom",
+										'MinHeight', 56,
 									}, {
 										PlaceObj('XTemplateWindow', {
 											'comment', "vertical sep",
@@ -2861,63 +2862,84 @@ return {
 											'Margins', box(0, 5, 0, 0),
 											'Dock', "right",
 											'VAlign', "center",
-											'LayoutMethod', "HList",
+											'LayoutMethod', "VList",
+											'LayoutVSpacing', 2,
 										}, {
 											PlaceObj('XTemplateWindow', {
-												'__class', "XText",
+												'LayoutMethod', "HList",
 												'VAlign', "center",
-												'TextStyle', "PDAAIMMoneyDisplayLabel",
-												'Translate', true,
-												'Text', T(266087238479, --[[ModItemXTemplate PDAMERCBrowser Text]] "Bank Account"),
-											}),
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__class', "XText",
+													'VAlign', "center",
+													'TextStyle', "PDAAIMMoneyDisplayLabel",
+													'Translate', true,
+													'Text', T(266087238479, --[[ModItemXTemplate PDAMERCBrowser Text]] "Bank Account"),
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__context', function (parent, context) return Game end,
+													'__class', "PDAMoneyText",
+													'Margins', box(30, 0, 0, 0),
+													'VAlign', "center",
+													'TextStyle', "PDAAIMMoneyDisplay",
+													'OnContextUpdate', function (self, context, ...)
+														self:SetMoneyAmount(Game.Money)
+													end,
+													'Translate', true,
+												}),
+												}),
 											PlaceObj('XTemplateWindow', {
-												'__context', function (parent, context) return Game end,
-												'__class', "PDAMoneyText",
-												'Margins', box(30, 0, 0, 0),
+												'LayoutMethod', "HList",
 												'VAlign', "center",
-												'TextStyle', "PDAAIMMoneyDisplay",
-												'OnContextUpdate', function (self, context, ...)
-													self:SetMoneyAmount(Game.Money)
-												end,
-												'Translate', true,
-											}),
-											PlaceObj('XTemplateWindow', {
-												'__context', function (parent, context) return rawget(_G, "gv_JAZZ_MERC_Account") or empty_table end,
-												'__class', "XText",
-												'Margins', box(24, 0, 0, 0),
-												'VAlign', "center",
-												'TextStyle', "PDAAIMMoneyDisplayLabel",
-												'Translate', true,
-												'Text', T(890000000009918, --[[ModItemXTemplate PDAMERCBrowser Text]] "MERC due: $<balance>"),
-												'ContextUpdateOnOpen', true,
-												'OnContextUpdate', function (self, context, ...)
-													local account = rawget(_G, "gv_JAZZ_MERC_Account")
-													local due = account and tonumber(account.balance) or 0
-													self:SetText(T{890000000009918, "MERC due: $<balance>", balance = due})
-												end,
-											}),
-											PlaceObj('XTemplateWindow', {
-												'__class', "XTextButton",
-												'Margins', box(16, 0, 0, 0),
-												'VAlign', "center",
-												'Background', RGBA(0, 0, 0, 0),
-												'FocusedBackground', RGBA(0, 0, 0, 0),
-												'DisabledBackground', RGBA(0, 0, 0, 0),
-												'RolloverBackground', RGBA(0, 0, 0, 0),
-												'PressedBackground', RGBA(0, 0, 0, 0),
-												'TextStyle', "PDAAIMButton",
-												'Translate', true,
-												'Text', T(890000000009919, --[[ModItemXTemplate PDAMERCBrowser Text]] "Pay Account"),
-												'OnPress', function (self, gamepad)
-													local pay = rawget(_G, "JAZZ_MERC_PayAccount")
-													local account = rawget(_G, "gv_JAZZ_MERC_Account")
-													if type(pay) == "function" and account then
-														pay(account.balance or 0)
-														ObjModified(account)
+											}, {
+												PlaceObj('XTemplateWindow', {
+													'__context', function (parent, context) return rawget(_G, "gv_JAZZ_MERC_Account") or empty_table end,
+													'__class', "XText",
+													'VAlign', "center",
+													'TextStyle', "PDAAIMMoneyDisplayLabel",
+													'Translate', true,
+													'Text', T(890000000009918, --[[ModItemXTemplate PDAMERCBrowser Text]] "MERC due: $<balance>"),
+													'ContextUpdateOnOpen', true,
+													'OnContextUpdate', function (self, context, ...)
+														local account = rawget(_G, "gv_JAZZ_MERC_Account")
+														local due = account and tonumber(account.balance) or 0
+														self:SetText(T{890000000009918, "MERC due: $<balance>", balance = due})
+													end,
+												}),
+												PlaceObj('XTemplateWindow', {
+													'__class', "XTextButton",
+													'Id', "idPayAccountStrip",
+													'Margins', box(12, 0, 0, 0),
+													'VAlign', "center",
+													'MinWidth', 110,
+													'Padding', box(10, 2, 10, 2),
+													'Background', RGBA(52, 55, 61, 255),
+													'FocusedBackground', RGBA(52, 55, 61, 255),
+													'DisabledBackground', RGBA(52, 55, 61, 128),
+													'RolloverBackground', RGBA(72, 78, 86, 255),
+													'PressedBackground', RGBA(32, 35, 40, 255),
+													'TextStyle', "PDACommonButton",
+													'Translate', true,
+													'Text', T(890000000009919, --[[ModItemXTemplate PDAMERCBrowser Text]] "Pay Account"),
+													'OnPress', function (self, gamepad)
+														local pay = rawget(_G, "JAZZ_MERC_PayAccount")
+														if type(pay) ~= "function" then
+															return
+														end
+														pay()
+														local account = rawget(_G, "gv_JAZZ_MERC_Account")
+														if account then
+															ObjModified(account)
+														end
 														ObjModified(Game)
-													end
-												end,
-											}),
+														local browser = self:ResolveId("node")
+														local host = GetDialog(self)
+														if browser and browser.idToolBar and host then
+															browser.idToolBar:RebuildActions(host)
+														end
+													end,
+												}),
+												}),
 											}),
 										}),
 									PlaceObj('XTemplateWindow', {
@@ -3796,11 +3818,59 @@ return {
 				PlaceObj('XTemplateWindow', nil, {
 					PlaceObj('XTemplateAction', {
 						'RolloverTemplate', "RolloverGeneric",
+						'RolloverText', T(890000000009919, --[[ModItemXTemplate PDAMERCBrowser RolloverText]] "Pay Account"),
+						'RolloverOffset', box(0, 0, 0, 8),
+						'ActionId', "idPayAccount",
+						'ActionName', T(890000000009919, --[[ModItemXTemplate PDAMERCBrowser ActionName]] "Pay Account"),
+						'ActionToolbar', "ActionBar",
+						'ActionShortcut', "P",
+						'ActionGamepad', "ButtonY",
+						'ActionButtonTemplate', "PDACommonButton",
+						'ActionState', function (self, host)
+							local content = host.idContent
+							if not IsKindOf(content, "PDABrowser") then return end
+							content = content.idBrowserContent
+							if not IsKindOf(content, "PDAMERCBrowser") then return end
+
+							local canPay = rawget(_G, "JAZZ_MERC_CanPayAccount")
+							if type(canPay) == "function" then
+								return canPay() and "enabled" or "hidden"
+							end
+							local account = rawget(_G, "gv_JAZZ_MERC_Account")
+							local due = account and tonumber(account.balance) or 0
+							if due <= 0 then return "hidden" end
+							local money = Game and tonumber(Game.Money) or 0
+							return money > 0 and "enabled" or "disabled"
+						end,
+						'OnAction', function (self, host, source, ...)
+							local content = host.idContent
+							if not IsKindOf(content, "PDABrowser") then return end
+							content = content.idBrowserContent
+							if not IsKindOf(content, "PDAMERCBrowser") then return end
+
+							local pay = rawget(_G, "JAZZ_MERC_PayAccount")
+							if type(pay) ~= "function" then
+								return
+							end
+							pay()
+							local account = rawget(_G, "gv_JAZZ_MERC_Account")
+							if account then
+								ObjModified(account)
+							end
+							ObjModified(Game)
+							if content.idToolBar then
+								content.idToolBar:RebuildActions(host)
+							end
+						end,
+					}),
+					PlaceObj('XTemplateAction', {
+						'RolloverTemplate', "RolloverGeneric",
 						'RolloverOffset', box(0, 0, 0, 8),
 						'ActionId', "idContact",
 						'ActionName', T(284104494351, --[[ModItemXTemplate PDAMERCBrowser ActionName]] "Contact"),
 						'ActionToolbar', "ActionBar",
 						'ActionGamepad', "ButtonX",
+						'ActionShortcut', "C",
 						'ActionButtonTemplate', "PDACommonButtonBlueSnype",
 						'ActionState', function (self, host)
 							local content = host.idContent
@@ -4304,33 +4374,33 @@ return {
 		
 		-- JAZZ-UI-MERC-001-EMAIL-BEGIN
 		PlaceObj('ModItemEmail', {
-			body = T(890000000009910, --[[ModItemEmail MERC_Welcome body]] "Commander!\n\nGreat news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)\n\nOne snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.\n\nOpen M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.\n\nYour friend in the hiring business,\nSpeck T. Kline\nM.E.R.C. — More Economic Recruiting Center"),
+			body = T(890000000007201, --[[ModItemEmail MERC_Welcome body]] "Commander!\n\nGreat news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)\n\nOne snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.\n\nOpen M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.\n\nYour friend in the hiring business,\nSpeck T. Kline\nM.E.R.C. — More Economic Recruiting Center"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "MERC_Welcome",
 			label = "Important",
-			sender = T(890000000009909, --[[ModItemEmail MERC_Welcome sender]] "Speck <speck@merc.com>"),
-			title = T(890000000009911, --[[ModItemEmail MERC_Welcome title]] "M.E.R.C. is OPEN — and where's Biff?"),
+			sender = T(890000000007200, --[[ModItemEmail MERC_Welcome sender]] "Speck <speck@merc.com>"),
+			title = T(890000000007202, --[[ModItemEmail MERC_Welcome title]] "M.E.R.C. is OPEN — and where's Biff?"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000009913, --[[ModItemEmail MERC_AccountReminder body]] "Commander!\n\nHate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.\n\nDaily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.\n\nSpeck"),
+			body = T(890000000007204, --[[ModItemEmail MERC_AccountReminder body]] "Commander!\n\nHate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.\n\nDaily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.\n\nSpeck"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "MERC_AccountReminder",
 			label = "Important",
 			repeatable = true,
-			sender = T(890000000009912, --[[ModItemEmail MERC_AccountReminder sender]] "Speck <accounts@merc.com>"),
-			title = T(890000000009914, --[[ModItemEmail MERC_AccountReminder title]] "M.E.R.C. — please settle up"),
+			sender = T(890000000007203, --[[ModItemEmail MERC_AccountReminder sender]] "Speck <accounts@merc.com>"),
+			title = T(890000000007205, --[[ModItemEmail MERC_AccountReminder title]] "M.E.R.C. — please settle up"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000009916, --[[ModItemEmail MERC_QuitWarning body]] "Commander!\n\nI warned you. $<balance> still unpaid. My contractors walked.\n\nWant them back? Clear the ledger first — if any of them still answer the phone.\n\nSpeck"),
+			body = T(890000000007207, --[[ModItemEmail MERC_QuitWarning body]] "Commander!\n\nI warned you. $<balance> still unpaid. My contractors walked.\n\nWant them back? Clear the ledger first — if any of them still answer the phone.\n\nSpeck"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "MERC_QuitWarning",
 			label = "Important",
 			repeatable = true,
-			sender = T(890000000009915, --[[ModItemEmail MERC_QuitWarning sender]] "Speck <accounts@merc.com>"),
-			title = T(890000000009917, --[[ModItemEmail MERC_QuitWarning title]] "M.E.R.C. — they're walking"),
+			sender = T(890000000007206, --[[ModItemEmail MERC_QuitWarning sender]] "Speck <accounts@merc.com>"),
+			title = T(890000000007208, --[[ModItemEmail MERC_QuitWarning title]] "M.E.R.C. — they're walking"),
 		}),
 		-- JAZZ-UI-MERC-001-EMAIL-END
 PlaceObj('ModItemEmail', {

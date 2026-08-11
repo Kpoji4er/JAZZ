@@ -6,7 +6,7 @@ The PDA gains a **M.E.R.C.** site — AIM's bargain rival. On day two Speck writ
 
 ## Highlights
 
-- **Credit hire**: chat Offer works with empty pockets; debt on account, Pay Account on the site; unpaid too long and contractors walk.
+- **Credit hire**: chat Offer works with empty pockets; debt on account, settle with **Pay Account** on the site ActionBar (**P**); unpaid too long and contractors walk.
 - Named Jazz MERC roster available after unlock (Biff not on the shelf yet).
 - **Biff, Larry, Smiley** appear only after you meet them in the world (hire on the spot or return them to the site pool).
 - Flay and Pierre stay local story hires, not MERC.
