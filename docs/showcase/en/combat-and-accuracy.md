@@ -78,9 +78,10 @@ Strength and Marksmanship equally improve control, alongside stance, bipods/setu
 
 Throws **always** have light scatter — there is no perfect pin-point landing.
 
-- **Up close** (about half throw/launcher range): light scatter only, no big mishap.
-- **Farther out**: mishap chance rises (big deviation + notification). Suppression and Inaccurate worsen both chance and scatter.
-- Skills: hand grenades — **Dexterity + Explosives** (confident around **30**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
+- **Up close** (about 1/4 throw/launcher range): light scatter only, no big mishap.
+- **By half range** mishap risk already matches the old maximum; farther out the failure chance stays high.
+- **At max range**, elites (~**90** Dexterity/Explosives) still throw solidly (~**70–80%** of prior edge accuracy); average throwers do not.
+- Skills: hand grenades — **Dexterity + Explosives** (confident around **50**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
 - While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair. Up close (0% mishap) the color can still warm as scatter grows.
 - Frag / HE / flashbang: **guaranteed concussion** on blast-hit units, plus a chance of **zone trauma**. In the **inner aim ring** (`CenterAreaOfEffect`) only, a strong blast can also **knock units back** (mercs included) — **Strength + Health** vs **pre-armor** damage; outer ring has no knockback; already prone units stay put. Smoke / gas / Molotov use their own packages, not concussion/knockback.
 

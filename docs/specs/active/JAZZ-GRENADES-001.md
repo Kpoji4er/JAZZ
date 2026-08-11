@@ -84,19 +84,19 @@ Prediction / внешний `explosion_pos` — без RNG отклонения.
 
 ```text
 competence = Min(100, MulDivRound(blend, 100, ConfidenceThreshold))
--- ConfidenceThreshold=30 → при blend 30 уже competence 100 (уверенный бросок)
+-- ConfidenceThreshold=50 → при blend 50 competence 100 (было 30)
 base = vanilla-style interp MinMishapChance..MaxMishapChance по competence
 ```
 
-Величина отклонения использует **raw blend** (не competence) в `skill_x100 = Clamp(100 - blend, 10, 100)`.
+Величина отклонения использует **raw blend** (не competence) в `skill_x100 = Clamp(100 - blend, 10, 100)` (пол **10%** сохранён — элита 90/90 на макс ≈ **80%** прежней точности через мягкий stretch величины, не через пол 40%).
 
 | Профиль | Кто | Blend | ConfidenceThreshold |
 |---|---|---|---|
-| **ThrowGrenade** | `Grenade` / `GrenadeItem` / thrown `Flare` (не demo) | `DivRound(Dexterity×2 + Explosives, 3)` | **30** |
-| **AimedHeavy** | `GrenadeLauncher`, Underslung, `RocketLauncher`, `Mortar`, `FlareGun` | `DivRound(Marksmanship×2 + Explosives, 3)` | **30** |
+| **ThrowGrenade** | `Grenade` / `GrenadeItem` / thrown `Flare` (не demo) | `DivRound(Dexterity×2 + Explosives, 3)` | **50** |
+| **AimedHeavy** | `GrenadeLauncher`, Underslung, `RocketLauncher`, `Mortar`, `FlareGun` | `DivRound(Marksmanship×2 + Explosives, 3)` | **50** |
 | **Demo** | `PipeBomb`, `ShapedCharge`, `ThrowableTrapItem` (TNT/C4/PETN timed/remote/proximity) | `DivRound(Explosives×3 + Dexterity, 4)` | **60** |
 
-Калибровка ThrowGrenade @30/30 Dex+Expl → blend 30 → competence 100 → base ≈ MinMishapChance (Frag 0% до distance-ramp). Demo @ Expl 30 остаётся рискованным; уверенность ближе к Expl ~60.
+Калибровка ThrowGrenade @50/50 Dex+Expl → blend 50 → competence 100 → base ≈ MinMishapChance (Frag 0% до distance-ramp). Demo @ Expl 30 остаётся рискованным; уверенность ближе к Expl ~60.
 
 Item data для Demo в этом spec: **усилить** Explosives-зависимость — поднять `MaxMishapChance` у `PipeBomb` / `ShapedCharge` / TNT-линейки (ориентир +15..+25 к текущему Max, без трогания C4/PETN professional line если уже низкий Max≤18 — там достаточно высокого Threshold). Конкретные числа в реализации + hints.
 
@@ -112,9 +112,18 @@ dist_eff = physical_dist
          + ref × Inaccurate.stacks × 20%
 
 dist_tiles = DivRound(dist_eff, SlabSizeX)
+
+-- magnitude remapping (не chance):
+full_tiles = DivRound(ref, SlabSizeX)
+half_tiles = full_tiles / 2
+if dist_tiles <= half_tiles:
+  scatter_tiles = dist_tiles * full_tiles / half_tiles   -- half → old full intensity
+else:
+  scatter_tiles = full_tiles + (dist_tiles - half_tiles) * (0.25 * full_tiles) / half_tiles
+  -- full → ~1.25× old full intensity (≈80% accuracy vs pre-tune for blend 90)
 ```
 
-Suppression/Inaccurate входят и в chance, и в величину через `dist_eff`.
+Suppression/Inaccurate входят и в chance, и в величину через `dist_eff`. **ThrowMaxRange не режем:** дальний бросок доступен; у середняка неэффективен, у 90/90 на макс всё ещё рабочий (~80% прежней точности).
 
 ### Шанс mishap
 
@@ -122,12 +131,14 @@ Suppression/Inaccurate входят и в chance, и в величину чер�
 attr_blend = GetMishapSkillBlend(attacker)   -- профиль выше
 competence = Min(100, MulDivRound(attr_blend, 100, ConfidenceThreshold))
 base = vanilla-style interp MinMishapChance..MaxMishapChance по competence
+quarter = ref / 4
 half = ref / 2
 
-if dist_eff <= half:
-  return 0                                    -- только scatter
+if dist_eff <= quarter:
+  return 0                                    -- только scatter (короткая безопасная зона)
 
-t_x100 = Min(100, MulDivRound(dist_eff - half, 100, Max(half, 1)))
+t_x100 = Min(100, MulDivRound(dist_eff - quarter, 100, Max(half - quarter, 1)))
+-- к half → t=100 (шанс как прежний max range); дальше t остаётся 100
 chance = Min(100, MulDivRound(t_x100,
   Clamp(base, 0, 100) + MulDivRound(100 - Clamp(base, 0, 100), t_x100, 100),
   100))
@@ -138,20 +149,23 @@ UI async path = тот же `GetMishapChance`.
 ### Величина
 
 ```text
-skill_x100 = Clamp(100 - attr_blend, 10, 100)   -- raw blend, без competence remap
+skill_x100 = Clamp(100 - attr_blend, 10, 100)   -- raw blend; floor 10%
+scatter_tiles = remap(dist_tiles)               -- half ≈ old max; full ≈ 1.25× old max
 
-Min band (scatter, плавнее):
+Min band (scatter):
   tile_lo, tile_hi = 1, MinMishapRange (default 2)
-  dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 10), 40, 200)   -- было /8 и 50..300
+  dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 10), 40, 200)
 
 Max band (mishap):
   tile_lo, tile_hi = MinMishapRange, MaxMishapRange
-  dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
+  dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 8), 100, 400)
 
 dev = RandRange(min_dev, max_dev)
 dev = Min(dev, CapTiles * SlabSizeX)
 угол равномерный
 ```
+
+**Owner playtest (2026-08-11):** D (thr 50) + ранний chance-ramp (¼→½); magnitude half≈old max, full≈+25% (90/90 на макс ~70–80% прежней точности). Пол skill 40% отвергнут — душил элиту на дальнем броске. `ThrowMaxRange` не режем.
 
 ### CapTiles (расчёт)
 

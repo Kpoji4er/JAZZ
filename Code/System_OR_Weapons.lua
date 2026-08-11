@@ -2032,10 +2032,11 @@ function MishapProperties:GetMishapSkillProfile()
 	if JazzDemoMishapClasses[self.class] or IsKindOf(self, "ThrowableTrapItem") then
 		return "Demo", 60
 	end
+	-- ConfidenceThreshold 50: blend 50 → competence 100 (was 30; specialists no longer "maxed" early).
 	if IsKindOfClasses(self, "HeavyWeapon", "FlareGun", "GrenadeLauncher", "RocketLauncher", "Mortar") then
-		return "AimedHeavy", 30
+		return "AimedHeavy", 50
 	end
-	return "ThrowGrenade", 30
+	return "ThrowGrenade", 50
 end
 
 function MishapProperties:GetMishapSkillBlend(attacker)
@@ -2094,13 +2095,17 @@ function MishapProperties:GetMishapChance(attacker, target, async)
 	local mx = self.MaxMishapChance or 50
 	local base = mx + MulDivRound(competence, mn - mx, 100)
 
+	-- Distance curve: safe to ~1/4 range; by half range mishap chance ≈ old full-range risk;
+	-- beyond half chance stays max. Magnitude remap: half ≈ old full scatter, full ≈ +25%.
 	local dist_eff = self:GetEffectiveMishapDist(attacker, target)
-	local half = DivRound(self:GetMishapFullRange(), 2)
-	if dist_eff <= half then
+	local ref = self:GetMishapFullRange()
+	local quarter = DivRound(ref, 4)
+	local half = DivRound(ref, 2)
+	if dist_eff <= quarter then
 		return 0
 	end
 
-	local t_x100 = Min(100, MulDivRound(dist_eff - half, 100, Max(half, 1)))
+	local t_x100 = Min(100, MulDivRound(dist_eff - quarter, 100, Max(half - quarter, 1)))
 	local base_c = Clamp(base, 0, 100)
 	local chance = Min(100, MulDivRound(t_x100,
 		base_c + MulDivRound(100 - base_c, t_x100, 100),
@@ -2109,21 +2114,35 @@ function MishapProperties:GetMishapChance(attacker, target, async)
 end
 
 --- Deterministic Min/Max deviation bounds (no RNG). band = "min" | "max".
+--- Magnitude: physical half ≈ old full-range scatter; full throw ≈ +25% vs that
+--- (≈80% of pre-tune accuracy for blend 90 / skill_mod 10%). Skill floor stays 10%.
 function MishapProperties:GetMishapDeviationBounds(unit, target, band)
 	local blend = self:GetMishapSkillBlend(unit)
 	local dist_eff = self:GetEffectiveMishapDist(unit, target)
 	local dist_tiles = DivRound(dist_eff, const.SlabSizeX)
 	local skill_mod_x100 = Clamp(100 - blend, 10, 100)
 
+	local full_tiles = Max(DivRound(self:GetMishapFullRange(), const.SlabSizeX), 1)
+	local half_tiles = Max(DivRound(full_tiles, 2), 1)
+	local scatter_tiles
+	if dist_tiles <= half_tiles then
+		scatter_tiles = MulDivRound(dist_tiles, full_tiles, half_tiles)
+	else
+		-- half → full_tiles intensity; full → full_tiles * 125/100
+		local over = dist_tiles - half_tiles
+		local extra = MulDivRound(full_tiles, 25, 100)
+		scatter_tiles = full_tiles + MulDivRound(over, extra, half_tiles)
+	end
+
 	local min_range, max_range, dist_mod_x100
 	if band == "min" then
 		min_range = 1 * const.SlabSizeX
 		max_range = (self.MinMishapRange or 2) * const.SlabSizeX
-		dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 10), 40, 200)
+		dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 10), 40, 200)
 	else
 		min_range = (self.MinMishapRange or 1) * const.SlabSizeX
 		max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
-		dist_mod_x100 = Clamp(MulDivRound(dist_tiles, 100, 8), 100, 400)
+		dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 8), 100, 400)
 	end
 
 	local min_dev = MulDivRound(MulDivRound(min_range, dist_mod_x100, 100), skill_mod_x100, 100)

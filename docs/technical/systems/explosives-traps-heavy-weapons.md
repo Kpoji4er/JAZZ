@@ -64,10 +64,10 @@ AI использует собственную оценку допустимой
 
 - **Всегда** есть лёгкий scatter (Min-band), даже при «удачном» ролле.
 - **Mishap** (Max-band + notification) только при провале ролла / `AlwaysMiss`; `results.mishap` только тогда.
-- На дистанции ≤ половины `ThrowMaxRange` / `WeaponRange` (с учётом suppression/Inaccurate в effective dist) **mishap chance = 0** — только scatter.
-- Дальше шанс растёт к 100% у полной дальности; base от skill blend + competence remap.
-- Профили: ThrowGrenade `(Dex×2+Expl)/3` thr **30**; AimedHeavy `(MS×2+Expl)/3` thr **30**; Demo/пайпы `(Expl×3+Dex)/4` thr **60**.
-- Cap отклонения: `Max(2×MaxMishapRange, 8)` тайлов; Min-band плавнее (`/10`, clamp 40..200).
+- Шанс: безопасно до ~**¼** `ThrowMaxRange` / `WeaponRange`; к **половине** t→100% (как прежний риск у полного края); дальше шанс остаётся максимальным. Suppression/Inaccurate входят в effective dist.
+- Величина: remap `scatter_tiles` — на половине ≈ старая полная интенсивность; на полном броске ≈ **+25%** к ней (элита blend 90 ≈ **80%** прежней точности на макс). `skill_mod = Clamp(100−blend, 10, 100)`.
+- Профили: ThrowGrenade `(Dex×2+Expl)/3` thr **50**; AimedHeavy `(MS×2+Expl)/3` thr **50**; Demo/пайпы `(Expl×3+Dex)/4` thr **60**.
+- Cap отклонения: `Max(2×MaxMishapRange, 8)` тайлов; Min-band `dist_mod` clamp 40..200, Max-band 100..400.
 - Area-aim: **радиус** колец = зона поражения; **цвет** blast/sphere tiles и дуги траектории = `GetCTHColor(GetMishapAimReliability)` — mix `(100 − mishap%) × (100 − scatter_risk%)`, где `scatter_risk` = mid(Min-band) / CapTiles (material `FillColor`/`fill_color`).
 
 ## Ловушки и мины
@@ -111,7 +111,7 @@ AI использует собственную оценку допустимой
 - ручной и AI-бросок на минимальной/максимальной дальности;
 - obstruction, indoor/outdoor, smoke и friendly-fire оценка;
 - граната в эпицентре и на границе зоны, разные explosive armor ratings;
-- scatter/mishap: half-range zero chance, skill blends, CapTiles, AoE tint (`JAZZ-GRENADES-001`, playtest);
+- scatter/mishap: quarter→half chance ramp, magnitude half≈old max / full≈+25%, thr 50, CapTiles, AoE tint (`JAZZ-GRENADES-001`, playtest);
 - установка, обнаружение и подрыв мины союзником/врагом, save/load;
 - perk-вариант времени установки;
 - toxic/tear gas с новой, повреждённой и отсутствующей маской;
