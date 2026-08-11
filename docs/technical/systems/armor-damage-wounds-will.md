@@ -214,13 +214,13 @@ JAZZ добавляет unit attribute `Will` и derived `WillPoints`/`MaxWillPo
 
 ### Уровни и контратака (JAZZ-COMBAT-003)
 
-| Эффект | Смысл | CTH атакующего | Контратака (`Unit:Retaliate`) |
-| --- | --- | --- | --- |
-| `suppressionLight` | Обстрелян | −10 | да, со штрафом CTH |
-| `suppressionMedium` | Под огнем | −20 | да, со штрафом CTH |
-| `suppressionHeavy` | Под плотным огнем | −30 | да, со штрафом CTH |
-| `suppressionHeavy2` | Подавлен | −50 | да, со штрафом CTH |
-| `suppressionPinned` | Прижат | −70 | **нет** |
+| Эффект | Смысл | CTH атакующего | Контратака (`Unit:Retaliate`) | Lightning Reaction (base 50%) |
+| --- | --- | --- | --- | --- |
+| `suppressionLight` | Обстрелян | −10 | ×90% шанс срабатывания | ×90% → **45%** |
+| `suppressionMedium` | Под огнем | −20 | ×80% | ×80% → **40%** |
+| `suppressionHeavy` | Под плотным огнем | −30 | ×70% | ×70% → **35%** |
+| `suppressionHeavy2` | Подавлен | −50 | ×60% | ×60% → **30%** |
+| `suppressionPinned` | Прижат | −70 | **нет** (0%) | **0%** |
 
 CTH-модификатор `Suppression` применяется на любой дистанции (в т.ч. opportunity / retaliation), не только дальше 5 клеток. При переходе в `suppressionPinned` дополнительно прерываются подготовленные атаки: обычный и постоянный пулемётный Overwatch, Pin Down и Bombard; более слабые ступени их не снимают.
 

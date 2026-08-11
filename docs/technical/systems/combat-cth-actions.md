@@ -113,7 +113,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 ## Подавление в CTH и контратака (JAZZ-COMBAT-003)
 
 - ModItem `Suppression`: штрафы атакующего `−10/−20/−30/−50/−70` по tier (`suppressionLight` … `suppressionPinned`) на **любой** дистанции, включая opportunity/retaliation.
-- `Unit:Retaliate` (Hotblood / Shatterhand / HaveABlast и др.): при `suppressionPinned` сразу `false` — прижатый не контратакует.
+- `Unit:Retaliate` (Hotblood / Shatterhand / HaveABlast / Killzone и др.): тот же множитель подавления, что у Lightning Reaction (`×90/×80/×70/×60`); при `suppressionPinned` сразу `false` — прижатый не контратакует.
 - При наложении `suppressionPinned` его `OnAdded` вызывает vanilla `Unit:InterruptPreparedAttack()` до смены стойки и дополнительно снимает residual `g_Overwatch` / `StationedMachineGun` (гонка с `SetActionCommand`). `OnBeginTurn` повторяет interrupt; Jazz `Unit:BeginTurn` **не** сохраняет permanent MG overwatch, пока юнит прижат; `ApplySuppressionStatus` при уже активном pinned снова зовёт interrupt. Более слабые ступени подготовленные атаки не прерывают.
 - `Unjam`: `ShowIn = "CombatActions"`, `group = Default`, SortKey 10. `GetAPCost` = **4…1 AP** от Mechanical (`4 - MulDivRound(Clamp(Mechanical,0,100), 3, 100)`); `MrFixit` сохраняет perk AP. `GetUIState` и `FirearmBase:IsCondition` опираются на `WeaponResource` %, чтобы jam не скрывался ложным `Broken` по stale `Condition`.
 
@@ -121,7 +121,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Канон: `Unit:LightningReactionCheck` в `Code/System_OR_Unit.lua`; `Unit:FirearmAttack` в `Code/CombatActions.lua` выставляет `g_JAZZ_FirearmAttacker` / `g_JAZZ_FirearmAttackArgs` на время `OnFirearmAttackStart`.
 
-- Шанс: параметр `chance` перка, иначе **50%** (`self:Random(100) < chance`).
+- Базовый шанс: параметр `chance` перка, иначе **50%**.
+- Подавление цели мягко режет шанс: `Light ×90%` / `Medium ×80%` / `Heavy ×70%` / `Heavy2 ×60%` (при base 50 → **45 / 40 / 35 / 30**). `suppressionPinned` → итоговый chance **0** (без roll).
 - Не срабатывает, если атакующий в `Hidden`, или в args есть `stealth_attack` / `stealth_kill_chance > 0` (тихое убийство / stealth attack).
 - Как и в vanilla: не на своём ходе команды, не из Prone, не при `ManningEmplacement`.
 

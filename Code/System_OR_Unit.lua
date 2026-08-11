@@ -3326,10 +3326,38 @@ end
 
 -- ===== JAZZ-COMBAT-003: Retaliate / Lightning Reaction / Will restore =====
 
+-- Shared suppression gate for LR + all Retaliate callers (Hotblood / Shatterhand / HaveABlast / Killzone).
+-- Light×90 / Medium×80 / Heavy×70 / Heavy2×60 / Pinned=0.
+local function Jazz_SuppressionReactionChanceMul(unit)
+	if not unit then
+		return 100
+	end
+	if unit:HasStatusEffect("suppressionPinned") then
+		return 0
+	end
+	if unit:HasStatusEffect("suppressionHeavy2") then
+		return 60
+	end
+	if unit:HasStatusEffect("suppressionHeavy") then
+		return 70
+	end
+	if unit:HasStatusEffect("suppressionMedium") then
+		return 80
+	end
+	if unit:HasStatusEffect("suppressionLight") then
+		return 90
+	end
+	return 100
+end
+
 local JAZZ_BaseUnitRetaliate = Unit.Retaliate
 function Unit:Retaliate(attacker, attack_reason, fnGetAttackAndWeapon)
-	-- Fully suppressed: no counterattack (Hotblood / Shatterhand / HaveABlast / etc.).
-	if self:HasStatusEffect("suppressionPinned") then
+	-- Suppression cuts counterattack chance (Hotblood / Shatterhand / HaveABlast / etc.).
+	local mul = Jazz_SuppressionReactionChanceMul(self)
+	if mul <= 0 then
+		return false
+	end
+	if mul < 100 and self:Random(100) >= mul then
 		return false
 	end
 	return JAZZ_BaseUnitRetaliate(self, attacker, attack_reason, fnGetAttackAndWeapon)
@@ -3355,7 +3383,8 @@ function Unit:LightningReactionCheck(effect)
 	if chance == nil then
 		chance = 50
 	end
-	if self:Random(100) < chance then
+	chance = MulDivRound(chance, Jazz_SuppressionReactionChanceMul(self), 100)
+	if chance > 0 and self:Random(100) < chance then
 		self:SetActionCommand("ChangeStance", nil, nil, "Prone")
 		CreateFloatingText(self, T(726050447294, "Lightning Reaction"), nil, nil, true)
 		return true

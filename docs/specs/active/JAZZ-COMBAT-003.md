@@ -47,9 +47,9 @@ approved_by: project-owner
 
 ## Цели
 
-- `suppressionPinned` блокирует `Unit:Retaliate`.
+- `suppressionPinned` блокирует `Unit:Retaliate`; частичное подавление режет шанс Retaliate той же шкалой, что Lightning Reaction (`×90/×80/×70/×60`, pinned = 0).
 - Частичное подавление режет CTH ответного/обычного огня по той же шкале (−10/−20/−30/−50/−70), без дистанции ≥5.
-- Lightning Reaction: default chance **50%**; не срабатывает, если атакующий в `Hidden` / `stealth_attack` / есть `stealth_kill_chance`.
+- Lightning Reaction: default chance **50%**; не срабатывает, если атакующий в `Hidden` / `stealth_attack` / есть `stealth_kill_chance`; шанс режется тиром подавления цели (см. REQ-003), на `suppressionPinned` = **0**.
 - Psycho: drain Will за ход снижен (8→4); после боя Will восстанавливается до max у всех живых human units.
 
 ## Non-goals
@@ -61,24 +61,24 @@ approved_by: project-owner
 
 ## Требования
 
-- `JAZZ-COMBAT-003-REQ-001` — `Unit:Retaliate` возвращает `false`, если цель имеет `suppressionPinned`.
+- `JAZZ-COMBAT-003-REQ-001` — `Unit:Retaliate` (Hotblood / Shatterhand / HaveABlast / Killzone и др.): шанс прохождения gate = множитель тира подавления цели (`Light×90` / `Medium×80` / `Heavy×70` / `Heavy2×60`); при `suppressionPinned` сразу `false` без roll.
 - `JAZZ-COMBAT-003-REQ-002` — CTH modifier `Suppression` применяет tier-штрафы атакующего независимо от дистанции (в т.ч. opportunity/retaliation).
-- `JAZZ-COMBAT-003-REQ-003` — `Unit:LightningReactionCheck`: chance по умолчанию 50, если параметр отсутствует; skip при Hidden / stealth_attack / stealth_kill_chance>0 у текущей firearm-атаки.
+- `JAZZ-COMBAT-003-REQ-003` — `Unit:LightningReactionCheck`: chance по умолчанию 50, если параметр отсутствует; skip при Hidden / stealth_attack / stealth_kill_chance>0 у текущей firearm-атаки; после base chance применяется мягкий множитель тира подавления цели (`Light×90` / `Medium×80` / `Heavy×70` / `Heavy2×60`); при `suppressionPinned` итоговый chance = **0** (roll не нужен).
 - `JAZZ-COMBAT-003-REQ-004` — `Unit:RecalcWillPoints` для Psycho без Berserk вычитает **4** Will (не 8).
 - `JAZZ-COMBAT-003-REQ-005` — на `CombatEnd` у живых human `WillPoints = MaxWillPoints` (после `RecalcMaxWillPoints`).
 
 ## Инварианты и ограничения
 
 - Публичные ID эффектов/перков не меняются.
-- Deterministic RNG: Retaliate block без нового roll; LR по-прежнему `self:Random(100)`; CTH без нового RNG.
+- Deterministic RNG: Retaliate — один `self:Random(100)` на partial suppression gate (pinned без roll); LR по-прежнему `self:Random(100)` после mul; CTH без нового RNG.
 - Save/network: новых persistent fields нет; MapVar только на время FirearmAttack.
 - Psycho по-прежнему не получает suppression tiers и Will damage от огневого подавления.
 
 ## Acceptance criteria
 
-- `JAZZ-COMBAT-003-AC-001` — static: `Unit:Retaliate` early-out на `suppressionPinned`.
+- `JAZZ-COMBAT-003-AC-001` — static: `Unit:Retaliate` early-out на `suppressionPinned` + partial mul gate (`×90/80/70/60`).
 - `JAZZ-COMBAT-003-AC-002` — static: `Suppression` CTH CalcValue без порога 5 slabs.
-- `JAZZ-COMBAT-003-AC-003` — static: `LightningReactionCheck` default chance 50 + stealth skip; FirearmAttack stashes attacker/args до CallReactions.
+- `JAZZ-COMBAT-003-AC-003` — static: `LightningReactionCheck` default chance 50 + stealth skip + suppression multipliers / pinned=0; FirearmAttack stashes attacker/args до CallReactions.
 - `JAZZ-COMBAT-003-AC-004` — static: Psycho drain = 4; `OnMsg.CombatEnd` восстанавливает Will.
 - `JAZZ-COMBAT-003-AC-005` — docs: technical + wiki + showcase RU/EN описывают контракт.
 - `JAZZ-COMBAT-003-AC-006` — runtime/human: pinned не отвечает; stealth kill не даёт LR float; Psycho не стартует следующий бой с пустым Will.
@@ -108,9 +108,9 @@ approved_by: project-owner
 
 ## Evidence
 
-- `JAZZ-COMBAT-003-AC-001`: `PASS` — static: `Unit:Retaliate` in `Code/System_OR_Unit.lua` early-out on `suppressionPinned`
+- `JAZZ-COMBAT-003-AC-001`: `PASS` — static: `Unit:Retaliate` suppression mul gate (pinned=0) in `Code/System_OR_Unit.lua`
 - `JAZZ-COMBAT-003-AC-002`: `PASS` — static: `Suppression` CalcValue in `items.lua` without 5-slab gate
-- `JAZZ-COMBAT-003-AC-003`: `PASS` — static: `LightningReactionCheck` default 50 + stealth skip; FirearmAttack MapVar stash
+- `JAZZ-COMBAT-003-AC-003`: `PASS` — static: `LightningReactionCheck` default 50 + stealth skip + suppression mul (pinned=0); FirearmAttack MapVar stash
 - `JAZZ-COMBAT-003-AC-004`: `PASS` — static: Psycho drain `−4`; `OnMsg.CombatEnd` Will restore
 - `JAZZ-COMBAT-003-AC-005`: `PASS` — docs: armor-damage-wounds-will, combat-cth-actions, override-matrix, testing, wiki + showcase RU/EN
 - `JAZZ-COMBAT-003-AC-006`: `BLOCKED` — runtime/human playtest pending owner
