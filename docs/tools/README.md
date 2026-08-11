@@ -7,7 +7,7 @@
 
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
 | `_audit_ai_rng_wiring.py` | Brace-aware RunAndGun wiring audit: real vs default MobileShot, keyword gates, `AIAttackSingleTarget` action_ids. |
-| `_apply_ai_act005_mobile_signatures.py` | ACT-005: strip `RequiredKeywords` Control/RunAndGun/MobileShot from `AIActionMobileShot` in `jazz-units/items.lua` (weapon gate owns availability). |
+| `_apply_ai_proximity_closer_better.py` | POL-001: set ally `AIPolicyProximity` `ScoreMode=closer_better` on Legion/Rebels Frontliner/Assaulter/Machinegunner; MG OptLoc Weight 80 + EndTurn ally glue. |
 | `_apply_mobile_action_damage_ui.py` | Fix AimType=mobile `GetActionDamage` (RnG/Carbine/SMGStorm/ManeuverAR/MobileShot) + RnG `GetActionResults` num_shots; uses `Jazz_GetMobileActionDamage` in `Code/CombatActions.lua`. |
 | `_normalize_ernie_flare_carriers.py` | Set Ernie island `Min/MaxFlareCarriers` to 12/15 in `jazz-maps/items.lua` (ModItemSector + HotDiamonds SatelliteSector). |
 | `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |

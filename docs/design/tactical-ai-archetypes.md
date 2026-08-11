@@ -614,7 +614,7 @@ StartAI → archetype (+ PickCustom)
 Пока идут ROLE-001 / POL-001, вести чеклист (design → evidence):
 
 - [x] TakeCover: threat-weight + cover×shot в `AIPolicy.lua` (POL-001); Weights Front 80–120 / Assault ~40 / Flank OptLoc 15
-- [x] Proximity: `ScoreMode` closer_better / farther_better; шесть faction templates → closer_better
+- [x] Proximity: `ScoreMode` closer_better / farther_better; **Legion/Rebels Frontliner+Assaulter+Machinegunner** ally Proximity → `closer_better` (MG OptLoc Weight 80 + EndTurn glue; Flanker already had closer_better)
 - [x] ROLE-002/003: `AICombatStance.lua` + thin PickCustom Legion/Rebel
 - [x] Smoke LOS-break / OW LowVis / flare→Push (ACT-001)
 - [x] LowVis + Urban profiles (CTX-001)

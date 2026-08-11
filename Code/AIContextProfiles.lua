@@ -132,6 +132,10 @@ function JazzAI_ApplyProfileToContext(context)
 		context.jazz_pseudo_mg = true
 		context.jazz_profile.OverwatchMinScore = Min(context.jazz_profile.OverwatchMinScore or 300, 80)
 	end
+	-- Dedicated / pseudo MG: stay near squad (OptLoc half-cover chase used to pull them alone).
+	if unit and ((JazzAI_UnitIsDedicatedMG and JazzAI_UnitIsDedicatedMG(unit)) or context.jazz_pseudo_mg) then
+		context.jazz_mg_tether = true
+	end
 end
 
 function JazzAI_UnitNeedsOutdoorFire(unit)

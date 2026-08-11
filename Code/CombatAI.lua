@@ -1659,6 +1659,33 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		end
 	end
 
+	-- Machinegunner / pseudo-MG: soft tether to nearest live ally (POL-001 / MGSetup chase).
+	if context.jazz_mg_tether and context.unit and dest then
+		local nearest
+		for _, ally in ipairs(context.allies or empty_table) do
+			if ally ~= context.unit and IsValid(ally) and not ally:IsDead() then
+				local apos = (ally.ai_context and ally.ai_context.ai_destination)
+					or (context.ally_pack_pos_stance and context.ally_pack_pos_stance[ally])
+					or GetPackedPosAndStance(ally)
+				if apos then
+					local ad = stance_pos_dist(dest, apos) / const.SlabSizeX
+					if not nearest or ad < nearest then
+						nearest = ad
+					end
+				end
+			end
+		end
+		local tether = 12
+		if nearest and nearest > tether then
+			local pen = (nearest - tether) * 30
+			score = score - pen
+			if score_details then
+				score_details[#score_details + 1] = "MG SQUAD TETHER"
+				score_details[#score_details + 1] = -pen
+			end
+		end
+	end
+
 	-- Sniper optics: avoid CQB below OpticMinRange; prefer ideal (BDR + OpticReach) band.
 	local optic_min = context.jazz_optic_min_range or 0
 	local optic_ideal = context.jazz_optic_ideal_range or 0
