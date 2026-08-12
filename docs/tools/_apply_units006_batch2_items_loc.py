@@ -321,18 +321,16 @@ def sync_metadata_code() -> None:
 
 
 def upsert_csv(path: Path, loc: dict[str, tuple[str, str, str]], lang: str) -> None:
-    # CSV columns: id, text, translation?, context? — match existing jazz tables.
+    # Runtime schema: ID, Text (T() source, usually RU), Translation (this file's language).
+    # Russian.csv Translation must be Russian; English.csv Translation must be English.
     raw = path.read_text(encoding="utf-8-sig")
-    # Detect dialect: jazz uses id,russian,english,?,context for both files differently.
-    # Russian.csv: ID, Russian, English, ... ; English.csv same layout typically.
     reader = csv.reader(io.StringIO(raw))
     rows = list(reader)
     if not rows:
         raise SystemExit(f"empty {path}")
     by_id = {r[0]: i for i, r in enumerate(rows) if r}
     for lid, (ru, en, ctx) in loc.items():
-        text = ru if lang == "ru" else en
-        other = en if lang == "ru" else ru
+        translation = ru if lang == "ru" else en
         if lid in by_id:
             i = by_id[lid]
             row = rows[i]
@@ -341,21 +339,13 @@ def upsert_csv(path: Path, loc: dict[str, tuple[str, str, str]], lang: str) -> N
                 raise SystemExit(f"REFUSING to overwrite VoiceResponse id {lid} in {path.name}")
             while len(row) < 5:
                 row.append("")
-            if lang == "ru":
-                row[1] = text
-                row[2] = other
-            else:
-                # English.csv: col1 often RU source, col2 EN
-                row[1] = ru
-                row[2] = en
+            row[1] = ru
+            row[2] = translation
             row[4] = ctx
             rows[i] = row
             print(f"{path.name} updated {lid}")
         else:
-            if lang == "ru":
-                rows.append([lid, text, other, "", ctx])
-            else:
-                rows.append([lid, ru, en, "", ctx])
+            rows.append([lid, ru, translation, "", ctx])
             print(f"{path.name} inserted {lid}")
     buf = io.StringIO()
     writer = csv.writer(buf, lineterminator="\n", quoting=csv.QUOTE_MINIMAL)

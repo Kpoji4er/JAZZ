@@ -131,7 +131,7 @@ Vanilla якоря:
 
 #### 6c. Политика генерации → [JAZZ-STRATEGY-008](JAZZ-STRATEGY-008.md)
 
-Реализовано: `JAZZ_GenerateLegionSquadComposition` + soft caps + poor/full auto; combat spawn списывает сумму цен. Manpower gate — с 010.
+Реализовано: `JAZZ_GenerateLegionSquadComposition` + soft caps + poor/full auto; combat spawn списывает сумму цен. Manpower gate — с 010. **HOTFIX-006:** same-id cap + logistics Front cap + Marksman deny on tax/supply/shipment.
 
 #### 6d. Порядок внутри пункта 6
 1. Таблица цен `JAZZ_Legion_*` + документы.  

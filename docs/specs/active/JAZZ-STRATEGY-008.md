@@ -53,6 +53,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 - Soft caps: MG ≤ min(4, floor(n×0.35)); sniper ≤ min(3, floor(n×0.25)); specialist ≤ min(3, floor(n×0.20)).
 - Auto mode: try full, else poor, else fail.
 - Combat roles using generator: garrison, patrol, recon, qrf, reinforce, major(retribution recipe).
+- Additive [JAZZ-HOTFIX-006](JAZZ-HOTFIX-006.md) (does not change the three bucket numbers): same UnitData ID ≤ min(3, max(1, floor(n×0.34))) except `JAZZ_LegionUncappedLineIds` and except `VeryHard`; logistics escorts remaining Front specialists ≤ min(2, max(1, floor(n×0.25))); tax/supply/shipment deny Marksman.
 
 ## Требования
 

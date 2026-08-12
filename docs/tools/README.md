@@ -153,6 +153,8 @@
 | `_patch_med001_hit_pain_ac.py` | MED-001: insert AC-012 (+ fix REQ-010 backticks) for `JazzPainOnDamagingHit` contract. |
 | `_fix_med001_runtime_csv.py` | MED-001: чинит `Russian.csv` Text/Translation (EN source / RU translation) + literal `\\n` → реальные переносы в AdditionalHint. |
 | `_fix_med_en_in_ru_loc.py` | Playtest: восстанавливает RU Translation для MED AdditionalHint (`010013/016/019/024/027/030`) + Concussion `010277–280`; снимает `mag-hint-aligned` vanilla stomps EN-in-RU. |
+| `_scan_en_in_ru_loc.py` | Read-only: Cyrillic Text + English Translation в `Russian.csv` (perk/CA vs other vs both-EN). |
+| `_fix_en_in_ru_ability_loc.py` | Playtest: `Russian.csv` Translation=Text для perk/signature CA (UNITS-006 `upsert_csv` писал EN в RU). `--apply`. Не трогает VR/InventoryItem. |
 | `_fix_med001_loc_append.py` | Перезаписывает RU/EN строки `890000000010200+` (JazzBandage / trauma timing / kit Bandage desc); Text=EN, Translation=язык. |
 | `_patch_combat_status_ui.py` | CombatBadge: 2–3 critical icons у ника; party combat `idWounded` → `JazzGetPartyPortraitStatusEffects` (parity с satellite). |
 | `_recenter_med_action_icons.py` | Recenter+upscale dual-strip 108×54: `--dir Icons/Med` (default) или `Perks/SignatureAbilities`. Мелкие/съехавшие к центру полосы → fill≈48px. `--dry-run` / `--pad`. |
@@ -228,6 +230,8 @@
 | `_verify_nomaps_squad_size_cap.py` | COMPAT-009: только `InitialSquad*` NoMaps capped at 30 в `GenerateUnitsFromTemplates`, после BodyCount; dynamic squads/economy unchanged. |
 | `_audit_loot_item_case.py` | `jazz-units` LootEntry `item=` vs `InventoryItem` DefineClass (ловит `Mas36`≠`MAS36`). Exit 1 при mismatch. |
 | `_audit_faction_overlay_static.py` | Static AC hooks for STRATEGY-014/018: matrix API, ownership, avoid-player routing, load registration. |
+| `_apply_hotfix006_difficulty_loc.py` | HOTFIX-006: rewrite Normal/Hard/VeryHard GameDifficultyDef tooltips in `items.lua` + Russian.csv/English.csv (copy limits, medics, starting funds). |
+| `_test_legion_class_caps.py` | HOTFIX-006: same-id (except `JAZZ_LegionUncappedLineIds`) + escort Front specialists + Marksman deny; STRATEGY-008 bucket formulas unchanged. |
 | `_test_legion_medic_density.py` | STRATEGY-015: static mirror `JAZZ_GetLegionMaxMedics` + generator wiring markers. |
 | `_test_legion_spawn_pool.py` | Static STRATEGY-019: global spawn pool + tax/recruiter 72h gate + tax/recruiter → combat → supply order. |
 | `_test_legion_squad_growth.py` | STRATEGY-016: early→mature sizes, economy ×0.25 markers, cadence defaults; NoMaps size override. |

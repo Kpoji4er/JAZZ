@@ -1,5 +1,6 @@
 -- Runtime composition generator for Legion Global AI (roadmap 6c / JAZZ-STRATEGY-008).
 -- Builds JAZZ_Legion_* unit lists from role recipes, unit prices, officer density, soft caps.
+-- HOTFIX-006: same-id cap + logistics Front-family cap; Marksman deny lives on recipes.
 
 local function lTierRank(unit_id)
 	if string.find(unit_id, "T4", 1, true) then
@@ -61,13 +62,79 @@ local function lCountBucket(units, bucket)
 	return count
 end
 
-local function lWouldBreakSoftCap(units, candidate, target_size)
+local function lCountId(units, unit_id)
+	local count = 0
+	for _, id in ipairs(units) do
+		if id == unit_id then
+			count = count + 1
+		end
+	end
+	return count
+end
+
+-- HOTFIX-006: copies of one UnitData ID. n=6 → 2; n≥9 → 3.
+-- Uncapped line IDs (Roughneck/Pillager/ShockTrooper/Rifleman/Marauder/Raider/Veteran) skip this.
+local function lSameIdCap(n)
+	n = math.max(n or 0, 1)
+	return math.max(1, math.min(3, math.floor(n * 0.34)))
+end
+
+-- Front specialists on logistics escorts (not medic, not owner-uncapped line).
+local function lIsEscortFrontLine(unit_id)
+	if type(unit_id) ~= "string" then
+		return false
+	end
+	if not string.find(unit_id, "Front", 1, true) then
+		return false
+	end
+	if JAZZ_IsLegionMedicUnit and JAZZ_IsLegionMedicUnit(unit_id) then
+		return false
+	end
+	if JAZZ_IsLegionUncappedLineUnit and JAZZ_IsLegionUncappedLineUnit(unit_id) then
+		return false
+	end
+	return true
+end
+
+-- HOTFIX-006: tax/supply/etc. n=4–7 → 1 Front; n≥8 → 2.
+local function lEscortFrontCap(n)
+	n = math.max(n or 0, 1)
+	return math.min(2, math.max(1, math.floor(n * 0.25)))
+end
+
+local function lCountEscortFront(units)
+	local count = 0
+	for _, id in ipairs(units) do
+		if lIsEscortFrontLine(id) then
+			count = count + 1
+		end
+	end
+	return count
+end
+
+local function lWouldBreakSoftCap(units, candidate, target_size, role)
+	local n = math.max(target_size or 0, #(units or empty_table) + 1)
 	local bucket = JAZZ_GetLegionUnitClassBucket(candidate)
-	-- Officers/medics are reserved by density plans; line has no soft cap.
+	-- Officers/medics use density plans; owner-uncapped line may repeat freely.
+	-- Same-id copy cap is off on VeryHard (Mission Impossible).
+	if bucket ~= "officer" and bucket ~= "medic"
+		and not (JAZZ_IsLegionUncappedLineUnit and JAZZ_IsLegionUncappedLineUnit(candidate))
+		and (not JAZZ_LegionSameIdCapApplies or JAZZ_LegionSameIdCapApplies())
+	then
+		if lCountId(units, candidate) >= lSameIdCap(n) then
+			return true
+		end
+	end
+	if role and JAZZ_LegionRoleIsLogisticsEscort and JAZZ_LegionRoleIsLogisticsEscort(role) and lIsEscortFrontLine(candidate) then
+		if lCountEscortFront(units) >= lEscortFrontCap(n) then
+			return true
+		end
+	end
+	-- Line has no specialist-bucket cap (STRATEGY-008); same-id / escort Front already applied.
 	if bucket == "line" or bucket == "officer" or bucket == "medic" then
 		return false
 	end
-	local caps = lSoftCaps(math.max(target_size, #units + 1))
+	local caps = lSoftCaps(n)
 	local cap = caps[bucket]
 	if not cap then
 		return false
@@ -441,7 +508,7 @@ local function lTryBuild(role, recipe, budget_money, budget_manpower, mode, cont
 			if entry.bucket ~= "officer"
 				and entry.bucket ~= "medic"
 				and spent + entry.price <= budget_money
-				and not lWouldBreakSoftCap(units, entry.id, target)
+				and not lWouldBreakSoftCap(units, entry.id, target, role)
 			then
 				local weight = lTierWeight(entry, recipe.tier_bias, mode)
 				if entry.bucket == "line" then
@@ -678,7 +745,7 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 				and entry.bucket ~= "medic"
 				and spent + entry.price <= budget_money
 				and (not budget_manpower or (#added + 1) <= budget_manpower)
-				and not lWouldBreakSoftCap(current, entry.id, target)
+				and not lWouldBreakSoftCap(current, entry.id, target, recipe_role)
 			then
 				local weight = lTierWeight(entry, recipe.tier_bias, "full")
 				if entry.bucket == "line" then

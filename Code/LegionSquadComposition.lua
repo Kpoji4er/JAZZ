@@ -25,6 +25,31 @@ function JAZZ_IsLegionMedicUnit(unit_id)
 	return type(unit_id) == "string" and unit_id == JAZZ_LegionMedicDensity.UnitId
 end
 
+-- HOTFIX-006: owner 2026-08-13 — these line classes may repeat without same-id / escort-Front caps.
+-- Sniper/MG/heavy/specialist buckets and recipe deny_ids still apply to everyone else.
+JAZZ_LegionUncappedLineIds = {
+	JAZZ_Legion_AssaultT1_Roughneck = true,
+	JAZZ_Legion_AssaultT2_Pillager = true,
+	JAZZ_Legion_AssaultT2_ShockTrooper = true,
+	JAZZ_Legion_FrontT1_Rifleman = true,
+	JAZZ_Legion_FrontT1_Marauder = true,
+	JAZZ_Legion_FrontT2_Raider = true,
+	JAZZ_Legion_FrontT3_Veteran = true,
+}
+
+function JAZZ_IsLegionUncappedLineUnit(unit_id)
+	return type(unit_id) == "string" and JAZZ_LegionUncappedLineIds[unit_id] and true or false
+end
+
+--- Same-id copy cap is off on Mission Impossible (`VeryHard`).
+function JAZZ_LegionSameIdCapApplies(difficulty)
+	local diff = difficulty
+	if diff == nil and Game then
+		diff = Game.game_difficulty
+	end
+	return diff ~= "VeryHard"
+end
+
 --- Easy/VeryEasy → +EasyMedicBonus; Hard/VeryHard → −HardMedicPenalty; else 0.
 --- Optional override: pass difficulty id string, or omit to read Game.game_difficulty.
 function JAZZ_GetLegionMedicDifficultyDelta(difficulty)
@@ -250,6 +275,9 @@ JAZZ_LegionRoleRecipes = {
 			"JAZZ_Legion_LeaderT1",
 			"JAZZ_Legion_LeaderT2",
 		},
+		deny_ids = {
+			"JAZZ_Legion_FrontT2_Marksman",
+		},
 	},
 	shipment = {
 		size_early_min = 4,
@@ -265,6 +293,9 @@ JAZZ_LegionRoleRecipes = {
 			"JAZZ_Legion_LeaderT1",
 			"JAZZ_Legion_LeaderT2",
 		},
+		deny_ids = {
+			"JAZZ_Legion_FrontT2_Marksman",
+		},
 	},
 	tax = {
 		size_early_min = 4,
@@ -279,6 +310,9 @@ JAZZ_LegionRoleRecipes = {
 			"JAZZ_Legion_FrontT2",
 			"JAZZ_Legion_LeaderT1",
 			"JAZZ_Legion_LeaderT2",
+		},
+		deny_ids = {
+			"JAZZ_Legion_FrontT2_Marksman",
 		},
 	},
 	recruiter = {
@@ -437,6 +471,7 @@ function JAZZ_ResolveLegionRoleRecipe(role, growth_progress)
 		size_mature_max = mature_max,
 		tier_bias = base.tier_bias,
 		allow_prefixes = base.allow_prefixes,
+		deny_ids = base.deny_ids,
 		growth_progress = p,
 		nomaps_sizes = lNoMapsSizeProfile() and true or false,
 	}
@@ -460,6 +495,11 @@ function JAZZ_LegionUnitAllowedForRole(unit_id, role)
 			or role == "major"
 		then
 			return true
+		end
+	end
+	for _, denied in ipairs(recipe.deny_ids or empty_table) do
+		if unit_id == denied then
+			return false
 		end
 	end
 	for _, prefix in ipairs(recipe.allow_prefixes or {}) do
