@@ -117,6 +117,10 @@ skill(x)      = 20 + x^1.25 × 0.25
 - При наложении `suppressionPinned` его `OnAdded` вызывает `Jazz_StripPinnedPreparedAttacks` (Interrupt + residual `g_Overwatch` / `g_Pindown` / `StationedMachineGun` / bombard) до смены стойки и **повторно** после `SetActionCommand` (гонка со stance/cover). `OnBeginTurn` повторяет strip; Jazz `Unit:BeginTurn` **всегда** interrupt+strip при pinned (раньше PinDown/Bombard ветки могли сохранить prepared); `ProvokeOpportunityAttack_Overwatch` при pinned снимает сектор и не стреляет; `ApplySuppressionStatus` при уже активном pinned снова зовёт strip. Более слабые ступени подготовленные атаки не прерывают.
 - `Unjam`: `ShowIn = "CombatActions"`, `group = Default`, SortKey 10. `GetAPCost` = **4…1 AP** от Mechanical (`4 - MulDivRound(Clamp(Mechanical,0,100), 3, 100)`); `MrFixit` сохраняет perk AP. `GetUIState` и `FirearmBase:IsCondition` опираются на `WeaponResource` %, чтобы jam не скрывался ложным `Broken` по stale `Condition`.
 
+## Стационарный пулемёт после load (JAZZ-HOTFIX-004)
+
+Vanilla `Unit:GameInit` может вызвать `EnterEmplacement` до создания `weapon`/visual орудия. JAZZ wrap не делает `SetPos(nil)` и не падает на `obj.weapon.owner`; `LoadGame`/`EnterSector` reseat привязывает ствол, пересчитывает HUD и при `Idle` без permanent overwatch восстанавливает конус `MGTarget`. `GetActiveWeapons` при manning повторяет `Update()`, если ствол ещё nil. `ResolveDefaultFiringModeAction` / `RecalcUIActions` не падают при отсутствии оружия.
+
 ## Lightning Reaction (JAZZ-COMBAT-003)
 
 Канон: `Unit:LightningReactionCheck` в `Code/System_OR_Unit.lua`; `Unit:FirearmAttack` в `Code/CombatActions.lua` выставляет `g_JAZZ_FirearmAttacker` / `g_JAZZ_FirearmAttackArgs` на время `OnFirearmAttackStart`.

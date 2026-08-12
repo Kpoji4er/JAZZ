@@ -58,10 +58,10 @@ function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
 	if firing_id == "AttackDual" then
 		table.insert_unique(actions, CombatActions.LeftHandShot)
 		table.insert_unique(actions, CombatActions.RightHandShot)
-	elseif firing_id == "Attack" and weapon:HasComponent("TwoHanded") then
+	elseif weapon and firing_id == "Attack" and weapon:HasComponent("TwoHanded") then
 		if table.find(actions, "id", "AttackDual") then
 		table.remove(actions, CombatActions.AttackDual) end
-	elseif firing_id == "Attack" then
+	elseif weapon and firing_id == "Attack" then
 		if weapon:HasComponent("EnableFullAuto") then
 		table.insert_unique(actions, CombatActions.AutoFire) 
 		end
@@ -73,7 +73,7 @@ function Unit:ResolveDefaultFiringModeAction(firingMode, ui, sync)
 		return a.SortKey < b.SortKey
 	end)
 
-	if  weapon:HasComponent("EnableRunNGun") then
+	if weapon and weapon:HasComponent("EnableRunNGun") then
 		table.insert_unique(actions, CombatActions.RunAndGun)
 	end
 
@@ -1852,7 +1852,9 @@ function Unit:RecalcUIActions(force)
 	elseif self:HasStatusEffect("StationedMachineGun") or self:HasStatusEffect("ManningEmplacement") then
 		actions = {}
 		local action = self:GetDefaultAttackAction()
-		actions[#actions + 1] = action.id
+		if action then
+			actions[#actions + 1] = action.id
+		end
 		ForEachPresetInGroup("CombatAction", "MachineGun", function(def)
 			if def.id ~= "MGSetup" then
 				actions[#actions + 1] = def.id
@@ -2112,7 +2114,10 @@ function Unit:GetActiveWeapons(class, strict_order)
 
 	if self:GetStatusEffect("ManningEmplacement") then
 		local handle = self:GetEffectValue("hmg_emplacement")
-		local obj = HandleToObject[handle]
+		local obj = handle and HandleToObject[handle]
+		if obj and not obj.weapon and type(obj.Update) == "function" then
+			obj:Update()
+		end
 		if obj and obj.weapon and (not class or IsKindOf(obj.weapon, class)) then
 			obj.weapon.emplacement_weapon = true
 			return obj.weapon, nil, { obj.weapon }

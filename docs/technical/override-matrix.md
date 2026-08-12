@@ -37,6 +37,7 @@ JAZZ поддерживает только последнюю опубликов
 | `Unit:CombatGoto` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Snap-move без Walk-анимов для боевого транспорта |
 | `Unit:GotoSlab` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Exploration-move для боевого транспорта |
 | `Unit:EnumUIActions` | `Lua/UI/UnitCaching.lua` | `Code/TweaksUI.lua` | core `Code/System_OR_Unit.lua`, затем maps `Code/System_JAZZ_VehicleCombat.lua` | Core меняет UI actions; maps добавляет Pivot/Turret для vehicle unit — грузить maps после core |
+| `Unit:EnterEmplacement` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_EmplacementAmmo.lua` (wrap) | HOTFIX-004: skip `SetPos(nil)` until weapon/visual exist; LoadGame reseat |
 | `IsLineInSmoke` | Не найдено как глобальный символ в экспортированном source | `Code/_Utils.lua` | `Code/System_OR_Unit.lua` | JAZZ заменяет функцию, введённую CLib |
 | `Unit:RunAndGun` | `Lua/Tactical/UnitActions.lua` | `Code/FixAI.lua` | `Code/CombatActions.lua` | JAZZ; проверить AP, движение, очередь и AI |
 | `Unit:UpdateMeleeTrainingVisual` | `Lua/Tactical/UnitOverwatch.lua` | `Code/FixesFromFys.lua` | `Code/System_OR_Unit.lua` | JAZZ; проверить очистку визуализации |

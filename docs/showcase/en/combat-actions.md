@@ -36,7 +36,7 @@ Folding stocks and tactical flashlights toggle via **small buttons next to the w
 | Overwatch | Cone control; each interrupt resolves from the real position. |
 | Pin Down | Keeps a target under reaction threat (not a hit guarantee). |
 | Mobile Shot / Run and Gun | Shot or packets during/after movement. |
-| MG Setup | Sets up the gun position; does not fire by itself. |
+| MG Setup | Sets up the gun position; does not fire by itself. A mapped stationary MG stays under control after loading a save (no remount needed). |
 
 ## Example JAZZ class techniques
 
