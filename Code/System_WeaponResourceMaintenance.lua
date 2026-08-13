@@ -747,9 +747,11 @@ function JAZZ_NormalizeRemovableAttachmentStack(item)
 	if not IsKindOf(item, "JAZZ_RemovableAttachment") then
 		return
 	end
-	-- Never allow class-merge: MergeStackIntoContainer keys only on item.class.
-	item.MaxStacks = 1
-	item.Amount = 1
+	-- Do not clip Amount: bag sort used to merge identical bipods, then this
+	-- (and JazzMarkSquadBagData) set Amount=1 and deleted the rest.
+	if not item.Amount or item.Amount < 1 then
+		item.Amount = 1
+	end
 end
 
 function JAZZ_CreateRemovableAttachment(component_id)
@@ -778,9 +780,8 @@ function JAZZ_CreateRemovableAttachment(component_id)
 	return item
 end
 
--- Prefer a free inventory slot over AddAndStackItem: all remountables share one class, so
--- stack-merge by class would destroy distinct RemovableComponentId instances
--- (e.g. collimator + compensator → Amount=2 Compensator).
+-- Prefer a free slot over blind AddAndStackItem. Mixed RemovableComponentId never
+-- share a stack (JazzInventoryItemsCanStack); identical catalog items may.
 function JAZZ_DepositRemovableAttachment(attachment, destination_bag, unit)
 	if not attachment then
 		return false

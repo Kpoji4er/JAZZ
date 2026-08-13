@@ -62,6 +62,7 @@
 | `_patch_buildingconfidence_loc.py` / `_patch_explodingpalm_metadata.py` / `_patch_hawkseye_loc.py` / `_patch_nazdarovya_loc.py` | UNITS-006 loc/metadata helpers for MD / DrQ / Scope / Igor. |
 | `_bump_metadata_thegrim.py` / `_fix_last_changes_head.py` | Bump jazz Revision + prepend TheGrim / SignatureAbilities bullets in `last_changes`. |
 | `_bump_metadata_hotfix004.py` | HOTFIX-004: Revision +1 and prepend stationary-MG last_changes bullet (`\\n` only). |
+| `_bump_metadata_hotfix005.py` | HOTFIX-005: Revision +1 and prepend remountable squad-bag stack last_changes bullet (`\\n` only). |
 | `_bump_units_meltdown_meta.py` | Bump jazz-units Revision + Meltdown `[skip discord]` last_changes bullet. |
 | `_units006_namedperks_notes.md` | UNITS-006 §D: Benny/Simon CE + StartingPerks; CombatAction soft-cut. |
 | `_units006_batch6_startingperks.py` | Prepend `Jazz_Perk_Benny`/`Jazz_Perk_Simon` to jazz-units UnitData + items StartingPerks. |
@@ -85,6 +86,7 @@
 | Скрипт | Назначение |
 | --- | --- |
 | `_audit_hotfix_004.py` | Static HOTFIX-004: EnterEmplacement wrap, LoadGame/EnterSector reseat, HUD nil-guards. |
+| `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
 | `_count_emplacement_ammo.py` | Счётчик `ammo_template` / `weapon_template` по всем `MachineGunEmplacement` в `jazz-maps/Maps`. |
 | `_fix_fortify_ernie_mg_handin.py` | GreasyBasil `FortifyErnie`: `MG42` → `Jazz_Browning_MuchineGun`+`Jazz_Browning_Bench` (has/take); I5 `ubRwFgf` ammo_template → `JAZZ_AMMO_50BMG_Basic`. |

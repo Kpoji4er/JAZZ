@@ -63,7 +63,9 @@ Reload берёт патроны только из `AmmoInventory`; наличи
 | Unit slots / разгрузка | personal `MaxStacks` (InventoryItem def) | `Amount/MaxStacks` |
 | `SquadBag`, `SectorStash` | `const.JazzStorageStackMax` = `10000` | только `Amount` (без `/max`) |
 
-Реализация: `Code/System_InventoryStacks.lua` (`JazzGetStackMax` / `JazzApplyStackContext`) + merge/`CanAddItem`/bag-sort/AddItem hooks. В storage instance `MaxStacks` поднимается до storage cap (чтобы vanilla `MoveItem` считал стек верно); при переносе в unit восстанавливается personal max. Перенос склад→мерк заливает до personal max, остаток остаётся на складе. UI amount-only также в `InventoryStack:GetItemSlotUI` (`System_OR_Weapons.lua`): если `MaxStacks == JazzStorageStackMax` / `JazzIsStorageStackUI` — без `/max` (защита от Mod Editor rewrite, который выкидывал `System_InventoryStacks.lua` из `metadata.code`).
+Реализация: `Code/System_InventoryStacks.lua` (`JazzGetStackMax` / `JazzApplyStackContext` / `JazzInventoryItemsCanStack`) + merge/`CanAddItem`/bag-sort/AddItem hooks. В storage instance `MaxStacks` поднимается до storage cap (чтобы vanilla `MoveItem` считал стек верно); при переносе в unit восстанавливается personal max. Перенос склад→мерк заливает до personal max, остаток остаётся на складе. UI amount-only также в `InventoryStack:GetItemSlotUI` (`System_OR_Weapons.lua`): если `MaxStacks == JazzStorageStackMax` / `JazzIsStorageStackUI` — без `/max` (защита от Mod Editor rewrite, который выкидывал `System_InventoryStacks.lua` из `metadata.code`).
+
+**HOTFIX-005 (remountable stacks):** одинаковые съёмные модули (один `RemovableComponentId`, напр. несколько `JAZZ_Bipod`) стекаются в SquadBag/SectorStash. Разные ID (коллиматор + компенсатор, даже на generic class) не сливаются. `JazzMarkSquadBagData` / `JAZZ_NormalizeRemovableAttachmentStack` **не** обрезают `Amount` до 1 — раньше сортировка сумки склеивала N сошек в один стек, затем клип удалял N−1. Уже потерянные в старых сейвах предметы не восстанавливаются. На мерке personal `MaxStacks=1` (по def).
 
 Known issue (не data loss): плавающее **визуальное** пропадание тайлов в SquadBag до регенерации UI bag; данные `squad_bag` сохраняются.
 
@@ -130,6 +132,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 - head/face/plate conflicts и разрушение plate;
 - контейнер: lockpick, break, damage, open, multiplayer;
 - squad bag при найме, увольнении, смерти, split/join и despawn;
+- HOTFIX-005: несколько одинаковых сошек в имуществе отряда переживают sort + save/load; коллиматор и компенсатор не сливаются;
 - loot unit/map, Legion regeneration, новый game и existing save;
 - craft/scrap с сохранением item resource и components;
 - rollover для ammo/armor/weapon.

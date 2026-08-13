@@ -111,7 +111,7 @@ function _SortItemsInBag(squad_id)
 	for idx, item in ipairs(bag_items) do
 		for i = 1, #stacks do
 			local bag_item = stacks[i]
-			if bag_item.class == item.class then
+			if JazzInventoryItemsCanStack and JazzInventoryItemsCanStack(bag_item, item) then
 				local max = storage_max
 				local to_add = Min(max - bag_item.Amount, item.Amount)
 				if to_add>0 then

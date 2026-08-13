@@ -44,7 +44,9 @@ function Inventory:CanAddItem(slot_name, item, left, top, local_changes)
 			return point_pack(left, top), "current"
 		end
 		local is_current_stack = IsKindOf(currentitem, "InventoryStack")
-		if is_current_stack and item.class == currentitem.class then
+		local same_stack = JazzInventoryItemsCanStack and JazzInventoryItemsCanStack(item, currentitem)
+			or (not JazzInventoryItemsCanStack and item.class == currentitem.class)
+		if is_current_stack and same_stack then
 			local max = JazzGetStackMax and JazzGetStackMax(currentitem, self) or currentitem.MaxStacks
 			if JazzApplyStackContext then
 				JazzApplyStackContext(currentitem, self)
