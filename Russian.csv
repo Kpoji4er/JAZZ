@@ -1037,10 +1037,10 @@ ID,Text,Translation,VoiceActor,Context
 237005758229,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> очень низкий урон
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный сектор атаки
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает у цели <color EmStyle>случайные травмы</color>","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Очень низкий урон
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сразу заполняет <color EmStyle>боль</color> до капа","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Очень низкий урон
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальность
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный сектор атаки
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит цели <color EmStyle>случайные травмы</color>",,jazz:InventoryItem/_12gauge_Saltshot.lua:14 | jazz:items.lua:9912
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сразу заполняет <color EmStyle>боль</color> до капа",,jazz:InventoryItem/_12gauge_Saltshot.lua:14 | jazz:items.lua:9912
 237424838471,Стальная бронеплита 3 класса защиты,Стальная бронеплита 3-го класса защиты,,jazz:InventoryItem/JazzArmorPlates_Steel3.lua:13 | jazz:items.lua:57140
 237637252887,Оптический Прицел ПУ (3.5x),"Оптический прицел ПУ (3,5×)",,jazz:items.lua:45748
 238574955470,Grenade,Grenade,,jazz:items.lua:62840

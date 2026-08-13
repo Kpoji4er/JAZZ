@@ -1559,13 +1559,45 @@ end
 -- Separate source: solid damaging hits add +1 via JazzPainOnDamagingHit (not graze; not zone-use).
 JazzTraumaPainStacksOnZoneUse = { Light = 1, Medium = 2, Heavy = 3 }
 
+-- HOTFIX-007: 12g saltshot — fill Pain to cap on any non-graze hit (incl. full armor absorb).
+function JazzIsSaltshotAmmo(ammo)
+	if not ammo then
+		return false
+	end
+	local id = tostring(ammo.class or ammo.id or "")
+	return id == "JAZZ_AMMO_12gauge_Saltshot" or id == "_12gauge_Saltshot"
+end
+
+function JazzTrySaltshotPain(unit, hit)
+	if not unit or not hit or hit.setpiece or hit.grazing then
+		return 0
+	end
+	local weapon = hit.weapon
+	local ammo = weapon and weapon.ammo
+	if not JazzIsSaltshotAmmo(ammo) then
+		return 0
+	end
+	local max_stacks = (CharacterEffectDefs.Pain and CharacterEffectDefs.Pain.max_stacks) or 8
+	return JazzAddPainStacks(unit, max_stacks)
+end
+
 -- +1 Pain when a solid (non-graze) hit deals HP damage. Cap via JazzAddPainStacks / Pain.max_stacks.
 -- Graze excluded (scratch package: HP + rare light bleed only). Zone-use / heavy ramp stay separate.
+-- Saltshot: JazzTrySaltshotPain fills to cap instead (HOTFIX-007).
 function JazzPainOnDamagingHit(unit, hit, damage)
 	if not unit or not hit or hit.setpiece then
 		return 0
 	end
 	if hit.grazing then
+		return 0
+	end
+	local salt = JazzTrySaltshotPain(unit, hit)
+	if salt > 0 then
+		return salt
+	end
+	-- Salt with Analgesia / already at cap still "is salt" — do not also +1.
+	local weapon = hit.weapon
+	if JazzIsSaltshotAmmo(weapon and weapon.ammo) then
 		return 0
 	end
 	damage = tonumber(damage) or 0

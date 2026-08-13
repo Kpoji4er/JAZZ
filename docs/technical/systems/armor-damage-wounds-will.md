@@ -212,7 +212,7 @@ DefineClass.DamageReduction = {
 | Medium | zone debuff | **+2** Pain при юзе зоны |
 | Heavy | жёсткий zone debuff | **+3** Pain при юзе зоны; **+1** Pain/ход за каждую **неиспользованную** heavy-зону (`JazzTraumaHeavyPainRamp`) |
 
-**Hit Pain (отдельно от zone-use):** `Unit:ApplyDamageAndEffects` → `JazzPainOnDamagingHit` — solid hit with **damage > 0** → **+1** Pain (`JazzAddPainStacks`, cap `Pain.max_stacks` **8**). **Graze excluded** (scratch package unchanged). Zone-use / heavy ramp do not share a dedup key with hit Pain (same combat event can still grant both only if the wounded unit also *uses* a zone that turn — different triggers).
+**Hit Pain (отдельно от zone-use):** `Unit:ApplyDamageAndEffects` → `JazzPainOnDamagingHit` — solid hit with **damage > 0** → **+1** Pain (`JazzAddPainStacks`, cap `Pain.max_stacks` **8**). **Graze excluded** (scratch package unchanged). **HOTFIX-007 saltshot** (`JAZZ_AMMO_12gauge_Saltshot` / `_12gauge_Saltshot`): любой non-graze hit (включая полное поглощение бронёй) → `JazzAddPainStacks` **до капа**; `AppliedEffects = { "Pain" }` (мёртвый `HeadshotTorsoshot…` / четыре `*shot` убраны); Analgesia блокирует и AppliedEffects Pain, и fill. Zone-use / heavy ramp do not share a dedup key with hit Pain (same combat event can still grant both only if the wounded unit also *uses* a zone that turn — different triggers).
 
 Кап `Pain.max_stacks` = **8**. Dedup zone-use: один раз за зону/ход (`unit.jazz_trauma_pain_keys`). Passive heavy: только зоны без zone-use в этом ходу; стаки суммируются по числу unused heavy. **Combat end:** `Pain.RemoveOnEndCombat = true` (как у `Analgesia`) — все стаки боли сбрасываются с окончанием боя; trauma/bleed остаются.
 

@@ -62,6 +62,7 @@
 | `_patch_buildingconfidence_loc.py` / `_patch_explodingpalm_metadata.py` / `_patch_hawkseye_loc.py` / `_patch_nazdarovya_loc.py` | UNITS-006 loc/metadata helpers for MD / DrQ / Scope / Igor. |
 | `_bump_metadata_thegrim.py` / `_fix_last_changes_head.py` | Bump jazz Revision + prepend TheGrim / SignatureAbilities bullets in `last_changes`. |
 | `_bump_metadata_hotfix004.py` | HOTFIX-004: Revision +1 and prepend stationary-MG last_changes bullet (`\\n` only). |
+| `_bump_metadata_hotfix007.py` | HOTFIX-007: Revision +1 + salt Pain / GrizzlyPerk last_changes (`\\n` only). |
 | `_bump_metadata_hotfix005.py` | HOTFIX-005: Revision +1 and prepend remountable squad-bag stack last_changes bullet (`\\n` only). |
 | `_bump_units_meltdown_meta.py` | Bump jazz-units Revision + Meltdown `[skip discord]` last_changes bullet. |
 | `_units006_namedperks_notes.md` | UNITS-006 §D: Benny/Simon CE + StartingPerks; CombatAction soft-cut. |
@@ -200,6 +201,7 @@
 | `_gen_setweaponcomponent_override.py` | Генерирует `Code/System_WeaponComponent_Set.lua` из vanilla `FirearmBase:SetWeaponComponent` + ветка `ModificationType=Set` (`mul=1000`, `add=N−base`). |
 | `_apply_grizzly_perk_full_damage.py` | GrizzlyPerk: `dmg_penalty` −50→0 + sync CE description in `items.lua`. |
 | `_restore_grizzly_perk_hud_icon_and_rok.py` | GrizzlyPerk CA: stock `UI/Icons/Hud/perk_grizzly_perk` + `recharge_on_kill=1` (undo SignatureAbilities glyph swap). |
+| `_apply_saltshot_pain_cap.py` | HOTFIX-007: saltshot `AppliedEffects` → `Pain` (+ cut-content hint); runtime fill-to-cap in `Systems_Medicine.lua`. |
 | `_apply_haveablast_fix.py` | HaveABlast: sync CE reactions/description into `items.lua` (optional helper; primary edit is companion + items). |
 | `_patch_haveablast_loc.py` | HaveABlast: patch RU/EN description rows in `English.csv`/`Russian.csv` without full CSV rewrite. |
 | `_patch_nazdarovya_loc.py` | Nazdarovya/Drunk: upsert RU/EN rows for perk, status, CombatAction strings. |

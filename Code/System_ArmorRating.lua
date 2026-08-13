@@ -507,6 +507,11 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 			local function apply_hit_effect(effect)
 				if (armor_pierced or explosion) and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
 					and CharacterEffectDefs[effect] then
+					-- MED-002 / HOTFIX-007: never stack Pain while Analgesia is active
+					-- (AppliedEffects "Pain" must not bypass JazzAddPainStacks).
+					if effect == "Pain" and self.HasStatusEffect and self:HasStatusEffect("Analgesia") then
+						return
+					end
 					self:AddStatusEffect(JazzRemapHitBleedEffect(effect, hit, attacker))
 				end
 			end
@@ -531,7 +536,8 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 				end
 			end
 			self.jazz_pending_trauma_hit = nil
-			-- MED-001: solid damaging hits grant +1 Pain (separate from zone-use / heavy ramp).
+			-- MED-001: solid damaging hits grant +1 Pain; HOTFIX-007 salt fills to cap
+			-- (incl. full armor absorb / 0 HP — JazzPainOnDamagingHit handles salt first).
 			JazzPainOnDamagingHit(self, hit, damage)
 		end
 	end

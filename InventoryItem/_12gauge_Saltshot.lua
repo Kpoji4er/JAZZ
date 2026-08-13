@@ -11,7 +11,7 @@ DefineClass._12gauge_Saltshot = {
 	DisplayNamePlural = T(598926526992, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot DisplayNamePlural]] "12-gauge Saltshot"),
 	colorStyle = "AmmoHPColor",
 	Description = T(920340970285, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot Description]] "Боеприпас с солью 12-го калибра."),
-	AdditionalHint = T(237005758229, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> очень низкий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный сектор атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Вызывает у цели <color EmStyle>случайные травмы</color>"),
+	AdditionalHint = T(237005758229, --[[ModItemInventoryItemCompositeDef _12gauge_Saltshot AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> очень низкий урон\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сниженная дальнобойность\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Увеличенный сектор атаки\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сразу заполняет <color EmStyle>боль</color> до капа"),
 	Cost = 100,
 	MaxStock = 5,
 	RestockWeight = 80,
@@ -41,7 +41,7 @@ DefineClass._12gauge_Saltshot = {
 		}),
 	},
 	AppliedEffects = {
-		"HeadshotTorsoshotArmsshotLegsshot",
+		"Pain",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_hp.png",
 }

@@ -2,7 +2,7 @@
 JAZZ_AMMO_12gauge_APSlug,"12-й калибр, ББ Пуля",12gauge,AmmoAPColor,1.5,+38,98%,,2.0,,,,,15,9,,,1800,4,14,True
 JAZZ_AMMO_12gauge_Birdshot,"12-й калибр, дробь",12gauge,AmmoBasicColor,0.5,,125%,,,3,,,,,,2000%,BleedingChance,120,1,90,True
 JAZZ_AMMO_12gauge_Buckshot,"12-й калибр, Картечь",12gauge,AmmoArmyColor,1.2,400%,112%,,,6,,,,,,900%,,400,2,85,True
-JAZZ_AMMO_12gauge_Saltshot,"12-й калибр, соль",12gauge,AmmoHPColor,0.1,20%,130%,,,,,,,,-2,2000%,HeadshotTorsoshotArmsshotLegsshot,70,1,80,True
+JAZZ_AMMO_12gauge_Saltshot,"12-й калибр, соль",12gauge,AmmoHPColor,0.1,20%,130%,,,,,,,,-2,2000%,Pain,70,1,80,True
 JAZZ_AMMO_12gauge_Slug,"12-й калибр, Пуля",12gauge,AmmoMatchColor,1.5,+40,95%,,12.0,25,,,,15,8,,,600,3,40,True
 JAZZ_AMMO_3006_AP,Патрон 30-06 M2 AP,3006,AmmoAPColor,3.3,80%,98%,-3,2.0,,5,,,,1,,,1350,5,10,True
 JAZZ_AMMO_3006_FMJ,Патрон 30-06,3006,AmmoBasicColor,2.4,,,,,,,,,,,,,250,2,100,True

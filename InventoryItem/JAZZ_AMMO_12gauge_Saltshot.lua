@@ -55,7 +55,7 @@ DefineClass.JAZZ_AMMO_12gauge_Saltshot = {
 		}),
 	},
 	AppliedEffects = {
-		"HeadshotTorsoshotArmsshotLegsshot",
+		"Pain",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_hp.png",
 }
