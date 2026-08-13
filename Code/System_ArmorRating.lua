@@ -493,12 +493,16 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 		if hit and hit.grazing then
 			JazzTryRollBleedFromGraze(self, hit, attacker)
 		else
+			if hit then
+				hit.jazz_applied_hp = damage or hit.damage or 0
+			end
+			self.jazz_pending_trauma_hit = hit
 			local effects = hit.effects
 			local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
 			local armor_pierced = not armor_hit or hit.armor_pen and next(hit.armor_pen) ~= nil
-			-- Blast: status effects (*shot / Blinded / stun) are not ballistic — apply even if armor
+			-- Blast: status effects are not ballistic — apply even if armor
 			-- "stopped" pen-class. Bleed still requires pierce. BAT skipped for explosions (trauma
-			-- comes from *shot rollers + JazzTryApplyExplosionConcussionAndTrauma).
+			-- comes from JazzTryApplyExplosionConcussionAndTrauma by hit HP).
 			local explosion = hit and hit.explosion
 			local function apply_hit_effect(effect)
 				if (armor_pierced or explosion) and type(effect) == "string" and effect ~= "" and effect ~= "MarkedTraccers"
@@ -526,6 +530,7 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 					JazzTryBlastKnockback(self, hit, attacker)
 				end
 			end
+			self.jazz_pending_trauma_hit = nil
 			-- MED-001: solid damaging hits grant +1 Pain (separate from zone-use / heavy ramp).
 			JazzPainOnDamagingHit(self, hit, damage)
 		end

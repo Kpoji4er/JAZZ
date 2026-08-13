@@ -886,6 +886,26 @@ function JazzIsBlastExplosiveHit(hit)
 	return aoe == "none"
 end
 
+function JazzHitHasShotRoller(hit)
+	if not hit then
+		return false
+	end
+	local effects = hit.effects
+	local function is_shot(effect)
+		return effect == "Headshot" or effect == "Armsshot" or effect == "Legsshot"
+			or effect == "Torsoshot" or effect == "Groinshot"
+	end
+	if type(effects) == "table" then
+		for _, effect in ipairs(effects) do
+			if is_shot(effect) then
+				return true
+			end
+		end
+		return false
+	end
+	return is_shot(effects)
+end
+
 function JazzTryApplyExplosionConcussionAndTrauma(unit, hit, attacker)
 	if not unit or not JazzIsBlastExplosiveHit(hit) then
 		return false
@@ -893,8 +913,6 @@ function JazzTryApplyExplosionConcussionAndTrauma(unit, hit, attacker)
 	if (unit.TempHitPoints or 0) > 0 then
 		return false
 	end
-	local center = hit.explosion_center
-	local trauma_gate = center and 100 or 40 -- center always attempts *shot-style trauma roll
 
 	local applied_conc = false
 	if CharacterEffectDefs and CharacterEffectDefs.Concussion then
@@ -902,34 +920,12 @@ function JazzTryApplyExplosionConcussionAndTrauma(unit, hit, attacker)
 		applied_conc = true
 	end
 
+	-- MED-004: one zone trauma from this hit's HP. Skip if leftover *shot already rolled.
 	local applied_trauma = false
-	-- When CenterAppliedEffects already listed *shot and pierce bypass applied them,
-	-- skip a second trauma roll to avoid stacking three body-part rollers + this gate.
-	local effects = hit.effects
-	local has_shot_roller = false
-	if type(effects) == "table" then
-		for _, effect in ipairs(effects) do
-			if effect == "Headshot" or effect == "Armsshot" or effect == "Legsshot"
-				or effect == "Torsoshot" or effect == "Groinshot" then
-				has_shot_roller = true
-				break
-			end
-		end
-	elseif effects == "Headshot" or effects == "Armsshot" or effects == "Legsshot"
-		or effects == "Torsoshot" or effects == "Groinshot" then
-		has_shot_roller = true
-	end
-	if not has_shot_roller and unit:Random(100) < trauma_gate then
-		local zones = { "Arms", "Legs", "Ribs", "Head" }
-		local zone
-		if center and unit:Random(100) < 40 then
-			zone = "Head"
-		elseif center and unit:Random(100) < 50 then
-			zone = "Ribs"
-		else
-			zone = zones[1 + unit:Random(#zones)]
-		end
-		applied_trauma = JazzTryRollTraumaFromBodyPart(unit, zone) and true or false
+	if not JazzHitHasShotRoller(hit) then
+		local zone = JazzHitBodyPartToTraumaZone(hit.spot_group or hit.target_spot_group)
+		zone = zone or "Ribs"
+		applied_trauma = JazzTryRollTraumaFromBodyPart(unit, zone, hit) and true or false
 	end
 
 	if applied_conc or applied_trauma then
@@ -1312,6 +1308,9 @@ end
 JazzTraumaZones = { "Arms", "Legs", "Ribs", "Head", "Burn" }
 JazzTraumaTiers = { "Light", "Medium", "Heavy" }
 JazzTraumaTierRank = { Light = 1, Medium = 2, Heavy = 3 }
+-- MED-004: after-armor HP this hit. 8 is a scratch on the JAZZ damage scale.
+JazzTraumaDamageFloor = 20
+JazzTraumaHeavyMaxHpPct = 50
 
 local function lTraumaId(zone, tier)
 	return "Trauma" .. zone .. tier
@@ -1363,7 +1362,7 @@ end
 -- Apply or upgrade trauma for a zone. Never downgrades.
 local lJazzPhysicalTraumaZones = { "Arms", "Legs", "Ribs", "Head" }
 
-function JazzApplyTrauma(unit, zone, tier)
+function JazzApplyTrauma(unit, zone, tier, from_time)
 	if not unit or not zone or not tier or not JazzTraumaTierRank[tier] then
 		return false
 	end
@@ -1386,7 +1385,7 @@ function JazzApplyTrauma(unit, zone, tier)
 	unit:AddStatusEffect(id)
 	local effect = unit:GetStatusEffect(id)
 	if effect then
-		JazzInitTraumaProgressTimer(effect, zone, tier, unit)
+		JazzInitTraumaProgressTimer(effect, zone, tier, unit, from_time)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, tier)
 	return true
@@ -1452,38 +1451,51 @@ function JazzGetTraumaArmorChanceFactor(unit, zone)
 	return Max(40, 100 - reduction)
 end
 
+function JazzHitAppliedHp(hit)
+	if not hit then
+		return 0
+	end
+	return hit.jazz_applied_hp or hit.damage or 0
+end
+
+-- MED-004: trauma tier from this hit's after-armor HP (no d100). Armor already reduced damage.
+function JazzWantedTraumaTierFromDamage(unit, zone, damage)
+	if not unit or not zone then
+		return false
+	end
+	damage = damage or 0
+	local floor = JazzTraumaDamageFloor or 20
+	if damage < floor then
+		return false
+	end
+	local current = JazzGetTraumaTier(unit, zone)
+	local cur_rank = current and JazzTraumaTierRank[current] or 0
+	local step_rank = (cur_rank <= 0) and 1 or Min(3, cur_rank + 1)
+	local heavy_rank = 0
+	local maxhp = unit.MaxHitPoints or 0
+	local pct = JazzTraumaHeavyMaxHpPct or 50
+	if maxhp > 0 and damage * 100 >= maxhp * pct then
+		heavy_rank = 3
+	end
+	local want_rank = Max(step_rank, heavy_rank)
+	if want_rank <= cur_rank then
+		return false
+	end
+	return JazzTraumaTiers[want_rank]
+end
+
 -- Body-part *shot rollers → trauma. Grit (Temp HP) still blocks like legacy *shot.
--- Fixed d100 base (not Random(HP)): low HP no longer collapses almost all rolls into Medium+.
--- Limbs favor Light; Head still slightly hotter on Medium (not instant Heavy).
--- Instant Heavy from a single hit is rare — knockout / untreated worsen carry Heavy.
--- Armor covering the zone scales thresholds down (JazzGetTraumaArmorChanceFactor).
-function JazzTryRollTraumaFromBodyPart(unit, zone)
+-- MED-004: tier from this hit's applied HP (pending hit or explicit hit arg). Graze never reaches here.
+function JazzTryRollTraumaFromBodyPart(unit, zone, hit)
 	if not unit or not zone or (unit.TempHitPoints or 0) > 0 then
 		return false
 	end
-	local factor = JazzGetTraumaArmorChanceFactor(unit, zone)
-	local thr_heavy, thr_medium, thr_light
-	if zone == "Head" then
-		-- Head: a bit more Medium than limbs; Heavy stays rare (stray ≠ cripple).
-		thr_heavy, thr_medium, thr_light = 3, 20, 55
-	else
-		-- Limbs/Ribs/Burn: mostly Light; Medium uncommon; Heavy very rare.
-		thr_heavy, thr_medium, thr_light = 2, 12, 55
+	hit = hit or unit.jazz_pending_trauma_hit
+	if hit and hit.grazing then
+		return false
 	end
-	if factor < 100 then
-		thr_heavy = Max(1, MulDivRound(thr_heavy, factor, 100))
-		thr_medium = Max(thr_heavy + 1, MulDivRound(thr_medium, factor, 100))
-		thr_light = Max(thr_medium + 1, MulDivRound(thr_light, factor, 100))
-	end
-	local roll = unit:Random(100)
-	local tier
-	if roll < thr_heavy then
-		tier = "Heavy"
-	elseif roll < thr_medium then
-		tier = "Medium"
-	elseif roll < thr_light then
-		tier = "Light"
-	end
+	local damage = JazzHitAppliedHp(hit)
+	local tier = JazzWantedTraumaTierFromDamage(unit, zone, damage)
 	if not tier then
 		return false
 	end
@@ -2201,7 +2213,7 @@ function UnitData:Tick()
 	Msg("UnitDataTick", self)
 end
 
-function JazzInitTraumaProgressTimer(effect, zone, tier, unit)
+function JazzInitTraumaProgressTimer(effect, zone, tier, unit, from_time)
 	if not effect or not Game or not Game.CampaignTime then
 		return false
 	end
@@ -2223,7 +2235,8 @@ function JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 		hours = Max(1, MulDivRound(hours, sat_h, 100))
 	end
 	local scale_h = (const.Scale and const.Scale.h) or 1
-	effect:SetParameter("next_check_time", Game.CampaignTime + hours * scale_h)
+	local base = from_time or Game.CampaignTime
+	effect:SetParameter("next_check_time", base + hours * scale_h)
 	effect:SetParameter("check_interval_h", hours)
 	return true
 end
@@ -2297,7 +2310,7 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	return table.concat({ base_desc, timing }, "\n\n")
 end
 
-function JazzDowngradeTrauma(unit, zone)
+function JazzDowngradeTrauma(unit, zone, from_time)
 	if not unit or not zone then
 		return false
 	end
@@ -2320,23 +2333,24 @@ function JazzDowngradeTrauma(unit, zone)
 		if was_healing then
 			JazzSetTraumaHealing(effect, true)
 		end
-		JazzInitTraumaProgressTimer(effect, zone, new_tier, unit)
+		JazzInitTraumaProgressTimer(effect, zone, new_tier, unit, from_time)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, new_tier)
 	return new_tier
 end
 
-function JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
+function JazzTraumaResolveProgressCheck(unit, zone, tier, effect, due_time)
 	if not unit or not zone or not tier then
 		return false
 	end
+	due_time = due_time or (Game and Game.CampaignTime)
 	local healing = JazzTraumaIsHealing(effect)
 	local improve_chance, worsen_chance = JazzTraumaProgressChances(zone, tier, healing)
 	local roll = (unit.Random and unit:Random(100)) or InteractionRand(100, "JazzTraumaProgress")
 	roll = roll + 1 -- 1..100
 	local nick = unit.Nick or unit.Name or ""
 	if roll <= improve_chance then
-		local result = JazzDowngradeTrauma(unit, zone)
+		local result = JazzDowngradeTrauma(unit, zone, due_time)
 		if result == "cleared" then
 			CombatLog("short", T{890000000010210, "<merc> trauma improved (cleared)", merc = nick})
 		elseif result then
@@ -2350,22 +2364,22 @@ function JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
 		elseif tier == "Medium" then
 			next_tier = "Heavy"
 		end
-		if next_tier and JazzApplyTrauma(unit, zone, next_tier) then
+		if next_tier and JazzApplyTrauma(unit, zone, next_tier, due_time) then
 			CombatLog("short", T{890000000010212, "<merc> trauma worsened", merc = nick})
 			return "worsen"
 		end
 	end
-	-- Stay: refresh timer. Untreated Heavy that fails to improve becomes infected (MED-002).
+	-- Stay: refresh timer from due time so skipped hours still catch up.
 	if tier == "Heavy" and not healing then
 		JazzApplyWoundInfected(unit)
 	end
 	if effect then
-		JazzInitTraumaProgressTimer(effect, zone, tier, unit)
+		JazzInitTraumaProgressTimer(effect, zone, tier, unit, due_time)
 	else
 		local id = lTraumaId(zone, tier)
 		local e = unit:GetStatusEffect(id)
 		if e then
-			JazzInitTraumaProgressTimer(e, zone, tier, unit)
+			JazzInitTraumaProgressTimer(e, zone, tier, unit, due_time)
 		end
 	end
 	return "stay"
@@ -2386,11 +2400,34 @@ function JazzTraumaProgressOnNewHour(unit)
 			if effect then
 				local next_t = effect:ResolveValue("next_check_time")
 				if not next_t or next_t == 0 then
-					JazzInitTraumaProgressTimer(effect, zone, tier, unit)
-					next_t = effect:ResolveValue("next_check_time")
+					-- Missing timer: due now, do not push the first check past a time skip.
+					next_t = Game and Game.CampaignTime
 				end
-				if next_t and Game and Game.CampaignTime and Game.CampaignTime >= next_t then
-					JazzTraumaResolveProgressCheck(unit, zone, tier, effect)
+				local guard = 0
+				while next_t and Game and Game.CampaignTime and Game.CampaignTime >= next_t and guard < 96 do
+					local before = JazzGetTraumaTier(unit, zone)
+					if not before then
+						break
+					end
+					effect = unit:GetStatusEffect(lTraumaId(zone, before))
+					if not effect then
+						break
+					end
+					JazzTraumaResolveProgressCheck(unit, zone, before, effect, next_t)
+					local after = JazzGetTraumaTier(unit, zone)
+					if not after then
+						break
+					end
+					effect = unit:GetStatusEffect(lTraumaId(zone, after))
+					if not effect then
+						break
+					end
+					local new_next = effect:ResolveValue("next_check_time")
+					if not new_next or new_next == next_t then
+						break
+					end
+					next_t = new_next
+					guard = guard + 1
 				end
 			end
 		end

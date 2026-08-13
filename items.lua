@@ -32687,7 +32687,7 @@ PlaceObj('ModItemEmail', {
 					'DisplayName', T(172826329217, --[[ModItemInventoryItemCompositeDef FragGrenade DisplayName]] "Граната M24"),
 					'DisplayNamePlural', T(167822758999, --[[ModItemInventoryItemCompositeDef FragGrenade DisplayNamePlural]] "Гранаты M24"),
 					'Description', "",
-					'AdditionalHint', T(243383619902, --[[ModItemInventoryItemCompositeDef FragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>"),
+					'AdditionalHint', T(243383619902, --[[ModItemInventoryItemCompositeDef FragGrenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)"),
 					'UnitStat', "Explosives",
 					'Cost', 300,
 					'CanAppearInShop', true,
@@ -32702,9 +32702,6 @@ PlaceObj('ModItemEmail', {
 					'MaxMishapRange', 8,
 					'CenterObjDamageMod', 50,
 					'CenterAppliedEffects', {
-						"Headshot",
-						"Armsshot",
-						"Legsshot",
 					},
 					'AreaOfEffect', 4,
 					'CenterAreaOfEffect', 2,
@@ -32734,7 +32731,7 @@ PlaceObj('ModItemEmail', {
 					'ItemType', "Grenade",
 					'DisplayName', T(211344759878, --[[ModItemInventoryItemCompositeDef HE_Grenade DisplayName]] "Граната Mk2"),
 					'DisplayNamePlural', T(246480537411, --[[ModItemInventoryItemCompositeDef HE_Grenade DisplayNamePlural]] "Гранаты Mk2"),
-					'AdditionalHint', T(663236691841, --[[ModItemInventoryItemCompositeDef HE_Grenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>"),
+					'AdditionalHint', T(663236691841, --[[ModItemInventoryItemCompositeDef HE_Grenade AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)"),
 					'UnitStat', "Explosives",
 					'Cost', 400,
 					'CanAppearInShop', true,
@@ -32749,9 +32746,6 @@ PlaceObj('ModItemEmail', {
 					'MaxMishapRange', 8,
 					'CenterObjDamageMod', 50,
 					'CenterAppliedEffects', {
-						"Armsshot",
-						"Headshot",
-						"Legsshot",
 					},
 					'AreaOfEffect', 5,
 					'CenterAreaOfEffect', 2,
@@ -75388,7 +75382,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not weapon1 then return "disabled", AttackDisableReasons.RequiresMachineGun end
 						return CombatActionGenericAttackGetUIState(self, units, args)
 					end,
-					Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/GrizzlyPerk.png",
+					Icon = "UI/Icons/Hud/perk_grizzly_perk",
 					IdDefault = "GrizzlyPerkdefault",
 					IsTargetableAttack = true,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
@@ -75416,6 +75410,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							'Name', "min_shots",
 							'Value', 1,
 							'Tag', "<min_shots>",
+						}),
+						PlaceObj('PresetParamNumber', {
+							'Name', "recharge_on_kill",
+							'Value', 1,
+							'Tag', "<recharge_on_kill>",
 						}),
 					},
 					RequireState = "any",

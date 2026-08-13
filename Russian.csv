@@ -1073,9 +1073,9 @@ ID,Text,Translation,VoiceActor,Context
 243070819799,"Мадам, мы не знакомы? Разрешите представиться, Фраг!","Мадам, мы не знакомы? Разрешите представиться, Фраг!",,jazz-units:items.lua:70944
 243383619902,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом гарантированно получают <color EmStyle>контузию</color>; возможны зональные <color EmStyle>травмы</color>",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:30707
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:30707
 244187543674,Шлем Тварон,Шлем из тварона,,jazz:InventoryItem/JazzArmor_TwaronHelm.lua:12 | jazz:items.lua:55030
 244409151764,"Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!","Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!",,jazz-units:items.lua:72141 | jazz-units:UnitData/Vicki.lua:113
 244675899202,Что вы делаете тут?,Что вы делаете тут?,,jazz-maps:items.lua:31115
@@ -3147,8 +3147,8 @@ Cuatro, cinco, seis
 661838275086,Ммм... Гм... хорошо подогнано!,Ммм... Гм... хорошо подогнано!,,jazz-units:items.lua:69541
 662960700376,Задержка!,Задержка!,,jazz-units:items.lua:71042
 663236691841,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом гарантированно получают <color EmStyle>контузию</color> и могут получить зональные <color EmStyle>травмы</color>",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)",,mag-hint-aligned
 663273681789,Топи,Топи,,jazz-maps:items.lua:2536 | jazz-maps:items.lua:36662
 663837406922,Пуляло,Пуляло,,jazz-units:items.lua:42356 | jazz-units:UnitData/JAZZ_Legion_GunnerT1_Gunner.lua:22
 664162876607,Ранение в голову,Ранение головы,,jazz:CharacterEffect/Headshot.lua:10 | jazz:items.lua:57577

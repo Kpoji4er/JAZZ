@@ -106,7 +106,8 @@
 | Скрипт | Назначение |
 | --- | --- |
 | `_apply_med002_statuses.py` | MED-002: insert `WoundInfected` + `BloodLoss50`…`1` companions/items/metadata + RU/EN loc rows. |
-| `_audit_med001_analgesia.py` | Static MED-001: Pain tracks the current-turn AP penalty; Analgesia consumes it once, refunds AP directly, and companion/`items.lua` stay equivalent. |
+| `_audit_med004.py` | Static MED-004: trauma floor 20 / Heavy 50% MaxHP; no d100 `thr_light`; Frag/HE center without `*shot`; NewHour catch-up. |
+| `_apply_med004_grenade_shot.py` | MED-004: strip Frag/HE `CenterAppliedEffects` `*shot` in companions+`items.lua`; update blast trauma hints RU/EN. |
 | `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
 | `_audit_med003_kits.py` | Static MED-003: Medical 30/50/80, heal +0/+50/+100, MaxStacks 5/10/15, trauma ranks, full bleed, Analgesia+infection, Large Bobby soft-tail, Bonemaker 5% medium. |
 | `_apply_med003_kits.py` | Apply MED-003 companion parity into `items.lua` + Bonemaker FirstAidKit/5% Medkit. |
@@ -198,6 +199,7 @@
 | `_verify_mp40_mag_normal_only.py` | Smoke: нет `JAZZ_MagLarge_50_MP40` в jazz/units data; GenW assault_m1 = InventoryItem; reseat map в `System_WeaponComponent_Set.lua`. |
 | `_gen_setweaponcomponent_override.py` | Генерирует `Code/System_WeaponComponent_Set.lua` из vanilla `FirearmBase:SetWeaponComponent` + ветка `ModificationType=Set` (`mul=1000`, `add=N−base`). |
 | `_apply_grizzly_perk_full_damage.py` | GrizzlyPerk: `dmg_penalty` −50→0 + sync CE description in `items.lua`. |
+| `_restore_grizzly_perk_hud_icon_and_rok.py` | GrizzlyPerk CA: stock `UI/Icons/Hud/perk_grizzly_perk` + `recharge_on_kill=1` (undo SignatureAbilities glyph swap). |
 | `_apply_haveablast_fix.py` | HaveABlast: sync CE reactions/description into `items.lua` (optional helper; primary edit is companion + items). |
 | `_patch_haveablast_loc.py` | HaveABlast: patch RU/EN description rows in `English.csv`/`Russian.csv` without full CSV rewrite. |
 | `_patch_nazdarovya_loc.py` | Nazdarovya/Drunk: upsert RU/EN rows for perk, status, CombatAction strings. |

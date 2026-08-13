@@ -33,9 +33,9 @@
 
 Для `aoeType == "none"` (осколочные/фугасные/flashbang/demo; **не** дым/газ/огонь):
 
-- `ApplyDamageAndEffects` применяет `hit.effects` (**включая** `*shot` rollers) даже если броня не «пробита» по pen-class — blast-статусы не баллистические. Bleed по-прежнему только при pierce. BAT на explosion **не** вызывается (травма идёт через `*shot` / dedicated roll).
+- `ApplyDamageAndEffects` применяет `hit.effects` даже если броня не «пробита» по pen-class — blast-статусы не баллистические. Bleed по-прежнему только при pierce. BAT на explosion **не** вызывается (травма — `JazzTryApplyExplosionConcussionAndTrauma` по урону хита).
 - `JazzTryApplyExplosionConcussionAndTrauma` (`Systems_Medicine.lua`): **`Concussion` гарантированно** на любом blast-hit юните (`aoeType none`, center и area); без ролла и без снижения от `StunGrenadeProtection` (тот по-прежнему влияет на flashbang Will/`SuppressStunGrenade`). Пропуск только при `TempHitPoints > 0`, не-blast aoe, grazing, мёртвых/invulnerable на входе `ApplyDamageAndEffects`. Длительность ~1–2 хода (−2 ОД, −15 CTH, +30% move, без Free Move).
-- Травма: если в `CenterAppliedEffects` уже есть `Headshot`/`Armsshot`/`Legsshot` (Frag/HE) — ролл через эти rollers после pierce-bypass; иначе (напр. 40mm только `Exposed`) — dedicated gate **100%** center / **40%** area → `JazzTryRollTraumaFromBodyPart` (случайная зона, center bias Head/Ribs).
+- Травма (MED-004): Frag/HE `CenterAppliedEffects` **без** `*shot`. Одна зона (`spot_group`, иначе Ribs) по той же полосе урона, что и пуля (пол **20**, шаг +1, Heavy при ≥ **50%** MaxHP). Leftover `*shot` на хите — второй ролл не делается.
 - Hits штампуют `aoe_type`/`weapon` в `Grenade`/`HeavyWeapon` `GetAttackResults`, чтобы smoke/fire не получали concussion.
 
 ### Blast knockback — JAZZ-GRENADES-002

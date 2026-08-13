@@ -1073,9 +1073,9 @@ The number of attacks depends on available AP.",,jazz:items.lua:64450
 243070819799,"Мадам, мы не знакомы? Разрешите представиться, Фраг!","Madam, have we met? Allow me to introduce myself: Frag!",,jazz-units:items.lua:70944
 243383619902,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Within ~1/4 range, only scatter; by half range risk is high; at max range elites (~90) still throw solidly (Dexterity + Explosives; reliable around 50)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Units caught in the blast are guaranteed to suffer <color EmStyle>Concussion</color> and may suffer location-specific <color EmStyle>Trauma</color>",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:30707
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Units caught in the blast are guaranteed to suffer <color EmStyle>Concussion</color>; one zone <color EmStyle>Trauma</color> if after-armor damage ≥ 20 (heavy at ≥ 50% Max HP)",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:30707
 244187543674,Шлем Тварон,Twaron Helmet,,jazz:InventoryItem/JazzArmor_TwaronHelm.lua:12 | jazz:items.lua:55030
 244409151764,"Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!","Fine, I'll be honest: I've had better offers, but there's something about Spider that makes her fun to work with. You've got a deal, man!",,jazz-units:items.lua:72141 | jazz-units:UnitData/Vicki.lua:113
 244675899202,Что вы делаете тут?,What are you doing here?,,jazz-maps:items.lua:31115
@@ -3150,8 +3150,8 @@ Looks like they were unloading explosives here for an attack on the mansion.",,j
 661838275086,Ммм... Гм... хорошо подогнано!,Mmm... Hmm... fits well!,,jazz-units:items.lua:69541
 662960700376,Задержка!,Stoppage!,,jazz-units:items.lua:71042
 663236691841,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; шанс зональных <color EmStyle>травм</color>","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Units caught in the blast are guaranteed to suffer <color EmStyle>Concussion</color> and may suffer location-specific <color EmStyle>Trauma</color>",,mag-hint-aligned
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Units caught in the blast are guaranteed to suffer <color EmStyle>Concussion</color>; one zone <color EmStyle>Trauma</color> if after-armor damage ≥ 20 (heavy at ≥ 50% Max HP)",,mag-hint-aligned
 663273681789,Топи,Marshes,,jazz-maps:items.lua:2536 | jazz-maps:items.lua:36662
 663837406922,Пуляло,Gunner,,jazz-units:items.lua:42356 | jazz-units:UnitData/JAZZ_Legion_GunnerT1_Gunner.lua:22
 664162876607,Ранение в голову,Head Injury,,jazz:CharacterEffect/Headshot.lua:10 | jazz:items.lua:57577
