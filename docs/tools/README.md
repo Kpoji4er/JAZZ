@@ -156,6 +156,8 @@
 | `_fix_med001_runtime_csv.py` | MED-001: чинит `Russian.csv` Text/Translation (EN source / RU translation) + literal `\\n` → реальные переносы в AdditionalHint. |
 | `_fix_med_en_in_ru_loc.py` | Playtest: восстанавливает RU Translation для MED AdditionalHint (`010013/016/019/024/027/030`) + Concussion `010277–280`; снимает `mag-hint-aligned` vanilla stomps EN-in-RU. |
 | `_scan_en_in_ru_loc.py` | Read-only: Cyrillic Text + English Translation в `Russian.csv` (perk/CA vs other vs both-EN). |
+| `_alloc_mod_loc_id.py` | Следующий свободный ID в `890000000000000..890000000099999` (скан Lua/CSV, без `Maps/`). |
+| `_insert_runtime_loc_row.py` | Точечная вставка одной однострочной loc-строки в RU/EN + Strings + manuals (без перезаписи всего CSV). |
 | `_fix_en_in_ru_ability_loc.py` | Playtest: `Russian.csv` Translation=Text для perk/signature CA (UNITS-006 `upsert_csv` писал EN в RU). `--apply`. Не трогает VR/InventoryItem. |
 | `_fix_med001_loc_append.py` | Перезаписывает RU/EN строки `890000000010200+` (JazzBandage / trauma timing / kit Bandage desc); Text=EN, Translation=язык. |
 | `_patch_combat_status_ui.py` | CombatBadge: 2–3 critical icons у ника; party combat `idWounded` → `JazzGetPartyPortraitStatusEffects` (parity с satellite). |

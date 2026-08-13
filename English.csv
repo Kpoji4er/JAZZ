@@ -12289,6 +12289,7 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000020153,Side,Side,,jazz:items.lua BobbyRay Other SubCategory
 890000000020154,Underbarrel,Underbarrel,,jazz:items.lua BobbyRay Other SubCategory
 890000000020155,Bipod,Bipod,,jazz:items.lua BobbyRay Other SubCategory
+890000000020156,Старая ретрансляционная башня,Old Relay Tower,,jazz-maps:items.lua HotDiamonds K2 display_name
 939310080350111,ржавое,rusty,,jazz:Code/Inventory.lua:117 | jazz:Code/Inventory.lua:180
 968409848233111,сломанное,broken,,jazz:Code/Inventory.lua:120 | jazz:Code/Inventory.lua:183
 1786863112811235,Укрепления,Fortifications,,jazz:Code/POI Extension.lua:9

@@ -44,7 +44,7 @@ Filter: `WeatherZone=Erny` **or** city `ErnieVillage`/`Rebels_Ernie` **or** `Lab
 | L6 | Abandoned bunker entrance | Rebels_Ernie |
 | L7 | Fishing village | |
 
-On the island but **without** Ernie tags in ModItemSector: `I3`/`I4` (road to lighthouse), `M3` (waterfall), `K3`/`L3`/`L4` (villa quest), `I7_Underground`, `L6_Underground`.
+On the island but **without** Ernie tags in ModItemSector: `K2` (Old Relay Tower), `I3`/`I4` (road to lighthouse), `M3` (waterfall), `K3`/`L3`/`L4` (villa quest), `I7_Underground`, `L6_Underground`.
 
 ## Quests (from items.lua)
 
