@@ -336,6 +336,11 @@ function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 		local holdXpLog = i ~= #attacks
 		self:OnAttack(action, target_unit, attack, attack_args, holdXpLog)
 	end
+
+	-- Fauda KillingWind: grant once on aggregate results (per-attack OnAttack may see 1 enemy each).
+	if type(Jazz_KillingWindTryGrit) == "function" then
+		Jazz_KillingWindTryGrit(self, results)
+	end
 		
 	LogAttack(action, attack_args, results)
 	AttackReaction(action, attack_args, results, "can retaliate")

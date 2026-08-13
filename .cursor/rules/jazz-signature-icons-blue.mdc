@@ -1,0 +1,26 @@
+---
+description: >-
+  Signature ability / Passive hotbar icons are always cool blue (Hud LEFT),
+  never cream/white. SteroidPunch-style Passive 54×54 and SignatureAbilities PNG.
+globs: Perks/SignatureAbilities/**,Icons/Hud/**,docs/tools/_build_passive_signature_icon_54.py,.agents/skills/create-jazz-action-icons/**
+alwaysApply: false
+---
+
+# Signature abilities: всегда синий глиф
+
+Именные / signature CombatAction иконки на хотбаре (`Perks/SignatureAbilities/`, Passive `SetColumns(1)`) — **cool blue**, как ванильный Hud **LEFT** half dual-strip (≈ `#609BB8` / mean left `perk_*`).
+
+## Обязательно
+
+1. **Passive** (54×54, `ActionType = "Passive"`): только **левая** половина dual 108×54 или тот же синий fill. **Запрещено** cream/sand `#F7F7D6` / правая половина — на баре выглядит **белой** (баг SteroidPunch).
+2. Сборка: `docs/tools/_build_passive_signature_icon_54.py` (`--from-hud` → LEFT). Не перекрашивать Passive в `CREAM`.
+3. **Active** dual 108×54: LEFT = cool blue/grey, RIGHT = cream только как второй state ванили (`SetColumns(2)`). Не делать единственный visible Passive-тайл кремовым.
+4. Skill: `$create-jazz-action-icons` — тот же контракт цвета.
+
+## Не делать
+
+- Passive/Signature single-tile в cream / off-white / «песочном» selected-state.
+- Брать RIGHT half dual для Passive «потому что ярче».
+- Путать Personal perk 68×68 (`$create-jazz-perk-icons`) с hotbar Signature.
+
+Связано: `.agents/skills/create-jazz-action-icons/SKILL.md`, `docs/tools/_build_passive_signature_icon_54.py`.

@@ -36,19 +36,19 @@ RESTORE_GAMOS = {
 }
 
 RU_NAME = "Удар анаболика"
-EN_NAME = "Steroid Smash"
+EN_NAME = "Anabolic Punch"
 RU_DESC = (
     "Пассивный навык. Точность всех ударов кулаками и оружием ближнего боя зависит от "
-    "<em>Силы</em> вместо Ловкости. Успешные удары кулаками и оружием ближнего боя дают "
-    "<em>Нокдаун</em> и <em>Без сознания</em>. Стимуляторы не вызывают потери "
-    "<em>энергии</em> (усталости). Урон со временем от эффекта <em>горения</em> снижен на "
-    "<em>30%</em>."
+    "<em>Силы</em> вместо Ловкости. Успешные удары <em>кулаками</em> отбрасывают цель "
+    "(как ванильный Steroid Smash) с побочным уроном окружению. Стимуляторы не вызывают "
+    "потери <em>энергии</em> (усталости). Урон со временем от эффекта <em>горения</em> "
+    "снижен на <em>30%</em>."
 )
 EN_DESC = (
-    "Passive skill. Accuracy with fists and melee weapons uses <em>Strength</em> instead of "
-    "Dexterity. Successful fist and melee hits apply <em>Knockdown</em> and <em>Unconscious</em>. "
-    "Combat stims do not cause <em>Energy</em> (tiredness) loss. Burning damage-over-time is "
-    "reduced by <em>30%</em>."
+    "Passive. Fist and melee accuracy uses <em>Strength</em> instead of Agility. Successful "
+    "<em>unarmed</em> hits knock the target back like vanilla Steroid Smash (with collateral). "
+    "Combat stims do not cause <em>Energy</em> (tiredness) loss. Burning DoT reduced by "
+    "<em>30%</em>."
 )
 SRC = "jazz:CharacterEffect/SteroidPunch.lua"
 

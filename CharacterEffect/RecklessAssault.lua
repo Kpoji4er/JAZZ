@@ -28,7 +28,7 @@ DefineClass.RecklessAssault = {
 		}),
 	},
 	DisplayName = T(890000000009935, --[[ModItemCharacterEffectCompositeDef RecklessAssault DisplayName]] "Безрассудный натиск"),
-	Description = T(890000000009936, --[[ModItemCharacterEffectCompositeDef RecklessAssault Description]] "Улучшенный <em>Run and Gun</em>: до <em>4</em> атак с пистолет-пулемётом, карабином или автоматом. <em>+<cth_bonus></em> к точности. Без потери <GameTerm('Energy')>."),
+	Description = T(890000000009936, --[[ModItemCharacterEffectCompositeDef RecklessAssault Description]] "Улучшенный <em>Run and Gun</em>: до <em>4</em> атак с пистолет-пулемётом, карабином или автоматом. <em>+<cth_bonus></em> к точности. Без потери <GameTerm('Energy')>. <color EmStyle>Заряжается после убийства другим способом.</color>"),
 	Icon = "UI/Icons/Perks/RecklessAssault",
 	Tier = "Personal",
 }

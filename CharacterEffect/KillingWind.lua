@@ -16,20 +16,13 @@ DefineClass.KillingWind = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
 			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-				if target ~= attacker then return end
-
-				local enemiesHit = 0
-				if results and results.hit_objs then
-					for _, obj in ipairs(results.hit_objs) do
-						if IsKindOf(obj, "Unit") and obj:IsOnEnemySide(attacker) then
-							enemiesHit = enemiesHit + 1
-						end
-					end
+				if target ~= attacker then
+					return
 				end
-
-				if enemiesHit >= 2 then
-					local grit = self:ResolveValue("gritPerEnemyHit") * enemiesHit
-					attacker:ApplyTempHitPoints(grit)
+				-- Aggregate firearm grit is applied in ExecFirearmAttacks after all OnAttack calls.
+				-- Keep CE path for melee/other single-results attacks; helper is idempotent per results.
+				if type(Jazz_KillingWindTryGrit) == "function" then
+					Jazz_KillingWindTryGrit(attacker, results)
 				end
 			end,
 		}),

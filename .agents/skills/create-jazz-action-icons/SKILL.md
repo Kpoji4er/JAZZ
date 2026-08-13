@@ -10,6 +10,8 @@ description: >-
 
 # Создание HUD / action-bar icons
 
+**Цвет (locked):** signature / Passive hotbar — **всегда синий** (Hud LEFT). Не cream/white. Правило: `.cursor/rules/jazz-signature-icons-blue.mdc`.
+
 Пакет: `jazz`.  
 **Primary runtime output:** `Perks/SignatureAbilities/<ActionId>.png`  
 **Style bank:** [`Icons/Hud/references/`](../../../Icons/Hud/references/) (+ [`PROMPT.md`](../../../Icons/Hud/references/PROMPT.md)).  
@@ -49,7 +51,9 @@ Asset-only PNG **не** требует spec. Новый CombatAction / смен�
 | Style | flat tactical HUD stencil; soft AA; optional light scanline/distress like vanilla Hud |
 | Forbid | текст/буквы/цифры/рамка кнопки/портрет/инвентарный цветной арт |
 
-Некоторые vanilla `perk_*` refs — **54×54** single tile; для JAZZ hotbar CombatAction всё равно писать **108×54** dual strip (как `attack`, `bullseye`, `run_and_gun`).
+Некоторые vanilla `perk_*` refs — **54×54** single tile (**Passive** hotbar: `SetColumns(1)`).  
+**Active** CombatAction / signature attack: **108×54** dual strip (`SetColumns(2)`).  
+JAZZ Passive Signature (SteroidPunch, TagTeam-style): write **54×54** cool **blue** from Hud **LEFT** half (`docs/tools/_build_passive_signature_icon_54.py`). Do **not** use cream/right half or 108×54 dual for Passive — cream reads white; dual with `SetColumns(1)` squashes both states.
 
 ### Icons/Med (medical-action subset)
 

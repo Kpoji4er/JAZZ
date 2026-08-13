@@ -271,15 +271,22 @@ function CrosshairUI:UpdateAim()
 	pContext.attack_distance = DivCeil(distToTarget, const.SlabSizeX)
 	
 	local weapon1, _ = actualAction:GetAttackWeapons(attacker)
-	pContext.weapon_range = actualAction:GetMaxAimRange(attacker, weapon1) or weapon1.WeaponRange
-    pContext.weapon_eff_range = actualAction:GetMaxAimRange(attacker, weapon1) or weapon1.BulletDropRange
-    pContext.aim = self.aim;
-    assert(pContext.aim)
+	local max_aim = weapon1 and actualAction:GetMaxAimRange(attacker, weapon1)
+	pContext.weapon_range = max_aim or (weapon1 and weapon1.WeaponRange) or 1
+	-- Melee/unarmed have no BulletDropRange; fall back to weapon_range.
+	pContext.weapon_eff_range = max_aim or (weapon1 and weapon1.BulletDropRange) or pContext.weapon_range
+	pContext.aim = self.aim
+	assert(pContext.aim)
 	assert(pContext.weapon_range)
-    assert(pContext.weapon_eff_range)
+	local is_melee = actualAction.ActionType == "Melee Attack"
+		or actualAction.AimType == "melee"
+		or actualAction.AimType == "melee-charge"
+	if not is_melee then
+		assert(pContext.weapon_eff_range)
+	end
 	pContext.weapon_range = pContext.weapon_range or 0
-    pContext.weapon_eff_range = pContext.weapon_eff_range or 0
-    pContext.aim = pContext.aim or 0;
+	pContext.weapon_eff_range = pContext.weapon_eff_range or 0
+	pContext.aim = pContext.aim or 0
 
 	local bestChance = 0
 

@@ -33,12 +33,20 @@
 | `_apply_units006_batch1_items_loc.py` | UNITS-006 §A batch1: sync `items.lua` ModItem CE from companions + `Jazz_OrderAP`/`Jazz_CombatMedicBuff`, metadata.code, RU/EN CSV for touched perk/status IDs. |
 | `_apply_units006_batch1_hooks.py` | UNITS-006 batch1: register `System_NamedPerks_006` in metadata.code; Vince skip-consume wrap in `Systems_Medicine.lua`. |
 | `_apply_units006_batch2_items_loc.py` | UNITS-006 §C batch2: sync vanilla personal CE companions (`GruntyPerk_JAZZ`, `GrizzlyPerk`, Ivan/Gus/Nails/Wolf/Magic/Scully/Steroid/Ice), metadata.code, RU/EN CSV (`6500+` + Grizzly/Grunty desc). Refuses VoiceResponse overwrite. |
-| `_apply_steroidpunch_passive.py` | UNITS-006 SteroidPunch: sync companion → `items.lua` + RU/EN `890000000009930/9931` (passive text). Restores Gamos VR `6512/6513` if overwritten. |
+| `_apply_steroidpunch_passive.py` | UNITS-006 SteroidPunch: sync companion → `items.lua` + RU/EN `890000000009930/9931` (passive knockback text). Restores Gamos VR `6512/6513` if overwritten. |
+| `_bump_steroidpunch_passive_aimtype_meta.py` | SteroidPunch Passive: metadata bump for AimType=none (no melee-range rollover). |
+| `_bump_steroidpunch_hotfix_meta.py` | Bump jazz Revision + prepend SteroidPunch Passive/knockback/CrossHairUI hotfix bullet in `last_changes` (escape `\n` only). |
+| `_bump_bullethell_rok_cache_meta.py` | Bump jazz Revision + prepend Spike BulletHell `recharge_on_kill` cache fix bullet. |
+| `_bump_killingwind_hotfix_meta.py` | Bump jazz Revision + prepend Fauda KillingWind grit/`OnGearChanged` FM tax fix bullet. |
+| `_bump_barry_craft_discount_meta.py` | Bump jazz Revision + prepend Barry DesignerExplosives CraftAmmo/Explosives −30% Parts (sector-wide) bullet. |
+| `_fix_passive_sig_icons_54_blue.py` | Rebuild Passive `Jazz_Perk_*` Signature icons to 54×54 cool blue (fix 108 dual SetColumns=1 squash). |
+| `_build_passive_signature_icon_54.py` | **Passive** Signature hotbar icon = **54×54** (`SetColumns(1)`), cool **blue** from Hud **LEFT** half (not cream). Active = **108×54** dual (`SetColumns(2)`). → `Perks/SignatureAbilities/<ActionId>.png`. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
 | `_audit_jazz_perk_combat_actions.py` | Audit `Jazz_Perk_*` CE vs `ModItemCombatAction` SignatureAbilities companions; flags missing CA and `GetUIState→hidden` stubs. |
 | `_gen_jazz_perk_passive_combat_actions.py` | Generate/fix Passive `SignatureAbilities` CombatAction companions for `Jazz_Perk_*` (skip `00` Toggle + OfficerAuraInfluence); sync metadata presets. Prefer `Perks/SignatureAbilities/<id>.png` for CA Icon when present. |
-| `_build_jazz_perk_sig_icons_from_personal.py` | Build 108×54 dual-strip HUD icons for Lynx/Buzz/Spider/Colby Passive CAs from `Perks/Personal/*.png` (key black bg → transparent); wire `CombatAction.Icon` in `items.lua`. CE Personal icons unchanged. |
+| `_build_jazz_perk_sig_icons_from_personal.py` | Builds **108×54 dual** from Personal — for **Active** Signature. **Passive** needs 54×54 via `_build_passive_signature_icon_54.py` (`CombatActionBarButton` `SetColumns(1)`). |
+| `_fix_thegrim_recharge_cache.py` | Reaper TheGrim: docs/meta bump for `g_PresetParamCache` + wrap-reinstall fix (runtime in System_NamedPerks). |
 | `_apply_thegrim_recharge_5kills.py` | UNITS-006 Reaper `TheGrim`: ensure RU/EN loc for 5-kill recharge tooltip; runtime is `Code/System_NamedPerks.lua` (`Jazz_TheGrimKillsToRecharge`). |
 | `_fix_units006_batch3_loc.py` | UNITS-006 batch3: rewrite RU CE/CSV via unicode-escapes (encoding-safe). |
 | `_gen_units006_batch4.py` | UNITS-006 §B batch4: Flo/Static/Cougar + cheap §B CE text/hooks sync. |
@@ -52,13 +60,18 @@
 | `_units006_perk_moditem_params.py` | Add ModItem Parameters to UNITS-006 perks; wire Code via Jazz_NamedPerkParam; sync items. |
 | `_units006_namedperks_notes.md` | UNITS-006 batch5: before→after + soft cuts (Biff economy, ECON-001 Livewire op, Thor recipes). |
 | `_add_doubletoss_pocket_cas.py` | Fidel: insert `DoubleTossAG–DG` (GrenadesInventory) ModItemCombatAction + metadata presets. |
+| `_fix_grunty_morale_visibility.py` | Grunty: CombatLog on morale AP proc (chance/roll); clarify personal-BD desc; sync CE/items/CSV/meta. |
 | `_fix_grunty_passive_ca.py` | Grunty: Passive CA `GruntyPerk_JAZZ` + HUD icon; strip AdditionalAP double `GainAP`; metadata bump. |
 | `_apply_explodingpalm_drq.py` | DrQ: ExplodingPalm unarmed HP-tier statuses + sat debt +30% + WoundInfected block + Passive CA. |
+| `_apply_explodingpalm_passive_ca_fix.py` | ExplodingPalm Passive CA: 54×54 icon, HasPerk GetUIState, stub Execute/UIBegin; metadata bump. |
 | `_apply_makethembleed_buff_icon.py` | Flay: `Jazz_MakeThemBleedBuff` HUD stacks = visible bleeding enemies (cap 5). |
 | `_apply_dangerclose_larry.py` | Larry: DangerClose List2 (explosives ≥8 +40%, blast +2 bleed, stim immune) + loc IDs + items sync. |
 | `_apply_gloryhog_pierre.py` | Pierre: GloryHog CE override + `Jazz_PierreRecruit` signature CA (1 recruit/combat) + loc/metadata. |
+| `_fix_pierre_recruit_uibegin.py` | Pierre recruit: fix `Jazz_PierreRecruit` UIBegin (Unit choices + default Execute); Charge tooltip loc; metadata bump. |
+| `_fix_pierre_loc_collision_9942.py` | Restore RecklessAssault `9935/9936`; Pierre combat-log/Charge tooltip → `9942/9943`. |
 | `_fix_gloryhog_loc_collision.py` | Restore SteroidPunch 9930/9931 if overwrite; remap Pierre recruit desc/used → 9933/9934. |
 | `_apply_recklessassault_smiley.py` | Smiley: RecklessAssault List2 — 4 mobile attacks, SMG/carbine/AR, +15 CTH, no Tiredness; CA+CE+loc. |
+| `_apply_recklessassault_recharge_on_kill.py` | Smiley RecklessAssault: `recharge_on_kill=1` like RunAndGun; CE/loc mention kill recharge; metadata bump. |
 | `_patch_buildingconfidence_loc.py` / `_patch_explodingpalm_metadata.py` / `_patch_hawkseye_loc.py` / `_patch_nazdarovya_loc.py` | UNITS-006 loc/metadata helpers for MD / DrQ / Scope / Igor. |
 | `_bump_metadata_thegrim.py` / `_fix_last_changes_head.py` | Bump jazz Revision + prepend TheGrim / SignatureAbilities bullets in `last_changes`. |
 | `_bump_metadata_hotfix004.py` | HOTFIX-004: Revision +1 and prepend stationary-MG last_changes bullet (`\\n` only). |
@@ -202,11 +215,13 @@
 | `_apply_grizzly_perk_full_damage.py` | GrizzlyPerk: `dmg_penalty` −50→0 + sync CE description in `items.lua`. |
 | `_restore_grizzly_perk_hud_icon_and_rok.py` | GrizzlyPerk CA: stock `UI/Icons/Hud/perk_grizzly_perk` + `recharge_on_kill=1` (undo SignatureAbilities glyph swap). |
 | `_apply_saltshot_pain_cap.py` | HOTFIX-007: saltshot `AppliedEffects` → `Pain` (+ cut-content hint); runtime fill-to-cap in `Systems_Medicine.lua`. |
+| `_fix_haveablast_grenade_pockets.py` | Red HaveABlast: docs/meta for GrenadesInventory AG–DG retaliate (runtime `System_HaveABlast.lua`). |
 | `_apply_haveablast_fix.py` | HaveABlast: sync CE reactions/description into `items.lua` (optional helper; primary edit is companion + items). |
 | `_patch_haveablast_loc.py` | HaveABlast: patch RU/EN description rows in `English.csv`/`Russian.csv` without full CSV rewrite. |
+| `_apply_nazdarovya_recharge_on_kill.py` | Igor Nazdarovya: CA `recharge_on_kill=1`, `Unit:Nazdarovya` AddSignatureRechargeTime, GetUIState CD, Ensure cache, loc/docs. |
 | `_patch_nazdarovya_loc.py` | Nazdarovya/Drunk: upsert RU/EN rows for perk, status, CombatAction strings. |
 | `_patch_buildingconfidence_loc.py` | MD BuildingConfidence: upsert RU/EN perk description (Inspired turns + heal level-diff). |
-| `_patch_hawkseye_loc.py` | Scope HawksEye: upsert RU/EN (sniper OW 1 AP + biscuits + suppress ×2). |
+| `_rollback_hawkseye_vanilla.py` | Scope HawksEye: remove JAZZ CE/items/metadata override (back to vanilla PinDown+biscuits). |
 | `_audit_mag_size_set_defaults.py` | Список оружия с default-магазином на `MagazineSizeSet` (поверхность бага MagSize=1 при `mul=0`). |
 | `_validate_wave_weapons.py` | Статическая валидация волны ATTACH-001 MagSizeSet + WEAPONS-002..005 (якоря, metadata load, loc, CSV). |
 | `_peek_mag45_kobra.py` / `_peek_mag45_kobra2.py` / `_list_reload_effects.py` | Peek Mag45 / Reflex_Cobra effects+params и Reload* effect presets в `items.lua`. |

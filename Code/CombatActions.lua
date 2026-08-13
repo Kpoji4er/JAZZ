@@ -91,10 +91,28 @@ end
 
 function OnMsg.ModsReloaded()
 	lInstallSigRechargeKillFix()
+	if type(rawget(_G, "Jazz_InstallPierreRecruitCombatAction")) == "function" then
+		Jazz_InstallPierreRecruitCombatAction()
+	end
+	if type(rawget(_G, "Jazz_EnsureRecklessAssaultRechargeOnKill")) == "function" then
+		Jazz_EnsureRecklessAssaultRechargeOnKill()
+	end
+	if type(rawget(_G, "Jazz_EnsureNazdarovyaRechargeOnKill")) == "function" then
+		Jazz_EnsureNazdarovyaRechargeOnKill()
+	end
+	if type(rawget(_G, "Jazz_EnsureTheGrimRechargeOnKill")) == "function" then
+		Jazz_EnsureTheGrimRechargeOnKill()
+	end
 end
 
 function OnMsg.DataLoaded()
 	lInstallSigRechargeKillFix()
+	if type(rawget(_G, "Jazz_InstallPierreRecruitCombatAction")) == "function" then
+		Jazz_InstallPierreRecruitCombatAction()
+	end
+	if type(rawget(_G, "Jazz_EnsureRecklessAssaultRechargeOnKill")) == "function" then
+		Jazz_EnsureRecklessAssaultRechargeOnKill()
+	end
 end
 
 lInstallSigRechargeKillFix()
@@ -899,9 +917,32 @@ function Unit:RunAndGun(action_id, cost_ap, args)
 end
 
 -- Smiley RecklessAssault List2: improved RnG; no Energy/Tiredness loss (vanilla SetTired).
+-- recharge_on_kill is on CombatActions.RecklessAssault Parameters; Unit:RunAndGun applies CD.
 function Unit:RecklessAssault(action_id, cost_ap, args)
 	self:RunAndGun(action_id, cost_ap, args)
 end
+
+--- Ensure RecklessAssault has recharge_on_kill=1 (same contract as JAZZ RunAndGun).
+function Jazz_EnsureRecklessAssaultRechargeOnKill()
+	local ca = CombatActions and CombatActions.RecklessAssault
+	if not ca then
+		return false
+	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return false
+	end
+	local cache = g_PresetParamCache[ca]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[ca] = cache
+	end
+	if cache.recharge_on_kill == nil or cache.recharge_on_kill < 1 then
+		cache.recharge_on_kill = 1
+	end
+	return true
+end
+
+Jazz_EnsureRecklessAssaultRechargeOnKill()
 
 --- Weapon gate for RecklessAssault: SMG / Carbine / AssaultRifle.
 function Jazz_RecklessAssaultWeaponOk(weapon)
@@ -1114,7 +1155,7 @@ function Unit:VengefulTemperament(action_id, cost_ap, args)
 	self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, false)
 end
 
--- Igor Nazdarovya: every-turn drink — clear Pain, heal 15–20 HP, stack Drunk (≤5). No signature recharge.
+-- Igor Nazdarovya: drink — clear Pain, heal 15–20 HP, stack Drunk (≤5); CD recharge_on_kill.
 function Unit:Nazdarovya(action_id, cost_ap, args)
 	local action = CombatActions[action_id]
 	local max_stacks = (action and action:ResolveValue("maxStacks")) or 5
@@ -1141,10 +1182,54 @@ function Unit:Nazdarovya(action_id, cost_ap, args)
 	Msg("UnitAPChanged", self)
 
 	self:AddStatusEffect("Drunk", 1)
-	-- No AddSignatureRechargeTime — usable every turn (AP cost only).
+
+	local recharge_on_kill = action and action:ResolveValue("recharge_on_kill")
+	if recharge_on_kill then
+		self:AddSignatureRechargeTime(action_id, const.Combat.SignatureAbilityRechargeTime, recharge_on_kill > 0)
+	end
 end
 
+--- Ensure Nazdarovya has recharge_on_kill=1 (ResolveValue reads g_PresetParamCache).
+function Jazz_EnsureNazdarovyaRechargeOnKill()
+	local ca = CombatActions and CombatActions.Nazdarovya
+	if not ca then
+		return false
+	end
+	local params = ca.Parameters or {}
+	local has = false
+	for _, p in ipairs(params) do
+		if p and p.Name == "recharge_on_kill" then
+			p.Value = 1
+			has = true
+			break
+		end
+	end
+	if not has then
+		params[#params + 1] = PlaceObj("PresetParamNumber", {
+			"Name", "recharge_on_kill",
+			"Value", 1,
+			"Tag", "<recharge_on_kill>",
+		})
+		ca.Parameters = params
+	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return false
+	end
+	local cache = g_PresetParamCache[ca]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[ca] = cache
+	end
+	cache.recharge_on_kill = 1
+	return true
+end
+
+Jazz_EnsureNazdarovyaRechargeOnKill()
+
 -- Pierre GloryHog List2: once/combat recruit visible non-boss enemy → ally (AI-controlled).
+-- Charge (non-straight +15 grit) stays vanilla CombatActions.GloryHog / Unit:GloryHogCharge.
+g_JAZZ_PierreRecruitCAPatched = rawget(_G, "g_JAZZ_PierreRecruitCAPatched") or false
+
 function Jazz_IsPierreRecruitBossBlocked(unit)
 	if not unit then
 		return true
@@ -1176,6 +1261,10 @@ end
 function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 	args = args or empty_table
 	local target = args.target
+	-- ExecuteCombatChoice may pass the unit as args itself in odd call shapes.
+	if not IsKindOf(target, "Unit") and IsKindOf(args, "Unit") then
+		target = args
+	end
 	if self.GetEffectValue and self:GetEffectValue("Jazz_PierreRecruitUsed") then
 		return
 	end
@@ -1185,8 +1274,21 @@ function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 	if not self:IsOnEnemySide(target) or Jazz_IsPierreRecruitBossBlocked(target) then
 		return
 	end
+	if target.Interrupt then
+		pcall(function()
+			target:Interrupt()
+		end)
+	end
 	if target.SetSide then
 		target:SetSide("ally")
+	end
+	if target.SetCommand then
+		pcall(function()
+			target:SetCommand("Idle")
+		end)
+	end
+	if target.GetMaxActionPoints and target.ActionPoints ~= nil then
+		target.ActionPoints = target:GetMaxActionPoints()
 	end
 	if target.SetEffectValue then
 		target:SetEffectValue("Jazz_PierreRecruited", true)
@@ -1194,6 +1296,59 @@ function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 	if self.SetEffectValue then
 		self:SetEffectValue("Jazz_PierreRecruitUsed", true)
 	end
+	local nick = (target.GetLogName and target:GetLogName()) or target.Nick or target.Name
+	CombatLog("important", T{890000000009942, "<merc> recruited <target> as an ally.", merc = self.Nick, target = nick})
 	ObjModified(self)
 	ObjModified(target)
+	if g_Combat then
+		ObjModified(g_Combat)
+	end
 end
+
+--- Fix UIBegin: ShowCombatActionTargetChoice expects Unit choices; callback is (unit, target).
+--- Old wrapper+entry.target left args.target nil → silent no-op (vanilla GloryHog Charge still worked).
+function Jazz_InstallPierreRecruitCombatAction()
+	local ca = CombatActions and CombatActions.Jazz_PierreRecruit
+	if not ca then
+		return false
+	end
+	ca.UIBegin = function(self, units, args)
+		local mode_dlg = GetInGameInterfaceModeDlg()
+		if IsKindOf(mode_dlg, "IModeCommonUnitControl") then
+			local targets = self:GetTargets(units)
+			if targets and targets[1] then
+				mode_dlg:ShowCombatActionTargetChoice(self, units, targets)
+				return
+			end
+		end
+		if args and args.target then
+			self:Execute(units, args)
+		end
+	end
+	ca.GetAnyTarget = function(self, units)
+		local t = Jazz_PierreRecruitGetTargets(units and units[1])
+		return t and t[1]
+	end
+	ca.GetTargets = function(self, units)
+		return Jazz_PierreRecruitGetTargets(units and units[1]) or empty_table
+	end
+	-- Charge signature tooltip should stay Charge-only; recruit has its own CA.
+	local gh = CombatActions.GloryHog
+	if gh and not rawget(gh, "jazz_charge_desc_patched") then
+		rawset(gh, "jazz_charge_desc_patched", true)
+		gh.GetActionDescription = function(self, units)
+			local unit = units and units[1]
+			local perk = unit and CharacterEffectDefs and CharacterEffectDefs.GloryHog
+			local grit = (perk and perk:ResolveValue("temp_hp")) or 15
+			return T{890000000009943, "Machete <em>Charge</em> without a straight-line path; grants <em><grit></em> <GameTerm('Grit')>.", grit = grit}
+		end
+	end
+	rawset(_G, "g_JAZZ_PierreRecruitCAPatched", true)
+	return true
+end
+
+function OnMsg.CombatStart()
+	Jazz_InstallPierreRecruitCombatAction()
+end
+
+Jazz_InstallPierreRecruitCombatAction()

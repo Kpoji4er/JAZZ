@@ -9,18 +9,36 @@ DefineClass.SteroidPunch = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
 			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-				-- Successful fist / melee weapon hits → KnockDown + Unconscious.
+				-- Passive: every successful unarmed hit → vanilla ResolveSteroidPunch knockback.
 				if target ~= attacker or not results or results.miss then
 					return
 				end
 				if not action or action.ActionType ~= "Melee Attack" then
 					return
 				end
-				if not IsKindOf(attack_target, "Unit") or attack_target:IsDead() then
+				-- Active SteroidPunch CA already calls ResolveSteroidPunch inside MeleeAttack.
+				if action.id == "SteroidPunch" then
 					return
 				end
-				attack_target:AddStatusEffect("KnockDown")
-				attack_target:AddStatusEffect("Unconscious")
+				if not IsKindOf(attack_target, "Unit") then
+					return
+				end
+				local weapon = attack_args and attack_args.weapon
+				if not weapon and results then
+					weapon = results.weapon
+				end
+				if not weapon and attacker.GetActiveWeapons then
+					weapon = attacker:GetActiveWeapons()
+				end
+				if not weapon or not (weapon.IsUnarmed or IsKindOf(weapon, "UnarmedWeapon")) then
+					return
+				end
+				if type(attacker.ResolveSteroidPunch) ~= "function" then
+					return
+				end
+				local args = attack_args and table.copy(attack_args) or {}
+				args.target = args.target or attack_target
+				attacker:ResolveSteroidPunch(args, results)
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -67,7 +85,7 @@ DefineClass.SteroidPunch = {
 		}),
 	},
 	DisplayName = T(890000000009930, --[[ModItemCharacterEffectCompositeDef SteroidPunch DisplayName]] "Удар анаболика"),
-	Description = T(890000000009931, --[[ModItemCharacterEffectCompositeDef SteroidPunch Description]] "Пассивный навык. Точность всех ударов кулаками и оружием ближнего боя зависит от <em>Силы</em> вместо Ловкости. Успешные удары кулаками и оружием ближнего боя дают <em>Нокдаун</em> и <em>Без сознания</em>. Стимуляторы не вызывают потери <em>энергии</em> (усталости). Урон со временем от эффекта <em>горения</em> снижен на <em>30%</em>."),
+	Description = T(890000000009931, --[[ModItemCharacterEffectCompositeDef SteroidPunch Description]] "Пассивный навык. Точность всех ударов кулаками и оружием ближнего боя зависит от <em>Силы</em> вместо Ловкости. Успешные удары <em>кулаками</em> отбрасывают цель (как ванильный Steroid Smash) с побочным уроном окружению. Стимуляторы не вызывают потери <em>энергии</em> (усталости). Урон со временем от эффекта <em>горения</em> снижен на <em>30%</em>."),
 	Icon = "UI/Icons/Perks/SteroidPunch",
 	Tier = "Personal",
 }

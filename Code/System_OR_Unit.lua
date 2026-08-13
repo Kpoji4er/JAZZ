@@ -378,7 +378,9 @@ function Unit:OnGearChanged(isLoad)
 		item:ApplyModifiersList(item.applied_modifiers)
 	end)
 	Msg("UnitAPChanged", self)
-	self:CalculateArmorWeight()
+	-- Refresh Weight_* icons / stored penalties only — do not re-ConsumeAP mid-turn
+	-- (BeginTurn already taxed once; re-tax made Fauda look like "always half FreeMove").
+	self:CalculateArmorWeight(false)
 	ObjModified(self)
 	ObjModified(self.Inventory)
 end
@@ -1003,7 +1005,11 @@ end
 
 
 -- JAZZ-COMBAT-005: armor weight → FreeMove + capped start AP; see docs/specs/active/JAZZ-COMBAT-005.md
-function Unit:CalculateArmorWeight()
+-- apply_consume: true on BeginTurn (tax once); false on OnGearChanged (icons/penalties only).
+function Unit:CalculateArmorWeight(apply_consume)
+	if apply_consume == nil then
+		apply_consume = true
+	end
 	local raw_fm = 0
 	local max_weight = 1
 	self:ForEachItem("Armor", function(item, slot)
@@ -1072,11 +1078,21 @@ function Unit:CalculateArmorWeight()
 	self.jazz_armor_fm_penalty = fm
 	self.jazz_armor_ap_penalty = ap
 
-	if fm > 0 then
-		self:ConsumeAP(fm * const.Scale.AP, "Move")
-	end
-	if ap > 0 then
-		self:ConsumeAP(Min(self.ActionPoints, ap * const.Scale.AP))
+	if apply_consume then
+		if fm > 0 then
+			-- Prefer FreeMove pool; avoid eating regular AP when FreeMove was not granted.
+			local free_cells = DivRound(self.free_move_ap or 0, const.Scale.AP)
+			local tax = Min(fm, Max(0, free_cells))
+			if tax > 0 then
+				self:ConsumeAP(tax * const.Scale.AP, "Move")
+			elseif fm > 0 and (self.free_move_ap or 0) <= 0 then
+				-- No FreeMove (e.g. cumbersome without KW): still apply Move tax to ActionPoints.
+				self:ConsumeAP(fm * const.Scale.AP, "Move")
+			end
+		end
+		if ap > 0 then
+			self:ConsumeAP(Min(self.ActionPoints, ap * const.Scale.AP))
+		end
 	end
 
 	if fm >= 1 then
@@ -1489,6 +1505,8 @@ function Unit:MGPack()
 	if HasPerk(self, "KillingWind") then
 		self:RemoveStatusEffect("FreeMove")
 		self:AddStatusEffect("FreeMove")
+		-- Re-apply armor FM tax once after FreeMove refresh (same as BeginTurn).
+		self:CalculateArmorWeight(true)
 	end
 	ObjModified(self)
 end
@@ -1675,13 +1693,26 @@ function Unit:EnumUIActions()
 		if string.match(id, "DoubleToss") then 
 			id = "DoubleToss"
 		end
-		-- UNITS-006: SteroidPunch is passive (all melee); hide vanilla smash signature.
 		-- Pierre recruit CA unlocks from GloryHog (id ≠ perk id).
+		-- Livewire: prefer InnerInfo_JAZZ CA; tolerate old InnerInfo perk id on saves.
+		-- SteroidPunch: Passive signature icon (knockback on unarmed hits).
 		if id == "Jazz_PierreRecruit" then
 			if HasPerk(self, "GloryHog") then
 				actions[#actions + 1] = skill.id
 			end
-		elseif id ~= "SteroidPunch" and id and self:HasStatusEffect(id) then
+		elseif id == "InnerInfo" then
+			if HasPerk(self, "InnerInfo_JAZZ") or HasPerk(self, "InnerInfo") then
+				actions[#actions + 1] = "InnerInfo_JAZZ"
+			end
+		elseif id == "SteroidPunch" then
+			if HasPerk(self, "SteroidPunch") then
+				actions[#actions + 1] = skill.id
+			end
+		elseif id == "ExplodingPalm" then
+			if HasPerk(self, "ExplodingPalm") then
+				actions[#actions + 1] = skill.id
+			end
+		elseif id and self:HasStatusEffect(id) then
 			actions[#actions + 1] = skill.id
 		end
 	end

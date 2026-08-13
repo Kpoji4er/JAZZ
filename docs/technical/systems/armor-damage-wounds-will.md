@@ -115,12 +115,15 @@ Asset contract не менялся.
 
 ## Вес и слоты
 
-`Unit:CalculateArmorWeight` (JAZZ-COMBAT-005) на `BeginTurn` / `OnGearChanged`:
+`Unit:CalculateArmorWeight(apply_consume)` (JAZZ-COMBAT-005):
+
+- **BeginTurn** / **KillingWind MGPack**: `apply_consume=true` — налог FreeMove/AP один раз после выдачи FreeMove.
+- **OnGearChanged**: `apply_consume=false` — только пересчёт `jazz_armor_*` + статусы `Weight_*` (без повторного `ConsumeAP`; иначе mid-turn / refresh «съедал» FM ещё раз).
 
 1. Сырой FreeMove по надетым `Armor` (`Weight` 2/3/4/5 → +0.5/+1/+2/+3; слот ≠ Inventory; плиты с Weight входят).
 2. Сырой start AP: raw_FM &lt; 4 → 0; 4…&lt;8 → 1; ≥ 8 → 2.
 3. **Ironclad** или **KillingWind** → FM ÷2 **один раз** (Fauda с обоими не получает ÷4). **Ironclad** дополнительно ÷2 AP. При `using_cumbersome` AP-штраф брони = 0 (FM брони не half от cumbersome). Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
-4. Floor + cap FM ≤ 12, AP ≤ 2; списание `ConsumeAP(FM|AP * const.Scale.AP)` (Move / обычные ОД).
+4. Floor + cap FM ≤ 12, AP ≤ 2; при `apply_consume` — `ConsumeAP` (Move предпочитает `free_move_ap`; иначе обычные ОД) / AP.
 5. Статусы `Weight_1Class`…`Weight_5Class`: стаки = floor(FM), класс иконки = **max Weight** экипа (не PenetrationClass). `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove`: при FM ≥ 6 первое перемещение за ход даёт +1 Pain (≤1 стек/ход от веса; Analgesia блокирует).
 
 ### Энергия / Tiredness (JAZZ-COMBAT-007)

@@ -34,17 +34,17 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `Jazz_Perk_Steiger` | Steiger | Night/underground: allies ≤10 get +5 CTH |
 | `Jazz_Perk_Mike` | Mike | Overwatch/PinDown +2 attacks; reactions when available |
 | `GrizzlyPerk` | Grizzly | MG signature: **2×** long-burst shots, **full** damage, ignore unsupported CTH/recoil, **2×** suppression |
-| `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP; later turns `10%×morale` chance for the same buff |
+| `GruntyPerk_JAZZ` | Grunty | Combat start → +50% AP; later turns `10%×personal morale` (0…5; CombatLog roll) |
 | `JackOfAllTrades` | Wolf | Satellite ops about **33% faster** (vanilla `activityDurationMod`) |
-| `SteroidPunch` | Steroid | Passive: melee CTH from Strength; hit → Knockdown+Unconscious; no stim tiredness; Burning DoT **−30%** |
+| `SteroidPunch` | Steroid | Passive: melee CTH from Strength; unarmed hit → vanilla Smash knockback; Passive hotbar icon; no stim tiredness; Burning DoT **−30%** |
 | `ExplodingPalm` | DrQ | Unarmed hit → status by target HP (KO / concussion / ribs / arms / legs / groin); sat **+30%** trauma debt; **blocks** infection |
 | `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%); HUD stack “Blood Trail” = visible count |
 | `DangerClose` | Larry / Larry_Clean | Explosives ≥**8** tiles: **+40%** damage; explosions **+2** Bleeding stacks; no combat stim penalties |
 | `GloryHog` | PierreMerc | Machete **Charge** (non-straight) +**15** Grit; active **Recruit** 1 visible enemy → AI ally / combat (not bosses) |
-| `RecklessAssault` | Smiley | Improved Run and Gun: **4** attacks with SMG/carbine/AR, **+15** CTH; **no** Energy/Tiredness |
-| `HawksEye` | Scope | With sniper: Overwatch **1 AP** (keeps leftover AP); Pin Down min 1 AP; sniper suppress **×2**; biscuits on hire (recharge signatures) |
-| `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss (hands or auto-pull from inventory); **−50%** explosion damage taken while active |
-| `Nazdarovya` | Igor | Active **every turn** (2 AP, no CD): clears Pain, heals **15–20** HP, intoxication stack ≤**5** (−15 CTH / +20 melee per stack); −1 stack / **3 h** |
+| `RecklessAssault` | Smiley | Improved Run and Gun: **4** attacks with SMG/carbine/AR, **+15** CTH; **no** Energy loss; **recharge on kill** (like RnG) |
+| `HawksEye` | Scope | **Vanilla:** Pin Down → Exposed; Pin Down min **1 AP**; biscuits on hire (recharge signatures) |
+| `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss (hands / **grenade pockets** / backpack); **−50%** explosion damage taken while active |
+| `Nazdarovya` | Igor | Active **2 AP**, CD **on kill**: clears Pain, heals **15–20** HP, intoxication stack ≤**5** (−15 CTH / +20 melee per stack); −1 stack / **3 h** |
 | `VengefulTemperament` | Meltdown | Active “Hurricane Norma”: enemies ≤5 tiles — Panic or Berserk (Wisdom). **No** Run and Gun. |
 
 | `KillingWind` | Fauda | ≥2 enemies: **+8 Grit each**; armor FM pen **halved** (with Ironclad: still once); cumbersome **keeps** Free Move |
@@ -73,7 +73,7 @@ Passive Lynx/Buzz/Spider/Colby show on the signature hotbar (info-only Passive b
 
 §B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
 
-**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), **Barry** (`DesignerExplosives`): every **168 h** produces **2× Shaped Charge**; craft via Craft Explosives; **−30% Parts** on CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. **Igor** (`Nazdarovya`): every-turn drink — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): joints every 48 h; sat squad +15% trauma/burn/HP debt recovery (not infection); bandage restores 20–25 Will. Soft: Biff trooper economy, Livewire money op (ECON-001).
+**Batch5 HARD/satellite:** Rothman (loyalty-scaled mine income), Miguel (aura 30 Will/CTH), Ira (+20 primary on militia she trains), **Barry** (`DesignerExplosives`): every **168 h** produces **2× Shaped Charge**; craft via Craft Explosives; **−30% Parts** on CraftAmmo/CraftExplosives while Barry is in the sector (assigned or Idle). Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 as trainer. **Igor** (`Nazdarovya`): drink 2 AP, CD on kill — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): joints every 48 h; sat squad +15% trauma/burn/HP debt recovery (not infection); bandage restores 20–25 Will. Soft: Biff trooper economy, Livewire money op (ECON-001).
 
 **Batch6 §D:** `Jazz_Perk_Benny` (“Package for You”) and `Jazz_Perk_Simon` (“Absolute Sniper”) — CE + StartingPerks; CombatAction soft-cut. Statuses: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 

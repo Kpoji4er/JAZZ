@@ -9,10 +9,13 @@ Style-референсы GenerateImage: **только** `Icons/Hud/references/*
 
 | | |
 | --- | --- |
-| Size | **108×54** RGBA |
-| Layout | dual strip: left grey `#B5ADA5`, right sand `#F7F7D6` |
+| Size | **108×54** RGBA (Active) or **54×54** (Passive Signature) |
+| Layout Active | dual strip: left cool blue/grey `#B5ADA5` / Hud LEFT, right sand `#F7F7D6` |
+| Layout Passive | **single** cool **blue** tile (Hud LEFT ≈ `#609BB8`) — **never cream/white** |
 | Background | transparent `A=0` |
 | Style | flat JA3 Hud stencil, soft AA, optional light scanlines |
+
+**Owner rule:** signature / Passive hotbar glyphs are **always blue**. Cream only as Active dual right-state. See `.cursor/rules/jazz-signature-icons-blue.mdc`.
 
 ## Naming / paths
 

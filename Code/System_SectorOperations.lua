@@ -1,6 +1,44 @@
 -- Flag for NamedPerks craft wrap: Parts discounts for Static/Barry/Cord are inlined
 -- in SectorOperation_ItemsCalcRes below (this file loads after System_NamedPerks.lua).
-g_JAZZ_SectorOpsCraftDiscountInlined = true
+-- rawset: safe on ModsReloaded / DAP reload (no "new global" assert).
+g_JAZZ_SectorOpsCraftDiscountInlined = rawget(_G, "g_JAZZ_SectorOpsCraftDiscountInlined") or false
+rawset(_G, "g_JAZZ_SectorOpsCraftDiscountInlined", true)
+
+--- Keep DesignerExplosives craft_discount / Description in sync (saves + stale CE defs).
+local function Jazz_SectorOpsEnsureBarryCraftParam()
+	local def = CharacterEffectDefs and CharacterEffectDefs.DesignerExplosives
+	if not def then
+		return
+	end
+	local cls = g_Classes and g_Classes.DesignerExplosives
+	if cls then
+		if cls.DisplayName then
+			def.DisplayName = cls.DisplayName
+		end
+		if cls.Description then
+			def.Description = cls.Description
+		end
+	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return
+	end
+	local cache = g_PresetParamCache[def]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[def] = cache
+	end
+	if cache.craft_discount == nil then
+		cache.craft_discount = 30
+	end
+	if cache.hoursToProduce == nil then
+		cache.hoursToProduce = 168
+	end
+	if cache.amountToProduce == nil then
+		cache.amountToProduce = 2
+	end
+end
+
+Jazz_SectorOpsEnsureBarryCraftParam()
 
 function SectorOperationRepairItems_FillMostDamagedItems(sector_id)
 	local all = table.icopy(gv_Sectors[sector_id].sector_repair_items)
@@ -520,11 +558,20 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 			parts = Max(0, MulDivRound(parts, 100 - best, 100))
 		end
 		if operation_id == "CraftAmmo" or operation_id == "CraftExplosives" then
-			-- Barry DesignerExplosives: −30% Parts on ammo/grenade craft (vanilla ShapedCharge recipes).
+			-- Barry DesignerExplosives: −30% Parts on ammo/grenade craft.
+			-- Prefer op professionals; also any hired Barry in the sector (Idle still grants).
 			local barry = 0
 			for _, merc in ipairs(mercs) do
 				if type(Jazz_BarryCraftDiscountPercent) == "function" then
 					barry = Max(barry, Jazz_BarryCraftDiscountPercent(merc) or 0)
+				end
+			end
+			if barry <= 0 and type(GetPlayerMercsInSector) == "function" then
+				for _, uid in ipairs(GetPlayerMercsInSector(sector_id) or empty_table) do
+					local u = gv_UnitData and gv_UnitData[uid]
+					if type(Jazz_BarryCraftDiscountPercent) == "function" then
+						barry = Max(barry, Jazz_BarryCraftDiscountPercent(u) or 0)
+					end
 				end
 			end
 			if barry > 0 then
@@ -737,11 +784,17 @@ function OnMsg.DialogOpen(dlg, init_mode)
 end
 
 function OnMsg.DataLoaded()
+	rawset(_G, "g_JAZZ_SectorOpsCraftDiscountInlined", true)
+	Jazz_SectorOpsEnsureBarryCraftParam()
 	JazzInstallSectorOperationsAssignUIFixes()
 end
 
 function OnMsg.ModsReloaded()
+	rawset(_G, "g_JAZZ_SectorOpsCraftDiscountInlined", true)
+	Jazz_SectorOpsEnsureBarryCraftParam()
 	JazzInstallSectorOperationsAssignUIFixes()
 end
 
 JazzInstallSectorOperationsAssignUIFixes()
+rawset(_G, "g_JAZZ_SectorOpsCraftDiscountInlined", true)
+Jazz_SectorOpsEnsureBarryCraftParam()

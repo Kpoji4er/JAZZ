@@ -74,7 +74,7 @@
 | `SpecializationGiver.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_NamedPerks.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — UNITS-006 named perks runtime (single module) |
 | `System_HaveABlast.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — HaveABlast miss/hit grenade retaliate + inventory pull + −50% blast DR |
-| `CombatActions.lua` (`Unit:Nazdarovya`) | loaded | [Юниты и специализации](units-progression-specializations.md) — Igor Nazdarovya every-turn drink |
+| `CombatActions.lua` (`Unit:Nazdarovya`) | loaded | [Юниты и специализации](units-progression-specializations.md) — Igor Nazdarovya drink + recharge_on_kill |
 | `Drunk.lua` (CE override) | loaded | Nazdarovya intoxication stacks ≤5; −15 CTH / +20 melee / stack; 3h sat decay |
 | `System_AimHiringFilters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) |
 | `System_HireContractDuration.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AIM/AME chat `MaxDuration` 14→30; `GetMercDurationDiscountPercent` maxDay 14→30 |

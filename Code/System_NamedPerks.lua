@@ -21,6 +21,115 @@ function Jazz_NamedPerkParam(unit, perk_id, key, default)
 	return default
 end
 
+-- Pre-declare so ModsReloaded / mid-session rawset can overwrite without "new global" assert.
+Jazz_KillingWindCountEnemies = rawget(_G, "Jazz_KillingWindCountEnemies") or false
+Jazz_KillingWindTryGrit = rawget(_G, "Jazz_KillingWindTryGrit") or false
+
+--- Fauda KillingWind: count distinct enemies damaged/hit in one attack results table.
+local function lKillingWindCountEnemies(attacker, results)
+	if not attacker or not results then
+		return 0
+	end
+	local enemiesHit = 0
+	local seen = {}
+	local function consider(obj)
+		if not obj or seen[obj] then
+			return
+		end
+		-- Vanilla sometimes stores hit records { obj = Unit, damage = n } in hit_objs.
+		if not IsKindOf(obj, "Unit") and type(obj) == "table" and obj.obj then
+			obj = obj.obj
+		end
+		if not obj or seen[obj] or not IsKindOf(obj, "Unit") then
+			return
+		end
+		if attacker.IsOnEnemySide then
+			if not attacker:IsOnEnemySide(obj) then
+				return
+			end
+		elseif obj.IsOnEnemySide then
+			if not obj:IsOnEnemySide(attacker) then
+				return
+			end
+		else
+			return
+		end
+		seen[obj] = true
+		enemiesHit = enemiesHit + 1
+	end
+	if type(results.unit_damage) == "table" then
+		for obj, dmg in pairs(results.unit_damage) do
+			if type(dmg) == "number" and dmg > 0 then
+				consider(obj)
+			end
+		end
+	end
+	for _, obj in ipairs(results.hit_objs or empty_table) do
+		consider(obj)
+	end
+	for _, hit in ipairs(results.area_hits or empty_table) do
+		if hit and (hit.damage or 0) > 0 then
+			consider(hit.obj)
+		end
+	end
+	for _, obj in ipairs(results.killed_units or empty_table) do
+		consider(obj)
+	end
+	-- Dual/burst nested attacks: fold child tables (shared `seen`).
+	for _, nested in ipairs(results.attacks or empty_table) do
+		if nested and nested ~= results then
+			if type(nested.unit_damage) == "table" then
+				for obj, dmg in pairs(nested.unit_damage) do
+					if type(dmg) == "number" and dmg > 0 then
+						consider(obj)
+					end
+				end
+			end
+			for _, obj in ipairs(nested.hit_objs or empty_table) do
+				consider(obj)
+			end
+			for _, hit in ipairs(nested.area_hits or empty_table) do
+				if hit and (hit.damage or 0) > 0 then
+					consider(hit.obj)
+				end
+			end
+			for _, obj in ipairs(nested.killed_units or empty_table) do
+				consider(obj)
+			end
+		end
+	end
+	return enemiesHit
+end
+
+--- Fauda KillingWind: ≥2 enemies → +gritPerEnemyHit Grit each (ApplyTempHitPoints).
+--- Do NOT bail on results.miss — primary miss still allows multi-target hits in the same volley.
+--- Prefer aggregate `results` (ExecFirearmAttacks); CE OnUnitAttack may see per-hand/per-shot tables.
+local function lKillingWindTryGrit(attacker, results)
+	if not attacker or not HasPerk(attacker, "KillingWind") then
+		return
+	end
+	if not results then
+		return
+	end
+	-- One grant per aggregate results table (nested OnAttack / dual calls).
+	if results.jazz_kw_grit_done then
+		return
+	end
+	local n = lKillingWindCountEnemies(attacker, results)
+	if n < 2 then
+		return
+	end
+	results.jazz_kw_grit_done = true
+	local per = Jazz_NamedPerkParam(attacker, "KillingWind", "gritPerEnemyHit", 8)
+	if type(per) ~= "number" or per < 1 then
+		per = 8
+	end
+	attacker:ApplyTempHitPoints(per * n)
+end
+
+rawset(_G, "Jazz_KillingWindCountEnemies", lKillingWindCountEnemies)
+rawset(_G, "Jazz_KillingWindTryGrit", lKillingWindTryGrit)
+
 g_JAZZ_NamedPerks006Wrapped = rawget(_G, "g_JAZZ_NamedPerks006Wrapped") or false
 g_JAZZ_NamedPerks006OpsWrapped = rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") or false
 g_JAZZ_JackOfAllArrivingThreshWrapped = rawget(_G, "g_JAZZ_JackOfAllArrivingThreshWrapped") or false
@@ -29,6 +138,9 @@ g_JAZZ_SteroidPunchSigHidden = rawget(_G, "g_JAZZ_SteroidPunchSigHidden") or fal
 g_JAZZ_SteroidPunchUIStateBase = rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") or false
 g_JAZZ_SteroidBurningTickWrapped = rawget(_G, "g_JAZZ_SteroidBurningTickWrapped") or false
 g_JAZZ_EnvEffectBurningTickBase = rawget(_G, "g_JAZZ_EnvEffectBurningTickBase") or false
+g_JAZZ_ExplodingPalmSigConfigured = rawget(_G, "g_JAZZ_ExplodingPalmSigConfigured") or false
+g_JAZZ_ExplodingPalmMeleeWrapped = rawget(_G, "g_JAZZ_ExplodingPalmMeleeWrapped") or false
+g_JAZZ_ExplodingPalmMeleeBase = rawget(_G, "g_JAZZ_ExplodingPalmMeleeBase") or false
 g_JAZZ_BuildingConfidenceHealWrapped = rawget(_G, "g_JAZZ_BuildingConfidenceHealWrapped") or false
 g_JAZZ_BuildingConfidenceHealBase = rawget(_G, "g_JAZZ_BuildingConfidenceHealBase") or false
 g_JAZZ_DangerCloseExplosionWrapped = rawget(_G, "g_JAZZ_DangerCloseExplosionWrapped") or false
@@ -38,8 +150,14 @@ g_JAZZ_UpdateSignatureRechargesBase = rawget(_G, "g_JAZZ_UpdateSignatureRecharge
 g_JAZZ_TheGrimGetActionDescriptionBase = rawget(_G, "g_JAZZ_TheGrimGetActionDescriptionBase") or false
 g_JAZZ_PendingSigKillCount = rawget(_G, "g_JAZZ_PendingSigKillCount") or 0
 
+-- Legacy flag from earlier hide-only install; keep so ModsReloaded does not break.
+g_JAZZ_ExplodingPalmSigHidden = rawget(_G, "g_JAZZ_ExplodingPalmSigHidden") or false
+
 -- Reaper TheGrim: kills required to clear recharge_on_kill CD (UNITS-006).
-Jazz_TheGrimKillsToRecharge = 5
+Jazz_TheGrimKillsToRecharge = rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5
+if Jazz_TheGrimKillsToRecharge < 2 then
+	Jazz_TheGrimKillsToRecharge = 5
+end
 
 --- Merc/unit level for MD BuildingConfidence (±heal by level delta).
 function Jazz_BuildingConfidenceUnitLevel(unit)
@@ -279,33 +397,74 @@ local function lExplodingPalmIsUnarmedWeapon(weapon)
 	return IsKindOf(weapon, "UnarmedWeapon")
 end
 
---- Successful bare-hand hit → status by target current HP%.
-function Jazz_ExplodingPalmOnUnarmedHit(attacker, action, attack_target, results, attack_args)
-	if not attacker or not HasPerk(attacker, "ExplodingPalm") then
-		return false
-	end
-	if not IsKindOf(attack_target, "Unit") or (attack_target.IsDead and attack_target:IsDead()) then
-		return false
-	end
-	if action and action.ActionType and action.ActionType ~= "Melee Attack" then
-		return false
-	end
+local function lExplodingPalmResolveWeapon(attacker, action, results, attack_args)
 	local weapon = attack_args and attack_args.weapon
 	if not weapon and results then
 		weapon = results.weapon
 	end
-	if not weapon and attacker.GetActiveWeapons then
-		weapon = attacker:GetActiveWeapons()
+	if not weapon and action and action.GetAttackWeapons and attacker then
+		weapon = action:GetAttackWeapons(attacker, attack_args)
 	end
-	if not lExplodingPalmIsUnarmedWeapon(weapon) then
+	if not weapon and attacker and attacker.GetActiveWeapons then
+		weapon = attacker:GetActiveWeapons("UnarmedWeapon") or attacker:GetActiveWeapons()
+	end
+	return weapon
+end
+
+--- Successful bare-hand hit → status by target HP% (pre-hit when damage known).
+function Jazz_ExplodingPalmOnUnarmedHit(attacker, action, attack_target, results, attack_args)
+	if not attacker or not HasPerk(attacker, "ExplodingPalm") then
 		return false
 	end
+	if not IsKindOf(attack_target, "Unit") then
+		return false
+	end
+	if results and results.miss then
+		return false
+	end
+	if results and results.jazz_ep_done then
+		return false
+	end
+	local aid = action and (action.id or action)
+	if type(aid) == "table" then
+		aid = aid.id
+	end
+	local weapon = lExplodingPalmResolveWeapon(attacker, action, results, attack_args)
+	local unarmed = lExplodingPalmIsUnarmedWeapon(weapon)
+		or aid == "UnarmedAttack"
+		or aid == "ExplodingPalm"
+	if not unarmed then
+		return false
+	end
+	if action and action.ActionType and action.ActionType ~= "Melee Attack" and aid ~= "UnarmedAttack" and aid ~= "ExplodingPalm" then
+		return false
+	end
+
 	local max_hp = Max(1, attack_target.MaxHitPoints or 1)
 	local hp = attack_target.HitPoints or 0
+	local dmg = 0
+	if results then
+		if type(results.unit_damage) == "table" and type(results.unit_damage[attack_target]) == "number" then
+			dmg = results.unit_damage[attack_target]
+		elseif type(results.total_damage) == "number" then
+			dmg = results.total_damage
+		end
+	end
+	if dmg > 0 then
+		hp = Min(max_hp, hp + dmg)
+	end
 	local pct = MulDivRound(hp, 100, max_hp)
+	if results then
+		results.jazz_ep_done = true
+	end
+	if attack_target.IsDead and attack_target:IsDead() and pct > 20 then
+		return false
+	end
 	if pct <= 20 then
-		attack_target:AddStatusEffect("KnockDown")
-		attack_target:AddStatusEffect("Unconscious")
+		if not (attack_target.IsDead and attack_target:IsDead()) then
+			attack_target:AddStatusEffect("KnockDown")
+			attack_target:AddStatusEffect("Unconscious")
+		end
 		return "ko"
 	elseif pct <= 35 then
 		if CharacterEffectDefs and CharacterEffectDefs.Concussion then
@@ -328,13 +487,27 @@ function Jazz_ExplodingPalmOnUnarmedHit(attacker, action, attack_target, results
 		end
 		return "legs"
 	else
-		-- «яйцы» / groin → same trauma zone as Groinshot (Ribs).
 		if type(JazzApplyTrauma) == "function" then
 			JazzApplyTrauma(attack_target, "Ribs", "Light")
 		end
 		attack_target:AddStatusEffect("Pain")
 		return "groin"
 	end
+end
+
+--- Refresh CE reactions on live units (saves hired under vanilla empty-reaction ExplodingPalm).
+function Jazz_ExplodingPalmRefreshUnitPerk(unit)
+	if not unit or not unit.AddStatusEffect then
+		return false
+	end
+	if not HasPerk(unit, "ExplodingPalm") then
+		return false
+	end
+	if unit.RemoveStatusEffect then
+		unit:RemoveStatusEffect("ExplodingPalm", "all")
+	end
+	unit:AddStatusEffect("ExplodingPalm")
+	return true
 end
 
 --- Flay MakeThemBleed: count distinct visible enemies with any bleeding tier.
@@ -475,42 +648,144 @@ end
 g_JAZZ_ExplodingPalmSigHidden = rawget(_G, "g_JAZZ_ExplodingPalmSigHidden") or false
 
 local function lInstallExplodingPalmPassiveOnly()
-	-- If ModItem Passive CA already owns ExplodingPalm, leave hotbar icon alone.
-	-- Otherwise hide leftover vanilla palm-strike smash.
+	-- Always configure Passive CA (ModItem may leave vanilla Execute/UIBegin + 108 dual icon).
 	local ca = CombatActions and CombatActions.ExplodingPalm
-	if not ca or rawget(_G, "g_JAZZ_ExplodingPalmSigHidden") then
-		return
-	end
-	if ca.ActionType == "Passive" and ca.ShowIn == "SignatureAbilities" then
-		rawset(_G, "g_JAZZ_ExplodingPalmSigHidden", true)
-		return
-	end
-	ca.ShowIn = false
-	ca.ActionType = "Passive"
-	ca.GetUIState = function(self, units, args)
-		return "hidden"
-	end
-	rawset(_G, "g_JAZZ_ExplodingPalmSigHidden", true)
-end
-
-local function lInstallSteroidPunchPassiveOnly()
-	-- Hide vanilla Steroid smash signature; perk reactions cover all melee.
-	local ca = CombatActions and CombatActions.SteroidPunch
 	if not ca then
 		return
 	end
-	ca.ShowIn = false
+	local def = CharacterEffectDefs and CharacterEffectDefs.ExplodingPalm
+	local cls = g_Classes and g_Classes.ExplodingPalm
+	if def and cls then
+		if not def.DisplayName and cls.DisplayName then
+			def.DisplayName = cls.DisplayName
+		end
+		if (not def.Description or def.Description == "") and cls.Description then
+			def.Description = cls.Description
+		end
+		if cls.unit_reactions and (not def.unit_reactions or #def.unit_reactions == 0) then
+			def.unit_reactions = cls.unit_reactions
+		end
+	end
+	ca.ShowIn = "SignatureAbilities"
 	ca.ActionType = "Passive"
-	if rawget(_G, "g_JAZZ_SteroidPunchSigHidden") then
+	ca.AimType = "none"
+	ca.ActionPoints = 0
+	ca.CostBasedOnWeapon = false
+	ca.IsTargetableAttack = false
+	ca.Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/ExplodingPalm.png"
+	ca.GetActionDisplayName = function(self, units)
+		return GetSignatureActionDisplayName(self)
+	end
+	ca.GetActionDescription = function(self, units)
+		return GetSignatureActionDescription(self)
+	end
+	ca.GetAPCost = function(self, unit, args)
+		return 0
+	end
+	ca.GetUIState = function(self, units, args)
+		local unit = units and units[1]
+		if not unit or not HasPerk(unit, "ExplodingPalm") then
+			return "hidden"
+		end
+		return "enabled"
+	end
+	ca.GetActionResults = function(self, unit, args)
+		return {}
+	end
+	ca.Run = function(self, unit, ap, ...)
+		return false
+	end
+	ca.Execute = function(self, units, args)
+	end
+	ca.UIBegin = function(self, units, args)
+	end
+	rawset(_G, "g_JAZZ_ExplodingPalmSigConfigured", true)
+	rawset(_G, "g_JAZZ_ExplodingPalmSigHidden", true)
+end
+
+local function lInstallExplodingPalmMeleeWrap()
+	-- After vanilla OnAttack reactions (may be stale CE); idempotent via results.jazz_ep_done.
+	if rawget(_G, "g_JAZZ_ExplodingPalmMeleeWrapped") then
+		return
+	end
+	if type(Unit) ~= "table" or type(Unit.OnAttack) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_ExplodingPalmMeleeBase", Unit.OnAttack)
+	rawset(_G, "g_JAZZ_ExplodingPalmMeleeWrapped", true)
+	function Unit:OnAttack(action, target, results, attack_args, ...)
+		local ret = g_JAZZ_ExplodingPalmMeleeBase(self, action, target, results, attack_args, ...)
+		if HasPerk(self, "ExplodingPalm") and type(Jazz_ExplodingPalmOnUnarmedHit) == "function" then
+			Jazz_ExplodingPalmOnUnarmedHit(self, action, target, results, attack_args)
+		end
+		return ret
+	end
+end
+
+local function lInstallSteroidPunchPassiveOnly()
+	-- Convert vanilla smash CA into Passive hotbar icon (knockback is on all unarmed hits).
+	-- Passive hotbar uses SetColumns(1) → Icon must be 54×54 single tile, NOT 108×54 dual.
+	-- AimType must be "none" — leftover AimType="melee" makes CombatActionRollover append
+	-- "<error>No enemies in melee range</error>" / RU «Цели вне досягаемости…».
+	local ca = CombatActions and CombatActions.SteroidPunch
+	if not ca then
 		return
 	end
 	if type(ca.GetUIState) == "function" and not rawget(_G, "g_JAZZ_SteroidPunchUIStateBase") then
 		rawset(_G, "g_JAZZ_SteroidPunchUIStateBase", ca.GetUIState)
 	end
-	ca.GetUIState = function(self, units, args)
-		return "hidden"
+	-- ModItem CharacterEffectDefs entry can miss DisplayName; class/companion has the T().
+	local def = CharacterEffectDefs and CharacterEffectDefs.SteroidPunch
+	local cls = g_Classes and g_Classes.SteroidPunch
+	if def and cls then
+		if not def.DisplayName and cls.DisplayName then
+			def.DisplayName = cls.DisplayName
+		end
+		if (not def.Description or def.Description == "") and cls.Description then
+			def.Description = cls.Description
+		end
 	end
-	rawset(_G, "g_JAZZ_SteroidPunchSigHidden", true)
+	ca.ShowIn = "SignatureAbilities"
+	ca.ActionType = "Passive"
+	ca.AimType = "none"
+	ca.ActionPoints = 0
+	ca.CostBasedOnWeapon = false
+	ca.IsAimableAttack = false
+	ca.IsTargetableAttack = false
+	ca.Icon = "Mod/e6L4ECj/Perks/SignatureAbilities/SteroidPunch.png"
+	ca.GetActionDisplayName = function(self, units)
+		return GetSignatureActionDisplayName(self)
+	end
+	ca.GetActionDescription = function(self, units)
+		return GetSignatureActionDescription(self)
+	end
+	ca.GetAPCost = function(self, unit, args)
+		return 0
+	end
+	ca.GetUIState = function(self, units, args)
+		local unit = units and units[1]
+		if not unit or not HasPerk(unit, "SteroidPunch") then
+			return "hidden"
+		end
+		return "enabled"
+	end
+	ca.GetActionResults = function(self, unit, args)
+		return {}
+	end
+	ca.GetAnyTarget = function(self, units)
+		return false
+	end
+	ca.GetTargets = function(self, units)
+		return {}
+	end
+	ca.Run = function(self, unit, ap, ...)
+		return false
+	end
+	ca.Execute = function(self, units, args)
+	end
+	ca.UIBegin = function(self, units, args)
+	end
+	rawset(_G, "g_JAZZ_SteroidPunchSigHidden", true) -- configured as Passive display
 end
 
 local function lInstallSteroidBurningDotReduce()
@@ -547,6 +822,7 @@ local function lInstallNamedPerks006Ops()
 	lInstallJackOfAllArrivingThresh()
 	lInstallSteroidPunchPassiveOnly()
 	lInstallExplodingPalmPassiveOnly()
+	lInstallExplodingPalmMeleeWrap()
 	lInstallSteroidBurningDotReduce()
 
 	if rawget(_G, "g_JAZZ_NamedPerks006OpsWrapped") then
@@ -578,63 +854,18 @@ end
 
 
 g_JAZZ_NamedPerks006SignaturesWrapped = rawget(_G, "g_JAZZ_NamedPerks006SignaturesWrapped") or false
-g_JAZZ_HawksEyeOverwatchWrapped = rawget(_G, "g_JAZZ_HawksEyeOverwatchWrapped") or false
-g_JAZZ_HawksEyeOverwatchBase = rawget(_G, "g_JAZZ_HawksEyeOverwatchBase") or false
-
-function Jazz_ApplyHawksEyeSuppression(attacker, suppressionbonus)
-	if not attacker or not HasPerk(attacker, "HawksEye") then
-		return suppressionbonus
-	end
-	local w = attacker.GetActiveWeapons and attacker:GetActiveWeapons("Firearm")
-	if w and IsKindOf(w, "SniperRifle") then
-		return (suppressionbonus or 100) * 2
-	end
-	return suppressionbonus
-end
-
-function Jazz_HawksEyeSniperOverwatchAP(unit, weapon)
-	if not unit or not HasPerk(unit, "HawksEye") then
-		return
-	end
-	weapon = weapon or (unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm"))
-	if not weapon or not IsKindOf(weapon, "SniperRifle") then
-		return
-	end
-	if weapon.PreparedAttackType ~= "Overwatch" and weapon.PreparedAttackType ~= "Both" then
-		return
-	end
-	local n = Jazz_NamedPerkParam(unit, "HawksEye", "overwatchCostOverwrite", 1)
-	return n * const.Scale.AP
-end
-
-local function lInstallHawksEyeOverwatchCost()
-	if rawget(_G, "g_JAZZ_HawksEyeOverwatchWrapped") then
-		return
-	end
-	local ow = CombatActions and CombatActions.Overwatch
-	if not ow or type(ow.GetAPCost) ~= "function" then
-		return
-	end
-	rawset(_G, "g_JAZZ_HawksEyeOverwatchBase", ow.GetAPCost)
-	rawset(_G, "g_JAZZ_HawksEyeOverwatchWrapped", true)
-	function ow.GetAPCost(self, unit, args)
-		if not (args and args.action_cost_only) then
-			local weapon = self:GetAttackWeapons(unit, args)
-			local ap = Jazz_HawksEyeSniperOverwatchAP(unit, weapon)
-			if ap then
-				return ap, ap
-			end
-		end
-		return g_JAZZ_HawksEyeOverwatchBase(self, unit, args)
-	end
-end
 
 local function lEnsureTheGrimRechargeParam()
+	-- ResolveValue reads g_PresetParamCache — Parameters alone is not enough (same as BulletHell).
 	local ca = CombatActions and CombatActions.TheGrim
 	if not ca then
-		return
+		return false
 	end
-	local need = rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5
+	local need = tonumber(rawget(_G, "Jazz_TheGrimKillsToRecharge")) or 5
+	if need < 2 then
+		need = 5
+		rawset(_G, "Jazz_TheGrimKillsToRecharge", need)
+	end
 	local params = ca.Parameters or {}
 	local has = false
 	for _, p in ipairs(params) do
@@ -652,16 +883,26 @@ local function lEnsureTheGrimRechargeParam()
 		})
 		ca.Parameters = params
 	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return false
+	end
+	local cache = g_PresetParamCache[ca]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[ca] = cache
+	end
+	cache.recharge_on_kill = need
+
 	if type(ca.GetActionDescription) == "function" and not rawget(_G, "g_JAZZ_TheGrimGetActionDescriptionBase") then
 		rawset(_G, "g_JAZZ_TheGrimGetActionDescriptionBase", ca.GetActionDescription)
 		ca.GetActionDescription = function(self, units)
 			local desc = g_JAZZ_TheGrimGetActionDescriptionBase(self, units)
 			local unit = units and units[1]
 			local rec = unit and unit.GetSignatureRecharge and unit:GetSignatureRecharge("TheGrim")
-			local need = self:ResolveValue("recharge_on_kill") or (rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5)
-			if rec and rec.on_kill and (rec.kills_needed or need) > 1 then
+			local need_desc = self:ResolveValue("recharge_on_kill") or (rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5)
+			if rec and rec.on_kill and (rec.kills_needed or need_desc) > 1 then
 				local done = rec.kills_done or 0
-				local req = rec.kills_needed or need
+				local req = rec.kills_needed or need_desc
 				return desc
 					.. T({
 						890000000009941,
@@ -674,18 +915,29 @@ local function lEnsureTheGrimRechargeParam()
 				.. T({
 					890000000009940,
 					"<newline><newline>Перезаряжается после <em><need></em> убийств (другой атакой).",
-					need = need,
+					need = need_desc,
 				})
 		end
 	end
+	return true
+end
+
+--- Public ensure (ModsReloaded / DAP): TheGrim recharge_on_kill cache = Jazz_TheGrimKillsToRecharge.
+function Jazz_EnsureTheGrimRechargeOnKill()
+	return lEnsureTheGrimRechargeParam()
 end
 
 local function lInstallTheGrimMultiKillRecharge()
 	lEnsureTheGrimRechargeParam()
-	if rawget(_G, "g_JAZZ_TheGrimRechargeWrapped") then
+	if not Unit or type(Unit.AddSignatureRechargeTime) ~= "function" then
 		return
 	end
-	if not Unit or type(Unit.AddSignatureRechargeTime) ~= "function" then
+	-- ModsReloaded can restore vanilla Unit methods while leave wrap flags set — reinstall if lost.
+	local baseAdd = rawget(_G, "g_JAZZ_AddSignatureRechargeTimeBase")
+	if rawget(_G, "g_JAZZ_TheGrimRechargeWrapped")
+		and type(baseAdd) == "function"
+		and Unit.AddSignatureRechargeTime ~= baseAdd
+	then
 		return
 	end
 	rawset(_G, "g_JAZZ_AddSignatureRechargeTimeBase", Unit.AddSignatureRechargeTime)
@@ -704,6 +956,7 @@ local function lInstallTheGrimMultiKillRecharge()
 		local ca = CombatActions and CombatActions.TheGrim
 		local need = (ca and ca.ResolveValue and ca:ResolveValue("recharge_on_kill"))
 			or (rawget(_G, "Jazz_TheGrimKillsToRecharge") or 5)
+		need = tonumber(need) or 5
 		if need > 1 then
 			rec.kills_needed = need
 			rec.kills_done = 0
@@ -755,35 +1008,70 @@ function OnMsg.OnKill(attacker, killed_units)
 	rawset(_G, "g_JAZZ_PendingSigKillCount", n)
 end
 
+local function lEnsureBulletHellRechargeOnKill()
+	-- Spike BulletHell: CD clears on kill (UNITS-006). Vanilla CA has no recharge_on_kill param;
+	-- injecting into Parameters alone is not enough — ResolveValue reads g_PresetParamCache.
+	local bh = CombatActions and CombatActions.BulletHell
+	if not bh then
+		return
+	end
+	local params = bh.Parameters or {}
+	local has = false
+	for _, p in ipairs(params) do
+		if p and p.Name == "recharge_on_kill" then
+			p.Value = 1
+			has = true
+			break
+		end
+	end
+	if not has then
+		params[#params + 1] = PlaceObj("PresetParamNumber", {
+			"Name", "recharge_on_kill",
+			"Value", 1,
+			"Tag", "<recharge_on_kill>",
+		})
+		bh.Parameters = params
+	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return
+	end
+	local cache = g_PresetParamCache[bh]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[bh] = cache
+	end
+	cache.recharge_on_kill = 1
+end
+
+local function lEnsureKillingWindGritParam()
+	-- Fauda: ResolveValue("gritPerEnemyHit") can be nil if cache miss → arithmetic error, no Grit.
+	local def = CharacterEffectDefs and CharacterEffectDefs.KillingWind
+	if not def then
+		return
+	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return
+	end
+	local cache = g_PresetParamCache[def]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[def] = cache
+	end
+	if cache.gritPerEnemyHit == nil then
+		cache.gritPerEnemyHit = 8
+	end
+end
+
 local function lInstallNamedPerks006Signatures()
+	-- Always refresh BulletHell cache (wrapped flag must not skip it).
+	lEnsureBulletHellRechargeOnKill()
+	lEnsureKillingWindGritParam()
+
 	if rawget(_G, "g_JAZZ_NamedPerks006SignaturesWrapped") then
-		lInstallHawksEyeOverwatchCost()
 		lInstallTheGrimMultiKillRecharge()
 		return
 	end
 
-	local bh = CombatActions and CombatActions.BulletHell
-	if bh then
-		local params = bh.Parameters or {}
-		local has = false
-		for _, p in ipairs(params) do
-			if p and p.Name == "recharge_on_kill" then
-				p.Value = 1
-				has = true
-				break
-			end
-		end
-		if not has then
-			params[#params + 1] = PlaceObj("PresetParamNumber", {
-				"Name", "recharge_on_kill",
-				"Value", 1,
-				"Tag", "<recharge_on_kill>",
-			})
-			bh.Parameters = params
-		end
-	end
-
-	lInstallHawksEyeOverwatchCost()
 	lInstallTheGrimMultiKillRecharge()
 	rawset(_G, "g_JAZZ_NamedPerks006SignaturesWrapped", true)
 end
@@ -1175,10 +1463,54 @@ function Jazz_MiguelRefreshAura()
 end
 
 function Jazz_BarryCraftDiscountPercent(unit)
-	if unit and HasPerk(unit, "DesignerExplosives") then
-		return Jazz_NamedPerkParam(unit, "DesignerExplosives", "craft_discount", 30)
+	if not unit then
+		return 0
 	end
-	return 0
+	if not HasPerk(unit, "DesignerExplosives") then
+		-- UnitData / live Unit may lag HasPerk; StatusEffect is enough.
+		if not (unit.HasStatusEffect and unit:HasStatusEffect("DesignerExplosives")) then
+			return 0
+		end
+	end
+	local disc = Jazz_NamedPerkParam(unit, "DesignerExplosives", "craft_discount", 30)
+	if type(disc) ~= "number" or disc < 1 then
+		disc = 30
+	end
+	return disc
+end
+
+--- Ensure craft_discount is in g_PresetParamCache (ResolveValue nil → no UI tag / wrap miss).
+function Jazz_EnsureDesignerExplosivesCraftParam()
+	local def = CharacterEffectDefs and CharacterEffectDefs.DesignerExplosives
+	if not def then
+		return
+	end
+	local cls = g_Classes and g_Classes.DesignerExplosives
+	if cls then
+		if not def.DisplayName and cls.DisplayName then
+			def.DisplayName = cls.DisplayName
+		end
+		if cls.Description then
+			def.Description = cls.Description
+		end
+	end
+	if type(rawget(_G, "g_PresetParamCache")) ~= "table" then
+		return
+	end
+	local cache = g_PresetParamCache[def]
+	if not cache then
+		cache = {}
+		g_PresetParamCache[def] = cache
+	end
+	if cache.craft_discount == nil then
+		cache.craft_discount = 30
+	end
+	if cache.hoursToProduce == nil then
+		cache.hoursToProduce = 168
+	end
+	if cache.amountToProduce == nil then
+		cache.amountToProduce = 2
+	end
 end
 
 -- Single wrap for SectorOperation_ItemsCalcRes: Static Parts + Barry craft + Cord repair.
@@ -1187,6 +1519,11 @@ end
 -- NamedPerks in metadata.code — discounts are applied inside that redefine. This wrap is a
 -- safety net if SectorOperations is absent/dormant; it must rebind when overwritten.
 function Jazz_InstallCraftPartsDiscountWrap()
+	-- Prefer System_SectorOperations inlined discounts; do not wrap over them.
+	if rawget(_G, "g_JAZZ_SectorOpsCraftDiscountInlined") then
+		Jazz_EnsureDesignerExplosivesCraftParam()
+		return true
+	end
 	local calc = rawget(_G, "SectorOperation_ItemsCalcRes")
 	if type(calc) ~= "function" then
 		return false
@@ -1198,7 +1535,6 @@ function Jazz_InstallCraftPartsDiscountWrap()
 	-- Prefer unwrapped vanilla / earliest captured base, unless a later Code file replaced us.
 	local base = calc
 	if wrapped_fn and calc ~= wrapped_fn then
-		-- Our wrap was overwritten (typical: System_SectorOperations.lua) — new base.
 		base = calc
 	elseif type(rawget(_G, "g_JAZZ_StaticPartsBase_ItemsCalc")) == "function" then
 		base = g_JAZZ_StaticPartsBase_ItemsCalc
@@ -1206,14 +1542,10 @@ function Jazz_InstallCraftPartsDiscountWrap()
 	rawset(_G, "g_JAZZ_StaticPartsBase_ItemsCalc", base)
 	rawset(_G, "g_JAZZ_BarryCraftBase_ItemsCalc", base)
 	local function discount_fn(sector_id, operation_id)
-		-- If SectorOperations already applies Jazz discounts, skip double-apply.
-		-- Detect by source identity: Jazz SectorOperations embeds DesignerExplosives comment path
-		-- via Jazz_BarryCraftDiscountPercent call — calling base is enough when base IS that file.
 		local parts = base(sector_id, operation_id)
 		if type(parts) ~= "number" or parts <= 0 then
 			return parts
 		end
-		-- When base is jazz System_SectorOperations (already discounted), do not stack.
 		if rawget(_G, "g_JAZZ_SectorOpsCraftDiscountInlined") then
 			return parts
 		end
@@ -1229,6 +1561,12 @@ function Jazz_InstallCraftPartsDiscountWrap()
 			local barry = 0
 			for _, merc in ipairs(mercs) do
 				barry = Max(barry, Jazz_BarryCraftDiscountPercent(merc))
+			end
+			if barry <= 0 and type(GetPlayerMercsInSector) == "function" then
+				for _, uid in ipairs(GetPlayerMercsInSector(sector_id) or empty_table) do
+					local u = gv_UnitData and gv_UnitData[uid]
+					barry = Max(barry, Jazz_BarryCraftDiscountPercent(u))
+				end
 			end
 			if barry > 0 then
 				parts = Max(0, MulDivRound(parts, 100 - barry, 100))
@@ -1247,6 +1585,7 @@ function Jazz_InstallCraftPartsDiscountWrap()
 	rawset(_G, "SectorOperation_ItemsCalcRes", discount_fn)
 	rawset(_G, "g_JAZZ_CraftPartsDiscountFn", discount_fn)
 	rawset(_G, "g_JAZZ_CraftPartsDiscountWrapped", true)
+	Jazz_EnsureDesignerExplosivesCraftParam()
 	return true
 end
 
@@ -1291,6 +1630,7 @@ local REPAIR_OPS = {
 
 local function lInstallNamedPerks006Satellite()
 	-- Ira / craft-Parts wraps may need SectorOperations after first attempt.
+	Jazz_EnsureDesignerExplosivesCraftParam()
 	Jazz_InstallCraftPartsDiscountWrap()
 	if rawget(_G, "g_JAZZ_NamedPerks006SatelliteWrapped") then
 		Jazz_InstallIraMilitiaTrainHook()
@@ -1699,6 +2039,9 @@ local function lNamedPerks006OnCombatStart_SectionD()
 			-- Simon starts charged (no CD) each combat; CD set after use until kill.
 			u:SetEffectValue("Jazz_SimonPerfectCd", nil)
 			u:SetEffectValue("Jazz_PierreRecruitUsed", nil)
+		end
+		if IsValid(u) and type(Jazz_ExplodingPalmRefreshUnitPerk) == "function" then
+			Jazz_ExplodingPalmRefreshUnitPerk(u)
 		end
 	end
 end

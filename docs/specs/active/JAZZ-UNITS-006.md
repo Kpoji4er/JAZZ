@@ -185,7 +185,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Merc                | Perk id                 | Цель                                                                              | Verdict |
 | ------------------- | ----------------------- | --------------------------------------------------------------------------------- | ------- |
 | Ice                 | `IcePerk`               | Пять выстрелов по конечностям                                                     | CHANGE  |
-| Steroid             | `SteroidPunch`          | Passive: melee CTH from Strength; hit→KnockDown+Unconscious; no stim tiredness; Burning DoT −30%; no smash CA | CHANGE  |
+| Steroid             | `SteroidPunch`          | Passive: melee CTH from Strength; unarmed hit→vanilla `ResolveSteroidPunch` knockback; Passive hotbar; no stim tiredness; Burning DoT −30% | CHANGE  |
 | Barry               | `DesignerExplosives`    | vanilla ShapedCharge 2×/168h + Craft Explosives; ammo/grenade craft −30% Parts | CHANGE  |
 | Blood               | `HundredKnives`         | Run and throw knives                                                              | ≈       |
 | Vicki               | `WeaponPersonalization` | Self-repair 1%/h; full-mod +dmg/+crit (vanilla magnitudes)                        | ≈       |
@@ -195,7 +195,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Grizzly             | `GrizzlyPerk`           | G1: 2× long burst + full dmg + WEAPONS-012 ignore + 2× suppress (signature only) | CHANGE  |
 | Reaper              | `TheGrim`               | Active; kill Panic ≤8; **recharge after 5 kills** (not 1)                          | CHANGE  |
 | Ivan                | `YouSeeIgor`            | Kill → +3 AP                                                                      | CHANGE  |
-| Igor                | `Nazdarovya`            | Active every turn (2 AP, no CD): clear Pain, heal 15–20 HP, Drunk stack≤5 (−15 CTH / +20 melee per stack); sat decay 1 stack / 3h | CHANGE  |
+| Igor                | `Nazdarovya`            | Active (2 AP, **recharge_on_kill=1**): clear Pain, heal 15–20 HP, Drunk stack≤5 (−15 CTH / +20 melee per stack); sat decay 1 stack / 3h | CHANGE  |
 | Kalyna              | `KalynaPerk`            | Armor-ignore shot                                                                 | ≈       |
 | Meltdown            | `VengefulTemperament`   | Active fear ≤5 Panic/Berserk (Wisdom); no RnG; not vanilla Vengeance | CHANGE  |
 | Len                 | `OnMyTarget`            | Squad attacks marked target; **10 AP**                                            | CHANGE  |

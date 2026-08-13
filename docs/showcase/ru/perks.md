@@ -34,17 +34,17 @@
 | `Jazz_Perk_Steiger` | Штайгер | Ночь/подземка: союзники ≤10 получают +5 CTH |
 | `Jazz_Perk_Mike` | Майк | Overwatch/PinDown +2 атаки; реакции, когда доступны |
 | `GrizzlyPerk` | Grizzly | Сигнатура MG: **2×** пуль длинной очереди, **полный** урон, игнор без опоры, **2×** подавление |
-| `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP; далее шанс `10%×БД` снова дать +50% AP |
+| `GruntyPerk_JAZZ` | Grunty | Старт боя → +50% AP; далее шанс `10%×личный БД` (0…5; лог броска) |
 | `JackOfAllTrades` | Wolf | Спутниковые операции примерно **на 33% быстрее** (vanilla `activityDurationMod`) |
-| `SteroidPunch` | Steroid | Пассивка: melee CTH от Силы; успешный удар → Нокдаун+Без сознания; стим без усталости; Burning DoT **−30%** |
+| `SteroidPunch` | Steroid | Пассивка: melee CTH от Силы; успешный удар кулаками → отброс как vanilla Smash; Passive на хотбаре; стим без усталости; Burning DoT **−30%** |
 | `ExplodingPalm` | DrQ | Удар голыми руками: статус по HP цели (KO / контузия / рёбра / руки / ноги / пах); сателлит **+30%** долг травм; **блок** инфекции |
 | `MakeThemBleed` | Flay | +10% урона за кровоточащего врага в LOS (cap +50%); HUD-стак «Кровавый след» = число видимых |
 | `DangerClose` | Larry / Larry_Clean | Взрывчатка ≥**8** клеток: **+40%** урона; взрывы **+2** стака кровотечения; без штрафов от боевых стимов |
 | `GloryHog` | PierreMerc | Мачете **Charge** (не только по прямой) +**15** Grit; активка **Вербовка** 1 видимого врага → союзник ИИ / бой (не боссы) |
-| `RecklessAssault` | Smiley | Улучшенный Run and Gun: **4** атаки с ПП/карабином/автоматом, **+15** СТН; **без** потери энергии/усталости |
-| `HawksEye` | Scope | Со снайперкой: Overwatch за **1 ОД** (остальные ОД остаются); Pin Down мин. 1 ОД; снайпер suppress **×2**; при найме — печенье (сброс CD сигнатур) |
-| `HaveABlast` | Red | Toggle: ответ гранатой при попадании **или** промахе (руки или автоподтягивание из инвентаря); **−50%** урона от взрывов по себе пока активен |
-| `Nazdarovya` | Igor | Активка **каждый ход** (2 ОД, без CD): снимает боль, лечит **15–20** HP, стак опьянения ≤**5** (−15 CTH / +20 ближний урон за стак); −1 стак / **3 ч** |
+| `RecklessAssault` | Smiley | Улучшенный Run and Gun: **4** атаки с ПП/карабином/автоматом, **+15** СТН; **без** потери энергии; **CD после убийства** (как RnG) |
+| `HawksEye` | Scope | **Vanilla:** Pin Down → Exposed; Pin Down мин. **1 ОД**; при найме — печенье (biscuits / сброс CD) |
+| `HaveABlast` | Red | Toggle: ответ гранатой при попадании **или** промахе (руки / **слоты гранат** / рюкзак); **−50%** урона от взрывов по себе пока активен |
+| `Nazdarovya` | Igor | Активка **2 ОД**, CD **на убийство**: снимает боль, лечит **15–20** HP, стак опьянения ≤**5** (−15 CTH / +20 ближний урон за стак); −1 стак / **3 ч** |
 | `VengefulTemperament` | Meltdown (Лава) | Активка «Ураган Норма»: враги ≤5 клеток — Panic или Berserk (Wisdom). **Без** Run and Gun. |
 | `KillingWind` | Fauda | ≥2 врагов: **+8 Grit за каждого**; штраф FM от брони **÷2** (с Ironclad не ÷4); громоздкое оружие **сохраняет** Free Move |
 | `DoubleToss` | Fidel | Двойной бросок (≥2 в стаке): руки **или** карманы гранат |
@@ -72,7 +72,7 @@
 
 §B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
 
-**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), **Barry** (`DesignerExplosives`): каждые **168 ч** — **2× Shaped Charge**; крафт через «Изготовление взрывчатки»; **−30% Parts** на CraftAmmo/CraftExplosives. Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. **Igor** (`Nazdarovya`): drink каждый ход — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): косяки каждые 48 ч; в отряде sat +15% к восстановлению травм/ожогов/HP-долга (не инфекция); перевязка +20–25 Will. Soft: Biff troopers economy, Livewire money op (ECON-001).
+**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), **Barry** (`DesignerExplosives`): каждые **168 ч** — **2× Shaped Charge**; крафт через «Изготовление взрывчатки»; **−30% Parts** на CraftAmmo/CraftExplosives, пока Barry в секторе (на операции или Idle). Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. **Igor** (`Nazdarovya`): drink 2 ОД, CD на убийство — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): косяки каждые 48 ч; в отряде sat +15% к восстановлению травм/ожогов/HP-долга (не инфекция); перевязка +20–25 Will. Soft: Biff troopers economy, Livewire money op (ECON-001).
 
 **Batch6 §D:** `Jazz_Perk_Benny` («Вам посылка») и `Jazz_Perk_Simon` («Абсолютный снайпер») — CE + StartingPerks; CombatAction soft-cut. Статусы: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 
