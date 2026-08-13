@@ -12511,3 +12511,24 @@ Speck","Командир!
 890000000009936,"Улучшенный <em>Run and Gun</em>: до <em>4</em> атак с пистолет-пулемётом, карабином или автоматом. <em>+<cth_bonus></em> к точности. Без потери <GameTerm('Energy')>.","Улучшенный <em>Run and Gun</em>: до <em>4</em> атак с пистолет-пулемётом, карабином или автоматом. <em>+<cth_bonus></em> к точности. Без потери <GameTerm('Energy')>.",,jazz:CharacterEffect/RecklessAssault.lua
 890000000009940,<newline><newline>Перезаряжается после <em><need></em> убийств (другой атакой).,<newline><newline>Перезаряжается после <em><need></em> убийств (другой атакой).,,jazz:Code/System_NamedPerks.lua:TheGrim
 890000000009941,<newline><newline>Перезарядка: <em><done>/<need></em> убийств.,<newline><newline>Перезарядка: <em><done>/<need></em> убийств.,,jazz:Code/System_NamedPerks.lua:TheGrim
+890000000013100,В форме,Fit,,jazz:COMBAT-007-energy
+890000000013101,Макс. ОД <em>+<ap_gain></em>. Свободное перемещение <em>x<fm_mul>%</em>. Первые <em><opening_fm_turns></em> ход(а) боя: дополнительно <em>+<opening_fm_bonus></em> к свободному перемещению.,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turn(s): extra <em>+<opening_fm_bonus></em> Free Move.,,jazz:COMBAT-007-energy
+890000000013102,Запыхался,Winded,,jazz:COMBAT-007-energy
+890000000013103,Слегка утомлён дорогой. Свободное перемещение на базовом уровне (<em><fm_mul>%</em>). Без штрафа ОД. Отдых в режиме спутника восстанавливает энергию.,Slightly worn from travel. Free Move at baseline (<em><fm_mul>%</em>). No AP penalty. Rest in Sat View to recover.,,jazz:COMBAT-007-energy
+890000000013104,Утомлён,Fatigued,,jazz:COMBAT-007-energy
+890000000013105,Свободное перемещение снижено до <em><fm_mul>%</em>. Штрафа ОД пока нет. Отдых в режиме спутника восстанавливает энергию.,Free Move reduced to <em><fm_mul>%</em>. No AP penalty yet. Rest in Sat View to recover.,,jazz:COMBAT-007-energy
+890000000013106,Макс. ОД <em><ap_loss></em>. Свободное перемещение <em><fm_mul>%</em>. Восстанавливается отдыхом в режиме спутника.,Maximum AP <em><ap_loss></em>. Free Move <em><fm_mul>%</em>. Recover by resting in Sat View.,,jazz:COMBAT-007-energy
+890000000013107,"Штраф ОД <em><ap_loss></em> в начале хода. Нет свободного перемещения. Нельзя путешествовать, пока не отдохнёт в режиме спутника.",AP penalty <em><ap_loss></em> at turn start. No Free Move. Cannot travel until rested in Sat View.,,jazz:COMBAT-007-energy
+890000000013108,Макс. ОД <em>+<ap_gain></em>. Свободное перемещение <em>x<fm_mul>%</em>. Первые <em><opening_fm_turns></em> хода боя: дополнительно <em>+<opening_fm_bonus></em> к свободному перемещению.,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turns: extra <em>+<opening_fm_bonus></em> Free Move.,,jazz:COMBAT-007-energy
+890000000013109,<name> начинает запыхаться.,<name> is getting winded.,,jazz:COMBAT-007-energy
+890000000013110,<name> начинает уставать.,<name> is getting fatigued.,,jazz:COMBAT-007-energy
+890000000013111,<name> сильно устаёт.,<name> is getting tired.,,jazz:COMBAT-007-energy
+890000000013112,<name> на грани изнеможения.,<name> is getting exhausted.,,jazz:COMBAT-007-energy
+890000000013113,<name> теперь запыхался.,<name> is now Winded.,,jazz:COMBAT-007-energy
+890000000013114,<name> теперь утомлён.,<name> is now Fatigued.,,jazz:COMBAT-007-energy
+890000000013115,<name> теперь устал.,<name> is now Tired.,,jazz:COMBAT-007-energy
+890000000013116,<name> теперь измотан.,<name> is now Exhausted.,,jazz:COMBAT-007-energy
+890000000013117,<name> восстановил энергию (<level>).,<name> has recovered energy (<level>).,,jazz:COMBAT-007-energy
+890000000013118,<em><DisplayName></em> в хорошей форме,<em><DisplayName></em> feels fit,,jazz:COMBAT-007-energy
+890000000013119,<em><DisplayName></em> запыхался,<em><DisplayName></em> is winded,,jazz:COMBAT-007-energy
+890000000013120,<em><DisplayName></em> утомлён,<em><DisplayName></em> is fatigued,,jazz:COMBAT-007-energy

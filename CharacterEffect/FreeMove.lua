@@ -1,0 +1,76 @@
+UndefineClass('FreeMove')
+DefineClass.FreeMove = {
+	__parents = { "CharacterEffect" },
+	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+	object_class = "CharacterEffect",
+	unit_reactions = {
+		PlaceObj('UnitReaction', {
+			Event = "OnCombatActionEnd",
+			Handler = function (self, target)
+				if target.free_move_ap <= 0 then
+					target:RemoveStatusEffect("FreeMove")
+				end
+			end,
+		}),
+	},
+	Conditions = {
+		PlaceObj('CheckExpression', {
+			-- JAZZ-COMBAT-007: allow Free Move while Winded/Fatigued/Tired; block only at Exhausted.
+			Expression = function (self, obj)
+				local cap = rawget(const, "utExhausted") or 4
+				return g_Combat and (obj.Tiredness or 0) < cap
+			end,
+		}),
+		PlaceObj('CheckExpression', {
+			Expression = function (self, obj)
+				if not IsGameRuleActive("HeavyWounds") then return true end
+				local wounds = obj:GetStatusEffect("Wounded")
+				local max_wounds = GameRuleDefs.HeavyWounds:ResolveValue("MaxWoundsEffect")
+				return not wounds or wounds.stacks < max_wounds
+			end,
+		}),
+	},
+	DisplayName = T(574672731472, --[[ModItemCharacterEffectCompositeDef FreeMove DisplayName]] "Free Move"),
+	Description = T(824694494336, --[[ModItemCharacterEffectCompositeDef FreeMove Description]] "Move without spending AP. Removed after attacking or after moving the allowed distance (based on <agility>)."),
+	OnAdded = function (self, obj)
+		if not IsKindOf(obj, "Unit") then return end
+
+		local cur_free_ap = obj.free_move_ap
+		local free_ap = Max(0, MulDivRound(obj.Agility - 40, const.Scale.AP, 10))
+		local data = {min = 0, max = 999, add = 0, mul = 100}
+		if obj.team and obj.team.player_enemy then
+			data.mul = PercentModifyByDifficulty(GameDifficulties[Game.game_difficulty]:ResolveValue("freeMoveBonus"))
+		end
+		obj:CallReactions("OnCalcFreeMove", data)
+		free_ap = MulDivRound(free_ap + data.add * const.Scale.AP, data.mul, 100)
+		free_ap = Clamp(free_ap, data.min*const.Scale.AP, data.max*const.Scale.AP)
+		if IsGameRuleActive("HeavyWounds") then
+			local wounds = obj:GetStatusEffect("Wounded")
+			if wounds and wounds.stacks >= 1 then
+				local max_wounds = GameRuleDefs.HeavyWounds:ResolveValue("MaxWoundsEffect")
+				local per_wound_percent = GameRuleDefs.HeavyWounds:ResolveValue("FreeMoveLost")
+				free_ap = Max(0, free_ap - MulDivRound(free_ap, Min(wounds.stacks, max_wounds)*per_wound_percent, 100))
+			end
+		end
+
+		local prev_ap = obj.ActionPoints
+		obj:GainAP(free_ap - cur_free_ap)
+		if obj.ActionPoints > prev_ap then
+			obj.free_move_ap = free_ap
+			Msg("UnitAPChanged", obj)
+			ObjModified(obj)
+		end
+	end,
+	OnRemoved = function (self, obj)
+		if IsKindOf(obj, "Unit") then
+			obj:ConsumeAP(obj.free_move_ap)
+			obj.free_move_ap = 0
+			Msg("UnitAPChanged", obj, self.class)
+		end
+	end,
+	type = "Buff",
+	Icon = "UI/Hud/Status effects/mobility",
+	RemoveOnEndCombat = true,
+	Shown = true,
+}

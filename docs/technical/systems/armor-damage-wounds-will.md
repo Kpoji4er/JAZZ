@@ -26,6 +26,7 @@ JAZZ разделяет физическую защиту по покрытию,
 - `Code/System_Wounds_OperationHeal.lua` — стратегическая операция лечения;
 - `Code/WillPointsBar.lua` — UI шкалы воли;
 - `Code/System_GasMask.lua` — защитный предмет для газовых зон;
+- `Code/System_EnergyLadder.lua` — JAZZ-COMBAT-007: лестница энергии Fit→Exhausted, gradual Free Move, satellite warn/times;
 - generated Armor, ArmorPlate, CharacterEffect и TargetBodyPart ModItems.
 
 ## Модель брони
@@ -121,6 +122,24 @@ Asset contract не менялся.
 3. **Ironclad** или **KillingWind** → FM ÷2 **один раз** (Fauda с обоими не получает ÷4). **Ironclad** дополнительно ÷2 AP. При `using_cumbersome` AP-штраф брони = 0 (FM брони не half от cumbersome). Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
 4. Floor + cap FM ≤ 12, AP ≤ 2; списание `ConsumeAP(FM|AP * const.Scale.AP)` (Move / обычные ОД).
 5. Статусы `Weight_1Class`…`Weight_5Class`: стаки = floor(FM), класс иконки = **max Weight** экипа (не PenetrationClass). `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove`: при FM ≥ 6 первое перемещение за ход даёт +1 Pain (≤1 стек/ход от веса; Analgesia блокирует).
+
+### Энергия / Tiredness (JAZZ-COMBAT-007)
+
+Шкала `Tiredness` −1…4 (Unconscious **не** на лестнице):
+
+| Level | CE | Start AP | Free Move |
+|---|---|---|---|
+| −1 | `WellRested` | +2 | ×120%; opening **+2 FM AP** on combat turns 1–3 |
+| 0 | `Fit` | +1 | ×120%; opening **+2 FM AP** on combat turn 1 |
+| 1 | `Winded` | 0 | ×100% |
+| 2 | `Fatigued` | 0 | ×75% |
+| 3 | `Tired` | −1 | ×50% |
+| 4 | `Exhausted` | −2 (BeginTurn ConsumeAP) | 0 + FreeMove immunity + travel stop |
+
+Runtime: `Code/System_EnergyLadder.lua` remaps `const.ut*` / `UnitTirednessEffect`, wraps `UnitProperties.SetTired`, patches satellite travel≈½ / rest≈¾ vanilla per step, multi-stage warn 50%/20% (`JazzEnergyTravelWarn`) + step CombatLog. `FreeMove` Condition: `Tiredness < utExhausted`. Armor-weight FM (COMBAT-005) stacks separately on top of mul/add.
+
+CE companions: `CharacterEffect/{Fit,Winded,Fatigued,Tired,Exhausted,WellRested,FreeMove}.lua`.
+
 
 Cumbersome на оружии по-прежнему может не выдавать FreeMove в BeginTurn (**KillingWind** всегда получает FreeMove с cumbersome; иначе Ironclad path).
 

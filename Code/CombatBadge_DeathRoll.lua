@@ -217,6 +217,10 @@ local JazzPartyStatusPriority = {
 	Unconscious = 40,
 	Exhausted = 50,
 	Tired = 51,
+	Fatigued = 52,
+	Winded = 53,
+	Fit = 60,
+	WellRested = 61,
 }
 
 function JazzGetPartyPortraitStatusEffects(status_effects)
@@ -231,7 +235,7 @@ function JazzGetPartyPortraitStatusEffects(status_effects)
 			end
 		end
 	end
-	for _, id in ipairs({ "Tired", "Exhausted" }) do
+	for _, id in ipairs({ "Fit", "WellRested", "Winded", "Fatigued", "Tired", "Exhausted" }) do
 		local effect = table.find_value(status_effects, "class", id)
 		if effect and not table.find(list, effect) then
 			list[#list + 1] = effect

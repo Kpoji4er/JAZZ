@@ -2746,7 +2746,7 @@ local function lInstallMedicineStackBandageHooks()
 				self:RemoveStatusEffect("BleedingOut")
 				self:RemoveStatusEffect("Unconscious")
 				self:RemoveStatusEffect("Downed")
-				self:SetTired(Min(self.Tiredness, 2))
+				self:SetTired(Min(self.Tiredness, const.utExhausted))
 				self.downed_check_penalty = 0
 				self:GetBandaged(medicine, medic)
 				medic:SetCommand("EndCombatBandage")
@@ -2780,7 +2780,7 @@ local function lInstallMedicineStackBandageHooks()
 			self:RemoveStatusEffect("BleedingOut")
 			self:RemoveStatusEffect("Unconscious")
 			self:RemoveStatusEffect("Downed")
-			self:SetTired(Min(self.Tiredness, 2))
+			self:SetTired(Min(self.Tiredness, const.utExhausted))
 			self.downed_check_penalty = 0
 			local stance = self.immortal and "Standing" or self.stance
 			self.stance = stance

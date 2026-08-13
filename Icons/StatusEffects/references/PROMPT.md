@@ -68,6 +68,9 @@ Style-референсы: **только** PNG в этой папке + runtime 
 | `surprised` | `#E03838` | System | `Surprised` |
 | `suspicious` | `#C0B880` | System | `Suspicious` |
 | `tired` | `#E03838` | Debuff | `Tired` |
+| `Fit` (JAZZ) | `#B8B880` | Buff | `Fit` |
+| `Winded` (JAZZ) | `#D83838` | Debuff | `Winded` |
+| `Fatigued` (JAZZ) | `#E03838` | Debuff | `Fatigued` |
 | `treating` | `#50A0C8` | System | `BandageInCombat` (Treating) |
 | `unaware` | `#E03838` | System | `Unaware` |
 | `unconscious` | `#D83838` | System | `Unconscious`, `Distracted` |

@@ -3611,25 +3611,24 @@ function OnMsg.ReachSectorCenter(squad_id, sector_id, prev_sector_id)
 			
 			if not nonTireTravel then	
 				local TirednessThreshold = const.Satellite.UnitTirednessTravelTime + additional
-				if not unit_data.WarnTired and  TirednessThreshold - unit_data.TravelTime <= MulDivRound(TirednessThreshold, 20, 100) and
-					TirednessThreshold - unit_data.TravelTime > 0 then
-					if unit_data.Tiredness == 0 then
-						CombatLog("important", T{596219835266, "<name> is getting tired.", name = unit_data.Nick})
-						unit_data.WarnTired = true
-					elseif unit_data.Tiredness == 1 then
-						CombatLog("important", T{512750148013, "<name> is getting exhausted.", name = unit_data.Nick})
-						unit_data.WarnTired = true
-					end
-				end				
+				-- JAZZ-COMBAT-007: multi-stage warn (50%/20%) + 4-step ladder cap at Exhausted.
+				if type(JazzEnergyTravelWarn) == "function" then
+					JazzEnergyTravelWarn(unit_data, TirednessThreshold)
+				end
 				
 				if unit_data.TravelTime >= TirednessThreshold then
-					if unit_data.Tiredness < 2 then
-						unit_data:ChangeTired(1)						
+					local before = unit_data.Tiredness or 0
+					if before < const.utExhausted then
+						unit_data:ChangeTired(1)
+						if type(JazzEnergyLogStep) == "function" then
+							JazzEnergyLogStep(unit_data, unit_data.Tiredness)
+						end
 					end
 					DbgTravelTimerPrint("change tired: ", unit_data.session_id, unit_data.Tiredness)
 					unit_data.TravelTime = 0
 					unit_data.TravelTimerStart = Game.CampaignTime					
 					unit_data.WarnTired = false
+					unit_data.JazzEnergyWarnStage = 0
 				end								
 			end
 		end

@@ -110284,6 +110284,325 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'name', "System_GasMask",
 			'CodeFileName', "Code/System_GasMask.lua",
 		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_EnergyLadder",
+			'CodeFileName', "Code/System_EnergyLadder.lua",
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "Fit",
+			'Parameters', {
+				PlaceObj('PresetParamNumber', {
+					'Name', "ap_gain",
+					'Value', 1,
+					'Tag', "<ap_gain>",
+				}),
+				PlaceObj('PresetParamPercent', {
+					'Name', "fm_mul",
+					'Value', 120,
+					'Tag', "<fm_mul>",
+				}),
+				PlaceObj('PresetParamNumber', {
+					'Name', "opening_fm_turns",
+					'Value', 1,
+					'Tag', "<opening_fm_turns>",
+				}),
+				PlaceObj('PresetParamNumber', {
+					'Name', "opening_fm_bonus",
+					'Value', 2,
+					'Tag', "<opening_fm_bonus>",
+				}),
+			},
+			'object_class', "StatusEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcStartTurnAP",
+					Handler = function (self, target, value)
+						return value + self:ResolveValue("ap_gain") * const.Scale.AP
+					end,
+				}),
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcFreeMove",
+					Handler = function (self, target, data)
+						data.mul = MulDivRound(data.mul or 100, self:ResolveValue("fm_mul") or 120, 100)
+						local add = JazzEnergyOpeningFmBonus(target, self)
+						if add > 0 then
+							data.add = (data.add or 0) + add
+						end
+					end,
+				}),
+			},
+			'DisplayName', T(890000000013100, --[[ModItemCharacterEffectCompositeDef Fit DisplayName]] "Fit"),
+			'Description', T(890000000013101, --[[ModItemCharacterEffectCompositeDef Fit Description]] "Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turn(s): extra <em>+<opening_fm_bonus></em> Free Move."),
+			'AddEffectText', T(890000000013118, --[[ModItemCharacterEffectCompositeDef Fit AddEffectText]] "<em><DisplayName></em> feels fit"),
+			'type', "Buff",
+			'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Fit.png",
+			'Shown', true,
+			'ShownSatelliteView', true,
+			'HasFloatingText', true,
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "Winded",
+			'Parameters', {
+				PlaceObj('PresetParamPercent', {
+					'Name', "fm_mul",
+					'Value', 100,
+					'Tag', "<fm_mul>",
+				}),
+			},
+			'object_class', "StatusEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcFreeMove",
+					Handler = function (self, target, data)
+						data.mul = MulDivRound(data.mul or 100, self:ResolveValue("fm_mul") or 100, 100)
+					end,
+				}),
+			},
+			'DisplayName', T(890000000013102, --[[ModItemCharacterEffectCompositeDef Winded DisplayName]] "Winded"),
+			'Description', T(890000000013103, --[[ModItemCharacterEffectCompositeDef Winded Description]] "Slightly worn from travel. Free Move at baseline (<em><fm_mul>%</em>). No AP penalty. Rest in Sat View to recover."),
+			'AddEffectText', T(890000000013119, --[[ModItemCharacterEffectCompositeDef Winded AddEffectText]] "<em><DisplayName></em> is winded"),
+			'type', "Debuff",
+			'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Winded.png",
+			'Shown', true,
+			'ShownSatelliteView', true,
+			'HasFloatingText', true,
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "Fatigued",
+			'Parameters', {
+				PlaceObj('PresetParamPercent', {
+					'Name', "fm_mul",
+					'Value', 75,
+					'Tag', "<fm_mul>",
+				}),
+			},
+			'object_class', "StatusEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcFreeMove",
+					Handler = function (self, target, data)
+						data.mul = MulDivRound(data.mul or 100, self:ResolveValue("fm_mul") or 75, 100)
+					end,
+				}),
+			},
+			'DisplayName', T(890000000013104, --[[ModItemCharacterEffectCompositeDef Fatigued DisplayName]] "Fatigued"),
+			'Description', T(890000000013105, --[[ModItemCharacterEffectCompositeDef Fatigued Description]] "Free Move reduced to <em><fm_mul>%</em>. No AP penalty yet. Rest in Sat View to recover."),
+			'AddEffectText', T(890000000013120, --[[ModItemCharacterEffectCompositeDef Fatigued AddEffectText]] "<em><DisplayName></em> is fatigued"),
+			'type', "Debuff",
+			'Icon', "Mod/e6L4ECj/Icons/StatusEffects/Fatigued.png",
+			'Shown', true,
+			'ShownSatelliteView', true,
+			'HasFloatingText', true,
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "Tired",
+			'Parameters', {
+				PlaceObj('PresetParamNumber', {
+					'Name', "ap_loss",
+					'Value', -1,
+					'Tag', "<ap_loss>",
+				}),
+				PlaceObj('PresetParamPercent', {
+					'Name', "fm_mul",
+					'Value', 50,
+					'Tag', "<fm_mul>",
+				}),
+				PlaceObj('PresetParamNumber', {
+					'Name', "duration",
+					'Value', 12,
+					'Tag', "<duration>",
+				}),
+			},
+			'object_class', "StatusEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcStartTurnAP",
+					Handler = function (self, target, value)
+						return value + self:ResolveValue("ap_loss") * const.Scale.AP
+					end,
+				}),
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcFreeMove",
+					Handler = function (self, target, data)
+						data.mul = MulDivRound(data.mul or 100, self:ResolveValue("fm_mul") or 50, 100)
+					end,
+				}),
+			},
+			'DisplayName', T(299677471612, --[[ModItemCharacterEffectCompositeDef Tired DisplayName]] "Tired"),
+			'Description', T(890000000013106, --[[ModItemCharacterEffectCompositeDef Tired Description]] "Maximum AP <em><ap_loss></em>. Free Move <em><fm_mul>%</em>. Recover by resting in Sat View."),
+			'type', "Debuff",
+			'Icon', "UI/Hud/Status effects/tired",
+			'Shown', true,
+			'ShownSatelliteView', true,
+			'HasFloatingText', true,
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "Exhausted",
+			'Parameters', {
+				PlaceObj('PresetParamNumber', {
+					'Name', "ap_loss",
+					'Value', -2,
+					'Tag', "<ap_loss>",
+				}),
+				PlaceObj('PresetParamNumber', {
+					'Name', "duration",
+					'Value', 12,
+					'Tag', "<duration>",
+				}),
+			},
+			'object_class', "StatusEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnBeginTurn",
+					Handler = function (self, target)
+						target:ConsumeAP(-self:ResolveValue("ap_loss") * const.Scale.AP)
+					end,
+				}),
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcFreeMove",
+					Handler = function (self, target, data)
+						data.max = 0
+						data.mul = 0
+					end,
+				}),
+			},
+			'DisplayName', T(707410221892, --[[ModItemCharacterEffectCompositeDef Exhausted DisplayName]] "Exhausted"),
+			'Description', T(890000000013107, --[[ModItemCharacterEffectCompositeDef Exhausted Description]] "AP penalty <em><ap_loss></em> at turn start. No Free Move. Cannot travel until rested in Sat View."),
+			'OnAdded', function (self, obj)
+				obj:AddStatusEffectImmunity("FreeMove", self.class)
+			end,
+			'OnRemoved', function (self, obj)
+				obj:RemoveStatusEffectImmunity("FreeMove", self.class)
+			end,
+			'type', "Debuff",
+			'Icon', "UI/Hud/Status effects/exhausted",
+			'Shown', true,
+			'ShownSatelliteView', true,
+			'HasFloatingText', true,
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "WellRested",
+			'Parameters', {
+				PlaceObj('PresetParamNumber', {
+					'Name', "ap_gain",
+					'Value', 2,
+					'Tag', "<ap_gain>",
+				}),
+				PlaceObj('PresetParamPercent', {
+					'Name', "fm_mul",
+					'Value', 120,
+					'Tag', "<fm_mul>",
+				}),
+				PlaceObj('PresetParamNumber', {
+					'Name', "opening_fm_turns",
+					'Value', 3,
+					'Tag', "<opening_fm_turns>",
+				}),
+				PlaceObj('PresetParamNumber', {
+					'Name', "opening_fm_bonus",
+					'Value', 2,
+					'Tag', "<opening_fm_bonus>",
+				}),
+			},
+			'object_class', "StatusEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcStartTurnAP",
+					Handler = function (self, target, value)
+						return value + self:ResolveValue("ap_gain") * const.Scale.AP
+					end,
+				}),
+				PlaceObj('UnitReaction', {
+					Event = "OnCalcFreeMove",
+					Handler = function (self, target, data)
+						data.mul = MulDivRound(data.mul or 100, self:ResolveValue("fm_mul") or 120, 100)
+						local add = JazzEnergyOpeningFmBonus(target, self)
+						if add > 0 then
+							data.add = (data.add or 0) + add
+						end
+					end,
+				}),
+			},
+			'DisplayName', T(789783285719, --[[ModItemCharacterEffectCompositeDef WellRested DisplayName]] "Well Rested"),
+			'Description', T(890000000013108, --[[ModItemCharacterEffectCompositeDef WellRested Description]] "Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turns: extra <em>+<opening_fm_bonus></em> Free Move."),
+			'AddEffectText', T(353089370853, --[[ModItemCharacterEffectCompositeDef WellRested AddEffectText]] "<em><DisplayName></em> is well rested"),
+			'RemoveEffectText', T(945859256424, --[[ModItemCharacterEffectCompositeDef WellRested RemoveEffectText]] "<em><DisplayName></em> is no longer well rested"),
+			'type', "Buff",
+			'Icon', "UI/Hud/Status effects/well_rested",
+			'Shown', true,
+			'ShownSatelliteView', true,
+			'HasFloatingText', true,
+		}),
+		PlaceObj('ModItemCharacterEffectCompositeDef', {
+			'Id', "FreeMove",
+			'object_class', "CharacterEffect",
+			'unit_reactions', {
+				PlaceObj('UnitReaction', {
+					Event = "OnCombatActionEnd",
+					Handler = function (self, target)
+						if target.free_move_ap <= 0 then
+							target:RemoveStatusEffect("FreeMove")
+						end
+					end,
+				}),
+			},
+			'Conditions', {
+				PlaceObj('CheckExpression', {
+					Expression = function (self, obj)
+						local cap = rawget(const, "utExhausted") or 4
+						return g_Combat and (obj.Tiredness or 0) < cap
+					end,
+				}),
+				PlaceObj('CheckExpression', {
+					Expression = function (self, obj)
+						if not IsGameRuleActive("HeavyWounds") then return true end
+						local wounds = obj:GetStatusEffect("Wounded")
+						local max_wounds = GameRuleDefs.HeavyWounds:ResolveValue("MaxWoundsEffect")
+						return not wounds or wounds.stacks < max_wounds
+					end,
+				}),
+			},
+			'DisplayName', T(574672731472, --[[ModItemCharacterEffectCompositeDef FreeMove DisplayName]] "Free Move"),
+			'Description', T(824694494336, --[[ModItemCharacterEffectCompositeDef FreeMove Description]] "Move without spending AP. Removed after attacking or after moving the allowed distance (based on <agility>)."),
+			'OnAdded', function (self, obj)
+				if not IsKindOf(obj, "Unit") then return end
+				local cur_free_ap = obj.free_move_ap
+				local free_ap = Max(0, MulDivRound(obj.Agility - 40, const.Scale.AP, 10))
+				local data = {min = 0, max = 999, add = 0, mul = 100}
+				if obj.team and obj.team.player_enemy then
+					data.mul = PercentModifyByDifficulty(GameDifficulties[Game.game_difficulty]:ResolveValue("freeMoveBonus"))
+				end
+				obj:CallReactions("OnCalcFreeMove", data)
+				free_ap = MulDivRound(free_ap + data.add * const.Scale.AP, data.mul, 100)
+				free_ap = Clamp(free_ap, data.min*const.Scale.AP, data.max*const.Scale.AP)
+				if IsGameRuleActive("HeavyWounds") then
+					local wounds = obj:GetStatusEffect("Wounded")
+					if wounds and wounds.stacks >= 1 then
+						local max_wounds = GameRuleDefs.HeavyWounds:ResolveValue("MaxWoundsEffect")
+						local per_wound_percent = GameRuleDefs.HeavyWounds:ResolveValue("FreeMoveLost")
+						free_ap = Max(0, free_ap - MulDivRound(free_ap, Min(wounds.stacks, max_wounds)*per_wound_percent, 100))
+					end
+				end
+				local prev_ap = obj.ActionPoints
+				obj:GainAP(free_ap - cur_free_ap)
+				if obj.ActionPoints > prev_ap then
+					obj.free_move_ap = free_ap
+					Msg("UnitAPChanged", obj)
+					ObjModified(obj)
+				end
+			end,
+			'OnRemoved', function (self, obj)
+				if IsKindOf(obj, "Unit") then
+					obj:ConsumeAP(obj.free_move_ap)
+					obj.free_move_ap = 0
+					Msg("UnitAPChanged", obj, self.class)
+				end
+			end,
+			'type', "Buff",
+			'Icon', "UI/Hud/Status effects/mobility",
+			'RemoveOnEndCombat', true,
+			'Shown', true,
+		}),
 		PlaceObj('ModItemCharacterEffectCompositeDef', {
 			'Id', "Weight_1Class",
 			'Parameters', {},

@@ -12518,3 +12518,24 @@ Speck",,JAZZ-UI-MERC-001
 890000000009936,"Улучшенный <em>Run and Gun</em>: до <em>4</em> атак с пистолет-пулемётом, карабином или автоматом. <em>+<cth_bonus></em> к точности. Без потери <GameTerm('Energy')>.","Improved <em>Run and Gun</em>: up to <em>4</em> attacks with an SMG, carbine, or assault rifle. <em>+<cth_bonus></em> Accuracy. No <GameTerm('Energy')> loss.",,jazz:CharacterEffect/RecklessAssault.lua
 890000000009940,<newline><newline>Перезаряжается после <em><need></em> убийств (другой атакой).,<newline><newline>Recharges after <em><need></em> kills (with another attack).,,jazz:Code/System_NamedPerks.lua:TheGrim
 890000000009941,<newline><newline>Перезарядка: <em><done>/<need></em> убийств.,<newline><newline>Recharge: <em><done>/<need></em> kills.,,jazz:Code/System_NamedPerks.lua:TheGrim
+890000000013100,Fit,Fit,,jazz:COMBAT-007-energy
+890000000013101,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turn(s): extra <em>+<opening_fm_bonus></em> Free Move.,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turn(s): extra <em>+<opening_fm_bonus></em> Free Move.,,jazz:COMBAT-007-energy
+890000000013102,Winded,Winded,,jazz:COMBAT-007-energy
+890000000013103,Slightly worn from travel. Free Move at baseline (<em><fm_mul>%</em>). No AP penalty. Rest in Sat View to recover.,Slightly worn from travel. Free Move at baseline (<em><fm_mul>%</em>). No AP penalty. Rest in Sat View to recover.,,jazz:COMBAT-007-energy
+890000000013104,Fatigued,Fatigued,,jazz:COMBAT-007-energy
+890000000013105,Free Move reduced to <em><fm_mul>%</em>. No AP penalty yet. Rest in Sat View to recover.,Free Move reduced to <em><fm_mul>%</em>. No AP penalty yet. Rest in Sat View to recover.,,jazz:COMBAT-007-energy
+890000000013106,Maximum AP <em><ap_loss></em>. Free Move <em><fm_mul>%</em>. Recover by resting in Sat View.,Maximum AP <em><ap_loss></em>. Free Move <em><fm_mul>%</em>. Recover by resting in Sat View.,,jazz:COMBAT-007-energy
+890000000013107,AP penalty <em><ap_loss></em> at turn start. No Free Move. Cannot travel until rested in Sat View.,AP penalty <em><ap_loss></em> at turn start. No Free Move. Cannot travel until rested in Sat View.,,jazz:COMBAT-007-energy
+890000000013108,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turns: extra <em>+<opening_fm_bonus></em> Free Move.,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turns: extra <em>+<opening_fm_bonus></em> Free Move.,,jazz:COMBAT-007-energy
+890000000013109,<name> is getting winded.,<name> is getting winded.,,jazz:COMBAT-007-energy
+890000000013110,<name> is getting fatigued.,<name> is getting fatigued.,,jazz:COMBAT-007-energy
+890000000013111,<name> is getting tired.,<name> is getting tired.,,jazz:COMBAT-007-energy
+890000000013112,<name> is getting exhausted.,<name> is getting exhausted.,,jazz:COMBAT-007-energy
+890000000013113,<name> is now Winded.,<name> is now Winded.,,jazz:COMBAT-007-energy
+890000000013114,<name> is now Fatigued.,<name> is now Fatigued.,,jazz:COMBAT-007-energy
+890000000013115,<name> is now Tired.,<name> is now Tired.,,jazz:COMBAT-007-energy
+890000000013116,<name> is now Exhausted.,<name> is now Exhausted.,,jazz:COMBAT-007-energy
+890000000013117,<name> has recovered energy (<level>).,<name> has recovered energy (<level>).,,jazz:COMBAT-007-energy
+890000000013118,<em><DisplayName></em> feels fit,<em><DisplayName></em> feels fit,,jazz:COMBAT-007-energy
+890000000013119,<em><DisplayName></em> is winded,<em><DisplayName></em> is winded,,jazz:COMBAT-007-energy
+890000000013120,<em><DisplayName></em> is fatigued,<em><DisplayName></em> is fatigued,,jazz:COMBAT-007-energy
