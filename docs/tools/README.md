@@ -79,6 +79,7 @@
 | `_apply_combat_005_weight_items.py` | JAZZ-COMBAT-005: sync `Weight_*Class` Description + `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove` in `items.lua`. |
 | `_apply_combat_007_energy_items.py` | JAZZ-COMBAT-007: insert energy ladder ModItems (`Fit`/`Winded`/`Fatigued`/Tired/Exhausted/WellRested/FreeMove) + `System_EnergyLadder` into `items.lua`/`metadata.lua`. |
 | `_apply_combat_007_energy_loc.py` | JAZZ-COMBAT-007: upsert RU/EN CSV rows for energy CE + travel warn/step logs (IDs `890000000013100`–`13120`). |
+| `_bump_metadata_combat008.py` | JAZZ-COMBAT-008: revision +1 and prepend `last_changes` bullet (escape `\n` only). |
 | `_patch_combat_005_weight_loc.py` | JAZZ-COMBAT-005: RU/EN CSV text for five `Weight_*Class` Description IDs. |
 
 ## FortifyErnie / stationary MG

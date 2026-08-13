@@ -28,7 +28,7 @@
 | `System_OR_Grenade.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |
 | `System_OR_Traps.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |
 | `System_GasMask.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md), [броня](armor-damage-wounds-will.md) |
-| `System_EnergyLadder.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — JAZZ-COMBAT-007 Energy ladder / Free Move |
+| `System_EnergyLadder.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — JAZZ-COMBAT-007/008 Energy ladder + Legs/Ribs travel |
 | `System_ArmorRating.lua` | loaded | [Броня и повреждения](armor-damage-wounds-will.md) |
 | `UnitPropertiesStats.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) |
 | `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — grit CombatStart off (MED-001) |

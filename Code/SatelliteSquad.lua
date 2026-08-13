@@ -3580,17 +3580,14 @@ end
 ---
 --- Calculates the additional tired time for a unit based on its current hit points.
 ---
---- Units with hit points above a certain threshold will get tired slower, while units with hit points below the threshold will get tired faster.
+--- JAZZ-COMBAT-008: HP no longer biases travel tiredness (always 0). Ribs trauma shortens
+--- the threshold via JazzGetTirednessTravelThreshold instead.
 ---
 --- @param hp number The current hit points of the unit.
 --- @return number The additional tired time for the unit, in hours.
 ---
 function GetHPAdditionalTiredTime(hp)
-	-- hp above this threshold will cause units to get tired slower (more time) (1% per hp)
-	-- hp below this threshold will cause them to get tired faster (less time) (1% per hp)
-	local hpLimit = const.Satellite.UnitTirednessTravelTimeHP
-	local diff = Clamp(hp - hpLimit, -50, 25)
-	return MulDivRound(const.Satellite.UnitTirednessTravelTime, diff, 100)
+	return 0
 end
 
 function OnMsg.ReachSectorCenter(squad_id, sector_id, prev_sector_id)
@@ -3610,7 +3607,9 @@ function OnMsg.ReachSectorCenter(squad_id, sector_id, prev_sector_id)
 			NetUpdateHash("Tiredness", id, unit_data.TravelTimerStart, hp, additional, unit_data.Tiredness, nonTireTravel)
 			
 			if not nonTireTravel then	
-				local TirednessThreshold = const.Satellite.UnitTirednessTravelTime + additional
+				local TirednessThreshold = (type(JazzGetTirednessTravelThreshold) == "function")
+					and JazzGetTirednessTravelThreshold(unit_data)
+					or (const.Satellite.UnitTirednessTravelTime + additional)
 				-- JAZZ-COMBAT-007: multi-stage warn (50%/20%) + 4-step ladder cap at Exhausted.
 				if type(JazzEnergyTravelWarn) == "function" then
 					JazzEnergyTravelWarn(unit_data, TirednessThreshold)

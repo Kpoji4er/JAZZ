@@ -26,7 +26,7 @@ JAZZ разделяет физическую защиту по покрытию,
 - `Code/System_Wounds_OperationHeal.lua` — стратегическая операция лечения;
 - `Code/WillPointsBar.lua` — UI шкалы воли;
 - `Code/System_GasMask.lua` — защитный предмет для газовых зон;
-- `Code/System_EnergyLadder.lua` — JAZZ-COMBAT-007: лестница энергии Fit→Exhausted, gradual Free Move, satellite warn/times;
+- `Code/System_EnergyLadder.lua` — JAZZ-COMBAT-007/008: лестница энергии Fit→Exhausted, gradual Free Move, satellite warn/times; Legs foot-travel slow + Ribs tiredness threshold;
 - generated Armor, ArmorPlate, CharacterEffect и TargetBodyPart ModItems.
 
 ## Модель брони
@@ -139,6 +139,16 @@ Asset contract не менялся.
 Runtime: `Code/System_EnergyLadder.lua` remaps `const.ut*` / `UnitTirednessEffect`, wraps `UnitProperties.SetTired`, patches satellite travel≈½ / rest≈¾ vanilla per step, multi-stage warn 50%/20% (`JazzEnergyTravelWarn`) + step CombatLog. `FreeMove` Condition: `Tiredness < utExhausted`. Armor-weight FM (COMBAT-005) stacks separately on top of mul/add.
 
 CE companions: `CharacterEffect/{Fit,Winded,Fatigued,Tired,Exhausted,WellRested,FreeMove}.lua`.
+
+### Травмы → travel / энергия (JAZZ-COMBAT-008)
+
+| Источник | Эффект | Где |
+|---|---|---|
+| `TraumaLegs{Light\|Medium\|Heavy}` | пеший `GetSectorTravelTime` ×1.10 / 1.20 / 1.30 (худший в отряде; кап 30%) | wrap в `System_EnergyLadder.lua` |
+| `TraumaRibs{Light\|Medium\|Heavy}` | порог `UnitTirednessTravelTime` ×0.85 / 0.70 / 0.55 на мерка | `JazzGetTirednessTravelThreshold` → `ReachSectorCenter` |
+| HP (`GetHPAdditionalTiredTime`) | всегда **0** | `SatelliteSquad.lua` |
+
+Skip Legs-slow: Water terrain/passability, shortcut, river special, `JAZZ_vehicle` mounted. Breakdown UI: T `890000000013121`.
 
 
 Cumbersome на оружии по-прежнему может не выдавать FreeMove в BeginTurn (**KillingWind** всегда получает FreeMove с cumbersome; иначе Ironclad path).

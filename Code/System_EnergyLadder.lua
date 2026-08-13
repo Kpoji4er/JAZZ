@@ -215,20 +215,6 @@ end
 -- Install on file load and after ModsReloaded (const / classes may arrive later).
 lInstallSetTiredWrap()
 
-function OnMsg.ModsReloaded()
-	-- Re-apply const remap if another mod reset tables; keep wrap idempotent.
-	lRemapTirednessConsts()
-	lPatchSatelliteTimes()
-	lPatchEnergyStatusEffectFormat()
-	if not rawget(_G, "g_JAZZ_EnergyLadderInstalled") then
-		lInstallSetTiredWrap()
-	elseif type(UnitProperties) == "table" and UnitProperties.SetTired ~= lJazzSetTired then
-		rawset(_G, "g_JAZZ_SetTiredBase", UnitProperties.SetTired)
-		UnitProperties.SetTired = lJazzSetTired
-		rawset(_G, "g_JAZZ_EnergyLadderInstalled", true)
-	end
-end
-
 -- Ensure mercs sitting at Tiredness==0 actually have Fit after load/combat start.
 local function lEnsureFitOnUnits(list)
 	for _, unit in ipairs(list or empty_table) do
@@ -253,5 +239,166 @@ function OnMsg.EnterSector()
 				ud:AddStatusEffect("Fit")
 			end
 		end
+	end)
+end
+
+---------------------------------------------------------------------------
+-- JAZZ-COMBAT-008: Legs → foot travel slow; Ribs → faster energy drain; no HP tiredness mod.
+---------------------------------------------------------------------------
+
+g_JAZZ_EnergyTraumaTravelInstalled = rawget(_G, "g_JAZZ_EnergyTraumaTravelInstalled") or false
+g_JAZZ_EnergyTraumaTravelWrapper = rawget(_G, "g_JAZZ_EnergyTraumaTravelWrapper") or false
+
+local LEGS_FOOT_SLOW_PCT = { Light = 10, Medium = 20, Heavy = 30 }
+local RIBS_TIREDNESS_MUL = { Light = 85, Medium = 70, Heavy = 55 }
+
+--- Worst Legs trauma among squad units → foot travel time +pct (cap 30).
+function JazzGetSquadFootTravelSlowPct(units)
+	local worst = 0
+	for _, u in ipairs(units or empty_table) do
+		local ud = type(u) == "table" and u or (gv_UnitData and gv_UnitData[u])
+		if ud and type(JazzGetTraumaTier) == "function" then
+			local tier = JazzGetTraumaTier(ud, "Legs")
+			local pct = tier and LEGS_FOOT_SLOW_PCT[tier]
+			if pct and pct > worst then
+				worst = pct
+			end
+		end
+	end
+	return worst
+end
+
+--- TravelTiredness threshold for one merc (Ribs shortens; HP no longer adjusts).
+function JazzGetTirednessTravelThreshold(unit_data)
+	local sat = rawget(const, "Satellite")
+	local base = sat and sat.UnitTirednessTravelTime or 0
+	if not unit_data or type(JazzGetTraumaTier) ~= "function" then
+		return base
+	end
+	local tier = JazzGetTraumaTier(unit_data, "Ribs")
+	local mul = tier and RIBS_TIREDNESS_MUL[tier] or 100
+	return MulDivRound(base, mul, 100)
+end
+
+-- GetHPAdditionalTiredTime → 0 is defined in SatelliteSquad.lua (loads after this file).
+
+local function lTravelUsesVehicle(route, units)
+	if route and route.JAZZ_vehicle then
+		return true
+	end
+	for _, u in ipairs(units or empty_table) do
+		local ud = type(u) == "table" and u or (gv_UnitData and gv_UnitData[u])
+		local squad = ud and ud.Squad and gv_Squads and gv_Squads[ud.Squad]
+		if squad and squad.JAZZ_vehicle_id then
+			return true
+		end
+	end
+	return false
+end
+
+local function lIsFootTravelSegment(from_sector_id, to_sector_id, shortcut, isRiverSectors)
+	if shortcut or isRiverSectors then
+		return false
+	end
+	local from_s = gv_Sectors and gv_Sectors[from_sector_id]
+	local to_s = to_sector_id and gv_Sectors and gv_Sectors[to_sector_id]
+	if from_s and from_s.Passability == "Water" then
+		return false
+	end
+	if to_s and to_s.Passability == "Water" then
+		return false
+	end
+	local t1 = from_s and from_s.TerrainType
+	local t2 = to_s and to_s.TerrainType
+	if t1 == "Water" or t2 == "Water" then
+		return false
+	end
+	return true
+end
+
+local function lInstallEnergyTraumaTravelHook()
+	if type(GetSectorTravelTime) ~= "function" then
+		return
+	end
+	if GetSectorTravelTime == rawget(_G, "g_JAZZ_EnergyTraumaTravelWrapper") then
+		return
+	end
+	local orig = GetSectorTravelTime
+	local function wrapper(from_sector_id, to_sector_id, route, units, pass_mode, a6, side, dir, cache_shortcuts, cache_neighbors)
+		local t1, t2, t3, breakdown = orig(from_sector_id, to_sector_id, route, units, pass_mode, a6, side, dir, cache_shortcuts, cache_neighbors)
+		if not t1 or t1 == false then
+			return t1, t2, t3, breakdown
+		end
+		if pass_mode == "display_invalid" then
+			return t1, t2, t3, breakdown
+		end
+		if lTravelUsesVehicle(route, units) then
+			return t1, t2, t3, breakdown
+		end
+
+		local shortcut
+		if to_sector_id and from_sector_id and not AreAdjacentSectors(from_sector_id, to_sector_id) then
+			shortcut = GetShortcutByStartEnd(from_sector_id, to_sector_id)
+		end
+		local isRiverSectors = false
+		if cache_shortcuts ~= nil then
+			isRiverSectors = IsRiverSector(from_sector_id, not not shortcut, cache_shortcuts)
+		else
+			isRiverSectors = not shortcut and IsRiverSector(from_sector_id) and IsRiverSector(to_sector_id, "two_way")
+		end
+		if not lIsFootTravelSegment(from_sector_id, to_sector_id, shortcut, isRiverSectors) then
+			return t1, t2, t3, breakdown
+		end
+
+		local slow = JazzGetSquadFootTravelSlowPct(units)
+		if slow <= 0 then
+			return t1, t2, t3, breakdown
+		end
+
+		local factor = 100 + slow
+		t1 = MulDivRound(t1, factor, 100)
+		t2 = t2 and MulDivRound(t2, factor, 100) or t2
+		t3 = t3 and MulDivRound(t3, factor, 100) or t3
+		-- Round like vanilla GetSectorTravelTime.
+		t1 = DivCeil(t1, const.Scale.min) * const.Scale.min
+		if t2 then
+			t2 = DivCeil(t2, const.Scale.min) * const.Scale.min
+		end
+		if t3 then
+			t3 = DivCeil(t3, const.Scale.min) * const.Scale.min
+		end
+		if breakdown then
+			breakdown[#breakdown + 1] = {
+				Text = T(890000000013121, "<em>(Injured legs)</em>"),
+				Value = -slow,
+				Category = "sector-special",
+				special = "jazz_legs_trauma",
+			}
+		end
+		return t1, t2, t3, breakdown
+	end
+	rawset(_G, "g_JAZZ_EnergyTraumaTravelWrapper", wrapper)
+	GetSectorTravelTime = wrapper
+	rawset(_G, "g_JAZZ_EnergyTraumaTravelInstalled", true)
+end
+
+-- Install after SatelliteSquad defines GetSectorTravelTime; re-wrap after jazz-maps vehicles if needed.
+function OnMsg.ModsReloaded()
+	lRemapTirednessConsts()
+	lPatchSatelliteTimes()
+	lPatchEnergyStatusEffectFormat()
+	if not rawget(_G, "g_JAZZ_EnergyLadderInstalled") then
+		lInstallSetTiredWrap()
+	elseif type(UnitProperties) == "table" and UnitProperties.SetTired ~= lJazzSetTired then
+		rawset(_G, "g_JAZZ_SetTiredBase", UnitProperties.SetTired)
+		UnitProperties.SetTired = lJazzSetTired
+		rawset(_G, "g_JAZZ_EnergyLadderInstalled", true)
+	end
+	CreateRealTimeThread(function()
+		Sleep(1)
+		lInstallEnergyTraumaTravelHook()
+		Sleep(50)
+		-- If maps vehicle hook wrapped after us, wrap again so Legs slow sits outside vehicle speed-up.
+		lInstallEnergyTraumaTravelHook()
 	end)
 end
