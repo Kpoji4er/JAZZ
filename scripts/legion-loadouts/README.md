@@ -12,6 +12,7 @@ Design: `docs/design/legion-loadouts.md` (L1–L23). Spec: `docs/specs/active/JA
 | `data/packages.json` | Mod packages M0–M4 keyword sets |
 | `data/caliber_ammo.json` | Caliber → existing ammo LootDef |
 | `data/weapon_tag_overrides.json` | Extra family tags (e.g. M2 `{carbine,assault}`) |
+| `data/early_variants.json` | UNITS-008: module configs that change niche and/or unlock earlier than CSV (`no_lower_gate`, tags, weight). Folded/light AssaultRifle → carbine auto-borrow in `generate.py`. |
 | `generate.py` | Main generator |
 | `sync_metadata.py` | Adds `JAZZ_Gen*` to `jazz-units/metadata.lua` `affected_resources` |
 | `TESTING.md` | Static + runtime test guide |

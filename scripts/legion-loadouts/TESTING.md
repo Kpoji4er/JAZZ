@@ -30,7 +30,10 @@ Spot checks in `jazz-units/items.lua`:
 | HE non-spec | Roughneck: `FragGrenade` **with** `generate_chance` |
 | Frontliner GL | `Veteran_Inventory` / `Mercenary_Inventory` include `LegionGL_5pc`; `Legion_GL` lists `M72LAW` |
 | Shotgun ammo not weapon pool | GenW combos must not nest `LegionT*_Shotgun`; `caliber_ammo` 12gauge → `Crusher_12g` / `Army_12g` |
-| No mid carbine-norm | `Roughneck_Firearm`: no assault/carbine combo with `Amount < 31` (assault only via `arch3_extra_tags`) |
+| No mid carbine-norm | `Roughneck_Firearm`: no assault/AR combo with `Amount < 31` (no-stock `M2Carbine` as SMG is UNITS-008; stocked carbine still forbidden) |
+| UNITS-008 M1 exception | `Warden_Firearm`: `M2Carbine_early_m1` with only `Amount=19` `<=` (no lower gate); combo `JAZZ_StockNormal` no Autofire |
+| UNITS-008 SMG no-stock | `Roughneck_Firearm`: `early_m1_smg` (`JAZZ_StockNo`); not stocked `early_m1` |
+| UNITS-008 carbine borrow | Warden has `carbine_fold` AR (folded/light stock) weight **6000**, Amount ≥21 |
 | Tier1 late | no firearm entry with `balance_tier` remnant / early Amount **without** `Condition = "<="` for Amount&lt;30 |
 | Remnant ~1% | on Roughneck at mid: `weight = 1400` entries with Amount 20 + `<=` 29; share ≈1% of active mid weights (±0.5 pp) |
 | Logistics cargo | no `DiamondBriefcase` inside generated markers; cargo stays Global AI |

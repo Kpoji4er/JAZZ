@@ -182,6 +182,68 @@ def quest_ge_le(amount: int, upper: int, level: int = 8) -> str:
     )
 
 
+def quest_le(upper: int, level: int = 8) -> str:
+    """Upper bound only — no Amount >= (UNITS-008 M1 / no_lower_gate)."""
+    pad = indent(level)
+    return (
+        f"{pad}game_conditions = {{\n"
+        f"{pad}\tPlaceObj('QuestIsVariableNum', {{\n"
+        f"{pad}\t\tAmount = {upper},\n"
+        f"{pad}\t\tCondition = \"<=\",\n"
+        f"{pad}\t\tProp = \"JAZZ_Legion_Tier\",\n"
+        f"{pad}\t\tQuestId = \"JAZZ_LegionTier\",\n"
+        f"{pad}\t}}),\n"
+        f"{pad}}},\n"
+    )
+
+
+CARBINE_BORROW_STOCKS = (
+    "JAZZ_StockLightFolded",
+    "JAZZ_StockFolded",
+    "JAZZ_StockLight",
+)
+CARBINE_BORROW_WEIGHT = 6000
+
+
+def pick_carbine_borrow_stock(slots: dict) -> str | None:
+    options = slots.get("Stock") or []
+    for pref in CARBINE_BORROW_STOCKS:
+        if pref in options:
+            return pref
+    return None
+
+
+def expand_early_variants(raw: dict, weapons: list, comps) -> dict[str, list]:
+    """Authored variants plus AssaultRifle folded/light stock → carbine niche (low weight)."""
+    out: dict[str, list] = {}
+    for wid, variants in (raw or {}).items():
+        if wid.startswith("_"):
+            continue
+        if not isinstance(variants, list):
+            continue
+        out[wid] = [dict(v) for v in variants]
+    for w in weapons:
+        if w.get("object_class") != "AssaultRifle":
+            continue
+        if "carbine" in (w.get("tags") or set()):
+            continue
+        stock = pick_carbine_borrow_stock(comps.get(w["id"], {}))
+        if not stock:
+            continue
+        unlock = 10 * w["balance_tier"] + min(w["balance_subtier"], 5)
+        out.setdefault(w["id"], []).append(
+            {
+                "id": "carbine_fold",
+                "unlock": unlock,
+                "tags": ["carbine"],
+                "upgrades": [stock],
+                "weight": CARBINE_BORROW_WEIGHT,
+                "comment": "AR folded/light stock → carbine niche, low chance",
+            }
+        )
+    return out
+
+
 def quest_arch_band(arch: int, level: int = 7, unlock_floor: int | None = None) -> str:
     """Exclusive loot-tier band for arch: 1→[11,19], 2→[21,29], 3→[31,+∞)."""
     lo = 10 * arch + 1
@@ -526,6 +588,7 @@ def collect_firearm_plan(
     packages: dict,
     comps,
     caliber_ammo: dict,
+    early_variants: dict | None = None,
 ) -> tuple[list[tuple], dict[str, str]]:
     """Return (firearm entries meta, combo_id -> combo block text)."""
     entries_meta = []
@@ -580,13 +643,54 @@ def collect_firearm_plan(
             weight = 100000 + w["balance_subtier"] * 1000
             append_entry(w, pkg_arch, amin, weight)
 
+    # UNITS-008: authored + auto-borrow module variants (niche tags, optional earlier unlock).
+    for wid, variants in (early_variants or {}).items():
+        w = weapons_by_id.get(wid)
+        if not w:
+            continue
+        for variant in variants:
+            var_tags = set(variant.get("tags") or [])
+            if not var_tags:
+                continue
+            unlock = int(variant.get("unlock") or 11)
+            no_lower = bool(variant.get("no_lower_gate"))
+            arch = 1 if no_lower else min(3, max(1, unlock // 10))
+            rec_tags = tags_for_recipe(recipe, arch)
+            if not (var_tags & rec_tags):
+                continue
+            tagged = {**w, "tags": var_tags}
+            if weapon_excluded_by_recipe(tagged, recipe):
+                continue
+            pkg_name = str(variant.get("id") or "early")
+            upgrades = list(variant.get("upgrades") or [])
+            ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
+            cid = combo_id(w["id"], pkg_name, ammo)
+            if cid not in combos:
+                combos[cid] = emit_weapon_combo(
+                    cid, w["id"], upgrades, ammo, class_id=w.get("class_id")
+                )
+            amin = None if no_lower else unlock
+            if no_lower or arch == 1:
+                upper = 19
+            elif arch >= 3:
+                upper = None
+            else:
+                upper = 10 * arch + 9
+            weight = int(variant.get("weight") or (100000 + min(unlock % 10, 5) * 1000))
+            entries_meta.append((cid, amin, upper, weight))
+
     return entries_meta, combos
 
 
 def emit_firearm_from_plan(fid: str, entries_meta: list[tuple]) -> str:
     entries = []
     for cid, amin, upper, weight in entries_meta:
-        cond = quest_ge_le(amin, upper, 7) if upper is not None else quest_ge(amin, 7)
+        if amin is None and upper is not None:
+            cond = quest_le(upper, 7)
+        elif upper is not None:
+            cond = quest_ge_le(amin, upper, 7)
+        else:
+            cond = quest_ge(amin, 7)
         entries.append(
             "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {\n"
             f"{cond}"
@@ -962,6 +1066,7 @@ def main():
     overrides = load_json("weapon_tag_overrides.json")
     weapons = load_weapons(overrides)
     comps = load_components()
+    early_variants = expand_early_variants(load_json("early_variants.json"), weapons, comps)
     prices = parse_prices()
 
     pilot_ids = {
@@ -974,7 +1079,9 @@ def main():
     all_combos: dict[str, str] = {}
     plans: dict[str, list] = {}
     for unit_id, recipe in selected.items():
-        meta, combos = collect_firearm_plan(recipe, weapons, packages, comps, caliber_ammo)
+        meta, combos = collect_firearm_plan(
+            recipe, weapons, packages, comps, caliber_ammo, early_variants
+        )
         plans[unit_id] = meta
         all_combos.update(combos)
         print(f"plan {unit_id}: {len(meta)} firearm entries, {len(combos)} combos")
@@ -1019,7 +1126,7 @@ def main():
     # AC-004 sample: no tier1 remnant without upper bound in arch2 remnant entries
     for unit_id, meta in plans.items():
         for cid, amin, upper, weight in meta:
-            if amin >= 30 and "tier1" in cid.lower():
+            if amin is not None and amin >= 30 and "tier1" in cid.lower():
                 pass
             # remnant entries must have upper
             # detect by weight==1000 and amin==20 from weapon_weight

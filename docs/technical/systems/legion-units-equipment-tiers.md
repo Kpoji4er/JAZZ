@@ -220,6 +220,8 @@ Legacy TCE по `PlayerControlSectors` в quest **заглушены** (`CheckEx
 
 Legacy/coarse gates (`1`–`10`) в старых списках при значениях `11`–`33` всегда пройдены; новые generated blocks опираются на arch bands и subtier Amount.
 
+**UNITS-008 early module variants:** `scripts/legion-loadouts/data/early_variants.json` + авто-borrow в `generate.py`. Variant `tags` матчятся с recipe tags, не с CSV family. `M2Carbine` M1 (`JAZZ_StockNormal`) в carbine-пулах arch1 **без нижнего Amount** (только `<=19`, как старый `LegionT1_Carbine` / `Carbines_M1Carbine`); no-stock → SMG-роли; autofire+30 mag → carbine+assault с Amount 12 (вес 8000). AssaultRifle со складным/лёгким прикладом и без тега `carbine` попадают в carbine-пул на весе **6000** со своего CSV Amount (пример: `Zastava_M70` @22).
+
 Корневой `<Unit>_Inventory` собирает с `loot = "all"` дочерние LootDef: primary firearm (weapon+ammo combo), optional launcher (heavy), sidearm/melee/utility, night, valuables band ≈ `JAZZ_GetLegionUnitPrice`, armor Light/Middle/Heavy. Статический аудитор проходит все 37 рецептов: проверяет UnitData `Equipment`, связь inventory → firearm и материализацию sidearm/melee/utility. `CreateStartingEquipment` создаёт инвентарь из допустимых записей и весов.
 
 `Veteran` / `Mercenary` дополнительно крутят `LegionGL_5pc` (~15% веса → `Legion_GL`): пул **M79**, **M72 LAW** (одноразовый, LootDef `M72LAW`) и late **ChinaLake**. UnitData `CustomEquipGear` для этих классов ставит Handheld B: `GrenadeLauncher`, затем `HeavyWeapon` (LAW), затем melee. `Rocketeer_Launcher` взвешивает RPG-7 (~70%) и M72 LAW (~30%).

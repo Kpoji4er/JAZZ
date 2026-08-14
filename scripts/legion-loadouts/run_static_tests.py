@@ -512,6 +512,114 @@ def main() -> int:
     else:
         ok(f"AC-007 metadata has all {len(needed)} JAZZ_Gen* resources")
 
+    # UNITS-008: M1 carbine exception + SMG no-stock + folded AR into carbine
+    m1_id = "JAZZ_GenW_M2Carbine_early_m1_30cal_carbine_ammo"
+    smg_id = "JAZZ_GenW_M2Carbine_early_m1_smg_30cal_carbine_ammo"
+    if f'id = "{m1_id}"' not in text:
+        fail("UNITS-008 missing M1 combo LootDef")
+    else:
+        m1 = block_for(text, m1_id)
+        if "JAZZ_StockNormal" not in m1:
+            fail("UNITS-008 M1 combo missing JAZZ_StockNormal")
+        elif "JAZZ_Autofire" in m1:
+            fail("UNITS-008 M1 combo must not include Autofire")
+        else:
+            ok("UNITS-008 M1 combo is stocked semi")
+    if f'id = "{smg_id}"' not in text:
+        fail("UNITS-008 missing no-stock SMG combo LootDef")
+    else:
+        smg = block_for(text, smg_id)
+        if "JAZZ_StockNo" not in smg:
+            fail("UNITS-008 SMG combo missing JAZZ_StockNo")
+        else:
+            ok("UNITS-008 no-stock M1 combo")
+
+    warden_f = block_for(text, "Warden_Firearm")
+    if m1_id not in warden_f:
+        fail("UNITS-008 Warden missing early M1")
+    else:
+        # Find the early_m1 entry: only Amount 19 with <=, no Amount 11/12 lower bound.
+        m1_ok = False
+        idx = 0
+        while True:
+            p = warden_f.find("PlaceObj('LootEntryLootDef'", idx)
+            if p < 0:
+                break
+            br = warden_f.find("{", p)
+            depth = 0
+            j = br
+            while j < len(warden_f):
+                if warden_f[j] == "{":
+                    depth += 1
+                elif warden_f[j] == "}":
+                    depth -= 1
+                    if depth == 0:
+                        body = warden_f[br : j + 1]
+                        if m1_id in body:
+                            amounts = [int(x) for x in re.findall(r"Amount = (\d+)", body)]
+                            has_le = 'Condition = "<="' in body
+                            has_ge_only = "Condition" not in body or (
+                                has_le and len(amounts) == 1 and amounts[0] == 19
+                            )
+                            if has_le and amounts == [19]:
+                                m1_ok = True
+                            elif has_ge_only:
+                                m1_ok = True
+                            else:
+                                fail(f"UNITS-008 Warden M1 still gated Amount={amounts}")
+                        break
+                j += 1
+            idx = p + 1
+        if m1_ok:
+            ok("UNITS-008 Warden M1 has no lower Amount gate")
+        elif not any("UNITS-008 Warden M1 still gated" in f for f in fails):
+            fail("UNITS-008 Warden M1 entry not found with <=19 only")
+
+    rf_block = block_for(text, "Roughneck_Firearm")
+    if smg_id not in rf_block:
+        fail("UNITS-008 Roughneck missing no-stock M1 SMG")
+    elif m1_id in rf_block:
+        fail("UNITS-008 Roughneck must not get stocked M1 carbine")
+    else:
+        ok("UNITS-008 Roughneck no-stock SMG only")
+
+    fold_refs = re.findall(r'loot_def = "(JAZZ_GenW_[^"]+_carbine_fold_[^"]+)"', warden_f)
+    if not fold_refs:
+        fail("UNITS-008 Warden missing carbine_fold AR borrow")
+    else:
+        fold_w = None
+        idx = 0
+        while fold_w is None:
+            p = warden_f.find("PlaceObj('LootEntryLootDef'", idx)
+            if p < 0:
+                break
+            br = warden_f.find("{", p)
+            depth = 0
+            j = br
+            while j < len(warden_f):
+                if warden_f[j] == "{":
+                    depth += 1
+                elif warden_f[j] == "}":
+                    depth -= 1
+                    if depth == 0:
+                        body = warden_f[br : j + 1]
+                        if "_carbine_fold_" in body:
+                            wm = re.search(r"weight = (\d+)", body)
+                            am = [int(x) for x in re.findall(r"Amount = (\d+)", body)]
+                            if wm:
+                                fold_w = int(wm.group(1))
+                                if fold_w != 6000:
+                                    fail(f"UNITS-008 carbine_fold weight {fold_w} != 6000")
+                                elif am and am[0] < 21:
+                                    fail(f"UNITS-008 carbine_fold unlock too early Amount={am}")
+                                else:
+                                    ok(f"UNITS-008 carbine_fold {fold_refs[0]} weight=6000 Amount={am}")
+                        break
+                j += 1
+            idx = p + 1
+        if fold_w is None:
+            fail("UNITS-008 carbine_fold entry body not parsed")
+
     print("---")
     if fails:
         print(f"RESULT: FAILED ({len(fails)} issues)")

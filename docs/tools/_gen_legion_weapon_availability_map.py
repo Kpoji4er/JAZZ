@@ -55,6 +55,8 @@ def main():
         "Runtime arch bands: **11–13** = arch1; **21–25** = arch2 (+ ~1% arch1 remnant); **31–33** = arch3 only.",
         "Heavy launchers (`RPG7`/`M72LAW`, `M79`, mortar) are **not** laddered by `tier_label` — fixed LootDefs.",
         "",
+        "UNITS-008: `M2Carbine` M1 config (wood stock) is in carbine pools from day one (no Amount ≥); no-stock → SMG roles; folded/light AssaultRifles borrow into carbine at weight 6000. See `scripts/legion-loadouts/data/early_variants.json`.",
+        "",
         "Generator: `docs/tools/_gen_legion_weapon_availability_map.py`.",
         "Briefs: `docs/design/ris-legion-tier-briefs.md` + `docs/tools/_rewrite_ris_legion_briefs.py`.",
         "",

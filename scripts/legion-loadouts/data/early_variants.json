@@ -1,0 +1,39 @@
+{
+  "_comment": "JAZZ-UNITS-008: module configs that change niche and/or unlock earlier than CSV tier_label. tags = recipe allow-list (not CSV family). no_lower_gate = arch1 upper bound only (old LegionT1_Carbine M1). Auto-borrow of folded/light ARs into carbine is applied in generate.py.",
+  "M2Carbine": [
+    {
+      "id": "early_m1",
+      "unlock": 11,
+      "no_lower_gate": true,
+      "tags": ["carbine"],
+      "upgrades": ["JAZZ_StockNormal"],
+      "weight": 101000,
+      "comment": "M1: wood stock, default 15-rd, semi. No Amount >= (LegionT1_Carbine exception)."
+    },
+    {
+      "id": "early_m1_smg",
+      "unlock": 11,
+      "no_lower_gate": true,
+      "tags": ["smg"],
+      "upgrades": ["JAZZ_StockNo"],
+      "weight": 101000,
+      "comment": "M1 as SMG: no stock."
+    },
+    {
+      "id": "early_m1a1",
+      "unlock": 12,
+      "tags": ["carbine", "smg"],
+      "upgrades": ["JAZZ_StockLightUnFolded"],
+      "weight": 8000,
+      "comment": "M1A1 folding stock; low chance from T1-2."
+    },
+    {
+      "id": "early_m2",
+      "unlock": 12,
+      "tags": ["carbine", "assault"],
+      "upgrades": ["JAZZ_StockNormal", "JAZZ_Autofire", "JAZZ_MagNormal"],
+      "weight": 8000,
+      "comment": "M2 select-fire 30-rd; CSV 1-2, not the day-one exception."
+    }
+  ]
+}

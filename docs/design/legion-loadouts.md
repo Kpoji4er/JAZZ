@@ -79,11 +79,23 @@ Sub внутри arch — веса в пользу своего `balance_subtier
 
 | ID | `tier_label` | Теги (дизайн) |
 | --- | --- | --- |
-| `M2Carbine` | `1-2` | `{carbine, assault}` |
+| `M2Carbine` | `1-2` | `{carbine, assault}` — **модули** меняют нишу (UNITS-008) |
 | `FG42` | `1-3` | `{carbine, assault}` (+ battle) |
 | `STG44` | `1-2` | `{assault}` |
 
 Класс берёт ствол при пересечении allow-list с тегами. На `2x` M2/FG42 сидят в общем **1%-хвосте tier1**; нормальный carbine/AR штурма на `2x` — из **tier2** (`CAR15`, `M16A1`, `ZastavaM92`…).
+
+**UNITS-008 early variants:** комплектация может сменить нишу и/или открыться раньше CSV. Каталог `scripts/legion-loadouts/data/early_variants.json`; авто-borrow складных/лёгких штурмовых в carbine.
+
+| Конфиг | Теги | Unlock | Вес |
+| --- | --- | ---: | ---: |
+| M1 (`StockNormal`, 15, semi) | carbine | arch1, **без нижнего Amount** | 101000 |
+| M1 no-stock | smg | arch1, без нижнего Amount | 101000 |
+| M1A1 folding | carbine+smg | 12 | 8000 |
+| M2 autofire+30 | carbine+assault | 12 | 8000 |
+| AR `StockLightFolded` / `StockFolded` / `StockLight` (ещё не carbine) | carbine | CSV Amount | 6000 |
+
+Roughneck **не** берёт stocked M1 (нет carbine-нормы); берёт no-stock как ПП.
 
 ---
 
