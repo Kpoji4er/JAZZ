@@ -74,3 +74,26 @@ DefineClass.FreeMove = {
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+
+-- Tooltip uses ResolveValue("Description"); GetDescription stays raw for save __toluacode.
+function FreeMove:ResolveValue(key)
+	if key == "Description" then
+		local fmt = rawget(_G, "JazzFormatFreeMoveDescription")
+		if type(fmt) == "function" then
+			return fmt(self)
+		end
+	end
+	return CharacterEffect.ResolveValue(self, key)
+end
+
+function FreeMove:GetDescription()
+	local defs = rawget(_G, "CharacterEffectDefs")
+	local def = defs and defs.FreeMove
+	if def then
+		local d = rawget(def, "Description")
+		if d then
+			return d
+		end
+	end
+	return rawget(FreeMove, "Description") or ""
+end

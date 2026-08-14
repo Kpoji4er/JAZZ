@@ -5,6 +5,10 @@ g_JAZZ_EnergyLadderInstalled = rawget(_G, "g_JAZZ_EnergyLadderInstalled") or fal
 g_JAZZ_SetTiredBase = rawget(_G, "g_JAZZ_SetTiredBase") or false
 g_JAZZ_EnergyStatusEffectBase = rawget(_G, "g_JAZZ_EnergyStatusEffectBase") or false
 g_JAZZ_EnergyTimesPatched = rawget(_G, "g_JAZZ_EnergyTimesPatched") or false
+g_JAZZ_FreeMoveUIInstalled = rawget(_G, "g_JAZZ_FreeMoveUIInstalled") or false
+g_JAZZ_StatusEffectIconOpenBase = rawget(_G, "g_JAZZ_StatusEffectIconOpenBase") or false
+g_JAZZ_FreeMoveRolloverPatched = rawget(_G, "g_JAZZ_FreeMoveRolloverPatched") or false
+g_JAZZ_PDAMercRolloverAPBase = rawget(_G, "g_JAZZ_PDAMercRolloverAPBase") or false
 
 local ENERGY_CE = { "WellRested", "Fit", "Winded", "Fatigued", "Tired", "Exhausted" }
 
@@ -382,11 +386,192 @@ local function lInstallEnergyTraumaTravelHook()
 	rawset(_G, "g_JAZZ_EnergyTraumaTravelInstalled", true)
 end
 
+---------------------------------------------------------------------------
+-- Remaining Free Move AP in UI (icon overlay, status tooltip, merc AP line).
+-- Vanilla GetUIActionPoints() hides free_move_ap, so 16+1 is Fit/morale only.
+---------------------------------------------------------------------------
+
+function JazzFreeMoveOwner(effect)
+	if not effect then
+		return nil
+	end
+	local function owns(unit)
+		return unit and type(unit.GetStatusEffect) == "function" and unit:GetStatusEffect("FreeMove") == effect
+	end
+	local sel = rawget(_G, "SelectedObj")
+	if owns(sel) then
+		return sel
+	end
+	local units = rawget(_G, "g_Units")
+	if type(units) == "table" then
+		for _, u in ipairs(units) do
+			if owns(u) then
+				return u
+			end
+		end
+	end
+	return nil
+end
+
+function JazzFormatFreeMoveDescription(effect)
+	local unit = JazzFreeMoveOwner(effect)
+	local remain = (unit and unit.free_move_ap) or 0
+	return T{890000000013122, "Move without spending AP. Remaining: <em><apn(remain)> AP</em>. Removed after attacking or after using up the allowance (based on Agility).", remain = remain}
+end
+
+local function lGetTemplateProp(node, name)
+	if type(node) ~= "table" then
+		return nil
+	end
+	local v = rawget(node, name)
+	if v ~= nil then
+		return v
+	end
+	if type(node.GetProperty) == "function" then
+		local ok, val = pcall(node.GetProperty, node, name)
+		if ok then
+			return val
+		end
+	end
+	return nil
+end
+
+local function lFindIconStackText(icon)
+	for _, child in ipairs(icon) do
+		if IsKindOf(child, "XText") then
+			return child
+		end
+	end
+	return nil
+end
+
+local hooked_fm_icon = {}
+setmetatable(hooked_fm_icon, { __mode = "k" })
+
+local function lHookFreeMoveIconText(icon)
+	if not icon or hooked_fm_icon[icon] then
+		return
+	end
+	local txt = lFindIconStackText(icon)
+	if not txt then
+		return
+	end
+	hooked_fm_icon[icon] = true
+	local base = txt.OnContextUpdate
+	txt.OnContextUpdate = function(self, context, ...)
+		if context and IsKindOf(context, "FreeMove") then
+			local unit = JazzFreeMoveOwner(context)
+			local remain = (unit and unit.free_move_ap) or 0
+			local scale = (const.Scale and const.Scale.AP) or 1000
+			local n = remain > 0 and DivRound(remain, scale) or 0
+			self:SetVisible(n > 0)
+			self:SetText(Untranslated(tostring(n)))
+			XContextControl.OnContextUpdate(self, context)
+			return
+		end
+		if type(base) == "function" then
+			return base(self, context, ...)
+		end
+		XContextControl.OnContextUpdate(self, context)
+	end
+end
+
+local function lPatchPDAMercRolloverAP()
+	local xts = rawget(_G, "XTemplates")
+	local tmpl = xts and xts.PDAMercRollover
+	if type(tmpl) ~= "table" then
+		return
+	end
+	local target
+	local function walk(node)
+		if target or type(node) ~= "table" then
+			return
+		end
+		local ts = lGetTemplateProp(node, "TextStyle")
+		local ocu = lGetTemplateProp(node, "OnContextUpdate")
+		if ts == "PDARolloverHeaderBeige" and type(ocu) == "function" then
+			target = node
+			return
+		end
+		for i = 1, #node do
+			walk(node[i])
+		end
+	end
+	walk(tmpl)
+	if not target then
+		return
+	end
+	local base = rawget(_G, "g_JAZZ_PDAMercRolloverAPBase")
+	if type(base) ~= "function" then
+		base = lGetTemplateProp(target, "OnContextUpdate")
+		rawset(_G, "g_JAZZ_PDAMercRolloverAPBase", base)
+	end
+	if type(base) ~= "function" then
+		return
+	end
+	local wrapped = function(self, context, ...)
+		local result = base(self, context, ...)
+		local combat = rawget(_G, "g_Combat")
+		if combat and context and type(context.free_move_ap) == "number" then
+			local remain = context.free_move_ap
+			local scale = (const.Scale and const.Scale.AP) or 1000
+			if remain >= scale then
+				local cur = self:GetText()
+				if cur then
+					self:SetText(cur .. T{890000000013123, " <em>(<apn(fm)> FM)</em>", fm = remain})
+				end
+			end
+		end
+		return result
+	end
+	if type(target.SetProperty) == "function" then
+		target:SetProperty("OnContextUpdate", wrapped)
+	else
+		target.OnContextUpdate = wrapped
+	end
+	rawset(_G, "g_JAZZ_FreeMoveRolloverPatched", true)
+end
+
+local function lInstallFreeMoveUI()
+	local cls = rawget(_G, "StatusEffectIcon")
+	if type(cls) == "table" and type(cls.Open) == "function" then
+		local base = rawget(_G, "g_JAZZ_StatusEffectIconOpenBase")
+		if type(base) ~= "function" then
+			base = cls.Open
+			rawset(_G, "g_JAZZ_StatusEffectIconOpenBase", base)
+		end
+		cls.Open = function(self)
+			local result = base(self)
+			lHookFreeMoveIconText(self)
+			local txt = lFindIconStackText(self)
+			if txt and type(txt.OnContextUpdate) == "function" then
+				txt:OnContextUpdate(self.context)
+			end
+			return result
+		end
+		rawset(_G, "g_JAZZ_FreeMoveUIInstalled", true)
+	end
+	lPatchPDAMercRolloverAP()
+end
+
+function OnMsg.UnitAPChanged(unit)
+	if not unit or type(unit.GetStatusEffect) ~= "function" then
+		return
+	end
+	local fm = unit:GetStatusEffect("FreeMove")
+	if fm then
+		ObjModified(fm)
+	end
+end
+
+lInstallFreeMoveUI()
+
 -- Install after SatelliteSquad defines GetSectorTravelTime; re-wrap after jazz-maps vehicles if needed.
 function OnMsg.ModsReloaded()
 	lRemapTirednessConsts()
 	lPatchSatelliteTimes()
 	lPatchEnergyStatusEffectFormat()
+	lInstallFreeMoveUI()
 	if not rawget(_G, "g_JAZZ_EnergyLadderInstalled") then
 		lInstallSetTiredWrap()
 	elseif type(UnitProperties) == "table" and UnitProperties.SetTired ~= lJazzSetTired then

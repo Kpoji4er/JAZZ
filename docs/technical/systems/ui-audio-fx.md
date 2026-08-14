@@ -60,7 +60,7 @@ Generated `ActionCameraCrosshair` не вызывает `Open` для `idContain
 - bandage;
 - danger/death state.
 
-Иконки статусов на бейдже — **под** HP-баром (`GetUIVisibleStatusEffects`, Def-aware Shown/Icon). Party HUD в бою и на глобалке (`SquadsAndMercs*` / `idStatusEffectsContainer`) использует `JazzGetPartyPortraitStatusEffects` (`ShownSatelliteView` + fallback с CharacterEffectDefs; `WoundInfected`/bleed/BloodLoss выше в списке, контейнер MaxHeight 160).
+Иконки статусов на бейдже — **под** HP-баром (`GetUIVisibleStatusEffects`, Def-aware Shown/Icon). Party HUD в бою и на глобалке (`SquadsAndMercs*` / `idStatusEffectsContainer`) использует `JazzGetPartyPortraitStatusEffects` (`ShownSatelliteView` + fallback с CharacterEffectDefs; `WoundInfected`/bleed/BloodLoss выше в списке, контейнер MaxHeight 160). Иконка **Free Move** показывает оставшиеся ОД FM (оверлей как у стаков; тултип `ResolveValue("Description")`); карточка наёмника рядом с `16+1` дописывает `(N FM)`. Формула FM не меняется — только отображение `unit.free_move_ap` (`System_EnergyLadder.lua`).
 
 Это модифицированная tactical UI часть, чувствительная к новым vanilla status fields и action lifecycle.
 

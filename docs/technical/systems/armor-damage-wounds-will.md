@@ -141,6 +141,8 @@ Asset contract не менялся.
 
 Runtime: `Code/System_EnergyLadder.lua` remaps `const.ut*` / `UnitTirednessEffect`, wraps `UnitProperties.SetTired`, patches satellite travel≈½ / rest≈¾ vanilla per step, multi-stage warn 50%/20% (`JazzEnergyTravelWarn`) + step CombatLog. `FreeMove` Condition: `Tiredness < utExhausted`. Armor-weight FM (COMBAT-005) stacks separately on top of mul/add.
 
+**UI remaining Free Move AP:** vanilla `GetUIActionPoints()` subtracts `free_move_ap`, so the merc card `16+1` is regular AP (Fit/morale), not FM. JAZZ shows remaining FM as (1) a number overlay on the `FreeMove` status icon, (2) formatted tooltip via `FreeMove:ResolveValue("Description")` (T `890000000013122`; `GetDescription` stays raw for save `__toluacode`), (3) suffix `(N FM)` on the PDA merc-card AP line (T `890000000013123`). `OnMsg.UnitAPChanged` `ObjModified`s the effect so the overlay updates while moving. Owner lookup: `SelectedObj` then `g_Units` identity match.
+
 CE companions: `CharacterEffect/{Fit,Winded,Fatigued,Tired,Exhausted,WellRested,FreeMove}.lua`.
 
 ### Травмы → travel / энергия (JAZZ-COMBAT-008)
