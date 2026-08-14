@@ -31,6 +31,14 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
         and (self.BiasId == "SmokeGrenade"
             or (self.AllowedAoeTypes and self.AllowedAoeTypes.smoke and not self.AllowedAoeTypes.none))
 
+    if is_smoke then
+        local assigned = type(rawget(_G, "JazzAI_GetTeamSmokeThrower")) == "function"
+            and JazzAI_GetTeamSmokeThrower(context.unit.team)
+        if assigned and assigned ~= context.unit then
+            return
+        end
+    end
+
     local target_pts
     if is_smoke and JazzAI_CollectSmokeCurtainTargets then
         context.jazz_smoke_blast = blast_radius
@@ -54,9 +62,15 @@ function AIActionThrowGrenade:PrecalcAction(context, action_state)
 
     local zone, score = self:EvalZones(context, zones)
     if zone then
+        if not is_smoke and not IsKindOf(grenade, "Flare")
+            and type(rawget(_G, "JazzAI_ScaleExplosiveGrenadeScore")) == "function"
+        then
+            score = JazzAI_ScaleExplosiveGrenadeScore(context.unit, score)
+        end
         action_state.action_id = action_id
         action_state.target_pos = zone.target_pos
         action_state.score = score
+        action_state.jazz_grenade = grenade
     end
 end
 
@@ -2452,4 +2466,48 @@ function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
         end
     end
     return targeted_parts or visible_parts
+end
+
+-- JAZZ-AI-CMD-002: count ordinary grenade Execute toward difficulty budget.
+g_JAZZ_ThrowGrenadeExecuteBase = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase") or false
+g_JAZZ_ThrowGrenadeExecuteFn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteFn") or false
+
+local function JazzAI_InstallThrowGrenadeExecuteWrap()
+	local cls = rawget(_G, "AIActionThrowGrenade")
+	if type(cls) ~= "table" then
+		return false
+	end
+	local current = cls.Execute
+	local ourFn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_ThrowGrenadeExecuteBase", current)
+	elseif not rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase") then
+		return false
+	end
+	local function wrap(self, context, action_state)
+		if type(rawget(_G, "JazzAI_NoteTeamExplosiveThrow")) == "function" then
+			JazzAI_NoteTeamExplosiveThrow(context and context.unit, action_state and action_state.jazz_grenade)
+		end
+		local base_fn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase")
+		return base_fn(self, context, action_state)
+	end
+	rawset(_G, "g_JAZZ_ThrowGrenadeExecuteFn", wrap)
+	cls.Execute = wrap
+	return true
+end
+
+JazzAI_InstallThrowGrenadeExecuteWrap()
+
+function OnMsg.ModsReloaded()
+	JazzAI_InstallThrowGrenadeExecuteWrap()
+end
+
+function OnMsg.DataLoaded()
+	JazzAI_InstallThrowGrenadeExecuteWrap()
 end

@@ -7,6 +7,10 @@ MapVar("JazzAI_SniperUselessStreak", {})
 MapVar("JazzAI_FlarePushUntil", false)
 MapVar("JazzAI_TeamActed", {})
 MapVar("JazzAI_TeamActedTurn", false)
+MapVar("JazzAI_TeamActSlots", {})
+MapVar("JazzAI_TeamActSlotsTurn", false)
+MapVar("JazzAI_TeamExplosiveThrows", {})
+MapVar("JazzAI_TeamExplosiveThrowTurn", false)
 
 -- ACT-002: who already finished AIPlayAttacks this combat turn (smoke self-cover gate).
 function JazzAI_EnsureTeamActedTable()
@@ -863,6 +867,397 @@ function JazzAI_FormatOfficerAuraDescription(effect, base, kind)
 	return table.concat(parts, "\n\n")
 end
 
+-- JAZZ-AI-CMD-002: cheap team turn sequencer (Early support → Normal line → Late press).
+function JazzAI_UnitSlotKey(unit)
+	if not unit then
+		return false
+	end
+	return unit.session_id or unit.handle
+end
+
+function JazzAI_TeamSideKey(team)
+	if not team then
+		return false
+	end
+	return team.side or team.handle or tostring(team)
+end
+
+local function JazzAI_LivingTeamUnits(team)
+	local list = {}
+	for _, u in ipairs((team and team.units) or empty_table) do
+		if IsValid(u) and not u:IsDead() then
+			list[#list + 1] = u
+		end
+	end
+	table.sort(list, function(a, b)
+		return (a.handle or 0) < (b.handle or 0)
+	end)
+	return list
+end
+
+local function JazzAI_UnitHasKeyword(unit, kw)
+	return unit and table.find(unit.AIKeywords or empty_table, kw)
+end
+
+local function JazzAI_UnitArchetypeId(unit)
+	local a = unit and (unit.current_archetype or unit.archetype)
+	if type(a) == "table" then
+		return a.id or a.Id or ""
+	end
+	return tostring(a or "")
+end
+
+local function JazzAI_UnitHasAoeGrenade(unit, aoe)
+	if not unit then
+		return false
+	end
+	local found = false
+	unit:ForEachItem(function(item)
+		if found then
+			return
+		end
+		if IsKindOfClasses(item, "Grenade", "Ordnance") and (item.aoeType or "none") == aoe then
+			found = true
+		end
+	end)
+	return found
+end
+
+function JazzAI_UnitHasFlareGear(unit)
+	if not unit then
+		return false
+	end
+	if unit:GetItemInSlot("Handheld A", "FlareGun") or unit:GetItemInSlot("Handheld B", "FlareGun") then
+		return true
+	end
+	local found = false
+	unit:ForEachItem(function(item)
+		if found then
+			return
+		end
+		if IsKindOf(item, "Flare") or IsKindOf(item, "FlareGun") then
+			found = true
+		end
+	end)
+	return found
+end
+
+function JazzAI_TeamHasUnlitThreat(unit)
+	if not unit or not unit.team then
+		return false
+	end
+	local illuminate = rawget(_G, "IsIlluminated")
+	for _, other in ipairs(g_Units or empty_table) do
+		if IsValid(other) and not other:IsDead() and unit.IsOnEnemySide and unit:IsOnEnemySide(other) then
+			if type(illuminate) ~= "function" then
+				return true
+			end
+			local ok, lit = pcall(illuminate, other)
+			if not ok or not lit then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+function JazzAI_UnitCanFlareEarly(unit)
+	if not (GameState.Night or GameState.Underground) then
+		return false
+	end
+	if not JazzAI_UnitHasFlareGear(unit) then
+		return false
+	end
+	return JazzAI_TeamHasUnlitThreat(unit)
+end
+
+local function JazzAI_TeamHasCurtainSignal(team)
+	local overwatch = rawget(_G, "g_Overwatch")
+	if type(overwatch) == "table" then
+		for _ in pairs(overwatch) do
+			return true
+		end
+	end
+	local units = rawget(_G, "g_Units") or empty_table
+	for _, u in ipairs(units) do
+		if IsValid(u) and not u:IsDead() and u.last_attack_pos then
+			return true
+		end
+	end
+	return false
+end
+
+function JazzAI_PickTeamSmokeThrower(team)
+	local units = JazzAI_LivingTeamUnits(team)
+	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(team)]
+	local source = entry and entry.source
+	local radius = entry and entry.radius
+	local pool = units
+	if source and radius then
+		local in_aura = {}
+		for _, u in ipairs(units) do
+			if JazzAI_IsInOfficerAura(u, source, radius) then
+				in_aura[#in_aura + 1] = u
+			end
+		end
+		if #in_aura > 0 then
+			pool = in_aura
+		end
+	end
+	local curtain = JazzAI_TeamHasCurtainSignal(team)
+	local best, best_score
+	for _, u in ipairs(pool) do
+		if JazzAI_UnitHasAoeGrenade(u, "smoke") then
+			local score = 10
+			if curtain then
+				score = score + 50
+			end
+			if JazzAI_UnitHasKeyword(u, "Smoke") then
+				score = score + 20
+			end
+			if not best or score > best_score or (score == best_score and (u.handle or 0) < (best.handle or 0)) then
+				best, best_score = u, score
+			end
+		end
+	end
+	return best or false
+end
+
+function JazzAI_GetTeamSmokeThrower(team)
+	if not team then
+		return false
+	end
+	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(team)]
+	if entry and entry.smoke then
+		return entry.smoke
+	end
+	return false
+end
+
+function JazzAI_UnitNeedsHealSlot(unit)
+	local id = JazzAI_UnitArchetypeId(unit)
+	local is_medic = JazzAI_UnitHasKeyword(unit, "Heal") or string.find(id, "Medic", 1, true)
+	if not is_medic then
+		return false
+	end
+	local try_medic = rawget(_G, "JazzAI_TryMedicSwitch")
+	if type(try_medic) == "function" then
+		return try_medic(unit) and true or false
+	end
+	if not unit or not unit.team then
+		return false
+	end
+	local function needs(u)
+		if not u or u:IsDead() then
+			return false
+		end
+		if type(rawget(_G, "JazzHasAnyBleed")) == "function" and JazzHasAnyBleed(u) then
+			return true
+		end
+		if u:HasStatusEffect("Bleeding") or u:HasStatusEffect("BleedingMedium") or u:HasStatusEffect("BleedingHeavy") then
+			return true
+		end
+		return u.HitPoints < MulDivRound(u.MaxHitPoints or 1, 85, 100)
+	end
+	if needs(unit) then
+		return true
+	end
+	for _, ally in ipairs(unit.team.units or empty_table) do
+		if ally ~= unit and needs(ally) then
+			return true
+		end
+	end
+	return false
+end
+
+function JazzAI_UnitNeedsMGSetup(unit)
+	if not unit then
+		return false
+	end
+	if unit:HasStatusEffect("StationedMachineGun") then
+		return false
+	end
+	if unit.HasPreparedAttack and unit:HasPreparedAttack() then
+		return false
+	end
+	local weapon = unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm")
+	if not weapon then
+		return false
+	end
+	return IsKindOf(weapon, "MachineGun") or JazzAI_UnitHasKeyword(unit, "MG")
+end
+
+function JazzAI_UnitIsPressRole(unit)
+	local id = JazzAI_UnitArchetypeId(unit)
+	if string.find(id, "Assaulter", 1, true) or string.find(id, "Flanker", 1, true) then
+		return true
+	end
+	if JazzAI_UnitHasKeyword(unit, "Flank") then
+		return true
+	end
+	local team = unit and unit.team
+	local entry = team and (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(team)]
+	if entry and entry.pusher == unit then
+		return true
+	end
+	return false
+end
+
+function JazzAI_UnitIsLineRole(unit)
+	local id = JazzAI_UnitArchetypeId(unit)
+	if string.find(id, "Frontliner", 1, true) or string.find(id, "Sniper", 1, true)
+		or string.find(id, "Machinegunner", 1, true) or string.find(id, "Marksman", 1, true)
+	then
+		return true
+	end
+	if JazzAI_UnitHasKeyword(unit, "Sniper") or JazzAI_UnitHasKeyword(unit, "Marksman")
+		or JazzAI_UnitHasKeyword(unit, "Control")
+	then
+		return true
+	end
+	if unit and unit:HasStatusEffect("StationedMachineGun") then
+		return true
+	end
+	return false
+end
+
+function JazzAI_PickUnitActKind(unit, smoke_thrower)
+	if JazzAI_UnitNeedsHealSlot(unit) then
+		return "heal"
+	end
+	if JazzAI_UnitCanFlareEarly(unit) then
+		return "flare"
+	end
+	if smoke_thrower and unit == smoke_thrower then
+		return "smoke"
+	end
+	if JazzAI_UnitNeedsMGSetup(unit) then
+		return "mg_setup"
+	end
+	-- Assigned pusher Late even if the fighter is a Frontliner (Push assign).
+	local team = unit and unit.team
+	local entry = team and (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(team)]
+	if entry and entry.pusher == unit then
+		return "press"
+	end
+	if JazzAI_UnitIsLineRole(unit) then
+		return "line"
+	end
+	if JazzAI_UnitIsPressRole(unit) then
+		return "press"
+	end
+	return "line"
+end
+
+function JazzAI_ActKindPhase(kind)
+	if kind == "heal" or kind == "flare" or kind == "smoke" or kind == "mg_setup" then
+		return "Early"
+	end
+	if kind == "press" then
+		return "Late"
+	end
+	return "Normal"
+end
+
+function JazzAI_AssignTeamActSlots(team)
+	if not team then
+		return
+	end
+	if type(rawget(_G, "JazzAI_RefreshOfficerAurasForTeam")) == "function" then
+		JazzAI_RefreshOfficerAurasForTeam(team)
+	end
+	local turn = g_Combat and g_Combat.current_turn
+	local side = JazzAI_TeamSideKey(team)
+	JazzAI_TeamActSlots = JazzAI_TeamActSlots or {}
+	if JazzAI_TeamActSlotsTurn ~= turn then
+		JazzAI_TeamActSlots = {}
+		JazzAI_TeamActSlotsTurn = turn
+		JazzAI_TeamExplosiveThrows = {}
+		JazzAI_TeamExplosiveThrowTurn = turn
+	end
+	local smoke = JazzAI_PickTeamSmokeThrower(team)
+	JazzAI_TeamDirectives = JazzAI_TeamDirectives or {}
+	local entry = JazzAI_TeamDirectives[side] or {}
+	entry.smoke = smoke or false
+	JazzAI_TeamDirectives[side] = entry
+	for _, u in ipairs(JazzAI_LivingTeamUnits(team)) do
+		local kind = JazzAI_PickUnitActKind(u, smoke)
+		local key = JazzAI_UnitSlotKey(u)
+		if key then
+			JazzAI_TeamActSlots[key] = {
+				phase = JazzAI_ActKindPhase(kind),
+				kind = kind,
+				source = "CMD-002",
+			}
+		end
+	end
+end
+
+function JazzAI_GetUnitActSlot(unit)
+	local key = JazzAI_UnitSlotKey(unit)
+	if not key then
+		return false
+	end
+	JazzAI_TeamActSlots = JazzAI_TeamActSlots or {}
+	return JazzAI_TeamActSlots[key] or false
+end
+
+function JazzAI_ExplosiveThrowBudget()
+	local game = rawget(_G, "Game")
+	local diff = game and game.game_difficulty or "Normal"
+	if diff == "VeryHard" then
+		return false
+	end
+	if diff == "Hard" then
+		return 3
+	end
+	return 1
+end
+
+function JazzAI_TeamExplosiveThrowCount(unit)
+	if not unit or not unit.team then
+		return 0
+	end
+	local turn = g_Combat and g_Combat.current_turn
+	if JazzAI_TeamExplosiveThrowTurn ~= turn then
+		JazzAI_TeamExplosiveThrows = {}
+		JazzAI_TeamExplosiveThrowTurn = turn
+	end
+	JazzAI_TeamExplosiveThrows = JazzAI_TeamExplosiveThrows or {}
+	return JazzAI_TeamExplosiveThrows[JazzAI_TeamSideKey(unit.team)] or 0
+end
+
+function JazzAI_ScaleExplosiveGrenadeScore(unit, score)
+	local budget = JazzAI_ExplosiveThrowBudget()
+	if budget == false then
+		return score
+	end
+	if (JazzAI_TeamExplosiveThrowCount(unit) or 0) >= budget then
+		return MulDivRound(score or 0, 25, 100)
+	end
+	return score
+end
+
+function JazzAI_NoteTeamExplosiveThrow(unit, grenade)
+	if not unit or not unit.team or not grenade then
+		return
+	end
+	if JazzAI_ExplosiveThrowBudget() == false then
+		return
+	end
+	if IsKindOf(grenade, "Flare") or (grenade.aoeType or "none") == "smoke" then
+		return
+	end
+	local turn = g_Combat and g_Combat.current_turn
+	if JazzAI_TeamExplosiveThrowTurn ~= turn then
+		JazzAI_TeamExplosiveThrows = {}
+		JazzAI_TeamExplosiveThrowTurn = turn
+	end
+	JazzAI_TeamExplosiveThrows = JazzAI_TeamExplosiveThrows or {}
+	local key = JazzAI_TeamSideKey(unit.team)
+	JazzAI_TeamExplosiveThrows[key] = (JazzAI_TeamExplosiveThrows[key] or 0) + 1
+end
+
 function JazzAI_WriteOfficerAura(unit)
 	if not unit or not unit.team then
 		return
@@ -1026,6 +1421,10 @@ function OnMsg.CombatStart()
 	JazzAI_FlarePushUntil = false
 	JazzAI_TeamActed = {}
 	JazzAI_TeamActedTurn = false
+	JazzAI_TeamActSlots = {}
+	JazzAI_TeamActSlotsTurn = false
+	JazzAI_TeamExplosiveThrows = {}
+	JazzAI_TeamExplosiveThrowTurn = false
 	-- Write directives immediately so ally officers (Burda) show a real order
 	-- before the first UnitBeginTurn — CombatStart alone used to leave MapVar empty.
 	JazzAI_RefreshAllOfficerAuras()
@@ -1038,6 +1437,10 @@ function OnMsg.CombatEnd()
 	end
 	JazzAI_TeamDirectives = {}
 	JazzAI_TeamDirectiveFatigue = {}
+	JazzAI_TeamActSlots = {}
+	JazzAI_TeamActSlotsTurn = false
+	JazzAI_TeamExplosiveThrows = {}
+	JazzAI_TeamExplosiveThrowTurn = false
 end
 
 function OnMsg.UnitBeginTurn(unit)

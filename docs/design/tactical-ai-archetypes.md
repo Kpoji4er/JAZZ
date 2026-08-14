@@ -382,6 +382,9 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-POL-002** | AllyRoleAnchor (sniper screen / leader retinue); AvoidPeekVoxel |
 | **JAZZ-AI-CTX-001** | Urban (indoor ratio) + **LowVis** (Night/Fog/Dust/Fire/Underground/Rain) profiles; множители Weight; flare/OW gates |
 | **JAZZ-AI-CMD-001** | Officer aura (15/25/map) + directives HoldLine/Push/Envelop/LowVisHold/FallBack/FocusFire/OccupyBuildings/TakeCover/GoHidden; bands 12/24 |
+| **JAZZ-AI-CMD-002** | Sequencer: Early support (все flare с тьмой / 1 smoke / MG setup / bleed-medic) → Normal линия → Late Press; frag не unique; First Blood 1+×25%; Commando 3 полных, 4–5 ×25%; MI без лимита; Threatened→Late |
+| **JAZZ-AI-PERF-002** | OptLoc cap 200: Strategy reserve (высота / якоря / ring) до nearest-threat; DestLos/Precalc helper не трогать |
+| **JAZZ-AI-HYG-001** | Аккуратный unwrap копий CombatAI: один символ за коммит, не смешивать с feature |
 | **JAZZ-AI-ACT-001** | Smoke LOS-break score; anti-peek overwatch; flare→push; LowVis min_score OW |
 | **JAZZ-AI-MED-001** | Medic freeze repro + fail-safes; early heal; bleed-first |
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
@@ -390,6 +393,8 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee/healer floor |
 
 Рекомендуемый порядок: **001 → POL-001 → 002 → MED-001** (быстрый playfeel + не убить бой медиком), затем CTX/CMD/ACT.
+
+Волна 2026-08-14: **PERF-002 → CMD-002** код загружен; runtime/human smoke у владельца. HYG-001 — процесс в debt/matrix, unwrap не в этом дереве. Stay-hold снайпера (SNIPER-001) не отменяем. UnitData не становится AI-конфигом.
 
 ---
 
@@ -623,5 +628,8 @@ StartAI → archetype (+ PickCustom)
 - [x] Isolated Legion Regroup (REG-001)
 - [x] Ally anti-stack spacing (POL-003)
 - [x] Casualty-aware final-score modifier + role floors (POL-004; runtime/human pending)
+- [x] OptLoc Strategy reserve в dest-cap (PERF-002; runtime/human pending)
+- [x] Team turn sequencer Early/Normal/Late (CMD-002; runtime/human pending)
+- [ ] Fork unwrap по одному символу (HYG-001 process docs only)
 
-Fog/Dust **без** flare — осознанный gap: либо принять «только Night/Underground illumination», либо отдельный design на сигнальные/шумные маркеры.
+Fog/Dust **без** flare — осознанный gap: либо принять «только Night/Underground illumination», либо отдельный design на сигнальные/шумные маркеры. Owner playtest (anti-peek OW, Fog, медик, cover vs dump) **не** отмечать done из этого списка.

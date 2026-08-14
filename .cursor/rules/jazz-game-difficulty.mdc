@@ -1,0 +1,25 @@
+---
+description: У JA3/JAZZ ровно три игровые сложности (нет Easy).
+alwaysApply: true
+---
+
+# Игровые сложности JA3 / JAZZ
+
+`GameDifficultyDef` / `Game.game_difficulty` — **три** id. И в ванили, и в JAZZ. Четвёртого Easy **нет**.
+
+| `Game.game_difficulty` | Display (EN) | Display (RU) |
+| --- | --- | --- |
+| `Normal` | First Blood | Первая кровь |
+| `Hard` | Commando | Коммандос |
+| `VeryHard` | Mission Impossible | Миссия невыполнима |
+
+## Как писать код и спеки
+
+- Ветки только по этим трём id. Неизвестный id → как `Normal`.
+- Не писать таблицы Easy / Normal / Hard / VeryHard для **игры**.
+- Не вызывать `GameDifficulties.Easy`.
+- В русской вики / витрине / `T()` для игрока — **русские** display names (`Первая кровь`, `Коммандос`, `Миссия невыполнима`), не First Blood / Commando. Английская витрина — EN names. В коде и спеках id остаются `Normal` / `Hard` / `VeryHard`.
+
+## Не путать с другими «Easy»
+
+В квестах, ловушках, `const.DifficultyPresetsNew` и в design-таблицах отрядов слово Easy часто значит **skill/size band**, не игровой пресет. UNITS-007 «Easy/Normal/Hard» для размера пака = движковые `Normal` / `Hard` / `VeryHard`.

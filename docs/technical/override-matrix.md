@@ -23,6 +23,9 @@ JAZZ поддерживает только последнюю опубликов
 | `AIPolicyIndoorsOutdoors:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AiActions.lua` | JAZZ; проверить оценку indoor/outdoor позиции |
 | `AIPolicyProximity:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AIPolicy.lua` | JAZZ; проверить дистанционные веса |
 | `AIScoreReachableVoxels` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-SNIPER-001: sniper/marksman stay-hold if `dest_target_score[stay]>0` |
+| `AIBehavior:GetTurnPhase` | `Lua/Tactical/AIBehaviors.lua` | — | `Code/AIBehaviours.lua` | JAZZ-AI-CMD-002: MapVar act slot then vanilla Threatened→Late |
+| `Combat:AITurn` | `Lua/Tactical/Combat.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-CMD-002: `JazzAI_AssignTeamActSlots` then PERF-001 timing |
+| `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (wrap) | JAZZ-AI-CMD-002: count ordinary grenade throws toward difficulty budget |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
 | `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |
@@ -82,6 +85,8 @@ JAZZ поддерживает только последнюю опубликов
 CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти символы не переопределяет. После обновления игры или CommonLib повторно проверять сигнатуры и rollover template.
 
 При обновлении игры эти файлы требуют трёхстороннего сравнения: старая vanilla-версия, новая vanilla-версия и JAZZ-версия. Простое копирование нового vanilla-файла поверх JAZZ уничтожит механику мода. Слепое сохранение старой копии может вернуть исправленные разработчиками игры ошибки.
+
+**Unwrap (JAZZ-AI-HYG-001):** не чистить эти копии пачкой. Один символ за коммит: wrap JAZZ-логики вокруг актуальной vanilla/CLib (`g_JAZZ_*Base`, как `AIScoreReachableVoxels`), удалить только доказанно идентичный хвост, обновить эту матрицу и [technical-debt.md](technical-debt.md) в том же коммите. Не смешивать с feature-коммитами CMD/PERF. Unwrap CombatAI в change set PERF-002/CMD-002 **не** делался.
 
 `DamageReduction` — отдельный намеренный override, а не новое глобальное имя JAZZ. Его generated companion должен сначала удалить vanilla-определение через `UndefineClass('DamageReduction')`, а затем объявить замену через `DefineClass.DamageReduction`. Имя нельзя менять на `JAZZ_DamageReduction`: совпадение class name и preset ID необходимо, чтобы заменить vanilla-класс и сохранить существующие обращения к `DamageReduction`. Поэтому правило о префиксе `JAZZ_` к этому символу не применяется; предмет аудита здесь — полнота замены и совместимость с обновлениями vanilla, а не отсутствие namespace-префикса.
 

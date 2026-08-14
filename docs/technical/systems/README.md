@@ -13,7 +13,7 @@
 | [Броня, повреждения, ранения и воля](armor-damage-wounds-will.md) | Покрытие, рейтинг, пластины, состояния тела, лечение, Grit и Will Points | Не ведётся |
 | [Инвентарь, предметы, loot и crafting](inventory-items-loot-crafting.md) | Слоты, UI, контейнеры, squad bag, таблицы добычи и рецепты | Не ведётся |
 | [Bobby Ray (магазин)](bobby-ray-shop.md) | 5 unlock-тиров, restock/цена по Δтира, catalog ECON-004 | [wiki](../../wiki/bobby-ray.md), showcase `bobby-ray` |
-| [Тактический AI и awareness](ai-awareness.md) | Выбор действий, политики позиций, роли, укрытия, фланги, suspicion и alert | Не ведётся |
+| [Тактический AI и awareness](ai-awareness.md) | Выбор действий, политики позиций, роли, укрытия, фланги, suspicion и alert | [wiki](../../wiki/officer-aura.md), showcase `officer-aura` |
 | [Видимость, погода и внешний вид](visibility-weather-appearance.md) | Свет, дым, погода, маски, визуальные состояния оружия и персонажей | Не ведётся |
 | [Юниты, прогрессия и специализации](units-progression-specializations.md) | UnitData, squads, archetypes, опыт до 21 уровня, stat gain и AIM-фильтры | Не ведётся |
 | [Легион: схема юнитов и тиры снаряжения](legion-units-equipment-tiers.md) | 37 UnitData, шесть боевых семейств, ветви эскалации и campaign equipment tier 11–33 | Не ведётся |

@@ -2,7 +2,7 @@
 
 ## Назначение и эффект для игрока
 
-JAZZ существенно меняет выбор действий AI, оценку позиций, укрытия и флангов, применение гранат/осветительных средств/пулемётов, а также обнаружение, suspicion и alert. Это одна из самых конфликтных с CommonLib зон.
+JAZZ существенно меняет выбор действий AI, оценку позиций, укрытия и флангов, применение гранат/осветительных средств/пулемётов, а также обнаружение, suspicion и alert. Это одна из самых конфликтных с CommonLib зон. Игроку: командная аура и порядок хода — [officer-aura](../../wiki/officer-aura.md).
 
 ## Происхождение по слоям
 
@@ -19,16 +19,15 @@ JAZZ существенно меняет выбор действий AI, оце�
 - `Code/AiActions.lua` — attacks, targeting, aim/reload и action helpers;
 - `Code/AiAction_ThrowFlare.lua` — night/underground illumination: throwable `Flare` sticks **and** `FireFlare` signal pistol (`FlareHandgun`);
 - `Code/AiFastForward.lua` — auto fast-forward / PoV visibility на вражеском ходе; **союзники (Rebels `side=ally`)** при Running/Always всегда на Fast (иначе PoV их почти всегда видит и FF не срабатывал);
-- `Code/AIBehaviours.lua` — behavior voice + **Deserter** `RetreatAI:CanDespawn` proximity gate (DES-001: LOS-despawn only if no player unit within 16 tiles; Entrance unrestricted);
+- `Code/AIBehaviours.lua` — behavior voice + **Deserter** `RetreatAI:CanDespawn` proximity gate (DES-001) + **CMD-002** `AIBehavior:GetTurnPhase` (act-slot Early/Normal/Late, then Threatened→Late);
 - `Code/AIPolicy.lua` — позиционные политики (cover/threat, ScoreMode, role anchor, anti-peek, ally spacing — POL-001…003 code loaded; specs may still be `approved`);
-- `Code/CombatAI.lua` — общий casualty-aware crowd modifier конечной позиции (POL-004): live/planned allies + dead/downed/incapacitated allies, role floors для melee/healer;
-- `Code/AIContextProfiles.lua` — context profiles / officer directives / aura lifecycle (CTX/CMD code loaded); team directive in `MapVar JazzAI_TeamDirectives` (`directive` / `source` / `radius` / `focus_target` / **`semi_sniper` / `pseudo_mg` / `pusher`** aura role assigns); **fatigue** in `MapVar JazzAI_TeamDirectiveFatigue`; **score-picker** `JazzAI_PickOfficerDirective`; Influence buffs by directive; FocusFire bias **×1.8**; OccupyHeights / FallBack / rear-guard; loc **6100–6124**;
+- `Code/AIContextProfiles.lua` — context profiles / officer directives / aura lifecycle (CTX/CMD code loaded); team directive in `MapVar JazzAI_TeamDirectives` (`directive` / `source` / `radius` / `focus_target` / **`semi_sniper` / `pseudo_mg` / `pusher` / `smoke`**); **CMD-002** `MapVar JazzAI_TeamActSlots` + `JazzAI_AssignTeamActSlots` on `Combat:AITurn`; explosive throw budget `JazzAI_TeamExplosiveThrows`; **fatigue** in `MapVar JazzAI_TeamDirectiveFatigue`; **score-picker** `JazzAI_PickOfficerDirective`; Influence buffs by directive; FocusFire bias **×1.8**; OccupyHeights / FallBack / rear-guard; loc **6100–6124**;
 - `Code/CombatAI.lua` — crowd/casualty POL-004; SNIPER-001 hold + **optic-aware range**; dynamic semi-sniper (aura-assigned) uses same hold/optics path; ACT-003 MG half-cover; **MG squad tether** (`jazz_mg_tether`: −30/tile beyond 12 from nearest ally); **mortar outdoor bias** (`jazz_need_outdoors`: Indoors −400 / Outdoors +120; rear-guard ignores indoor allies as front);
 - `Code/UnitAwareness.lua` — suspicion, alerts и переходы awareness;
 - `Code/InfiniteLoopFix.lua` — увеличивает защитные thresholds от зависания;
 - `Code/System_OR_Unit.lua`, `CombatActions.lua`, `System_OR_Weapons.lua` — действия/состояние/оружие, используемые AI.
 
-`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance; **aura-assigned** semi-sniper / pseudo-MG via `JazzAI_TeamDirectives`) и generated AI archetypes (в т.ч. `Legion_Flanker` / `Rebels_Flanker`, `OptLocSearchRadius = 55`), enemy roles/squads и UnitData. `JazzAI_PickCombatStance` резолвит faction stance-id через `JazzAI_ResolveKnownArchetype`: отсутствующий preset (исторический gap `Rebels_Flanker`) → `*_Assaulter` / `*_Frontliner`. Soft Precalc prune gate: `JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12`; DestLos CheckLOS cap **200**; **OptLoc `all_destinations` cap `JAZZ_AI_PERF_OPTLOC_DEST_CAP = 200`** (fill by nearest threat); Precalc dest cap **48**; TakeCover scores at most **8** nearest visible threats per dest (`JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP`) with full POL-001 `GetCoverPercentage` (jazz `CombatAI.lua` / `AiActions.lua` / `AIPolicy.lua`). `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
+`jazz-units` загружает `Code/AIKeywords.lua`, `Code/AICombatStance.lua` (medic/regroup/role stance; **aura-assigned** semi-sniper / pseudo-MG via `JazzAI_TeamDirectives`) и generated AI archetypes (в т.ч. `Legion_Flanker` / `Rebels_Flanker`, `OptLocSearchRadius = 55`), enemy roles/squads и UnitData. `JazzAI_PickCombatStance` резолвит faction stance-id через `JazzAI_ResolveKnownArchetype`: отсутствующий preset (исторический gap `Rebels_Flanker`) → `*_Assaulter` / `*_Frontliner`. Soft Precalc prune gate: `JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12`; DestLos CheckLOS cap **200**; **OptLoc `all_destinations` cap `JAZZ_AI_PERF_OPTLOC_DEST_CAP = 200`** (`JAZZ_AICapOptLocCandidates`: stay/important/behavior, then Strategy reserve 48 — high ground / role anchors / 8-compass ring — then nearest threat; DestLos/Precalc still nearest-threat via `JAZZ_AICapDestLosCandidates`); Precalc dest cap **48**; TakeCover scores at most **8** nearest visible threats per dest (`JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP`) with full POL-001 `GetCoverPercentage` (jazz `CombatAI.lua` / `AiActions.lua` / `AIPolicy.lua`). `jazz-maps/Code/AIMechanism.lua` существует, но metadata его не загружает: его stealth/AIM option overrides не участвуют в runtime.
 
 ## Подтверждённые коллизии CommonLib
 
@@ -79,7 +78,9 @@ JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, en
 
 **MGPack after Dump:** recovery если `StationedMachineGun` без OW; **и** vanilla pack+`restart` если Dump с живым permanent OW **не** атаковал (`not did_attack`) — иначе тыловой сектор залипает до конца боя. Не паковать сразу после `MGSetup` в той же секвенции (`did_attack` от setup). Intentional pack также через `AIActionMGSetup` Precalc при пустой зоне.
 
-**Smoke (JAZZ-AI-ACT-002):** signature `SmokeGrenade` считает curtain на `g_Overwatch` / fire lane → ally `ai_destination` (угол выхода); прямое накрытие союзника только если он в `JazzAI_TeamActed` (после `AIPlayAttacks`). Дым режет sight (−70 `IsLineInSmoke`) и урон сквозь облако — не шапка на ещё не ходивших. Frag/molotov scoring не затронут.
+**Smoke (JAZZ-AI-ACT-002):** signature `SmokeGrenade` считает curtain на `g_Overwatch` / fire lane → ally `ai_destination` (угол выхода); прямое накрытие союзника только если он в `JazzAI_TeamActed` (после `AIPlayAttacks`). Дым режет sight (−70 `IsLineInSmoke`) и урон сквозь облако — не шапка на ещё не ходивших.
+
+**Team turn sequencer (JAZZ-AI-CMD-002):** `JazzAI_AssignTeamActSlots` на `Combat:AITurn` (после refresh ауры стороны) пишет `MapVar JazzAI_TeamActSlots` `{ phase, kind, source }`. Kind→phase: heal / flare / smoke / mg_setup → **Early**; line → **Normal**; press (Assaulter/Flanker / aura `pusher`) → **Late**. Unique assign только **smoke** (`JazzAI_TeamDirectives[side].smoke`); flare — все носители с Night/Underground и unlit threat. `AIBehavior:GetTurnPhase` читает слот, затем ваниль `IsThreatened()` → Late. Обычные гранаты: мягкий бюджет `JazzAI_TeamExplosiveThrows` по `Game.game_difficulty` — Первая кровь (`Normal`) 1 полный + далее ×25%; Коммандос (`Hard`) 3 полных + 4+ ×25%; Миссия невыполнима (`VeryHard`) без лимита. Smoke/flare в бюджет не входят.
 
 `InfiniteLoopFix.lua` не выбирает тактику, а меняет protective thresholds. Слишком низкое значение вернёт зависание; слишком высокое может скрыть бесконечный цикл дольше.
 
@@ -125,6 +126,7 @@ Hidden sight (`JAZZ-AI-005`/`006`): укрытие Hidden ×35%; трава flat
 - exploration: подход сзади за пределами 10 тайлов не копит suspicion; спереди дальний пузырь сохраняется;
 - переход exploration → conflict → turn → combat end;
 - отсутствие зацикливания и разумное время AI turn;
+- **PERF-002 / CMD-002:** static PASS (OptLoc Strategy reserve; act-slot sequencer + grenade budget); runtime/human smoke у владельца (K1–K2, Q1–Q6);
 - разрешение текущего upstream CommonLib перед каждой задачей и повторное сравнение всех AI-коллизий при изменении HEAD;
 - deterministic multiplayer/replay;
 - совпадение выбранного aim-level и predicted multishot CTH с crosshair/фактической атакой для одинакового контекста.

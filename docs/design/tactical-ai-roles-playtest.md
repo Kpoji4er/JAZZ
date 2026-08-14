@@ -15,6 +15,9 @@
 | [CMD-001](../specs/active/JAZZ-AI-CMD-001.md) | done | O1 |
 | [ACT-001](../specs/active/JAZZ-AI-ACT-001.md) | done | S1–S3 |
 | [ACT-002](../specs/active/JAZZ-AI-ACT-002.md) | code | S1–S3 (curtain) |
+| [PERF-002](../specs/active/JAZZ-AI-PERF-002.md) | code | K1–K2 (owner smoke) |
+| [CMD-002](../specs/active/JAZZ-AI-CMD-002.md) | code | Q1–Q6 (owner smoke) |
+| [HYG-001](../specs/active/JAZZ-AI-HYG-001.md) | process docs | unwrap smoke after each symbol |
 
 ## Перед тестом
 
@@ -106,6 +109,22 @@
 - **P2** Две casualties в радиусе 3 сильнее выталкивают ranged AI из fatal funnel; при единственном маршруте casualty tile остаётся soft и проходимой.
 - **P3** Melee и medic сохраняют обязательный подход благодаря floor 55%; replay/seed не меняет modifier.
 - **P4** В debug destination details modifier появляется один раз как `CROWD/DANGER MOD (%)` после BiasMarker.
+
+## PERF-002 — OptLoc Strategy reserve
+
+- **K1** Снайпер без выстрела со стоячей клетки за 2+ хода идёт к высоте / дальней позиции, не только к ближайшему врагу.
+- **K2** M1: OptLoc scored ≤ 200, ход не деградирует до минут.
+
+## CMD-002 — team turn sequencer
+
+- **Q1** Flare / smoke / MG setup в том же ходе врага видны до массового Press.
+- **Q2** Линия (Front/sniper/stationed MG) не бежит вместе со штурмом.
+- **Q3** Bleed-medic всё ещё Early.
+- **Q4** Два носителя дыма: кидает один. Два flare при двух карманах тьмы — оба могут Early.
+- **Q6** First Blood: 1 полный, 2-й ×25%. Commando: 3 полных, 4-й и 5-й ×25%. MI: без лимита.
+- **Q5** Threatened (OW) не форсируется в Early.
+
+Не отмечать Q/K done из агентского чеклиста — owner smoke.
 
 ## Регрессия всегда
 

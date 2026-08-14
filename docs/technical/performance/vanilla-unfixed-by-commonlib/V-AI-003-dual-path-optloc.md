@@ -32,7 +32,7 @@ CommonLib does not collapse path rebuilds or shrink OptLoc enumeration.
 ## Mod notes
 
 JAZZ `JAZZ-AI-PERF-001` follow-up (`CombatAI.lua` / `AIPolicy.lua`):
-- **`AIEnumValidDests`:** after CollapsePoints, cap to `JAZZ_AI_PERF_OPTLOC_DEST_CAP` (**200**, was 400) — prefer stay / `important_dests` / `destinations`, then **nearest threat**; hash `AIEnumValidDests_Cap`.
+- **`AIEnumValidDests`:** after CollapsePoints, cap to `JAZZ_AI_PERF_OPTLOC_DEST_CAP` (**200**). **PERF-002:** `JAZZ_AICapOptLocCandidates` — stay / important / destinations, then Strategy reserve (**48**: high ground / sniper-leader anchors / 8-compass farthest), then nearest threat. Hash `AIEnumValidDests_Cap` includes `strategy_kept`. DestLos/Precalc still use `JAZZ_AICapDestLosCandidates` (nearest threat).
 - TakeCover far-skip of `GetCoverPercentage` was tried and **reverted** (wrong-side cover hug).
 - **`AIPolicyTakeCover`:** score at most `JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP` (**8**) nearest visible threats per dest (deterministic dist/handle sort) — M1 Rebel×Legion OptLoc cost cut without dropping threat-facing cover.
 - Gated log: `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] EnumDests ...` / `OptLoc ...`.

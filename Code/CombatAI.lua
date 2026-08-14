@@ -945,8 +945,12 @@ end
 JAZZ_AI_PERF_RANGE_MARGIN = 2 * const.SlabSizeX
 JAZZ_AI_PERF_DESTLOS_CAP = 200
 -- OptLoc/all_destinations scoring cap (TakeCover×enemies over open M1 slabs).
--- Prefer stay / important / behavior dests, then nearest threat; rest dropped.
+-- PERF-001: stay / important / behavior, then nearest threat (DestLos/Precalc).
+-- PERF-002: OptLoc uses JAZZ_AICapOptLocCandidates (Strategy reserve before threat).
 JAZZ_AI_PERF_OPTLOC_DEST_CAP = 200
+JAZZ_AI_PERF_OPTLOC_STRATEGY_RESERVE = 48
+JAZZ_AI_PERF_OPTLOC_HIGHGROUND_MAX = 16
+JAZZ_AI_PERF_OPTLOC_ANCHOR_MAX = 16
 JAZZ_AI_PERF_PRECALC_TARGET_SOFT = 12 -- only range-prune when more targets than this
 JAZZ_AI_PERF_PRECALC_MARGIN_MULT = 4 -- soft: margin * this (8 slabs default)
 -- AIPrecalcDamageScore: GetLoFData per dest; cap scored dests (stay/important first).
@@ -1094,6 +1098,283 @@ function JAZZ_AICapDestLosCandidates(unit, context, dests, cap)
 		out[#out + 1] = rest[i]
 	end
 	return out, #dests - #out
+end
+
+-- JAZZ-AI-PERF-002: OptLoc shortlist keeps Strategy candidates (height / anchors / ring)
+-- before nearest-threat fill. DestLos/Precalc keep JAZZ_AICapDestLosCandidates.
+function JAZZ_AICapOptLocCandidates(unit, context, dests, cap)
+	if not dests or #dests <= cap then
+		return dests, 0, 0
+	end
+	local stay = context.unit_stance_pos or GetPackedPosAndStance(unit)
+	local priority = {}
+	local function mark(d)
+		if d then
+			priority[d] = true
+		end
+	end
+	mark(stay)
+	for _, d in ipairs(context.important_dests or empty_table) do
+		mark(d)
+	end
+	for _, d in ipairs(context.destinations or empty_table) do
+		mark(d)
+	end
+
+	local enemy_pos = {}
+	for _, e in ipairs(context.enemies or empty_table) do
+		local p = context.enemy_pack_pos_stance and context.enemy_pack_pos_stance[e]
+		if p then
+			enemy_pos[#enemy_pos + 1] = p
+		end
+	end
+
+	local pri, rest = {}, {}
+	for i = 1, #dests do
+		local d = dests[i]
+		if priority[d] then
+			pri[#pri + 1] = d
+		else
+			rest[#rest + 1] = d
+		end
+	end
+	table.sort(pri, function(a, b)
+		return a < b
+	end)
+
+	local dist_cache = {}
+	local function nearest_threat_dist_sqr(d)
+		local cached = dist_cache[d]
+		if cached then
+			return cached
+		end
+		local best
+		if #enemy_pos == 0 then
+			best = stay and JAZZ_AIStancePosDist2DSqr(stay, d) or 0
+		else
+			best = JAZZ_AIStancePosDist2DSqr(d, enemy_pos[1])
+			for i = 2, #enemy_pos do
+				local dist = JAZZ_AIStancePosDist2DSqr(d, enemy_pos[i])
+				if dist < best then
+					best = dist
+				end
+			end
+		end
+		dist_cache[d] = best
+		return best
+	end
+
+	local ux, uy, uz = stance_pos_unpack(stay or dests[1])
+	local highground_max = JAZZ_AI_PERF_OPTLOC_HIGHGROUND_MAX or 16
+	local anchor_max = JAZZ_AI_PERF_OPTLOC_ANCHOR_MAX or 16
+	local reserve_max = JAZZ_AI_PERF_OPTLOC_STRATEGY_RESERVE or 48
+
+	local high = {}
+	for i = 1, #rest do
+		local d = rest[i]
+		local _, _, z = stance_pos_unpack(d)
+		if (z or 0) > (uz or 0) then
+			high[#high + 1] = d
+		end
+	end
+	table.sort(high, function(a, b)
+		local _, _, za = stance_pos_unpack(a)
+		local _, _, zb = stance_pos_unpack(b)
+		if za ~= zb then
+			return za > zb
+		end
+		return a < b
+	end)
+
+	local function unit_has_kw(u, kw)
+		return u and table.find(u.AIKeywords or empty_table, kw)
+	end
+
+	local anchors = {}
+	local team = unit and unit.team
+	local seen_anchor = {}
+	local function add_anchor(u)
+		if not IsValid(u) or u:IsDead() or seen_anchor[u] then
+			return
+		end
+		seen_anchor[u] = true
+		anchors[#anchors + 1] = u
+	end
+	if team then
+		for _, ally in ipairs(team.units or empty_table) do
+			if ally ~= unit and (unit_has_kw(ally, "Sniper") or unit_has_kw(ally, "Marksman") or unit_has_kw(ally, "Leader")) then
+				add_anchor(ally)
+			end
+		end
+		local dirs = rawget(_G, "JazzAI_TeamDirectives") or empty_table
+		local entry = dirs[team.side or team.handle or tostring(team)]
+		if entry then
+			add_anchor(entry.semi_sniper)
+			add_anchor(entry.source)
+		end
+	end
+	table.sort(anchors, function(a, b)
+		return (a.handle or 0) < (b.handle or 0)
+	end)
+
+	local threat_xy
+	if #enemy_pos > 0 then
+		local best_e, best_d
+		for i = 1, #enemy_pos do
+			local d = JAZZ_AIStancePosDist2DSqr(stay, enemy_pos[i])
+			if not best_d or d < best_d or (d == best_d and enemy_pos[i] < best_e) then
+				best_d = d
+				best_e = enemy_pos[i]
+			end
+		end
+		local tx, ty = stance_pos_unpack(best_e)
+		threat_xy = { tx, ty }
+	end
+
+	local function dist2_to_seg(px, py, ax, ay, bx, by)
+		local abx, aby = bx - ax, by - ay
+		local apx, apy = px - ax, py - ay
+		local ab2 = abx * abx + aby * aby
+		if ab2 <= 0 then
+			return apx * apx + apy * apy
+		end
+		local t = apx * abx + apy * aby
+		if t <= 0 then
+			return apx * apx + apy * apy
+		end
+		if t >= ab2 then
+			local dx, dy = px - bx, py - by
+			return dx * dx + dy * dy
+		end
+		local qx = ax + MulDivRound(abx, t, ab2)
+		local qy = ay + MulDivRound(aby, t, ab2)
+		local dx, dy = px - qx, py - qy
+		return dx * dx + dy * dy
+	end
+
+	local near_seg = {}
+	if threat_xy and #anchors > 0 then
+		local tx, ty = threat_xy[1], threat_xy[2]
+		for i = 1, #rest do
+			local d = rest[i]
+			local px, py = stance_pos_unpack(d)
+			local best
+			for _, a in ipairs(anchors) do
+				local apos = GetPackedPosAndStance(a)
+				if apos then
+					local ax, ay = stance_pos_unpack(apos)
+					local dist = dist2_to_seg(px, py, ax, ay, tx, ty)
+					if not best or dist < best then
+						best = dist
+					end
+				end
+			end
+			if best then
+				near_seg[#near_seg + 1] = { d = d, dist = best }
+			end
+		end
+		table.sort(near_seg, function(a, b)
+			if a.dist ~= b.dist then
+				return a.dist < b.dist
+			end
+			return a.d < b.d
+		end)
+	end
+
+	local function compass8(dx, dy)
+		if dx == 0 and dy == 0 then
+			return 1
+		end
+		local ax, ay = abs(dx), abs(dy)
+		if ay * 2 >= ax * 5 then
+			return dy >= 0 and 1 or 5
+		end
+		if ax * 2 >= ay * 5 then
+			return dx >= 0 and 3 or 7
+		end
+		if dx >= 0 and dy >= 0 then
+			return 2
+		end
+		if dx < 0 and dy >= 0 then
+			return 8
+		end
+		if dx < 0 and dy < 0 then
+			return 6
+		end
+		return 4
+	end
+
+	local ring_best = {}
+	for i = 1, #rest do
+		local d = rest[i]
+		local px, py = stance_pos_unpack(d)
+		local oct = compass8(px - ux, py - uy)
+		local dist = JAZZ_AIStancePosDist2DSqr(stay, d)
+		local cur = ring_best[oct]
+		if not cur or dist > cur.dist or (dist == cur.dist and d < cur.d) then
+			ring_best[oct] = { d = d, dist = dist }
+		end
+	end
+	local ring = {}
+	for oct = 1, 8 do
+		if ring_best[oct] then
+			ring[#ring + 1] = ring_best[oct].d
+		end
+	end
+	table.sort(ring, function(a, b)
+		return a < b
+	end)
+
+	table.sort(rest, function(a, b)
+		local da = nearest_threat_dist_sqr(a)
+		local db = nearest_threat_dist_sqr(b)
+		if da ~= db then
+			return da < db
+		end
+		return a < b
+	end)
+
+	local out, used = {}, {}
+	local function take(d)
+		if not d or used[d] or #out >= cap then
+			return false
+		end
+		used[d] = true
+		out[#out + 1] = d
+		return true
+	end
+
+	for i = 1, #pri do
+		take(pri[i])
+	end
+
+	local strategy_kept = 0
+	local function take_strategy(d)
+		if strategy_kept >= reserve_max or #out >= cap then
+			return
+		end
+		if take(d) then
+			strategy_kept = strategy_kept + 1
+		end
+	end
+
+	for i = 1, Min(#high, highground_max) do
+		take_strategy(high[i])
+	end
+	for i = 1, Min(#near_seg, anchor_max) do
+		take_strategy(near_seg[i].d)
+	end
+	for i = 1, #ring do
+		take_strategy(ring[i])
+	end
+
+	for i = 1, #rest do
+		if #out >= cap then
+			break
+		end
+		take(rest[i])
+	end
+	return out, #dests - #out, strategy_kept
 end
 
 function AIUpdateDestLosCache(unit, context)
@@ -1833,17 +2114,19 @@ function AIEnumValidDests(context)
 	local uncapped = #dests
 	local capped_out = 0
 	local cap = JAZZ_AI_PERF_OPTLOC_DEST_CAP or 200
-	local cap_fn = rawget(_G, "JAZZ_AICapDestLosCandidates") or JAZZ_AICapDestLosCandidates
+	local cap_fn = rawget(_G, "JAZZ_AICapOptLocCandidates") or JAZZ_AICapOptLocCandidates
+	local strategy_kept = 0
 	if uncapped > cap and type(cap_fn) == "function" then
-		dests, capped_out = cap_fn(unit, context, dests, cap)
+		dests, capped_out, strategy_kept = cap_fn(unit, context, dests, cap)
+		strategy_kept = strategy_kept or 0
 	end
-	NetUpdateHash("AIEnumValidDests_Cap", GameTime(), uncapped, #dests, capped_out, cap)
+	NetUpdateHash("AIEnumValidDests_Cap", GameTime(), uncapped, #dests, capped_out, cap, strategy_kept)
 
     ResumeInfiniteLoopDetection("AiCalc")
 	if tStart then
-		JAZZ_AIPerfLog("EnumDests unit=%s ms=%d dests=%d uncapped=%d capped=%d radius=%s",
+		JAZZ_AIPerfLog("EnumDests unit=%s ms=%d dests=%d uncapped=%d capped=%d strategy=%d radius=%s",
 			tostring(unit.unitdatadef_id or unit.class), GetPreciseTicks() - tStart,
-			#dests, uncapped, capped_out, tostring(context.archetype.OptLocSearchRadius))
+			#dests, uncapped, capped_out, strategy_kept, tostring(context.archetype.OptLocSearchRadius))
 	end
 	return dests
 end
@@ -2543,17 +2826,46 @@ function AIPickScoutLocation(unit)
 	end	
 end
 
--- JAZZ-AI-PERF-001: gated wall-clock for a full AI side turn.
-local JAZZ_Combat_AITurn = Combat.AITurn
-function Combat:AITurn(team)
-	local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
-	JAZZ_Combat_AITurn(self, team)
-	if t0 then
-		JAZZ_AIPerfLog("AITurn side=%s ms=%d units=%d",
-			tostring(team and team.side), GetPreciseTicks() - t0,
-			team and team.units and #team.units or 0)
+-- JAZZ-AI-PERF-001 / CMD-002: wrap AITurn (assign act slots, then gated timing).
+g_JAZZ_CombatAITurnBase = rawget(_G, "g_JAZZ_CombatAITurnBase") or false
+g_JAZZ_CombatAITurnFn = rawget(_G, "g_JAZZ_CombatAITurnFn") or false
+
+local function JazzAI_InstallCombatAITurnWrap()
+	if type(Combat) ~= "table" then
+		return false
 	end
+	local current = Combat.AITurn
+	local ourFn = rawget(_G, "g_JAZZ_CombatAITurnFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_CombatAITurnBase", current)
+	elseif not rawget(_G, "g_JAZZ_CombatAITurnBase") then
+		return false
+	end
+	local function wrap(self, team)
+		if type(rawget(_G, "JazzAI_AssignTeamActSlots")) == "function" then
+			JazzAI_AssignTeamActSlots(team)
+		end
+		local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
+		local base_fn = rawget(_G, "g_JAZZ_CombatAITurnBase")
+		base_fn(self, team)
+		if t0 then
+			JAZZ_AIPerfLog("AITurn side=%s ms=%d units=%d",
+				tostring(team and team.side), GetPreciseTicks() - t0,
+				team and team.units and #team.units or 0)
+		end
+	end
+	rawset(_G, "g_JAZZ_CombatAITurnFn", wrap)
+	Combat.AITurn = wrap
+	return true
 end
+
+JazzAI_InstallCombatAITurnWrap()
 
 -- JAZZ-AI-MED-001 / MED-001: vanilla AISelectHealTarget gated on MaxHp (default 70%)
 -- and only counted status id "Bleeding", so light bleed above the HP gate and all
@@ -2858,10 +3170,13 @@ end
 
 function OnMsg.ModsReloaded()
 	JazzAI_InstallAIScoreReachableVoxelsWrap()
+	JazzAI_InstallCombatAITurnWrap()
 end
 
 function OnMsg.DataLoaded()
 	JazzAI_InstallAIScoreReachableVoxelsWrap()
+	JazzAI_InstallCombatAITurnWrap()
 end
 
 JazzAI_InstallAIScoreReachableVoxelsWrap()
+JazzAI_InstallCombatAITurnWrap()
