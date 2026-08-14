@@ -261,7 +261,9 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
   multi-phase/map-placed combat smoke. Targeted lupa-regression подтверждает
   две фазы, map-only units, cumulative KIA/WIA, baseline injury и named fate,
   preserved quest с scalar note params, enemyNeutral side и living-hostile
-  warning.
+  warning, плюс delayed `UnitMarker` spawn после `CombatStart` и unseen
+  marker corpse на финализации (не `0/0`). Live Ernie garrison smoke ещё не
+  закрыт.
 - `JAZZ-UI-RIS-002-AC-007`: `BLOCKED (runtime)` — требуется JA3
   surviving-hostile scenario. Двухфазный lupa-сценарий подтверждает
   `hostiles_remain=true` для живого map-placed противника и исключает
@@ -293,7 +295,7 @@ JAZZ-UI-RIS-001 сохраняет функциональный контракт
   `metadata.lua`, включая отсутствие raw newline в `last_changes`; R.I.S.
   copy/apply checks PASS; obsolete `LegionTier1…5` resources удалены; один
   `System_RIS_Strategy.lua` стоит после `Guardpost_Patrols.lua`;
-  `_test_ris_contract.py` даёт 7/7 PASS. Общий generated-sync baseline всё ещё
+  `_test_ris_contract.py` даёт 9/9 PASS. Общий generated-sync baseline всё ещё
   падает на 489 не связанных с R.I.S. companion errors и 28 warnings
   (core `jazz`: 409/13); совпадений по R.I.S. в blocking report нет.
 - `JAZZ-UI-RIS-002-AC-013`: `PASS (static docs)` — technical, coverage,

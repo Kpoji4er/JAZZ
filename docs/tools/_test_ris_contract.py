@@ -1081,6 +1081,176 @@ assert(gv_JAZZ_RIS.kills.JAZZ_Legion_Test == 2,
     )
 
 
+def test_combat_unit_marker_late_spawn() -> None:
+    lua = LuaRuntime(unpack_returned_tuples=True)
+    lua.execute(
+        r'''
+OnMsg = {}
+empty_table = {}
+Game = { CampaignTime = 5000, id = "marker" }
+GameState = { Conflict = true }
+gv_CurrentSectorId = "I1"
+gv_JAZZ_RIS = {
+    kills = {},
+    battles = {},
+    dossiers = {},
+    quest_met = {},
+}
+gv_Sectors = {
+    I1 = { Id = "I1", Side = "enemy1", CombatHeat = 0 },
+}
+gv_Squads = {}
+gv_UnitData = {}
+
+function MapVar(name, value)
+    rawset(_G, name, value)
+end
+
+function JAZZ_RIS_MigrateState()
+    return gv_JAZZ_RIS
+end
+
+function GetSquadsInSector()
+    return {}, {}
+end
+
+function GetAllUnits()
+    return map_units
+end
+
+function IsValid()
+    return true
+end
+
+function ObjModified()
+end
+
+p1 = {
+    session_id = "p1",
+    class = "Merc",
+    team = { player_team = true, side = "player1" },
+    HitPoints = 100,
+    MaxHitPoints = 100,
+}
+map_units = { p1 }
+'''
+    )
+    lua.execute(_source("System_RIS_Combat.lua"))
+    lua.execute(
+        r'''
+OnMsg.CombatStart()
+assert(g_JAZZ_RIS_CombatSnaps.I1.enemy_start == 0,
+    "pre-spawn snapshot should not invent satellite enemies")
+
+em1 = {
+    session_id = "em1",
+    class = "JAZZ_Legion_Raider",
+    unitdatadef_id = "JAZZ_Legion_Raider",
+    Side = "enemy1",
+    team = { player_enemy = true, side = "enemy1" },
+    HitPoints = 100,
+    MaxHitPoints = 100,
+}
+OnMsg.UnitCreated(em1)
+assert(g_JAZZ_RIS_CombatSnaps.I1.enemy_start == 1,
+    "UnitMarker spawn after CombatStart was not captured")
+
+em1.HitPoints = 0
+em1.team.player_enemy = false
+em1.team.side = "enemyNeutral"
+OnMsg.UnitDiedOnSector(em1, "I1")
+map_units = { p1, em1 }
+OnMsg.ConflictEnd(gv_Sectors.I1, false, true, true, false, false, false)
+
+local aar = gv_JAZZ_RIS.battles[1]
+assert(aar and aar.enemy_start == 1 and aar.enemy_kia == 1,
+    "late UnitMarker spawn produced a 0-kill AAR")
+assert(gv_JAZZ_RIS.kills.JAZZ_Legion_Raider == 1,
+    "marker kill did not advance the confirmed-kill count")
+'''
+    )
+
+
+def test_combat_unit_marker_unseen_corpse() -> None:
+    lua = LuaRuntime(unpack_returned_tuples=True)
+    lua.execute(
+        r'''
+OnMsg = {}
+empty_table = {}
+Game = { CampaignTime = 6000, id = "corpse" }
+GameState = { Conflict = true }
+gv_CurrentSectorId = "H2"
+gv_JAZZ_RIS = {
+    kills = {},
+    battles = {},
+    dossiers = {},
+    quest_met = {},
+}
+gv_Sectors = {
+    H2 = { Id = "H2", Side = "enemy1", CombatHeat = 0 },
+}
+gv_Squads = {}
+gv_UnitData = {}
+
+function MapVar(name, value)
+    rawset(_G, name, value)
+end
+
+function JAZZ_RIS_MigrateState()
+    return gv_JAZZ_RIS
+end
+
+function GetSquadsInSector()
+    return {}, {}
+end
+
+function GetAllUnits()
+    return map_units
+end
+
+function IsValid()
+    return true
+end
+
+function ObjModified()
+end
+
+p1 = {
+    session_id = "p1",
+    class = "Merc",
+    team = { player_team = true, side = "player1" },
+    HitPoints = 100,
+    MaxHitPoints = 100,
+}
+map_units = { p1 }
+'''
+    )
+    lua.execute(_source("System_RIS_Combat.lua"))
+    lua.execute(
+        r'''
+OnMsg.CombatStart()
+em1 = {
+    session_id = "em1",
+    class = "JAZZ_Legion_Raider",
+    unitdatadef_id = "JAZZ_Legion_Raider",
+    Affiliation = "Legion",
+    team = { player_enemy = false, side = "enemyNeutral" },
+    HitPoints = 0,
+    MaxHitPoints = 100,
+    IsDead = function()
+        return true
+    end,
+}
+map_units = { p1, em1 }
+OnMsg.ConflictEnd(gv_Sectors.H2, false, true, true, false, false, false)
+
+local aar = gv_JAZZ_RIS.battles[1]
+assert(aar and aar.enemy_start == 1 and aar.enemy_kia == 1,
+    "unseen UnitMarker corpse was omitted from the AAR")
+'''
+    )
+
+
 def test_legacy_aar_reconstruction() -> None:
     lua = LuaRuntime(unpack_returned_tuples=True)
     lua.execute(
@@ -1253,6 +1423,8 @@ def main() -> int:
         test_dossier_delivery_gate,
         test_combat_autoresolve_snapshot,
         test_combat_two_phase_tactical_snapshot,
+        test_combat_unit_marker_late_spawn,
+        test_combat_unit_marker_unseen_corpse,
         test_legacy_aar_reconstruction,
     )
     for test in tests:

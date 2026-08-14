@@ -144,7 +144,11 @@ JAZZ-UI-RIS-001.
   ранние фазы;
 - параллельный auto-resolve в другом секторе не заменяет loaded tactical
   snapshot и не импортирует units с текущей карты;
-- `GetAllUnits` включает map-placed units без satellite squad;
+- `GetAllUnits` включает уже заспавненные map-placed units без satellite squad;
+  `OnMsg.UnitCreated` (с отложенным кадром после `SetSide`) и wrap
+  `UnitMarker:SpawnObjects` захватывают гарнизон, который спавнится после
+  `CombatStart`; финализация считает незамеченные трупы, в том числе после
+  перевода команды в `enemyNeutral`;
 - diplomacy flags объединяют mercs и союзников на стороне игрока и отделяют
   живых hostiles; для уже замеченного участника исходная сторона сохраняется
   даже после post-conflict перехода в `enemyNeutral`; `conflict_ignore` и
@@ -215,11 +219,12 @@ Observer фиксирует:
 - strict localization audit: `needs Russian=0`, `needs English=0`, active
   collisions 0; множества mod-only ID runtime RU/EN совпадают;
 - quick structural check `items.lua` + `metadata.lua`: PASS;
-- targeted lupa contract: **7/7 PASS** — engine-like `Untranslated` migration,
+- targeted lupa contract: **9/9 PASS** — engine-like `Untranslated` migration,
   removed-archetype queue fallback, inbox-authoritative Network gate, Strategy
   observability, concurrent/same-time satellite conflicts, two-phase tactical
-  KIA/WIA/quest params/named fate/hostile state и legacy AAR reconstruction с
-  временем и provenance задания;
+  KIA/WIA/quest params/named fate/hostile state, delayed `UnitMarker` spawn and
+  unseen marker corpse AAR, и legacy AAR reconstruction с временем и
+  provenance задания;
 - один активный `System_RIS_Strategy.lua` в load graph после
   `Guardpost_Patrols`.
 

@@ -4,6 +4,9 @@ MapVar("g_JAZZ_RIS_CombatSnap", false)
 MapVar("g_JAZZ_RIS_CombatSnaps", {})
 
 g_JAZZ_RIS_CombatInstalled = rawget(_G, "g_JAZZ_RIS_CombatInstalled") or false
+g_JAZZ_RIS_UnitMarkerSpawnBase = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnBase") or false
+g_JAZZ_RIS_UnitMarkerSpawnWrap = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap") or false
+g_JAZZ_RIS_UnitMarkerSpawnWrapped = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrapped") or false
 
 local RIS_SNAP_SCHEMA = 3
 local RIS_AAR_RECORD_VERSION = 2
@@ -98,6 +101,7 @@ end
 --- Returns "player", "enemy", or false. Team diplomacy flags take precedence.
 local function lSideKind(unit)
 	local team = unit and unit.team
+	local dead = unit and lIsDead(unit)
 	if type(team) == "table" then
 		if team.player_team == true or team.player_ally == true then
 			return "player"
@@ -105,7 +109,11 @@ local function lSideKind(unit)
 		if team.player_enemy == true then
 			return "enemy"
 		end
-		if team.neutral == true or team.side == "neutral" or team.side == "enemyNeutral" then
+		-- Living neutrals stay out. Corpses are often moved to enemyNeutral
+		-- before UnitDied, so that flag must not hide a map-placed kill.
+		if not dead
+			and (team.neutral == true or team.side == "neutral" or team.side == "enemyNeutral")
+		then
 			return false
 		end
 		-- Conservative fallback for lifecycle windows before diplomacy flags are refreshed.
@@ -125,6 +133,16 @@ local function lSideKind(unit)
 	end
 	if side == "enemy1" or side == "enemy2" then
 		return "enemy"
+	end
+	if dead then
+		local id = unit.unitdatadef_id or unit.class
+		if type(id) == "string" and string.match(id, "^JAZZ_Legion_") then
+			return "enemy"
+		end
+		local aff = unit.Affiliation
+		if aff == "Legion" or aff == "Army" or aff == "Adonis" then
+			return "enemy"
+		end
 	end
 	return false
 end
@@ -371,10 +389,9 @@ local function lScanUnits(snap, count_seen_deaths)
 	local livingHostile = false
 	for _, unit in pairs(lAllUnits()) do
 		if lIsConflictParticipant(unit) then
-			local handle = lUnitHandle(unit)
 			if lIsDead(unit) then
-				if count_seen_deaths and handle and snap.seen_units[handle] then
-					lCountDeath(snap, unit, false)
+				if count_seen_deaths then
+					lCountDeath(snap, unit, true)
 				end
 			else
 				local _, side = lCaptureUnit(snap, unit, false)
@@ -551,6 +568,120 @@ local function lNoteEnemyPresence(unit)
 	if id and type(enqueue) == "function" then
 		enqueue(id)
 	end
+end
+
+local function lCaptureSpawnedUnit(unit)
+	if not unit or not lInPlayerConflict() then
+		return
+	end
+	local sectorId = lCurrentSectorId()
+	local snap = lEnsureSnap(sectorId)
+	if type(snap) ~= "table" or snap.finalized then
+		return
+	end
+	local squads = rawget(_G, "gv_Squads")
+	local squad = type(squads) == "table" and unit.Squad and squads[unit.Squad]
+	if type(squad) == "table"
+		and squad.CurrentSector
+		and sectorId
+		and squad.CurrentSector ~= sectorId
+	then
+		return
+	end
+	local dead = lIsDead(unit)
+	lCaptureUnit(snap, unit, dead)
+	if dead then
+		lCountDeath(snap, unit, true)
+	else
+		lNoteEnemyPresence(unit)
+	end
+end
+
+local function lCaptureMarkerObjects(objects)
+	if type(objects) ~= "table" then
+		return
+	end
+	for _, unit in pairs(objects) do
+		lCaptureSpawnedUnit(unit)
+	end
+end
+
+local function lCapturePlacedUnits(snap, count_deaths)
+	if type(snap) ~= "table" then
+		return
+	end
+	local mapGet = rawget(_G, "MapGet")
+	if type(mapGet) ~= "function" then
+		return
+	end
+	local ok, markers = pcall(mapGet, "map", "UnitMarker")
+	if not ok or type(markers) ~= "table" then
+		return
+	end
+	for _, marker in pairs(markers) do
+		if type(marker) == "table" or type(marker) == "userdata" then
+			lCaptureMarkerObjects(marker.objects)
+			if count_deaths then
+				local objects = marker.objects
+				if type(objects) == "table" then
+					for _, unit in pairs(objects) do
+						if lIsDead(unit) then
+							lCountDeath(snap, unit, true)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+local function lCaptureMarkerSpawn(marker, objects)
+	lCaptureMarkerObjects(objects or (marker and marker.objects))
+end
+
+local function lWrappedMarkerSpawn(self, ...)
+	local base = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnBase")
+	local objects = type(base) == "function" and base(self, ...) or nil
+	lCaptureMarkerSpawn(self, objects)
+	return objects
+end
+
+local function lInstallUnitMarkerWrap()
+	local cls = rawget(_G, "UnitMarker")
+	if type(cls) ~= "table" or type(cls.SpawnObjects) ~= "function" then
+		return
+	end
+	local current = cls.SpawnObjects
+	local wrap = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap")
+	if current == wrap or current == lWrappedMarkerSpawn then
+		cls.SpawnObjects = lWrappedMarkerSpawn
+		rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap", lWrappedMarkerSpawn)
+		return
+	end
+	rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnBase", current)
+	cls.SpawnObjects = lWrappedMarkerSpawn
+	rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap", lWrappedMarkerSpawn)
+	rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrapped", true)
+end
+
+local function lAdoptCurrentMapUnits(count_deaths)
+	lInstallUnitMarkerWrap()
+	local snap = lEnsureSnap(lCurrentSectorId())
+	if type(snap) ~= "table" or snap.finalized then
+		return snap
+	end
+	if count_deaths then
+		lScanUnits(snap, true)
+	else
+		for _, unit in pairs(lAllUnits()) do
+			if lIsConflictParticipant(unit) and not lIsDead(unit) then
+				lCaptureUnit(snap, unit, false)
+				lNoteEnemyPresence(unit)
+			end
+		end
+	end
+	lCapturePlacedUnits(snap, count_deaths)
+	return snap
 end
 
 local function lNoteDeathMails(unit, recorded_side)
@@ -879,7 +1010,9 @@ local function lCaptureFinalizeSnap(sector, playerWon, isRetreat, autoResolve)
 	local scanMap = not autoResolve and sectorId and sectorId == lCurrentSectorId()
 	local livingHostile = false
 	if scanMap then
+		lInstallUnitMarkerWrap()
 		livingHostile = lScanUnits(snap, true)
+		lCapturePlacedUnits(snap, true)
 	end
 	livingHostile = lScanSatelliteUnits(snap) or livingHostile
 	snap.player_wia = lCountSet(snap.player_wounded, snap.counted_deaths)
@@ -1053,20 +1186,41 @@ function OnMsg.AutoResolveChoice(sector_id, choice)
 	end
 end
 
+function OnMsg.ModsReloaded()
+	lInstallUnitMarkerWrap()
+end
+
+function OnMsg.EnterSector()
+	if not lInPlayerConflict() then
+		lInstallUnitMarkerWrap()
+		return
+	end
+	lAdoptCurrentMapUnits(false)
+end
+
 function OnMsg.ConflictStart(sector_id)
+	lInstallUnitMarkerWrap()
 	if sector_id then
 		lCaptureSatelliteConflict(sector_id)
 	end
 end
 
 function OnMsg.CombatStart()
-	local snap = lEnsureSnap(lCurrentSectorId())
-	for _, unit in pairs(lAllUnits()) do
-		if lIsConflictParticipant(unit) and not lIsDead(unit) then
-			lCaptureUnit(snap, unit, false)
-			lNoteEnemyPresence(unit)
-		end
+	lAdoptCurrentMapUnits(false)
+end
+
+function OnMsg.UnitCreated(unit)
+	if not unit or not lInPlayerConflict() then
+		return
 	end
+	local delayed = rawget(_G, "DelayedCall")
+	if type(delayed) == "function" then
+		delayed(0, function()
+			lCaptureSpawnedUnit(unit)
+		end)
+		return
+	end
+	lCaptureSpawnedUnit(unit)
 end
 
 function OnMsg.UnitDowned(unit)
@@ -1114,6 +1268,7 @@ function OnMsg.CombatEnd()
 	local snap = sectorId and lSnapStore()[sectorId]
 	if type(snap) == "table" and not snap.finalized then
 		lScanUnits(snap, true)
+		lCapturePlacedUnits(snap, true)
 		snap.player_wia = lCountSet(snap.player_wounded, snap.counted_deaths)
 		snap.enemy_wia = lCountSet(snap.enemy_wounded, snap.counted_deaths)
 	end

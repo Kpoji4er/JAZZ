@@ -144,13 +144,14 @@ Targeted lupa-regression запускается из корня `jazz/`:
 python -B docs/tools/_test_ris_contract.py
 ```
 
-Семь сценариев проверяют синтаксис пяти loaded Lua-файлов; engine-like
+Девять сценариев проверяют синтаксис пяти loaded Lua-файлов; engine-like
 `Untranslated` и schema/desk/received-inbox migration; fallback удалённого
 archetype и inbox-authoritative gate `Network`; фактическую delivery-gate
 досье/некролога/Strategy; observability и post-delivery Awakening; изоляцию
 параллельных auto-resolve; двухфазный tactical snapshot с map-only units,
-quest-note params, baseline named fate, KIA/WIA и живым hostile; реконструкцию
-legacy AAR с временем и provenance задания. Проверка не заменяет JA3.
+quest-note params, baseline named fate, KIA/WIA и живым hostile; delayed
+`UnitMarker` spawn и unseen marker corpse; реконструкцию legacy AAR с временем
+и provenance задания. Проверка не заменяет JA3.
 
 Статические copy/apply/items/metadata проверки не заменяют этот targeted
 runtime profile. На 7 августа 2026 года все сценарии ниже остаются

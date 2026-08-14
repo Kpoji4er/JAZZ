@@ -22,11 +22,13 @@ assessment follows after **three confirmed kills** of the same type.
 ### Battle reports tell the whole story
 
 The archive carries one cumulative account of a conflict, including separate
-combat phases, troops already placed in the sector, allies, hostiles, and new
-wounds suffered during that engagement. It does not recast an old injury on a
-notable enemy as a battle wound, and it retains the values used in assignment
-details. If the objective is won while hostile troops remain nearby, the report
-says so instead of declaring the area clean.
+combat phases, troops already placed in the sector (the map garrison, not only
+squads on the satellite map), allies, hostiles, and new wounds suffered during
+that engagement. It does not recast an old injury on a notable enemy as a
+battle wound, and it retains the values used in assignment details. Reports are
+not mailed after every fight: they live on the **After-action reports** tab. If
+the objective is won while hostile troops remain nearby, the report says so
+instead of declaring the area clean.
 
 Auto-resolved engagements also retain strength, fatalities, and wounded
 survivors without mixing simultaneous conflicts in different sectors. The
