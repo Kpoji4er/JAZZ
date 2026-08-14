@@ -58549,7 +58549,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Bandage.png",
 				'DisplayName', T(890000000010011, "Bandage"),
 				'DisplayNamePlural', T(890000000010012, "Bandages"),
-				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'AdditionalHint', T(890000000010013, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 5 (0–19) / 4 (20–39) / 3 (40–59) / 2 (60–79) / 1 (80+)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 25,
 				'CanAppearInShop', true,
 					'Tier', 1,
@@ -58566,7 +58566,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Morphine.png",
 				'DisplayName', T(890000000010014, "Morphine"),
 				'DisplayNamePlural', T(890000000010015, "Morphine"),
-				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
+				'AdditionalHint', T(890000000010016, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 3 (0–39) / 2 (40–79) / 1 (80+)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally"),
 				'Cost', 75,
 				'CanAppearInShop', true,
 					'Tier', 1,
@@ -64148,7 +64148,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(890000000010201, "Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma."),
+				Description = T(890000000010201, "Apply a field bandage to stop bleeding by one tier on self or ally. No Medical gate. AP 5/4/3/2/1 at Medical 0/20/40/60/80. Does not restore HP or heal trauma."),
 				DisplayName = T(890000000010200, "Field Bandage"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
@@ -64158,6 +64158,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				end,
 				GetAPCost = function (self, unit, args)
 					if not JazzGetBandageItem(unit) then return -1 end
+					local cost_fn = rawget(_G, "JazzFieldMedicineAPCost")
+					if type(cost_fn) == "function" then
+						return cost_fn(unit, "bandage")
+					end
 					return self.ActionPoints
 				end,
 				GetAnyTarget = function (self, units)
@@ -64178,7 +64182,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if not JazzGetBandageItem(unit) then
 						return "hidden"
 					end
-					if g_Combat and not unit:HasAP(self.ActionPoints) then
+					local cost = self:GetAPCost(unit, args)
+					if g_Combat and (type(cost) ~= "number" or cost < 0 or not unit:HasAP(cost)) then
 						return "disabled", GetUnitNoApReason(unit)
 					end
 					if not JazzGetFieldBandageTargets(unit, "any", "reachable") then
@@ -64216,7 +64221,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(890000000010028, "Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding."),
+				Description = T(890000000010028, "Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding."),
 				DisplayName = T(890000000010029, "Morphine"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
@@ -64231,6 +64236,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				end,
 				GetAPCost = function (self, unit, args)
 					if not JazzGetMorphineItem(unit) then return -1 end
+					local cost_fn = rawget(_G, "JazzFieldMedicineAPCost")
+					if type(cost_fn) == "function" then
+						return cost_fn(unit, "morphine")
+					end
 					return self.ActionPoints
 				end,
 				GetAnyTarget = function (self, units)
@@ -64251,7 +64260,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if not JazzGetMorphineItem(unit) then
 						return "hidden"
 					end
-					if g_Combat and not unit:HasAP(self.ActionPoints) then
+					local cost = self:GetAPCost(unit, args)
+					if g_Combat and (type(cost) ~= "number" or cost < 0 or not unit:HasAP(cost)) then
 						return "disabled", GetUnitNoApReason(unit)
 					end
 					if not JazzGetMorphineTargets(unit, "any", "reachable") then

@@ -1177,6 +1177,62 @@ function JazzGetMorphineItem(unit)
 	return JazzFindInventoryItem(unit, "JAZZ_Morphine")
 end
 
+-- MED-005: field bandage/morphine AP from healer Medical. No skill gate.
+local function lJazzMedical(unit)
+	local med = unit and unit.Medical or 0
+	if type(med) ~= "number" then
+		return 0
+	end
+	return med
+end
+
+local function lJazzAPScale()
+	local c = rawget(_G, "const")
+	local scale = c and c.Scale and c.Scale.AP
+	if type(scale) == "number" and scale > 0 then
+		return scale
+	end
+	return 1000
+end
+
+function JazzFieldMedicineBandageAP(unit)
+	local med = lJazzMedical(unit)
+	if med >= 80 then
+		return 1
+	end
+	if med >= 60 then
+		return 2
+	end
+	if med >= 40 then
+		return 3
+	end
+	if med >= 20 then
+		return 4
+	end
+	return 5
+end
+
+function JazzFieldMedicineMorphineAP(unit)
+	local med = lJazzMedical(unit)
+	if med >= 80 then
+		return 1
+	end
+	if med >= 40 then
+		return 2
+	end
+	return 3
+end
+
+function JazzFieldMedicineAPCost(unit, kind)
+	local ap
+	if kind == "morphine" then
+		ap = JazzFieldMedicineMorphineAP(unit)
+	else
+		ap = JazzFieldMedicineBandageAP(unit)
+	end
+	return ap * lJazzAPScale()
+end
+
 -- IFAK / Medkit / Reanimationsset for the Bandage combat action (not field bandage stacks).
 function JazzGetEquippedKitMedicine(unit)
 	if not unit then

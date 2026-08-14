@@ -8,6 +8,8 @@
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
 | `_audit_ai_rng_wiring.py` | Brace-aware RunAndGun wiring audit: real vs default MobileShot, keyword gates, `AIAttackSingleTarget` action_ids. |
 | `_apply_bandage_cumulative_loc.py` | MED-001: update `890000000010013` / `010021` RU+EN for cumulative field bandage (1 bandage × bleed stack). |
+| `_apply_med005_field_ap_loc.py` | MED-005: RU+EN runtime CSV for bandage/morphine AP ladder (`890000000010013` / `010016` / `010028` / `010201`). |
+| `_audit_med005_field_ap.py` | Static MED-005: Medical AP table 5/4/3/2/1 and 3/2/1; `GetAPCost` helper; GetUIState/CombatAI; companion/`items.lua`/CSV parity. |
 | `_apply_mobile_action_damage_ui.py` | Fix AimType=mobile `GetActionDamage` (RnG/Carbine/SMGStorm/ManeuverAR/MobileShot) + RnG `GetActionResults` num_shots; uses `Jazz_GetMobileActionDamage` in `Code/CombatActions.lua`. |
 | `_normalize_ernie_flare_carriers.py` | Set Ernie island `Min/MaxFlareCarriers` to 12/15 in `jazz-maps/items.lua` (ModItemSector + HotDiamonds SatelliteSector). |
 | `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |

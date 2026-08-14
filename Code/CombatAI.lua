@@ -2624,7 +2624,14 @@ function AISelectHealTarget(context, dest, grid_voxel, heal_policy)
 	else
 		local ap_at_dest = context.dest_ap[dest] or 0
 		local kit_ap = (CombatActions.Bandage and CombatActions.Bandage.ActionPoints) or (2 * const.Scale.AP)
-		local field_ap = (CombatActions.JazzBandage and CombatActions.JazzBandage.ActionPoints) or const.Scale.AP
+		local field_ap = const.Scale.AP
+		local field_action = CombatActions.JazzBandage
+		if field_action and field_action.GetAPCost then
+			local cost = field_action:GetAPCost(context.unit)
+			if type(cost) == "number" and cost > 0 then
+				field_ap = cost
+			end
+		end
 		if ap_at_dest >= kit_ap or ap_at_dest >= field_ap then
 			best_score = MulDivRound(best_score, can_use_mod, 100)
 		end

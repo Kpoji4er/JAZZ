@@ -113,7 +113,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 - `JAZZ-MED-001-REQ-001` — `CombatStart` не выдаёт Temp HP grit 25%.
 - `JAZZ-MED-001-REQ-002` — три bleed ID; урон 3/6/12 × stacks; суммарный tick capped ~30.
-- `JAZZ-MED-001-REQ-003` — бинт: одно применение тратит **по 1 бинту на каждый текущий стак крови** (cap = запас в инвентаре) и столько же раз делает −1 тир худшему стаку; без Medical; мало AP.
+- `JAZZ-MED-001-REQ-003` — бинт: одно применение тратит **по 1 бинту на каждый текущий стак крови** (cap = запас в инвентаре) и столько же раз делает −1 тир худшему стаку; без Medical gate. **AP ladder superseded by [JAZZ-MED-005](JAZZ-MED-005.md)** (5/4/3/2/1 by Medical).
 - `JAZZ-MED-001-REQ-004` — морфий: `Analgesia` глушит штрафы `Pain`; не снимает кровь/травму.
 - `JAZZ-MED-001-REQ-005` — экспансив: hit effect `Bleeding` → `BleedingHeavy`; обычные попадания могут вешать лёгкое/среднее по шансу.
 - `JAZZ-MED-001-REQ-006` — `HpLossToAddStack` не добавляет `Wounded` в нормальном бою (sentinel / bypass).

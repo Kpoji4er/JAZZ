@@ -11675,10 +11675,10 @@ R.I.S. открыла для вашего отряда канал полевой
 890000000010012,Bandages,Бинты,,jazz:MED-001-remap-from-890000000009207
 890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 5 (0–19) / 4 (20–39) / 3 (40–59) / 2 (60–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бинт — за одно применение тратит по бинту на каждый стак крови (пока хватает запаса), каждый −1 тир
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык медицины не требуется
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Низкая стоимость в ОД
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ОД от Медицины: 5 (0–19) / 4 (20–39) / 3 (40–59) / 2 (60–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно применить к себе или союзнику",,jazz:InventoryItem/JAZZ_Bandage.lua:10 | jazz:items.lua:56621
 890000000010014,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009209
 890000000010015,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009210
@@ -11686,10 +11686,12 @@ R.I.S. открыла для вашего отряда канал полевой
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Морфин — подавляет штрафы от боли
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стабилизирует умирающих бойцов и возвращает их в бой (как аптечка)
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровотечение, не восстанавливает ОЗ и не лечит травмы
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 3 (0–39) / 2 (40–79) / 1 (80+)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Морфий — глушит штрафы Боли
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стабилизирует и поднимает из downed (как аптечка)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Не останавливает кровь, не восстанавливает ОЗ и не лечит травмы
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Навык медицины не требуется
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> ОД от Медицины: 3 (0–39) / 2 (40–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Можно применить к себе или союзнику",,jazz:InventoryItem/JAZZ_Morphine.lua:10 | jazz:items.lua:56637
 890000000010017,Surgical Kit,Хирургический набор,,jazz:MED-001-remap-from-890000000009212
 890000000010018,Surgical Kits,Хирургические наборы,,jazz:MED-001-remap-from-890000000009213
@@ -11726,7 +11728,7 @@ R.I.S. открыла для вашего отряда канал полевой
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление одной необработанной средней или лёгкой травмы
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака",,jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706
-890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,Вколоть морфий: глушит Боль или поднимает из downed (без хила ОЗ). Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
+890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,Вколоть морфий: глушит Боль или поднимает из downed (без хила ОЗ). Без порога Медицины. ОД 3/2/1 при Медицине 0/40/80. Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%
@@ -11778,7 +11780,7 @@ R.I.S. открыла для вашего отряда канал полевой
 890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Следующая проверка прогресса: <em>сейчас</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
 890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Следующая проверка прогресса через <em><hours> ч</em> (заживает — улучшится).,,jazz:MED-001-trauma-healing
 890000000010200,Field Bandage,Бинт,,jazz:MED-001-JazzBandage
-890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,Наложить бинт: снижает кровотечение на один тир у себя или союзника. Без Медицины. Не восстанавливает ОЗ и не лечит травмы.,,jazz:MED-001-JazzBandage
+890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical gate. AP 5/4/3/2/1 at Medical 0/20/40/60/80. Does not restore HP or heal trauma.,Наложить бинт: снижает кровотечение на один тир у себя или союзника. Без порога Медицины. ОД 5/4/3/2/1 при Медицине 0/20/40/60/80. Не восстанавливает ОЗ и не лечит травмы.,,jazz:MED-001-JazzBandage
 890000000010202,BANDAGE,БИНТ,,jazz:MED-001-JazzBandage
 890000000010203,Next progress check: pending.,Следующая проверка прогресса: ожидание.,,jazz:MED-001-trauma-timing
 890000000010204,Next progress check: <em>due now</em> (may improve or worsen).,Следующая проверка прогресса: <em>сейчас</em> (может улучшиться или ухудшиться).,,jazz:MED-001-trauma-timing

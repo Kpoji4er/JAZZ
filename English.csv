@@ -11682,10 +11682,10 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010012,Bandages,Bandages,,jazz:MED-001-remap-from-890000000009207
 890000000010013,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 5 (0–19) / 4 (20–39) / 3 (40–59) / 2 (60–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage — one use spends one bandage per bleed stack (up to your stock), each −1 tier
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Low AP cost
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 5 (0–19) / 4 (20–39) / 3 (40–59) / 2 (60–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:InventoryItem/JAZZ_Bandage.lua:10 | jazz:items.lua:56621
 890000000010014,Morphine,MORPHINE,,jazz:MED-001-remap-from-890000000009209
 890000000010015,Morphine,MORPHINE,,jazz:MED-001-remap-from-890000000009210
@@ -11693,10 +11693,12 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 3 (0–39) / 2 (40–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Morphine — suppresses Pain penalties
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes and rallies downed characters (like a medkit)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Does not stop bleeding, restore HP, or heal trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> No Medical skill required
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> AP cost by Medical: 3 (0–39) / 2 (40–79) / 1 (80+)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Self or ally",,jazz:InventoryItem/JAZZ_Morphine.lua:10 | jazz:items.lua:56637
 890000000010017,Surgical Kit,Surgical Kit,,jazz:MED-001-remap-from-890000000009212
 890000000010018,Surgical Kits,Surgical Kits,,jazz:MED-001-remap-from-890000000009213
@@ -11733,7 +11735,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated medium or light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706
-890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,Inject morphine to suppress Pain or rally a downed ally (no HP heal). Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
+890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,MORPHINE,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%
@@ -11785,7 +11787,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Next progress check: <em>due now</em> (healing — will improve).,,jazz:MED-001-trauma-healing
 890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Next progress check in <em><hours> h</em> (healing — will improve).,,jazz:MED-001-trauma-healing
 890000000010200,Field Bandage,Field Bandage,,jazz:MED-001-JazzBandage
-890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical skill. Does not restore HP or heal trauma.,,jazz:MED-001-JazzBandage
+890000000010201,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical gate. AP 5/4/3/2/1 at Medical 0/20/40/60/80. Does not restore HP or heal trauma.,Apply a field bandage to stop bleeding by one tier on self or ally. No Medical gate. AP 5/4/3/2/1 at Medical 0/20/40/60/80. Does not restore HP or heal trauma.,,jazz:MED-001-JazzBandage
 890000000010202,BANDAGE,BANDAGE,,jazz:MED-001-JazzBandage
 890000000010203,Next progress check: pending.,Next progress check: pending.,,jazz:MED-001-trauma-timing
 890000000010204,Next progress check: <em>due now</em> (may improve or worsen).,Next progress check: <em>due now</em> (may improve or worsen).,,jazz:MED-001-trauma-timing
