@@ -48,14 +48,14 @@ Shipped in working tree / commit after this note.
 | `MakeThemBleed` | +10% dmg per bleeding enemy in sight, cap +50%; HUD `Jazz_MakeThemBleedBuff` stacks = visible count |
 | HawksEye | **vanilla rollback** | PinDown min 1 + Exposed; OnMercHired Cookies; JAZZ OW/suppress removed | `HaveABlast` | Toggle: hit/miss retaliate; hands + **GrenadesInventory** + Inventory pull; blast DR 50% |
 | `DangerClose` | Larry List2: explosives ≥8 +40% dmg; explosions +2 Bleeding; stim immune; wrap `ExplosionPrecalcDamageAndStatusEffects` (nil-safe) |
-| `KillingWind` | ≥2 enemies via `hit_objs` → +8 Grit **each**; armor FM ÷2 once (w/ Ironclad); cumbersome keeps FreeMove |
+| `KillingWind` | ≥2 enemies via `hit_objs` → +8 Grit **each**; armor FM −50% (w/ Ironclad: 0); cumbersome keeps FreeMove |
 | `BuildingConfidence` | Inspired (+4 AP) turns 2/5/8…; heal ±10% per level diff vs patient (cap ±50%) via OnCalcHealAmount + CalcHealAmount wrap |
 
 Loc IDs: remaining batch3 IDs after vanilla rollback purge.
 
 ## Soft cuts
 
-- GloryHog recruit / non-straight charge — **wired** (`Jazz_PierreRecruit` + GloryHog CE)
+- GloryHog recruit / non-straight charge — **wired** (`Jazz_PierreRecruit` + GloryHog CE). Recruit: one hotbar button → `IModeCombatAttack` click (not `ShowCombatActionTargetChoice` strip).
 - RecklessAssault 4-attack rewrite — **wired** (SMG/carbine/AR, +15 CTH, no Tiredness)
 - BuildingConfidence heal ±10%/level-diff combat+sat (**wired**)
 - MakeThemBleed groin/animal bleed apply (aura only)

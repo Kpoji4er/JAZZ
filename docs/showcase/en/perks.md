@@ -40,14 +40,14 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `ExplodingPalm` | DrQ | Unarmed hit → status by target HP (KO / concussion / ribs / arms / legs / groin); sat **+30%** trauma debt; **blocks** infection |
 | `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%); HUD stack “Blood Trail” = visible count |
 | `DangerClose` | Larry / Larry_Clean | Explosives ≥**8** tiles: **+40%** damage; explosions **+2** Bleeding stacks; no combat stim penalties |
-| `GloryHog` | PierreMerc | Machete **Charge** (non-straight) +**15** Grit; active **Recruit** 1 visible enemy → AI ally / combat (not bosses) |
+| `GloryHog` | PierreMerc | Machete **Charge** (non-straight) +**15** Grit; active **Recruit** — one button, click a visible enemy → AI ally / combat (not bosses) |
 | `RecklessAssault` | Smiley | Improved Run and Gun: **4** attacks with SMG/carbine/AR, **+15** CTH; **no** Energy loss; **recharge on kill** (like RnG) |
 | `HawksEye` | Scope | **Vanilla:** Pin Down → Exposed; Pin Down min **1 AP**; biscuits on hire (recharge signatures) |
 | `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss (hands / **grenade pockets** / backpack); **−50%** explosion damage taken while active |
 | `Nazdarovya` | Igor | Active **2 AP**, CD **on kill**: clears Pain, heals **15–20** HP, intoxication stack ≤**5** (−15 CTH / +20 melee per stack); −1 stack / **3 h** |
 | `VengefulTemperament` | Meltdown | Active “Hurricane Norma”: enemies ≤5 tiles — Panic or Berserk (Wisdom). **No** Run and Gun. |
 
-| `KillingWind` | Fauda | ≥2 enemies: **+8 Grit each**; armor FM pen **halved** (with Ironclad: still once); cumbersome **keeps** Free Move |
+| `KillingWind` | Fauda | ≥2 enemies: **+8 Grit each**; armor FM pen **another −50%** (with Ironclad: **0**); cumbersome **keeps** Free Move |
 | `DoubleToss` | Fidel | Twin throw (≥2 in stack): hands **or** grenade pockets |
 | `BuildingConfidence` | MD | Inspired (+4 AP) on turns **2/5/8…**; heal **±10%** per level difference vs patient (cap **±50%**), combat and satellite |
 | `BulletHell` | Spike | Cone dump 15–30 rounds; CTH on an enemy in the cone; **Will dump on everyone in the cone**; CD **on kill** |

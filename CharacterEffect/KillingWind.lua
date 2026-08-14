@@ -28,7 +28,7 @@ DefineClass.KillingWind = {
 		}),
 	},
 	DisplayName = T(890000000009875, --[[ModItemCharacterEffectCompositeDef KillingWind DisplayName]] "Убийственный ветер"),
-	Description = T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "При попадании по ≥2 врагам: +<gritPerEnemyHit> Grit за каждого. Штраф Free Move от тяжёлой брони −50%; громоздкое оружие не лишает Free Move."),
+	Description = T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "При попадании по ≥2 врагам: +<gritPerEnemyHit> Grit за каждого. Ещё −50% штрафа Free Move от брони (вместе с Железной кожей — без штрафа FM от брони). Громоздкое оружие не лишает Free Move."),
 	Icon = "UI/Icons/Perks/KillingWind",
 	Tier = "Personal",
 }

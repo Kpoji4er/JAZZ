@@ -27,7 +27,7 @@ JAZZ разделяет физическую защиту по покрытию,
 - `Code/WillPointsBar.lua` — UI шкалы воли;
 - `Code/System_GasMask.lua` — защитный предмет для газовых зон;
 - `Code/System_EnergyLadder.lua` — JAZZ-COMBAT-007/008: лестница энергии Fit→Exhausted, gradual Free Move, satellite warn/times; Legs foot-travel slow + Ribs tiredness threshold;
-- generated Armor, ArmorPlate, CharacterEffect и TargetBodyPart ModItems.
+- generated Armor, ArmorPlate, CharacterEffect и TargetBodyPart ModItems (в т.ч. override `CharacterEffect/Ironclad.lua`: −50% FM-штрафа от веса брони).
 
 ## Модель брони
 
@@ -122,7 +122,7 @@ Asset contract не менялся.
 
 1. Сырой FreeMove по надетым `Armor` (`Weight` 2/3/4/5 → +0.5/+1/+2/+3; слот ≠ Inventory; плиты с Weight входят).
 2. Сырой start AP: raw_FM &lt; 4 → 0; 4…&lt;8 → 1; ≥ 8 → 2.
-3. **Ironclad** или **KillingWind** → FM ÷2 **один раз** (Fauda с обоими не получает ÷4). **Ironclad** дополнительно ÷2 AP. При `using_cumbersome` AP-штраф брони = 0 (FM брони не half от cumbersome). Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
+3. **Ironclad** −50% FM-штрафа от брони; **KillingWind** ещё −50% (аддитивно: оба → 0). **Ironclad** дополнительно ÷2 AP. При `using_cumbersome` AP-штраф брони = 0 (FM брони не half от cumbersome). Strength &gt; 60: `MulDivRound(STR−60,1,20)` сначала снимает AP, остаток — FM.
 4. Floor + cap FM ≤ 12, AP ≤ 2; при `apply_consume` — `ConsumeAP` (Move предпочитает `free_move_ap`; иначе обычные ОД) / AP.
 5. Статусы `Weight_1Class`…`Weight_5Class`: стаки = floor(FM), класс иконки = **max Weight** экипа (не PenetrationClass). `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove`: при FM ≥ 6 первое перемещение за ход даёт +1 Pain (≤1 стек/ход от веса; Analgesia блокирует).
 

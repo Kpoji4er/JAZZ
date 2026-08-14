@@ -1048,9 +1048,17 @@ function Unit:CalculateArmorWeight(apply_consume)
 
 	local fm = raw_fm
 	local ap = raw_ap
-	-- Ironclad / KillingWind: each halves FM once (Fauda has both — not quarter).
-	if HasPerk(self, "Ironclad") or HasPerk(self, "KillingWind") then
-		fm = fm / 2
+	-- Ironclad −50% armor FM tax; KillingWind another −50% (additive: both → 0).
+	-- Ironclad still halves start AP. Cumbersome weapon FreeMove is BeginTurn, not here.
+	local fm_mul = 100
+	if HasPerk(self, "Ironclad") then
+		fm_mul = fm_mul - 50
+	end
+	if HasPerk(self, "KillingWind") then
+		fm_mul = fm_mul - 50
+	end
+	if fm_mul < 100 then
+		fm = fm * fm_mul / 100
 	end
 	if HasPerk(self, "Ironclad") then
 		ap = ap / 2

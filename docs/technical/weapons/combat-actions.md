@@ -434,7 +434,7 @@ visible_actions =
 ### `VengefulTemperament` — Meltdown («Тяжелый характер» / Ураган Норма)
 
 - **Пакет:** `jazz-units` (ModItemCombatAction + CE) + `jazz` `Unit:VengefulTemperament` в `Code/CombatActions.lua`.
-- **Тип:** именная **активка** (SignatureAbilities); id CA = perk class.
+- **Тип:** именная **активка** (SignatureAbilities); id CA = perk class. Hotbar `Icon` = `Mod/e6L4ECj/Perks/SignatureAbilities/VengefulTemperament.png` (108×54 dual; не Personal 68×68). CE `Icon` остаётся `UI/Icons/Perks/VengefulTemperament`.
 - **Поведение:** по нажатию — враги в радиусе **≤5** плит от Meltdown: fail Wisdom(50) → `Panicked`, иначе `Berserk`, refresh AP. Timed signature recharge. **Не** RunAndGun / mobile shot / on-hit passive. **Не** Hard Feelings / Vengeance mark.
 
 ### `Nazdarovya` — Igor («Наздаровье»)
@@ -443,6 +443,14 @@ visible_actions =
 - **Тип:** именная **активка** (SignatureAbilities); **2 AP**; **`recharge_on_kill=1`** (CD до убийства).
 - **Поведение:** снимает `Pain` (с refund AP как у морфия); лечит **15–20** HP; `AddStatusEffect("Drunk", 1)` до **5** стаков. При 5 стаках кнопка disabled («Слишком пьян»).
 - **`Drunk`:** −15 ranged CTH и **+20 flat** melee damage **за стак**; `RemoveOnEndCombat=false`; `OnNewHour` −1 стак каждые **3** ч (типичные 3 стака ≈ 9 ч ≈ «8–10»).
+
+### `Jazz_PierreRecruit` — Pierre («Вербовка»)
+
+- **Пакет:** `jazz` ModItemCombatAction + `Code/CombatActions.lua` (`Jazz_InstallPierreRecruitCombatAction`); hotbar inject в `Unit:HasSignatures` при `HasPerk(GloryHog)`.
+- **Тип:** именная **активка** (SignatureAbilities); **4 AP**; once/combat. Charge остаётся vanilla `GloryHog`.
+- **Иконка:** `UI/Icons/Hud/talk` (не `perk_glory_hog` Charge).
+- **Таргетинг:** одна кнопка → `IModeCombatAttack` клик по видимому non-boss врагу. **Не** `ShowCombatActionTargetChoice` (тот API ставил по кнопке на каждого видимого врага).
+- **Поведение:** `Unit:Jazz_PierreRecruit` — цель `SetSide("ally")`, ИИ; боссы (`villain`/`ImportantNPC`) blocked.
 
 ### `DoubleToss` — Fidel («Двойной бросок»)
 

@@ -74234,9 +74234,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end
 						return "enabled"
 					end,
-					Icon = "UI/Icons/Hud/perk_glory_hog",
+					Icon = "UI/Icons/Hud/talk",
 					IdDefault = "Jazz_PierreRecruitdefault",
 					IsAimableAttack = false,
+					IsTargetableAttack = true,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					MultiSelectBehavior = "first",
 					RequireState = "any",
@@ -74253,18 +74254,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					ShowIn = "SignatureAbilities",
 					SortKey = 110,
 					UIBegin = function (self, units, args)
-						-- ShowCombatActionTargetChoice expects Unit[] and default Execute(unit, {target=unit}).
-						local mode_dlg = GetInGameInterfaceModeDlg()
-						if IsKindOf(mode_dlg, "IModeCommonUnitControl") then
-							local targets = self:GetTargets(units)
-							if targets and targets[1] then
-								mode_dlg:ShowCombatActionTargetChoice(self, units, targets)
-								return
-							end
-						end
-						if args and args.target then
-							self:Execute(units, args)
-						end
+						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
 					end,
 					group = "SignatureAbilities",
 					id = "Jazz_PierreRecruit",
@@ -75245,6 +75235,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Tier', "Personal",
 				}),
 				PlaceObj('ModItemCharacterEffectCompositeDef', {
+					'Group', "Strength",
+					'Id', "Ironclad",
+					'SortKey', 5,
+					'object_class', "Perk",
+					'DisplayName', T(103856163842, --[[ModItemCharacterEffectCompositeDef Ironclad DisplayName]] "Ironclad"),
+					'Description', T(890000000013124, --[[ModItemCharacterEffectCompositeDef Ironclad Description]] "Штраф <GameTerm('FreeMove')> от тяжёлой брони снижен на <em>50%</em>. Также вдвое снижает штраф стартовых ОД от веса брони."),
+					'Icon', "UI/Icons/Perks/OverwatchExpert",
+					'Tier', "Silver",
+					'Stat', "Strength",
+					'StatValue', 80,
+				}),
+				PlaceObj('ModItemCharacterEffectCompositeDef', {
 					'Group', "Perk-Personal",
 					'Id', "KillingWind",
 					'Parameters', {
@@ -75270,7 +75272,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						}),
 					},
 					'DisplayName', T(890000000009875, --[[ModItemCharacterEffectCompositeDef KillingWind DisplayName]] "Убийственный ветер"),
-					'Description', T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "При попадании по ≥2 врагам: +<gritPerEnemyHit> Grit за каждого. Штраф Free Move от тяжёлой брони −50%; громоздкое оружие не лишает Free Move."),
+					'Description', T(890000000009876, --[[ModItemCharacterEffectCompositeDef KillingWind Description]] "При попадании по ≥2 врагам: +<gritPerEnemyHit> Grit за каждого. Ещё −50% штрафа Free Move от брони (вместе с Железной кожей — без штрафа FM от брони). Громоздкое оружие не лишает Free Move."),
 					'Icon', "UI/Icons/Perks/KillingWind",
 					'Tier', "Personal",
 				}),

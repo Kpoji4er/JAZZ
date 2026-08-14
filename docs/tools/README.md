@@ -45,6 +45,7 @@
 | `_bump_barry_craft_discount_meta.py` | Bump jazz Revision + prepend Barry DesignerExplosives CraftAmmo/Explosives −30% Parts (sector-wide) bullet. |
 | `_fix_passive_sig_icons_54_blue.py` | Rebuild Passive `Jazz_Perk_*` Signature icons to 54×54 cool blue (fix 108 dual SetColumns=1 squash). |
 | `_build_passive_signature_icon_54.py` | **Passive** Signature hotbar icon = **54×54** (`SetColumns(1)`), cool **blue** from Hud **LEFT** half (not cream). Active = **108×54** dual (`SetColumns(2)`). → `Perks/SignatureAbilities/<ActionId>.png`. |
+| `_build_lynx_sig_icon_glow.py` | Lynx Passive hotbar: 54×54 cool blue from `Perks/Personal/Lynx.png`, keep high-luma glowing eyes (standard 54 recolor would flatten them). |
 | `_units006_namedperks_notes.md` | UNITS-006 batch2: shipped effects + soft cuts (Ice deferred, Wolf ops wrap scope). |
 | `_gen_units006_batch3.py` | UNITS-006 §C batch3: generate signature CE companions + items/metadata/loc (`9861+`). |
 | `_audit_jazz_perk_combat_actions.py` | Audit `Jazz_Perk_*` CE vs `ModItemCombatAction` SignatureAbilities companions; flags missing CA and `GetUIState→hidden` stubs. |
@@ -72,6 +73,7 @@
 | `_apply_dangerclose_larry.py` | Larry: DangerClose List2 (explosives ≥8 +40%, blast +2 bleed, stim immune) + loc IDs + items sync. |
 | `_apply_gloryhog_pierre.py` | Pierre: GloryHog CE override + `Jazz_PierreRecruit` signature CA (1 recruit/combat) + loc/metadata. |
 | `_fix_pierre_recruit_uibegin.py` | Pierre recruit: fix `Jazz_PierreRecruit` UIBegin (Unit choices + default Execute); Charge tooltip loc; metadata bump. |
+| `_check_pierre_recruit_targeting.py` | Static: recruit is one `IModeCombatAttack` button (no `ShowCombatActionTargetChoice` strip); HUD `talk` icon. |
 | `_fix_pierre_loc_collision_9942.py` | Restore RecklessAssault `9935/9936`; Pierre combat-log/Charge tooltip → `9942/9943`. |
 | `_fix_gloryhog_loc_collision.py` | Restore SteroidPunch 9930/9931 if overwrite; remap Pierre recruit desc/used → 9933/9934. |
 | `_apply_recklessassault_smiley.py` | Smiley: RecklessAssault List2 — 4 mobile attacks, SMG/carbine/AR, +15 CTH, no Tiredness; CA+CE+loc. |
@@ -95,6 +97,9 @@
 | `_match_weapon_manip_icon_pairs.py` | UI-002: derive `weapon_flash_off` / `weapon_stock_unfold` from ON/Fold masters so HUD pairs share the same silhouette (beams/arrow only differ). |
 | `_rebuild_stock_chip_glyphs.py` | UI-001: replace photo stock `ChipIcon` PNGs with flat `#C8C0A8` glyphs (`--finalize-dir` drafts or `--flatten-only`). |
 | `_apply_combat_005_weight_items.py` | JAZZ-COMBAT-005: sync `Weight_*Class` Description + `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove` in `items.lua`. |
+| `_apply_ironclad_killingwind_fm_stack.py` | COMBAT-005/UNITS-006: Ironclad companion + items/metadata; KillingWind loc `890000000009876`; Ironclad Description `890000000013124`. Additive −50%/−50% FM tax. |
+| `_check_ironclad_killingwind_fm_stack.py` | Static: `fm_mul - 50` twice; no shared OR-half; Ironclad loaded; cumbersome BeginTurn unchanged. |
+| `_build_vengeful_temperament_sig_icon.py` | Meltdown active CA: 108×54 dual from HUD `perk_vengeful_temperament`; wire jazz-units CombatAction.Icon (CE stays Personal 68×68). |
 | `_apply_combat_007_energy_items.py` | JAZZ-COMBAT-007: insert energy ladder ModItems (`Fit`/`Winded`/`Fatigued`/Tired/Exhausted/WellRested/FreeMove) + `System_EnergyLadder` into `items.lua`/`metadata.lua`. |
 | `_apply_combat_007_energy_loc.py` | JAZZ-COMBAT-007: upsert RU/EN CSV rows for energy CE + travel warn/step logs (IDs `890000000013100`–`13120`). |
 | `_apply_freemove_remaining_ap_loc.py` | Remaining Free Move AP UI: RU/EN `890000000013122` (status tooltip) + `890000000013123` (merc-card AP suffix). |

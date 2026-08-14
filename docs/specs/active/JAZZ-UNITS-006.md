@@ -216,7 +216,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Shadow              | `FleetingShadow`        | Stealth run; +10 Grit on SK                                                       | ≈       |
 | Thor                | `NaturalHealing`        | Joints (`HerbalMedicine` / 48h); sat squad +15% trauma/burn/HP debt recovery (not infection); bandage +20–25 Will | CHANGE  |
 | Livewire            | `InnerInfo_JAZZ`        | More intel from hacks; money-making op                                            | CHANGE  |
-| Fauda               | `KillingWind`           | ≥2 enemies hit → +8 Grit **each**; armor FM pen ×½ (with Ironclad: still ×½ once); cumbersome keeps FreeMove | CHANGE  |
+| Fauda               | `KillingWind`           | ≥2 enemies hit → +8 Grit **each**; armor FM pen −50% (with Ironclad: 0); cumbersome keeps FreeMove | CHANGE  |
 | Fidel               | `DoubleToss`            | Two grenades; hands **or** `GrenadesInventory` pockets (`DoubleTossAG–DG`, stack ≥2) | CHANGE  |
 | Grunty              | `GruntyPerk_JAZZ`       | T1 +50% AP + per-turn 10%×Morale                                                  | CHANGE  |
 | DrQ                 | `ExplodingPalm`         | Fist statuses by HP; sat trauma heal +30%; infection resist                       | CHANGE  |
