@@ -14,7 +14,8 @@
 | `_normalize_ernie_flare_carriers.py` | Set Ernie island `Min/MaxFlareCarriers` to 12/15 in `jazz-maps/items.lua` (ModItemSector + HotDiamonds SatelliteSector). |
 | `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |
 | `_check_bullethell_autofire_gate.py` | Static: `JazzWrapBulletHellAutofireGate` present; AN94 keeps `AbakanAutoFire` without vanilla `AutoFire`. |
-| `_check_bullethell_projectiles.py` | Static COMBAT-006 v2: `FirearmAttack` + cone-arc projectiles (`jazz_bh_arc_sprayed`, `AlwaysHits=false`); cone-wide Will (`JazzCollectBulletHellConeEnemies`); no SingleShot dump. |
+| `_check_bullethell_projectiles.py` | Static COMBAT-006 v2: `FirearmAttack` + hits LoF the cone unit (no `SetTerrainZ(far)`); miss fan at chest height; cone-wide Will. |
+| `_bump_bullethell_hit_lof_meta.py` | COMBAT-006 playtest: revision +1 and prepend `last_changes` (escape `\n` only). |
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_scan_saves_broken_placecharacterffect.py` | Scan JA3 `.sav` under Saved Games: extract zstd `game_session`, count `PlaceCharacterEffect('Id', )` (empty props — load-breaking). |
 | `_extract_ja3_game_session.py` | Extract concatenated zstd frames of `game_session` from BPUL `.sav` to `.lua` for syntax debug. |

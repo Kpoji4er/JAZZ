@@ -691,10 +691,10 @@ function Firearm:GetAttackResults(action, attack_args)
 	end
 
 	-- Cone far-point: vanilla AlwaysHits AOE needed a terrain target at max cone range.
-	-- COMBAT-006 BulletHell is real CTH projectiles — keep the Unit. Replacing it with
-	-- SetTerrainZ(far) made CalcChanceToHit / CalcShotVectors aim at dirt at WeaponRange
-	-- (honest ballistics → 0% CTH, all misses into the ground).
-	if action.id == "BulletHell" or action.id == "JAZZ_VovaVist" then
+	-- BulletHell is real CTH projectiles — do not push target_pos to SetTerrainZ(far).
+	-- That leftover made CalcShotVectors / LoF aim at dirt at WeaponRange (rays eat
+	-- ground; even "hit" rolls never connect). VovaVist still AlwaysHits AOE.
+	if action.id == "JAZZ_VovaVist" then
 		local push = aoe_params or self:GetAreaAttackParams(action.id, attacker, target_pos, attack_args.step_pos)
 		if push and push.max_range then
 			local dir = (target_pos - attack_args.step_pos):SetZ(0)
@@ -704,8 +704,7 @@ function Firearm:GetAttackResults(action, attack_args)
 					far = far:SetTerrainZ()
 				end
 				target_pos = far
-				-- VovaVist still AlwaysHits AOE: a point target at cone max is OK.
-				if action.id == "JAZZ_VovaVist" and not target_unit then
+				if not target_unit then
 					target = far
 				end
 			end
@@ -1058,27 +1057,35 @@ shot_attack_args.num_shots = num_shots
 		end
 	end
 
-	-- COMBAT-006 v2: Spike BulletHell — spray aim points across the overwatch cone BEFORE LoF,
-	-- so real projectiles travel the arc (hits anyone in the ray; misses can stray).
+	-- COMBAT-006: fan MISS aim points across the cone at muzzle/chest height.
+	-- Hit vectors stay on the resolved unit (honest CTH magdump). Spraying hits too
+	-- sent every round into empty dirt — vanilla OverwriteShots was cosmetic for AlwaysHits.
 	if action.id == "BulletHell" and precalc_shots and #precalc_shots > 0 then
-		local origin = attack_results.attack_pos or attack_results.lof_pos1 or shot_attack_args.step_pos
+		local origin = attack_results.lof_pos1 or attack_results.attack_pos or shot_attack_args.step_pos
 		if origin then
 			local halfAngle = DivRound(self.OverwatchAngle or 0, 2)
 			if halfAngle > 0 then
 				local newAngle = halfAngle
 				local angleStep = MulDivRound(self.OverwatchAngle, 2, #precalc_shots)
-				for i, ps in ipairs(precalc_shots) do
-					if ps.target_pos then
-						ps.target_pos = RotateAxis(ps.target_pos, point(0, 0, 4096), newAngle, origin)
+				local origin_z = origin:IsValidZ() and origin:z()
+				for _, ps in ipairs(precalc_shots) do
+					local shot_miss = ps.shot_data and band(ps.shot_data, sfHit) == 0
+					if shot_miss and ps.target_pos then
+						local rotated = RotateAxis(ps.target_pos, point(0, 0, 4096), newAngle, origin)
+						if origin_z then
+							rotated = rotated:SetZ(origin_z)
+						end
+						ps.target_pos = rotated
 					end
 					if abs(newAngle) >= halfAngle then
 						angleStep = -angleStep
 					end
 					newAngle = newAngle + angleStep
 				end
-				attack_results.jazz_bh_arc_sprayed = true
 			end
 		end
+		-- Always mark so ExecFirearmAttacks does not re-run vanilla OverwriteShots on hits.
+		attack_results.jazz_bh_arc_sprayed = true
 	end
 
 	local misses
@@ -1242,17 +1249,17 @@ shot_attack_args.num_shots = num_shots
 			shot_attack_args.forced_hit_on_eye_contact = attack_args.forced_hit_on_eye_contact
 			local shot_target
 			if action.id == "BulletHell" then
-				-- Arc ray: hit and miss both follow sprayed target_pos so bullets can hit anyone in the cone.
-				-- Do not ignore the primary unit on a miss — that leftover single-target miss path
-				-- made a 0% far-point CTH spray never connect with anyone in the sector.
-				shot_target = precalc_shot.target_pos
+				-- Hits: LoF the resolved unit (body vectors). Misses: chest-height cone fan;
+				-- do not ignore the primary (vanilla miss path + far dirt = nobody ever connects).
 				if shot_miss then
+					shot_target = precalc_shot.target_pos
 					miss_target_pos = precalc_shot.target_pos
 					shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, attack_args.ignore_colliders)
 					shot_attack_args.ignore_los = true
 					shot_attack_args.inside_attack_area_check = false
 					shot_attack_args.forced_hit_on_eye_contact = false
 				else
+					shot_target = attack_args.target_dummy or (IsValid(target) and target) or precalc_shot.target_pos
 					shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, attack_args.ignore_colliders)
 				end
 			elseif shot_miss then
@@ -2467,6 +2474,15 @@ local function JazzInstallBulletHellProjectiles()
 	JazzWrapBulletHellAutofireGate(action)
 
 	action.AlwaysHits = false
+
+	-- Vanilla min=max=WeaponRange snaps the cone to max range (AlwaysHits leftover).
+	-- Honest CTH uses GetMaxAimRange as the physical cap; min 0 lets nearby units be valid.
+	if not rawget(action, "JazzAimRangeWrapped") then
+		action.GetMinAimRange = function(self, unit, weapon)
+			return 0
+		end
+		rawset(action, "JazzAimRangeWrapped", true)
+	end
 
 	if rawget(action, "JazzProjectileResultsWrapped") then
 		return

@@ -55,6 +55,6 @@ Folding stocks and tactical flashlights toggle via **small buttons next to the w
 
 Actions that “recharge on kill” also clear after a **signature** kill (Blood’s flying knives, etc.); the killing signature does not recharge itself.
 
-Spike’s **Bullet Hell** keeps cone aiming and fires a **real bullet arc**. Hit chance is a normal burst CTH **at the range of an enemy in the cone**, not at the far cone edge; shots can hit anyone on a ray, and misses can stray. **Drains Will of every enemy in the cone**, even without a hit. CD on kill. Works with machine guns and AN-94 / other JAZZ full-auto rifles.
+Spike’s **Bullet Hell** keeps cone aiming and dumps 15–30 rounds. Hits use a normal burst CTH **on an enemy in the cone**; misses fan at chest height and can stray. **Drains Will of every enemy in the cone**, even without a hit. CD on kill. Works with machine guns and AN-94 / other JAZZ full-auto rifles.
 
 Full ID tables and edge cases live in the repository `docs/wiki/combat-actions.md`.
