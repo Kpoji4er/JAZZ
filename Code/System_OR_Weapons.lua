@@ -603,6 +603,54 @@ function Firearm:ApplyAmmoUse(attacker, fired, jammed, condition)
 	end
 end
 
+-- COMBAT-006: enemies in the BulletHell aim cone (LOS + OverwatchAngle, full WeaponRange).
+-- Used for cone-wide Will suppression — not only the CTH-resolved primary.
+local function JazzCollectBulletHellConeEnemies(attacker, weapon, aim_pos, step_pos, stance)
+	if not attacker or not weapon or not IsPoint(aim_pos) then
+		return {}
+	end
+	local origin = step_pos or attacker:GetOccupiedPos() or attacker:GetPos()
+	if not origin then
+		return {}
+	end
+	local params = weapon.GetAreaAttackParams
+		and weapon:GetAreaAttackParams("BulletHell", attacker, aim_pos, origin, stance)
+	local cone_angle = (params and params.cone_angle) or weapon.OverwatchAngle or 0
+	if cone_angle <= 0 then
+		return {}
+	end
+	local max_tiles = (params and params.max_range) or 0
+	local ca = CombatActions and CombatActions.BulletHell
+	if ca and ca.GetMaxAimRange then
+		max_tiles = Max(max_tiles, ca:GetMaxAimRange(attacker, weapon) or 0)
+	end
+	max_tiles = Max(max_tiles, weapon.WeaponRange or 0)
+	if max_tiles <= 0 then
+		return {}
+	end
+	local enemies = GetEnemies(attacker) or empty_table
+	local any, losValues = CheckLOS(
+		enemies,
+		origin,
+		max_tiles * const.SlabSizeX,
+		stance or attacker.stance,
+		cone_angle,
+		CalcOrientation(origin, aim_pos),
+		false
+	)
+	if not any then
+		return {}
+	end
+	local out = {}
+	for i, los in ipairs(losValues or empty_table) do
+		local u = enemies[i]
+		if los and u and IsValidTarget(u) then
+			out[#out + 1] = u
+		end
+	end
+	return out
+end
+
 function Firearm:GetAttackResults(action, attack_args)
 	PauseInfiniteLoopDetection("CTHCalc")
 	-- unpack some params & init default values
@@ -642,14 +690,24 @@ function Firearm:GetAttackResults(action, attack_args)
 		consumed_ammo = Max(consumed_ammo, aoe_params and aoe_params.used_ammo or 0)
 	end
 
-	-- Vanilla BulletHell/VovaVist: push aim to max cone range for AlwaysHits AOE.
+	-- Cone far-point: vanilla AlwaysHits AOE needed a terrain target at max cone range.
+	-- COMBAT-006 BulletHell is real CTH projectiles — keep the Unit. Replacing it with
+	-- SetTerrainZ(far) made CalcChanceToHit / CalcShotVectors aim at dirt at WeaponRange
+	-- (honest ballistics → 0% CTH, all misses into the ground).
 	if action.id == "BulletHell" or action.id == "JAZZ_VovaVist" then
 		local push = aoe_params or self:GetAreaAttackParams(action.id, attacker, target_pos, attack_args.step_pos)
-		if push then
-			target_pos = attack_args.step_pos + SetLen2D((target_pos - attack_args.step_pos):SetZ(0), push.max_range * const.SlabSizeX)
-			if not target_pos:IsValidZ() then
-				target_pos = target_pos:SetTerrainZ()
-				target = target_pos
+		if push and push.max_range then
+			local dir = (target_pos - attack_args.step_pos):SetZ(0)
+			if dir:Len2D() > 0 then
+				local far = attack_args.step_pos + SetLen2D(dir, push.max_range * const.SlabSizeX)
+				if not far:IsValidZ() then
+					far = far:SetTerrainZ()
+				end
+				target_pos = far
+				-- VovaVist still AlwaysHits AOE: a point target at cone max is OK.
+				if action.id == "JAZZ_VovaVist" and not target_unit then
+					target = far
+				end
 			end
 		end
 	end
@@ -708,6 +766,15 @@ shot_attack_args.num_shots = num_shots
 	local cth_action = shot_attack_args.used_action_id and CombatActions[shot_attack_args.used_action_id] or action
 	if action.AlwaysHits then
 		cth = 100
+	elseif action.id == "BulletHell" and target_unit then
+		-- Honest CTH at the unit's distance, not the far cone edge (min=max=WeaponRange).
+		local cth_args = table.copy(shot_attack_args)
+		local unit_pos = target_unit:GetPos()
+		if unit_pos and not unit_pos:IsValidZ() then
+			unit_pos = unit_pos:SetTerrainZ()
+		end
+		cth_args.target_pos = unit_pos
+		cth, baseCth, modifiers = attacker:CalcChanceToHit(target_unit, cth_action, cth_args)
 	elseif attack_args.chance_to_hit then
 		cth, modifiers = attack_args.chance_to_hit, attack_args.chance_to_hit_modifiers
 	else
@@ -963,7 +1030,9 @@ shot_attack_args.num_shots = num_shots
 				local shot_attack_pos = shot_vector.attack_pos
 				-- JAZZ-WEAPONS-007: true misses on non-pellet queues climb with effective_recoil.
 				-- Hits and graze stay on CalcShotVectors placement; CTH unchanged.
-				if not pellet_pack and shot_miss and not allow_grazing and recoil_profile then
+				-- BulletHell cone spray already fans aim points — climb would throw rays into the sky.
+				if not pellet_pack and shot_miss and not allow_grazing and recoil_profile
+					and action.id ~= "BulletHell" then
 					local aim = (lof_data and lof_data.target_pos) or target_pos
 					local lof1 = shot_vector.lof_pos1 or attack_results.lof_pos1
 					local climbed = JAZZ_CTHBuildRecoilClimbMissPos(aim, lof1, i, recoil_profile, attacker)
@@ -1021,6 +1090,7 @@ shot_attack_args.num_shots = num_shots
 
 	-- Build once per attack: filtering g_Units every shot is O(shots * units).
 	local suppression_enemies, attacker_is_psycho, target_is_psycho, target_will_damage
+	local bh_cone_enemies
 	local slab = const.SlabSizeX
 	local near_range = 5 * slab
 	if not prediction then
@@ -1058,6 +1128,22 @@ shot_attack_args.num_shots = num_shots
 			40 + MulDivRound(60, f_x100, 100),
 			1000)
 		target_will_damage = MulDivRound(target_will_damage, suppressionbonus, 100)
+		if action.id == "BulletHell" then
+			bh_cone_enemies = JazzCollectBulletHellConeEnemies(
+				attacker, self, target_pos, attack_args.step_pos, shot_attack_args.stance)
+			if target_unit and IsValidTarget(target_unit) then
+				local seen = false
+				for _, u in ipairs(bh_cone_enemies) do
+					if u == target_unit then
+						seen = true
+						break
+					end
+				end
+				if not seen then
+					bh_cone_enemies[#bh_cone_enemies + 1] = target_unit
+				end
+			end
+		end
 	end
 
 	for i = 1, num_shots do
@@ -1157,12 +1243,12 @@ shot_attack_args.num_shots = num_shots
 			local shot_target
 			if action.id == "BulletHell" then
 				-- Arc ray: hit and miss both follow sprayed target_pos so bullets can hit anyone in the cone.
+				-- Do not ignore the primary unit on a miss — that leftover single-target miss path
+				-- made a 0% far-point CTH spray never connect with anyone in the sector.
 				shot_target = precalc_shot.target_pos
 				if shot_miss then
 					miss_target_pos = precalc_shot.target_pos
-					if not allow_grazing then
-						shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, target_unit)
-					end
+					shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, attack_args.ignore_colliders)
 					shot_attack_args.ignore_los = true
 					shot_attack_args.inside_attack_area_check = false
 					shot_attack_args.forced_hit_on_eye_contact = false
@@ -1196,7 +1282,8 @@ shot_attack_args.num_shots = num_shots
 				end
 				miss_target_pos = self:PickMissTargetPos(attacker, misses, roll, shot_cth)
 				-- JAZZ-WEAPONS-007: fallback miss path also climbs for non-pellet queues.
-				if not pellet_pack and not allow_grazing and recoil_profile then
+				if not pellet_pack and not allow_grazing and recoil_profile
+					and action.id ~= "BulletHell" then
 					local aim = (lof_data and lof_data.target_pos) or target_pos
 					local climbed = JAZZ_CTHBuildRecoilClimbMissPos(aim, lof_pos1, i, recoil_profile, attacker)
 					if climbed then
@@ -1412,6 +1499,7 @@ shot_attack_args.num_shots = num_shots
 			end
 
 			if target_will_damage and target_will_damage > 0
+				and action.id ~= "BulletHell"
 				and IsValid(target_unit) and target_unit.team and target_unit.team.side ~= attacker.team.side
 			then
 				if attacker_is_psycho then
@@ -1423,7 +1511,8 @@ shot_attack_args.num_shots = num_shots
 			end
 
 			local hits = hit_data.hits
-			if hits and #hits > 0 and suppression_enemies and #suppression_enemies > 0 then
+			-- BulletHell dumps Will on the whole cone after the burst (below); skip near-hit splash.
+			if action.id ~= "BulletHell" and hits and #hits > 0 and suppression_enemies and #suppression_enemies > 0 then
 				local damage = Max(self.Damage, 1)
 				for _, hit in ipairs(hits) do
 					local hit_pos = hit.pos or hit_data.target_pos
@@ -1451,10 +1540,20 @@ shot_attack_args.num_shots = num_shots
 
 	end
 
+	-- COMBAT-006: one Will dump per cone enemy, same total as a primary under 15–30 shots.
+	if not prediction and action.id == "BulletHell" and bh_cone_enemies
+		and target_will_damage and target_will_damage > 0 and num_shots > 0 then
+		local cone_will = target_will_damage * num_shots
+		if attacker_is_psycho and #bh_cone_enemies > 0 then
+			attacker.WillPoints = Min(attacker.MaxWillPoints, attacker.WillPoints + cone_will)
+		end
+		for _, unit in ipairs(bh_cone_enemies) do
+			if IsValid(unit) and not unit:IsDead() then
+				QueueSuppressionApplication(unit, cone_will)
+			end
+		end
+	end
 
-
-
-	
 	attack_results.miss = miss
 	attack_results.crit = crit
 
@@ -2381,7 +2480,10 @@ local function JazzInstallBulletHellProjectiles()
 		args.num_shots = Clamp(args.weapon.ammo.Amount, self:ResolveValue("min_ammo"), self:ResolveValue("max_ammo"))
 		args.multishot = true
 		args.suppressionbonus = args.suppressionbonus or 200
-		-- Prediction/UI: resolve a unit in the cone so CTH modifiers have a Unit target.
+		-- Prediction/UI: resolve a unit in the cone so CTH is vs that unit at their range,
+		-- not vs the far cone aim point (vanilla min=max=WeaponRange → honest CTH 0%).
+		args.chance_to_hit = nil
+		args.chance_to_hit_modifiers = nil
 		if IsPoint(args.target) then
 			local aoeParams = args.weapon:GetAreaAttackParams(self.id, unit)
 			if aoeParams then
@@ -2402,7 +2504,7 @@ local function JazzInstallBulletHellProjectiles()
 				end
 			end
 		end
-		-- No AOE damage / vanilla Suppressed — Will suppression from Firearm shot pipeline.
+		-- No AOE damage / vanilla Suppressed — cone-wide Will after the burst.
 		args.aoe_action_id = false
 		args.aoe_params = false
 		args.applied_status = false

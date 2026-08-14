@@ -46,7 +46,7 @@ Playtest: нужен конусный прицел **и** реальные пу�
 - Конусный aim UI + исполнение через `FirearmAttack` (как vanilla wiring).
 - Урон — Firearm-пули с CTH; aim points размазаны по дуге **до** LoF (не только FX).
 - Попадание по юнитам в луче дуги; промахи — обычный stray/LoF.
-- Подавление — JAZZ Will; без AOE `applied_status` vanilla Suppressed.
+- Подавление — JAZZ Will **всем врагам в конусе** (не только попадания); без AOE `applied_status` vanilla Suppressed.
 - Расход `min_ammo`…`max_ammo` (15…30); AN94 / `JAZZ_LargeAutoFire` gate.
 
 ## Non-goals
@@ -59,7 +59,7 @@ Playtest: нужен конусный прицел **и** реальные пу�
 
 - `JAZZ-COMBAT-006-REQ-001` — `AlwaysHits = false`; GetActionResults без AOE-урона / `applied_status`.
 - `JAZZ-COMBAT-006-REQ-002` — `Unit:BulletHell` → `FirearmAttack`; дуга в `GetAttackResults` (`jazz_bh_arc_sprayed`) до LoF.
-- `JAZZ-COMBAT-006-REQ-003` — Will-подавление; без forced vanilla Suppressed AOE.
+- `JAZZ-COMBAT-006-REQ-003` — Will-подавление **всем врагам в конусе** (не только primary / не только попадания); без forced vanilla Suppressed AOE.
 - `JAZZ-COMBAT-006-REQ-004` — docs technical + wiki + showcase RU/EN.
 
 ## Acceptance criteria
@@ -78,6 +78,7 @@ Playtest: нужен конусный прицел **и** реальные пу�
 
 - `JAZZ-COMBAT-006-AC-001`: `PASS (static)` — `docs/tools/_check_bullethell_projectiles.py`
 - `JAZZ-COMBAT-006-AC-002` / `AC-003`: `BLOCKED` — runtime/human
+- **Hotfix 2026-08-15:** vanilla leftover `target = SetTerrainZ(far)` + CTH at cone-max (`GetMin/MaxAimRange` = `WeaponRange`) made honest JAZZ CTH 0% and miss-rays ignore the primary / climb into the sky. CTH now vs resolved unit at their range; miss-rays can still hit anyone in the sector; no recoil-climb on the cone spray. Cone-wide Will via `JazzCollectBulletHellConeEnemies` (same total as primary × shot count).
 
 ## Documentation delta
 

@@ -50,7 +50,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `KillingWind` | Fauda | ≥2 enemies: **+8 Grit each**; armor FM pen **halved** (with Ironclad: still once); cumbersome **keeps** Free Move |
 | `DoubleToss` | Fidel | Twin throw (≥2 in stack): hands **or** grenade pockets |
 | `BuildingConfidence` | MD | Inspired (+4 AP) on turns **2/5/8…**; heal **±10%** per level difference vs patient (cap **±50%**), combat and satellite |
-| `BulletHell` | Spike | Cone **real projectile arc** (CTH + strays); CD **on kill** |
+| `BulletHell` | Spike | Cone **real projectile arc**; CTH at enemy range; **Will dump on everyone in the cone**; CD **on kill** |
 | `Jazz_Perk_Flo` | Flo | Squad: **−12%** Bobby Ray buy / **+12%** cash-in (additive with Negotiator) |
 | `Jazz_Perk_Static` | Static | Repair/craft Parts **−5%/level** (cap **−25%**) |
 | `Jazz_Perk_Cougar` | Cougar | Shots **−33%** noise; Stealth Kill → Inspired **1×/turn** |

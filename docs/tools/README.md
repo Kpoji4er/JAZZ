@@ -14,7 +14,7 @@
 | `_normalize_ernie_flare_carriers.py` | Set Ernie island `Min/MaxFlareCarriers` to 12/15 in `jazz-maps/items.lua` (ModItemSector + HotDiamonds SatelliteSector). |
 | `_probe_autofire_attacks.py` | List `InventoryItem/*.lua` whose `AvailableAttacks` have jazz autofire aliases (`AbakanAutoFire` / `JAZZ_LargeAutoFire` / …) but not vanilla `AutoFire`/`MGBurstFire` (BulletHell gate audit). |
 | `_check_bullethell_autofire_gate.py` | Static: `JazzWrapBulletHellAutofireGate` present; AN94 keeps `AbakanAutoFire` without vanilla `AutoFire`. |
-| `_check_bullethell_projectiles.py` | Static COMBAT-006 v2: `FirearmAttack` + cone-arc projectiles (`jazz_bh_arc_sprayed`, `AlwaysHits=false`); no SingleShot dump. |
+| `_check_bullethell_projectiles.py` | Static COMBAT-006 v2: `FirearmAttack` + cone-arc projectiles (`jazz_bh_arc_sprayed`, `AlwaysHits=false`); cone-wide Will (`JazzCollectBulletHellConeEnemies`); no SingleShot dump. |
 | `_fix_zastava_m92_csv.py` | WEAPONS-003 hotfix: `ZastavaM92` `burst_shots=4` `auto_shots=7` `cyclic_rpm=700` in `weapons.csv`. |
 | `_scan_saves_broken_placecharacterffect.py` | Scan JA3 `.sav` under Saved Games: extract zstd `game_session`, count `PlaceCharacterEffect('Id', )` (empty props — load-breaking). |
 | `_extract_ja3_game_session.py` | Extract concatenated zstd frames of `game_session` from BPUL `.sav` to `.lua` for syntax debug. |
@@ -39,6 +39,7 @@
 | `_bump_steroidpunch_passive_aimtype_meta.py` | SteroidPunch Passive: metadata bump for AimType=none (no melee-range rollover). |
 | `_bump_steroidpunch_hotfix_meta.py` | Bump jazz Revision + prepend SteroidPunch Passive/knockback/CrossHairUI hotfix bullet in `last_changes` (escape `\n` only). |
 | `_bump_bullethell_rok_cache_meta.py` | Bump jazz Revision + prepend Spike BulletHell `recharge_on_kill` cache fix bullet. |
+| `_bump_bullethell_cone_will_meta.py` | Bump jazz Revision + prepend Spike BulletHell honest-CTH / cone-wide Will dump bullet. |
 | `_bump_killingwind_hotfix_meta.py` | Bump jazz Revision + prepend Fauda KillingWind grit/`OnGearChanged` FM tax fix bullet. |
 | `_bump_barry_craft_discount_meta.py` | Bump jazz Revision + prepend Barry DesignerExplosives CraftAmmo/Explosives −30% Parts (sector-wide) bullet. |
 | `_fix_passive_sig_icons_54_blue.py` | Rebuild Passive `Jazz_Perk_*` Signature icons to 54×54 cool blue (fix 108 dual SetColumns=1 squash). |

@@ -15,6 +15,10 @@ needles = {
         "jazz_bh_arc_sprayed",
         "AbakanAutoFire",
         "JAZZ_LargeAutoFire",
+        "Honest CTH at the unit's distance",
+        "keep the Unit",
+        "JazzCollectBulletHellConeEnemies",
+        "cone_will",
     ],
     "Code/ExecFirearmAttacks.lua": [
         "jazz_bh_arc_sprayed",

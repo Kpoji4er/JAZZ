@@ -427,7 +427,7 @@ visible_actions =
 - **Тип:** vanilla SignatureAbility id; в JAZZ выдана Спайку (`StartingPerks`). **JAZZ-COMBAT-006 v2**.
 - **Совместимость оружия:** vanilla `GetUIState` требует `AvailableAttacks` с `AutoFire` или `MGBurstFire`. JAZZ wrap также принимает `AbakanAutoFire` и `JAZZ_LargeAutoFire`.
 - **Прицеливание:** конус (`AimType = cone`).
-- **Поведение:** `Unit:BulletHell` → `FirearmAttack` (как vanilla). `AlwaysHits = false`; без AOE-урона / vanilla Suppressed. `min_ammo`…`max_ammo` (15…30) **реальных** пуль: aim points размазаны по дуге конуса **до** LoF (`jazz_bh_arc_sprayed`) — попадают в тех, кто в луче; промахи могут шально задеть. Will-подавление (`suppressionbonus` 200).
+- **Поведение:** `Unit:BulletHell` → `FirearmAttack` (как vanilla). `AlwaysHits = false`; без AOE-урона / vanilla Suppressed. `min_ammo`…`max_ammo` (15…30) **реальных** пуль: aim points размазаны по дуге конуса **до** LoF (`jazz_bh_arc_sprayed`) — попадают в тех, кто в луче; промахи могут шально задеть. CTH считается **по юниту в конусе на его дистанции**, не по дальнему краю конуса (`GetMinAimRange`/`GetMaxAimRange` = `WeaponRange` — ванильный AlwaysHits leftover; подмена `target` на `SetTerrainZ(far)` давала честный CTH 0% и все промахи в грунт). Miss-ray **не** ignore primary unit и **без** recoil-climb. **Will всем врагам в конусе** (`JazzCollectBulletHellConeEnemies` + `QueueSuppressionApplication`, сумма как у primary × число пуль, `suppressionbonus` 200) — попадание не требуется; без vanilla `Suppressed` / `SuppressionChangeStance`.
 - **Перезарядка:** UNITS-006 — `recharge_on_kill`.
 - **Целевая роль:** именной конусный ливень снарядами с CTH, не гарантированный AlwaysHits AOE.
 
