@@ -14,12 +14,13 @@ JAZZ, отсутствующих в базовом `Game.csv`. Ванильны�
 |---|---|
 | Установленная vanilla | Загружает базовую таблицу языка, затем таблицы активных модов; формат CSV — `ID,Text,Translation,VoiceActor,Context` в UTF-8 |
 | CommonLib | В debug-сборке перехватывает `T` и сообщает об одном ID с разными исходными текстами; snapshot 26 июля 2026: 1.11 build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` |
-| JAZZ | Определяет строки в пакетах `jazz`, `jazz-maps` и `jazz-units`; основной пакет поставляет mod-only переводы через `Russian.csv` и `English.csv` |
+| JAZZ | Определяет строки в пакетах `jazz`, `jazz-maps` и `jazz-units`; основной пакет поставляет mod-only переводы через `Russian.csv` и `English.csv`. `jazz-units` дополнительно грузит собственные `Russian.csv` и `English.csv` через `metadata.loctables` (редактор Units и runtime). Ванильные AIM VoiceResponse (Raven/Thor/Vicki/Wolf и прочие не-`Jazz_*`) оставляют исходные T-ID из `Game.csv` — в CSV мода они не копируются. |
 
 ## Файлы реализации и load-state
 
-- `Russian.csv` — loaded runtime для языка Russian через `metadata.loctables`;
-- `English.csv` — loaded runtime для языка English через `metadata.loctables`;
+- `Russian.csv` — loaded runtime для языка Russian через `metadata.loctables` основного пакета;
+- `English.csv` — loaded runtime для языка English через `metadata.loctables` основного пакета;
+- `jazz-units/Russian.csv` и `jazz-units/English.csv` — loctables пакета Units (`Mod/Dv3mFVN/…`); только mod-only ID. Ванильные фразы AIM остаются на T-ID `Game.csv`;
 - `Localization/Strings.csv` — development-only рабочий каталог;
 - `Localization/RussianManual.csv` — development-only память осознанных русских
   переводов и допустимых технических копий;
@@ -99,6 +100,8 @@ Google Translate используется только по явному `-Allow
 
 `Text` нужен для аудита происхождения и должен соответствовать строке в `T`.
 Vanilla ID не дублируются в runtime CSV: их перевод приходит из игры.
+VoiceResponse ванильных AIM (Raven/Thor/Vicki/Wolf) должны сохранять исходные
+T-ID и исходный текст; remap в `8900*` ломает opus и даёт Missing text.
 
 ## Зависимости и пересечения
 

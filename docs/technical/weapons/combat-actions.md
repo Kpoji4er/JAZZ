@@ -450,7 +450,7 @@ visible_actions =
 - **Тип:** именная **активка** (SignatureAbilities); **4 AP**; once/combat. Charge остаётся vanilla `GloryHog`.
 - **Иконка:** `UI/Icons/Hud/talk` (не `perk_glory_hog` Charge).
 - **Таргетинг:** одна кнопка → `IModeCombatAttack` клик по видимому non-boss врагу. **Не** `ShowCombatActionTargetChoice` (тот API ставил по кнопке на каждого видимого врага).
-- **Поведение:** `Unit:Jazz_PierreRecruit` — цель `SetSide("ally")`, ИИ; боссы (`villain`/`ImportantNPC`) blocked.
+- **Поведение:** `Unit:Jazz_PierreRecruit` — цель `SetSide("ally")`, ИИ; боссы (`villain`/`ImportantNPC`) blocked. После команды UI сам выходит из `IModeCombatAttack` (`RestoreDefaultMode`): `Interrupt`/`SetCommand` цели иначе съедает `CombatActionEnd`, режим выбора остаётся без crosshair и клики по юнитам не работают.
 
 ### `DoubleToss` — Fidel («Двойной бросок»)
 

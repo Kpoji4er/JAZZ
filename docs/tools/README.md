@@ -73,7 +73,7 @@
 | `_apply_dangerclose_larry.py` | Larry: DangerClose List2 (explosives ≥8 +40%, blast +2 bleed, stim immune) + loc IDs + items sync. |
 | `_apply_gloryhog_pierre.py` | Pierre: GloryHog CE override + `Jazz_PierreRecruit` signature CA (1 recruit/combat) + loc/metadata. |
 | `_fix_pierre_recruit_uibegin.py` | Pierre recruit: fix `Jazz_PierreRecruit` UIBegin (Unit choices + default Execute); Charge tooltip loc; metadata bump. |
-| `_check_pierre_recruit_targeting.py` | Static: recruit is one `IModeCombatAttack` button (no `ShowCombatActionTargetChoice` strip); HUD `talk` icon. |
+| `_check_pierre_recruit_targeting.py` | Static: recruit is one `IModeCombatAttack` button (no `ShowCombatActionTargetChoice` strip); HUD `talk` icon; UI restore after use. |
 | `_fix_pierre_loc_collision_9942.py` | Restore RecklessAssault `9935/9936`; Pierre combat-log/Charge tooltip → `9942/9943`. |
 | `_fix_gloryhog_loc_collision.py` | Restore SteroidPunch 9930/9931 if overwrite; remap Pierre recruit desc/used → 9933/9934. |
 | `_apply_recklessassault_smiley.py` | Smiley: RecklessAssault List2 — 4 mobile attacks, SMG/carbine/AR, +15 CTH, no Tiredness; CA+CE+loc. |
@@ -531,8 +531,10 @@ python docs/tools/build-sector-atlas-docs.py
 | `_append_ame_mail_loc.py` | JAZZ-UI-AME-001: RU/EN Email strings `890000000006900–6910` (welcome + listing update). Idempotent upsert; proper multiline CSV. |
 | `_append_merc_mail_loc.py` | JAZZ-UI-MERC-001: RU/EN Speck mail + MERC PDA strings `890000000009900+`. Idempotent upsert; multiline CSV. |
 | `_remap_merc_loc_ids.py` | One-shot: move MERC loc off VoiceResponse `007xxx` → `009900+`; restore stolen VR rows from `HEAD`. |
-| `_restore_vanilla_aim_vr_ids.py` | Restore vanilla T-IDs for AIM `ModItemVoiceResponse` Raven/Thor/Vicki/Wolf from `bb6d97a^` (LOC remap broke VO). Then run `_purge_restored_aim_vr_loc.py`. |
+| `_restore_vanilla_aim_vr_ids.py` | Restore vanilla T-IDs for AIM `ModItemVoiceResponse` Raven/Thor/Vicki/Wolf from `bb6d97a^` (LOC remap broke VO). Then run `_purge_restored_aim_vr_loc.py`. Vanilla mercs must keep Game.csv IDs — never remap those phrases to `8900*`. |
 | `_purge_restored_aim_vr_loc.py` | After VR id restore: delete orphaned `8900*` rows from jazz + jazz-units CSV by record (multiline-safe), no full CSV rewrite. |
+| `_sync_units_vr_loctables.py` | Append missing *mod-only* VR/name IDs to jazz RU/EN; write `jazz-units/Russian.csv` + fill units English loctable. Does **not** copy vanilla Game.csv IDs into JAZZ CSV. |
+| `_audit_aim_vr_vanilla_ids.py` | Gate: vanilla-looking `ModItemVoiceResponse` ids (Raven/Thor/Vicki/Wolf and any non-`Jazz_*`) must have `8900=0`. |
 | `_apply_merc_affiliations.py` | UI-MERC-001: set `Affiliation = "MERC"` on Jazz shelf/world UnitData companions (+ Larry/Smiley overrides). |
 | `_apply_ship_iggy.py` | UNITS-002: ship `Jazz_Iggy` (perk stub, loot clone Grom, UnitData+VR, Appearance, loc RU/EN, metadata bumps). Idempotent. Uses `_grom_snippets/`. |
 | `_sync_merc_affiliation_items.py` | Sync same Affiliation into `jazz-units/items.lua` ModItem blocks. |
@@ -607,6 +609,7 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | `_inventory_ja2mercs.py` | Read-only inventory `Downloads/ja2mercs (1)/ja2mercs`: layout (flat/nested), audio counts/formats, profile-id guess, crosswalk к `jazz_to_ja2_profile.csv`. Не ship/convert. `--root` optional. Remesh: `_apply_ja2mercs_profile_map.py` + `_ship_ja2_merc_voices.py --ja2mercs-remesh`. |
 | `_stt_ja2mercs_sample.py` | Pilot subtitles for ja2mercs: export XLSX/mercedt ref text + optional faster-whisper RU STT (ADPCM→PCM via ffmpeg). Default pilot `но-шж/гром` pids 076+047 (both Grom). `--no-stt` = refs only. Out: `_voice-source/_stt/`. |
 | `_audit_truncated_voice_responses.py` | Find JA2-style ~80-char mid-cut VoiceResponse strings in `English.csv`; match full RU from `ja2mercs (1)` XLSX (+ known STT repairs for Carlos/Devin). Report only → `_tmp_truncated_vr_strict.txt`. |
+| `_audit_vr_loc_ids.py` | VoiceResponse `T()` IDs in `jazz-units/items.lua` vs `jazz` RU/EN CSV and `jazz-units/English.csv`. |
 | `_apply_trunc_vr_and_lore_names.py` | Apply Grandier/Грандье + Khalif lore canon and truncated VR repairs into `jazz-units` `T()` + `Russian.csv`/`English.csv` (+ Manual). Canon: Grandier / Кавалье / Khalif. |
 
 ## Артефакты

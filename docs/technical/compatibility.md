@@ -31,9 +31,9 @@ JAZZ поддерживает только последнюю опубликов
 - `jazz-maps` не объявляет зависимость от units, хотя содержит прямые ссылки на его ресурсы.
 - Основной пакет содержит и загружает `English.csv` для собственных mod-only ID;
   английские строки vanilla остаются в базовой таблице игры.
-- `jazz-units` загружает собственный корневой `English.csv` через `metadata.loctables`
-  (`Mod/Dv3mFVN/English.csv`) для active mod-only ID пакета, включая пулы элитных имён;
-  устаревший `ModTextsJazzUnits.csv` не подключён к loctables.
+- `jazz-units` загружает собственные корневые `Russian.csv` и `English.csv` через `metadata.loctables`
+  (`Mod/Dv3mFVN/Russian.csv`, `Mod/Dv3mFVN/English.csv`) для active mod-only ID пакета, включая пулы элитных имён;
+  устаревший `ModTextsJazzUnits.csv` не подключён к loctables. Ванильные T-ID VoiceResponse AIM в эти CSV не дублируются.
 
 До исправления metadata документация считает полную коллекцию обязательной для **полного** кампанийного контента. Урезанный профиль без `jazz-maps` — опциональный пакет **`jazz-nomaps`** / display **JAZZ Vanilla Maps** (`7MsJ2Eq`, JAZZ-COMPAT-002): auto-regions по vanilla Guardpost, Major HQ `A20`, wiring отрядов и loot inject; квесты/карты/диалоги maps недоступны.
 

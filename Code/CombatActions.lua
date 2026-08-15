@@ -1258,6 +1258,27 @@ function Jazz_PierreRecruitGetTargets(attacker)
 	return out
 end
 
+-- Interrupt/SetCommand on the recruit target fires CombatActionEnd first.
+-- IModeCombatAttackBase drops Pierre's CombatActionEnd while that thread is
+-- alive, so targeting never returns to movement (no crosshair → no click-away).
+local function Jazz_PierreRecruitRestoreUI()
+	CreateRealTimeThread(function()
+		local dlg = GetInGameInterfaceModeDlg()
+		if not IsKindOf(dlg, "IModeCombatAttackBase") then
+			return
+		end
+		local action = dlg.action
+		if action and action.id and action.id ~= "Jazz_PierreRecruit" then
+			return
+		end
+		if type(RestoreDefaultMode) == "function" then
+			RestoreDefaultMode(SelectedObj)
+			return
+		end
+		SetInGameInterfaceMode(g_Combat and "IModeCombatMovement" or "IModeExploration")
+	end)
+end
+
 function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 	args = args or empty_table
 	local target = args.target
@@ -1266,12 +1287,15 @@ function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 		target = args
 	end
 	if self.GetEffectValue and self:GetEffectValue("Jazz_PierreRecruitUsed") then
+		Jazz_PierreRecruitRestoreUI()
 		return
 	end
 	if not IsKindOf(target, "Unit") or not IsValidTarget(target) then
+		Jazz_PierreRecruitRestoreUI()
 		return
 	end
 	if not self:IsOnEnemySide(target) or Jazz_IsPierreRecruitBossBlocked(target) then
+		Jazz_PierreRecruitRestoreUI()
 		return
 	end
 	if target.Interrupt then
@@ -1303,6 +1327,7 @@ function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 	if g_Combat then
 		ObjModified(g_Combat)
 	end
+	Jazz_PierreRecruitRestoreUI()
 end
 
 -- Recruit is a targeted signature like PinDown/MarkTarget: one hotbar button, then

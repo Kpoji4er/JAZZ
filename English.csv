@@ -12550,3 +12550,31 @@ Speck",,JAZZ-UI-MERC-001
 890000000013122,Move without spending AP. Remaining: <em><apn(remain)> AP</em>. Removed after attacking or after using up the allowance (based on Agility).,Move without spending AP. Remaining: <em><apn(remain)> AP</em>. Removed after attacking or after using up the allowance (based on Agility).,,jazz:COMBAT-007-freemove-ui
 890000000013123, <em>(<apn(fm)> FM)</em>, <em>(<apn(fm)> FM)</em>,,jazz:COMBAT-007-freemove-ui
 890000000013124,Штраф <GameTerm('FreeMove')> от тяжёлой брони снижен на <em>50%</em>. Также вдвое снижает штраф стартовых ОД от веса брони.,Heavy armor <GameTerm('FreeMove')> penalty reduced by <em>50%</em>. Also halves the start-of-turn AP penalty from armor weight.,,jazz:CharacterEffect/Ironclad.lua
+890000000001650,<first> <last>,<first> <last>,,jazz-units:Code/EliteEnemyNamesFuncs.lua
+890000000006500,Задание выполнено. Жду приказаний.,Task complete. Awaiting orders.,,jazz-units:items.lua
+890000000006501,"Всегда можно найти, в чем стать лучше.",There's always something to get better at.,,jazz-units:items.lua
+890000000006502,Только не это.,Anything but that.,,jazz-units:items.lua
+890000000006503,"Просто еще один пример того, как отлично работает Волк.",Just another example of how well Wolf works.,,jazz-units:items.lua
+890000000006504,Теперь я работаю.,I'm on the job now.,,jazz-units:items.lua
+890000000006505,Ничтожество!,Pathetic!,,jazz-units:items.lua
+890000000006508,Мне больно. Очень больно.,It hurts. It hurts a lot.,,jazz-units:items.lua
+890000000006509,"Больно, Мистер Джек.","It hurts, Mr. Jack.",,jazz-units:items.lua
+890000000006510,Ищу пулю. Нет больше пуля.,Looking for a bullet. No more bullet.,,jazz-units:items.lua
+890000000006511,Вижу их! Вижу эти ничтожества!,I see them! I see those wretches!,,jazz-units:items.lua
+890000000006514,Только не это.,Anything but that.,,jazz-units:items.lua
+890000000006515,Отличная работа.,Excellent work.,,jazz-units:items.lua
+890000000012501,Гарнизон побережья,Coastal garrison,,jazz-units:items.lua
+890000000012502,Гарнизон старого порта,Old port garrison,,jazz-units:items.lua
+890000000012503,Дорожный гарнизон,Road garrison,,jazz-units:items.lua
+890000000012504,Лесной гарнизон,Forest garrison,,jazz-units:items.lua
+890000000012505,Гарнизон бункера,Bunker garrison,,jazz-units:items.lua
+890000000012506,Крупный аванпост,Major outpost,,jazz-units:items.lua
+890000000012507,Гарнизон маяка,Lighthouse garrison,,jazz-units:items.lua
+890000000012510,Усиление: пулемётчики,Reinforcement: gunners,,jazz-units:items.lua
+890000000012511,Усиление: стрелки,Reinforcement: riflemen,,jazz-units:items.lua
+890000000012512,Усиление: гранатомётчики,Reinforcement: grenadiers,,jazz-units:items.lua
+890000000012513,Усиление: ветераны,Reinforcement: veterans,,jazz-units:items.lua
+890000000012514,Усиление: ближний бой,Reinforcement: melee,,jazz-units:items.lua
+890000000012515,Усиление: фланкеры,Reinforcement: flankers,,jazz-units:items.lua
+890000000012516,Усиление: смешанное,Reinforcement: mixed,,jazz-units:items.lua
+890000000012601,Штурмовики Легиона,Legion Attack Squad,,jazz-units:items.lua

@@ -11,6 +11,8 @@ if "ShowCombatActionTargetChoice" in ca.split("function Jazz_InstallPierreRecrui
     fail.append("CombatActions.lua install still uses ShowCombatActionTargetChoice")
 if 'self.id == "Jazz_PierreRecruit"' not in ca or "SetInGameInterfaceMode(\"IModeCombatAttack\"" not in ca:
     fail.append("CombatActions.lua: missing IModeCombatAttack start for Jazz_PierreRecruit")
+if "Jazz_PierreRecruitRestoreUI" not in ca or "RestoreDefaultMode" not in ca:
+    fail.append("CombatActions.lua: Jazz_PierreRecruit must restore UI after Interrupt/SetSide")
 if "CheckAndReportImpossibleAttack" not in ca or "g_JAZZ_PierreRecruitImpossibleAttackWrapped" not in ca:
     fail.append("CombatActions.lua: missing CheckAndReportImpossibleAttack wrap")
 if 'ca.Icon = "UI/Icons/Hud/talk"' not in ca:
