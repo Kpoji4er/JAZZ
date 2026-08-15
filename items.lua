@@ -74343,7 +74343,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					Icon = "UI/Icons/Hud/talk",
 					IdDefault = "Jazz_PierreRecruitdefault",
 					IsAimableAttack = false,
-					IsTargetableAttack = true,
+					IsTargetableAttack = false,
 					KeybindingFromAction = "actionRedirectSignatureAbility",
 					MultiSelectBehavior = "first",
 					RequireState = "any",
@@ -74360,7 +74360,17 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					ShowIn = "SignatureAbilities",
 					SortKey = 110,
 					UIBegin = function (self, units, args)
-						CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+						local mode_dlg = GetInGameInterfaceModeDlg()
+						if IsKindOf(mode_dlg, "IModeCommonUnitControl") then
+							local targets = self:GetTargets(units)
+							if targets and targets[1] then
+								mode_dlg:ShowCombatActionTargetChoice(self, units, targets)
+								return
+							end
+						end
+						if args and args.target then
+							self:Execute(units, args)
+						end
 					end,
 					group = "SignatureAbilities",
 					id = "Jazz_PierreRecruit",

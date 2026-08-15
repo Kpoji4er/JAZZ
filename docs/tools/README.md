@@ -73,7 +73,7 @@
 | `_apply_dangerclose_larry.py` | Larry: DangerClose List2 (explosives ≥8 +40%, blast +2 bleed, stim immune) + loc IDs + items sync. |
 | `_apply_gloryhog_pierre.py` | Pierre: GloryHog CE override + `Jazz_PierreRecruit` signature CA (1 recruit/combat) + loc/metadata. |
 | `_fix_pierre_recruit_uibegin.py` | Pierre recruit: fix `Jazz_PierreRecruit` UIBegin (Unit choices + default Execute); Charge tooltip loc; metadata bump. |
-| `_check_pierre_recruit_targeting.py` | Static: recruit is one `IModeCombatAttack` button (no `ShowCombatActionTargetChoice` strip); HUD `talk` icon; UI restore after use. |
+| `_check_pierre_recruit_targeting.py` | Static: recruit HUD `ShowCombatActionTargetChoice` (talk icon); no `IModeCombatAttack`; UI restore after Interrupt. |
 | `_fix_pierre_loc_collision_9942.py` | Restore RecklessAssault `9935/9936`; Pierre combat-log/Charge tooltip → `9942/9943`. |
 | `_fix_gloryhog_loc_collision.py` | Restore SteroidPunch 9930/9931 if overwrite; remap Pierre recruit desc/used → 9933/9934. |
 | `_apply_recklessassault_smiley.py` | Smiley: RecklessAssault List2 — 4 mobile attacks, SMG/carbine/AR, +15 CTH, no Tiredness; CA+CE+loc. |

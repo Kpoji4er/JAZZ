@@ -40,7 +40,7 @@ Sourced from `CharacterEffect/Jazz_Perk_*.lua`, `items.lua`, and `Code/*` (jazz)
 | `ExplodingPalm` | DrQ | Unarmed hit → status by target HP (KO / concussion / ribs / arms / legs / groin); sat **+30%** trauma debt; **blocks** infection |
 | `MakeThemBleed` | Flay | +10% damage per bleeding enemy in LOS (cap +50%); HUD stack “Blood Trail” = visible count |
 | `DangerClose` | Larry / Larry_Clean | Explosives ≥**8** tiles: **+40%** damage; explosions **+2** Bleeding stacks; no combat stim penalties |
-| `GloryHog` | PierreMerc | Machete **Charge** (non-straight) +**15** Grit; active **Recruit** — one button, click a visible enemy → AI ally / combat (not bosses) |
+| `GloryHog` | PierreMerc | Machete **Charge** (non-straight) +**15** Grit; active **Recruit** — one button, pick a visible enemy from the HUD list (single target auto-fires) → AI ally / combat (not bosses) |
 | `RecklessAssault` | Smiley | Improved Run and Gun: **4** attacks with SMG/carbine/AR, **+15** CTH; **no** Energy loss; **recharge on kill** (like RnG) |
 | `HawksEye` | Scope | With sniper: Overwatch **1 AP** (keeps leftover AP); Pin Down min 1 AP; sniper suppress **×2**; every **96 h** — **7** biscuits; also bakes on hire |
 | `HaveABlast` | Red | Toggle: grenade retaliate on hit **or** miss (hands / **grenade pockets** / backpack); **−50%** explosion damage taken while active |

@@ -450,8 +450,8 @@ visible_actions =
 - **Пакет:** `jazz` ModItemCombatAction + `Code/CombatActions.lua` (`Jazz_InstallPierreRecruitCombatAction`); hotbar inject в `Unit:HasSignatures` при `HasPerk(GloryHog)`.
 - **Тип:** именная **активка** (SignatureAbilities); **4 AP**; once/combat. Charge остаётся vanilla `GloryHog`.
 - **Иконка:** `UI/Icons/Hud/talk` (не `perk_glory_hog` Charge).
-- **Таргетинг:** одна кнопка → `IModeCombatAttack` клик по видимому non-boss врагу. **Не** `ShowCombatActionTargetChoice` (тот API ставил по кнопке на каждого видимого врага).
-- **Поведение:** `Unit:Jazz_PierreRecruit` — цель `SetSide("ally")`, ИИ; боссы (`villain`/`ImportantNPC`) blocked. После команды UI сам выходит из `IModeCombatAttack` (`RestoreDefaultMode`): `Interrupt`/`SetCommand` цели иначе съедает `CombatActionEnd`, режим выбора остаётся без crosshair и клики по юнитам не работают.
+- **Таргетинг:** одна кнопка → HUD `ShowCombatActionTargetChoice` (иконка talk; один видимый враг выполняется сразу). **Не** `IModeCombatAttack` (залипал слой команды после `Interrupt`).
+- **Поведение:** `Unit:Jazz_PierreRecruit` — цель `SetSide("ally")`, ИИ; боссы (`villain`/`ImportantNPC`) blocked. После команды закрывается choice popup; если остался attack-mode — `RestoreDefaultMode`.
 
 ### `DoubleToss` — Fidel («Двойной бросок»)
 

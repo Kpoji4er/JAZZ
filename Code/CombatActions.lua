@@ -1258,12 +1258,16 @@ function Jazz_PierreRecruitGetTargets(attacker)
 	return out
 end
 
--- Interrupt/SetCommand on the recruit target fires CombatActionEnd first.
--- IModeCombatAttackBase drops Pierre's CombatActionEnd while that thread is
--- alive, so targeting never returns to movement (no crosshair → no click-away).
+-- After Interrupt the choice popup can linger; IModeCombatAttack leftover
+-- (older click-target iteration) also needs a movement restore.
 local function Jazz_PierreRecruitRestoreUI()
 	CreateRealTimeThread(function()
 		local dlg = GetInGameInterfaceModeDlg()
+		if dlg and dlg.ClosePopup then
+			pcall(function()
+				dlg:ClosePopup()
+			end)
+		end
 		if not IsKindOf(dlg, "IModeCombatAttackBase") then
 			return
 		end
@@ -1330,85 +1334,34 @@ function Unit:Jazz_PierreRecruit(action_id, cost_ap, args)
 	Jazz_PierreRecruitRestoreUI()
 end
 
--- Recruit is a targeted signature like PinDown/MarkTarget: one hotbar button, then
--- click the enemy in the world. ShowCombatActionTargetChoice spawned one GloryHog
--- icon per visible enemy (the "extra buttons" on Pierre's bar / enemy badge).
+-- Keep wrap-flag names declared: older sessions installed CombatActionAttackStart
+-- hijacks. This iteration uses TargetChoice and must not re-wrap.
 g_JAZZ_PierreRecruitAttackStartWrapped = rawget(_G, "g_JAZZ_PierreRecruitAttackStartWrapped") or false
 g_JAZZ_CombatActionAttackStartBase = rawget(_G, "g_JAZZ_CombatActionAttackStartBase") or false
 g_JAZZ_PierreRecruitImpossibleAttackWrapped = rawget(_G, "g_JAZZ_PierreRecruitImpossibleAttackWrapped") or false
 g_JAZZ_CheckAndReportImpossibleAttackBase = rawget(_G, "g_JAZZ_CheckAndReportImpossibleAttackBase") or false
 g_JAZZ_PierreRecruitCAPatched = rawget(_G, "g_JAZZ_PierreRecruitCAPatched") or false
 
-local function lInstallPierreRecruitTargetingWraps()
-	local start = rawget(_G, "CombatActionAttackStart")
-	if type(start) == "function" then
-		local prev_base = rawget(_G, "g_JAZZ_CombatActionAttackStartBase")
-		-- ReloadLua may restore vanilla while the wrap flag stays set.
-		if not (rawget(_G, "g_JAZZ_PierreRecruitAttackStartWrapped")
-			and type(prev_base) == "function"
-			and start ~= prev_base)
-		then
-			rawset(_G, "g_JAZZ_CombatActionAttackStartBase", start)
-			rawset(_G, "g_JAZZ_PierreRecruitAttackStartWrapped", true)
-			function CombatActionAttackStart(self, units, args, mode, noChangeAction)
-				if self and self.id == "Jazz_PierreRecruit" then
-					args = args or {}
-					local unit = units and units[1]
-					if not args.target then
-						local t = Jazz_PierreRecruitGetTargets(unit)
-						args.target = t and t[1]
-					end
-					if not unit or not args.target then
-						return
-					end
-					-- Skip Aim/crosshair (no weapon). IModeCombatAttack still lets you click a unit.
-					SetInGameInterfaceMode("IModeCombatAttack", {
-						action = self,
-						attacker = unit,
-						target = args.target,
-					})
-					return
-				end
-				return g_JAZZ_CombatActionAttackStartBase(self, units, args, mode, noChangeAction)
-			end
-		end
-	end
-	local check = rawget(_G, "CheckAndReportImpossibleAttack")
-	if type(check) == "function" then
-		local prev_base = rawget(_G, "g_JAZZ_CheckAndReportImpossibleAttackBase")
-		if not (rawget(_G, "g_JAZZ_PierreRecruitImpossibleAttackWrapped")
-			and type(prev_base) == "function"
-			and check ~= prev_base)
-		then
-			rawset(_G, "g_JAZZ_CheckAndReportImpossibleAttackBase", check)
-			rawset(_G, "g_JAZZ_PierreRecruitImpossibleAttackWrapped", true)
-			function CheckAndReportImpossibleAttack(unit, action, args)
-				if action and action.id == "Jazz_PierreRecruit" then
-					local state, err = action:GetUIState({ unit }, args)
-					if state == "enabled" then
-						return "enabled"
-					end
-					if err then
-						ReportAttackError(IsValid(args and args.target) and args.target or unit, err)
-					end
-					return state
-				end
-				return g_JAZZ_CheckAndReportImpossibleAttackBase(unit, action, args)
-			end
-		end
-	end
-end
-
 function Jazz_InstallPierreRecruitCombatAction()
-	lInstallPierreRecruitTargetingWraps()
 	local ca = CombatActions and CombatActions.Jazz_PierreRecruit
 	if not ca then
 		return false
 	end
-	ca.IsTargetableAttack = true
+	-- First working iteration: HUD target list (talk icon), not IModeCombatAttack.
+	ca.IsTargetableAttack = false
 	ca.Icon = "UI/Icons/Hud/talk"
 	ca.UIBegin = function(self, units, args)
-		CombatActionAttackStart(self, units, args, "IModeCombatAttack")
+		local mode_dlg = GetInGameInterfaceModeDlg()
+		if IsKindOf(mode_dlg, "IModeCommonUnitControl") then
+			local targets = self:GetTargets(units)
+			if targets and targets[1] then
+				mode_dlg:ShowCombatActionTargetChoice(self, units, targets)
+				return
+			end
+		end
+		if args and args.target then
+			self:Execute(units, args)
+		end
 	end
 	ca.GetAnyTarget = function(self, units)
 		local t = Jazz_PierreRecruitGetTargets(units and units[1])
@@ -1416,37 +1369,6 @@ function Jazz_InstallPierreRecruitCombatAction()
 	end
 	ca.GetTargets = function(self, units)
 		return Jazz_PierreRecruitGetTargets(units and units[1]) or empty_table
-	end
-	ca.GetDefaultTarget = function(self, unit)
-		local t = Jazz_PierreRecruitGetTargets(unit)
-		return t and t[1]
-	end
-	if not rawget(ca, "jazz_recruit_uistate_wrapped") then
-		rawset(ca, "jazz_recruit_uistate_base", ca.GetUIState)
-		rawset(ca, "jazz_recruit_uistate_wrapped", true)
-	end
-	local baseUI = rawget(ca, "jazz_recruit_uistate_base")
-	if type(baseUI) == "function" then
-		ca.GetUIState = function(self, units, args)
-			local state, reason = baseUI(self, units, args)
-			if state ~= "enabled" then
-				return state, reason
-			end
-			local target = args and args.target
-			if IsKindOf(target, "Unit") then
-				local ok = false
-				for _, u in ipairs(self:GetTargets(units) or empty_table) do
-					if u == target then
-						ok = true
-						break
-					end
-				end
-				if not ok then
-					return "disabled", AttackDisableReasons.NoTarget
-				end
-			end
-			return "enabled"
-		end
 	end
 	-- Charge signature tooltip should stay Charge-only; recruit has its own CA.
 	local gh = CombatActions.GloryHog

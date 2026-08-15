@@ -56,7 +56,7 @@ Loc IDs: remaining batch3 IDs after vanilla rollback purge.
 
 ## Soft cuts
 
-- GloryHog recruit / non-straight charge — **wired** (`Jazz_PierreRecruit` + GloryHog CE). Recruit: one hotbar button → `IModeCombatAttack` click (not `ShowCombatActionTargetChoice` strip).
+- GloryHog recruit / non-straight charge — **wired** (`Jazz_PierreRecruit` + GloryHog CE). Recruit: one hotbar button → `ShowCombatActionTargetChoice` (talk icon; not IModeCombatAttack).
 - RecklessAssault 4-attack rewrite — **wired** (SMG/carbine/AR, +15 CTH, no Tiredness)
 - BuildingConfidence heal ±10%/level-diff combat+sat (**wired**)
 - MakeThemBleed groin/animal bleed apply (aura only)
