@@ -144,6 +144,9 @@
 | `_audit_legion_med_loot_redistribute.py` | Static MED-003 Legion class loot: T2 bandage 1–2, T3 morphine 30%, medic 1–10/0–3 + kits. |
 | `_audit_med001_large_kit_trauma.py` | Static MED-001 AC-017: Large Medkit (`Reanimationsset`) marks heaviest unhealed Trauma* with `jazz_healing`; targeting + GetBandaged + loc/hint wiring. |
 | `_check_trauma_unit_ud_sync.py` | Trauma* clear/apply/NewHour must sync Unit↔UnitData (sat portrait icons after «cleared»). |
+| `_check_smoke_no_bleed.py` | Smoke/tear/toxic/fire skip ballistic bleed (JazzTryRollBleedFromHit, AppliedEffects, DangerClose). |
+| `_check_melee_pain_trauma_cth.py` | Legacy/melee CTH applies Pain/trauma after accuracy clamp; Arms trauma Pain on melee/throw. |
+| `_check_barry_craft_discount.py` | Barry DesignerExplosives −30% Parts on CraftAmmo/Explosives: recipe UI, consume wrap, queued total. |
 | `_apply_localization_copy_edit.py` | Validates and applies reviewed RU/EN waves to manual memory; optional `AllIDs` propagates one source-identical review to every listed localization ID. |
 | `_apply_maps_quest_repairs.py` | Идемпотентная generated-транзакция JAZZ-QUESTS-001: quest/conversation graph, companions и `jazz-maps/ModTextsMaps.csv`; map-object exports проверяются отдельным аудитом. |
 | `_audit_dirty_lua_syntax.py` | Компилирует через `lupa` все modified/untracked `*.lua` в `jazz`, `jazz-maps`, `jazz-units`; read-only pre-commit gate для синтаксиса. |

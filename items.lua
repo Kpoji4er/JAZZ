@@ -115125,7 +115125,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 																		end
 																	
 																		for _, ing in ipairs(recipe.Ingredients) do
-																			text[#text+1] = T{412158497796, "<amount> x <name>", amount = ing.amount, name = g_Classes[ing.item].DisplayName}
+																			local amount = ing.amount
+																			if type(Jazz_CraftIngredientAmount) == "function" then
+																				local dlg = GetDialog(self)
+																				amount = Jazz_CraftIngredientAmount(ing, dlg and dlg.context and dlg.context.Id, node.parent.context[1].operation)
+																			end
+																			text[#text+1] = T{412158497796, "<amount> x <name>", amount = amount, name = g_Classes[ing.item].DisplayName}
 																		end
 																		self:SetRolloverText(table.concat(text, "\n"))
 																	end
@@ -115468,7 +115473,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 																			text = {T(521200788637, "Ingredients")}
 																		end
 																		for _, ing in ipairs(recipe.Ingredients) do
-																			text[#text+1] = T{412158497796, "<amount> x <name>", amount = ing.amount, name = g_Classes[ing.item].DisplayName}
+																			local amount = ing.amount
+																			if type(Jazz_CraftIngredientAmount) == "function" then
+																				local dlg = GetDialog(self)
+																				amount = Jazz_CraftIngredientAmount(ing, dlg and dlg.context and dlg.context.Id, node.parent.context[1].operation)
+																			end
+																			text[#text+1] = T{412158497796, "<amount> x <name>", amount = amount, name = g_Classes[ing.item].DisplayName}
 																		end
 																		self:SetRolloverText(table.concat(text, "\n"))
 																end,

@@ -36,7 +36,7 @@
 - `ApplyDamageAndEffects` применяет `hit.effects` даже если броня не «пробита» по pen-class — blast-статусы не баллистические. Bleed по-прежнему только при pierce. BAT на explosion **не** вызывается (травма — `JazzTryApplyExplosionConcussionAndTrauma` по урону хита).
 - `JazzTryApplyExplosionConcussionAndTrauma` (`Systems_Medicine.lua`): **`Concussion` гарантированно** на любом blast-hit юните (`aoeType none`, center и area); без ролла и без снижения от `StunGrenadeProtection` (тот по-прежнему влияет на flashbang Will/`SuppressStunGrenade`). Пропуск только при `TempHitPoints > 0`, не-blast aoe, grazing, мёртвых/invulnerable на входе `ApplyDamageAndEffects`. Длительность ~1–2 хода (−2 ОД, −15 CTH, +30% move, без Free Move).
 - Травма (MED-004): Frag/HE `CenterAppliedEffects` **без** `*shot`. Одна зона (`spot_group`, иначе Ribs) по той же полосе урона, что и пуля (пол **20**, шаг +1, Heavy при ≥ **50%** MaxHP). Leftover `*shot` на хите — второй ролл не делается.
-- Hits штампуют `aoe_type`/`weapon` в `Grenade`/`HeavyWeapon` `GetAttackResults`, чтобы smoke/fire не получали concussion.
+- Hits штампуют `aoe_type`/`weapon` в `Grenade`/`HeavyWeapon` `GetAttackResults`, чтобы smoke/fire не получали concussion. `JazzIsEnvironmentalAoeHit` (`smoke`/`teargas`/`toxicgas`/`fire`) также **блокирует** `JazzTryRollBleedFromHit` / graze-bleed / AppliedEffects `Bleeding*` / DangerClose bleed — дымовая граната не вешает кровь.
 
 ### Blast knockback — JAZZ-GRENADES-002
 

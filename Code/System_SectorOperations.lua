@@ -2,6 +2,12 @@
 -- in SectorOperation_ItemsCalcRes below (this file loads after System_NamedPerks.lua).
 -- rawset: safe on ModsReloaded / DAP reload (no "new global" assert).
 g_JAZZ_SectorOpsCraftDiscountInlined = rawget(_G, "g_JAZZ_SectorOpsCraftDiscountInlined") or false
+g_JAZZ_TakeItemFromMercsBase = rawget(_G, "g_JAZZ_TakeItemFromMercsBase") or false
+g_JAZZ_TakeItemFromMercsFn = rawget(_G, "g_JAZZ_TakeItemFromMercsFn") or false
+g_JAZZ_CalcCraftResourcesBase = rawget(_G, "g_JAZZ_CalcCraftResourcesBase") or false
+g_JAZZ_CalcCraftResourcesFn = rawget(_G, "g_JAZZ_CalcCraftResourcesFn") or false
+g_JAZZ_ValidateRecipeIngBase = rawget(_G, "g_JAZZ_ValidateRecipeIngBase") or false
+g_JAZZ_ValidateRecipeIngFn = rawget(_G, "g_JAZZ_ValidateRecipeIngFn") or false
 rawset(_G, "g_JAZZ_SectorOpsCraftDiscountInlined", true)
 
 --- Keep DesignerExplosives craft_discount / Description in sync (saves + stale CE defs).
@@ -558,24 +564,9 @@ function SectorOperation_ItemsCalcRes(sector_id, operation_id)
 			parts = Max(0, MulDivRound(parts, 100 - best, 100))
 		end
 		if operation_id == "CraftAmmo" or operation_id == "CraftExplosives" then
-			-- Barry DesignerExplosives: −30% Parts on ammo/grenade craft.
-			-- Prefer op professionals; also any hired Barry in the sector (Idle still grants).
-			local barry = 0
-			for _, merc in ipairs(mercs) do
-				if type(Jazz_BarryCraftDiscountPercent) == "function" then
-					barry = Max(barry, Jazz_BarryCraftDiscountPercent(merc) or 0)
-				end
-			end
-			if barry <= 0 and type(GetPlayerMercsInSector) == "function" then
-				for _, uid in ipairs(GetPlayerMercsInSector(sector_id) or empty_table) do
-					local u = gv_UnitData and gv_UnitData[uid]
-					if type(Jazz_BarryCraftDiscountPercent) == "function" then
-						barry = Max(barry, Jazz_BarryCraftDiscountPercent(u) or 0)
-					end
-				end
-			end
-			if barry > 0 then
-				parts = Max(0, MulDivRound(parts, 100 - barry, 100))
+			-- Barry DesignerExplosives: −30% Parts on ammo/grenade craft (queued total).
+			if type(Jazz_ApplyBarryCraftPartsAmount) == "function" then
+				parts = Jazz_ApplyBarryCraftPartsAmount(sector_id, operation_id, parts)
 			end
 		elseif operation_id == "RepairItems" or operation_id == "Repair" then
 			for _, merc in ipairs(mercs) do
@@ -775,6 +766,133 @@ end
 function JazzInstallSectorOperationsAssignUIFixes()
 	JazzPatchAssignDlgMercGrid()
 	JazzPatchMainUIHideStartWhileAssignOpen()
+	JazzPatchCraftRecipeRolloverIngredients()
+	JazzInstallBarryCraftConsumeWraps()
+end
+
+local function Jazz_CraftOpFromMercs(mercs)
+	local uid = mercs and mercs[1]
+	if not uid then
+		return nil, nil
+	end
+	local unit = gv_UnitData and gv_UnitData[uid]
+	if not unit then
+		return nil, nil
+	end
+	local op = unit.Operation
+	local sector_id
+	if unit.GetSector then
+		local sector = unit:GetSector()
+		sector_id = sector and sector.Id
+	end
+	if not sector_id and unit.Squad and gv_Squads and gv_Squads[unit.Squad] then
+		sector_id = gv_Squads[unit.Squad].CurrentSector
+	end
+	return sector_id, op
+end
+
+function JazzInstallBarryCraftConsumeWraps()
+	local take = rawget(_G, "TakeItemFromMercs")
+	if type(take) == "function" then
+		local wrapped = rawget(_G, "g_JAZZ_TakeItemFromMercsFn")
+		if not (wrapped and take == wrapped) then
+			rawset(_G, "g_JAZZ_TakeItemFromMercsBase", take)
+			local function wrap(mercs, item_id, count, ...)
+				if item_id == "Parts" and type(count) == "number" and count > 0 then
+					local sector_id, op = Jazz_CraftOpFromMercs(mercs)
+					if (op == "CraftAmmo" or op == "CraftExplosives")
+						and sector_id and type(Jazz_ApplyBarryCraftPartsAmount) == "function" then
+						count = Jazz_ApplyBarryCraftPartsAmount(sector_id, op, count)
+					end
+				end
+				return g_JAZZ_TakeItemFromMercsBase(mercs, item_id, count, ...)
+			end
+			rawset(_G, "TakeItemFromMercs", wrap)
+			rawset(_G, "g_JAZZ_TakeItemFromMercsFn", wrap)
+		end
+	end
+
+	local calc = rawget(_G, "SectorOperation_CalcCraftResources")
+	if type(calc) == "function" then
+		local wrapped = rawget(_G, "g_JAZZ_CalcCraftResourcesFn")
+		if not (wrapped and calc == wrapped) then
+			rawset(_G, "g_JAZZ_CalcCraftResourcesBase", calc)
+			local function wrap(sector_id, operation_id)
+				local res = g_JAZZ_CalcCraftResourcesBase(sector_id, operation_id)
+				if type(res) == "table" and res.Parts and type(Jazz_ApplyBarryCraftPartsAmount) == "function" then
+					res.Parts = Jazz_ApplyBarryCraftPartsAmount(sector_id, operation_id, res.Parts)
+				end
+				return res
+			end
+			rawset(_G, "SectorOperation_CalcCraftResources", wrap)
+			rawset(_G, "g_JAZZ_CalcCraftResourcesFn", wrap)
+		end
+	end
+
+	local validate = rawget(_G, "SectorOperation_ValidateRecipeIngredientsAmount")
+	if type(validate) == "function" then
+		local wrapped = rawget(_G, "g_JAZZ_ValidateRecipeIngFn")
+		if not (wrapped and validate == wrapped) then
+			rawset(_G, "g_JAZZ_ValidateRecipeIngBase", validate)
+			local function wrap(mercs, recipe, res_items, cache)
+				local sector_id, op = Jazz_CraftOpFromMercs(mercs)
+				if recipe and (op == "CraftAmmo" or op == "CraftExplosives")
+					and type(Jazz_CraftRecipeIngredients) == "function" then
+					recipe = { Ingredients = Jazz_CraftRecipeIngredients(recipe, sector_id, op) }
+				end
+				return g_JAZZ_ValidateRecipeIngBase(mercs, recipe, res_items, cache)
+			end
+			rawset(_G, "SectorOperation_ValidateRecipeIngredientsAmount", wrap)
+			rawset(_G, "g_JAZZ_ValidateRecipeIngFn", wrap)
+		end
+	end
+end
+
+function JazzPatchCraftRecipeRolloverIngredients()
+	local xt = rawget(_G, "XTemplates") and XTemplates.RolloverOperationCraftRecipe
+	if not xt then
+		return
+	end
+	local function walk(node, depth)
+		if type(node) ~= "table" or (depth or 0) > 40 then
+			return false
+		end
+		if type(node.array) == "function" and type(node.run_after) == "function"
+			and not rawget(node, "jazz_barry_craft_ings") then
+			local base_array = node.array
+			node.array = function(parent, context)
+				local ings = base_array(parent, context)
+				if type(Jazz_CraftRecipeIngredients) ~= "function" or not context then
+					return ings
+				end
+				local control = context.control
+				local dlg = control and GetDialog(control)
+				if not dlg or not dlg.context then
+					return ings
+				end
+				local sector_id = dlg.context.Id
+				local host = dlg[1]
+				local operation_id = host and host.context and host.context[1] and host.context[1].operation
+				local recipe_id = control.item and control.item.recipe
+				local recipe = recipe_id and CraftOperationsRecipes[recipe_id]
+				return Jazz_CraftRecipeIngredients(recipe, sector_id, operation_id)
+			end
+			rawset(node, "jazz_barry_craft_ings", true)
+			return true
+		end
+		for _, child in ipairs(node) do
+			if type(child) == "table" and walk(child, (depth or 0) + 1) then
+				return true
+			end
+		end
+		for key, child in pairs(node) do
+			if type(key) ~= "number" and type(child) == "table" and walk(child, (depth or 0) + 1) then
+				return true
+			end
+		end
+		return false
+	end
+	walk(xt, 0)
 end
 
 function OnMsg.DialogOpen(dlg, init_mode)

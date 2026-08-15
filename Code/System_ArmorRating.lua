@@ -512,6 +512,13 @@ function Unit:ApplyDamageAndEffects(attacker, damage, hit, armor_decay)
 					if effect == "Pain" and self.HasStatusEffect and self:HasStatusEffect("Analgesia") then
 						return
 					end
+					-- Smoke/tear/toxic/fire: not ballistic bleed (DangerClose must not cut on a cloud).
+					if type(JazzIsEnvironmentalAoeHit) == "function" and JazzIsEnvironmentalAoeHit(hit)
+						and (effect == "Bleeding" or effect == "BleedingMedium" or effect == "BleedingHeavy"
+							or effect == "BleedingChance")
+					then
+						return
+					end
 					self:AddStatusEffect(JazzRemapHitBleedEffect(effect, hit, attacker))
 				end
 			end

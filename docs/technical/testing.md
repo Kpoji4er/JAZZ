@@ -74,7 +74,8 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - бросок/подствол: вблизи только лёгкий scatter (mishap% ≈ 0), цвет всё равно может теплеть от scatter; на дальней дистанции выше mishap и цвет уходит к красному (`GetMishapAimReliability` → `GetCTHColor`);
 - граната при Dex+Expl ≈ 30 ощущается уверенно; пайп/TNT при среднем Expl — заметно рискованнее;
 - suppression / Inaccurate увеличивают mishap% и разброс гранаты/GL;
-- **контузия/травма:** frag/HE/flashbang blast-hit — всегда `Concussion` (кроме TempHitPoints); `*shot` trauma rollers сквозь непробитую броню / dedicated trauma gate шансовый; smoke/gas/fire без concussion;
+- **контузия/травма:** frag/HE/flashbang blast-hit — всегда `Concussion` (кроме TempHitPoints); `*shot` trauma rollers сквозь непробитую броню / dedicated trauma gate шансовый; smoke/gas/fire без concussion и без кровотечения;
+- melee CTH: `Pain` / `TraumaArms*` / `TraumaHead*` режут шанс после clamp точности оружия (не съедаются 100%);
 - заклинивание, устранение задержки, износ и ремонт;
 - Run and Gun игрока и AI;
 - overwatch, interrupt и смена оружия;
@@ -109,6 +110,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - противогаз с полным и нулевым состоянием;
 - лечение bleeding, wounded, inaccurate и slowed;
 - стратегическая операция лечения.
+- CraftAmmo/CraftExplosives: Barrу в секторе → Parts в рецепте и при списании −30% (TNT/порох без скидки); `python docs/tools/_check_barry_craft_discount.py`.
 
 ## AI и awareness
 

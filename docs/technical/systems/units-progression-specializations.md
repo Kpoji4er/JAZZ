@@ -53,7 +53,7 @@ Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCod
 
 - `Jazz_Perk_Rothman` — mine garrison loyalty-scaled income (`_GetMineIncome` +10…+40%).
 - `Jazz_Perk_Miguel` — aura 30 via `Jazz_MiguelAuraUp`/`Down` (±15 CTH, ±30 Will).
-- `DesignerExplosives` (Barry) — homemade **vanilla** `ShapedCharge`: every **168 h** produce **2×**; craft via Craft Explosives; CraftAmmo/CraftExplosives Parts **−30%** if Barry is in the sector (assigned to craft **or** Idle in sector). Inlined in `System_SectorOperations.SectorOperation_ItemsCalcRes` (`g_JAZZ_SectorOpsCraftDiscountInlined` via `rawset`).
+- `DesignerExplosives` (Barry) — homemade **vanilla** `ShapedCharge`: every **168 h** produce **2×**; craft via Craft Explosives; CraftAmmo/CraftExplosives **Parts −30%** (recipe list, enable-check, queued total, and consume) if Barry is in the sector (assigned to craft **or** Idle). TNT/C4/BlackPowder/Meds unchanged. Helpers in `System_NamedPerks.lua`; consume/UI wraps in `System_SectorOperations.lua`.
 - `Jazz_Perk_Meat` — Will dmg → Grit; skip suppression queue.
 - `Jazz_Perk_Carlos` — detection −33%; failed SK 50% keep Hidden.
 - `Jazz_Perk_Cord` / `Jazz_Perk_Conrad` — city repair time/Parts; trainer Leadership floor 90.

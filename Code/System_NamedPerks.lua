@@ -1548,6 +1548,76 @@ function Jazz_BarryCraftDiscountPercent(unit)
 	return disc
 end
 
+function Jazz_IsCraftAmmoOrExplosives(operation_id)
+	return operation_id == "CraftAmmo" or operation_id == "CraftExplosives"
+end
+
+-- Sector-wide: assigned crafter or Idle Barry in the same sector.
+function Jazz_BarryCraftDiscountForSector(sector_id, operation_id)
+	if not sector_id or not Jazz_IsCraftAmmoOrExplosives(operation_id) then
+		return 0
+	end
+	local barry = 0
+	if type(GetOperationProfessionals) == "function" then
+		for _, merc in ipairs(GetOperationProfessionals(sector_id, operation_id) or empty_table) do
+			barry = Max(barry, Jazz_BarryCraftDiscountPercent(merc))
+		end
+	end
+	if barry <= 0 and type(GetPlayerMercsInSector) == "function" then
+		for _, uid in ipairs(GetPlayerMercsInSector(sector_id) or empty_table) do
+			local u = gv_UnitData and gv_UnitData[uid]
+			if not u and g_Units then
+				u = g_Units[uid]
+			end
+			barry = Max(barry, Jazz_BarryCraftDiscountPercent(u))
+		end
+	end
+	return barry
+end
+
+function Jazz_ApplyBarryCraftPartsAmount(sector_id, operation_id, amount)
+	if type(amount) ~= "number" or amount <= 0 then
+		return amount
+	end
+	local disc = Jazz_BarryCraftDiscountForSector(sector_id, operation_id)
+	if disc <= 0 then
+		return amount
+	end
+	return Max(0, MulDivRound(amount, 100 - disc, 100))
+end
+
+function Jazz_CraftIngredientAmount(ing, sector_id, operation_id)
+	if not ing then
+		return 0
+	end
+	local amount = ing.amount or 0
+	if ing.item == "Parts" then
+		return Jazz_ApplyBarryCraftPartsAmount(sector_id, operation_id, amount)
+	end
+	return amount
+end
+
+function Jazz_CraftRecipeIngredients(recipe, sector_id, operation_id)
+	if not recipe or not recipe.Ingredients then
+		return empty_table
+	end
+	if Jazz_BarryCraftDiscountForSector(sector_id, operation_id) <= 0 then
+		return recipe.Ingredients
+	end
+	local out = {}
+	for i, ing in ipairs(recipe.Ingredients) do
+		if ing.item == "Parts" then
+			out[i] = {
+				item = ing.item,
+				amount = Jazz_ApplyBarryCraftPartsAmount(sector_id, operation_id, ing.amount or 0),
+			}
+		else
+			out[i] = ing
+		end
+	end
+	return out
+end
+
 --- Ensure craft_discount is in g_PresetParamCache (ResolveValue nil → no UI tag / wrap miss).
 function Jazz_EnsureDesignerExplosivesCraftParam()
 	local def = CharacterEffectDefs and CharacterEffectDefs.DesignerExplosives
@@ -1919,7 +1989,16 @@ function Jazz_InstallDangerCloseExplosionWrap()
 				damage = damage + MulDivRound(damage, bonus, 100)
 			end
 			if is_unit then
-				bleed_stacks_to_add = Jazz_NamedPerkParam(attacker, "DangerClose", "bleed_stacks", 2) or 0
+				local env = false
+				if type(JazzIsEnvironmentalAoeHit) == "function" then
+					env = JazzIsEnvironmentalAoeHit(hit)
+				else
+					local aoe = (hit and hit.aoe_type) or self.aoeType or "none"
+					env = aoe == "smoke" or aoe == "teargas" or aoe == "toxicgas" or aoe == "fire"
+				end
+				if not env then
+					bleed_stacks_to_add = Jazz_NamedPerkParam(attacker, "DangerClose", "bleed_stacks", 2) or 0
+				end
 			end
 		end
 

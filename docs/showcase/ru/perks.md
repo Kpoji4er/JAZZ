@@ -72,7 +72,7 @@
 
 §B batch4: **Flo / Static / Cougar** + Grace/Kulba/Grom/Ricochet/Highball.
 
-**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), **Barry** (`DesignerExplosives`): каждые **168 ч** — **2× Shaped Charge**; крафт через «Изготовление взрывчатки»; **−30% Parts** на CraftAmmo/CraftExplosives, пока Barry в секторе (на операции или Idle). Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. **Igor** (`Nazdarovya`): drink 2 ОД, CD на убийство — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): косяки каждые 48 ч; в отряде sat +15% к восстановлению травм/ожогов/HP-долга (не инфекция); перевязка +20–25 Will. Soft: Biff troopers economy, Livewire money op (ECON-001).
+**Batch5 HARD/satellite:** Rothman (шахта, loyalty-scaled доход), Miguel (аура 30 Will/CTH), Ira (+20 к случайной характеристике милиции), **Barry** (`DesignerExplosives`): каждые **168 ч** — **2× Shaped Charge**; крафт через «Изготовление взрывчатки»; **−30% Parts** в рецепте и при списании CraftAmmo/CraftExplosives, пока Barry в секторе (на операции или Idle; TNT/порох без скидки). Meat Will→Grit, Carlos detection/Hidden, Cord city repair, Conrad Leadership≥90 trainer. **Igor** (`Nazdarovya`): drink 2 ОД, CD на убийство — heal/Pain/Drunk stacks. **Thor** (`NaturalHealing`): косяки каждые 48 ч; в отряде sat +15% к восстановлению травм/ожогов/HP-долга (не инфекция); перевязка +20–25 Will. Soft: Biff troopers economy, Livewire money op (ECON-001).
 
 **Batch6 §D:** `Jazz_Perk_Benny` («Вам посылка») и `Jazz_Perk_Simon` («Абсолютный снайпер») — CE + StartingPerks; CombatAction soft-cut. Статусы: `Jazz_MiguelAuraUp`/`Down`, `Jazz_OrderAP`, `Jazz_OrderCTH`, …
 

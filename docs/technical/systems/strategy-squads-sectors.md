@@ -141,7 +141,7 @@ Generated `SatelliteViewMapContextMenu` считает отсутствие Regi
 
 ## Sector operations и лечение
 
-`System_SectorOperations.lua` расширяет operations, включая взаимодействие с wounds/healing. Стоимость, длительность, merc assignment и результат должны согласоваться с tactical statuses и переходом времени.
+`System_SectorOperations.lua` расширяет operations, включая взаимодействие с wounds/healing. Стоимость, длительность, merc assignment и результат должны согласоваться с tactical statuses и переходом времени. Barry `DesignerExplosives`: CraftAmmo/CraftExplosives **Parts −30%** in recipe UI, enable-check, queued total, and `TakeItemFromMercs` consume while he is in the sector (assigned or Idle); TNT/C4/BlackPowder/Meds unchanged.
 
 Assign UI hotfix (large multi-squad sectors): vanilla `SectorOperationsAssignDlgUI` grows with every Idle merc and uses float grid math, so **Подтвердить** can leave the screen while parent **Начать** stays disabled for the open Assign dialog — money still charges on Enter/Confirm. Jazz pins Assign ActionBar, clamps the merc grid height, forces integer grid cells, and hides MainUI Start while Assign is open.
 

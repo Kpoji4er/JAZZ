@@ -709,6 +709,9 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 		target_pos = target_pos,
 		min = 0,
 		max = 100,
+		mod_add = 0,
+		mod_mul = 100,
+		enabled = true,
 	}
 
 
@@ -825,7 +828,11 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	if IsKindOf(target, "Unit") then
 		target:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
 	end
-	base = Max(0, mod_data.enabled and MulDivRound(base + mod_data.mod_add, mod_data.mod_mul, 100) or 0)
+	-- Pain / trauma / concussion OnCalcChanceToHit write mod_add. Do not fold them into
+	-- skill+presets before weapon accuracy: Clamp(base+accuracy, 100) ate melee penalties.
+	local reaction_add = tonumber(mod_data.mod_add) or 0
+	local reaction_mul = tonumber(mod_data.mod_mul) or 100
+	base = Max(0, base)
 
 	-- Do not re-fetch target:GetPos() here: AI may call CTH on units whose packed stance
 	-- is already known while GetPos is transiently invalid (melee Think / Precalc).
@@ -852,6 +859,9 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	local penalty = weapon:GetAccuracy(attacker_pos:Dist(target_pos), self, action, knife_throw) - 100
 	--print(penalty)
 	local final = Clamp(base + penalty, 0, MaxCTH)
+	if reaction_add ~= 0 or reaction_mul ~= 100 then
+		final = MulDivRound(final + reaction_add, reaction_mul, 100)
+	end
 	final = Clamp(final, mod_data.min, mod_data.max)
 		
 

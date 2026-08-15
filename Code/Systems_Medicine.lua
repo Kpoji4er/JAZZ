@@ -773,8 +773,27 @@ local function lInstallMedicineMeleeUIHooks()
 	g_JAZZ_MedicineMeleeUIHooks = true
 end
 
+-- Smoke / tear / toxic / fire: visibility/gas/burn packages, not ballistic bleed.
+function JazzIsEnvironmentalAoeHit(hit)
+	if not hit then
+		return false
+	end
+	local aoe = hit.aoe_type
+	if aoe == nil or aoe == false or aoe == "" then
+		local w = hit.weapon
+		if w and w.aoeType then
+			aoe = w.aoeType
+		end
+	end
+	aoe = aoe or "none"
+	return aoe == "smoke" or aoe == "teargas" or aoe == "toxicgas" or aoe == "fire"
+end
+
 function JazzTryRollBleedFromHit(target, hit, attacker)
 	if not target or not hit or hit.setpiece then
+		return false
+	end
+	if JazzIsEnvironmentalAoeHit(hit) then
 		return false
 	end
 	local armor_hit = hit.armor_decay and next(hit.armor_decay) ~= nil
@@ -799,6 +818,9 @@ JazzGrazeLightBleedChance = 15
 
 function JazzTryRollBleedFromGraze(target, hit, attacker)
 	if not target or not hit or hit.setpiece then
+		return false
+	end
+	if JazzIsEnvironmentalAoeHit(hit) then
 		return false
 	end
 	if target:Random(100) >= (JazzGrazeLightBleedChance or 15) then
@@ -1784,6 +1806,29 @@ function JazzTraumaPainOnZoneUse(unit, zone)
 	unit.jazz_trauma_pain_keys[key] = true
 	local stacks = JazzTraumaPainStacksOnZoneUse[tier] or 1
 	return JazzAddPainStacks(unit, stacks) > 0
+end
+
+-- Arms trauma: firearms already fire JazzTraumaPainOnZoneUse from OnFirearmAttackStart.
+-- Melee / thrown knives never hit that event — swing still uses the arms.
+function OnMsg.OnAttack(attacker, action, target, results, attack_args)
+	if not attacker or not action then
+		return
+	end
+	if attack_args and attack_args.prediction then
+		return
+	end
+	local melee = action.ActionType == "Melee Attack"
+	if not melee then
+		local weapon = attack_args and attack_args.weapon
+		if not weapon and results then
+			weapon = results.weapon
+		end
+		melee = IsKindOf(weapon, "MeleeWeapon") and action.ActionType == "Ranged Attack"
+	end
+	if not melee then
+		return
+	end
+	JazzTraumaPainOnZoneUse(attacker, "Arms")
 end
 
 -- Heavy traumas: +1 Pain each EndTurn for every heavy zone that was not used this turn.

@@ -128,7 +128,7 @@ Loc IDs: remaining batch3 IDs after vanilla rollback purge.
 | `Jazz_Perk_Carlos` | Text partial | Detection −33% (`UpdateSuspicion` + apply modifier); failed SK 50% keep Hidden |
 | `Jazz_Perk_Cord` | WIP stub | City sector repair −15% time / −10% Parts (bar POI soft) |
 | `Jazz_Perk_Conrad` | WIP stub | Trainer Leadership floor 90 on TrainMilitia/TrainMercs pace |
-| DesignerExplosives | vanilla ShapedCharge + JAZZ | 2x ShapedCharge / 168h; CraftExplosives; CraftAmmo/CraftExplosives Parts -30% if Barry in sector (op or Idle); SectorOps inline + rawset flag |
+| DesignerExplosives | vanilla ShapedCharge + JAZZ | 2x ShapedCharge / 168h; CraftExplosives; CraftAmmo/CraftExplosives Parts −30% in recipe UI + consume + queued total if Barry in sector (op or Idle) |
 | `DangerClose` | ≥8 tiles | wrap ExplosionPrecalc +40% dmg; +2 Bleeding on blast hits; stim CTH/tiredness immune; aim HUD ≥8 |
 | `ExplodingPalm` | DrQ | Unarmed HP-tier statuses; sat debt +30%; blocks WoundInfected; Passive CA |
 | `InnerInfo_JAZZ` | Livewire (Фаза): Passive CA `InnerInfo_JAZZ` + HUD `perk_inners_info`; reveal+intel+hack; money op soft ECON-001 |

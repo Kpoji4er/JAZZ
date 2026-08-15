@@ -3,6 +3,18 @@ DefineClass.Pain = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 	object_class = "StatusEffect",
+	Parameters = {
+		PlaceObj('PresetParamNumber', {
+			'Name', "APLoss",
+			'Value', 1,
+			'Tag', "<APLoss>",
+		}),
+		PlaceObj('PresetParamPercent', {
+			'Name', "cth_penalty",
+			'Value', 5,
+			'Tag', "<cth_penalty>%",
+		}),
+	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
