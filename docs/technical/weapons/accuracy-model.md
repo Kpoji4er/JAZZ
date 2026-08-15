@@ -256,7 +256,7 @@ Strength и Marksmanship поровну определяют базовый ко
 
 Отдача влияет на шанс ровно один раз. Вектор промаха описывает направление уже состоявшегося промаха и не должен повторно ухудшать вероятность попадания. Исключения режимов очереди оформляются явным `ActionFactor` или изменением recoil retention, а не сбросом CTH после произвольного номера пули.
 
-Пакет дроби (`Buckshot` / `DoubleBarrel` / …, JAZZ-WEAPONS-006): это **не** очередь. Для всех дробин `P_bullet(i) = P_first` (без `recoil_retention^(i-1)`); у каждой дробины свой hit-roll при том же шансе.
+Пакет дроби (`Buckshot` / `DoubleBarrel` / …, JAZZ-WEAPONS-006): это **не** очередь. Для всех дробин `P_bullet(i) = P_first` (без `recoil_retention^(i-1)`); у каждой дробины свой hit-roll при том же шансе. Сигнатура `BulletHell` тоже держит `P_bullet(i) = P_first` за счёт `action_recoil = 0` (не pellet_pack).
 
 ### Climb промахов очереди (JAZZ-WEAPONS-007)
 

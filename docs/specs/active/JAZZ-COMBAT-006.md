@@ -80,6 +80,7 @@ Playtest: нужен конусный прицел **и** реальные пу�
 - `JAZZ-COMBAT-006-AC-002` / `AC-003`: `BLOCKED` — runtime/human
 - **Hotfix 2026-08-15:** vanilla leftover `target = SetTerrainZ(far)` + CTH at cone-max (`GetMin/MaxAimRange` = `WeaponRange`) made honest JAZZ CTH 0% and miss-rays ignore the primary / climb into the sky. CTH now vs resolved unit at their range; miss-rays can still hit anyone in the sector; no recoil-climb on the cone spray. Cone-wide Will via `JazzCollectBulletHellConeEnemies` (same total as primary × shot count).
 - **Hotfix 2026-08-15b (playtest):** CTH vs unit was not enough — `target_pos` still pushed to terrain at cone max, then *all* shots (hits included) LoF'd that dirt point. Playtest: Will dump works, bullets hit nothing. Do not far-push BulletHell; hits LoF the unit; miss fan at chest height; `GetMinAimRange` = 0.
+- **Hotfix 2026-08-15c (owner):** BulletHell has **no recoil** — `JAZZ_CTHGetActionRecoil` returns 0 (all rounds keep first-bullet CTH; `cth_loss_per_shot` cannot restore recoil). Miss climb already skipped.
 
 ## Documentation delta
 

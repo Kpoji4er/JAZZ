@@ -581,6 +581,10 @@ local function JAZZ_CTHGetActionRecoil(weapon_recoil, action)
 	end
 
 	local action_id = action.id
+	if action_id == "BulletHell" then
+		-- Spike: cone dump keeps first-bullet CTH on every round (no retention / climb).
+		return 0, 0
+	end
 	local action_recoil = weapon_recoil
 	if action_id == "GrizzlyPerk" then
 		action_recoil = weapon_recoil * 0.8
@@ -596,7 +600,9 @@ function JAZZ_CTHGetRecoilProfile(weapon, attacker, stance, action, attack_args)
 	local weapon_recoil = Max(0, JAZZ_CTHGetWeaponProperty(weapon, "Recoil", 0))
 	local base_recoil = Max(0, weapon and weapon.base_Recoil or weapon_recoil)
 	local action_recoil, action_protected_shots = JAZZ_CTHGetActionRecoil(weapon_recoil, action)
-	if attack_args and type(attack_args.cth_loss_per_shot) == "number" then
+	if action and action.id == "BulletHell" then
+		action_recoil = 0
+	elseif attack_args and type(attack_args.cth_loss_per_shot) == "number" then
 		action_recoil = Max(0, attack_args.cth_loss_per_shot)
 	end
 

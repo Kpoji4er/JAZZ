@@ -24,6 +24,10 @@ needles = {
     "Code/ExecFirearmAttacks.lua": [
         "jazz_bh_arc_sprayed",
     ],
+    "Code/AccuracyRangeCTH.lua": [
+        'action_id == "BulletHell"',
+        "return 0, 0",
+    ],
 }
 forbidden = {
     "Code/CombatActions.lua": [
