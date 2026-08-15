@@ -33,7 +33,7 @@ Folding stocks and tactical flashlights toggle via **small buttons next to the w
 | Auto | Long burst: denser fire for ammo and stacked recoil; climb stronger on the tail. |
 | MG burst | Costs +1 AP at burst length or +2 AP for the longer automatic string; uses full weapon recoil, so Strength and support remain critical. |
 | Buckshot / buckshot burst / double barrel | Pellet packet (buckshot ≈9); same hit chance per pellet, no in-packet recoil or queue-climb. Double barrel costs the same AP as a normal shotgun shot — you pay in two shells. |
-| Overwatch | Cone control; each interrupt resolves from the real position. |
+| Overwatch | Cone control; each interrupt resolves from the real position. **Scope + sniper:** Overwatch costs **1 AP**, leftover AP kept. |
 | Pin Down | Keeps a target under reaction threat (not a hit guarantee). |
 | Mobile Shot / Run and Gun | Shot or packets during/after movement. |
 | MG Setup | Sets up the gun position; does not fire by itself. A mapped stationary MG stays under control after loading a save (no remount needed). |

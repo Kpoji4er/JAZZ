@@ -99,6 +99,8 @@
 | `_apply_combat_005_weight_items.py` | JAZZ-COMBAT-005: sync `Weight_*Class` Description + `OnCalcMoveModifier` → `JazzArmorWeightPainOnMove` in `items.lua`. |
 | `_apply_ironclad_killingwind_fm_stack.py` | COMBAT-005/UNITS-006: Ironclad companion + items/metadata; KillingWind loc `890000000009876`; Ironclad Description `890000000013124`. Additive −50%/−50% FM tax. |
 | `_check_ironclad_killingwind_fm_stack.py` | Static: `fm_mul - 50` twice; no shared OR-half; Ironclad loaded; cumbersome BeginTurn unchanged. |
+| `_check_scrap_eject_no_setcomponent.py` | Scrap eject must not `SetWeaponComponent` (SCRAP ALL on loaded loot); ScrapItem special-scrap nil-safe. |
+| `_check_meltdown_portraits.py` | Meltdown `MercPortraits/Meltdown.png` + `_Big.png` shipped; UnitData/items wire `Mod/Dv3mFVN/...`. |
 | `_build_vengeful_temperament_sig_icon.py` | Meltdown active CA: 108×54 dual from HUD `perk_vengeful_temperament`; wire jazz-units CombatAction.Icon (CE stays Personal 68×68). |
 | `_apply_combat_007_energy_items.py` | JAZZ-COMBAT-007: insert energy ladder ModItems (`Fit`/`Winded`/`Fatigued`/Tired/Exhausted/WellRested/FreeMove) + `System_EnergyLadder` into `items.lua`/`metadata.lua`. |
 | `_apply_combat_007_energy_loc.py` | JAZZ-COMBAT-007: upsert RU/EN CSV rows for energy CE + travel warn/step logs (IDs `890000000013100`–`13120`). |
@@ -141,6 +143,7 @@
 | `_audit_merc_med_loot_redistribute.py` | Static MED-003 hire loot: Med&lt;20 bandages-only, kit cascade, AME Small, bandage/morphine spreads vs plan. |
 | `_audit_legion_med_loot_redistribute.py` | Static MED-003 Legion class loot: T2 bandage 1–2, T3 morphine 30%, medic 1–10/0–3 + kits. |
 | `_audit_med001_large_kit_trauma.py` | Static MED-001 AC-017: Large Medkit (`Reanimationsset`) marks heaviest unhealed Trauma* with `jazz_healing`; targeting + GetBandaged + loc/hint wiring. |
+| `_check_trauma_unit_ud_sync.py` | Trauma* clear/apply/NewHour must sync Unit↔UnitData (sat portrait icons after «cleared»). |
 | `_apply_localization_copy_edit.py` | Validates and applies reviewed RU/EN waves to manual memory; optional `AllIDs` propagates one source-identical review to every listed localization ID. |
 | `_apply_maps_quest_repairs.py` | Идемпотентная generated-транзакция JAZZ-QUESTS-001: quest/conversation graph, companions и `jazz-maps/ModTextsMaps.csv`; map-object exports проверяются отдельным аудитом. |
 | `_audit_dirty_lua_syntax.py` | Компилирует через `lupa` все modified/untracked `*.lua` в `jazz`, `jazz-maps`, `jazz-units`; read-only pre-commit gate для синтаксиса. |
@@ -234,6 +237,8 @@
 | `_patch_nazdarovya_loc.py` | Nazdarovya/Drunk: upsert RU/EN rows for perk, status, CombatAction strings. |
 | `_patch_buildingconfidence_loc.py` | MD BuildingConfidence: upsert RU/EN perk description (Inspired turns + heal level-diff). |
 | `_rollback_hawkseye_vanilla.py` | Scope HawksEye: remove JAZZ CE/items/metadata override (back to vanilla PinDown+biscuits). |
+| `_restore_hawkseye_jazz.py` | Restore Scope HawksEye JAZZ CE: sniper OW 1 AP, suppress ×2, biscuits 96h×7 + hire; items/metadata/RU/EN. |
+| `_check_hawkseye_ow_suppress.py` | Static: HawksEye companion + OW branch + suppress hook + 96h×7 loc. |
 | `_audit_mag_size_set_defaults.py` | Список оружия с default-магазином на `MagazineSizeSet` (поверхность бага MagSize=1 при `mul=0`). |
 | `_validate_wave_weapons.py` | Статическая валидация волны ATTACH-001 MagSizeSet + WEAPONS-002..005 (якоря, metadata load, loc, CSV). |
 | `_peek_mag45_kobra.py` / `_peek_mag45_kobra2.py` / `_list_reload_effects.py` | Peek Mag45 / Reflex_Cobra effects+params и Reload* effect presets в `items.lua`. |

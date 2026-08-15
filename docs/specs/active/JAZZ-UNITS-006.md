@@ -210,7 +210,7 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 | Buns                | `BunsPerk`              | +10% CTH vs ally-damaged this turn                                                | CHANGE  |
 | Sidney              | `SidneyPerk`            | +2 AP start until miss/dmg taken                                                  | CHANGE  |
 | Raven               | `Spotter`               | PinDown→Marked→ next hit 100% crit                                                | CHANGE  |
-| Scope               | `HawksEye`              | Sniper Overwatch 1 AP (keep leftover); PinDown min 1 AP; biscuits on hire; sniper suppress ×2 | CHANGE  |
+| Scope               | `HawksEye`              | Sniper Overwatch 1 AP (keep leftover); PinDown min 1 AP; biscuits every 96h ×7 (+ on hire); sniper suppress ×2 | CHANGE  |
 | Hitman              | `DedicatedCamper`       | Stationary +25% dmg; ≥25 dmg → +15 Grit                                           | CHANGE  |
 | Tex                 | `DanceForMe`            | Legs AoE + OW                                                                     | ≈       |
 | Shadow              | `FleetingShadow`        | Stealth run; +10 Grit on SK                                                       | ≈       |
@@ -305,5 +305,6 @@ Aliases: Vicky→`Vicki`, Kalina→`Kalyna`, Larryclean→`Larry_Clean`, Pierre�
 - Этот файл = approved contract.
 - При батче: showcase RU/EN, wiki, technical, `_named-perks-plan.md`, JA12 articles; `JAZZ-UNITS-003` supersede note (батч 1).
 - Meltdown 2026-08-10: showcase `perks.md` RU|EN; `docs/tools/_units006_namedperks_notes.md`; wiki `combat-actions.md`.
+- Scope HawksEye 2026-08-15: restore JAZZ OW 1 AP + sniper suppress ×2; biscuits every **96 h ×7** (Bayun) plus hire Cookies; showcase/wiki/technical.
 - Tools snapshot: `docs/tools/_tmp_list2_perks_fresh.tsv`, `_tmp_list2_sheet_diff.md`, `_tmp_diff_list2_sheet.py` (agent tooling keep).
 

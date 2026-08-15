@@ -99,7 +99,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 
 ## Crafting и разбор
 
-Зарегистрировано 49 `CraftOperationsRecipe`, преимущественно для ammo и mortar/ordnance, и 33 `RecipeDef`, преимущественно armor transformations. Scrap зависит от weapon methods; внутри JAZZ есть несколько определений `FirearmBase:GetScrapParts`, поэтому итоговое поведение задаётся load order.
+Зарегистрировано 49 `CraftOperationsRecipe`, преимущественно для ammo и mortar/ordnance, и 33 `RecipeDef`, преимущественно armor transformations. Scrap зависит от weapon methods; внутри JAZZ есть несколько определений `FirearmBase:GetScrapParts`, поэтому итоговое поведение задаётся load order. `ScrapItem` перед уничтожением ствола вызывает `JAZZ_EjectRemovableAttachmentsForScrap`: съёмные модули копируются в сумку отряда **без** `SetWeaponComponent` (иначе SCRAP ALL по заряженному луту падает на `ReloadWeapon`).
 
 `JAZZ_BarrelParts` — stackable `ResourceItem` для barrel install/repair; `JAZZ_ScopeParts` — repair surcharge при remountable Scope + salvage при break на провале снятия. Runtime resource registry добавляет оба как additional sector resources. Quoted craft/`AdditionalCosts` в `items.lua` уже remapped (`FineSteelPipe`→`JAZZ_BarrelParts`, `OpticalLens`/`Microchip`→`Parts`). Legacy ModItem defs оставлены dormant (`CanAppearInShop = false`) для load-migrate стеков; companions синхронизированы. Полное удаление defs — editor purge после wave acceptance.
 

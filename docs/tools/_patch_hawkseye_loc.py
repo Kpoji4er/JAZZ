@@ -10,8 +10,8 @@ ROWS = {
         "jazz:CharacterEffect/HawksEye.lua",
     ),
     "890000000009870": (
-        "Со снайперской винтовкой: Overwatch за <overwatchCostOverwrite> ОД (остальные ОД остаются). Pin Down / Focus Fire — мин. <pindownCostOverwrite> ОД. Снайперские выстрелы дают ×2 подавления. При найме печёт печенье (перезарядка сигнатур).",
-        "With a sniper rifle: Overwatch costs <overwatchCostOverwrite> AP (remaining AP kept). Pin Down / Focus Fire min <pindownCostOverwrite> AP. Sniper shots deal ×2 suppression. On hire, bakes biscuits (recharge signatures).",
+        "Со снайперской винтовкой: Overwatch за <overwatchCostOverwrite> ОД (остальные ОД остаются). Pin Down / Focus Fire — мин. <pindownCostOverwrite> ОД. Снайперские выстрелы дают ×2 подавления. Каждые <hoursToProduce> ч — <amountToProduce>× Печенье. При найме тоже печёт печенье (перезарядка сигнатур).",
+        "With a sniper rifle: Overwatch costs <overwatchCostOverwrite> AP (remaining AP kept). Pin Down / Focus Fire min <pindownCostOverwrite> AP. Sniper shots deal ×2 suppression. Every <hoursToProduce> h — <amountToProduce>× biscuits. Also bakes biscuits on hire (recharge signatures).",
         "jazz:CharacterEffect/HawksEye.lua",
     ),
 }

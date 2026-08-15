@@ -1004,6 +1004,34 @@ end
 
 
 
+-- KillingWind id is shared with CombatAction. HasPerk() is StatusEffects[id] (named key).
+-- If that key is missing on the tactical Unit, scan the array and gv_UnitData.
+function JazzUnitHasPerk(unit, id)
+	if not unit then
+		return false
+	end
+	if HasPerk(unit, id) then
+		return true
+	end
+	if unit.GetStatusEffect and unit:GetStatusEffect(id) then
+		return true
+	end
+	local effects = unit.StatusEffects
+	if effects then
+		for _, eff in ipairs(effects) do
+			if eff and (eff.class == id or eff.Id == id) then
+				return true
+			end
+		end
+	end
+	local sid = unit.session_id
+	local data = sid and rawget(_G, "gv_UnitData") and gv_UnitData[sid]
+	if data and data ~= unit and HasPerk(data, id) then
+		return true
+	end
+	return false
+end
+
 -- JAZZ-COMBAT-005: armor weight → FreeMove + capped start AP; see docs/specs/active/JAZZ-COMBAT-005.md
 -- apply_consume: true on BeginTurn (tax once); false on OnGearChanged (icons/penalties only).
 function Unit:CalculateArmorWeight(apply_consume)
@@ -1050,17 +1078,23 @@ function Unit:CalculateArmorWeight(apply_consume)
 	local ap = raw_ap
 	-- Ironclad −50% armor FM tax; KillingWind another −50% (additive: both → 0).
 	-- Ironclad still halves start AP. Cumbersome weapon FreeMove is BeginTurn, not here.
-	local fm_mul = 100
-	if HasPerk(self, "Ironclad") then
-		fm_mul = fm_mul - 50
+	local has_ironclad = JazzUnitHasPerk(self, "Ironclad")
+	local has_kw = JazzUnitHasPerk(self, "KillingWind")
+	if has_ironclad and has_kw then
+		fm = 0
+	else
+		local fm_mul = 100
+		if has_ironclad then
+			fm_mul = fm_mul - 50
+		end
+		if has_kw then
+			fm_mul = fm_mul - 50
+		end
+		if fm_mul < 100 then
+			fm = fm * fm_mul / 100
+		end
 	end
-	if HasPerk(self, "KillingWind") then
-		fm_mul = fm_mul - 50
-	end
-	if fm_mul < 100 then
-		fm = fm * fm_mul / 100
-	end
-	if HasPerk(self, "Ironclad") then
+	if has_ironclad then
 		ap = ap / 2
 	end
 	if self.using_cumbersome then
@@ -1384,12 +1418,14 @@ function Unit:BeginTurn(new_turn)
 		self.attacked_this_turn = false
 		self.hit_this_turn = false
 		self.wounded_this_turn = false
-		NetUpdateHash("BeginTurn", self, self.using_cumbersome, HasPerk(self, "KillingWind"),
-								HasPerk(self, "Ironclad"))
+		NetUpdateHash("BeginTurn", self, self.using_cumbersome, JazzUnitHasPerk(self, "KillingWind"),
+								JazzUnitHasPerk(self, "Ironclad"))
 
 
 		
-		if not self.using_cumbersome or HasPerk(self, "KillingWind") then
+		-- KillingWind: full FreeMove with cumbersome weapons/armor (0% cumbersome FM penalty).
+		-- Ironclad path: cumbersome *armor* without a cumbersome handheld (vanilla CanUseIroncladPerk).
+		if not self.using_cumbersome or JazzUnitHasPerk(self, "KillingWind") then
 			self:AddStatusEffect("FreeMove")
 		elseif self:CanUseIroncladPerk() then
 			self:AddStatusEffect("FreeMove")
@@ -1510,7 +1546,7 @@ function Unit:MGPack()
 	self:UpdateHidden()
 	self:FlushCombatCache()
 	self:RecalcUIActions(true)
-	if HasPerk(self, "KillingWind") then
+	if JazzUnitHasPerk(self, "KillingWind") then
 		self:RemoveStatusEffect("FreeMove")
 		self:AddStatusEffect("FreeMove")
 		-- Re-apply armor FM tax once after FreeMove refresh (same as BeginTurn).

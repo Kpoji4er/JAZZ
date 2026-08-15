@@ -17,11 +17,15 @@ if "fm_mul = fm_mul - 50" not in unit:
     fail.append("System_OR_Unit.lua: missing additive fm_mul - 50")
 if unit.count("fm_mul = fm_mul - 50") < 2:
     fail.append("System_OR_Unit.lua: expected two −50 FM perk steps")
-if 'HasPerk(self, "Ironclad")' not in unit or 'HasPerk(self, "KillingWind")' not in unit:
-    fail.append("System_OR_Unit.lua: missing perk checks")
+if "function JazzUnitHasPerk" not in unit:
+    fail.append("System_OR_Unit.lua: missing JazzUnitHasPerk (CombatAction/Perk id fallback)")
+if 'JazzUnitHasPerk(self, "Ironclad")' not in unit or 'JazzUnitHasPerk(self, "KillingWind")' not in unit:
+    fail.append("System_OR_Unit.lua: missing JazzUnitHasPerk checks")
+if "has_ironclad and has_kw" not in unit:
+    fail.append("System_OR_Unit.lua: Ironclad+KillingWind must zero armor FM")
 if "ap = ap / 2" not in unit:
     fail.append("System_OR_Unit.lua: Ironclad AP ÷2 missing")
-if "not self.using_cumbersome or HasPerk(self, \"KillingWind\")" not in unit:
+if "not self.using_cumbersome or JazzUnitHasPerk(self, \"KillingWind\")" not in unit:
     fail.append("BeginTurn: KillingWind cumbersome FreeMove path missing")
 
 if "890000000013124" not in iron:

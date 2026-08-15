@@ -2,6 +2,9 @@
 -- Single Code module + ModItem CharacterEffect Parameters/reactions.
 -- Loc note: VR 6300-6499 reserved; perk text often 6500+ / 9885+.
 
+-- Defined in System_OR_Unit.lua (CombatAction/Perk id fallback).
+JazzUnitHasPerk = rawget(_G, "JazzUnitHasPerk") or false
+
 
 --- Read a Named Perk Parameter from unit effect or CharacterEffectDefs (ModItem-tunable).
 function Jazz_NamedPerkParam(unit, perk_id, key, default)
@@ -105,7 +108,12 @@ end
 --- Do NOT bail on results.miss — primary miss still allows multi-target hits in the same volley.
 --- Prefer aggregate `results` (ExecFirearmAttacks); CE OnUnitAttack may see per-hand/per-shot tables.
 local function lKillingWindTryGrit(attacker, results)
-	if not attacker or not HasPerk(attacker, "KillingWind") then
+	if not attacker then
+		return
+	end
+	local has_kw = type(JazzUnitHasPerk) == "function" and JazzUnitHasPerk(attacker, "KillingWind")
+		or HasPerk(attacker, "KillingWind")
+	if not has_kw then
 		return
 	end
 	if not results then
@@ -1062,10 +1070,13 @@ local function lEnsureKillingWindGritParam()
 	end
 end
 
+local lInstallHawksEyeOverwatchCost
+
 local function lInstallNamedPerks006Signatures()
 	-- Always refresh BulletHell cache (wrapped flag must not skip it).
 	lEnsureBulletHellRechargeOnKill()
 	lEnsureKillingWindGritParam()
+	lInstallHawksEyeOverwatchCost()
 
 	if rawget(_G, "g_JAZZ_NamedPerks006SignaturesWrapped") then
 		lInstallTheGrimMultiKillRecharge()
@@ -1173,6 +1184,64 @@ function Jazz_KulbaIsUSAuto(weapon)
 	end
 	local class_id = weapon.class or weapon.Id or weapon.id
 	return class_id and KULBA_US_AUTOS[class_id] or false
+end
+
+g_JAZZ_HawksEyeOverwatchWrapped = rawget(_G, "g_JAZZ_HawksEyeOverwatchWrapped") or false
+g_JAZZ_HawksEyeOverwatchBase = rawget(_G, "g_JAZZ_HawksEyeOverwatchBase") or false
+
+local function lHawksEyeIsSniper(weapon)
+	if not weapon then
+		return false
+	end
+	return IsKindOf(weapon, "SniperRifle") or weapon.WeaponType == "Sniper"
+end
+
+function Jazz_ApplyHawksEyeSuppression(attacker, suppressionbonus)
+	if not attacker or not HasPerk(attacker, "HawksEye") then
+		return suppressionbonus
+	end
+	local w = attacker.GetActiveWeapons and attacker:GetActiveWeapons("Firearm")
+	if lHawksEyeIsSniper(w) then
+		return (suppressionbonus or 100) * 2
+	end
+	return suppressionbonus
+end
+
+function Jazz_HawksEyeSniperOverwatchAP(unit, weapon)
+	if not unit or not HasPerk(unit, "HawksEye") then
+		return
+	end
+	weapon = weapon or (unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm"))
+	if not lHawksEyeIsSniper(weapon) then
+		return
+	end
+	if weapon.PreparedAttackType ~= "Overwatch" and weapon.PreparedAttackType ~= "Both" then
+		return
+	end
+	local n = Jazz_NamedPerkParam(unit, "HawksEye", "overwatchCostOverwrite", 1)
+	return n * const.Scale.AP
+end
+
+lInstallHawksEyeOverwatchCost = function()
+	if rawget(_G, "g_JAZZ_HawksEyeOverwatchWrapped") then
+		return
+	end
+	local ow = CombatActions and CombatActions.Overwatch
+	if not ow or type(ow.GetAPCost) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_HawksEyeOverwatchBase", ow.GetAPCost)
+	rawset(_G, "g_JAZZ_HawksEyeOverwatchWrapped", true)
+	function ow.GetAPCost(self, unit, args)
+		if not (args and args.action_cost_only) then
+			local weapon = self:GetAttackWeapons(unit, args)
+			local ap = Jazz_HawksEyeSniperOverwatchAP(unit, weapon)
+			if ap then
+				return ap, ap
+			end
+		end
+		return g_JAZZ_HawksEyeOverwatchBase(self, unit, args)
+	end
 end
 
 function Jazz_ApplyGromSuppression(attacker, suppressionbonus)

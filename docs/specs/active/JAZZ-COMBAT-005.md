@@ -147,6 +147,7 @@ approved_by: project-owner
 ## Evidence
 
 - `JAZZ-COMBAT-005-AC-001`: `PASS (static)` — `CalculateArmorWeight` без плоского 1 AP; FM/AP × `const.Scale.AP`; cumbersome не half FM, AP брони = 0; Ironclad и KillingWind каждый −50% FM (`fm_mul`), оба → 0; Ironclad AP ÷2.
+- **Hotfix 2026-08-15d (playtest Баюн):** `HasPerk("KillingWind")` на тактическом Unit может не видеть перк (id общий с CombatAction). `JazzUnitHasPerk` — GetStatusEffect / массив / `gv_UnitData`. Ironclad+KW → `fm = 0`; KW даёт полный FreeMove с громоздким оружием.
 - `JAZZ-COMBAT-005-AC-002`…`005`, `007`: `BLOCKED (runtime)` — нужен JA3Debug smoke (medium/heavy/EOD, STR, MG, Ironclad, KillingWind stack, Pain once).
 - `JAZZ-COMBAT-005-AC-006`: `BLOCKED (runtime)` — Pain на первом Move при FM≥6.
 - `JAZZ-COMBAT-005-AC-008`: `PASS (static)` — technical + wiki + showcase RU/EN + Weight loc CSV.

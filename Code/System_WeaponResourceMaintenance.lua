@@ -1090,7 +1090,9 @@ function JAZZ_EjectRemovableAttachmentsForScrap(weapon, unit, destination_bag)
 	if not destination_bag then
 		return
 	end
-	-- Snapshot first: SetWeaponComponent mutates components while iterating.
+	-- Do not SetWeaponComponent here: the receiver is DoneObject'd next.
+	-- Clearing Magazine (or any slot) on a loaded loot gun runs unload/ReloadWeapon
+	-- via weapon.owner — dead enemies have no squad bag and abort SCRAP ALL.
 	local to_eject = {}
 	for slot, component_id in sorted_pairs(weapon.components or empty_table) do
 		if JAZZ_IsRemovableWeaponComponent(component_id, slot) then
@@ -1100,7 +1102,6 @@ function JAZZ_EjectRemovableAttachmentsForScrap(weapon, unit, destination_bag)
 	for _, entry in ipairs(to_eject) do
 		-- Scrap eject is free (no Mech roll): player already loses the receiver.
 		local attachment = JAZZ_CreateRemovableAttachment(entry.component_id)
-		weapon:SetWeaponComponent(entry.slot, false)
 		if attachment then
 			JAZZ_DepositRemovableAttachment(attachment, destination_bag, unit)
 		end

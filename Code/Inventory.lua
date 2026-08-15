@@ -215,26 +215,34 @@ function ScrapItem(inventory, slot_name, item, amount, squadBag, squadId)
 	if IsKindOf(item, "Firearm") then
 		additional = item:GetSpecialScrapItems()
 	end	
+	additional = additional or empty_table
 	
 	if next(additional) then
-		local units    = gv_Squads[squadId].units 
-		local unit_id  = table.max(units,function(unit_id) return gv_UnitData[unit_id].Mechanical end)
-		--print(unit_id)
-		local max_mech   = gv_UnitData[unit_id].Mechanical/2
-		local rnd_unit = gv_UnitData[units[1]]
-		local rand = rnd_unit:Random(100)
-		if rand<max_mech then
-			local res_idx = 1 + rnd_unit:Random(#additional)
-			local res = additional[res_idx]
-			local res_item = PlaceInventoryItem(res.restype)
-			if IsKindOf(res_item, "InventoryStack") then
-				res_item.Amount = res.amount
-			end
-			local add_slot_name = GetContainerInventorySlotName(inventory)
-			if add_slot_name=="Inventory" then
-				AddItemsToInventory(inventory, {res_item})
-			else
-				inventory:AddItem(add_slot_name, res_item)
+		local squad = squadId and gv_Squads[squadId]
+		local units = squad and squad.units
+		if units and units[1] then
+			local unit_id  = table.max(units,function(unit_id) return gv_UnitData[unit_id].Mechanical end)
+			local mech_ud = unit_id and gv_UnitData[unit_id]
+			local rnd_unit = gv_UnitData[units[1]]
+			if mech_ud and rnd_unit and rnd_unit.Random then
+				local max_mech = mech_ud.Mechanical / 2
+				local rand = rnd_unit:Random(100)
+				if rand < max_mech then
+					local res_idx = 1 + rnd_unit:Random(#additional)
+					local res = additional[res_idx]
+					local res_item = res and PlaceInventoryItem(res.restype)
+					if res_item then
+						if IsKindOf(res_item, "InventoryStack") then
+							res_item.Amount = res.amount
+						end
+						local add_slot_name = GetContainerInventorySlotName(inventory)
+						if add_slot_name=="Inventory" then
+							AddItemsToInventory(inventory, {res_item})
+						else
+							inventory:AddItem(add_slot_name, res_item)
+						end
+					end
+				end
 			end
 		end
 	end

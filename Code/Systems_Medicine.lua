@@ -1372,6 +1372,51 @@ local function lTraumaId(zone, tier)
 	return "Trauma" .. zone .. tier
 end
 
+-- Satellite portraits read UnitData; combat/NewHour often mutate Unit.
+-- Same twin split as WoundInfected: write both, or icons linger after "cleared".
+local function lJazzStatusTwins(unit)
+	local sid = unit and unit.session_id
+	local units = lG("g_Units")
+	local ud_map = lG("gv_UnitData")
+	local live = (sid and units and units[sid]) or nil
+	if not live and unit and IsKindOf(unit, "Unit") and IsValid(unit) then
+		live = unit
+	end
+	local ud = (sid and ud_map and ud_map[sid]) or nil
+	if not ud and unit and IsKindOf(unit, "UnitData") then
+		ud = unit
+	end
+	return live, ud
+end
+
+local function lJazzBumpStatusUI(obj)
+	if not obj then
+		return
+	end
+	ObjModified(obj)
+	if obj.StatusEffects then
+		ObjModified(obj.StatusEffects)
+	end
+end
+
+local function lJazzClearZoneTraumaOne(obj, zone)
+	if not obj or not zone or type(obj.HasStatusEffect) ~= "function" then
+		return false
+	end
+	local changed = false
+	for _, tier in ipairs(JazzTraumaTiers) do
+		local id = lTraumaId(zone, tier)
+		if obj:HasStatusEffect(id) then
+			obj:RemoveStatusEffect(id, "all")
+			changed = true
+		end
+	end
+	if changed then
+		lJazzBumpStatusUI(obj)
+	end
+	return changed
+end
+
 function JazzTraumaEffectId(zone, tier)
 	return lTraumaId(zone, tier)
 end
@@ -1404,13 +1449,16 @@ function JazzClearZoneTrauma(unit, zone)
 	if not unit or not zone then
 		return false
 	end
+	local live, ud = lJazzStatusTwins(unit)
 	local changed = false
-	for _, tier in ipairs(JazzTraumaTiers) do
-		local id = lTraumaId(zone, tier)
-		if unit:HasStatusEffect(id) then
-			unit:RemoveStatusEffect(id, "all")
-			changed = true
-		end
+	if live then
+		changed = lJazzClearZoneTraumaOne(live, zone) or changed
+	end
+	if ud then
+		changed = lJazzClearZoneTraumaOne(ud, zone) or changed
+	end
+	if not live and not ud then
+		changed = lJazzClearZoneTraumaOne(unit, zone) or changed
 	end
 	return changed
 end
@@ -1442,6 +1490,9 @@ function JazzApplyTrauma(unit, zone, tier, from_time)
 	local effect = unit:GetStatusEffect(id)
 	if effect then
 		JazzInitTraumaProgressTimer(effect, zone, tier, unit, from_time)
+	end
+	if type(JazzPushTraumaToTwin) == "function" then
+		JazzPushTraumaToTwin(unit)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, tier)
 	return true
@@ -1837,17 +1888,28 @@ function JazzMarkUnitTraumasHealing(unit)
 	if not unit then
 		return false
 	end
-	local any = false
-	for _, zone in ipairs(JazzTraumaZones) do
-		local tier = JazzGetTraumaTier(unit, zone)
-		if tier then
-			local effect = unit:GetStatusEffect(lTraumaId(zone, tier))
-			if effect then
-				JazzSetTraumaHealing(effect, true)
-				JazzInitTraumaProgressTimer(effect, zone, tier, unit)
-				any = true
+	local function mark_one(obj)
+		if not obj or type(obj.GetStatusEffect) ~= "function" then
+			return false
+		end
+		local any = false
+		for _, zone in ipairs(JazzTraumaZones) do
+			local tier = JazzGetTraumaTier(obj, zone)
+			if tier then
+				local effect = obj:GetStatusEffect(lTraumaId(zone, tier))
+				if effect then
+					JazzSetTraumaHealing(effect, true)
+					JazzInitTraumaProgressTimer(effect, zone, tier, obj)
+					any = true
+				end
 			end
 		end
+		return any
+	end
+	local live, ud = lJazzStatusTwins(unit)
+	local any = mark_one(live) or mark_one(ud) or mark_one(unit)
+	if type(JazzPushTraumaToTwin) == "function" then
+		JazzPushTraumaToTwin(live or ud or unit)
 	end
 	return any
 end
@@ -1906,6 +1968,9 @@ function JazzMarkKitTraumaHealing(unit, kit_class)
 	JazzSetTraumaHealing(effect, true)
 	JazzInitTraumaProgressTimer(effect, zone, tier, unit)
 	ObjModified(unit)
+	if type(JazzPushTraumaToTwin) == "function" then
+		JazzPushTraumaToTwin(unit)
+	end
 	return true, zone, tier
 end
 
@@ -1978,18 +2043,7 @@ function JazzStampStatusEffectUIProps(effect, preset_id)
 end
 
 local function lJazzWoundInfectedTargets(unit)
-	local sid = unit and unit.session_id
-	local units = lG("g_Units")
-	local ud_map = lG("gv_UnitData")
-	local live = (sid and units and units[sid]) or nil
-	if not live and unit and IsKindOf(unit, "Unit") and IsValid(unit) then
-		live = unit
-	end
-	local ud = (sid and ud_map and ud_map[sid]) or nil
-	if not ud and unit and IsKindOf(unit, "UnitData") then
-		ud = unit
-	end
-	return live, ud
+	return lJazzStatusTwins(unit)
 end
 
 local function lJazzApplyWoundInfectedOne(obj)
@@ -2329,6 +2383,107 @@ function JazzInitTraumaProgressTimer(effect, zone, tier, unit, from_time)
 	return true
 end
 
+local function lJazzTwinOf(src)
+	local live, ud = lJazzStatusTwins(src)
+	if live and src == live then
+		return ud
+	end
+	if ud and src == ud then
+		return live
+	end
+	if live and ud then
+		if src == live then
+			return ud
+		end
+		if src == ud then
+			return live
+		end
+		-- session_id match but different table identity
+		return (IsKindOf(src, "UnitData") and live) or ud
+	end
+	return live or ud
+end
+
+function JazzPushTraumaToTwin(src)
+	if not src then
+		return false
+	end
+	local dst = lJazzTwinOf(src)
+	if not dst or dst == src then
+		return false
+	end
+	for _, zone in ipairs(JazzTraumaZones) do
+		local src_tier = JazzGetTraumaTier(src, zone)
+		local dst_tier = JazzGetTraumaTier(dst, zone)
+		if not src_tier then
+			if dst_tier then
+				lJazzClearZoneTraumaOne(dst, zone)
+			end
+		else
+			local id = lTraumaId(zone, src_tier)
+			if dst_tier ~= src_tier then
+				lJazzClearZoneTraumaOne(dst, zone)
+				if type(dst.AddStatusEffect) == "function" then
+					dst:AddStatusEffect(id)
+				end
+			end
+			local src_eff = src.GetStatusEffect and src:GetStatusEffect(id)
+			local dst_eff = dst.GetStatusEffect and dst:GetStatusEffect(id)
+			if src_eff and dst_eff and dst_eff.SetParameter then
+				local next_t = src_eff.ResolveValue and src_eff:ResolveValue("next_check_time")
+				local interval = src_eff.ResolveValue and src_eff:ResolveValue("check_interval_h")
+				local healing = src_eff.ResolveValue and src_eff:ResolveValue("jazz_healing")
+				if next_t then
+					dst_eff:SetParameter("next_check_time", next_t)
+				end
+				if interval then
+					dst_eff:SetParameter("check_interval_h", interval)
+				end
+				dst_eff:SetParameter("jazz_healing", healing or 0)
+				if type(JazzStampStatusEffectUIProps) == "function" then
+					JazzStampStatusEffectUIProps(dst_eff, id)
+				end
+			end
+		end
+	end
+	lJazzBumpStatusUI(dst)
+	lJazzBumpStatusUI(src)
+	return true
+end
+
+function JazzPullTraumaHealingFromTwin(unit)
+	if not unit then
+		return false
+	end
+	local other = lJazzTwinOf(unit)
+	if not other then
+		return false
+	end
+	local pulled = false
+	for _, zone in ipairs(JazzTraumaZones) do
+		local tier = JazzGetTraumaTier(unit, zone)
+		if tier then
+			local ue = unit:GetStatusEffect(lTraumaId(zone, tier))
+			local other_tier = JazzGetTraumaTier(other, zone)
+			local oe = other_tier and other:GetStatusEffect(lTraumaId(zone, other_tier))
+			if ue and JazzTraumaIsHealing(oe) and not JazzTraumaIsHealing(ue) then
+				JazzSetTraumaHealing(ue, true)
+				JazzInitTraumaProgressTimer(ue, zone, tier, unit)
+				pulled = true
+			end
+		end
+	end
+	return pulled
+end
+
+function JazzSyncOpenMapTraumaTwins()
+	for _, unit in ipairs(g_Units or empty_table) do
+		if IsValid(unit) then
+			JazzPushTraumaToTwin(unit)
+		end
+	end
+end
+
 function JazzTraumaHoursUntilNextCheck(effect)
 	if not effect or not Game or not Game.CampaignTime then
 		return false
@@ -2422,6 +2577,9 @@ function JazzDowngradeTrauma(unit, zone, from_time)
 			JazzSetTraumaHealing(effect, true)
 		end
 		JazzInitTraumaProgressTimer(effect, zone, new_tier, unit, from_time)
+	end
+	if type(JazzPushTraumaToTwin) == "function" then
+		JazzPushTraumaToTwin(unit)
 	end
 	Msg("JAZZ_TraumaApplied", unit, zone, new_tier)
 	return new_tier
@@ -2550,8 +2708,11 @@ function OnMsg.NewHour()
 					seen[sid] = true
 				end
 				if JazzHasAnyTrauma(unit) then
+					JazzPullTraumaHealingFromTwin(unit)
 					JazzTraumaProgressOnNewHour(unit)
 				end
+				-- Always push: NewHour may have cleared Unit while UnitData still shows sat icons.
+				JazzPushTraumaToTwin(unit)
 				JazzWoundInfectedProgressOnNewHour(unit)
 				JazzSyncBloodLossStatus(unit)
 			end
@@ -2568,6 +2729,10 @@ function OnMsg.NewHour()
 			end
 		end
 	end
+end
+
+function OnMsg.LoadGame()
+	JazzSyncOpenMapTraumaTwins()
 end
 
 function OnMsg.UnitHealthChanged(unit)
@@ -2945,6 +3110,7 @@ function OnMsg.ModsReloaded()
 	-- Identity rebind in lInstall* handles wiped Unit methods; no sticky-flag skip.
 	lInstallMedicineStackBandageHooks()
 	lInstallGetAreaAttackResultsBlastStamp()
+	JazzSyncOpenMapTraumaTwins()
 end
 
 lInstallCombatActionAttackStartMedHook()
