@@ -25,8 +25,13 @@ JAZZ поддерживает только последнюю опубликов
 | `AIScoreReachableVoxels` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-SNIPER-001: sniper/marksman stay-hold if `dest_target_score[stay]>0` |
 | `AIBehavior:GetTurnPhase` | `Lua/Tactical/AIBehaviors.lua` | — | `Code/AIBehaviours.lua` | JAZZ-AI-CMD-002: MapVar act slot then vanilla Threatened→Late |
 | `Combat:AITurn` | `Lua/Tactical/Combat.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-CMD-002: `JazzAI_AssignTeamActSlots` then PERF-001 timing |
+| `CombatPath:RebuildPaths` | `Lua/Tactical/CombatPath.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: AI-only AP `restrict_area` bbox + gated log (no Sleep) |
+| `Unit:StartAI` | `Lua/Tactical/Unit.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: `Sleep(1)` after think so Execute's all-unit StartAI yields |
 | `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (wrap) | JAZZ-AI-CMD-002: count ordinary grenade throws toward difficulty budget |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
+| `AIPickScoutLocation` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: bbox `5*guim` (80 m hung Dump on 513 maps) |
+| `AICalcAOETargetPoints` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: scout-scan only if enemy point pool empty |
+| `Firearm:GetAttackResults` / `ProjectileFly` / `Unit:PrepareAttackArgs` | `Lua/Tactical/Weapon.lua` / `Unit.lua` | — | `Code/System_OR_Weapons.lua`, `Code/ExecFirearmAttacks.lua` | JAZZ-AI-PERF-003: Dump `jazz_ai_dump` skips GetLoFData/`Collide`; AI TargetOpts uses CalcChanceToHit; player firearms vanilla |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
 | `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |
 | `OnMsg.SatelliteTick` | `Lua/Satellite/SatelliteSquad.lua` | — | JAZZ-HOTFIX-002: **не регистрируется** (был identical duplicate; `OnMsg` append) | Один handler — vanilla; global `SatelliteUnitsTick` и др. по-прежнему заменяются по имени |

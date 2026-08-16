@@ -76,6 +76,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Для non-pellet очередей true-miss LoF после protected-окон уводится нарастающим climb’ом вверх (`JAZZ-WEAPONS-007`, якорь `/400` от `effective_recoil`); hit placement и CTH не меняются. Дробовый `pellet_pack` остаётся пакетным конусом без queue-climb.
 
+**Dump / AI targeting (JAZZ-AI-PERF-003):** `AIGetAttackTargetingOptions` берёт CTH из `CalcChanceToHit`, без `GetActionResults`/`GetLoFData` (M3 PickBest вис на луче body-part). `AIActionDump` ставит `args.jazz_ai_dump`: `PrepareAttackArgs` и execute `GetAttackResults` не зовут `GetLoFData`; синтетический LoF / miss `stuck_pos`; `step_pos` и fire `anim` (`GetAttackAnim`) заполняются без GetLoFData; `ProjectileFly` без vegetation `Collide`. Игровой Fanning и не-Dump выстрелы — ванильный пайплайн.
+
 `cth_loss_per_shot` и `shots_before_recoil` сохранены как совместимые входы существующих CombatAction, но больше не означают линейное вычитание CTH. Первый задаёт action recoil severity, второй — число дополнительных пуль после первой до начала retention. `AbakanBurst`, `AbakanAutoFire` и `JAZZ_ControllableBurst` защищают вторую пулю; обычный `MGBurstFire` использует полный authored `Recoil`; только `GrizzlyPerk` задаёт пулемётную severity `0.8` и затем action factor `0.55`; `JAZZ_Fanning` получает собственную severity. Сигнатура Спайка `BulletHell` имеет **нулевую** action recoil (`effective_recoil = 0`, retention 1): все 15–30 пуль идут с CTH первой; `cth_loss_per_shot` её не возвращает.
 
 ## Данные действий

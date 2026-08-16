@@ -151,6 +151,9 @@ end
 
 
 function PickBestAttack(unit, enemy, basic_attacks, dest_ap, preferred_mode)
+	JAZZ_AIPerfLog("PickBest start unit=%s enemy=%s",
+		unit and unit.unitdatadef_id or "?",
+		IsKindOf(enemy, "Unit") and (enemy.unitdatadef_id or enemy.class) or tostring(enemy))
 	local AP = unit.ActionPoints
 	if dest_ap then AP = dest_ap end
 	basic_attacks = basic_attacks or empty_table
@@ -631,7 +634,16 @@ function AISelectAction(context, actions, base_weight)
 		local weight_mod, disable, priority = AIGetBias(action.BiasId, context.unit)
 		disable = disable or context.disable_actions[action.BiasId or false]
 		if not disable then
+			local act_name = tostring(action.class or action.BiasId or action)
+			JAZZ_AIPerfLog("SigPrecalcStart unit=%s action=%s",
+				context.unit and context.unit.unitdatadef_id or "?", act_name)
+			local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 			action:PrecalcAction(context, action_state)
+			if t0 then
+				JAZZ_AIPerfLog("SigPrecalc unit=%s action=%s ms=%d",
+					context.unit and context.unit.unitdatadef_id or "?",
+					act_name, GetPreciseTicks() - t0)
+			end
 			if action:IsAvailable(context, action_state) then
 				priority = priority or action.Priority
 				if priority then
@@ -669,7 +681,11 @@ function AIChooseSignatureAction(context)
 	}
 	AIUpdateBiases()
 	local sig_actions = AIGetSignatureActions(context)
-	return AISelectAction(context, sig_actions, weight, context.choose_actions)
+	local chosen = AISelectAction(context, sig_actions, weight, context.choose_actions)
+	JAZZ_AIPerfLog("SigChosen unit=%s action=%s",
+		context.unit and context.unit.unitdatadef_id or "?",
+		chosen and tostring(chosen.class or chosen.BiasId or chosen) or "none")
+	return chosen
 end
 
 function AIChooseMovementAction(context)
@@ -957,11 +973,57 @@ JAZZ_AI_PERF_PRECALC_MARGIN_MULT = 4 -- soft: margin * this (8 slabs default)
 JAZZ_AI_PERF_PRECALC_DEST_CAP = 48
 -- TakeCover: score at most N nearest visible threats per dest (not all Legion on M1).
 JAZZ_AI_PERF_TAKECOVER_ENEMY_CAP = 8
+-- PERF-003: AI CombatPath bbox (AP reach + margin), not the whole 513 map.
+JAZZ_AI_PERF_PATH_RESTRICT_MARGIN_TILES = 8
+JAZZ_AI_PERF_PATH_RESTRICT_MAX_TILES = 64
 
 function JAZZ_AIPerfLog(fmt, ...)
 	if config.JAZZ_AIPerfLog then
 		printf("[JAZZ-AI-PERF] " .. fmt, ...)
 	end
+end
+
+local function JazzAI_PerfYield()
+	-- Sleep is illegal from Msg/procall (LoadGame RecalcUIActions). CurrentThread()
+	-- can be truthy there; only game-time AI think may yield.
+	if not IsGameTimeThread() then
+		return
+	end
+	if GetInGameInterfaceMode() == "IModeAIDebug" then
+		return
+	end
+	Sleep(1)
+end
+
+function JAZZ_AIMakeCombatPathRestrictBox(unit, pos, ap, stance)
+	if not pos or not pos:IsValid() then
+		return false
+	end
+	ap = ap or 0
+	if ap < 0 then
+		ap = 0
+	end
+	local walk = 1000
+	local consts = Presets.ConstDef and Presets.ConstDef["Action Point Costs"]
+	local walk_def = consts and consts.Walk
+	if walk_def and walk_def.value then
+		walk = walk_def.value
+	end
+	local move_modifier = 0
+	if unit and unit.GetMoveModifier then
+		move_modifier = unit:GetMoveModifier(stance or unit.stance) or 0
+	end
+	move_modifier = Max(-100, move_modifier)
+	local walk_cost = walk * (100 + move_modifier) / 100
+	walk_cost = Max(walk_cost, DivRound(walk, 4))
+	local margin = JAZZ_AI_PERF_PATH_RESTRICT_MARGIN_TILES or 8
+	local max_tiles = JAZZ_AI_PERF_PATH_RESTRICT_MAX_TILES or 64
+	local tiles = DivRound(ap, walk_cost) + margin
+	tiles = Max(tiles, margin)
+	tiles = Min(tiles, max_tiles)
+	local r = tiles * const.SlabSizeX
+	local x, y = pos:xy()
+	return box(x - r, y - r, x + r + 1, y + r + 1)
 end
 
 local function JAZZ_AIStancePosDist2DSqr(a, b)
@@ -2619,13 +2681,17 @@ function AICalcAOETargetPoints(context, min_range, max_range, max_radius)
 		end
 	end
 	
-	local lastknownpos = context.unit.last_known_enemy_pos or AIPickScoutLocation(unit)
-	if VisibilityCheckAll(unit, lastknownpos, nil, const.uvVisible) then
-		if lastknownpos then
-			target_pts[#target_pts + 1] = lastknownpos
-		end
+	-- Blind grenade/cone fallback: last-known pos only. Do not ForEachPassSlab-scout
+	-- when visible enemies already filled target_pts — JAZZ used to call
+	-- AIPickScoutLocation on every signature Precalc (Dump hang on 513 maps).
+	local lastknownpos = context.unit.last_known_enemy_pos
+	if not lastknownpos and #target_pts == 0 then
+		lastknownpos = AIPickScoutLocation(unit)
 	end
-	
+	if lastknownpos and VisibilityCheckAll(unit, lastknownpos, nil, const.uvVisible) then
+		target_pts[#target_pts + 1] = lastknownpos
+	end
+
 	local num_targets = #target_pts
 	-- add midpoints of enemy pairs
 	for i = 1, num_targets - 1 do
@@ -2773,7 +2839,9 @@ end
 
 
 function AIPickScoutLocation(unit)
-	local AIScoutLocationSearchRadius = 80 * guim
+	-- Vanilla is 5*guim. JAZZ had 80*guim (~67 tiles) + ForEachPassSlab through
+	-- MapSlabsBBox_MaxZ — that hangs Dump signature Precalc on 513 maps (M3).
+	local AIScoutLocationSearchRadius = 5 * guim
 
 	-- pick a new position around alive enemy randomly, prefer non-hidden enemies
 	local enemies = GetAllEnemyUnits(unit)
@@ -2804,6 +2872,9 @@ function AIPickScoutLocation(unit)
 	
 	local dests, dest_added = {}, {}
 	local function push_dest(x, y, z, dests, dest_added, ux, uy, uz)
+		if #dests >= 64 then
+			return
+		end
 		local gx, gy, gz = WorldToVoxel(x, y, z)
 		
 		if not IsCloser(gx, gy, gz, ux, uy, uz, AIScoutLocationSearchRadius) then
@@ -2817,7 +2888,12 @@ function AIPickScoutLocation(unit)
 		end		
 	end
 	
+	local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 	ForEachPassSlab(bbox, push_dest, dests, dest_added, ux, uy, uz)
+	if t0 then
+		JAZZ_AIPerfLog("ScoutLoc unit=%s dests=%d ms=%d",
+			unit.unitdatadef_id or "?", #dests, GetPreciseTicks() - t0)
+	end
 	
 	if #dests > 0 then
 		local voxel = table.interaction_rand(dests, "Combat")
@@ -3168,15 +3244,126 @@ local function JazzAI_InstallAIScoreReachableVoxelsWrap()
 	return true
 end
 
+-- JAZZ-AI-PERF-003: AI CombatPath bbox + StartAI yield (M3 513 map C-stall).
+g_JAZZ_CombatPathRebuildBase = rawget(_G, "g_JAZZ_CombatPathRebuildBase") or false
+g_JAZZ_CombatPathRebuildFn = rawget(_G, "g_JAZZ_CombatPathRebuildFn") or false
+g_JAZZ_UnitStartAIBase = rawget(_G, "g_JAZZ_UnitStartAIBase") or false
+g_JAZZ_UnitStartAIFn = rawget(_G, "g_JAZZ_UnitStartAIFn") or false
+
+function JazzAI_GetClass(name)
+	local classes = rawget(_G, "g_Classes")
+	local cls = classes and classes[name]
+	if type(cls) == "table" then
+		return cls
+	end
+	return nil
+end
+
+function JazzAI_InstallCombatPathRestrictWrap()
+	local cls = JazzAI_GetClass("CombatPath")
+	if type(cls) ~= "table" then
+		return false
+	end
+	local current = cls.RebuildPaths
+	local ourFn = rawget(_G, "g_JAZZ_CombatPathRebuildFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_CombatPathRebuildBase", current)
+	elseif not rawget(_G, "g_JAZZ_CombatPathRebuildBase") then
+		return false
+	end
+	local function wrap(self, unit, ap, pos, stance, ignore_occupied, move_through_occupied, action_id)
+		local is_ai = unit and unit.team and unit.team.control == "AI"
+		local restricted = false
+		if is_ai and not self.restrict_area then
+			local start_pos = pos or (unit.GetPos and unit:GetPos())
+			local box_area = JAZZ_AIMakeCombatPathRestrictBox(unit, start_pos, ap or unit.ActionPoints or 0, stance or unit.stance)
+			if box_area then
+				self.restrict_area = box_area
+				restricted = true
+			end
+		end
+		local t0 = is_ai and config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
+		local base_fn = rawget(_G, "g_JAZZ_CombatPathRebuildBase")
+		base_fn(self, unit, ap, pos, stance, ignore_occupied, move_through_occupied, action_id)
+		if t0 then
+			local n = 0
+			for _ in pairs(self.destinations or empty_table) do
+				n = n + 1
+			end
+			JAZZ_AIPerfLog("RebuildPaths unit=%s ms=%d ap=%s stance=%s dests=%d restricted=%s",
+				tostring(unit.unitdatadef_id or unit.class),
+				GetPreciseTicks() - t0,
+				tostring(ap or unit.ActionPoints or 0),
+				tostring(stance or unit.stance or ""),
+				n,
+				restricted and 1 or 0)
+		end
+	end
+	rawset(_G, "g_JAZZ_CombatPathRebuildFn", wrap)
+	cls.RebuildPaths = wrap
+	return true
+end
+
+function JazzAI_InstallStartAIYieldWrap()
+	local cls = JazzAI_GetClass("Unit")
+	if type(cls) ~= "table" then
+		return false
+	end
+	local current = cls.StartAI
+	local ourFn = rawget(_G, "g_JAZZ_UnitStartAIFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_UnitStartAIBase", current)
+	elseif not rawget(_G, "g_JAZZ_UnitStartAIBase") then
+		return false
+	end
+	local function wrap(self, debug_data, forced_behavior)
+		local base_fn = rawget(_G, "g_JAZZ_UnitStartAIBase")
+		local result = base_fn(self, debug_data, forced_behavior)
+		JazzAI_PerfYield()
+		return result
+	end
+	rawset(_G, "g_JAZZ_UnitStartAIFn", wrap)
+	cls.StartAI = wrap
+	return true
+end
+
 function OnMsg.ModsReloaded()
 	JazzAI_InstallAIScoreReachableVoxelsWrap()
 	JazzAI_InstallCombatAITurnWrap()
+	JazzAI_InstallCombatPathRestrictWrap()
+	JazzAI_InstallStartAIYieldWrap()
 end
 
 function OnMsg.DataLoaded()
 	JazzAI_InstallAIScoreReachableVoxelsWrap()
 	JazzAI_InstallCombatAITurnWrap()
+	JazzAI_InstallCombatPathRestrictWrap()
+	JazzAI_InstallStartAIYieldWrap()
+end
+
+function OnMsg.ClassesBuilt()
+	JazzAI_InstallCombatPathRestrictWrap()
+	JazzAI_InstallStartAIYieldWrap()
+end
+
+function OnMsg.Autorun()
+	JazzAI_InstallCombatPathRestrictWrap()
+	JazzAI_InstallStartAIYieldWrap()
 end
 
 JazzAI_InstallAIScoreReachableVoxelsWrap()
 JazzAI_InstallCombatAITurnWrap()
+JazzAI_InstallCombatPathRestrictWrap()
+JazzAI_InstallStartAIYieldWrap()

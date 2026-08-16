@@ -126,7 +126,8 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - casualty-aware anti-stack: один/два погибших в горловине, альтернативная позиция/hold, проходимость единственного маршрута, melee/medic approach;
 - накопление suspicion;
 - обнаружение через дым, ночью и при плохой погоде;
-- отсутствие зависания AI-хода.
+- отсутствие зависания AI-хода;
+- **PERF-003 / M3 513:** End Turn с ~30+ Legion — ход врага не клинит минутами; `config.JAZZ_AIPerfLog = true` → `[JAZZ-AI-PERF] RebuildPaths` ms ≪ 5000 на юнит, `restricted=1`; Dump PickBest `TargetOpts` без зависания на part=Arms; `DumpFire start` → `DumpPrepareArgs skipLoF` / `SkipShotLoF` / `CheapProjectileFly` → `DumpFire end`, не тишина и не `Expected point`.
 
 ## UI
 

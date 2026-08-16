@@ -1,5 +1,6 @@
 function Unit:ExecFirearmAttacks(action, cost_ap, attack_args, results)
 	NetUpdateHash("ExecFirearmAttacks", action, cost_ap, not not g_Combat)
+	Jazz_EnsureAttackArgsLofStepPos(attack_args, self)
 	local lof_idx = table.find(attack_args.lof, "target_spot_group", attack_args.target_spot_group or "Torso")
 	local lof_data = attack_args.lof[lof_idx or 1]
 	local target = attack_args.target
@@ -385,7 +386,45 @@ function Unit:PrepareAttackArgs(action_id, args)
 	if aim_type ~= "melee" then
 		attack_args.prediction = true
 		local attack_data
-		if IsPoint(target) and attack_args.target_height_range then
+		-- PERF-003 Dump: targeting already scored without GetLoFData. Execute
+		-- PrepareAttackArgs must not re-trace the waterfall mesh.
+		if attack_args.jazz_ai_dump then
+			local origin = attack_args.step_pos
+			if origin and not origin:IsValidZ() then
+				origin = origin:SetTerrainZ()
+			end
+			local dest = attack_args.target_pos
+				or (IsValid(target) and target:GetPos())
+				or origin
+			if dest and not dest:IsValidZ() then
+				dest = dest:SetTerrainZ()
+			end
+			if IsPoint(origin) and IsPoint(dest) then
+				attack_args.stance = attack_args.stance or self.stance or "Standing"
+				if type(attack_args.anim) ~= "string" then
+					attack_args.anim = self:GetAttackAnim(attack_args.action_id, attack_args.stance)
+				end
+				attack_args.lof = {{
+					obj = self,
+					step_pos = origin,
+					stance = attack_args.stance,
+					angle = CalcOrientation(origin, dest),
+					lof_pos1 = origin,
+					attack_pos = origin,
+					target_pos = dest,
+					lof_pos2 = dest,
+					stuck_pos = dest,
+					hits = {},
+					target_spot_group = attack_args.target_spot_group or "Torso",
+				}}
+			else
+				attack_args.stuck = true
+			end
+			if config.JAZZ_AIPerfLog then
+				printf("[JAZZ-AI-PERF] DumpPrepareArgs skipLoF unit=%s",
+					self.unitdatadef_id or "?")
+			end
+		elseif IsPoint(target) and attack_args.target_height_range then
 			if not target:IsValidZ() then
 				target = target:SetTerrainZ()
 			end
@@ -411,12 +450,14 @@ function Unit:PrepareAttackArgs(action_id, args)
 		else
 			attack_data = GetLoFData(self, target, attack_args)
 		end
-		if attack_data then
-			for k, v in pairs(attack_data) do
-				attack_args[k] = v
+		if not attack_args.jazz_ai_dump then
+			if attack_data then
+				for k, v in pairs(attack_data) do
+					attack_args[k] = v
+				end
+			else
+				attack_args.stuck = true
 			end
-		else
-			attack_args.stuck = true
 		end
 		attack_args.prediction = prediction
 	end

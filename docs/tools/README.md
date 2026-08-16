@@ -101,7 +101,7 @@
 | `_check_ironclad_killingwind_fm_stack.py` | Static: `fm_mul - 50` twice; no shared OR-half; Ironclad loaded; cumbersome BeginTurn unchanged. |
 | `_check_scrap_eject_no_setcomponent.py` | Scrap eject must not `SetWeaponComponent` (SCRAP ALL on loaded loot); ScrapItem special-scrap nil-safe. |
 | `_check_meltdown_portraits.py` | Meltdown `MercPortraits/Meltdown.png` + `_Big.png` shipped; UnitData/items wire `Mod/Dv3mFVN/...`. |
-| `_build_vengeful_temperament_sig_icon.py` | Meltdown active CA: 108×54 dual from HUD `perk_vengeful_temperament`; wire jazz-units CombatAction.Icon (CE stays Personal 68×68). |
+| `_build_vengeful_temperament_sig_icon.py` | Meltdown active CA: 108×54 dual from vanilla Personal perk (`Perks/references/vanilla/VengefulTemperament.png`, skull in flame); wire jazz-units CombatAction.Icon (CE stays `UI/Icons/Perks/VengefulTemperament`). Do not use HUD `perk_vengeful_temperament`. |
 | `_apply_combat_007_energy_items.py` | JAZZ-COMBAT-007: insert energy ladder ModItems (`Fit`/`Winded`/`Fatigued`/Tired/Exhausted/WellRested/FreeMove) + `System_EnergyLadder` into `items.lua`/`metadata.lua`. |
 | `_apply_combat_007_energy_loc.py` | JAZZ-COMBAT-007: upsert RU/EN CSV rows for energy CE + travel warn/step logs (IDs `890000000013100`–`13120`). |
 | `_apply_freemove_remaining_ap_loc.py` | Remaining Free Move AP UI: RU/EN `890000000013122` (status tooltip) + `890000000013123` (merc-card AP suffix). |

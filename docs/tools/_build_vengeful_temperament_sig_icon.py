@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
-"""Meltdown VengefulTemperament: Active hotbar needs 108x54 dual, not Personal 68x68.
+"""Meltdown VengefulTemperament: Active hotbar 108x54 dual from vanilla Personal perk.
 
-Vanilla CA was Passive (`UI/Icons/Hud/perk_vengeful_temperament`, SetColumns=1).
+Source is the original perk tile (skull in flame), same pipeline as other
+perk-actives (`_build_jazz_perk_sig_icons_from_personal.py`): key near-black,
+crop glyph, fit into each 54x54 half, GREY left / CREAM right.
+
+Do NOT use HUD `perk_vengeful_temperament` (scanline skull) — that is the
+wrong glyph for this CombatAction.
+
 JAZZ CA is ActionType=Other (Hurricane Norma) so CombatActionBarButton SetColumns=2.
-Build dual strip from the vanilla HUD glyph; wire jazz-units CombatAction.Icon.
 CE Icon stays UI/Icons/Perks/VengefulTemperament (character sheet).
 """
 from __future__ import annotations
@@ -16,7 +21,7 @@ from PIL import Image
 
 JAZZ = Path(__file__).resolve().parents[2]
 UNITS = JAZZ.parent / "jazz-units"
-HUD = JAZZ / "Icons" / "Hud" / "references" / "perk_vengeful_temperament.png"
+VANILLA = JAZZ / "Perks" / "references" / "vanilla" / "VengefulTemperament.png"
 OUT = JAZZ / "Perks" / "SignatureAbilities" / "VengefulTemperament.png"
 ITEMS = UNITS / "items.lua"
 ICON = "Mod/e6L4ECj/Perks/SignatureAbilities/VengefulTemperament.png"
@@ -24,7 +29,8 @@ ICON = "Mod/e6L4ECj/Perks/SignatureAbilities/VengefulTemperament.png"
 GREY = np.array([0xB5, 0xAD, 0xA5], dtype=np.float32)
 CREAM = np.array([0xF7, 0xF7, 0xD6], dtype=np.float32)
 HALF = 54
-GLYPH_MAX = 38
+# Complex skull+flame: a bit larger than simple stencils so inner holes stay readable.
+GLYPH_MAX = 42
 
 
 def key_black_to_alpha(rgba: np.ndarray, thr: int = 28) -> np.ndarray:
@@ -45,28 +51,34 @@ def extract_glyph(rgba: np.ndarray) -> np.ndarray:
 
 
 def fit_to_half(glyph: np.ndarray, fill: np.ndarray) -> np.ndarray:
+    """Scale glyph into 54x54; recolor to HUD fill, keep source luminance for inner detail."""
     g = Image.fromarray(glyph, "RGBA")
     gw, gh = g.size
     scale = min(GLYPH_MAX / max(gw, 1), GLYPH_MAX / max(gh, 1), 1.0)
     nw, nh = max(1, int(round(gw * scale))), max(1, int(round(gh * scale)))
     g = g.resize((nw, nh), Image.Resampling.LANCZOS)
     arr = np.array(g, dtype=np.float32)
-    alpha = arr[:, :, 3:4] / 255.0
-    rgb = np.broadcast_to(fill, arr[:, :, :3].shape)
+    alpha = arr[:, :, 3] / 255.0
+    rgb = arr[:, :, :3]
+    lum = (0.299 * rgb[:, :, 0] + 0.587 * rgb[:, :, 1] + 0.114 * rgb[:, :, 2]) / 255.0
+    vis = alpha > 0.08
+    peak = float(lum[vis].max()) if vis.any() else 1.0
+    if peak < 1e-6:
+        peak = 1.0
+    # Keep skull/flame shading; lift floor so HUD grey/cream stays readable.
+    shade = np.clip(lum / peak, 0.0, 1.0)
+    shade = 0.40 + 0.60 * shade
+    tinted = fill * shade[..., None]
     out = np.zeros((HALF, HALF, 4), dtype=np.float32)
     x0 = (HALF - nw) // 2
     y0 = (HALF - nh) // 2
-    out[y0 : y0 + nh, x0 : x0 + nw, :3] = rgb
-    out[y0 : y0 + nh, x0 : x0 + nw, 3:4] = alpha * 255.0
+    out[y0 : y0 + nh, x0 : x0 + nw, :3] = tinted
+    out[y0 : y0 + nh, x0 : x0 + nw, 3] = alpha * 255.0
     return out.astype(np.uint8)
 
 
 def build_dual(src: Path) -> Image.Image:
     keyed = key_black_to_alpha(np.array(Image.open(src).convert("RGBA")))
-    # If already a 108x54 dual, take LEFT half as the glyph source.
-    h, w = keyed.shape[:2]
-    if w >= 100 and h <= 60:
-        keyed = keyed[:, : w // 2]
     glyph = extract_glyph(keyed)
     strip = np.concatenate([fit_to_half(glyph, GREY), fit_to_half(glyph, CREAM)], axis=1)
     return Image.fromarray(strip, "RGBA")
@@ -86,12 +98,12 @@ def wire_units_items() -> None:
 
 
 def main() -> int:
-    if not HUD.exists():
-        raise SystemExit(f"missing HUD ref {HUD}")
-    src = Image.open(HUD)
-    print(f"HUD ref {HUD.name}: {src.size}")
+    if not VANILLA.exists():
+        raise SystemExit(f"missing vanilla perk {VANILLA}")
+    src = Image.open(VANILLA)
+    print(f"vanilla perk {VANILLA.name}: {src.size}")
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    img = build_dual(HUD)
+    img = build_dual(VANILLA)
     img.save(OUT)
     print(f"wrote {OUT.relative_to(JAZZ)} {img.size}")
     wire_units_items()

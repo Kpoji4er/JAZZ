@@ -33,6 +33,9 @@
 8. **Suppression idle Sleep(200)** — поток очереди WP не крутится каждые 10 ms на пустой очереди.
 9. **`UpdateSuspicion` hoist** — `max_sight_radius` / локали `HasVisibilityTo` / `IsCloser` один раз на тик (паттерн CLib).
 10. **Ally AutoFastForward (QOL-001 follow-up)** — Rebel/ally AI units Fast when Running/Always even if PoV-visible (M1 allied turn playback).
+11. **AI CombatPath bbox + StartAI yield (JAZZ-AI-PERF-003)** — `GetCombatPathPositions` on 513 maps stalled `enemy1` StartAI (M3 DAP: EnumDests ~100 ms, then C-block). AI `RebuildPaths` now sets AP-reach `restrict_area` (+8 tiles, cap 64). `Sleep(1)` only after `StartAI` on a game-time thread (not from `RebuildPaths`: LoadGame `RecalcUIActions` / bandage UI asserted). Player path overlay unchanged. OptLoc radius / cap 200 / Strategy 48 unchanged. Log: `[JAZZ-AI-PERF] RebuildPaths`.
+12. **AI scout/AOE ForEachPassSlab (JAZZ-AI-PERF-003)** — M3 still froze after Dump `Precalc dests=1`: `AIPickScoutLocation` used **80 m** bbox (vanilla 5 m) on every grenade/cone signature. Radius restored; `AICalcAOETargetPoints` does not scout-scan when visible enemies already supply points. Logs: `SigPrecalc`, `ScoutLoc`.
+13. **Dump / AI targeting LoF (JAZZ-AI-PERF-003)** — Marauder PickBest `GetActionResults` hung in `PrepareAttackArgs` `GetLoFData` on one body-part ray (waterfall). `AIGetAttackTargetingOptions` now uses `CalcChanceToHit`. Dump execute sets `jazz_ai_dump`: skip `PrepareAttackArgs`/`GetAttackResults` GetLoFData, cheap `ProjectileFly`. Player firearms unchanged.
 
 Уже существовавшие (не регрессировать): один observer-pass брони в sight, smoke early-out, suppression enemy list once/attack, `damage_score_precalced`, flank/surrounded caches, AI dest LOS batch+yield, crosshair `cached_results`, auto fast-forward unseen **enemy** AI.
 

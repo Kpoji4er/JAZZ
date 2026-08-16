@@ -851,8 +851,15 @@ shot_attack_args.num_shots = num_shots
 		max_range = Max(MulDivRound(self.WeaponRange, 150, 100), 20) * const.SlabSizeX
 	end
 	max_range = Max(max_range, distAttackerToTarget + const.SlabSizeX)
+	-- Dump already has targeting LoF; do not floor execute rays to 100 tiles.
+	local dump_reuse = attack_args.jazz_ai_dump
 	if not prediction then
-		max_range = Max(max_range, 100*const.SlabSizeX)
+		if dump_reuse then
+			max_range = distAttackerToTarget + 8 * const.SlabSizeX
+			max_range = Max(max_range, distAttackerToTarget + const.SlabSizeX)
+		else
+			max_range = Max(max_range, 100 * const.SlabSizeX)
+		end
 	end
 	shot_attack_args.range = max_range
 
@@ -983,7 +990,7 @@ shot_attack_args.num_shots = num_shots
 	
 	-- burst distribution simulation
 	local precalc_shots, anyHitsTarget
-	if not prediction then
+	if not prediction and not dump_reuse then
 		local hit_target_pts, miss_target_pts, disp_origin, disp_dir
 		local lof_data 
 		if shot_lof_data then
@@ -992,7 +999,8 @@ shot_attack_args.num_shots = num_shots
 			lof_data = { target_pos = target_pos, lof_pos1 = attack_results.lof_pos1 }
 		end
 
-		for i = 1, 20 do
+		local vector_tries = 20
+		for i = 1, vector_tries do
 			hit_target_pts, miss_target_pts, anyHitsTarget, disp_origin, disp_dir = self:CalcShotVectors(attacker, action.id, target, 
 				shot_attack_args, lof_data, 20*guic, guim, guim, num_hits, num_misses, num_grazing)
 			if (#hit_target_pts + #miss_target_pts) >= (num_hits + num_misses) then break end
@@ -1157,6 +1165,7 @@ shot_attack_args.num_shots = num_shots
 		end
 	end
 
+	local jazz_hit_lof_cache
 	for i = 1, num_shots do
 	
 		-- clear dead collide units
@@ -1279,7 +1288,24 @@ shot_attack_args.num_shots = num_shots
 				shot_target = attack_args.target_dummy or (IsValid(target) and target) or precalc_shot.target_pos
 				shot_attack_args.ignore_colliders = compile_ignore_colliders(killed_colliders, attack_args.ignore_colliders)
 			end
-			attack_data = GetLoFData(attacker, shot_target, shot_attack_args)
+			-- Dump execute: targeting LoF already exists. Do not GetLoFData per bullet.
+			if dump_reuse and shot_miss then
+				attack_data, miss_target_pos = Jazz_SyntheticMissAttackData(
+					attacker, precalc_shot, shot_attack_args, miss_target_pos, max_range)
+			elseif dump_reuse then
+				if not jazz_hit_lof_cache then
+					jazz_hit_lof_cache = Jazz_ReuseTargetingAttackData(
+						shot_attack_args, attacker, target, precalc_shot)
+					if config.JAZZ_AIPerfLog then
+						printf("[JAZZ-AI-PERF] SkipShotLoF unit=%s reuse=%s",
+							attacker and attacker.unitdatadef_id or "?",
+							tostring(not not jazz_hit_lof_cache))
+					end
+				end
+				attack_data = jazz_hit_lof_cache
+			else
+				attack_data = GetLoFData(attacker, shot_target, shot_attack_args)
+			end
 		elseif shot_miss then
 			if not prediction then -- don't simulate misses for prediction, dispersion uses synced random and executing it from UI code will desync	
 				
@@ -1287,11 +1313,17 @@ shot_attack_args.num_shots = num_shots
 				local lof_idx = table.find(shot_attack_args.lof, "target_spot_group", shot_attack_args.target_spot_group)
 				local lof_data = shot_attack_args.outside_attack_area_lof or shot_attack_args.lof[lof_idx or 1]
 				local lof_pos1 = lof_data.lof_pos1
-				while not misses or (#misses.clear + #misses.obstructed == 0) do
+				local miss_tries = 0
+				while (not misses or (#misses.clear + #misses.obstructed == 0)) and miss_tries < 8 do
+					miss_tries = miss_tries + 1
 					misses = self:CalcMissVectors(attacker, action.id, target, lof_pos1, lof_data.target_pos, dispersion)
 					dispersion = dispersion + 20*guic -- try shooting wider next time to avoid infinitely retrying to find miss vectors very close to the target
 				end
-				miss_target_pos = self:PickMissTargetPos(attacker, misses, roll, shot_cth)
+				if not misses or (#misses.clear + #misses.obstructed == 0) then
+					miss_target_pos = lof_data.target_pos
+				else
+					miss_target_pos = self:PickMissTargetPos(attacker, misses, roll, shot_cth)
+				end
 				-- JAZZ-WEAPONS-007: fallback miss path also climbs for non-pellet queues.
 				if not pellet_pack and not allow_grazing and recoil_profile
 					and action.id ~= "BulletHell" then
@@ -1310,7 +1342,12 @@ shot_attack_args.num_shots = num_shots
 				shot_attack_args.ignore_los = true
 				shot_attack_args.inside_attack_area_check = false
 				shot_attack_args.forced_hit_on_eye_contact = false
-				attack_data = GetLoFData(attacker, miss_target_pos, shot_attack_args)
+				if dump_reuse then
+					attack_data, miss_target_pos = Jazz_SyntheticMissAttackData(
+						attacker, nil, shot_attack_args, miss_target_pos, max_range)
+				else
+					attack_data = GetLoFData(attacker, miss_target_pos, shot_attack_args)
+				end
 
 
 			end
@@ -1323,7 +1360,11 @@ shot_attack_args.num_shots = num_shots
 			shot_attack_args.ignore_los = attack_args.ignore_los
 			shot_attack_args.inside_attack_area_check = attack_args.inside_attack_area_check
 			shot_attack_args.forced_hit_on_eye_contact = attack_args.forced_hit_on_eye_contact
-			attack_data = GetLoFData(attacker, target_dummy, shot_attack_args)
+			if dump_reuse then
+				attack_data = Jazz_ReuseTargetingAttackData(shot_attack_args, attacker, target_dummy, nil)
+			else
+				attack_data = GetLoFData(attacker, target_dummy, shot_attack_args)
+			end
 		end
 		if attack_data then
 			local lof_idx
@@ -1470,7 +1511,7 @@ shot_attack_args.num_shots = num_shots
 			roll = roll,
 			attack_pos = hit_data.attack_pos,
 			target_pos = hit_data.target_pos,
-			stuck_pos = hit_data.stuck_pos or hit_data.lof_pos2,
+			stuck_pos = hit_data.stuck_pos or hit_data.lof_pos2 or hit_data.target_pos,
 			hits = {},
 			target_hit = shot_target_hit,
 			out_of_range = shot_attack_args.outside_attack_area,
@@ -2540,11 +2581,315 @@ local function JazzInstallBulletHellProjectiles()
 	rawset(action, "JazzProjectileResultsWrapped", true)
 end
 
+-- PERF-003: vanilla CalcMissVectors does GetLoFData on 50 sample points per miss.
+-- On 513 maps that stalls Dump/player fire (M3 Fanning). Cheap ring, no LoF probe.
+JAZZ_AI_PERF_CHEAP_MISS_MAP_TILES = 256
+g_JAZZ_FirearmCalcMissVectorsBase = rawget(_G, "g_JAZZ_FirearmCalcMissVectorsBase") or false
+g_JAZZ_FirearmCalcMissVectorsFn = rawget(_G, "g_JAZZ_FirearmCalcMissVectorsFn") or false
+g_JAZZ_FirearmFireBulletBase = rawget(_G, "g_JAZZ_FirearmFireBulletBase") or false
+g_JAZZ_FirearmFireBulletFn = rawget(_G, "g_JAZZ_FirearmFireBulletFn") or false
+g_JAZZ_FirearmProjectileFlyBase = rawget(_G, "g_JAZZ_FirearmProjectileFlyBase") or false
+g_JAZZ_FirearmProjectileFlyFn = rawget(_G, "g_JAZZ_FirearmProjectileFlyFn") or false
+
+function Jazz_MapTileSpan()
+	local sx, sy = terrain.GetMapSize()
+	local slab = const.SlabSizeX or 1
+	local tx = sx and DivRound(sx, slab) or 0
+	local ty = sy and DivRound(sy, slab) or 0
+	return Max(tx, ty)
+end
+
+-- Cheap miss LoF: valid attack/stuck points without GetLoFData. ProjectileFly needs stuck_pos.
+function Jazz_SyntheticMissAttackData(attacker, precalc_shot, shot_attack_args, miss_target_pos, max_range)
+	local origin = (precalc_shot and (precalc_shot.lof_pos1 or precalc_shot.attack_pos))
+		or (shot_attack_args and (shot_attack_args.attack_pos or shot_attack_args.step_pos))
+	local dest = miss_target_pos or (precalc_shot and (precalc_shot.lof_pos2 or precalc_shot.target_pos))
+	if not IsPoint(origin) or not IsPoint(dest) then
+		return false, miss_target_pos
+	end
+	local v = dest - origin
+	local slab = const.SlabSizeX or 1
+	if v:Len() > 0 and max_range and max_range > slab then
+		dest = origin + SetLen(v, max_range - slab)
+	end
+	local attack_pos = (precalc_shot and precalc_shot.attack_pos) or origin
+	local lof = {
+		obj = attacker,
+		step_pos = (shot_attack_args and shot_attack_args.step_pos) or origin,
+		lof_pos1 = origin,
+		attack_pos = attack_pos,
+		target_pos = dest,
+		lof_pos2 = dest,
+		stuck_pos = dest,
+		hits = {},
+		target_spot_group = shot_attack_args and shot_attack_args.target_spot_group,
+	}
+	return { lof = { lof } }, dest
+end
+
+-- Execute hit LoF on large maps: reuse targeting LoF (already computed, ~20 ms).
+-- A second GetLoFData even at dist+8 stalls on M3 waterfall mesh.
+function Jazz_ReuseTargetingAttackData(shot_attack_args, attacker, target, precalc_shot)
+	local lof_list = shot_attack_args and shot_attack_args.lof
+	local lof_idx = lof_list and table.find(lof_list, "target_spot_group", shot_attack_args.target_spot_group)
+	local lof = lof_list and lof_list[lof_idx or 1]
+	lof = lof or (shot_attack_args and shot_attack_args.outside_attack_area_lof)
+	if lof then
+		if not IsPoint(lof.step_pos) then
+			lof.step_pos = (shot_attack_args and shot_attack_args.step_pos)
+				or lof.attack_pos or lof.lof_pos1
+		end
+		return { lof = { lof } }
+	end
+	local origin = (precalc_shot and (precalc_shot.lof_pos1 or precalc_shot.attack_pos))
+		or (shot_attack_args and (shot_attack_args.attack_pos or shot_attack_args.step_pos))
+	local dest = (precalc_shot and precalc_shot.target_pos)
+		or (IsValid(target) and target:GetPos())
+		or (shot_attack_args and shot_attack_args.target_pos)
+	if not IsPoint(origin) or not IsPoint(dest) then
+		return false
+	end
+	local hit = {
+		obj = IsValid(target) and target or nil,
+		pos = dest,
+		distance = origin:Dist(dest),
+	}
+	return {
+		lof = {{
+			obj = attacker,
+			step_pos = (shot_attack_args and shot_attack_args.step_pos) or origin,
+			lof_pos1 = origin,
+			attack_pos = (precalc_shot and precalc_shot.attack_pos) or origin,
+			target_pos = dest,
+			lof_pos2 = dest,
+			stuck_pos = dest,
+			hits = hit.obj and { hit } or {},
+			target_spot_group = shot_attack_args and shot_attack_args.target_spot_group,
+		}},
+	}
+end
+
+function Jazz_EnsureShotStuckPos(shot)
+	if not shot then
+		return shot
+	end
+	if not IsPoint(shot.stuck_pos) then
+		shot.stuck_pos = shot.target_pos or shot.attack_pos
+	end
+	return shot
+end
+
+-- AimTarget needs lof.step_pos; StartFireAnim needs attack_args.anim.
+-- Dump skips GetLoFData, which normally fills both.
+function Jazz_EnsureAttackArgsLofStepPos(attack_args, attacker)
+	if not attack_args then
+		return attack_args
+	end
+	if IsValid(attacker) and attacker.GetAttackAnim then
+		attack_args.stance = attack_args.stance or attacker.stance or "Standing"
+		if type(attack_args.anim) ~= "string" then
+			attack_args.anim = attacker:GetAttackAnim(attack_args.action_id, attack_args.stance)
+		end
+	end
+	local origin = attack_args.step_pos
+	if not IsPoint(origin) and IsValid(attacker) then
+		origin = (attacker.GetOccupiedPos and attacker:GetOccupiedPos()) or attacker:GetPos()
+	end
+	if not IsPoint(origin) then
+		return attack_args
+	end
+	if not origin:IsValidZ() then
+		origin = origin:SetTerrainZ()
+	end
+	attack_args.step_pos = attack_args.step_pos or origin
+	local lof_list = attack_args.lof
+	if not lof_list then
+		return attack_args
+	end
+	for _, lof in ipairs(lof_list) do
+		if lof and not IsPoint(lof.step_pos) then
+			lof.step_pos = origin
+		end
+	end
+	return attack_args
+end
+
+-- PERF-003: vanilla ProjectileFly collision.Collide on 513 maps stalls DumpFire
+-- after CheapShotVectors (M3 Fanning, all-miss). Skip vegetation query; cap fly sleep.
+function Jazz_CheapProjectileFly(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)
+	if not IsPoint(start_pt) then
+		return
+	end
+	if not IsPoint(end_pt) then
+		end_pt = start_pt
+	end
+	dir = SetLen(dir or (end_pt - start_pt), 4096)
+	speed = speed or const.Combat.BulletVelocity or 50000
+	hits = hits or empty_table
+	NetUpdateHash("ProjectileFly", attacker, start_pt, end_pt, dir, speed, hits)
+
+	local fx_actor = false
+	if IsKindOf(attacker, "Unit") then
+		fx_actor = attacker:CallReactions_Modify("OnUnitChooseProjectileFxActor", fx_actor)
+	end
+	local projectile = PlaceObject("FXBullet")
+	projectile.fx_actor_class = fx_actor
+	projectile:SetGameFlags(const.gofAlwaysRenderable)
+	projectile:SetPos(start_pt)
+	local axis, angle = OrientAxisToVector(1, dir)
+	projectile:SetAxis(axis)
+	projectile:SetAngle(angle)
+	PlayFX("Spawn", "start", projectile)
+	local dist = start_pt:Dist(end_pt)
+	local fly_time = Min(MulDivRound(dist, 1000, speed), 400)
+	projectile:SetPos(end_pt, fly_time)
+	Sleep(fly_time)
+
+	local context = {
+		attacker = attacker,
+		target = target,
+		dir = dir,
+		target_hit = false,
+		last_unit_hit = false,
+		water_hit = false,
+		fx_target = false,
+	}
+	for _, hit in ipairs(hits) do
+		if hit and hit.pos then
+			self:BulletHit(projectile, hit, context)
+		end
+	end
+	if IsValid(target) and not context.target_hit then
+		PlayFX("TargetMissed", "start", target)
+	end
+	PlayFX("Spawn", "end", projectile, false)
+	DoneObject(projectile)
+end
+
+function Jazz_CheapFirearmMissVectors(attacker, target, attack_pos, target_pos, dispersion)
+	if not target_pos then
+		return { clear = {}, obstructed = {} }
+	end
+	if not target_pos:IsValidZ() then
+		target_pos = target_pos:SetTerrainZ()
+	end
+	if attack_pos and not attack_pos:IsValidZ() then
+		attack_pos = attack_pos:SetTerrainZ()
+	end
+	local dir
+	if attack_pos then
+		dir = target_pos - attack_pos
+	end
+	if not dir or dir:Len() == 0 then
+		dir = Rotate(point(guim, 0, 0), IsValid(attacker) and attacker:GetAngle() or 0)
+	end
+	dir = SetLen(dir, guim)
+	local off = Max(35 * guic, dispersion or (35 * guic))
+	local clear = {}
+	for i = 1, 8 do
+		clear[i] = target_pos + RotateAxis(point(0, 0, off), dir, (i - 1) * 45 * 60)
+	end
+	return { clear = clear, obstructed = {} }
+end
+
+-- PERF-003: do not wrap player/AI CalcMissVectors. Dump skips that path via jazz_ai_dump.
+-- Uninstall leftover map-span wrap from earlier PERF-003 experiments.
+function Jazz_UninstallFirearmCalcMissVectorsWrap()
+	local cls = (g_Classes and g_Classes.Firearm) or Firearm
+	if type(cls) ~= "table" then
+		return false
+	end
+	local ourFn = rawget(_G, "g_JAZZ_FirearmCalcMissVectorsFn")
+	local base = rawget(_G, "g_JAZZ_FirearmCalcMissVectorsBase")
+	if type(base) == "function" and (cls.CalcMissVectors == ourFn or type(ourFn) == "function") then
+		if cls.CalcMissVectors == ourFn then
+			cls.CalcMissVectors = base
+		end
+	end
+	rawset(_G, "g_JAZZ_FirearmCalcMissVectorsFn", false)
+	return true
+end
+
+function Jazz_InstallFirearmFireBulletStuckPosWrap()
+	local cls = (g_Classes and g_Classes.Firearm) or Firearm
+	if type(cls) ~= "table" then
+		return false
+	end
+	local current = cls.FireBullet
+	local ourFn = rawget(_G, "g_JAZZ_FirearmFireBulletFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_FirearmFireBulletBase", current)
+	elseif not rawget(_G, "g_JAZZ_FirearmFireBulletBase") then
+		return false
+	end
+	local function wrap(self, attacker, shot, threads, results, attack_args)
+		Jazz_EnsureShotStuckPos(shot)
+		local base = rawget(_G, "g_JAZZ_FirearmFireBulletBase")
+		return base(self, attacker, shot, threads, results, attack_args)
+	end
+	rawset(_G, "g_JAZZ_FirearmFireBulletFn", wrap)
+	cls.FireBullet = wrap
+	return true
+end
+
+function Jazz_InstallFirearmProjectileFlyWrap()
+	local cls = (g_Classes and g_Classes.Firearm) or Firearm
+	if type(cls) ~= "table" then
+		return false
+	end
+	local current = cls.ProjectileFly
+	local ourFn = rawget(_G, "g_JAZZ_FirearmProjectileFlyFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_FirearmProjectileFlyBase", current)
+	elseif not rawget(_G, "g_JAZZ_FirearmProjectileFlyBase") then
+		return false
+	end
+	local function wrap(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)
+		if attack_args and attack_args.jazz_ai_dump then
+			if config.JAZZ_AIPerfLog then
+				printf("[JAZZ-AI-PERF] CheapProjectileFly unit=%s",
+					attacker and attacker.unitdatadef_id or "?")
+			end
+			return Jazz_CheapProjectileFly(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)
+		end
+		if not IsPoint(end_pt) and IsPoint(start_pt) then
+			end_pt = start_pt
+		end
+		local base = rawget(_G, "g_JAZZ_FirearmProjectileFlyBase")
+		return base(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)
+	end
+	rawset(_G, "g_JAZZ_FirearmProjectileFlyFn", wrap)
+	cls.ProjectileFly = wrap
+	return true
+end
+
+Jazz_UninstallFirearmCalcMissVectorsWrap()
+Jazz_InstallFirearmFireBulletStuckPosWrap()
+Jazz_InstallFirearmProjectileFlyWrap()
+
 function OnMsg.ClassesBuilt()
 	JazzWrapFAMASAutoAP()
 	JazzInstallBulletHellProjectiles()
+	Jazz_UninstallFirearmCalcMissVectorsWrap()
+	Jazz_InstallFirearmFireBulletStuckPosWrap()
+	Jazz_InstallFirearmProjectileFlyWrap()
 end
 
 function OnMsg.ModsReloaded()
 	JazzInstallBulletHellProjectiles()
+	Jazz_UninstallFirearmCalcMissVectorsWrap()
+	Jazz_InstallFirearmFireBulletStuckPosWrap()
+	Jazz_InstallFirearmProjectileFlyWrap()
 end

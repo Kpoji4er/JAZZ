@@ -1078,7 +1078,14 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             end
 
             Sleep(0)
+            -- PERF-003: Dump scored CTH without GetLoFData. Execute must not
+            -- re-run PrepareAttackArgs / per-bullet GetLoFData / vegetation Collide.
+            args.jazz_ai_dump = true
+            JAZZ_AIPerfLog("DumpFire start unit=%s action=%s",
+                unit.unitdatadef_id or "?", tostring(attack_action.id))
             local result = AIPlayCombatAction(attack_action.id, unit, nil, args)
+            JAZZ_AIPerfLog("DumpFire end unit=%s ok=%s",
+                unit.unitdatadef_id or "?", tostring(result))
             context.max_attacks = context.max_attacks - 1
             did_attack = true
             if g_AIExecutionController then
@@ -2448,22 +2455,36 @@ end
 
 
 function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
+    local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
+    JAZZ_AIPerfLog("TargetOpts start unit=%s action=%s",
+        unit and unit.unitdatadef_id or "?",
+        action and tostring(action.id or action) or "?")
     local visible_parts, targeted_parts
     targeting = targeting or context.archetype.BaseAttackTargeting or empty_table
     action = action or context.default_attack
     if action and IsKindOf(target, "Unit") then
-        local args = { target = target, aim = 0 }
-        for _, part in ipairs(target:GetBodyParts(context.weapon)) do
+        -- PERF-003: GetActionResults → PrepareAttackArgs GetLoFData hangs on M3
+        -- waterfall (Marauder PickBest, part=Arms vs Wolf). CalcChanceToHit is the
+        -- Dump score path and does not probe collision. Player UI still uses
+        -- GetActionResults.
+        local args = { target = target, aim = 0, prediction = true }
+        for _, part in ipairs(target:GetBodyParts(context and context.weapon)) do
             args.target_spot_group = part.id
-            local results = action:GetActionResults(unit, args) or empty_table
-            if (results.chance_to_hit or 0) > 0 then
+            JAZZ_AIPerfLog("TargetOpts part=%s", tostring(part.id))
+            local cth = unit:CalcChanceToHit(target, action, args, true) or 0
+            if cth > 0 then
                 if targeting[part.id] then
-                    targeted_parts = table.create_add(targeted_parts, {id = part.id, chance = results.chance_to_hit})
+                    targeted_parts = table.create_add(targeted_parts, {id = part.id, chance = cth})
                 else
-                    visible_parts = table.create_add(visible_parts, {id = part.id, chance = results.chance_to_hit})
+                    visible_parts = table.create_add(visible_parts, {id = part.id, chance = cth})
                 end
-            end            
+            end
         end
+    end
+    if t0 then
+        local n = (targeted_parts and #targeted_parts) or (visible_parts and #visible_parts) or 0
+        JAZZ_AIPerfLog("TargetOpts unit=%s parts=%d ms=%d",
+            unit and unit.unitdatadef_id or "?", n, GetPreciseTicks() - t0)
     end
     return targeted_parts or visible_parts
 end

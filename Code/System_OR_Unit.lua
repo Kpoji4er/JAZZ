@@ -941,7 +941,7 @@ function UnitBase:GetPersonalMorale()
 	local teamMorale = self.team and self.team.morale or 0
 	local personalMorale = 0
 	
-	if IsMerc(self) then
+	if IsMerc(self) and self.team and self.team.units then
 		--reduce morale for at least one disliked merc in team
 		local isDisliking = false
 		for _, dislikedMerc in ipairs(self.Dislikes) do

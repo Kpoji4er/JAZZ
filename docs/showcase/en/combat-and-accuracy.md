@@ -92,6 +92,8 @@ AI units are less eager to crowd around a single ideal firing position. Occupied
 
 This remains a soft preference rather than a movement ban: narrow passages stay traversable, while melee units and medics use a gentler floor so they can still reach a target or patient.
 
+On large maps (the waterfall and similar) the enemy turn should not freeze for minutes. AI pathing uses this-turn reach, not the whole map. A shot from the current tile no longer fires thousands of collision rays through the waterfall mesh: chance uses the same math as the aim UI, and the bullet fly is simplified. Your shots and the aim UI are unchanged.
+
 A panicked fighter may flee and **despawn** at a map exit. While your mercs are within about **16** tiles, they will not vanish just by stepping behind the nearest rock — they keep running in plain sight.
 
 Without sight, AI will not plant Overwatch into a wall at random: the cone needs a known aim with LOS; at night it prefers lit ground / night-sight, or they skip it.

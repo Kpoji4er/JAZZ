@@ -130,7 +130,6 @@ function Firearm:CalcShotVectors(attacker, action_id, target, shot_attack_args, 
 	end
 	dir = SetLen(dir, guim)
 
-	-- pick dispersion direction
 	local min_angle, max_angle = 0, 360*60
 	--[[if spot_group == "Head" then
 		min_angle, max_angle = -90*60, 90*60		
