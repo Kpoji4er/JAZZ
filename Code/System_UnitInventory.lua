@@ -560,13 +560,13 @@ end
 function UnitInventory:GetBandaged(medkit, healer)
 	local kit_class = medkit and medkit.class
 	local is_kit = kit_class and JazzMedicineIsKitClass and JazzMedicineIsKitClass(kit_class)
-	local can_mark_trauma = is_kit and JazzFindKitEligibleUnhealedTrauma
-		and JazzFindKitEligibleUnhealedTrauma(self, kit_class)
+	local can_stabilize_trauma = is_kit and JazzFindKitEligibleUnstabilizedTrauma
+		and JazzFindKitEligibleUnstabilizedTrauma(self, kit_class)
 	local can_clear_infection = is_kit and self.HasStatusEffect and self:HasStatusEffect("WoundInfected")
 	local can_ease_pain = is_kit and self.HasStatusEffect and self:HasStatusEffect("Pain")
 	local can_rally = is_kit and JazzUnitNeedsMorphineRally and JazzUnitNeedsMorphineRally(self)
 	if not JazzHasAnyBleed(self) and self.HitPoints >= self.MaxHitPoints
-		and not can_mark_trauma and not can_clear_infection and not can_ease_pain and not can_rally
+		and not can_stabilize_trauma and not can_clear_infection and not can_ease_pain and not can_rally
 	then
 		return
 	end
@@ -622,9 +622,14 @@ function UnitInventory:GetBandaged(medkit, healer)
 		return
 	end
 
-	local heal_amount = healer:CalcHealAmount(medkit, self)
+	local heal_amount = 0
+	if is_kit and type(JazzCalcKitHealAmount) == "function" then
+		heal_amount = JazzCalcKitHealAmount(healer, self, medkit)
+	else
+		heal_amount = healer:CalcHealAmount(medkit, self)
+	end
 	local can_clear_bleed = JazzHasAnyBleed(self)
-	if (heal_amount or 0) <= 0 and not can_clear_bleed and not can_mark_trauma
+	if (heal_amount or 0) <= 0 and not can_clear_bleed and not can_stabilize_trauma
 		and not can_clear_infection and not can_ease_pain and not can_rally
 	then
 		return
@@ -644,11 +649,12 @@ function UnitInventory:GetBandaged(medkit, healer)
 		JazzClearBleedStrong(self, 1)
 	end
 
-	local trauma_marked = false
-	if can_mark_trauma and JazzMarkKitTraumaHealing then
-		trauma_marked = JazzMarkKitTraumaHealing(self, kit_class) and true or false
-		if trauma_marked then
-			CombatLog("short", T{890000000010033, "<target> trauma set to healing",
+	-- MED-006: kits stabilize (ease penalties), do not start jazz_healing.
+	local trauma_stabilized = false
+	if can_stabilize_trauma and JazzMarkKitTraumaStabilized then
+		trauma_stabilized = JazzMarkKitTraumaStabilized(self, kit_class) and true or false
+		if trauma_stabilized then
+			CombatLog("short", T{890000000010290, "<target> trauma stabilized",
 				target = self.Nick or self.Name,
 			})
 		end
@@ -688,7 +694,7 @@ function UnitInventory:GetBandaged(medkit, healer)
 	end
 
 	-- MED-001/003: kits are stack items — one successful treat spends one.
-	if medkit and healer and (restored > 0 or can_clear_bleed or trauma_marked
+	if medkit and healer and (restored > 0 or can_clear_bleed or trauma_stabilized
 		or infection_cleared or support_applied or can_rally)
 	then
 		local before = medkit.Amount

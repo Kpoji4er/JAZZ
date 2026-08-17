@@ -9523,3 +9523,37 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9305,890000000006991,<style PDAMercPrice_Dead>Killed in action</style>,<style PDAMercPrice_Dead>Killed in action</style>,JAZZ-UI-AME-001
 9306,890000000006992,Signed with another employer,Signed with another employer,JAZZ-UI-AME-001
 9307,890000000020156,Старая ретрансляционная башня,Old Relay Tower,manual-translation
+10004,890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 9–30% from Medical 30 to 100)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 9–30% from Medical 30 to 100)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",manual-translation-MED-006
+10005,890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",manual-translation-MED-006
+10006,890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",manual-translation-MED-006
+10007,890000000010220,<target> trauma stabilized,<target> trauma stabilized,manual-translation-MED-006
+10008,890000000010221,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,manual-translation-MED-006
+10009,890000000010222,Max HP debt from this trauma: <em><pct>%</em>.,Max HP debt from this trauma: <em><pct>%</em>.,manual-translation-MED-006

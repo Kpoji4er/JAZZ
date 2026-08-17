@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Ствольные запчасти,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -11704,42 +11704,38 @@ R.I.S. открыла для вашего отряда канал полевой
 890000000010021,<target> bleeding reduced by bandage ×<amount>,<target> кровотечение снижено бинтом ×<amount>,,jazz:MED-001-remap-from-890000000009216
 890000000010022,Small Medkit,Маленькая аптечка,,jazz:MED-001-remap-from-890000000009217
 890000000010023,Small Medkits,Маленькие аптечки,,jazz:MED-001-remap-from-890000000009218
-890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 9–30% from Medical 30 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающего бойца
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стабилизирует одну подходящую лёгкую травму (ослабляет боевые штрафы на один тир; не лечит травму)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ в % от макс. ОЗ (зависит от Медицины: 9–30% от Медицины 30 до 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает все кровотечения
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление одной необработанной лёгкой травмы
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре",,jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:56678
 890000000010025,Medium Medkit,Средняя аптечка,,jazz:MED-001-remap-from-890000000009220
 890000000010026,Medium Medkits,Средние аптечки,,jazz:MED-001-remap-from-890000000009221
-890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.
+890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated medium or light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ и стабилизирует умирающего бойца
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 50%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стабилизирует одну подходящую среднюю или лёгкую травму (ослабляет боевые штрафы на один тир; не лечит травму)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ в % от макс. ОЗ (зависит от Медицины: 18–60% от Медицины 50 до 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает все кровотечения
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление одной необработанной средней или лёгкой травмы
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака",,jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706
 890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,Вколоть морфий: глушит Боль или поднимает из downed (без хила ОЗ). Без порога Медицины. ОД 3/2/1 при Медицине 0/40/80. Кровь не останавливает.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,Морфий,,jazz:MED-001-remap-from-890000000009224
-890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%
+890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on any untreated trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает потерянные ОЗ и стабилизирует умирающих бойцов
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бонус к лечению при перевязке: 100%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Стабилизирует одну подходящую травму любой тяжести (ослабляет боевые штрафы на один тир; не лечит травму)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Восстанавливает ОЗ в % от макс. ОЗ (зависит от Медицины: 30–100% от Медицины 80 до 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает все кровотечения
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Запускает заживление любой необработанной травмы
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре",,jazz:InventoryItem/Reanimationsset.lua:21 | jazz:items.lua:56759
@@ -11798,9 +11794,9 @@ R.I.S. открыла для вашего отряда канал полевой
 890000000010217,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
 890000000010218,Тихо.,Тихо.,,jazz-units:items.lua:VoiceResponse
 890000000010219,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
-890000000010220,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
-890000000010221,Есть.,Есть.,,jazz-units:items.lua:VoiceResponse
-890000000010222,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
+890000000010220,Есть.,Есть.,,jazz-units:VoiceResponse-restore
+890000000010221,Есть.,Есть.,,jazz-units:VoiceResponse-restore
+890000000010222,Двигаюсь.,Двигаюсь.,,jazz-units:VoiceResponse-restore
 890000000010223,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
 890000000010224,Двигаюсь.,Двигаюсь.,,jazz-units:items.lua:VoiceResponse
 890000000010225,Крадусь.,Крадусь.,,jazz-units:items.lua:VoiceResponse
@@ -12571,3 +12567,6 @@ Speck","Командир!
 890000000012515,Усиление: фланкеры,Усиление: фланкеры,,jazz-units:items.lua
 890000000012516,Усиление: смешанное,Усиление: смешанное,,jazz-units:items.lua
 890000000012601,Штурмовики Легиона,Штурмовики Легиона,,jazz-units:items.lua
+890000000010290,<target> trauma stabilized,<target>: травма стабилизирована,,jazz:MED-006
+890000000010291,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,Стабилизирована: боевые штрафы ослаблены (на один тир легче). Не лечит травму — нужна полевая операция / госпиталь.,,jazz:MED-006
+890000000010292,Max HP debt from this trauma: <em><pct>%</em>.,Долг макс. ОЗ от этой травмы: <em><pct>%</em>.,,jazz:MED-006

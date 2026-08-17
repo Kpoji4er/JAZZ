@@ -58608,7 +58608,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_IFAK.png",
 				'DisplayName', T(890000000010022, "Small Medkit"),
 				'DisplayNamePlural', T(890000000010023, "Small Medkits"),
-				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated light trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
+				'AdditionalHint', T(890000000010024, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible light trauma (eases combat penalties one tier; does not heal trauma)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 9–30% from Medical 30 to 100)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory"),
 				'UnitStat', "Medical",
 				'Cost', 300,
 				'CanAppearInShop', true,
@@ -58622,22 +58622,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "Medkit",
 				'object_class', "JazzStackableMedicine",
-				'unit_reactions', {
-					PlaceObj('UnitReaction', {
-						Event = "OnCalcHealAmount",
-						Handler = function (self, target, patient, medic, medkit, data)
-							if self == medkit then
-								data.heal_modifier = data.heal_modifier + 50
-							end
-					end,
-					}),
-				},
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "Mod/e6L4ECj/Icons/Items/JAZZ_Medkit.png",
 				'DisplayName', T(890000000010025, "Medium Medkit"),
 				'DisplayNamePlural', T(890000000010026, "Medium Medkits"),
-				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated medium or light trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack"),
+				'AdditionalHint', T(890000000010027, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack"),
 				'UnitStat', "Medical",
 				'Cost', 500,
 				'CanAppearInShop', true,
@@ -58676,22 +58666,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'Group', "Other - Meds",
 				'Id', "Reanimationsset",
 				'object_class', "JazzStackableMedicine",
-				'unit_reactions', {
-					PlaceObj('UnitReaction', {
-						Event = "OnCalcHealAmount",
-						Handler = function (self, target, patient, medic, medkit, data)
-							if self == medkit then
-								data.heal_modifier = data.heal_modifier + 100
-							end
-						end,
-					}),
-				},
 				'ScrapParts', 1,
 				'Repairable', false,
 				'Icon', "UI/Icons/Items/reanimationsset.png",
 				'DisplayName', T(890000000010031, "Large Medkit"),
 				'DisplayNamePlural', T(890000000010032, "Large Medkits"),
-				'AdditionalHint', T(890000000010030, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on any untreated trauma\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory"),
+				'AdditionalHint', T(890000000010030, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory"),
 				'UnitStat', "Medical",
 				'Cost', 1800,
 				'CanAppearInShop', true,

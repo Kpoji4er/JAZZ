@@ -31,12 +31,20 @@ def main() -> int:
     items = read("items.lua")
 
     must("return 80" in stack and "Reanimationsset" in stack, "Large Medical gate 80 missing", errors)
-    must("heal_modifier + 100" in large and "heal_modifier + 100" in items, "Large +100% heal missing", errors)
+    # MED-006 supersedes kit heal_modifier +0/+50/+100 → % MaxHP table
+    med6 = read("Code/System_Medicine_MED006.lua")
+    must("JazzKitHealAtFullMedical" in med6 and "Reanimationsset = 100" in med6, "MED-006 Large 100% heal table", errors)
     must("MaxStacks = 5" in small and "MaxStacks = 10" in mid and "MaxStacks = 15" in large, "MaxStacks 5/10/15", errors)
     must("Cost = 1800" in large and "Tier = 3" in large and "CanAppearInShop = true" in large, "Large Bobby fields", errors)
     must("RestockWeight = 15" in large, "Large RestockWeight", errors)
     must("JazzKitTraumaMaxRank" in med and "FirstAidKit = 1" in med and "Medkit = 2" in med, "trauma rank table", errors)
-    must("JazzMarkKitTraumaHealing" in med and "JazzFindKitEligibleUnhealedTrauma" in med, "trauma helpers", errors)
+    # MED-006: kit path stabilizes; aliases still expose Unhealed/Healing names
+    must(
+        ("JazzMarkKitTraumaStabilized" in med6 or "JazzMarkKitTraumaHealing" in med)
+        and ("JazzFindKitEligibleUnstabilizedTrauma" in med6 or "JazzFindKitEligibleUnhealedTrauma" in med),
+        "trauma stabilize/heal helpers",
+        errors,
+    )
     must("JazzClearAllBleeding(self)" in inv, "full bleed clear in GetBandaged", errors)
     must("JazzClearBleedStrong" not in inv or inv.count("JazzClearBleedStrong") == 0 or "is_kit" in inv, "check bleed path", errors)
     # kits should not use ClearBleedStrong for Reanimationsset

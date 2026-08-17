@@ -115,6 +115,7 @@
 | Скрипт | Назначение |
 | --- | --- |
 | `_audit_hotfix_004.py` | Static HOTFIX-004: EnterEmplacement wrap, LoadGame/EnterSector reseat, HUD nil-guards. |
+| `_audit_m3_entrance_sight.py` | M3 (`isJdmPy`): UnitMarker distances to Entrance markers vs `UnawareSightRange` 22 / `AwareSightRange` 46 (instant-combat triage). |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
 | `_count_emplacement_ammo.py` | Счётчик `ammo_template` / `weapon_template` по всем `MachineGunEmplacement` в `jazz-maps/Maps`. |
@@ -137,12 +138,17 @@
 | `_audit_med004.py` | Static MED-004: trauma floor 20 / Heavy 50% MaxHP; no d100 `thr_light`; Frag/HE center without `*shot`; NewHour catch-up. |
 | `_apply_med004_grenade_shot.py` | MED-004: strip Frag/HE `CenterAppliedEffects` `*shot` in companions+`items.lua`; update blast trauma hints RU/EN. |
 | `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
-| `_audit_med003_kits.py` | Static MED-003: Medical 30/50/80, heal +0/+50/+100, MaxStacks 5/10/15, trauma ranks, full bleed, Analgesia+infection, Large Bobby soft-tail, Bonemaker 5% medium. |
+| `_audit_med003_kits.py` | Static MED-003 (+MED-006 heal supersede): Medical 30/50/80, MaxStacks 5/10/15, trauma ranks, full bleed, Analgesia+infection, Large Bobby soft-tail, Bonemaker 5% medium; heal via `JazzKitHealAtFullMedical`. |
+| `_audit_med006_kits_stabilize.py` | Static MED-006: stabilize helpers, heal% 30/60/100, MaxHP debt, icon PNGs, no kit→healing in GetBandaged. |
+| `_gen_trauma_status_icons.py` | Pillow: from each `Icons/StatusEffects/Trauma{Zone}{Tier}.png` write `*Stabilized` (sand badge) and `*Healing` (cyan badge) corner variants (30 PNGs). |
+| `_apply_med006_trauma_ce.py` | MED-006: Trauma* Medium/Heavy reactions use effective-tier helpers; insert `System_Medicine_MED006.lua` in metadata. |
+| `_apply_med006_kit_loc.py` | MED-006: kit AdditionalHint stabilize/%HP; strip heal_modifier +50/+100. |
+| `_fix_med006_loc_id_collision.py` | MED-006: move stabilize/debt T-IDs off VoiceResponse `010220–222` onto `010290–292`. |
 | `_apply_med003_kits.py` | Apply MED-003 companion parity into `items.lua` + Bonemaker FirstAidKit/5% Medkit. |
 | `_list_merc_medkits.py` | List Mercs loot defs with FirstAidKit/Medkit/Reanimationsset (`_merc_medkits_list.txt`). |
 | `_audit_merc_med_loot_redistribute.py` | Static MED-003 hire loot: Med&lt;20 bandages-only, kit cascade, AME Small, bandage/morphine spreads vs plan. |
 | `_audit_legion_med_loot_redistribute.py` | Static MED-003 Legion class loot: T2 bandage 1–2, T3 morphine 30%, medic 1–10/0–3 + kits. |
-| `_audit_med001_large_kit_trauma.py` | Static MED-001 AC-017: Large Medkit (`Reanimationsset`) marks heaviest unhealed Trauma* with `jazz_healing`; targeting + GetBandaged + loc/hint wiring. |
+| `_audit_med001_large_kit_trauma.py` | Static MED-001 AC-017: Large Medkit (`Reanimationsset`) marks heaviest unhealed Trauma* with `jazz_healing`; targeting + GetBandaged + loc/hint wiring. Superseded for kits by MED-006 stabilize (TreatWounds healing remains). |
 | `_check_trauma_unit_ud_sync.py` | Trauma* clear/apply/NewHour must sync Unit↔UnitData (sat portrait icons after «cleared»). |
 | `_check_smoke_no_bleed.py` | Smoke/tear/toxic/fire skip ballistic bleed (JazzTryRollBleedFromHit, AppliedEffects, DangerClose). |
 | `_check_melee_pain_trauma_cth.py` | Legacy/melee CTH applies Pain/trauma after accuracy clamp; Arms trauma Pain on melee/throw. |
@@ -178,6 +184,7 @@
 | `_audit_med001_loot_jazz_units.py` / `_audit_med001_unit_kits.py` | Аудит покрытия Bandage по medical LootDef и UnitData Equipment. |
 | `_audit_loot_missing_items.py` | `jazz-units` `item=` vs known InventoryItem IDs (jazz `InventoryItem/` + vanilla ModTools defs). Exit 1 если есть MissingItem-кандидаты. |
 | `_patch_med_stack_kit_loc.py` | MED stack kits: RU/EN hint «refill with Meds» → «one use = one item»; append `890000000010030` (Reanimationsset). |
+| `_apply_med006_kit_loc.py` | MED-006: kit AdditionalHint stabilize/%HP (companions + `items.lua`); strip MED-003 `heal_modifier` +50/+100; RU/EN for `010024/027/030` and stabilize/debt `010290–292`. |
 | `_fix_med001_loot_braces.py` | Чинит `}}),` → `}),` на строках JAZZ med loot (баг f-string). |
 | `_bump_units_med_loot_meta.py` | Bump `jazz-units/metadata.lua` Revision + `last_changes` после loot apply. |
 | `_wire_med001_traumas.py` / `_append_med001_trauma_loc.py` | Wiring/loc зональных Trauma* эффектов. |

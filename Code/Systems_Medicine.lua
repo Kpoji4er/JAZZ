@@ -276,7 +276,7 @@ function JazzUnitNeedsFieldOrKitBandage(unit)
 	return false
 end
 
--- Kit Bandage also treats Pain, infection, and kit-eligible unhealed trauma.
+-- Kit Bandage also treats Pain, infection, and kit-eligible unstabilized trauma.
 function JazzUnitNeedsKitBandage(target, healer)
 	if JazzUnitNeedsFieldOrKitBandage(target) then
 		return true
@@ -291,7 +291,9 @@ function JazzUnitNeedsKitBandage(target, healer)
 		return true
 	end
 	local kit = healer and JazzGetEquippedKitMedicine(healer)
-	if kit and JazzFindKitEligibleUnhealedTrauma(target, kit.class) then
+	if kit and JazzFindKitEligibleUnstabilizedTrauma and JazzFindKitEligibleUnstabilizedTrauma(target, kit.class) then
+		return true
+	elseif kit and JazzFindKitEligibleUnhealedTrauma and JazzFindKitEligibleUnhealedTrauma(target, kit.class) then
 		return true
 	end
 	return false
@@ -1624,6 +1626,15 @@ function JazzTryRollTraumaFromBodyPart(unit, zone, hit)
 		return false
 	end
 	local damage = JazzHitAppliedHp(hit)
+	-- MED-006: any qualifying hit (damage >= floor) clears stabilization on that zone.
+	local floor = JazzTraumaDamageFloor or 20
+	if (damage or 0) >= floor and type(JazzClearZoneTraumaStabilized) == "function" then
+		JazzClearZoneTraumaStabilized(unit, zone)
+		local twin = unit.session_id and gv_UnitData and gv_UnitData[unit.session_id]
+		if twin and twin ~= unit then
+			JazzClearZoneTraumaStabilized(twin, zone)
+		end
+	end
 	local tier = JazzWantedTraumaTierFromDamage(unit, zone, damage)
 	if not tier then
 		return false
@@ -1793,9 +1804,22 @@ function JazzTraumaPainOnZoneUse(unit, zone)
 	if not unit or not zone then
 		return false
 	end
-	local tier = JazzGetTraumaTier(unit, zone)
-	if not tier then
+	local stored = JazzGetTraumaTier(unit, zone)
+	if not stored then
 		return false
+	end
+	local effect = unit:GetStatusEffect(lTraumaId(zone, stored))
+	local tier = stored
+	if type(JazzTraumaCombatTierFromEffect) == "function" then
+		tier = JazzTraumaCombatTierFromEffect(effect, unit) or false
+	end
+	-- Stabilized Light → no zone-specific; still Light pain if combat tier false but stored Light.
+	if not tier then
+		if JazzTraumaIsStabilized and JazzTraumaIsStabilized(effect) and not (JazzTraumaIsHealing and JazzTraumaIsHealing(effect)) then
+			tier = "Light"
+		else
+			return false
+		end
 	end
 	local turn = JazzTraumaCurrentTurnKey()
 	local key = JazzTraumaPainZoneTurnKey(zone, turn)
@@ -1832,6 +1856,7 @@ function OnMsg.OnAttack(attacker, action, target, results, attack_args)
 end
 
 -- Heavy traumas: +1 Pain each EndTurn for every heavy zone that was not used this turn.
+-- MED-006: stabilized Heavy (combat as Medium) does not count for unused-Heavy ramp.
 function JazzTraumaHeavyPainRamp(unit)
 	if not unit then
 		return
@@ -1844,9 +1869,16 @@ function JazzTraumaHeavyPainRamp(unit)
 	local unused = 0
 	for _, zone in ipairs(JazzTraumaZones) do
 		if JazzGetTraumaTier(unit, zone) == "Heavy" then
-			local zkey = JazzTraumaPainZoneTurnKey(zone, turn)
-			if not unit.jazz_trauma_pain_keys[zkey] then
-				unused = unused + 1
+			local effect = unit:GetStatusEffect(lTraumaId(zone, "Heavy"))
+			if JazzTraumaIsStabilized and JazzTraumaIsStabilized(effect)
+				and not (JazzTraumaIsHealing and JazzTraumaIsHealing(effect))
+			then
+				-- skip
+			else
+				local zkey = JazzTraumaPainZoneTurnKey(zone, turn)
+				if not unit.jazz_trauma_pain_keys[zkey] then
+					unused = unused + 1
+				end
 			end
 		end
 	end
@@ -1926,6 +1958,12 @@ function JazzSetTraumaHealing(effect, healing)
 		return false
 	end
 	effect:SetParameter("jazz_healing", healing and 1 or 0)
+	if healing and type(JazzClearTraumaStabilizedOnEffect) == "function" then
+		JazzClearTraumaStabilizedOnEffect(effect)
+	end
+	if type(JazzApplyTraumaStatusIcon) == "function" then
+		JazzApplyTraumaStatusIcon(effect)
+	end
 	return true
 end
 
@@ -1943,6 +1981,9 @@ function JazzMarkUnitTraumasHealing(unit)
 			if tier then
 				local effect = obj:GetStatusEffect(lTraumaId(zone, tier))
 				if effect then
+					if type(JazzClearTraumaStabilizedOnEffect) == "function" then
+						JazzClearTraumaStabilizedOnEffect(effect)
+					end
 					JazzSetTraumaHealing(effect, true)
 					JazzInitTraumaProgressTimer(effect, zone, tier, obj)
 					any = true
@@ -2478,6 +2519,7 @@ function JazzPushTraumaToTwin(src)
 				local next_t = src_eff.ResolveValue and src_eff:ResolveValue("next_check_time")
 				local interval = src_eff.ResolveValue and src_eff:ResolveValue("check_interval_h")
 				local healing = src_eff.ResolveValue and src_eff:ResolveValue("jazz_healing")
+				local stabilized = src_eff.ResolveValue and src_eff:ResolveValue("jazz_stabilized")
 				if next_t then
 					dst_eff:SetParameter("next_check_time", next_t)
 				end
@@ -2485,8 +2527,11 @@ function JazzPushTraumaToTwin(src)
 					dst_eff:SetParameter("check_interval_h", interval)
 				end
 				dst_eff:SetParameter("jazz_healing", healing or 0)
+				dst_eff:SetParameter("jazz_stabilized", stabilized or 0)
 				if type(JazzStampStatusEffectUIProps) == "function" then
 					JazzStampStatusEffectUIProps(dst_eff, id)
+				elseif type(JazzApplyTraumaStatusIcon) == "function" then
+					JazzApplyTraumaStatusIcon(dst_eff)
 				end
 			end
 		end
@@ -2550,6 +2595,7 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	local zone, tier = JazzParseTraumaEffectId(effect and effect.class)
 	local hours = JazzTraumaHoursUntilNextCheck(effect)
 	local healing = JazzTraumaIsHealing(effect)
+	local stabilized = JazzTraumaIsStabilized and JazzTraumaIsStabilized(effect)
 	local timing
 	if hours == false then
 		timing = T(890000000010203, "Next progress check: pending.")
@@ -2567,6 +2613,8 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	local flavor
 	if healing then
 		flavor = T(890000000010197, "Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).")
+	elseif stabilized then
+		flavor = T(890000000010291, "Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.")
 	elseif tier == "Light" then
 		flavor = T(890000000010206, "Light trauma can clear on its own over time.")
 	elseif tier == "Medium" then
@@ -2576,13 +2624,15 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	else
 		flavor = ""
 	end
-	-- Never fall back to effect.Description / ResolveValue — that re-enters GetDescription
-	-- and double-appends the progress line (Missing text + two timing lines).
+	local debt = JazzTraumaMaxHpDebtByTier and JazzTraumaMaxHpDebtByTier[tier]
+	local debt_line = ""
+	if debt and debt > 0 then
+		debt_line = T{890000000010292, "Max HP debt from this trauma: <em><pct>%</em>.", pct = debt}
+	end
 	if not base_desc or base_desc == "" then
 		local raw = rawget(_G, "JazzTraumaRawDescription")
 		base_desc = (type(raw) == "function" and raw(effect)) or ""
 	end
-	-- Dedup if a stacked/re-entered path already baked progress into a string.
 	if type(base_desc) == "string" then
 		local cut = string.find(base_desc, "Next progress check", 1, true)
 		if cut and cut > 1 then
@@ -2590,12 +2640,14 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 			base_desc = string.gsub(base_desc, "%s+$", "")
 		end
 	end
-	-- table.concat of T values returns a TConcat; UI translates it with the effect as
-	-- context so <cth_penalty>% / <APLoss> tags resolve (same as Concussion).
+	local parts = { base_desc, timing }
 	if flavor and flavor ~= "" then
-		return table.concat({ base_desc, timing, flavor }, "\n\n")
+		parts[#parts + 1] = flavor
 	end
-	return table.concat({ base_desc, timing }, "\n\n")
+	if debt_line and debt_line ~= "" then
+		parts[#parts + 1] = debt_line
+	end
+	return table.concat(parts, "\n\n")
 end
 
 function JazzDowngradeTrauma(unit, zone, from_time)

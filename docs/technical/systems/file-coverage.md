@@ -33,6 +33,7 @@
 | `UnitPropertiesStats.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) |
 | `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — grit CombatStart off (MED-001) |
 | `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
+| `System_Medicine_MED006.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — MED-006 kit stabilize, % HP heal, MaxHP debt, trauma status icons |
 | `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — `JazzStackableMedicine` (Bandage/Morphine stacks) + kit charge UI helper |
 | `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`ResolveValue("Description")` progress line; `GetDescription` raw for save) |
 | `Save_CharacterEffectSerialize.lua` | loaded | [Runtime](runtime-editor-integration.md) — HOTFIX: empty `CharacterEffect` props → `{}`; sanitize `PlaceCharacterEffect('Id', )` on load (mid-combat `suppressionPinned` saves) |

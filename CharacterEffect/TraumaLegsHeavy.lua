@@ -21,20 +21,25 @@ DefineClass.TraumaLegsHeavy = {
 			Event = "OnCalcMoveModifier",
 			Handler = function(self, target, value, action)
 				JazzTraumaPainOnZoneUse(target, "Legs")
-				return value + self:ResolveValue("move_ap_modifier")
+				local move = JazzTraumaLegsMoveAp and JazzTraumaLegsMoveAp(self, target)
+				return value + (move or self:ResolveValue("move_ap_modifier"))
 			end,
 		}),
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcFreeMove",
 			Handler = function(self, target, data)
-				data.add = 0
-				data.mul = 0
+				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+					data.add = 0
+					data.mul = 0
+				end
 			end,
 		}),
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
 			Handler = function(self, target)
-				target:RemoveStatusEffect("FreeMove")
+				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+					target:RemoveStatusEffect("FreeMove")
+				end
 			end,
 		}),
 	},

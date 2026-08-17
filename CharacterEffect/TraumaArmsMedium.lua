@@ -23,7 +23,8 @@ DefineClass.TraumaArmsMedium = {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
-					ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+					local pen = JazzTraumaArmsCthPenalty and JazzTraumaArmsCthPenalty(self, attacker)
+					ApplyCthModifier_Add(self, data, -(pen or self:ResolveValue("cth_penalty")))
 				end
 			end,
 		}),

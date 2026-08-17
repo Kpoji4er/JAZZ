@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -11711,42 +11711,38 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010021,<target> bleeding reduced by bandage ×<amount>,<target> bleeding reduced by bandage ×<amount>,,jazz:MED-001-remap-from-890000000009216
 890000000010022,Small Medkit,Small Medkit,,jazz:MED-001-remap-from-890000000009217
 890000000010023,Small Medkits,Small Medkits,,jazz:MED-001-remap-from-890000000009218
-890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+890000000010024,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 9–30% from Medical 30 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 9–30% from Medical 30 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:56678
 890000000010025,Medium Medkit,Medium Medkit,,jazz:MED-001-remap-from-890000000009220
 890000000010026,Medium Medkits,Medium Medkits,,jazz:MED-001-remap-from-890000000009221
-890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.
+890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated medium or light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP and stabilizes downed characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 50%.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on one untreated medium or light trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706
 890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,MORPHINE,,jazz:MED-001-remap-from-890000000009224
-890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%
+890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on any untreated trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores lost HP and stabilizes dying characters
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Bandage healing bonus: 100%
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Starts healing on any untreated trauma
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",,jazz:InventoryItem/Reanimationsset.lua:21 | jazz:items.lua:56759
@@ -11805,9 +11801,9 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010217,Тихо.,Quiet.,,jazz-units:items.lua:VoiceResponse
 890000000010218,Тихо.,Quiet.,,jazz-units:items.lua:VoiceResponse
 890000000010219,Есть.,On it.,,jazz-units:items.lua:VoiceResponse
-890000000010220,Есть.,On it.,,jazz-units:items.lua:VoiceResponse
-890000000010221,Есть.,On it.,,jazz-units:items.lua:VoiceResponse
-890000000010222,Двигаюсь.,Moving.,,jazz-units:items.lua:VoiceResponse
+890000000010220,Есть.,On it.,,jazz-units:VoiceResponse-restore
+890000000010221,Есть.,On it.,,jazz-units:VoiceResponse-restore
+890000000010222,Двигаюсь.,Moving.,,jazz-units:VoiceResponse-restore
 890000000010223,Двигаюсь.,Moving.,,jazz-units:items.lua:VoiceResponse
 890000000010224,Двигаюсь.,Moving.,,jazz-units:items.lua:VoiceResponse
 890000000010225,Крадусь.,Sneaking.,,jazz-units:items.lua:VoiceResponse
@@ -12460,7 +12456,7 @@ Speck",,JAZZ-UI-MERC-001
 890000000009877,Уверенность растёт,Building Confidence,,jazz:CharacterEffect/BuildingConfidence.lua
 890000000009878,"На 2-м ходу и каждые 3 хода после (2/5/8…) — Inspired (+4 ОД). Лечение: ±<percentPerLevel>% за разницу уровней с пациентом (макс. ±<percentCap>%), в бою и на спутнике.","On turn 2 and every 3 turns after (2/5/8…) — Inspired (+4 AP). Healing: ±<percentPerLevel>% per level difference vs patient (cap ±<percentCap>%), in combat and satellite.",,jazz:CharacterEffect/BuildingConfidence.lua
 890000000009881,Адский ливень,Bullet Hell,,jazz:CharacterEffect/BulletHell.lua
-890000000009882,"Конусный ливень реальных пуль по дуге (15–30) без отдачи: каждая пуля с тем же CTH. Бьют тех, кто в луче, возможны шальные. Сбивает Will всем врагам в конусе. Перезарядка — после убийства.","Cone arc of real bullets (15-30) with no recoil: every round uses the same CTH. Hits people on a ray; strays possible. Drains Will of every enemy in the cone. Recharges on kill.",,jazz:CharacterEffect/BulletHell.lua
+890000000009882,"Конусный ливень реальных пуль по дуге (15–30) без отдачи: каждая пуля с тем же CTH. Бьют тех, кто в луче, возможны шальные. Сбивает Will всем врагам в конусе. Перезарядка — после убийства.",Cone arc of real bullets (15-30) with no recoil: every round uses the same CTH. Hits people on a ray; strays possible. Drains Will of every enemy in the cone. Recharges on kill.,,jazz:CharacterEffect/BulletHell.lua
 890000000009885,Конструктор взрывчатки,Explosives Designer,,jazz:CharacterEffect/DesignerExplosives.lua
 890000000009886,Делает самодельные гранаты (ванильные Shaped Charge): каждые <hoursToProduce> ч — <amountToProduce> шт.; крафт через «Изготовление взрывчатки». Крафт патронов и гранат: −<craft_discount>% Parts.,Makes homemade grenades (vanilla Shaped Charge): every <hoursToProduce> h — <amountToProduce>; craft via Craft Explosives. Ammo/grenade craft: −<craft_discount>% Parts.,,jazz:CharacterEffect/DesignerExplosives.lua
 890000000009887,Наздаровье,Nazdarovya,,jazz:CharacterEffect/Nazdarovya.lua
@@ -12578,3 +12574,6 @@ Speck",,JAZZ-UI-MERC-001
 890000000012515,Усиление: фланкеры,Reinforcement: flankers,,jazz-units:items.lua
 890000000012516,Усиление: смешанное,Reinforcement: mixed,,jazz-units:items.lua
 890000000012601,Штурмовики Легиона,Legion Attack Squad,,jazz-units:items.lua
+890000000010290,<target> trauma stabilized,<target> trauma stabilized,,jazz:MED-006
+890000000010291,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,,jazz:MED-006
+890000000010292,Max HP debt from this trauma: <em><pct>%</em>.,Max HP debt from this trauma: <em><pct>%</em>.,,jazz:MED-006

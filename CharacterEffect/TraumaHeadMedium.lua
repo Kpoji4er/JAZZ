@@ -28,7 +28,8 @@ DefineClass.TraumaHeadMedium = {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
-					ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+					local pen = JazzTraumaHeadCthPenalty and JazzTraumaHeadCthPenalty(self, attacker)
+					ApplyCthModifier_Add(self, data, -(pen or self:ResolveValue("cth_penalty")))
 				end
 			end,
 		}),
@@ -36,7 +37,8 @@ DefineClass.TraumaHeadMedium = {
 			Event = "OnCalcSightModifier",
 			Handler = function(self, target, value, observer, other, step_pos, darkness)
 				if target == observer then
-					return value + self:ResolveValue("sight_modifier")
+					local sight = JazzTraumaHeadSightModifier and JazzTraumaHeadSightModifier(self, target)
+					return value + (sight or self:ResolveValue("sight_modifier"))
 				end
 			end,
 		}),
