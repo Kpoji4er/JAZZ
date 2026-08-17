@@ -144,6 +144,10 @@
 | `_apply_med006_trauma_ce.py` | MED-006: Trauma* Medium/Heavy reactions use effective-tier helpers; insert `System_Medicine_MED006.lua` in metadata. |
 | `_apply_med006_kit_loc.py` | MED-006: kit AdditionalHint stabilize/%HP; strip heal_modifier +50/+100. |
 | `_fix_med006_loc_id_collision.py` | MED-006: move stabilize/debt T-IDs off VoiceResponse `010220–222` onto `010290–292`. |
+| `_polish_med006_loc.py` | MED-006 polish: kit Medical phrasing + Bandage CA `010213` stabilize (no kit trauma heal); Manual `010290–292`. |
+| `_sync_med006_loc_to_lua.py` | Sync polished EN `T()` fallbacks into kit companions + `items.lua` (`010024/027/030/213`). |
+| `_cleanup_med006_manual_loc.py` | Dedupe Manual MED-006 rows; drop stale Bandage CA; RU «кита»→«аптечки». |
+| `_check_med006_loc.py` | Gate: polished RU/EN kits + stabilize IDs; no healing-on-kit in `010213`; VR IDs clean. |
 | `_apply_med003_kits.py` | Apply MED-003 companion parity into `items.lua` + Bonemaker FirstAidKit/5% Medkit. |
 | `_list_merc_medkits.py` | List Mercs loot defs with FirstAidKit/Medkit/Reanimationsset (`_merc_medkits_list.txt`). |
 | `_audit_merc_med_loot_redistribute.py` | Static MED-003 hire loot: Med&lt;20 bandages-only, kit cascade, AME Small, bandage/morphine spreads vs plan. |

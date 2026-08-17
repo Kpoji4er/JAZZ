@@ -11721,7 +11721,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:InventoryItem/FirstAidKit.lua:11 | jazz:items.lua:56678
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically while in inventory",,jazz:MED-006
 890000000010025,Medium Medkit,Medium Medkit,,jazz:MED-001-remap-from-890000000009220
 890000000010026,Medium Medkits,Medium Medkits,,jazz:MED-001-remap-from-890000000009221
 890000000010027,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible medium or light trauma (eases combat penalties one tier; does not heal trauma)
@@ -11732,7 +11732,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 18–60% from Medical 50 to 100)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,jazz:InventoryItem/Medkit.lua:21 | jazz:items.lua:56706
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack",,jazz:MED-006
 890000000010028,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,Inject morphine to suppress Pain or rally a downed ally (no HP heal). No Medical gate. AP 3/2/1 at Medical 0/40/80. Does not stop bleeding.,,jazz:MED-001-remap-from-890000000009223
 890000000010029,Morphine,MORPHINE,,jazz:MED-001-remap-from-890000000009224
 890000000010030,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)
@@ -11745,7 +11745,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",,jazz:InventoryItem/Reanimationsset.lua:21 | jazz:items.lua:56759
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",,jazz:MED-006
 890000000010031,Large Medkit,Large Medkit,,jazz:Reanimationsset-rename
 890000000010032,Large Medkits,Large Medkits,,jazz:Reanimationsset-rename
 890000000010033,<target> trauma set to healing,<target> trauma set to healing,,jazz:LargeMedkit-trauma-healing
@@ -11794,7 +11794,7 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010210,<merc> trauma improved (cleared),<merc> trauma improved (cleared),,jazz:MED-001-trauma-timing
 890000000010211,<merc> trauma improved to a lighter tier,<merc> trauma improved to a lighter tier,,jazz:MED-001-trauma-timing
 890000000010212,<merc> trauma worsened,<merc> trauma worsened,,jazz:MED-001-trauma-timing
-890000000010213,"Treat an ally with a small, medium, or large medkit. Restores HP based on Medical, clears all bleeding, eases pain, clears wound infection, and can rally the downed. Small starts healing on a light trauma; medium on medium or light; large on any trauma. Field bandages use a separate action.","Treat an ally with a small, medium, or large medkit. Restores HP based on Medical, clears all bleeding, eases pain, clears wound infection, and can rally the downed. Small starts healing on a light trauma; medium on medium or light; large on any trauma. Field bandages use a separate action.",,jazz:MED-001-Bandage-kit
+890000000010213,"Treat an ally with a small, medium, or large medkit. Restores HP as a % of max HP scaled by Medical (at Medical 100: 30/60/100%; at the kit’s Medical gate: 30% of those values). Clears all bleeding, eases pain, clears wound infection, can rally the downed, and stabilizes one eligible trauma (eases combat penalties one tier — does not heal trauma). Field bandages use a separate action.","Treat an ally with a small, medium, or large medkit. Restores HP as a % of max HP scaled by Medical (at Medical 100: 30/60/100%; at the kit’s Medical gate: 30% of those values). Clears all bleeding, eases pain, clears wound infection, can rally the downed, and stabilizes one eligible trauma (eases combat penalties one tier — does not heal trauma). Field bandages use a separate action.",,jazz:MED-006
 890000000010214,На связи.,Standing by.,,jazz-units:items.lua:VoiceResponse
 890000000010215,На связи.,Standing by.,,jazz-units:items.lua:VoiceResponse
 890000000010216,Тихо.,Quiet.,,jazz-units:items.lua:VoiceResponse

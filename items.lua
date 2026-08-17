@@ -64011,7 +64011,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				ActivePauseBehavior = "queue",
 				AimType = "melee",
 				ConfigurableKeybind = false,
-				Description = T(890000000010213, "Treat an ally with a small, medium, or large medkit. Restores HP based on Medical, clears all bleeding, eases pain, clears wound infection, and can rally the downed. Small starts healing on a light trauma; medium on medium or light; large on any trauma. Field bandages use a separate action."),
+				Description = T(890000000010213, "Treat an ally with a small, medium, or large medkit. Restores HP as a % of max HP scaled by Medical (at Medical 100: 30/60/100%; at the kit's Medical gate: 30% of those values). Clears all bleeding, eases pain, clears wound infection, can rally the downed, and stabilizes one eligible trauma (eases combat penalties one tier — does not heal trauma). Field bandages use a separate action."),
 				DisplayName = T(615556944457, --[[ModItemCombatAction Bandage DisplayName]] "Bandage"),
 				EvalTarget = function (self, units, target, args)
 					local unit = units[1]
