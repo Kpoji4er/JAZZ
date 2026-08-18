@@ -17,6 +17,7 @@ REQUIRED = [
 	"JAZZ_NoMaps_BaseCreateUnitData",
 	"JAZZ_NoMaps_UnitMarkerWrapped",
 	"JAZZ_NoMaps_BaseUnitMarkerSpawnObjects",
+	"g_JAZZ_NoMapsSkipUnitRemap",
 ]
 
 
@@ -36,6 +37,8 @@ def main() -> int:
 			if name.endswith("Wrapped") or name.startswith("g_JAZZ_NoMapsBase") or "Base" in name:
 				if f'rawset(_G, "{name}"' not in text:
 					errors.append(f"no rawset write for {name}")
+		if name == "g_JAZZ_NoMapsSkipUnitRemap" and f'rawset(_G, "{name}"' not in text:
+			errors.append(f"no rawset write for {name}")
 	if "lQuestVarSafeSet" not in text:
 		errors.append("missing lQuestVarSafeSet")
 	if errors:

@@ -43,6 +43,8 @@ COMPAT-003 (2026-07-31): NoMaps Global AI economy (nomaps **0.7–0.8**) + Legio
 
 COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered container loot (nomaps **0.9** + jazz `Guardpost_Patrols` helpers). Major HQ force `A20`; adopt InitialSquads; seed POI; generic vanilla Legion → `JAZZ_Legion_*` pools; inject by `JAZZ_Legion_Tier`. Named/Hyena skip; `WeakFlagHill`→assault T1; `Stronger_Elite`→T4; stem match with generic suffixes. Gear refresh GEAR_REV=3: tier rawset before CSE, ensure firearm, sync live Unit. Spec: [JAZZ-COMPAT-004](../specs/active/JAZZ-COMPAT-004.md). **Story squad:** `FortressPierre` kept vanilla (not remapped to `LegionJAZZSquadT2`) so Pierre remains the fort boss.
 
+COMPAT-010 (2026-08-18): NoMaps class-remap skips vanilla quest spawns — G6 `LegionWaterWell`, A2 `DiamondRedSquad`, F5 beach `LegionDefenders_Balanced_Easy`; Captain Pierrot `conflict_ignore`. Spec: [JAZZ-COMPAT-010](../specs/active/JAZZ-COMPAT-010.md). Existing save: мёртвый Пьеро / уже нулевые шахтёры не ретрофитятся; пустой колодец — выйти и зайти на следующем закате.
+
 COMPAT-005 (2026-08-02): NoMaps day-1 weight class — `LegionJAZZSquadT1_Early` (true T1-only) as default remap alias; expands to T2/T3 squads when gear major rises; UnitData remap caps class at T1 on gear major I (`Stronger_Elite`→T4 only major III+). Spec: [JAZZ-COMPAT-005](../specs/active/JAZZ-COMPAT-005.md).
 
 COMPAT-006 (2026-08-02): NoMaps auto-region catchment shrink (nomaps **0.9.11**) — Chebyshev **R=3** (was 8); soft refresh Voronoi across all tracked outposts; `gv_JAZZ_NoMaps.ai_region_rev` rebuilds `Sectors` on existing saves. Spec: [JAZZ-COMPAT-006](../specs/active/JAZZ-COMPAT-006.md). **Radius superseded by COMPAT-007** (orphans).

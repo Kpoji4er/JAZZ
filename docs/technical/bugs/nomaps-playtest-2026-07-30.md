@@ -1,9 +1,9 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); runtime smoke on I1 Bastien / I2 loot still recommended  
+**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6, Discord Firestarter 2026-08-18) — COMPAT-010 class-remap skip + Pierrot `conflict_ignore` (runtime smoke still open)  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
-**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала)  
-**Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md)  
+**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала); Discord Firestarter 2026-08-18 (A2/F5/G6)  
+**Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md), [JAZZ-COMPAT-010](../../specs/active/JAZZ-COMPAT-010.md)  
 **Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize/remap); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
 
 ## Краткий вердикт
@@ -212,6 +212,30 @@ Root: (1) tax collect не звал cargo ensure; (2) `lEnsureMoneyCargo` мог
 Симптом: logistics escorts **[19]** day-1; `$`/mine income слишком быстрый.
 
 **Fix (STRATEGY-016):** early→mature size curve (time/heat/tier); logistics composition escorts; `JAZZ_LegionEconomyScalePct=25` (÷4); cadence 12h command / 48h tax·recruiter·combat spawn / 96h POI. Existing fat squads not shrunk; new spawns only.
+
+### B21 — A2 Diamond Red: 0 surviving miners (Discord Firestarter 2026-08-18)
+
+Симптом: убийство Graaf до выстрела, журнал «выживших рабочих 0»; доход шахты 50%.
+
+**Root cause:** `DiamondRedSquad` class-remap → `JAZZ_Legion_*` рядом с гражданскими `Miners`; ванильный TCE Graaf/Legion target miners.
+
+**Fix (COMPAT-010):** `STORY_SQUAD_KEEP_VANILLA_UNITS.DiamondRedSquad` — не ремапить class. Уже зафиксированный `MinersAlive` в save не откатывается.
+
+### B22 — F5 капитан Пьеро пропал, порт не открыть (Discord Firestarter 2026-08-18)
+
+Симптом: нет Пьеро, нельзя спустить лодку / открыть порт Côte d'Azur.
+
+**Root cause:** ForceConflict + `neutral_retaliate`; стартовый `LegionDefenders_Balanced_Easy` после remap бьёт как JAZZ T1. Ваниль при смерти `NPC_CaptainPierrot` снимает `AbandonedBeach_EnablePort`.
+
+**Fix (COMPAT-010):** skip class-remap только F5+`LegionDefenders_Balanced_Easy`; `conflict_ignore` на живом Пьеро. Уже мёртвый Пьеро в save не воскрешается.
+
+### B23 — G6 колодец: радио + конфликт, отряда нет (Discord Firestarter 2026-08-18)
+
+Симптом: закат, радио, Satellite conflict, на тактике пусто.
+
+**Root cause:** vanilla `WaterWell` conflict без satellite-сквада (`no_exploration_resolve`); remap `LegionWaterWell` маркеров сбрасывает квестовую группу.
+
+**Fix (COMPAT-010):** не ремапить marker group `LegionWaterWell`. Пустой текущий визит — выйти и зайти на следующем закате.
 
 ### Quality / named-veteran early (Sergej) — deferred
 

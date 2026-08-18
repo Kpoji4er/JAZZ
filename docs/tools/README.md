@@ -120,6 +120,7 @@
 | --- | --- |
 | `_audit_hotfix_004.py` | Static HOTFIX-004: EnterEmplacement wrap, LoadGame/EnterSector reseat, HUD nil-guards. |
 | `_audit_m3_entrance_sight.py` | M3 (`isJdmPy`): UnitMarker distances to Entrance markers vs `UnawareSightRange` 22 / `AwareSightRange` 46 (instant-combat triage). |
+| `_audit_m3_unitmarker_flags.py` | M3 UnitMarker property keys + suspect Aware/Combat/status_effects lines (forced-combat triage). |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
 | `_count_emplacement_ammo.py` | Счётчик `ammo_template` / `weapon_template` по всем `MachineGunEmplacement` в `jazz-maps/Maps`. |
@@ -266,6 +267,7 @@
 | `_verify_gap_fixes.py` | Smoke после wave gaps: Id uniqueness Parts/BarrelParts, Type leftovers, unique WeaponMass. |
 | `_verify_nomaps_unit_remap_named_skip.py` | COMPAT-004: static mirror remap families — Bastien skip; `WeakFlagHill`→assault; `*_Tutorial` stems; Hyena skip. |
 | `_verify_nomaps_fortress_pierre_squad.py` | NoMaps: `FortressPierre` must stay out of `SQUAD_REMAP` (vanilla Pierre boss; not `LegionJAZZSquadT2`). |
+| `_verify_nomaps_story_quest_skip.py` | COMPAT-010: skip class-remap for `LegionWaterWell` / `DiamondRedSquad` / F5 `LegionDefenders_Balanced_Easy`; Pierrot `conflict_ignore`. |
 | `_retire_legion_fortress_defenders.py` | Удаляет `LegionFortressDefenders`; добавляет `FortressDefenders_NoMaps` (~16); NoMaps remap/garrison → half-size pack. |
 | `_apply_ernie_counterattack_nomaps.py` | Adds `ErnieCounterAttack_NoMaps` (20, no mortar) + NoMaps `SQUAD_REMAP` from `ErnieCounterAttack`. |
 | `_dump_villa_squads.py` | Dump min–max composition of AroundVilla Sentry + VillaAttackers_K3/K5/L3/L4/L5 and sector Init totals. |
