@@ -122,6 +122,12 @@
 | `_audit_m3_entrance_sight.py` | M3 (`isJdmPy`): UnitMarker distances to Entrance markers vs `UnawareSightRange` 22 / `AwareSightRange` 46 (instant-combat triage). |
 | `_audit_m3_unitmarker_flags.py` | M3 UnitMarker property keys + suspect Aware/Combat/status_effects lines (forced-combat triage). |
 | `_audit_m3_unit_z.py` | M3 UnitMarker missing Z / local Z outliers vs Entrance heights (floating-spawn triage). |
+| `_replace_steam_last_changes.py` | Full-replace `metadata.lua` `last_changes` for Steam Workshop upload (`--apply`). Default text: `_steam_last_changes_since_aug12.txt`. No Revision bump; no raw LF in quotes. |
+| `_steam_last_changes_since_aug12.txt` | Player-facing Steam changelog bullets (12 Aug 2026 → current). |
+| `_steam_last_changes_since_aug8.txt` | Older Steam draft (8 Aug window); kept for reference. |
+| `_check_last_changes_preview.py` | Print decoded `metadata.lua` `last_changes` (escape check + bullet dump). |
+| `_print_metadata_version.py` | Print `version_major.version_minor-version` from `metadata.lua` (first matches). |
+| `_audit_steam_editor_resave.py` | Diff Steam/Mod Editor resave vs HEAD: lost `ResolveValue`, EN→RU T() fallbacks, FreeMove damage. |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
 | `_count_emplacement_ammo.py` | Счётчик `ammo_template` / `weapon_template` по всем `MachineGunEmplacement` в `jazz-maps/Maps`. |
