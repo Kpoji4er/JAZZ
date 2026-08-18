@@ -67,7 +67,7 @@ STRATEGY-003 использует abstract `supply`/`reserve`. Roadmap п.0 тр
 | Recon/Patrol/QRF/Garrison cost | *Cost | 8000/18000/40000/120000 |
 | MajorResponseCost | MajorResponseCost | 50000 |
 
-City/farm `$` после [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md) накапливаются на POI пульсом `POIGenerationInterval` (72h), не hourly в `outpost.money`.
+City/farm `$` после [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md) накапливаются на POI пульсом `POIGenerationInterval` (**96h**, [JAZZ-STRATEGY-016](JAZZ-STRATEGY-016.md); было 72h), не hourly в `outpost.money`.
 
 ## Требования
 
@@ -107,6 +107,7 @@ City/farm `$` после [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md) накапл�
 ## Решение владельца
 
 28 июля 2026 — план money ledger migration утверждён (п.0 + $ в task UI).
+2026-08-18: POI pulse **96h** ([JAZZ-STRATEGY-016](JAZZ-STRATEGY-016.md)); ledger path unchanged.
 
 ## Evidence
 

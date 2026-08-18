@@ -53,9 +53,9 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 
 ## Locked defaults (playtest / morning Q)
 
-- Farm +2 / City +3 recruits per **POI pulse** (72h); sector caps farm 8 / city 16; also guardpost +2 / port +1 (caps 12 / 8).
+- Farm +2 / City +3 recruits per **POI pulse** (**96h**, STRATEGY-016; было 72h); sector caps farm 8 / city 16; also guardpost +2 / port +1 (caps 12 / 8).
 - Outpost manpower start 20 / capacity **32**; Major start 80 / capacity 600.
-- RecruiterThreshold=8, RecruiterCap=1, RecruiterCargoMax=16, RecruiterCooldown=24h.
+- RecruiterThreshold=8, RecruiterCap=1, RecruiterCargoMax=16, RecruiterCooldown=**48h** (016; было 24h).
 - ManpowerConvoyCargo=16; Major→outpost **только при outpost.manpower=0** (`ManpowerConvoyTriggerPercent` unused/legacy).
 - Overflow recruits after strip → `outbound_manpower` → reverse caravan outpost→Major.
 
@@ -95,7 +95,8 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 
 ## Решение владельца
 
-28 июля 2026 — «доделай всю задачу по глобалке» includes 7b with locked defaults.
+28 июля 2026 — «доделай всю задачу по глобалке» includes 7b with locked defaults.  
+2026-08-18: `RecruiterCooldown` **48h** и POI pulse **96h** — [JAZZ-STRATEGY-016](JAZZ-STRATEGY-016.md). Recruiter path/schema unchanged.
 
 ## Evidence
 

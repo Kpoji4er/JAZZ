@@ -28,6 +28,8 @@ exclusive_resources:
   - GameVar:gv_JAZZ_LegionAI
 related_decisions:
   - none
+related_specs:
+  - JAZZ-STRATEGY-016
 approved_by: project-owner
 ---
 
@@ -39,9 +41,9 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 
 ## Цели
 
-- City/farm `$` копятся в `region_state.poi_money[sector_id]` (Legion-owned economic POI only) пульсом `POIGenerationInterval` (default 72h).
+- City/farm `$` копятся в `region_state.poi_money[sector_id]` (Legion-owned economic POI only) пульсом `POIGenerationInterval` (**96h**, STRATEGY-016; было 72h в этом spec).
 - Mine `$` остаются в `outpost.diamond_stock` (shipment), не через tax.
-- Role `tax`: icon TAX; cap 1; threshold sum ≥ $1000; cooldown 24h; circuit all taxed sectors then unload at outpost.
+- Role `tax`: icon TAX; cap 1; threshold sum ≥ $1000; cooldown **48h** (STRATEGY-016; было 24h); circuit all taxed sectors then unload at outpost.
 - Task UI shows cargo `$`.
 - Recipe allow-list for tax (escort band).
 
@@ -54,8 +56,8 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 
 ## Locked defaults
 
-- TaxCap=1, TaxThreshold=1000, TaxCooldown=24h, TaxCargoMax=12000.
-- POI pulse: city $2500 / farm $800; `PoiMoneyCap`=12000; catch-up max 1 cycle.
+- TaxCap=1, TaxThreshold=1000, TaxCooldown=**48h** (016; было 24h), TaxCargoMax=12000 (runtime cargo × economy scale).
+- POI pulse: city $2500 / farm $800; `PoiMoneyCap`=12000; interval **96h** (016; было 72h); catch-up max 1 cycle.
 - TaxSquads Region list falls back to SupplySquads.
 - Spawn cost: $0 unit charge (logistics); cargo only.
 
@@ -95,6 +97,7 @@ Roadmap 7a: city/farm `$` сейчас льются прямо в `outpost.money
 ## Решение владельца
 
 28 июля 2026 — overnight completion of Global AI roadmap 7a.
+2026-08-18: cadence **superseded** [JAZZ-STRATEGY-016](JAZZ-STRATEGY-016.md) — `POIGenerationInterval` **96h**, `TaxCooldown` **48h**. Tax role/path unchanged. Не путать с STRATEGY-019 `logistics_open_at` (+72h на новый аванпост).
 
 ## Evidence
 

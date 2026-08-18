@@ -60,7 +60,7 @@ approved_by: project-owner
 | MajorReserveCapacity | 1200000 |
 | MajorStartingReserve | 120000 (≥ SupplyConvoyCargo 12000) |
 | Base passive $/h | 0 → `outpost.money` |
-| City/farm `$` | пульс 72h → `poi_money` → tax → `outpost.money` (009) |
+| City/farm `$` | пульс **96h** → `poi_money` → tax → `outpost.money` (009; cadence 016) |
 | Mine diamonds | hourly → `outpost.diamond_stock` → shipment → Major |
 
 Need gates:

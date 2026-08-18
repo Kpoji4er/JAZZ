@@ -145,18 +145,18 @@ Vanilla якоря:
 
 | Контур | Копится где | Кто возит на I7 | Куда | Тратится на |
 |---|---|---|---|---|
-| Деньги ($) | city / farm → `poi_money` (пульс 72h); mine → diamond_stock | Tax collector / shipment | `outpost.money` | costs отрядов, (опц.) операции |
+| Деньги ($) | city / farm → `poi_money` (пульс **96h** / 016); mine → diamond_stock | Tax collector / shipment | `outpost.money` | costs отрядов, (опц.) операции |
 | Люди (manpower) | city / farm / guardpost / port → `poi_recruits` (не шахты) | Recruiter | `outpost.manpower` | размер составов |
 
 Major держит свои пулы (`major.money`, `major.manpower`) с capacity ≫ аванпоста; подпитывает I7 конвоями, когда локально пусто.
 
 #### 7a. Tax collector (сборщик налогов) — $ → [JAZZ-STRATEGY-009](JAZZ-STRATEGY-009.md)
 
-Реализовано: economic POI → `poi_money` пульсом раз в 3 суток; tax circuit; cap 1; cargo max $12000; threshold 1000; cooldown 24h; TAX icon. Mine остаётся в shipment stock.
+Реализовано: economic POI → `poi_money` пульсом раз в **4** суток (**96h**, 016); tax circuit; cap 1; cargo max $12000; threshold 1000; cooldown **48h**; TAX icon. Mine остаётся в shipment stock.
 
 #### 7b. Людской ресурс — модель → [JAZZ-STRATEGY-010](JAZZ-STRATEGY-010.md)
 
-Реализовано (locked defaults / playtest): farm +2 / city +3 recruits **per 72h pulse**; outpost 20/32; Major 80/600; recruiter threshold 8 / cap **1** / 24h; manpower convoy cargo 16, Major→outpost **только при manpower=0**; overflow → outbound to Major. Spawn combat списывает manpower.
+Реализовано (locked defaults / playtest): farm +2 / city +3 recruits **per 96h pulse**; outpost 20/32; Major 80/600; recruiter threshold 8 / cap **1** / **48h**; manpower convoy cargo 16, Major→outpost **только при manpower=0**; overflow → outbound to Major. Spawn combat списывает manpower.
 
 #### 7c. Player militia ↔ recruits → [JAZZ-STRATEGY-011](JAZZ-STRATEGY-011.md)
 
@@ -226,12 +226,12 @@ Owner 2026-08-05: `GreatForest` / G22+K21; shared `$`/manpower/diamond across Ma
 
 - единая валюта **$**; full shipment = **DiamondBriefcase $12000**;
 - TinyDiamonds $500 как минимальная монета лута;
-- POI pulse **72h**: city/farm `$` 2500/800 на economic POI; tax threshold **$1000**, tax cap **1**, cargo max **$12000**;
+- POI pulse **96h** (016; июль 2026 было 72h): city/farm `$` 2500/800 на economic POI; tax threshold **$1000**, tax cap **1**, cargo max **$12000**; tax cooldown **48h**;
 - двухресурсная модель **$ + manpower**; recruiter с рупором; manpower-конвой Major→outpost **только при manpower=0**; overflow recruits → outbound to Major;
 - spawn жрёт money+manpower; **per-unit $ prices**, role recipes, poor/full generator, **anti-skew balance** (не 12 MG; 4 MG без снайпера ок и наоборот);
 - player militia из того же recruit-пула — фаза 7c после AI;
 - rescale пулов/costs в $; convoys без force-spawn; patrol/reinforce/retribution/recon intel как в очереди.
 
-Locked manpower rates: farm/city recruits **2/3 per 72h pulse**, caps 8/16; RecruiterCap **1**; outpost manpower capacity **32** (см. morning questions + 010).
+Locked manpower rates: farm/city recruits **2/3 per 96h pulse**, caps 8/16; RecruiterCap **1**, RecruiterCooldown **48h**; outpost manpower capacity **32** (см. morning questions + 010; cadence 016).
 
 Статус roadmap: approved. Реализация — только через дочерние specs по пунктам 0→7.

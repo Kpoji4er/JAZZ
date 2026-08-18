@@ -27,6 +27,10 @@ exclusive_resources:
   - none
 related_decisions:
   - none
+related_specs:
+  - JAZZ-STRATEGY-009
+  - JAZZ-STRATEGY-006
+  - JAZZ-STRATEGY-010
 approved_by: project-owner
 ---
 
@@ -182,6 +186,7 @@ When `JAZZ_NoMapsIsActive()` — mainland has many more outposts; use **smaller*
 - Статус: **implemented** (B+C + diamond/$ ×0.25 ÷4; NoMaps smaller size table 2026-08-02)
 - Кто подтвердил: project-owner
 - Дата: 2026-08-02
+- 2026-08-18: cadence lock documented on 009/006/010 (pulse **96h**, tax/recruiter cooldown **48h**, command **12h**). Runtime already matched.
 
 ## Evidence
 

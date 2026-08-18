@@ -47,7 +47,7 @@ Roadmap 7c: militia training should consume local recruits from the same city/fa
 ## Locked defaults
 
 - Consume cost per training session: **4** recruits.
-- Accrual rates same as Legion POI pulse (farm **2** / city **3** per 72h; caps 8/16). Soft gate file `LegionMilitiaRecruits.lua` **loaded**.
+- Accrual rates same as Legion POI pulse (farm **2** / city **3** per pulse, **96h** / STRATEGY-016; caps 8/16). Soft gate file `LegionMilitiaRecruits.lua` **loaded**.
 
 ## Требования
 
