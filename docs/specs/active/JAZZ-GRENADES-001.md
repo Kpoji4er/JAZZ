@@ -56,7 +56,7 @@ approved_by: project-owner
 - один shared resolver для ручных гранат и `HeavyWeapon`;
 - честный `results.mishap` только на провале ролла; notification только тогда;
 - на близкой/оптимальной дистанции **только scatter** (mishap% = 0); дальше шанс растёт;
-- governing skill: throw → Dexterity+Explosives; GL/ракета/подствол → Marksmanship+Explosives; пайпы/демо → Explosives-heavy; гранаты уверенно уже ~с 30;
+- governing skill: throw → Dexterity+Explosives; GL/ракета/подствол → Marksmanship+Explosives; пайпы/демо → Explosives-heavy; гранаты уверенно уже ~с **50** (thr 50);
 - suppression/Inaccurate влияют на **шанс и величину**;
 - CapTiles по расчёту; item defaults/hints; docs/wiki;
 - цвет существующих колец **зоны поражения** = `GetCTHColor(reliability)`, где `reliability = (100 − mishap%) × (100 − scatter_risk%) / 100`, `scatter_risk` = mid(Min-band) / CapTiles.
@@ -209,16 +209,16 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 
 - явные `MinMishapRange` + `MaxMishapRange` у всех GL/Underslung/mortar/rocket с Mishap;
 - Demo (`PipeBomb`, `ShapedCharge`, TNT-линейка): поднять `MaxMishapChance` (+15..+25 ориентир), hints про сильную зависимость от Explosives;
-- hints гранат/GL: близко — только разброс; навыки Dex+Expl / MS+Expl; с ~30 уже уверенно для обычных гранат (RU/EN).
+- hints гранат/GL: близко — только разброс; навыки Dex+Expl / MS+Expl; с ~**50** уже уверенно для обычных гранат (RU/EN).
 
 ## Требования
 
 - `JAZZ-GRENADES-001-REQ-001` — always-scatter (Min) + mishap (Max) только при fail/AlwaysMiss; prediction без RNG.
 - `JAZZ-GRENADES-001-REQ-002` — `results.mishap` и notification только на Max band.
 - `JAZZ-GRENADES-001-REQ-003` — один shared resolver; integer math; RNG через attacker/unit.
-- `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance`: профили ThrowGrenade (Dex×2+Expl)/3 thr30, AimedHeavy (MS×2+Expl)/3 thr30, Demo (Expl×3+Dex)/4 thr60; competence remap; `dist_eff ≤ half → 0`; distance ramp; suppression/Inaccurate в `dist_eff`; UI async совпадает.
+- `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance`: профили ThrowGrenade (Dex×2+Expl)/3 **thr50**, AimedHeavy (MS×2+Expl)/3 **thr50**, Demo (Expl×3+Dex)/4 thr60; competence remap; `dist_eff ≤ quarter → 0`; ramp quarter→half; suppression/Inaccurate в `dist_eff`; UI async совпадает. (thr30 / ≤half superseded by owner playtest 2026-08-11 D.)
 - `JAZZ-GRENADES-001-REQ-005` — величина от raw skill blend + `dist_eff`; Min-band плавнее (`/10`, clamp 40..200); CapTiles = `Max(2×MaxMishapRange, 8)`.
-- `JAZZ-GRENADES-001-REQ-006` — item Min/MaxMishapRange; Demo MaxMishapChance усилен; честные RU/EN hints (в т.ч. уверенность гранат ~с 30).
+- `JAZZ-GRENADES-001-REQ-006` — item Min/MaxMishapRange; Demo MaxMishapChance усилен; честные RU/EN hints (в т.ч. уверенность гранат ~с **50**).
 - `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki sync.
 - `JAZZ-GRENADES-001-REQ-008` — tint зоны поражения/дуги `GetCTHColor(GetMishapAimReliability)`; радиусы = AoE; без колец разброса.
 
@@ -235,7 +235,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-001` — static: один Apply/resolver; ByDist free functions удалены/без callers; Min/Max integer-only; smoother Min clamps.
 - `JAZZ-GRENADES-001-AC-002` — static: `results.mishap` / notification только Max-ветка.
 - `JAZZ-GRENADES-001-AC-003` — static/editor: GL/Underslung Min+Max ranges; hints RU/EN.
-- `JAZZ-GRENADES-001-AC-004` — runtime: ≤half → mishap% 0; Dex30+Expl30 на Frag → competence full / низкий base; дальняя дистанция поднимает %; Demo при Expl30 заметно рискованнее обычной гранаты; отклонение ≤ CapTiles; GL реагирует на MS+Expl.
+- `JAZZ-GRENADES-001-AC-004` — runtime: ≤**quarter** → mishap% 0; Dex50+Expl50 на Frag → competence full / низкий base; к половине дальности % как прежний max; Demo при Expl30 заметно рискованнее обычной гранаты; отклонение ≤ CapTiles; GL реагирует на MS+Expl.
 - `JAZZ-GRENADES-001-AC-005` — runtime: suppression/Inaccurate поднимают % и разброс (могут вытолкнуть из «только scatter» зоны).
 - `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke без десинха на throw и underslung.
 - `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki.
@@ -268,7 +268,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 
 1. **Always-scatter** — **да**, ощущение ок; Min-band сделать плавнее.
 2. **CapTiles** — **расчёт:** `Max(2 × MaxMishapRange, 8)` (frag≤16, GL≤12).
-3. **Chance×дистанция** — **да**; ≤half только scatter; **Throw** = Dex+Expl (thr 30, уверенно с ~30); **AimedHeavy** = MS+Expl (thr 30); **Demo/пайпы** = Expl-heavy thr 60 + усиленный MaxMishapChance.
+3. **Chance×дистанция** — **да**; ≤**quarter** только scatter; к half t=100; **Throw** = Dex+Expl (**thr 50**, уверенно с ~50); **AimedHeavy** = MS+Expl (**thr 50**); **Demo/пайпы** = Expl-heavy thr 60 + усиленный MaxMishapChance. (2026-08-11 owner: вариант D; thr30/≤half отвергнуты.)
 4. **Suppression/Inaccurate** — **и шанс, и разброс**.
 5. **UI** — радиусы = зона поражения; цвет = mix mishap% + Min-band scatter → `GetCTHColor(reliability)`.
 
@@ -278,7 +278,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-002`: `PASS` — static: mishap flag/notification only on Max band in ApplyImpactDeviation.
 - `JAZZ-GRENADES-001-AC-003`: `PASS` — static/editor data: GL MinMishapRange; Demo MaxMishapChance; RU/EN hints updated.
   - **Exception 2026-08-11 (owner):** `ShapedCharge` MaxMishapChance restored to **60** (pre-Demo bump) — Barry homemade charges stay vanilla-shaped identity.
-- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime: общий playtest (Dex/MS blends, half-range zero, CapTiles).
+- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime: общий playtest (Dex/MS blends, **quarter**-range zero, CapTiles). Static code matches REQ-004 (thr 50, ¼→½) as of 2026-08-18.
 - `JAZZ-GRENADES-001-AC-005`: `BLOCKED` — runtime: общий playtest (suppression/Inaccurate).
 - `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP: общий playtest smoke.
 - `JAZZ-GRENADES-001-AC-007`: `PASS` — technical + wiki + showcase ru/en updated.

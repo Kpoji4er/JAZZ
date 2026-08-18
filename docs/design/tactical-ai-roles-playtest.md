@@ -6,7 +6,7 @@
 
 | Spec | Код | Smoke |
 | --- | --- | --- |
-| [ROLE-001](../specs/active/JAZZ-AI-ROLE-001.md) | done | OK 29.07 |
+| [ROLE-001](../specs/active/JAZZ-AI-ROLE-001.md) | done (weak Flanker AI 80/150 2026-08-18) | OK 29.07; re-smoke Assaulter+Flank vs Scout |
 | [POL-001](../specs/active/JAZZ-AI-POL-001.md) | done | P1–P5 |
 | [ROLE-002](../specs/active/JAZZ-AI-ROLE-002.md) (+ Rebel = ROLE-003) | done | R1–R5 |
 | [MED-001](../specs/active/JAZZ-AI-MED-001.md) | done | M1–M3 |

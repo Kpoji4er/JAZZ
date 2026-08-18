@@ -58,7 +58,7 @@ Design source: `docs/design/tactical-ai-archetypes.md` (F1).
 - `JAZZ-AI-ROLE-001-REQ-002` — каждый `JAZZ_Legion_FlankerT*` companion имеет `archetype` и `RepositionArchetype` = `Legion_Flanker` (если Reposition задан).
 - `JAZZ-AI-ROLE-001-REQ-003` — `RebelFlanker` использует `Rebels_Flanker`.
 - `JAZZ-AI-ROLE-001-REQ-004` — Flanker preset: Behaviors/OptLoc ориентированы на flank (высокий `AIPolicyFlanking`, keyword `Flank` не обязателен для основного PositioningAI «Flanker AI»), signature включают MobileShot/RunAndGun/Basic/grenade-smoke/flare; TakeCover weight ниже Assaulter frontline hold.
-- `JAZZ-AI-ROLE-001-REQ-005` — `Legion_Assaulter` / `Legion_Frontliner` / Rebel зеркала: убрать или сильно ослабить Flank-only PositioningAI с Weight ≥1000 / RequiredKeywords только `Flank` или `Nova` label «Flanker AI», чтобы фланговая роль не дублировалась.
+- `JAZZ-AI-ROLE-001-REQ-005` — `Legion_Assaulter` / `Legion_Frontliner` / Rebel зеркала: **слабый** Flanker AI (owner 2026-08-18): behavior Weight **80**, `AIPolicyFlanking` **150**; keyword `Flank` (typo `Flanks` на Assaulter исправлен). Настоящие `Legion_Flanker` / `Rebels_Flanker` остаются 500 / Flanking **1000**. Не дублировать фланговую роль.
 - `JAZZ-AI-ROLE-001-REQ-006` — `items.lua` + `metadata.lua` + companions в одной транзакции; sync-аудит без orphan ID.
 
 ## Инварианты и ограничения
@@ -98,11 +98,12 @@ Design source: `docs/design/tactical-ai-archetypes.md` (F1).
 - Статус: **approved** (промежуточный дизайн `tactical-ai-archetypes.md` принят владельцем 28 июля 2026; «всё согласовано» для старта ветки `feature/tactical-ai-roles`).
 - Кто подтвердил: project-owner.
 - Дата: 2026-07-28.
+- 2026-08-18: REQ-005 = **слабый flanker** на Assaulter/Frontliner (80/150), не снос ветки.
 
 ## Evidence
 
 - `JAZZ-AI-ROLE-001-AC-001`: `PASS` — static: `items.lua` id `Legion_Flanker` / `Rebels_Flanker`; `metadata.lua` ModResourcePreset оба Id.
-- `JAZZ-AI-ROLE-001-AC-002`: `PASS` — static: 6× `JAZZ_Legion_Flanker*` + `RebelFlanker` companions → `Legion_Flanker` / `Rebels_Flanker`. **2026-08-18:** editor `items.lua` synced (Warden/Skirmisher/Pathfinder were still Frontliner; RebelFlanker still Assaulter). Gate: `docs/tools/_audit_ai_packet1b.py`.
+- `JAZZ-AI-ROLE-001-AC-002`: `PASS` — static: 6× `JAZZ_Legion_Flanker*` + `RebelFlanker` companions → `Legion_Flanker` / `Rebels_Flanker`. **2026-08-18:** editor `items.lua` synced; Assaulter/Frontliner Flanker AI weakened to Weight 80 / Flanking 150 (true Flanker stays 500/1000). Gate: `docs/tools/_audit_ai_packet1b.py`.
 - `JAZZ-AI-ROLE-001-AC-003`: `PASS` (ROLE-001 scope) — новые archetype Id и Flanker UnitData согласованы items/metadata/companion. Полный `check-generated-sync` jazz-units сейчас **FAILED** из‑за **посторонних** orphan `UnitData/Jazz_*.lua` mercs (не write set ROLE-001).
 - `JAZZ-AI-ROLE-001-AC-004`: `PASS` (human, 2026-07-29) — в бою видны `Legion_Flanker`; часть скаутов кратко на `Legion_Assaulter` через динамический `PickCustomArchetype` (ожидаемо до ROLE-002). Крашей нет.
 - `JAZZ-AI-ROLE-001-AC-005`: `PASS` — обновлены `ai-awareness.md` (35 ID, строка Flanker) и `legion-units-equipment-tiers.md` (колонка Flanker*).

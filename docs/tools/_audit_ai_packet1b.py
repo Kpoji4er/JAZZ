@@ -59,6 +59,59 @@ def must(cond: bool, msg: str, errors: list[str]) -> None:
         errors.append(msg)
 
 
+def extract_archetype(text: str, arch_id: str) -> str | None:
+    needle = f'id = "{arch_id}"'
+    pos = text.find(needle)
+    if pos < 0:
+        return None
+    start = text.rfind("PlaceObj('ModItemAIArchetype'", 0, pos)
+    if start < 0:
+        return None
+    return text[start:pos]
+
+
+def close_placeobj(block: str, start: int) -> int:
+    brace = block.find("{", start)
+    depth = 0
+    for j in range(brace, len(block)):
+        if block[j] == "{":
+            depth += 1
+        elif block[j] == "}":
+            depth -= 1
+            if depth == 0:
+                return j + 1
+    return -1
+
+
+def flanker_ai_branches(chunk: str) -> list[str]:
+    out = []
+    for m in re.finditer(r"PlaceObj\('(?:StandardAI|PositioningAI)', \{", chunk):
+        end = close_placeobj(chunk, m.start())
+        if end < 0:
+            continue
+        body = chunk[m.start() : end]
+        if "'Label', \"Flanker AI\"" in body or "'Label', \"Flanker AI POS\"" in body:
+            out.append(body)
+    return out
+
+
+def first_weight(body: str) -> int | None:
+    m = re.search(r"^(\t+)'Weight', (\d+),", body, re.M)
+    return int(m.group(2)) if m else None
+
+
+def flanking_weights(body: str) -> list[int]:
+    found = []
+    for m in re.finditer(
+        r"PlaceObj\('AIPolicyFlanking',\s*\{(.*?)\}",
+        body,
+        re.S,
+    ):
+        wm = re.search(r"'Weight',\s*(\d+)", m.group(1))
+        found.append(int(wm.group(1)) if wm else 100)
+    return found
+
+
 def extract_optloc(text: str, arch_id: str) -> tuple[str, int] | None:
     needle = f'id = "{arch_id}"'
     pos = text.find(needle)
@@ -200,12 +253,37 @@ def main() -> int:
         if uid == "JAZZ_Legion_FrontT1_Bonemaker":
             must("allow_medic" in body, "Bonemaker missing allow_medic", errors)
 
+    weak = {
+        "Legion_Assaulter",
+        "Legion_Frontliner",
+        "Rebels_Assaulter",
+        "Rebels_Frontliner",
+    }
+    strong = {"Legion_Flanker", "Rebels_Flanker"}
+    for arch_id in sorted(weak | strong):
+        chunk = extract_archetype(text, arch_id)
+        must(chunk is not None, f"missing archetype {arch_id}", errors)
+        if not chunk:
+            continue
+        branches = flanker_ai_branches(chunk)
+        must(len(branches) >= 1, f"{arch_id} has no Flanker AI branch", errors)
+        for i, body in enumerate(branches):
+            bw = first_weight(body)
+            fw = flanking_weights(body)
+            if arch_id in weak:
+                must(bw == 80, f"{arch_id} Flanker AI[{i}] behavior Weight {bw} != 80", errors)
+                must(fw and max(fw) == 150, f"{arch_id} Flanker AI[{i}] flanking {fw} != 150", errors)
+                must('"Flanks"' not in body, f"{arch_id} Flanker AI still uses Flanks typo", errors)
+            else:
+                must(bw == 500, f"{arch_id} Flanker AI[{i}] behavior Weight {bw} != 500", errors)
+                must(fw and max(fw) == 1000, f"{arch_id} Flanker AI[{i}] flanking {fw} != 1000", errors)
+
     if errors:
         print("FAIL packet 1B")
         for e in errors:
             print(" -", e)
         return 1
-    print("OK packet 1B: live TakeCover, POL-002 OptLoc, ROLE items.lua")
+    print("OK packet 1B + ROLE-001 weak Flanker AI")
     return 0
 
 

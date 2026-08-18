@@ -209,7 +209,7 @@ Map marker / EnemySquad doctrine (опц.) перекрывает sector default
 
 - для **Flanker archetype** — основной OptLoc (Weight 200–1000);
 - для **Pusher situational Flank** — тот же policy, но с `ReserveAttackAP`;
-- не держать Flank Weight 1000 внутри Assaulter default — иначе все с keyword Flank ведут себя одинаково.
+- не держать Flank Weight 1000 внутри Assaulter/Frontliner — live **слабый** Flanker AI: behavior **80**, Flanking **150** (owner 2026-08-18); настоящий Flanker preset 500/1000
 
 ### 4.3. `AIPolicyProximity` — критично для «свиты» и кластеров
 
@@ -621,6 +621,7 @@ StartAI → archetype (+ PickCustom)
 - [x] TakeCover: threat-weight + cover×shot в `AIPolicy.lua` (POL-001); live OptLoc Weights Front **20+40** / Assault **10** / Flank **15** (locked 2026-08-18; not 80–150)
 - [x] Proximity: `ScoreMode` closer_better / farther_better; **Legion/Rebels Frontliner+Assaulter+Machinegunner** ally Proximity → `closer_better` (MG OptLoc Weight 80 + EndTurn glue; Flanker already had closer_better)
 - [x] ROLE-002/003: `AICombatStance.lua` + thin PickCustom Legion/Rebel (**items.lua** synced 2026-08-18)
+- [x] ROLE-001 REQ-005: Assaulter/Frontliner Flanker AI **weak** (Weight 80 / Flanking 150); true Flanker 500/1000 (2026-08-18)
 - [x] Smoke LOS-break / OW LowVis / flare→Push (ACT-001)
 - [x] LowVis + Urban profiles (CTX-001)
 - [x] Medic Bandage fail-safe + early bleed (MED-001)
