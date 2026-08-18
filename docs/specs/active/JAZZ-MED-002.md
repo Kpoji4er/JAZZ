@@ -1,6 +1,6 @@
 ---
 id: JAZZ-MED-002
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - armor-damage-wounds-will
@@ -57,7 +57,7 @@ approved_by: project-owner
 
 ## Non-goals
 
-- Hospital instant Trauma clear (still deferred).
+- Hospital instant Trauma clear (**deferred**, locked 2026-08-18: **not loaded**; не описывать как current-state).
 - Surgical kit clear Infected (v1: progress pass / TreatWounds blocks entry).
 - Soften stay% on Heavy (v1: not-improve → Infected).
 
@@ -92,9 +92,10 @@ approved_by: project-owner
 
 ## Решение владельца
 
-- Статус: approved
+- Статус: **implemented** (2026-08-18; code loaded; AC-005 runtime BLOCKED). Instant Hospital Trauma clear **не** в shipped 002.
 - Кто: project-owner («делай, собирай, пушься»)
 - Дата: 2026-08-07
+- 2026-08-18: instant Hospital Trauma clear **остаётся deferred**. Technical/wiki не обещают clear по концу Hospital Treatment. Не реализовывать, пока владелец явно не попросит. Shipped 002 = morphine / WoundInfected / BloodLoss AP.
 
 ## Evidence
 
@@ -104,7 +105,7 @@ approved_by: project-owner
 - `JAZZ-MED-002-AC-004`: `PASS` — static: companions/items/metadata/icons/loc; `_validate_items_quick.py` OK.
 - `JAZZ-MED-002-AC-005`: `BLOCKED` — runtime/human smoke pending.
 
-status note: approved + code shipped; mark `implemented` after in-game smoke.
+status note: **implemented** 2026-08-18 — morphine / WoundInfected / BloodLoss loaded. AC-005 runtime BLOCKED. Hospital instant Trauma clear stays deferred.
 
 ## Documentation delta
 
@@ -112,3 +113,4 @@ status note: approved + code shipped; mark `implemented` after in-game smoke.
 - docs/wiki/combat-and-accuracy.md
 - docs/showcase/ru|en/combat-and-accuracy.md
 - docs/design/medicine.md
+- 2026-08-18: hospital instant Trauma clear documented as **deferred / not loaded** (wiki+showcase: Hospital Treatment ≠ trauma clear).

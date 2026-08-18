@@ -66,7 +66,7 @@ MED-001: лёгкая = боль при юзе зоны без zone-специф
 - Отдельные пулы HP по конечностям.
 - Новый satellite progress UI / иконка «лечится» (тултип + CombatLog improve остаются).
 - Снимать zone-дебаф у `jazz_healing` или сбрасывать заживление новым хитом.
-- Instant hospital clear (MED-002).
+- Instant hospital clear (MED-002 **deferred / not loaded**).
 - Менять Pain-on-hit, bleed, graze, knockback, **гарантированную контузию** (GRENADES-002, в т.ч. flashbang 0 dmg).
 - Burn (`Burning` → `TraumaBurnLight`) через пулевой порог.
 - BAT (`energy < 8`).

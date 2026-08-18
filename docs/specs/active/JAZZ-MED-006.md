@@ -89,16 +89,16 @@ Supersedes kit trauma-heal path from [JAZZ-MED-003](JAZZ-MED-003.md) `REQ-006` /
 ## Цели
 
 - Аптечка = **первая помощь в бою**: кровь, боль, подъём из downed, восстановление ОЗ, **стабилизация** (облегчение штрафов одной травмы). Не запуск заживления и не clear Trauma*.
-- Заживление (`jazz_healing`) = **только** полевая операция TreatWounds / OperationHeal (и госпиталь clear — по-прежнему MED-002, вне этого spec).
+- Заживление (`jazz_healing`) = **только** полевая операция TreatWounds / OperationHeal. Госпиталь instant clear — MED-002 **deferred / not loaded**, вне этого spec.
 - Стабилизированная и заживающая травмы — **отдельные читаемые UI-состояния** той же Trauma* (не новые Trauma ID): своя иконка (базовый глиф зоны/тира + corner badge) и свой текст тултипа.
 - Центральная функция **меняет Icon** экземпляра эффекта по состоянию (`untreated` / `stabilized` / `healing`), чтобы бейдж, party HUD и ролловер показывали одно и то же без скрытых флагов.
-- Травма даёт **долг макс. ОЗ** по тиру; стабилизация его **не** снимает; TreatWounds / healing progress / hospital clear — да (hospital clear вне scope, но progress downgrade пересчитывает долг).
+- Травма даёт **долг макс. ОЗ** по тиру; стабилизация его **не** снимает; TreatWounds / healing progress — да. Hospital instant clear **вне scope и не loaded**; progress downgrade пересчитывает долг.
 - Морфий по-прежнему глушит только боль; стабилизация облегчает **zone-специфик** (ходить/стрелять лучше), не заменяя морфий.
 
 ## Non-goals
 
 - Мгновенный clear Trauma* аптечкой или полевой операцией.
-- Hospital instant clear (остаётся MED-002).
+- Hospital instant clear (MED-002 **deferred / not loaded**).
 - Отдельный InventoryItem только для стабилизации; отдельный POI «полевой госпиталь».
 - Новые публичные Trauma ID (`TraumaLegsHeavyStabilized` и т.п.) — состояния через параметры на существующем эффекте.
 - «Долг макс. ОЗ только после боя» (deferred max HP) — отклонено как слишком сложно.

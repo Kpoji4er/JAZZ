@@ -1,6 +1,6 @@
 ---
 id: JAZZ-MED-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - armor-damage-wounds-will
@@ -135,7 +135,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - Публичный ID `FirstAidKit` сохраняется (IFAK rebrand).
 - `TrueGrit` perk не трогаем.
 - Deterministic RNG: `unit:Random` / InteractionRand как соседние medicine hooks.
-- HealWounds / operation heal обновляются под новые bleed ID (не оставлять только `Bleeding`); trauma **clear** на госпитале — MED-002; trauma **healing flag** после полевой операции — MED-001 (см. REQ-015); trauma **healing** с большой аптечки — одна heaviest unhealed (REQ-018).
+- HealWounds / operation heal обновляются под новые bleed ID (не оставлять только `Bleeding`); trauma **clear** на госпитале — MED-002 **non-goal / не loaded** (2026-08-18); trauma **healing flag** после полевой операции — MED-001 (см. REQ-015); trauma **healing** с большой аптечки — superseded MED-003.
 - Small/Medium Bandage kits не ставят `jazz_healing`; Large (`Reanimationsset`) ставит на одну heaviest unhealed Trauma*.
 
 ## Acceptance criteria
@@ -178,7 +178,7 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 
 ## Решение владельца
 
-- Статус: **approved**
+- Статус: **implemented** (2026-08-18; code loaded; runtime AC remain BLOCKED)
 - Кто подтвердил: project-owner («пока апрувд, реализуй»; зональные травмы — сразу в MED-001, не откладывать в MED-002)
 - Дата: 2026-08-02
 
@@ -203,9 +203,9 @@ Design canon: [docs/design/medicine.md](../../design/medicine.md).
 - `JAZZ-MED-001-AC-016`: `BLOCKED` — runtime/human rollover and treatment playtest pending.
 - `JAZZ-MED-001-AC-017`: `PASS` — static: `python docs/tools/_audit_med001_large_kit_trauma.py` verifies `JazzMarkHeaviestTraumaHealing` / `JazzFindHeaviestUnhealedTrauma` wiring and `GetBandaged` + kit targeting hooks.
 
-status note: code wired including zonal traumas + armor trauma mitigation + BAT + split hotbar medicine (`JazzBandage` / kit `Bandage` / `JazzMorphine`) + trauma progress timers/UI + OperationHeal→healing flag; mark `implemented` after smoke in editor/game.
+status note: **implemented** 2026-08-18 — code loaded (zonal traumas, BAT, hotbar medicine, TreatWounds `jazz_healing`). Runtime/human AC-006/008/014/016 remain BLOCKED. Hospital instant Trauma clear is **not** this spec.
 
-**Contract note (owner):** Hospital clear remains MED-002. Soft satellite progress + **field TreatWounds → `jazz_healing`** (guaranteed improve each check, block worsen) are MED-001 per design agreement («полевое лечение запускает медленное заживление»). Medical-quality speed tiers still deferred.
+**Contract note (owner):** Hospital instant Trauma clear remains MED-002 **non-goal** (locked 2026-08-18: **not loaded**; vanilla Hospital Treatment does not clear `Trauma*`). Soft satellite progress + **field TreatWounds → `jazz_healing`** (guaranteed improve each check, block worsen) are MED-001 per design agreement («полевое лечение запускает медленное заживление»). Medical-quality speed tiers still deferred.
 
 ## Documentation delta
 

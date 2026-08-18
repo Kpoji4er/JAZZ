@@ -94,12 +94,12 @@ Vanilla якоря:
 
 #### 6a. Цена каждого `JAZZ_Legion_*` UnitData → [JAZZ-STRATEGY-004](JAZZ-STRATEGY-004.md)
 - У каждого легион-юнита своя **цена в $** (`jazz/Code/LegionUnitPrices.lua`; не путать с Cost лута).
-- Цель: `money_cost` отряда при спавне = **сумма цен выбранных юнитов** (не плоский role cost из 003) — подключение к spawn ещё не сделано.
-- Плоские role costs в п.0 — fallback; **полный дорогой garrison ≈ $120000 ≈ full outpost ≈ 10 shipments**.
+- Цель: `money_cost` отряда при спавне = **сумма цен выбранных юнитов** (не плоский role cost из 003) — **сделано в 6c**.
+- Плоские role costs в п.0 — **не** spawn-fallback (008 REQ-006 superseded 2026-08-18); **полный дорогой garrison ≈ $120000 ≈ full outpost ≈ 10 shipments**.
 - Утверждённая шкала и полная таблица 37 ID — в STRATEGY-004 (Line/Specialist/Leader × T1–T4; ×10 от раннего черновика).
 
 #### 6b. Из каких юнитов может состоять роль → [JAZZ-STRATEGY-005](JAZZ-STRATEGY-005.md) + recipes в [007](JAZZ-STRATEGY-007.md)
-Для каждой strategic-роли — **allow-list / slots** (`JAZZ_LegionRoleRecipes`, data only; generator ещё не подключён):
+Для каждой strategic-роли — **allow-list / slots** (`JAZZ_LegionRoleRecipes`; generator подключён в 6c):
 
 | Роль | Состав (контракт) | Размер (ориентир из 002) |
 |---|---|---|
@@ -131,7 +131,7 @@ Vanilla якоря:
 
 #### 6c. Политика генерации → [JAZZ-STRATEGY-008](JAZZ-STRATEGY-008.md)
 
-Реализовано: `JAZZ_GenerateLegionSquadComposition` + soft caps + poor/full auto; combat spawn списывает сумму цен. Manpower gate — с 010. **HOTFIX-006:** same-id cap + logistics Front cap + Marksman deny on tax/supply/shipment.
+Реализовано: `JAZZ_GenerateLegionSquadComposition` + soft caps + poor/full auto; combat spawn списывает сумму цен. Generator `false` → **не спавнить** (нет preset + flat cost). Manpower gate — с 010. **HOTFIX-006:** same-id cap + logistics Front cap + Marksman deny on tax/supply/shipment.
 
 #### 6d. Порядок внутри пункта 6
 1. Таблица цен `JAZZ_Legion_*` + документы.  

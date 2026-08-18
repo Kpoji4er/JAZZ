@@ -36,7 +36,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 ## Цели
 
 - Runtime generator: recipe + unit prices + officer density + soft class caps → список UnitData ID.
-- Combat regular roles + major/retribution: `money_cost` = сумма цен юнитов; flat Region costs — fallback только если generator недоступен.
+- Combat regular roles + major/retribution: `money_cost` = сумма цен юнитов. Generator `false` → **не спавнить** (нет EnemySquadDef unit-list / flat Region-cost fallback). Flat Region costs остаются editor defaults, не debit боевого спавна.
 - Poor/full: full к `size_max` в пределах бюджета; poor к `size_min` с дешёвыми tier; ниже min viable → не спавнить.
 - Determinism: `InteractionRand` с context `role_home_serial`.
 - Docs/roadmap pointer.
@@ -62,7 +62,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 - `JAZZ-STRATEGY-008-REQ-003` — officers respect STRATEGY-005 density; MercCapt for T4 band.
 - `JAZZ-STRATEGY-008-REQ-004` — regular combat spawn charges generated money_cost from `outpost.money`.
 - `JAZZ-STRATEGY-008-REQ-005` — major spawn charges from `major.money`.
-- `JAZZ-STRATEGY-008-REQ-006` — fallback to preset + flat cost if generator returns false.
+- `JAZZ-STRATEGY-008-REQ-006` — **superseded 2026-08-18**: no preset + flat cost if generator returns false. Combat/major miss → `return false` (`lSpawnRegularRole` / major spawn). EnemySquadDef остаётся **shell** (`GenerateEnemySquad` displayName/side); unit list — только generator templates.
 - `JAZZ-STRATEGY-008-REQ-007` — docs updated.
 
 ## Инварианты и ограничения
@@ -79,6 +79,7 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 - `JAZZ-STRATEGY-008-AC-003` — static: MG soft cap enforced in generator.
 - `JAZZ-STRATEGY-008-AC-004` — docs/roadmap.
 - `JAZZ-STRATEGY-008-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-008-AC-006` — static: combat/major generator miss fail-closed (no EnemySquadDef unit fallback).
 
 ## Impact и совместимость
 
@@ -96,11 +97,16 @@ Roadmap 6c: spawn всё ещё берёт фиксированный EnemySquad
 
 28 июля 2026 — «доделай всю задачу по глобалке до конца» = approve 008 scope from roadmap 6c with locked defaults above.
 
+18 августа 2026 — REQ-006 (preset + flat cost if generator `false`) **superseded**. Loaded: `Guardpost_Patrols` combat/major «No free EnemySquadDef fallback»; miss → no spawn. Не возвращать fallback, пока владелец явно не попросит.
+
 ## Evidence
 
 - `JAZZ-STRATEGY-008-AC-001`..`004`: static PASS
 - `JAZZ-STRATEGY-008-AC-005`: `PASS (runtime/human) - owner playtest accepted 2026-07-28`
+- `JAZZ-STRATEGY-008-AC-006`: `PASS / static` — `lSpawnRegularRole` / major: `if not composition then return false`; REQ-006 superseded. `BLOCKED / runtime` — satellite miss-spawn smoke.
 
 ## Documentation delta
 
-- strategy-squads-sectors.md, testing.md, roadmap
+- `docs/technical/systems/strategy-squads-sectors.md` — combat spawn fail-closed.
+- `docs/specs/active/JAZZ-STRATEGY-LEGION-AI-ROADMAP.md` — 6a/6c: no preset+flat fallback.
+- Wiki/showcase — не трогали (не player-facing HUD).

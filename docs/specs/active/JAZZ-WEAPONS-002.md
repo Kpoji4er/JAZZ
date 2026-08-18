@@ -1,6 +1,6 @@
 ---
 id: JAZZ-WEAPONS-002
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - weapons-ammo-components
@@ -261,7 +261,9 @@ P = Clamp(5 + MulDivRound(wear, 35, 100) + MulDivRound(mech, 25, 100), 5, 65)
 
 ## Решение владельца
 
-- Статус: **approved** (2026-08-01) — реализация **не стартовать** до отдельного запроса владельца.
+- Статус: **implemented** (code loaded; runtime AC remain BLOCKED; AC-005 FAIL — legacy part defs still in metadata).
+- 2026-08-01 approved numbers (Mag/Bipod removable, BarrelParts/ScopeParts, P(break)/P(crit), −max/shot).
+- 2026-08-18 evidence lock: AC-002 «нет removable каталога» **устарел** — `JAZZ_RemovableAttachment` catalog + DnD в `System_WeaponRemovableModify.lua` / `System_WeaponResourceMaintenance.lua`. Не откатывать каталог. REQ-005 (удалить Pipe/Lens/Chip defs) **ещё open**.
 - Зафиксировано:
   - Mag / Bipod / Compensator — removable; Mag-as-container — backlog; Folding stock — toggle;
   - `JAZZ_BarrelParts` = «Ствольные запчасти» / «Barrel Parts»;
@@ -275,16 +277,16 @@ P = Clamp(5 + MulDivRound(wear, 35, 100) + MulDivRound(mech, 25, 100), 5, 65)
 
 ## Evidence
 
-- `JAZZ-WEAPONS-002-AC-001`: `PARTIAL / static` — late resource module uses current/max/factory helpers for its repair/rollback/scrap paths; sector-operation payment still lacks Barrel Parts debit.
-- `JAZZ-WEAPONS-002-AC-002`: `BLOCKED / runtime` — no removable InventoryItem catalog or DnD/ModifyWeapon uninstall flow yet.
-- `JAZZ-WEAPONS-002-AC-002b`: `PASS / static` — max-loss constants and critical-jam integer formula are present; `BLOCKED / human` for the requested matrix review.
-- `JAZZ-WEAPONS-002-AC-002c`: `BLOCKED / runtime` — remove-fail break + ScopeParts salvage pending wave test.
-- `JAZZ-WEAPONS-002-AC-003`: `BLOCKED / runtime` — BarrelParts + ScopeParts repair debit need sector-operation / in-game confirmation.
-- `JAZZ-WEAPONS-002-AC-004`: `PARTIAL / static` — repair current-resource mapping is overridden; wave test is still required.
-- `JAZZ-WEAPONS-002-AC-005`: `FAIL / static` — legacy part definitions and load migration remain.
-- `JAZZ-WEAPONS-002-AC-006`: `PASS / static`, `BLOCKED / runtime` — `RolloverInventoryWeaponBase` jam row calls `GetDisplayJamChancePercent` (hint append removed; no raw `*0.01` scale).
-- `JAZZ-WEAPONS-002-AC-007`: `PASS / static`, `BLOCKED / runtime` — one `Random(200)` roll per shot and unit-capped loss.
-- `JAZZ-WEAPONS-002-AC-008`: `PASS / static`, `BLOCKED / runtime` — ordinary/critical maximum loss and the specified critical probability.
+- `JAZZ-WEAPONS-002-AC-001`: `PASS / static` — `Inventory:ItemModifyCondition` maps %→current resource and debits `JAZZ_BarrelParts` / `JAZZ_ScopeParts`; RepairItems does not raise max. `BLOCKED / runtime` sector-op smoke.
+- `JAZZ-WEAPONS-002-AC-002`: `PASS / static` — remountable `InventoryItem` catalog (`RemovableAttachments` / `_gen_removable_attachment_items.py`); DnD install/remove via `MoveItem` wrap (`System_WeaponRemovableModify.lua`); Mech 30 / GL 40 in remove/install helpers. `BLOCKED / runtime` in-game DnD + fail −1% max.
+- `JAZZ-WEAPONS-002-AC-002b`: `PASS / static` — max-loss constants and critical-jam integer formula present; `BLOCKED / human` matrix review.
+- `JAZZ-WEAPONS-002-AC-002c`: `PASS / static` — remove-fail `P=Clamp(100−resourcePct,0,95)` + `JAZZ_DepositScopeParts` / destroy in `System_WeaponResourceMaintenance.lua`. `BLOCKED / runtime` wave test.
+- `JAZZ-WEAPONS-002-AC-003`: `PASS / static` — `GetRepairBarrelPartsCost` / `GetRepairScopePartsCost` + `PaySectorOperationResource`. `BLOCKED / runtime`.
+- `JAZZ-WEAPONS-002-AC-004`: `PARTIAL / static` — repair current-resource mapping overridden; wave test still required.
+- `JAZZ-WEAPONS-002-AC-005`: `FAIL / static` — `FineSteelPipe` / `OpticalLens` / `Microchip` still loaded (`metadata.lua` + companions); load-migrate `JazzLegacyPartMigration` exists, defs not deleted.
+- `JAZZ-WEAPONS-002-AC-006`: `PASS / static`, `BLOCKED / runtime` — `RolloverInventoryWeaponBase` jam row calls `GetDisplayJamChancePercent`.
+- `JAZZ-WEAPONS-002-AC-007`: `PASS / static`, `BLOCKED / runtime` — `Random(200)==0` per shot, loss ≤1 unit.
+- `JAZZ-WEAPONS-002-AC-008`: `PASS / static`, `BLOCKED / runtime` — ordinary/critical max-loss and P(crit) formula.
 
 ## Documentation delta
 

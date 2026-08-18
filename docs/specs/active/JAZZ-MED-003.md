@@ -68,7 +68,7 @@ Extends [JAZZ-MED-001](JAZZ-MED-001.md) kit surface. Display names already Small
 ## Non-goals
 
 - Мгновенный clear Trauma* (только `jazz_healing`).
-- Хирургический набор / госпиталь clear (MED-002).
+- Хирургический набор / госпиталь clear (MED-002 **deferred / not loaded**).
 - Переименование class ID (`FirstAidKit` / `Medkit` / `Reanimationsset` сохраняются).
 - Soft-sanitar (Fox уже Doctor; Mouse/Scully без Spec=Doctor не форсятся в «медик»).
 
