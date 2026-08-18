@@ -1,6 +1,6 @@
 ---
 id: JAZZ-ECON-004
-status: draft
+status: implemented
 owner: project-owner
 systems:
   - bobby-ray
@@ -26,7 +26,7 @@ exclusive_resources:
   - InventoryItem.Cost / Tier / RestockWeight / CanAppearInShop
 related_decisions:
   - none
-approved_by: pending
+approved_by: project-owner
 ---
 
 # JAZZ-ECON-004: Bobby Ray — 5 тиров, restock по совпадению тира, цены по Δтира
@@ -262,13 +262,13 @@ Jitter **±20%** только для строки стока (не перепи�
 
 ## Решение владельца
 
-- Статус: **draft** (механики restock/price **locked** 2026-08-07; unlock ladder triggers и mass Cost-apply — ещё open)
-- Кто подтвердил: project-owner (чат 2026-08-07) — формулы Δтира
-- Дата: 2026-08-07
-- Open before approve:
-  1. Точные TCE для BR2–BR5 (mines / mainland / WorldFlip / late).
-  2. Порядок BobbyPays × tier × jitter.
-  3. Использовать ли `RestockWeight` только как base или ещё MaxStock=1 для rare (AN94 — да, MaxStock=1).
+- Статус: **implemented** 2026-08-18 (code + catalog loaded; runtime/human AC remain BLOCKED, not accepted)
+- Кто подтвердил: project-owner (чат 2026-08-07 формулы; 2026-08-18 status lock)
+- Дата: 2026-08-07 / lock 2026-08-18
+- Open before approve (2026-08-07) — закрыто по loaded code, кроме human shelf/ladder:
+  1. TCE BR2–BR5: AC-001 static PASS.
+  2. BobbyPays × tier × jitter: `System_BobbyRay_ECON004.lua` — BobbyPays after tier/jitter.
+  3. Rare MaxStock: AN94 MaxStock=1 в catalog apply.
 - Locked дополнительно (owner 2026-08-07): soft-tail **без** `T≤U+1` cap — джекпот вроде early Абакана ок при `0.1^Δ` / `3^Δ` (см. пример AN94).
 - Locked (owner 2026-08-07): **staples** medicine/tools/Meds·Parts — flat restock с U≥1; **Medkit BR1** flat; **SurgicalKit BR2**, **CombatStim BR3**, **Metaviron BR3** — soft-tail.
 - Process (owner 2026-08-07): при добавлении нового shoppable item — сразу **Bobby in|out** (`.cursor/rules/jazz-bobby-ray-new-items.mdc`).

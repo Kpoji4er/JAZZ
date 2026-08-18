@@ -115,7 +115,7 @@ The **carbine** (`M2Carbine`) drops from day one: wood stock on Wardens and Bone
 
 **Veteran** and **Mercenary** have a small chance of a secondary launcher (M79 / disposable **M72 LAW** / late China Lake). **Rocketeer** launchers roll RPG-7 or M72 LAW.
 
-Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bonemaker (medic) per 10–20 fighters** (at least one once the squad is 10+). He carries a Small Medkit (stack 5), rarely a Medium (5%), bandages **1–10**, morphine **0–3**, and **50 Meds**. **T2** troopers may drop bandages **1–2**; **T3** may drop morphine ×1 at **~30%**. Easy difficulty fields slightly more medics; **Commando / Mission Impossible** slightly fewer — they are the main enemy source of medical supplies. On **Mission Impossible** the per-class copy limit is off (sniper and MG caps stay).
+Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bonemaker (medic) per 10–20 fighters** (at least one once the squad is 10+). He carries a Small Medkit (stack 5), rarely a Medium (5%), bandages **1–10**, morphine **0–3**, and **50 Meds**. **T2** troopers may drop bandages **1–2**; **T3** may drop morphine ×1 at **~30%**. **First Blood** fields slightly more medics; **Commando** uses the usual density; **Mission Impossible** slightly fewer — they are the main enemy source of medical supplies. On **Mission Impossible** the per-class copy limit is off (sniper and MG caps stay).
 
 ## Strategic prices
 

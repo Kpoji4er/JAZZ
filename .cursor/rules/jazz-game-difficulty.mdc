@@ -13,6 +13,16 @@ alwaysApply: true
 | `Hard` | Commando | Коммандос |
 | `VeryHard` | Mission Impossible | Миссия невыполнима |
 
+## Речь владельца (не id)
+
+Когда владелец говорит **лёгкий / нормальный / сложный** про **игру**, это `Normal` / `Hard` / `VeryHard`. Не искать `GameDifficulties.Easy`. Совпадает с UNITS-007 pack-band Easy / Normal / Hard.
+
+| Речь | `Game.game_difficulty` | Display RU | Display EN |
+| --- | --- | --- | --- |
+| лёгкий | `Normal` | Первая кровь | First Blood |
+| нормальный | `Hard` | Коммандос | Commando |
+| сложный | `VeryHard` | Миссия невыполнима | Mission Impossible |
+
 ## Как писать код и спеки
 
 - Ветки только по этим трём id. Неизвестный id → как `Normal`.

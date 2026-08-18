@@ -1,6 +1,6 @@
 ---
 id: JAZZ-AI-POL-003
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - tactical-ai
@@ -19,6 +19,8 @@ exclusive_resources:
   - none
 related_decisions:
   - docs/design/tactical-ai-archetypes.md
+related_specs:
+  - JAZZ-AI-POL-004
 approved_by: project-owner
 ---
 
@@ -31,8 +33,8 @@ Vanilla dibs снимает только **точный** `ai_destination`. Не
 ## Цели
 
 - Hard: при перечислении destinations исключать любые packed dest с тем же XYZ, что уже claimed ally `ai_destination` (stance не спасает).
-- Soft: в `AIScoreDest` штраф за dest ближе `MinDist` тайлов к текущей/planned позиции союзника.
-- Опциональный `AIPolicyAllySpacing` для editor/archetype tuning (тот же EvalDest).
+- Soft: ~~в `AIScoreDest` штраф за dest ближе `MinDist` тайлов~~ **superseded POL-004** (`JazzAI_CrowdDangerModifier`).
+- Опциональный `AIPolicyAllySpacing` для editor/archetype tuning (тот же EvalDest) — **остаётся**.
 
 ## Non-goals
 
@@ -43,8 +45,8 @@ Vanilla dibs снимает только **точный** `ai_destination`. Не
 ## Требования
 
 - `JAZZ-AI-POL-003-REQ-001` — dibs filter: same voxel XYZ as ally claimed dest removed.
-- `JAZZ-AI-POL-003-REQ-002` — `JazzAI_AllySpacingScore(context, dest)` → negative; applied in `AIScoreDest` (MinDist=2, PenaltyPer=50 default).
-- `JAZZ-AI-POL-003-REQ-003` — `AIPolicyAllySpacing` DefineClass mirrors soft math for Weightable use.
+- `JAZZ-AI-POL-003-REQ-002` — **superseded 2026-08-18 by POL-004:** global `JazzAI_AllySpacingScore` in `AIScoreDest` removed; crowd/casualty `JazzAI_CrowdDangerModifier` is the live soft stack penalty.
+- `JAZZ-AI-POL-003-REQ-003` — `AIPolicyAllySpacing` DefineClass mirrors soft math for authored Weightable use (still live).
 - `JAZZ-AI-POL-003-REQ-004` — deterministic; AllyPlannedPosition preferred when set.
 
 ## Инварианты и ограничения
@@ -54,7 +56,7 @@ Vanilla dibs снимает только **точный** `ai_destination`. Не
 
 ## Acceptance criteria
 
-- `JAZZ-AI-POL-003-AC-001` — static: spacing helper + AIScoreDest call + dibs XYZ.
+- `JAZZ-AI-POL-003-AC-001` — static: XYZ dibs live; global additive spacing not in `AIScoreDest` (POL-004).
 - `JAZZ-AI-POL-003-AC-002` — static: AIPolicyAllySpacing class exists.
 - `JAZZ-AI-POL-003-AC-003` — runtime/human: два AI не занимают одну клетку; реже стоят shoulder-to-shoulder на одном cover.
 
@@ -69,10 +71,11 @@ Vanilla dibs снимает только **точный** `ai_destination`. Не
 ## Решение владельца
 
 - approved 2026-07-29 project-owner (вместе с REG-001).
+- 2026-08-18: REQ-002 global additive spacing **superseded** POL-004; XYZ-dibs (REQ-001) и `AIPolicyAllySpacing` (REQ-003) остаются. Status → `implemented`.
 
 ## Evidence
 
-- `JAZZ-AI-POL-003-AC-001`: `PASS` — static: dibs XYZ + `JazzAI_AllySpacingScore` in `AIScoreDest`.
+- `JAZZ-AI-POL-003-AC-001`: `PASS` — static: hard XYZ dibs live; global `JazzAI_AllySpacingScore` **not** in `AIScoreDest` (POL-004).
 - `JAZZ-AI-POL-003-AC-002`: `PASS` — static: `AIPolicyAllySpacing`.
 - `JAZZ-AI-POL-003-AC-003`: `BLOCKED` — runtime/human.
 

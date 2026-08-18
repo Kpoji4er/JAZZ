@@ -3290,7 +3290,7 @@ Cuatro, cinco, seis
 697898544301,Ах какая же я лицемерка!,Ах какая же я лицемерка!,,jazz-units:items.lua:70117
 698036404720,"Рыси мне будет не хватать. Он мою задницу всегда прикрывал, когда приходилось тяжело.","Рыси мне будет не хватать. Он мою задницу всегда прикрывал, когда приходилось тяжело.",,jazz-units:items.lua:79416
 698124792962,There is some kind of commotion in the <em><SectorName('I5')></em>,В <em><SectorName('I5')></em> происходит какая-то суматоха,,jazz-maps:items.lua:98556
-698130726969,Повышенная сложность. Стартовый капитал без бонуса.<newline>В отрядах Легиона меньше медиков; лимит копий классов действует.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,Повышенная сложность. Стартовый капитал без бонуса.<newline>В отрядах Легиона меньше медиков; лимит копий классов действует.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,,jazz:items.lua:GameDifficultyDef Hard
+698130726969,Повышенная сложность. Стартовый капитал без бонуса.<newline>В отрядах Легиона обычная плотность медиков; лимит копий классов действует.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,Повышенная сложность. Стартовый капитал без бонуса.<newline>В отрядах Легиона обычная плотность медиков; лимит копий классов действует.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,,jazz:items.lua:GameDifficultyDef Hard
 698286570374,Советская каска СШ-40,Советская каска СШ-40,,jazz:InventoryItem/JazzArmor_SovietHelm.lua:12 | jazz:items.lua:54862
 698700407824,Уровень защиты,Уровень защиты,,jazz:items.lua:73082
 698749684781,"Окей, я в твоем распоряжении.","Окей, я в твоем распоряжении.",,jazz-units:items.lua:68755
@@ -4011,7 +4011,7 @@ Cuatro, cinco, seis
 851181592647,Саванна,Саванна,,jazz-maps:items.lua:33593 | jazz-maps:items.lua:33619 | jazz-maps:items.lua:34696
 851713933310,USAS12,USAS12,,jazz:InventoryItem/USAS12.lua:13 | jazz:items.lua:27839
 851891287061,ВСС,ВСС,,jazz:InventoryItem/VSS.lua:13 | jazz:items.lua:20868
-852333811131,Стандартная сложность. Стартовый капитал +25%.<newline>В отрядах Легиона действует лимит копий редких классов.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,Стандартная сложность. Стартовый капитал +25%.<newline>В отрядах Легиона действует лимит копий редких классов.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,,jazz:items.lua:GameDifficultyDef Normal
+852333811131,Стандартная сложность. Стартовый капитал +25%.<newline>В отрядах Легиона больше медиков; действует лимит копий редких классов.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,Стандартная сложность. Стартовый капитал +25%.<newline>В отрядах Легиона больше медиков; действует лимит копий редких классов.<newline><newline><color FlavorStyle>Сложность можно изменить в любой момент.</color>,,jazz:items.lua:GameDifficultyDef Normal
 852703817426,<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения),<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Громоздкое (нет бесплатного перемещения),,mag-hint-aligned
 852886773372,9x39 мм,9x39 мм,,jazz:items.lua:2436
 852932508226,Снаряжение - <Nick>,Снаряжение — <Nick>,,jazz:items.lua:94446

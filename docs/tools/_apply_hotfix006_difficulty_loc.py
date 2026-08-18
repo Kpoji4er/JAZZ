@@ -22,18 +22,18 @@ FOOTER_EN = "<color FlavorStyle>Difficulty can be changed at any time.</color>"
 LOC = {
     "852333811131": (
         "Стандартная сложность. Стартовый капитал +25%.<newline>"
-        "В отрядах Легиона действует лимит копий редких классов.<newline><newline>"
+        "В отрядах Легиона больше медиков; действует лимит копий редких классов.<newline><newline>"
         + FOOTER_RU,
         "Standard difficulty. Starting funds +25%.<newline>"
-        "Legion squads use copy limits on rare classes.<newline><newline>"
+        "Legion squads field more medics; copy limits on rare classes still apply.<newline><newline>"
         + FOOTER_EN,
     ),
     "698130726969": (
         "Повышенная сложность. Стартовый капитал без бонуса.<newline>"
-        "В отрядах Легиона меньше медиков; лимит копий классов действует.<newline><newline>"
+        "В отрядах Легиона обычная плотность медиков; лимит копий классов действует.<newline><newline>"
         + FOOTER_RU,
         "Increased difficulty. No starting-funds bonus.<newline>"
-        "Legion squads have fewer medics; class copy limits still apply.<newline><newline>"
+        "Legion squads use the usual medic density; class copy limits still apply.<newline><newline>"
         + FOOTER_EN,
     ),
     "830857112086": (

@@ -41,6 +41,7 @@ related_decisions:
 related_specs:
   - JAZZ-CTH-001
   - JAZZ-WEAPONS-001
+  - JAZZ-WEAPONS-009
   - JAZZ-ATTACH-001
 approved_by: project-owner
 ---
@@ -63,7 +64,7 @@ approved_by: project-owner
 
 ```text
 effective_recoil =
-    action_recoil          # обычно = weapon.Recoil; MGBurst ×0.8; Fanning special
+    action_recoil          # обычно = weapon.Recoil; GrizzlyPerk ×0.8 (WEAPONS-009); ordinary MGBurst = full Recoil; Fanning special
   × shooter_factor         # после этого spec: 0.5×Str + 0.5×Marks
   × stance_factor
   × support_factor
@@ -299,6 +300,7 @@ Dexterity не в retention. Debug profile отдаёт оба фактора + 
 - Кто подтвердил: project-owner
 - Дата: 2026-08-01
 - Решение: принимать CaliberImpulse bands; Burst/Auto authored из RPM+отсечка в том же change set; variance длины отвергнута; implement по команде.
+- 2026-08-18: `MGBurst ×0.8` в формуле 003 **superseded** `JAZZ-WEAPONS-009` — обычный `MGBurstFire` полный `Recoil`; `×0.8` только `GrizzlyPerk`.
 
 ## Evidence
 

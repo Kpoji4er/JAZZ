@@ -86,11 +86,11 @@ Island budget: большинство Init — **A/B**; C–E точечно. **
 | Lieutenant | `floor(n / 15)` (band ~15–20) | `LeaderT2_Lieutenant` |
 | Captain | `floor(n / 30)` | `LeaderT3_Captain` |
 | MercCaptain | обязателен только для **band E / T4-squad**, не density | `LeaderT4_MercenaryCaptain` |
-| Medic (Normal) | `n < 10` → 0; else `max(1, floor(n / 15))` | `FrontT1_Bonemaker` |
+| Medic (Hard / usual) | `n < 10` → 0; else `max(1, floor(n / 15))` | `FrontT1_Bonemaker` |
 
-**Medic × difficulty (owner lock — loot):** Bonemaker = основной источник медикаментов. Сдвиг **обратный** body-count: **Easy больше медиков**, **Hard меньше**. Wired в Global AI: `JAZZ_GetLegionMaxMedics` / STRATEGY-015 (`Easy +1` / `Hard −1`; при `n≥10` не ниже 1). Пример n=60 → **5 / 4 / 3**; n=40 → **3 / 2 / 1**. Authored Init на Эрни: medic anchors тоже Easy+/Hard− (тот же сдвиг), вместе с body E/N/H gated slots.
+**Medic × difficulty (owner lock — loot):** Bonemaker = основной источник медикаментов. Сдвиг относительно Коммандос (`Hard` = usual): **Первая кровь +1**, **Миссия невыполнима −1**. Wired в Global AI: `JAZZ_GetLegionMaxMedics` / STRATEGY-015; при `n≥10` не ниже 1. Пример n=60 → **5 / 4 / 3** (Normal / Hard / VeryHard); n=40 → **3 / 2 / 1**. Authored Init на Эрни: medic anchors тот же сдвиг вместе с body E/N/H gated slots (pack Easy/Normal/Hard = game Normal/Hard/VeryHard).
 
-Примеры размера (Normal): **n=10** → 1 SGT, 0 LT, 0 CPT, 1 medic · **n=20** → 2 SGT, 1 LT, 0 CPT, 1 medic · **n=40** → 5 SGT, 2 LT, 1 CPT, 2 medic · **n=60** → 7 SGT, 4 LT, 2 CPT, 4 medic. Named story bosses (Pierre, Headsman suite) **сверх** / вместо density, если sector lock так говорит.
+Примеры размера (Hard / usual): **n=10** → 1 SGT, 0 LT, 0 CPT, 1 medic · **n=20** → 2 SGT, 1 LT, 0 CPT, 1 medic · **n=40** → 5 SGT, 2 LT, 1 CPT, 2 medic · **n=60** → 7 SGT, 4 LT, 2 CPT, 4 medic. Named story bosses (Pierre, Headsman suite) **сверх** / вместо density, если sector lock так говорит.
 
 Текущие I5/J5 packs по офицерам **не** подтягиваем под AI density — **исключение** (owner): authored meat/rifle hubs. **Медики Init** на прочих секторах — по AI density; I5 уже 4 Bonemaker.
 

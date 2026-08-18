@@ -8,12 +8,13 @@ JAZZ_LegionOfficerDensity = {
 }
 
 -- Owner band ~1 medic / 10–20 men (2026-08-02). Mid = 15; min 1 once n >= 10.
--- Difficulty (owner 2026-08-10): Easy +1 / Hard −1 vs Normal — Bonemaker is primary Meds loot.
+-- Difficulty (owner 2026-08-18): Normal +1 / Hard 0 / VeryHard −1 (лёгкий/нормальный/сложный).
+-- Bonemaker is primary Meds loot.
 JAZZ_LegionMedicDensity = {
 	MedicPerMen = 15,
 	MedicMinSquadSize = 10,
-	EasyMedicBonus = 1,
-	HardMedicPenalty = 1,
+	NormalMedicBonus = 1,
+	VeryHardMedicPenalty = 1,
 	UnitId = "JAZZ_Legion_FrontT1_Bonemaker",
 }
 
@@ -50,20 +51,23 @@ function JAZZ_LegionSameIdCapApplies(difficulty)
 	return diff ~= "VeryHard"
 end
 
---- Easy/VeryEasy → +EasyMedicBonus; Hard/VeryHard → −HardMedicPenalty; else 0.
---- Optional override: pass difficulty id string, or omit to read Game.game_difficulty.
+--- Normal (First Blood) → +NormalMedicBonus; Hard (Commando) → 0; VeryHard (MI) → −VeryHardMedicPenalty.
+--- Pack-band alias Easy/VeryEasy → Normal. Unknown id → Normal. Optional override: difficulty id or Game.game_difficulty.
 function JAZZ_GetLegionMedicDifficultyDelta(difficulty)
 	local diff = difficulty
 	if diff == nil and Game then
 		diff = Game.game_difficulty
 	end
 	if diff == "Easy" or diff == "VeryEasy" then
-		return JAZZ_LegionMedicDensity.EasyMedicBonus or 1
+		diff = "Normal"
 	end
-	if diff == "Hard" or diff == "VeryHard" then
-		return -(JAZZ_LegionMedicDensity.HardMedicPenalty or 1)
+	if diff == "VeryHard" then
+		return -(JAZZ_LegionMedicDensity.VeryHardMedicPenalty or 1)
 	end
-	return 0
+	if diff == "Hard" then
+		return 0
+	end
+	return JAZZ_LegionMedicDensity.NormalMedicBonus or 1
 end
 
 --- Max Bonemaker slots for squad size n (STRATEGY-015).

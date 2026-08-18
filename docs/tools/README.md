@@ -293,7 +293,7 @@
 | `_audit_faction_overlay_static.py` | Static AC hooks for STRATEGY-014/018: matrix API, ownership, avoid-player routing, load registration. |
 | `_apply_hotfix006_difficulty_loc.py` | HOTFIX-006: rewrite Normal/Hard/VeryHard GameDifficultyDef tooltips in `items.lua` + Russian.csv/English.csv (copy limits, medics, starting funds). |
 | `_test_legion_class_caps.py` | HOTFIX-006: same-id (except `JAZZ_LegionUncappedLineIds`) + escort Front specialists + Marksman deny; STRATEGY-008 bucket formulas unchanged. |
-| `_test_legion_medic_density.py` | STRATEGY-015: static mirror `JAZZ_GetLegionMaxMedics` + generator wiring markers. |
+| `_test_legion_medic_density.py` | STRATEGY-015: static mirror `JAZZ_GetLegionMaxMedics` (Normal +1 / Hard 0 / VeryHard −1) + generator wiring markers. |
 | `_test_legion_spawn_pool.py` | Static STRATEGY-019: global spawn pool + tax/recruiter 72h gate + tax/recruiter → combat → supply order. |
 | `_test_legion_squad_growth.py` | STRATEGY-016: early→mature sizes, economy ×0.25 markers, cadence defaults; NoMaps size override. |
 | `_test_legion_money_cargo.py` | STRATEGY-017: tagged cargo sync / tax collect / regen resync markers. |

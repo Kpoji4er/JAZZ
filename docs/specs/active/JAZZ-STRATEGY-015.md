@@ -48,49 +48,48 @@ Playtest (Sergej / Discord 2026-08-02): за несколько боёв с ле
 - Плотность патрулей / размер / cargo inventory (сейв + отдельные follow-up).
 - Новые UnitData медиков выше T1.
 
-## Locked defaults (owner 2026-08-02; difficulty delta 2026-08-10)
+## Locked defaults (owner 2026-08-02; difficulty delta 2026-08-18)
 
-«Условно 1 врача на 10–20 человек легиона.» Bonemaker = основной источник Medkit/Meds с врагов → на **Easy больше** медиков, на **Hard меньше** (обратно body-count ±10).
+«Условно 1 врача на 10–20 человек легиона.» Bonemaker = основной источник Medkit/Meds с врагов. Сдвиг относительно **Коммандос** (`Hard` = usual): **Первая кровь +1**, **Миссия невыполнима −1**. Речь владельца лёгкий/нормальный/сложный = `Normal`/`Hard`/`VeryHard`.
 
 | Constant | Value | Meaning |
 |---|---:|---|
 | `MedicPerMen` | **15** | mid band 10–20; `floor(n / 15)` |
 | `MedicMinSquadSize` | **10** | при `n >= 10` минимум **1** медик (после difficulty clamp) |
-| `EasyMedicBonus` | **+1** | Easy / VeryEasy |
-| `HardMedicPenalty` | **−1** | Hard / VeryHard (после сдвига всё ещё ≥1 если `n≥10`) |
+| `NormalMedicBonus` | **+1** | `Normal` (Первая кровь); unknown id → как Normal |
+| `VeryHardMedicPenalty` | **−1** | `VeryHard` (МИ); `Hard` (Коммандос) = 0; после сдвига всё ещё ≥1 если `n≥10` |
 | Unit | `JAZZ_Legion_FrontT1_Bonemaker` | единственный Legion medic slot |
 
-Формула max medics (Normal base, затем difficulty):
+Формула max medics (`Hard` = base, затем delta):
 
 ```text
 base:
   if n < 1: 0
   elif n < 10: floor(n / 15)   -- обычно 0
   else: max(1, floor(n / 15))
-delta: Easy/VeryEasy +1; Hard/VeryHard −1; else 0
+delta: Normal +1; Hard 0; VeryHard −1
 result: if n >= 10: max(1, base+delta) else max(0, base+delta)
 ```
 
-`JAZZ_GetLegionMaxMedics(n[, difficulty])` — второй аргумент опционален (тесты); иначе `Game.game_difficulty`.
+`JAZZ_GetLegionMaxMedics(n[, difficulty])` — второй аргумент опционален (тесты); иначе `Game.game_difficulty`. Pack-band alias `Easy`/`VeryEasy` → `Normal`.
 
-Примеры (Normal / Easy / Hard):
+Примеры (Normal / Hard / VeryHard):
 
-| n | Normal | Easy | Hard |
+| n | Normal | Hard | VeryHard |
 |---:|---:|---:|---:|
-| 8 | 0 | 1 | 0 |
-| 12 | 1 | 2 | 1 |
-| 30 | 2 | 3 | 1 |
-| 40 | 2 | 3 | 1 |
-| 60 | 4 | 5 | 3 |
-
+| 8 | 1 | 0 | 0 |
+| 12 | 2 | 1 | 1 |
+| 30 | 3 | 2 | 1 |
+| 40 | 3 | 2 | 1 |
+| 60 | 5 | 4 | 3 |
 ## Требования
 
-- `JAZZ-STRATEGY-015-REQ-001` — helpers/constants отражают таблицу выше (вкл. Easy/Hard delta).
+- `JAZZ-STRATEGY-015-REQ-001` — helpers/constants отражают таблицу выше (вкл. Normal +1 / Hard 0 / VeryHard −1).
 - `JAZZ-STRATEGY-015-REQ-002` — `lTryBuild` резервирует medic slots после офицеров; Bonemaker не дублируется случайным line-pick сверх cap.
 - `JAZZ-STRATEGY-015-REQ-003` — combat generator roles всегда могут взять Bonemaker для reserved medic (даже без `FrontT1` в allow_prefixes).
 - `JAZZ-STRATEGY-015-REQ-004` — top-up предпочитает добрать медиков до density, если роль/бюджет позволяют.
 - `JAZZ-STRATEGY-015-REQ-005` — technical + roadmap + wiki/showcase обновлены; logistics non-goal явно.
-- `JAZZ-STRATEGY-015-REQ-006` — medic count реагирует на `Game.game_difficulty` (Easy+/Hard−) при generate/top-up.
+- `JAZZ-STRATEGY-015-REQ-006` — medic count реагирует на `Game.game_difficulty` (Normal+/VeryHard−) при generate/top-up.
 
 ## Инварианты
 
@@ -98,27 +97,28 @@ result: if n >= 10: max(1, base+delta) else max(0, base+delta)
 - Officer density STRATEGY-005 без изменений (офицерский ±difficulty — out of scope).
 - Soft caps MG/sniper/heavy/specialist без изменений.
 - Deterministic `InteractionRand` contexts сохраняются для non-medic slots.
-- Authored Ernie Init packs пишут **Normal** counts; Easy/Hard authored сдвиг — follow-up с difficulty settings для EnemySquadDef (generator уже живой).
+- Authored Ernie Init packs пишут **Hard** (usual) counts unless a sector lock says otherwise; First Blood / MI authored сдвиг — follow-up с difficulty settings для EnemySquadDef (generator уже живой).
 
 ## Acceptance criteria
 
-- `JAZZ-STRATEGY-015-AC-001` — static: Normal `JAZZ_GetLegionMaxMedics(8)=0`, `(12)=1`, `(18)=1`, `(30)=2`, `(40)=2`, `(60)=4`.
-- `JAZZ-STRATEGY-015-AC-001b` — static: Easy `(12)=2`, `(40)=3`, `(60)=5`; Hard `(12)=1`, `(40)=1`, `(60)=3`; Easy `(8)=1`.
+- `JAZZ-STRATEGY-015-AC-001` — static: Hard `JAZZ_GetLegionMaxMedics(8)=0`, `(12)=1`, `(18)=1`, `(30)=2`, `(40)=2`, `(60)=4`.
+- `JAZZ-STRATEGY-015-AC-001b` — static: Normal `(8)=1`, `(12)=2`, `(40)=3`, `(60)=5`; VeryHard `(12)=1`, `(40)=1`, `(60)=3`.
 - `JAZZ-STRATEGY-015-AC-002` — static: generated patrol/garrison composition includes Bonemaker count matching formula when budget covers price.
 - `JAZZ-STRATEGY-015-AC-003` — static: qrf recipe without FrontT1 still places reserved Bonemaker.
 - `JAZZ-STRATEGY-015-AC-004` — runtime/human: в бою с Legion combat-отрядом ≥10 тел есть костоправ с Medkit (или BLOCKED до playtest).
 
 ## Impact
 
-- **Runtime:** новые combat squads чаще с костоправом → чаще Medkit loot + AI Heal; Easy щедрее, Hard скупее по медикам.
+- **Runtime:** новые combat squads чаще с костоправом → чаще Medkit loot + AI Heal; Первая кровь щедрее, МИ скупее, Коммандос = usual.
 - **Saves:** уже заспавненные отряды без регенерации; новые spawn/top-up — да. `[no new game]` достаточно для появления на новых отрядах.
 - **Network:** InteractionRand only for remaining line slots.
 - **Rollback:** revert composition/generator + docs.
 
 ## Решение владельца
 
-2026-08-02: добавить ~1 врача на 10–20 человек; остальной playtest feedback — после загрузки сейва.  
-2026-08-10: Easy +1 / Hard −1 medic vs Normal (loot); quest authored packs остаются исключением из officer density; Init Ernie медики = Normal formula.
+2026-08-02: добавить ~1 врача на 10–20 человек; остальной playtest feedback — после загрузки сейва.
+2026-08-10: Easy +1 / Hard −1 medic vs Normal (loot) — **superseded 2026-08-18**.
+2026-08-18: `Normal` +1 / `Hard` 0 / `VeryHard` −1 (лёгкий/нормальный/сложный); quest authored packs остаются исключением из officer density; Init Ernie медики = Hard (usual) formula.
 
 ## Evidence
 
@@ -130,7 +130,7 @@ result: if n >= 10: max(1, base+delta) else max(0, base+delta)
 ## Documentation delta
 
 - `docs/technical/systems/strategy-squads-sectors.md` — medic density + difficulty.
-- `docs/technical/systems/legion-units-equipment-tiers.md` — Bonemaker density + Easy/Hard.
+- `docs/technical/systems/legion-units-equipment-tiers.md` — Bonemaker density + Normal/Hard/VeryHard.
 - `docs/wiki/legion-global-ai.md` + showcase `legion-units` RU/EN.
 - `docs/specs/active/JAZZ-STRATEGY-LEGION-AI-ROADMAP.md` — 6b medic line.
 - `docs/design/ernie-garrison-baseline.md` — medic × difficulty.
