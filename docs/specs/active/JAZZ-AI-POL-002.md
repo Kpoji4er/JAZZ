@@ -61,9 +61,9 @@ approved_by: project-owner
 ## Evidence
 
 - `JAZZ-AI-POL-002-AC-001`: `PASS`
-- `JAZZ-AI-POL-002-AC-002`: `PASS`
+- `JAZZ-AI-POL-002-AC-002`: `PASS` — static 2026-08-18: `AIPolicyAllyRoleAnchor` screen/Sniper Weight 35 + retinue/Leader Weight 25 + `AIPolicyAvoidPeekVoxel` Weight 40 / Penalty 80 / Radius 1 in OptLoc of `Legion_`/`Rebels_` Frontliner and Assaulter (not Flanker). Gate: `docs/tools/_audit_ai_packet1b.py`.
 - `JAZZ-AI-POL-002-AC-003`: `BLOCKED`
 
 ## Documentation delta
 
-- ai-awareness.md policies table.
+- `docs/technical/systems/ai-awareness.md` — policies table; POL-002 OptLoc PlaceObj (2026-08-18).

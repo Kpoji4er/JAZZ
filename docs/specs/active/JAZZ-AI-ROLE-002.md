@@ -97,8 +97,8 @@ Legion/Rebel `PickCustomArchetype` — copy-paste с мёртвым panic (`loca
 ## Evidence
 
 - `JAZZ-AI-ROLE-002-AC-001`: `PASS` — static: `metadata.lua` + `items.lua` ModItemCode `AICombatStance`; `JazzAI_PickCombatStance` в `Code/AICombatStance.lua`.
-- `JAZZ-AI-ROLE-002-AC-002`: `PASS` — static: Legion Assault/Front/Flanker/Gunner/Heavy/Recruit PickCustom → helper; нет `Hide()` / shadowed panic в этих companions.
-- `JAZZ-AI-ROLE-002-AC-003`: `PASS` — static: Rebel\* PickCustom → helper (ROLE-003 в той же миграции); нет universal Melee@10 в companions.
+- `JAZZ-AI-ROLE-002-AC-002`: `PASS` — static: Legion Assault/Front/Flanker/Gunner/Heavy/Recruit PickCustom → helper; нет `Hide()` / shadowed panic в companions. **2026-08-18:** editor `items.lua` PickCustom synced (was still vanilla panic/Hide/CQB@8). Gate: `docs/tools/_audit_ai_packet1b.py`.
+- `JAZZ-AI-ROLE-002-AC-003`: `PASS` — static: Rebel\* PickCustom → helper (ROLE-003 в той же миграции); нет universal Melee@10 в companions **и** `items.lua`. Bonemaker `allow_medic`.
 - `JAZZ-AI-ROLE-002-AC-004`: `PASS` — ai-awareness §12 + playtest ROLE-002.
 - `JAZZ-AI-ROLE-002-AC-005`: `BLOCKED` — runtime/smoke владельца.
 

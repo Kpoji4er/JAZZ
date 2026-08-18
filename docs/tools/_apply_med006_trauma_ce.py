@@ -56,8 +56,7 @@ DefineClass.TraumaLegsHeavy = {
 			Event = "OnCalcMoveModifier",
 			Handler = function(self, target, value, action)
 				JazzTraumaPainOnZoneUse(target, "Legs")
-				local move = JazzTraumaLegsMoveAp and JazzTraumaLegsMoveAp(self, target)
-				return value + (move or self:ResolveValue("move_ap_modifier"))
+				return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -117,8 +116,7 @@ DefineClass.TraumaLegsMedium = {
 				if self.class == "TraumaLegsMedium" then
 					JazzTraumaPainOnZoneUse(target, "Legs")
 				end
-				local move = JazzTraumaLegsMoveAp and JazzTraumaLegsMoveAp(self, target)
-				return value + (move or self:ResolveValue("move_ap_modifier"))
+				return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -190,8 +188,7 @@ DefineClass.TraumaArmsHeavy = {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
-					local pen = JazzTraumaArmsCthPenalty and JazzTraumaArmsCthPenalty(self, attacker)
-					ApplyCthModifier_Add(self, data, -(pen or self:ResolveValue("cth_penalty")))
+					ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaArmsCthPenalty, "cth_penalty"))
 				end
 			end,
 		}),
@@ -235,8 +232,7 @@ DefineClass.TraumaArmsMedium = {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
-					local pen = JazzTraumaArmsCthPenalty and JazzTraumaArmsCthPenalty(self, attacker)
-					ApplyCthModifier_Add(self, data, -(pen or self:ResolveValue("cth_penalty")))
+					ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaArmsCthPenalty, "cth_penalty"))
 				end
 			end,
 		}),
@@ -278,8 +274,7 @@ DefineClass.TraumaRibsHeavy = {
 			Event = "OnCalcStartTurnAP",
 			Handler = function(self, target, value)
 				JazzTraumaPainOnZoneUse(target, "Ribs")
-				local loss = JazzTraumaRibsApLoss and JazzTraumaRibsApLoss(self, target)
-				return value - (loss or self:ResolveValue("APLoss")) * const.Scale.AP
+				return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -339,8 +334,7 @@ DefineClass.TraumaRibsMedium = {
 				if self.class == "TraumaRibsMedium" then
 					JazzTraumaPainOnZoneUse(target, "Ribs")
 				end
-				local loss = JazzTraumaRibsApLoss and JazzTraumaRibsApLoss(self, target)
-				return value - (loss or self:ResolveValue("APLoss")) * const.Scale.AP
+				return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
 			end,
 		}),
 		PlaceObj('UnitReaction', {
@@ -417,8 +411,7 @@ DefineClass.TraumaHeadHeavy = {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
-					local pen = JazzTraumaHeadCthPenalty and JazzTraumaHeadCthPenalty(self, attacker)
-					ApplyCthModifier_Add(self, data, -(pen or self:ResolveValue("cth_penalty")))
+					ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaHeadCthPenalty, "cth_penalty"))
 				end
 			end,
 		}),
@@ -426,8 +419,7 @@ DefineClass.TraumaHeadHeavy = {
 			Event = "OnCalcSightModifier",
 			Handler = function(self, target, value, observer, other, step_pos, darkness)
 				if target == observer then
-					local sight = JazzTraumaHeadSightModifier and JazzTraumaHeadSightModifier(self, target)
-					return value + (sight or self:ResolveValue("sight_modifier"))
+					return value + JazzTraumaResolveNum(self, target, JazzTraumaHeadSightModifier, "sight_modifier")
 				end
 			end,
 		}),
@@ -476,8 +468,7 @@ DefineClass.TraumaHeadMedium = {
 			Event = "OnCalcChanceToHit",
 			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attacker then
-					local pen = JazzTraumaHeadCthPenalty and JazzTraumaHeadCthPenalty(self, attacker)
-					ApplyCthModifier_Add(self, data, -(pen or self:ResolveValue("cth_penalty")))
+					ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaHeadCthPenalty, "cth_penalty"))
 				end
 			end,
 		}),
@@ -485,8 +476,7 @@ DefineClass.TraumaHeadMedium = {
 			Event = "OnCalcSightModifier",
 			Handler = function(self, target, value, observer, other, step_pos, darkness)
 				if target == observer then
-					local sight = JazzTraumaHeadSightModifier and JazzTraumaHeadSightModifier(self, target)
-					return value + (sight or self:ResolveValue("sight_modifier"))
+					return value + JazzTraumaResolveNum(self, target, JazzTraumaHeadSightModifier, "sight_modifier")
 				end
 			end,
 		}),

@@ -200,7 +200,7 @@ Map marker / EnemySquad doctrine (опц.) перекрывает sector default
 | **Threat-weighted cover** | вес врага ∝ threat (LOS, aim, last damage dealer, distance) |
 | **Cover×Shot composite** | `score = cover_term * (0.5 + 0.5 * can_attack_best)` или два policy Required |
 | **Hard floor** | Frontliner/Sniper: dest без cover vs visible shooter → сильный penalty / Required soft |
-| **Weight rebalance** | Frontliner EndTurn/OptLoc: TakeCover 80–150; Assaulter 20–40; Flanker cover низкий, flank высокий |
+| **Weight rebalance** | Live OptLoc (owner 2026-08-18, PERF dest-cap / TakeCover cap 8): Frontliner 20+40; Assaulter 10; Flanker 15 (radius 55). Design 80–150 superseded. |
 | **Stance-aware** | уже есть stance в dest; явно бустить Crouch+Low / Prone+open отдельно (частично есть в bunker) |
 
 ### 4.2. `AIPolicyFlanking`
@@ -618,13 +618,13 @@ StartAI → archetype (+ PickCustom)
 
 Пока идут ROLE-001 / POL-001, вести чеклист (design → evidence):
 
-- [x] TakeCover: threat-weight + cover×shot в `AIPolicy.lua` (POL-001); Weights Front 80–120 / Assault ~40 / Flank OptLoc 15
+- [x] TakeCover: threat-weight + cover×shot в `AIPolicy.lua` (POL-001); live OptLoc Weights Front **20+40** / Assault **10** / Flank **15** (locked 2026-08-18; not 80–150)
 - [x] Proximity: `ScoreMode` closer_better / farther_better; **Legion/Rebels Frontliner+Assaulter+Machinegunner** ally Proximity → `closer_better` (MG OptLoc Weight 80 + EndTurn glue; Flanker already had closer_better)
-- [x] ROLE-002/003: `AICombatStance.lua` + thin PickCustom Legion/Rebel
+- [x] ROLE-002/003: `AICombatStance.lua` + thin PickCustom Legion/Rebel (**items.lua** synced 2026-08-18)
 - [x] Smoke LOS-break / OW LowVis / flare→Push (ACT-001)
 - [x] LowVis + Urban profiles (CTX-001)
 - [x] Medic Bandage fail-safe + early bleed (MED-001)
-- [x] Officer aura / AllyRoleAnchor / AvoidPeek (CMD-001 / POL-002)
+- [x] Officer aura / AllyRoleAnchor / AvoidPeek (CMD-001 / POL-002; **Front/Assault OptLoc PlaceObj** 2026-08-18)
 - [x] Isolated Legion Regroup (REG-001)
 - [x] Ally anti-stack spacing (POL-003)
 - [x] Casualty-aware final-score modifier + role floors (POL-004; runtime/human pending)

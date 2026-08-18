@@ -47,8 +47,27 @@ def main() -> int:
                 p = icons / f"Trauma{zone}{tier}{suf}.png"
                 must(p.is_file(), f"missing icon {p.name}", errors)
 
-    must("JazzTraumaLegsMoveAp" in read("CharacterEffect/TraumaLegsHeavy.lua"), "LegsHeavy effective move", errors)
-    must("JazzTraumaArmsCthPenalty" in read("CharacterEffect/TraumaArmsHeavy.lua"), "ArmsHeavy effective cth", errors)
+    must("JazzTraumaResolveNum" in med6, "JazzTraumaResolveNum missing (0-or-preset)", errors)
+    must("x or preset" in med6 or "Lua treats 0 as falsy" in med6, "0-or-preset comment", errors)
+    for name in (
+        "TraumaLegsMedium",
+        "TraumaLegsHeavy",
+        "TraumaArmsMedium",
+        "TraumaArmsHeavy",
+        "TraumaRibsMedium",
+        "TraumaRibsHeavy",
+        "TraumaHeadMedium",
+        "TraumaHeadHeavy",
+    ):
+        body = read(f"CharacterEffect/{name}.lua")
+        must("or self:ResolveValue" not in body, f"{name} still uses 0-or-preset", errors)
+        must("JazzTraumaResolveNum" in body, f"{name} missing JazzTraumaResolveNum", errors)
+    items = read("items.lua")
+    start = items.find("'Id', \"TraumaArmsMedium\"")
+    end = items.find("'Id', \"TraumaBurnLight\"")
+    trauma_chunk = items[start:end] if start >= 0 and end > start else ""
+    must(trauma_chunk and "or self:ResolveValue" not in trauma_chunk, "items.lua trauma 0-or-preset", errors)
+    must(trauma_chunk.count("JazzTraumaResolveNum") >= 8, "items.lua trauma missing JazzTraumaResolveNum", errors)
 
     if errors:
         print("FAIL")

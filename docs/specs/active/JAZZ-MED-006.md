@@ -301,7 +301,8 @@ Asset pipeline: `$create-jazz-status-icons` / finalize 40×40; можно соб
 ## Evidence
 
 - `JAZZ-MED-006-AC-001`…`006`: `PASS` — static `python docs/tools/_audit_med006_kits_stabilize.py` (+ MED-003 audit updated for heal supersede).
-- `JAZZ-MED-006-AC-007`…`010`: `BLOCKED` — runtime/human playtest after ship.
+- `JAZZ-MED-006-AC-007`: `PASS` (static) — `JazzTraumaResolveNum` keeps Light-effective **0** (no `x or preset`); companions + `items.lua` synced. `BLOCKED` (runtime/human) — Medium kit → move as Light still needs playtest.
+- `JAZZ-MED-006-AC-008`…`010`: `BLOCKED` — runtime/human playtest after ship.
 
 status note: code + icons + loc + docs wired; mark `implemented` after smoke.
 

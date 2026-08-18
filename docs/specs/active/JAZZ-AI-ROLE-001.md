@@ -102,7 +102,7 @@ Design source: `docs/design/tactical-ai-archetypes.md` (F1).
 ## Evidence
 
 - `JAZZ-AI-ROLE-001-AC-001`: `PASS` — static: `items.lua` id `Legion_Flanker` / `Rebels_Flanker`; `metadata.lua` ModResourcePreset оба Id.
-- `JAZZ-AI-ROLE-001-AC-002`: `PASS` — static: 6× `JAZZ_Legion_Flanker*` + `RebelFlanker` companions и items chunks → `Legion_Flanker` / `Rebels_Flanker`; `RepositionArchetype` исправлен (camel case).
+- `JAZZ-AI-ROLE-001-AC-002`: `PASS` — static: 6× `JAZZ_Legion_Flanker*` + `RebelFlanker` companions → `Legion_Flanker` / `Rebels_Flanker`. **2026-08-18:** editor `items.lua` synced (Warden/Skirmisher/Pathfinder were still Frontliner; RebelFlanker still Assaulter). Gate: `docs/tools/_audit_ai_packet1b.py`.
 - `JAZZ-AI-ROLE-001-AC-003`: `PASS` (ROLE-001 scope) — новые archetype Id и Flanker UnitData согласованы items/metadata/companion. Полный `check-generated-sync` jazz-units сейчас **FAILED** из‑за **посторонних** orphan `UnitData/Jazz_*.lua` mercs (не write set ROLE-001).
 - `JAZZ-AI-ROLE-001-AC-004`: `PASS` (human, 2026-07-29) — в бою видны `Legion_Flanker`; часть скаутов кратко на `Legion_Assaulter` через динамический `PickCustomArchetype` (ожидаемо до ROLE-002). Крашей нет.
 - `JAZZ-AI-ROLE-001-AC-005`: `PASS` — обновлены `ai-awareness.md` (35 ID, строка Flanker) и `legion-units-equipment-tiers.md` (колонка Flanker*).

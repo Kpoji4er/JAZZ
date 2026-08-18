@@ -37,7 +37,7 @@ Optics do not make the bullet travel farther — they change weapon **specializa
 
 Penalties are multipliers: high skill does not flat-absorb cover.
 
-**Full cover** leaves roughly **half** of the open-target chance (rule of thumb: a solid rifle shot at mid range drops from about ~80% open to ~40–50% behind full cover). Partial cover and crouch/prone without cover cut less.
+**Full cover** leaves roughly **half** of the open-target chance (rule of thumb: a solid rifle shot at mid range drops from about ~80% open to ~40–50% behind full cover). Partial cover and crouch/prone without cover cut less. In a **dust storm**, cover cuts harder: about **−40** extra CTH on top of the cover penalty (dust alone does not turn hits into grazes).
 
 Chance can be affected by cover and visible target size, stance, visibility/smoke/darkness, suppression and statuses, weapon condition and components, the chosen action, and perks. The same effect should not be applied twice.
 
@@ -66,7 +66,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 
 - **Miss → graze:** lower CTH means a higher chance a miss still clips the target; point-blank misses graze more often, longer ranges less so.
 - **Cover:** cover strength in the hit-chance calc sets the chance a hit becomes a graze — up to **100%** in full cover.
-- Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility).
+- Smoke/fog/dust alone no longer force grazing hits (smoke still hurts visibility). Dust **amplifies the cover penalty** (~**−40** CTH on top of cover), so cover-grazes are more common in a storm.
 - A graze deals about **40%** damage, with no crit, no trauma / `Wounded`, and **no +1 Pain from the hit**; about **15%** chance of **light** bleed only.
 
 ## Burst recoil

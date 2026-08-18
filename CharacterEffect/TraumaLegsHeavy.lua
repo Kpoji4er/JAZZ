@@ -21,8 +21,7 @@ DefineClass.TraumaLegsHeavy = {
 			Event = "OnCalcMoveModifier",
 			Handler = function(self, target, value, action)
 				JazzTraumaPainOnZoneUse(target, "Legs")
-				local move = JazzTraumaLegsMoveAp and JazzTraumaLegsMoveAp(self, target)
-				return value + (move or self:ResolveValue("move_ap_modifier"))
+				return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
 			end,
 		}),
 		PlaceObj('UnitReaction', {

@@ -17,8 +17,7 @@ DefineClass.TraumaLegsMedium = {
 				if self.class == "TraumaLegsMedium" then
 					JazzTraumaPainOnZoneUse(target, "Legs")
 				end
-				local move = JazzTraumaLegsMoveAp and JazzTraumaLegsMoveAp(self, target)
-				return value + (move or self:ResolveValue("move_ap_modifier"))
+				return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
 			end,
 		}),
 		PlaceObj('UnitReaction', {

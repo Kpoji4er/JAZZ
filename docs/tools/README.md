@@ -5,8 +5,11 @@
 
 Запуск из корня пакета `jazz/` (если не указано иное).
 
+| `_audit_specs_index.py` | Сводка всех `docs/specs/**`: status, Evidence PASS/FAIL/BLOCKED, TBD, cross-refs, folder mismatch. |
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
 | `_audit_ai_rng_wiring.py` | Brace-aware RunAndGun wiring audit: real vs default MobileShot, keyword gates, `AIAttackSingleTarget` action_ids. |
+| `_apply_ai_packet1b_items.py` | Packet 1B: sync `jazz-units/items.lua` UnitData PickCustom/archetype to companions; wire POL-002 AllyRoleAnchor+AvoidPeekVoxel into Front/Assault Legion+Rebels OptLoc; leave live TakeCover weights. |
+| `_audit_ai_packet1b.py` | Static 1B: live OptLoc TakeCover (Front 20+40 / Assault 10 / Flank 15), POL-002 on four archetypes, Flanker UnitData IDs, no panic/Hide/Melee@10 in JAZZ_Legion_/Rebel* PickCustom. |
 | `_apply_bandage_cumulative_loc.py` | MED-001: update `890000000010013` / `010021` RU+EN for cumulative field bandage (1 bandage × bleed stack). |
 | `_apply_med005_field_ap_loc.py` | MED-005: RU+EN runtime CSV for bandage/morphine AP ladder (`890000000010013` / `010016` / `010028` / `010201`). |
 | `_audit_med005_field_ap.py` | Static MED-005: Medical AP table 5/4/3/2/1 and 3/2/1; `GetAPCost` helper; GetUIState/CombatAI; companion/`items.lua`/CSV parity. |
@@ -127,7 +130,7 @@
 | Скрипт | Назначение |
 | --- | --- |
 | `_calc_cover_cth_gewehr.py` | Static Gewehr98 mid-merc cover CTH (open / full / half / stance); reads `RangeAttackTargetStanceCover` from `items.lua`. |
-| `_check_cover_params_items.py` | Assert Cover/Exposed/Crouch/Prone params in `items.lua` match owner soften (−45/−12/−12/−23). |
+| `_check_cover_params_items.py` | Assert Cover/Exposed/Crouch/Prone params (−45/−12/−12/−23) and unique `DustStormCoverCTHPenalty = −40`. |
 | `_audit_cth_mod_require_action.py` | List CTHMod `RequireActionType` (missing → class default `Any Attack`). |
 
 ## JAZZ-MED-001 / медицина
@@ -139,7 +142,7 @@
 | `_apply_med004_grenade_shot.py` | MED-004: strip Frag/HE `CenterAppliedEffects` `*shot` in companions+`items.lua`; update blast trauma hints RU/EN. |
 | `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
 | `_audit_med003_kits.py` | Static MED-003 (+MED-006 heal supersede): Medical 30/50/80, MaxStacks 5/10/15, trauma ranks, full bleed, Analgesia+infection, Large Bobby soft-tail, Bonemaker 5% medium; heal via `JazzKitHealAtFullMedical`. |
-| `_audit_med006_kits_stabilize.py` | Static MED-006: stabilize helpers, heal% 30/60/100, MaxHP debt, icon PNGs, no kit→healing in GetBandaged. |
+| `_audit_med006_kits_stabilize.py` | Static MED-006: stabilize helpers, heal% 30/60/100, MaxHP debt, icon PNGs, no kit→healing in GetBandaged; `JazzTraumaResolveNum` (no Lua `0 or preset`). |
 | `_gen_trauma_status_icons.py` | Pillow: from each `Icons/StatusEffects/Trauma{Zone}{Tier}.png` write `*Stabilized` (sand badge) and `*Healing` (cyan badge) corner variants (30 PNGs). |
 | `_apply_med006_trauma_ce.py` | MED-006: Trauma* Medium/Heavy reactions use effective-tier helpers; insert `System_Medicine_MED006.lua` in metadata. |
 | `_apply_med006_kit_loc.py` | MED-006: kit AdditionalHint stabilize/%HP; strip heal_modifier +50/+100. |

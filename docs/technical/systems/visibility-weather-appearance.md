@@ -31,7 +31,7 @@
 
 `Weather.lua` задаёт режимы `Wet`, `Dry` и `CursedForest`. Внутри выбираются rain, fog, heat, dust и firestorm-состояния. Выбор использует детерминированный `BraidRandom`, что важно для multiplayer и повторяемости сохранений.
 
-Погодные constants находятся среди 46 `ConstDef` core: camo/darkness/weather, point-blank, rain jam, sight/unaware и другие параметры. Дождь дополнительно повышает риск jam оружия; dust storm и night vision взаимодействуют с armor properties.
+Погодные constants находятся среди `ConstDef` core: camo/darkness/weather, point-blank, rain jam, sight/unaware и другие параметры. Дождь дополнительно повышает риск jam оружия; dust storm и night vision взаимодействуют с armor properties. **Пылевая буря:** один `DustStormCoverCTHPenalty = −40` (EnvEffects) складывается с Cover/ExposedCover, пока цель obscured; канон CTH — [combat-cth-actions.md](combat-cth-actions.md).
 
 Изменение расписания должно сохранять:
 

@@ -20,3 +20,14 @@ for k, v in expected.items():
 	if got.get(k) != v:
 		raise SystemExit(f"FAIL {k}: got {got.get(k)!r} expected {v!r}")
 print("OK cover params match owner soften (-45/-12/-12/-23)")
+
+dust_ids = len(re.findall(r'id = "DustStormCoverCTHPenalty"', text))
+if dust_ids != 1:
+	raise SystemExit(f"FAIL DustStormCoverCTHPenalty count={dust_ids} expected 1")
+dust = re.search(
+	r'id = "DustStormCoverCTHPenalty",\s*scale = "%",\s*value = (-?\d+)',
+	text,
+)
+if not dust or dust.group(1) != "-40":
+	raise SystemExit(f"FAIL DustStormCoverCTHPenalty value {dust.group(1) if dust else None!r} expected -40")
+print("OK DustStormCoverCTHPenalty unique -40")

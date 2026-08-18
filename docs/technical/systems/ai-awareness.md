@@ -68,6 +68,10 @@ JAZZ существенно меняет выбор действий AI, оце�
 
 JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, enemy Will и безопасность позиции. Machine gun setup согласован с AP, action availability и visual/entity state.
 
+**OptLoc TakeCover weights (POL-001, locked 2026-08-18):** Legion/Rebels Frontliner **20** (team vis) **+ 40** (unscoped); Assaulter **10** (team); Flanker **15** (team), radius **55**. Not the design 80–150 band — owner: intentional after PERF dest-cap 200 and TakeCover enemy cap 8. Flank-branch EndTurn TakeCover Weight **1**.
+
+**AllyRoleAnchor / AvoidPeekVoxel (POL-002):** classes in `Code/AIPolicy.lua`; **wired** in Frontliner + Assaulter Legion/Rebels **OptLoc** (`screen`/`Sniper` Weight 35, `retinue`/`Leader` Weight 25, AvoidPeek Penalty 80 / Radius 1 / Weight 40). Flanker OptLoc does not get these policies.
+
 **Casualty-aware anti-stack (JAZZ-AI-POL-004):** hard same-XYZ dibs из POL-003 сохраняется. После policies, sniper stay, bombard и BiasMarker положительный `AIScoreDest` один раз умножается на `JazzAI_CrowdDangerModifier` (25–100%). Живой союзник даёт −60/−25/−10 percentage points в диапазонах `<1`/`<2`/`<3` тайлов; dead/downed/incapacitated союзник — −45/−30/−15, а каждая casualty после первой в радиусе 3 добавляет −10. Для melee (`EffectiveRange <= 1` или keyword `Melee`) и healer (`can_heal`) floor = 55%; для остальных 25%. Живой ally использует planned `ai_destination`, casualty — фактическую snapshot-позицию. Трупы не становятся impassable, RNG и persistent state не добавляются; explicit `AIPolicyAllySpacing` остаётся отдельным authored additive policy.
 
 **Sniper / Marksman hold (JAZZ-AI-SNIPER-001):** `ExtremeRange = weapon.WeaponRange`; stay-hold если `dest_target_score[stay] > 0`. `MapVar JazzAI_SniperUselessStreak`: бесполезные ходы **мягко** режут вес высоты — полный HighGround на 0–1 ход; ×40% на 2-й; ×0% на 3+; soft stay penalty 0 / 0 / 300 / 600+. Без hard escape dest. Clear на CombatStart.
@@ -88,7 +92,7 @@ JAZZ оценивает attack AP, cover, anti-flank, proximity, high ground, en
 
 AI keywords в units: `Melee`, `CQB`, `Soldier`, `Marksman`, `Sniper`, `Leader`, `MG`, `Control`, `Explosives`, `Ordnance`, `Smoke`, `Flank`, `MobileShot`, `RunAndGun`, `Stim`, `Nova`, `Heal`.
 
-Archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels (`Rebels_Assaulter` / `Rebels_Flanker` / `Rebels_Frontliner` / `Rebels_Machinegunner`; `Rebels_Flanker` — clone `Legion_Flanker` для `RebelFlanker` / Scout stance; оба Flanker OptLoc **55**, не 80). Generated UnitData связывает archetype с инвентарём, stats и actions.
+Archetypes охватывают artillery, berserk/brute/melee, emplacement/turret, grenadier, guard area, heavy/machine gunner, medic, panicked/pinned, scout/skirmisher/soldier/sniper, Major и faction-specific варианты Legion/Rebels (`Rebels_Assaulter` / `Rebels_Flanker` / `Rebels_Frontliner` / `Rebels_Machinegunner`; `Rebels_Flanker` — clone `Legion_Flanker` для `RebelFlanker` / Scout stance; оба Flanker OptLoc **55**, не 80). Generated UnitData связывает archetype с инвентарём, stats и actions. Editor `items.lua` PickCustom for `JAZZ_Legion_*` / `Rebel*` calls `JazzAI_PickCombatStance` (Bonemaker `{ allow_medic = true }`); Flanker UnitData `archetype`/`RepositionArchetype` = `Legion_Flanker` / `Rebels_Flanker`.
 
 **Deserter despawn (JAZZ-AI-DES-001):** vanilla `RetreatAI:CanDespawn` (`DespawnAllowed`, default true у `Deserter`) снимает юнита либо в зоне `Entrance`, либо когда с текущей клетки нет LOS к врагам. JAZZ override в `Code/AIBehaviours.lua`: LOS-ветка разрешена только если нет живого `team.player_team` юнита в **`JazzAI_DeserterSafeDespawnTiles = 16`** (`GetDist` ≤ 16×`SlabSizeX`). Entrance-despawn без этого gate. `Panicked` по-прежнему `DespawnAllowed=false`.
 

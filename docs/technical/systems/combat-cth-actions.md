@@ -49,7 +49,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 После cap ядра CTH presets, status effects, component effects, реакции, укрытие и остальные ситуационные поправки преобразуются в именованные fixed-point факторы и применяются одним детерминированным произведением. Физически возможный выстрел ограничивается `2..100%`; невозможная атака возвращает `0%`. Опытный стрелок может получить `100%` по открытой цели в полный рост при полном aim и оптимальной дистанции, но любой применимый штраф снижает этот результат. Полная формула находится в [модели стрельбы и точности](../weapons/accuracy-model.md).
 
-Укрытие (`RangeAttackTargetStanceCover`, owner-soften 2026-08-05): `Cover −45` → factor `×0.55`, `ExposedCover −12` → `×0.88`, crouch/prone без укрытия `−12/−23` → `×0.88/×0.77`; частичное — `InterpolateCoverEffect`. Runtime: preset `CalcValue` → `JAZZ_CTHPercentToFactor` в `Unit:CalcChanceToHit` (firearm pipeline). Проверка: `docs/tools/_calc_cover_cth_gewehr.py`, `_check_cover_params_items.py`.
+Укрытие (`RangeAttackTargetStanceCover`, owner-soften 2026-08-05): `Cover −45` → factor `×0.55`, `ExposedCover −12` → `×0.88`, crouch/prone без укрытия `−12/−23` → `×0.88/×0.77`; частичное — `InterpolateCoverEffect`. В пылевой буре (`CheckSightCondition` obscured) к Cover и ExposedCover добавляется **`DustStormCoverCTHPenalty = −40`** (один `ConstDef`; раньше дубли −10/−50). Runtime: preset `CalcValue` → `JAZZ_CTHPercentToFactor` в `Unit:CalcChanceToHit` (firearm pipeline). Проверка: `docs/tools/_calc_cover_cth_gewehr.py`, `_check_cover_params_items.py`.
 
 **Cover-graze:** при полном укрытии cover→graze ≈100% — любой CTH-hit становится царапиной (~40% урона). **Miss→graze** base cap **25%**; в упоре (&lt;8 клеток) cap плавно поднимается до **50%** (скрыто от UI) — меньше «воздушных» промахов вплотную.
 
@@ -164,7 +164,7 @@ Vanilla `Unit:GameInit` может вызвать `EnterEmplacement` до соз
 - Fog / DustStorm env (`FogGrazeChance` / `DustStormGrazeChance` = 0, ветки удалены);
 - C++ LoF smoke/gas (`ignore_smoke = true` всегда; thrown knives оборачивают `GetLoFData`).
 
-Dust storm может **косвенно** усилить cover-graze только если усиливает cover CTH penalty (`DustStormCoverCTHPenalty`) — это следствие «∝ бонусу укрытия», не отдельный magic graze.
+Dust storm может **косвенно** усилить cover-graze: obscured цель получает extra cover CTH **`DustStormCoverCTHPenalty = −40`** (складывается с Cover −45 / Exposed −12) — graze растёт потому что cover bonus больше, не отдельный env-graze.
 
 ### Эффект и исключения
 

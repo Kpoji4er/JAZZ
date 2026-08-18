@@ -17,8 +17,7 @@ DefineClass.TraumaRibsMedium = {
 				if self.class == "TraumaRibsMedium" then
 					JazzTraumaPainOnZoneUse(target, "Ribs")
 				end
-				local loss = JazzTraumaRibsApLoss and JazzTraumaRibsApLoss(self, target)
-				return value - (loss or self:ResolveValue("APLoss")) * const.Scale.AP
+				return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
 			end,
 		}),
 		PlaceObj('UnitReaction', {

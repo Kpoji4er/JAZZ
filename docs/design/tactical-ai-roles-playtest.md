@@ -10,7 +10,7 @@
 | [POL-001](../specs/active/JAZZ-AI-POL-001.md) | done | P1–P5 |
 | [ROLE-002](../specs/active/JAZZ-AI-ROLE-002.md) (+ Rebel = ROLE-003) | done | R1–R5 |
 | [MED-001](../specs/active/JAZZ-AI-MED-001.md) | done | M1–M3 |
-| [POL-002](../specs/active/JAZZ-AI-POL-002.md) | done | A1–A3 |
+| [POL-002](../specs/active/JAZZ-AI-POL-002.md) | done (OptLoc PlaceObj 2026-08-18) | A1–A3 |
 | [CTX-001](../specs/active/JAZZ-AI-CTX-001.md) | done | C1–C2 |
 | [CMD-001](../specs/active/JAZZ-AI-CMD-001.md) | done | O1 |
 | [ACT-001](../specs/active/JAZZ-AI-ACT-001.md) | done | S1–S3 |
@@ -31,7 +31,7 @@
 
 - **P1** Frontliner чаще в cover vs visible shooter.
 - **P2** Assaulter всё ещё давит.
-- **P3** Flanker не «укрыватель» (OptLoc TakeCover ~15).
+- **P3** Flanker не «укрыватель» (OptLoc TakeCover **15**; Front 20+40 / Assault 10 — PERF lock, not 80–150).
 - **P4** Союзники не разбегаются из‑за Proximity.
 - **P5** Нет краша StartAI; MG/Medic ок.
 

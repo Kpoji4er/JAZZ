@@ -4151,13 +4151,6 @@ return {
 			value = -65,
 		}),
 		PlaceObj('ModItemConstDef', {
-			Comment = "chance to hit modifier in fog",
-			group = "EnvEffects",
-			id = "DustStormCoverCTHPenalty",
-			scale = "%",
-			value = -10,
-		}),
-		PlaceObj('ModItemConstDef', {
 			Comment = "sight modifier in duststorm",
 			group = "EnvEffects",
 			id = "DustStormSightMod",
@@ -4227,11 +4220,11 @@ return {
 			value = 100,
 		}),
 		PlaceObj('ModItemConstDef', {
-			Comment = "chance to hit modifier in fog",
+			Comment = "extra cover CTH penalty while obscured by dust storm (stacks with Cover/ExposedCover)",
 			group = "EnvEffects",
 			id = "DustStormCoverCTHPenalty",
 			scale = "%",
-			value = -50,
+			value = -40,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "sight penalty (as % of base value) for seeing units in dark or difficult to see locations",
@@ -65025,7 +65018,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcChanceToHit",
 						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 							if target == attacker then
-								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+								ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaArmsCthPenalty, "cth_penalty"))
 							end
 						end,
 					}),
@@ -65067,7 +65060,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcChanceToHit",
 						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 							if target == attacker then
-								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+								ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaArmsCthPenalty, "cth_penalty"))
 							end
 						end,
 					}),
@@ -65123,20 +65116,24 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							if self.class == "TraumaLegsMedium" then
 								JazzTraumaPainOnZoneUse(target, "Legs")
 							end
-							return value + self:ResolveValue("move_ap_modifier")
+							return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcFreeMove",
 						Handler = function(self, target, data)
-							data.add = 0
-							data.mul = 0
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								data.add = 0
+								data.mul = 0
+							end
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnBeginTurn",
 						Handler = function(self, target)
-							target:RemoveStatusEffect("FreeMove")
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								target:RemoveStatusEffect("FreeMove")
+							end
 						end,
 					}),
 				},
@@ -65175,20 +65172,24 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcMoveModifier",
 						Handler = function(self, target, value, action)
 							JazzTraumaPainOnZoneUse(target, "Legs")
-							return value + self:ResolveValue("move_ap_modifier")
+							return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcFreeMove",
 						Handler = function(self, target, data)
-							data.add = 0
-							data.mul = 0
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								data.add = 0
+								data.mul = 0
+							end
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnBeginTurn",
 						Handler = function(self, target)
-							target:RemoveStatusEffect("FreeMove")
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								target:RemoveStatusEffect("FreeMove")
+							end
 						end,
 					}),
 				},
@@ -65249,20 +65250,24 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							if self.class == "TraumaRibsMedium" then
 								JazzTraumaPainOnZoneUse(target, "Ribs")
 							end
-							return value - self:ResolveValue("APLoss") * const.Scale.AP
+							return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcFreeMove",
 						Handler = function(self, target, data)
-							data.add = 0
-							data.mul = 0
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								data.add = 0
+								data.mul = 0
+							end
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnBeginTurn",
 						Handler = function(self, target)
-							target:RemoveStatusEffect("FreeMove")
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								target:RemoveStatusEffect("FreeMove")
+							end
 						end,
 					}),
 				},
@@ -65301,20 +65306,24 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcStartTurnAP",
 						Handler = function(self, target, value)
 							JazzTraumaPainOnZoneUse(target, "Ribs")
-							return value - self:ResolveValue("APLoss") * const.Scale.AP
+							return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnCalcFreeMove",
 						Handler = function(self, target, data)
-							data.add = 0
-							data.mul = 0
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								data.add = 0
+								data.mul = 0
+							end
 						end,
 					}),
 					PlaceObj('UnitReaction', {
 						Event = "OnBeginTurn",
 						Handler = function(self, target)
-							target:RemoveStatusEffect("FreeMove")
+							if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
+								target:RemoveStatusEffect("FreeMove")
+							end
 						end,
 					}),
 				},
@@ -65381,7 +65390,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcChanceToHit",
 						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 							if target == attacker then
-								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+								ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaHeadCthPenalty, "cth_penalty"))
 							end
 						end,
 					}),
@@ -65389,7 +65398,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcSightModifier",
 						Handler = function(self, target, value, observer, other, step_pos, darkness)
 							if target == observer then
-								return value + self:ResolveValue("sight_modifier")
+								return value + JazzTraumaResolveNum(self, target, JazzTraumaHeadSightModifier, "sight_modifier")
 							end
 						end,
 					}),
@@ -65425,10 +65434,18 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						end,
 					}),
 					PlaceObj('UnitReaction', {
+						Event = "OnFirearmAttackStart",
+						Handler = function(self, target, attacker, attack_target, action, attack_args)
+							if target == attacker then
+								JazzTraumaPainOnZoneUse(attacker, "Head")
+							end
+						end,
+					}),
+					PlaceObj('UnitReaction', {
 						Event = "OnCalcChanceToHit",
 						Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
 							if target == attacker then
-								ApplyCthModifier_Add(self, data, -self:ResolveValue("cth_penalty"))
+								ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaHeadCthPenalty, "cth_penalty"))
 							end
 						end,
 					}),
@@ -65436,7 +65453,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						Event = "OnCalcSightModifier",
 						Handler = function(self, target, value, observer, other, step_pos, darkness)
 							if target == observer then
-								return value + self:ResolveValue("sight_modifier")
+								return value + JazzTraumaResolveNum(self, target, JazzTraumaHeadSightModifier, "sight_modifier")
 							end
 						end,
 					}),

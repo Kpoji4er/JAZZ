@@ -77,6 +77,21 @@ function JazzTraumaCombatTierFromEffect(effect, unit)
 	return stored, zone
 end
 
+-- Helpers return 0 for Light-effective (stabilized Medium). Do not use `x or preset`:
+-- Lua treats 0 as falsy and would restore the stored Medium/Heavy penalty.
+function JazzTraumaResolveNum(effect, unit, fn, preset)
+	if type(fn) == "function" then
+		return fn(effect, unit)
+	end
+	if effect and type(effect.ResolveValue) == "function" then
+		local v = effect:ResolveValue(preset)
+		if v ~= nil then
+			return v
+		end
+	end
+	return 0
+end
+
 function JazzTraumaLegsMoveAp(effect, unit)
 	local tier = JazzTraumaCombatTierFromEffect(effect, unit)
 	if tier == "Heavy" then
