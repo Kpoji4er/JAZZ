@@ -121,6 +121,7 @@
 | `_audit_hotfix_004.py` | Static HOTFIX-004: EnterEmplacement wrap, LoadGame/EnterSector reseat, HUD nil-guards. |
 | `_audit_m3_entrance_sight.py` | M3 (`isJdmPy`): UnitMarker distances to Entrance markers vs `UnawareSightRange` 22 / `AwareSightRange` 46 (instant-combat triage). |
 | `_audit_m3_unitmarker_flags.py` | M3 UnitMarker property keys + suspect Aware/Combat/status_effects lines (forced-combat triage). |
+| `_audit_m3_unit_z.py` | M3 UnitMarker missing Z / local Z outliers vs Entrance heights (floating-spawn triage). |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
 | `_count_emplacement_ammo.py` | Счётчик `ammo_template` / `weapon_template` по всем `MachineGunEmplacement` в `jazz-maps/Maps`. |
