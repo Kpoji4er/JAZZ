@@ -26,6 +26,8 @@ exclusive_resources:
   - localization ID range 890000000006200-890000000006299
 related_decisions:
   - none
+related_specs:
+  - JAZZ-UNITS-006
 approved_by: project-owner chat 2026-07-31 «Подготовь реализацию» + defaults from _named-perks-plan.md §5.1/§10
 ---
 
@@ -54,7 +56,7 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 
 ## Требования
 
-- `JAZZ-UNITS-003-REQ-001` — Wave A perks из таблицы §Mechanics ниже wired через `unit_reactions` и/или точечный `Code/` hook.
+- `JAZZ-UNITS-003-REQ-001` — Wave A perks из таблицы §Mechanics wired; **§A Ids superseded 006** (не требовать v1 Nervous +2 / Inspired Madman и т.д.).
 - `JAZZ-UNITS-003-REQ-002` — companion + `items.lua` ModItemCharacterEffectCompositeDef синхронны для затронутых Id.
 - `JAZZ-UNITS-003-REQ-003` — RU+EN Descriptions обновлены; `needs Russian=0` / `needs English=0` для затронутых строк.
 - `JAZZ-UNITS-003-REQ-004` — CombatAction у Lynx/Buzz/Spider/Colby не показывается как toggle `Jazz_Perk_00` (UIState hidden); `Jazz_Perk_00` остаётся рабочим toggle Фрага.
@@ -63,23 +65,25 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 
 ## Mechanics (locked v1)
 
-| Id | Effect |
-| --- | --- |
-| `Jazz_Perk_Madman` | Kill at Dist≤1 slab → `Inspired` |
-| `Jazz_Perk_Blade` | Melee Attack: +20 CTH; crit chance forced 0 |
-| `Jazz_Perk_Nervous` | Autofire/Burst shot count +2 (`GetAutofireShots`) |
-| `Jazz_Perk_Henning` | OnBeginTurn: allies ≤5 slabs get `Jazz_OrderCTH` (+5 CTH, until end of their next attack / end turn) |
-| `Jazz_Perk_Vicious` | OnCombatStarted: +1 start-turn AP per female ally in squad (cap 3) |
-| `Jazz_Perk_Dynamo` | On head hit: 25% `Blinded` 1 turn |
-| `Jazz_Perk_Eskimo` | While HP&lt;50%: immune to new `Panicked`; rifle CTH ignores `Wounded` mod id if present |
-| `Jazz_Perk_Lucky` | 1×/combat: first firearm shot that would miss becomes a hit |
-| `Jazz_Perk_Shank` | Melee attacks targeting Shank: −50 CTH |
-| `Jazz_Perk_Vilde` | Night/Underground: Burst/Auto +15 CTH |
-| `Jazz_Perk_Laura` | If Hidden when healing ally, remain/reapply Hidden after heal |
-| `Jazz_Perk_Vince` | 1×/combat: first heal/bandage on ally → target `GainAP(4 * const.Scale.AP)` |
-| `Jazz_Perk_Steiger` | Night/Underground OnBeginTurn: allies ≤5 slabs get `Jazz_OrderCTH` |
-| `Jazz_Perk_Lynx` | `Jazz_LynxSightBonus` (+8) sight + same value on Range CTH (vision is the accuracy buff) |
-| `Jazz_OrderCTH` | Status: +5 CTH on next attack; RemoveOnEndCombat; Shown |
+Канон §A (Henning / Laura / Lucky / Dynamo / **Nervous** / Madman / Blade / Shank / Steiger / Vince / Mike) — [`JAZZ-UNITS-006`](JAZZ-UNITS-006.md). Ниже v1 003 **только** как история; не реализовывать заново.
+
+| Id | Effect (003 v1) | Live |
+| --- | --- | --- |
+| `Jazz_Perk_Madman` | Kill Dist≤1 → `Inspired` | **006:** melee crit/kill → −10 Will ≤5 |
+| `Jazz_Perk_Blade` | Melee +20 CTH; crit 0 | **006:** Brutalize extra hit |
+| `Jazz_Perk_Nervous` | Autofire/Burst **+2** (`GetAutofireShots`) | **006:** хит очереди стекает +1 пулю на следующую, **cap +10**; не flat +2 |
+| `Jazz_Perk_Henning` | OrderCTH +5 @5 | **006:** +3 AP aura @10 |
+| `Jazz_Perk_Lucky` | 1×/combat miss→hit | **006:** CTH≥70% miss → reroll |
+| `Jazz_Perk_Dynamo` | Head 25% Blinded | **006:** lockpick skips lock traps |
+| `Jazz_Perk_Laura` | Heal → remain Hidden | **006:** +15 CTH & crit after heal |
+| `Jazz_Perk_Vince` | First heal → +4 AP | **006:** squad −25% med cost |
+| `Jazz_Perk_Steiger` | Night OrderCTH @5 | **006:** night/UG +5 CTH @10 |
+| `Jazz_Perk_Shank` | Melee vs him −50 CTH | **006:** 50% melee def + knife counter ≤8 |
+| `Jazz_Perk_Vicious` | +1 start AP / female ally (cap 3) | **003 live** (006 не трогает) |
+| `Jazz_Perk_Eskimo` | HP&lt;50%: no new Panic; rifle ignores Wounded | **003 live** |
+| `Jazz_Perk_Vilde` | Night/UG Burst/Auto +15 CTH | **003 live** |
+| `Jazz_Perk_Lynx` | `Jazz_LynxSightBonus` (+8) sight + Range CTH | **003 live** (hygiene) |
+| `Jazz_OrderCTH` | +5 CTH next attack | leftover status; Henning/Steiger 006 больше не опираются на v1 @5 |
 
 ## Инварианты и ограничения
 
@@ -91,11 +95,11 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 ## Acceptance criteria
 
 - `JAZZ-UNITS-003-AC-001` — static: Wave A companions имеют non-empty `unit_reactions` (Nervous/Lucky могут опираться на Code).
-- `JAZZ-UNITS-003-AC-002` — static: `GetAutofireShots` учитывает Nervous; Lucky miss-save в firearm shot loop; Lynx Range modifier reaction.
+- `JAZZ-UNITS-003-AC-002` — static: hygiene Lynx Range reaction; **Nervous shot count — 006** (stack cap 10, не flat +2).
 - `JAZZ-UNITS-003-AC-003` — static: CombatAction Lynx/Buzz/Spider/Colby → UIState `"hidden"`.
 - `JAZZ-UNITS-003-AC-004` — static: no `Jazz_Perk_44840` in metadata/items; file absent or unlisted.
 - `JAZZ-UNITS-003-AC-005` — static: loc audit for touched IDs; Descriptions без WIP.
-- `JAZZ-UNITS-003-AC-006` — runtime/human: smoke hire+combat for Madman Inspired, Nervous +2 bullets, Shank melee penalty (owner).
+- `JAZZ-UNITS-003-AC-006` — runtime/human: Madman/Shank/hygiene; **Nervous +2 bullets superseded** (006 stack).
 
 ## Impact и совместимость
 
@@ -117,17 +121,18 @@ approved_by: project-owner chat 2026-07-31 «Подготовь реализац
 ## Решение владельца
 
 - Статус: approved
-- Кто подтвердил: project-owner («Подготовь реализацию»); defaults §10 плана: Lynx CTH дописать; Nervous = +2 bullets; HARD defer; Mike/etc вне Wave A
+- Кто подтвердил: project-owner («Подготовь реализацию»); defaults §10 плана: Lynx CTH дописать; **Nervous = +2 bullets — superseded 006 cap 10**; HARD defer; Mike/etc вне Wave A
 - Дата: 2026-07-31
+- 2026-08-18: Mechanics §A table lock → [JAZZ-UNITS-006](JAZZ-UNITS-006.md); не возвращать flat +2 Nervous.
 
 ## Evidence
 
 - `JAZZ-UNITS-003-AC-001`: `PASS (static)` — Wave A companions have reactions (Nervous/Lucky Code-backed)
-- `JAZZ-UNITS-003-AC-002`: `PASS (static)` — `Jazz_ApplyNamedPerkAutofireShots` + Lucky miss-save + Lynx Range reaction
+- `JAZZ-UNITS-003-AC-002`: `PASS (static)` — Lynx Range reaction; Nervous live path is 006 stack (`Jazz_ApplyNamedPerkAutofireShots`, cap 10), not 003 +2
 - `JAZZ-UNITS-003-AC-003`: `PASS (static)` — Lynx/Buzz/Spider/Colby CombatAction GetUIState → `"hidden"`
 - `JAZZ-UNITS-003-AC-004`: `PASS (static)` — `Jazz_Perk_44840.lua` removed; not in metadata/items
 - `JAZZ-UNITS-003-AC-005`: `PASS (static)` — Descriptions updated RU/EN (CSV + companions); WIP cleared for Wave A
-- `JAZZ-UNITS-003-AC-006`: `BLOCKED` — runtime/human smoke pending owner
+- `JAZZ-UNITS-003-AC-006`: `BLOCKED` — runtime/human; Nervous smoke follows 006 (stack cap 10)
 
 ## Documentation delta
 
