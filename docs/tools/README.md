@@ -275,7 +275,7 @@
 | `_verify_gap_fixes.py` | Smoke после wave gaps: Id uniqueness Parts/BarrelParts, Type leftovers, unique WeaponMass. |
 | `_verify_nomaps_unit_remap_named_skip.py` | COMPAT-004: static mirror remap families — Bastien skip; `WeakFlagHill`→assault; `*_Tutorial` stems; Hyena skip. |
 | `_verify_nomaps_fortress_pierre_squad.py` | NoMaps: `FortressPierre` must stay out of `SQUAD_REMAP` (vanilla Pierre boss; not `LegionJAZZSquadT2`). |
-| `_verify_nomaps_story_quest_skip.py` | COMPAT-010: skip class-remap for `LegionWaterWell` / `DiamondRedSquad` / F5 `LegionDefenders_Balanced_Easy`; Pierrot `conflict_ignore`. |
+| `_verify_nomaps_story_quest_skip.py` | COMPAT-010/011: skip class-remap for `LegionWaterWell` / `DiamondRedSquad` / F5 beach / I1 Flag Hill / `FortressPierre`; Pierrot `conflict_ignore`. |
 | `_retire_legion_fortress_defenders.py` | Удаляет `LegionFortressDefenders`; добавляет `FortressDefenders_NoMaps` (~16); NoMaps remap/garrison → half-size pack. |
 | `_apply_ernie_counterattack_nomaps.py` | Adds `ErnieCounterAttack_NoMaps` (20, no mortar) + NoMaps `SQUAD_REMAP` from `ErnieCounterAttack`. |
 | `_dump_villa_squads.py` | Dump min–max composition of AroundVilla Sentry + VillaAttackers_K3/K5/L3/L4/L5 and sector Init totals. |

@@ -1,9 +1,9 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6, Discord Firestarter 2026-08-18) — COMPAT-010 class-remap skip + Pierrot `conflict_ignore` (runtime smoke still open)  
+**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6) — COMPAT-010; **B24–B25** (I1 empty fight / Pierre H4, Discord papasa44 2026-08-20) — COMPAT-011  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
-**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала); Discord Firestarter 2026-08-18 (A2/F5/G6)  
-**Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md), [JAZZ-COMPAT-010](../../specs/active/JAZZ-COMPAT-010.md)  
+**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала); Discord Firestarter 2026-08-18 (A2/F5/G6); Discord papasa44 2026-08-20 (I1/Пьер)  
+**Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md), [JAZZ-COMPAT-010](../../specs/active/JAZZ-COMPAT-010.md), [JAZZ-COMPAT-011](../../specs/active/JAZZ-COMPAT-011.md)  
 **Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize/remap); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
 
 ## Краткий вердикт
@@ -236,6 +236,22 @@ Root: (1) tax collect не звал cargo ensure; (2) `lEnsureMoneyCargo` мог
 **Root cause:** vanilla `WaterWell` conflict без satellite-сквада (`no_exploration_resolve`); remap `LegionWaterWell` маркеров сбрасывает квестовую группу.
 
 **Fix (COMPAT-010):** не ремапить marker group `LegionWaterWell`. Пустой текущий визит — выйти и зайти на следующем закате.
+
+### B24 — I1 Flag Hill: значок боя, врагов нет (Discord papasa44 2026-08-20)
+
+Симптом: сектор I1, на глобалке конфликт, на тактике пусто.
+
+**Root cause:** ванильный I1 = Flag Hill, `ForceConflict` без `InitialSquads`; враги только с маркеров. Class-remap WeakFlagHill на CombatStart ломает opening (как G6).
+
+**Fix (COMPAT-011):** `SECTORS_KEEP_VANILLA_UNITS.I1` — не ремапить/не регеарить live маркеры этой карты. Не путать с фортом.
+
+### B25 — Пьер пропал на Vanilla Maps (Discord papasa44 2026-08-20)
+
+Симптом: «пропал Пьер» вместе с пустым I1.
+
+**Root cause:** на ванили Пьер в **H4** (`FortressPierre`), не на I1. Squad-id remap уже был выключен; `Pierre`/`PierreGuard` с `Affiliation=Legion` всё ещё попадали под gear refresh.
+
+**Fix (COMPAT-011):** `FortressPierre` в story-keep; keep по class `Pierre` / `PierreGuard` / persist `NPC_Pierre`. Уже отсутствующий persist не воскрешается.
 
 ### Quality / named-veteran early (Sergej) — deferred
 

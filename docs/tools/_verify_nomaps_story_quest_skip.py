@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Static: COMPAT-010 story/quest UnitData remap skips in jazz-nomaps.
+"""Static: COMPAT-010/011 story/quest UnitData remap skips in jazz-nomaps.
 
-G6 WaterWell, A2 DiamondRedSquad, F5 beach InitialSquad, Pierrot conflict_ignore.
+G6 WaterWell, A2 DiamondRedSquad, F5 beach, Pierrot; I1 Flag Hill; H4 Pierre.
 Exit 0 = OK, 1 = FAIL.
 """
 from __future__ import annotations
@@ -68,6 +68,26 @@ def main() -> int:
         r"lShouldKeepVanillaUnitClass\(unit_id, unitdata\)",
         "lRefreshEnemyLoadouts missing keep-vanilla gear skip",
     )
+    need(
+        r"local SECTORS_KEEP_VANILLA_UNITS\s*=\s*\{[^}]*I1\s*=\s*true",
+        "SECTORS_KEEP_VANILLA_UNITS missing I1",
+    )
+    need(
+        r"local STORY_SQUAD_KEEP_VANILLA_UNITS\s*=\s*\{[^}]*FortressPierre\s*=\s*true",
+        "STORY_SQUAD_KEEP_VANILLA_UNITS missing FortressPierre",
+    )
+    need(
+        r'class == "Pierre"',
+        "Pierre class keep-vanilla missing",
+    )
+    need(
+        r"NPC_Pierre",
+        "NPC_Pierre persist keep-vanilla missing",
+    )
+    need(
+        r"lSectorKeepsVanillaUnits\(rawget\(_G, \"gv_CurrentSectorId\"\)\)",
+        "UnitMarker I1 sector skip missing",
+    )
     if "function GenerateEnemySquad(squad_def_id, ...)" in text:
         errors.append("GenerateEnemySquad still uses varargs-only remap (need sector_id skip)")
 
@@ -76,7 +96,7 @@ def main() -> int:
         for e in errors:
             print(" -", e)
         return 1
-    print("OK — COMPAT-010 story/quest skip + Pierrot protect present")
+    print("OK — COMPAT-010/011 story/quest skip + Pierrot/Pierre protect present")
     return 0
 
 
