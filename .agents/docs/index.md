@@ -15,6 +15,7 @@
 - Карты/квесты: `.agents/docs/playbooks/maps-content.md`
 - Юниты/отряды: `.agents/docs/playbooks/units-squads.md`
 - Assets/UI: `.agents/docs/playbooks/assets-and-ui.md`
+- Свой JA3 slab (стены/пол/крыша): `docs/design/ja3-how-to-custom-slabs.md`
 - Squad role icons: `.agents/skills/create-jazz-squad-icons/SKILL.md`, `docs/technical/systems/squad-role-icons.md`
 - Status effect icons: `.agents/skills/create-jazz-status-icons/SKILL.md`, `Icons/StatusEffects/references/PROMPT.md`
 - HUD / hotbar action icons (CombatAction, SignatureAbilities, Med): `.agents/skills/create-jazz-action-icons/SKILL.md`, `Icons/Hud/references/PROMPT.md`
