@@ -30,7 +30,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 - `Code/GetScrapParts.lua` — scrap-значения;
 - `Code/AmmoRolloverHint.lua` — UI эффектов и модификаций патронов;
 - `Code/Inventory.lua` и `Code/InventoryUI.lua` — применение предметов/боеприпасов; **`HighlightWeaponsForAmmo`** также подсвечивает совместимое оружие для `JAZZ_RemovableAttachment` (hover + drag, включая магазины);
-- `Code/WeaponIconBake.lua` — JAZZ-UI-001 side-view bake иконок оружия с аттачами (`GetItemUIIcon`, fingerprint cache);
+- `Code/WeaponAttachChips.lua` — JAZZ-UI-001 path B chips на тайле/HUD; `Code/WeaponIconBake.lua` **dormant** (не в `metadata.code`, не перехватывает `g_HgnvCompressPath`);
 - generated InventoryItem, Caliber, WeaponType, WeaponComponent, WeaponComponentEffect, WeaponPropertyDef и recipe ModItems.
 
 ## Снимок данных
@@ -97,7 +97,7 @@ Path **B** (chips): template `Icon` оружия не подменяется. Ch
 - Chip PNG: `Icons/Upgrades/Chips/<ComponentId>.png` → `Mod/e6L4ECj/Icons/Upgrades/Chips/<…>.png`
 - Full кабинет: `Icon` (vanilla `UI/Icons/Upgrades/…` или `Icons/Upgrades/Full/`) — skill `$create-jazz-component-icons`
 - Chip миниатюры — skill `$create-jazz-chip-icons`
-- Runtime: `Code/WeaponAttachChips.lua` + hooks в `InventoryUI.lua`; bake (`WeaponIconBake.lua`) dormant (`JazzWeaponIcon_BakeEnabled = false`)
+- Runtime: `Code/WeaponAttachChips.lua` + hooks в `InventoryUI.lua`; bake (`WeaponIconBake.lua`) **dormant** — нет в `metadata.code` / `ModItemCode` (не грузится, не ставит `g_HgnvCompressPath`)
 - Показ: non-default **или** default + `CanBeEmpty` + `ModificationEffects` (как `CountWeaponUpgrades` — builtin flashlight на MP5A4)
 - Порядок (priority): Scope → Side* → Under → Muzzle → …; layout **VWrap** (до **3** в левом столбце, 4-й → второй столбец), size **24px**, margin −4, `JazzAttachChips_Max = 4`
 - Mount* слоты не чипуются

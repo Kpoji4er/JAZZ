@@ -1,3 +1,7 @@
+-- DORMANT — JAZZ-UI-001 path E. Not listed in metadata.code / ModItemCode.
+-- Inventory uses chips (WeaponAttachChips.lua). Do not re-add this file to the
+-- load list: top-level code redirects g_HgnvCompressPath and prints [JAZZ-UI-001].
+--
 -- JAZZ-UI-001: side-view baked inventory icons with attachments.
 -- Goal: weapon only on TRANSPARENT background.
 -- Capture -> wepicon25_<hash>.raw.png -> jazz_wepicon_hook.cmd (via ImportImage/AsyncExec) -> .png

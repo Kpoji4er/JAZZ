@@ -98,6 +98,15 @@ ModItemEntity: entity_name
 2. Для активного generated ModItem выполнить полный save через редактор.
 3. Проверить место файла в `metadata.code`; не вставлять его алфавитно без понимания порядка.
 
+### Ручной `Code/*.lua` выпал из `metadata.code` после SaveDef
+
+`SaveDef()` строит load list из ModItem. Если файла нет как `ModItemCode` в `items.lua`, ресейв его выкинет (инвентарь: `JazzApplyStackContext` / `JazzMarkSquadBagData`).
+
+1. Вернуть `PlaceObj('ModItemCode', …)` в `items.lua` и путь в `metadata.code`.
+2. `python docs/tools/_validate_items_quick.py` — должен FAIL, пока оба слоя не совпадут.
+3. Если выпал только `metadata.lua`, а items цел: `python docs/tools/_restore_dropped_metadata_code.py --from-items`.
+4. Перезагрузить мод с диска перед следующим editor save.
+
 ### Остался файл со старым ID
 
 1. Проверить Git-историю и ссылки во всех четырёх пакетах.
@@ -117,6 +126,7 @@ ModItemEntity: entity_name
 - существование и уникальность путей `metadata.code`;
 - связь generated companion с ModItem по class/ID;
 - наличие generated companion в `metadata.code`;
+- для `jazz`: intended `Code/*.lua` есть и в `metadata.code`, и как `ModItemCode` в `items.lua` (`_audit_metadata_code_coverage.py` / `_validate_items_quick.py`);
 - согласованность Entity между items, metadata и `EntityData`;
 - признаки orphan и незавершённой транзакции;
 - подозрительный порядок времени записи.

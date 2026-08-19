@@ -1,6 +1,6 @@
 # Покрытие файлов системной документацией
 
-Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **7 августа 2026**.
+Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **20 августа 2026**.
 
 Обозначения: **loaded** — загружается; **dormant** — существует, но не указан в metadata; **empty** — нулевая/пустая заготовка; **inert** — загружается, но активная логика отсутствует; **editor** — инструментальная логика.
 
@@ -51,7 +51,8 @@
 | `System_LootDef.lua` | loaded | [Инвентарь и loot](inventory-items-loot-crafting.md) |
 | `System_LootDrops.lua` | loaded | [Инвентарь и loot](inventory-items-loot-crafting.md) |
 | `AmmoRolloverHint.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) |
-| `WeaponIconBake.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) |
+| `WeaponAttachChips.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) — JAZZ-UI-001 path B chips |
+| `WeaponIconBake.lua` | dormant | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) — JAZZ-UI-001 path E bake; **не** в `metadata.code`; chips = `WeaponAttachChips.lua` |
 
 ## `jazz`: AI, видимость и юниты
 
@@ -90,6 +91,12 @@
 | `System_RIS_Strategy.lua` | loaded | [R.I.S.](ris-intelligence.md) — read-only Legion AI observer + one-row Strategy dispatch; loaded after `Guardpost_Patrols.lua` |
 | `System_AME_Browser_Template.lua` | source-only | [Юниты и специализации](units-progression-specializations.md) — editable source projected by `_install_ame_xtemplate_moditem.py` into loaded `ModItemXTemplate` `PDAAIMEBrowser` in `items.lua` (UNITS-005) |
 | `System_AME_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME MercNationalities + flags (UNITS-005) |
+| `System_MERC_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — M.E.R.C. PDA filters (UI-MERC-001) |
+| `System_MERC_Account.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — M.E.R.C. credit / Pay Account |
+| `System_MERC_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAMERCBrowser` wrap |
+| `System_MERC_Mail.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — Speck Day-2 mail / tab lock |
+| `System_MERC_World.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — world-gated Biff/Larry/Smiley |
+| `System_MERC_Browser_Template.lua` | source-only | [Юниты и специализации](units-progression-specializations.md) — editable source → `ModItemXTemplate` `PDAMERCBrowser`; **не** в `metadata.code` |
 | `System_IMP_StartingGear.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — IMP hire kit (IMP-001) |
 | `System_IMP_Perks.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — Mimicry/Veteran/Sniper (IMP-001) |
 | `AimHiringScreen_Template.lua` | dormant | [Юниты](units-progression-specializations.md), [runtime](runtime-editor-integration.md) |

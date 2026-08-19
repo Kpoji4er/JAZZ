@@ -110,7 +110,7 @@ Runtime side-view bake (path E) оказался нестабилен по frami
 
 ## Evidence
 
-- `JAZZ-UI-001-AC-001`: `PASS` (static) — bake dormant: `JazzWeaponIcon_BakeEnabled = false`; `GetItemUIIcon` не подменяет template Icon.
+- `JAZZ-UI-001-AC-001`: `PASS` (static) — bake unloaded: `WeaponIconBake.lua` not in `metadata.code` / `ModItemCode`; `GetItemUIIcon` not overridden; chips path B.
 - `JAZZ-UI-001-AC-002`: `PASS` (static) — `WeaponAttachChips.lua` + InventoryUI/HUD bind; `w_mod` скрывается при chips.
 - `JAZZ-UI-001-AC-003`: `PASS` (static) — `WeaponAttachChips` в `items.lua` / `metadata.lua`.
 - `JAZZ-UI-001-AC-004`: `PASS` (runtime/human) — owner playtest 2026-07-31: non-default scope/muzzle/stock показывают chips на тайле.

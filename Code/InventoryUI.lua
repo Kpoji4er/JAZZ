@@ -1,30 +1,11 @@
 -- JAZZ-UI-001 path B: attachment chips on firearm tiles; template Icon stays vanilla.
--- Bake bind helpers kept for dormant path E (JazzWeaponIcon_BakeEnabled).
+-- WeaponIconBake.lua is dormant (not in metadata.code). Do not read JazzWeaponIcon_BakeEnabled.
 
 function JazzWeaponIcon_BindItemImage(img, item)
 	if not img or not item then
 		return false
 	end
 	local icon = (item.GetItemUIIcon and item:GetItemUIIcon()) or item.Icon
-	if JazzWeaponIcon_BakeEnabled and JazzWeaponIcon_IsCachePath and JazzWeaponIcon_IsCachePath(icon) then
-		if JazzWeaponIcon_ApplyToXImage then
-			JazzWeaponIcon_ApplyToXImage(img, icon)
-		else
-			img:SetImage(icon, true)
-		end
-		return true
-	end
-	if JazzWeaponIcon_BakeEnabled then
-		local forced = JazzWeaponIcon_Resolve and JazzWeaponIcon_Resolve(item)
-		if forced and JazzWeaponIcon_IsCachePath(forced) then
-			if JazzWeaponIcon_ApplyToXImage then
-				JazzWeaponIcon_ApplyToXImage(img, forced)
-			else
-				img:SetImage(forced, true)
-			end
-			return true
-		end
-	end
 	if icon then
 		img:SetImage(icon)
 	end

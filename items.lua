@@ -4322,8 +4322,44 @@ return {
 			'CodeFileName', "Code/LegionTierProgression.lua",
 		}),
 		PlaceObj('ModItemCode', {
+			'name', "VanillaDesyncFixes",
+			'CodeFileName', "Code/VanillaDesyncFixes.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_AME_Filters",
+			'CodeFileName', "Code/System_AME_Filters.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_AME_Browser",
+			'CodeFileName', "Code/System_AME_Browser.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_AME_Market",
+			'CodeFileName', "Code/System_AME_Market.lua",
+		}),
+		PlaceObj('ModItemCode', {
 			'name', "System_AME_Mail",
 			'CodeFileName', "Code/System_AME_Mail.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_MERC_Filters",
+			'CodeFileName', "Code/System_MERC_Filters.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_MERC_Account",
+			'CodeFileName', "Code/System_MERC_Account.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_MERC_Browser",
+			'CodeFileName', "Code/System_MERC_Browser.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_MERC_Mail",
+			'CodeFileName', "Code/System_MERC_Mail.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_MERC_World",
+			'CodeFileName', "Code/System_MERC_World.lua",
 		}),
 		PlaceObj('ModItemCode', {
 			'name', "System_RIS_Mail",
@@ -4340,6 +4376,10 @@ return {
 		PlaceObj('ModItemCode', {
 			'name', "System_RIS_Browser",
 			'CodeFileName', "Code/System_RIS_Browser.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_AME_Nationalities",
+			'CodeFileName', "Code/System_AME_Nationalities.lua",
 		}),
 		PlaceObj('ModItemCode', {
 			'name', "System_BobbyRay_ECON004",
@@ -18295,6 +18335,10 @@ PlaceObj('ModItemEmail', {
 					'name', "System_WeaponCompHUD",
 					'comment', "JAZZ-UI-002 Fold/Flash weapon-icon chips",
 					'CodeFileName', "Code/System_WeaponCompHUD.lua",
+				}),
+				PlaceObj('ModItemCode', {
+					'name', "System_WeaponComponent_Set",
+					'CodeFileName', "Code/System_WeaponComponent_Set.lua",
 				}),
 				}),
 			PlaceObj('ModItemFolder', {
@@ -64277,7 +64321,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'name', "Systems_Medicine",
 				'CodeFileName', "Code/Systems_Medicine.lua",
 			}),
-
+			PlaceObj('ModItemCode', {
+				'name', "System_Medicine_MED006",
+				'CodeFileName', "Code/System_Medicine_MED006.lua",
+			}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "Character effects",
@@ -81646,6 +81693,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'CodeFileName', "Code/System_EmplacementAmmo.lua",
 			}),
 			PlaceObj('ModItemCode', {
+				'name', "MeleeWeapon",
+				'CodeFileName', "Code/MeleeWeapon.lua",
+			}),
+			PlaceObj('ModItemCode', {
 				'name', "System_Firearm_AddProperties",
 				'comment', "Добавление новых параметров оружия в редактор и в окно модификаций",
 				'CodeFileName', "Code/System_Firearm_AddProperties.lua",
@@ -82080,6 +82131,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 		PlaceObj('ModItemCode', {
 			'name', "System_LootDrops",
 			'CodeFileName', "Code/System_LootDrops.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_InventoryStacks",
+			'CodeFileName', "Code/System_InventoryStacks.lua",
 		}),
 		PlaceObj('ModItemFolder', {
 			'name', "InventoryTabs",
@@ -109736,11 +109791,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'Slot', "Backpack",
 		}),
 		PlaceObj('ModItemCode', {
-			'name', "WeaponIconBake",
-			'comment', "JAZZ-UI-001 dormant bake helpers (BakeEnabled=false; path B chips)",
-			'CodeFileName', "Code/WeaponIconBake.lua",
-		}),
-		PlaceObj('ModItemCode', {
 			'name', "WeaponAttachChips",
 			'comment', "JAZZ-UI-001 path B attachment chips on inventory/HUD tiles",
 			'CodeFileName', "Code/WeaponAttachChips.lua",
@@ -109748,6 +109798,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 		PlaceObj('ModItemCode', {
 			'name', "InventoryUI",
 			'CodeFileName', "Code/InventoryUI.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_DisposableLaunchers",
+			'CodeFileName', "Code/System_DisposableLaunchers.lua",
+		}),
+		PlaceObj('ModItemCode', {
+			'name', "System_ReloadStyle",
+			'CodeFileName', "Code/System_ReloadStyle.lua",
 		}),
 		PlaceObj('ModItemXTemplate', {
 			Comment = "(new one)",
@@ -115572,6 +115630,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			PlaceObj('ModItemCode', {
 				'name', "System_SectorOperations",
 				'CodeFileName', "Code/System_SectorOperations.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_WeaponResourceMaintenance",
+				'CodeFileName', "Code/System_WeaponResourceMaintenance.lua",
+			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_WeaponRemovableModify",
+				'CodeFileName', "Code/System_WeaponRemovableModify.lua",
 			}),
 			PlaceObj('ModItemSectorOperation', {
 				CanPerformOperation = function (self, merc)

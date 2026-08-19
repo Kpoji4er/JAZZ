@@ -6,6 +6,11 @@ Does not bump Revision. Writes one physical Lua line with \\n escapes only
 (no raw LF/CR inside the quotes). Changelog text must not contain { or }
 (metadata.lua brace-balance gate) or unescaped double quotes.
 
+After an editor SaveDef of metadata.lua, run
+`python docs/tools/_validate_items_quick.py`. If Code files dropped, restore
+with `python docs/tools/_restore_dropped_metadata_code.py --from-items`
+(requires those files to exist as ModItemCode in items.lua).
+
 Default notes: docs/tools/_steam_last_changes_since_aug12.txt
 (bullets after Steam window 12 Aug 2026 through today).
 

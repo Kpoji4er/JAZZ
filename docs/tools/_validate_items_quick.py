@@ -140,6 +140,27 @@ def check(path: Path) -> list[str]:
     return problems
 
 
+def _code_load_problems(root: Path) -> list[str]:
+    """Fail if intended Code/*.lua is missing from metadata.code or ModItemCode.
+
+    Editor SaveDef rebuilds metadata.code from items.lua. A file only in
+    metadata.code is dropped on the next resave (Steam 0.19-6183 inventory crash).
+    """
+    if not (root / "Code").is_dir():
+        return []
+    cov_path = Path(__file__).with_name("_audit_metadata_code_coverage.py")
+    if not cov_path.exists() or root.resolve() != ROOT.resolve():
+        return []
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("jazz_code_cov", cov_path)
+    if spec is None or spec.loader is None:
+        return []
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return list(mod.coverage_problems(root))
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     roots = [Path(a) for a in argv] if argv else [ROOT]
@@ -155,6 +176,11 @@ def main(argv: list[str] | None = None) -> int:
             # prefix with package folder for multi-root runs
             label = root.name
             problems.extend(f"[{label}] {p}" if len(roots) > 1 or root != ROOT.resolve() else p for p in probs)
+        cov = _code_load_problems(root)
+        if len(roots) > 1 or root != ROOT.resolve():
+            problems.extend(f"[{root.name}] {p}" for p in cov)
+        else:
+            problems.extend(cov)
     if problems:
         print("FAIL")
         for p in problems:

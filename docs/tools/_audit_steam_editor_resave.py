@@ -1,8 +1,10 @@
 """Audit Steam editor resave damage vs HEAD."""
 from __future__ import annotations
 
+import importlib.util
 import re
 import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -72,6 +74,22 @@ def main() -> None:
 
     items = run("git", "diff", "--stat", "--", "items.lua", "metadata.lua")
     print("\nitems/metadata:\n" + items)
+
+    spec = importlib.util.spec_from_file_location(
+        "jazz_code_cov", Path(__file__).with_name("_audit_metadata_code_coverage.py")
+    )
+    if spec and spec.loader:
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        probs = mod.coverage_problems(ROOT)
+        print(f"\ncode_load_problems: {len(probs)}")
+        for p in probs:
+            print("  ", p)
+        if probs:
+            raise SystemExit(
+                "FAIL: metadata.code / ModItemCode coverage "
+                "(run _restore_dropped_metadata_code.py --from-items)"
+            )
 
 
 if __name__ == "__main__":

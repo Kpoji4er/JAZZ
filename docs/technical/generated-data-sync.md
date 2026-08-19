@@ -59,7 +59,12 @@ Mod Editor / ModItem
 
 ### Ручной код
 
-`Code/*.lua` не является generated companion, даже если содержит определения классов или скопированные generated-маркеры. Ручной файл меняется непосредственно, но его регистрация и порядок остаются частью `metadata.code`.
+`Code/*.lua` не является generated companion, даже если содержит определения классов или скопированные generated-маркеры. Ручной файл меняется непосредственно, но **обязан** быть в двух местах:
+
+- `items.lua` — `PlaceObj('ModItemCode', { 'CodeFileName', "Code/….lua" })`;
+- `metadata.code` — тот же путь в load list.
+
+`SaveDef()` пересобирает `metadata.code` из графа ModItem. Файл, который есть только в `metadata.code`, **выпадает при следующем ресейве редактора**. Так Steam upload 0.19-6183 снял `System_InventoryStacks.lua` / `System_Medicine_MED006.lua` и сломал инвентарь (undefined global). После правки `Code/*.lua` или metadata-only save: `python docs/tools/_validate_items_quick.py` (теперь проверяет оба слоя) и при FAIL — `python docs/tools/_restore_dropped_metadata_code.py --from-items`.
 
 ## Безопасный workflow
 

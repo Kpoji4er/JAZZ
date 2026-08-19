@@ -1,3 +1,5 @@
+- UI: unload dormant weapon-icon bake [no new game]
+- fix: opening inventory / squad bag no longer crashes after a Workshop save [no new game]
 - HOTFIX-004: stationary MG stays controllable after save/load (no remount) [no new game]
 - HOTFIX-005: identical remountable attachments stack in the squad bag [no new game]
 - HOTFIX-006: Legion class copy caps + clearer difficulty tooltips [no new game]
