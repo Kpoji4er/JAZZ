@@ -8405,3 +8405,27 @@ Cuatro, cinco, seis
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Снимает боль и загноение; поднимает из downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Одно применение расходует один предмет из стака
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется автоматически, пока лежит в инвентаре",manual-translation-MED-006
+8167,890000000013100,Fit,В форме,manual-translation-COMBAT-007
+8168,890000000013101,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turn(s): extra <em>+<opening_fm_bonus></em> Free Move.,Макс. ОД <em>+<ap_gain></em>. Свободное перемещение <em>x<fm_mul>%</em>. Первые <em><opening_fm_turns></em> ход(а) боя: дополнительно <em>+<opening_fm_bonus></em> к свободному перемещению.,manual-translation-COMBAT-007
+8169,890000000013102,Winded,Запыхался,manual-translation-COMBAT-007
+8170,890000000013103,Slightly worn from travel. Free Move at baseline (<em><fm_mul>%</em>). No AP penalty. Rest in Sat View to recover.,Слегка утомлён дорогой. Свободное перемещение на базовом уровне (<em><fm_mul>%</em>). Без штрафа ОД. Отдых в режиме спутника восстанавливает энергию.,manual-translation-COMBAT-007
+8171,890000000013104,Fatigued,Утомлён,manual-translation-COMBAT-007
+8172,890000000013105,Free Move reduced to <em><fm_mul>%</em>. No AP penalty yet. Rest in Sat View to recover.,Свободное перемещение снижено до <em><fm_mul>%</em>. Штрафа ОД пока нет. Отдых в режиме спутника восстанавливает энергию.,manual-translation-COMBAT-007
+8173,890000000013106,Maximum AP <em><ap_loss></em>. Free Move <em><fm_mul>%</em>. Recover by resting in Sat View.,Макс. ОД <em><ap_loss></em>. Свободное перемещение <em><fm_mul>%</em>. Восстанавливается отдыхом в режиме спутника.,manual-translation-COMBAT-007
+8174,890000000013107,AP penalty <em><ap_loss></em> at turn start. No Free Move. Cannot travel until rested in Sat View.,"Штраф ОД <em><ap_loss></em> в начале хода. Нет свободного перемещения. Нельзя путешествовать, пока не отдохнёт в режиме спутника.",manual-translation-COMBAT-007
+8175,890000000013108,Maximum AP <em>+<ap_gain></em>. Free Move <em>x<fm_mul>%</em>. First <em><opening_fm_turns></em> combat turns: extra <em>+<opening_fm_bonus></em> Free Move.,Макс. ОД <em>+<ap_gain></em>. Свободное перемещение <em>x<fm_mul>%</em>. Первые <em><opening_fm_turns></em> хода боя: дополнительно <em>+<opening_fm_bonus></em> к свободному перемещению.,manual-translation-COMBAT-007
+8176,890000000013109,<name> is getting winded.,<name> начинает запыхаться.,manual-translation-COMBAT-007
+8177,890000000013110,<name> is getting fatigued.,<name> начинает уставать.,manual-translation-COMBAT-007
+8178,890000000013111,<name> is getting tired.,<name> сильно устаёт.,manual-translation-COMBAT-007
+8179,890000000013112,<name> is getting exhausted.,<name> на грани изнеможения.,manual-translation-COMBAT-007
+8180,890000000013113,<name> is now Winded.,<name> теперь запыхался.,manual-translation-COMBAT-007
+8181,890000000013114,<name> is now Fatigued.,<name> теперь утомлён.,manual-translation-COMBAT-007
+8182,890000000013115,<name> is now Tired.,<name> теперь устал.,manual-translation-COMBAT-007
+8183,890000000013116,<name> is now Exhausted.,<name> теперь измотан.,manual-translation-COMBAT-007
+8184,890000000013117,<name> has recovered energy (<level>).,<name> восстановил энергию (<level>).,manual-translation-COMBAT-007
+8185,890000000013118,<em><DisplayName></em> feels fit,<em><DisplayName></em> в хорошей форме,manual-translation-COMBAT-007
+8186,890000000013119,<em><DisplayName></em> is winded,<em><DisplayName></em> запыхался,manual-translation-COMBAT-007
+8187,890000000013120,<em><DisplayName></em> is fatigued,<em><DisplayName></em> утомлён,manual-translation-COMBAT-007
+8188,890000000013121,<em>(Injured legs)</em>,<em>(Раненые ноги)</em>,manual-translation-COMBAT-008
+8189,890000000013122,Move without spending AP. Remaining: <em><apn(remain)> AP</em>. Removed after attacking or after using up the allowance (based on Agility).,Перемещение без траты ОД. Осталось: <em><apn(remain)> ОД</em>. Снимается после атаки или когда запас исчерпан (зависит от Ловкости).,manual-translation-COMBAT-007
+8190,890000000013123, <em>(<apn(fm)> FM)</em>, <em>(<apn(fm)> FM)</em>,technical-copy

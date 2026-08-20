@@ -1,4 +1,5 @@
 # Remaining Free Move AP UI: tooltip + merc-card suffix (IDs 890000000013122–13123).
+# Russian.csv: Text = English T() source, Translation = Russian (JA3 displays Translation).
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -29,10 +30,11 @@ def upsert(path: Path) -> None:
     by_id = {}
     english = path.name.startswith("English")
     for id_, ru, en in ROWS:
+        # Text = T() source (English); Translation = language column.
         if english:
             by_id[id_] = f"{id_},{csv_field(en)},{csv_field(en)},,{SRC}\n"
         else:
-            by_id[id_] = f"{id_},{csv_field(ru)},{csv_field(en)},,{SRC}\n"
+            by_id[id_] = f"{id_},{csv_field(en)},{csv_field(ru)},,{SRC}\n"
     out = []
     seen = set()
     for line in lines:

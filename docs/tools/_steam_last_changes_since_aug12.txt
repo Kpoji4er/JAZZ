@@ -1,3 +1,5 @@
+- loc: Fit/energy ladder Russian status tooltips [no new game]
+- Vanilla Maps: Flag Hill no longer empty (RIS wrap overflow); R.I.S. site unlocks after the welcome mail is read [no new game]
 - UI: unload dormant weapon-icon bake [no new game]
 - fix: opening inventory / squad bag no longer crashes after a Workshop save [no new game]
 - HOTFIX-004: stationary MG stays controllable after save/load (no remount) [no new game]

@@ -67,7 +67,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 19,
-	'version', 6185,
+	'version', 6186,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {

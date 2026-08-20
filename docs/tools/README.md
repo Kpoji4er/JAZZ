@@ -108,8 +108,9 @@
 | `_check_meltdown_portraits.py` | Meltdown `MercPortraits/Meltdown.png` + `_Big.png` shipped; UnitData/items wire `Mod/Dv3mFVN/...`. |
 | `_build_vengeful_temperament_sig_icon.py` | Meltdown active CA: 108×54 dual from vanilla Personal perk (`Perks/references/vanilla/VengefulTemperament.png`, skull in flame); wire jazz-units CombatAction.Icon (CE stays `UI/Icons/Perks/VengefulTemperament`). Do not use HUD `perk_vengeful_temperament`. |
 | `_apply_combat_007_energy_items.py` | JAZZ-COMBAT-007: insert energy ladder ModItems (`Fit`/`Winded`/`Fatigued`/Tired/Exhausted/WellRested/FreeMove) + `System_EnergyLadder` into `items.lua`/`metadata.lua`. |
-| `_apply_combat_007_energy_loc.py` | JAZZ-COMBAT-007: upsert RU/EN CSV rows for energy CE + travel warn/step logs (IDs `890000000013100`–`13120`). |
-| `_apply_freemove_remaining_ap_loc.py` | Remaining Free Move AP UI: RU/EN `890000000013122` (status tooltip) + `890000000013123` (merc-card AP suffix). |
+| `_apply_combat_007_energy_loc.py` | JAZZ-COMBAT-007/008 energy loc: upsert RU/EN CSV for Fit→Exhausted + travel logs + legs-trauma breakdown + Free Move UI (`890000000013100`–`13123`). `Text`=T() source, `Translation`=language (JA3 shows Translation). |
+| `_audit_russian_csv_swapped_columns.py` | Find `Russian.csv` rows where English-source T() has RU in `Text` and EN in `Translation` (displays English in Russian UI). Exit 1 if any. |
+| `_apply_freemove_remaining_ap_loc.py` | Remaining Free Move AP UI: RU/EN `890000000013122` (status tooltip) + `890000000013123` (merc-card AP suffix). Same column contract: `Text`=EN source. |
 | `_check_freemove_remaining_ap_ui.py` | Static needles: `JazzFormatFreeMoveDescription`, icon overlay, PDAMercRollover AP suffix, save-safe `GetDescription`. |
 | `_bump_freemove_ui_meta.py` | Remaining Free Move AP UI: revision +1 and prepend `last_changes` (escape `\n` only). |
 | `_bump_metadata_combat008.py` | JAZZ-COMBAT-008: revision +1 and prepend `last_changes` bullet (escape `\n` only). |
