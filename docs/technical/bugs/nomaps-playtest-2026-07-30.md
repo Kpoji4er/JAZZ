@@ -1,6 +1,6 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6) — COMPAT-010; **B24–B25** (I1 empty fight / Pierre H4, Discord papasa44 2026-08-20) — COMPAT-011  
+**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6) — COMPAT-010; **B24** (I1 empty) — RIS `UnitMarker` wrap cycle, I1 sector-skip reverted; **B25** (Pierre H4) — COMPAT-011 keep-vanilla  
 **Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
 **Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала); Discord Firestarter 2026-08-18 (A2/F5/G6); Discord papasa44 2026-08-20 (I1/Пьер)  
 **Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md), [JAZZ-COMPAT-010](../../specs/active/JAZZ-COMPAT-010.md), [JAZZ-COMPAT-011](../../specs/active/JAZZ-COMPAT-011.md)  
@@ -237,13 +237,13 @@ Root: (1) tax collect не звал cargo ensure; (2) `lEnsureMoneyCargo` мог
 
 **Fix (COMPAT-010):** не ремапить marker group `LegionWaterWell`. Пустой текущий визит — выйти и зайти на следующем закате.
 
-### B24 — I1 Flag Hill: значок боя, врагов нет (Discord papasa44 2026-08-20)
+### B24 — I1 Flag Hill: значок боя, врагов нет (Discord papasa44 2026-08-20; owner 2026-08-20)
 
-Симптом: сектор I1, на глобалке конфликт, на тактике пусто.
+Симптом: сектор I1, на глобалке конфликт, на тактике пусто. Assert `Call stack too big` / `C stack overflow`.
 
-**Root cause:** ванильный I1 = Flag Hill, `ForceConflict` без `InitialSquads`; враги только с маркеров. Class-remap WeakFlagHill на CombatStart ломает opening (как G6).
+**Root cause:** `System_RIS_Combat.lua` `lInstallUnitMarkerWrap` при повторном EnterSector/CombatStart видел NoMaps wrap сверху и **перезаписывал** `g_JAZZ_RIS_UnitMarkerSpawnBase` на обёртку nomaps. Nomaps уже хранил RIS wrap как свой base → RIS↔nomaps бесконечный `SpawnObjects`. I1 идёт только с маркеров (`ForceConflict`, без `InitialSquads`), поэтому overflow = пустая карта. Class-remap WeakFlagHill тут ни при чём.
 
-**Fix (COMPAT-011):** `SECTORS_KEEP_VANILLA_UNITS.I1` — не ремапить/не регеарить live маркеры этой карты. Не путать с фортом.
+**Fix:** RIS wrap install-once (`Orig`/`Base` не перезаписывать, если слот занят чужой обёрткой; reentry зовёт orig). Whole-sector I1 skip из COMPAT-011 **снят** (owner).
 
 ### B25 — Пьер пропал на Vanilla Maps (Discord papasa44 2026-08-20)
 

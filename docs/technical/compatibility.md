@@ -45,7 +45,7 @@ COMPAT-004 (2026-08-01): NoMaps Global AI revive + UnitData remap + tiered conta
 
 COMPAT-010 (2026-08-18): NoMaps class-remap skips vanilla quest spawns — G6 `LegionWaterWell`, A2 `DiamondRedSquad`, F5 beach `LegionDefenders_Balanced_Easy`; Captain Pierrot `conflict_ignore`. Spec: [JAZZ-COMPAT-010](../specs/active/JAZZ-COMPAT-010.md). Existing save: мёртвый Пьеро / уже нулевые шахтёры не ретрофитятся; пустой колодец — выйти и зайти на следующем закате.
 
-COMPAT-011 (2026-08-20): NoMaps I1 Flag Hill opening stays vanilla (no class/gear remap on that map's live markers); `FortressPierre` / Pierre / PierreGuard keep-vanilla at H4. Spec: [JAZZ-COMPAT-011](../specs/active/JAZZ-COMPAT-011.md). I1 ≠ fort (Pierre is H4, not Flag Hill).
+COMPAT-011 (2026-08-20): `FortressPierre` / Pierre / PierreGuard keep-vanilla at H4. Spec: [JAZZ-COMPAT-011](../specs/active/JAZZ-COMPAT-011.md). I1 ≠ fort (Pierre is H4, not Flag Hill). Whole-sector I1 skip **reverted** (2026-08-20, owner): empty Flag Hill was RIS↔NoMaps `SpawnObjects` wrap cycle in `System_RIS_Combat.lua` (`lInstallUnitMarkerWrap` re-based onto the nomaps wrap), not class-remap. I1 markers remap as before (`WeakFlagHill`→T1 Roughneck).
 
 COMPAT-005 (2026-08-02): NoMaps day-1 weight class — `LegionJAZZSquadT1_Early` (true T1-only) as default remap alias; expands to T2/T3 squads when gear major rises; UnitData remap caps class at T1 on gear major I (`Stronger_Elite`→T4 only major III+). Spec: [JAZZ-COMPAT-005](../specs/active/JAZZ-COMPAT-005.md).
 

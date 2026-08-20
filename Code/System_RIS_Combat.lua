@@ -4,6 +4,7 @@ MapVar("g_JAZZ_RIS_CombatSnap", false)
 MapVar("g_JAZZ_RIS_CombatSnaps", {})
 
 g_JAZZ_RIS_CombatInstalled = rawget(_G, "g_JAZZ_RIS_CombatInstalled") or false
+g_JAZZ_RIS_UnitMarkerSpawnOrig = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnOrig") or false
 g_JAZZ_RIS_UnitMarkerSpawnBase = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnBase") or false
 g_JAZZ_RIS_UnitMarkerSpawnWrap = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap") or false
 g_JAZZ_RIS_UnitMarkerSpawnWrapped = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrapped") or false
@@ -639,9 +640,32 @@ local function lCaptureMarkerSpawn(marker, objects)
 	lCaptureMarkerObjects(objects or (marker and marker.objects))
 end
 
-local function lWrappedMarkerSpawn(self, ...)
+-- Depth: if another wrap (jazz-nomaps) stored this function as its base, and we
+-- later stole the slot and stored *that* wrap as our base, calling base
+-- recurses until C stack overflow and Flag Hill / marker maps spawn nobody.
+local lMarkerSpawnDepth = 0
+local lWrappedMarkerSpawn
+
+local function lCallMarkerSpawnBase(self, fn, ...)
+	if type(fn) ~= "function" or fn == lWrappedMarkerSpawn then
+		return nil
+	end
+	local wrap = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap")
+	if wrap and fn == wrap then
+		return nil
+	end
+	return fn(self, ...)
+end
+
+lWrappedMarkerSpawn = function(self, ...)
+	local orig = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnOrig")
 	local base = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnBase")
-	local objects = type(base) == "function" and base(self, ...) or nil
+	if lMarkerSpawnDepth > 0 then
+		return lCallMarkerSpawnBase(self, orig, ...)
+	end
+	lMarkerSpawnDepth = lMarkerSpawnDepth + 1
+	local objects = lCallMarkerSpawnBase(self, base, ...)
+	lMarkerSpawnDepth = lMarkerSpawnDepth - 1
 	lCaptureMarkerSpawn(self, objects)
 	return objects
 end
@@ -653,11 +677,24 @@ local function lInstallUnitMarkerWrap()
 	end
 	local current = cls.SpawnObjects
 	local wrap = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap")
-	if current == wrap or current == lWrappedMarkerSpawn then
-		cls.SpawnObjects = lWrappedMarkerSpawn
-		rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap", lWrappedMarkerSpawn)
+	local orig = rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnOrig")
+	if rawget(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrapped") then
+		if current == wrap or current == lWrappedMarkerSpawn then
+			cls.SpawnObjects = lWrappedMarkerSpawn
+			rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap", lWrappedMarkerSpawn)
+			return
+		end
+		-- UnitPropertiesStats (or vanilla) restored the class method after ReloadLua.
+		if orig and current == orig then
+			cls.SpawnObjects = lWrappedMarkerSpawn
+			rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap", lWrappedMarkerSpawn)
+			return
+		end
+		-- Another wrapper owns the slot (NoMaps). Stay in that chain; never re-base
+		-- onto it — that pairs RIS.base=nomaps with nomaps.base=RIS.
 		return
 	end
+	rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnOrig", current)
 	rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnBase", current)
 	cls.SpawnObjects = lWrappedMarkerSpawn
 	rawset(_G, "g_JAZZ_RIS_UnitMarkerSpawnWrap", lWrappedMarkerSpawn)

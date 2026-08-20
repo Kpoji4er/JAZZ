@@ -47,7 +47,7 @@ AI. `System_RIS_Strategy.lua` читает уже синхронизирован
 
 | Файл | Load-state | Роль |
 | --- | --- | --- |
-| `Code/System_RIS_Mail.lua` | loaded | `gv_JAZZ_RIS` schema 3, идемпотентная миграция, общая отправка писем, unlock PDA |
+| `Code/System_RIS_Mail.lua` | loaded | `gv_JAZZ_RIS` schema 3, идемпотентная миграция, общая отправка писем, unlock PDA (`welcome_read` + inbox `RIS_Welcome`; `BrowserOpened` re-applies lock if `MarkEmailAsRead` wrap missed) |
 | `Code/System_RIS_Content.lua` | loaded, generated | Досье, AAR-банки, UI и материалы Strategy; генерируется `_apply_ris_editorial.py` |
 | `Code/System_RIS_Combat.lua` | loaded | Контакты/убийства, cumulative combat snapshot v3 и language-neutral AAR v2 |
 | `Code/System_RIS_Browser.lua` | loaded | Bulletin, Dossiers, After-action reports и рендер на текущем языке |
@@ -147,8 +147,10 @@ JAZZ-UI-RIS-001.
 - `GetAllUnits` включает уже заспавненные map-placed units без satellite squad;
   `OnMsg.UnitCreated` (с отложенным кадром после `SetSide`) и wrap
   `UnitMarker:SpawnObjects` захватывают гарнизон, который спавнится после
-  `CombatStart`; финализация считает незамеченные трупы, в том числе после
-  перевода команды в `enemyNeutral`;
+  `CombatStart`; wrap ставится **один раз** (`g_JAZZ_RIS_UnitMarkerSpawnOrig` /
+  `Base` не перезаписываются, если сверху уже NoMaps) — повторный install
+  закольцовывал RIS↔nomaps и оставлял I1 без юнитов; финализация считает
+  незамеченные трупы, в том числе после перевода команды в `enemyNeutral`;
 - diplomacy flags объединяют mercs и союзников на стороне игрока и отделяют
   живых hostiles; для уже замеченного участника исходная сторона сохраняется
   даже после post-conflict перехода в `enemyNeutral`; `conflict_ignore` и

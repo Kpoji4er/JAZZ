@@ -1403,5 +1403,22 @@ function OnMsg.SatelliteTick()
 end
 
 function OnMsg.OpenSatelliteView()
+	lInstallMarkEmailWrap()
 	JAZZ_RIS_ProcessMailQueue()
+	JAZZ_RIS_ApplyTabLock()
+end
+
+-- Inbox is authoritative. If MarkEmail wrap missed DataLoaded (same class of
+-- bug as UnitMarker re-wrap), reading RIS_Welcome never flipped the tab.
+-- Re-apply when the player opens the PDA browser.
+function OnMsg.BrowserOpened()
+	lInstallMarkEmailWrap()
+	lEnsureRisTabData()
+	JAZZ_RIS_ApplyTabLock()
+	if JAZZ_RIS_IsWelcomeRead() then
+		local dock = rawget(_G, "DockBrowserTab")
+		if type(dock) == "function" then
+			dock("ris")
+		end
+	end
 end
