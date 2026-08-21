@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Rewrite LegionExtra_Ernie_Mixed Units to per-unit specialty rolls."""
+"""Historical Mixed-only split. Canon: _apply_ernie_overflow_inits.py --extras-only."""
 from __future__ import annotations
 
 import re

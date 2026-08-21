@@ -32,6 +32,9 @@ def main() -> int:
     must("sniper" in comp and "mortar" in comp and "mg =" in comp, "archetype keys missing", fails)
 
     must("lTryBuildSupport" in gen, "builder missing", fails)
+    must("lCollectSupportSpecialists" in gen, "mixed specialist pool missing", fails)
+    must('support_archetype = "mixed"' in gen, "mixed archetype stamp missing", fails)
+    must("lPickSupportArchetype" not in gen, "mono-archetype picker still present", fails)
     must('recipe_role == "support"' in gen, "generator branch missing", fails)
     must('or role == "support"' in gen, "UsesCompositionGenerator missing support", fails)
 

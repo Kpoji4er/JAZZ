@@ -310,10 +310,6 @@ def fortress_48() -> str:
     )
 
 
-def extra_pack(types: list[tuple[str, int | None]], lo: int, hi: int) -> str:
-    return always(types, lo, hi)
-
-
 def extra_pack_mixed(types: list[tuple[str, int | None]], lo: int, hi: int) -> str:
     """One roll per unit. Vanilla GenerateRandEnemySquadUnits picks type once per
     EnemySquadUnit slot then clones UnitCount — a single 6–9 slot always looks mono.
@@ -322,6 +318,11 @@ def extra_pack_mixed(types: list[tuple[str, int | None]], lo: int, hi: int) -> s
     for _ in range(max(0, hi - lo)):
         parts.append(slot(types, 0, 1))
     return "\n".join(p for p in parts if p)
+
+
+def extra_pack(types: list[tuple[str, int | None]], lo: int, hi: int) -> str:
+    # Specialty extras use the same per-unit slots as Mixed (UNITS-007 REQ-011).
+    return extra_pack_mixed(types, lo, hi)
 
 
 def moditem(squad_id: str, units: str, comment: str, display: str, group: str, t_off: int) -> str:
@@ -403,7 +404,7 @@ def define_packs() -> None:
     # Extras 5-10
     PACKS["LegionExtra_Ernie_Gunners"] = (
         extra_pack(GUN_PORT, 6, 8),
-        "-- UNITS-007 Extra Gunners 6-8",
+        "-- UNITS-007 Extra Gunners 6-8; per-unit roll (vanilla clones UnitCount)",
         "Усиление: пулемётчики",
         10,
     )
@@ -417,7 +418,7 @@ def define_packs() -> None:
             6,
             8,
         ),
-        "-- UNITS-007 Extra Marksmen 6-8",
+        "-- UNITS-007 Extra Marksmen 6-8; per-unit roll (vanilla clones UnitCount)",
         "Усиление: стрелки",
         11,
     )
@@ -431,25 +432,25 @@ def define_packs() -> None:
             5,
             7,
         ),
-        "-- UNITS-007 Extra Grenadiers 5-7",
+        "-- UNITS-007 Extra Grenadiers 5-7; per-unit roll (vanilla clones UnitCount)",
         "Усиление: гранатомётчики",
         12,
     )
     PACKS["LegionExtra_Ernie_Veterans"] = (
         extra_pack(VET, 5, 7),
-        "-- UNITS-007 Extra Veterans light 5-7",
+        "-- UNITS-007 Extra Veterans light 5-7; per-unit roll (vanilla clones UnitCount)",
         "Усиление: ветераны",
         13,
     )
     PACKS["LegionExtra_Ernie_Melee"] = (
         extra_pack(MELEE, 6, 8),
-        "-- UNITS-007 Extra Melee 6-8",
+        "-- UNITS-007 Extra Melee 6-8; per-unit roll (vanilla clones UnitCount)",
         "Усиление: ближний бой",
         14,
     )
     PACKS["LegionExtra_Ernie_Flankers"] = (
         extra_pack(FOREST_FLANK, 6, 8),
-        "-- UNITS-007 Extra Flankers 6-8",
+        "-- UNITS-007 Extra Flankers 6-8; per-unit roll (vanilla clones UnitCount)",
         "Усиление: фланкеры",
         15,
     )
@@ -806,5 +807,68 @@ def main() -> None:
         print(f"  Normal~ {sid} = {s}")
 
 
+def extra_pack_ids() -> list[str]:
+    define_packs()
+    return [sid for sid in PACKS if sid.startswith("LegionExtra_Ernie_")]
+
+
+def verify_extra_per_unit_slots(text: str) -> None:
+    """Specialty extras must not clone UnitCount>1 on one EnemySquadUnit."""
+    fails: list[str] = []
+    for sid in extra_pack_ids():
+        idx = text.find(f'id = "{sid}"')
+        if idx < 0:
+            fails.append(f"missing {sid}")
+            continue
+        start = text.rfind("PlaceObj('ModItemEnemySquads'", 0, idx)
+        block = text[start:idx]
+        for m in re.finditer(
+            r"PlaceObj\('EnemySquadUnit', \{([\s\S]*?)\n\t\t\t\t\t\}\),",
+            block,
+        ):
+            body = m.group(1)
+            lo_m = re.search(r"'UnitCountMin', (\d+)", body)
+            hi_m = re.search(r"'UnitCountMax', (\d+)", body)
+            lo = int(lo_m.group(1)) if lo_m else -1
+            hi = int(hi_m.group(1)) if hi_m else -1
+            if lo > 1 or hi > 1:
+                fails.append(f"{sid}: cloned slot UnitCount {lo}-{hi}")
+    if fails:
+        raise SystemExit("FAIL extra per-unit:\n - " + "\n - ".join(fails))
+    print("OK extra per-unit slots (no UnitCount>1)")
+
+
+def apply_extra_packs_only() -> None:
+    """Rewrite only LegionExtra_Ernie_* Units; do not touch maps / base packs."""
+    define_packs()
+    raw = UNITS.read_bytes()
+    nl = b"\r\n" if b"\r\n" in raw else b"\n"
+    units = raw.decode("utf-8")
+    for sid in extra_pack_ids():
+        u, comment, _ru, _t = PACKS[sid]
+        if f'id = "{sid}"' not in units:
+            raise SystemExit(f"missing {sid}")
+        units = replace_units_block(units, sid, u)
+        units = upsert_comment(units, sid, comment)
+        print(f"updated {sid}")
+    out = units.replace("\r\n", "\n")
+    if nl == b"\r\n":
+        out = out.replace("\n", "\r\n")
+    UNITS.write_bytes(out.encode("utf-8"))
+    verify_extra_per_unit_slots(out)
+
+
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--extras-only",
+        action="store_true",
+        help="Rewrite LegionExtra_Ernie_* per-unit slots only (no maps/base/retire).",
+    )
+    args = parser.parse_args()
+    if args.extras_only:
+        apply_extra_packs_only()
+    else:
+        main()

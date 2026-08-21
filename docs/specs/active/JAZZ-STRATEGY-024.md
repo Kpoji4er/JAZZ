@@ -49,8 +49,8 @@ approved_by: project-owner
 
 - Новая regular-роль **`support`**: отдельный cap/cost/missions/иконка от `reinforce`.
 - Размер **4–7** (early = mature; без growth).
-- Состав **T3–T4** specialists + 1 лидер (T2/T3) + T3 escort; один archetype на отряд.
-- Archetypes v1: **sniper** / **mg** / **mortar** (weighted pick при spawn).
+- Состав **T3–T4** specialists + 1 лидер (T2/T3) + T3 escort; **каждый слот свой ролл** из пула sniper/MG/mortar (не моно-архетип на отряд).
+- Archetypes v1: **sniper** / **mg** / **mortar** как **пул ID**, не lock отряда.
 - Триггер: Legion key/POI соседствует с player threat **и** уже есть `garrison` или `reinforce` на цели (задача/hold).
 - Avoid-player routing как у `reinforce`; нет пути → spawn + hold.
 
@@ -65,9 +65,9 @@ approved_by: project-owner
 
 - `JAZZ-STRATEGY-024-REQ-001` — Region fields: `SupportCap` default **1**, `SupportCost` default **18000**, `SupportMissions` default **2**.
 - `JAZZ-STRATEGY-024-REQ-002` — `JAZZ_LegionRoleRecipes.support`: size 4–7 fixed; allow T3/T4 specialists + leaders + T3 escort prefixes; `tier_bias = "specialty"`.
-- `JAZZ-STRATEGY-024-REQ-003` — Generator: pick archetype sniper|mg|mortar; force 1 leader; specialty counts (sniper/mg **2–3**, mortar **1**); fill escort; bypass soft-cap for specialty bucket; no medic reserve for n&lt;10.
+- `JAZZ-STRATEGY-024-REQ-003` — Generator: mixed specialist pool (sniper+MG+mortar IDs); force 1 leader; **2–3** specialists each independently rolled; fill escort; **STRATEGY-008 / HOTFIX-006 caps apply** (no specialty bypass, no mono clone); no medic reserve for n&lt;10.
 - `JAZZ-STRATEGY-024-REQ-004` — Director: role tables, `lSupportTarget`, spawn after reinforce, hold_for_path like reinforce, working hold like reinforce, diagnostics caps/costs.
-- `JAZZ-STRATEGY-024-REQ-005` — Store `squad_state.support_archetype`; top-up prefers same archetype.
+- `JAZZ-STRATEGY-024-REQ-005` — Store `squad_state.support_archetype = "mixed"`; top-up mixed from the same pool (ignore old sniper|mg|mortar lock).
 - `JAZZ-STRATEGY-024-REQ-006` — Icon `*_SUPPORT_squad.png` all five factions; wired path; RU/EN role + task strings.
 - `JAZZ-STRATEGY-024-REQ-007` — Docs: technical + wiki + showcase RU/EN + roadmap + squad-role-icons.
 
@@ -81,7 +81,7 @@ approved_by: project-owner
 ## Acceptance criteria
 
 - `JAZZ-STRATEGY-024-AC-001` — static: role wired in caps/costs/missions/images/recipes/generator/spawn path.
-- `JAZZ-STRATEGY-024-AC-002` — static: composition size ∈ [4,7]; units only T2+ leaders and T3+ specialists/escort per allow-list; archetype ∈ {sniper,mg,mortar}.
+- `JAZZ-STRATEGY-024-AC-002` — static: composition size ∈ [4,7]; units only T2+ leaders and T3+ specialists/escort per allow-list; builder uses mixed specialist pool + soft/same-id caps (not one archetype ×N).
 - `JAZZ-STRATEGY-024-AC-003` — static: `lSupportTarget` requires neighbor threat + existing garrison/reinforce on target; does not consume `ReinforceCap`.
 - `JAZZ-STRATEGY-024-AC-004` — runtime/human: support squad appears on sat with SUPPORT icon, small elite composition, attaches to defended border sector.
 - `JAZZ-STRATEGY-024-AC-005` — docs/wiki/showcase/icons catalog updated.
@@ -89,7 +89,7 @@ approved_by: project-owner
 ## Impact и совместимость
 
 - Vanilla/CommonLib/JAZZ: Legion director + composition only; medium risk.
-- Saves: additive `support` role / `support_archetype` field.
+- Saves: additive `support` role; `support_archetype` may be `"mixed"` (old sniper|mg|mortar values ignored on top-up).
 - Network/determinism: InteractionRand contexts `Support_*` / `JAZZ_LegionGen_support_*`.
 - Generated data: Region property defaults in `Regions_Sectors.lua` (no items.lua Region rewrite required if defaults suffice).
 - Cross-package: none (jazz only).
@@ -107,13 +107,13 @@ approved_by: project-owner
 
 - Статус: **approved** (owner: «устраивает, делай»; icon: create)
 - Кто подтвердил: project-owner
-- Дата: 2026-08-10
-- Locks: role `support`; size 4–7; archetypes sniper+MG+mortar; SupportCap **1**/outpost; icon new SUPPORT
+- Дата: 2026-08-10; mixed per-unit **2026-08-21** (owner: «у всех усилений» — каждый боец свой ролл)
+- Locks: role `support`; size 4–7; specialist **pool** sniper+MG+mortar (not mono-archetype squad); SupportCap **1**/outpost; icon SUPPORT
 
 ## Evidence
 
 - `JAZZ-STRATEGY-024-AC-001`: `PASS (static)` — `_check_legion_support_024.py`; role/cap/cost/icon/spawn wired
-- `JAZZ-STRATEGY-024-AC-002`: `PASS (static)` — recipe size 4–7 fixed; archetypes sniper/mg/mortar; specialty builder
+- `JAZZ-STRATEGY-024-AC-002`: `PASS (static)` — recipe size 4–7; mixed specialist pool; `support_archetype = "mixed"`; `lWouldBreakSoftCap` on support fill
 - `JAZZ-STRATEGY-024-AC-003`: `PASS (static)` — `lSupportTarget` + `lHasDefenseAt`; separate SupportCap
 - `JAZZ-STRATEGY-024-AC-004`: `BLOCKED` — runtime/human sat spawn + composition
 - `JAZZ-STRATEGY-024-AC-005`: `PASS (static)` — technical/wiki/showcase/icons/roadmap updated

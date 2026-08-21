@@ -128,6 +128,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - обнаружение через дым, ночью и при плохой погоде;
 - отсутствие зависания AI-хода;
 - **PERF-003 / M3 513:** End Turn с ~30+ Legion — ход врага не клинит минутами; `config.JAZZ_AIPerfLog = true` → `[JAZZ-AI-PERF] RebuildPaths` ms ≪ 5000 на юнит, `restricted=1`; Dump PickBest `TargetOpts` без зависания на part=Arms; `DumpFire start` → `DumpPrepareArgs skipLoF` / `SkipShotLoF` / `CheapProjectileFly` → `DumpFire end`, не тишина и не `Expected point`.
+- **Skip turn / AI fire (JA3Debug):** End Turn не должен поднимать `geVecCoord.h` assert `z != nInvalidZ` в `Firearm:ProjectileFly` `collision.Collide`; 2D `attack_pos`/`stuck_pos` получают terrain Z. GoHidden на BeginTurn не должен писать `Not in a thread or within a pcall` из `PlayTransitionAnims` (`Hide` только из `CreateGameTimeThread`, не inline из Msg).
 
 ## UI
 

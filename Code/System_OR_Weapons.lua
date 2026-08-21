@@ -2599,11 +2599,24 @@ function Jazz_MapTileSpan()
 	return Max(tx, ty)
 end
 
+-- Terrain-follow unit pos is 2D (invalid Z). collision.Collide / :z() asserts on JA3Debug.
+function Jazz_EnsurePointHasZ(pt)
+	if not IsPoint(pt) then
+		return pt
+	end
+	if pt:IsValidZ() then
+		return pt
+	end
+	return pt:SetTerrainZ()
+end
+
 -- Cheap miss LoF: valid attack/stuck points without GetLoFData. ProjectileFly needs stuck_pos.
 function Jazz_SyntheticMissAttackData(attacker, precalc_shot, shot_attack_args, miss_target_pos, max_range)
 	local origin = (precalc_shot and (precalc_shot.lof_pos1 or precalc_shot.attack_pos))
 		or (shot_attack_args and (shot_attack_args.attack_pos or shot_attack_args.step_pos))
 	local dest = miss_target_pos or (precalc_shot and (precalc_shot.lof_pos2 or precalc_shot.target_pos))
+	origin = Jazz_EnsurePointHasZ(origin)
+	dest = Jazz_EnsurePointHasZ(dest)
 	if not IsPoint(origin) or not IsPoint(dest) then
 		return false, miss_target_pos
 	end
@@ -2612,7 +2625,7 @@ function Jazz_SyntheticMissAttackData(attacker, precalc_shot, shot_attack_args, 
 	if v:Len() > 0 and max_range and max_range > slab then
 		dest = origin + SetLen(v, max_range - slab)
 	end
-	local attack_pos = (precalc_shot and precalc_shot.attack_pos) or origin
+	local attack_pos = Jazz_EnsurePointHasZ((precalc_shot and precalc_shot.attack_pos) or origin)
 	local lof = {
 		obj = attacker,
 		step_pos = (shot_attack_args and shot_attack_args.step_pos) or origin,
@@ -2639,13 +2652,22 @@ function Jazz_ReuseTargetingAttackData(shot_attack_args, attacker, target, preca
 			lof.step_pos = (shot_attack_args and shot_attack_args.step_pos)
 				or lof.attack_pos or lof.lof_pos1
 		end
+		lof.step_pos = Jazz_EnsurePointHasZ(lof.step_pos)
+		lof.attack_pos = Jazz_EnsurePointHasZ(lof.attack_pos)
+		lof.target_pos = Jazz_EnsurePointHasZ(lof.target_pos)
+		lof.lof_pos1 = Jazz_EnsurePointHasZ(lof.lof_pos1)
+		lof.lof_pos2 = Jazz_EnsurePointHasZ(lof.lof_pos2)
+		lof.stuck_pos = Jazz_EnsurePointHasZ(lof.stuck_pos or lof.target_pos or lof.attack_pos)
 		return { lof = { lof } }
 	end
 	local origin = (precalc_shot and (precalc_shot.lof_pos1 or precalc_shot.attack_pos))
 		or (shot_attack_args and (shot_attack_args.attack_pos or shot_attack_args.step_pos))
 	local dest = (precalc_shot and precalc_shot.target_pos)
+		or (IsValid(target) and target:GetVisualPos())
 		or (IsValid(target) and target:GetPos())
 		or (shot_attack_args and shot_attack_args.target_pos)
+	origin = Jazz_EnsurePointHasZ(origin)
+	dest = Jazz_EnsurePointHasZ(dest)
 	if not IsPoint(origin) or not IsPoint(dest) then
 		return false
 	end
@@ -2673,8 +2695,17 @@ function Jazz_EnsureShotStuckPos(shot)
 	if not shot then
 		return shot
 	end
+	if IsPoint(shot.attack_pos) then
+		shot.attack_pos = Jazz_EnsurePointHasZ(shot.attack_pos)
+	end
 	if not IsPoint(shot.stuck_pos) then
 		shot.stuck_pos = shot.target_pos or shot.attack_pos
+	end
+	if IsPoint(shot.stuck_pos) then
+		shot.stuck_pos = Jazz_EnsurePointHasZ(shot.stuck_pos)
+	end
+	if IsPoint(shot.target_pos) then
+		shot.target_pos = Jazz_EnsurePointHasZ(shot.target_pos)
 	end
 	return shot
 end
@@ -2720,8 +2751,11 @@ function Jazz_CheapProjectileFly(self, attacker, start_pt, end_pt, dir, speed, h
 	if not IsPoint(start_pt) then
 		return
 	end
+	start_pt = Jazz_EnsurePointHasZ(start_pt)
 	if not IsPoint(end_pt) then
 		end_pt = start_pt
+	else
+		end_pt = Jazz_EnsurePointHasZ(end_pt)
 	end
 	dir = SetLen(dir or (end_pt - start_pt), 4096)
 	speed = speed or const.Combat.BulletVelocity or 50000
@@ -2857,15 +2891,20 @@ function Jazz_InstallFirearmProjectileFlyWrap()
 		return false
 	end
 	local function wrap(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)
+		if IsPoint(start_pt) then
+			start_pt = Jazz_EnsurePointHasZ(start_pt)
+		end
+		if not IsPoint(end_pt) and IsPoint(start_pt) then
+			end_pt = start_pt
+		elseif IsPoint(end_pt) then
+			end_pt = Jazz_EnsurePointHasZ(end_pt)
+		end
 		if attack_args and attack_args.jazz_ai_dump then
 			if config.JAZZ_AIPerfLog then
 				printf("[JAZZ-AI-PERF] CheapProjectileFly unit=%s",
 					attacker and attacker.unitdatadef_id or "?")
 			end
 			return Jazz_CheapProjectileFly(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)
-		end
-		if not IsPoint(end_pt) and IsPoint(start_pt) then
-			end_pt = start_pt
 		end
 		local base = rawget(_G, "g_JAZZ_FirearmProjectileFlyBase")
 		return base(self, attacker, start_pt, end_pt, dir, speed, hits, target, attack_args)

@@ -125,7 +125,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | `LegionErnieVillage` | Гарнизон I5 | Meat hub Normal **60**: Recruit×12, Pillager×10, Roughneck/line/crush, 1 Pyro; mostly T1 |
 | `LegionOutlook_Easy` | M4 смотровая | UNITS-007 Medium Outpost A design Normal ~25 (+ Marksmen Extra); E/H via CheckDifficulty |
 | `LegionErnie_Medium_*` / `LegionErnie_Large_Outpost_B` / `LegionErnie_I2_Lighthouse` | Ernie overflow Init | UNITS-007 base packs; design E/N/H = engine Normal/Hard/VeryHard |
-| `LegionExtra_Ernie_*` | Ernie Extra spice | Gunners/Marksmen/Grenadiers/Veterans/Melee/Flankers/Mixed (5–10) |
+| `LegionExtra_Ernie_*` | Ernie Extra spice | Gunners/Marksmen/Grenadiers/Veterans/Melee/Flankers/Mixed (5–10); **per-unit** weighted roll (не клон `UnitCount`) |
 | `FortressDefenders` | I7 | Locked fort roles; design Normal **48** (E38/H58 gated) |
 | `JAZZ_Legion_SentrySquad_AroundVilla` | K3/K5/L3/L4/L5 охрана | **base 10** camp guard (не уходит в осаду) |
 | `JAZZ_Legion_VillaAttackers_K3`…`_L5` | Осадные волны лагерей | movable → K4 в `Jazz_VillaCounterAttack`; wipe camp = skip |

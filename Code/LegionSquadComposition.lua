@@ -348,7 +348,7 @@ JAZZ_LegionRoleRecipes = {
 }
 
 -- STRATEGY-024: specialty detachments for role `support`.
--- One archetype per squad; generator picks by weight then fills specialists + escort.
+-- Specialist pool (sniper / MG / mortar); generator rolls each slot independently (no mono-archetype squad).
 JAZZ_LegionSupportArchetypes = {
 	sniper = {
 		weight = 34,

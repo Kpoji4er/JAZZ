@@ -52,7 +52,7 @@ Owner: limit classes.
 ## Non-goals
 
 - Rewriting combat recipes (patrol/garrison Front mix).
-- Applying same-id / Front caps to STRATEGY-024 support specialty fill (sniper detachments still 2–3 specialists).
+- Applying same-id / Front caps to STRATEGY-024 support specialty fill — **superseded 2026-08-21** (support mixed per-unit; caps apply).
 - Reshuffling already spawned satellite squads (next spawn / new game).
 - Changing satellite portrait glyphs.
 

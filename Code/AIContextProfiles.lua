@@ -443,6 +443,8 @@ function JazzAI_TeamCanMostlyStealth(unit)
 end
 
 -- Attempt Hidden status (not PickCustom — ROLE-002 forbids Hide() there).
+-- Hide() → DoChangeStance → PlayTransitionAnims → Sleep. BeginTurn fires
+-- UnitBeginTurn via procall: IsGameTimeThread() is true, but CanYield() is not.
 function JazzAI_TryUnitGoHidden(unit)
 	if not IsValid(unit) or unit:IsDead() then
 		return false
@@ -454,11 +456,24 @@ function JazzAI_TryUnitGoHidden(unit)
 		return false
 	end
 	local stance = unit:GetStanceToStealth()
-	if unit:CanStealth(stance) then
-		unit:Hide()
-		return unit:HasStatusEffect("Hidden")
+	if not unit:CanStealth(stance) then
+		return false
 	end
-	return false
+	local function apply_hide()
+		if not IsValid(unit) or unit:IsDead() then
+			return
+		end
+		if unit:HasStatusEffect("Hidden") then
+			return
+		end
+		local st = unit:GetStanceToStealth()
+		if unit:CanStealth(st) then
+			unit:Hide()
+		end
+	end
+	-- Always a fresh thread: inline Hide() from Msg/BeginTurn asserts.
+	CreateGameTimeThread(apply_hide)
+	return true
 end
 
 function JazzAI_ApplyGoHiddenDirective(source, radius, team)

@@ -222,34 +222,42 @@ local function lPickWeighted(entries, context)
 	return entries[#entries]
 end
 
-local function lPickSupportArchetype(preferred, context)
-	local table_defs = JAZZ_LegionSupportArchetypes or empty_table
-	if preferred and table_defs[preferred] then
-		return preferred, table_defs[preferred]
-	end
-	local entries = {}
-	for id, def in sorted_pairs(table_defs) do
-		entries[#entries + 1] = { id = id, weight = def.weight or 1, def = def }
-	end
-	local picked = lPickWeighted(entries, "SupportArchetype_" .. tostring(context or "x"))
-	if not picked then
-		return false, false
-	end
-	return picked.id, picked.def
-end
-
 local function lSupportEscortBucket(unit_id)
 	local bucket = JAZZ_GetLegionUnitClassBucket(unit_id)
 	return bucket == "line" or bucket == "specialist" or bucket == "sniper" or bucket == "mg" or bucket == "heavy"
 end
 
---- Specialty builder: 1 leader + N specialists + T3 escort. Bypasses soft caps for specialty.
-local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, context, preferred_archetype)
-	local archetype_id, archetype = lPickSupportArchetype(preferred_archetype, context)
-	if not archetype then
-		return false
+local function lCollectSupportSpecialists()
+	local specialist_ids = {}
+	local seen = {}
+	for _, def in sorted_pairs(JAZZ_LegionSupportArchetypes or empty_table) do
+		for _, id in ipairs(def.specialists or empty_table) do
+			if not seen[id] and JAZZ_LegionUnitAllowedForRole(id, "support") and JAZZ_GetLegionUnitPrice(id) then
+				seen[id] = true
+				specialist_ids[#specialist_ids + 1] = id
+			end
+		end
 	end
+	return specialist_ids
+end
 
+local function lSupportSpecialistWeight(unit_id, mode)
+	local tier = lTierRank(unit_id)
+	local weight = ({ [3] = 5, [4] = 4 })[tier] or 1
+	if mode == "poor" and tier >= 4 then
+		weight = 1
+	end
+	-- Mortar was specialist_max 1 when mono-archetype; keep it rarer in the mixed pool.
+	if string.find(unit_id, "Mortar", 1, true) then
+		weight = Max(1, DivRound(weight, 2))
+	end
+	return weight
+end
+
+--- Specialty builder: 1 leader + 2–3 mixed specialists (sniper/MG/mortar pool) + T3 escort.
+--- Each slot is an independent roll; STRATEGY-008 / HOTFIX-006 caps apply (no mono clone pack).
+--- preferred_archetype is ignored (kept for call-site compat).
+local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, context, preferred_archetype)
 	local target = mode == "poor" and recipe.size_min or recipe.size_max
 	target = Clamp(target, recipe.size_min, recipe.size_max)
 	if budget_manpower and budget_manpower < recipe.size_min then
@@ -262,21 +270,15 @@ local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, con
 		return false
 	end
 
-	local specialist_ids = {}
-	for _, id in ipairs(archetype.specialists or empty_table) do
-		if JAZZ_LegionUnitAllowedForRole(id, "support") and JAZZ_GetLegionUnitPrice(id) then
-			specialist_ids[#specialist_ids + 1] = id
-		end
-	end
+	local specialist_ids = lCollectSupportSpecialists()
 	if #specialist_ids == 0 then
 		return false
 	end
 
-	local want_specialists = archetype.specialist_min or 1
+	local want_specialists = 2
 	if mode == "full" then
-		want_specialists = archetype.specialist_max or want_specialists
+		want_specialists = 3
 	end
-	want_specialists = Clamp(want_specialists, archetype.specialist_min or 1, archetype.specialist_max or want_specialists)
 	-- Leave room for leader + at least one escort when size allows.
 	want_specialists = Min(want_specialists, Max(1, target - 2))
 
@@ -292,6 +294,9 @@ local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, con
 			return false
 		end
 		if #units >= target then
+			return false
+		end
+		if lWouldBreakSoftCap(units, unit_id, target, "support") then
 			return false
 		end
 		units[#units + 1] = unit_id
@@ -322,13 +327,12 @@ local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, con
 		local candidates = {}
 		for _, id in ipairs(specialist_ids) do
 			local price = JAZZ_GetLegionUnitPrice(id)
-			if price and spent + price <= budget_money then
-				local tier = lTierRank(id)
-				local weight = ({ [3] = 5, [4] = 4 })[tier] or 1
-				if mode == "poor" and tier >= 4 then
-					weight = 1
-				end
-				candidates[#candidates + 1] = { id = id, price = price, weight = weight }
+			if price and spent + price <= budget_money and not lWouldBreakSoftCap(units, id, target, "support") then
+				candidates[#candidates + 1] = {
+					id = id,
+					price = price,
+					weight = lSupportSpecialistWeight(id, mode),
+				}
 			end
 		end
 		local picked = lPickWeighted(candidates, context .. "_spec_" .. slot)
@@ -337,7 +341,7 @@ local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, con
 		end
 		specialists_added = specialists_added + 1
 	end
-	if specialists_added < (archetype.specialist_min or 1) then
+	if specialists_added < 1 then
 		return false
 	end
 
@@ -352,6 +356,7 @@ local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, con
 				and entry.bucket ~= "medic"
 				and spent + entry.price <= budget_money
 				and lSupportEscortBucket(entry.id)
+				and not lWouldBreakSoftCap(units, entry.id, target, "support")
 			then
 				local weight = lTierWeight(entry, "specialty", mode)
 				if entry.bucket == "line" then
@@ -388,30 +393,8 @@ local function lTryBuildSupport(recipe, budget_money, budget_manpower, mode, con
 		manpower_cost = #units,
 		mode = mode,
 		role = "support",
-		support_archetype = archetype_id,
+		support_archetype = "mixed",
 	}
-end
-
-local function lInferSupportArchetype(existing_template_ids)
-	local counts = { sniper = 0, mg = 0, mortar = 0 }
-	for _, id in ipairs(existing_template_ids or empty_table) do
-		if type(id) == "string" then
-			if string.find(id, "Mortar", 1, true) then
-				counts.mortar = counts.mortar + 1
-			elseif string.find(id, "Gunner", 1, true) or string.find(id, "GMPG", 1, true) then
-				counts.mg = counts.mg + 1
-			elseif string.find(id, "Sniper", 1, true) or string.find(id, "Marksman", 1, true) then
-				counts.sniper = counts.sniper + 1
-			end
-		end
-	end
-	local best, best_n = false, 0
-	for id, n in sorted_pairs(counts) do
-		if n > best_n or (n == best_n and (not best or id < best)) then
-			best, best_n = id, n
-		end
-	end
-	return best_n > 0 and best or false
 end
 
 local function lOfficerPlan(target_size, want_t4)
@@ -569,7 +552,7 @@ end
 -- @param mode "auto"|"full"|"poor"
 -- @param rand_context string InteractionRand suffix
 -- @param growth_progress number|nil 0..1000 STRATEGY-016 size curve
--- @param preferred_archetype string|nil STRATEGY-024 support archetype lock
+-- @param preferred_archetype string|nil unused (STRATEGY-024 mixed per-unit; kept for call-site compat)
 function JAZZ_GenerateLegionSquadComposition(role, budget_money, budget_manpower, mode, rand_context, growth_progress, preferred_archetype)
 	local recipe_role = role == "major" and "retribution" or role
 	local recipe = JAZZ_ResolveLegionRoleRecipe and JAZZ_ResolveLegionRoleRecipe(recipe_role, growth_progress)
@@ -630,7 +613,7 @@ end
 
 --- Build a list of UnitData template IDs to add onto an existing squad.
 -- existing_template_ids: current living unit class/template ids (for soft-cap accounting).
--- preferred_archetype: optional STRATEGY-024 support lock.
+-- preferred_archetype: unused (mixed support; kept for call-site compat).
 -- Returns { units = {...}, money_cost, manpower_cost } or false if nothing affordable.
 function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money, budget_manpower, rand_context, growth_progress, preferred_archetype)
 	local recipe_role = role == "major" and "retribution" or role
@@ -656,9 +639,8 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 		return false
 	end
 
-	-- Support top-up: fill shortfall preferring same archetype specialists.
+	-- Support top-up: mixed specialists + escort; no mono-archetype lock.
 	if recipe_role == "support" then
-		local arch = preferred_archetype or lInferSupportArchetype(current)
 		local need = target - #current
 		if need <= 0 then
 			return false
@@ -668,8 +650,7 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 		local spent = 0
 		local slot = 0
 		local specialist_set = {}
-		local arch_def = arch and JAZZ_LegionSupportArchetypes and JAZZ_LegionSupportArchetypes[arch]
-		for _, id in ipairs(arch_def and arch_def.specialists or empty_table) do
+		for _, id in ipairs(lCollectSupportSpecialists()) do
 			specialist_set[id] = true
 		end
 		while #added < need do
@@ -680,6 +661,7 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 					and entry.bucket ~= "medic"
 					and spent + entry.price <= budget_money
 					and (not budget_manpower or (#added + 1) <= budget_manpower)
+					and not lWouldBreakSoftCap(current, entry.id, target, "support")
 				then
 					local weight = lTierWeight(entry, "specialty", "full")
 					if specialist_set[entry.id] then
@@ -713,7 +695,7 @@ function JAZZ_GenerateLegionSquadTopUp(existing_template_ids, role, budget_money
 			manpower_cost = #added,
 			role = recipe_role,
 			target_size = target,
-			support_archetype = arch or false,
+			support_archetype = "mixed",
 		}
 	end
 

@@ -184,7 +184,7 @@
 | `localization-copy-edits/ame_runtime_statuses.csv` | Закрывает восемь накопленных AME status/filter строк RU/EN, чтобы парный runtime export был полным. |
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; combat Score helpers; `AISelectHealTarget` / `AIActionBandage` Precalc; `JazzAI_TryMedicSwitch` all bleed tiers. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
-| `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc wiring. |
+| `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc; mixed specialist pool + `support_archetype = "mixed"`. |
 | `_check_legion_rest_025.py` | Static JAZZ-STRATEGY-025: city/bunker/outpost rest helpers, top-up gate, loc/wiki smoke. |
 | `_reorg_squad_icons_folders.py` | One-shot: move `SquadsIcons/Enemy/*.png` into `_shields/`, `_misc/`, `<faction>/`. |
 | `_rewrite_squad_icon_doc_paths.py` | Rewrite `squad-role-icons.md` image links after folder reorg. |
@@ -287,7 +287,8 @@
 | `_sync_ernie_campaign_inits.py` | Sync HotDiamonds CampaignPreset Ernie Init → ModItemSector canon (UNITS-007 + locked hubs); clear map-only I6/J6/L7/K4/K6. Dry-run / `--apply`. Edits only CampaignPreset span + ModItem clears. |
 | `_audit_ernie_empty_squad_risk.py` | Ernie Init empty-spawn risk + Campaign vs ModItem drift (boundary-safe). |
 | `_rollback_units006_vanilla_merc_perks.py` | Remove jazz CE overrides for listed vanilla merc personal perks (ModItem+companion+metadata+loc); also jazz-units `TheGrim`. |
-| `_fix_ernie_mixed_per_unit.py` | `LegionExtra_Ernie_Mixed`: split 6–9 into per-unit slots (vanilla rolls type once per EnemySquadUnit). |
+| `_apply_ernie_overflow_inits.py` | UNITS-007 Ernie overflow Init: base packs + Extra + I7 FortressDefenders. `--extras-only` rewrites `LegionExtra_Ernie_*` as per-unit slots (vanilla clones `UnitCount` of one rolled class). |
+| `_fix_ernie_mixed_per_unit.py` | Historical Mixed-only split. Canon: `_apply_ernie_overflow_inits.py --extras-only`. |
 | `_fix_checkdifficulty_storeastable.py` | Mass-fix `CheckDifficulty` `'Difficulty', "X"` → `Difficulty = "X"` (FunctionObject StoreAsTable=true; prevents load assert). Also syncs CampaignPreset M4 Init + Extra. Dry-run / `--apply`. |
 | `_audit_units_squad_load.py` | Audit jazz-units CheckDifficulty format + M4 InitialSquads ModItemSector vs CampaignPreset drift. |
 | `_apply_ernie_i2_lighthouse.py` | Earlier I2 lighthouse draft (superseded by overflow apply). |

@@ -100,7 +100,7 @@ Already OK / locked (не трогать размер в этой спеке):
 
 - `JAZZ-UNITS-007-REQ-001` — таблица целевых Init выше = канон; baseline + catalog синхронизированы.
 - `JAZZ-UNITS-007-REQ-002` — каждый перегиб-сектор: Init = 1 base pack (+ optional Extra **5–10** specialized if map feels empty); запрет стека 2×Extra_T2 / 2× полных Easy без тега.
-- `JAZZ-UNITS-007-REQ-011` — Extra = spice **5–10**: либо узкая specialty (`Gunners`/`Marksmen`/`Grenadiers`/`Veterans`/`Melee`/`Flankers`), либо **`LegionExtra_Ernie_Mixed`** с рандомом специальностей в пулах; расклад по секторам — baseline Extra column; max 1 Extra на Init.
+- `JAZZ-UNITS-007-REQ-011` — Extra = spice **5–10**: либо узкая specialty (`Gunners`/`Marksmen`/`Grenadiers`/`Veterans`/`Melee`/`Flankers`), либо **`LegionExtra_Ernie_Mixed`**. Specialty остаётся тематическим пулом, но **каждый боец — отдельный weighted roll** (`EnemySquadUnit` Count 1, optional слоты 0–1). Не один слот `UnitCount` 6–8: ванильный `GenerateRandEnemySquadUnits` берёт тип один раз и клонирует группу. Mixed — пул специальностей, тот же per-unit контракт. Расклад по секторам — baseline Extra column; max 1 Extra на Init.
 - `JAZZ-UNITS-007-REQ-012` — на Эрни Init не использовать толстый `LegionExtraSquadFireArms`(15) / `_T2`(18); заменить на Ernie Extra 5–10.
 - `JAZZ-UNITS-007-REQ-003` — новые/переписанные паки: band A или B per table; B = немного T3 в пулах, не T3 majority; **no T4** в ordinary Init (story anchors separately).
 - `JAZZ-UNITS-007-REQ-004` — preset pools: Coast/Forest/Outpost/Fort отличаются ролями (не копипаст Urban meat на L2).
@@ -128,6 +128,7 @@ Already OK / locked (не трогать размер в этой спеке):
 - `JAZZ-UNITS-007-AC-005` — `_validate_items_quick.py` OK jazz-units + jazz-maps.
 - `JAZZ-UNITS-007-AC-006` — runtime/human: smoke enter M5/L1/I7 new game — BLOCKED until playtest.
 - `JAZZ-UNITS-007-AC-007` — static: каждый пак из retire-list лежит под `Deprecated`; zero refs вне Deprecated на retired Ids (или Id оставлен с явным «still referenced» note в comment).
+- `JAZZ-UNITS-007-AC-008` — static: каждый `LegionExtra_Ernie_*` — только слоты `UnitCountMin`∈{0,1} и `UnitCountMax`=1 (нет клона группы).
 
 ## Impact и совместимость
 
@@ -151,7 +152,8 @@ Already OK / locked (не трогать размер в этой спеке):
 2026-08-10: срезать перегибы; Эрни в основном T1–T2; ключи I7/L1/I2 — B; I5/J5/villa locked.  
 **Size×difficulty (InitialSquads):** Small 5/10/15 · Medium 20/**25**/40 · Large 30/**40**/70 — **author E/N/H now** (gated slots).  
 **Extra lock:** I3=`Flankers`; I2=`Veterans` light (~5–7); I7 FortressDefenders **applied** (48 + drop Ordnance).  
-**Deprecated:** audit done — overflow stacks still referenced elsewhere → no folder move this wave. Status **approved**.
+**Deprecated:** audit done — overflow stacks still referenced elsewhere → no folder move this wave.  
+**Extra per-unit (owner 2026-08-21):** усиления рандомят **каждого** бойца, не группу одного типа (ванильный clone `UnitCount`). Status **approved**.
 
 ## Evidence
 
@@ -162,10 +164,11 @@ Already OK / locked (не трогать размер в этой спеке):
 - `JAZZ-UNITS-007-AC-005`: static PASS — `_validate_items_quick.py` OK jazz-units + jazz-maps.
 - `JAZZ-UNITS-007-AC-006`: `BLOCKED` — runtime playtest.
 - `JAZZ-UNITS-007-AC-007`: static PASS (audit) — overflow candidates still referenced outside Init (Patrol/AI/other sectors); none hard-orphaned → no Deprecated move this wave. Missing vanilla-only Balanced/Entrenched Ids not in jazz-units.
+- `JAZZ-UNITS-007-AC-008`: static PASS after `--extras-only` apply — Extra packs have no `UnitCount>1` clone slots.
 
 ## Documentation delta
 
-- `docs/design/ernie-garrison-baseline.md` — Extra lock + E/N/H + retire note.
-- `docs/technical/systems/maps-quests-content-catalog.md` — Init lines.
-- `docs/tools/README.md` — apply/dump scripts.
+- `docs/design/ernie-garrison-baseline.md` — Extra lock + E/N/H + Extra per-unit rolls.
+- `docs/technical/systems/maps-quests-content-catalog.md` — Init lines + Extra per-unit.
+- `docs/tools/README.md` — apply `--extras-only`.
 - Spec this file.
