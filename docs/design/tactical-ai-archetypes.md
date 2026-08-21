@@ -277,7 +277,7 @@ Leader (`JAZZ_Legion_Leader*`, RebelSergeant, keyword `Leader`) раз в ход
 | `FallBack` | ≥2 dead и ≥30% отряда (без sticky wounds) | Scout/Pusher/Recruit/Line → Frontliner (не Sniper); cover/retreat bias; −5 CTH defense |
 | `GoHidden` | Night/Fog/Dust **или** outshot + ≥40% CanStealth | `Hide()`; → Frontliner; melee off |
 | `LowVisHold` | Night/Fog/Dust без массового стелса | hold; +2 CTH |
-| `FocusFire` | threat score (sniper/MG/close≤8 / HP≤55) | `focus_target`; attack ×1.8; +5 CTH |
+| `FocusFire` | threat score (sniper/MG/close≤8 / HP≤55) | `focus_target`; attack ×2; +5 CTH |
 | `TakeCover` | ≥18 + outshot | Frontliner; −3 CTH defense |
 | `OccupyHeights` | elevation variance, enemy ≥10, не indoor-heavy | HighGround ×175%; +2 CTH |
 | `Push` | nearest ≤12 | Scout → Assaulter; +1 AP |
@@ -390,7 +390,8 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
 | **JAZZ-AI-REG-001** | Isolated Legion → `Legion_Regroup` к дальнему ally cluster |
 | **JAZZ-AI-POL-003** | Anti-stack: hard same-voxel dibs + soft ally spacing in AIScoreDest |
-| **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee/healer floor |
+| **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee floor; medic ignore superseded MED-002 |
+| **JAZZ-AI-MED-002** | Dedicated medic switch + one fill-in; medic ignore crowd; cover spacing |
 
 Рекомендуемый порядок: **001 → POL-001 → 002 → MED-001** (быстрый playfeel + не убить бой медиком), затем CTX/CMD/ACT.
 

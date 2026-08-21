@@ -27,6 +27,7 @@ end
 -- Pre-declare so ModsReloaded / mid-session rawset can overwrite without "new global" assert.
 Jazz_KillingWindCountEnemies = rawget(_G, "Jazz_KillingWindCountEnemies") or false
 Jazz_KillingWindTryGrit = rawget(_G, "Jazz_KillingWindTryGrit") or false
+g_JAZZ_WeGotThisSquadGuardWrapped = rawget(_G, "g_JAZZ_WeGotThisSquadGuardWrapped") or false
 
 --- Fauda KillingWind: count distinct enemies damaged/hit in one attack results table.
 local function lKillingWindCountEnemies(attacker, results)
@@ -2194,6 +2195,68 @@ local function lNamedPerks006OnCombatStart_SectionD()
 	end
 end
 
+-- Vanilla WeGotThis (Gus Tango Down) does gv_Squads[target.Squad].units with no nil check.
+-- NPC villains (Ghost, MercenaryCaptain, ErnyVillage_Boss) copy the perk; Squad is false.
+local function lWeGotThisOnUnitKill(self, target, killedUnits)
+	if not target or not target.CanActivatePerk or not target:CanActivatePerk(self.class) then
+		return
+	end
+	local tempHp = (self.ResolveValue and self:ResolveValue("tempHp")) or 0
+	local applied = false
+	local squad_id = target.Squad
+	local squad = squad_id and gv_Squads and gv_Squads[squad_id]
+	if squad and squad.units then
+		for _, id in ipairs(squad.units) do
+			local unit = g_Units and g_Units[id]
+			if unit and unit.ApplyTempHitPoints then
+				unit:ApplyTempHitPoints(tempHp)
+				applied = true
+			end
+		end
+	end
+	if not applied then
+		for _, unit in ipairs(target.team and target.team.units or empty_table) do
+			if IsValid(unit) and not unit:IsDead() and unit.ApplyTempHitPoints then
+				unit:ApplyTempHitPoints(tempHp)
+			end
+		end
+	end
+	if target.ActivatePerk then
+		target:ActivatePerk(self.class)
+	end
+end
+
+local function lPatchWeGotThisKillReactions(reactions)
+	if not reactions then
+		return
+	end
+	for _, r in ipairs(reactions) do
+		if r and r.Event == "OnUnitKill" then
+			r.Handler = lWeGotThisOnUnitKill
+		end
+	end
+end
+
+function Jazz_InstallWeGotThisSquadGuard()
+	local cls = g_Classes and g_Classes.WeGotThis
+	if cls then
+		lPatchWeGotThisKillReactions(cls.unit_reactions)
+	end
+	local def = CharacterEffectDefs and CharacterEffectDefs.WeGotThis
+	if def then
+		lPatchWeGotThisKillReactions(def.unit_reactions)
+	end
+	for _, unit in ipairs(g_Units or empty_table) do
+		if IsValid(unit) and unit.GetStatusEffect then
+			local eff = unit:GetStatusEffect("WeGotThis")
+			if eff then
+				lPatchWeGotThisKillReactions(eff.unit_reactions)
+			end
+		end
+	end
+	rawset(_G, "g_JAZZ_WeGotThisSquadGuardWrapped", true)
+end
+
 local function lInstallAllNamedPerks006()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Ops()
@@ -2203,6 +2266,7 @@ local function lInstallAllNamedPerks006()
 	lInstallNamedPerks006SectionD()
 	lInstallBuildingConfidenceHeal()
 	Jazz_InstallDangerCloseExplosionWrap()
+	Jazz_InstallWeGotThisSquadGuard()
 end
 
 function Jazz_NamedPerks006OnCombatStart()

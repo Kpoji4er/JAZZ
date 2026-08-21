@@ -90,9 +90,9 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 
 AI units are less eager to crowd around a single ideal firing position. Occupied and already planned allied positions reduce the value of nearby tiles, while dead, downed, or incapacitated allies make the same area less attractive. Several casualties close together increase the penalty.
 
-This remains a soft preference rather than a movement ban: narrow passages stay traversable, while melee units and medics use a gentler floor so they can still reach a target or patient.
+This remains a soft preference rather than a movement ban: narrow passages stay traversable. Melee units use a gentler crowding floor. **Medics** ignore crowding so they can reach a patient. Other fighters prefer a **free cover tile** over sharing the same bush.
 
-On large maps (the waterfall and similar) the enemy turn should not freeze for minutes. AI pathing uses this-turn reach, not the whole map. A shot from the current tile no longer fires thousands of collision rays through the waterfall mesh: chance uses the same math as the aim UI, and the bullet fly is simplified. Your shots and the aim UI are unchanged.
+On large maps (the waterfall and similar) the enemy turn should not freeze for minutes. AI pathing uses this-turn reach, not the whole map. A shot from the current tile no longer fires thousands of collision rays through the waterfall mesh: chance uses the same math as the aim UI, and the bullet fly is simplified. **A clear AI shot can still hit** (same CTH as the crosshair). Shots into solid rock, cliff, or wall stop there — they do not punch through unbreakable ground. Your shots and the aim UI are unchanged.
 
 A panicked fighter may flee and **despawn** at a map exit. While your mercs are within about **16** tiles, they will not vanish just by stepping behind the nearest rock — they keep running in plain sight.
 

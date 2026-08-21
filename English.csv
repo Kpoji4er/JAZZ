@@ -12477,31 +12477,6 @@ Speck",,JAZZ-UI-MERC-001
 890000000009898,"−15 CTH и −30 Will, пока Мигель сбит в ауре.",−15 CTH and −30 Will while Miguel is downed in aura.,,jazz:CharacterEffect/Jazz_MiguelAuraDown.lua
 890000000009930,Удар анаболика,Anabolic Punch,,jazz:CharacterEffect/SteroidPunch.lua
 890000000009931,Пассивный навык. Точность всех ударов кулаками и оружием ближнего боя зависит от <em>Силы</em> вместо Ловкости. Успешные удары <em>кулаками</em> отбрасывают цель (как ванильный Steroid Smash) с побочным уроном окружению. Стимуляторы не вызывают потери <em>энергии</em> (усталости). Урон со временем от эффекта <em>горения</em> снижен на <em>30%</em>.,Passive. Fist and melee accuracy uses <em>Strength</em> instead of Agility. Successful <em>unarmed</em> hits knock the target back like vanilla Steroid Smash (with collateral). Combat stims do not cause <em>Energy</em> (tiredness) loss. Burning DoT reduced by <em>30%</em>.,,jazz:CharacterEffect/SteroidPunch.lua
-890000000006100,Командная аура,Command aura,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
-890000000006101,Этот командир отдаёт приказы союзникам поблизости.,This commander issues orders to nearby allies.,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
-890000000006102,Отдаёт приказы,Issuing orders,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
-890000000006103,Под влиянием ауры,Under aura influence,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
-890000000006104,"Боец следует приказам командира и получает небольшой бонус текущего приказа. Эффект снимается, если командир погиб или боец вышел из зоны влияния.",This fighter follows the commander's orders and gains a small bonus from the current order. Removed if the commander dies or the fighter leaves the influence zone.,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
-890000000006105,Под приказом,Under orders,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
-890000000006106,Держать линию,Hold the line,,jazz:Code/AIContextProfiles.lua
-890000000006107,Давить,Push,,jazz:Code/AIContextProfiles.lua
-890000000006108,Охват,Envelop,,jazz:Code/AIContextProfiles.lua
-890000000006109,Низкая видимость — держать,Low visibility — hold,,jazz:Code/AIContextProfiles.lua
-890000000006110,Отход,Fall back,,jazz:Code/AIContextProfiles.lua
-890000000006111,Сосредоточить огонь,Focus fire,,jazz:Code/AIContextProfiles.lua
-890000000006112,Текущий приказ: <em><order></em>,Current order: <em><order></em>,,jazz:Code/AIContextProfiles.lua
-890000000006113,Следует приказу: <em><order></em>,Following order: <em><order></em>,,jazz:Code/AIContextProfiles.lua
-890000000006114,приказ не выбран,no order selected,,jazz:Code/AIContextProfiles.lua
-890000000006115,Занимать дома,Occupy buildings,,jazz:Code/AIContextProfiles.lua
-890000000006116,Спрятаться,Take cover,,jazz:Code/AIContextProfiles.lua
-890000000006117,Скрыться,Go hidden,,jazz:Code/AIContextProfiles.lua
-890000000006118,Занять высоты,Take the high ground,,jazz:Code/AIContextProfiles.lua
-890000000006119,+2 к шансу попадания,+2 chance to hit,,jazz:Code/AIContextProfiles.lua
-890000000006120,+1 ОД на ход,+1 AP per turn,,jazz:Code/AIContextProfiles.lua
-890000000006121,+5 к шансу попадания,+5 chance to hit,,jazz:Code/AIContextProfiles.lua
-890000000006122,−5 к шансу попадания по этому бойцу,−5 chance to hit against this fighter,,jazz:Code/AIContextProfiles.lua
-890000000006123,−3 к шансу попадания по этому бойцу,−3 chance to hit against this fighter,,jazz:Code/AIContextProfiles.lua
-890000000006124,Эффект приказа: <em><buff></em>,Order effect: <em><buff></em>,,jazz:Code/AIContextProfiles.lua
 890000000009924,Взрывная ладонь,Exploding Palm,,jazz:CharacterEffect/ExplodingPalm.lua
 890000000009863,Кровавый след,Blood Trail,,jazz:CharacterEffect/Jazz_MakeThemBleedBuff.lua
 890000000009864,"Видимые враги с кровотечением: <em><stacks></em> (+10% урона за каждого, макс. +50%).","Visible bleeding enemies: <em><stacks></em> (+10% damage each, cap +50%).",,jazz:CharacterEffect/Jazz_MakeThemBleedBuff.lua
@@ -12577,3 +12552,29 @@ Speck",,JAZZ-UI-MERC-001
 890000000010290,<target> trauma stabilized,<target> trauma stabilized,,jazz:MED-006
 890000000010291,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,,jazz:MED-006
 890000000010292,Max HP debt from this trauma: <em><pct>%</em>.,Max HP debt from this trauma: <em><pct>%</em>.,,jazz:MED-006
+890000000006100,Командная аура,Command aura,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
+890000000006101,Этот командир отдаёт приказы союзникам поблизости.,This commander issues orders to nearby allies.,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
+890000000006102,Отдаёт приказы,Issuing orders,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
+890000000006103,Под влиянием ауры,Under aura influence,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+890000000006104,"Боец следует приказам командира и получает небольшой бонус текущего приказа. Эффект снимается, если командир погиб или боец вышел из зоны влияния.",This fighter follows the commander's orders and gains a small bonus from the current order. Removed if the commander dies or the fighter leaves the influence zone.,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+890000000006105,Под приказом,Under orders,,jazz:CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+890000000006106,Держать линию,Hold the line,,jazz:Code/AIContextProfiles.lua
+890000000006107,Давить,Push,,jazz:Code/AIContextProfiles.lua
+890000000006108,Охват,Envelop,,jazz:Code/AIContextProfiles.lua
+890000000006109,Низкая видимость — держать,Low visibility — hold,,jazz:Code/AIContextProfiles.lua
+890000000006110,Отход,Fall back,,jazz:Code/AIContextProfiles.lua
+890000000006111,Сосредоточить огонь,Focus fire,,jazz:Code/AIContextProfiles.lua
+890000000006112,Текущий приказ: <em><order></em>,Current order: <em><order></em>,,jazz:Code/AIContextProfiles.lua
+890000000006113,Следует приказу: <em><order></em>,Following order: <em><order></em>,,jazz:Code/AIContextProfiles.lua
+890000000006114,приказ не выбран,no order selected,,jazz:Code/AIContextProfiles.lua
+890000000006115,Занимать дома,Occupy buildings,,jazz:Code/AIContextProfiles.lua
+890000000006116,Спрятаться,Take cover,,jazz:Code/AIContextProfiles.lua
+890000000006117,Скрыться,Go hidden,,jazz:Code/AIContextProfiles.lua
+890000000006118,Занять высоты,Take the high ground,,jazz:Code/AIContextProfiles.lua
+890000000006119,+2 к шансу попадания,+2 chance to hit,,jazz:Code/AIContextProfiles.lua
+890000000006120,+1 ОД на ход,+1 AP per turn,,jazz:Code/AIContextProfiles.lua
+890000000006121,+5 к шансу попадания,+5 chance to hit,,jazz:Code/AIContextProfiles.lua
+890000000006122,−5 к шансу попадания по этому бойцу,−5 chance to hit against this fighter,,jazz:Code/AIContextProfiles.lua
+890000000006123,−3 к шансу попадания по этому бойцу,−3 chance to hit against this fighter,,jazz:Code/AIContextProfiles.lua
+890000000006124,Эффект приказа: <em><buff></em>,Order effect: <em><buff></em>,,jazz:Code/AIContextProfiles.lua
+890000000006125,Цель: <em><name></em>,Target: <em><name></em>,,jazz:Code/AIContextProfiles.lua

@@ -14,6 +14,7 @@ IDs:
   6118 — OccupyHeights
   6119–6123 — per-directive buff labels
   6124 — order effect tooltip line
+  6125 — FocusFire target name line
 """
 from __future__ import annotations
 
@@ -169,6 +170,12 @@ ROWS = [
         "890000000006124",
         "Эффект приказа: <em><buff></em>",
         "Order effect: <em><buff></em>",
+        "jazz:Code/AIContextProfiles.lua",
+    ),
+    (
+        "890000000006125",
+        "Цель: <em><name></em>",
+        "Target: <em><name></em>",
         "jazz:Code/AIContextProfiles.lua",
     ),
 ]

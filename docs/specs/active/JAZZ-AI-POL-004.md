@@ -65,8 +65,9 @@ approved_by: project-owner
   даёт −45/−30/−15 в тех же диапазонах; каждая casualty после первой в радиусе 3 даёт
   дополнительный −10; итог ограничен диапазоном 25–100.
 - `JAZZ-AI-POL-004-REQ-002` — для melee context (`EffectiveRange &lt;= 1` или keyword
-  `Melee`) и healer context (`can_heal`) modifier имеет floor 55, чтобы не блокировать
-  обязательный melee/bandage approach.
+  `Melee`) modifier имеет floor 55, чтобы не блокировать обязательный melee approach.
+  **Healer/medic floor 55 superseded 2026-08-21 by JAZZ-AI-MED-002:** medic/`can_heal`
+  returns crowd modifier 100 (ignore crowding).
 - `JAZZ-AI-POL-004-REQ-003` — живой ally использует `ai_destination`, когда он задан,
   иначе snapshot `ally_pack_pos_stance`; casualty всегда использует фактический snapshot.
 - `JAZZ-AI-POL-004-REQ-004` — modifier применяется один раз к положительному итоговому
@@ -91,7 +92,7 @@ approved_by: project-owner
 
 - `JAZZ-AI-POL-004-AC-001` — static model: isolated=100; one adjacent live ally=75;
   two adjacent live allies=50; one same-voxel casualty=55; two same-voxel casualties=25;
-  one adjacent casualty=70; dense melee/healer floor=55.
+  one adjacent casualty=70; dense melee floor=55. Healer/medic crowd exemption is MED-002.
 - `JAZZ-AI-POL-004-AC-002` — static source: modifier интегрирован ровно один раз в конце
   `AIScoreDest`; прежний глобальный additive ally-spacing отсутствует; hard XYZ dibs сохранён.
 - `JAZZ-AI-POL-004-AC-003` — static determinism: implementation не содержит RNG,

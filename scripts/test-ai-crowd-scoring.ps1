@@ -26,6 +26,10 @@ function Get-CrowdModifier {
         [switch]$Healer
     )
 
+    if ($Healer) {
+        return 100
+    }
+
     $danger = 0
     foreach ($distance in $Live) {
         $danger += Get-CrowdPenalty -Distance $distance -SameTile 60 -Adjacent 25 -Outer 10
@@ -43,8 +47,19 @@ function Get-CrowdModifier {
         $danger += 10 * ($casualtyCount - 1)
     }
 
-    $minimum = if ($Melee -or $Healer) { 55 } else { 25 }
+    $minimum = if ($Melee) { 55 } else { 25 }
     return [Math]::Min(100, [Math]::Max($minimum, 100 - $danger))
+}
+
+function Get-CoverSpacingModifier {
+    param(
+        [int]$NearCoveredAllies = 0,
+        [switch]$Medic
+    )
+    if ($Medic) { return 100 }
+    if ($NearCoveredAllies -le 0) { return 100 }
+    if ($NearCoveredAllies -eq 1) { return 55 }
+    return 30
 }
 
 function Assert-Equal {
@@ -61,9 +76,13 @@ Assert-Equal 'one same-voxel casualty' (Get-CrowdModifier -Casualties 0) 55
 Assert-Equal 'two same-voxel casualties' (Get-CrowdModifier -Casualties 0, 0) 25
 Assert-Equal 'one adjacent casualty' (Get-CrowdModifier -Casualties 1) 70
 Assert-Equal 'dense melee floor' (Get-CrowdModifier -Live 0, 0 -Casualties 0, 0 -Melee) 55
-Assert-Equal 'dense healer floor' (Get-CrowdModifier -Live 0, 0 -Casualties 0, 0 -Healer) 55
+Assert-Equal 'dense healer exempt' (Get-CrowdModifier -Live 0, 0 -Casualties 0, 0 -Healer) 100
 Assert-Equal 'outer casualty band' (Get-CrowdModifier -Casualties 2) 85
 Assert-Equal 'outside radius' (Get-CrowdModifier -Live 3 -Casualties 3) 100
+Assert-Equal 'cover free' (Get-CoverSpacingModifier -NearCoveredAllies 0) 100
+Assert-Equal 'cover one neighbor' (Get-CoverSpacingModifier -NearCoveredAllies 1) 55
+Assert-Equal 'cover two neighbors' (Get-CoverSpacingModifier -NearCoveredAllies 2) 30
+Assert-Equal 'cover medic exempt' (Get-CoverSpacingModifier -NearCoveredAllies 2 -Medic) 100
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $sourcePath = Join-Path $repoRoot 'Code\CombatAI.lua'
@@ -73,6 +92,10 @@ $required = @(
     'function JazzAI_CrowdDangerModifier(context, dest)',
     'local crowd_mod = JazzAI_CrowdDangerModifier(context, dest)',
     'CROWD/DANGER MOD (%)',
+    'function JazzAI_CoverSpacingModifier(context, dest)',
+    'local cover_mod = JazzAI_CoverSpacingModifier(context, dest)',
+    'COVER SPACING MOD (%)',
+    'JazzAI_IsMedicCrowdExempt',
     'remove = dx == cx and dy == cy and dz == cz'
 )
 foreach ($needle in $required) {
@@ -103,9 +126,11 @@ foreach ($forbidden in @('InteractionRand', 'AsyncRand', 'MapVar(', 'GameVar(', 
 
 $biasStart = $source.IndexOf('-- apply modifiers from bias markers at the end', $scoreStart)
 $crowdCall = $source.IndexOf($callNeedle, $scoreStart)
-$scoreEnd = $source.IndexOf('ResumeInfiniteLoopDetection("AiCalc")', $crowdCall)
-if ($biasStart -lt 0 -or $crowdCall -le $biasStart -or $scoreEnd -le $crowdCall) {
-    throw 'Crowd modifier must run once after BiasMarker scoring and before AIScoreDest returns.'
+$coverNeedle = 'local cover_mod = JazzAI_CoverSpacingModifier(context, dest)'
+$coverCall = $source.IndexOf($coverNeedle, $crowdCall)
+$scoreEnd = $source.IndexOf('ResumeInfiniteLoopDetection("AiCalc")', $coverCall)
+if ($biasStart -lt 0 -or $crowdCall -le $biasStart -or $coverCall -le $crowdCall -or $scoreEnd -le $coverCall) {
+    throw 'Crowd then cover-spacing modifiers must run once after BiasMarker scoring and before AIScoreDest returns.'
 }
 
-Write-Host 'AI crowd scoring checks passed: model=10, source=integrated, determinism=static'
+Write-Host 'AI crowd scoring checks passed: model=14, source=integrated, determinism=static'

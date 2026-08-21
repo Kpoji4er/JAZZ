@@ -45,7 +45,7 @@ Personal (Personality) pool extras: `Jazz_Perk_Mimicry` (dialogue Negotiator/Sco
 
 ## Named perks (JAZZ-UNITS-006)
 
-Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCode `System_NamedPerks`). Tunables live on ModItem `Parameters` (editor); runtime reads via `Jazz_NamedPerkParam` / `ResolveValue`.
+Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCode `System_NamedPerks`). Tunables live on ModItem `Parameters` (editor); runtime reads via `Jazz_NamedPerkParam` / `ResolveValue`. Vanilla Gus `WeGotThis` (`OnUnitKill`) indexes `gv_Squads[target.Squad]` with no nil check; NPC villains (Ghost / MercenaryCaptain / ErnyVillage_Boss) copy the perk with `Squad=false` → debug assert. JAZZ patches the handler: satellite squad if present, else living `team.units`, and skips missing `g_Units[id]`.
 
 §B batch4 (static): Flo/Static/Cougar + Grace/Kulba/Grom/Ricochet/Highball (see `_units006_batch4_notes.md`).
 

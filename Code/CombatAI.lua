@@ -545,12 +545,9 @@ function AICreateContext(unit, context)
 				if context.enemy_visible[enemy] and best_attack then
 					best_attack.score = best_attack.score * 1.2
 				end
-				-- CMD-001 FocusFire: bias aura allies onto the officer's finish target
-				if best_attack and JazzAI_GetTeamFocusTarget then
-					local focus = JazzAI_GetTeamFocusTarget(unit)
-					if focus and enemy == focus then
-						best_attack.score = best_attack.score * 1.8
-					end
+				-- CMD-001 FocusFire: bias aura allies onto the officer's finish target (×2).
+				if best_attack and JazzAI_ScaleFocusFireTargetScore then
+					best_attack.score = JazzAI_ScaleFocusFireTargetScore(unit, enemy, best_attack.score)
 				end
 				--local best_attack = PickBestAttack(unit, enemy, basic_attacks, mode.cth_by_aim[enemy])
           	   if best_attack and best_attack.score >= best_overall_score then
@@ -1810,11 +1807,70 @@ local function JazzAI_CrowdDistancePenalty(dist, same_tile, adjacent, outer)
 	return 0
 end
 
+--- JAZZ-AI-MED-002: medics walk onto the patient; crowd must not push them off.
+local function JazzAI_IsMedicCrowdExempt(context)
+	if not context then
+		return false
+	end
+	if context.can_heal then
+		return true
+	end
+	local unit = context.unit
+	local arch = unit and (unit.current_archetype or unit.archetype)
+	return arch == "Medic" or arch == "Medic_Low"
+end
+
+local function JazzAI_PackedHasCover(packed)
+	if not packed or type(GetCover) ~= "function" then
+		return false
+	end
+	local x, y, z = stance_pos_unpack(packed)
+	local up, right, down, left = GetCover(x, y, z)
+	return not not (up or right or down or left)
+end
+
+--- JAZZ-AI-MED-002: non-medics prefer a free cover tile over sharing a bush.
+local function JazzAI_CoverSpacingModifier(context, dest)
+	if not context or not dest or JazzAI_IsMedicCrowdExempt(context) then
+		return 100
+	end
+	if not JazzAI_PackedHasCover(dest) then
+		return 100
+	end
+	local unit = context.unit
+	local scale = const.SlabSizeX
+	local near = 0
+	for _, ally in ipairs(context.allies or empty_table) do
+		if ally ~= unit and IsValid(ally) and not ally:IsDead() then
+			local upos = context.ally_pack_pos_stance and context.ally_pack_pos_stance[ally]
+			if ally.ai_context and ally.ai_context.ai_destination then
+				upos = ally.ai_context.ai_destination
+			end
+			if upos then
+				local dist = stance_pos_dist(dest, upos) / scale
+				if dist < 2 and JazzAI_PackedHasCover(upos) then
+					near = near + 1
+				end
+			end
+		end
+	end
+	if near <= 0 then
+		return 100
+	end
+	if near == 1 then
+		return 55
+	end
+	return 30
+end
+
 --- JAZZ-AI-POL-004: normalize local crowd/casualty danger against final dest score.
 --- Casualty tiles remain soft choices so a one-tile passage can never be sealed by corpses.
 local function JazzAI_CrowdDangerModifier(context, dest)
 	local unit = context and context.unit
 	if not unit or not dest then
+		return 100
+	end
+	if JazzAI_IsMedicCrowdExempt(context) then
 		return 100
 	end
 
@@ -1849,7 +1905,7 @@ local function JazzAI_CrowdDangerModifier(context, dest)
 
 	local min_mod = 25
 	local keywords = unit.AIKeywords or empty_table
-	if (context.EffectiveRange or 0) <= 1 or table.find(keywords, "Melee") or context.can_heal then
+	if (context.EffectiveRange or 0) <= 1 or table.find(keywords, "Melee") then
 		min_mod = 55
 	end
 	return Clamp(100 - danger, min_mod, 100)
@@ -2111,6 +2167,14 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		if score_details then
 			score_details[#score_details + 1] = "CROWD/DANGER MOD (%)"
 			score_details[#score_details + 1] = crowd_mod
+		end
+	end
+	local cover_mod = JazzAI_CoverSpacingModifier(context, dest)
+	if score > 0 and cover_mod ~= 100 then
+		score = Max(0, MulDivRound(score, cover_mod, 100))
+		if score_details then
+			score_details[#score_details + 1] = "COVER SPACING MOD (%)"
+			score_details[#score_details + 1] = cover_mod
 		end
 	end
 	ResumeInfiniteLoopDetection("AiCalc")

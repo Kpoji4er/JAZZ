@@ -30,6 +30,7 @@ exclusive_resources:
 related_decisions:
   - docs/specs/active/JAZZ-AI-PERF-001.md
   - docs/specs/active/JAZZ-AI-PERF-002.md
+  - docs/specs/active/JAZZ-AI-PERF-004.md
 approved_by: project-owner chat 2026-08-15 делай M3 enemy-turn freeze
 ---
 
@@ -65,7 +66,7 @@ approved_by: project-owner chat 2026-08-15 делай M3 enemy-turn freeze
 - `JAZZ-AI-PERF-003-REQ-004` — `config.JAZZ_AIPerfLog` → `[JAZZ-AI-PERF] RebuildPaths unit=… ms=… ap=… stance=… dests=… restricted=1`.
 - `JAZZ-AI-PERF-003-REQ-005` — Обёртки ставятся на load и на `ModsReloaded` / `DataLoaded` / `ClassesBuilt` без double-wrap (тот же паттерн, что `Combat:AITurn`). Класс брать из `g_Classes` (`CombatPath`, `Unit`): `rawget(_G, name)` на DefineClass даёт nil (metamethod `_G` не срабатывает).
 - `JAZZ-AI-PERF-003-REQ-006` — `AIPickScoutLocation` bbox = vanilla **`5 * guim`** (не `80 * guim`). `AICalcAOETargetPoints` зовёт scout-scan только если нет `last_known_enemy_pos` **и** нет точек с видимых врагов. Dump signature `PrecalcAction` логируется (`SigPrecalc` / `ScoutLoc`) при `config.JAZZ_AIPerfLog`.
-- `JAZZ-AI-PERF-003-REQ-007` — **Dump / AI targeting only:** `AIGetAttackTargetingOptions` считает CTH через `CalcChanceToHit`, не `GetActionResults`/`GetLoFData` (M3 PickBest вис на одном body-part луче). Dump execute (`args.jazz_ai_dump`): `PrepareAttackArgs` не зовёт `GetLoFData`; `GetAttackResults` не повторяет `CalcShotVectors` 50×20 и не зовёт `GetLoFData` на пулю — синтетический LoF / miss `stuck_pos`; `ProjectileFly` без vegetation `Collide`, sleep ≤400 ms. Игрок и не-Dump execute — ванильный пайплайн (в т.ч. пол LoF 100 тайлов).
+- `JAZZ-AI-PERF-003-REQ-007` — **Dump / AI targeting only:** `AIGetAttackTargetingOptions` считает CTH через `CalcChanceToHit`, не `GetActionResults`/`GetLoFData` (M3 PickBest вис на одном body-part луче). Dump execute (`args.jazz_ai_dump`): `PrepareAttackArgs` не зовёт `GetLoFData`; `GetAttackResults` не повторяет `CalcShotVectors` 50×20 и не зовёт `GetLoFData` на пулю — синтетический LoF / miss `stuck_pos`; `ProjectileFly` без vegetation `Collide`, sleep ≤400 ms. Игрок и не-Dump execute — ванильный пайплайн (в т.ч. пол LoF 100 тайлов). **Execute hits / unpenetrable:** [JAZZ-AI-PERF-004](JAZZ-AI-PERF-004.md) — дешёвый луч заполняет `hits` или `stuck`; targeting по-прежнему без `GetLoFData`.
 
 ## Инварианты и ограничения
 

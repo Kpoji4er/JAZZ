@@ -39,6 +39,9 @@ st = (units / "Code" / "AICombatStance.lua").read_text(encoding="utf-8")
 assert "JazzAI_MedicHealBehaviorScore" in st
 assert "JazzAI_MedicCombatBehaviorScore" in st
 assert "JazzAI_UnitNeedsMedicCare" in st
+assert "JazzAI_ShouldBecomeMedic" in st
+assert "JazzAI_IsAssignedFillInMedic" in st
+assert "carrying_bleed_medicine" not in st
 assert "BleedingMedium" in st
 print("AICombatStance medic switch + heal-first scores: OK")
 

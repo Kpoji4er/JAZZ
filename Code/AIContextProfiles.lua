@@ -260,6 +260,8 @@ local JazzAI_DirectiveHeightsMin = 10
 local JazzAI_DirectiveCloseThreat = 8
 local JazzAI_DirectiveFatiguePerTurn = 80
 local JazzAI_FocusFireMinThreat = 40
+-- CMD-001 / owner 2026-08-21: FocusFire target score ×2 (was 1.8).
+JazzAI_FocusFireScoreMul = 2
 
 function JazzAI_UnitHpPercent(unit)
 	if not IsValid(unit) then
@@ -664,6 +666,39 @@ function JazzAI_GetTeamFocusTarget(unit)
 	return focus
 end
 
+function JazzAI_ScaleFocusFireTargetScore(unit, target, score)
+	if not score or score <= 0 or not unit or not target then
+		return score
+	end
+	local focus = JazzAI_GetTeamFocusTarget(unit)
+	if focus and target == focus then
+		return score * (JazzAI_FocusFireScoreMul or 2)
+	end
+	return score
+end
+
+-- Player-facing FocusFire target for aura INFO (commander + influence).
+-- Reads the team MapVar even if the wearer slightly left radius but still has the badge.
+function JazzAI_GetFocusFireTargetDisplayName(effect)
+	local owner = JazzAI_FindStatusEffectOwner(effect)
+	if not owner or not owner.team then
+		return false
+	end
+	local team = owner.team
+	local entry = (JazzAI_TeamDirectives or empty_table)[team.side or team.handle or tostring(team)]
+	if not entry or entry.directive ~= "FocusFire" then
+		return false
+	end
+	local focus = entry.focus_target
+	if not IsValid(focus) or (focus.IsDead and focus:IsDead()) then
+		return false
+	end
+	if focus.GetDisplayName then
+		return focus:GetDisplayName()
+	end
+	return focus.Nick or focus.Name or false
+end
+
 function JazzAI_IsInOfficerAura(unit, source, radius)
 	if not IsValid(unit) or not IsValid(source) or unit:IsDead() then
 		return false
@@ -824,6 +859,7 @@ local function JazzAI_StripOfficerAuraOrderLine(base_desc)
 	local markers = {
 		"Текущий приказ:", "Следует приказу:", "Current order:", "Following order:",
 		"Эффект приказа:", "Order effect:",
+		"Цель:", "Target:",
 	}
 	for _, marker in ipairs(markers) do
 		local cut = string.find(base_desc, marker, 1, true)
@@ -873,6 +909,12 @@ function JazzAI_FormatOfficerAuraDescription(effect, base, kind)
 		line = T{890000000006112, --[[JazzAI officer aura current order]] "Текущий приказ: <em><order></em>", order = order}
 	end
 	local parts = { base, line }
+	if directive == "FocusFire" then
+		local target_name = JazzAI_GetFocusFireTargetDisplayName(effect)
+		if target_name then
+			parts[#parts + 1] = T{890000000006125, --[[JazzAI officer aura FocusFire target]] "Цель: <em><name></em>", name = target_name}
+		end
+	end
 	if kind == "influence" then
 		local buff = JazzAI_GetDirectiveBuffDisplay(directive)
 		if buff then

@@ -2610,6 +2610,120 @@ function Jazz_EnsurePointHasZ(pt)
 	return pt:SetTerrainZ()
 end
 
+-- PERF-004: Dump must not call GetLoFData. One cheap torso/muzzle ray:
+-- terrain or unpenetrable solid → stuck (no target hit); otherwise inject the target.
+function Jazz_DumpUnitAimPos(unit)
+	if not IsValid(unit) then
+		return false
+	end
+	if unit.GetSpotBeginIndex and unit.GetSpotLocPos then
+		local idx = unit:GetSpotBeginIndex("Torso")
+		if type(idx) == "number" and idx >= 0 then
+			local pos = unit:GetSpotLocPos(idx)
+			if IsPoint(pos) then
+				return Jazz_EnsurePointHasZ(pos)
+			end
+		end
+	end
+	local pos = (unit.GetVisualPos and unit:GetVisualPos()) or unit:GetPos()
+	return Jazz_EnsurePointHasZ(pos)
+end
+
+function Jazz_DumpAttackerAimPos(attacker, weapon)
+	if IsKindOf(weapon, "Firearm") and weapon.GetVisualObj then
+		local vis = weapon:GetVisualObj(attacker)
+		if IsValid(vis) and vis.GetSpotBeginIndex and vis.GetSpotLocPos then
+			local idx = vis:GetSpotBeginIndex("Muzzle")
+			if type(idx) == "number" and idx >= 0 then
+				local pos = vis:GetSpotLocPos(idx)
+				if IsPoint(pos) then
+					return Jazz_EnsurePointHasZ(pos)
+				end
+			end
+		end
+	end
+	return Jazz_DumpUnitAimPos(attacker)
+end
+
+local function Jazz_DumpNearEnd(hit, origin, dest)
+	if not IsPoint(hit) or not IsPoint(origin) or not IsPoint(dest) then
+		return true
+	end
+	local slab = const.SlabSizeX or guim
+	local margin = Max(guim, DivRound(slab, 3))
+	return hit:Dist(dest) <= margin or hit:Dist(origin) <= margin
+end
+
+-- Returns blocked, origin, dest, stuck_pos, reason
+function Jazz_DumpCheapLineOfFire(attacker, target, weapon)
+	local origin = Jazz_DumpAttackerAimPos(attacker, weapon)
+	local dest = Jazz_DumpUnitAimPos(target)
+	if not IsPoint(origin) or not IsPoint(dest) or origin:Dist(dest) <= 0 then
+		return true, origin, dest, origin, "bad_pos"
+	end
+	if type(terrain.IntersectSegment) == "function" then
+		local ok, hit = pcall(terrain.IntersectSegment, origin, dest)
+		if ok and IsPoint(hit) and not Jazz_DumpNearEnd(hit, origin, dest) then
+			return true, origin, dest, Jazz_EnsurePointHasZ(hit), "terrain"
+		end
+	end
+	-- Bodies on the segment (allies in LoF): vanilla GetLoFData marks stuck, no target hit.
+	local rad = Max(guim, DivRound(const.SlabSizeX or guim, 2))
+	if type(SegmentIntersectsSphere) == "function" then
+		for _, other in ipairs(g_Units or empty_table) do
+			if IsValid(other) and other ~= attacker and other ~= target
+				and not other:IsDead() then
+				local p = Jazz_DumpUnitAimPos(other)
+				if IsPoint(p) then
+					local ok, hit = pcall(SegmentIntersectsSphere, origin, dest, p, rad)
+					if ok and hit then
+						return true, origin, dest, Jazz_EnsurePointHasZ(p), "unit"
+					end
+				end
+			end
+		end
+	end
+	return false, origin, dest, dest, "clear"
+end
+
+function Jazz_DumpCheapLineBlocked(attacker, target, weapon)
+	local blocked = Jazz_DumpCheapLineOfFire(attacker, target, weapon)
+	return not not blocked
+end
+
+function Jazz_DumpApplyCheapExecuteHits(lof, attacker, target, weapon)
+	if not lof then
+		return lof, true
+	end
+	local blocked, origin, dest, stuck_pos = Jazz_DumpCheapLineOfFire(attacker, target, weapon)
+	if IsPoint(origin) then
+		lof.lof_pos1 = origin
+		lof.attack_pos = origin
+		lof.step_pos = Jazz_EnsurePointHasZ(lof.step_pos or origin)
+	end
+	if IsPoint(dest) then
+		lof.target_pos = dest
+		lof.lof_pos2 = dest
+	end
+	if blocked then
+		lof.stuck = true
+		lof.hits = {}
+		lof.stuck_pos = stuck_pos or lof.stuck_pos or dest
+		return lof, true
+	end
+	lof.stuck = false
+	lof.stuck_pos = dest or lof.stuck_pos
+	if IsValid(target) and IsPoint(origin) and IsPoint(dest) then
+		lof.hits = {{
+			obj = target,
+			pos = dest,
+			distance = origin:Dist(dest),
+			spot_group = lof.target_spot_group or "Torso",
+		}}
+	end
+	return lof, false
+end
+
 -- Cheap miss LoF: valid attack/stuck points without GetLoFData. ProjectileFly needs stuck_pos.
 function Jazz_SyntheticMissAttackData(attacker, precalc_shot, shot_attack_args, miss_target_pos, max_range)
 	local origin = (precalc_shot and (precalc_shot.lof_pos1 or precalc_shot.attack_pos))
@@ -2640,13 +2754,14 @@ function Jazz_SyntheticMissAttackData(attacker, precalc_shot, shot_attack_args, 
 	return { lof = { lof } }, dest
 end
 
--- Execute hit LoF on large maps: reuse targeting LoF (already computed, ~20 ms).
+-- Execute hit LoF on large maps: cheap terrain/slab ray (PERF-004), not GetLoFData.
 -- A second GetLoFData even at dist+8 stalls on M3 waterfall mesh.
 function Jazz_ReuseTargetingAttackData(shot_attack_args, attacker, target, precalc_shot)
 	local lof_list = shot_attack_args and shot_attack_args.lof
 	local lof_idx = lof_list and table.find(lof_list, "target_spot_group", shot_attack_args.target_spot_group)
 	local lof = lof_list and lof_list[lof_idx or 1]
 	lof = lof or (shot_attack_args and shot_attack_args.outside_attack_area_lof)
+	local weapon = shot_attack_args and shot_attack_args.weapon
 	if lof then
 		if not IsPoint(lof.step_pos) then
 			lof.step_pos = (shot_attack_args and shot_attack_args.step_pos)
@@ -2658,7 +2773,8 @@ function Jazz_ReuseTargetingAttackData(shot_attack_args, attacker, target, preca
 		lof.lof_pos1 = Jazz_EnsurePointHasZ(lof.lof_pos1)
 		lof.lof_pos2 = Jazz_EnsurePointHasZ(lof.lof_pos2)
 		lof.stuck_pos = Jazz_EnsurePointHasZ(lof.stuck_pos or lof.target_pos or lof.attack_pos)
-		return { lof = { lof } }
+		Jazz_DumpApplyCheapExecuteHits(lof, attacker, target, weapon)
+		return { lof = { lof }, stuck = lof.stuck }
 	end
 	local origin = (precalc_shot and (precalc_shot.lof_pos1 or precalc_shot.attack_pos))
 		or (shot_attack_args and (shot_attack_args.attack_pos or shot_attack_args.step_pos))
@@ -2671,24 +2787,19 @@ function Jazz_ReuseTargetingAttackData(shot_attack_args, attacker, target, preca
 	if not IsPoint(origin) or not IsPoint(dest) then
 		return false
 	end
-	local hit = {
-		obj = IsValid(target) and target or nil,
-		pos = dest,
-		distance = origin:Dist(dest),
+	lof = {
+		obj = attacker,
+		step_pos = (shot_attack_args and shot_attack_args.step_pos) or origin,
+		lof_pos1 = origin,
+		attack_pos = (precalc_shot and precalc_shot.attack_pos) or origin,
+		target_pos = dest,
+		lof_pos2 = dest,
+		stuck_pos = dest,
+		hits = {},
+		target_spot_group = shot_attack_args and shot_attack_args.target_spot_group,
 	}
-	return {
-		lof = {{
-			obj = attacker,
-			step_pos = (shot_attack_args and shot_attack_args.step_pos) or origin,
-			lof_pos1 = origin,
-			attack_pos = (precalc_shot and precalc_shot.attack_pos) or origin,
-			target_pos = dest,
-			lof_pos2 = dest,
-			stuck_pos = dest,
-			hits = hit.obj and { hit } or {},
-			target_spot_group = shot_attack_args and shot_attack_args.target_spot_group,
-		}},
-	}
+	Jazz_DumpApplyCheapExecuteHits(lof, attacker, target, weapon)
+	return { lof = { lof }, stuck = lof.stuck }
 end
 
 function Jazz_EnsureShotStuckPos(shot)

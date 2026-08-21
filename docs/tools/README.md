@@ -182,7 +182,7 @@
 | `_install_localization_exports.py` | Проверяет `sep=,`, схему, numeric/unique IDs и равенство RU/EN export sets; с `--apply` атомарно устанавливает парные runtime CSV. |
 | `localization-copy-edits/quests_001.csv` | Канонические RU/EN строки ремонта квестов и разговора Barry Seal; вход для `_apply_localization_copy_edit.py`. |
 | `localization-copy-edits/ame_runtime_statuses.csv` | Закрывает восемь накопленных AME status/filter строк RU/EN, чтобы парный runtime export был полным. |
-| `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; combat Score helpers; `AISelectHealTarget` / `AIActionBandage` Precalc; `JazzAI_TryMedicSwitch` all bleed tiers. |
+| `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; `JazzAI_ShouldBecomeMedic` (no blanket bandage→Medic); Bandage Precalc. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
 | `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc; mixed specialist pool + `support_archetype = "mixed"`. |
 | `_check_legion_rest_025.py` | Static JAZZ-STRATEGY-025: city/bunker/outpost rest helpers, top-up gate, loc/wiki smoke. |
@@ -211,7 +211,7 @@
 | `_patch_grenade_mishap_hint_loc.py` | RU/EN Frag `243383619902` + M79 `397383171067` AdditionalHint: quarter/half mishap curve, thr ~50, elite max-range note. |
 | `_patch_grenade_mishap_magnitude_90.py` | Retune `GetMishapDeviationBounds`: half≈old max magnitude, full≈+25% (90/90 ~80% pre-tune accuracy); skill floor 10%. |
 | `_bump_metadata_grenade_mishap.py` / `_stage_items_grenade_hints_only.py` | Commit helpers: metadata revision+last_changes; items.lua = HEAD + Frag/M79 hints only (officer WIP aside). |
-| `_apply_officer_aura_loc.py` | CMD-001 UI: RU/EN `890000000006100–6124` (OfficerAura / Influence; directives incl. OccupyHeights; buff labels; order-effect tooltip). |
+| `_apply_officer_aura_loc.py` | CMD-001 UI: RU/EN `890000000006100–6125` (OfficerAura / Influence; directives; buff labels; order-effect + FocusFire target tooltip). |
 | `_apply_jazz_trauma_effect_parent.py` | Trauma* → parent/`object_class` `JazzTraumaEffect` (companions + `items.lua`); paired with early `Code/System_JazzTraumaEffect.lua`. |
 | `_audit_trauma_loc_ids.py` | Trauma* + medicine timing T() IDs vs `Russian.csv`/`English.csv` (Text match, non-empty Translation, no garbage). Exit 1 if broken. |
 | `_patch_med001_hit_pain_ac.py` | MED-001: insert AC-012 (+ fix REQ-010 backticks) for `JazzPainOnDamagingHit` contract. |

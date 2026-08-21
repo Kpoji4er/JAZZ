@@ -2,7 +2,7 @@
 
 [Overview](home.md) · [Legion units](legion-units.md) · [Perks](perks.md) · [Русский](../ru/officer-aura.md)
 
-In combat, AI officers show **Command aura**; nearby allies get **Under aura influence**. The tooltip shows the **current order** and a small order buff. You do not pick the order — the officer changes it from the situation, and a repeated order gradually loses weight so the squad tries other orders.
+In combat, AI officers show **Command aura**; nearby allies get **Under aura influence**. The tooltip shows the **current order** and a small order buff; **Focus fire** also names **who**. You do not pick the order — the officer changes it from the situation, and a repeated order gradually loses weight so the squad tries other orders.
 
 ## Radius
 
@@ -22,7 +22,7 @@ Outside the radius or after the commander dies, influence drops. With several of
 | **Push** | enemy ≤ **12** | scouts assault; **+1 AP** |
 | **Envelop** | enemy ≥ **24** | flank; **+2 CTH** |
 | **Fall back** | ≥2 dead and ≥30% of squad | cover; **−5 CTH** vs them |
-| **Focus fire** | sniper / MG / close / wounded threat | finish that target; **+5 CTH** |
+| **Focus fire** | sniper / MG / close / wounded threat | shoot **that** target (score ×2); tooltip shows **who**; **+5 CTH** |
 | **Occupy buildings** | urban | fight from buildings; **+2 CTH** |
 | **Take the high ground** | hills / elevation | high ground; **+2 CTH** |
 | **Take cover** | losing a long firefight | cover; **−3 CTH** vs them |

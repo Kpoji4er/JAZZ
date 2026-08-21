@@ -1058,12 +1058,22 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
             local args = {target = target, voiceResponse = voice_response, aim = aim}
             -- JAZZ-AI-002 Dump: no LOF → Disengage. CalcChanceToHit / PickBestAttack
-            -- ignore stuck; GetActionResults zeros CTH when obstructed. Firing with an
-            -- empty body-part list animates a wall/miss shot — abort instead.
+            -- ignore stuck. PERF-004 cheap ray restores the wall abort without GetLoFData.
             local body_parts = AIGetAttackTargetingOptions(unit, context, target, attack_action)
             if IsKindOf(target, "Unit") and (not body_parts or #body_parts == 0) then
                 if g_AIExecutionController then
                     g_AIExecutionController:Log("  No LOF (all body parts CTH=0)")
+                end
+                context.dump_attack_mode = nil
+                context.dump_attack_target = nil
+                break
+            end
+            local dump_weapon = (context and context.weapon)
+                or unit:GetActiveWeapons("Firearm")
+            if type(Jazz_DumpCheapLineBlocked) == "function"
+                and Jazz_DumpCheapLineBlocked(unit, target, dump_weapon) then
+                if g_AIExecutionController then
+                    g_AIExecutionController:Log("  No LOF (cheap unpenetrable)")
                 end
                 context.dump_attack_mode = nil
                 context.dump_attack_target = nil
@@ -1373,6 +1383,14 @@ function AIPrecalcDamageScore(context, destinations, preferred_target,
         preferred_target = nil
     end
 
+    -- CMD-001: Concentrate Fire locks dest pick onto the officer's focus target.
+    local focus = type(rawget(_G, "JazzAI_GetTeamFocusTarget")) == "function"
+        and JazzAI_GetTeamFocusTarget(unit)
+    if IsValid(focus) and table.find(targets, focus)
+        and not (IsKindOf(focus, "Unit") and focus:IsIncapacitated()) then
+        preferred_target = focus
+    end
+
     if weapon and not is_melee then
         lof_params = {
             obj = unit,
@@ -1626,6 +1644,10 @@ end
                             if group_mod > 0 then
                                 mod = MulDivRound(mod, group_mod, 100)
                             end
+                        end
+
+                        if type(rawget(_G, "JazzAI_ScaleFocusFireTargetScore")) == "function" then
+                            mod = JazzAI_ScaleFocusFireTargetScore(unit, target, mod)
                         end
 
                         --[[table.insert(logdata, {

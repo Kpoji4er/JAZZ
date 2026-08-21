@@ -41,7 +41,7 @@ Leaders не пишут aura directives (F8).
 - Directives: HoldLine / Push / Envelop / LowVisHold / FallBack / FocusFire / OccupyBuildings / OccupyHeights / TakeCover / GoHidden.
 - Distance bands: Push ≤12, HoldLine 13–23, Envelop ≥24 (tiles from officer to nearest enemy).
 - Score-picker + directive fatigue; FallBack = dead≥2 & ≥30% (no sticky wounds).
-- FocusFire = threat priority (sniper/MG/close/finish); bias ×1.8.
+- FocusFire = threat priority (sniper/MG/close/finish); bias ×2.
 - Influence buffs by directive; aura assigns `semi_sniper` / `pseudo_mg` fill-ins in radius.
 - На командире — видимый System-`Perk` **Командная аура**; на союзниках в радиусе — **Под влиянием ауры**.
 
@@ -58,7 +58,7 @@ Leaders не пишут aura directives (F8).
 - `JAZZ-AI-CMD-001-REQ-003` — PickCombatStance respects Push/Envelop/FallBack/TakeCover/OccupyBuildings/GoHidden.
 - `JAZZ-AI-CMD-001-REQ-004` — `Jazz_Perk_OfficerAura` / `Jazz_Perk_OfficerAuraInfluence`; Apply/Remove по радиусу; RemoveOnEndCombat; RU+EN loc.
 - `JAZZ-AI-CMD-001-REQ-005` — Score-picker + fatigue; FallBack dead≥2&≥30%; FocusFire threat-score; OccupyHeights; TakeCover/GoHidden as before; bands Push≤12 / Envelop≥24.
-- `JAZZ-AI-CMD-001-REQ-006` — FocusFire `focus_target` + attack bias ×1.8; Influence CTH/AP/defense by directive.
+- `JAZZ-AI-CMD-001-REQ-006` — FocusFire `focus_target` + attack bias ×2; Influence CTH/AP/defense by directive.
 - `JAZZ-AI-CMD-001-REQ-007` — GoHidden → `JazzAI_TryUnitGoHidden` on WriteOfficerAura + UnitBeginTurn.
 - `JAZZ-AI-CMD-001-REQ-008` — WriteOfficerAura assigns `semi_sniper` / `pseudo_mg` among aura allies when no dedicated role.
 
@@ -89,7 +89,7 @@ Leaders не пишут aura directives (F8).
 ## Решение владельца
 
 - approved 2026-07-29; visible System Perks (не StatusEffect) 2026-07-29.
-- owner 2026-08-05: bands 12/24; wire FallBack/FocusFire; add OccupyBuildings/TakeCover/GoHidden; expand toward design.
+- owner 2026-08-21: FocusFire target score ×2 (was 1.8); apply in CreateContext and Dump `AIPrecalcDamageScore`; lock preferred dest target to `focus_target`.
 
 ## Evidence
 
