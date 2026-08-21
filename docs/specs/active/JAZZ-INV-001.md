@@ -66,7 +66,7 @@ approved_by: project-owner
 - `JAZZ-INV-001-REQ-005` — scope: любой `InventoryStack` (ammo, meds, parts, grenades, misc, valuables stack и т.д.).
 - `JAZZ-INV-001-REQ-006` — `SectorStash` = тот же storage-режим, что `SquadBag`.
 - `JAZZ-INV-001-REQ-007` — предметы с `MaxStacks = 5000` (underscore ammo костыль) переводятся на personal-scale `MaxStacks` в том же change set (`items.lua` + companion).
-- `JAZZ-INV-001-REQ-008` — существующие сейвы с `Amount > MaxStacks` в разгрузке не ломаются: oversized stack допускается до взаимодействия; новый merge/transfer в unit не увеличивает выше personal max.
+- `JAZZ-INV-001-REQ-008` — `Amount > MaxStacks` в разгрузке не удаляется: лишнее уходит в `SquadBag` (load / AddItem / MoveItem / MergeStack cap). Новый merge в unit не поднимает стек выше personal max; если instance `MaxStacks` остался складским 10000, merge всё равно режет по personal max.
 
 ## Инварианты и ограничения
 
@@ -86,12 +86,12 @@ approved_by: project-owner
 - `JAZZ-INV-001-AC-005` — runtime/UI: в bag/stash на тайле только число; в разгрузке `cur/max`.
 - `JAZZ-INV-001-AC-006` — runtime: SectorStash ведёт себя как bag по merge и UI.
 - `JAZZ-INV-001-AC-007` — sync-audit: companion + `items.lua` + `metadata.lua` согласованы; underscore `MaxStacks=5000` убраны.
-- `JAZZ-INV-001-AC-008` — human: existing save открывается; oversized personal stack не крашит UI.
+- `JAZZ-INV-001-AC-008` — human: existing save открывается; oversized personal stack не крашит UI и при load/add/move лишнее оказывается в SquadBag, не пропадает.
 
 ## Impact и совместимость
 
 - Vanilla/CommonLib/JAZZ: last-writer override точек merge/`CanAddItem`/`GetItemSlotUI` уже в JAZZ-owned files; новый companion code file.
-- Saves: `Amount` может временно превышать новый personal `MaxStacks` после data cleanup — REQ-008.
+- Saves: oversized personal `Amount` splittable to SquadBag; nothing deleted.
 - Network/determinism: без нового RNG; те же MoveItem/NetSync пути.
 - Generated data: правка `MaxStacks` у underscore ammo + регистрация нового `Code/*.lua`.
 - Cross-package: нет обязательных правок `jazz-units`/`jazz-maps` (loot Amount уже clamp к MaxStacks).
@@ -115,6 +115,7 @@ approved_by: project-owner
   2. Scope = все `InventoryStack`.
   3. `SectorStash` = storage как bag.
   4. Плавающий visual-disappear предметов в SquadBag (до регенерации UI) — known issue, **вне** DoD этого change; не маскировать под «предметы удалены».
+  5. 2026-08-21 (owner): overflow разгрузки (`160/120`) — лишнее в SquadBag, патроны не удалять.
 - Human acceptance: owner playtest PASS 2026-07-30 (bag OK; storage→merc clamp OK after JazzClampMoveStorageToPersonal).
 
 ## Evidence
@@ -126,10 +127,10 @@ approved_by: project-owner
 - `JAZZ-INV-001-AC-005`: `PASS (runtime/human)` — owner: bag UI amount-only; loadout `cur/max`
 - `JAZZ-INV-001-AC-006`: `PASS (runtime/human)` — owner: storage behavior accepted (SectorStash same path as bag)
 - `JAZZ-INV-001-AC-007`: `PASS` — static sync: companion + items + metadata; underscore `MaxStacks=5000` cleared
-- `JAZZ-INV-001-AC-008`: `PASS (runtime/human)` — owner: loaded from save, playtest OK
+- `JAZZ-INV-001-AC-008`: `PASS (static)` / `BLOCKED (runtime)` — spill to SquadBag on load/add/move; silent truncate removed.
 
 ## Documentation delta
 
-- `docs/technical/systems/inventory-items-loot-crafting.md` — dual stack limits + UI rule; кратко known visual-disappear SquadBag (не data loss).
+- `docs/technical/systems/inventory-items-loot-crafting.md` — dual stack limits + UI rule; overflow → SquadBag; RPG empty-stack reload slot.
 - `docs/technical/systems/file-coverage.md` — `System_InventoryStacks.lua` loaded.
-- Player-facing wiki/showcase: отдельной inventory-страницы нет; не добавлять known UI-баг в витрину.
+- `docs/wiki/weapons-and-ammo.md`, `docs/showcase/ru/weapons-and-ammo.md`, `docs/showcase/en/weapons-and-ammo.md` — RPG last round, loadout overflow to bag, fractional weapon pen.

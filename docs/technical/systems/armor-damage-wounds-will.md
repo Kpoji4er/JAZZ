@@ -104,6 +104,7 @@ weapon_pen = PenetrationClass + 0.1 × PenetrationBonus
 1. Legacy: `AdditionalReduction` / старый pierce-branch в `ApplyHitDamageReduction` закомментированы; актуальный DR — только через `CalculateArmorRating*`.
 2. Часть vanilla/ранних жилетов без явного `PenetrationClass`/`ArmorRating` в companion (например часть `Flak*`) опирается на defaults шаблона — проверять перед балансными правками.
 3. Исправлено (2026-07-30): unit/object path на `GetAttackPenetrationClass`; ammo UI сначала вернули float в `T{}` (`.45ACP` **0.9** показывалось как **0** из‑за усечения), затем — целые десятые + `Untranslated` (`FormatAmmoPenetrationDisplay`).
+4. Исправлено (2026-08-21): `PenetrationBonus` с `mod_mul = 0` занулял `mod_add` в `CaliberModification` (`.30 Cal` FMJ, `7.92×33` FMJ, ряд AP). Tooltip патрона add видел, заряженное оружие — нет. Mul снят; карточка оружия показывает ту же дробь, что tooltip.
 
 ### Аудит дизайна и кода (static, 2026-07-30)
 

@@ -200,7 +200,9 @@ display = "W.F"   -- 9 → 0.9, 22 → 2.2
 
 Боевой pen: `GetAttackPenetrationClass` = `PenetrationClass + 0.1×PenetrationBonus` — см. [броня/урон](armor-damage-wounds-will.md).
 
-`Ammo:GetRolloverHint` склеивает оба модификатора в одну строку и передаёт **`Untranslated` строку**, не Lua float: подстановка числа в `T{}` усекает к нулю (`0.9` → `0`). Форматтер: `FormatAmmoPenetrationDisplay`.
+`Ammo:GetRolloverHint` склеивает оба модификатора в одну строку и передаёт **`Untranslated` строку**, не Lua float: подстановка числа в `T{}` усекает к нулю (`0.9` → `0`). Форматтер патрона: `FormatAmmoPenetrationDisplay`. Карточка заряженного оружия (`RolloverInventoryWeaponBase`, bind `PenetrationClass`) показывает ту же дробь через `FormatWeaponPenetrationDisplay` (класс + десятые `PenetrationBonus`), не сырой целый класс.
+
+Не ставить `mod_mul = 0` на `PenetrationBonus`: `MulDivRound(base+add, 0, 1000)` зануляет add в бою (`.30 Cal` FMJ tooltip 1.6 / карабин 1.0). Соль: `mod_mul = 0` только на `PenetrationClass`. Аудит: `docs/tools/_audit_ammo_pen_mul_zero.py`.
 
 Не делать `DivRound(mul, 100) * 10 + bonus` (двойной масштаб → 202) и не путать с jam `%` (`/10`).
 

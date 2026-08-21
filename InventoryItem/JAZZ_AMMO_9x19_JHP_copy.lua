@@ -29,7 +29,6 @@ DefineClass.JAZZ_AMMO_9x19_JHP_copy = {
 		}),
 		PlaceObj('CaliberModification', {
 			mod_add = -2,
-			mod_mul = 0,
 			target_prop = "PenetrationBonus",
 		}),
 	},

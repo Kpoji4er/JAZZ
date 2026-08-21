@@ -1778,7 +1778,7 @@ end
 -- System_InventoryStacks.lua cannot bring back "/10000" on bag tiles.
 function InventoryStack:GetItemSlotUI()
 	local storage = (rawget(_G, "JazzIsStorageStackUI") and JazzIsStorageStackUI(self))
-		or (rawget(self, "MaxStacks") == (rawget(const, "JazzStorageStackMax") or 10000))
+		or ((not rawget(_G, "JazzIsStorageStackUI")) and rawget(self, "MaxStacks") == (rawget(const, "JazzStorageStackMax") or 10000))
 	if storage then
 		if self.colorStyle then
 			return Untranslated("<style " .. self.colorStyle .. ">" .. self.Amount .. "<valign bottom 0></style>")

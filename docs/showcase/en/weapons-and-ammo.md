@@ -15,7 +15,7 @@ A **sub-tier** orders close variants (magazine, RoF, range, reliability, modules
 | Field | Meaning |
 | --- | --- |
 | Damage | Base damage per bullet before armor and other effects. |
-| Penetration | Armor class scale 1–5; ammo sets class plus a fractional tenth-step bonus. |
+| Penetration | Armor class scale 1–5; ammo sets class plus a fractional tenth-step bonus. A loaded weapon shows the same number as its ammo (e.g. `.30 Cal` **1.6**). |
 | Mag | Magazine capacity. |
 | AP shot / reload | Attack tempo and upkeep cost. |
 | Aim | Aim clicks × value per click. |
@@ -35,7 +35,9 @@ Tube-fed shotguns, break-actions, and revolvers use normal Reload when empty. On
 **12-gauge shells:** ammo type sets the pellet packet — buckshot ≈9, birdshot/salt ≈20; slug is a single projectile. **Saltshot** immediately fills **Pain** to the cap (8) on a non-graze hit, even when armor absorbs all damage.
 
 ## Disposable launchers
-**M72 LAW** has one embedded shot: it cannot be reloaded or repaired. After any shot that is fired, including a mishap, the launcher leaves the inventory and a visible empty tube remains on the ground. The **RPG-7** remains reusable and reloads separate rounds.
+**M72 LAW** has one embedded shot: it cannot be reloaded or repaired. After any shot that is fired, including a mishap, the launcher leaves the inventory and a visible empty tube remains on the ground. The **RPG-7** remains reusable and reloads separate rounds from the backpack. The last round is fully consumed: no leftover `0/1` dummy, and Reload will not spend AP on an empty stack.
+
+Loadout ammo stacks do not grow past the pocket cap. If a stack is already over that cap, the extra rounds go to the **squad bag** instead of disappearing.
 
 ## Components
 

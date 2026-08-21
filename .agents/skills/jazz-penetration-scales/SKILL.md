@@ -28,7 +28,8 @@ weapon_pen = PenetrationClass + 0.1 × PenetrationBonus
 
 - `PenetrationClass` + `mod_mul`: шкала **×1000** (`1000` = ×1 к базовому классу оружия, обычно `1` → итог класс `1`; `2000` → класс `2`).
 - `PenetrationBonus` + `mod_add`: те же **десятые**, что у оружия (`-1` → −0.1).
-- Явный `mod_mul = 0` на классе — валидный «почти ноль» (не подменять на `1000`).
+- **Не** ставить `mod_mul = 0` на `PenetrationBonus`: движок делает `MulDivRound(base + add, mul, 1000)` — `mul=0` **зануляет add**. Карточка патрона (`FormatAmmoPenetrationDisplay`) add всё равно показывает, заряженное оружие — нет. Канон: только `mod_add`, mul не задавать (1000).
+- Явный `mod_mul = 0` на **классе** — валидный «почти ноль» (соль); не подменять на `1000`.
 - `mod_mul == nil` (поле не задано) в UI трактовать как `1000`.
 
 Пример `.45ACP FMJ`: нет `mod_mul` (=×1 → класс 1) + `mod_add = -1` → **0.9**.
@@ -46,7 +47,7 @@ display = "W.F"   -- 9 → "0.9", 22 → "2.2"
 pen = Untranslated(display)
 ```
 
-Канон: `FormatAmmoPenetrationDisplay(mod_mul, mod_add)` в `AmmoRolloverHint.lua`.
+Канон: `FormatAmmoPenetrationDisplay(mod_mul, mod_add)` в `AmmoRolloverHint.lua`. Карточка заряженного оружия: `FormatWeaponPenetrationDisplay(weapon)` через `RolloverInventoryWeaponBase` `CreatePropValText` на `PenetrationClass` (`Untranslated`, не float в `T{}`).
 
 ### Запрещённые антипаттерны
 
@@ -80,7 +81,8 @@ pen = Untranslated(FormatAmmoPenetrationDisplay(val_mul, val_add))
 2. FMJ 5.56 `mul=2000`, `bonus=+2` → **2.2**, не 22 и не 202.
 3. Jam `%` по-прежнему `DivRound(BaseJamChance, 10)`.
 4. Unit DR / object armor / crit pierce вызывают `GetAttackPenetrationClass`, не сырой `PenetrationClass`.
-5. Обновить technical, если меняется контракт шкалы или UI.
+5. Аудит `python docs/tools/_audit_ammo_pen_mul_zero.py` — нет `PenetrationBonus` `mod_mul=0`.
+6. Обновить technical, если меняется контракт шкалы или UI.
 
 ## Связанные файлы
 

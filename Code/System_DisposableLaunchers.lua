@@ -5,6 +5,15 @@ function IsWeaponAvailableForReload(weapon, ammoForWeapon)
 	if weapon and weapon.DisposableLauncher then
 		return false, AttackDisableReasons.NoAmmo
 	end
+	if ammoForWeapon then
+		local live = {}
+		for _, ammo in ipairs(ammoForWeapon) do
+			if ammo and (ammo.Amount or 0) > 0 then
+				live[#live + 1] = ammo
+			end
+		end
+		ammoForWeapon = live
+	end
 	return VanillaIsWeaponAvailableForReload(weapon, ammoForWeapon)
 end
 
@@ -16,12 +25,13 @@ function UnitInventory:ReloadWeapon(weapon, ...)
 	return VanillaReloadWeapon(self, weapon, ...)
 end
 
-function RocketLauncher:Reload(ammo, suspend_fx, delayed_fx)
+function RocketLauncher:Reload(ammo, suspend_fx, delayed_fx, max_add)
 	if self.DisposableLauncher then
 		return false, false, false
 	end
-	Firearm.Reload(self, ammo, suspend_fx, delayed_fx)
+	local prev, played_fx, change = Firearm.Reload(self, ammo, suspend_fx, delayed_fx, max_add)
 	self:UpdateRocket()
+	return prev, played_fx, change
 end
 
 local function LoadEmbeddedOrdnance(launcher)

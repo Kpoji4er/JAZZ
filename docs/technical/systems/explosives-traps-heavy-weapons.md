@@ -91,7 +91,7 @@ AI использует собственную оценку допустимой
 
 ### Одноразовые ракетные пусковые — JAZZ-WEAPONS-005
 
-`RocketLauncher.DisposableLauncher` по умолчанию `false`. У `M72LAW` он включён: при добавлении предмета `EmbeddedOrdnance = "Warhead_Frag"` создаёт один встроенный выстрел, а `MagazineSize = 1`. Перезарядка блокируется в UI-проверке, `UnitInventory:ReloadWeapon` и `RocketLauncher:Reload`; RPG-7 остаётся обычной перезаряжаемой пусковой.
+`RocketLauncher.DisposableLauncher` по умолчанию `false`. У `M72LAW` он включён: при добавлении предмета `EmbeddedOrdnance = "Warhead_Frag"` создаёт один встроенный выстрел, а `MagazineSize = 1`. Перезарядка блокируется в UI-проверке, `UnitInventory:ReloadWeapon` и `RocketLauncher:Reload`; RPG-7 остаётся обычной перезаряжаемой пусковой. `RocketLauncher:Reload` **возвращает** `prev, played_fx, change` из `Firearm.Reload` (иначе `ReloadWeapon` не чистит опустошённый стек). Пустой `Warhead_Frag` (`0/1`) снимается из фактического слота рюкзака, не из `OrdnanceInventory`.
 
 После любого расходующего выстрела (включая mishap) `OnMsg.OnAttack` удаляет M72 из слота стрелка, создаёт отдельный `WeaponVisual` с entity `M72LAW2` у его ног и обновляет outfit. Это только world debris: визуальная труба не InventoryItem, не loot, не scrap и не пригодна для нового выстрела. Отмена до расхода и jam не вызывают этот путь. Runtime wave test остаётся обязательным.
 

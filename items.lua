@@ -7557,7 +7557,6 @@ PlaceObj('ModItemEmail', {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 6,
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 						},
@@ -7692,7 +7691,6 @@ PlaceObj('ModItemEmail', {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 6,
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
@@ -8458,7 +8456,6 @@ PlaceObj('ModItemEmail', {
 								target_prop = "PenetrationClass",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
@@ -8876,7 +8873,6 @@ PlaceObj('ModItemEmail', {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 2,
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
@@ -9202,7 +9198,6 @@ PlaceObj('ModItemEmail', {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 5,
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
@@ -9450,7 +9445,6 @@ PlaceObj('ModItemEmail', {
 							}),
 							PlaceObj('CaliberModification', {
 								mod_add = 2,
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
@@ -10029,7 +10023,6 @@ PlaceObj('ModItemEmail', {
 								target_prop = "PenetrationClass",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_mul = 0,
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
@@ -85454,6 +85447,15 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 											end
 											return Untranslated((totalDmg / Max(1, dmg)) .. "<valign bottom -3><style InventoryRolloverPropSmall>x</style><valign center>" .. dmg)
 										end
+									end
+								end
+								if item.bind_to == "PenetrationClass" and IsKindOf(context, "Firearm") then
+									child.CreatePropValText = function(self, value, scale)
+										local weapon = ResolvePropObj(context) or context
+										if FormatWeaponPenetrationDisplay then
+											return Untranslated(FormatWeaponPenetrationDisplay(weapon))
+										end
+										return Untranslated(FormatNumberProp(value or 0, scale))
 									end
 								end
 								if item.bind_to == "BaseRange" and IsKindOf(context, "Ordnance") then

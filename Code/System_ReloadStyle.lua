@@ -13,6 +13,9 @@ local JazzPerRoundStyles = {
 -- cannot pull more than that many rounds (used by WEAPONS-004 Top up).
 local VanillaFirearmReload = Firearm.Reload
 function Firearm:Reload(ammo, suspend_fx, delayed_fx, max_add)
+	if not ammo or (ammo.Amount or 0) <= 0 then
+		return false, false, false
+	end
 	local reserved = 0
 	if max_add and max_add > 0 and ammo and ammo.Amount and ammo.Amount > max_add then
 		reserved = ammo.Amount - max_add

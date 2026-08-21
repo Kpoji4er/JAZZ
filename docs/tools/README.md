@@ -27,6 +27,7 @@
 | `_audit_ame_hat_not_blue.py` | Flag AME hats that violate no-blue accent policy. |
 | `_patch_ame_appearance_clothes_from_map.py` | Apply clothes fields from `ame-appearance-map.json` into generated appearance data. |
 | `_export_ammo_stats.py` | Parse `InventoryItem/JAZZ_AMMO_*.lua` → `Ammopics/_gen/ammo_stats.json` + `.csv` (pen/dmg/jam/crit/BR). |
+| `_audit_ammo_pen_mul_zero.py` | Fail if `JAZZ_AMMO_*` has `PenetrationBonus` `mod_mul=0` (engine zeros `mod_add`). Class-level `mul=0` (saltshot) is allowed. |
 | `_gen_ammo_stats_canvas.py` | Rebuild `canvases/ammo-stats.canvas.tsx` from `ammo_stats_compact.json`. |
 | `_normalize_ammo_icon_bbox.py` | Crop near-black, fit ammo-box content into fixed `fit_w`×`fit_h` on 110×110 black canvas (series size lock). |
 | `_lock_ammo_icon_silhouette.py` | Silhouette lock per caliber. Cut: `--key auto\|magenta\|black\|alpha`, `--choke` after downscale, `--alpha-from draft\|sil`, `--thr`, `--hard-alpha`. Soft edge: `--soft-outline 0.45` / `--outline-only`. Prefer **magenta plate** gens. |

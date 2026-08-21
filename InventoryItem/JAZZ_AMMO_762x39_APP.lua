@@ -27,7 +27,6 @@ DefineClass.JAZZ_AMMO_762x39_APP = {
 		}),
 		PlaceObj('CaliberModification', {
 			mod_add = 2,
-			mod_mul = 0,
 			target_prop = "PenetrationBonus",
 		}),
 		PlaceObj('CaliberModification', {

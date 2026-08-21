@@ -72,9 +72,13 @@ function RocketLauncher:OnUnloadWeapon()
 	self:UpdateRocket()
 end
 
-function RocketLauncher:Reload(...)
-	Firearm.Reload(self, ...)
+function RocketLauncher:Reload(ammo, suspend_fx, delayed_fx, max_add)
+	if self.DisposableLauncher then
+		return false, false, false
+	end
+	local prev, played_fx, change = Firearm.Reload(self, ammo, suspend_fx, delayed_fx, max_add)
 	self:UpdateRocket()
+	return prev, played_fx, change
 end
 
 function RocketLauncher:UpdateVisualObj(...)

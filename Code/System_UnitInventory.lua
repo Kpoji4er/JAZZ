@@ -159,6 +159,9 @@ function UnitInventory:AddItem(slot_name, item, left, top, local_execution)
 		Msg("ItemAdded", self, item, slot_name, pos)
 	end
 	item:OnAdd(self, slot_name, pos, item)
+	if JazzSpillPersonalStackExcess then
+		JazzSpillPersonalStackExcess(self, item)
+	end
 
 	return pos, reason
 end
@@ -355,7 +358,7 @@ function UnitInventory:GetAvailableAmmos(weapon, ammo_type, unique)
 	if ammo_class == "Ammo" then slot_name = "AmmoInventory" end
 	local caliber = weapon.Caliber
 	self:ForEachItemInSlot(slot_name, ammo_class, function(ammo, slot_name, left, top, types, ammo_type, caliber, unique)
-		if (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber then
+		if (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber and (ammo.Amount or 0) > 0 then
 			if not unique or not table.find(types, "class", ammo.class) then
 				table.insert(types, ammo)
 			end
@@ -398,6 +401,32 @@ function UnitInventory:CountAvailableAmmo(ammo_type)
 	return l_count_available_ammo
 end
 
+function JazzRemoveEmptyAmmoStack(unit, item, bag)
+	if not item then
+		return
+	end
+	if (item.Amount or 0) > 0 then
+		return
+	end
+	if unit then
+		local slot = unit.GetItemSlot and unit:GetItemSlot(item)
+		if slot then
+			unit:RemoveItem(slot, item)
+		else
+			for _, name in ipairs({"AmmoInventory", "OrdnanceInventory", "Inventory", "GrenadesInventory"}) do
+				local removed = unit:RemoveItem(name, item)
+				if removed then
+					break
+				end
+			end
+		end
+	end
+	if bag then
+		bag:RemoveItem("Inventory", item)
+	end
+	DoneObject(item)
+end
+
 function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai, reload_mode)
 	local reloaded
 	local ammo
@@ -421,63 +450,71 @@ function UnitInventory:ReloadWeapon(gun, ammo_type, delayed_fx, ai, reload_mode)
 	else
 		ammo = ammo_type
 		ammo_items = self:GetAvailableAmmos(gun, ammo_type.class)
+		ammo_items = ammo_items and table.ifilter(ammo_items, function(idx, stack) return (stack.Amount or 0) > 0 end) or {}
 		table.remove_value(ammo_items, ammo)
+		if (ammo.Amount or 0) <= 0 then
+			JazzRemoveEmptyAmmoStack(self, ammo, bag)
+			ammo = table.remove(ammo_items, 1)
+		end
 		if JazzSortAmmoStacksForReload then
 			JazzSortAmmoStacksForReload(ammo_items)
 		end
 	end
 	
 	local prev, playedFX, change
-	while ammo and (ai or ((gun.ammo and gun.ammo.Amount or 0) < gun.MagazineSize) or not gun.ammo or gun.ammo.class ~= ammo.class) do
-		-- WEAPONS-004 Top up: cap transfer at 1 round (vanilla Firearm:Reload fills MagSize).
-		prev, playedFX, change = gun:Reload(ammo, nil, delayed_fx, reload_mode == "one_round" and 1 or nil)
-		local vo = gun:GetVisualObj()
-		if (change or ai) and vo and not playedFX then
-			CreateGameTimeThread(function(weapon, obj, delayed_fx)
-				--Added randomness for weapon reload to cover the case with all mercs reloading on combat end or ReloadMultiSelection shortcut(both are during unpaused game)
-				if delayed_fx then
-					Sleep(InteractionRand(500, "ReloadDelay"))
-				end
-				if GetMercInventoryDlg() then
-					PlayFX("WeaponLoad", "start", obj.object_class or (obj.weapon and obj.weapon.object_class), obj)
-				else
-					local actor_class = obj.fx_actor_class
-					obj.fx_actor_class = weapon.class
-					PlayFX("WeaponReload", "start", obj)
-					obj.fx_actor_class = actor_class
-				end
-			end, gun, vo, delayed_fx)
-			playedFX = true
-		end
-		ai = false	
-		reloaded = true	
-		local slot_name = GetContainerInventorySlotName(self)
-
-		local ammo_class = IsKindOfClasses(gun, "HeavyWeapon", "FlareGun") and "Ordnance" or "Ammo"
-		if ammo_class == "Ammo" then slot_name = "AmmoInventory" end
-		if ammo_class == "Ordnance" then slot_name = "OrdnanceInventory" end
-
-		if ammo.Amount <= 0 then
-			self:RemoveItem(slot_name, ammo)	
-			if bag then
-				bag:RemoveItem("Inventory", ammo)
-			end
-			ammo = table.remove(ammo_items, 1) -- keep loading from the next item stack if there's one and still not fully loaded
-		else
-			ObjModified(ammo)
-		end
-		if prev then
-			if prev.Amount == 0 then
-				DoneObject(prev)
-			elseif JazzReturnEjectedAmmo then
-				-- merge into loadout stacks first; leftover drops at feet (not squad bag)
-				JazzReturnEjectedAmmo(self, prev)
-			elseif bag then
-				bag:AddAndStackItem(prev)
-			end
-		end
-		if reload_mode == "one_round" then
+	while ammo do
+		if (ammo.Amount or 0) <= 0 then
+			JazzRemoveEmptyAmmoStack(self, ammo, bag)
+			ammo = table.remove(ammo_items, 1)
+		elseif not ai and gun.ammo and gun.ammo.Amount and gun.ammo.Amount >= gun.MagazineSize and gun.ammo.class == ammo.class then
 			break
+		else
+			-- WEAPONS-004 Top up: cap transfer at 1 round (vanilla Firearm:Reload fills MagSize).
+			prev, playedFX, change = gun:Reload(ammo, nil, delayed_fx, reload_mode == "one_round" and 1 or nil)
+			local vo = gun:GetVisualObj()
+			if (change or ai) and vo and not playedFX then
+				CreateGameTimeThread(function(weapon, obj, delayed_fx)
+					--Added randomness for weapon reload to cover the case with all mercs reloading on combat end or ReloadMultiSelection shortcut(both are during unpaused game)
+					if delayed_fx then
+						Sleep(InteractionRand(500, "ReloadDelay"))
+					end
+					if GetMercInventoryDlg() then
+						PlayFX("WeaponLoad", "start", obj.object_class or (obj.weapon and obj.weapon.object_class), obj)
+					else
+						local actor_class = obj.fx_actor_class
+						obj.fx_actor_class = weapon.class
+						PlayFX("WeaponReload", "start", obj)
+						obj.fx_actor_class = actor_class
+					end
+				end, gun, vo, delayed_fx)
+				playedFX = true
+			end
+			ai = false
+			if change then
+				reloaded = true
+			end
+			if ammo.Amount <= 0 then
+				JazzRemoveEmptyAmmoStack(self, ammo, bag)
+				ammo = table.remove(ammo_items, 1)
+			else
+				ObjModified(ammo)
+			end
+			if prev then
+				if prev.Amount == 0 then
+					DoneObject(prev)
+				elseif JazzReturnEjectedAmmo then
+					-- merge into loadout stacks first; leftover drops at feet (not squad bag)
+					JazzReturnEjectedAmmo(self, prev)
+				elseif bag then
+					bag:AddAndStackItem(prev)
+				end
+			end
+			if reload_mode == "one_round" then
+				break
+			end
+			if not change then
+				break
+			end
 		end
 	end
 	

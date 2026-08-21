@@ -1,6 +1,7 @@
 -- JAZZ-INV-001: dual stack limits — storage (SquadBag/SectorStash) vs personal loadout.
 
 const.JazzStorageStackMax = 10000
+JazzEjectedAmmoPreferUnit = rawget(_G, "JazzEjectedAmmoPreferUnit") or false
 
 function JazzIsStorageInventory(inv)
 	return IsKindOfClasses(inv, "SquadBag", "SectorStash", "UnopennedSquadBag")
@@ -71,10 +72,8 @@ function JazzIsStorageStackUI(item)
 	if not IsKindOf(item, "InventoryStack") then
 		return false
 	end
-	local ms = rawget(item, "MaxStacks")
-	if ms == const.JazzStorageStackMax then
-		return true
-	end
+	-- Membership only. Do not trust MaxStacks==10000: a stack that left the bag
+	-- can keep that instance cap and then show / merge as storage in loadout.
 	if gv_SquadBag and gv_SquadBag.Inventory then
 		local found
 		gv_SquadBag:ForEachItem(function(it)
@@ -118,6 +117,12 @@ function OnMsg.LoadGame()
 	for squad_id in pairs(gv_Squads or empty_table) do
 		JazzMarkSquadBagData(squad_id)
 	end
+	local ud = rawget(_G, "gv_UnitData")
+	if type(ud) == "table" then
+		for _, unit in pairs(ud) do
+			JazzSpillUnitInventoryExcess(unit)
+		end
+	end
 end
 
 function JazzGetAmmoLoadoutSlot(unit, item)
@@ -125,12 +130,129 @@ function JazzGetAmmoLoadoutSlot(unit, item)
 		return false
 	end
 	if IsKindOf(item, "Ordnance") then
-		return "OrdnanceInventory"
+		-- OrdnanceInventory is ThrowableTrapItem (C4); RPG warheads live in backpack.
+		if unit.CheckClass and unit:CheckClass(item, "OrdnanceInventory") then
+			return "OrdnanceInventory"
+		end
+		return GetContainerInventorySlotName and GetContainerInventorySlotName(unit) or "Inventory"
 	end
 	if IsKindOf(item, "Ammo") then
 		return "AmmoInventory"
 	end
 	return GetContainerInventorySlotName and GetContainerInventorySlotName(unit) or "Inventory"
+end
+
+function JazzCloneStackRemainder(item, amount)
+	if not item or not amount or amount <= 0 then
+		return false
+	end
+	local clone = PlaceInventoryItem(item.class)
+	if not IsKindOf(clone, "InventoryStack") then
+		if clone then
+			DoneObject(clone)
+		end
+		return false
+	end
+	clone.Amount = amount
+	if IsKindOf(item, "JAZZ_RemovableAttachment") then
+		clone.RemovableComponentId = rawget(item, "RemovableComponentId")
+	end
+	return clone
+end
+
+function JazzItemIsInInventory(inv, item)
+	if not inv or not item or not inv.ForEachItem then
+		return false
+	end
+	local found
+	inv:ForEachItem(function(it)
+		if it == item then
+			found = true
+			return "break"
+		end
+	end)
+	return not not found
+end
+
+-- Extra rounds over personal MaxStacks → squad bag. Never silent-delete.
+function JazzDepositItemToSquadBag(unit, item)
+	if not item then
+		return true
+	end
+	if (item.Amount or 0) <= 0 then
+		DoneObject(item)
+		return true
+	end
+	local squad_id = unit and unit.Squad
+	local bag = squad_id and GetSquadBagInventory and GetSquadBagInventory(squad_id)
+	if bag and bag.AddAndStackItem then
+		local prev = rawget(_G, "JazzEjectedAmmoPreferUnit")
+		rawset(_G, "JazzEjectedAmmoPreferUnit", false)
+		JazzApplyStackContext(item, bag)
+		bag:AddAndStackItem(item)
+		rawset(_G, "JazzEjectedAmmoPreferUnit", prev or false)
+		if JazzItemIsInInventory(bag, item) then
+			return true
+		end
+		local ok_amt, amount = pcall(function()
+			return item.Amount
+		end)
+		if ok_amt and amount and amount > 0 then
+			return JazzDropAmmoAtFeet(unit, item)
+		end
+		return true
+	end
+	return JazzDropAmmoAtFeet(unit, item)
+end
+
+function JazzSpillPersonalStackExcess(unit, item)
+	if not unit or not IsKindOf(item, "InventoryStack") then
+		return
+	end
+	if JazzIsStorageInventory(unit) then
+		return
+	end
+	local personal = JazzGetPersonalMaxStacks(item)
+	JazzApplyStackContext(item, unit)
+	local amount = item.Amount or 0
+	if amount <= personal then
+		return
+	end
+	local excess = amount - personal
+	local refund = JazzCloneStackRemainder(item, excess)
+	if not refund then
+		-- Keep oversized rather than lose rounds.
+		return
+	end
+	item.Amount = personal
+	if not JazzDepositItemToSquadBag(unit, refund) then
+		local ok_amt, leftover = pcall(function()
+			return refund.Amount
+		end)
+		if ok_amt and leftover and leftover > 0 then
+			item.Amount = personal + leftover
+			DoneObject(refund)
+		end
+	end
+	ObjModified(unit)
+end
+
+function JazzSpillUnitInventoryExcess(unit)
+	if not unit or not unit.ForEachItem then
+		return
+	end
+	local spills = {}
+	unit:ForEachItem(function(item)
+		if IsKindOf(item, "InventoryStack") then
+			local personal = JazzGetPersonalMaxStacks(item)
+			if (item.Amount or 0) > personal then
+				spills[#spills + 1] = item
+			end
+		end
+	end)
+	for _, item in ipairs(spills) do
+		JazzSpillPersonalStackExcess(unit, item)
+	end
 end
 
 -- Put ejected magazine ammo back into merc loadout; remainder drops at feet (not squad bag).
@@ -375,27 +497,12 @@ if JazzMoveItem_Original then
 		if type(args) == "table" and args.item and args.dest_container and type(args.dest_container) == "table" and IsValid(args.item) then
 			JazzApplyStackContext(args.item, args.dest_container)
 			-- Safety: never leave Amount > personal max on a unit stack after move.
+			-- Excess goes to squad bag (never silent-delete).
 			if not JazzIsStorageInventory(args.dest_container) and IsKindOf(args.item, "InventoryStack") then
-				local personal = JazzGetPersonalMaxStacks(args.item)
-				if args.item.Amount > personal then
-					local excess = args.item.Amount - personal
-					args.item.Amount = personal
-					local src = args.src_container
-					if src and JazzIsStorageInventory(src) and excess > 0 then
-						local refund = PlaceInventoryItem(args.item.class)
-						if IsKindOf(refund, "InventoryStack") then
-							refund.Amount = excess
-							if IsKindOf(args.item, "JAZZ_RemovableAttachment") then
-								refund.RemovableComponentId = rawget(args.item, "RemovableComponentId")
-							end
-							JazzApplyStackContext(refund, src)
-							if src.AddAndStackItem then
-								src:AddAndStackItem(refund)
-							elseif IsKindOf(src, "SectorStash") then
-								src:AddItem("Inventory", refund)
-							end
-						end
-					end
+				local unit = IsKindOfClasses(args.dest_container, "Unit", "UnitData") and args.dest_container
+					or IsKindOfClasses(args.src_container, "Unit", "UnitData") and args.src_container
+				if JazzSpillPersonalStackExcess then
+					JazzSpillPersonalStackExcess(unit, args.item)
 				end
 			end
 		end
@@ -408,8 +515,17 @@ function InventoryStack:MergeStack(otherItem, amount)
 		return false
 	end
 	amount = amount or otherItem.Amount
-	local max = rawget(self, "MaxStacks") or JazzGetPersonalMaxStacks(self)
+	local max
+	if JazzIsStorageStackUI(self) then
+		max = const.JazzStorageStackMax
+	else
+		max = JazzGetPersonalMaxStacks(self)
+		rawset(self, "MaxStacks", max)
+	end
 	local to_add = Min(amount, otherItem.Amount, max - self.Amount)
+	if to_add < 0 then
+		to_add = 0
+	end
 	self.Amount = self.Amount + to_add
 	otherItem.Amount = otherItem.Amount - to_add
 	return otherItem.Amount <= 0

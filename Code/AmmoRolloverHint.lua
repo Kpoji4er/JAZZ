@@ -88,6 +88,25 @@ function FormatAmmoPenetrationDisplay(mod_mul, mod_add)
 	return sign .. whole .. "." .. frac
 end
 
+function FormatWeaponPenetrationDisplay(weapon)
+	if not weapon then
+		return "0.0"
+	end
+	local class = 1
+	if weapon.HasMember and weapon:HasMember("PenetrationClass") then
+		class = weapon.PenetrationClass or 1
+	elseif weapon.PenetrationClass then
+		class = weapon.PenetrationClass
+	end
+	local bonus = 0
+	if weapon.HasMember and weapon:HasMember("PenetrationBonus") then
+		bonus = weapon.PenetrationBonus or 0
+	elseif weapon.PenetrationBonus then
+		bonus = weapon.PenetrationBonus
+	end
+	return FormatAmmoPenetrationDisplay((class or 1) * 1000, bonus or 0)
+end
+
 function Ammo:GetRolloverHint()
 	local hint = {} 	
 	local penbonus = 0
