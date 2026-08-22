@@ -10,6 +10,7 @@
 
 ## Playbooks по типу задач
 
+- Runtime-тест в живой JA3 (DAP): `.agents/docs/playbooks/dap-runtime-debug.md`
 - AI/боевой/CTH: `.agents/docs/playbooks/ai-system.md`
 - Оружие и баланс: `.agents/docs/playbooks/weapons-balance.md` (ATTACH tools: `docs/tools/README.md`)
 - Карты/квесты: `.agents/docs/playbooks/maps-content.md`

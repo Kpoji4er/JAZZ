@@ -21,6 +21,19 @@ Developer cheat-sheet по vanilla JA3 и JAZZ. Не игроковая wiki: к
 
 `Code/Debug.lua` в JAZZ загружается (`metadata.code`), но сейчас **пустой placeholder** — своих helper-функций нет.
 
+## DAP (живая Lua)
+
+Sol Engine слушает Debug Adapter Protocol на `127.0.0.1:8165` только в **`JA3Debug.exe`** (`Platform.debug`). Retail `JA3.exe` порт не поднимает.
+
+Агент ходит в процесс через MCP `ja3-dap` (`scripts/dap/`), не через консоль. Два режима: debugger (breakpoints / step) и live eval (чтение state без паузы). Полный контракт, обёртка `SafeEval*` и ограничения `evaluate` — [playbook DAP](../../.agents/docs/playbooks/dap-runtime-debug.md).
+
+Кратко:
+
+- `initialize` в JA3 вызывает `DebuggerClearBreakpoints()` и после `configurationDone` делает `Continue` — не аттачить MCP поверх чужой IDE-сессии.
+- Live `evaluate` бежит в real-time / async потоке: без `SafeEvalStart`/`IgnoreDebugErrors` sync-only код открывает модальный assert.
+- Результат режется на 512 символов (`config.MaxWatchLenValue`); длинный dump — файл под `%APPDATA%\Jagged Alliance 3\`.
+- CommonLib `SafeEval` (с 1.11-1060) возвращает `ok, ...`, не старую пару `err, result`.
+
 ## Satellite / глобалка
 
 ### Телепорт отряда в сектор
@@ -118,7 +131,7 @@ end
 |---|---|---|
 | Показать консоль | `ShowConsole(true)` | Нужны cheats / modding tools |
 | Очистить debug draw | **F9** (DE_ClearScreen) | |
-| Reload Lua | `ReloadLua()` | Опасно: состояние сессии может стать неконсистентным |
+| Reload Lua | `ReloadLua()` | Опасно: состояние сессии может стать неконсистентным. Из DAP — только `CreateRealTimeThread(ReloadLua)` |
 | Combat Log | UI Combat Log | При modding/developer виден filter **debug** |
 | CTH breakdown (точные %) | — | При `AreModdingToolsActive()` crosshair показывает проценты вместо `+`/`−` (см. accuracy-model) |
 
@@ -168,4 +181,6 @@ RevealAllSectors()
 | Satellite teleport (JAZZ) | `Code/SatelliteSquad.lua` → `NetSyncEvents.CheatSatelliteTeleportSquad` |
 | Legion AI diagnostics | `Code/Guardpost_Patrols.lua` → `JAZZ_LegionAIGetDiagnostics` / `JAZZ_LegionAIPrintEconomy` |
 | Runtime / placeholders | [runtime-editor-integration.md](systems/runtime-editor-integration.md) |
+| DAP / live Lua | `<JA3_ROOT>/ModTools/Src/CommonLua/Libs/DebugAdapter/DebugAdapter.lua`; клиент `scripts/dap/`; playbook `.agents/docs/playbooks/dap-runtime-debug.md` |
+| CommonLib SafeEval | `JA3_CommonLib` `Code/_Utils.lua` (`SafeEvalStart` / `SafeEvalEnd` / `SafeEval`, с 1.11-1060) |
 | CTH debug UI | [weapons/accuracy-model.md](weapons/accuracy-model.md) |

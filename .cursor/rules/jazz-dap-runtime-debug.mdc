@@ -1,7 +1,7 @@
 ---
 description: >-
   Runtime-тест JA3 через DAP: MCP ja3-dap, JA3Debug.exe, breakpoints /
-  evaluate / stack. Когда пользователь просит проверить в игре, отладить
+  live eval / stack. Когда пользователь просит проверить в игре, отладить
   Lua, воспроизвести баг, посмотреть runtime-значения или «протестируй».
 alwaysApply: false
 ---
@@ -14,27 +14,32 @@ alwaysApply: false
 
 Пользователь хочет **проверить поведение в живой игре**, а не только static-read кода. Не подменять DAP консольными читами, если нужен breakpoint / locals / step.
 
+Два режима (выбрать один):
+
+- **Debugger** — BP / pause / step / locals.
+- **Live eval** — прочитать state без паузы. Не звать `ja3_dap_pause` «чтобы evaluate заработал».
+
 ## Обязательный runtime
 
 1. Только **`JA3Debug.exe`** (`Platform.debug`). Retail `JA3.exe` — порт `8165` не слушает.
 2. Путь: `F:\SteamLibrary\steamapps\common\Jagged Alliance 3\JA3Debug.exe` (или актуальный Steam library).
-3. MCP tools: `ja3_dap_probe` → `ja3_dap_connect` → работа → по возможности `ja3_dap_continue` / `ja3_dap_disconnect` (не оставлять игру навечно на pause).
+3. MCP: `ja3_dap_probe` → работа → не оставлять игру навечно на pause.
 
-## Минимальный цикл теста
+`ja3_dap_connect` шлёт `initialize` → движок **сносит все breakpoints** и делает `Continue`. Не подключаться поверх IDE-отладки пользователя.
 
-1. `ja3_dap_probe` — если `listening: false`, запустить `JA3Debug` (или попросить пользователя), дождаться порта.
-2. `ja3_dap_connect`.
-3. `ja3_dap_set_breakpoints` на **абсолютный** путь к `Code\….lua` (или ModTools Src).
-4. Дождаться воспроизведения (или `ja3_dap_pause` для ручного стопа).
-5. `ja3_dap_wait_stopped` → `ja3_dap_stack` → `ja3_dap_evaluate` / scopes / variables.
-6. `ja3_dap_continue` (или step) → зафиксировать evidence → `ja3_dap_disconnect` если сессия больше не нужна.
+## Минимальный цикл
+
+**Debugger:** probe → connect → `set_breakpoints` (абсолютный `Code\….lua`) → reproduce → `wait_stopped` → stack / evaluate → `continue` → disconnect если сессия не нужна.
+
+**Live eval:** probe → connect (если ещё нет) → `ja3_dap_evaluate` с обёрткой `SafeEvalStart`/`SafeEvalEnd` (или `IgnoreDebugErrors` + `SuspendDesyncErrors`) → не pause. Длинный результат (>512) — файл `AppData/jazz_dap_eval.txt`, не сырой return. Контракт clib: `SafeEval` → `ok, ...`, не старый `err, result`.
 
 ## Evidence
 
-В ответе/spec указывать: DAP attach, file:line, expression result / stack snippet. Уровень: **runtime**. Не выдавать static-only за runtime PASS.
+DAP attach, режим, `file:line` или expression result. Уровень: **runtime**. Не выдавать static-only за runtime PASS.
 
 ## Не делать
 
 - Не использовать DAP на goldmaster/retail без debug-сборки.
 - Не `terminate_debuggee=true` без явной просьбы закрыть игру.
 - Не путать с OllyDbg `odbg64` (native) — для Lua мода нужен SolEngine DAP.
+- Не массовые sync-мутации из eval-потока (async); запись — `CreateGameTimeThread`.

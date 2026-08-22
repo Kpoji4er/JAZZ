@@ -61,6 +61,8 @@ g_JAZZ_FooWrapped = true  -- если имени ещё не было в _G → 
 
 даже если рядом стоит `rawget` check — check не создаёт ключ.
 
+DAP `evaluate` ходит в `GetRawG()`: `__newindex` делает `rawset(_G, …)` и **не** ловит этот assert. Это не повод плодить глобалы из probe; для кода мода по-прежнему top-level + `rawset`. Контракт eval: `.agents/docs/playbooks/dap-runtime-debug.md`.
+
 ### 3. Предпочитать local upvalue
 
 Если флаг/base нужны только внутри одного файла и **не** должны переживать reload как отдельный контракт — `local wrapped = false` / `local base = false`. Не плодить `_G`.

@@ -4,7 +4,7 @@
 
 - Сначала игровая Lua, потом зависимости мода, затем код текущего мода.
 - Внутри пакета порядок определяется массивом `metadata.lua.code` (а не алфавитным порядком файлов).
-- `ReloadLua` **не** делает чистый cold start: глобалы/handlers/threads из старого состояния могут остаться.
+- `ReloadLua` **не** делает чистый cold start: глобалы/handlers/threads из старого состояния могут остаться. Из DAP `evaluate` вызывать только через `CreateRealTimeThread(ReloadLua)`, не из потока адаптера (см. `.agents/docs/playbooks/dap-runtime-debug.md`).
 
 ## 2) Точки синхронизации с жизненным циклом
 

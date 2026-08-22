@@ -26,6 +26,7 @@
 | Что | Где |
 | --- | --- |
 | Каталог скриптов | `docs/tools/README.md` |
+| DAP / live Lua | `scripts/dap/`, playbook `.agents/docs/playbooks/dap-runtime-debug.md` |
 | ATTACH / weapons generated | `.agents/docs/playbooks/weapons-balance.md` |
 | Cursor rule | `.cursor/rules/jazz-agent-tooling.mdc` |
 | Spec ATTACH-001 | `docs/specs/active/JAZZ-ATTACH-001.md` |

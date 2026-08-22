@@ -28,6 +28,7 @@ JAZZ состоит из четырёх канонических репозит�
 
 ## Ролевые playbookы
 
+- Runtime-тест в живой игре (DAP): `.agents/docs/playbooks/dap-runtime-debug.md`
 - AI / CTH / боеприпасы: `.agents/docs/playbooks/ai-system.md`
 - Оружие и баланс: `.agents/docs/playbooks/weapons-balance.md`
 - Карты, квесты, диалоги: `.agents/docs/playbooks/maps-content.md`

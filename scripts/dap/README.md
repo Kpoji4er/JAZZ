@@ -2,16 +2,18 @@
 
 Sol Engine hosts a Debug Adapter Protocol server on `127.0.0.1:8165` when `Platform.debug` is set (use `JA3Debug.exe`).
 
+Agent playbook (modes, SafeEval wrap, truncation, do-nots): `.agents/docs/playbooks/dap-runtime-debug.md`.
+
 ## Agent (Cursor MCP)
 
 Project MCP: `.cursor/mcp.json` → server `ja3-dap`.
 
-Flow:
-1. Start `JA3Debug.exe` and load into game/editor.
-2. Agent: `ja3_dap_probe` → `ja3_dap_connect`.
-3. `ja3_dap_set_breakpoints` on absolute `Code\\….lua` paths.
-4. Reproduce → `ja3_dap_wait_stopped` → `ja3_dap_stack` / `ja3_dap_evaluate`.
-5. `ja3_dap_disconnect` when done.
+- `ja3_dap_client.py` — TCP client (initialize / attach / eval / breakpoints).
+- `ja3_dap_mcp.py` — MCP + CLI.
+
+`connect` always sends `initialize`. In JA3 that calls `DebuggerClearBreakpoints()` and `configurationDone` resumes. Do not attach over a live IDE debug session.
+
+`evaluate` is a raw DAP `evaluate` (expression only, env `_G`). The MCP does **not** wrap `SafeEvalStart`/`SafeEvalEnd`; the agent must, for live probes. Results longer than `config.MaxWatchLenValue` (512) are truncated by `Debugger_ToString` after return.
 
 CLI smoke (no MCP):
 
