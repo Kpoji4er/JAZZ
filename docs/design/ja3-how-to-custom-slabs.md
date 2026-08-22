@@ -1,5 +1,7 @@
 # Как сделать свой slab в JA3
 
+[English](ja3-how-to-custom-slabs.en.md)
+
 How-to по движку Jagged Alliance 3: что такое slab, какие куски комнаты существуют и с какими именами их искать. Это **не** current-state JAZZ: своих `SlabMaterials` в комплекте пока нет.
 
 Источники: установленный `<JA3_ROOT>\ModTools\Src` (`CommonLua/Libs/Volumes/Slab.lua`, `RoomRoof.lua`, `Classes/Destroyable.lua`, `Data/SlabPreset.lua`) и официальный `ModTools/Docs` (Entity, Map Editor). Подтверждение: **static**. Editor/runtime приёмка — после первого импорта набора.

@@ -11,7 +11,7 @@
 - Не делать recursive scan `jazz-maps/Maps/` без явного указания карты/сектора/patch.
 - Контентовые правки в `jazz-maps` не трогаем в связке с `jazz-units` без проверки зависимостей `Mod/<id>/...`.
 - Любой map patch проверять через Map Editor, не массовым grep-реформатом.
-- Новый материал стен/пола/крыши комнаты (свой mesh/текстура) — не проп, а slab-пресет + entity по контракту имён. How-to: `docs/design/ja3-how-to-custom-slabs.md`.
+- Новый материал стен/пола/крыши комнаты (свой mesh/текстура) — не проп, а slab-пресет + entity по контракту имён. How-to: `docs/design/ja3-how-to-custom-slabs.md` (EN: `docs/design/ja3-how-to-custom-slabs.en.md`).
 
 ## География / атлас секторов
 
