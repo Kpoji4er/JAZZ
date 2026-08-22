@@ -110,4 +110,4 @@ Core metadata объявляет assets обязательной dependency (`pD
 
 Изменение entity/resource обновляет эту страницу и профильную weapon/unit/map/UI-FX документацию. Изменение количества registered/on-disk entities требует обновить snapshot и причину расхождения.
 
-How-to по **новым building slab** (стена/пол/крыша) в движке JA3 — [ja3-how-to-custom-slabs.md](../../design/ja3-how-to-custom-slabs.md). Это процедура автора, не loaded runtime JAZZ: своих `SlabMaterials` в комплекте нет.
+Гайд по **новым building slab** (стена/пол/крыша, контракт имён, MVP отдельного мода) — [ja3-how-to-custom-slabs.md](../../design/ja3-how-to-custom-slabs.md). Это процедура автора, не loaded runtime JAZZ: своих `SlabMaterials` в комплекте нет.
