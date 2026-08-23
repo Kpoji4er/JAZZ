@@ -20,7 +20,7 @@ Tube-fed shotguns, break-actions, and revolvers keep one reload button that chan
 
 When the active firearm is jammed, **Unjam** appears on the regular action bar. It costs **4…1 AP** by Mechanical (low skill → 4, high → 1), does not fire a shot, and disappears once the jam is cleared.
 
-The combat action bar is **two rows**. **Take Cover** and **Overwatch** stay on it even when many fire modes and medical actions are available.
+The combat action bar is **two rows**. **Take Cover** and **Overwatch** stay on it even when many fire modes and medical actions are available. Without a wall **Take Cover** stays on the bar greyed out; it is usable next to cover (not Prone).
 
 ### Fold stock and flashlight
 

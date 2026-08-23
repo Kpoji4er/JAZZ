@@ -2135,7 +2135,10 @@ function Unit:RecalcUIActions(force)
 		end
 	end
 	
-	-- CombatActionBar is HWrap (two rows). Vanilla reserved 12 slots + signature at 13.
+	-- CombatActionBar is HWrap (two rows). Buttons come from UIAction presets
+	-- Action1..ActionN (CombatActionsToActions), not from this array length.
+	-- Vanilla: Action1-12 combat + Action13 remaps to SignatureAbilities.
+	-- JAZZ: Action1-24 combat + Action25 remaps to the signature strip.
 	local combat_bar_slots = 24
 	local signature_slot = combat_bar_slots + 1
 
@@ -2193,6 +2196,91 @@ function Unit:RecalcUIActions(force)
 		if not allMatch or force then ObjModified("combat_bar") end
 	end
 	return ui_actions
+end
+
+-- RecalcUIActions can place TakeCover / Overwatch at index 14+; without matching
+-- UIAction presets those slots never become HUD buttons (FilterAction hidden).
+local function Jazz_ResolveCombatBarSlot(self, context)
+	local idx = tonumber(string.match(self.id or "", "^Action(%d+)$"))
+	local obj = IsValid(context) and context or (context or empty_table)[1]
+	return obj and IsKindOf(obj, "Unit") and idx and obj:ResolveUIAction(idx)
+end
+
+local function Jazz_CopyCombatBarSlotProxy(proto, id, idx, extra)
+	extra = extra or empty_table
+	local def = PlaceObj("CombatAction", {
+		Comment = extra.Comment or "JAZZ CombatActionBar slot",
+		ConfigurableKeybind = false,
+		DisplayName = extra.DisplayName or proto.DisplayName,
+		EvalTarget = proto.EvalTarget,
+		Execute = proto.Execute,
+		GetAPCost = proto.GetAPCost,
+		GetActionDescription = proto.GetActionDescription,
+		GetActionDisplayName = proto.GetActionDisplayName,
+		GetActionIcon = proto.GetActionIcon,
+		GetAnyTarget = proto.GetAnyTarget,
+		GetAttackWeapons = proto.GetAttackWeapons,
+		GetDefaultTarget = proto.GetDefaultTarget,
+		GetMaxAimRange = proto.GetMaxAimRange,
+		GetMinAimRange = proto.GetMinAimRange,
+		GetTargets = proto.GetTargets,
+		GetUIState = proto.GetUIState,
+		IdDefault = id .. "default",
+		IsAimableAttack = false,
+		KeybindingFromAction = extra.KeybindingFromAction or false,
+		RequireState = "any",
+		ResolveAction = Jazz_ResolveCombatBarSlot,
+		Run = proto.Run,
+		SortKey = idx,
+		UIBegin = proto.UIBegin,
+		ShowIn = "CombatActions",
+		group = "UIActions",
+		id = id,
+	})
+	def:Register(id, true)
+	if def.PostLoad then
+		def:PostLoad()
+	end
+	return def
+end
+
+local function Jazz_RegisterExtraCombatBarSlots()
+	local proto = CombatActions and CombatActions.Action12
+	if not proto then
+		return
+	end
+	local registered = false
+	for i = 14, 24 do
+		local id = "Action" .. i
+		if not CombatActions[id] then
+			Jazz_CopyCombatBarSlotProxy(proto, id, i)
+			registered = true
+		end
+	end
+	if not CombatActions.Action25 then
+		local sig = CombatActions.Action13
+		Jazz_CopyCombatBarSlotProxy(proto, "Action25", 25, {
+			Comment = "JAZZ signature slot (vanilla Action13 remap)",
+			DisplayName = sig and sig.DisplayName or proto.DisplayName,
+			KeybindingFromAction = "actionRedirectSignatureAbility",
+		})
+		registered = true
+	end
+	if registered then
+		ObjModified("combat_bar")
+	end
+end
+
+function OnMsg.DataLoaded()
+	Jazz_RegisterExtraCombatBarSlots()
+end
+
+function OnMsg.ModsReloaded()
+	Jazz_RegisterExtraCombatBarSlots()
+end
+
+function OnMsg.InGameInterfaceCreated()
+	Jazz_RegisterExtraCombatBarSlots()
 end
 
 function Unit:GetActiveWeapons(class, strict_order)

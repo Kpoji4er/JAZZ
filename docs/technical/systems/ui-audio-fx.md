@@ -62,7 +62,7 @@ Generated `ActionCameraCrosshair` не вызывает `Open` для `idContain
 
 Иконки статусов на бейдже — **под** HP-баром (`GetUIVisibleStatusEffects`, Def-aware Shown/Icon). Party HUD в бою и на глобалке (`SquadsAndMercs*` / `idStatusEffectsContainer`) использует `JazzGetPartyPortraitStatusEffects` (`ShownSatelliteView` + fallback с CharacterEffectDefs; `WoundInfected`/bleed/BloodLoss выше в списке, контейнер MaxHeight 160). Иконка **Free Move** показывает оставшиеся ОД FM (оверлей как у стаков; тултип `ResolveValue("Description")`); карточка наёмника рядом с `16+1` дописывает `(N FM)`. Формула FM не меняется — только отображение `unit.free_move_ap` (`System_EnergyLadder.lua`).
 
-`CombatActionBar` (`idCombatActionsContainer`) — **две строки** `HWrap` (`MaxWidth` 600, `MaxHeight` 180). `Unit:RecalcUIActions` резервирует **24** слота боевых кнопок (ваниль 12) и ставит signature на **25**; иначе TakeCover / Overwatch с высоким SortKey вытеснялись однострочным лимитом.
+`CombatActionBar` (`idCombatActionsContainer`) — **две строки** `HWrap` (`MaxWidth` 600, `MaxHeight` 180). Кнопки спавнит `CombatActionsToActions` из UIAction-пресетов `Action1`…`ActionN`, не из длины `ui_actions`. Ваниль даёт только `Action1`–`Action12` плюс `Action13` (remap на signature). JAZZ в `System_OR_Unit.lua` регистрирует `Action14`–`Action24` (боевые слоты) и `Action25` (remap на signature); `RecalcUIActions` кладёт боевые id в индексы 1–24 и signature на **25**. Без этих пресетов TakeCover / Overwatch с высоким SortKey попадали в `ui_actions`, но кнопки не создавались. TakeCover при отсутствии укрытия остаётся на панели (`disabled`), не `hidden`.
 
 ## Inventory и rollovers
 

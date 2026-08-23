@@ -105,6 +105,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_fix_metadata_utf8_mojibake.py` | Аудит/обратимое исправление одного ошибочного прохода UTF-8→Windows-1251 в `title`, `description`, `last_changes`; `--check` / `--apply`, BOM сохраняется. |
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_audit_ui002_weapon_chips.py` | UI-002 static: Fold/Flash `ShowIn = false`, Unjam stays CombatActions; `idFoldStockButton`/`idFlashlightButton` GridX=2; HUD helpers + GetUIState zzFoldingPair. |
+| `_audit_combat_bar_slots.py` | Two-row HUD: Recalc 24+25 **and** `Jazz_RegisterExtraCombatBarSlots` (`Action14`–`Action24` combat, `Action25` signature). Recalc padding alone does not spawn buttons. |
 | `_rebuild_weapon_chip_icons.py` | UI-002: rebuild thin 54×54 Fold/Flash chip glyphs from old dual-strip `Icons/stock_*.png` / `flash_*.png` (left half, pad, light thin). |
 | `_match_weapon_manip_icon_pairs.py` | UI-002: derive `weapon_flash_off` / `weapon_stock_unfold` from ON/Fold masters so HUD pairs share the same silhouette (beams/arrow only differ). |
 | `_rebuild_stock_chip_glyphs.py` | UI-001: replace photo stock `ChipIcon` PNGs with flat `#C8C0A8` glyphs (`--finalize-dir` drafts or `--flatten-only`). |

@@ -124,7 +124,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Vanilla `Unit:GameInit` может вызвать `EnterEmplacement` до создания `weapon`/visual орудия. JAZZ wrap не делает `SetPos(nil)` и не падает на `obj.weapon.owner`; `LoadGame`/`EnterSector` reseat привязывает ствол, пересчитывает HUD и при `Idle` без permanent overwatch восстанавливает конус `MGTarget`. `GetActiveWeapons` при manning повторяет `Update()`, если ствол ещё nil. `ResolveDefaultFiringModeAction` / `RecalcUIActions` не падают при отсутствии оружия.
 
-`RecalcUIActions` под двухстрочный `CombatActionBar` (`HWrap`): **24** боевых слота, signature на **25** (ваниль 12+13). Переполнение по-прежнему сворачивает item-skills в `ItemSkills`.
+`RecalcUIActions` под двухстрочный `CombatActionBar` (`HWrap`): **24** боевых слота, signature на **25** (ваниль 12+13). Сами кнопки — UIAction-пресеты `Action1`–`Action24` плюс `Action25` для signature-strip (`Jazz_RegisterExtraCombatBarSlots`); одного расширения массива недостаточно. Переполнение по-прежнему сворачивает item-skills в `ItemSkills`.
 
 `Firearm:GetBaseAttack` (рядом с `CanAutofire`/`CanBurstfire`): если на стволе `EnableBurst`/`EnableFullAuto` и этих ID нет в preset `AvailableAttacks`, в эффективный список сначала идут `BurstFire` и `AutoFire`. Overwatch (`GetDefaultAttackAction` ungrouped) на M2Carbine / Mini14 с `JAZZ_Autofire` стреляет очередью, не одиночным. Порядок baked-in списков не трогается.
 
