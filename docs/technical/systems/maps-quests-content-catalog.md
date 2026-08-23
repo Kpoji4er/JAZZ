@@ -108,7 +108,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | K5 | Походный лагерь Легиона | RescueTeam / RebelsSavior; после сдачи снабжения у палаток появляется `Merc_BarrySeal` | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
 | K6 | Запасной лагерь контрабандистов | City ErnieVillage; `Jazz_DeadPigs`, четыре союзника Балумбы после принятия | — | — |
 | L1 | База партизан | City Rebels_Ernie; квест MeetTheRebels | `LegionErnie_Large_Outpost_B` (~40; E/H 30/70) | — |
-| L2 | Непроходимая местность | Rebels_Ernie | `LegionErnie_Medium_Forest_A` + `LegionExtra_Ernie_Melee` (~25+6) | — |
+| L2 | Непроходимая местность | Rebels_Ernie | `LegionErnie_Medium_Forest_A` (~25; Extra Melee dropped) | — |
 | L5 | Походный лагерь Легиона | Около виллы | Sentry AroundVilla, `JAZZ_Legion_VillaAttackers_L5` | — |
 | L6 | Заброшенный вход в бункер | Rebels_Ernie; Luigi / underground | `LegionErnie_Medium_Forest_A` + `LegionExtra_Ernie_Flankers` (~25+6) | — |
 | L6_Underground | Бункер партизан | Ground L6 | `LegionErnie_Medium_Bunker_AB` + `LegionExtra_Ernie_Grenadiers` (~25+5–7) | — |

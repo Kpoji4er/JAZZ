@@ -137,7 +137,7 @@ Size = Small/Medium/Large per owner table (E/N/H = 5–10–15 / 20–**25**–4
 | I3 | **25+Flankers** | Medium+Extra | A | Road | `Flankers` (мост) |
 | I4 | **25** | Medium | A | Road | `Mixed` (длинный обрыв) |
 | L1 | **40** | Large | **B** | Outpost | — (Large сам по себе) |
-| L2 | **25** | Medium | A | Forest | `Melee` (гора/дебри) |
+| L2 | **25** | Medium | A | Forest | — (transit; Extra Melee dropped) |
 | L6 | **25** | Medium | A | Forest | `Flankers` |
 | L6_UG | **25** | Medium | A/B | Fort | `Grenadiers` или `Gunners` |
 | I7 | Pierre+48 | Fort | **B** | Fort | — (Defenders covers) |
@@ -274,7 +274,7 @@ Policy: with Legion Global AI, static `InitialSquads` = starting garrisons or qu
 | K5 | Походный лагерь Легиона | **23** | Sentry+Attackers_K5 | — | 2 | лагерь 5; LOCKED |
 | K6 | Запасной лагерь Контрабандистов | 0 | — | — | 91 | резервный лагерь; map-only |
 | L1 | База партизан | 65 | Raid+Heavy+JAZZT2+Extra | — | 0 | Large → **40** |
-| L2 | Непроходимая местность | 27 | Melee+Raid | — | 0 | Forest Medium → **25** (E20/H40) |
+| L2 | Непроходимая местность | 27 | Melee+Raid | — | 0 | Forest Medium → **25** (E20/H40); Extra Melee dropped |
 | L3 | Походный лагерь Легиона | **24** | Sentry+Attackers_L3 | — | 0 | лагерь 2; LOCKED |
 | L4 | Походный лагерь Легиона | **25** | Sentry+Attackers_L4 | — | 1 | лагерь 3; LOCKED |
 | L5 | Походный Лагерь Легиона | **26** | Sentry+Attackers_L5 | — | 1 | лагерь 4; LOCKED |

@@ -727,7 +727,7 @@ def main() -> None:
         "I3": ["LegionErnie_Medium_Road_A", "LegionExtra_Ernie_Flankers"],
         "I4": ["LegionErnie_Medium_Road_A", "LegionExtra_Ernie_Mixed"],
         "L1": ["LegionErnie_Large_Outpost_B"],
-        "L2": ["LegionErnie_Medium_Forest_A", "LegionExtra_Ernie_Melee"],
+        "L2": ["LegionErnie_Medium_Forest_A"],
         "L6": ["LegionErnie_Medium_Forest_A", "LegionExtra_Ernie_Flankers"],
         "L6_Underground": ["LegionErnie_Medium_Bunker_AB", "LegionExtra_Ernie_Grenadiers"],
         "I7": ["FortressPierre", "FortressDefenders"],

@@ -82,7 +82,7 @@ approved_by: project-owner
 | **I3** | Balanced stack | **25+Flankers** | Medium+Extra | **A** | Road | road/bridge + Flankers |
 | **I4** | Entrenched stack | **25+Mixed** | Medium+Extra | **A** | Road | cliff-road + Mixed |
 | **L1** | 65 | **40** | Large | **B** | Outpost | rebel-base; no Extra |
-| **L2** | 27 | **25+Melee** | Medium+Extra | **A** | Forest | forest + Melee |
+| **L2** | 27 / 25+Melee | **25** | Medium | **A** | Forest | forest only (transit; Extra Melee dropped) |
 | **L6** | 30 | **25+Flankers** | Medium+Extra | **A** | Forest | bunker approach + Flankers |
 | **L6_UG** | 37 | **25+Grenadiers** | Medium+Extra | **A/B** | Fort | bunker + Grenadiers/Gunners |
 | **I7** | Pierre+Def12+Ordnance | Pierre+**48** | Fort special | **B** | Fort | Pierre + FortressDefenders(48); drop Ordnance |
@@ -153,11 +153,12 @@ Already OK / locked (не трогать размер в этой спеке):
 **Size×difficulty (InitialSquads):** Small 5/10/15 · Medium 20/**25**/40 · Large 30/**40**/70 — **author E/N/H now** (gated slots).  
 **Extra lock:** I3=`Flankers`; I2=`Veterans` light (~5–7); I7 FortressDefenders **applied** (48 + drop Ordnance).  
 **Deprecated:** audit done — overflow stacks still referenced elsewhere → no folder move this wave.  
-**Extra per-unit (owner 2026-08-21):** усиления рандомят **каждого** бойца, не группу одного типа (ванильный clone `UnitCount`). Status **approved**.
+**Extra per-unit (owner 2026-08-21):** усиления рандомят **каждого** бойца, не группу одного типа (ванильный clone `UnitCount`). Status **approved**.  
+**L2 Extra drop (owner 2026-08-23):** проходной сектор, карта тесная — снять `LegionExtra_Ernie_Melee`; Init = только `LegionErnie_Medium_Forest_A` (~25). Пак Extra Melee не удалять.
 
 ## Evidence
 
-- `JAZZ-UNITS-007-AC-001`: static PASS — `_ernie_init_dump.py` design-Normal: Medium bases 25 (±1), L1 40, Extras 5–9, sector sums ~31 with Extra.
+- `JAZZ-UNITS-007-AC-001`: static PASS — `_ernie_init_dump.py` design-Normal: Medium bases 25 (±1), L1 40, Extras 5–9, sector sums ~31 with Extra; **L2 Extra dropped** → Forest_A only (~25).
 - `JAZZ-UNITS-007-AC-002`: static PASS — I7 Init = FortressPierre + FortressDefenders; Defenders design-Normal sum 48; Ordnance removed.
 - `JAZZ-UNITS-007-AC-003`: static PASS — M5/M6 no ExtraFireArms_T2 / Assault35 stacks.
 - `JAZZ-UNITS-007-AC-004`: static PASS — band A packs no T4; B packs minority T3 spice.
@@ -168,7 +169,7 @@ Already OK / locked (не трогать размер в этой спеке):
 
 ## Documentation delta
 
-- `docs/design/ernie-garrison-baseline.md` — Extra lock + E/N/H + Extra per-unit rolls.
-- `docs/technical/systems/maps-quests-content-catalog.md` — Init lines + Extra per-unit.
+- `docs/design/ernie-garrison-baseline.md` — Extra lock + E/N/H + Extra per-unit rolls; L2 Extra Melee dropped.
+- `docs/technical/systems/maps-quests-content-catalog.md` — Init lines + Extra per-unit; L2 Forest_A only.
 - `docs/tools/README.md` — apply `--extras-only`.
 - Spec this file.
