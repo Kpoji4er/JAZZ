@@ -2135,28 +2135,32 @@ function Unit:RecalcUIActions(force)
 		end
 	end
 	
-	-- Put the signature ability in the 13th place always
-	for i, id in ipairs(ui_actions) do 
+	-- CombatActionBar is HWrap (two rows). Vanilla reserved 12 slots + signature at 13.
+	local combat_bar_slots = 24
+	local signature_slot = combat_bar_slots + 1
+
+	-- Put the signature ability after the two combat rows.
+	for i, id in ipairs(ui_actions) do
 		local caction = CombatActions[id]
 		if caction.group == "SignatureAbilities" then
-			if ui_actions[13] then
-				local swapped = table.remove(ui_actions, 13)
+			if ui_actions[signature_slot] then
+				local swapped = table.remove(ui_actions, signature_slot)
 				ui_actions[i] = swapped
-				ui_actions[13] = id
+				ui_actions[signature_slot] = id
 			else
 				table.remove(ui_actions, i)
-				if #ui_actions < 12 then
-					for j = #ui_actions + 1, 12 do
+				if #ui_actions < combat_bar_slots then
+					for j = #ui_actions + 1, combat_bar_slots do
 						ui_actions[j] = "empty"
 					end
 				end
-				ui_actions[13] = id
+				ui_actions[signature_slot] = id
 			end
 			break
 		end
 	end
 	
-	if vis_idx >30 then
+	if vis_idx > combat_bar_slots then
 		-- Remove item skills. They will be represented by ItemSkills.
 		for i, itemSkill in ipairs(itemCombatSkillsList) do
 			if ui_actions[itemSkill] then
@@ -2172,7 +2176,7 @@ function Unit:RecalcUIActions(force)
 		ui_actions["ItemSkills"] = false
 	end
 	
-	assert(vis_idx <= 30, "This unit has too many actions - they cant fit on the UI! (12)")
+	assert(vis_idx <= signature_slot, "This unit has too many actions - they cant fit on the UI! (24, two HWrap rows)")
 
 	if self == Selection[1] then
 		local allMatch = false

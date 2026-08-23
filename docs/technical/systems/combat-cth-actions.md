@@ -123,6 +123,8 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Vanilla `Unit:GameInit` может вызвать `EnterEmplacement` до создания `weapon`/visual орудия. JAZZ wrap не делает `SetPos(nil)` и не падает на `obj.weapon.owner`; `LoadGame`/`EnterSector` reseat привязывает ствол, пересчитывает HUD и при `Idle` без permanent overwatch восстанавливает конус `MGTarget`. `GetActiveWeapons` при manning повторяет `Update()`, если ствол ещё nil. `ResolveDefaultFiringModeAction` / `RecalcUIActions` не падают при отсутствии оружия.
 
+`RecalcUIActions` под двухстрочный `CombatActionBar` (`HWrap`): **24** боевых слота, signature на **25** (ваниль 12+13). Переполнение по-прежнему сворачивает item-skills в `ItemSkills`.
+
 ## Lightning Reaction (JAZZ-COMBAT-003)
 
 Канон: `Unit:LightningReactionCheck` в `Code/System_OR_Unit.lua`; `Unit:FirearmAttack` в `Code/CombatActions.lua` выставляет `g_JAZZ_FirearmAttacker` / `g_JAZZ_FirearmAttackArgs` на время `OnFirearmAttackStart`.

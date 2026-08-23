@@ -62,7 +62,7 @@ Generated `ActionCameraCrosshair` не вызывает `Open` для `idContain
 
 Иконки статусов на бейдже — **под** HP-баром (`GetUIVisibleStatusEffects`, Def-aware Shown/Icon). Party HUD в бою и на глобалке (`SquadsAndMercs*` / `idStatusEffectsContainer`) использует `JazzGetPartyPortraitStatusEffects` (`ShownSatelliteView` + fallback с CharacterEffectDefs; `WoundInfected`/bleed/BloodLoss выше в списке, контейнер MaxHeight 160). Иконка **Free Move** показывает оставшиеся ОД FM (оверлей как у стаков; тултип `ResolveValue("Description")`); карточка наёмника рядом с `16+1` дописывает `(N FM)`. Формула FM не меняется — только отображение `unit.free_move_ap` (`System_EnergyLadder.lua`).
 
-Это модифицированная tactical UI часть, чувствительная к новым vanilla status fields и action lifecycle.
+`CombatActionBar` (`idCombatActionsContainer`) — **две строки** `HWrap` (`MaxWidth` 600, `MaxHeight` 180). `Unit:RecalcUIActions` резервирует **24** слота боевых кнопок (ваниль 12) и ставит signature на **25**; иначе TakeCover / Overwatch с высоким SortKey вытеснялись однострочным лимитом.
 
 ## Inventory и rollovers
 
