@@ -101,7 +101,7 @@ Supersedes kit trauma-heal path from [JAZZ-MED-003](JAZZ-MED-003.md) `REQ-006` /
 - Hospital instant clear (MED-002 **deferred / not loaded**).
 - Отдельный InventoryItem только для стабилизации; отдельный POI «полевой госпиталь».
 - Новые публичные Trauma ID (`TraumaLegsHeavyStabilized` и т.п.) — состояния через параметры на существующем эффекте.
-- «Долг макс. ОЗ только после боя» (deferred max HP) — отклонено как слишком сложно.
+- «Долг макс. ОЗ только после боя» (deferred max HP) — **superseded by [JAZZ-MED-007](JAZZ-MED-007.md)** (approved 2026-08-23).
 - Полный пересмотр частоты лута аптечек / Legion medic density (можно follow-up; этот spec не обязан менять loot tables).
 - Смена Medical gates 30/50/80 и MaxStacks 5/10/15 (MED-003 остаётся).
 - Смена AP лестницы бинта/морфия (MED-005 остаётся).

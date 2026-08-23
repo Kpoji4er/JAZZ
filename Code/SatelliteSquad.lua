@@ -3580,11 +3580,11 @@ end
 ---
 --- Calculates the additional tired time for a unit based on its current hit points.
 ---
---- JAZZ-COMBAT-008: HP no longer biases travel tiredness (always 0). Ribs trauma shortens
---- the threshold via JazzGetTirednessTravelThreshold instead.
+--- JAZZ-MED-007: HP-level% lives in JazzGetTirednessTravelThreshold (base max, not Health
+--- stat / not absolute HitPoints). Keep this 0 so ReachSectorCenter cannot double-apply.
 ---
---- @param hp number The current hit points of the unit.
---- @return number The additional tired time for the unit, in hours.
+--- @param hp number Unused (vanilla passed absolute HitPoints).
+--- @return number Always 0.
 ---
 function GetHPAdditionalTiredTime(hp)
 	return 0

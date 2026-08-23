@@ -335,6 +335,10 @@ local function lInstallMed006RecalcWrap()
 		if not unit then
 			return
 		end
+		-- MED-007: skip debt while this unit is in an active tactical fight.
+		if type(JazzUnitSkipsTraumaMaxHpDebt) == "function" and JazzUnitSkipsTraumaMaxHpDebt(unit) then
+			return
+		end
 		local debt = JazzTraumaMaxHpDebtPercent(unit)
 		if debt <= 0 then
 			return

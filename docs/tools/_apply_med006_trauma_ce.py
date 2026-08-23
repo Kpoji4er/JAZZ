@@ -296,7 +296,7 @@ DefineClass.TraumaRibsHeavy = {
 		}),
 	},
 	DisplayName = T(890000000010116, "Rib Trauma (Heavy)"),
-	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness."),
+	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,
@@ -356,7 +356,7 @@ DefineClass.TraumaRibsMedium = {
 		}),
 	},
 	DisplayName = T(890000000010114, "Rib Trauma (Medium)"),
-	Description = T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn. No Tiredness."),
+	Description = T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn."),
 	OnAdded = function(self, obj)
 		Msg("UnitAPChanged", obj)
 	end,
@@ -425,7 +425,7 @@ DefineClass.TraumaHeadHeavy = {
 		}),
 	},
 	DisplayName = T(890000000010122, "Head Trauma (Heavy)"),
-	Description = T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
+	Description = T(890000000010123, "Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
 	Shown = true,
@@ -482,7 +482,7 @@ DefineClass.TraumaHeadMedium = {
 		}),
 	},
 	DisplayName = T(890000000010120, "Head Trauma (Medium)"),
-	Description = T(890000000010121, "Sight and accuracy penalties. +2 Pain when aiming or firing."),
+	Description = T(890000000010121, "Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when aiming or firing."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadMedium.png",
 	Shown = true,

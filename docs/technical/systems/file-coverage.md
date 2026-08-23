@@ -28,12 +28,13 @@
 | `System_OR_Grenade.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |
 | `System_OR_Traps.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md) |
 | `System_GasMask.lua` | loaded | [Взрывчатка](explosives-traps-heavy-weapons.md), [броня](armor-damage-wounds-will.md) |
-| `System_EnergyLadder.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — JAZZ-COMBAT-007/008 Energy ladder + Legs/Ribs travel; remaining Free Move AP on status icon / tooltip / merc AP line |
+| `System_EnergyLadder.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — JAZZ-COMBAT-007/008 Energy ladder + Legs foot travel; MED-007 travel from current HitPoints vs 100 (Ribs не множат порог); remaining Free Move AP on status icon / tooltip / merc AP line |
 | `System_ArmorRating.lua` | loaded | [Броня и повреждения](armor-damage-wounds-will.md) |
 | `UnitPropertiesStats.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) |
 | `GritOnStart.lua` | loaded | [Броня и воля](armor-damage-wounds-will.md) — grit CombatStart off (MED-001) |
 | `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
 | `System_Medicine_MED006.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — MED-006 kit stabilize, % HP heal, MaxHP debt, trauma status icons |
+| `System_Medicine_MED007.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — MED-007 deferred MaxHP debt (CombatStart/End); skip-debt helper |
 | `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — `JazzStackableMedicine` (Bandage/Morphine stacks) + kit charge UI helper |
 | `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`ResolveValue("Description")` progress line; `GetDescription` raw for save) |
 | `Save_CharacterEffectSerialize.lua` | loaded | [Runtime](runtime-editor-integration.md) — HOTFIX: empty `CharacterEffect` props → `{}`; sanitize `PlaceCharacterEffect('Id', )` on load (mid-combat `suppressionPinned` saves) |

@@ -48,7 +48,7 @@ DefineClass.TraumaHeadHeavy = {
 		}),
 	},
 	DisplayName = T(890000000010122, "Head Trauma (Heavy)"),
-	Description = T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
+	Description = T(890000000010123, "Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
 	Shown = true,

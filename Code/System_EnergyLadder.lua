@@ -247,14 +247,13 @@ function OnMsg.EnterSector()
 end
 
 ---------------------------------------------------------------------------
--- JAZZ-COMBAT-008: Legs → foot travel slow; Ribs → faster energy drain; no HP tiredness mod.
+-- JAZZ-COMBAT-008: Legs → foot travel slow. Ribs no longer shorten travel energy (max-HP debt only).
 ---------------------------------------------------------------------------
 
 g_JAZZ_EnergyTraumaTravelInstalled = rawget(_G, "g_JAZZ_EnergyTraumaTravelInstalled") or false
 g_JAZZ_EnergyTraumaTravelWrapper = rawget(_G, "g_JAZZ_EnergyTraumaTravelWrapper") or false
 
 local LEGS_FOOT_SLOW_PCT = { Light = 10, Medium = 20, Heavy = 30 }
-local RIBS_TIREDNESS_MUL = { Light = 85, Medium = 70, Heavy = 55 }
 
 --- Worst Legs trauma among squad units → foot travel time +pct (cap 30).
 function JazzGetSquadFootTravelSlowPct(units)
@@ -272,16 +271,21 @@ function JazzGetSquadFootTravelSlowPct(units)
 	return worst
 end
 
---- TravelTiredness threshold for one merc (Ribs shortens; HP no longer adjusts).
+-- Owner 2026-08-23: compare current HitPoints to 100, not Health stat and not bar %.
+-- Health 90 at 50 HP == Health 50 at 50 HP. Full Health 90 (90 HP) ≠ full Health 50 (50 HP).
+local HP_TIREDNESS_LIMIT = 100
+
+function JazzGetHpTirednessTravelDiff(unit)
+	local hp = (unit and unit.HitPoints) or 0
+	return Clamp(hp - HP_TIREDNESS_LIMIT, -50, 25)
+end
+
+--- TravelTiredness threshold: current HitPoints vs 100. Ribs do not shorten this.
 function JazzGetTirednessTravelThreshold(unit_data)
 	local sat = rawget(const, "Satellite")
 	local base = sat and sat.UnitTirednessTravelTime or 0
-	if not unit_data or type(JazzGetTraumaTier) ~= "function" then
-		return base
-	end
-	local tier = JazzGetTraumaTier(unit_data, "Ribs")
-	local mul = tier and RIBS_TIREDNESS_MUL[tier] or 100
-	return MulDivRound(base, mul, 100)
+	local diff = JazzGetHpTirednessTravelDiff(unit_data)
+	return MulDivRound(base, 100 + diff, 100)
 end
 
 -- GetHPAdditionalTiredTime → 0 is defined in SatelliteSquad.lua (loads after this file).

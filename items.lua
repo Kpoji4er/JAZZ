@@ -64318,6 +64318,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'name', "System_Medicine_MED006",
 				'CodeFileName', "Code/System_Medicine_MED006.lua",
 			}),
+			PlaceObj('ModItemCode', {
+				'name', "System_Medicine_MED007",
+				'CodeFileName', "Code/System_Medicine_MED007.lua",
+			}),
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "Character effects",
@@ -65312,7 +65316,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010114, "Rib Trauma (Medium)"),
-				'Description', T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn. No Tiredness."),
+				'Description', T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -65368,7 +65372,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010116, "Rib Trauma (Heavy)"),
-				'Description', T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness."),
+				'Description', T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused."),
 				'OnAdded', function (self, obj)
 					Msg("UnitAPChanged", obj)
 				end,
@@ -65395,7 +65399,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010118, "Head Trauma (Light)"),
-				'Description', T(890000000010119, "Pain when aiming or firing. Eye trauma folded into head for v1."),
+				'Description', T(890000000010119, "Pain when aiming or firing."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadLight.png",
 				'Shown', true,
@@ -65444,7 +65448,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010120, "Head Trauma (Medium)"),
-				'Description', T(890000000010121, "Sight and accuracy penalties. +2 Pain when aiming or firing."),
+				'Description', T(890000000010121, "Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when aiming or firing."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadMedium.png",
 				'Shown', true,
@@ -65499,7 +65503,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010122, "Head Trauma (Heavy)"),
-				'Description', T(890000000010123, "Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
+				'Description', T(890000000010123, "Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadHeavy.png",
 				'Shown', true,
@@ -65539,7 +65543,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010126, "Burn Trauma (Medium)"),
-				'Description', T(890000000010127, "Moderate burn debt. +2 Pain on exertion. Infection risk deferred."),
+				'Description', T(890000000010127, "Moderate burn. +2 Pain on exertion."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnMedium.png",
 				'Shown', true,
@@ -65565,7 +65569,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					}),
 				},
 				'DisplayName', T(890000000010128, "Burn Trauma (Heavy)"),
-				'Description', T(890000000010129, "Severe burn debt. +3 Pain on exertion; +1 Pain/turn if unused. Infection/hospital clear deferred."),
+				'Description', T(890000000010129, "Severe burn. +3 Pain on exertion; +1 Pain/turn if unused."),
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaBurnHeavy.png",
 				'Shown', true,

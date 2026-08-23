@@ -14,7 +14,7 @@ DefineClass.TraumaHeadLight = {
 		}),
 	},
 	DisplayName = T(890000000010118, "Head Trauma (Light)"),
-	Description = T(890000000010119, "Pain when aiming or firing. Eye trauma folded into head for v1."),
+	Description = T(890000000010119, "Pain when aiming or firing."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadLight.png",
 	Shown = true,

@@ -42,7 +42,7 @@ DefineClass.TraumaHeadMedium = {
 		}),
 	},
 	DisplayName = T(890000000010120, "Head Trauma (Medium)"),
-	Description = T(890000000010121, "Sight and accuracy penalties. +2 Pain when aiming or firing."),
+	Description = T(890000000010121, "Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when aiming or firing."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaHeadMedium.png",
 	Shown = true,

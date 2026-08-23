@@ -157,6 +157,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_audit_med001_kit_requirements.py` | Static MED-001: IFAK/Medkit Medical 30/50 gates, full bleeding clear, Medkit +50% healing, low-skill rollover warning, and companion/`items.lua` parity. |
 | `_audit_med003_kits.py` | Static MED-003 (+MED-006 heal supersede): Medical 30/50/80, MaxStacks 5/10/15, trauma ranks, full bleed, Analgesia+infection, Large Bobby soft-tail, Bonemaker 5% medium; heal via `JazzKitHealAtFullMedical`. |
 | `_audit_med006_kits_stabilize.py` | Static MED-006: stabilize helpers, heal% 30/60/100, MaxHP debt, icon PNGs, no kit→healing in GetBandaged; `JazzTraumaResolveNum` (no Lua `0 or preset`). |
+| `_audit_med007_debt_fatigue.py` | Static MED-007: skip-debt in combat, CombatStart/End recalc, no grit-on-debt, travel from current HitPoints vs 100, loc 010293. |
 | `_gen_trauma_status_icons.py` | Pillow: from each `Icons/StatusEffects/Trauma{Zone}{Tier}.png` write `*Stabilized` (sand badge) and `*Healing` (cyan badge) corner variants (30 PNGs). |
 | `_apply_med006_trauma_ce.py` | MED-006: Trauma* Medium/Heavy reactions use effective-tier helpers; insert `System_Medicine_MED006.lua` in metadata. |
 | `_apply_med006_kit_loc.py` | MED-006: kit AdditionalHint stabilize/%HP; strip heal_modifier +50/+100. |

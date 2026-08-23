@@ -8429,3 +8429,4 @@ Cuatro, cinco, seis
 8188,890000000013121,<em>(Injured legs)</em>,<em>(Раненые ноги)</em>,manual-translation-COMBAT-008
 8189,890000000013122,Move without spending AP. Remaining: <em><apn(remain)> AP</em>. Removed after attacking or after using up the allowance (based on Agility).,Перемещение без траты ОД. Осталось: <em><apn(remain)> ОД</em>. Снимается после атаки или когда запас исчерпан (зависит от Ловкости).,manual-translation-COMBAT-007
 8190,890000000013123, <em>(<apn(fm)> FM)</em>, <em>(<apn(fm)> FM)</em>,technical-copy
+8191,890000000010293,After this fight, max HP from this trauma: <em><pct>%</em>.,После этого боя макс. ОЗ от этой травмы: <em><pct>%</em>.,manual-translation-MED-007

@@ -2627,7 +2627,13 @@ function JazzFormatTraumaStatusDescription(effect, base_desc)
 	local debt = JazzTraumaMaxHpDebtByTier and JazzTraumaMaxHpDebtByTier[tier]
 	local debt_line = ""
 	if debt and debt > 0 then
-		debt_line = T{890000000010292, "Max HP debt from this trauma: <em><pct>%</em>.", pct = debt}
+		local obj = effect and effect.obj
+		local pending = type(JazzUnitSkipsTraumaMaxHpDebt) == "function" and JazzUnitSkipsTraumaMaxHpDebt(obj)
+		if pending then
+			debt_line = T{890000000010293, "After this fight, max HP from this trauma: <em><pct>%</em>.", pct = debt}
+		else
+			debt_line = T{890000000010292, "Max HP debt from this trauma: <em><pct>%</em>.", pct = debt}
+		end
 	end
 	if not base_desc or base_desc == "" then
 		local raw = rawget(_G, "JazzTraumaRawDescription")

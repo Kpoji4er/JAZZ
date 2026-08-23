@@ -11764,21 +11764,21 @@ R.I.S. has opened a field-intelligence channel for your team for the duration of
 890000000010112,Rib Trauma (Light),Rib Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009238
 890000000010113,Pain at the start of the turn.,Pain at the start of the turn.,,jazz:MED-001-trauma-remap-from-890000000009239
 890000000010114,Rib Trauma (Medium),Rib Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009240
-890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn. No Tiredness.,,jazz:MED-001-trauma-remap-from-890000000009241
+890000000010115,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn.,Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn.,,jazz:MED-001-trauma-remap-from-890000000009241
 890000000010116,Rib Trauma (Heavy),Rib Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009242
-890000000010117,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness.,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused. No Tiredness.,,jazz:MED-001-trauma-remap-from-890000000009243
+890000000010117,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused.,Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused.,,jazz:MED-001-trauma-remap-from-890000000009243
 890000000010118,Head Trauma (Light),Head Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009244
-890000000010119,Pain when aiming or firing. Eye trauma folded into head for v1.,Pain when aiming or firing. Eye trauma folded into head for v1.,,jazz:MED-001-trauma-remap-from-890000000009245
+890000000010119,Pain when aiming or firing.,Pain when aiming or firing.,,jazz:MED-001-trauma-remap-from-890000000009245
 890000000010120,Head Trauma (Medium),Head Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009246
-890000000010121,Sight and accuracy penalties. +2 Pain when aiming or firing.,Sight and accuracy penalties. +2 Pain when aiming or firing.,,jazz:MED-001-trauma-remap-from-890000000009247
+890000000010121,Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when aiming or firing.,Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when aiming or firing.,,jazz:MED-001-trauma-remap-from-890000000009247
 890000000010122,Head Trauma (Heavy),Head Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009248
-890000000010123,Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused.,Severe sight/accuracy loss. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused.,,jazz:MED-001-trauma-remap-from-890000000009249
+890000000010123,Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused.,Sight <color EmStyle><sight_modifier></color>. Accuracy penalty <color EmStyle><cth_penalty>%</color>. Nearly combat-ineffective. +3 Pain when aiming or firing; +1 Pain/turn if unused.,,jazz:MED-001-trauma-remap-from-890000000009249
 890000000010124,Burn Trauma (Light),Burn Trauma (Light),,jazz:MED-001-trauma-remap-from-890000000009250
 890000000010125,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,Lingering burn after fire. Pain on exertion. Bandage does not clear burns.,,jazz:MED-001-trauma-remap-from-890000000009251
 890000000010126,Burn Trauma (Medium),Burn Trauma (Medium),,jazz:MED-001-trauma-remap-from-890000000009252
-890000000010127,Moderate burn debt. +2 Pain on exertion. Infection risk deferred.,Moderate burn debt. +2 Pain on exertion. Infection risk deferred.,,jazz:MED-001-trauma-remap-from-890000000009253
+890000000010127,Moderate burn. +2 Pain on exertion.,Moderate burn. +2 Pain on exertion.,,jazz:MED-001-trauma-remap-from-890000000009253
 890000000010128,Burn Trauma (Heavy),Burn Trauma (Heavy),,jazz:MED-001-trauma-remap-from-890000000009254
-890000000010129,Severe burn debt. +3 Pain on exertion; +1 Pain/turn if unused. Infection/hospital clear deferred.,Severe burn debt. +3 Pain on exertion; +1 Pain/turn if unused. Infection/hospital clear deferred.,,jazz:MED-001-trauma-remap-from-890000000009255
+890000000010129,Severe burn. +3 Pain on exertion; +1 Pain/turn if unused.,Severe burn. +3 Pain on exertion; +1 Pain/turn if unused.,,jazz:MED-001-trauma-remap-from-890000000009255
 890000000010197,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,Treated: healing. Progress checks are faster; each check improves the trauma (will not worsen).,,jazz:MED-001-trauma-healing
 890000000010198,Next progress check: <em>due now</em> (healing — will improve).,Next progress check: <em>due now</em> (healing — will improve).,,jazz:MED-001-trauma-healing
 890000000010199,Next progress check in <em><hours> h</em> (healing — will improve).,Next progress check in <em><hours> h</em> (healing — will improve).,,jazz:MED-001-trauma-healing
@@ -12552,6 +12552,7 @@ Speck",,JAZZ-UI-MERC-001
 890000000010290,<target> trauma stabilized,<target> trauma stabilized,,jazz:MED-006
 890000000010291,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,Stabilized: combat penalties eased (one tier lighter). Does not heal the trauma — field treatment / hospital required.,,jazz:MED-006
 890000000010292,Max HP debt from this trauma: <em><pct>%</em>.,Max HP debt from this trauma: <em><pct>%</em>.,,jazz:MED-006
+890000000010293,After this fight, max HP from this trauma: <em><pct>%</em>.,After this fight, max HP from this trauma: <em><pct>%</em>.,,jazz:MED-007
 890000000006100,Командная аура,Command aura,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
 890000000006101,Этот командир отдаёт приказы союзникам поблизости.,This commander issues orders to nearby allies.,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
 890000000006102,Отдаёт приказы,Issuing orders,,jazz:CharacterEffect/Jazz_Perk_OfficerAura.lua
