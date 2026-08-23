@@ -13676,3 +13676,11 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 4869897712911115,,,,,russian-override;new-id,jazz:Code/Inventory.lua:85 | jazz:Code/Inventory.lua:148,jazz,jazz:Code/Inventory.lua:89 | jazz:Code/Inventory.lua:152,
 5678579714391111,изношенное,,изношенное,worn,russian-override;new-id,jazz:Code/Inventory.lua:114 | jazz:Code/Inventory.lua:177,jazz,jazz:Code/Inventory.lua:118 | jazz:Code/Inventory.lua:181,
 8182360763020012,Ресурс,,Ресурс,Resource,russian-override;new-id,jazz:items.lua:73489,jazz,jazz:items.lua:80519,
+890000000010900,Практика: <xp> / <need>,,Практика: <xp> / <need>,Practice: <xp> / <need>,russian-override;new-id,jazz-units:Code/StatGainRework.lua,jazz-units,jazz-units:Code/StatGainRework.lua,manual-translation-UNITS-009
+890000000010901,"<help>
+
+<practice>",,"<help>
+
+<practice>","<help>
+
+<practice>",russian-override;new-id,jazz-units:Code/StatGainRework.lua,jazz-units,jazz-units:Code/StatGainRework.lua,technical-copy

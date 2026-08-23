@@ -9558,3 +9558,9 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",manual-translation-MED-006
 9317,890000000010293,After this fight, max HP from this trauma: <em><pct>%</em>.,After this fight, max HP from this trauma: <em><pct>%</em>.,manual-translation-MED-007
+9318,890000000010900,Практика: <xp> / <need>,Practice: <xp> / <need>,manual-translation-UNITS-009
+9319,890000000010901,"<help>
+
+<practice>","<help>
+
+<practice>",technical-copy

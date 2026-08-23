@@ -11,6 +11,10 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
 | `_audit_ai_rng_wiring.py` | Brace-aware RunAndGun wiring audit: real vs default MobileShot, keyword gates, `AIAttackSingleTarget` action_ids. |
 | `_apply_ai_packet1b_items.py` | Packet 1B: sync `jazz-units/items.lua` UnitData PickCustom/archetype to companions; wire POL-002 AllyRoleAnchor+AvoidPeekVoxel into Front/Assault Legion+Rebels OptLoc; leave live TakeCover weights. |
+| `_apply_units009_melee_unitstat.py` | UNITS-009: `UnitStat=Strength` on seven melee companions + `items.lua` (machete family, bayonet, shovel, unarmed). Knives stay Dexterity. |
+| `_apply_units009_loc.py` | UNITS-009: append RU/EN `890000000010900` / `010901` practice rollover to runtime CSV, catalog, manuals. |
+| `_append_units009_units_loc.py` | UNITS-009: same practice IDs into `jazz-units` runtime `Russian.csv` / `English.csv` (package loctables). |
+| `_test_units009_skill_xp.py` | UNITS-009 static AC-001..004/016: T(s), cumulatives, Wisdom mul, no InteractionRand on award, melee UnitStat, helpers. |
 | `_audit_ai_packet1b.py` | Static 1B: live OptLoc TakeCover (Front 20+40 / Assault 10 / Flank 15), POL-002 on four archetypes, Flanker UnitData IDs, no panic/Hide/Melee@10 in JAZZ_Legion_/Rebel* PickCustom; ROLE-001 weak Flanker AI 80/150 on Assault/Front (true Flanker 500/1000). |
 | `_apply_ai_role001_weak_flank.py` | ROLE-001 REQ-005: Assaulter/Frontliner Legion+Rebels Flanker AI branches → Weight 80 / Flanking 150; Assaulter `Flanks`→`Flank`. Does not touch Flanker presets. |
 | `_apply_bandage_cumulative_loc.py` | MED-001: update `890000000010013` / `010021` RU+EN for cumulative field bandage (1 bandage × bleed stack). |

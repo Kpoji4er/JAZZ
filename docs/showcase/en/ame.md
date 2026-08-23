@@ -11,7 +11,7 @@ The PDA gets a separate site, **African Mercenary Exchange (A.M.E.)** — not a 
 - Market rotates about every **14** campaign days (2 weeks).
 - Categories: Irregulars · Fighters · Hardened · Specialists.
 - Every candidate starts at **Level 1**: training and kit differ, but levels are earned in your service.
-- Profiles show both category and **growth potential**: Low below 45 Wisdom, Medium at 45–64, High from 65.
+- Profiles show both category and **growth potential**: Low below 45 Wisdom, Medium at 45–64, High from 65. Potential is practice speed, not a luck roll. Hired mercs show **Practice: xp / threshold** on the stat rollover; hiring cards do not.
 - Every bio is a short character portrait: history, temperament, and one human detail suggest strengths and shortcomings without reciting stats.
 - Shared combat voices omit donor-faction slogans, and subtitles follow the line actually heard.
 - Each slot has a fixed starting kit and its own portrait — no random hire inventory roll.

@@ -20,6 +20,8 @@ Roles: Leader 7 · ExplosiveExpert 7 · Melee 6 · Autoriflemen 5 · Stealth 5 �
 
 Core AIM filters: **Autoriflemen**, **HeavyWeapons**, **Stealth**. XP to **level 21**. Contract duration in AIM/AME chat: **3–30** days (vanilla max was 14); the duration discount curve also peaks at **30** days (vanilla cut it off after 14).
 
+Hired mercs grow skills by **practice** (per-stat XP; Wisdom sets the speed), not from shared combat XP or a luck roll. Level still comes from fights and quests. Stat rollover shows **Practice: xp / threshold**. Books and sector training still grant a flat +1.
+
 AIM Doctors (`Specialization=Doctor`) start with **Meds** scaled by Medical — **50…200** (`50 + Medical×1.5` for Medical 0…100). AME medics use a flat **50** (see [AME](ame.md)).
 
 All 48 have a named perk in StartingPerks; **working hooks** are only a subset — see [perks](perks.md).

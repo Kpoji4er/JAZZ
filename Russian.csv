@@ -12572,3 +12572,9 @@ Speck","Командир!
 890000000006123,−3 к шансу попадания по этому бойцу,−3 к шансу попадания по этому бойцу,,jazz:Code/AIContextProfiles.lua
 890000000006124,Эффект приказа: <em><buff></em>,Эффект приказа: <em><buff></em>,,jazz:Code/AIContextProfiles.lua
 890000000006125,Цель: <em><name></em>,Цель: <em><name></em>,,jazz:Code/AIContextProfiles.lua
+890000000010900,Практика: <xp> / <need>,Практика: <xp> / <need>,,jazz-units:Code/StatGainRework.lua
+890000000010901,"<help>
+
+<practice>","<help>
+
+<practice>",,jazz-units:Code/StatGainRework.lua

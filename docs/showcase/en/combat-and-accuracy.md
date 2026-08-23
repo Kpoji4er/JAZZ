@@ -20,6 +20,8 @@ The IMP **Sniper** perk grants +1 maximum aim clicks with any weapon.
 
 The weapon sets how many aim clicks you get, how much each click is worth, where range falloff begins, how accuracy holds past the effective zone, and how bursts lose accuracy to recoil.
 
+Melee: knives use **Agility**; machetes, bayonets, shovels, and fists use **Strength**. Aimed fire trains **Marksmanship**; snap shots and knives train **Agility**. Combat XP raises level only.
+
 The legacy `Handling` stat has been removed and is not used in hit chance.
 
 ## Range and optics
@@ -46,7 +48,7 @@ Chance can be affected by cover and visible target size, stance, visibility/smok
 - Suppression cuts the shooter’s accuracy at any range (about −10 to −70 by tier).
 - A **Pinned** unit cannot counterattack and, on gaining the status and on its own turns while pinned, loses Overwatch (including a permanent machine-gun sector), Pin Down, and Bombard; a partially suppressed unit keeps prepared fire but suffers the accuracy penalty, and counterattack chance falls (**×90→×60** by tier).
 - **Lightning Reactions:** base about **50%**, once per combat; suppression gently cuts the chance (**45→30** by tier), **Pinned = 0%**; does **not** trigger on a stealth kill / Hidden attack.
-- **Psycho:** Will fully recovers after combat; per-turn Will drain is milder than before.
+- **Will:** recovers a little at the start of the turn. A nearby ally with high **Leadership** (within **11** tiles) speeds that up — the strongest neighbour counts, not the sum; **Negotiator** on that ally stretches the range. **Psycho** skips this and loses 4 Will per turn instead (unless Berserk); after combat everyone is back to full Will.
 
 ## Bleeding, pain, trauma, and medicine
 

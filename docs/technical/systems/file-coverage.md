@@ -164,7 +164,7 @@
 | `Legion.lua` | loaded | [Юниты](units-progression-specializations.md) |
 | `Mercenary.lua` | loaded | [Юниты](units-progression-specializations.md) |
 | `Rebels.lua` | loaded | [Юниты](units-progression-specializations.md) |
-| `StatGainRework.lua` | loaded | [Юниты](units-progression-specializations.md) |
+| `StatGainRework.lua` | loaded | [Юниты](units-progression-specializations.md) — skill XP UNITS-009 |
 
 ## `jazz_assets`
 

@@ -57,6 +57,7 @@ Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCod
 - `Jazz_Perk_Meat` — Will dmg → Grit; skip suppression queue.
 - `Jazz_Perk_Carlos` — detection −33%; failed SK 50% keep Hidden.
 - `Jazz_Perk_Cord` / `Jazz_Perk_Conrad` — city repair time/Parts; trainer Leadership floor 90.
+- В бою `Leadership` союзника в радиусе **&lt; 11** клеток ускоряет восстановление `WillPoints` в начале хода цели (`Unit:RecalcWillPoints`; берётся Max-вклад, не сумма). Формула — [броня и воля](armor-damage-wounds-will.md).
 - Soft: Biff trooper economy, Ira militia call-site, Livewire money op (ECON-001) — `_units006_batch5_notes.md`.
 - **Igor `Nazdarovya`:** signature (2 AP, `recharge_on_kill=1`): clear Pain, heal 15–20 HP, `Drunk` stacks ≤5 (−15 ranged CTH / +20 flat melee per stack); sat `OnNewHour` removes 1 stack / 3 h (`RemoveOnEndCombat=false`).
 - **Thor `NaturalHealing`:** every **48 h** produce **1× HerbalMedicine** (joints); same sat squad — trauma/burn check intervals and HP/TreatWounds debt recovery **+15%** faster (`sat_debt_speed_percent`; **not** `WoundInfected`); bandage by Thor restores patient **WillPoints 20–25**.
@@ -90,14 +91,14 @@ Loaded code: `System_NamedPerks.lua` (UNITS-006 batches 1–6 merged; ModItemCod
 
 ## Прогрессия
 
-`ExperienceTable.lua` расширяет таблицу уровней до 21. `ExperienceSys.lua` применяет опыт и level transitions. `StatGainRework.lua` использует систему points/thresholds и учитывает Wisdom при росте характеристик.
+`ExperienceTable.lua` расширяет таблицу уровней до 21. `ExperienceSys.lua` применяет боевой/квестовый XP только к **уровню** (`ReceiveStatGainingPoints` больше не наполняет `statGainingPoints`). `StatGainRework.lua` (JAZZ-UNITS-009, static): у каждого навыка свой skill XP. Порог `T(s)`: 150 / 250 / 400 / 800 до 80, далее геометрия ×1.5 (`T(80)=1600`, `T(90)=92267`, `T(99)=3547083`). Мудрость линейно 0…100 (`MulDivRound(awarded, Clamp(Wis,0,100), 60)`; Wis 0 = 0 практики). Книги и секторный тренинг — прямой `GainStat` +1 и сброс шкалы этого навыка. UI v1: строка в ролловере `Практика: xp / T(s)` у нанятого живого наёмника при стате 0…99. Боевой скейл капель ×3.5/×4 **не** включён (открытый выбор владельца). Runtime AC ещё не закрыты.
 
 Публичные контракты:
 
 - level и experience должны корректно сериализоваться;
 - переход через несколько порогов не должен терять уровни/очки;
 - max-level поведение не должно обращаться за отсутствующим порогом;
-- random stat gain обязан использовать детерминированный механизм движка;
+- рост навыка с практики детерминирован (нет `InteractionRand` на +1); книги/тренинг остаются плоским +1;
 - UnitData initial stats и runtime instance stats нельзя смешивать.
 
 ## Специализации и AIM
