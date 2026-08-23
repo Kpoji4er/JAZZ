@@ -53,6 +53,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-024 | Legion `support` role (mixed sniper/MG/mortar per slot, 4–7) |
 | JAZZ-STRATEGY-025 | Local rest at city/bunker/outpost (nearest); outpost trip for top-up only when affordable |
 | JAZZ-STRATEGY-026 | Sub-tier money pulse from Major (skip daily spawn pool); T2 crossing: money+people to every living outpost |
+| JAZZ-STRATEGY-027 | T2 / T2-3 / T2-5: Major retribution on every player-captured managed outpost (skip pool/Heat) |
 
 ## Валюта (утверждено)
 

@@ -3797,6 +3797,106 @@ local function lPulseSpawnManpower(root, outpost)
 	return lPulseDispatchTravel(root, squad, squad_state, outpost.sector_id)
 end
 
+-- STRATEGY-027: managed outpost held by the player (Side or stamped owner).
+local function lOutpostIsPlayerCaptured(outpost)
+	if not outpost or not outpost.sector_id then
+		return false
+	end
+	local sector = gv_Sectors and gv_Sectors[outpost.sector_id]
+	if sector and lIsPlayerSide(sector.Side) then
+		return true
+	end
+	return outpost.owner_faction == "player"
+end
+
+local function lCollectPlayerCapturedOutposts(root)
+	local list = {}
+	for _, outpost in sorted_pairs(root.outposts or empty_table) do
+		if lOutpostIsPlayerCaptured(outpost) then
+			list[#list + 1] = outpost
+		end
+	end
+	return list
+end
+
+local function lPulseShouldRetake(old_tier, new_tier)
+	return (old_tier < 21 and new_tier >= 21)
+		or (old_tier < 23 and new_tier >= 23)
+		or (old_tier < 25 and new_tier >= 25)
+end
+
+local function lPulseDispatchMajorTravel(root, squad, squad_state, dest_sector)
+	if not squad or not squad_state or not dest_sector then
+		return false
+	end
+	squad_state.task = {
+		task_type = "major_response",
+		target_sector = dest_sector,
+	}
+	local routed = lSetRoute(squad, dest_sector)
+	if routed == "arrived" then
+		lOnSquadArrived(root, squad, squad_state)
+		return true
+	end
+	if routed then
+		squad_state.state = "en_route"
+		ObjModified(squad)
+		return true
+	end
+	squad_state.state = "ready_for_orders"
+	squad_state.hold_for_path = true
+	ObjModified(squad)
+	lLog(string.format("STRATEGY-027: retribution holding at HQ, no path to %s", tostring(dest_sector)))
+	return true
+end
+
+local function lPulseSpawnMajorRetake(root, outpost)
+	local hq_sector = root.major and root.major.hq_sector
+	local hq = hq_sector and gv_Sectors[hq_sector]
+	if not hq or not JAZZ_IsLegionSide(hq.Side) then
+		return false
+	end
+	if not outpost or not outpost.sector_id or outpost.sector_id == hq_sector then
+		return false
+	end
+	local region = lGetRegionPreset(outpost.region_id)
+	if not region then
+		for _, candidate in sorted_pairs(Regions or empty_table) do
+			if candidate.LegionAIEnabled then
+				region = candidate
+				break
+			end
+		end
+	end
+	if not region then
+		return false
+	end
+	local region_state = root.regions and root.regions[outpost.region_id]
+	local unit_templates = false
+	if JAZZ_GenerateLegionSquadComposition then
+		local composition = JAZZ_GenerateLegionSquadComposition(
+			"major",
+			1000000,
+			200,
+			"auto",
+			"pulse_retake_" .. outpost.sector_id,
+			lGrowthProgress(region_state)
+		)
+		unit_templates = composition and composition.units or false
+	end
+	local squad_id, squad_state = lSpawnManaged(
+		root, region, hq_sector, "major", hq_sector, 1, {},
+		unit_templates,
+		{ skip_global_spawn = true }
+	)
+	local squad = squad_id and gv_Squads[squad_id]
+	if not squad then
+		return false
+	end
+	-- Off-map reserve: do not deduct major treasury or start the 72h cooldown.
+	return lPulseDispatchMajorTravel(root, squad, squad_state, outpost.sector_id)
+end
+
 function JAZZ_LegionAIOnTierRaised(old_tier, new_tier)
 	if type(old_tier) ~= "number" or type(new_tier) ~= "number" or new_tier <= old_tier then
 		return false
@@ -3806,11 +3906,10 @@ function JAZZ_LegionAIOnTierRaised(old_tier, new_tier)
 		return false
 	end
 	local living = lCollectLivingOutposts(root)
-	if #living == 0 then
-		lLog("STRATEGY-026: no living outposts for tier pulse")
-		return false
-	end
+	local captured = lCollectPlayerCapturedOutposts(root)
 	local crossed_t2 = old_tier < 21 and new_tier >= 21
+	local did = false
+
 	if crossed_t2 then
 		local sent = 0
 		for _, outpost in ipairs(living) do
@@ -3821,20 +3920,35 @@ function JAZZ_LegionAIOnTierRaised(old_tier, new_tier)
 				sent = sent + 1
 			end
 		end
+		if sent > 0 then
+			did = true
+		end
 		lLog(string.format("STRATEGY-026: T2 burst sent %d convoys to %d outposts", sent, #living))
-		return sent > 0
+	elseif #living > 0 then
+		local target = lPickPulseSupplyTarget(root, living)
+		if target and lPulseSpawnSupply(root, target) then
+			did = true
+			lLog(string.format("STRATEGY-026: sub-tier money convoy to %s: ok", tostring(target.sector_id)))
+		elseif target then
+			lLog(string.format("STRATEGY-026: sub-tier money convoy to %s: fail", tostring(target.sector_id)))
+		end
+	else
+		lLog("STRATEGY-026: no living outposts for logistics pulse")
 	end
-	local target = lPickPulseSupplyTarget(root, living)
-	if not target then
-		return false
+
+	if lPulseShouldRetake(old_tier, new_tier) then
+		local sent = 0
+		for _, outpost in ipairs(captured) do
+			if lPulseSpawnMajorRetake(root, outpost) then
+				sent = sent + 1
+			end
+		end
+		lLog(string.format("STRATEGY-027: retake wave sent %d / %d captured outposts", sent, #captured))
+		if sent > 0 then
+			did = true
+		end
 	end
-	local ok = lPulseSpawnSupply(root, target)
-	lLog(string.format(
-		"STRATEGY-026: sub-tier money convoy to %s: %s",
-		tostring(target.sector_id),
-		ok and "ok" or "fail"
-	))
-	return ok
+	return did
 end
 
 -- Outpost surplus recruits → Major via the same manpower caravan role (reverse route).
