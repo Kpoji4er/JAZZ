@@ -96,7 +96,7 @@ On large maps (the waterfall and similar) the enemy turn should not freeze for m
 
 A panicked fighter may flee and **despawn** at a map exit. While your mercs are within about **16** tiles, they will not vanish just by stepping behind the nearest rock — they keep running in plain sight.
 
-Without sight, AI will not plant Overwatch into a wall at random: the cone covers the **exit from behind cover** (where you would peek), not the rock. In the open it aims 1–3 tiles off the last sound. At night it prefers lit ground / night-sight, or they skip it. Shots into solid rock stop there. If you can see them and they cannot see you, they will not stand still to be farmed — they relocate and close to firing range of the last sound, not pile onto your tile.
+Without sight, AI will not plant Overwatch into a wall at random: the cone covers the tile **where you can step into view** (house corner, doorway, rock edge). In the open it aims 1–3 tiles off the last sound. At night it prefers lit ground / night-sight, or they skip it. Shots into solid rock stop there. If you can see them and they cannot see you, they will not stand still to be farmed — they relocate and close to firing range of the last sound, not pile onto your tile.
 
 ## What the UI shows
 

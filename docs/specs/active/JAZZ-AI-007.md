@@ -49,7 +49,7 @@ approved_by: project-owner
 - Отход: шанс на пороге, срыв при слиянии (≥3 живых в 8 тайлах).
 - Нет LOS + last known: линия идёт в пояс 14–20 тайлов; 1–2 пробы ближе.
 - Кого игрок видит, а боец игрока нет — обязан сдвинуться.
-- OW по звуку: конус на выход из-за укрытия, не в камень и не в клетку за ним.
+- OW по звуку: конус на клетку, куда враг может выйти в LOS (камень, угол дома, дверь), не в стену и не в клетку за ней.
 - Dump по звуку: якорь last known ±1–3 тайла. В непробиваемый камень не бить (уже PERF-004).
 
 ## Non-goals
@@ -70,7 +70,7 @@ approved_by: project-owner
 - `JAZZ-AI-007-REQ-005` — `AIScoreDest`: линия (не probe) вне пояса 14–20 получает бонус за сближение с last known и штраф за отход/стойку; внутри пояса штраф за dest < 14 (не наезжать на звук). Probe (`Flank` keyword / aura `pusher` / Flanker archetype, не больше двух на команду) может идти ближе. Край карты (8 тайлов от bbox), если last known не у края — штраф.
 - `JAZZ-AI-007-REQ-006` — farm: игрок имеет LOS на юнита, юнит не имеет LOS ни на одного player_team. Stay dest штраф; dest с большим cover / дальше от spotter — бонус.
 - `JAZZ-AI-007-REQ-007` — `Scout_LastLocation` / recontact: path-bbox margin 24 тайла (cap 64), чтобы ход сокращал дистанцию, а не 2 клетки.
-- `JAZZ-AI-007-REQ-008` — `JazzAI_FallbackOverwatchTargetPos`: якорь last known / nearest enemy; цель = ближайшая проходимая плита в кольце 1–2 вокруг якоря с `JazzAI_PosOWViable` (выход из-за укрытия). Если кольцо пусто и сам якорь viable — якорь. Иначе `false`. Ночные правила OW-001 сохраняются.
+- `JAZZ-AI-007-REQ-008` — `JazzAI_FallbackOverwatchTargetPos`: якорь last known / nearest enemy. Если якорь сам `JazzAI_PosOWViable` — открытое, `JazzAI_SoundOffsetPos` ±1–3. Иначе цель = первая проходимая плита по BFS от якоря (≤8 тайлов / 40 клеток) с `JazzAI_PosOWViable` — выход в обзор: угол дома, дверь, камень. Не кольцо 1–2 (дом дальше). Нет кандидата → `false`. Ночные правила OW-001 сохраняются.
 - `JAZZ-AI-007-REQ-009` — Dump/point по звуку без LOS: aim pos = last known со сдвигом 1–3 тайла (детерминированно от handle, проходимая плита). Не целить в модельку на клетке last known.
 - `JAZZ-AI-007-REQ-010` — CombatStart/End чистит `JazzAI_TeamFallBackState`. Docs: technical + wiki + showcase RU/EN.
 
@@ -87,9 +87,9 @@ approved_by: project-owner
 - `JAZZ-AI-007-AC-001` — static: wrap `SelectArchetype` без vanilla scout-before-PickCustom; `ShouldRecontactScout` как REQ-002.
 - `JAZZ-AI-007-AC-002` — static: FallBack roll/bands/cancel + MapVar.
 - `JAZZ-AI-007-AC-003` — static: dest standoff / farm / map-edge + path margin 24 для scout.
-- `JAZZ-AI-007-AC-004` — static: peek-exit OW + sound offset 1–3.
+- `JAZZ-AI-007-AC-004` — static: egress OW (BFS from last known) + sound offset 1–3.
 - `JAZZ-AI-007-AC-005` — static: docs technical + wiki/showcase RU/EN + override-matrix.
-- `JAZZ-AI-007-AC-006` — runtime/human: нет LOS + last known далеко → линия идёт в пояс, не стоит в углу; кого видит игрок — сдвигаются; OW на выход из-за камня.
+- `JAZZ-AI-007-AC-006` — runtime/human: нет LOS + last known далеко → линия идёт в пояс, не стоит в углу; кого видит игрок — сдвигаются; OW на выход в обзор (камень / угол дома / дверь).
 
 ## Impact и совместимость
 
@@ -111,7 +111,7 @@ approved_by: project-owner
 ## Решение владельца
 
 - Статус: approved.
-- Кто подтвердил: project-owner (чат 2026-08-23: recontact пояс + farm move; FallBack шанс/слияние; OW на выход из-за камня; звук ±1–3).
+- Кто подтвердил: project-owner (чат 2026-08-23: recontact пояс + farm move; FallBack шанс/слияние; OW на выход в обзор — камень / угол дома / дверь, не кольцо 1–2; звук ±1–3).
 - Дата: 2026-08-23.
 - CMD-001 REQ-005 «FallBack = dead≥2 & ≥30%» остаётся порогом допуска; старт/срыв — этот spec.
 
@@ -120,9 +120,9 @@ approved_by: project-owner
 - `JAZZ-AI-007-AC-001`: `PASS` (static) — `JazzAI_SelectArchetype` wrap; vanilla scout-gate removed; `JazzAI_ShouldRecontactScout`.
 - `JAZZ-AI-007-AC-002`: `PASS` (static) — `JazzAI_TeamFallBackState` + band roll + merge cancel.
 - `JAZZ-AI-007-AC-003`: `PASS` (static) — `JazzAI_ScoreRecontactDest` + path margin 24.
-- `JAZZ-AI-007-AC-004`: `PASS` (static) — `JazzAI_PeekExitAimPos` / `JazzAI_SoundOffsetPos`; Dump skips unseen model.
+- `JAZZ-AI-007-AC-004`: `PASS` (static) — `JazzAI_PeekExitAimPos` BFS egress / `JazzAI_SoundOffsetPos`; Dump skips unseen model.
 - `JAZZ-AI-007-AC-005`: `PASS` (static) — technical + override-matrix + wiki + showcase RU/EN.
-- `JAZZ-AI-007-AC-006`: `BLOCKED` — runtime/human (L4 / peek-exit OW).
+- `JAZZ-AI-007-AC-006`: `BLOCKED` — runtime/human (L4 / egress OW: corner/door/rock).
 
 ## Documentation delta
 

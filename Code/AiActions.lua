@@ -775,40 +775,68 @@ function JazzAI_SoundOffsetPos(unit, anchor)
 	return cand or GetPassSlab(anchor) or anchor
 end
 
--- Peek-exit: passable slabs in ring 1–2 around the sound, with LOS from the watcher.
+-- First walkable tile from last known that the watcher can see:
+-- rock peek, house corner, doorway — wherever the enemy can step into view.
+local JazzAI_PEEK_MAX_STEPS = 8
+local JazzAI_PEEK_MAX_VISIT = 40
+local JazzAI_PEEK_DIRS = {
+	{ 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 },
+	{ 1, 1 }, { 1, -1 }, { -1, 1 }, { -1, -1 },
+}
+
+local function JazzAI_PeekSlabAt(wx, wy, wz)
+	return GetPassSlab(point(wx, wy, wz))
+end
+
 function JazzAI_PeekExitAimPos(unit, anchor)
 	if not IsValid(unit) or not anchor then
 		return false
 	end
-	local slab_size = const.SlabSizeX
-	local ax, ay, az = anchor:xyz()
-	if not ax then
+	local start = GetPassSlab(anchor) or JazzAI_PeekSlabAt(anchor:xyz()) or anchor
+	if not start then
 		return false
 	end
-	local best, best_key
-	for ring = 1, 2 do
-		for dx = -ring, ring do
-			for dy = -ring, ring do
-				if Max(abs(dx), abs(dy)) == ring then
-					local cand = GetPassSlab(point(ax + dx * slab_size, ay + dy * slab_size, az))
-					if cand and JazzAI_PosOWViable(unit, cand) then
-						local dist = unit:GetDist(cand)
-						local key = dist * 10000 + (dx + 10) * 100 + (dy + 10)
-						if not best_key or key < best_key then
-							best = cand
-							best_key = key
+	if JazzAI_PosOWViable(unit, start) then
+		return JazzAI_SoundOffsetPos(unit, start) or start
+	end
+
+	local slab_size = const.SlabSizeX
+	local sx, sy, sz = start:xyz()
+	if not sx then
+		return false
+	end
+	local start_key = point_pack(sx, sy, sz or 0)
+	local visited = { [start_key] = true }
+	local queue = { start }
+	local qh = 1
+	local visits = 1
+
+	while queue[qh] and visits < JazzAI_PEEK_MAX_VISIT do
+		local cur = queue[qh]
+		qh = qh + 1
+		local cx, cy, cz = cur:xyz()
+		local step = Max(abs(DivRound(cx - sx, slab_size)), abs(DivRound(cy - sy, slab_size)))
+		if step < JazzAI_PEEK_MAX_STEPS then
+			for i = 1, #JazzAI_PEEK_DIRS do
+				local d = JazzAI_PEEK_DIRS[i]
+				local cand = JazzAI_PeekSlabAt(cx + d[1] * slab_size, cy + d[2] * slab_size, cz)
+				if cand then
+					local kx, ky, kz = cand:xyz()
+					local key = point_pack(kx, ky, kz or 0)
+					if not visited[key] then
+						visited[key] = true
+						visits = visits + 1
+						if JazzAI_PosOWViable(unit, cand) then
+							return cand
+						end
+						queue[#queue + 1] = cand
+						if visits >= JazzAI_PEEK_MAX_VISIT then
+							break
 						end
 					end
 				end
 			end
 		end
-		if best then
-			return best
-		end
-	end
-	local self_slab = GetPassSlab(anchor) or anchor
-	if JazzAI_PosOWViable(unit, self_slab) then
-		return JazzAI_SoundOffsetPos(unit, self_slab) or self_slab
 	end
 	return false
 end

@@ -389,7 +389,7 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-MED-001** | Medic freeze repro + fail-safes; early heal; bleed-first |
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
 | **JAZZ-AI-REG-001** | Isolated Legion → `Legion_Regroup` к дальнему ally cluster |
-| **JAZZ-AI-007** | Recontact 14–20 / farm move; FallBack chance+merge; peek-exit OW; SelectArchetype after PickCustom |
+| **JAZZ-AI-007** | Recontact 14–20 / farm move; FallBack chance+merge; egress OW (corner/door/rock); SelectArchetype after PickCustom |
 | **JAZZ-AI-POL-003** | Anti-stack: hard same-voxel dibs + soft ally spacing in AIScoreDest |
 | **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee floor; medic ignore superseded MED-002 |
 | **JAZZ-AI-MED-002** | Dedicated medic switch + one fill-in; medic ignore crowd; cover spacing |
