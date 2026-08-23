@@ -232,7 +232,7 @@ Legacy/coarse gates (`1`–`10`) в старых списках при знач�
 
 ## Runtime flow смены снаряжения
 
-1. `JAZZ_UpdateLegionTierForMaps` / `JAZZ_UpdateLegionTierForNoMaps` (SatelliteTick / OpenSatelliteView / SectorSideChanged / NewGame/LoadGame) поднимает `JAZZ_Legion_Tier` и вызывает `RegenerateLegionLoot()`.
+1. `JAZZ_UpdateLegionTierForMaps` / `JAZZ_UpdateLegionTierForNoMaps` (SatelliteTick / OpenSatelliteView / SectorSideChanged / NewGame/LoadGame) поднимает `JAZZ_Legion_Tier` и вызывает `RegenerateLegionLoot()`. Реальный рост (`computed > current`) после `JAZZ_RIS_OnTierRaised` шлёт `Msg("JAZZ_LegionTierRaised", old, new)` — Global AI (STRATEGY-026) пускает денежный / T2 money+people импульс.
 2. `RegenerateLegionLoot()` только ставит локальный boolean `RegenerateLegionLootVar`.
 3. При следующем `OnMsg.OpenSatelliteView` установленный флаг вызывает `_RegenerateLegionLoot()`.
 4. Функция проходит все `gv_Squads` и все `squad.units`.

@@ -52,6 +52,7 @@ approved_by: project-owner
 | JAZZ-STRATEGY-023 | `GreatForest` / G22+K21 + shared multi-outpost resources + orphan rehome |
 | JAZZ-STRATEGY-024 | Legion `support` role (mixed sniper/MG/mortar per slot, 4–7) |
 | JAZZ-STRATEGY-025 | Local rest at city/bunker/outpost (nearest); outpost trip for top-up only when affordable |
+| JAZZ-STRATEGY-026 | Sub-tier money pulse from Major (skip daily spawn pool); T2 crossing: money+people to every living outpost |
 
 ## Валюта (утверждено)
 

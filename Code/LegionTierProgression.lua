@@ -258,6 +258,8 @@ local function lApplyTierRaise(computed, log_label, extra)
 	if rawget(_G, "JAZZ_RIS_OnTierRaised") then
 		JAZZ_RIS_OnTierRaised(computed)
 	end
+	-- STRATEGY-026: Global AI listens for sub-tier / T2 convoy pulses.
+	Msg("JAZZ_LegionTierRaised", current, computed)
 	return computed
 end
 

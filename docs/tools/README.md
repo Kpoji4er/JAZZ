@@ -196,6 +196,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
 | `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc; mixed specialist pool + `support_archetype = "mixed"`. |
 | `_check_legion_rest_025.py` | Static JAZZ-STRATEGY-025: city/bunker/outpost rest helpers, top-up gate, loc/wiki smoke. |
+| `_check_strategy026_tier_convoys.py` | Static JAZZ-STRATEGY-026: tier Msg, skip-pool pulse, T2 all-outpost money+people, docs/wiki/showcase smoke. |
 | `_reorg_squad_icons_folders.py` | One-shot: move `SquadsIcons/Enemy/*.png` into `_shields/`, `_misc/`, `<faction>/`. |
 | `_rewrite_squad_icon_doc_paths.py` | Rewrite `squad-role-icons.md` image links after folder reorg. |
 | `_bump_sniper001_meta.py` | Revision +1 + prepend `last_changes` bullet for SNIPER-001 commit. |

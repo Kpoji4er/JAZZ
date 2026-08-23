@@ -27,7 +27,7 @@ Vanilla-map starting squads whose compositions are replaced by `jazz-units` are 
 
 Bloodied squads may fall back to the fort for replacements **when** the outpost can afford `$`/manpower; otherwise they heal at the nearest Legion city/bunker (or at the outpost itself). After a run of orders a squad rests at the **nearest** valid site — city, bunker, or its home outpost (if already there, it does not ride to the fort just to rest); topping up bodies happens only at the outpost. Then it goes out again. Patrols **linger** in route sectors and travel **over land** when a land path exists. On **Mission Impossible** the per-class copy limit is off (sniper/MG caps stay).
 
-Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately. On the mainland, tax/recruiters from a new fort wait ~3 days, and the daily cap on **new** Legion squads map-wide scales with tier (1 → 2 → 3).
+Legion mine/town/farm income and starting cash pools are about **4× lower** than before, and new squads spawn less often — the map should not fill with heavy convoys immediately. On the mainland, tax/recruiters from a new fort wait ~3 days, and the daily cap on **new** Legion squads map-wide scales with tier (1 → 2 → 3). Each Legion **sub-tier** raise immediately sends a money convoy from the Major (outside that daily queue); crossing into tier **II** sends money and people to every living uncaptured outpost.
 
 ## Factions and logistics
 
@@ -45,3 +45,4 @@ If recon does not find your squad, sector Heat drops a little. If it spots you, 
 - Cash convoy tasks show `$`; returning recon shows the sector.
 - Patrols can enter your sectors, especially empty ones.
 - Without high Heat and a real threat, the fort does not spam extra recon/QRF on top of squads already present.
+- Sub-tier raise: a Major money convoy outside the daily new-squad cap; crossing into II sends money and people to every living outpost.
