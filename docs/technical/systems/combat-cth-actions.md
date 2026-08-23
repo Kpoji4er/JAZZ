@@ -125,6 +125,8 @@ Vanilla `Unit:GameInit` может вызвать `EnterEmplacement` до соз
 
 `RecalcUIActions` под двухстрочный `CombatActionBar` (`HWrap`): **24** боевых слота, signature на **25** (ваниль 12+13). Переполнение по-прежнему сворачивает item-skills в `ItemSkills`.
 
+`Firearm:GetBaseAttack` (рядом с `CanAutofire`/`CanBurstfire`): если на стволе `EnableBurst`/`EnableFullAuto` и этих ID нет в preset `AvailableAttacks`, в эффективный список сначала идут `BurstFire` и `AutoFire`. Overwatch (`GetDefaultAttackAction` ungrouped) на M2Carbine / Mini14 с `JAZZ_Autofire` стреляет очередью, не одиночным. Порядок baked-in списков не трогается.
+
 ## Lightning Reaction (JAZZ-COMBAT-003)
 
 Канон: `Unit:LightningReactionCheck` в `Code/System_OR_Unit.lua`; `Unit:FirearmAttack` в `Code/CombatActions.lua` выставляет `g_JAZZ_FirearmAttacker` / `g_JAZZ_FirearmAttackArgs` на время `OnFirearmAttackStart`.

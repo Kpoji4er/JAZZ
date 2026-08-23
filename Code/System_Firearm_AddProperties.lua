@@ -494,6 +494,49 @@ function Firearm:CanBurstfire()
 	return table.find(self.AvailableAttacks, "BurstFire") or self:HasComponent("EnableBurst")
 end
 
+-- M2Carbine / Mini14 keep semi AvailableAttacks until JAZZ_Autofire is installed.
+-- Overwatch uses GetDefaultAttackAction → GetBaseAttack(force): vanilla returns AvailableAttacks[1]
+-- (SingleShot). Prepend component-gated Burst/Auto only — do not reorder baked-in lists (VSS/SVU).
+local function jazz_effective_available_attacks(weapon)
+	local src = (weapon and weapon.AvailableAttacks) or empty_table
+	local list = {}
+	local seen = {}
+	local function add(id)
+		if id and CombatActions[id] and not seen[id] then
+			seen[id] = true
+			list[#list + 1] = id
+		end
+	end
+	if weapon:HasComponent("EnableBurst") and not table.find(src, "BurstFire") then
+		add("BurstFire")
+	end
+	if weapon:HasComponent("EnableFullAuto") and not table.find(src, "AutoFire") then
+		add("AutoFire")
+	end
+	for _, id in ipairs(src) do
+		add(id)
+	end
+	return list
+end
+
+function Firearm:GetBaseAttack(unit, force)
+	local attacks = jazz_effective_available_attacks(self)
+	if force then
+		return attacks[1] or "UnarmedAttack"
+	end
+	if #attacks > 0 then
+		local units = { unit }
+		for _, id in ipairs(attacks) do
+			local action = CombatActions[id]
+			local target = action.RequireTargets and action:GetDefaultTarget(unit)
+			if action:GetVisibility(units, target) ~= "hidden" then
+				return id
+			end
+		end
+	end
+	return "UnarmedAttack"
+end
+
 
 
 --Add property to weapon modification menu
