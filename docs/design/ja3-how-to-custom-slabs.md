@@ -162,25 +162,41 @@ WallInt_{indoor_id}_Wall_01
 
 ### 6. Крыша — `Roof`
 
-Имя строится от поля пресета **`EntitySet`**, не от `id` (у ванили они часто совпадают; display name может врать — у Adobe крыши подпись «Concrete»).
+Имя строится от поля пресета **`EntitySet`**, не от `id` (у ванили они часто совпадают; **display name может врать** — у Adobe крыши подпись «Concrete», у Straw — «Tin»).
 
 ```text
 Roof_{EntitySet}_{компонент}_{NN}
 ```
 
-| Компонент | Что это |
+Токены `roof_comp` берутся из `RoomRoof.lua` (`roofCompToSubvariantArr`). Это имена Haemimont, не выдуманные ярлыки.
+
+**Комната реально ставит эти куски** (`obj.roof_comp = …`), и у ванили есть меши:
+
+| Компонент | Что это | Пример ванили |
+|---|---|---|
+| `Plane` | скат, основная плоскость | `Roof_Adobe_Plane_01` |
+| `Eave` | карниз / свес | `Roof_Adobe_Eave_01`, `_02` |
+| `Rake` | торец ската | `Roof_Adobe_Rake_01`, `_02` |
+| `Ridge` | конёк | `Roof_Adobe_Ridge_01` |
+| `RakeEave` | стык rake–eave | `Roof_Adobe_RakeEave_01` |
+| `RakeRidge` | стык rake–ridge | `Roof_Adobe_RakeRidge_01` |
+| `Gable` | фронтон | `Roof_Tiles_Gable_01` (у Adobe нет) |
+| `RakeGable` | стык rake–gable | `Roof_Tiles_RakeGable_01` (у Adobe нет) |
+
+Скатная крыша в стиле Adobe: Plane + Eave + Rake + Ridge + два rake-стыка. Gable / RakeGable — дополнительно для фронтонных крыш (Tiles, Tin, Wood, Sticks, Straw, PalmLeaves).
+
+**Только в формуле имени.** Есть в `roofCompToSubvariantArr` и как поля редактора (`RakeGableCrestBot Subvariants`, …). Ваниль **никогда** не присваивает эти `roof_comp` и **не** шипит под них `EntityData`. `Bot` = **Bottom** (низ), не «бот». Для первой крыши не делать.
+
+| Токен | Поле пресета |
 |---|---|
-| `Plane` | скат, основная плоскость |
-| `Eave` | карниз / свес |
-| `Rake` | торец ската |
-| `Ridge` | конёк |
-| `Gable` | фронтон |
-| `RakeEave` / `RakeRidge` / `RakeGable` | стыки этих кусков |
-| `GableCrest`, `GableSlope`, `RakeGableCrestTop` / `Bot`, `RakeGableSlopeTop` / `Bot` | гребень и уклон фронтона |
+| `GableCrest` | `crest_subvariants` |
+| `RakeGableCrestTop` | `crest_top_subvariants` |
+| `RakeGableCrestBot` | `crest_bot_subvariants` |
+| `GableSlope` | `slope_subvariants` |
+| `RakeGableSlopeTop` | `slope_top_subvariants` |
+| `RakeGableSlopeBot` | `slope_bot_subvariants` |
 
-Примеры: `Roof_Adobe_Plane_01`, `Roof_Adobe_Eave_02`.
-
-Полный набор — много мешей. Комната без крыши в редакторе нормальна. Делать после того, как стены стыкуются.
+Комната без крыши в редакторе нормальна. Делать после того, как стены стыкуются.
 
 Fallback в коде, если у пресета нет `EntitySet` / субвариантов: `Roof_{id}_{компонент}_01` (смотрит на `self.material`). Надёжнее сразу задать `EntitySet` равным `id`.
 
@@ -286,7 +302,7 @@ WallInt_{indoor_id}_Corner_01
 
 ### Волна 4 — крыша
 
-`Roof_{EntitySet}_Plane_01` и остальные компоненты из таблицы выше.
+`Roof_{EntitySet}_Plane_01` плюс Eave / Rake / Ridge / RakeEave / RakeRidge. Gable / RakeGable — только если нужна фронтонная крыша. Crest/Slope/`*Bot` для первой крыши не делать.
 
 ### Волна 5 — проёмы именно этого материала
 
@@ -408,6 +424,10 @@ PlaceObj('SlabMaterials', {
 3. Не рассчитывать на `inherit_entity` у vanilla slab: `can_be_inherited` у стен обычно выключен.
 
 Свой ящик с нуля почти всегда ломает стыки: пивот по центру тайла (`X` ±0.6, `Y` ±0.1) — самая частая ошибка черновика.
+
+## Sample `JazzStub`
+
+Публичный sample-мод: [Kpoji4er/JAZZ-slabs-sample](https://github.com/Kpoji4er/JAZZ-slabs-sample) (id `jSlbStb`, не пакет комплекта). Клонировать или распаковать в `Mods/jazz-slabs`. Один ящик на шесть имён: ExEx, Corner, CapL/T/X, Floor. В Map Editor материал **Jazz Stub**. Нет ExIn, indoor, крыши, окон, Broken. Пивот не ванильный — только чтобы комната вообще собралась.
 
 ## Отдельный мод, не проп-пак и не `jazz_assets`
 

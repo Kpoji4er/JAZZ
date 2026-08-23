@@ -9,7 +9,7 @@
 - [`showcase/`](showcase/README.md) — двуязычная витрина для GitHub Wiki (ADR-0003);
 - [ownership/](ownership/README.md) — write sets и exclusive resources параллельных агентов;
 - [`glossary.md`](glossary.md) — единый словарь терминов;
-- [`design/`](design/) — авторские заметки и how-to по движку/контенту (не current-state runtime). Гайд по своим building slab: [RU](design/ja3-how-to-custom-slabs.md) / [EN](design/ja3-how-to-custom-slabs.en.md).
+- [`design/`](design/) — авторские заметки и how-to по движку/контенту (не current-state runtime). Гайд по своим building slab: [RU](design/ja3-how-to-custom-slabs.md) / [EN](design/ja3-how-to-custom-slabs.en.md). Sample-мод: [Kpoji4er/JAZZ-slabs-sample](https://github.com/Kpoji4er/JAZZ-slabs-sample).
 
 `docs/wiki/` восстановлена решением [ADR-0002](decisions/ADR-0002-technical-and-player-docs.md). Публичная GitHub Wiki собирается из [`showcase/`](showcase/README.md) ([ADR-0003](decisions/ADR-0003-github-wiki-showcase.md)). Для заметного игроку изменения technical current-state, профильная wiki-страница и при затронутом аспекте — RU/EN showcase обновляются вместе; generated weapon pages изменяются только через канонические CSV и генератор.
 

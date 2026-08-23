@@ -162,25 +162,41 @@ Attached to an `OutdoorIndoor` / `ExIn` wall. Without this set the inside of the
 
 ### 6. Roof — `Roof`
 
-The name is built from the preset field **`EntitySet`**, not from `id` (in vanilla they often match; the display name can lie — Adobe roofs are labeled “Concrete”).
+The name is built from the preset field **`EntitySet`**, not from `id` (in vanilla they often match; the **display name can lie** — Adobe roofs are labeled “Concrete”, Straw roofs “Tin”).
 
 ```text
 Roof_{EntitySet}_{component}_{NN}
 ```
 
-| Component | What it is |
+These `roof_comp` tokens come from `RoomRoof.lua` (`roofCompToSubvariantArr`). They are Haemimont names, not invented labels.
+
+**The room actually places these** (`obj.roof_comp = …`) and vanilla ships meshes for them:
+
+| Component | What it is | Vanilla example |
+|---|---|---|
+| `Plane` | slope, main surface | `Roof_Adobe_Plane_01` |
+| `Eave` | eave / overhang | `Roof_Adobe_Eave_01`, `_02` |
+| `Rake` | gable-end of the slope | `Roof_Adobe_Rake_01`, `_02` |
+| `Ridge` | ridge | `Roof_Adobe_Ridge_01` |
+| `RakeEave` | rake–eave joint | `Roof_Adobe_RakeEave_01` |
+| `RakeRidge` | rake–ridge joint | `Roof_Adobe_RakeRidge_01` |
+| `Gable` | gable face | `Roof_Tiles_Gable_01` (Adobe has none) |
+| `RakeGable` | rake–gable joint | `Roof_Tiles_RakeGable_01` (Adobe has none) |
+
+A sloped Adobe-style roof needs Plane + Eave + Rake + Ridge + the two rake joints. Gable / RakeGable are extra for gable roofs (Tiles, Tin, Wood, Sticks, Straw, PalmLeaves).
+
+**Reserved in the name formula only.** Present in `roofCompToSubvariantArr` and as editor fields (`RakeGableCrestBot Subvariants`, …). Vanilla never assigns these `roof_comp` values and ships **no** `EntityData` for them. `Bot` = **Bottom**, not “bot”. Skip unless you are extending the engine.
+
+| Token | Preset field |
 |---|---|
-| `Plane` | slope, main surface |
-| `Eave` | eave / overhang |
-| `Rake` | gable-end of the slope |
-| `Ridge` | ridge |
-| `Gable` | gable |
-| `RakeEave` / `RakeRidge` / `RakeGable` | joints of those pieces |
-| `GableCrest`, `GableSlope`, `RakeGableCrestTop` / `Bot`, `RakeGableSlopeTop` / `Bot` | crest and slope of the gable |
+| `GableCrest` | `crest_subvariants` |
+| `RakeGableCrestTop` | `crest_top_subvariants` |
+| `RakeGableCrestBot` | `crest_bot_subvariants` |
+| `GableSlope` | `slope_subvariants` |
+| `RakeGableSlopeTop` | `slope_top_subvariants` |
+| `RakeGableSlopeBot` | `slope_bot_subvariants` |
 
-Examples: `Roof_Adobe_Plane_01`, `Roof_Adobe_Eave_02`.
-
-A full set is many meshes. A room without a roof is fine in the editor. Do this after the walls join cleanly.
+A room without a roof is fine in the editor. Do this after the walls join cleanly.
 
 Fallback in code if the preset has no `EntitySet` / subvariants: `Roof_{id}_{component}_01` (uses `self.material`). Safer to set `EntitySet` equal to `id` from the start.
 
@@ -286,7 +302,7 @@ WallInt_{indoor_id}_Corner_01
 
 ### Wave 4 — roof
 
-`Roof_{EntitySet}_Plane_01` and the other components from the table above.
+`Roof_{EntitySet}_Plane_01` plus Eave / Rake / Ridge / RakeEave / RakeRidge. Add Gable / RakeGable only if you want a gable roof. Do not make Crest/Slope/`*Bot` meshes for a first roof.
 
 ### Wave 5 — openings for this material
 
@@ -408,6 +424,10 @@ A full Adobe set is dozens of meshes. For a new “brick” you usually:
 3. Do not rely on `inherit_entity` for vanilla slabs: `can_be_inherited` is usually off on walls.
 
 A box from scratch almost always breaks joints: a pivot in the tile center (`X` ±0.6, `Y` ±0.1) is the most common draft mistake.
+
+## Sample `JazzStub`
+
+Public sample: [Kpoji4er/JAZZ-slabs-sample](https://github.com/Kpoji4er/JAZZ-slabs-sample) (id `jSlbStb`, not a suite package). Clone or unzip into `Mods/jazz-slabs`. One box under the six required names: ExEx, Corner, CapL/T/X, Floor. In the Map Editor the material is **Jazz Stub**. No ExIn, indoor, roof, windows, or Broken. The pivot is not vanilla — this is only enough to spawn a room.
 
 ## A separate mod, not a prop pack and not `jazz_assets`
 
