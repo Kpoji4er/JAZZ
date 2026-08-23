@@ -106,6 +106,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_audit_hotfix_003.py` | HOTFIX-003 static regression: Unjam on CombatActions with WeaponResource jam gate; pinned OnAdded/OnBeginTurn + BeginTurn/ApplySuppressionStatus interrupt permanent MG OW; shotgun pellet pack one FX; tooltip ID `890000000001235` catalog + RU/EN. |
 | `_audit_ui002_weapon_chips.py` | UI-002 static: Fold/Flash `ShowIn = false`, Unjam stays CombatActions; `idFoldStockButton`/`idFlashlightButton` GridX=2; HUD helpers + GetUIState zzFoldingPair. |
 | `_audit_combat_bar_slots.py` | Two-row HUD: Recalc 24+25 **and** `Jazz_RegisterExtraCombatBarSlots` (`Action14`–`Action24` combat, `Action25` signature). Recalc padding alone does not spawn buttons. |
+| `_audit_craft_ammo_homemade.py` | INV-003: CraftAmmo allow-list (`JAZZ_AMMO_*_Crafted` + saltshot), FillItemsToCraft filter, AdditionalResources wrap, `JAZZ_9x39_Crafted` in items+metadata, батч 100 Parts + qty по калибру. |
 | `_rebuild_weapon_chip_icons.py` | UI-002: rebuild thin 54×54 Fold/Flash chip glyphs from old dual-strip `Icons/stock_*.png` / `flash_*.png` (left half, pad, light thin). |
 | `_match_weapon_manip_icon_pairs.py` | UI-002: derive `weapon_flash_off` / `weapon_stock_unfold` from ON/Fold masters so HUD pairs share the same silhouette (beams/arrow only differ). |
 | `_rebuild_stock_chip_glyphs.py` | UI-001: replace photo stock `ChipIcon` PNGs with flat `#C8C0A8` glyphs (`--finalize-dir` drafts or `--flatten-only`). |
@@ -524,7 +525,8 @@ python docs/tools/build-sector-atlas-docs.py
 | `_fix_shotgun_pellet_autoshots.py` | **Superseded by 006** — старый hotfix AutoShots=1; не использовать. |
 | `_rebalance_recoil_physical.py` | JAZZ-WEAPONS-003/008: mass/RPM/size/limiter → Recoil/Burst/Auto; SMG floor 12; Carbine + select-fire sniper rpm holefix; G36 lim=2; M16A2/A4/FAMAS/AUG/HK33/Sig550*/G3 lim=3; M2Carbine component-gated JAZZ_Autofire shot counts; token-safe attack match. `--apply` → `.bak`. |
 | `_audit_weapons_rpm_holes.py` | WEAPONS-003 hole scan: select-fire/`MGBurst` with `cyclic_rpm=0`, Auto/Burst=0 with mode, known BurstLimiter drift, CSV↔companion, SMG mass/Long placeholders, spec anchors. |
-| `_soften_ammo_jam.py` | JAZZ-WEAPONS-008: смягчает Poor/Crafted `BaseJamChance`/`Reliability` в `items.lua` + companions. `--apply`. |
+| `_soften_ammo_jam.py` | JAZZ-WEAPONS-008: смягчает Poor/Crafted `BaseJamChance`/`Reliability` в `items.lua` + companions. `--apply`. Исторический маппинг; актуальный Crafted band — `_apply_crafted_jam_band.py`. |
+| `_apply_crafted_jam_band.py` | Owner 2026-08-23: все `*_Crafted` Rel −3 / jam +40 (хуже FMJ, лучше Poor). `items.lua` + companions. `--apply`. |
 | `_audit_weapon_jam_balance.py` | JAZZ-WEAPONS-010 static audit: soft-stack wear, quadratic −5pp service softener at 100%, softer mid steps, Rel 5..95, MP40 0/2/7/100, Mosin mid 8%/17% capped; Poor/Crafted ≤5% at perfect resource. |
 | `_patch_jam_reliability_score.py` | Rewrite `JazzGetBaseJamScore` in `System_OR_Weapons.lua` (Rel clamp + Rel95 zero + scaled BaseJamChance); writes `.jamrel.new` then replaces when the game unlocks the file. |
 | `_tmp_audit_smg_jam_feedback.py` | Discord audit: SMG Recoil distribution + Poor/Crafted JamScore scenarios. |

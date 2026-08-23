@@ -16,7 +16,8 @@ INV = ROOT / "InventoryItem"
 
 # Exact (old_jam, old_rel) -> (new_jam, new_rel) for known tiers.
 REPLACEMENTS = {
-    (200, -25): (140, -18),  # Crafted (all calibers)
+    (200, -25): (140, -18),  # historical Crafted (WEAPONS-008)
+    (140, -18): (40, -3),    # owner 2026-08-23: Crafted between Poor and FMJ
     (180, -15): (120, -10),  # 9x19 Poor
     (150, -15): (100, -10),  # 45ACP Poor (and similar)
     (100, -5): (70, -4),     # rifle Poor

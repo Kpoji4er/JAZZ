@@ -19,7 +19,7 @@ JAZZ_AMMO_40mmFragGrenade,40-мм о/ф граната,40mmGrenade,AmmoBasicColo
 JAZZ_AMMO_44CAL_FMJ,".44, FMJ",44CAL,AmmoBasicColor,1.5,,,,,10,,,,,,,,300,3,100,True
 JAZZ_AMMO_44CAL_JHP,".44, JHP",44CAL,AmmoJHPColor,0.9,140%,95%,-10,12.0,30,,,,,-2,,Bleeding,400,3,75,True
 JAZZ_AMMO_44CAL_Match,".44, Match",44CAL,AmmoMatchColor,1.3,90%,120%,3,,15,,,,,4,,,1100,3,18,True
-JAZZ_AMMO_45ACP_Crafted,".45ACP, Кустарный",45ACP,AmmoSubstandardColor,1.2,110%,85%,-18,14.0,20,,,,,,,Bleeding,60,,,False
+JAZZ_AMMO_45ACP_Crafted,".45ACP, Кустарный",45ACP,AmmoSubstandardColor,1.2,110%,85%,-3,4.0,20,,,,,,,Bleeding,60,,,False
 JAZZ_AMMO_45ACP_FMJ,".45ACP, FMJ",45ACP,AmmoBasicColor,0.9,,,,,10,,,,,,,,450,1,100,True
 JAZZ_AMMO_45ACP_JHP,".45ACP, JHP",45ACP,AmmoJHPColor,0.7,130%,97%,-8,,30,-1,,,,-1,,Bleeding,650,2,75,True
 JAZZ_AMMO_45ACP_P,".45ACP, +P",45ACP,AmmoHPColor,1.6,120%,96%,-6,6.0,18,2,,,,3,,,540,1,80,True
@@ -34,13 +34,13 @@ JAZZ_AMMO_50BMG_API_HEI,".50, РАЗР",50BMG,AmmoHPColor,3.8,80%,98%,-5,2.0,10,
 JAZZ_AMMO_50BMG_Basic,".50, обычный",50BMG,AmmoBasicColor,3.5,,,,,,,,,,,,,4500,3,12,True
 JAZZ_AMMO_545_AP,"5,45 мм, БП Бронебойный",545,AmmoAPColor,3.0,80%,98%,-3,0.4,8,3,,,,2,,,4500,5,8,True
 JAZZ_AMMO_545_Army,"5,45 мм, ПС Армейский",545,AmmoArmyColor,2.0,,,,,20,1,,,,,,BleedingChance,2300,3,50,True
-JAZZ_AMMO_545_Crafted,"5,45 мм, Кустарный",545,AmmoCraftedColor,1.8,95%,85%,-18,14.0,25,,,,,,,Bleeding,90,,,False
+JAZZ_AMMO_545_Crafted,"5,45 мм, Кустарный",545,AmmoCraftedColor,1.8,95%,85%,-3,4.0,25,,,,,,,Bleeding,90,,,False
 JAZZ_AMMO_545_EPR,"5,45 мм, ПП Повышенной Пробиваемости",545,AmmoHPColor,2.5,95%,,,,10,1,,,,,,BleedingChance,4000,4,22,True
 JAZZ_AMMO_545_Poor,"5,45 мм, Барнаул SP Substandard",545,AmmoSubstandardColor,1.4,120%,98%,-5,7.0,20,-1,,,,-2,,BleedingChance,400,1,90,True
 JAZZ_AMMO_545_Tracer,"5,45 мм, 7Т3 Трассер",545,AmmoTracerColor,1.8,95%,96%,-3,2.0,5,,,,,,,ExposedBleedingChanceMarkedTraccers,2000,3,45,True
 JAZZ_AMMO_556_AP,"5,56 мм, M995 Бронебойный",556,AmmoAPColor,3.0,80%,96%,-3,2.0,1,3,,,,3,,,4800,5,8,True
 JAZZ_AMMO_556_Army,"5,56 мм, M855 Армейский",556,AmmoArmyColor,2.4,90%,97%,-3,2.0,2,1,,,,1,,,2400,3,50,True
-JAZZ_AMMO_556_Crafted,"5,56мм, Кустарный",556,AmmoCraftedColor,2.0,95%,85%,-18,14.0,20,,,,,,,Bleeding,60,2,50,False
+JAZZ_AMMO_556_Crafted,"5,56мм, Кустарный",556,AmmoCraftedColor,2.0,95%,85%,-3,4.0,20,,,,,,,Bleeding,60,2,50,False
 JAZZ_AMMO_556_EPR,"5,56 мм, M855A1 Повышенной Пробиваемости",556,AmmoHPColor,2.5,90%,99%,-2,3.0,6,2,,,,2,,,4200,4,22,True
 JAZZ_AMMO_556_FMJ,"5,56мм, FMJ",556,AmmoBasicColor,2.2,,,,,5,,,,,,,,1200,2,100,True
 JAZZ_AMMO_556_Match,"5,56 мм, Mk262",556,AmmoMatchColor,2.6,,118%,10,,18,,,,,3,,Bleeding,2800,4,18,True
@@ -57,7 +57,7 @@ JAZZ_AMMO_762x25_JHP,"7.62x25, Wolf JHP",762x25,AmmoJHPColor,1.0,120%,98%,-8,10.
 JAZZ_AMMO_762x25_Poor,"7.62x25, Lot 66-3 CN Substandard",762x25,AmmoBasicColor,0.9,90%,,-10,,5,,,,,,,,90,1,90,True
 JAZZ_AMMO_762x39_APP,"7,62х39мм, БЗ",762x39,AmmoAPPColor,3.2,,98%,-5,2.0,2,3,,,,1,,Burning,2200,5,12,True
 JAZZ_AMMO_762x39_Army,"7,62х39мм, ПС",762x39,AmmoArmyColor,2.3,,,,,5,1,,,,,,,1900,3,50,True
-JAZZ_AMMO_762x39_Crafted,"7,62х39мм, Кустарный",762x39,AmmoCraftedColor,2.0,95%,85%,-18,14.0,20,,,,,,,Bleeding,100,,150,False
+JAZZ_AMMO_762x39_Crafted,"7,62х39мм, Кустарный",762x39,AmmoCraftedColor,2.0,95%,85%,-3,4.0,20,,,,,,,Bleeding,100,,150,False
 JAZZ_AMMO_762x39_FMJ,"7,62х39мм, Norinco FMJ",762x39,AmmoBasicColor,2.1,,,,,5,,,,,,,Bleeding,950,2,100,True
 JAZZ_AMMO_762x39_JHP,"7,62х39мм, ПС",762x39,AmmoJHPColor,1.5,120%,97%,-8,,20,,,,,-2,,Bleeding,1150,2,75,True
 JAZZ_AMMO_762x39_Poor,"7,62х39мм, Norinco Lot 66-3 CN Substandard",762x39,AmmoSubstandardColor,1.6,90%,,-4,7.0,5,-1,,,,-1,,Bleeding,270,1,90,True
@@ -65,13 +65,13 @@ JAZZ_AMMO_762x39_Tracer,"7,62 мм СССР, ТРАС",762x39,AmmoTracerColor,2.
 JAZZ_AMMO_762x39_US,"7,62х39мм, УС",762x39,AmmoSubsonicColor,1.5,95%,99%,-2,3.0,10,-3,-20,,,-3,,Bleeding,500,1,100,True
 JAZZ_AMMO_762x51_AP,"7.62х51мм НАТО, M61",762x51,AmmoAPColor,3.2,80%,98%,-3,2.0,,5,,,,3,,,3200,5,8,True
 JAZZ_AMMO_762x51_Army,"7.62х51мм НАТО, M80",762x51,AmmoArmyColor,2.6,,,,2.0,5,1,,,,,,,500,3,50,True
-JAZZ_AMMO_762x51_Crafted,"7.62х51мм НАТО, FMJ",762x51,AmmoCraftedColor,2.0,,85%,-18,14.0,15,,,,,,,Bleeding,80,2,150,False
+JAZZ_AMMO_762x51_Crafted,"7.62х51мм НАТО, FMJ",762x51,AmmoCraftedColor,2.0,,85%,-3,4.0,15,,,,,,,Bleeding,80,2,150,False
 JAZZ_AMMO_762x51_FMJ,"7.62х51мм НАТО, FMJ",762x51,AmmoBasicColor,2.2,,,,,,,,,,,,Bleeding,250,2,100,True
 JAZZ_AMMO_762x51_Match,"7.62х51мм НАТО, M118LR",762x51,AmmoMatchColor,2.9,110%,120%,3,,10,3,,,,6,,,2800,4,6,True
 JAZZ_AMMO_762x51_Poor,"7.62х51мм НАТО, FMJ Substandard",762x51,AmmoSubstandardColor,2.0,90%,,-4,7.0,,-3,,,,-3,,Bleeding,80,1,90,True
 JAZZ_AMMO_762x51_Tracer,"7.62х51мм НАТО, M62",762x51,AmmoTracerColor,2.4,95%,98%,,,,,,,,1,,ExposedMarkedTraccers,450,3,45,True
 JAZZ_AMMO_762x54_APIT,"7,62x54R мм БЗТ (API-T)",762x54R,AmmoAPPColor,3.5,90%,98%,-5,20.0,10,5,,,,3,,BurningBleedingExposedMarkedTraccers,2800,5,4,True
-JAZZ_AMMO_762x54_Crafted,"7,62x54R мм Кустарный",762x54R,AmmoCraftedColor,2.0,,85%,-18,14.0,15,,,,,,,,60,2,,False
+JAZZ_AMMO_762x54_Crafted,"7,62x54R мм Кустарный",762x54R,AmmoCraftedColor,2.0,,85%,-3,4.0,15,,,,,,,,60,2,,False
 JAZZ_AMMO_762x54_FMJ,"7,62x54R мм ЛПС (FMJ)",762x54R,AmmoBasicColor,2.4,,,,,,,,,,,,,200,2,100,True
 JAZZ_AMMO_762x54_Match,"7,62x54R мм СНБ (AP / match)",762x54R,AmmoMatchColor,3.2,80%,120%,-4,,6,3,,,,5,,,2400,4,18,True
 JAZZ_AMMO_762x54_Poor,"7,62x54R мм 188-57 CN Type 53 Substandard",762x54R,AmmoSubstandardColor,2.0,90%,95%,-4,7.0,,-3,,,,-3,,,70,1,90,True
@@ -84,19 +84,19 @@ JAZZ_AMMO_792x33_FMJ,792x33мм Pist. Patr. 43 Ball,792x33,AmmoBasicColor,1.6,,,
 JAZZ_AMMO_792x33_Tracer,792x33мм L'spur Трассер,792x33,AmmoTracerColor,1.6,,95%,-2,2.0,2,,,,,-1,,Exposed,1600,,1,False
 JAZZ_AMMO_9x18_AP,"9x18мм, ПСТ ББ",9x18,AmmoAPColor,1.8,85%,98%,-4,4.0,3,1,,,,1,,,1950,3,10,True
 JAZZ_AMMO_9x18_APP,"9x18мм, 7н25 ББ+",9x18,AmmoAPPColor,2.2,85%,95%,-5,4.0,1,2,,,,2,,,1850,3,16,True
-JAZZ_AMMO_9x18_Crafted,"9x18мм, Кустарный",9x18,AmmoCraftedColor,1.1,110%,85%,-18,14.0,20,1,,,,,,Bleeding,30,,,False
+JAZZ_AMMO_9x18_Crafted,"9x18мм, Кустарный",9x18,AmmoCraftedColor,1.1,110%,85%,-3,4.0,20,1,,,,,,Bleeding,30,,,False
 JAZZ_AMMO_9x18_FMJ,"9x18мм, ПСО FMJ",9x18,AmmoBasicColor,1.0,,,,,10,,,,,,,,350,1,100,True
 JAZZ_AMMO_9x18_JHP,"9x18мм, СП7 JHP+",9x18,AmmoJHPPColor,0.7,140%,97%,-10,12.0,40,,,,,-1,,Bleeding,600,2,75,True
 JAZZ_AMMO_9x18_Poor,"9x18мм, 57-Н-181С Substandard",9x18,AmmoSubstandardColor,0.6,90%,,,,5,-1,,,,-1,,,120,1,90,True
 JAZZ_AMMO_9x19_AP,"9х19 мм, 7н21 ББ",9x19,AmmoAPColor,2.0,90%,97%,-3,3.0,3,1,,,,2,,,2300,3,10,True
 JAZZ_AMMO_9x19_APP,"9х19 мм, 7н31 ББ+",9x19,AmmoAPPColor,2.3,80%,96%,-5,4.0,1,2,,,,4,,,2200,3,16,True
-JAZZ_AMMO_9x19_Crafted,"9х19 мм, Кустарные",9x19,AmmoCraftedColor,1.3,,85%,-18,14.0,20,,,,,,,Bleeding,60,,,False
+JAZZ_AMMO_9x19_Crafted,"9х19 мм, Кустарные",9x19,AmmoCraftedColor,1.3,,85%,-3,4.0,20,,,,,,,Bleeding,60,,,False
 JAZZ_AMMO_9x19_FMJ,"9х19 мм, Luger FMJ",9x19,AmmoBasicColor,1.0,,,,,5,,,,,,,,500,1,100,True
 JAZZ_AMMO_9x19_JHP,"9х19 мм, Luger JHP",9x19,AmmoJHPColor,0.8,110%,,-6,6.0,25,-1,,,,-1,,Bleeding,600,2,75,True
 JAZZ_AMMO_9x19_Match,"9х19 мм, Match 124gr OTM",9x19,AmmoMatchColor,1.0,110%,118%,15,,15,1,,,,4,,,1900,3,18,True
 JAZZ_AMMO_9x19_Poor,"9х19 мм, 9mm Ball Substandard",9x19,AmmoSubstandardColor,0.9,90%,90%,-10,12.0,1,-1,,,,-2,,,150,1,90,True
 JAZZ_AMMO_9x39_AP,"9x39 мм, СП-6 (бронебойный)",9x39,AmmoAPColor,3.0,80%,,-3,,1,1,,,,,,,1600,5,8,True
-JAZZ_AMMO_9x39_Crafted,"9x39 мм, Кустарный",9x39,AmmoCraftedColor,2.2,,85%,-18,14.0,20,,,,,,,,80,3,10,False
+JAZZ_AMMO_9x39_Crafted,"9x39 мм, Кустарный",9x39,AmmoCraftedColor,2.2,,85%,-3,4.0,20,,,,,,,,80,3,10,False
 JAZZ_AMMO_9x39_JHP,"9x39 мм, СП-5 (экспансивный)",9x39,AmmoJHPColor,1.8,110%,110%,,10.0,15,,,,,-1,,,350,3,75,True
 JAZZ_AMMO_MortarShell_Gas,Газ. выстрел миномета,MortarShell,,1.0,,,,,,,,,,,,,350,3,25,False
 JAZZ_AMMO_MortarShell_HE,Выстрел для миномета,MortarShell,AmmoBasicColor,1.0,,,,,,,,,,,,suppressionHeavy2,350,2,50,False

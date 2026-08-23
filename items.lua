@@ -5848,11 +5848,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -6203,11 +6203,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "Damage",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -6519,11 +6519,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "Damage",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -7898,11 +7898,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "Damage",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -8324,11 +8324,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "Damage",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -8632,11 +8632,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "Damage",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -9070,11 +9070,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -9356,11 +9356,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -10072,11 +10072,11 @@ PlaceObj('ModItemEmail', {
 								target_prop = "PenetrationBonus",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = -18,
+								mod_add = -3,
 								target_prop = "Reliability",
 							}),
 							PlaceObj('CaliberModification', {
-								mod_add = 140,
+								mod_add = 40,
 								target_prop = "BaseJamChance",
 							}),
 							PlaceObj('CaliberModification', {
@@ -113770,6 +113770,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				ResultItem = PlaceObj('RecipeIngredient', {
 					'item', "JAZZ_AMMO_762x51_Crafted",
+					'amount', 20,
 				}),
 				group = "Ammo",
 				id = "JAZZ_762x51_Crafted",
@@ -113789,6 +113790,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				ResultItem = PlaceObj('RecipeIngredient', {
 					'item', "JAZZ_AMMO_762x54_Crafted",
+					'amount', 20,
 				}),
 				group = "Ammo",
 				id = "JAZZ_762x54_Crafted",
@@ -113799,7 +113801,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				Ingredients = {
 					PlaceObj('RecipeIngredient', {
 						'item', "Parts",
-						'amount', 50,
+						'amount', 100,
 					}),
 					PlaceObj('RecipeIngredient', {
 						'item', "BlackPowder",
@@ -113807,7 +113809,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				ResultItem = PlaceObj('RecipeIngredient', {
 					'item', "JAZZ_AMMO_12gauge_Saltshot",
-					'amount', 10,
+					'amount', 20,
 				}),
 				group = "Ammo",
 				id = "JAZZ_12gauge_Saltshot",
@@ -113818,7 +113820,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				Ingredients = {
 					PlaceObj('RecipeIngredient', {
 						'item', "Parts",
-						'amount', 40,
+						'amount', 100,
 					}),
 					PlaceObj('RecipeIngredient', {
 						'item', "BlackPowder",
@@ -113826,7 +113828,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				ResultItem = PlaceObj('RecipeIngredient', {
 					'item', "JAZZ_AMMO_45ACP_Crafted",
-					'amount', 24,
+					'amount', 30,
 				}),
 				group = "Ammo",
 				id = "JAZZ_45ACP_Crafted",
@@ -113837,7 +113839,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				Ingredients = {
 					PlaceObj('RecipeIngredient', {
 						'item', "Parts",
-						'amount', 30,
+						'amount', 100,
 					}),
 					PlaceObj('RecipeIngredient', {
 						'item', "BlackPowder",
@@ -113845,7 +113847,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				ResultItem = PlaceObj('RecipeIngredient', {
 					'item', "JAZZ_AMMO_9x19_Crafted",
-					'amount', 30,
+					'amount', 40,
 				}),
 				group = "Ammo",
 				id = "JAZZ_9x19_Crafted",
@@ -113856,7 +113858,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				Ingredients = {
 					PlaceObj('RecipeIngredient', {
 						'item', "Parts",
-						'amount', 20,
+						'amount', 100,
 					}),
 					PlaceObj('RecipeIngredient', {
 						'item', "BlackPowder",
@@ -113864,10 +113866,30 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				},
 				ResultItem = PlaceObj('RecipeIngredient', {
 					'item', "JAZZ_AMMO_9x18_Crafted",
-					'amount', 30,
+					'amount', 50,
 				}),
 				group = "Ammo",
 				id = "JAZZ_9x18_Crafted",
+			}),
+			PlaceObj('ModItemCraftOperationsRecipeDef', {
+				CraftOperationId = "CraftAmmo",
+				CraftTime = 15,
+				Ingredients = {
+					PlaceObj('RecipeIngredient', {
+						'item', "Parts",
+						'amount', 100,
+					}),
+					PlaceObj('RecipeIngredient', {
+						'item', "BlackPowder",
+						'amount', 2,
+					}),
+				},
+				ResultItem = PlaceObj('RecipeIngredient', {
+					'item', "JAZZ_AMMO_9x39_Crafted",
+					'amount', 20,
+				}),
+				group = "Ammo",
+				id = "JAZZ_9x39_Crafted",
 			}),
 			}),
 		}),

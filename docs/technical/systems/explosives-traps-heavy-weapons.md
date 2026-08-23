@@ -99,7 +99,7 @@ AI использует собственную оценку допустимой
 
 - ordnance и grenade items входят в 558 InventoryItem core;
 - есть специализированные inventory slots `GrenadesInventory` и `OrdnanceInventory`;
-- 49 crafting-operation recipes включают ammo и mortar/ordnance;
+- 50 crafting-operation recipes включают ammo (кустарные в picker) и mortar/ordnance;
 - AI keywords `Explosives`, `Ordnance`, `Smoke`, `MG`, `Control` связывают роли юнитов с доступными действиями.
 
 ## Межпакетные зависимости

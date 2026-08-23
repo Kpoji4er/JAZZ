@@ -381,6 +381,19 @@ function AIUpdateBiases()
 	end
 end
 
+-- CraftAmmo: only JAZZ homemade (_Crafted) and JAZZ saltshot. Factory vanilla
+-- recipes stay in data (RemoveCraft / loot IDs) but never enter the picker.
+function Jazz_IsAllowedCraftAmmoRecipe(recipe)
+	local item = recipe and recipe.ResultItem and recipe.ResultItem.item
+	if type(item) ~= "string" then
+		return false
+	end
+	if string.match(item, "^JAZZ_AMMO_.+_Crafted$") then
+		return true
+	end
+	return item == "JAZZ_AMMO_12gauge_Saltshot"
+end
+
 -- Craft list: vanilla pairs + weak sort; CommonLib FixRecipes does full sort.
 -- Keep a local copy so craft order stays deterministic if CLib is absent.
 function SectorOperationFillItemsToCraft(sector_id, operation_id)
@@ -400,6 +413,9 @@ function SectorOperationFillItemsToCraft(sector_id, operation_id)
 	local squad_units = squad and squad.units
 	local checked_amount_cache = {}
 	for recipe_id, recipe in pairs(CraftOperationsRecipes) do
+		if operation_id == "CraftAmmo" and not Jazz_IsAllowedCraftAmmoRecipe(recipe) then
+			goto continue
+		end
 		if (operation_id == "CraftAmmo" and recipe.group == "Ammo" or
 			operation_id == "CraftExplosives" and recipe.group == "Explosives" or
 			operation_id == recipe.CraftOperationId) and recipe.ResultItem then
@@ -423,6 +439,7 @@ function SectorOperationFillItemsToCraft(sector_id, operation_id)
 				hidden = hidden
 			}
 		end
+		::continue::
 	end
 
 	table.sort(all_to_craft, function(a, b)
@@ -442,3 +459,59 @@ function SectorOperationFillItemsToCraft(sector_id, operation_id)
 end
 
 SectorOperationValidateItemsToCraft = SectorOperationFillItemsToCraft
+
+g_JAZZ_CraftAddResWrapped = rawget(_G, "g_JAZZ_CraftAddResWrapped") or false
+g_JAZZ_CraftAddResBase = rawget(_G, "g_JAZZ_CraftAddResBase") or false
+
+local function Jazz_InstallCraftAddResFilter()
+	if rawget(_G, "g_JAZZ_CraftAddResWrapped") then
+		return
+	end
+	local base = rawget(_G, "SectorOperations_CraftAdditionalResources")
+	if type(base) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_CraftAddResBase", base)
+	rawset(_G, "g_JAZZ_CraftAddResWrapped", true)
+	function SectorOperations_CraftAdditionalResources(sector_id, operation_id)
+		if operation_id ~= "CraftAmmo" then
+			return g_JAZZ_CraftAddResBase(sector_id, operation_id)
+		end
+		local res_table = {}
+		for _, recipe in pairs(CraftOperationsRecipes) do
+			if Jazz_IsAllowedCraftAmmoRecipe(recipe) then
+				for _, ingr in ipairs(recipe.Ingredients) do
+					res_table[ingr.item] = (res_table[ingr.item] or 0) + ingr.amount
+				end
+			end
+		end
+		local needed_res_table = SectorOperation_CalcCraftResources(sector_id, operation_id)
+		local mercs = GetOperationProfessionals(sector_id, operation_id)
+		local merc
+		if next(mercs) then
+			merc = mercs[1].session_id
+		else
+			mercs = GetPlayerMercsInSector(sector_id)
+			merc = mercs[1]
+		end
+		local array = {}
+		for res, val in pairs(res_table) do
+			if res ~= "Money" and res ~= "Parts" then
+				local result, amount_found = HasItemInSquad(merc, res, "all")
+				if amount_found and amount_found > 0 then
+					array[#array + 1] = { res = res, value = val, queued_val = needed_res_table[res], amount_found = amount_found or 0 }
+				end
+			end
+		end
+		table.sortby(array, "res")
+		return array
+	end
+end
+
+function OnMsg.DataLoaded()
+	Jazz_InstallCraftAddResFilter()
+end
+
+function OnMsg.ModsReloaded()
+	Jazz_InstallCraftAddResFilter()
+end

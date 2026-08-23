@@ -68,7 +68,7 @@ approved_by: project-owner
   >80×1, ≤80×3, ≤60×6, ≤40×12, ≤15×18; **superseded by
   JAZZ-WEAPONS-010**, which uses separate additive condition and
   permanent-wear steps.
-- `JAZZ-WEAPONS-008-REQ-005` — `*_Crafted` BaseJamChance **140** (было 200), Rel **−18** (было −25); `*_Poor` pistol/SMG calibers BaseJamChance **≈2/3** прежнего (9×19: 120, Rel −10); rifle Poor ≈70 jam / Rel −4.
+- `JAZZ-WEAPONS-008-REQ-005` — `*_Poor` pistol/SMG: 9×19 jam **120** Rel **−10**; rifle Poor ≈70 / Rel −4. `*_Crafted` **superseded 2026-08-23:** Rel **−3** / jam **+40** (между FMJ 0/0 и Poor; не 140/−18).
 - `JAZZ-WEAPONS-008-REQ-006` — historical perfect-condition exception:
   serviceable 0%, Poor 10%, Crafted 15%; **superseded by
   JAZZ-WEAPONS-010**, где Reliability снова влияет на исправный ствол,
@@ -86,7 +86,7 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-008-AC-002` — static: no active SubmachineGun with WeaponMass≥70 and Size Long.
 - `JAZZ-WEAPONS-008-AC-003` — historical static acceptance for
   multipliers 3/6/12/18; superseded by JAZZ-WEAPONS-010-AC-001/002.
-- `JAZZ-WEAPONS-008-AC-004` — static: Crafted jam+140 Rel−18; 9×19 Poor jam+120 Rel−10; `_validate_items_quick.py` OK.
+- `JAZZ-WEAPONS-008-AC-004` — static: Crafted Rel−3 / jam+40; 9×19 Poor jam+120 Rel−10; `_validate_items_quick.py` OK.
 - `JAZZ-WEAPONS-008-AC-005` — human/runtime: очередь ПП различается; Poor клинит заметно, но не «каждый второй burst» на Mech~80 fresh gun.
 - `JAZZ-WEAPONS-008-AC-006` — historical perfect-condition audit;
   superseded by the additive-curve audit in JAZZ-WEAPONS-010.
@@ -109,6 +109,7 @@ approved_by: project-owner
 
 - Статус: approved (historical jam decision from 2026-08-06 is superseded
   by the owner-approved JAZZ-WEAPONS-010 contract from 2026-08-07).
+  Crafted Rel/jam: owner 2026-08-23 — между Poor и FMJ (−3 / +40), не 140/−18.
 - Исполнитель: agent.
 
 ## Evidence
@@ -117,7 +118,7 @@ approved_by: project-owner
 - `JAZZ-WEAPONS-008-AC-002`: `PASS` — static: no active SMG mass≥70 / Long after apply
 - `JAZZ-WEAPONS-008-AC-003`: `PASS (historical, superseded by
   JAZZ-WEAPONS-010)` — former multipliers 3/6/12/18 were implemented.
-- `JAZZ-WEAPONS-008-AC-004`: `PASS` — static: Crafted 140/−18; 9×19 Poor 120/−10; `_validate_items_quick.py` OK
+- `JAZZ-WEAPONS-008-AC-004`: `PASS` — static: Crafted −3/+40 (owner 2026-08-23); 9×19 Poor 120/−10; `_validate_items_quick.py` OK
 - `JAZZ-WEAPONS-008-AC-005`: `BLOCKED` — runtime/human playtest
 - `JAZZ-WEAPONS-008-AC-006`: `PASS (historical, superseded by
   JAZZ-WEAPONS-010)` — former perfect-condition contract was implemented
