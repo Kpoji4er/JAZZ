@@ -12,6 +12,7 @@ generated_data: true
 runtime_validation: required
 write_set:
   - jazz/docs/specs/active/JAZZ-UNITS-009.md
+  - jazz/docs/specs/active/JAZZ-UNITS-009-companion.md
   - jazz-units/Code/StatGainRework.lua
   - jazz-units/Code/ExperienceSys.lua
   - jazz/items.lua
@@ -45,6 +46,8 @@ approved_by: pending
 
 # JAZZ-UNITS-009: Skill XP instead of stat-gain rolls
 
+Для человека, без формул: [как наёмники качают навыки](JAZZ-UNITS-009-companion.md).
+
 ## Проблема
 
 Рост характеристик сейчас — общий банк `statGainingPoints` из боевого XP плюс `RollForStatGaining` на редких `StatGainingPrerequisite`. Провал броска **не тратит** банк. За каждый лишний поинт сверх `PointsPerLevel` даётся `+10` к броску **без потолка**. Высокий стат почти не проходит кубик → банк толстеет от XP до 21 уровня → бонус перебивает порог → 90→100 проходит пачкой успехов за несколько боёв.
@@ -55,7 +58,7 @@ approved_by: pending
 
 - Практика копит **XP этого навыка**; порог до +1 растёт со статом (кампания ~**400** секторов). После **80** — геометрическая прогрессия **×1.5 за каждый следующий пункт**.
 - Боевой/квестовый XP качает **только уровень** (ОД, CTH `Level×5`). Не даёт общий банк статов.
-- Мудрость — множитель навыкового XP **до 100** (не clamp на 90). Potential AME (UNITS-005: Low &lt;45 / Medium 45–64 / High ≥65) совпадает с этой скоростью.
+- Мудрость — множитель навыкового XP **линейно 0…100** (`MulDivRound(awarded, Clamp(Wisdom, 0, 100), 60)`). Нет пола 30 и нет потолка 90: Wis 0 → 0 практики, Wis 60 → ×1.00, Wis 100 → ×1.67. Potential AME (UNITS-005: Low &lt;45 / Medium 45–64 / High ≥65) по-прежнему подпись карточки, не ломает линейность.
 - Никакого `InteractionRand` на попытке роста стата. `failChance` пресета — детерминированный множитель XP, не второй кубик.
 - Книги и sector training по-прежнему прямой `GainStat`.
 - v1 без UI-полосок: лог только при фактическом +1 (существующий `GainStat`).
@@ -161,7 +164,7 @@ T(s) =
 
 ```text
 awarded = base                                          -- пресет: 100; кастом 008…012, 014…019
-awarded = MulDivRound(awarded, Clamp(Wisdom, 30, 100), 60)  -- кроме роста самой Wisdom
+awarded = MulDivRound(awarded, Clamp(Wisdom, 0, 100), 60)  -- кроме роста самой Wisdom; 0→0 XP
 awarded = MulDivRound(awarded, 100 - failChance, 100)       -- failChance отсутствует → 100; Marks без failChance
 awarded = MulDivRound(awarded, 8, 7 + teamSize)             -- только Marksmanship, Dexterity, Strength
                                                                 -- не Agility, Health, Wisdom, Leadership,
@@ -169,43 +172,45 @@ awarded = MulDivRound(awarded, 8, 7 + teamSize)             -- только Mark
 awarded = MulDivRound(awarded, 50, 100)                     -- только если HasPerk OldDog
 ```
 
-Пресет-база 100, `MulDivRound(100, Wis, 60)`: Wis 30→50, 60→100, 90→150, **100→167**. Marks: доли от `3|8|16 × aim`. Dex: доли от суммы REQ-009. Agility: доли от суммы REQ-010 (10 клеток = **10** при Wis 60 соло). Strength: доли от суммы REQ-011. Командный множитель на Agility **не** действует.
+Пресет-база 100, `MulDivRound(100, Clamp(Wis, 0, 100), 60)`: Wis **0→0**, 15→25, 30→50, 60→100, 90→150, **100→167**. Каждый пункт Мудрости меняет XP. Marks: доли от `3|8|16 × aim`. Dex: доли от суммы REQ-009. Agility: доли от суммы REQ-010 (10 клеток = **10** при Wis 60 соло). Strength: доли от суммы REQ-011. Командный множитель на Agility **не** действует.
 
-Мудрость как скорость (совпадает с подписями AME Potential; **100 лучше 90**):
+Мудрость как скорость (линейно 0…100; **100 лучше 90**; Wis 0 практика не двигает стат, книги/тренинг по-прежнему +1):
 
 | Wisdom | Множитель (100 XP →) | Potential |
 | ---: | ---: | --- |
-| ≤30 (floor) | ×0.50 (50) | Low |
+| **0** | **×0.00 (0)** | — |
+| 15 | ×0.25 (25) | Low |
+| 30 | ×0.50 (50) | Low |
 | 45 | ×0.75 (75) | Low / край Medium |
 | 60 | ×1.00 (100) | Medium |
 | 65 | ×1.08 (108) | High |
 | 90 | ×1.50 (150) | High |
 | **100** | **×1.67 (167)** | High |
 
-Событий на **один +1** (соло, без `failChance` / Old Dog; `T(s) / awarded`, один знак). Таблица ниже — для **пресет-базы 100** (не клик Marks):
+Событий на **один +1** (соло, без `failChance` / Old Dog; `T(s) / awarded`, один знак). Таблица ниже — для **пресет-базы 100** (не клик Marks). Wis 0: awarded 0, +1 с практики нет.
 
-| Стат сейчас | Wis 30 | Wis 45 | Wis 60 | Wis 90 | Wis 100 |
+| Стат сейчас | Wis 15 | Wis 30 | Wis 60 | Wis 90 | Wis 100 |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 20 (`T=150`) | 3.0 | 2.0 | 1.5 | 1.0 | 0.9 |
-| 50 (`T=400`) | 8.0 | 5.3 | 4.0 | 2.7 | 2.4 |
-| 70 (`T=800`) | 16 | 10.7 | 8.0 | 5.3 | 4.8 |
-| 80 (`T=1600`) | 32 | 21.3 | 16 | 10.7 | 9.6 |
-| 81 (`T=2400`) | 48 | 32 | 24 | 16 | 14.4 |
-| 82 (`T=3600`) | 72 | 48 | 36 | 24 | 21.6 |
-| 85 (`T=12150`) | 243 | 162 | 122 | 81 | 73 |
-| 90 (`T=92267`) | 1845 | 1230 | 923 | 615 | 553 |
+| 20 (`T=150`) | 6.0 | 3.0 | 1.5 | 1.0 | 0.9 |
+| 50 (`T=400`) | 16 | 8.0 | 4.0 | 2.7 | 2.4 |
+| 70 (`T=800`) | 32 | 16 | 8.0 | 5.3 | 4.8 |
+| 80 (`T=1600`) | 64 | 32 | 16 | 10.7 | 9.6 |
+| 81 (`T=2400`) | 96 | 48 | 24 | 16 | 14.4 |
+| 82 (`T=3600`) | 144 | 72 | 36 | 24 | 21.6 |
+| 85 (`T=12150`) | 486 | 243 | 122 | 81 | 73 |
+| 90 (`T=92267`) | 3691 | 1845 | 923 | 615 | 553 |
 
 Отрезки (сколько событий закрыть целиком):
 
-| Отрезок | XP | Wis 30 | Wis 45 | Wis 60 | Wis 90 | Wis 100 |
+| Отрезок | XP | Wis 0 | Wis 15 | Wis 30 | Wis 60 | Wis 100 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 50 → 70 | 10000 | 200 | 133 | 100 | 67 | 60 |
-| 80 → 81 | 1600 | 32 | 21 | 16 | 11 | 10 |
-| 80 → 82 | 4000 | 80 | 53 | 40 | 27 | 24 |
-| 80 → 83 | 7600 | 152 | 101 | 76 | 51 | 46 |
-| 80 → 85 | 21100 | 422 | 281 | 211 | 141 | 126 |
+| 50 → 70 | 10000 | — | 400 | 200 | 100 | 60 |
+| 80 → 81 | 1600 | — | 64 | 32 | 16 | 10 |
+| 80 → 82 | 4000 | — | 160 | 80 | 40 | 24 |
+| 80 → 83 | 7600 | — | 304 | 152 | 76 | 46 |
+| 80 → 85 | 21100 | — | 844 | 422 | 211 | 126 |
 
-Относительно Wis 60: Low 30 = **½ скорости**, High 90 = **1½**, Wis 100 = **×1.67**. После 80 геометрия ×1.5 душит медленнее, чем ×2: dedicated campaign тянет **83–85**, не упирается в 82.
+Относительно Wis 60: Wis 0 = **стоп**, 15 = **¼**, 30 = **½**, 90 = **1½**, 100 = **×1.67**. После 80 геометрия ×1.5 душит медленнее, чем ×2: dedicated campaign тянет **83–85**, не упирается в 82.
 
 Книги/тренировка по-прежнему плоский +1 и Мудрость не ускоряют.
 
@@ -615,13 +620,13 @@ Helper `Jazz_AwardWillPractice`. Хук на смене тира в `Unit:ApplyS
 
 ## Требования
 
-- `JAZZ-UNITS-009-REQ-001` — `RollForStatGaining(unit, stat, failChance)` больше не бросает. Для живого наёмника со статом в `[0, 99]` начисляет skill XP по формуле выше, пишет остаток в MercStateFlag `JazzSkillXP[stat]`. Пока `xp >= T(stat)`: `GainStat(..., 1)`, вычесть `T(stat)`, повторить (перенос остатка). При `stat >= 100` XP не копить.
+- `JAZZ-UNITS-009-REQ-001` — `RollForStatGaining(unit, stat, failChance)` больше не бросает. Для живого наёмника со статом в `[0, 99]` начисляет skill XP по формуле выше, пишет остаток в MercStateFlag `JazzSkillXP[stat]`. Множитель Мудрости: `MulDivRound(awarded, Clamp(Wisdom, 0, 100), 60)` — каждый пункт 0…100, без пола 30; Wis 0 → 0 практики. Пока `xp >= T(stat)`: `GainStat(..., 1)`, вычесть `T(stat)`, повторить (перенос остатка). При `stat >= 100` XP не копить.
 - `JAZZ-UNITS-009-REQ-002` — `T(s)` строго по таблице этого spec. Константы живут в `jazz-units/Code/StatGainRework.lua` (не generated data). Публичные helper-имена объявить на file-load: `Jazz_SkillXPThreshold`, `Jazz_AwardSkillPractice`, `Jazz_MeleePracticeStat`, `Jazz_AwardWisdomPractice`, `Jazz_AwardLeadershipPractice`, `Jazz_FindWillRegenLeader`, `Jazz_AwardMechanicalPractice`, `Jazz_AwardExplosivesPractice`, `Jazz_AwardMedicalPractice`, `Jazz_AwardWillPractice` (воронка может остаться под именем `RollForStatGaining` для ванильных caller).
 - `JAZZ-UNITS-009-REQ-003` — `ReceiveStatGainingPoints` не добавляет `statGainingPoints` и не бросает. Боевой/квестовый XP не кормит навыки.
 - `JAZZ-UNITS-009-REQ-004` — На `DataLoaded` у **всех** пресетов `oncePerMapVisit = false`. `failChance` только как множитель XP. Молчат: ванильные Marks/Dex/Agility/Strength/Health и `MovementAPSpent`; Mechanical «≥24 ч механик»; Medical «≥24 ч доктор» и аккумулятор 25 HP бинтами; Will `SupressionWillPowerGain`. Кормят skill XP: Wisdom ResourceDiscovery/TrapDiscovery; Leadership Train Mercs/Militia; Mechanical разбор мех. ловушки и апгрейд оружия; Explosives граната 2+, крафт, разминирование взрывных; Medical поднять дауна. Кастом REQ-008…012 и 014…019 — отдельные хуки. Статы-потребители: Health, Agility, Dexterity, Strength, Wisdom, Leadership, Marksmanship, Mechanical, Explosives, Medical, Will.
 - `JAZZ-UNITS-009-REQ-005` — `UnitStatBoost` / книги / reason `"Training"` / `"Studying"` по-прежнему прямой `GainStat` **этого** навыка, без skill XP в него. Wisdom-капли REQ-014 с книг и ученика — отдельно, не skill XP целевого навыка.
 - `JAZZ-UNITS-009-REQ-006` — Сейв: `JazzSkillXP` сериализуется через MercStateFlag. Старый банк `statGainingPoints` **игнорировать и не конвертировать**. Статы юнита сохраняются; прогресс до следующего +1 начинается с 0 XP. Нет `InteractionRand` в award-path (кроме уже существующего `GainStat` modId).
-- `JAZZ-UNITS-009-REQ-007` — Player-facing: technical `units-progression-specializations.md` + `file-coverage.md`; wiki AME (Potential = скорость XP) и wiki/showcase боя (мили CTH: нож Dexterity, мачете/лопата/кулаки Strength; Health от восстановления ОЗ, не от урона; Wisdom медленно, в т.ч. наводка; Will от тира подавления и срыва Psycho); wiki/showcase наёмников: практика по навыкам (Leadership / Mechanical / Medical почасовые капли); showcase RU/EN `mercenaries.md` и `ame.md`. Новых loc-строк в v1 нет, если остаётся ванильный лог `GainStat`.
+- `JAZZ-UNITS-009-REQ-007` — Player-facing: technical `units-progression-specializations.md` + `file-coverage.md`; wiki AME (Potential = скорость XP, Мудрость линейно 0…100) и wiki/showcase боя (мили CTH: нож Dexterity, мачете/лопата/кулаки Strength; Health от восстановления ОЗ, не от урона; Wisdom медленно, в т.ч. наводка; Will от тира подавления и срыва Psycho); wiki/showcase наёмников: практика по навыкам (Leadership / Mechanical / Medical почасовые капли); showcase RU/EN `mercenaries.md` и `ame.md`. Новых loc-строк в v1 нет, если остаётся ванильный лог `GainStat`.
 - `JAZZ-UNITS-009-REQ-008` — Marksmanship: после реально выстрелившего огнестрельного CombatAction начислить `rate × args.aim`, где rate **3 / 8 / 16** (промах / попадание / крит) по разделу «уровень прицела». `aim=0` → 0 Marks XP. Один CombatAction = один award, лучшая ступень, не сумма пуль. Хук на агрегатном `results` (`Unit:OnAttack` / конец `ExecFirearmAttacks`), **не** по каждой пуле `GetAttackResults`. Helper `Jazz_AwardMarksmanshipAim`.
 - `JAZZ-UNITS-009-REQ-009` — Dexterity: после агрегата атаки начислить сумму раздела «снап / нож / стелс»: **+1** с любого огнестрельного `fired`; при `aim==0` дополнительно **4 / 10 / 20**; удар или бросок ножа (`Jazz_MeleePracticeStat` = Dexterity) **5 / 12 / 24**; стелс-килл **+25**. Не гранаты, не кулаки, не мачете. Ванильные Dex-пресеты молчат. Helper `Jazz_AwardDexterityPractice`.
 - `JAZZ-UNITS-009-REQ-010` — Agility: только бой. За завершённый Move: **+1** за клетку пути; **+12** если ≥7 клеток после атаки по себе в прошлом ходу; **+8** за каждый перелаз (JumpOver / забор / окно / уступ); **+4** если этот Move слил весь FreeMove (было >0, стало 0). Открытие боя из Hidden **не** начисляет Agility. Не ОД и не `UnitAPChanged`/`Move` (баг подавления). Ванильные Agility-пресеты и `MovementAPSpent` молчат. Helper `Jazz_AwardAgilityPractice`.
@@ -649,7 +654,7 @@ Helper `Jazz_AwardWillPractice`. Хук на смене тира в `Unit:ApplyS
 - `JAZZ-UNITS-009-AC-001` — static: `Jazz_SkillXPThreshold` совпадает с таблицей REQ-002 для s=0,29,30,49,50,64,65,79 и для каждого s=80…99 (`T(80)=1600`, `T(81)=2400`, `T(82)=3600`, `T(90)=92267`, `T(99)=3547083`); s≥100 не растёт.
 - `JAZZ-UNITS-009-AC-002` — static: кумулятив 50→70 = 10000 XP при ×1; 80→81 = 1600; 80→82 = 4000; 80→83 = 7600; 80→90 = 181331.
 - `JAZZ-UNITS-009-AC-003` — static: `ReceiveStatGainingPoints` не пишет в `statGainingPoints`; в `RollForStatGaining` / award нет `InteractionRand` на успех/провал роста (кроме `GainStat` modId).
-- `JAZZ-UNITS-009-AC-004` — static: Wisdom 30/60/90/100 → awarded 50/100/150/167 с **пресет-базы 100** (Medical или иной не-Marks); для самой Wisdom множитель всегда ×1.00 (база 100). Marks-попадание, `aim=2`: Wis 30/60/90/100 → 8/16/24/27 (`MulDivRound(16, Wis, 60)`).
+- `JAZZ-UNITS-009-AC-004` — static: Wisdom **0**/15/30/60/90/100 → awarded **0**/25/50/100/150/167 с **пресет-базы 100** (Medical или иной не-Marks); для самой Wisdom множитель всегда ×1.00 (база 100). Marks-попадание, `aim=2`: Wis 0/15/30/60/90/100 → **0**/4/8/16/24/27 (`MulDivRound(16, Clamp(Wis,0,100), 60)`). Wis 1 и Wis 29 различаются (нет пола 30).
 - `JAZZ-UNITS-009-AC-005` — runtime: наёмник **Explosives** 50, Wis 60, соло, пресет крафта без failChance — три срабатывания не дают +1 (300 XP), четвёртое даёт +1 и остаток 0. CombatLog один раз.
 - `JAZZ-UNITS-009-AC-006` — runtime: **Explosives** 80, Wis 60, соло — 15 срабатываний крафта без +1; 16-е даёт +1. Банк `statGainingPoints` (если остался от старого сейва) не меняет порог и не конвертируется в `JazzSkillXP`.
 - `JAZZ-UNITS-009-AC-007` — runtime: книга Меткости даёт Marks +1, `JazzSkillXP.Marksmanship` не меняется; `JazzSkillXP.Wisdom` растёт на 20 (8+12) при Wis 60 соло. Книга Мудрости даёт Wisdom +1; `JazzSkillXP.Wisdom` растёт только на 12, не с самого +1.
@@ -691,7 +696,7 @@ Helper `Jazz_AwardWillPractice`. Хук на смене тира в `Unit:ApplyS
 - Статус: **draft** (кривая — 2026-08-22; боевые статы + Health/Wisdom/Leadership — 2026-08-23; Mechanical/Explosives/Medical/Will — 2026-08-23; реализация после `approved`)
 - Кто подтвердил: project-owner (частичные решения, chat 2026-08-22 / 2026-08-23)
 - Дата: 2026-08-23
-- Решения: кривая 0–79; после **80** — **×1.5**; боевые кастомы Marks/Dex/Agility/Strength как раньше; Health пациент; Wisdom капли; Leadership соседская воля + OnMyTarget; **Mechanical** час ремонта **6**, Unjam 12/5, 24 ч механик молчит; **Explosives** разминирование остаётся, обнаружение мины **8**; **Medical** час **8**, бинт/морфий **5**, аптечка 1/5 ОЗ, травма в healing **15**, 24 ч доктор и 25 HP бинты молчат; **Will** XP у того, на ком статус, Light…Pinned 4/8/12/16/20 (без капа атакующего), Psycho Berserk **18**. **Темп:** Эрни, навык которым работаешь ≈ **50→60** (4000 XP); T(s) не режем.
+- Решения: кривая 0–79; после **80** — **×1.5**; **Мудрость линейно 0…100** (`/60`, пол 30 снят: Wis 0 = 0 практики); боевые кастомы Marks/Dex/Agility/Strength как раньше; Health пациент; Wisdom капли; Leadership соседская воля + OnMyTarget; **Mechanical** час ремонта **6**, Unjam 12/5, 24 ч механик молчит; **Explosives** разминирование остаётся, обнаружение мины **8**; **Medical** час **8**, бинт/морфий **5**, аптечка 1/5 ОЗ, травма в healing **15**, 24 ч доктор и 25 HP бинты молчат; **Will** XP у того, на ком статус, Light…Pinned 4/8/12/16/20 (без капа атакующего), Psycho Berserk **18**. **Темп:** Эрни, навык которым работаешь ≈ **50→60** (4000 XP при Wis 60); T(s) не режем.
 - Открыто: overall approve spec → реализация; **скейл боевых капель ×3.5 vs ×4** (Эрни 50→60 при ~12 боях); порог recoil 25, Weight≥4, шаг Health 5 ОЗ и капли Wisdom/Leadership/Mechanical/Medical/Will (на Эрни 50→60 не обещаем без отдельного скейла). Очередь навыков закрыта.
 
 ## Evidence
@@ -721,7 +726,11 @@ Helper `Jazz_AwardWillPractice`. Хук на смене тира в `Unit:ApplyS
 
 ## Documentation delta
 
-После реализации (не в этом draft-only change set):
+Уже в draft (компаньон, не current-state wiki):
+
+- `docs/specs/active/JAZZ-UNITS-009-companion.md` — игроковый пересказ; в wiki/showcase не копировать, пока система не загружена.
+
+После реализации:
 
 - `docs/technical/systems/units-progression-specializations.md` — skill XP, таблица T(s), отвязка банка от боевого XP, практика всех 11 статов, мили UnitStat.
 - `docs/technical/systems/file-coverage.md` — уточнить роль `StatGainRework.lua` / `ExperienceSys.lua`.
