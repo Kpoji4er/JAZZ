@@ -38,6 +38,7 @@ Spot checks in `jazz-units/items.lua`:
 | Remnant ~1% | on Roughneck at mid: `weight = 1400` entries with Amount 20 + `<=` 29; share ≈1% of active mid weights (±0.5 pp) |
 | Logistics cargo | no `DiamondBriefcase` inside generated markers; cargo stays Global AI |
 | Heavy arty | `Rocketeer_Inventory` / `HeavyGrenadier_Inventory` / `Mortarman_Inventory` still link `*_Launcher` |
+| INV-004 powder | `Grenadier_Inventory` BlackPowder 1–2; `HeavyGrenadier_Inventory` 2–3 (`utility.powder`) |
 | All recipe contracts | 37/37 UnitData `Equipment` → recipe inventory; root inventory → firearm; sidearm/melee/utility/armor/night/flare/misc/valuables (`TinyDiamonds` @30% ≈ unit price) materialize exactly from each recipe |
 | Commando | `AssaultGunner_Inventory`: Machete in all three arch bands at `generate_chance = 100`, one unconditional Molotov; UnitData equips melee in `Handheld B` |
 | Skirmisher | `Skirmisher_Firearm`: battle-only recipe, rifle packages, upgraded ammo combos from `ammo_cap = Match`; no old flanker package |

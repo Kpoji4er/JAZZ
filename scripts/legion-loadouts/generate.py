@@ -835,6 +835,19 @@ def emit_inventory(unit_id: str, recipe: dict, prices: dict) -> str:
             "\t\t\t\t\t\t\tstack_min = 1,",
             "\t\t\t\t\t\t}),",
         ]
+    powder = util.get("powder")
+    if powder:
+        pmin = int(powder.get("min") or 1)
+        pmax = int(powder.get("max") or pmin)
+        if pmax < pmin:
+            pmax = pmin
+        lines += [
+            "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",
+            "\t\t\t\t\t\t\titem = \"BlackPowder\",",
+            f"\t\t\t\t\t\t\tstack_max = {pmax},",
+            f"\t\t\t\t\t\t\tstack_min = {pmin},",
+            "\t\t\t\t\t\t}),",
+        ]
     if util.get("smoke_chance"):
         lines += [
             "\t\t\t\t\t\tPlaceObj('LootEntryInventoryItem', {",

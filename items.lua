@@ -61093,6 +61093,75 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					group = "Upgrade",
 					id = "ZylonLegsH_to_ZylonLegs",
 				}),
+				PlaceObj('ModItemRecipeDef', {
+					Difficulty = 25,
+					ExplosivesRoll = true,
+					Ingredients = {
+						PlaceObj('RecipeIngredient', {
+							'item', "TNT",
+						}),
+						PlaceObj('RecipeIngredient', {
+							'item', "Wirecutter",
+						}),
+					},
+					ResultItems = {
+						PlaceObj('RecipeIngredient', {
+							'item', "BlackPowder",
+							'amount', 2,
+						}),
+						PlaceObj('RecipeIngredient', {
+							'item', "Wirecutter",
+						}),
+					},
+					group = "Explosives",
+					id = "JAZZ_TNT_Disassemble_Powder",
+				}),
+				PlaceObj('ModItemRecipeDef', {
+					Difficulty = 40,
+					ExplosivesRoll = true,
+					Ingredients = {
+						PlaceObj('RecipeIngredient', {
+							'item', "C4",
+						}),
+						PlaceObj('RecipeIngredient', {
+							'item', "Wirecutter",
+						}),
+					},
+					ResultItems = {
+						PlaceObj('RecipeIngredient', {
+							'item', "BlackPowder",
+							'amount', 3,
+						}),
+						PlaceObj('RecipeIngredient', {
+							'item', "Wirecutter",
+						}),
+					},
+					group = "Explosives",
+					id = "JAZZ_C4_Disassemble_Powder",
+				}),
+				PlaceObj('ModItemRecipeDef', {
+					Difficulty = 55,
+					ExplosivesRoll = true,
+					Ingredients = {
+						PlaceObj('RecipeIngredient', {
+							'item', "PETN",
+						}),
+						PlaceObj('RecipeIngredient', {
+							'item', "Wirecutter",
+						}),
+					},
+					ResultItems = {
+						PlaceObj('RecipeIngredient', {
+							'item', "BlackPowder",
+							'amount', 4,
+						}),
+						PlaceObj('RecipeIngredient', {
+							'item', "Wirecutter",
+						}),
+					},
+					group = "Explosives",
+					id = "JAZZ_PETN_Disassemble_Powder",
+				}),
 				}),
 			PlaceObj('ModItemFolder', {
 				'name', "HeadGear",

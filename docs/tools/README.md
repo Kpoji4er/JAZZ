@@ -107,6 +107,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_audit_ui002_weapon_chips.py` | UI-002 static: Fold/Flash `ShowIn = false`, Unjam stays CombatActions; `idFoldStockButton`/`idFlashlightButton` GridX=2; HUD helpers + GetUIState zzFoldingPair. |
 | `_audit_combat_bar_slots.py` | Two-row HUD: Recalc 24+25 **and** `Jazz_RegisterExtraCombatBarSlots` (`Action14`–`Action24` combat, `Action25` signature). Recalc padding alone does not spawn buttons. |
 | `_audit_craft_ammo_homemade.py` | INV-003: CraftAmmo allow-list (`JAZZ_AMMO_*_Crafted` + saltshot), FillItemsToCraft filter, AdditionalResources wrap, `JAZZ_9x39_Crafted` in items+metadata, батч 100 Parts + qty по калибру. |
+| `_audit_inv004_powder.py` | INV-004: BlackPowder на гренадерах/ГЛ (Legion+Army/Adonis/Rebel), RecipeDef TNT/C4/PETN→порох, `Jazz_TrySalvageMineCharge` 40%. |
 | `_rebuild_weapon_chip_icons.py` | UI-002: rebuild thin 54×54 Fold/Flash chip glyphs from old dual-strip `Icons/stock_*.png` / `flash_*.png` (left half, pad, light thin). |
 | `_match_weapon_manip_icon_pairs.py` | UI-002: derive `weapon_flash_off` / `weapon_stock_unfold` from ON/Fold masters so HUD pairs share the same silhouette (beams/arrow only differ). |
 | `_rebuild_stock_chip_glyphs.py` | UI-001: replace photo stock `ChipIcon` PNGs with flat `#C8C0A8` glyphs (`--finalize-dir` drafts or `--flatten-only`). |

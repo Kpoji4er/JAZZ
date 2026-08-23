@@ -408,6 +408,16 @@ def main() -> int:
         if util.get("molotov_chance"):
             contract(int(util["molotov_chance"]) in chance_values(molotov_entries), f"{uid}: Molotov chance")
 
+        powder = util.get("powder")
+        powder_entries = entries_with(item_entries, "item", "BlackPowder")
+        contract(len(powder_entries) == int(bool(powder)), f"{uid}: powder materialization")
+        if powder and powder_entries:
+            pmin = int(powder.get("min") or 1)
+            pmax = int(powder.get("max") or pmin)
+            contract(f"stack_min = {pmin}" in powder_entries[0], f"{uid}: powder stack_min")
+            contract(f"stack_max = {pmax}" in powder_entries[0], f"{uid}: powder stack_max")
+            contract("generate_chance" not in powder_entries[0], f"{uid}: powder guaranteed")
+
         for key, item in (("smoke_chance", "SmokeGrenade"), ("conc_chance", "ConcussiveGrenade")):
             entries = entries_with(item_entries, "item", item)
             contract(len(entries) == int(bool(util.get(key))), f"{uid}: {key} materialization")

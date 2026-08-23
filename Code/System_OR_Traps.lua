@@ -56,3 +56,53 @@ function ThrowableTrapItem:OnLand(thrower, attackResults, visual_obj)
 	table.iclear(attackResults)
 	attackResults.trap_placed = true
 end
+
+-- JAZZ-INV-004: successful Landmine disarm may salvage a placeable charge.
+local Jazz_MineThrownToCharge = {
+	ProximityC4 = "C4",
+	TimedC4 = "C4",
+	RemoteC4 = "C4",
+	ProximityTNT = "TNT",
+	TimedTNT = "TNT",
+	RemoteTNT = "TNT",
+	ProximityPETN = "PETN",
+	TimedPETN = "PETN",
+	RemotePETN = "PETN",
+}
+
+local Jazz_MineChargeWeights = {
+	{ 60, "TNT" },
+	{ 30, "C4" },
+	{ 10, "PETN" },
+}
+
+function Jazz_TrySalvageMineCharge(trap, unit)
+	if not trap or not unit or not unit.Squad then
+		return
+	end
+	if not IsKindOf(trap, "Landmine") then
+		return
+	end
+	local roll = unit:Random(100)
+	if roll >= 40 then
+		return
+	end
+	local item_id = Jazz_MineThrownToCharge[rawget(trap, "item_thrown") or false]
+	if not item_id then
+		item_id = GetWeightedRandom(Jazz_MineChargeWeights, unit:Random()) or "TNT"
+	end
+	AddItemToSquadBag(unit.Squad, item_id, 1)
+	local defs = rawget(_G, "InventoryItemDefs")
+	local def = type(defs) == "table" and defs[item_id]
+	local name = def and def.DisplayName
+	if name then
+		CreateFloatingText(unit:GetVisualPos(), name)
+	end
+end
+
+function OnMsg.TrapDisarm(trap, unit, success, stat)
+	if not success then
+		return
+	end
+	Jazz_TrySalvageMineCharge(trap, unit)
+end
