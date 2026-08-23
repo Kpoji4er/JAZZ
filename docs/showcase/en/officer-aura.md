@@ -21,7 +21,7 @@ Outside the radius or after the commander dies, influence drops. With several of
 | **Hold the line** | default range | default roles; **+2 CTH** |
 | **Push** | enemy ≤ **12** | scouts assault; **+1 AP** |
 | **Envelop** | enemy ≥ **24** | flank; **+2 CTH** |
-| **Fall back** | ≥2 dead and ≥30% of squad | cover; **−5 CTH** vs them |
+| **Fall back** | ≥2 dead and ≥30% — a **chance** to break; cancelled when the group reunites | cover; **−5 CTH** vs them |
 | **Focus fire** | sniper / MG / close / wounded threat | shoot **that** target (score ×2); tooltip shows **who**; **+5 CTH** |
 | **Occupy buildings** | urban | fight from buildings; **+2 CTH** |
 | **Take the high ground** | hills / elevation | high ground; **+2 CTH** |
@@ -29,6 +29,6 @@ Outside the radius or after the commander dies, influence drops. With several of
 | **Go hidden** | night/fog or stealth OK | **Hidden** |
 | **Low visibility — hold** | night/fog, no mass stealth | hold; **+2 CTH** |
 
-If the squad has no dedicated sniper / MG, the commander **assigns via aura** one optics/bolt or SMG/AR fighter (inside the radius). On **Push**, one assigned `pusher` assaults — not the whole squad. Rocketeers stay in the rear. **Mortarmen** stay outdoors — they cannot Bombard from indoors.
+If the squad has no dedicated sniper / MG, the commander **assigns via aura** one optics/bolt or SMG/AR fighter (inside the radius). On **Push**, one assigned `pusher` assaults — not the whole squad. Rocketeers stay in the rear. **Mortarmen** stay outdoors — they cannot Bombard from indoors. After they lose sight of you they close to firing range of the last sound and overwatch the **exit from cover**, instead of sitting in a corner to be farmed.
 
 On the enemy turn, support acts **before** the push: flares and a smoke curtain, MG setup, then the firing line, then assault. Only **one** smoke per turn; several flares are allowed. Frag grenades: First Blood — **1** full throw (the next is much weaker), Commando — **3** full throws, Mission Impossible — no cap.

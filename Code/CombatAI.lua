@@ -1014,6 +1014,10 @@ function JAZZ_AIMakeCombatPathRestrictBox(unit, pos, ap, stance)
 	local walk_cost = walk * (100 + move_modifier) / 100
 	walk_cost = Max(walk_cost, DivRound(walk, 4))
 	local margin = JAZZ_AI_PERF_PATH_RESTRICT_MARGIN_TILES or 8
+	if unit and (unit.current_archetype == "Scout_LastLocation"
+		or (JazzAI_ShouldRecontactScout and JazzAI_ShouldRecontactScout(unit, unit.current_archetype))) then
+		margin = Max(margin, JazzAI_RecontactPathMargin or 24)
+	end
 	local max_tiles = JAZZ_AI_PERF_PATH_RESTRICT_MAX_TILES or 64
 	local tiles = DivRound(ap, walk_cost) + margin
 	tiles = Max(tiles, margin)
@@ -1980,6 +1984,18 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 			if score_details then
 				score_details[#score_details + 1] = "SNIPER USELESS STAY"
 				score_details[#score_details + 1] = -stay_pen
+			end
+		end
+	end
+
+	-- JAZZ-AI-007: recontact standoff / farm relocate / map-edge.
+	if JazzAI_ScoreRecontactDest then
+		local rec = JazzAI_ScoreRecontactDest(context, dest)
+		if rec ~= 0 then
+			score = score + rec
+			if score_details then
+				score_details[#score_details + 1] = "RECONTACT"
+				score_details[#score_details + 1] = rec
 			end
 		end
 	end
@@ -3313,6 +3329,8 @@ g_JAZZ_CombatPathRebuildBase = rawget(_G, "g_JAZZ_CombatPathRebuildBase") or fal
 g_JAZZ_CombatPathRebuildFn = rawget(_G, "g_JAZZ_CombatPathRebuildFn") or false
 g_JAZZ_UnitStartAIBase = rawget(_G, "g_JAZZ_UnitStartAIBase") or false
 g_JAZZ_UnitStartAIFn = rawget(_G, "g_JAZZ_UnitStartAIFn") or false
+g_JAZZ_SelectArchetypeBase = rawget(_G, "g_JAZZ_SelectArchetypeBase") or false
+g_JAZZ_SelectArchetypeFn = rawget(_G, "g_JAZZ_SelectArchetypeFn") or false
 
 function JazzAI_GetClass(name)
 	local classes = rawget(_G, "g_Classes")
@@ -3374,6 +3392,71 @@ function JazzAI_InstallCombatPathRestrictWrap()
 	return true
 end
 
+function JazzAI_SelectArchetype(self, proto_context)
+	local archetype
+	if IsKindOf(self, "Unit") then
+		local combat = rawget(_G, "g_Combat")
+		local emplacement = combat and combat.GetEmplacementAssignment and combat:GetEmplacementAssignment(self)
+		if self.retreating then
+			archetype = "Deserter"
+		elseif self:HasStatusEffect("Panicked") then
+			archetype = "Panicked"
+		elseif self:HasStatusEffect("Berserk") then
+			archetype = "Berserk"
+		elseif emplacement then
+			archetype = "EmplacementGunner"
+			if proto_context then
+				proto_context.target_interactable = emplacement
+			end
+		elseif self.command == "Reposition" and self.RepositionArchetype then
+			archetype = self.RepositionArchetype
+		end
+		if not archetype then
+			local pindown = rawget(_G, "g_Pindown") or empty_table
+			for _, descr in pairs(pindown) do
+				if descr.target == self then
+					if self:Random(100) < (self.PinnedDownChance or 0) then
+						archetype = "PinnedDown"
+					end
+					break
+				end
+			end
+		end
+		if not archetype then
+			local defs = rawget(_G, "UnitDataDefs")
+			local template = defs and self.unitdatadef_id and defs[self.unitdatadef_id]
+			local func = (template and template.PickCustomArchetype) or self.PickCustomArchetype
+			local picked = func and func(self, proto_context)
+			archetype = picked or self.archetype
+			if JazzAI_ShouldRecontactScout and JazzAI_ShouldRecontactScout(self, archetype) then
+				archetype = "Scout_LastLocation"
+			end
+		end
+	end
+	self.current_archetype = archetype or self.archetype or "Assault"
+end
+
+function JazzAI_InstallSelectArchetypeWrap()
+	local cls = JazzAI_GetClass("UnitProperties")
+	if type(cls) ~= "table" then
+		return false
+	end
+	local current = cls.SelectArchetype
+	local ourFn = rawget(_G, "g_JAZZ_SelectArchetypeFn")
+	if type(current) ~= "function" then
+		return false
+	end
+	if ourFn and current == ourFn then
+		return true
+	end
+	if current ~= ourFn then
+		rawset(_G, "g_JAZZ_SelectArchetypeBase", current)
+	end
+	rawset(_G, "g_JAZZ_SelectArchetypeFn", JazzAI_SelectArchetype)
+	cls.SelectArchetype = JazzAI_SelectArchetype
+	return true
+end
+
 function JazzAI_InstallStartAIYieldWrap()
 	local cls = JazzAI_GetClass("Unit")
 	if type(cls) ~= "table" then
@@ -3408,6 +3491,7 @@ function OnMsg.ModsReloaded()
 	JazzAI_InstallCombatAITurnWrap()
 	JazzAI_InstallCombatPathRestrictWrap()
 	JazzAI_InstallStartAIYieldWrap()
+	JazzAI_InstallSelectArchetypeWrap()
 end
 
 function OnMsg.DataLoaded()
@@ -3415,19 +3499,23 @@ function OnMsg.DataLoaded()
 	JazzAI_InstallCombatAITurnWrap()
 	JazzAI_InstallCombatPathRestrictWrap()
 	JazzAI_InstallStartAIYieldWrap()
+	JazzAI_InstallSelectArchetypeWrap()
 end
 
 function OnMsg.ClassesBuilt()
 	JazzAI_InstallCombatPathRestrictWrap()
 	JazzAI_InstallStartAIYieldWrap()
+	JazzAI_InstallSelectArchetypeWrap()
 end
 
 function OnMsg.Autorun()
 	JazzAI_InstallCombatPathRestrictWrap()
 	JazzAI_InstallStartAIYieldWrap()
+	JazzAI_InstallSelectArchetypeWrap()
 end
 
 JazzAI_InstallAIScoreReachableVoxelsWrap()
 JazzAI_InstallCombatAITurnWrap()
 JazzAI_InstallCombatPathRestrictWrap()
 JazzAI_InstallStartAIYieldWrap()
+JazzAI_InstallSelectArchetypeWrap()

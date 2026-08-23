@@ -755,40 +755,90 @@ local function JazzAI_NearestLitAimNear(unit, anchor)
 	return best or false
 end
 
+function JazzAI_SoundOffsetPos(unit, anchor)
+	if not anchor then
+		return false
+	end
+	local slab_size = const.SlabSizeX
+	local ax, ay, az = anchor:xyz()
+	if not ax then
+		return false
+	end
+	local h = (unit and unit.handle) or 1
+	local dist = 1 + (h % 3)
+	local dirs = {
+		{ 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 },
+		{ 1, 1 }, { 1, -1 }, { -1, 1 }, { -1, -1 },
+	}
+	local d = dirs[1 + (h % 8)]
+	local cand = GetPassSlab(point(ax + d[1] * dist * slab_size, ay + d[2] * dist * slab_size, az))
+	return cand or GetPassSlab(anchor) or anchor
+end
+
+-- Peek-exit: passable slabs in ring 1–2 around the sound, with LOS from the watcher.
+function JazzAI_PeekExitAimPos(unit, anchor)
+	if not IsValid(unit) or not anchor then
+		return false
+	end
+	local slab_size = const.SlabSizeX
+	local ax, ay, az = anchor:xyz()
+	if not ax then
+		return false
+	end
+	local best, best_key
+	for ring = 1, 2 do
+		for dx = -ring, ring do
+			for dy = -ring, ring do
+				if Max(abs(dx), abs(dy)) == ring then
+					local cand = GetPassSlab(point(ax + dx * slab_size, ay + dy * slab_size, az))
+					if cand and JazzAI_PosOWViable(unit, cand) then
+						local dist = unit:GetDist(cand)
+						local key = dist * 10000 + (dx + 10) * 100 + (dy + 10)
+						if not best_key or key < best_key then
+							best = cand
+							best_key = key
+						end
+					end
+				end
+			end
+		end
+		if best then
+			return best
+		end
+	end
+	local self_slab = GetPassSlab(anchor) or anchor
+	if JazzAI_PosOWViable(unit, self_slab) then
+		return JazzAI_SoundOffsetPos(unit, self_slab) or self_slab
+	end
+	return false
+end
+
 local function JazzAI_FallbackOverwatchTargetPos(unit, context)
 	if not IsValid(unit) then
 		return false
 	end
 
-	local candidates = {}
 	local known = unit.last_known_enemy_pos
-	if known then
-		local slab = GetPassSlab(known) or known
-		if slab then
-			candidates[#candidates + 1] = slab
-		end
-	end
 	local enemy_pos = JazzAI_NearestEnemyPos(unit, context)
-	if enemy_pos then
-		local dup = false
-		if candidates[1] and enemy_pos == candidates[1] then
-			dup = true
-		end
-		if not dup then
-			candidates[#candidates + 1] = enemy_pos
+	local anchors = {}
+	if known then
+		anchors[#anchors + 1] = GetPassSlab(known) or known
+	end
+	if enemy_pos and enemy_pos ~= anchors[1] then
+		anchors[#anchors + 1] = enemy_pos
+	end
+
+	for _, anchor in ipairs(anchors) do
+		local peek = JazzAI_PeekExitAimPos(unit, anchor)
+		if peek then
+			return peek
 		end
 	end
 
-	for _, pos in ipairs(candidates) do
-		if JazzAI_PosOWViable(unit, pos) then
-			return pos
-		end
-	end
-
-	-- Night: retarget to illuminated cells near last_known / nearest enemy.
-	local anchor = candidates[1] or enemy_pos
-	if anchor then
-		local lit = JazzAI_NearestLitAimNear(unit, anchor)
+	-- Night: lit slab near last_known / nearest enemy (OW-001).
+	local night_anchor = anchors[1] or enemy_pos
+	if night_anchor then
+		local lit = JazzAI_NearestLitAimNear(unit, night_anchor)
 		if lit then
 			return lit
 		end
@@ -1059,6 +1109,17 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             local args = {target = target, voiceResponse = voice_response, aim = aim}
             -- JAZZ-AI-002 Dump: no LOF → Disengage. CalcChanceToHit / PickBestAttack
             -- ignore stuck. PERF-004 cheap ray restores the wall abort without GetLoFData.
+            -- JAZZ-AI-007: no Dump into an unseen body (sound → peek OW / offset, not the model).
+            if IsKindOf(target, "Unit")
+                and not HasVisibilityTo(unit, target)
+                and not (unit.team and HasVisibilityTo(unit.team, target)) then
+                if g_AIExecutionController then
+                    g_AIExecutionController:Log("  No sight (sound; skip Dump at model)")
+                end
+                context.dump_attack_mode = nil
+                context.dump_attack_target = nil
+                break
+            end
             local body_parts = AIGetAttackTargetingOptions(unit, context, target, attack_action)
             if IsKindOf(target, "Unit") and (not body_parts or #body_parts == 0) then
                 if g_AIExecutionController then

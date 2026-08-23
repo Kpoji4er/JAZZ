@@ -11,6 +11,13 @@ MapVar("JazzAI_TeamActSlots", {})
 MapVar("JazzAI_TeamActSlotsTurn", false)
 MapVar("JazzAI_TeamExplosiveThrows", {})
 MapVar("JazzAI_TeamExplosiveThrowTurn", false)
+MapVar("JazzAI_TeamFallBackState", {})
+
+-- JAZZ-AI-007: recontact standoff (tiles from last_known) and scout path margin.
+JazzAI_RecontactStandMin = 14
+JazzAI_RecontactStandMax = 20
+JazzAI_RecontactMapEdgeTiles = 8
+JazzAI_RecontactPathMargin = 24
 
 -- ACT-002: who already finished AIPlayAttacks this combat turn (smoke self-cover gate).
 function JazzAI_EnsureTeamActedTable()
@@ -270,11 +277,25 @@ function JazzAI_UnitHpPercent(unit)
 	return MulDivRound(unit.HitPoints or 0, 100, Max(1, unit.MaxHitPoints or 1))
 end
 
--- Heavy losses: ≥2 dead and ≥30% of squad dead (wound branch removed — was sticky all combat).
-function JazzAI_TeamNeedsFallBack(unit)
+function JazzAI_CountLocalLivingAllies(unit, radius)
 	local team = unit and unit.team
 	if not team or not team.units then
-		return false
+		return 0
+	end
+	radius = radius or 8
+	local scale = const.SlabSizeX
+	local n = 0
+	for _, ally in ipairs(team.units) do
+		if not ally:IsDead() and DivRound(unit:GetDist(ally), scale) <= radius then
+			n = n + 1
+		end
+	end
+	return n
+end
+
+function JazzAI_TeamCasualtyCounts(team)
+	if not team or not team.units then
+		return 0, 0, 0, 0
 	end
 	local living, dead = 0, 0
 	for _, ally in ipairs(team.units) do
@@ -285,10 +306,296 @@ function JazzAI_TeamNeedsFallBack(unit)
 		end
 	end
 	local total = living + dead
-	if total <= 0 then
+	local pct = total > 0 and MulDivRound(dead, 100, total) or 0
+	return living, dead, total, pct
+end
+
+function JazzAI_FallBackBand(pct)
+	if (pct or 0) >= 70 then
+		return 70
+	end
+	if pct >= 50 then
+		return 50
+	end
+	if pct >= 30 then
+		return 30
+	end
+	return 0
+end
+
+function JazzAI_GetFallBackState(team)
+	local key = JazzAI_TeamDirectiveKey(team)
+	if not key then
 		return false
 	end
-	return dead >= 2 and MulDivRound(dead, 100, total) >= 30
+	JazzAI_TeamFallBackState = JazzAI_TeamFallBackState or {}
+	local st = JazzAI_TeamFallBackState[key]
+	if not st then
+		st = { committed = false, last_band = 0 }
+		JazzAI_TeamFallBackState[key] = st
+	end
+	return st
+end
+
+-- Heavy losses: eligibility dead≥2 & ≥30%. Start is a per-band chance; cancel on merge (007).
+function JazzAI_TeamNeedsFallBack(unit)
+	local team = unit and unit.team
+	if not team or not team.units then
+		return false
+	end
+	local st = JazzAI_GetFallBackState(team)
+	if not st then
+		return false
+	end
+	if JazzAI_CountLocalLivingAllies(unit, 8) >= 3 then
+		st.committed = false
+		return false
+	end
+	local _, dead, total, pct = JazzAI_TeamCasualtyCounts(team)
+	if total <= 0 or dead < 2 or pct < 30 then
+		return false
+	end
+	if st.committed then
+		return true
+	end
+	local enemy = GetNearestEnemy and GetNearestEnemy(unit)
+	if not enemy then
+		return false
+	end
+	local band = JazzAI_FallBackBand(pct)
+	if band <= (st.last_band or 0) then
+		return false
+	end
+	local roll = InteractionRand(100, "JazzAI_FallBack")
+	st.last_band = band
+	st.committed = roll < pct
+	return st.committed
+end
+
+function JazzAI_UnitHasFlankKeyword(unit)
+	local keys = unit and unit.AIKeywords
+	if not keys then
+		return false
+	end
+	for _, k in ipairs(keys) do
+		if k == "Flank" then
+			return true
+		end
+	end
+	return false
+end
+
+function JazzAI_UnitIsRecontactProbeCandidate(unit)
+	if not IsValid(unit) or unit:IsDead() then
+		return false
+	end
+	if JazzAI_UnitHasFlankKeyword(unit) then
+		return true
+	end
+	local arch = tostring(unit.current_archetype or unit.archetype or "")
+	if string.find(arch, "Flanker", 1, true) then
+		return true
+	end
+	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamDirectiveKey(unit.team)]
+	return entry and entry.pusher == unit
+end
+
+function JazzAI_AssignRecontactProbes(team)
+	if not team or not team.units then
+		return
+	end
+	local key = JazzAI_TeamDirectiveKey(team)
+	local entry = (JazzAI_TeamDirectives or empty_table)[key]
+	if not entry then
+		return
+	end
+	local known
+	for _, u in ipairs(team.units) do
+		if not u:IsDead() and u.last_known_enemy_pos then
+			known = u.last_known_enemy_pos
+			break
+		end
+	end
+	local cands = {}
+	for _, u in ipairs(team.units) do
+		if JazzAI_UnitIsRecontactProbeCandidate(u) then
+			cands[#cands + 1] = u
+		end
+	end
+	table.sort(cands, function(a, b)
+		if known then
+			local da, db = a:GetDist(known), b:GetDist(known)
+			if da ~= db then
+				return da < db
+			end
+		end
+		return (a.handle or 0) < (b.handle or 0)
+	end)
+	entry.recontact_probes = { cands[1] or false, cands[2] or false }
+end
+
+function JazzAI_UnitIsRecontactProbe(unit)
+	if not IsValid(unit) or not unit.team then
+		return false
+	end
+	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamDirectiveKey(unit.team)]
+	local probes = entry and entry.recontact_probes
+	if not probes then
+		return false
+	end
+	return probes[1] == unit or probes[2] == unit
+end
+
+function JazzAI_TilesToLastKnown(unit, pos)
+	local known = unit and unit.last_known_enemy_pos
+	if not known then
+		return false
+	end
+	local from = pos or (unit.GetPos and unit:GetPos())
+	if not from then
+		return false
+	end
+	return DivRound(from:Dist(known), const.SlabSizeX)
+end
+
+function JazzAI_ShouldRecontactScout(unit, picked)
+	if not IsValid(unit) then
+		return false
+	end
+	if picked == "Medic" or picked == "Deserter" or picked == "Melee"
+		or picked == "Legion_Regroup" or picked == "PinnedDown" then
+		return false
+	end
+	if JazzAI_GetTeamDirective and JazzAI_GetTeamDirective(unit) == "FallBack" then
+		return false
+	end
+	local vis = unit.GetVisibleEnemies and unit:GetVisibleEnemies()
+	if vis and #vis > 0 then
+		return false
+	end
+	if not unit.last_known_enemy_pos then
+		return false
+	end
+	local tiles = JazzAI_TilesToLastKnown(unit)
+	return tiles and tiles > (JazzAI_RecontactStandMax or 20)
+end
+
+function JazzAI_UnitIsFarmTarget(unit)
+	if not IsValid(unit) or unit:IsDead() then
+		return false
+	end
+	local team = unit.team
+	if not team or team.player_team then
+		return false
+	end
+	local seen, sees = false, false
+	for _, other in ipairs(g_Teams or empty_table) do
+		if other.player_team then
+			for _, p in ipairs(other.units or empty_table) do
+				if IsValid(p) and not p:IsDead() then
+					if HasVisibilityTo(p, unit) or HasVisibilityTo(other, unit) then
+						seen = true
+					end
+					if HasVisibilityTo(unit, p) or HasVisibilityTo(team, p) then
+						sees = true
+					end
+				end
+			end
+		end
+	end
+	return seen and not sees
+end
+
+function JazzAI_DestNearMapEdge(dest_pos, edge_tiles)
+	if not dest_pos then
+		return false
+	end
+	local box = GetMapBox and GetMapBox()
+	if not box or type(box.minx) ~= "function" then
+		return false
+	end
+	local pad = (edge_tiles or JazzAI_RecontactMapEdgeTiles or 8) * const.SlabSizeX
+	local x, y = dest_pos:xy()
+	local minx, miny = box:minx(), box:miny()
+	local maxx, maxy = box:maxx(), box:maxy()
+	return x <= minx + pad or y <= miny + pad or x >= maxx - pad or y >= maxy - pad
+end
+
+function JazzAI_LastKnownNearMapEdge(unit, edge_tiles)
+	local known = unit and unit.last_known_enemy_pos
+	return known and JazzAI_DestNearMapEdge(known, edge_tiles)
+end
+
+function JazzAI_ScoreRecontactDest(context, dest)
+	local unit = context and context.unit
+	if not IsValid(unit) then
+		return 0
+	end
+	local score = 0
+	local x, y, z = stance_pos_unpack(dest)
+	local dest_pos = point(x, y, z)
+	local stay = context.unit_stance_pos
+	local is_stay = stay and stance_pos_dist(dest, stay) == 0
+
+	if JazzAI_UnitIsFarmTarget and JazzAI_UnitIsFarmTarget(unit) then
+		if is_stay then
+			score = score - 160
+		else
+			score = score + 50
+			local nearest, ndist
+			for _, team in ipairs(g_Teams or empty_table) do
+				if team.player_team then
+					for _, p in ipairs(team.units or empty_table) do
+						if IsValid(p) and not p:IsDead()
+							and (HasVisibilityTo(p, unit) or HasVisibilityTo(team, unit)) then
+							local d = dest_pos:Dist(p:GetPos())
+							if not ndist or d < ndist then
+								nearest, ndist = p, d
+							end
+						end
+					end
+				end
+			end
+			if nearest then
+				local cover = GetCoverFrom and GetCoverFrom(dest, GetPackedPosAndStance(nearest)) or 0
+				if cover > 0 then
+					score = score + 40
+				end
+			end
+		end
+	end
+
+	local known = unit.last_known_enemy_pos
+	local vis = unit.GetVisibleEnemies and unit:GetVisibleEnemies()
+	local no_vis = not vis or #vis == 0
+	if known and no_vis then
+		local d_tiles = DivRound(dest_pos:Dist(known), const.SlabSizeX)
+		local cur = JazzAI_TilesToLastKnown(unit) or d_tiles
+		local stand_min = JazzAI_RecontactStandMin or 14
+		local stand_max = JazzAI_RecontactStandMax or 20
+		local probe = JazzAI_UnitIsRecontactProbe and JazzAI_UnitIsRecontactProbe(unit)
+		if probe then
+			if d_tiles < cur then
+				score = score + 80
+			elseif d_tiles > cur then
+				score = score - 40
+			end
+		elseif cur > stand_max then
+			if d_tiles < cur then
+				score = score + 100 + (cur - d_tiles) * 5
+			else
+				score = score - 80
+			end
+		elseif d_tiles >= stand_min and d_tiles <= stand_max then
+			score = score + 60
+		elseif d_tiles < stand_min then
+			score = score - 50
+		end
+		if JazzAI_DestNearMapEdge(dest_pos) and not JazzAI_LastKnownNearMapEdge(unit) then
+			score = score - 60
+		end
+	end
+	return score
 end
 
 function JazzAI_EnemyFocusThreatScore(officer, enemy)
@@ -1417,6 +1724,7 @@ function JazzAI_RefreshOfficerAurasForTeam(team)
 	end
 	if best then
 		JazzAI_WriteOfficerAura(best)
+		JazzAI_AssignRecontactProbes(team)
 	else
 		for _, u in ipairs(team.units) do
 			JazzAI_SetAuraEffect(u, "Jazz_Perk_OfficerAura", false)
@@ -1482,6 +1790,7 @@ function OnMsg.CombatStart()
 	JazzAI_TeamActSlotsTurn = false
 	JazzAI_TeamExplosiveThrows = {}
 	JazzAI_TeamExplosiveThrowTurn = false
+	JazzAI_TeamFallBackState = {}
 	-- Write directives immediately so ally officers (Burda) show a real order
 	-- before the first UnitBeginTurn — CombatStart alone used to leave MapVar empty.
 	JazzAI_RefreshAllOfficerAuras()
@@ -1498,6 +1807,7 @@ function OnMsg.CombatEnd()
 	JazzAI_TeamActSlotsTurn = false
 	JazzAI_TeamExplosiveThrows = {}
 	JazzAI_TeamExplosiveThrowTurn = false
+	JazzAI_TeamFallBackState = {}
 end
 
 function OnMsg.UnitBeginTurn(unit)

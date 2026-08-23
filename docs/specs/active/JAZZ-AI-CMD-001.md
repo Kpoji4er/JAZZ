@@ -90,6 +90,7 @@ Leaders не пишут aura directives (F8).
 
 - approved 2026-07-29; visible System Perks (не StatusEffect) 2026-07-29.
 - owner 2026-08-21: FocusFire target score ×2 (was 1.8); apply in CreateContext and Dump `AIPrecalcDamageScore`; lock preferred dest target to `focus_target`.
+- owner 2026-08-23: FallBack **start/cancel** уточнены в `JAZZ-AI-007` (шанс на пороге + срыв при слиянии). REQ-005 остаётся порогом допуска dead≥2&≥30%.
 
 ## Evidence
 

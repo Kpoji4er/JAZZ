@@ -274,7 +274,7 @@ Leader (`JAZZ_Legion_Leader*`, RebelSergeant, keyword `Leader`) раз в ход
 
 | Directive | Условие (runtime picker) | Эффект в радиусе (сейчас) |
 | --- | --- | --- |
-| `FallBack` | ≥2 dead и ≥30% отряда (без sticky wounds) | Scout/Pusher/Recruit/Line → Frontliner (не Sniper); cover/retreat bias; −5 CTH defense |
+| `FallBack` | Допуск: ≥2 dead и ≥30%. Старт — шанс = % потерь на порогах 30/50/70 (`InteractionRand`); срыв при ≥3 живых в 8 тайлах у офицера; не стартовать без nearest enemy (**JAZZ-AI-007**) | Scout/Pusher/Recruit/Line → Frontliner (не Sniper); cover/retreat bias; −5 CTH defense |
 | `GoHidden` | Night/Fog/Dust **или** outshot + ≥40% CanStealth | `Hide()`; → Frontliner; melee off |
 | `LowVisHold` | Night/Fog/Dust без массового стелса | hold; +2 CTH |
 | `FocusFire` | threat score (sniper/MG/close≤8 / HP≤55) | `focus_target`; attack ×2; +5 CTH |
@@ -389,6 +389,7 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-MED-001** | Medic freeze repro + fail-safes; early heal; bleed-first |
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
 | **JAZZ-AI-REG-001** | Isolated Legion → `Legion_Regroup` к дальнему ally cluster |
+| **JAZZ-AI-007** | Recontact 14–20 / farm move; FallBack chance+merge; peek-exit OW; SelectArchetype after PickCustom |
 | **JAZZ-AI-POL-003** | Anti-stack: hard same-voxel dibs + soft ally spacing in AIScoreDest |
 | **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee floor; medic ignore superseded MED-002 |
 | **JAZZ-AI-MED-002** | Dedicated medic switch + one fill-in; medic ignore crowd; cover spacing |
