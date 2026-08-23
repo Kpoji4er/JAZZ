@@ -2,7 +2,42 @@
 
 --function Unit:DropLoot()
 
+-- JAZZ-INV-002: NPC corpse magazine fill by Game.game_difficulty.
+-- MachineGun and LightMachineGun are sibling Firearm children, not parent/child.
+JAZZ_LOOT_AMMO_KEEP = {
+	Normal = { other = 80, mg = 50 },
+	Hard = { other = 60, mg = 30 },
+	VeryHard = { other = 45, mg = 18 },
+}
 
+function JAZZ_IsLootAmmoMGClass(item)
+	return IsKindOf(item, "MachineGun") or IsKindOf(item, "LightMachineGun")
+end
+
+function JAZZ_GetLootAmmoKeepPercent(item, difficulty)
+	local row = JAZZ_LOOT_AMMO_KEEP[difficulty or ""] or JAZZ_LOOT_AMMO_KEEP.Normal
+	if JAZZ_IsLootAmmoMGClass(item) then
+		return row.mg
+	end
+	return row.other
+end
+
+function JAZZ_CapLootFirearmAmmo(item, difficulty)
+	if not item or not item.ammo then
+		return item
+	end
+	local amount = item.ammo.Amount or 0
+	if amount <= 0 then
+		return item
+	end
+	local mag = item.MagazineSize or amount
+	local pct = JAZZ_GetLootAmmoKeepPercent(item, difficulty)
+	local cap = Max(1, MulDivRound(mag, pct, 100))
+	if amount > cap then
+		item.ammo.Amount = cap
+	end
+	return item
+end
 
 function Unit:DropLoot(container)
 --	local start = GetPreciseTicks(1000)
@@ -109,6 +144,10 @@ function Unit:DropLoot(container)
 				if item.Condition and item.drop_chance < 100 then
 					item.Condition = Max(0, item.Condition - Min(random(100 - item.drop_chance), item.Condition))
 				end
+			end
+
+			if is_npc and IsKindOf(item, "Firearm") then
+				JAZZ_CapLootFirearmAmmo(item, Game and Game.game_difficulty)
 			end
 			 
 			local addTo = container or self

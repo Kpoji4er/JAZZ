@@ -8,6 +8,8 @@ JAZZ_CTH_PRODUCT_SCALE = 1000000000
 JAZZ_CTH_VALID_SHOT_FLOOR = 2
 -- After BDR/E: factor falls with acceleration toward this floor at WeaponRange (not to 0).
 JAZZ_CTH_RANGE_FLOOR_FACTOR = 250 -- 0.25 * FACTOR_SCALE
+-- After E/BDR, MG/LMG reach the floor over this many tiles (not stretched to WeaponRange).
+JAZZ_CTH_MG_FALLOFF_SPAN = 16
 -- Minimum curve exponent (>1 → accelerating falloff).
 -- JAZZ-WEAPONS-007: miss climb offset_len = min(ref, ref * k * Round(er) / CLIMB_SCALE)
 JAZZ_CTH_RECOIL_CLIMB_SCALE = 400
@@ -403,9 +405,17 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 	local epsilon = 0.01
 	local effective_range = Min(weapon_range - epsilon, bullet_drop_range + optic.reach * aim_progress)
 	effective_range = Clamp(effective_range, 0, weapon_range - epsilon)
-	-- Accelerating falloff after E/BDR; p>1. Floor ~25% at R (last valid tile).
+	-- Accelerating falloff after E/BDR; p>1. Floor ~25% at falloff_end (last valid tile of the span).
 	local curve_power = Max(1.25, bullet_drop_range * 0.05 + grouping * 1.0 / 100)
 	local range_floor = JAZZ_CTH_RANGE_FLOOR_FACTOR
+	local is_mg_class = IsKindOf(weapon, "MachineGun") or IsKindOf(weapon, "LightMachineGun")
+	local function jazz_cth_falloff_end(from_range)
+		if not is_mg_class then
+			return weapon_range
+		end
+		return Min(weapon_range, from_range + JAZZ_CTH_MG_FALLOFF_SPAN)
+	end
+	local falloff_end = jazz_cth_falloff_end(effective_range)
 
 	local function falloff_factor(t)
 		-- floor + (1 - floor) * (1 - t^p)  →  at t=0: 1.0, at t=1: floor
@@ -421,7 +431,8 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 	elseif tiles <= effective_range then
 		factor = JAZZ_CTH_FACTOR_SCALE
 	else
-		local t = Clamp((tiles - effective_range) / (weapon_range - effective_range), 0, 1)
+		local denom = Max(falloff_end - effective_range, epsilon)
+		local t = Clamp((tiles - effective_range) / denom, 0, 1)
 		factor = falloff_factor(t)
 	end
 
@@ -431,8 +442,9 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 		if tiles <= unassisted_effective then
 			unassisted_factor = JAZZ_CTH_FACTOR_SCALE
 		else
+			local unassisted_end = jazz_cth_falloff_end(unassisted_effective)
 			local unassisted_t = Clamp(
-				(tiles - unassisted_effective) / (weapon_range - unassisted_effective),
+				(tiles - unassisted_effective) / Max(unassisted_end - unassisted_effective, epsilon),
 				0,
 				1
 			)
@@ -473,6 +485,7 @@ function JAZZ_CTHGetRangeProfile(weapon, distance, unit, action, aim)
 		bullet_drop_range = bullet_drop_range,
 		grouping = grouping,
 		effective_range = effective_range,
+		falloff_end = falloff_end,
 		curve_power = curve_power,
 		range_floor = range_floor,
 		aim_progress = aim_progress,

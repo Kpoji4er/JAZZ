@@ -24,7 +24,7 @@ JAZZ расширяет инвентарь специализированным�
 - `Code/System_OR_SquadBag.lua` — squad bag и перенос при изменении состава;
 - `Code/System_InventoryStacks.lua` — dual stack limits (storage vs loadout, JAZZ-INV-001);
 - `Code/System_LootDef.lua` — расширения loot definitions;
-- `Code/System_LootDrops.lua` — runtime выпадения;
+- `Code/System_LootDrops.lua` — runtime выпадения; NPC-труп режет заряженный магазин по сложности (JAZZ-INV-002);
 - `Code/GetScrapParts.lua` — разбор оружия;
 - `Code/AmmoRolloverHint.lua` — ammo tooltip;
 - generated InventoryItem, InventoryTab, LootDef, RecipeDef и CraftOperationsRecipe.
@@ -93,6 +93,20 @@ Snapshot core содержит 558 InventoryItem definitions:
 
 В `jazz-units` зарегистрировано 1257 `LootDef`; они формируют loadouts и drops для 179 UnitData и squads. В `jazz-maps` есть 18 map/campaign loot definitions и размещённые контейнеры. Core добавляет классы и runtime выпадения.
 
+### Заряженный магазин на трупе NPC (JAZZ-INV-002)
+
+`Unit:DropLoot` после решения «предмет падает» режет `Firearm.ammo.Amount` только у **NPC**. Мерки, IMP-старт, `EquipStartingGear` и AI-долив до `MagazineSize` не трогаются: в бою лента полная, в луте — потолок.
+
+Потолок = `Max(1, MulDivRound(MagazineSize, keep_pct, 100))`; берётся `min(остаток, потолок)`. Пустой ствол остаётся пустым. Без нового RNG. Неизвестный `Game.game_difficulty` считается как `Normal`. `MachineGun` и `LightMachineGun` — sibling-классы.
+
+| `Game.game_difficulty` | Display RU | Прочие Firearm | MG / LMG |
+|---|---|---|---|
+| `Normal` | Первая кровь | 80% | 50% |
+| `Hard` | Коммандос | 60% | 30% |
+| `VeryHard` | Миссия невыполнима | 45% | 18% |
+
+Ориентир: ПКМ на 100 → **50 / 30 / 18**; АК на 30 → **24 / 18 / 14**. Authored стеки `*_mg_ammo` (100–300) и 5% шанс запасных патронов не меняются. Ящики/`GenerateLoot` вне этого хука.
+
 `System_OR_ItemContainer.lua` реагирует на `LockpickableBrokeOpen` и `DamageDone`, а открытие проходит через NetSync event `OpenContainer`. `System_OR_SquadBag.lua` реагирует на `MercHireStatusChanged` и `PreSquadDespawned`, поэтому изменение переноса предметов затрагивает найм, увольнение, смерть/деспавн и сетевую синхронизацию.
 
 `UtilityFunc.lua` при открытии satellite view регенерирует loot Legion; это cross-cutting стратегический side effect и должно проверяться вместе со strategy docs. Боевые Legion starting LootDef после JAZZ-UNITS-003 владеет generator `jazz/scripts/legion-loadouts/` → `jazz-units/items.lua` (см. [`legion-units-equipment-tiers.md`](legion-units-equipment-tiers.md)).
@@ -134,6 +148,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 - squad bag при найме, увольнении, смерти, split/join и despawn;
 - HOTFIX-005: несколько одинаковых сошек в имуществе отряда переживают sort + save/load; коллиматор и компенсатор не сливаются;
 - loot unit/map, Legion regeneration, новый game и existing save;
+- JAZZ-INV-002: труп NPC — заряженный ПКМ 100 → 50/30/18 по сложности; мерк не режется; `scripts/test-loot-ammo-cap.ps1`;
 - craft/scrap с сохранением item resource и components;
 - rollover для ammo/armor/weapon.
 

@@ -20,7 +20,7 @@ A **sub-tier** orders close variants (magazine, RoF, range, reliability, modules
 | AP shot / reload | Attack tempo and upkeep cost. |
 | Aim | Aim clicks × value per click. |
 | BDR / range | End of the effective zone / hard shot limit. |
-| Accuracy hold | How well precision holds past the effective zone (read with BDR and range). |
+| Accuracy hold | How well precision holds past the effective zone (read with BDR and range). Machine guns drop over about **16 tiles** after that zone, not across the full max range. |
 | Recoil | How hard follow-up bullets lose accuracy; lower is easier to control. Platform mass, size, and cyclic rate differentiate guns in the same caliber (compact/high-RPM SMGs climb harder than heavy low-RPM ones). |
 | Modes | Single, burst, auto, and special actions. |
 
@@ -38,6 +38,8 @@ Tube-fed shotguns, break-actions, and revolvers use normal Reload when empty. On
 **M72 LAW** has one embedded shot: it cannot be reloaded or repaired. After any shot that is fired, including a mishap, the launcher leaves the inventory and a visible empty tube remains on the ground. The **RPG-7** remains reusable and reloads separate rounds from the backpack. The last round is fully consumed: no leftover `0/1` dummy, and Reload will not spend AP on an empty stack.
 
 Loadout ammo stacks do not grow past the pocket cap. If a stack is already over that cap, the extra rounds go to the **squad bag** instead of disappearing.
+
+Enemy corpses do not leave a full belt in the gun: loaded rounds are capped by difficulty, harder on machine guns. **First Blood** keeps about half an MG magazine, **Commando** about a third, **Mission Impossible** about a fifth (PKM 100 → **50 / 30 / 18**). If the fighter already spent past that cap, you get the real remainder. Spare pocket ammo is still uncommon.
 
 ## Components
 

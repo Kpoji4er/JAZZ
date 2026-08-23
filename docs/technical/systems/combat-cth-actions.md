@@ -6,6 +6,7 @@
 - `JAZZ-COMBAT-002` — grazing (miss→graze / cover-graze).
 - `JAZZ-COMBAT-003` — suppression retaliation / Lightning Reaction / Psycho Will.
 - `JAZZ-COMBAT-004` — избыток ядра CTH → crit.
+- `JAZZ-WEAPONS-013` — пулемёт: спад после E за 16 клеток, не на весь WeaponRange.
 
 ## Назначение и эффект для игрока
 
@@ -62,7 +63,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 - `Grouping` — форму падения после эффективной зоны;
 - aim progress и профиль установленной оптики — сдвиг эффективной зоны.
 
-До эффективной границы range factor равен `1`. Затем непрерывная степенная кривая приходит к нулю на физическом пределе; последний ещё возможный выстрел сохраняет общий floor. Оптика не меняет `WeaponRange` и `BulletDropRange`, а сильное увеличение может штрафовать близкую дистанцию.
+До эффективной границы range factor равен `1`. Затем непрерывная степенная кривая идёт к floor **~25%** на `falloff_end` (для большинства классов это `WeaponRange`; для `MachineGun` / `LightMachineGun` — `min(R, E + 16)`, JAZZ-WEAPONS-013). Дальше до физического предела выстрел остаётся возможным на floor. Оптика не меняет `WeaponRange` и `BulletDropRange`, а сильное увеличение может штрафовать близкую дистанцию.
 
 `GetRangeDamageReduction` использует тот же range profile, но рассчитывает процент сохраняемого урона. Вызывающая сторона передаёт `attacker` и `action`, поэтому `GetMaxAimRange` и реакция `OnUnitGetWeaponRange` участвуют в расчёте фактического damage range.
 

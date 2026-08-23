@@ -86,12 +86,25 @@ function Get-RangeProfile {
     }
 
     $effective = [Math]::Min($range - 0.01, $Weapon.BulletDropRange + $OpticReach * $AimProgress)
-    $power = [Math]::Max(0.25, $Weapon.BulletDropRange * 0.05 + $Weapon.Grouping / 100)
+    $isMg = $Weapon.ObjectClass -in @('MachineGun', 'LightMachineGun')
+    $power = if ($isMg) {
+        [Math]::Max(1.25, $Weapon.BulletDropRange * 0.05 + $Weapon.Grouping / 100)
+    } else {
+        [Math]::Max(0.25, $Weapon.BulletDropRange * 0.05 + $Weapon.Grouping / 100)
+    }
+    $falloffEnd = $range
+    if ($isMg) {
+        $falloffEnd = [Math]::Min($range, $effective + 16)
+    }
     $factor = if ($Distance -le $effective) {
         1
     } else {
-        $t = (Clamp-Value (($Distance - $effective) / ($range - $effective)) 0 1)
-        [Math]::Max(1 - [Math]::Pow($t, $power), 0)
+        $t = (Clamp-Value (($Distance - $effective) / [Math]::Max($falloffEnd - $effective, 0.01)) 0 1)
+        if ($isMg) {
+            0.25 + 0.75 * (1 - [Math]::Pow($t, $power))
+        } else {
+            [Math]::Max(1 - [Math]::Pow($t, $power), 0)
+        }
     }
     $nearFactor = if ($OpticMinRange -gt 0 -and $Distance -lt $OpticMinRange) {
         $proximity = (Clamp-Value (($OpticMinRange - $Distance) / $OpticMinRange) 0 1)
@@ -174,6 +187,7 @@ function Convert-WeaponRow {
         BulletDropRange = [int]$Row.bullet_drop_range
         Grouping = [int]$Row.grouping
         Handling = [int]$Row.handling
+        ObjectClass = [string]$Row.object_class
     }
 }
 
@@ -348,6 +362,32 @@ Assert-True (([int]$rpk.auto_shots) -eq 7) 'AI/model fixture must keep the RPK M
 Assert-True (([int]$bar.shoot_ap + (Get-MGBurstSurcharge ([int]$bar.burst_shots) ([int]$bar.auto_shots))) -eq 8000) 'BAR MGBurstFire must cost 8 AP'
 Assert-True (([int]$rpk.shoot_ap + (Get-MGBurstSurcharge ([int]$rpk.burst_shots) ([int]$rpk.auto_shots))) -eq 10000) 'RPK MGBurstFire must cost 10 AP'
 Assert-True (([int]$pkm.shoot_ap + (Get-MGBurstSurcharge ([int]$pkm.burst_shots) ([int]$pkm.auto_shots))) -eq 10000) 'PKM MGBurstFire must cost 10 AP'
+Assert-True ($accuracySource -match 'JAZZ_CTH_MG_FALLOFF_SPAN = 16') 'MG/LMG post-BDR falloff span must be 16 tiles'
+Assert-True ($accuracySource -match 'if not is_mg_class then\s+return weapon_range') 'non-MG falloff must stay stretched to WeaponRange'
+$pkmW = Convert-WeaponRow $pkm
+$macW = Convert-WeaponRow ($active | Where-Object id -eq 'MAC2429' | Select-Object -First 1)
+Assert-True ($pkmW.ObjectClass -eq 'MachineGun') 'PKM must be MachineGun in the catalog'
+Assert-True ($macW.ObjectClass -eq 'LightMachineGun') 'MAC 24/29 must be LightMachineGun in the catalog'
+Assert-True ($ak.ObjectClass -eq 'AssaultRifle') 'AK-47 must stay a non-MG class'
+$pkmAtBdr = Get-RangeProfile $pkmW $pkmW.BulletDropRange 1
+Assert-True ([Math]::Abs($pkmAtBdr.Factor - 1) -lt 0.000001) 'PKM range factor must stay 1 at BDR'
+$pkm24 = Get-RangeProfile $pkmW 24 1
+Assert-True ($pkm24.Possible -and $pkm24.Factor -gt 0.75 -and $pkm24.Factor -lt 0.82) 'PKM at 24 tiles must use 16-tile MG falloff (~0.79)'
+$pkmFloor = Get-RangeProfile $pkmW ($pkmW.BulletDropRange + 16) 1
+Assert-True ($pkmFloor.Possible -and [Math]::Abs($pkmFloor.Factor - 0.25) -lt 0.02) 'PKM must reach 0.25 floor 16 tiles after BDR'
+Assert-True (-not (Get-RangeProfile $pkmW $pkmW.WeaponRange 1).Possible) 'PKM at WeaponRange must be an impossible shot'
+$macAtBdr = Get-RangeProfile $macW $macW.BulletDropRange 1
+$mac20 = Get-RangeProfile $macW 20 1
+Assert-True ([Math]::Abs($macAtBdr.Factor - 1) -lt 0.000001) 'MAC 24/29 range factor must stay 1 at BDR'
+Assert-True ($mac20.Possible -and $mac20.Factor -gt 0.74 -and $mac20.Factor -lt 0.82) 'MAC 24/29 at 20 tiles must use MG falloff (~0.78)'
+$ak24 = Get-RangeProfile $ak 24 1
+$akAsMg = @{}
+foreach ($key in $ak.Keys) {
+    $akAsMg[$key] = $ak[$key]
+}
+$akAsMg.ObjectClass = 'MachineGun'
+$akMgSpan = Get-RangeProfile $akAsMg 24 1
+Assert-True ($ak24.Possible -and $ak24.Factor -gt ($akMgSpan.Factor + 0.05)) 'AK-47 must keep stretched WeaponRange falloff, not the MG 16-tile span'
 Assert-True ($generatedItems -notmatch '\bBoltingAP\b|\bid = "Bolting"') 'legacy bolting data must be absent'
 
 $comparison | Format-Table -AutoSize

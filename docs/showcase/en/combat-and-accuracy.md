@@ -29,7 +29,9 @@ The legacy `Handling` stat has been removed and is not used in hit chance.
 - **BDR** — end of the base effective zone.
 - **Range** — hard limit of a normal shot.
 
-Inside BDR there is no range penalty. Past it, chance falls gently at first and then faster, but a still-possible shot near the hard limit retains about a quarter of its range profile instead of dropping to zero.
+Inside BDR there is no range penalty. Past it, chance falls gently at first and then faster; a still-possible shot at the end of that falloff retains about a quarter of its range profile instead of dropping to zero.
+
+**Machine guns** (light and heavy): after the effective zone, that drop to a quarter takes about **16 tiles**, not the full maximum range. You can still fire farther, just not as a sniper burst. Mid-range on bipod/setup stays full until BDR (plus optic shift).
 
 Weapons also have a close-range profile: pistols and compact guns are comfortable at point-blank range, while long rifles and long barrels can be weaker across the nearest tiles — rough zone lengths: SMG ~3, carbine/shotgun ~5, assault/MG ~8 (StG-44), battle rifle ~11, sniper ~16. A short barrel shifts that comfort closer and boosts close-range effectiveness (weapon card row **Close range** shows the barrel-style `+N` after base + attachments); a long barrel shifts it farther away. A base near-zone penalty without a boosting barrel also appears as its own labeled row (`−N%` and zone length), not as a hint bullet.
 
