@@ -1,6 +1,6 @@
 ---
 id: JAZZ-UNITS-009
-status: draft
+status: approved
 owner: project-owner
 systems:
   - units-progression-specializations
@@ -45,7 +45,7 @@ related_decisions:
   - none
 related:
   - JAZZ-UNITS-005
-approved_by: pending
+approved_by: project-owner chat 2026-08-23 approved
 ---
 
 # JAZZ-UNITS-009: Skill XP instead of stat-gain rolls
@@ -709,18 +709,18 @@ Helper `Jazz_AwardWillPractice`. Хук на смене тира в `Unit:ApplyS
 ## План и ownership
 
 - Пакет-владелец: `jazz-units` (runtime), `jazz` (spec/docs)
-- Исполнитель: agent после `approved`
+- Исполнитель: agent (runtime загружен в `jazz-units`; независимый playtest ещё не закрыл AC)
 - Reviewer: project-owner
 - Declared write set: см. front-matter
 - Exclusive resources: два Code-файла units + `jazz/items.lua` (семь melee Id) + loc RU/EN
 
 ## Решение владельца
 
-- Статус: **draft** (кривая — 2026-08-22; боевые статы + Health/Wisdom/Leadership — 2026-08-23; Mechanical/Explosives/Medical/Will — 2026-08-23; UI v1 ролловер — 2026-08-23; реализация после `approved`)
-- Кто подтвердил: project-owner (частичные решения, chat 2026-08-22 / 2026-08-23)
+- Статус: **approved** (кривая — 2026-08-22; боевые статы + Health/Wisdom/Leadership — 2026-08-23; Mechanical/Explosives/Medical/Will — 2026-08-23; UI v1 ролловер — 2026-08-23; overall approve — chat 2026-08-23). Не `implemented`: runtime/human AC остаются `BLOCKED`.
+- Кто подтвердил: project-owner (chat 2026-08-22 / 2026-08-23, overall `approved`)
 - Дата: 2026-08-23
-- Решения: кривая 0–79; после **80** — **×1.5**; **Мудрость линейно 0…100** (`/60`, пол 30 снят: Wis 0 = 0 практики); боевые кастомы Marks/Dex/Agility/Strength как раньше; Health пациент; Wisdom капли; Leadership соседская воля + OnMyTarget; **Mechanical** час ремонта **6**, Unjam 12/5, 24 ч механик молчит; **Explosives** разминирование остаётся, обнаружение мины **8**; **Medical** час **8**, бинт/морфий **5**, аптечка 1/5 ОЗ, травма в healing **15**, 24 ч доктор и 25 HP бинты молчат; **Will** XP у того, на ком статус, Light…Pinned 4/8/12/16/20 (без капа атакующего), Psycho Berserk **18**. **Темп:** Эрни, навык которым работаешь ≈ **50→60** (4000 XP при Wis 60); T(s) не режем. **UI v1:** строка в ролловере стата `Практика: xp / T(s)` (нанятый, стат &lt;100); полоска на фоне числа — не v1.
-- Открыто: overall approve spec → реализация; **скейл боевых капель ×3.5 vs ×4** (Эрни 50→60 при ~12 боях); порог recoil 25, Weight≥4, шаг Health 5 ОЗ и капли Wisdom/Leadership/Mechanical/Medical/Will (на Эрни 50→60 не обещаем без отдельного скейла). Очередь навыков закрыта.
+- Решения: кривая 0–79; после **80** — **×1.5**; **Мудрость линейно 0…100** (`/60`, пол 30 снят: Wis 0 = 0 практики); боевые кастомы Marks/Dex/Agility/Strength как раньше; Health пациент; Wisdom капли; Leadership соседская воля + OnMyTarget; **Mechanical** час ремонта **6**, Unjam 12/5, 24 ч механик молчит; **Explosives** разминирование остаётся, обнаружение мины **8**; **Medical** час **8**, бинт/морфий **5**, аптечка 1/5 ОЗ, травма в healing **15**, 24 ч доктор и 25 HP бинты молчат; **Will** XP у того, на ком статус, Light…Pinned 4/8/12/16/20 (без капа атакующего), Psycho Berserk **18**. **Темп:** Эрни, навык которым работаешь ≈ **50→60** (4000 XP при Wis 60); T(s) не режем. **UI v1:** строка в ролловере стата `Практика: xp / T(s)` (нанятый, стат &lt;100); полоска на фоне числа — не v1. Реализация base REQ загружена; playtest не заменяет этот approve.
+- Отложено (не блокер DoR): **скейл боевых капель ×3.5 vs ×4** (Эрни 50→60 при ~12 боях) — отдельный выбор владельца, в runtime не применён. Порог recoil 25, Weight≥4, шаг Health 5 ОЗ и капли Wisdom/Leadership/Mechanical/Medical/Will на Эрни 50→60 не обещаем без отдельного скейла. Очередь навыков закрыта.
 
 ## Evidence
 
@@ -748,18 +748,13 @@ Helper `Jazz_AwardWillPractice`. Хук на смене тира в `Unit:ApplyS
 - `JAZZ-UNITS-009-AC-022`: `BLOCKED` (runtime Will)
 - `JAZZ-UNITS-009-AC-023`: `BLOCKED` (runtime/human UI rollover)
 
-Spec remains `draft`. Combat drip ×3.5/×4 not applied.
+Spec `approved`. Not `implemented`: runtime/human AC remain `BLOCKED`. Combat drip ×3.5/×4 not applied.
 
 ## Documentation delta
 
-Уже в draft (компаньон, не current-state wiki):
-
-- `docs/specs/active/JAZZ-UNITS-009-companion.md` — игроковый пересказ; в wiki/showcase не копировать, пока система не загружена.
-
-После реализации:
-
-- `docs/technical/systems/units-progression-specializations.md` — skill XP, таблица T(s), отвязка банка от боевого XP, практика всех 11 статов, мили UnitStat.
-- `docs/technical/systems/file-coverage.md` — уточнить роль `StatGainRework.lua` / `ExperienceSys.lua`.
+- `docs/specs/active/JAZZ-UNITS-009-companion.md` — игроковый пересказ утверждённого контракта.
+- `docs/technical/systems/units-progression-specializations.md` — skill XP, таблица T(s), отвязка банка от боевого XP, практика всех 11 статов, мили UnitStat (loaded; runtime pending).
+- `docs/technical/systems/file-coverage.md` — роль `StatGainRework.lua` / `ExperienceSys.lua`.
 - `docs/wiki/african-mercenary-exchange.md` — Potential = скорость практики, не «удача»; прогресс навыка в ролловере.
 - `docs/wiki/combat-and-accuracy.md` + showcase RU/EN боя — CTH ножа Ловкость, мачете/лопата/кулаки Сила; Health от восстановления; Will от тира подавления.
 - `docs/showcase/ru|en/mercenaries.md`, `docs/showcase/ru|en/ame.md` — рост от практики, хвост 90–100.

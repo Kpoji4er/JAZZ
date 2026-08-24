@@ -18,7 +18,7 @@ JAZZ разделяет физическую защиту по покрытию,
 
 - `Code/System_ArmorRating.lua` — выбор покрытия, penetration и рейтинг защиты;
 - `Code/UnitPropertiesStats.lua` — свойства юнита, Will и связанные derived values;
-- `Code/System_OR_Unit.lua` — damage/status/unit runtime;
+- `Code/System_OR_Unit.lua` — damage/status/unit runtime, в т.ч. `Unit:RecalcWillPoints` (восстановление Will в начале хода);
 - `Code/System_Vest.lua` — классы/поведение vest, хотя отдельный Vest slot в текущем inventory-коде закомментирован;
 - `Code/GritOnStart.lua` — только `GetInitialMaxHitPoints` (**100%** Health / villain / BeefedUp); **Temp HP grit на CombatStart отключён** (JAZZ-MED-001);
 - `Code/Systems_Medicine.lua` — тиры крови, Pain/Analgesia helpers, зональные травмы API, бинт/морфий;
@@ -262,10 +262,28 @@ CTH-модификатор `Suppression` применяется на любой 
 
 **Save caveat:** vanilla `CharacterEffect:__toluacode` emits `PlaceCharacterEffect('Id', )` when the effect has no non-default props (typical for fresh mid-combat `suppressionPinned`). That is invalid Lua and blocks load. JAZZ `Code/Save_CharacterEffectSerialize.lua` writes `{}` instead and sanitizes via `string.gsub` on the session blob (often **pstr**, not `type()=="string"`) on load.
 
-### Psycho и восстановление Will
+### Восстановление Will в начале хода (лидерство)
+
+`Unit:RecalcWillPoints` (`System_OR_Unit.lua`) на `BeginTurn` живого юнита. Сначала считается `buff` (проценты от `MaxWillPoints`), затем `wp_delta = MulDivRound(MaxWillPoints, buff, 100)` и `WillPoints` клампятся в `[0, MaxWillPoints]`. Если воля уже на потолке, дельта в ноль.
+
+**База** `buff = 8`. Дальше к ней добавляется вклад **лучшего** живого союзника той же стороны в радиусе **&lt; 11** клеток (не сумма всех):
+
+```text
+term(U) = (U.Leadership + 5 * Clamp(U:GetPersonalMorale(), 0, 5)) * (11 - dist)
+leadership = Max(term) по U ≠ self
+buff += DivRound(leadership, 50)
+```
+
+`dist` в клетках (`Dist / SlabSizeX`). У помощника с перком `Negotiator` дистанция считается как `Max(1, dist − 3)`. Животные в том же радиусе в вклад Leadership не входят (только zoophobia). Свою волю себе соседством юнит не качает.
+
+Дополнительно на тот же `buff` (не отдельный пайплайн): Likes/Dislikes союзника в &lt; 3 клетках **±1**; `Optimist` **+1** и иногда **+5**; `Pessimist` **−1** и иногда **−4**; `Spiritual` **+5**; подземка + `ClaustrophobicChecked` **−10**; `Loner` **+10**, если рядом никого в `loner_radius`; животные **−3** каждое (**−10**, если `ZoophobiaChecked`); `Hemophobic` при кровотечении иногда **−50**; `Protected` **+20**; `suppressionPinned` **+5**; личная мораль `Clamp(3 × morale, −3, 10)`.
+
+Это **уже загруженный** runtime. Не путать с будущей именной аурой офицера (`Jazz_Perk_Henning` / `Jazz_Perk_Miguel`) и не описывать как skill XP Leadership (это draft `JAZZ-UNITS-009`).
+
+### Psycho и конец боя
 
 - `Psycho` не получает Will damage от огневого подавления и не получает suppression tiers; при низком Will может уйти в `Berserk`.
-- Каждый `BeginTurn` без `Berserk`: drain **−4** Will (раньше −8) и ранний выход из обычного leadership-regen.
+- Каждый `BeginTurn` без `Berserk`: **не** идёт в формулу выше — drain **−4** Will (раньше −8) и `return`.
 - На `CombatEnd` у всех живых human `WillPoints` сбрасываются на `MaxWillPoints` (`OnMsg.CombatEnd` в `System_OR_Unit.lua`), чтобы срыв не переносился в следующий бой.
 
 Will связан одновременно с damage, AI, effects и UI. Любое изменение формулы должно проверять не только число, но и пороги статусов, действия AI и очистку в конце боя.
@@ -291,7 +309,7 @@ Will связан одновременно с damage, AI, effects и UI. Люб�
 - после чистого запуска `g_Classes.DamageReduction` и preset `DamageReduction` разрешаются в реализацию JAZZ, без параллельного класса под новым ID;
 - Bandage против operation heal, save/load между стадиями;
 - Grit на старте и очистка после боя;
-- Will loss, suppression tiers, UI bar, end-turn/end-combat;
+- Will loss, nearby-leadership regen (`RecalcWillPoints`), Psycho skip, suppression tiers, UI bar, end-turn/end-combat;
 - сетевой бой и загрузка старого сохранения.
 
 ## Сопровождение
