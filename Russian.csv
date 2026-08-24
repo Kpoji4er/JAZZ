@@ -1072,9 +1072,9 @@ ID,Text,Translation,VoiceActor,Context
 242652360553,"Братаны. у них же нет этого, как его... свистимандоза? Жрать их можно, спрашиваю?","Братаны. У них же нет этого, как его... свистимандоза? Жрать их можно, спрашиваю?",,jazz-units:items.lua:70881
 243070819799,"Мадам, мы не знакомы? Разрешите представиться, Фраг!","Мадам, мы не знакомы? Разрешите представиться, Фраг!",,jazz-units:items.lua:70944
 243383619902,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальность от Силы; чистота — Сила + Ловкость + Взрывчатка, плавно к краю круга (без обрыва на середине)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальность от Силы; чистота — Сила + Ловкость + Взрывчатка, плавно к краю круга (без обрыва на середине)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:30707
 244187543674,Шлем Тварон,Шлем из тварона,,jazz:InventoryItem/JazzArmor_TwaronHelm.lua:12 | jazz:items.lua:55030
 244409151764,"Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!","Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!",,jazz-units:items.lua:72141 | jazz-units:UnitData/Vicki.lua:113
@@ -1850,9 +1850,9 @@ ID,Text,Translation,VoiceActor,Context
 395636543718,Чего-то до хрена их тут.,Чего-то до хрена их тут.,,jazz-units:items.lua:70808
 395851346053,Это было просто необходимо. ,Это было просто необходимо.,,jazz-units:items.lua:68840
 396249040457,ОД,ОД,,jazz:items.lua:94624
-397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет.
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине — высокий риск; на максимуме элита (~90) всё ещё точна (Меткость + Взрывчатка; уверенно примерно с 50).","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомёт.
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине — высокий риск; на максимуме элита (~90) всё ещё точна (Меткость + Взрывчатка; уверенно примерно с 50).",,jazz:InventoryItem/M79.lua:25 | jazz:items.lua:30505
+397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомёт.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Риск растёт плавно к полному выстрелу (Меткость + Взрывчатка), без обрыва на середине.","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомёт.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Риск растёт плавно к полному выстрелу (Меткость + Взрывчатка), без обрыва на середине.",,jazz:InventoryItem/M79.lua:25 | jazz:items.lua:30505
 397662298505,Предыдущий боец,Предыдущий боец,,jazz:items.lua:94093
 397718810214,"Я знаю, что так думать немодно, но я думаю, что дело женщин - ходить босиком и вынашивать детей. Подождите немного, люди к этому еще вернутся!","Я знаю, что так думать немодно, но я думаю, что дело женщин - ходить босиком и вынашивать детей. Подождите немного, люди к этому еще вернутся!",,jazz-units:items.lua:69076
 397890849828,"Боевики <color EmStyle>Легиона</color> похитили <color EmStyle>отца Эммы</color>, Альфонса Лафонтена, <color EmStyle>президента</color> Гран-Шьена.","Боевики <color EmStyle>Легиона</color> похитили <color EmStyle>отца Эммы</color>, Альфонса Лафонтена, <color EmStyle>президента</color> Гран-Шьена.",,jazz-maps:items.lua:52284

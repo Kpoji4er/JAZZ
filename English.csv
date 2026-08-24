@@ -1072,9 +1072,9 @@ The number of attacks depends on available AP.",,jazz:items.lua:64450
 242652360553,"Братаны. у них же нет этого, как его... свистимандоза? Жрать их можно, спрашиваю?","Bros, they don't have that... whatchacallit... whistlematosis, right? I'm asking if they're safe to eat!",,jazz-units:items.lua:70881
 243070819799,"Мадам, мы не знакомы? Разрешите представиться, Фраг!","Madam, have we met? Allow me to introduce myself: Frag!",,jazz-units:items.lua:70944
 243383619902,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Взрывается при контакте
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине риск высокий; на максимуме элита (~90) всё ещё кидает уверенно (Ловкость + Взрывчатка; уверенно примерно с 50)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальность от Силы; чистота — Сила + Ловкость + Взрывчатка, плавно к краю круга (без обрыва на середине)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Поражённые взрывом: гарантированная <color EmStyle>контузия</color>; одна зональная <color EmStyle>травма</color> при уроне ≥ 20 (тяжёлая при ≥ 50% ОЗ)","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Explodes on contact
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Within ~1/4 range, only scatter; by half range risk is high; at max range elites (~90) still throw solidly (Dexterity + Explosives; reliable around 50)
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Strength sets throw range; Strength + Dexterity + Explosives keep it clean, smoothly to the edge (no mid-range cliff)
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Units caught in the blast are guaranteed to suffer <color EmStyle>Concussion</color>; one zone <color EmStyle>Trauma</color> if after-armor damage ≥ 20 (heavy at ≥ 50% Max HP)",,jazz:InventoryItem/FragGrenade.lua:15 | jazz:items.lua:30707
 244187543674,Шлем Тварон,Twaron Helmet,,jazz:InventoryItem/JazzArmor_TwaronHelm.lua:12 | jazz:items.lua:55030
 244409151764,"Ладно, скажу правду, были у меня предложения и получше, но в Пауке что-то есть такое, отчего с ней в кайф работать вместе. Согласна, чел!","Fine, I'll be honest: I've had better offers, but there's something about Spider that makes her fun to work with. You've got a deal, man!",,jazz-units:items.lua:72141 | jazz-units:UnitData/Vicki.lua:113
@@ -1852,9 +1852,9 @@ Fire <color EmStyle><num_shots> rounds</color> at the target. Accuracy falls wit
 395636543718,Чего-то до хрена их тут.,"Damn, there are a lot of them.",,jazz-units:items.lua:70808
 395851346053,Это было просто необходимо. ,Had to be done.,,jazz-units:items.lua:68840
 396249040457,ОД,AP,,jazz:items.lua:94624
-397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомет.
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> До ~¼ дальности только разброс; к половине — высокий риск; на максимуме элита (~90) всё ещё точна (Меткость + Взрывчатка; уверенно примерно с 50).","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40 mm grenade launcher.
-<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Within ~1/4 range, only scatter; by half range risk is high; at max range elites (~90) stay accurate (Marksmanship + Explosives; reliable around 50).",,jazz:InventoryItem/M79.lua:25 | jazz:items.lua:30505
+397383171067,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40-мм гранатомёт.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Риск растёт плавно к полному выстрелу (Меткость + Взрывчатка), без обрыва на середине.","<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> 40 mm grenade launcher.
+<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Risk rises smoothly toward a full shot (Marksmanship + Explosives), with no mid-range cliff.",,jazz:InventoryItem/M79.lua:25 | jazz:items.lua:30505
 397662298505,Предыдущий боец,Prev Unit,,jazz:items.lua:94093
 397718810214,"Я знаю, что так думать немодно, но я думаю, что дело женщин - ходить босиком и вынашивать детей. Подождите немного, люди к этому еще вернутся!","I know it's unfashionable to think this way, but I think it's women's job to go barefoot and bear children. Wait a little, people will come back to this!",,jazz-units:items.lua:69076
 397890849828,"Боевики <color EmStyle>Легиона</color> похитили <color EmStyle>отца Эммы</color>, Альфонса Лафонтена, <color EmStyle>президента</color> Гран-Шьена.","<color EmStyle>Legion</color> militants kidnapped <color EmStyle>Emma's father</color>, Alphonse Lafontaine, <color EmStyle>President</color> of Grand Chien.",,jazz-maps:items.lua:52284

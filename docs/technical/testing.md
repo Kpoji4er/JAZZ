@@ -71,7 +71,8 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - трассерный боеприпас добавляет `MarkedTraccers` один раз на произведённый выстрел при CTH больше нуля — и при попадании, и при промахе; при CTH `0`, jam или отсутствии выстрела не добавляет;
 - дробовик с дробью и картечью;
 - граната в эпицентре и у границы зоны;
-- бросок/подствол: вблизи только лёгкий scatter (mishap% ≈ 0), цвет всё равно может теплеть от scatter; на дальней дистанции выше mishap и цвет уходит к красному (`GetMishapAimReliability` → `GetCTHColor`);
+- бросок: Сила тянет круг; Ловкость+Взрывчатка+Сила — чистоту (smoothstep, без обрыва); 100/100/100 mid зелёный; слабые статы краснеют к краю, не прыжком (`GetMishapAimReliability` → `GetCTHColor`);
+- **mishap при высоком навыке** всё равно улетает на несколько клеток (не 1–2); навык режет шанс и лёгкий разброс;
 - граната при Dex+Expl ≈ 30 ощущается уверенно; пайп/TNT при среднем Expl — заметно рискованнее;
 - suppression / Inaccurate увеличивают mishap% и разброс гранаты/GL;
 - **контузия/травма:** frag/HE/flashbang blast-hit — всегда `Concussion` (кроме TempHitPoints); `*shot` trauma rollers сквозь непробитую броню / dedicated trauma gate шансовый; smoke/gas/fire без concussion и без кровотечения;

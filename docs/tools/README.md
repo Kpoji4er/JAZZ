@@ -197,6 +197,8 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `localization-copy-edits/ame_runtime_statuses.csv` | Закрывает восемь накопленных AME status/filter строк RU/EN, чтобы парный runtime export был полным. |
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; `JazzAI_ShouldBecomeMedic` (no blanket bandage→Medic); Bandage Precalc. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
+| `_check_grenade_mishap_chance_curve.py` | Static JAZZ-GRENADES-001: throw blend Str+Dex+Expl; Strength `GetMaxAimRange`; smoothstep 0→full; no threshold/¼ cliff. |
+| `_patch_grenade_mishap_hint_fullrange.py` | Frag/M79 RU+EN hints: Strength range + Str/Dex/Expl smoothness. |
 | `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc; mixed specialist pool + `support_archetype = "mixed"`. |
 | `_check_legion_rest_025.py` | Static JAZZ-STRATEGY-025: city/bunker/outpost rest helpers, top-up gate, loc/wiki smoke. |
 | `_check_strategy026_tier_convoys.py` | Static JAZZ-STRATEGY-026: tier Msg, skip-pool pulse, T2 all-outpost money+people, docs/wiki/showcase smoke. |
@@ -224,7 +226,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_wire_med001_traumas.py` / `_append_med001_trauma_loc.py` | Wiring/loc зональных Trauma* эффектов. |
 | `_apply_grenade_concussion.py` / `_append_grenade_concussion_loc.py` / `_patch_he_grenade_concussion_hint_loc.py` / `_fix_concussion_loc_ids_items.py` / `_patch_grenade_concussion_guaranteed_loc.py` | Playtest: `Concussion` CharacterEffect + items/metadata; RU/EN loc `890000000010277–280`; Frag/HE hints. Runtime: `JazzTryApplyExplosionConcussionAndTrauma` (concussion guaranteed). Loc patch: chance→guaranteed on IDs `243383619902` / `663236691841`. |
 | `_patch_grenade_mishap_hint_loc.py` | RU/EN Frag `243383619902` + M79 `397383171067` AdditionalHint: quarter/half mishap curve, thr ~50, elite max-range note. |
-| `_patch_grenade_mishap_magnitude_90.py` | Retune `GetMishapDeviationBounds`: half≈old max magnitude, full≈+25% (90/90 ~80% pre-tune accuracy); skill floor 10%. |
+| `_patch_grenade_mishap_magnitude_90.py` | **Superseded (2026-08-24).** Historical: half≈old max / full≈+25% scatter; skill floor 10% on **both** bands. Do not re-run — would shrink mishap again. Current: Max-band is a miss (`GetMishapDeviationBounds` in `System_OR_Weapons.lua`). |
 | `_bump_metadata_grenade_mishap.py` / `_stage_items_grenade_hints_only.py` | Commit helpers: metadata revision+last_changes; items.lua = HEAD + Frag/M79 hints only (officer WIP aside). |
 | `_apply_officer_aura_loc.py` | CMD-001 UI: RU/EN `890000000006100–6125` (OfficerAura / Influence; directives; buff labels; order-effect + FocusFire target tooltip). |
 | `_apply_jazz_trauma_effect_parent.py` | Trauma* → parent/`object_class` `JazzTraumaEffect` (companions + `items.lua`); paired with early `Code/System_JazzTraumaEffect.lua`. |

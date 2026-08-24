@@ -83,11 +83,11 @@ Strength and Marksmanship equally improve control, alongside stance, bipods/setu
 
 Throws **always** have light scatter — there is no perfect pin-point landing.
 
-- **Up close** (about 1/4 throw/launcher range): light scatter only, no big mishap.
-- **By half range** mishap risk already matches the old maximum; farther out the failure chance stays high.
-- **At max range**, elites (~**90** Dexterity/Explosives) still throw solidly (~**70–80%** of prior edge accuracy); average throwers do not.
-- Skills: hand grenades — **Dexterity + Explosives** (confident around **50**); underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives** (~**60**).
-- While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair. Up close (0% mishap) the color can still warm as scatter grows.
+- **Strength** extends throw range. **Dexterity, Explosives, and Strength** keep the throw clean: risk rises smoothly to the edge of the circle, with no cliff.
+- Elites (all three near **100**) stay green at mid-range; low stats go red sooner, still gradually.
+- **At max range**, elites usually keep light scatter; a **mishap** still throws several tiles off, not 1–2 next to the aim point.
+- Underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives**.
+- While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair.
 - Frag / HE / flashbang: **guaranteed concussion** on blast-hit units. Zone **trauma** is **one** zone using the same after-armor damage bands as bullets (≥ **20**; heavy at ≥ **50%** Max HP) — not a pile from one grenade. In the **inner aim ring** (`CenterAreaOfEffect`) only, a strong blast can also **knock units back** (mercs included) — **Strength + Health** vs **pre-armor** damage; outer ring has no knockback; already prone units stay put. Smoke / gas / Molotov use their own packages, not concussion/knockback or **bleeding**.
 
 ## Enemy positioning

@@ -2214,11 +2214,16 @@ local JazzDemoMishapClasses = {
 	ShapedCharge = true,
 }
 
+--- Smoothstep 0..100 → 0..100 (3t²−2t³). No step at ¼ / ½ range.
+local function JazzMishapSmoothstepX100(t)
+	t = Clamp(t, 0, 100)
+	return MulDivRound(MulDivRound(t, t, 100), 300 - 2 * t, 100)
+end
+
 function MishapProperties:GetMishapSkillProfile()
 	if JazzDemoMishapClasses[self.class] or IsKindOf(self, "ThrowableTrapItem") then
 		return "Demo", 60
 	end
-	-- ConfidenceThreshold 50: blend 50 → competence 100 (was 30; specialists no longer "maxed" early).
 	if IsKindOfClasses(self, "HeavyWeapon", "FlareGun", "GrenadeLauncher", "RocketLauncher", "Mortar") then
 		return "AimedHeavy", 50
 	end
@@ -2229,20 +2234,37 @@ function MishapProperties:GetMishapSkillBlend(attacker)
 	local dex = attacker.Dexterity or 50
 	local expl = attacker.Explosives or 50
 	local ms = attacker.Marksmanship or 50
+	local str = attacker.Strength or 50
 	local profile = self:GetMishapSkillProfile()
 	if profile == "Demo" then
 		return DivRound(expl * 3 + dex, 4)
 	elseif profile == "AimedHeavy" then
 		return DivRound(ms * 2 + expl, 3)
 	end
-	return DivRound(dex * 2 + expl, 3)
+	-- Throw: Strength (also owns range) + Dexterity + Explosives. No threshold remap.
+	return DivRound(str + dex * 2 + expl * 2, 5)
 end
 
-function MishapProperties:GetMishapFullRange()
+--- Thrown: Strength interpolates BaseRange→ThrowMaxRange (`Grenade:GetMaxAimRange`).
+--- GL/rocket/mortar: authored WeaponRange. No attacker → item ThrowMaxRange.
+function MishapProperties:GetMishapFullRange(attacker)
 	if IsKindOfClasses(self, "HeavyWeapon", "FlareGun", "GrenadeLauncher", "RocketLauncher", "Mortar") then
 		return (self.WeaponRange or 12) * const.SlabSizeX
 	end
-	local tiles = self.ThrowMaxRange or self.BaseRange or self.WeaponRange or 12
+	local tiles
+	if IsKindOf(attacker, "Unit") and self.GetMaxAimRange then
+		tiles = self:GetMaxAimRange(attacker)
+		if type(tiles) == "number" and HasPerk(attacker, "Throwing") then
+			local def = CharacterEffectDefs and CharacterEffectDefs.Throwing
+			local extra = def and def.ResolveValue and def:ResolveValue("RangeIncrease")
+			if extra then
+				tiles = tiles + extra
+			end
+		end
+	end
+	if type(tiles) ~= "number" or tiles <= 0 then
+		tiles = self.ThrowMaxRange or self.BaseRange or self.WeaponRange or 12
+	end
 	return tiles * const.SlabSizeX
 end
 
@@ -2253,7 +2275,7 @@ function MishapProperties:GetEffectiveMishapDist(attacker, target)
 	elseif IsValid(target) then
 		physical = attacker:GetDist(target)
 	end
-	local ref = self:GetMishapFullRange()
+	local ref = self:GetMishapFullRange(attacker)
 	local dist = physical
 	for _, data in ipairs(suppression_levels) do
 		if attacker:HasStatusEffect(data.effect) then
@@ -2274,41 +2296,27 @@ function MishapProperties:GetMishapCapTiles()
 end
 
 function MishapProperties:GetMishapChance(attacker, target, async)
-	local _, threshold = self:GetMishapSkillProfile()
-	local blend = self:GetMishapSkillBlend(attacker)
-	local competence = Min(100, MulDivRound(blend, 100, Max(threshold, 1)))
-	local mn = self.MinMishapChance or 0
-	local mx = self.MaxMishapChance or 50
-	local base = mx + MulDivRound(competence, mn - mx, 100)
-
-	-- Distance curve: safe to ~1/4 range; by half range mishap chance ≈ old full-range risk;
-	-- beyond half chance stays max. Magnitude remap: half ≈ old full scatter, full ≈ +25%.
+	local blend = Clamp(self:GetMishapSkillBlend(attacker), 0, 100)
 	local dist_eff = self:GetEffectiveMishapDist(attacker, target)
-	local ref = self:GetMishapFullRange()
-	local quarter = DivRound(ref, 4)
-	local half = DivRound(ref, 2)
-	if dist_eff <= quarter then
-		return 0
-	end
-
-	local t_x100 = Min(100, MulDivRound(dist_eff - quarter, 100, Max(half - quarter, 1)))
-	local base_c = Clamp(base, 0, 100)
-	local chance = Min(100, MulDivRound(t_x100,
-		base_c + MulDivRound(100 - base_c, t_x100, 100),
-		100))
-	return chance
+	local ref = Max(self:GetMishapFullRange(attacker), 1)
+	-- t = 0 at the attacker, 100 at personal max (Strength throw / WeaponRange).
+	-- Smoothstep: no ¼-safe cliff and no mid-range dump to 100%.
+	local t_x100 = Min(100, MulDivRound(dist_eff, 100, ref))
+	local s_x100 = JazzMishapSmoothstepX100(t_x100)
+	-- blend 100 → 40% at max; blend 50 → 70%; blend 0 → 100%. Floor 25%.
+	local far_c = Clamp(100 - MulDivRound(blend, 60, 100), 25, 100)
+	return Min(100, MulDivRound(s_x100, far_c, 100))
 end
 
 --- Deterministic Min/Max deviation bounds (no RNG). band = "min" | "max".
---- Magnitude: physical half ≈ old full-range scatter; full throw ≈ +25% vs that
---- (≈80% of pre-tune accuracy for blend 90 / skill_mod 10%). Skill floor stays 10%.
+--- Scatter (min): skill still tightens. Mishap (max): a real miss — skill already
+--- cut the chance and must not shrink the landing to 1–2 tiles.
 function MishapProperties:GetMishapDeviationBounds(unit, target, band)
 	local blend = self:GetMishapSkillBlend(unit)
 	local dist_eff = self:GetEffectiveMishapDist(unit, target)
 	local dist_tiles = DivRound(dist_eff, const.SlabSizeX)
-	local skill_mod_x100 = Clamp(100 - blend, 10, 100)
 
-	local full_tiles = Max(DivRound(self:GetMishapFullRange(), const.SlabSizeX), 1)
+	local full_tiles = Max(DivRound(self:GetMishapFullRange(unit), const.SlabSizeX), 1)
 	local half_tiles = Max(DivRound(full_tiles, 2), 1)
 	local scatter_tiles
 	if dist_tiles <= half_tiles then
@@ -2320,14 +2328,22 @@ function MishapProperties:GetMishapDeviationBounds(unit, target, band)
 		scatter_tiles = full_tiles + MulDivRound(over, extra, half_tiles)
 	end
 
-	local min_range, max_range, dist_mod_x100
+	local min_range, max_range, dist_mod_x100, skill_mod_x100
 	if band == "min" then
+		skill_mod_x100 = Clamp(100 - blend, 10, 100)
 		min_range = 1 * const.SlabSizeX
 		max_range = (self.MinMishapRange or 2) * const.SlabSizeX
 		dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 10), 40, 200)
 	else
-		min_range = (self.MinMishapRange or 1) * const.SlabSizeX
-		max_range = (self.MaxMishapRange or 4) * const.SlabSizeX
+		-- Mishap: no skill shrink. Floor so RandRange cannot land 1–2 tiles off.
+		skill_mod_x100 = 100
+		local max_tiles = self.MaxMishapRange or 4
+		local min_tiles = Max(4, Max(self.MinMishapRange or 1, DivRound(max_tiles, 2)))
+		if min_tiles > max_tiles then
+			min_tiles = max_tiles
+		end
+		min_range = min_tiles * const.SlabSizeX
+		max_range = max_tiles * const.SlabSizeX
 		dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 8), 100, 400)
 	end
 

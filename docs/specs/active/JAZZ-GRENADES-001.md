@@ -80,31 +80,26 @@ Prediction / внешний `explosion_pos` — без RNG отклонения.
 
 ### Governing skill
 
-Три профиля. Сначала **blend** (integer `DivRound`), затем **competence remap** для `base` chance:
+Три профиля. **Blend без competence remap** (порог 50 давал обрыв: 49 и 50 жили как разные миры).
 
-```text
-competence = Min(100, MulDivRound(blend, 100, ConfidenceThreshold))
--- ConfidenceThreshold=50 → при blend 50 competence 100 (было 30)
-base = vanilla-style interp MinMishapChance..MaxMishapChance по competence
-```
+Величина отклонения **лёгкого scatter (Min-band)** использует **raw blend** в `skill_x100 = Clamp(100 - blend, 10, 100)` (пол **10%**). **Mishap (Max-band)** навыком **не** ужимается: skill режет только шанс; если провал выпал — это промах (пол нижней границы ≥ **4** тайла, не 1–2 клетки у элиты).
 
-Величина отклонения использует **raw blend** (не competence) в `skill_x100 = Clamp(100 - blend, 10, 100)` (пол **10%** сохранён — элита 90/90 на макс ≈ **80%** прежней точности через мягкий stretch величины, не через пол 40%).
+| Профиль | Кто | Blend |
+|---|---|---|
+| **ThrowGrenade** | `Grenade` / `GrenadeItem` / thrown `Flare` (не demo) | `DivRound(Strength + Dexterity×2 + Explosives×2, 5)` |
+| **AimedHeavy** | `GrenadeLauncher`, Underslung, `RocketLauncher`, `Mortar`, `FlareGun` | `DivRound(Marksmanship×2 + Explosives, 3)` |
+| **Demo** | `PipeBomb`, `ShapedCharge`, `ThrowableTrapItem` (TNT/C4/PETN timed/remote/proximity) | `DivRound(Explosives×3 + Dexterity, 4)` |
 
-| Профиль | Кто | Blend | ConfidenceThreshold |
-|---|---|---|---|
-| **ThrowGrenade** | `Grenade` / `GrenadeItem` / thrown `Flare` (не demo) | `DivRound(Dexterity×2 + Explosives, 3)` | **50** |
-| **AimedHeavy** | `GrenadeLauncher`, Underslung, `RocketLauncher`, `Mortar`, `FlareGun` | `DivRound(Marksmanship×2 + Explosives, 3)` | **50** |
-| **Demo** | `PipeBomb`, `ShapedCharge`, `ThrowableTrapItem` (TNT/C4/PETN timed/remote/proximity) | `DivRound(Explosives×3 + Dexterity, 4)` | **60** |
-
-Калибровка ThrowGrenade @50/50 Dex+Expl → blend 50 → competence 100 → base ≈ MinMishapChance (Frag 0% до distance-ramp). Demo @ Expl 30 остаётся рискованным; уверенность ближе к Expl ~60.
+**Дальность броска** — ванильный `GetMaxAimRange`: интерполяция `BaseRange`→`ThrowMaxRange` по **Силе** (+ перк Throwing). Ловкость и Взрывчатка дальность не тянут, они (вместе с Силой) тянут чистоту броска.
 
 Item data для Demo в этом spec: **усилить** Explosives-зависимость — поднять `MaxMishapChance` у `PipeBomb` / `ShapedCharge` / TNT-линейки (ориентир +15..+25 к текущему Max, без трогания C4/PETN professional line если уже низкий Max≤18 — там достаточно высокого Threshold). Конкретные числа в реализации + hints.
 
 ### Effective distance
 
 ```text
-full_range = WeaponRange           — HeavyWeapon / FlareGun
-           | ThrowMaxRange         — Grenade (fallback BaseRange, else 12)
+full_range = WeaponRange                                      — HeavyWeapon / FlareGun
+           | GetMaxAimRange(attacker) [+ Throwing perk]       — Grenade (Strength: BaseRange→ThrowMaxRange)
+           | ThrowMaxRange                                    — fallback if no attacker
 ref = full_range * SlabSizeX
 
 dist_eff = physical_dist
@@ -128,36 +123,32 @@ Suppression/Inaccurate входят и в chance, и в величину чер�
 ### Шанс mishap
 
 ```text
-attr_blend = GetMishapSkillBlend(attacker)   -- профиль выше
-competence = Min(100, MulDivRound(attr_blend, 100, ConfidenceThreshold))
-base = vanilla-style interp MinMishapChance..MaxMishapChance по competence
-quarter = ref / 4
-half = ref / 2
-
-if dist_eff <= quarter:
-  return 0                                    -- только scatter (короткая безопасная зона)
-
-t_x100 = Min(100, MulDivRound(dist_eff - quarter, 100, Max(half - quarter, 1)))
--- к half → t=100 (шанс как прежний max range); дальше t остаётся 100
-chance = Min(100, MulDivRound(t_x100,
-  Clamp(base, 0, 100) + MulDivRound(100 - Clamp(base, 0, 100), t_x100, 100),
-  100))
+attr_blend = GetMishapSkillBlend(attacker)   -- throw: (Str + Dex×2 + Expl×2)/5
+ref = GetMishapFullRange(attacker)           -- personal throw / WeaponRange
+t = Clamp(dist_eff / ref, 0, 1)
+s = smoothstep(t)                            -- 3t²−2t³, без ступеньки на ¼/½
+far_c = Clamp(100 − blend×60/100, 25, 100)  -- 100 → 40% на краю; 50 → 70%; 0 → 100%
+chance = s × far_c
 ```
 
 UI async path = тот же `GetMishapChance`.
 
+**Owner playtest (2026-08-24):** quarter→half + t² + threshold 50 + сырой `ThrowMaxRange` — чёрное на mid при 100/100, Сила/Ловкость/Взрывчатка почти не видны. Замена: personal range, throw blend Str+Dex+Expl, smoothstep 0→full.
+
 ### Величина
 
 ```text
-skill_x100 = Clamp(100 - attr_blend, 10, 100)   -- raw blend; floor 10%
 scatter_tiles = remap(dist_tiles)               -- half ≈ old max; full ≈ 1.25× old max
 
 Min band (scatter):
+  skill_x100 = Clamp(100 - attr_blend, 10, 100) -- raw blend; floor 10%
   tile_lo, tile_hi = 1, MinMishapRange (default 2)
   dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 10), 40, 200)
 
 Max band (mishap):
-  tile_lo, tile_hi = MinMishapRange, MaxMishapRange
+  skill_x100 = 100                              -- no skill shrink (owner 2026-08-24)
+  tile_lo = Max(4, MinMishapRange, MaxMishapRange/2)  -- clamp ≤ MaxMishapRange
+  tile_hi = MaxMishapRange
   dist_mod_x100 = Clamp(MulDivRound(scatter_tiles, 100, 8), 100, 400)
 
 dev = RandRange(min_dev, max_dev)
@@ -165,7 +156,9 @@ dev = Min(dev, CapTiles * SlabSizeX)
 угол равномерный
 ```
 
-**Owner playtest (2026-08-11):** D (thr 50) + ранний chance-ramp (¼→½); magnitude half≈old max, full≈+25% (90/90 на макс ~70–80% прежней точности). Пол skill 40% отвергнут — душил элиту на дальнем броске. `ThrowMaxRange` не режем.
+**Owner playtest (2026-08-11):** D (thr 50) + ранний chance-ramp (¼→½); magnitude half≈old max, full≈+25% на **scatter**. Пол skill 40% на scatter отвергнут — душил элиту на дальнем броске. `ThrowMaxRange` не режем.
+
+**Owner (2026-08-24):** mishap при высоком навыке садился в 1–2 клетки (`skill_x100=10%` на Max-band). Mishap = промах: Max-band без skill shrink, нижняя граница ≥4 тайла.
 
 ### CapTiles (расчёт)
 
@@ -186,7 +179,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - **Цвет** = `GetCTHColor(reliability)` — шкала кольца прицела.
   - `reliability = (100 − mishap%) × (100 − scatter_risk%) / 100`
   - `scatter_risk` = mid(Min-band deviation) / CapTiles (0..100), без RNG
-  - до half-range (`mishap% = 0`) цвет всё равно меняется от величины scatter
+  - до quarter-range (`mishap% = 0`) цвет всё равно меняется от величины scatter
 - Отдельных колец разброса нет.
 - Trajectory arc: тот же tint; blast/cone обязательны.
 
@@ -195,7 +188,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `MishapProperties:GetMishapSkillProfile()` → `ThrowGrenade` | `AimedHeavy` | `Demo`
 - `MishapProperties:GetMishapSkillBlend(attacker)` → integer blend  
 - `MishapProperties:GetEffectiveMishapDist(attacker, target)`  
-- `MishapProperties:GetMishapChance` — override: competence@threshold, half-range zero, distance ramp, suppression  
+- `MishapProperties:GetMishapChance` — override: Str+Dex+Expl throw blend, smoothstep 0→full personal range, suppression  
 - `MishapProperties:GetMishapDeviationBounds(unit, target, band)` → `min_dev, max_dev` (no RNG)
 - `MishapProperties:GetMishapDeviationVectorMin/Max` — integer, raw blend, smoother Min  
 - `MishapProperties:GetMishapAimReliability(attacker, target)` → `reliability, chance, scatter_risk`
@@ -216,8 +209,8 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-REQ-001` — always-scatter (Min) + mishap (Max) только при fail/AlwaysMiss; prediction без RNG.
 - `JAZZ-GRENADES-001-REQ-002` — `results.mishap` и notification только на Max band.
 - `JAZZ-GRENADES-001-REQ-003` — один shared resolver; integer math; RNG через attacker/unit.
-- `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance`: профили ThrowGrenade (Dex×2+Expl)/3 **thr50**, AimedHeavy (MS×2+Expl)/3 **thr50**, Demo (Expl×3+Dex)/4 thr60; competence remap; `dist_eff ≤ quarter → 0`; ramp quarter→half; suppression/Inaccurate в `dist_eff`; UI async совпадает. (thr30 / ≤half superseded by owner playtest 2026-08-11 D.)
-- `JAZZ-GRENADES-001-REQ-005` — величина от raw skill blend + `dist_eff`; Min-band плавнее (`/10`, clamp 40..200); CapTiles = `Max(2×MaxMishapRange, 8)`.
+- `JAZZ-GRENADES-001-REQ-004` — `GetMishapChance`: ThrowGrenade `(Str + Dex×2 + Expl×2)/5`; AimedHeavy `(MS×2+Expl)/3`; Demo `(Expl×3+Dex)/4`; **без** competence threshold; smoothstep 0→full of `GetMishapFullRange(attacker)` (thrown = `GetMaxAimRange` / Strength); far `Clamp(100−blend×60/100, 25, 100)`; suppression/Inaccurate в `dist_eff`; UI async совпадает.
+- `JAZZ-GRENADES-001-REQ-005` — scatter (Min) от raw skill blend + `dist_eff`; mishap (Max) **без** skill shrink, `tile_lo ≥ 4`; Min-band плавнее (`/10`, clamp 40..200); CapTiles = `Max(2×MaxMishapRange, 8)`.
 - `JAZZ-GRENADES-001-REQ-006` — item Min/MaxMishapRange; Demo MaxMishapChance усилен; честные RU/EN hints (в т.ч. уверенность гранат ~с **50**).
 - `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki sync.
 - `JAZZ-GRENADES-001-REQ-008` — tint зоны поражения/дуги `GetCTHColor(GetMishapAimReliability)`; радиусы = AoE; без колец разброса.
@@ -235,7 +228,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-001` — static: один Apply/resolver; ByDist free functions удалены/без callers; Min/Max integer-only; smoother Min clamps.
 - `JAZZ-GRENADES-001-AC-002` — static: `results.mishap` / notification только Max-ветка.
 - `JAZZ-GRENADES-001-AC-003` — static/editor: GL/Underslung Min+Max ranges; hints RU/EN.
-- `JAZZ-GRENADES-001-AC-004` — runtime: ≤**quarter** → mishap% 0; Dex50+Expl50 на Frag → competence full / низкий base; к половине дальности % как прежний max; Demo при Expl30 заметно рискованнее обычной гранаты; отклонение ≤ CapTiles; GL реагирует на MS+Expl.
+- `JAZZ-GRENADES-001-AC-004` — runtime: Strength растёт круг; Dex/Expl/Str меняют цвет без обрыва; 100/100/100 mid не чёрный; Demo при Expl30 рискованнее; GL реагирует на MS+Expl.
 - `JAZZ-GRENADES-001-AC-005` — runtime: suppression/Inaccurate поднимают % и разброс (могут вытолкнуть из «только scatter» зоны).
 - `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke без десинха на throw и underslung.
 - `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki.
@@ -268,9 +261,10 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 
 1. **Always-scatter** — **да**, ощущение ок; Min-band сделать плавнее.
 2. **CapTiles** — **расчёт:** `Max(2 × MaxMishapRange, 8)` (frag≤16, GL≤12).
-3. **Chance×дистанция** — **да**; ≤**quarter** только scatter; к half t=100; **Throw** = Dex+Expl (**thr 50**, уверенно с ~50); **AimedHeavy** = MS+Expl (**thr 50**); **Demo/пайпы** = Expl-heavy thr 60 + усиленный MaxMishapChance. (2026-08-11 owner: вариант D; thr30/≤half отвергнуты.)
+3. **Chance×дистанция** — smoothstep 0→full personal range; throw blend **Str+Dex+Expl**; без threshold-обрыва. **AimedHeavy** = MS+Expl; **Demo** = Expl-heavy. Дальность броска = Сила. (2026-08-24 owner: проверить все три стата, без резкого обрыва.)
 4. **Suppression/Inaccurate** — **и шанс, и разброс**.
 5. **UI** — радиусы = зона поражения; цвет = mix mishap% + Min-band scatter → `GetCTHColor(reliability)`.
+6. **Mishap magnitude (2026-08-24)** — Max-band без `skill_x100`; пол `tile_lo ≥ 4`. Навык режет шанс и лёгкий scatter, не величину провала.
 
 ## Evidence
 
@@ -278,7 +272,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-002`: `PASS` — static: mishap flag/notification only on Max band in ApplyImpactDeviation.
 - `JAZZ-GRENADES-001-AC-003`: `PASS` — static/editor data: GL MinMishapRange; Demo MaxMishapChance; RU/EN hints updated.
   - **Exception 2026-08-11 (owner):** `ShapedCharge` MaxMishapChance restored to **60** (pre-Demo bump) — Barry homemade charges stay vanilla-shaped identity.
-- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime: общий playtest (Dex/MS blends, **quarter**-range zero, CapTiles). Static code matches REQ-004 (thr 50, ¼→½) as of 2026-08-18.
+- `JAZZ-GRENADES-001-AC-004`: `BLOCKED` — runtime: Strength range + Dex/Expl/Str color, no cliff. Static: `_check_grenade_mishap_chance_curve.py`.
 - `JAZZ-GRENADES-001-AC-005`: `BLOCKED` — runtime: общий playtest (suppression/Inaccurate).
 - `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP: общий playtest smoke.
 - `JAZZ-GRENADES-001-AC-007`: `PASS` — technical + wiki + showcase ru/en updated.

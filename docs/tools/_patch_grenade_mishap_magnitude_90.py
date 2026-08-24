@@ -1,4 +1,5 @@
-# Retune grenade mishap magnitude: 90/90 at max ≈ 80% of pre-tune accuracy.
+# SUPERSEDED 2026-08-24. Do not run: would re-apply skill_mod on mishap (1–2 tile elite misses).
+# Historical: 90/90 at max ≈ 80% of pre-tune scatter accuracy (skill floor 10% on both bands).
 from pathlib import Path
 
 path = Path(__file__).resolve().parents[2] / "Code" / "System_OR_Weapons.lua"

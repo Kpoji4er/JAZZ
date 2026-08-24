@@ -64,9 +64,10 @@ AI использует собственную оценку допустимой
 
 - **Всегда** есть лёгкий scatter (Min-band), даже при «удачном» ролле.
 - **Mishap** (Max-band + notification) только при провале ролла / `AlwaysMiss`; `results.mishap` только тогда.
-- Шанс: безопасно до ~**¼** `ThrowMaxRange` / `WeaponRange`; к **половине** t→100% (как прежний риск у полного края); дальше шанс остаётся максимальным. Suppression/Inaccurate входят в effective dist.
-- Величина: remap `scatter_tiles` — на половине ≈ старая полная интенсивность; на полном броске ≈ **+25%** к ней (элита blend 90 ≈ **80%** прежней точности на макс). `skill_mod = Clamp(100−blend, 10, 100)`.
-- Профили: ThrowGrenade `(Dex×2+Expl)/3` thr **50**; AimedHeavy `(MS×2+Expl)/3` thr **50**; Demo/пайпы `(Expl×3+Dex)/4` thr **60**.
+- Шанс: smoothstep от 0 до **личной** дальности (без обрыва на ¼/½). Thrown blend `(Strength + Dexterity×2 + Explosives×2)/5`; потолок `Clamp(100−blend×60/100, 25, 100)` — 100/100/100 на mid ~20%, на краю ~40%. Дальность круга — `GetMaxAimRange` по **Силе**. GL: `(MS×2+Expl)/3`. Suppression/Inaccurate входят в effective dist.
+- Величина **лёгкого scatter**: remap `scatter_tiles` — на половине ≈ старая полная интенсивность; на полном броске ≈ **+25%** к ней. `skill_mod = Clamp(100−blend, 10, 100)` только на **Min-band**.
+- **Mishap (Max-band):** навык **не** ужимает отклонение (иначе элита сажает провал в 1–2 клетки). Нижняя граница ≥ **4** тайла (`Max(4, MinMishapRange, MaxMishapRange/2)`), верх — `MaxMishapRange`, дальше `dist_mod` 100..400% и CapTiles. Шанс mishap по-прежнему падает от навыка.
+- Профили: ThrowGrenade `(Str + Dex×2 + Expl×2)/5` (без threshold); AimedHeavy `(MS×2+Expl)/3`; Demo/пайпы `(Expl×3+Dex)/4`.
 - Cap отклонения: `Max(2×MaxMishapRange, 8)` тайлов; Min-band `dist_mod` clamp 40..200, Max-band 100..400.
 - Area-aim: **радиус** колец = зона поражения; **цвет** blast/sphere tiles и дуги траектории = `GetCTHColor(GetMishapAimReliability)` — mix `(100 − mishap%) × (100 − scatter_risk%)`, где `scatter_risk` = mid(Min-band) / CapTiles (material `FillColor`/`fill_color`).
 
@@ -115,7 +116,7 @@ AI использует собственную оценку допустимой
 - ручной и AI-бросок на минимальной/максимальной дальности;
 - obstruction, indoor/outdoor, smoke и friendly-fire оценка;
 - граната в эпицентре и на границе зоны, разные explosive armor ratings;
-- scatter/mishap: quarter→half chance ramp, magnitude half≈old max / full≈+25%, thr 50, CapTiles, AoE tint (`JAZZ-GRENADES-001`, playtest);
+- scatter/mishap: smoothstep 0→full personal range; throw blend Str+Dex+Expl; mishap = miss (≥4 tiles, no skill shrink); CapTiles, AoE tint (`JAZZ-GRENADES-001`);
 - установка, обнаружение и подрыв мины союзником/врагом, save/load;
 - perk-вариант времени установки;
 - toxic/tear gas с новой, повреждённой и отсутствующей маской;
