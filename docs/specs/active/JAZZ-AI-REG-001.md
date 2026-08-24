@@ -49,7 +49,7 @@ Design adjacent: `FallBack` directive (F8) — это офицерский пр�
 
 ## Требования
 
-- `JAZZ-AI-REG-001-REQ-001` — helper `JazzAI_NeedsRegroup(unit)` (или эквивалент): true только для `Affiliation` Legion (и Legion-prefix archetype), если **локальный карман** ≤ `LocalMax` живых allies в радиусе `LocalRadius` тайлов (включая себя) **и** существует **дальний кластер** ≥ `ClusterMin` живых allies команды, до ближайшего члена которого ≥ `ClusterGap` тайлов.
+- `JAZZ-AI-REG-001-REQ-001` — helper `JazzAI_NeedsRegroup(unit)` (или эквивалент): true только для `Affiliation` Legion (и Legion-prefix archetype), если **локальный карман** ≤ `LocalMax` живых allies в радиусе `LocalRadius` тайлов (включая себя) **и** существует **дальний кластер** ≥ `ClusterMin` живых allies команды, до ближайшего члена которого ≥ `ClusterGap` тайлов. **Не** для family Heavy / keyword `Ordnance` (ракетчик/миномёт/ГЛ): `Legion_Regroup` без `RocketLauncherFire`, они должны оставаться сзади и стрелять.
 - `JAZZ-AI-REG-001-REQ-002` — предложенные пороги (утвердить владельцем): `LocalMax=2`, `LocalRadius=8`, `ClusterMin=3`, `ClusterGap=18`.
 - `JAZZ-AI-REG-001-REQ-003` — при NeedsRegroup `JazzAI_PickCombatStance` возвращает `Legion_Regroup` **после** medic/melee checks, **до** обычного Scout/Pusher assign; panic→Deserter остаётся последним override.
 - `JAZZ-AI-REG-001-REQ-004` — `ModItemAIArchetype` `Legion_Regroup`: Positioning/StandardAI с Proximity(allies, closer_better, Weight≥800), TakeCover moderate, AvoidDeathZones; OptLocSearchRadius ≥80; без DespawnAllowed RetreatAI.

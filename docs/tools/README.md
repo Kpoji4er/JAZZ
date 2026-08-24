@@ -9,6 +9,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 
 | `_audit_specs_index.py` | Сводка всех `docs/specs/**`: status, Evidence PASS/FAIL/BLOCKED, TBD, cross-refs, folder mismatch. |
 | `_aibark_bank_data.py` | Канон боевых окриков AI: 5 (RU, EN) на слот. `python docs/tools/_aibark_bank_data.py` собирает таблицы в `docs/design/combat-ai-barks.md` после `<!-- aibark-bank -->`. |
+| `_strip_jazz_legion_spiritual.py` | Снять `Spiritual` со `StartingPerks` всех `JAZZ_Legion_*` (companion `UnitData/` + `jazz-units/items.lua`). Ребелы/наёмники/бандиты не трогает. |
 | `_check_aibark_bank.py` | 5 QA-pass лексики банка окриков: поле/калька/корни/тир-рот/вслух + длина + ctx-теги. `python docs/tools/_check_aibark_bank.py`. |
 | `_emit_aibark_runtime.py` | Банк → Lua-таблица в `Code/System_AI_CombatBarks.lua` + строки `890000000020157–20596` в `Russian.csv` / `English.csv` / `Localization/Strings.csv` и manuals. Идемпотентно. |
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
@@ -197,6 +198,8 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `localization-copy-edits/ame_runtime_statuses.csv` | Закрывает восемь накопленных AME status/filter строк RU/EN, чтобы парный runtime export был полным. |
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; `JazzAI_ShouldBecomeMedic` (no blanket bandage→Medic); Bandage Precalc. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
+| `_check_ai_008_egress_perch.py` | Static JAZZ-AI-008: line perch holder + dest CheckLOS to shared Fallback OW egress; stay +180; hold wrap skips useless streak; no GetLoFData. |
+| `_check_ai_009_break_los_ow.py` | Static JAZZ-AI-009: FallBack peel dest (break player LoS, +220, wrap after 008 hold) + OW on vacated stay; skip TakeCover/BunkerDown; no GetLoFData. |
 | `_check_grenade_mishap_chance_curve.py` | Static JAZZ-GRENADES-001: throw blend Str+Dex+Expl; Strength `GetMaxAimRange`; smoothstep 0→full; no threshold/¼ cliff. |
 | `_patch_grenade_mishap_hint_fullrange.py` | Frag/M79 RU+EN hints: Strength range + Str/Dex/Expl smoothness. |
 | `_check_legion_support_024.py` | Static JAZZ-STRATEGY-024: support role recipe/archetypes/director/icon/loc; mixed specialist pool + `support_archetype = "mixed"`. |

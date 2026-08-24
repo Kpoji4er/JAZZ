@@ -1988,13 +1988,16 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		end
 	end
 
-	-- JAZZ-AI-007: recontact standoff / farm relocate / map-edge.
+	-- JAZZ-AI-007 / 008: recontact standoff / farm relocate / egress perch stay.
 	if JazzAI_ScoreRecontactDest then
 		local rec = JazzAI_ScoreRecontactDest(context, dest)
 		if rec ~= 0 then
 			score = score + rec
 			if score_details then
-				score_details[#score_details + 1] = "RECONTACT"
+				local stay = context.unit_stance_pos
+				local perch = stay and stance_pos_dist(dest, stay) == 0
+					and JazzAI_ContextStayIsEgressPerch and JazzAI_ContextStayIsEgressPerch(context)
+				score_details[#score_details + 1] = perch and "EGRESS PERCH" or "RECONTACT"
 				score_details[#score_details + 1] = rec
 			end
 		end
@@ -2015,6 +2018,16 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 					score_details[#score_details + 1] = -close_pen
 				end
 			end
+		end
+	end
+
+	-- JAZZ-AI-009: FallBack peel dest that breaks LoS and can OW the vacated tile.
+	if JazzAI_DestIsBreakLosOverwatch and JazzAI_DestIsBreakLosOverwatch(context, dest) then
+		local peel = JazzAI_BreakLosOwDestBonus or 220
+		score = score + peel
+		if score_details then
+			score_details[#score_details + 1] = "BREAK LOS OW"
+			score_details[#score_details + 1] = peel
 		end
 	end
 
@@ -2464,7 +2477,7 @@ function ApplyDamagePrediction(attacker, action, args, actionResult)
 	for _, obj in ipairs(s_PredictionNoLofTargets) do
 		if IsKindOf(obj, "Unit") then
 			ObjModified(obj)
-			if obj.ui_badge then
+			if obj.ui_badge and not obj:IsDead() then
 				obj.ui_badge:SetActive(true, "dmg")
 			end
 		end
@@ -2614,7 +2627,7 @@ function ApplyDamagePrediction(attacker, action, args, actionResult)
 			
 			table.insert_unique(PredictedDamageUnits, obj)
 			ObjModified(obj)
-			if obj.ui_badge then
+			if obj.ui_badge and not obj:IsDead() then
 				obj.ui_badge:SetActive(true, "dmg")
 			end
 		end
@@ -3222,6 +3235,153 @@ function JazzAI_UnitHasSniperHoldKeyword(unit)
 	return false
 end
 
+local function JazzAI_UnitArchetypeId(unit, context)
+	context = context or (unit and unit.ai_context)
+	local arch = context and context.archetype
+	if type(arch) == "table" and arch.id then
+		return arch.id
+	end
+	if type(arch) == "string" and arch ~= "" then
+		return arch
+	end
+	return (unit and (unit.current_archetype or unit.archetype)) or ""
+end
+
+local function JazzAI_PackedDestZ(dest)
+	if not dest then
+		return 0
+	end
+	local x, y, z = stance_pos_unpack(dest)
+	if z and z ~= const.InvalidZ then
+		return z
+	end
+	if terrain and terrain.GetHeight then
+		return terrain.GetHeight(point(x, y))
+	end
+	return 0
+end
+
+local function JazzAI_PosVoxelZ(pos)
+	if not pos then
+		return 0
+	end
+	local z = pos:z()
+	if z and z ~= const.InvalidZ then
+		return z
+	end
+	if terrain and terrain.GetHeight then
+		return terrain.GetHeight(pos)
+	end
+	return 0
+end
+
+-- JAZZ-AI-008: sniper / marksman / semi-sniper / Frontliner / MG / OccupyHeights.
+-- Not assault/flank/medic/deserter/regroup/melee/pusher.
+function JazzAI_UnitIsLinePerchHolder(unit, context)
+	if not IsValid(unit) or unit:IsDead() then
+		return false
+	end
+	if JazzAI_UnitIsDynamicPusher and JazzAI_UnitIsDynamicPusher(unit) then
+		return false
+	end
+	local keys = unit.AIKeywords or empty_table
+	if table.find(keys, "Melee") then
+		return false
+	end
+	local arch_id = JazzAI_UnitArchetypeId(unit, context)
+	if type(arch_id) ~= "string" then
+		arch_id = tostring(arch_id or "")
+	end
+	if arch_id:find("Assaulter", 1, true) or arch_id:find("Flanker", 1, true)
+		or arch_id:find("Medic", 1, true) or arch_id:find("Deserter", 1, true)
+		or arch_id:find("Regroup", 1, true) then
+		return false
+	end
+	if table.find(keys, "Sniper") or table.find(keys, "Marksman") then
+		return true
+	end
+	if JazzAI_UnitIsDynamicSemiSniper and JazzAI_UnitIsDynamicSemiSniper(unit) then
+		return true
+	end
+	if arch_id:find("Frontliner", 1, true) or arch_id:find("Machinegunner", 1, true) then
+		return true
+	end
+	context = context or unit.ai_context
+	if context and context.jazz_occupy_heights then
+		return true
+	end
+	if JazzAI_GetTeamDirective and JazzAI_GetTeamDirective(unit) == "OccupyHeights" then
+		return true
+	end
+	return false
+end
+
+--- Stay/dest is high ground that sees the player egress cell (potential LoF).
+function JazzAI_DestIsEgressPerch(context, dest)
+	if not context or not dest then
+		return false
+	end
+	local unit = context.unit
+	if not JazzAI_UnitIsLinePerchHolder(unit, context) then
+		return false
+	end
+	if context.reposition or (unit and unit:HasStatusEffect("Burning")) then
+		return false
+	end
+	local vis = unit.GetVisibleEnemies and unit:GetVisibleEnemies()
+	if vis and #vis > 0 then
+		return false
+	end
+	local known = unit.last_known_enemy_pos
+	if not known then
+		return false
+	end
+	if JazzAI_UnitIsFarmTarget and JazzAI_UnitIsFarmTarget(unit) then
+		return false
+	end
+	local dest_z = JazzAI_PackedDestZ(dest)
+	local known_z = JazzAI_PosVoxelZ(GetPassSlab(known) or known)
+	local step = const.SlabSizeZ or const.SlabSizeX
+	if dest_z < known_z + step then
+		return false
+	end
+	local egress = JazzAI_FallbackOverwatchTargetPos and JazzAI_FallbackOverwatchTargetPos(unit, context)
+	if not egress and JazzAI_PeekExitAimPos then
+		egress = JazzAI_PeekExitAimPos(unit, GetPassSlab(known) or known)
+	end
+	if not egress then
+		return false
+	end
+	local wr_tiles = context.ExtremeRange or (context.weapon and context.weapon.WeaponRange) or 0
+	if wr_tiles < 1 then
+		wr_tiles = 1
+	end
+	local wr = wr_tiles * const.SlabSizeX
+	local x, y, z = stance_pos_unpack(dest)
+	local dest_pos = z and point(x, y, z) or point(x, y)
+	if dest_pos:Dist(egress) > wr then
+		return false
+	end
+	if JazzAI_DestSeesPos then
+		return JazzAI_DestSeesPos(dest, egress, wr)
+	end
+	return not not CheckLOS(egress, dest_pos, wr)
+end
+
+function JazzAI_ContextStayIsEgressPerch(context)
+	if not context then
+		return false
+	end
+	if context.jazz_stay_egress_perch ~= nil then
+		return context.jazz_stay_egress_perch
+	end
+	local stay = context.unit_stance_pos
+		or (context.unit and GetPackedPosAndStance(context.unit))
+	local ok = stay and JazzAI_DestIsEgressPerch(context, stay) or false
+	context.jazz_stay_egress_perch = ok
+	return ok
+end
+
 function JazzAI_SniperUselessKey(unit)
 	if not unit then
 		return false
@@ -3270,16 +3430,14 @@ function JazzAI_NoteSniperUselessTurn(unit, useless)
 	return streak.count or 0
 end
 
---- Hold stay when a shot exists. Track useless streak for soft HighGround/stay weights.
+--- Hold stay when a shot exists, or when stay is an egress perch (JAZZ-AI-008).
+--- Track useless streak for soft HighGround/stay weights (skip increment on perch).
 --- No hard escape dest — OptLoc/EndTurn leave via reduced high-ground weight.
 function JazzAI_ApplySniperHoldDestination(context, dest)
 	if not context or not dest then
 		return dest
 	end
 	local unit = context.unit
-	if not JazzAI_UnitHasSniperHoldKeyword(unit) then
-		return dest
-	end
 	if context.reposition or (unit and unit:HasStatusEffect("Burning")) then
 		return dest
 	end
@@ -3288,13 +3446,243 @@ function JazzAI_ApplySniperHoldDestination(context, dest)
 		return dest
 	end
 	local stay_score = (context.dest_target_score or empty_table)[stay] or 0
-	JazzAI_NoteSniperUselessTurn(unit, stay_score <= 0)
-	JazzAI_ApplySniperUselessBiasToContext(context)
-
-	if stay_score > 0 then
+	local perch = JazzAI_ContextStayIsEgressPerch and JazzAI_ContextStayIsEgressPerch(context)
+	if JazzAI_UnitHasSniperHoldKeyword(unit) then
+		-- Shot now, or potential LoF on egress, is a useful perch — do not decay HighGround.
+		JazzAI_NoteSniperUselessTurn(unit, stay_score <= 0 and not perch)
+		JazzAI_ApplySniperUselessBiasToContext(context)
+		if stay_score > 0 or perch then
+			return stay
+		end
+		return dest
+	end
+	-- Frontliner / MG / OccupyHeights without sniper keyword: perch hold only.
+	if perch then
 		return stay
 	end
 	return dest
+end
+
+local function JazzAI_PackedDestPoint(dest)
+	if not dest then
+		return false
+	end
+	local x, y, z = stance_pos_unpack(dest)
+	return z and point(x, y, z) or point(x, y)
+end
+
+function JazzAI_CollectBreakLosSpotters(unit)
+	local spotters = {}
+	if not IsValid(unit) then
+		return spotters
+	end
+	for _, team in ipairs(g_Teams or empty_table) do
+		if team.player_team then
+			for _, p in ipairs(team.units or empty_table) do
+				if IsValid(p) and not p:IsDead() and HasVisibilityTo(p, unit) then
+					spotters[#spotters + 1] = p
+				end
+			end
+		end
+	end
+	return spotters
+end
+
+function JazzAI_BreakLosOwMaxTiles(context)
+	local wep = context and context.weapon
+	if IsKindOf(wep, "Firearm") and wep.GetOverwatchConeParam then
+		local r = wep:GetOverwatchConeParam("MaxRange")
+		if type(r) == "number" and r > 0 then
+			if r > 80 then
+				return Max(1, DivRound(r, const.SlabSizeX))
+			end
+			return r
+		end
+	end
+	return (context and context.ExtremeRange) or (wep and wep.WeaponRange) or 12
+end
+
+function JazzAI_BreakLosOwApCost(unit)
+	local action = CombatActions and CombatActions.Overwatch
+	if not action or not action.GetAPCost then
+		return false
+	end
+	local cost = action:GetAPCost(unit)
+	if not cost or cost < 0 then
+		return false
+	end
+	return cost
+end
+
+function JazzAI_UnitCanBreakLosOverwatch(unit, context)
+	context = context or (unit and unit.ai_context)
+	if not context or not context.jazz_fallback then
+		return false
+	end
+	if not IsValid(unit) or unit:IsDead() or unit.species ~= "Human" then
+		return false
+	end
+	if context.reposition or unit:HasStatusEffect("Burning") then
+		return false
+	end
+	if unit:HasStatusEffect("StationedMachineGun")
+		or unit:HasStatusEffect("ManningEmplacement") then
+		return false
+	end
+	local wep = context.weapon or (unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm"))
+	if not IsKindOf(wep, "Firearm") then
+		return false
+	end
+	local pat = wep.PreparedAttackType
+	if pat ~= "Overwatch" and pat ~= "Both" then
+		return false
+	end
+	if not JazzAI_BreakLosOwApCost(unit) then
+		return false
+	end
+	local arch_id = JazzAI_UnitArchetypeId(unit, context)
+	if type(arch_id) ~= "string" then
+		arch_id = tostring(arch_id or "")
+	end
+	if arch_id:find("Medic", 1, true) or arch_id:find("Deserter", 1, true)
+		or arch_id:find("Melee", 1, true) or arch_id:find("Regroup", 1, true) then
+		return false
+	end
+	if table.find(unit.AIKeywords or empty_table, "Melee") then
+		return false
+	end
+	if JazzAI_ContextStayIsEgressPerch and JazzAI_ContextStayIsEgressPerch(context) then
+		return false
+	end
+	if context.jazz_break_los_spotters == nil then
+		context.jazz_break_los_spotters = JazzAI_CollectBreakLosSpotters(unit)
+	end
+	return #(context.jazz_break_los_spotters or empty_table) > 0
+end
+
+local function JazzAI_DestBreaksSpotterLos(context, dest_pos)
+	local spotters = context.jazz_break_los_spotters or empty_table
+	local sight = const.Combat.AwareSightRange * const.SlabSizeX
+	for _, p in ipairs(spotters) do
+		if IsValid(p) and not p:IsDead() then
+			local sr = (p.GetSightRadius and p:GetSightRadius()) or sight
+			if CheckLOS(dest_pos, p, sr) then
+				return false
+			end
+		end
+	end
+	return true
+end
+
+--- Core peel dest (no preferred-band filter).
+function JazzAI_DestIsBreakLosOverwatch(context, dest)
+	if not context or not dest then
+		return false
+	end
+	if not JazzAI_UnitCanBreakLosOverwatch(context.unit, context) then
+		return false
+	end
+	context.jazz_break_los_ok = context.jazz_break_los_ok or {}
+	local cached = context.jazz_break_los_ok[dest]
+	if cached ~= nil then
+		return cached
+	end
+	local stay = context.unit_stance_pos
+	if not stay or stance_pos_dist(dest, stay) == 0 then
+		context.jazz_break_los_ok[dest] = false
+		return false
+	end
+	local ap_left = context.dest_ap and context.dest_ap[dest]
+	local ow_cost = JazzAI_BreakLosOwApCost(context.unit)
+	if not ap_left or not ow_cost or ap_left < ow_cost then
+		context.jazz_break_los_ok[dest] = false
+		return false
+	end
+	local enemy = GetNearestEnemy and GetNearestEnemy(context.unit)
+	if enemy then
+		local epos = GetPackedPosAndStance(enemy)
+		if stance_pos_dist(dest, epos) <= stance_pos_dist(stay, epos) then
+			context.jazz_break_los_ok[dest] = false
+			return false
+		end
+	end
+	local ow_tiles = JazzAI_BreakLosOwMaxTiles(context)
+	local old_pos = JazzAI_PackedDestPoint(stay)
+	local dest_pos = JazzAI_PackedDestPoint(dest)
+	local dist_tiles = DivRound(dest_pos:Dist(old_pos), const.SlabSizeX)
+	if dist_tiles < 4 or dist_tiles > ow_tiles then
+		context.jazz_break_los_ok[dest] = false
+		return false
+	end
+	local wr = ow_tiles * const.SlabSizeX
+	local sees_old = JazzAI_DestSeesPos and JazzAI_DestSeesPos(dest, old_pos, wr)
+		or not not CheckLOS(old_pos, dest_pos, wr)
+	if not sees_old then
+		context.jazz_break_los_ok[dest] = false
+		return false
+	end
+	local broken = JazzAI_DestBreaksSpotterLos(context, dest_pos)
+	context.jazz_break_los_ok[dest] = broken
+	return broken
+end
+
+function JazzAI_PickBestBreakLosOverwatchDest(context)
+	if not JazzAI_UnitCanBreakLosOverwatch(context and context.unit, context) then
+		return false
+	end
+	local stay = context.unit_stance_pos
+	if not stay then
+		return false
+	end
+	local ow_tiles = JazzAI_BreakLosOwMaxTiles(context)
+	local band_min = Max(4, ow_tiles - 4)
+	local old_pos = JazzAI_PackedDestPoint(stay)
+	local dests = context.destinations or empty_table
+	local band, far = {}, {}
+	local max_reach = 0
+	for _, dest in ipairs(dests) do
+		if JazzAI_DestIsBreakLosOverwatch(context, dest) then
+			local dest_pos = JazzAI_PackedDestPoint(dest)
+			local d = DivRound(dest_pos:Dist(old_pos), const.SlabSizeX)
+			if d > max_reach then
+				max_reach = d
+			end
+			far[#far + 1] = dest
+			if d >= band_min then
+				band[#band + 1] = dest
+			end
+		end
+	end
+	local pool = (#band > 0) and band or far
+	if #pool == 0 then
+		return false
+	end
+	local ideal = Min(ow_tiles, max_reach)
+	local best, best_err, best_key
+	for _, dest in ipairs(pool) do
+		local dest_pos = JazzAI_PackedDestPoint(dest)
+		local d = DivRound(dest_pos:Dist(old_pos), const.SlabSizeX)
+		local err = abs(d - ideal)
+		if not best or err < best_err or (err == best_err and dest < best_key) then
+			best, best_err, best_key = dest, err, dest
+		end
+	end
+	return best or false
+end
+
+function JazzAI_ApplyBreakLosOverwatchDestination(context, dest)
+	if not context or not dest then
+		return dest
+	end
+	if not JazzAI_UnitCanBreakLosOverwatch(context.unit, context) then
+		return dest
+	end
+	local best = JazzAI_PickBestBreakLosOverwatchDest(context)
+	if not best then
+		return dest
+	end
+	context.jazz_break_los_ow_anchor = JazzAI_PackedDestPoint(context.unit_stance_pos)
+	return best
 end
 
 local function JazzAI_InstallAIScoreReachableVoxelsWrap()
@@ -3317,6 +3705,7 @@ local function JazzAI_InstallAIScoreReachableVoxelsWrap()
 		local base_fn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase")
 		local dest, score = base_fn(context, policies, opt_loc_weight, score_details, ...)
 		dest = JazzAI_ApplySniperHoldDestination(context, dest)
+		dest = JazzAI_ApplyBreakLosOverwatchDestination(context, dest)
 		return dest, score
 	end
 	rawset(_G, "g_JAZZ_AIScoreReachableVoxelsFn", wrap)

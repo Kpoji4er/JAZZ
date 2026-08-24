@@ -56,9 +56,9 @@ DAP на сейве M5 (ход 1, повстанцы ally vs Legion): повст
 
 ## Требования
 
-- `JAZZ-AI-PERF-004-REQ-001` — `Jazz_DumpCheapLineOfFire`: один луч attacker aim (muzzle/torso) → target torso. Блокер: `terrain.IntersectSegment` до цели (край у origin/dest игнорировать) **или** другой живой юнит на сегменте (`SegmentIntersectsSphere`, радиус ½ тайла) — союзник в LoF у ванили даёт `stuck`. Юниты-цель не блокер. Растительность не проверяется этим лучем. Slab/проп через `GetLoFData` не зовём (M3). CombatObject без отдельного object-ray: пробитие Dump грубее ванили.
+- `JAZZ-AI-PERF-004-REQ-001` — `Jazz_DumpCheapLineOfFire`: один луч attacker aim (muzzle/torso) → target torso. Блокер: `terrain.IntersectSegment` до цели (край у **dest** и graze у ног origin игнорировать; скалу перед дулом — нет) **или** первые **3** непроходимые плиты по 2D линии, если это не яма/обрыв (`terrain.IsPassable`, height не ниже стрелка) **или** другой живой юнит на сегменте (`SegmentIntersectsSphere`, радиус ½ тайла) — союзник в LoF у ванили даёт `stuck`. Юниты-цель не блокер. Растительность не проверяется этим лучем. `GetLoFData` / vegetation `Collide` не зовём (M3 waterfall). Slab/проп-скала ловится impassable-walk, не object-ray.
 - `JAZZ-AI-PERF-004-REQ-002` — `Jazz_ReuseTargetingAttackData` на Dump: если луч чистый/пробиваемый — `hits` содержит цель; `stuck=false`. Если непробиваемый — `hits={}`, `stuck=true`, `stuck_pos` в точке блока. Не звать `GetLoFData`.
-- `JAZZ-AI-PERF-004-REQ-003` — DumpFire: непробиваемый луч → не `AIPlayCombatAction`; лог; сброс sticky target; выход в Disengage (как JAZZ-AI-002 no LOF).
+- `JAZZ-AI-PERF-004-REQ-003` — DumpFire: непробиваемый луч → не `AIPlayCombatAction`; лог; сброс sticky target; выход в Disengage (как JAZZ-AI-002 no LOF). Dump в **модель** при **командном** `HasVisibilityTo(unit.team, target)` и чистом LoF; личный LOS не обязателен. Team vis без LoF (скала перед дулом) — abort cheap ray (L4 ShockTrooper vs Benny: напарник видел, луч в mesh-скалу). Без team vis в модель не бить (007 last-known).
 - `JAZZ-AI-PERF-004-REQ-004` — Targeting по-прежнему `CalcChanceToHit` без `GetLoFData`. Player / non-Dump — ванильный пайплайн.
 
 ## Инварианты и ограничения
@@ -99,8 +99,8 @@ DAP на сейве M5 (ход 1, повстанцы ally vs Legion): повст
 
 ## Evidence
 
-- `JAZZ-AI-PERF-004-AC-001`: `PASS` (static) — `Jazz_DumpCheapLineOfFire` terrain + unit-sphere; `Jazz_ReuseTargetingAttackData` fills hits/stuck; DumpFire abort in `AiActions.lua`; no Dump `GetLoFData`.
-- `JAZZ-AI-PERF-004-AC-002`: `PASS` (runtime DAP, M5 `52(2)` hotpatch+file) — RebelFlanker vs Lieutenant: cheap `clear`, vanilla `stuck=false`, Dump `cth=90` `hits=1` `dmg=26`. RebelGrenadier vs Roughneck: cheap `unit` (ally on line), vanilla `stuck=true`, Dump `cth=0` `hits=0` `dmg=0`.
+- `JAZZ-AI-PERF-004-AC-001`: `PASS` (static) — `Jazz_DumpCheapLineOfFire` terrain + 3-slab impassable walk + unit-sphere; `Jazz_ReuseTargetingAttackData` fills hits/stuck; DumpFire abort in `AiActions.lua` (team LOS gate + cheap reason); no Dump `GetLoFData`.
+- `JAZZ-AI-PERF-004-AC-002`: `PASS` (runtime DAP, M5 `52(2)` hotpatch+file) — RebelFlanker vs Lieutenant: cheap `clear`, vanilla `stuck=false`, Dump `cth=90` `hits=1` `dmg=26`. RebelGrenadier vs Roughneck: cheap `unit` (ally on line), vanilla `stuck=true`, Dump `cth=0` `hits=0` `dmg=0`. Follow-up L4 DAP 2026-08-24 ShockTrooper:1930 vs Benny: `IntersectSegment` hit=nil, `HasVis` unit=false/team=true, step1 `IsPassable=false` → cheap `impassable` (was wrongly `clear`).
 - `JAZZ-AI-PERF-004-AC-003`: `PASS` (static) — technical + wiki + showcase RU/EN.
 
 ## Documentation delta

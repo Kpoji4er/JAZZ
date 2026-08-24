@@ -17,11 +17,42 @@ local lAboveBadgeTexts = {
 	InterruptAttacksRemaining = T(760116982146, "MAX. ATTACKS: <number>"),
 }
 
+local function lJazzUnitIsDead(unit)
+	return IsValid(unit) and type(unit.IsDead) == "function" and unit:IsDead()
+end
+
+function JazzHideCombatBadgeForDeadUnit(unit)
+	if not lJazzUnitIsDead(unit) then
+		return
+	end
+	local delete_fn = rawget(_G, "DeleteBadgesFromTargetOfPreset")
+	if type(delete_fn) == "function" then
+		delete_fn("CombatBadge", unit)
+		delete_fn("NpcBadge", unit)
+	end
+	unit.ui_badge = false
+	unit.combat_badge = false
+end
+
+function JazzSweepDeadCombatBadges()
+	local units = rawget(_G, "g_Units")
+	if type(units) ~= "table" then
+		return
+	end
+	for _, unit in ipairs(units) do
+		JazzHideCombatBadgeForDeadUnit(unit)
+	end
+end
+
 function CombatBadgeAboveNameTextUpdate(win)
 	local badge = win:ResolveId("node")
 	local unit = badge.unit
 	local attacker = Selection and Selection[1]
 	if badge.window_state == "destroying" then
+		win:SetVisible(false)
+		return
+	end
+	if lJazzUnitIsDead(unit) then
 		win:SetVisible(false)
 		return
 	end
@@ -302,10 +333,78 @@ end
 
 lInstallJazzGetUIVisibleStatusEffects()
 
+-- Vanilla CombatBadge.lua deletes badges on UnitDieStart. After ReloadLua that
+-- handler is often gone (mod files re-run, vanilla UI scripts do not), so corpses
+-- keep a full CombatBadge (name + HP track + NoSight). Hide + delete from JAZZ.
+g_JAZZ_CombatBadgeUpdateModeBase = rawget(_G, "g_JAZZ_CombatBadgeUpdateModeBase") or false
+g_JAZZ_CombatBadgeUpdateModeFn = rawget(_G, "g_JAZZ_CombatBadgeUpdateModeFn") or false
+g_JAZZ_CombatBadgeUpdateActiveBase = rawget(_G, "g_JAZZ_CombatBadgeUpdateActiveBase") or false
+g_JAZZ_CombatBadgeUpdateActiveFn = rawget(_G, "g_JAZZ_CombatBadgeUpdateActiveFn") or false
+
+local function lJazzHideIfDeadBadge(badge)
+	if not badge or badge.window_state == "destroying" then
+		return true
+	end
+	local unit = badge.unit or badge.context
+	if not lJazzUnitIsDead(unit) then
+		return false
+	end
+	badge:SetVisible(false, "unit")
+	return true
+end
+
+local function lInstallJazzCombatBadgeHideDead()
+	local cls = rawget(_G, "CombatBadge")
+	if type(cls) ~= "table" or type(cls.UpdateMode) ~= "function" then
+		return
+	end
+	local our_mode = rawget(_G, "g_JAZZ_CombatBadgeUpdateModeFn")
+	if our_mode and cls.UpdateMode == our_mode then
+		return
+	end
+	rawset(_G, "g_JAZZ_CombatBadgeUpdateModeBase", cls.UpdateMode)
+	local function jazz_update_mode(self, ...)
+		if lJazzHideIfDeadBadge(self) then
+			return
+		end
+		return g_JAZZ_CombatBadgeUpdateModeBase(self, ...)
+	end
+	cls.UpdateMode = jazz_update_mode
+	rawset(_G, "g_JAZZ_CombatBadgeUpdateModeFn", jazz_update_mode)
+	if type(cls.UpdateActive) == "function" then
+		rawset(_G, "g_JAZZ_CombatBadgeUpdateActiveBase", cls.UpdateActive)
+		local function jazz_update_active(self, ...)
+			if lJazzHideIfDeadBadge(self) then
+				return
+			end
+			return g_JAZZ_CombatBadgeUpdateActiveBase(self, ...)
+		end
+		cls.UpdateActive = jazz_update_active
+		rawset(_G, "g_JAZZ_CombatBadgeUpdateActiveFn", jazz_update_active)
+	end
+end
+
+lInstallJazzCombatBadgeHideDead()
+
+function OnMsg.UnitDieStart(unit)
+	JazzHideCombatBadgeForDeadUnit(unit)
+end
+
+function OnMsg.UnitDied(unit)
+	JazzHideCombatBadgeForDeadUnit(unit)
+end
+
 function OnMsg.DataLoaded()
 	lInstallJazzGetUIVisibleStatusEffects()
+	lInstallJazzCombatBadgeHideDead()
 end
 
 function OnMsg.ModsReloaded()
 	lInstallJazzGetUIVisibleStatusEffects()
+	lInstallJazzCombatBadgeHideDead()
+	JazzSweepDeadCombatBadges()
+end
+
+function OnMsg.CombatStart()
+	JazzSweepDeadCombatBadges()
 end

@@ -18,6 +18,10 @@ JazzAI_RecontactStandMin = 14
 JazzAI_RecontactStandMax = 20
 JazzAI_RecontactMapEdgeTiles = 8
 JazzAI_RecontactPathMargin = 24
+-- JAZZ-AI-008: stay bonus when dest is an egress perch (CheckLOS to peek cell).
+JazzAI_EgressPerchStayBonus = 180
+-- JAZZ-AI-009: FallBack peel dest that breaks LoS and can OW the vacated tile.
+JazzAI_BreakLosOwDestBonus = 220
 
 -- ACT-002: who already finished AIPlayAttacks this combat turn (smoke self-cover gate).
 function JazzAI_EnsureTeamActedTable()
@@ -536,6 +540,11 @@ function JazzAI_ScoreRecontactDest(context, dest)
 	local dest_pos = point(x, y, z)
 	local stay = context.unit_stance_pos
 	local is_stay = stay and stance_pos_dist(dest, stay) == 0
+
+	-- JAZZ-AI-008: line perch that sees player egress holds; skip walk-to-sound.
+	if is_stay and JazzAI_ContextStayIsEgressPerch and JazzAI_ContextStayIsEgressPerch(context) then
+		return JazzAI_EgressPerchStayBonus or 180
+	end
 
 	if JazzAI_UnitIsFarmTarget and JazzAI_UnitIsFarmTarget(unit) then
 		if is_stay then

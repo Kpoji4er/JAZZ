@@ -129,7 +129,7 @@ Standalone `lua`/`luac` не является repository dependency. В evidence
 - обнаружение через дым, ночью и при плохой погоде;
 - отсутствие зависания AI-хода;
 - **PERF-003 / M3 513:** End Turn с ~30+ Legion — ход врага не клинит минутами; `config.JAZZ_AIPerfLog = true` → `[JAZZ-AI-PERF] RebuildPaths` ms ≪ 5000 на юнит, `restricted=1`; Dump PickBest `TargetOpts` без зависания на part=Arms; `DumpFire start` → `DumpPrepareArgs skipLoF` / `SkipShotLoF` / `CheapProjectileFly` → `DumpFire end`, не тишина и не `Expected point`.
-- **PERF-004 / M5 Dump hits:** AI Dump по открытой цели с CTH>0 наносит урон (`GetActionResults` `hit_objs≥1`); выстрел в непробиваемую скалу/плиту не даёт хит в цель и не анимирует «молоко в стену» (DumpFire abort). Игрок — ванильный LoF.
+- **PERF-004 / M5 Dump hits:** AI Dump по открытой цели с CTH>0 наносит урон (`GetActionResults` `hit_objs≥1`); выстрел в непробиваемую скалу/плиту не даёт хит в цель и не анимирует «молоко в стену» (DumpFire abort). Entity/slab-скала (L4, не heightmap): первые 3 непроходимые плиты на линии → abort. Dump в модель при командном LOS и чистом LoF (личный LOS не обязателен); без team vis в модель не бить. Игрок — ванильный LoF.
 - **Skip turn / AI fire (JA3Debug):** End Turn не должен поднимать `geVecCoord.h` assert `z != nInvalidZ` в `Firearm:ProjectileFly` `collision.Collide`; 2D `attack_pos`/`stuck_pos` получают terrain Z. GoHidden на BeginTurn не должен писать `Not in a thread or within a pcall` из `PlayTransitionAnims` (`Hide` только из `CreateGameTimeThread`, не inline из Msg). Kill с `WeGotThis` у юнита без сателлитного отряда (Призрак) не должен ассертить `attempt to index a nil value (local 'squad')`.
 
 ## UI

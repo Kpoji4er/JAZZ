@@ -514,6 +514,9 @@ end
 
 function JAZZ_AIBunkerDown(unit, context, did_attack)
     context = context or (unit and unit.ai_context)
+    if context and context.jazz_break_los_ow_anchor then
+        return
+    end
     if not g_Combat or not IsValid(unit) or unit:IsDead() then
         return
     end
@@ -680,12 +683,27 @@ local function JazzAI_IsPosLit(pos)
 	return env ~= 0 and band(env, const.vsFlagIlluminated) ~= 0
 end
 
-local function JazzAI_HasLosToPos(unit, pos)
+function JazzAI_HasLosToPos(unit, pos)
 	if not IsValid(unit) or not pos then
 		return false
 	end
 	local sight = const.Combat.AwareSightRange * const.SlabSizeX
 	return not not CheckLOS(pos, unit, sight)
+end
+
+-- Dest voxel → point (JAZZ-AI-008 perch). No GetLoFData.
+function JazzAI_DestSeesPos(dest, pos, range)
+	if not dest or not pos then
+		return false
+	end
+	local x, y, z, stance_idx = stance_pos_unpack(dest)
+	local src = z and point(x, y, z) or point(x, y)
+	range = range or (const.Combat.AwareSightRange * const.SlabSizeX)
+	local stance = stance_idx and StancesList[stance_idx]
+	if stance then
+		return not not CheckLOS(pos, src, range, stance)
+	end
+	return not not CheckLOS(pos, src, range)
 end
 
 --- Night/Underground: lit cell OR within effective night sight to that voxel (OW interrupt floor).
@@ -841,9 +859,15 @@ function JazzAI_PeekExitAimPos(unit, anchor)
 	return false
 end
 
-local function JazzAI_FallbackOverwatchTargetPos(unit, context)
+function JazzAI_FallbackOverwatchTargetPos(unit, context)
 	if not IsValid(unit) then
 		return false
+	end
+
+	-- JAZZ-AI-009: peel aims at the vacated start-of-turn tile.
+	local peel = context and context.jazz_break_los_ow_anchor
+	if peel then
+		return GetPassSlab(peel) or peel
 	end
 
 	local known = unit.last_known_enemy_pos
@@ -908,6 +932,11 @@ function JAZZ_AIDisengage(unit, context, did_attack)
     if unit:HasStatusEffect("Berserk") or unit:HasStatusEffect("Panicked") then
         return
     end
+    -- Peel already committed to a break-LOS dest: do not TakeCover, place OW on vacated tile.
+    if context and context.jazz_break_los_ow_anchor then
+        AIPlaceFallbackOverwatch(unit, context)
+        return
+    end
     JAZZ_AITryCoverMove(unit, context)
     JAZZ_AIBunkerDown(unit, context, did_attack)
 
@@ -918,6 +947,7 @@ function JAZZ_AIDisengage(unit, context, did_attack)
             sight = sight or HasVisibilityTo(unit, enemy)
         end
         if not sight then
+            -- JAZZ-AI-008: perch holders have no personal vis; OW the egress cell.
             AIPlaceFallbackOverwatch(unit, context)
         end
     end
@@ -1143,12 +1173,12 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             local args = {target = target, voiceResponse = voice_response, aim = aim}
             -- JAZZ-AI-002 Dump: no LOF → Disengage. CalcChanceToHit / PickBestAttack
             -- ignore stuck. PERF-004 cheap ray restores the wall abort without GetLoFData.
-            -- JAZZ-AI-007: no Dump into an unseen body (sound → peek OW / offset, not the model).
-            if IsKindOf(target, "Unit")
-                and not HasVisibilityTo(unit, target)
-                and not (unit.team and HasVisibilityTo(unit.team, target)) then
+            -- Team LOS licenses a shot at the model; personal LOS is not required.
+            -- No team LOS → do not dump at the body (007 last-known offset, not the mesh).
+            -- Team LOS without LoF (rock in front) is the cheap-ray abort below.
+            if IsKindOf(target, "Unit") and not HasVisibilityTo(unit.team, target) then
                 if g_AIExecutionController then
-                    g_AIExecutionController:Log("  No sight (sound; skip Dump at model)")
+                    g_AIExecutionController:Log("  No team sight (skip Dump at model)")
                 end
                 context.dump_attack_mode = nil
                 context.dump_attack_target = nil
@@ -1165,14 +1195,18 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             end
             local dump_weapon = (context and context.weapon)
                 or unit:GetActiveWeapons("Firearm")
-            if type(Jazz_DumpCheapLineBlocked) == "function"
-                and Jazz_DumpCheapLineBlocked(unit, target, dump_weapon) then
-                if g_AIExecutionController then
-                    g_AIExecutionController:Log("  No LOF (cheap unpenetrable)")
+            if type(Jazz_DumpCheapLineOfFire) == "function" then
+                local cheap_blocked, _, _, _, cheap_reason =
+                    Jazz_DumpCheapLineOfFire(unit, target, dump_weapon)
+                if cheap_blocked then
+                    if g_AIExecutionController then
+                        g_AIExecutionController:Log("  No LOF (cheap unpenetrable:%s)",
+                            tostring(cheap_reason or "blocked"))
+                    end
+                    context.dump_attack_mode = nil
+                    context.dump_attack_target = nil
+                    break
                 end
-                context.dump_attack_mode = nil
-                context.dump_attack_target = nil
-                break
             end
             if body_parts and #body_parts > 0 then
                 local pick = table.weighted_rand(body_parts, "chance",

@@ -71,7 +71,7 @@ approved_by: project-owner
 - `JAZZ-AI-007-REQ-006` — farm: игрок имеет LOS на юнита, юнит не имеет LOS ни на одного player_team. Stay dest штраф; dest с большим cover / дальше от spotter — бонус.
 - `JAZZ-AI-007-REQ-007` — `Scout_LastLocation` / recontact: path-bbox margin 24 тайла (cap 64), чтобы ход сокращал дистанцию, а не 2 клетки.
 - `JAZZ-AI-007-REQ-008` — `JazzAI_FallbackOverwatchTargetPos`: якорь last known / nearest enemy. Если якорь сам `JazzAI_PosOWViable` — открытое, `JazzAI_SoundOffsetPos` ±1–3. Иначе цель = первая проходимая плита по BFS от якоря (≤8 тайлов / 40 клеток) с `JazzAI_PosOWViable` — выход в обзор: угол дома, дверь, камень. Не кольцо 1–2 (дом дальше). Нет кандидата → `false`. Ночные правила OW-001 сохраняются.
-- `JAZZ-AI-007-REQ-009` — Dump/point по звуку без LOS: aim pos = last known со сдвигом 1–3 тайла (детерминированно от handle, проходимая плита). Не целить в модельку на клетке last known.
+- `JAZZ-AI-007-REQ-009` — Dump/point по звуку без **командного** LOS: aim pos = last known со сдвигом 1–3 тайла (детерминированно от handle, проходимая плита). Не целить в модельку на клетке last known. Dump в модель при командном `HasVisibilityTo(unit.team, target)` и чистом LoF; личный LOS не обязателен. Team vis без LoF (скала перед дулом) — не стрелять (PERF-004 cheap ray).
 - `JAZZ-AI-007-REQ-010` — CombatStart/End чистит `JazzAI_TeamFallBackState`. Docs: technical + wiki + showcase RU/EN.
 
 ## Инварианты и ограничения
@@ -120,7 +120,7 @@ approved_by: project-owner
 - `JAZZ-AI-007-AC-001`: `PASS` (static) — `JazzAI_SelectArchetype` wrap; vanilla scout-gate removed; `JazzAI_ShouldRecontactScout`.
 - `JAZZ-AI-007-AC-002`: `PASS` (static) — `JazzAI_TeamFallBackState` + band roll + merge cancel.
 - `JAZZ-AI-007-AC-003`: `PASS` (static) — `JazzAI_ScoreRecontactDest` + path margin 24.
-- `JAZZ-AI-007-AC-004`: `PASS` (static) — `JazzAI_PeekExitAimPos` BFS egress / `JazzAI_SoundOffsetPos`; Dump skips unseen model.
+- `JAZZ-AI-007-AC-004`: `PASS` (static) — `JazzAI_PeekExitAimPos` BFS egress / `JazzAI_SoundOffsetPos`; Dump skips model without team LOS.
 - `JAZZ-AI-007-AC-005`: `PASS` (static) — technical + override-matrix + wiki + showcase RU/EN.
 - `JAZZ-AI-007-AC-006`: `BLOCKED` — runtime/human (L4 / egress OW: corner/door/rock).
 

@@ -2661,13 +2661,74 @@ function Jazz_DumpAttackerAimPos(attacker, weapon)
 	return Jazz_DumpUnitAimPos(attacker)
 end
 
-local function Jazz_DumpNearEnd(hit, origin, dest)
-	if not IsPoint(hit) or not IsPoint(origin) or not IsPoint(dest) then
+-- Dest-end heightmap graze (target standing on a slope). Do not ignore
+-- origin-adjacent hits: a rock in front of the muzzle is a real blocker.
+local function Jazz_DumpNearDest(hit, dest)
+	if not IsPoint(hit) or not IsPoint(dest) then
 		return true
 	end
 	local slab = const.SlabSizeX or guim
 	local margin = Max(guim, DivRound(slab, 3))
-	return hit:Dist(dest) <= margin or hit:Dist(origin) <= margin
+	return hit:Dist(dest) <= margin
+end
+
+local function Jazz_DumpOriginFootHit(hit, origin)
+	if not IsPoint(hit) or not IsPoint(origin) then
+		return false
+	end
+	local slab = const.SlabSizeX or guim
+	local margin = Max(guim, DivRound(slab, 3))
+	if hit:Dist(origin) > margin then
+		return false
+	end
+	local oz, hz = origin:z(), hit:z()
+	if not oz or not hz then
+		return true
+	end
+	return hz + guim < oz
+end
+
+-- Entity/slab rocks are not heightmap: IntersectSegment misses them (L4).
+-- First N tiles along the 2D shot that are impassable and not a pit → blocked.
+JAZZ_DUMP_CHEAP_IMPASSABLE_SLABS = 3
+
+local function Jazz_DumpCheapImpassableOnLine(origin, dest)
+	if not IsPoint(origin) or not IsPoint(dest) then
+		return true, origin, "bad_pos"
+	end
+	if type(terrain.IsPassable) ~= "function" then
+		return false, dest, "no_api"
+	end
+	local slab = const.SlabSizeX or guim
+	local dist2d = origin:Dist2D(dest)
+	if dist2d <= slab / 2 then
+		return false, dest, "close"
+	end
+	local dir = point(dest:x() - origin:x(), dest:y() - origin:y(), 0)
+	if dir:Len() <= 0 then
+		return false, dest, "close"
+	end
+	local origin_h = type(terrain.GetHeight) == "function" and terrain.GetHeight(origin)
+		or origin:z()
+	local max_steps = rawget(_G, "JAZZ_DUMP_CHEAP_IMPASSABLE_SLABS") or 3
+	local steps = Min(max_steps, Max(1, DivRound(dist2d, slab) - 1))
+	for step = 1, steps do
+		local along = slab * step
+		if along >= dist2d - slab / 2 then
+			break
+		end
+		local pt = Jazz_EnsurePointHasZ(origin + SetLen(dir, along))
+		local okp, pass = pcall(terrain.IsPassable, pt)
+		if okp and pass == false then
+			local pt_h = type(terrain.GetHeight) == "function" and terrain.GetHeight(pt)
+				or pt:z()
+			-- Pit/drop: ground much lower than shooter; bullets can fly over.
+			if not (origin_h and pt_h and pt_h + guim < origin_h) then
+				return true, Jazz_EnsurePointHasZ(pt), "impassable"
+			end
+		end
+	end
+	return false, dest, "clear"
 end
 
 -- Returns blocked, origin, dest, stuck_pos, reason
@@ -2679,9 +2740,14 @@ function Jazz_DumpCheapLineOfFire(attacker, target, weapon)
 	end
 	if type(terrain.IntersectSegment) == "function" then
 		local ok, hit = pcall(terrain.IntersectSegment, origin, dest)
-		if ok and IsPoint(hit) and not Jazz_DumpNearEnd(hit, origin, dest) then
+		if ok and IsPoint(hit) and not Jazz_DumpNearDest(hit, dest)
+			and not Jazz_DumpOriginFootHit(hit, origin) then
 			return true, origin, dest, Jazz_EnsurePointHasZ(hit), "terrain"
 		end
+	end
+	local blocked, stuck_pos, reason = Jazz_DumpCheapImpassableOnLine(origin, dest)
+	if blocked then
+		return true, origin, dest, stuck_pos or origin, reason or "impassable"
 	end
 	-- Bodies on the segment (allies in LoF): vanilla GetLoFData marks stuck, no target hit.
 	local rad = Max(guim, DivRound(const.SlabSizeX or guim, 2))

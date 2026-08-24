@@ -58,7 +58,7 @@ Rebels: `RebelFlanker` → **`Rebels_Flanker`**.
 | Семья на диаграмме | Default role archetype | Ситуативные stance |
 | --- | --- | --- |
 | Assault / Stormer / demo | Assaulter | Flank (охват), Melee (нож во 2-м), Fallback (редко) |
-| Front / Marksman / Soldier / Sniper | Frontliner | Assaulter только CQB+sidearm; Sniper Hold (**JAZZ-AI-SNIPER-001:** stay if shot; useless streak soft-downweights HighGround) |
+| Front / Marksman / Soldier / Sniper | Frontliner | Assaulter только CQB+sidearm; Sniper Hold (**JAZZ-AI-SNIPER-001:** stay if shot; **JAZZ-AI-008:** stay if high ground sees player egress) |
 | Flanker / Recon / Scout | **Flanker** (новый) | Press → Assaulter |
 | Gunner | Machinegunner | никогда Melee/Flank-default |
 | Leader / Commander | Frontliner (+ aura) | Hold / Directive |
@@ -390,6 +390,8 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 | **JAZZ-AI-ROLE-003** | Rebels на ту же схему |
 | **JAZZ-AI-REG-001** | Isolated Legion → `Legion_Regroup` к дальнему ally cluster |
 | **JAZZ-AI-007** | Recontact 14–20 / farm move; FallBack chance+merge; egress OW (corner/door/rock); SelectArchetype after PickCustom |
+| **JAZZ-AI-008** | Line perch hold: high ground with CheckLOS to player egress stays + Fallback OW; Assaulter/farm still relocate |
+| **JAZZ-AI-009** | FallBack peel: break player LoS, Overwatch vacated tile at OW max range |
 | **JAZZ-AI-POL-003** | Anti-stack: hard same-voxel dibs + soft ally spacing in AIScoreDest |
 | **JAZZ-AI-POL-004** | Casualty-aware anti-stack: final-score modifier по live/planned allies и casualties; melee floor; medic ignore superseded MED-002 |
 | **JAZZ-AI-MED-002** | Dedicated medic switch + one fill-in; medic ignore crowd; cover spacing |
@@ -412,9 +414,10 @@ Bonemaker сейчас: любой союзник с Jazz bleed (любой ти
 8. Медик не вешает ход; лечит рано, bleed первым.
 9. **Night:** снайперы AI держат позицию, пока свои жгут светилки, потом стрельба/Press. **Fog/Dust:** без flare-схемы — cover/indoors/smoke/OW на last known.
 10. Replay/seed стабилен.
-11. Одиночный/пара Legion далеко от толпы (≥3 своих ≥18 тайлов) бежит к кластеру (`Legion_Regroup`), не на exit.
+11. Одиночный/пара Legion далеко от толпы (≥3 своих ≥18 тайлов) бежит к кластеру (`Legion_Regroup`), не на exit. **Heavy / Ordnance** (ракетчик, миномёт) не входят — остаются сзади и стреляют.
 12. AI не толкутся в одну клетку / shoulder-to-shoulder на одном cover (POL-003).
 13. После потерь AI реже повторно занимает ту же горловину; soft casualty danger не запирает единственный проход, melee и medic сохраняют approach (POL-004).
+14. На **Отходе** видимый стрелок оторвётся из обзора (скала/угол) и поставит сектор на **брошенную клетку** с края дальности, а не залежет за ближайший куст (JAZZ-AI-009). Высота с LoS на выход игрока не срывается в peel (008).
 
 ---
 

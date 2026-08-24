@@ -22,7 +22,7 @@ JAZZ поддерживает только последнюю опубликов
 | `AIGetAttackTargetingOptions` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/AiActions.lua` | JAZZ; проверить targeting и выбор attack action |
 | `AIPolicyIndoorsOutdoors:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AiActions.lua` | JAZZ; проверить оценку indoor/outdoor позиции |
 | `AIPolicyProximity:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AIPolicy.lua` | JAZZ; проверить дистанционные веса |
-| `AIScoreReachableVoxels` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-SNIPER-001: sniper/marksman stay-hold if `dest_target_score[stay]>0` |
+| `AIScoreReachableVoxels` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-SNIPER-001: sniper/marksman stay-hold if `dest_target_score[stay]>0`; JAZZ-AI-008: line perch stay if CheckLOS to egress; JAZZ-AI-009: FallBack peel dest + OW vacated tile |
 | `AIBehavior:GetTurnPhase` | `Lua/Tactical/AIBehaviors.lua` | — | `Code/AIBehaviours.lua` | JAZZ-AI-CMD-002: MapVar act slot then vanilla Threatened→Late |
 | `Combat:AITurn` | `Lua/Tactical/Combat.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-CMD-002: `JazzAI_AssignTeamActSlots` then PERF-001 timing |
 | `CombatPath:RebuildPaths` | `Lua/Tactical/CombatPath.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: AI-only AP `restrict_area` bbox + gated log (no Sleep) |
@@ -32,7 +32,7 @@ JAZZ поддерживает только последнюю опубликов
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `AIPickScoutLocation` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: bbox `5*guim` (80 m hung Dump on 513 maps) |
 | `AICalcAOETargetPoints` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: scout-scan only if enemy point pool empty |
-| `Firearm:GetAttackResults` / `ProjectileFly` / `Unit:PrepareAttackArgs` | `Lua/Tactical/Weapon.lua` / `Unit.lua` | — | `Code/System_OR_Weapons.lua`, `Code/ExecFirearmAttacks.lua` | JAZZ-AI-PERF-003: Dump `jazz_ai_dump` skips GetLoFData/`Collide`; PERF-004 cheap terrain/slab ray fills Dump hits or stuck; AI TargetOpts uses CalcChanceToHit; player firearms vanilla; wrap snaps 2D fly points via `SetTerrainZ` |
+| `Firearm:GetAttackResults` / `ProjectileFly` / `Unit:PrepareAttackArgs` | `Lua/Tactical/Weapon.lua` / `Unit.lua` | — | `Code/System_OR_Weapons.lua`, `Code/ExecFirearmAttacks.lua` | JAZZ-AI-PERF-003: Dump `jazz_ai_dump` skips GetLoFData/`Collide`; PERF-004 cheap terrain + 3-slab impassable + unit-sphere fills Dump hits or stuck; Dump at model needs team LOS + clear LoF (personal LOS not required); AI TargetOpts uses CalcChanceToHit; player firearms vanilla; wrap snaps 2D fly points via `SetTerrainZ` |
 | `Firearm:GetBaseAttack` | `Lua/Tactical/Weapon.lua` | — | `Code/System_Firearm_AddProperties.lua` | `EnableBurst`/`EnableFullAuto` prepend Burst/Auto if missing from preset (M2/Mini14 Overwatch); baked-in order unchanged |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
 | `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |
