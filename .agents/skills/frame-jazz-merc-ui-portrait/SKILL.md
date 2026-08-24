@@ -59,7 +59,10 @@ SURFACE: sharp; few large folds only on visible cloth.
 ```text
 python bust_crop_tight.py <Big.png> <out_300.png>
 python bust_crop_tight.py --batch newrules2 --frac 0.28
+python bust_crop_tight.py --ship MercPortraits --frac 0.22 --skip Benny
 ```
+
+`Benny.png` already matches JA3 HUD tightness — do not recrop. Ship recrop of JA2 mercs from Big: `--frac 0.22` (Benny-like); `0.28` is Ice/Blood / newrules2.
 
 ## QA
 
