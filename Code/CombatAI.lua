@@ -3433,7 +3433,11 @@ function JazzAI_SelectArchetype(self, proto_context)
 			end
 		end
 	end
+	local prev_arch = self.current_archetype
 	self.current_archetype = archetype or self.archetype or "Assault"
+	if JazzAI_BarkOnArchetype and prev_arch ~= self.current_archetype then
+		JazzAI_BarkOnArchetype(self, self.current_archetype)
+	end
 end
 
 function JazzAI_InstallSelectArchetypeWrap()

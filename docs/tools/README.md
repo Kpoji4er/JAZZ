@@ -8,6 +8,9 @@
 DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playbook: `.agents/docs/playbooks/dap-runtime-debug.md`.
 
 | `_audit_specs_index.py` | Сводка всех `docs/specs/**`: status, Evidence PASS/FAIL/BLOCKED, TBD, cross-refs, folder mismatch. |
+| `_aibark_bank_data.py` | Канон боевых окриков AI: 5 (RU, EN) на слот. `python docs/tools/_aibark_bank_data.py` собирает таблицы в `docs/design/combat-ai-barks.md` после `<!-- aibark-bank -->`. |
+| `_check_aibark_bank.py` | 5 QA-pass лексики банка окриков: поле/калька/корни/тир-рот/вслух + длина + ctx-теги. `python docs/tools/_check_aibark_bank.py`. |
+| `_emit_aibark_runtime.py` | Банк → Lua-таблица в `Code/System_AI_CombatBarks.lua` + строки `890000000020157–20596` в `Russian.csv` / `English.csv` / `Localization/Strings.csv` и manuals. Идемпотентно. |
 | `_audit_ai_mobile_shot.py` | Count `AIActionMobileShot` in `jazz-units/items.lua`: `action_id` / BiasId / RequiredKeywords + jazz action mentions. |
 | `_audit_ai_rng_wiring.py` | Brace-aware RunAndGun wiring audit: real vs default MobileShot, keyword gates, `AIAttackSingleTarget` action_ids. |
 | `_apply_ai_packet1b_items.py` | Packet 1B: sync `jazz-units/items.lua` UnitData PickCustom/archetype to companions; wire POL-002 AllyRoleAnchor+AvoidPeekVoxel into Front/Assault Legion+Rebels OptLoc; leave live TakeCover weights. |

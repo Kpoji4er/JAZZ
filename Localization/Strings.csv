@@ -13684,3 +13684,443 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 <practice>","<help>
 
 <practice>",russian-override;new-id,jazz-units:Code/StatGainRework.lua,jazz-units,jazz-units:Code/StatGainRework.lua,technical-copy
+890000000020157,Stay put! Don't push!,,"Стоим, не прём!",Stay put! Don't push!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020158,Nobody moves!,,Ни с места!,Nobody moves!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020159,Yard's ours. Sit.,,Двор наш — сидим,Yard's ours. Sit.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020160,Don't go in yet,,Не лезем пока,Don't go in yet,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020161,Let them come to us,,Пусть сами приходят,Let them come to us,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020162,Hold.,,Стоим.,Hold.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020163,Don't go in.,,Не лезем.,Don't go in.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020164,Here.,,Здесь.,Here.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020165,We wait.,,Ждём.,We wait.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020166,Sit tight.,,Сидим.,Sit tight.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020167,"Move, you dogs!",,"Шевелитесь, падлы!","Move, you dogs!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020168,Hit 'em already!,,"Бейте уже, живо!",Hit 'em already!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020169,We go at them!,,Прём на них!,We go at them!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020170,Don't stand. Hit!,,Не стойте — бейте!,Don't stand. Hit!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020171,Hit them while they're up!,,"Давите, пока тёплые!",Hit them while they're up!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020172,I said move.,,"Вперёд, сказал.",I said move.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020173,Now. Into them.,,На них. Сейчас.,Now. Into them.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020174,We go.,,Прём.,We go.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020175,On them. Now.,,Сейчас на них.,On them. Now.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020176,Don't wait.,,Не ждите.,Don't wait.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020177,"Around back, not the front!",,"Зайдите сзади, не в лоб!","Around back, not the front!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020178,Through the yards!,,По дворам гоните!,Through the yards!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020179,Come in from the sides!,,С боков зайдите!,Come in from the sides!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020180,Not the street. Behind!,,Не в улицу — сзади!,Not the street. Behind!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020181,Around the houses!,,Обходите хаты!,Around the houses!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020182,Around back.,,Сзади зайдите.,Around back.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020183,Not in a bunch.,,Не толпой.,Not in a bunch.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020184,From the edge.,,С краю.,From the edge.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020185,Go around.,,Обойдите.,Go around.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020186,Not straight in.,,Не в лоб.,Not straight in.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020187,Get back!,,Валите назад!,Get back!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020188,Down or you're next!,,"Прячьтесь, сомнут!",Down or you're next!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020189,We're pulling out!,,Сматываемся!,We're pulling out!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020190,"Back, if you're whole!",,"Назад, кто цел!","Back, if you're whole!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020191,We need you alive!,,Живыми надо!,We need you alive!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020192,We're out.,,Сваливаем.,We're out.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020193,Back. Alive.,,Назад. Живыми.,Back. Alive.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020194,Leaving.,,Уходим.,Leaving.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020195,Back.,,Назад.,Back.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020196,Enough.,,Хватит.,Enough.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020197,All of you — <name>!,,Всех на <name>!,All of you — <name>!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020198,<name>. Nobody else.,,<name> — и больше никого,<name>. Nobody else.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020199,On <name>. Shoot!,,"На <name>, шмалите!",On <name>. Shoot!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020200,Drop <name>!,,<name> снимите!,Drop <name>!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020201,"Only <name>, I said!",,"Только <name>, я сказал!","Only <name>, I said!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020202,<name>. Everyone.,,<name>. Всех.,<name>. Everyone.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020203,Only <name>.,,Только <name>.,Only <name>.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020204,<name>.,,<name>.,<name>.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020205,Fire. <name>.,,Огонь — <name>.,Fire. <name>.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020206,<name>. Drop him.,,<name>. Снимите.,<name>. Drop him.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020207,That one. Hit him!,,Вот этого бейте!,That one. Hit him!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020208,Stop spraying!,,Не шмалите по всем!,Stop spraying!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020209,One man. All of you!,,"Одного, всех на него!",One man. All of you!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020210,This one. Only this!,,"Этот, только этот!",This one. Only this!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020211,Don't spray. One!,,Не мазать — одного!,Don't spray. One!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020212,That one. All of you.,,Этого. Всех.,That one. All of you.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020213,Don't split it.,,Не по всем.,Don't split it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020214,One of them.,,Одного.,One of them.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020215,This one.,,Этот.,This one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020216,Don't spray.,,Не мазать.,Don't spray.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020217,Inside! Windows!,,"В хаты, из окон!",Inside! Windows!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020218,Off the yard. Inside!,,С двора — в дом!,Off the yard. Inside!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020219,Into the houses!,,По хатам!,Into the houses!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020220,From the windows!,,Бейте из окон!,From the windows!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020221,Not the yard. Inside!,,Не во дворе — внутрь!,Not the yard. Inside!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020222,Inside.,,В хаты.,Inside.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020223,From the windows.,,Из окон.,From the windows.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020224,Indoors.,,В дома.,Indoors.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020225,Off the yard.,,С двора прочь.,Off the yard.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020226,Windows.,,Окна.,Windows.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020227,Up the roof!,,"На крышу, кто живой!",Up the roof!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020228,Drop them from up there!,,Сверху кладите!,Drop them from up there!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020229,Up the hill!,,"На холм, давайте!",Up the hill!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020230,Roofs are ours!,,Крыши наши!,Roofs are ours!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020231,"Up, come on!",,"Наверх, давайте!","Up, come on!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020232,Up.,,Наверх.,Up.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020233,From the hill.,,С холма.,From the hill.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020234,Roofs.,,Крыши.,Roofs.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020235,Higher.,,Выше.,Higher.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020236,From above.,,Сверху.,From above.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020237,Belly down!,,"На брюхо, живо!",Belly down!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020238,"Down, bullets flying!",,"Ложись, пуль полно!","Down, bullets flying!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020239,To the dirt!,,К земле!,To the dirt!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020240,Get behind!,,За угол!,Get behind!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020241,Heads down!,,Прячьте башки!,Heads down!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020242,Down.,,На брюхо.,Down.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020243,Don't pop up.,,Не маячь.,Don't pop up.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020244,To the dirt.,,К земле.,To the dirt.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020245,Get down.,,Ложись.,Get down.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020246,Don't show.,,Не светиться.,Don't show.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020247,Don't walk into that dark!,,В тёмное не лезьте!,Don't walk into that dark!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020248,Stay. Let 'em show.,,Стоим. Сами вылезут,Stay. Let 'em show.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020249,Not into the black!,,Не в черноту!,Not into the black!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020250,Wait. Let them show.,,"Ждём, пусть покажутся",Wait. Let them show.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020251,Quiet. We stay.,,Тихо стоим,Quiet. We stay.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020252,Stay put.,,Стоим.,Stay put.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020253,No heroes.,,Без героев.,No heroes.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020254,Wait for light.,,Ждём света.,Wait for light.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020255,Don't go in.,,Не лезьте.,Don't go in.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020256,Quiet.,,Тихо.,Quiet.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020257,Into the dark. Quiet!,,"В тень, тихо!",Into the dark. Quiet!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020258,Stay hidden!,,Затаились!,Stay hidden!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020259,Don't show yourselves!,,Не светиться!,Don't show yourselves!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020260,In the grass. Down!,,"В траву, ложись!",In the grass. Down!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020261,Shh. Vanish.,,Тс-с. Сгинь.,Shh. Vanish.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020262,Into cover.,,В тень.,Into cover.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020263,Quiet.,,Тихо.,Quiet.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020264,Don't show.,,Не светиться.,Don't show.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020265,Stay hidden.,,Затаились.,Stay hidden.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020266,Vanish.,,Сгинь.,Vanish.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020267,Please—,,Не надо…,Please—,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020268,I wanna go home,,"Я домой, я домой",I wanna go home,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020269,Mama—,,Мама…,Mama—,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020270,Don't shoot—,,Не стреляйте—,Don't shoot—,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020271,I don't want this,,Я не хочу,I don't want this,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020272,They'll walk over us!,,Нас сомнут!,They'll walk over us!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020273,We're not staying. Go!,,"Не стоим, валим",We're not staying. Go!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020274,This is a butcher shop,,Это мясорубка,This is a butcher shop,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020275,They'll drop us,,Нас сложат,They'll drop us,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020276,Time to go,,Пора сматываться,Time to go,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020277,Damn it—,,Чёрт…,Damn it—,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020278,Not now,,Не сейчас,Not now,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020279,Bad,,Плохо,Bad,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020280,Not here,,Не сюда,Not here,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020281,Enough,,Хватит,Enough,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020282,I wanna live,,Жить охота,I wanna live,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020283,Fight it yourselves,,Сами деритесь,Fight it yourselves,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020284,I'm taking off,,Я сматываюсь,I'm taking off,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020285,I still wanna live,,Мне ещё жить,I still wanna live,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020286,I've seen enough blood,,Хватит с меня крови,I've seen enough blood,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020287,I'm through,,Хватит с меня,I'm through,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020288,I've done my share,,Я своё отпахал,I've done my share,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020289,Find someone else,,Ищите других,Find someone else,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020290,I'm leaving,,Я ухожу,I'm leaving,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020291,You go on without me,,Дальше без меня,You go on without me,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020292,Find another fool,,Ищите дураков,Find another fool,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020293,Nothing left for me here,,Мне тут ловить нечего,Nothing left for me here,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020294,Job's done,,Контракт кончен,Job's done,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020295,I'm out,,Я выхожу,I'm out,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020296,Not my fight,,Не мой бой,Not my fight,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020297,I'll kill you!,,Убью! Убью!,I'll kill you!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020298,Aaah! Come here!,,А-а! Идите сюда!,Aaah! Come here!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020299,I'll tear you all!,,Всех порву!,I'll tear you all!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020300,Blood! More!,,Кровь! Ещё!,Blood! More!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020301,Can't stop me!,,Не остановить!,Can't stop me!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020302,I'll drop you all!,,Всех кладу!,I'll drop you all!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020303,Stop hiding!,,Хватит прятаться!,Stop hiding!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020304,Coming for you!,,Иду на вас!,Coming for you!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020305,Cut them down!,,Рубить!,Cut them down!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020306,Nobody lives!,,Никого живым!,Nobody lives!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020307,All of you.,,Всех.,All of you.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020308,Coming.,,Иду.,Coming.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020309,I'll finish it.,,Дорежу.,I'll finish it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020310,Enough waiting.,,Хватит ждать.,Enough waiting.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020311,Forward.,,Вперёд.,Forward.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020312,Easy,,Тихо ты,Easy,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020313,I'll stop the blood,,"Кровь уйму, лежи",I'll stop the blood,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020314,I'll bind it,,Сейчас перевяжу,I'll bind it,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020315,Don't jerk. You're alive,,"Не дёргайся, живой",Don't jerk. You're alive,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020316,Stay down. I'm here,,"Лежи, я рядом",Stay down. I'm here,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020317,Don't jerk,,Не дёргайся,Don't jerk,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020318,Shut up and you'll live,,Заткнись — проживёшь,Shut up and you'll live,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020319,Binding. Don't yell,,"Бинтую, не ори",Binding. Don't yell,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020320,You'll live,,Жить будешь,You'll live,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020321,Hold on. I'll close it,,"Держись, зашью",Hold on. I'll close it,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020322,Lie still.,,Лежи.,Lie still.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020323,Don't get in the way.,,Не мешай.,Don't get in the way.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020324,Quiet.,,Тихо.,Quiet.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020325,Alive. Stay down.,,Живой. Лежи.,Alive. Stay down.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020326,Hands.,,Руки.,Hands.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020327,I'll cut you!,,Порежу!,I'll cut you!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020328,Closer—,,"Ближе, ближе",Closer—,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020329,"Knife, knife!",,"Нож, нож!","Knife, knife!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020330,I'm coming in!,,В морду схожу!,I'm coming in!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020331,Save the rounds. Cutting,,Патронов жалко — режу,Save the rounds. Cutting,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020332,Easier up close,,Вплотную проще,Easier up close,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020333,On the knife,,Иду на нож,On the knife,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020334,Point blank,,В упор,Point blank,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020335,Enough shooting. Cut,,Хватит стрелять — режем,Enough shooting. Cut,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020336,Going in close,,Иду вплотную,Going in close,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020337,Close in.,,Вплотную.,Close in.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020338,Enough shooting.,,Хватит стрелять.,Enough shooting.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020339,Knife.,,Нож.,Knife.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020340,Point blank.,,В упор.,Point blank.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020341,Closer.,,Ближе.,Closer.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020342,"Burn, damn you!",,"Гори, зараза!","Burn, damn you!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020343,Faces into the light!,,Рожи на свет!,Faces into the light!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020344,"Light, light!",,"Свет, свет!","Light, light!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020345,Burn in their eyes!,,Гори им в глаза!,Burn in their eyes!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020346,So we can see!,,Чтоб видно было!,So we can see!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020347,In their eyes,,Свет им в глаза,In their eyes,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020348,"Come out, you bastards",,"Вылезайте, гады","Come out, you bastards",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020349,Lit them,,Подсветил,Lit them,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020350,Now we see,,Теперь видно,Now we see,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020351,No more hiding,,Не прячьтесь,No more hiding,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020352,Light.,,Свет.,Light.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020353,They'll show.,,Видно будет.,They'll show.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020354,Burn.,,Гори.,Burn.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020355,Eyes.,,В глаза.,Eyes.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020356,I see.,,Вижу.,I see.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020357,Into the smoke!,,В дым!,Into the smoke!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020358,They won't see,,Сейчас не увидят,They won't see,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020359,We hide in the smoke,,Прячемся в дыму,We hide in the smoke,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020360,Hide in the smoke!,,Прячьтесь в дым!,Hide in the smoke!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020361,So they don't see!,,Чтоб не видели!,So they don't see!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020362,I'll cover us,,Дымом закрою,I'll cover us,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020363,Through the smoke,,Через дым прём,Through the smoke,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020364,Cover the yard,,Закрой двор,Cover the yard,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020365,We go under the smoke,,Под дым идём,We go under the smoke,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020366,They can't see. Go,,Не видят — прём,They can't see. Go,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020367,Smoke. Then we go.,,Дым — и сразу,Smoke. Then we go.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020368,Covered. Go.,,Закрыл. Прём.,Covered. Go.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020369,Smoke.,,Дым.,Smoke.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020370,Cover it.,,Закрой.,Cover it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020371,We go.,,Идём.,We go.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020372,"Here, you bastards!",,"Нате, гады!","Here, you bastards!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020373,Catch!,,Держите!,Catch!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020374,That's for you!,,Вам туда!,That's for you!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020375,Catch this!,,Ловите!,Catch this!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020376,This one's gonna bang!,,Сейчас бахнет!,This one's gonna bang!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020377,It's in the air!,,Летит!,It's in the air!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020378,Down — not you,,Ложись — не ты,Down — not you,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020379,At their feet,,Под ноги им,At their feet,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020380,Clearing the yard,,Двор чищу,Clearing the yard,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020381,Into the bunch,,В кучу им,Into the bunch,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020382,At their feet.,,Под ноги.,At their feet.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020383,For them.,,Лови.,For them.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020384,There.,,Туда.,There.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020385,Clearing.,,Чищу.,Clearing.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020386,Bang.,,Бах.,Bang.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020387,Burn!,,Горите!,Burn!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020388,Heat for them!,,Жар им!,Heat for them!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020389,I'm torching the house!,,Хату палю!,I'm torching the house!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020390,"Fire, fire!",,"Огонь, огонь!","Fire, fire!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020391,Let them fry!,,Пусть жарятся!,Let them fry!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020392,Torching the yard,,Жгу двор,Torching the yard,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020393,Fire on them!,,Огнём их!,Fire on them!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020394,Let them run,,Пусть бегут,Let them run,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020395,Lighting the house,,Хату зажигаю,Lighting the house,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020396,It'll get hot,,Жарко будет,It'll get hot,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020397,Burn it.,,Жги.,Burn it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020398,Fire.,,Огонь.,Fire.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020399,The house.,,Хату.,The house.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020400,Heat.,,Жарко.,Heat.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020401,Burn.,,Гори.,Burn.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020402,Let them choke!,,Пусть давятся!,Let them choke!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020403,Filth for them!,,Гадость им!,Filth for them!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020404,"Cough, you bastards!",,"Кашляйте, гады!","Cough, you bastards!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020405,Breathe that!,,Дышите этим!,Breathe that!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020406,They'll spit blood!,,Сейчас заплюются!,They'll spit blood!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020407,Let them drink it,,Пусть хлебают,Let them drink it,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020408,Spoiling the yard,,Двор порчу,Spoiling the yard,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020409,They don't get air,,Не дышать им,They don't get air,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020410,They'll cough themselves out,,Выкурят сами,They'll cough themselves out,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020411,The filth's in the air,,Гадкость полетела,The filth's in the air,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020412,Breathe.,,Дышите.,Breathe.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020413,The yard.,,Во двор.,The yard.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020414,Cough.,,Кашляй.,Cough.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020415,Filth.,,Гадкость.,Filth.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020416,That's it.,,Всё.,That's it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020417,Grabbing the long one!,,Длинный беру!,Grabbing the long one!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020418,Long one in hand!,,Длинный в руки!,Long one in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020419,The short one's useless,,Короткий не тянет,The short one's useless,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020420,Switching to the far one!,,Меняю на дальний!,Switching to the far one!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020421,Grabbing a gun!,,Беру ствол!,Grabbing a gun!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020422,Long gun,,Длинный,Long gun,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020423,Long one back,,Длинный обратно,Long one back,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020424,This one reaches farther,,С этого дальше бью,This one reaches farther,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020425,Switching guns,,Меняю ствол,Switching guns,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020426,This one reaches,,Этот дальше,This one reaches,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020427,Long one.,,Длинный.,Long one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020428,Farther.,,Дальше.,Farther.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020429,Back on.,,Вернул.,Back on.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020430,Gun.,,Ствол.,Gun.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020431,Taking it.,,Беру.,Taking it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020432,Grabbing buckshot!,,Дробь беру!,Grabbing buckshot!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020433,Grabbing the short mean one!,,Короткий злой беру!,Grabbing the short mean one!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020434,Into the house!,,В хату бью!,Into the house!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020435,Switching. Up close!,,Меняю — в упор!,Switching. Up close!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020436,I'll take the door!,,Дверь сниму!,I'll take the door!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020437,Buckshot,,Дробь,Buckshot,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020438,Up close now,,В упор бью,Up close now,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020439,Putting the short one on,,Короткий ставлю,Putting the short one on,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020440,Into the house,,В хату бью,Into the house,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020441,Better up close,,Вблизи лучше,Better up close,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020442,Buckshot.,,Дробь.,Buckshot.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020443,Up close.,,В упор.,Up close.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020444,Short one.,,Короткий.,Short one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020445,Into the house.,,В хату.,Into the house.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020446,Putting it on.,,Ставлю.,Putting it on.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020447,Setting the belt!,,Ленту ставлю!,Setting the belt!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020448,Belt in hand!,,Ленту в руки!,Belt in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020449,Grabbing the long mean one!,,Длинный злой беру!,Grabbing the long mean one!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020450,Switching. Street's mine!,,Меняю — улицу крою!,Switching. Street's mine!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020451,I'll hold them all!,,Всех держу!,I'll hold them all!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020452,Setting the belt,,Ленту ставлю,Setting the belt,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020453,Setting the long one,,Длинный ставлю,Setting the long one,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020454,This covers the street,,Улицу крою,This covers the street,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020455,This holds the yard,,Двор держу,This holds the yard,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020456,Switching to the long one,,Меняю на длинный,Switching to the long one,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020457,Belt.,,Лента.,Belt.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020458,The long one.,,Длинный.,The long one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020459,The street.,,Улицу.,The street.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020460,The yard's mine.,,Двор мой.,The yard's mine.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020461,Mine.,,Моя.,Mine.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020462,Short one from the pocket!,,Короткий из кармана!,Short one from the pocket!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020463,Short one in hand!,,Короткий в руки!,Short one in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020464,Long one's jammed—,,Длинный заклинило—,Long one's jammed—,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020465,Switching to the quick one!,,Меняю на быстрый!,Switching to the quick one!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020466,Short one into the house!,,С коротким в хату!,Short one into the house!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020467,Pulling the short one,,Короткий достаю,Pulling the short one,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020468,From the pocket,,Из кармана,From the pocket,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020469,Faster this way,,Так быстрее,Faster this way,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020470,Short one up close,,Вплотную — короткий,Short one up close,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020471,Long one later,,Длинный потом,Long one later,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020472,Short one.,,Короткий.,Short one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020473,Pocket.,,Из кармана.,Pocket.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020474,Quick.,,Быстро.,Quick.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020475,Close.,,Вплотную.,Close.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020476,Got it.,,Достал.,Got it.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020477,Grabbing the short one!,,Коротыш беру!,Grabbing the short one!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020478,Short one in hand!,,Коротыш в руки!,Short one in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020479,Through the window!,,В окно бью!,Through the window!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020480,Switching. At the door!,,Меняю — в дверь!,Switching. At the door!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020481,Hitting the house!,,По хате бью!,Hitting the house!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020482,Putting the short one on,,Коротыш ставлю,Putting the short one on,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020483,Under the barrel now,,Под ствол ставлю,Under the barrel now,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020484,This one at the window,,В окно бью,This one at the window,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020485,I'll take the door,,Дверь вынесу,I'll take the door,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020486,Hitting the house,,По хате бью,Hitting the house,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020487,Short one.,,Коротыш.,Short one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020488,Under the barrel.,,Под ствол.,Under the barrel.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020489,Window.,,В окно.,Window.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020490,Door.,,В дверь.,Door.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020491,House.,,В хату.,House.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020492,Grabbing the pipe!,,Трубу беру!,Grabbing the pipe!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020493,The big one in hand!,,Большую в руки!,The big one in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020494,"Back, this bangs!",,"Отойди, жахнет!","Back, this bangs!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020495,Switching. House comes down!,,Меняю — хату снесу!,Switching. House comes down!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020496,This one off the shoulder!,,С плеча эту!,This one off the shoulder!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020497,Grabbing the pipe,,Трубу беру,Grabbing the pipe,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020498,Pipe's going up,,Трубу поднимаю,Pipe's going up,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020499,Putting the heavy one on,,Тяжёлый ставлю,Putting the heavy one on,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020500,That house comes down,,Эту хату снесу,That house comes down,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020501,Off the shoulder,,С плеча,Off the shoulder,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020502,Pipe.,,Труба.,Pipe.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020503,Heavy.,,Тяжёлый.,Heavy.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020504,Coming down.,,Снесу.,Coming down.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020505,The house.,,Хату.,The house.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020506,Shoulder.,,С плеча.,Shoulder.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020507,Grabbing the long eye!,,Дальний беру!,Grabbing the long eye!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020508,Long one in hand!,,Дальний в руки!,Long one in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020509,I'll go prone and shoot!,,Лягу и бью!,I'll go prone and shoot!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020510,Switching. From the hill!,,Меняю — с холма!,Switching. From the hill!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020511,Don't breathe. Aiming!,,Не дыши — целюсь!,Don't breathe. Aiming!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020512,Putting the long one on,,Дальний ставлю,Putting the long one on,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020513,This one from the hill,,С холма бью,This one from the hill,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020514,Down. Shooting,,"Лежу, бью",Down. Shooting,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020515,I can reach from here,,Достаю с края,I can reach from here,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020516,One. Then quiet,,Один — и тишина,One. Then quiet,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020517,Long one.,,Дальний.,Long one.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020518,The hill.,,С холма.,The hill.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020519,Down.,,Лежу.,Down.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020520,One.,,Один.,One.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020521,Quiet.,,Тишина.,Quiet.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020522,Knife's out!,,Нож достаю!,Knife's out!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020523,Dropped the gun. Cutting!,,Ствол бросил — режу!,Dropped the gun. Cutting!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020524,Iron in hand!,,Железо в руки!,Iron in hand!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020525,No rounds. Knife!,,Патронов нет — нож!,No rounds. Knife!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020526,Switching. Closer!,,Меняю — ближе!,Switching. Closer!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020527,On the knife,,Иду на нож,On the knife,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020528,Gun aside,,Ствол в сторону,Gun aside,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020529,Iron,,Железо,Iron,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020530,This one up close,,Вплотную режу,This one up close,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020531,Cut,,Резать,Cut,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020532,Knife.,,Нож.,Knife.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020533,Gun down.,,Ствол.,Gun down.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020534,Iron.,,Железо.,Iron.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020535,Close.,,Вплотную.,Close.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020536,Cut.,,Резать.,Cut.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020537,I'm sitting here,,Я тут сяду,I'm sitting here,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020538,From this corner!,,С угла накрою!,From this corner!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020539,Setting up. Cover me,,"Ставлю, прикройте",Setting up. Cover me,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020540,Sitting here. Street's mine,,"Сюда сяду, улица моя",Sitting here. Street's mine,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020541,Legs down!,,"Ноги, тренога!",Legs down!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020542,I'll take the street,,Улицу отсюда крою,I'll take the street,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020543,Goes here,,Сюда ставлю,Goes here,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020544,From the corner,,С угла,From the corner,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020545,I'll shut the yard,,Двор закрою,I'll shut the yard,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020546,Sat. Street's mine,,Сел — улица моя,Sat. Street's mine,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020547,This street's mine.,,Улица моя.,This street's mine.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020548,Here.,,Сюда.,Here.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020549,Corner.,,С угла.,Corner.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020550,Sat.,,Сел.,Sat.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020551,Yard's mine.,,Двор мой.,Yard's mine.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020552,I'm going at them!,,Бегу на них!,I'm going at them!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020553,I'm going in!,,Я вперёд!,I'm going in!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020554,Don't stand. After me!,,Не стой — за мной!,Don't stand. After me!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020555,Stay with me!,,Держитесь!,Stay with me!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020556,We go!,,Прём!,We go!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020557,Going in,,Лезу,Going in,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020558,Running at them,,На них бегу,Running at them,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020559,Forward,,Вперёд,Forward,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020560,Don't wait,,Не ждите,Don't wait,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020561,I'll go first,,Я первым,I'll go first,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020562,In.,,Лезу.,In.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020563,Forward.,,Вперёд.,Forward.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020564,At them.,,На них.,At them.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020565,Going.,,Иду.,Going.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020566,I'm first.,,Я первый.,I'm first.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020567,I'll come from the side!,,Сбоку зайду!,I'll come from the side!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020568,Not the front. Around!,,Не в лоб — в обход!,Not the front. Around!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020569,I'll go around them!,,Обойду их!,I'll go around them!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020570,Running the edge!,,С края бегу!,Running the edge!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020571,"With me, from the side!",,За мной сбоку!,"With me, from the side!",russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020572,The side,,Сбоку,The side,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020573,Around,,В обход,Around,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020574,Not the front,,Не в лоб,Not the front,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020575,The edge,,С края,The edge,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020576,Around them,,Обойду,Around them,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020577,The side.,,Сбоку.,The side.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020578,Around.,,В обход.,Around.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020579,Not the front.,,Не в лоб.,Not the front.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020580,The edge.,,С края.,The edge.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020581,Around.,,Обойду.,Around.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020582,It's far. I'm running!,,Далеко — бегу!,It's far. I'm running!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020583,I'll get there!,,Сейчас добегу!,I'll get there!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020584,Don't wait. I'm going!,,Не стойте — я вперёд!,Don't wait. I'm going!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020585,Watch. Across the yard!,,"Глядите, через двор!",Watch. Across the yard!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020586,Crossing now!,,Перебегаю!,Crossing now!,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020587,Sprinting,,Рывок,Sprinting,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020588,I'll get there,,Добегу,I'll get there,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020589,Crossing,,Перебегаю,Crossing,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020590,Closing in,,К ним иду,Closing in,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020591,It's far. Still going,,"Далеко, но надо",It's far. Still going,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020592,Sprint.,,Рывок.,Sprint.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020593,I'll get there.,,Добегу.,I'll get there.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020594,Running.,,Бегу.,Running.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020595,Closer.,,Ближе.,Closer.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001
+890000000020596,It's far. Going.,,"Далеко, бегу.",It's far. Going.,russian-override;new-id,jazz:Code/System_AI_CombatBarks.lua,jazz,jazz:Code/System_AI_CombatBarks.lua,JAZZ-AI-BARK-001

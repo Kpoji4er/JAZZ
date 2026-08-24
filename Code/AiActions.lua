@@ -950,6 +950,9 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
                 unit.handle, tostring(status))
         end
         if status then
+            if JazzAI_BarkTryDest then
+                JazzAI_BarkTryDest(unit)
+            end
             return status
         end
     end
@@ -960,6 +963,9 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
 
     local status = AIPlayAttacks(unit, unit.ai_context,
         unit.ai_context.forced_signature_action, force_or_skip_action)
+    if JazzAI_BarkTryDest then
+        JazzAI_BarkTryDest(unit)
+    end
     if status then
         return status
     end
@@ -2189,6 +2195,9 @@ function AIActionMGSetup:Execute(context, action_state)
         end
     end
     AIPlayCombatAction(action_id, context.unit, nil, args)
+    if action_id == "MGSetup" and JazzAI_TryCombatBark then
+        JazzAI_TryCombatBark(context.unit, "mg_setup", empty_table)
+    end
     if action_state.action_id == "MGPack" then
         return "restart"
     end

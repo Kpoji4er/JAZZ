@@ -9564,3 +9564,443 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 <practice>","<help>
 
 <practice>",technical-copy
+9320,890000000020157,Stay put! Don't push!,Stay put! Don't push!,JAZZ-AI-BARK-001
+9321,890000000020158,Nobody moves!,Nobody moves!,JAZZ-AI-BARK-001
+9322,890000000020159,Yard's ours. Sit.,Yard's ours. Sit.,JAZZ-AI-BARK-001
+9323,890000000020160,Don't go in yet,Don't go in yet,JAZZ-AI-BARK-001
+9324,890000000020161,Let them come to us,Let them come to us,JAZZ-AI-BARK-001
+9325,890000000020162,Hold.,Hold.,JAZZ-AI-BARK-001
+9326,890000000020163,Don't go in.,Don't go in.,JAZZ-AI-BARK-001
+9327,890000000020164,Here.,Here.,JAZZ-AI-BARK-001
+9328,890000000020165,We wait.,We wait.,JAZZ-AI-BARK-001
+9329,890000000020166,Sit tight.,Sit tight.,JAZZ-AI-BARK-001
+9330,890000000020167,"Move, you dogs!","Move, you dogs!",JAZZ-AI-BARK-001
+9331,890000000020168,Hit 'em already!,Hit 'em already!,JAZZ-AI-BARK-001
+9332,890000000020169,We go at them!,We go at them!,JAZZ-AI-BARK-001
+9333,890000000020170,Don't stand. Hit!,Don't stand. Hit!,JAZZ-AI-BARK-001
+9334,890000000020171,Hit them while they're up!,Hit them while they're up!,JAZZ-AI-BARK-001
+9335,890000000020172,I said move.,I said move.,JAZZ-AI-BARK-001
+9336,890000000020173,Now. Into them.,Now. Into them.,JAZZ-AI-BARK-001
+9337,890000000020174,We go.,We go.,JAZZ-AI-BARK-001
+9338,890000000020175,On them. Now.,On them. Now.,JAZZ-AI-BARK-001
+9339,890000000020176,Don't wait.,Don't wait.,JAZZ-AI-BARK-001
+9340,890000000020177,"Around back, not the front!","Around back, not the front!",JAZZ-AI-BARK-001
+9341,890000000020178,Through the yards!,Through the yards!,JAZZ-AI-BARK-001
+9342,890000000020179,Come in from the sides!,Come in from the sides!,JAZZ-AI-BARK-001
+9343,890000000020180,Not the street. Behind!,Not the street. Behind!,JAZZ-AI-BARK-001
+9344,890000000020181,Around the houses!,Around the houses!,JAZZ-AI-BARK-001
+9345,890000000020182,Around back.,Around back.,JAZZ-AI-BARK-001
+9346,890000000020183,Not in a bunch.,Not in a bunch.,JAZZ-AI-BARK-001
+9347,890000000020184,From the edge.,From the edge.,JAZZ-AI-BARK-001
+9348,890000000020185,Go around.,Go around.,JAZZ-AI-BARK-001
+9349,890000000020186,Not straight in.,Not straight in.,JAZZ-AI-BARK-001
+9350,890000000020187,Get back!,Get back!,JAZZ-AI-BARK-001
+9351,890000000020188,Down or you're next!,Down or you're next!,JAZZ-AI-BARK-001
+9352,890000000020189,We're pulling out!,We're pulling out!,JAZZ-AI-BARK-001
+9353,890000000020190,"Back, if you're whole!","Back, if you're whole!",JAZZ-AI-BARK-001
+9354,890000000020191,We need you alive!,We need you alive!,JAZZ-AI-BARK-001
+9355,890000000020192,We're out.,We're out.,JAZZ-AI-BARK-001
+9356,890000000020193,Back. Alive.,Back. Alive.,JAZZ-AI-BARK-001
+9357,890000000020194,Leaving.,Leaving.,JAZZ-AI-BARK-001
+9358,890000000020195,Back.,Back.,JAZZ-AI-BARK-001
+9359,890000000020196,Enough.,Enough.,JAZZ-AI-BARK-001
+9360,890000000020197,All of you — <name>!,All of you — <name>!,JAZZ-AI-BARK-001
+9361,890000000020198,<name>. Nobody else.,<name>. Nobody else.,JAZZ-AI-BARK-001
+9362,890000000020199,On <name>. Shoot!,On <name>. Shoot!,JAZZ-AI-BARK-001
+9363,890000000020200,Drop <name>!,Drop <name>!,JAZZ-AI-BARK-001
+9364,890000000020201,"Only <name>, I said!","Only <name>, I said!",JAZZ-AI-BARK-001
+9365,890000000020202,<name>. Everyone.,<name>. Everyone.,JAZZ-AI-BARK-001
+9366,890000000020203,Only <name>.,Only <name>.,JAZZ-AI-BARK-001
+9367,890000000020204,<name>.,<name>.,JAZZ-AI-BARK-001
+9368,890000000020205,Fire. <name>.,Fire. <name>.,JAZZ-AI-BARK-001
+9369,890000000020206,<name>. Drop him.,<name>. Drop him.,JAZZ-AI-BARK-001
+9370,890000000020207,That one. Hit him!,That one. Hit him!,JAZZ-AI-BARK-001
+9371,890000000020208,Stop spraying!,Stop spraying!,JAZZ-AI-BARK-001
+9372,890000000020209,One man. All of you!,One man. All of you!,JAZZ-AI-BARK-001
+9373,890000000020210,This one. Only this!,This one. Only this!,JAZZ-AI-BARK-001
+9374,890000000020211,Don't spray. One!,Don't spray. One!,JAZZ-AI-BARK-001
+9375,890000000020212,That one. All of you.,That one. All of you.,JAZZ-AI-BARK-001
+9376,890000000020213,Don't split it.,Don't split it.,JAZZ-AI-BARK-001
+9377,890000000020214,One of them.,One of them.,JAZZ-AI-BARK-001
+9378,890000000020215,This one.,This one.,JAZZ-AI-BARK-001
+9379,890000000020216,Don't spray.,Don't spray.,JAZZ-AI-BARK-001
+9380,890000000020217,Inside! Windows!,Inside! Windows!,JAZZ-AI-BARK-001
+9381,890000000020218,Off the yard. Inside!,Off the yard. Inside!,JAZZ-AI-BARK-001
+9382,890000000020219,Into the houses!,Into the houses!,JAZZ-AI-BARK-001
+9383,890000000020220,From the windows!,From the windows!,JAZZ-AI-BARK-001
+9384,890000000020221,Not the yard. Inside!,Not the yard. Inside!,JAZZ-AI-BARK-001
+9385,890000000020222,Inside.,Inside.,JAZZ-AI-BARK-001
+9386,890000000020223,From the windows.,From the windows.,JAZZ-AI-BARK-001
+9387,890000000020224,Indoors.,Indoors.,JAZZ-AI-BARK-001
+9388,890000000020225,Off the yard.,Off the yard.,JAZZ-AI-BARK-001
+9389,890000000020226,Windows.,Windows.,JAZZ-AI-BARK-001
+9390,890000000020227,Up the roof!,Up the roof!,JAZZ-AI-BARK-001
+9391,890000000020228,Drop them from up there!,Drop them from up there!,JAZZ-AI-BARK-001
+9392,890000000020229,Up the hill!,Up the hill!,JAZZ-AI-BARK-001
+9393,890000000020230,Roofs are ours!,Roofs are ours!,JAZZ-AI-BARK-001
+9394,890000000020231,"Up, come on!","Up, come on!",JAZZ-AI-BARK-001
+9395,890000000020232,Up.,Up.,JAZZ-AI-BARK-001
+9396,890000000020233,From the hill.,From the hill.,JAZZ-AI-BARK-001
+9397,890000000020234,Roofs.,Roofs.,JAZZ-AI-BARK-001
+9398,890000000020235,Higher.,Higher.,JAZZ-AI-BARK-001
+9399,890000000020236,From above.,From above.,JAZZ-AI-BARK-001
+9400,890000000020237,Belly down!,Belly down!,JAZZ-AI-BARK-001
+9401,890000000020238,"Down, bullets flying!","Down, bullets flying!",JAZZ-AI-BARK-001
+9402,890000000020239,To the dirt!,To the dirt!,JAZZ-AI-BARK-001
+9403,890000000020240,Get behind!,Get behind!,JAZZ-AI-BARK-001
+9404,890000000020241,Heads down!,Heads down!,JAZZ-AI-BARK-001
+9405,890000000020242,Down.,Down.,JAZZ-AI-BARK-001
+9406,890000000020243,Don't pop up.,Don't pop up.,JAZZ-AI-BARK-001
+9407,890000000020244,To the dirt.,To the dirt.,JAZZ-AI-BARK-001
+9408,890000000020245,Get down.,Get down.,JAZZ-AI-BARK-001
+9409,890000000020246,Don't show.,Don't show.,JAZZ-AI-BARK-001
+9410,890000000020247,Don't walk into that dark!,Don't walk into that dark!,JAZZ-AI-BARK-001
+9411,890000000020248,Stay. Let 'em show.,Stay. Let 'em show.,JAZZ-AI-BARK-001
+9412,890000000020249,Not into the black!,Not into the black!,JAZZ-AI-BARK-001
+9413,890000000020250,Wait. Let them show.,Wait. Let them show.,JAZZ-AI-BARK-001
+9414,890000000020251,Quiet. We stay.,Quiet. We stay.,JAZZ-AI-BARK-001
+9415,890000000020252,Stay put.,Stay put.,JAZZ-AI-BARK-001
+9416,890000000020253,No heroes.,No heroes.,JAZZ-AI-BARK-001
+9417,890000000020254,Wait for light.,Wait for light.,JAZZ-AI-BARK-001
+9418,890000000020255,Don't go in.,Don't go in.,JAZZ-AI-BARK-001
+9419,890000000020256,Quiet.,Quiet.,JAZZ-AI-BARK-001
+9420,890000000020257,Into the dark. Quiet!,Into the dark. Quiet!,JAZZ-AI-BARK-001
+9421,890000000020258,Stay hidden!,Stay hidden!,JAZZ-AI-BARK-001
+9422,890000000020259,Don't show yourselves!,Don't show yourselves!,JAZZ-AI-BARK-001
+9423,890000000020260,In the grass. Down!,In the grass. Down!,JAZZ-AI-BARK-001
+9424,890000000020261,Shh. Vanish.,Shh. Vanish.,JAZZ-AI-BARK-001
+9425,890000000020262,Into cover.,Into cover.,JAZZ-AI-BARK-001
+9426,890000000020263,Quiet.,Quiet.,JAZZ-AI-BARK-001
+9427,890000000020264,Don't show.,Don't show.,JAZZ-AI-BARK-001
+9428,890000000020265,Stay hidden.,Stay hidden.,JAZZ-AI-BARK-001
+9429,890000000020266,Vanish.,Vanish.,JAZZ-AI-BARK-001
+9430,890000000020267,Please—,Please—,JAZZ-AI-BARK-001
+9431,890000000020268,I wanna go home,I wanna go home,JAZZ-AI-BARK-001
+9432,890000000020269,Mama—,Mama—,JAZZ-AI-BARK-001
+9433,890000000020270,Don't shoot—,Don't shoot—,JAZZ-AI-BARK-001
+9434,890000000020271,I don't want this,I don't want this,JAZZ-AI-BARK-001
+9435,890000000020272,They'll walk over us!,They'll walk over us!,JAZZ-AI-BARK-001
+9436,890000000020273,We're not staying. Go!,We're not staying. Go!,JAZZ-AI-BARK-001
+9437,890000000020274,This is a butcher shop,This is a butcher shop,JAZZ-AI-BARK-001
+9438,890000000020275,They'll drop us,They'll drop us,JAZZ-AI-BARK-001
+9439,890000000020276,Time to go,Time to go,JAZZ-AI-BARK-001
+9440,890000000020277,Damn it—,Damn it—,JAZZ-AI-BARK-001
+9441,890000000020278,Not now,Not now,JAZZ-AI-BARK-001
+9442,890000000020279,Bad,Bad,JAZZ-AI-BARK-001
+9443,890000000020280,Not here,Not here,JAZZ-AI-BARK-001
+9444,890000000020281,Enough,Enough,JAZZ-AI-BARK-001
+9445,890000000020282,I wanna live,I wanna live,JAZZ-AI-BARK-001
+9446,890000000020283,Fight it yourselves,Fight it yourselves,JAZZ-AI-BARK-001
+9447,890000000020284,I'm taking off,I'm taking off,JAZZ-AI-BARK-001
+9448,890000000020285,I still wanna live,I still wanna live,JAZZ-AI-BARK-001
+9449,890000000020286,I've seen enough blood,I've seen enough blood,JAZZ-AI-BARK-001
+9450,890000000020287,I'm through,I'm through,JAZZ-AI-BARK-001
+9451,890000000020288,I've done my share,I've done my share,JAZZ-AI-BARK-001
+9452,890000000020289,Find someone else,Find someone else,JAZZ-AI-BARK-001
+9453,890000000020290,I'm leaving,I'm leaving,JAZZ-AI-BARK-001
+9454,890000000020291,You go on without me,You go on without me,JAZZ-AI-BARK-001
+9455,890000000020292,Find another fool,Find another fool,JAZZ-AI-BARK-001
+9456,890000000020293,Nothing left for me here,Nothing left for me here,JAZZ-AI-BARK-001
+9457,890000000020294,Job's done,Job's done,JAZZ-AI-BARK-001
+9458,890000000020295,I'm out,I'm out,JAZZ-AI-BARK-001
+9459,890000000020296,Not my fight,Not my fight,JAZZ-AI-BARK-001
+9460,890000000020297,I'll kill you!,I'll kill you!,JAZZ-AI-BARK-001
+9461,890000000020298,Aaah! Come here!,Aaah! Come here!,JAZZ-AI-BARK-001
+9462,890000000020299,I'll tear you all!,I'll tear you all!,JAZZ-AI-BARK-001
+9463,890000000020300,Blood! More!,Blood! More!,JAZZ-AI-BARK-001
+9464,890000000020301,Can't stop me!,Can't stop me!,JAZZ-AI-BARK-001
+9465,890000000020302,I'll drop you all!,I'll drop you all!,JAZZ-AI-BARK-001
+9466,890000000020303,Stop hiding!,Stop hiding!,JAZZ-AI-BARK-001
+9467,890000000020304,Coming for you!,Coming for you!,JAZZ-AI-BARK-001
+9468,890000000020305,Cut them down!,Cut them down!,JAZZ-AI-BARK-001
+9469,890000000020306,Nobody lives!,Nobody lives!,JAZZ-AI-BARK-001
+9470,890000000020307,All of you.,All of you.,JAZZ-AI-BARK-001
+9471,890000000020308,Coming.,Coming.,JAZZ-AI-BARK-001
+9472,890000000020309,I'll finish it.,I'll finish it.,JAZZ-AI-BARK-001
+9473,890000000020310,Enough waiting.,Enough waiting.,JAZZ-AI-BARK-001
+9474,890000000020311,Forward.,Forward.,JAZZ-AI-BARK-001
+9475,890000000020312,Easy,Easy,JAZZ-AI-BARK-001
+9476,890000000020313,I'll stop the blood,I'll stop the blood,JAZZ-AI-BARK-001
+9477,890000000020314,I'll bind it,I'll bind it,JAZZ-AI-BARK-001
+9478,890000000020315,Don't jerk. You're alive,Don't jerk. You're alive,JAZZ-AI-BARK-001
+9479,890000000020316,Stay down. I'm here,Stay down. I'm here,JAZZ-AI-BARK-001
+9480,890000000020317,Don't jerk,Don't jerk,JAZZ-AI-BARK-001
+9481,890000000020318,Shut up and you'll live,Shut up and you'll live,JAZZ-AI-BARK-001
+9482,890000000020319,Binding. Don't yell,Binding. Don't yell,JAZZ-AI-BARK-001
+9483,890000000020320,You'll live,You'll live,JAZZ-AI-BARK-001
+9484,890000000020321,Hold on. I'll close it,Hold on. I'll close it,JAZZ-AI-BARK-001
+9485,890000000020322,Lie still.,Lie still.,JAZZ-AI-BARK-001
+9486,890000000020323,Don't get in the way.,Don't get in the way.,JAZZ-AI-BARK-001
+9487,890000000020324,Quiet.,Quiet.,JAZZ-AI-BARK-001
+9488,890000000020325,Alive. Stay down.,Alive. Stay down.,JAZZ-AI-BARK-001
+9489,890000000020326,Hands.,Hands.,JAZZ-AI-BARK-001
+9490,890000000020327,I'll cut you!,I'll cut you!,JAZZ-AI-BARK-001
+9491,890000000020328,Closer—,Closer—,JAZZ-AI-BARK-001
+9492,890000000020329,"Knife, knife!","Knife, knife!",JAZZ-AI-BARK-001
+9493,890000000020330,I'm coming in!,I'm coming in!,JAZZ-AI-BARK-001
+9494,890000000020331,Save the rounds. Cutting,Save the rounds. Cutting,JAZZ-AI-BARK-001
+9495,890000000020332,Easier up close,Easier up close,JAZZ-AI-BARK-001
+9496,890000000020333,On the knife,On the knife,JAZZ-AI-BARK-001
+9497,890000000020334,Point blank,Point blank,JAZZ-AI-BARK-001
+9498,890000000020335,Enough shooting. Cut,Enough shooting. Cut,JAZZ-AI-BARK-001
+9499,890000000020336,Going in close,Going in close,JAZZ-AI-BARK-001
+9500,890000000020337,Close in.,Close in.,JAZZ-AI-BARK-001
+9501,890000000020338,Enough shooting.,Enough shooting.,JAZZ-AI-BARK-001
+9502,890000000020339,Knife.,Knife.,JAZZ-AI-BARK-001
+9503,890000000020340,Point blank.,Point blank.,JAZZ-AI-BARK-001
+9504,890000000020341,Closer.,Closer.,JAZZ-AI-BARK-001
+9505,890000000020342,"Burn, damn you!","Burn, damn you!",JAZZ-AI-BARK-001
+9506,890000000020343,Faces into the light!,Faces into the light!,JAZZ-AI-BARK-001
+9507,890000000020344,"Light, light!","Light, light!",JAZZ-AI-BARK-001
+9508,890000000020345,Burn in their eyes!,Burn in their eyes!,JAZZ-AI-BARK-001
+9509,890000000020346,So we can see!,So we can see!,JAZZ-AI-BARK-001
+9510,890000000020347,In their eyes,In their eyes,JAZZ-AI-BARK-001
+9511,890000000020348,"Come out, you bastards","Come out, you bastards",JAZZ-AI-BARK-001
+9512,890000000020349,Lit them,Lit them,JAZZ-AI-BARK-001
+9513,890000000020350,Now we see,Now we see,JAZZ-AI-BARK-001
+9514,890000000020351,No more hiding,No more hiding,JAZZ-AI-BARK-001
+9515,890000000020352,Light.,Light.,JAZZ-AI-BARK-001
+9516,890000000020353,They'll show.,They'll show.,JAZZ-AI-BARK-001
+9517,890000000020354,Burn.,Burn.,JAZZ-AI-BARK-001
+9518,890000000020355,Eyes.,Eyes.,JAZZ-AI-BARK-001
+9519,890000000020356,I see.,I see.,JAZZ-AI-BARK-001
+9520,890000000020357,Into the smoke!,Into the smoke!,JAZZ-AI-BARK-001
+9521,890000000020358,They won't see,They won't see,JAZZ-AI-BARK-001
+9522,890000000020359,We hide in the smoke,We hide in the smoke,JAZZ-AI-BARK-001
+9523,890000000020360,Hide in the smoke!,Hide in the smoke!,JAZZ-AI-BARK-001
+9524,890000000020361,So they don't see!,So they don't see!,JAZZ-AI-BARK-001
+9525,890000000020362,I'll cover us,I'll cover us,JAZZ-AI-BARK-001
+9526,890000000020363,Through the smoke,Through the smoke,JAZZ-AI-BARK-001
+9527,890000000020364,Cover the yard,Cover the yard,JAZZ-AI-BARK-001
+9528,890000000020365,We go under the smoke,We go under the smoke,JAZZ-AI-BARK-001
+9529,890000000020366,They can't see. Go,They can't see. Go,JAZZ-AI-BARK-001
+9530,890000000020367,Smoke. Then we go.,Smoke. Then we go.,JAZZ-AI-BARK-001
+9531,890000000020368,Covered. Go.,Covered. Go.,JAZZ-AI-BARK-001
+9532,890000000020369,Smoke.,Smoke.,JAZZ-AI-BARK-001
+9533,890000000020370,Cover it.,Cover it.,JAZZ-AI-BARK-001
+9534,890000000020371,We go.,We go.,JAZZ-AI-BARK-001
+9535,890000000020372,"Here, you bastards!","Here, you bastards!",JAZZ-AI-BARK-001
+9536,890000000020373,Catch!,Catch!,JAZZ-AI-BARK-001
+9537,890000000020374,That's for you!,That's for you!,JAZZ-AI-BARK-001
+9538,890000000020375,Catch this!,Catch this!,JAZZ-AI-BARK-001
+9539,890000000020376,This one's gonna bang!,This one's gonna bang!,JAZZ-AI-BARK-001
+9540,890000000020377,It's in the air!,It's in the air!,JAZZ-AI-BARK-001
+9541,890000000020378,Down — not you,Down — not you,JAZZ-AI-BARK-001
+9542,890000000020379,At their feet,At their feet,JAZZ-AI-BARK-001
+9543,890000000020380,Clearing the yard,Clearing the yard,JAZZ-AI-BARK-001
+9544,890000000020381,Into the bunch,Into the bunch,JAZZ-AI-BARK-001
+9545,890000000020382,At their feet.,At their feet.,JAZZ-AI-BARK-001
+9546,890000000020383,For them.,For them.,JAZZ-AI-BARK-001
+9547,890000000020384,There.,There.,JAZZ-AI-BARK-001
+9548,890000000020385,Clearing.,Clearing.,JAZZ-AI-BARK-001
+9549,890000000020386,Bang.,Bang.,JAZZ-AI-BARK-001
+9550,890000000020387,Burn!,Burn!,JAZZ-AI-BARK-001
+9551,890000000020388,Heat for them!,Heat for them!,JAZZ-AI-BARK-001
+9552,890000000020389,I'm torching the house!,I'm torching the house!,JAZZ-AI-BARK-001
+9553,890000000020390,"Fire, fire!","Fire, fire!",JAZZ-AI-BARK-001
+9554,890000000020391,Let them fry!,Let them fry!,JAZZ-AI-BARK-001
+9555,890000000020392,Torching the yard,Torching the yard,JAZZ-AI-BARK-001
+9556,890000000020393,Fire on them!,Fire on them!,JAZZ-AI-BARK-001
+9557,890000000020394,Let them run,Let them run,JAZZ-AI-BARK-001
+9558,890000000020395,Lighting the house,Lighting the house,JAZZ-AI-BARK-001
+9559,890000000020396,It'll get hot,It'll get hot,JAZZ-AI-BARK-001
+9560,890000000020397,Burn it.,Burn it.,JAZZ-AI-BARK-001
+9561,890000000020398,Fire.,Fire.,JAZZ-AI-BARK-001
+9562,890000000020399,The house.,The house.,JAZZ-AI-BARK-001
+9563,890000000020400,Heat.,Heat.,JAZZ-AI-BARK-001
+9564,890000000020401,Burn.,Burn.,JAZZ-AI-BARK-001
+9565,890000000020402,Let them choke!,Let them choke!,JAZZ-AI-BARK-001
+9566,890000000020403,Filth for them!,Filth for them!,JAZZ-AI-BARK-001
+9567,890000000020404,"Cough, you bastards!","Cough, you bastards!",JAZZ-AI-BARK-001
+9568,890000000020405,Breathe that!,Breathe that!,JAZZ-AI-BARK-001
+9569,890000000020406,They'll spit blood!,They'll spit blood!,JAZZ-AI-BARK-001
+9570,890000000020407,Let them drink it,Let them drink it,JAZZ-AI-BARK-001
+9571,890000000020408,Spoiling the yard,Spoiling the yard,JAZZ-AI-BARK-001
+9572,890000000020409,They don't get air,They don't get air,JAZZ-AI-BARK-001
+9573,890000000020410,They'll cough themselves out,They'll cough themselves out,JAZZ-AI-BARK-001
+9574,890000000020411,The filth's in the air,The filth's in the air,JAZZ-AI-BARK-001
+9575,890000000020412,Breathe.,Breathe.,JAZZ-AI-BARK-001
+9576,890000000020413,The yard.,The yard.,JAZZ-AI-BARK-001
+9577,890000000020414,Cough.,Cough.,JAZZ-AI-BARK-001
+9578,890000000020415,Filth.,Filth.,JAZZ-AI-BARK-001
+9579,890000000020416,That's it.,That's it.,JAZZ-AI-BARK-001
+9580,890000000020417,Grabbing the long one!,Grabbing the long one!,JAZZ-AI-BARK-001
+9581,890000000020418,Long one in hand!,Long one in hand!,JAZZ-AI-BARK-001
+9582,890000000020419,The short one's useless,The short one's useless,JAZZ-AI-BARK-001
+9583,890000000020420,Switching to the far one!,Switching to the far one!,JAZZ-AI-BARK-001
+9584,890000000020421,Grabbing a gun!,Grabbing a gun!,JAZZ-AI-BARK-001
+9585,890000000020422,Long gun,Long gun,JAZZ-AI-BARK-001
+9586,890000000020423,Long one back,Long one back,JAZZ-AI-BARK-001
+9587,890000000020424,This one reaches farther,This one reaches farther,JAZZ-AI-BARK-001
+9588,890000000020425,Switching guns,Switching guns,JAZZ-AI-BARK-001
+9589,890000000020426,This one reaches,This one reaches,JAZZ-AI-BARK-001
+9590,890000000020427,Long one.,Long one.,JAZZ-AI-BARK-001
+9591,890000000020428,Farther.,Farther.,JAZZ-AI-BARK-001
+9592,890000000020429,Back on.,Back on.,JAZZ-AI-BARK-001
+9593,890000000020430,Gun.,Gun.,JAZZ-AI-BARK-001
+9594,890000000020431,Taking it.,Taking it.,JAZZ-AI-BARK-001
+9595,890000000020432,Grabbing buckshot!,Grabbing buckshot!,JAZZ-AI-BARK-001
+9596,890000000020433,Grabbing the short mean one!,Grabbing the short mean one!,JAZZ-AI-BARK-001
+9597,890000000020434,Into the house!,Into the house!,JAZZ-AI-BARK-001
+9598,890000000020435,Switching. Up close!,Switching. Up close!,JAZZ-AI-BARK-001
+9599,890000000020436,I'll take the door!,I'll take the door!,JAZZ-AI-BARK-001
+9600,890000000020437,Buckshot,Buckshot,JAZZ-AI-BARK-001
+9601,890000000020438,Up close now,Up close now,JAZZ-AI-BARK-001
+9602,890000000020439,Putting the short one on,Putting the short one on,JAZZ-AI-BARK-001
+9603,890000000020440,Into the house,Into the house,JAZZ-AI-BARK-001
+9604,890000000020441,Better up close,Better up close,JAZZ-AI-BARK-001
+9605,890000000020442,Buckshot.,Buckshot.,JAZZ-AI-BARK-001
+9606,890000000020443,Up close.,Up close.,JAZZ-AI-BARK-001
+9607,890000000020444,Short one.,Short one.,JAZZ-AI-BARK-001
+9608,890000000020445,Into the house.,Into the house.,JAZZ-AI-BARK-001
+9609,890000000020446,Putting it on.,Putting it on.,JAZZ-AI-BARK-001
+9610,890000000020447,Setting the belt!,Setting the belt!,JAZZ-AI-BARK-001
+9611,890000000020448,Belt in hand!,Belt in hand!,JAZZ-AI-BARK-001
+9612,890000000020449,Grabbing the long mean one!,Grabbing the long mean one!,JAZZ-AI-BARK-001
+9613,890000000020450,Switching. Street's mine!,Switching. Street's mine!,JAZZ-AI-BARK-001
+9614,890000000020451,I'll hold them all!,I'll hold them all!,JAZZ-AI-BARK-001
+9615,890000000020452,Setting the belt,Setting the belt,JAZZ-AI-BARK-001
+9616,890000000020453,Setting the long one,Setting the long one,JAZZ-AI-BARK-001
+9617,890000000020454,This covers the street,This covers the street,JAZZ-AI-BARK-001
+9618,890000000020455,This holds the yard,This holds the yard,JAZZ-AI-BARK-001
+9619,890000000020456,Switching to the long one,Switching to the long one,JAZZ-AI-BARK-001
+9620,890000000020457,Belt.,Belt.,JAZZ-AI-BARK-001
+9621,890000000020458,The long one.,The long one.,JAZZ-AI-BARK-001
+9622,890000000020459,The street.,The street.,JAZZ-AI-BARK-001
+9623,890000000020460,The yard's mine.,The yard's mine.,JAZZ-AI-BARK-001
+9624,890000000020461,Mine.,Mine.,JAZZ-AI-BARK-001
+9625,890000000020462,Short one from the pocket!,Short one from the pocket!,JAZZ-AI-BARK-001
+9626,890000000020463,Short one in hand!,Short one in hand!,JAZZ-AI-BARK-001
+9627,890000000020464,Long one's jammed—,Long one's jammed—,JAZZ-AI-BARK-001
+9628,890000000020465,Switching to the quick one!,Switching to the quick one!,JAZZ-AI-BARK-001
+9629,890000000020466,Short one into the house!,Short one into the house!,JAZZ-AI-BARK-001
+9630,890000000020467,Pulling the short one,Pulling the short one,JAZZ-AI-BARK-001
+9631,890000000020468,From the pocket,From the pocket,JAZZ-AI-BARK-001
+9632,890000000020469,Faster this way,Faster this way,JAZZ-AI-BARK-001
+9633,890000000020470,Short one up close,Short one up close,JAZZ-AI-BARK-001
+9634,890000000020471,Long one later,Long one later,JAZZ-AI-BARK-001
+9635,890000000020472,Short one.,Short one.,JAZZ-AI-BARK-001
+9636,890000000020473,Pocket.,Pocket.,JAZZ-AI-BARK-001
+9637,890000000020474,Quick.,Quick.,JAZZ-AI-BARK-001
+9638,890000000020475,Close.,Close.,JAZZ-AI-BARK-001
+9639,890000000020476,Got it.,Got it.,JAZZ-AI-BARK-001
+9640,890000000020477,Grabbing the short one!,Grabbing the short one!,JAZZ-AI-BARK-001
+9641,890000000020478,Short one in hand!,Short one in hand!,JAZZ-AI-BARK-001
+9642,890000000020479,Through the window!,Through the window!,JAZZ-AI-BARK-001
+9643,890000000020480,Switching. At the door!,Switching. At the door!,JAZZ-AI-BARK-001
+9644,890000000020481,Hitting the house!,Hitting the house!,JAZZ-AI-BARK-001
+9645,890000000020482,Putting the short one on,Putting the short one on,JAZZ-AI-BARK-001
+9646,890000000020483,Under the barrel now,Under the barrel now,JAZZ-AI-BARK-001
+9647,890000000020484,This one at the window,This one at the window,JAZZ-AI-BARK-001
+9648,890000000020485,I'll take the door,I'll take the door,JAZZ-AI-BARK-001
+9649,890000000020486,Hitting the house,Hitting the house,JAZZ-AI-BARK-001
+9650,890000000020487,Short one.,Short one.,JAZZ-AI-BARK-001
+9651,890000000020488,Under the barrel.,Under the barrel.,JAZZ-AI-BARK-001
+9652,890000000020489,Window.,Window.,JAZZ-AI-BARK-001
+9653,890000000020490,Door.,Door.,JAZZ-AI-BARK-001
+9654,890000000020491,House.,House.,JAZZ-AI-BARK-001
+9655,890000000020492,Grabbing the pipe!,Grabbing the pipe!,JAZZ-AI-BARK-001
+9656,890000000020493,The big one in hand!,The big one in hand!,JAZZ-AI-BARK-001
+9657,890000000020494,"Back, this bangs!","Back, this bangs!",JAZZ-AI-BARK-001
+9658,890000000020495,Switching. House comes down!,Switching. House comes down!,JAZZ-AI-BARK-001
+9659,890000000020496,This one off the shoulder!,This one off the shoulder!,JAZZ-AI-BARK-001
+9660,890000000020497,Grabbing the pipe,Grabbing the pipe,JAZZ-AI-BARK-001
+9661,890000000020498,Pipe's going up,Pipe's going up,JAZZ-AI-BARK-001
+9662,890000000020499,Putting the heavy one on,Putting the heavy one on,JAZZ-AI-BARK-001
+9663,890000000020500,That house comes down,That house comes down,JAZZ-AI-BARK-001
+9664,890000000020501,Off the shoulder,Off the shoulder,JAZZ-AI-BARK-001
+9665,890000000020502,Pipe.,Pipe.,JAZZ-AI-BARK-001
+9666,890000000020503,Heavy.,Heavy.,JAZZ-AI-BARK-001
+9667,890000000020504,Coming down.,Coming down.,JAZZ-AI-BARK-001
+9668,890000000020505,The house.,The house.,JAZZ-AI-BARK-001
+9669,890000000020506,Shoulder.,Shoulder.,JAZZ-AI-BARK-001
+9670,890000000020507,Grabbing the long eye!,Grabbing the long eye!,JAZZ-AI-BARK-001
+9671,890000000020508,Long one in hand!,Long one in hand!,JAZZ-AI-BARK-001
+9672,890000000020509,I'll go prone and shoot!,I'll go prone and shoot!,JAZZ-AI-BARK-001
+9673,890000000020510,Switching. From the hill!,Switching. From the hill!,JAZZ-AI-BARK-001
+9674,890000000020511,Don't breathe. Aiming!,Don't breathe. Aiming!,JAZZ-AI-BARK-001
+9675,890000000020512,Putting the long one on,Putting the long one on,JAZZ-AI-BARK-001
+9676,890000000020513,This one from the hill,This one from the hill,JAZZ-AI-BARK-001
+9677,890000000020514,Down. Shooting,Down. Shooting,JAZZ-AI-BARK-001
+9678,890000000020515,I can reach from here,I can reach from here,JAZZ-AI-BARK-001
+9679,890000000020516,One. Then quiet,One. Then quiet,JAZZ-AI-BARK-001
+9680,890000000020517,Long one.,Long one.,JAZZ-AI-BARK-001
+9681,890000000020518,The hill.,The hill.,JAZZ-AI-BARK-001
+9682,890000000020519,Down.,Down.,JAZZ-AI-BARK-001
+9683,890000000020520,One.,One.,JAZZ-AI-BARK-001
+9684,890000000020521,Quiet.,Quiet.,JAZZ-AI-BARK-001
+9685,890000000020522,Knife's out!,Knife's out!,JAZZ-AI-BARK-001
+9686,890000000020523,Dropped the gun. Cutting!,Dropped the gun. Cutting!,JAZZ-AI-BARK-001
+9687,890000000020524,Iron in hand!,Iron in hand!,JAZZ-AI-BARK-001
+9688,890000000020525,No rounds. Knife!,No rounds. Knife!,JAZZ-AI-BARK-001
+9689,890000000020526,Switching. Closer!,Switching. Closer!,JAZZ-AI-BARK-001
+9690,890000000020527,On the knife,On the knife,JAZZ-AI-BARK-001
+9691,890000000020528,Gun aside,Gun aside,JAZZ-AI-BARK-001
+9692,890000000020529,Iron,Iron,JAZZ-AI-BARK-001
+9693,890000000020530,This one up close,This one up close,JAZZ-AI-BARK-001
+9694,890000000020531,Cut,Cut,JAZZ-AI-BARK-001
+9695,890000000020532,Knife.,Knife.,JAZZ-AI-BARK-001
+9696,890000000020533,Gun down.,Gun down.,JAZZ-AI-BARK-001
+9697,890000000020534,Iron.,Iron.,JAZZ-AI-BARK-001
+9698,890000000020535,Close.,Close.,JAZZ-AI-BARK-001
+9699,890000000020536,Cut.,Cut.,JAZZ-AI-BARK-001
+9700,890000000020537,I'm sitting here,I'm sitting here,JAZZ-AI-BARK-001
+9701,890000000020538,From this corner!,From this corner!,JAZZ-AI-BARK-001
+9702,890000000020539,Setting up. Cover me,Setting up. Cover me,JAZZ-AI-BARK-001
+9703,890000000020540,Sitting here. Street's mine,Sitting here. Street's mine,JAZZ-AI-BARK-001
+9704,890000000020541,Legs down!,Legs down!,JAZZ-AI-BARK-001
+9705,890000000020542,I'll take the street,I'll take the street,JAZZ-AI-BARK-001
+9706,890000000020543,Goes here,Goes here,JAZZ-AI-BARK-001
+9707,890000000020544,From the corner,From the corner,JAZZ-AI-BARK-001
+9708,890000000020545,I'll shut the yard,I'll shut the yard,JAZZ-AI-BARK-001
+9709,890000000020546,Sat. Street's mine,Sat. Street's mine,JAZZ-AI-BARK-001
+9710,890000000020547,This street's mine.,This street's mine.,JAZZ-AI-BARK-001
+9711,890000000020548,Here.,Here.,JAZZ-AI-BARK-001
+9712,890000000020549,Corner.,Corner.,JAZZ-AI-BARK-001
+9713,890000000020550,Sat.,Sat.,JAZZ-AI-BARK-001
+9714,890000000020551,Yard's mine.,Yard's mine.,JAZZ-AI-BARK-001
+9715,890000000020552,I'm going at them!,I'm going at them!,JAZZ-AI-BARK-001
+9716,890000000020553,I'm going in!,I'm going in!,JAZZ-AI-BARK-001
+9717,890000000020554,Don't stand. After me!,Don't stand. After me!,JAZZ-AI-BARK-001
+9718,890000000020555,Stay with me!,Stay with me!,JAZZ-AI-BARK-001
+9719,890000000020556,We go!,We go!,JAZZ-AI-BARK-001
+9720,890000000020557,Going in,Going in,JAZZ-AI-BARK-001
+9721,890000000020558,Running at them,Running at them,JAZZ-AI-BARK-001
+9722,890000000020559,Forward,Forward,JAZZ-AI-BARK-001
+9723,890000000020560,Don't wait,Don't wait,JAZZ-AI-BARK-001
+9724,890000000020561,I'll go first,I'll go first,JAZZ-AI-BARK-001
+9725,890000000020562,In.,In.,JAZZ-AI-BARK-001
+9726,890000000020563,Forward.,Forward.,JAZZ-AI-BARK-001
+9727,890000000020564,At them.,At them.,JAZZ-AI-BARK-001
+9728,890000000020565,Going.,Going.,JAZZ-AI-BARK-001
+9729,890000000020566,I'm first.,I'm first.,JAZZ-AI-BARK-001
+9730,890000000020567,I'll come from the side!,I'll come from the side!,JAZZ-AI-BARK-001
+9731,890000000020568,Not the front. Around!,Not the front. Around!,JAZZ-AI-BARK-001
+9732,890000000020569,I'll go around them!,I'll go around them!,JAZZ-AI-BARK-001
+9733,890000000020570,Running the edge!,Running the edge!,JAZZ-AI-BARK-001
+9734,890000000020571,"With me, from the side!","With me, from the side!",JAZZ-AI-BARK-001
+9735,890000000020572,The side,The side,JAZZ-AI-BARK-001
+9736,890000000020573,Around,Around,JAZZ-AI-BARK-001
+9737,890000000020574,Not the front,Not the front,JAZZ-AI-BARK-001
+9738,890000000020575,The edge,The edge,JAZZ-AI-BARK-001
+9739,890000000020576,Around them,Around them,JAZZ-AI-BARK-001
+9740,890000000020577,The side.,The side.,JAZZ-AI-BARK-001
+9741,890000000020578,Around.,Around.,JAZZ-AI-BARK-001
+9742,890000000020579,Not the front.,Not the front.,JAZZ-AI-BARK-001
+9743,890000000020580,The edge.,The edge.,JAZZ-AI-BARK-001
+9744,890000000020581,Around.,Around.,JAZZ-AI-BARK-001
+9745,890000000020582,It's far. I'm running!,It's far. I'm running!,JAZZ-AI-BARK-001
+9746,890000000020583,I'll get there!,I'll get there!,JAZZ-AI-BARK-001
+9747,890000000020584,Don't wait. I'm going!,Don't wait. I'm going!,JAZZ-AI-BARK-001
+9748,890000000020585,Watch. Across the yard!,Watch. Across the yard!,JAZZ-AI-BARK-001
+9749,890000000020586,Crossing now!,Crossing now!,JAZZ-AI-BARK-001
+9750,890000000020587,Sprinting,Sprinting,JAZZ-AI-BARK-001
+9751,890000000020588,I'll get there,I'll get there,JAZZ-AI-BARK-001
+9752,890000000020589,Crossing,Crossing,JAZZ-AI-BARK-001
+9753,890000000020590,Closing in,Closing in,JAZZ-AI-BARK-001
+9754,890000000020591,It's far. Still going,It's far. Still going,JAZZ-AI-BARK-001
+9755,890000000020592,Sprint.,Sprint.,JAZZ-AI-BARK-001
+9756,890000000020593,I'll get there.,I'll get there.,JAZZ-AI-BARK-001
+9757,890000000020594,Running.,Running.,JAZZ-AI-BARK-001
+9758,890000000020595,Closer.,Closer.,JAZZ-AI-BARK-001
+9759,890000000020596,It's far. Going.,It's far. Going.,JAZZ-AI-BARK-001

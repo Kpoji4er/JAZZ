@@ -1638,6 +1638,7 @@ function JazzAI_WriteOfficerAura(unit)
 	JazzAI_TeamDirectives = JazzAI_TeamDirectives or {}
 	local key = team.side or team.handle or tostring(team)
 	local entry = JazzAI_TeamDirectives[key] or {}
+	local prev_directive = entry.directive
 	entry.directive = directive
 	entry.source = unit
 	entry.radius = radius
@@ -1685,6 +1686,9 @@ function JazzAI_WriteOfficerAura(unit)
 		entry.pusher = false
 	end
 	JazzAI_TeamDirectives[key] = entry
+	if JazzAI_BarkOnDirective then
+		JazzAI_BarkOnDirective(unit, prev_directive, directive, entry)
+	end
 
 	-- Commander: visible command aura perk
 	JazzAI_SetAuraEffect(unit, "Jazz_Perk_OfficerAura", true)

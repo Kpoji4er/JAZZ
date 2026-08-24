@@ -145,6 +145,9 @@ function AIActionThrowFlare:Execute(context, action_state)
 		JazzAI_FlarePushUntil = (g_Combat.current_turn or 0) + 1
 	end
 	AIPlayCombatAction(action_state.action_id, context.unit, nil, {target = action_state.target_pos})
+	if JazzAI_TryCombatBark then
+		JazzAI_TryCombatBark(context.unit, "nade_flare", { pos = action_state.target_pos })
+	end
 end
 
 local function IsUnitInTheDark(hit)

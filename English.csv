@@ -12585,3 +12585,443 @@ Speck",,JAZZ-UI-MERC-001
 <practice>","<help>
 
 <practice>",,jazz-units:Code/StatGainRework.lua
+890000000020157,Stay put! Don't push!,Stay put! Don't push!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020158,Nobody moves!,Nobody moves!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020159,Yard's ours. Sit.,Yard's ours. Sit.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020160,Don't go in yet,Don't go in yet,,jazz:Code/System_AI_CombatBarks.lua
+890000000020161,Let them come to us,Let them come to us,,jazz:Code/System_AI_CombatBarks.lua
+890000000020162,Hold.,Hold.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020163,Don't go in.,Don't go in.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020164,Here.,Here.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020165,We wait.,We wait.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020166,Sit tight.,Sit tight.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020167,"Move, you dogs!","Move, you dogs!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020168,Hit 'em already!,Hit 'em already!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020169,We go at them!,We go at them!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020170,Don't stand. Hit!,Don't stand. Hit!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020171,Hit them while they're up!,Hit them while they're up!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020172,I said move.,I said move.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020173,Now. Into them.,Now. Into them.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020174,We go.,We go.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020175,On them. Now.,On them. Now.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020176,Don't wait.,Don't wait.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020177,"Around back, not the front!","Around back, not the front!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020178,Through the yards!,Through the yards!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020179,Come in from the sides!,Come in from the sides!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020180,Not the street. Behind!,Not the street. Behind!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020181,Around the houses!,Around the houses!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020182,Around back.,Around back.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020183,Not in a bunch.,Not in a bunch.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020184,From the edge.,From the edge.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020185,Go around.,Go around.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020186,Not straight in.,Not straight in.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020187,Get back!,Get back!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020188,Down or you're next!,Down or you're next!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020189,We're pulling out!,We're pulling out!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020190,"Back, if you're whole!","Back, if you're whole!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020191,We need you alive!,We need you alive!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020192,We're out.,We're out.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020193,Back. Alive.,Back. Alive.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020194,Leaving.,Leaving.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020195,Back.,Back.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020196,Enough.,Enough.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020197,All of you — <name>!,All of you — <name>!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020198,<name>. Nobody else.,<name>. Nobody else.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020199,On <name>. Shoot!,On <name>. Shoot!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020200,Drop <name>!,Drop <name>!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020201,"Only <name>, I said!","Only <name>, I said!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020202,<name>. Everyone.,<name>. Everyone.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020203,Only <name>.,Only <name>.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020204,<name>.,<name>.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020205,Fire. <name>.,Fire. <name>.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020206,<name>. Drop him.,<name>. Drop him.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020207,That one. Hit him!,That one. Hit him!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020208,Stop spraying!,Stop spraying!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020209,One man. All of you!,One man. All of you!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020210,This one. Only this!,This one. Only this!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020211,Don't spray. One!,Don't spray. One!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020212,That one. All of you.,That one. All of you.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020213,Don't split it.,Don't split it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020214,One of them.,One of them.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020215,This one.,This one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020216,Don't spray.,Don't spray.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020217,Inside! Windows!,Inside! Windows!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020218,Off the yard. Inside!,Off the yard. Inside!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020219,Into the houses!,Into the houses!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020220,From the windows!,From the windows!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020221,Not the yard. Inside!,Not the yard. Inside!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020222,Inside.,Inside.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020223,From the windows.,From the windows.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020224,Indoors.,Indoors.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020225,Off the yard.,Off the yard.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020226,Windows.,Windows.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020227,Up the roof!,Up the roof!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020228,Drop them from up there!,Drop them from up there!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020229,Up the hill!,Up the hill!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020230,Roofs are ours!,Roofs are ours!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020231,"Up, come on!","Up, come on!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020232,Up.,Up.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020233,From the hill.,From the hill.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020234,Roofs.,Roofs.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020235,Higher.,Higher.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020236,From above.,From above.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020237,Belly down!,Belly down!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020238,"Down, bullets flying!","Down, bullets flying!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020239,To the dirt!,To the dirt!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020240,Get behind!,Get behind!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020241,Heads down!,Heads down!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020242,Down.,Down.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020243,Don't pop up.,Don't pop up.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020244,To the dirt.,To the dirt.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020245,Get down.,Get down.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020246,Don't show.,Don't show.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020247,Don't walk into that dark!,Don't walk into that dark!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020248,Stay. Let 'em show.,Stay. Let 'em show.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020249,Not into the black!,Not into the black!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020250,Wait. Let them show.,Wait. Let them show.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020251,Quiet. We stay.,Quiet. We stay.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020252,Stay put.,Stay put.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020253,No heroes.,No heroes.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020254,Wait for light.,Wait for light.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020255,Don't go in.,Don't go in.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020256,Quiet.,Quiet.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020257,Into the dark. Quiet!,Into the dark. Quiet!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020258,Stay hidden!,Stay hidden!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020259,Don't show yourselves!,Don't show yourselves!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020260,In the grass. Down!,In the grass. Down!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020261,Shh. Vanish.,Shh. Vanish.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020262,Into cover.,Into cover.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020263,Quiet.,Quiet.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020264,Don't show.,Don't show.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020265,Stay hidden.,Stay hidden.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020266,Vanish.,Vanish.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020267,Please—,Please—,,jazz:Code/System_AI_CombatBarks.lua
+890000000020268,I wanna go home,I wanna go home,,jazz:Code/System_AI_CombatBarks.lua
+890000000020269,Mama—,Mama—,,jazz:Code/System_AI_CombatBarks.lua
+890000000020270,Don't shoot—,Don't shoot—,,jazz:Code/System_AI_CombatBarks.lua
+890000000020271,I don't want this,I don't want this,,jazz:Code/System_AI_CombatBarks.lua
+890000000020272,They'll walk over us!,They'll walk over us!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020273,We're not staying. Go!,We're not staying. Go!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020274,This is a butcher shop,This is a butcher shop,,jazz:Code/System_AI_CombatBarks.lua
+890000000020275,They'll drop us,They'll drop us,,jazz:Code/System_AI_CombatBarks.lua
+890000000020276,Time to go,Time to go,,jazz:Code/System_AI_CombatBarks.lua
+890000000020277,Damn it—,Damn it—,,jazz:Code/System_AI_CombatBarks.lua
+890000000020278,Not now,Not now,,jazz:Code/System_AI_CombatBarks.lua
+890000000020279,Bad,Bad,,jazz:Code/System_AI_CombatBarks.lua
+890000000020280,Not here,Not here,,jazz:Code/System_AI_CombatBarks.lua
+890000000020281,Enough,Enough,,jazz:Code/System_AI_CombatBarks.lua
+890000000020282,I wanna live,I wanna live,,jazz:Code/System_AI_CombatBarks.lua
+890000000020283,Fight it yourselves,Fight it yourselves,,jazz:Code/System_AI_CombatBarks.lua
+890000000020284,I'm taking off,I'm taking off,,jazz:Code/System_AI_CombatBarks.lua
+890000000020285,I still wanna live,I still wanna live,,jazz:Code/System_AI_CombatBarks.lua
+890000000020286,I've seen enough blood,I've seen enough blood,,jazz:Code/System_AI_CombatBarks.lua
+890000000020287,I'm through,I'm through,,jazz:Code/System_AI_CombatBarks.lua
+890000000020288,I've done my share,I've done my share,,jazz:Code/System_AI_CombatBarks.lua
+890000000020289,Find someone else,Find someone else,,jazz:Code/System_AI_CombatBarks.lua
+890000000020290,I'm leaving,I'm leaving,,jazz:Code/System_AI_CombatBarks.lua
+890000000020291,You go on without me,You go on without me,,jazz:Code/System_AI_CombatBarks.lua
+890000000020292,Find another fool,Find another fool,,jazz:Code/System_AI_CombatBarks.lua
+890000000020293,Nothing left for me here,Nothing left for me here,,jazz:Code/System_AI_CombatBarks.lua
+890000000020294,Job's done,Job's done,,jazz:Code/System_AI_CombatBarks.lua
+890000000020295,I'm out,I'm out,,jazz:Code/System_AI_CombatBarks.lua
+890000000020296,Not my fight,Not my fight,,jazz:Code/System_AI_CombatBarks.lua
+890000000020297,I'll kill you!,I'll kill you!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020298,Aaah! Come here!,Aaah! Come here!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020299,I'll tear you all!,I'll tear you all!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020300,Blood! More!,Blood! More!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020301,Can't stop me!,Can't stop me!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020302,I'll drop you all!,I'll drop you all!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020303,Stop hiding!,Stop hiding!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020304,Coming for you!,Coming for you!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020305,Cut them down!,Cut them down!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020306,Nobody lives!,Nobody lives!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020307,All of you.,All of you.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020308,Coming.,Coming.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020309,I'll finish it.,I'll finish it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020310,Enough waiting.,Enough waiting.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020311,Forward.,Forward.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020312,Easy,Easy,,jazz:Code/System_AI_CombatBarks.lua
+890000000020313,I'll stop the blood,I'll stop the blood,,jazz:Code/System_AI_CombatBarks.lua
+890000000020314,I'll bind it,I'll bind it,,jazz:Code/System_AI_CombatBarks.lua
+890000000020315,Don't jerk. You're alive,Don't jerk. You're alive,,jazz:Code/System_AI_CombatBarks.lua
+890000000020316,Stay down. I'm here,Stay down. I'm here,,jazz:Code/System_AI_CombatBarks.lua
+890000000020317,Don't jerk,Don't jerk,,jazz:Code/System_AI_CombatBarks.lua
+890000000020318,Shut up and you'll live,Shut up and you'll live,,jazz:Code/System_AI_CombatBarks.lua
+890000000020319,Binding. Don't yell,Binding. Don't yell,,jazz:Code/System_AI_CombatBarks.lua
+890000000020320,You'll live,You'll live,,jazz:Code/System_AI_CombatBarks.lua
+890000000020321,Hold on. I'll close it,Hold on. I'll close it,,jazz:Code/System_AI_CombatBarks.lua
+890000000020322,Lie still.,Lie still.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020323,Don't get in the way.,Don't get in the way.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020324,Quiet.,Quiet.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020325,Alive. Stay down.,Alive. Stay down.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020326,Hands.,Hands.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020327,I'll cut you!,I'll cut you!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020328,Closer—,Closer—,,jazz:Code/System_AI_CombatBarks.lua
+890000000020329,"Knife, knife!","Knife, knife!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020330,I'm coming in!,I'm coming in!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020331,Save the rounds. Cutting,Save the rounds. Cutting,,jazz:Code/System_AI_CombatBarks.lua
+890000000020332,Easier up close,Easier up close,,jazz:Code/System_AI_CombatBarks.lua
+890000000020333,On the knife,On the knife,,jazz:Code/System_AI_CombatBarks.lua
+890000000020334,Point blank,Point blank,,jazz:Code/System_AI_CombatBarks.lua
+890000000020335,Enough shooting. Cut,Enough shooting. Cut,,jazz:Code/System_AI_CombatBarks.lua
+890000000020336,Going in close,Going in close,,jazz:Code/System_AI_CombatBarks.lua
+890000000020337,Close in.,Close in.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020338,Enough shooting.,Enough shooting.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020339,Knife.,Knife.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020340,Point blank.,Point blank.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020341,Closer.,Closer.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020342,"Burn, damn you!","Burn, damn you!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020343,Faces into the light!,Faces into the light!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020344,"Light, light!","Light, light!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020345,Burn in their eyes!,Burn in their eyes!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020346,So we can see!,So we can see!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020347,In their eyes,In their eyes,,jazz:Code/System_AI_CombatBarks.lua
+890000000020348,"Come out, you bastards","Come out, you bastards",,jazz:Code/System_AI_CombatBarks.lua
+890000000020349,Lit them,Lit them,,jazz:Code/System_AI_CombatBarks.lua
+890000000020350,Now we see,Now we see,,jazz:Code/System_AI_CombatBarks.lua
+890000000020351,No more hiding,No more hiding,,jazz:Code/System_AI_CombatBarks.lua
+890000000020352,Light.,Light.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020353,They'll show.,They'll show.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020354,Burn.,Burn.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020355,Eyes.,Eyes.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020356,I see.,I see.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020357,Into the smoke!,Into the smoke!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020358,They won't see,They won't see,,jazz:Code/System_AI_CombatBarks.lua
+890000000020359,We hide in the smoke,We hide in the smoke,,jazz:Code/System_AI_CombatBarks.lua
+890000000020360,Hide in the smoke!,Hide in the smoke!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020361,So they don't see!,So they don't see!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020362,I'll cover us,I'll cover us,,jazz:Code/System_AI_CombatBarks.lua
+890000000020363,Through the smoke,Through the smoke,,jazz:Code/System_AI_CombatBarks.lua
+890000000020364,Cover the yard,Cover the yard,,jazz:Code/System_AI_CombatBarks.lua
+890000000020365,We go under the smoke,We go under the smoke,,jazz:Code/System_AI_CombatBarks.lua
+890000000020366,They can't see. Go,They can't see. Go,,jazz:Code/System_AI_CombatBarks.lua
+890000000020367,Smoke. Then we go.,Smoke. Then we go.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020368,Covered. Go.,Covered. Go.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020369,Smoke.,Smoke.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020370,Cover it.,Cover it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020371,We go.,We go.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020372,"Here, you bastards!","Here, you bastards!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020373,Catch!,Catch!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020374,That's for you!,That's for you!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020375,Catch this!,Catch this!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020376,This one's gonna bang!,This one's gonna bang!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020377,It's in the air!,It's in the air!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020378,Down — not you,Down — not you,,jazz:Code/System_AI_CombatBarks.lua
+890000000020379,At their feet,At their feet,,jazz:Code/System_AI_CombatBarks.lua
+890000000020380,Clearing the yard,Clearing the yard,,jazz:Code/System_AI_CombatBarks.lua
+890000000020381,Into the bunch,Into the bunch,,jazz:Code/System_AI_CombatBarks.lua
+890000000020382,At their feet.,At their feet.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020383,For them.,For them.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020384,There.,There.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020385,Clearing.,Clearing.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020386,Bang.,Bang.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020387,Burn!,Burn!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020388,Heat for them!,Heat for them!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020389,I'm torching the house!,I'm torching the house!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020390,"Fire, fire!","Fire, fire!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020391,Let them fry!,Let them fry!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020392,Torching the yard,Torching the yard,,jazz:Code/System_AI_CombatBarks.lua
+890000000020393,Fire on them!,Fire on them!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020394,Let them run,Let them run,,jazz:Code/System_AI_CombatBarks.lua
+890000000020395,Lighting the house,Lighting the house,,jazz:Code/System_AI_CombatBarks.lua
+890000000020396,It'll get hot,It'll get hot,,jazz:Code/System_AI_CombatBarks.lua
+890000000020397,Burn it.,Burn it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020398,Fire.,Fire.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020399,The house.,The house.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020400,Heat.,Heat.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020401,Burn.,Burn.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020402,Let them choke!,Let them choke!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020403,Filth for them!,Filth for them!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020404,"Cough, you bastards!","Cough, you bastards!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020405,Breathe that!,Breathe that!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020406,They'll spit blood!,They'll spit blood!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020407,Let them drink it,Let them drink it,,jazz:Code/System_AI_CombatBarks.lua
+890000000020408,Spoiling the yard,Spoiling the yard,,jazz:Code/System_AI_CombatBarks.lua
+890000000020409,They don't get air,They don't get air,,jazz:Code/System_AI_CombatBarks.lua
+890000000020410,They'll cough themselves out,They'll cough themselves out,,jazz:Code/System_AI_CombatBarks.lua
+890000000020411,The filth's in the air,The filth's in the air,,jazz:Code/System_AI_CombatBarks.lua
+890000000020412,Breathe.,Breathe.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020413,The yard.,The yard.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020414,Cough.,Cough.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020415,Filth.,Filth.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020416,That's it.,That's it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020417,Grabbing the long one!,Grabbing the long one!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020418,Long one in hand!,Long one in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020419,The short one's useless,The short one's useless,,jazz:Code/System_AI_CombatBarks.lua
+890000000020420,Switching to the far one!,Switching to the far one!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020421,Grabbing a gun!,Grabbing a gun!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020422,Long gun,Long gun,,jazz:Code/System_AI_CombatBarks.lua
+890000000020423,Long one back,Long one back,,jazz:Code/System_AI_CombatBarks.lua
+890000000020424,This one reaches farther,This one reaches farther,,jazz:Code/System_AI_CombatBarks.lua
+890000000020425,Switching guns,Switching guns,,jazz:Code/System_AI_CombatBarks.lua
+890000000020426,This one reaches,This one reaches,,jazz:Code/System_AI_CombatBarks.lua
+890000000020427,Long one.,Long one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020428,Farther.,Farther.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020429,Back on.,Back on.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020430,Gun.,Gun.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020431,Taking it.,Taking it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020432,Grabbing buckshot!,Grabbing buckshot!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020433,Grabbing the short mean one!,Grabbing the short mean one!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020434,Into the house!,Into the house!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020435,Switching. Up close!,Switching. Up close!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020436,I'll take the door!,I'll take the door!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020437,Buckshot,Buckshot,,jazz:Code/System_AI_CombatBarks.lua
+890000000020438,Up close now,Up close now,,jazz:Code/System_AI_CombatBarks.lua
+890000000020439,Putting the short one on,Putting the short one on,,jazz:Code/System_AI_CombatBarks.lua
+890000000020440,Into the house,Into the house,,jazz:Code/System_AI_CombatBarks.lua
+890000000020441,Better up close,Better up close,,jazz:Code/System_AI_CombatBarks.lua
+890000000020442,Buckshot.,Buckshot.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020443,Up close.,Up close.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020444,Short one.,Short one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020445,Into the house.,Into the house.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020446,Putting it on.,Putting it on.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020447,Setting the belt!,Setting the belt!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020448,Belt in hand!,Belt in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020449,Grabbing the long mean one!,Grabbing the long mean one!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020450,Switching. Street's mine!,Switching. Street's mine!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020451,I'll hold them all!,I'll hold them all!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020452,Setting the belt,Setting the belt,,jazz:Code/System_AI_CombatBarks.lua
+890000000020453,Setting the long one,Setting the long one,,jazz:Code/System_AI_CombatBarks.lua
+890000000020454,This covers the street,This covers the street,,jazz:Code/System_AI_CombatBarks.lua
+890000000020455,This holds the yard,This holds the yard,,jazz:Code/System_AI_CombatBarks.lua
+890000000020456,Switching to the long one,Switching to the long one,,jazz:Code/System_AI_CombatBarks.lua
+890000000020457,Belt.,Belt.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020458,The long one.,The long one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020459,The street.,The street.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020460,The yard's mine.,The yard's mine.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020461,Mine.,Mine.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020462,Short one from the pocket!,Short one from the pocket!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020463,Short one in hand!,Short one in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020464,Long one's jammed—,Long one's jammed—,,jazz:Code/System_AI_CombatBarks.lua
+890000000020465,Switching to the quick one!,Switching to the quick one!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020466,Short one into the house!,Short one into the house!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020467,Pulling the short one,Pulling the short one,,jazz:Code/System_AI_CombatBarks.lua
+890000000020468,From the pocket,From the pocket,,jazz:Code/System_AI_CombatBarks.lua
+890000000020469,Faster this way,Faster this way,,jazz:Code/System_AI_CombatBarks.lua
+890000000020470,Short one up close,Short one up close,,jazz:Code/System_AI_CombatBarks.lua
+890000000020471,Long one later,Long one later,,jazz:Code/System_AI_CombatBarks.lua
+890000000020472,Short one.,Short one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020473,Pocket.,Pocket.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020474,Quick.,Quick.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020475,Close.,Close.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020476,Got it.,Got it.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020477,Grabbing the short one!,Grabbing the short one!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020478,Short one in hand!,Short one in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020479,Through the window!,Through the window!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020480,Switching. At the door!,Switching. At the door!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020481,Hitting the house!,Hitting the house!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020482,Putting the short one on,Putting the short one on,,jazz:Code/System_AI_CombatBarks.lua
+890000000020483,Under the barrel now,Under the barrel now,,jazz:Code/System_AI_CombatBarks.lua
+890000000020484,This one at the window,This one at the window,,jazz:Code/System_AI_CombatBarks.lua
+890000000020485,I'll take the door,I'll take the door,,jazz:Code/System_AI_CombatBarks.lua
+890000000020486,Hitting the house,Hitting the house,,jazz:Code/System_AI_CombatBarks.lua
+890000000020487,Short one.,Short one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020488,Under the barrel.,Under the barrel.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020489,Window.,Window.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020490,Door.,Door.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020491,House.,House.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020492,Grabbing the pipe!,Grabbing the pipe!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020493,The big one in hand!,The big one in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020494,"Back, this bangs!","Back, this bangs!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020495,Switching. House comes down!,Switching. House comes down!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020496,This one off the shoulder!,This one off the shoulder!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020497,Grabbing the pipe,Grabbing the pipe,,jazz:Code/System_AI_CombatBarks.lua
+890000000020498,Pipe's going up,Pipe's going up,,jazz:Code/System_AI_CombatBarks.lua
+890000000020499,Putting the heavy one on,Putting the heavy one on,,jazz:Code/System_AI_CombatBarks.lua
+890000000020500,That house comes down,That house comes down,,jazz:Code/System_AI_CombatBarks.lua
+890000000020501,Off the shoulder,Off the shoulder,,jazz:Code/System_AI_CombatBarks.lua
+890000000020502,Pipe.,Pipe.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020503,Heavy.,Heavy.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020504,Coming down.,Coming down.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020505,The house.,The house.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020506,Shoulder.,Shoulder.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020507,Grabbing the long eye!,Grabbing the long eye!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020508,Long one in hand!,Long one in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020509,I'll go prone and shoot!,I'll go prone and shoot!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020510,Switching. From the hill!,Switching. From the hill!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020511,Don't breathe. Aiming!,Don't breathe. Aiming!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020512,Putting the long one on,Putting the long one on,,jazz:Code/System_AI_CombatBarks.lua
+890000000020513,This one from the hill,This one from the hill,,jazz:Code/System_AI_CombatBarks.lua
+890000000020514,Down. Shooting,Down. Shooting,,jazz:Code/System_AI_CombatBarks.lua
+890000000020515,I can reach from here,I can reach from here,,jazz:Code/System_AI_CombatBarks.lua
+890000000020516,One. Then quiet,One. Then quiet,,jazz:Code/System_AI_CombatBarks.lua
+890000000020517,Long one.,Long one.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020518,The hill.,The hill.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020519,Down.,Down.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020520,One.,One.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020521,Quiet.,Quiet.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020522,Knife's out!,Knife's out!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020523,Dropped the gun. Cutting!,Dropped the gun. Cutting!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020524,Iron in hand!,Iron in hand!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020525,No rounds. Knife!,No rounds. Knife!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020526,Switching. Closer!,Switching. Closer!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020527,On the knife,On the knife,,jazz:Code/System_AI_CombatBarks.lua
+890000000020528,Gun aside,Gun aside,,jazz:Code/System_AI_CombatBarks.lua
+890000000020529,Iron,Iron,,jazz:Code/System_AI_CombatBarks.lua
+890000000020530,This one up close,This one up close,,jazz:Code/System_AI_CombatBarks.lua
+890000000020531,Cut,Cut,,jazz:Code/System_AI_CombatBarks.lua
+890000000020532,Knife.,Knife.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020533,Gun down.,Gun down.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020534,Iron.,Iron.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020535,Close.,Close.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020536,Cut.,Cut.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020537,I'm sitting here,I'm sitting here,,jazz:Code/System_AI_CombatBarks.lua
+890000000020538,From this corner!,From this corner!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020539,Setting up. Cover me,Setting up. Cover me,,jazz:Code/System_AI_CombatBarks.lua
+890000000020540,Sitting here. Street's mine,Sitting here. Street's mine,,jazz:Code/System_AI_CombatBarks.lua
+890000000020541,Legs down!,Legs down!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020542,I'll take the street,I'll take the street,,jazz:Code/System_AI_CombatBarks.lua
+890000000020543,Goes here,Goes here,,jazz:Code/System_AI_CombatBarks.lua
+890000000020544,From the corner,From the corner,,jazz:Code/System_AI_CombatBarks.lua
+890000000020545,I'll shut the yard,I'll shut the yard,,jazz:Code/System_AI_CombatBarks.lua
+890000000020546,Sat. Street's mine,Sat. Street's mine,,jazz:Code/System_AI_CombatBarks.lua
+890000000020547,This street's mine.,This street's mine.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020548,Here.,Here.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020549,Corner.,Corner.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020550,Sat.,Sat.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020551,Yard's mine.,Yard's mine.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020552,I'm going at them!,I'm going at them!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020553,I'm going in!,I'm going in!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020554,Don't stand. After me!,Don't stand. After me!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020555,Stay with me!,Stay with me!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020556,We go!,We go!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020557,Going in,Going in,,jazz:Code/System_AI_CombatBarks.lua
+890000000020558,Running at them,Running at them,,jazz:Code/System_AI_CombatBarks.lua
+890000000020559,Forward,Forward,,jazz:Code/System_AI_CombatBarks.lua
+890000000020560,Don't wait,Don't wait,,jazz:Code/System_AI_CombatBarks.lua
+890000000020561,I'll go first,I'll go first,,jazz:Code/System_AI_CombatBarks.lua
+890000000020562,In.,In.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020563,Forward.,Forward.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020564,At them.,At them.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020565,Going.,Going.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020566,I'm first.,I'm first.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020567,I'll come from the side!,I'll come from the side!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020568,Not the front. Around!,Not the front. Around!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020569,I'll go around them!,I'll go around them!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020570,Running the edge!,Running the edge!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020571,"With me, from the side!","With me, from the side!",,jazz:Code/System_AI_CombatBarks.lua
+890000000020572,The side,The side,,jazz:Code/System_AI_CombatBarks.lua
+890000000020573,Around,Around,,jazz:Code/System_AI_CombatBarks.lua
+890000000020574,Not the front,Not the front,,jazz:Code/System_AI_CombatBarks.lua
+890000000020575,The edge,The edge,,jazz:Code/System_AI_CombatBarks.lua
+890000000020576,Around them,Around them,,jazz:Code/System_AI_CombatBarks.lua
+890000000020577,The side.,The side.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020578,Around.,Around.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020579,Not the front.,Not the front.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020580,The edge.,The edge.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020581,Around.,Around.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020582,It's far. I'm running!,It's far. I'm running!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020583,I'll get there!,I'll get there!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020584,Don't wait. I'm going!,Don't wait. I'm going!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020585,Watch. Across the yard!,Watch. Across the yard!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020586,Crossing now!,Crossing now!,,jazz:Code/System_AI_CombatBarks.lua
+890000000020587,Sprinting,Sprinting,,jazz:Code/System_AI_CombatBarks.lua
+890000000020588,I'll get there,I'll get there,,jazz:Code/System_AI_CombatBarks.lua
+890000000020589,Crossing,Crossing,,jazz:Code/System_AI_CombatBarks.lua
+890000000020590,Closing in,Closing in,,jazz:Code/System_AI_CombatBarks.lua
+890000000020591,It's far. Still going,It's far. Still going,,jazz:Code/System_AI_CombatBarks.lua
+890000000020592,Sprint.,Sprint.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020593,I'll get there.,I'll get there.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020594,Running.,Running.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020595,Closer.,Closer.,,jazz:Code/System_AI_CombatBarks.lua
+890000000020596,It's far. Going.,It's far. Going.,,jazz:Code/System_AI_CombatBarks.lua
