@@ -22,6 +22,9 @@ end
 -- Heavy weapons intentionally stay excluded; an RPG on the back must not become
 -- the default firearm attack.
 function JAZZ_AIEnsureActiveFirearm(unit)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+		return unit:GetActiveWeapons("Firearm")
+	end
 	local firearm = unit:GetActiveWeapons("Firearm")
 	if firearm then
 		return firearm
@@ -73,6 +76,49 @@ function JAZZ_AIEnsureActiveFirearm(unit)
 	-- Handheld slot: it would create a droppable/shared pseudo-item. Callers use
 	-- this virtual weapon to keep the empty-hands path non-nil, then skip Dump.
 	return false, unit:GetActiveWeapons("UnarmedWeapon")
+end
+
+-- Animals keep CrocodileJaws / HyenaJaws in Handheld, not a Firearm.
+-- Fallback UnarmedWeapon is only for empty-handed humans.
+function JAZZ_AIResolveContextWeapon(unit)
+	local firearm, unarmed_weapon = JAZZ_AIEnsureActiveFirearm(unit)
+	if firearm then
+		return firearm, false
+	end
+	local equipped = unit:GetActiveWeapons()
+	if equipped then
+		return equipped, true
+	end
+	for _, slot in ipairs({"Handheld A", "Handheld B"}) do
+		local items = unit.GetEquippedWeapons and unit:GetEquippedWeapons(slot) or empty_table
+		for _, item in ipairs(items) do
+			if IsKindOfClasses(item, "CrocodileWeapon", "HyenaWeapon", "MeleeWeapon") then
+				return item, true
+			end
+		end
+	end
+	if type(unit.ForEachItem) == "function" then
+		local found
+		unit:ForEachItem(function(item)
+			if not found and IsKindOfClasses(item, "CrocodileWeapon", "HyenaWeapon") then
+				found = item
+			end
+		end)
+		if found then
+			return found, true
+		end
+	end
+	return unarmed_weapon, true
+end
+
+function JAZZ_AIDefaultAttackForWeapon(unit, weapon)
+	if unit and unit.species == "Crocodile" and CombatActions.CrocodileBite then
+		return CombatActions.CrocodileBite
+	end
+	if unit and unit.species == "Hyena" and CombatActions.HyenaBite then
+		return CombatActions.HyenaBite
+	end
+	return unit:GetDefaultAttackAction(nil, "ungrouped", weapon, "sync")
 end
 
 
@@ -337,27 +383,18 @@ function AICalcAttacksAndAimSmart(context, ap, target)
 end
 
 function AICreateContext(unit, context)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+		return JazzAI_VanillaCreateContext(unit, context)
+	end
     PauseInfiniteLoopDetection("AiCalc")
 	local gx, gy, gz = unit:GetGridCoords()
 
-	local weapon, unarmed_weapon = JAZZ_AIEnsureActiveFirearm(unit)
-	-- Do not return a bare proto context here: StartAI expects ai_context to exist
-	-- after this function. The virtual bare-hand weapon is retained for UI/action
-	-- safety while AIPlayAttacks deliberately skips firearm Dump below.
-	if not weapon then
-		context = context or {}
-		context.unit = unit
-		context.unit_pos = GetPassSlab(unit) or unit:GetPos()
-		context.start_ap = unit.ActionPoints
-		context.archetype = unit:GetArchetype()
-		context.weapon = unarmed_weapon
-		context.no_active_firearm = true
-		context.enemies = table.icopy(GetEnemies(unit))
-		unit.ai_context = context
-		ResumeInfiniteLoopDetection("AiCalc")
-		return context
-	end
-	local default_attack = unit:GetDefaultAttackAction(nil, "ungrouped", nil, "sync")
+	local weapon, no_firearm = JAZZ_AIResolveContextWeapon(unit)
+	local firearm = not no_firearm and weapon
+	-- Animals and empty-handed humans have no Firearm. Keep the full context
+	-- (vanilla uses GetActiveWeapons() — CrocodileJaws / HyenaJaws — and
+	-- EffectiveRange = 1 for melee). Dump skips firearms; bite is CrocodileBite.
+	local default_attack = JAZZ_AIDefaultAttackForWeapon(unit, weapon)
 	local enemies = table.icopy(GetEnemies(unit))
 	
 	for _, groupname in ipairs(unit.Groups) do
@@ -416,11 +453,12 @@ function AICreateContext(unit, context)
 	--context.stancechanged = context.stancechanged or false
 
 	context.weapon = weapon
+	context.no_active_firearm = no_firearm and true or false
 	context.default_attack = default_attack
-	context.default_attack_cost = default_attack:GetAPCost(unit)
+	context.default_attack_cost = default_attack and default_attack:GetAPCost(unit) or 0
 
 	context.default_attack_old = default_attack
-	context.default_attack_old_cost = default_attack:GetAPCost(unit)
+	context.default_attack_old_cost = context.default_attack_cost
 
 	context.EffectiveRange = IsKindOf(weapon, "Firearm") and weapon.BulletDropRange and MulDivRound(weapon.BulletDropRange+weapon.WeaponRange, 50, 100) or IsKindOf(weapon, "Firearm") and MulDivRound(weapon.WeaponRange, 50, 100) or 1 
 	if  IsKindOf(weapon, "Firearm") and (GameState.DustStorm or GameState.FireStorm or GameState.Underground or GameState.Night or GameState.Fog) then 
@@ -457,7 +495,7 @@ function AICreateContext(unit, context)
 	-- this CreateContext still enumerates enemies (final assign stays at the end).
 	unit.ai_context = context
 
-	NetUpdateHash("AICreateContext", unit, pos, unit.stance, context.start_ap, context.archetype.id, context.max_attacks, weapon and weapon.class, weapon and weapon.id, default_attack.id)
+	NetUpdateHash("AICreateContext", unit, pos, unit.stance, context.start_ap, context.archetype.id, context.max_attacks, weapon and weapon.class, weapon and weapon.id, default_attack and default_attack.id)
 	
 	if unit:HasStatusEffect("Stimmed") then
 		context.max_attacks = context.max_attacks + 1
@@ -479,8 +517,8 @@ function AICreateContext(unit, context)
 	local aim_sample_cth_count = 0
 	local best_cth = 0
 	local worst_cth = 100
-	local bullet_range = not not weapon.BulletDropRange and weapon.BulletDropRange or 0
-	local weapon_range = not not weapon.WeaponRange and weapon.WeaponRange or 0
+	local bullet_range = weapon and weapon.BulletDropRange or 0
+	local weapon_range = weapon and weapon.WeaponRange or 0
 	local basic_attacks = unit:GetBasicAttackModes()
 
     local best_overall_attack
@@ -819,6 +857,9 @@ function __AIFindDestinations(unit, context)
 end
 
 function AIFindDestinations(unit, context)
+  if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+    return JazzAI_VanillaFindDestinations(unit, context)
+  end
   PauseInfiniteLoopDetection("AiCalc")
   local pos = GetPassSlab(unit) or unit:GetPos()
 
@@ -1441,6 +1482,9 @@ function JAZZ_AICapOptLocCandidates(unit, context, dests, cap)
 end
 
 function AIUpdateDestLosCache(unit, context)
+    if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+        return JazzAI_VanillaUpdateDestLosCache(unit, context)
+    end
     PauseInfiniteLoopDetection("AiCalc")
 	assert(CurrentThread()) -- the function will sleep internally due to the amount of calculations performed
 	local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
@@ -1576,6 +1620,9 @@ function AIUpdateDestLosCache(unit, context)
 end
 
 function AIBuildArchetypePaths(unit, pos, context)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+		return JazzAI_VanillaBuildArchetypePaths(unit, pos, context)
+	end
     PauseInfiniteLoopDetection("AiCalc")
 	local stationary = context.stationary
 	local paths = {}
@@ -1711,9 +1758,9 @@ function AIBuildArchetypePaths(unit, pos, context)
 		end
 		voxel_to_dest[voxel] = dest
 		if not table.find(important_dests, dest) then
-			if context.EffectiveRange <= 1 then
+			if (context.EffectiveRange or 1) <= 1 then
 				-- make sure all potential melee positions are included in the end and not cut off by CollapsePoints
-				for enemy, enemy_ppos in pairs(context.enemy_pack_pos_stance) do
+				for enemy, enemy_ppos in pairs(context.enemy_pack_pos_stance or empty_table) do
 					if stance_pos_dist(enemy_ppos, dest) < min_melee_dist then
 						table.insert_unique(important_dests, dest)
 						break
@@ -1916,6 +1963,9 @@ local function JazzAI_CrowdDangerModifier(context, dest)
 end
 
 function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_voxels, score_details)
+	if type(JazzAI_ContextUsesJazzCombatAI) == "function" and not JazzAI_ContextUsesJazzCombatAI(context) then
+		return JazzAI_VanillaScoreDest(context, policies, dest, grid_voxel, base_score, visual_voxels, score_details)
+	end
     PauseInfiniteLoopDetection("AiCalc")
 	local score = 0
 	local x, y, z, stance_idx = stance_pos_unpack(dest)
@@ -2212,6 +2262,9 @@ end
 
 
 function AIEnumValidDests(context)
+	if type(JazzAI_ContextUsesJazzCombatAI) == "function" and not JazzAI_ContextUsesJazzCombatAI(context) then
+		return JazzAI_VanillaEnumValidDests(context)
+	end
     PauseInfiniteLoopDetection("AiCalc")
 	local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 	local unit = context.unit
@@ -2287,6 +2340,9 @@ function AIEnumValidDests(context)
 end
 
 function AIFindOptimalLocation(context, dest_score_details)
+	if type(JazzAI_ContextUsesJazzCombatAI) == "function" and not JazzAI_ContextUsesJazzCombatAI(context) then
+		return JazzAI_BeastFindOptimalLocation(context)
+	end
     PauseInfiniteLoopDetection("AiCalc")
 	local tStart = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
 	if context.best_dest then
@@ -2741,6 +2797,9 @@ end
 
 
 function AIGetWeaponCheckRange(unit, weapon, action)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+		return JazzAI_VanillaGetWeaponCheckRange(unit, weapon, action)
+	end
 	if IsKindOf(weapon, "MeleeWeapon") then
 		local tiles = unit.body_type == "Large animal" and 2 or 1
 		local range = (2 * tiles + 1) * const.SlabSizeX / 2
@@ -3700,9 +3759,12 @@ local function JazzAI_InstallAIScoreReachableVoxelsWrap()
 		return false
 	end
 	local function wrap(context, policies, opt_loc_weight, score_details, ...)
+		local base_fn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase")
+		if type(JazzAI_ContextUsesJazzCombatAI) == "function" and not JazzAI_ContextUsesJazzCombatAI(context) then
+			return JazzAI_BeastScoreNearestEnemyDest(context)
+		end
 		-- Bias from prior turns before scoring (EndTurn policies include HighGround).
 		JazzAI_ApplySniperUselessBiasToContext(context)
-		local base_fn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase")
 		local dest, score = base_fn(context, policies, opt_loc_weight, score_details, ...)
 		dest = JazzAI_ApplySniperHoldDestination(context, dest)
 		dest = JazzAI_ApplyBreakLosOverwatchDestination(context, dest)
@@ -3751,6 +3813,10 @@ function JazzAI_InstallCombatPathRestrictWrap()
 	local function wrap(self, unit, ap, pos, stance, ignore_occupied, move_through_occupied, action_id)
 		local is_ai = unit and unit.team and unit.team.control == "AI"
 		local restricted = false
+		if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+			local base_fn = rawget(_G, "g_JAZZ_CombatPathRebuildBase")
+			return base_fn(self, unit, ap, pos, stance, ignore_occupied, move_through_occupied, action_id)
+		end
 		if is_ai and not self.restrict_area then
 			local start_pos = pos or (unit.GetPos and unit:GetPos())
 			local box_area = JAZZ_AIMakeCombatPathRestrictBox(unit, start_pos, ap or unit.ActionPoints or 0, stance or unit.stance)
@@ -3782,6 +3848,12 @@ function JazzAI_InstallCombatPathRestrictWrap()
 end
 
 function JazzAI_SelectArchetype(self, proto_context)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(self) then
+		local base = rawget(_G, "g_JAZZ_SelectArchetypeBase")
+		if type(base) == "function" then
+			return base(self, proto_context)
+		end
+	end
 	local archetype
 	if IsKindOf(self, "Unit") then
 		local combat = rawget(_G, "g_Combat")

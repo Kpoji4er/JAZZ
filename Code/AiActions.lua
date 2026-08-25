@@ -254,6 +254,9 @@ function AIReloadWeapons(unit)
 end
 
 function AICalcAttacksAndAim(context, ap, target)
+    if type(JazzAI_ContextUsesJazzCombatAI) == "function" and not JazzAI_ContextUsesJazzCombatAI(context) then
+        return JazzAI_VanillaCalcAttacksAndAim(context, ap)
+    end
 
     -- local skill = (self[weapon.base_skill]+self["Dexterity"]*2+self:GetLevel()*10)/3
     -- if IsKindOf(weapon, "MachineGun") then local skill = (self[weapon.base_skill]*2+self["Dexterity"]+self["Strength"]+self:GetLevel()*10)/4 end
@@ -275,6 +278,9 @@ function AICalcAttacksAndAim(context, ap, target)
                                  context.default_attack, false)
 
     local cost = context.default_attack_cost
+    if not cost or cost <= 0 then
+        return 1, {0}
+    end
     local num_attacks = Min(ap / cost, context.max_attacks)
 
     local remaining = ap - num_attacks * cost
@@ -339,10 +345,14 @@ function AICalcAttacksAndAim(context, ap, target)
             -- print('aim '..aim.." cth "..cth)
         end
 
-        if aim > context.weapon.MaxAimActions then break end
+        if context.weapon and aim > (context.weapon.MaxAimActions or 0) then break end
         aims[attack_idx] = aim
         attack_idx = attack_idx + 1
         if attack_idx > num_attacks then attack_idx = 1 end
+        -- CrocodileJaws CTH=100 / leftover AP never spent aim → infinite loop.
+        if remaining >= ap - num_attacks * cost then
+            break
+        end
         ----print(aims)
     end
 
@@ -507,6 +517,15 @@ if type(ForEachPreset) == "function" then
     JazzAI_PatchMGPositioningScores()
 end
 
+local function JAZZ_AIWaitIdle(unit, max_iters)
+    max_iters = max_iters or 20
+    local n = 0
+    while IsValid(unit) and not unit:IsIdleCommand() and n < max_iters do
+        WaitMsg("Idle", 50)
+        n = n + 1
+    end
+end
+
 local function JAZZ_AIHasGoodCover(unit)
     local cover_high, cover_low = GetCoverTypes(unit)
     return cover_high or cover_low
@@ -663,9 +682,7 @@ local function JAZZ_AITryCoverMove(unit, context)
         goto_stance = stance_idx
     })
     context.disengage_used = true
-    while not unit:IsIdleCommand() do
-        WaitMsg("Idle", 50)
-    end
+    JAZZ_AIWaitIdle(unit, 40)
 end
 
 -- JAZZ-AI-OW-001: Fallback OW toward known aim; LOS; night = lit or night-sight (no deep-dark spam).
@@ -929,6 +946,11 @@ function JAZZ_AIDisengage(unit, context, did_attack)
     if not IsValid(unit) or unit:IsDead() then
         return
     end
+    -- Cover move / ChangeStance is human-only. Animals have stance "" —
+    -- TryCoverMove + Idle wait left crocodiles frozen after a few turns.
+    if unit.species ~= "Human" then
+        return
+    end
     if unit:HasStatusEffect("Berserk") or unit:HasStatusEffect("Panicked") then
         return
     end
@@ -954,6 +976,9 @@ function JAZZ_AIDisengage(unit, context, did_attack)
 end
 
 function AITakeCover(unit, context)
+    if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+        return JazzAI_VanillaTakeCover(unit, context)
+    end
     context = context or (unit and unit.ai_context)
     if context and context.bunker_used then
         return
@@ -962,6 +987,9 @@ function AITakeCover(unit, context)
 end
 
 function AIExecuteUnitBehavior(unit, force_or_skip_action)
+    if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+        return JazzAI_VanillaExecuteUnitBehavior(unit, force_or_skip_action)
+    end
     if not g_Combat or not IsValid(unit) or unit:IsDead()
         or unit:HasStatusEffect("Unconscious")
         or unit:HasStatusEffect("suppressionPinned") then
@@ -1002,23 +1030,138 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
     return AITakeCover(unit, unit.ai_context)
 end
 
+local function JAZZ_AIPickMeleeTarget(unit, context, dest)
+    local dest_target = context.dest_target or empty_table
+    local target = dest_target[dest]
+    if IsValidTarget(target) then
+        return target
+    end
+    if context.ai_destination then
+        target = dest_target[context.ai_destination]
+        if IsValidTarget(target) then
+            return target
+        end
+    end
+    for d, tgt in pairs(dest_target) do
+        if IsValidTarget(tgt) and dest and stance_pos_dist(dest, d) == 0 then
+            return tgt
+        end
+    end
+    local action = context.default_attack
+    local range = select(1, AIGetWeaponCheckRange(unit, context.weapon, action))
+        or (2 * const.SlabSizeX)
+    local best, best_dist
+    for _, enemy in ipairs(context.enemies or empty_table) do
+        if IsValidTarget(enemy) then
+            local dist = unit:GetDist(enemy)
+            if dist <= range and (not best_dist or dist < best_dist) then
+                best, best_dist = enemy, dist
+            end
+        end
+    end
+    return best
+end
+
+-- No firearm: skip Dump. Crocodiles bite via CrocodileBite (not UnarmedAttack).
+-- UnarmedAttack on a beast starts MeleeAttack and never returns to Idle.
+local function JAZZ_AIPlayUnarmedOrMelee(unit, context, dbg_action, force_or_skip_action)
+    context = context or {}
+    context.dest_ap = context.dest_ap or {}
+    context.dest_target = context.dest_target or {}
+    local dest = GetPackedPosAndStance(unit)
+    if not dest then
+        dest = not force_or_skip_action and context.ai_destination
+    end
+    if dest then
+        context.dest_ap[dest] = unit.ActionPoints
+    end
+    local saved_dest = context.ai_destination
+    if dest and type(AIPrecalcDamageScore) == "function" then
+        AIPrecalcDamageScore(context, {dest},
+            context.target_locked or context.dest_target[dest])
+    end
+    context.ai_destination = saved_dest
+
+    local signature_action
+    if dbg_action then
+        context.action_states = context.action_states or {}
+        context.action_states[dbg_action] = {}
+        dbg_action:PrecalcAction(context, context.action_states[dbg_action])
+        if dbg_action:IsAvailable(context, context.action_states[dbg_action]) then
+            signature_action = dbg_action
+        elseif force_or_skip_action then
+            table.insert(failed_actions, dbg_action.BiasId or dbg_action.class)
+            return nil, false
+        end
+    end
+    if not context.reposition and not (unit.HasStatusEffect and unit:HasStatusEffect("Numbness")) then
+        signature_action = signature_action or AIChooseSignatureAction(context)
+    end
+
+    if signature_action then
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  Signature Action: %s",
+                signature_action:GetEditorView())
+        end
+        context.action_states = context.action_states or {}
+        context.action_states[signature_action] = context.action_states[signature_action] or {}
+        signature_action:OnActivate(unit)
+        local status = signature_action:Execute(context, context.action_states[signature_action])
+        context.ap_after_signature = unit.ActionPoints
+        if context.max_attacks then
+            context.max_attacks = context.max_attacks - 1
+        end
+        JAZZ_AIWaitIdle(unit, 40)
+        return status, true
+    end
+
+    local attack_action = context.default_attack
+    if type(JAZZ_AIDefaultAttackForWeapon) == "function" then
+        attack_action = JAZZ_AIDefaultAttackForWeapon(unit, context.weapon) or attack_action
+    end
+    local target = JAZZ_AIPickMeleeTarget(unit, context, dest)
+    if not IsValidTarget(target) or not attack_action then
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  No melee target/action")
+        end
+        return nil, false
+    end
+
+    local cost = attack_action:GetAPCost(unit)
+    if not cost or cost <= 0 then
+        cost = context.default_attack_cost
+    end
+    if not cost or cost <= 0 or not unit:HasAP(cost) then
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  Melee AP fail cost=%s ap=%s",
+                tostring(cost), tostring(unit.ActionPoints))
+        end
+        return nil, false
+    end
+
+    if g_AIExecutionController then
+        g_AIExecutionController:Log("  Melee %s -> %s",
+            tostring(attack_action.id),
+            IsKindOf(target, "Unit") and (target.unitdatadef_id or target.class) or tostring(target))
+    end
+    local result = AIPlayCombatAction(attack_action.id, unit, nil, {target = target})
+    JAZZ_AIWaitIdle(unit, 40)
+    return nil, result and true or false
+end
+
 function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
+    if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+        return JazzAI_VanillaPlayAttacks(unit, context, dbg_action, force_or_skip_action)
+    end
     if g_AIExecutionController then
         g_AIExecutionController:Log("Unit %s (%d) start attack sequence",
             unit.unitdatadef_id, unit.handle)
     end
 
     -- Context creation tries Handheld A/B and then an inventory firearm. If no
-    -- normal firearm exists, it supplies JA3's virtual Unarmed weapon instead;
-    -- do not enter Dump or its Idle wait with a nil active weapon.
+    -- normal firearm exists, keep UnarmedWeapon / melee and skip Dump only.
+    -- Animals (crocodiles, hyenas) still need signature charge / bite.
     local firearm = JAZZ_AIEnsureActiveFirearm(unit)
-    if not firearm then
-        if g_AIExecutionController then
-            g_AIExecutionController:Log("  No active firearm; skip Dump (Unarmed fallback)")
-        end
-        unit:SequentialActionsEnd()
-        return "done"
-    end
 
     local remaining_free_ap = unit.free_move_ap
     unit:RemoveStatusEffect("FreeMove")
@@ -1035,7 +1178,19 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     local dump_steps = 0
     local voice_response
 
-    while JAZZ_AICanDump(unit, context) and dump_steps < JAZZ_AI_SOFT_DUMP_CAP do
+    if not firearm then
+        if g_AIExecutionController then
+            g_AIExecutionController:Log("  No active firearm; skip Dump, run melee/signature")
+        end
+        local status, attacked = JAZZ_AIPlayUnarmedOrMelee(unit, context,
+            dbg_action, force_or_skip_action)
+        did_attack = attacked
+        if status then
+            return status
+        end
+    end
+
+    while firearm and JAZZ_AICanDump(unit, context) and dump_steps < JAZZ_AI_SOFT_DUMP_CAP do
         dump_steps = dump_steps + 1
         JAZZ_AIFilterEnemies(context)
         AIUpdateContext(context, unit)
@@ -1273,9 +1428,7 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
         return "restart"
     end
 
-    while not unit:IsIdleCommand() do
-        WaitMsg("Idle", 50)
-    end
+    JAZZ_AIWaitIdle(unit, 40)
 
     -- Vanilla-style fallback when nothing was spent
     if unit.ActionPoints + remaining_free_ap == start_ap
@@ -1328,7 +1481,7 @@ do
 	local JazzAI_AIPlayAttacks_Orig = AIPlayAttacks
 	function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 		local result = JazzAI_AIPlayAttacks_Orig(unit, context, dbg_action, force_or_skip_action)
-		if JazzAI_MarkUnitActed then
+		if JazzAI_MarkUnitActed and (type(JazzAI_UsesJazzCombatAI) ~= "function" or JazzAI_UsesJazzCombatAI(unit)) then
 			JazzAI_MarkUnitActed(unit)
 		end
 		return result
@@ -1399,6 +1552,9 @@ end
 
 function AIPrecalcDamageScore(context, destinations, preferred_target,
                               debug_data)
+    if type(JazzAI_ContextUsesJazzCombatAI) == "function" and not JazzAI_ContextUsesJazzCombatAI(context) then
+        return JazzAI_VanillaPrecalcDamageScore(context, destinations, preferred_target, debug_data)
+    end
 
     --print('AIPrecalcDamageScore')
     local unit = context.unit
@@ -2074,6 +2230,20 @@ function JazzAI_EstimateAttackShots(weapon, action)
 end
 
 function AISignatureAction:MatchUnit(unit)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+		for state, _ in pairs(self.AvailableInState) do
+			if not GameState[state] then return end
+		end
+		for state, _ in pairs(self.ForbiddenInState) do
+			if GameState[state] then return end
+		end
+		for _, keyword in ipairs(self.RequiredKeywords) do
+			if not table.find(unit.AIKeywords or empty_table, keyword) then
+				return
+			end
+		end
+		return true
+	end
 	for state, _ in pairs(self.AvailableInState) do
 		if not GameState[state] then return end
 	end
@@ -2609,6 +2779,9 @@ end
 
 
 function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
+    if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+        return JazzAI_VanillaGetAttackTargetingOptions(unit, context, target, action, targeting)
+    end
     local t0 = config.JAZZ_AIPerfLog and GetPreciseTicks() or nil
     JAZZ_AIPerfLog("TargetOpts start unit=%s action=%s",
         unit and unit.unitdatadef_id or "?",

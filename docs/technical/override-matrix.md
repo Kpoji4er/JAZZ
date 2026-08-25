@@ -18,7 +18,8 @@ JAZZ поддерживает только последнюю опубликов
 
 | Символ | Было в игре | CommonLib | JAZZ, загружается позже | Итог и риск |
 | --- | --- | --- | --- | --- |
-| `AIChooseSignatureAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; высокий риск потери будущих AI-fix CLib |
+| `AICreateContext` / `AIPlayAttacks` / `AIFindDestinations` / `AIPrecalcDamageScore` / `AIUpdateDestLosCache` / `AIGetAttackTargetingOptions` / `AIEnumValidDests` / `AIFindOptimalLocation` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` + `Code/AiActions.lua` dispatch; `Code/System_AI_VanillaBeasts.lua` | **Humans:** JAZZ. **Animals (`species ~= Human`):** vanilla copies (`JazzAI_Vanilla*`). CLib FixAI не вызывается для этих символов у зверей. |
+| `AIChooseSignatureAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ (humans); animals rarely have signatures (`Beast_Hyena` charge uses vanilla `MatchUnit`) |
 | `AIGetAttackTargetingOptions` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/AiActions.lua` | JAZZ; проверить targeting и выбор attack action |
 | `AIPolicyIndoorsOutdoors:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AiActions.lua` | JAZZ; проверить оценку indoor/outdoor позиции |
 | `AIPolicyProximity:EvalDest` | `Lua/ClassDefs/ClassDef-AI.generated.lua` | `Code/FixAI.lua` | `Code/AIPolicy.lua` | JAZZ; проверить дистанционные веса |

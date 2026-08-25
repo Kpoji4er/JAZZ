@@ -1554,14 +1554,16 @@ function JazzAI_AssignTeamActSlots(team)
 	entry.smoke = smoke or false
 	JazzAI_TeamDirectives[side] = entry
 	for _, u in ipairs(JazzAI_LivingTeamUnits(team)) do
-		local kind = JazzAI_PickUnitActKind(u, smoke)
-		local key = JazzAI_UnitSlotKey(u)
-		if key then
-			JazzAI_TeamActSlots[key] = {
-				phase = JazzAI_ActKindPhase(kind),
-				kind = kind,
-				source = "CMD-002",
-			}
+		if type(JazzAI_UsesJazzCombatAI) ~= "function" or JazzAI_UsesJazzCombatAI(u) then
+			local kind = JazzAI_PickUnitActKind(u, smoke)
+			local key = JazzAI_UnitSlotKey(u)
+			if key then
+				JazzAI_TeamActSlots[key] = {
+					phase = JazzAI_ActKindPhase(kind),
+					kind = kind,
+					source = "CMD-002",
+				}
+			end
 		end
 	end
 end

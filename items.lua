@@ -81811,6 +81811,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'CodeFileName', "Code/AIBehaviours.lua",
 				}),
 				PlaceObj('ModItemCode', {
+					'name', "System_AI_VanillaBeasts",
+					'CodeFileName', "Code/System_AI_VanillaBeasts.lua",
+				}),
+				PlaceObj('ModItemCode', {
 					'name', "AiActions",
 					'CodeFileName', "Code/AiActions.lua",
 				}),

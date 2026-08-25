@@ -7,6 +7,7 @@
 
 DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playbook: `.agents/docs/playbooks/dap-runtime-debug.md`.
 
+| `_gen_vanilla_beast_ai.py` | Вырезает ванильный `CombatAI.lua` в `Code/System_AI_VanillaBeasts.lua` (`JazzAI_Vanilla*`). Вход: JA3 `ModTools/Src/Lua/Tactical/CombatAI.lua`. Перезапускать после смены диапазонов в скрипте. |
 | `_audit_specs_index.py` | Сводка всех `docs/specs/**`: status, Evidence PASS/FAIL/BLOCKED, TBD, cross-refs, folder mismatch. |
 | `_aibark_bank_data.py` | Канон боевых окриков AI: 5 (RU, EN) на слот. `python docs/tools/_aibark_bank_data.py` собирает таблицы в `docs/design/combat-ai-barks.md` после `<!-- aibark-bank -->`. |
 | `_strip_jazz_legion_spiritual.py` | Снять `Spiritual` со `StartingPerks` всех `JAZZ_Legion_*` (companion `UnitData/` + `jazz-units/items.lua`). Ребелы/наёмники/бандиты не трогает. |

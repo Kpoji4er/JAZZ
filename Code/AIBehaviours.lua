@@ -42,6 +42,12 @@ end
 
 -- JAZZ-AI-CMD-002: assigned Early/Normal/Late, then vanilla Threatened → Late.
 function AIBehavior:GetTurnPhase(unit)
+	if type(JazzAI_UsesJazzCombatAI) == "function" and not JazzAI_UsesJazzCombatAI(unit) then
+		if unit and unit.IsThreatened and unit:IsThreatened() then
+			return "Late"
+		end
+		return self.turn_phase
+	end
 	local phase
 	local slot = type(rawget(_G, "JazzAI_GetUnitActSlot")) == "function" and JazzAI_GetUnitActSlot(unit)
 	if slot and slot.phase then

@@ -1,6 +1,6 @@
 # Покрытие файлов системной документацией
 
-Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **20 августа 2026**.
+Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **26 августа 2026**.
 
 Обозначения: **loaded** — загружается; **dormant** — существует, но не указан в metadata; **empty** — нулевая/пустая заготовка; **inert** — загружается, но активная логика отсутствует; **editor** — инструментальная логика.
 
@@ -63,6 +63,7 @@
 | `AiAction_ThrowFlare.lua` | loaded | [AI](ai-awareness.md), [взрывчатка](explosives-traps-heavy-weapons.md) |
 | `AiFastForward.lua` | loaded | [AI](ai-awareness.md), [UI](ui-audio-fx.md) |
 | `AIBehaviours.lua` | loaded | [AI](ai-awareness.md) |
+| `System_AI_VanillaBeasts.lua` | loaded | [AI](ai-awareness.md) — vanilla CombatAI copies for `species ~= Human` |
 | `AIPolicy.lua` | loaded | [AI](ai-awareness.md) |
 | `AIContextProfiles.lua` | loaded | [AI](ai-awareness.md) |
 | `System_AI_CombatBarks.lua` | loaded | [AI](ai-awareness.md) — JAZZ-AI-BARK-001 floating combat barks |
