@@ -20,7 +20,7 @@
 .EXAMPLE
   powershell -File docs/tools/_dispatch_discord_player_update.ps1
   powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
-  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units -SuitePackages jazz,jazz-units,jazz-nomaps
+  powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units -SuitePackages jazz,jazz-units,jazz-nomaps -SuiteVersions jazz:0.20-6206,jazz-units:0.19-2326
   powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz -Before 971d5d4 -After 652675d -Force -AlwaysDispatch
 #>
 [CmdletBinding()]
@@ -38,6 +38,9 @@ param(
 
   # Comma-separated suite packages for Discord "Пакеты" field, e.g. jazz,jazz-units,jazz-nomaps
   [string] $SuitePackages = "",
+
+  # pkg:major.minor-revision for each SuitePackages key, e.g. jazz:0.20-6206,jazz-units:0.19-2326
+  [string] $SuiteVersions = "",
 
   [int] $WaitSeconds = 90,
   [int] $PollSeconds = 8
@@ -64,9 +67,9 @@ $dirMap = @{
 $slug = $repoMap[$Repo]
 if (-not $slug) { throw "Unknown repo key: $Repo" }
 
+# PSScriptRoot = jazz/docs/tools → ../../.. = Mods/
+$modsRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
 if (-not $RepoPath) {
-  # PSScriptRoot = jazz/docs/tools → ../../.. = Mods/
-  $modsRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
   $RepoPath = Join-Path $modsRoot $dirMap[$Repo]
 }
 if (-not (Test-Path (Join-Path $RepoPath ".git"))) {
@@ -75,6 +78,33 @@ if (-not (Test-Path (Join-Path $RepoPath ".git"))) {
 
 function Get-Sha([string]$rev) {
   return (git -C $RepoPath rev-parse $rev).Trim()
+}
+
+function Get-EngineVersionFromMetadata([string]$pkgDir) {
+  $meta = Join-Path $pkgDir "metadata.lua"
+  $py = Join-Path $PSScriptRoot "_print_metadata_version.py"
+  if (-not (Test-Path $meta)) { return "" }
+  if (-not (Test-Path $py)) { return "" }
+  $out = & python $py --engine $meta 2>$null
+  if (-not $out) { return "" }
+  return ([string]$out).Trim()
+}
+
+function Resolve-SuiteVersionsString([string]$explicit, [string]$packagesCsv, [string]$root) {
+  if ($explicit -and $explicit.Trim()) {
+    return $explicit.Trim()
+  }
+  $keys = @($packagesCsv -split '[,;\s]+' | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+  $parts = New-Object System.Collections.Generic.List[string]
+  foreach ($key in $keys) {
+    $dirName = $dirMap[$key]
+    if (-not $dirName) { continue }
+    $ver = Get-EngineVersionFromMetadata (Join-Path $root $dirName)
+    if ($ver) {
+      $parts.Add("${key}:${ver}")
+    }
+  }
+  return ($parts -join ",")
 }
 
 function Find-DiscordRunForSha([string]$repoSlug, [string]$sha) {
@@ -95,8 +125,13 @@ $beforeSha = if ($Before) { Get-Sha $Before } else { Get-Sha "$afterSha^" }
 Write-Host "Discord dispatch target: $slug"
 Write-Host "Checkout: $RepoPath"
 Write-Host "Range: $beforeSha..$afterSha  force=$Force dry_run=$DryRun always=$AlwaysDispatch"
+$suiteValue = if ($SuitePackages) { $SuitePackages.Trim() } else { $Repo }
+$suiteVersionsValue = Resolve-SuiteVersionsString $SuiteVersions $suiteValue $modsRoot
 if ($SuitePackages) {
   Write-Host "Suite packages: $SuitePackages"
+}
+if ($suiteVersionsValue) {
+  Write-Host "Suite versions: $suiteVersionsValue"
 }
 if ($Force -or $AlwaysDispatch) {
   Write-Host "NOTE: suite = one Discord post per logical feature. Do not Force/AlwaysDispatch sibling repos for the same change."
@@ -122,7 +157,6 @@ if (-not $AlwaysDispatch -and -not $DryRun) {
 
 $forceValue = if ($Force) { "true" } else { "false" }
 $dryValue = if ($DryRun) { "true" } else { "false" }
-$suiteValue = if ($SuitePackages) { $SuitePackages.Trim() } else { $Repo }
 
 gh workflow run discord-player-updates.yml `
   --repo $slug `
@@ -131,7 +165,8 @@ gh workflow run discord-player-updates.yml `
   -f "force_publish=$forceValue" `
   -f "before_sha=$beforeSha" `
   -f "after_sha=$afterSha" `
-  -f "suite_packages=$suiteValue"
+  -f "suite_packages=$suiteValue" `
+  -f "suite_versions=$suiteVersionsValue"
 
 Start-Sleep -Seconds 3
 $runs = gh run list --repo $slug --workflow=discord-player-updates.yml --limit 1 --json databaseId,url,status,event,displayTitle |

@@ -31,6 +31,11 @@ on:
         required: false
         default: ""
         type: string
+      suite_versions:
+        description: "Full engine versions: jazz:0.20-6206,jazz-units:0.19-2326"
+        required: false
+        default: ""
+        type: string
       openai_model:
         description: Optional model override from the caller repository
         required: false
@@ -77,6 +82,10 @@ on:
         description: "Comma-separated suite packages touched (e.g. jazz,jazz-units,jazz-nomaps)"
         required: false
         type: string
+      suite_versions:
+        description: "Full engine versions: jazz:0.20-6206,jazz-units:0.19-2326"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -103,6 +112,7 @@ jobs:
       MANUAL_BEFORE_SHA: ${{ inputs.before_sha }}
       MANUAL_FORCE_PUBLISH: ${{ inputs.force_publish && 'true' || 'false' }}
       SUITE_PACKAGES: ${{ inputs.suite_packages }}
+      SUITE_VERSIONS: ${{ inputs.suite_versions }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_MODEL: ${{ inputs.openai_model || vars.OPENAI_MODEL }}
 

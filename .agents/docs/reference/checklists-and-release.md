@@ -14,7 +14,7 @@
 2. Проверить пути и порядок `metadata.lua.code` в затронутых пакетах.
 3. Для compatibility-sensitive изменения подтвердить свежий CommonLib snapshot; для dependency/release scope использовать strict dependency audit.
 4. Выполнить `git diff --check` в каждом изменённом репозитории.
-5. Выполнить профильные static/generated/editor/runtime проверки.
+5. Выполнить профильные static/generated/editor/runtime проверки. Wrap / `Install*Wrap`: `python docs/tools/_check_lua_wrap_cycles.py`.
 6. Синхронизировать technical current-state docs; для заметного игроку поведения — `docs/wiki/` и при затронутом аспекте витрины — `docs/showcase` RU+EN.
 7. Полезные скрипты миграции/аудита оставить в `docs/tools/` и обновить `docs/tools/README.md` (см. `.agents/docs/reference/agent-tooling.md`).
 8. Запустить spec validator с `-Phase Done`.

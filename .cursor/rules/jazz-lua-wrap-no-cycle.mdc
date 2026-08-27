@@ -1,0 +1,45 @@
+---
+description: >-
+  Один wrap на Class:Method/глобал; не re-base на чужую обёртку
+  (cycle → Call stack too big). Проверка при любой wrap-правке.
+alwaysApply: true
+---
+
+# Lua wraps: один символ — один wrap
+
+Два wrap на один `Class:Method` (или глобал) + `rawset(*Base, current)` на `ModsReloaded` / `DataLoaded` / `ClassesBuilt` = взаимная рекурсия → assert `Call stack too big`.
+
+Уже ломало: RIS↔NoMaps `UnitMarker:SpawnObjects` (пустой I1); CombatBarks↔AiActions `AIActionThrowGrenade:Execute` (ход ИИ).
+
+## Запрещено
+
+- Второй wrap на уже обёрнутый метод/глобал. Новый хук **вшивать** в существующий.
+- `rawset(_G, "g_JAZZ_*Base", current)`, если `current` — чужой JAZZ wrap.
+- Рекурсивный `JazzAI_*` / wrap без явного depth/reentry guard (на reentry звать **orig**, не `*Base`).
+
+## Надо
+
+- install-once: `current == ourFn` → return; чужой wrap на слоте → **не** re-base (как RIS `lInstallUnitMarkerWrap`).
+- Перед сдачей wrap / `Install*Wrap` / `OnMsg.ModsReloaded` install:
+
+```text
+python docs/tools/_check_lua_wrap_cycles.py
+```
+
+`rg` по `Class:Method` и `g_JAZZ_*Base` во **всех** пакетах suite. Exit 0 обязателен. Не расширять allowlist скрипта без явного согласия — вшивать хук в существующий wrap.
+
+## Плохо / хорошо
+
+```lua
+-- BAD: второй wrap + re-base на current
+rawset(_G, "g_JAZZ_FooBase", cls.Foo)  -- cls.Foo уже чужой wrap
+cls.Foo = function(...) return g_JAZZ_FooBase(...) end
+
+-- GOOD: один wrap, оба хука внутри
+local function wrap(...)
+	NoteBudget(...)
+	local res = g_JAZZ_FooBase(...)
+	Bark(...)
+	return res
+end
+```

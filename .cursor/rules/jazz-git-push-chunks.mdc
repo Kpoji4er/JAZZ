@@ -28,10 +28,18 @@ alwaysApply: true
 8. **Discord после push:** пуш из Cursor/агента часто **не** запускает GitHub Actions (в check suites только Cursor, без `github-actions`). После успешного push в `main` — диспатч **по правилу п.7** (один primary на feature), не «каждый затронутый пакет»:
 
 ```text
-powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <primary> -SuitePackages jazz,jazz-units,jazz-nomaps
+powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo <primary> -SuitePackages jazz,jazz-units,jazz-nomaps -SuiteVersions jazz:0.20-6206,jazz-units:0.19-2326
 ```
 
-`-SuitePackages` — все затронутые пакеты suite для поля **«Пакеты»** в Discord (порядок канонический). Без флага в пост попадает только primary. Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть. **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт.
+`-SuitePackages` — все затронутые пакеты suite для поля **«Пакеты»** в Discord (порядок канонический). Без флага в пост попадает только primary.
+
+9. **Полные версии в Discord:** в «Пакеты» должна быть engine-строка **каждого** затронутого пакета, не одно Revision и не `title` «v0.19».
+   - Формат `ModDef:GetVersionString()`: `major.minor-revision` (`0.20-6206`).
+   - Читать **текущий** корневой `metadata.lua` пакета (`\t'version_major|minor|version'`). Не брать числа из `ModDependency` (CommonLib `1.11` — чужая версия). Нет корневого `version_major` → `0`.
+   - Всегда передавать `-SuiteVersions pkg:M.mm-RRR,...` по тем же ключам, что `-SuitePackages`. Не выдумывать номер. Перед диспатчем сверить строку с metadata.
+   - Если `-SuiteVersions` забыли — скрипт сам читает локальные metadata тех же пакетов; это запасной путь, не замена явной передачи.
+
+Скрипт поллит ~90с и **не** диспатчит, если Discord run на этот SHA уже есть. **Не** вызывать сырой `gh workflow run … discord-player-updates` после push — только этот скрипт.
 
 ## Пример
 

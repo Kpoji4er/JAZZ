@@ -24,6 +24,7 @@
 ## Runtime-логика Lua
 
 - Проверить коллизии глобальных функций, методов классов, `OnMsg`, reactions, `NetSyncEvents`, `GameVar`, `MapVar` и `GlobalVar`.
+- При новом/изменённом wrap: один символ — один wrap; не re-base на чужую обёртку; `python docs/tools/_check_lua_wrap_cycles.py` (`.cursor/rules/jazz-lua-wrap-no-cycle.mdc`).
 - Зафиксировать lifecycle-stage; не читать ModItem на file scope, если данные не гарантированно готовы.
 - Проверить clean start и hot reload: `ReloadLua` сохраняет Lua-state.
 - Проверить registration order handlers по `metadata.code`; `OnMsg` не должен спать, `MsgClear` не должен удалять чужие handlers.

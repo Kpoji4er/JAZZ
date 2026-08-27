@@ -3,8 +3,14 @@
 
 MapVar("JazzAI_CombatBarks", false)
 
-g_JAZZ_AIActionThrowGrenadeExecuteWrapped = rawget(_G, "g_JAZZ_AIActionThrowGrenadeExecuteWrapped") or false
-g_JAZZ_AIActionThrowGrenadeExecuteBase = rawget(_G, "g_JAZZ_AIActionThrowGrenadeExecuteBase") or false
+-- Grenade Execute bark lives in AiActions.lua (single wrap). Stale flags from
+-- the old second wrap must not survive ReloadLua or they look "still installed".
+if rawget(_G, "g_JAZZ_AIActionThrowGrenadeExecuteWrapped") then
+	rawset(_G, "g_JAZZ_AIActionThrowGrenadeExecuteWrapped", false)
+end
+if rawget(_G, "g_JAZZ_AIActionThrowGrenadeExecuteBase") then
+	rawset(_G, "g_JAZZ_AIActionThrowGrenadeExecuteBase", false)
+end
 g_JAZZ_UnitSwapActiveWeaponWrapped = rawget(_G, "g_JAZZ_UnitSwapActiveWeaponWrapped") or false
 g_JAZZ_UnitSwapActiveWeaponBase = rawget(_G, "g_JAZZ_UnitSwapActiveWeaponBase") or false
 
@@ -433,20 +439,7 @@ function JazzAI_BarkTryDest(unit)
 end
 
 local function JazzAI_InstallBarkWrappers()
-	local grenade_cls = rawget(_G, "AIActionThrowGrenade")
-	if type(grenade_cls) == "table" and type(grenade_cls.Execute) == "function"
-		and not rawget(_G, "g_JAZZ_AIActionThrowGrenadeExecuteWrapped")
-	then
-		rawset(_G, "g_JAZZ_AIActionThrowGrenadeExecuteBase", grenade_cls.Execute)
-		rawset(_G, "g_JAZZ_AIActionThrowGrenadeExecuteWrapped", true)
-		function AIActionThrowGrenade:Execute(context, action_state)
-			local res = g_JAZZ_AIActionThrowGrenadeExecuteBase(self, context, action_state)
-			local unit = context and context.unit
-			local grenade = action_state and action_state.jazz_grenade
-			JazzAI_BarkOnGrenade(unit, grenade, action_state and action_state.target_pos)
-			return res
-		end
-	end
+	-- nade_* barks: JazzAI_BarkOnGrenade from AiActions Execute wrap only.
 	local unit_cls = rawget(_G, "Unit")
 	if type(unit_cls) == "table" and type(unit_cls.SwapActiveWeapon) == "function"
 		and not rawget(_G, "g_JAZZ_UnitSwapActiveWeaponWrapped")

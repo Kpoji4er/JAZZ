@@ -29,7 +29,7 @@ JAZZ поддерживает только последнюю опубликов
 | `CombatPath:RebuildPaths` | `Lua/Tactical/CombatPath.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: AI-only AP `restrict_area` bbox + gated log (no Sleep) |
 | `Unit:StartAI` | `Lua/Tactical/Unit.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: `Sleep(1)` after think so Execute's all-unit StartAI yields |
 | `UnitProperties:SelectArchetype` | `Lua/ClassDefs/ClassDef-Zulu.generated.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-007: PickCustom before scout; `Scout_LastLocation` only via `JazzAI_ShouldRecontactScout` |
-| `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (wrap) | JAZZ-AI-CMD-002: count ordinary grenade throws toward difficulty budget |
+| `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (one wrap) | JAZZ-AI-CMD-002 budget + JAZZ-AI-BARK-001 `JazzAI_BarkOnGrenade`. Install-once; do not add a second Execute wrap (ModsReloaded re-base → stack overflow) |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `AIPickScoutLocation` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: bbox `5*guim` (80 m hung Dump on 513 maps) |
 | `AICalcAOETargetPoints` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: scout-scan only if enemy point pool empty |

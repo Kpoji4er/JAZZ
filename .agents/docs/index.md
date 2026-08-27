@@ -27,5 +27,6 @@
 - Full merc from design article: `.agents/skills/create-jazz-merc/SKILL.md` + `docs/design/mercs-ja12/` + plan `.agents/skills/create-jazz-merc/references/generation-plan.md`
 - Penetration scales (class + tenths, ammo UI): `.agents/skills/jazz-penetration-scales/SKILL.md`
 - Lua globals / wrap flags (no «Attempt to create a new global»): `.agents/skills/jazz-lua-globals/SKILL.md`
+- Lua wrap cycles (один символ — один wrap, не re-base): `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`, `docs/tools/_check_lua_wrap_cycles.py`
 
 Для задачи на стыке систем читать только общий контур, точные runtime/generated references и затронутые playbooks. Не загружать весь набор документов.

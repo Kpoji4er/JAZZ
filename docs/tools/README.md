@@ -7,6 +7,7 @@
 
 DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playbook: `.agents/docs/playbooks/dap-runtime-debug.md`.
 
+| `_check_lua_wrap_cycles.py` | Два wrap на один `Class:Method` / глобал в suite `Code/` → FAIL (cycle / stack overflow). Allowlist только install-once цепочек. `python docs/tools/_check_lua_wrap_cycles.py`. Правило: `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`. |
 | `_gen_vanilla_beast_ai.py` | Вырезает ванильный `CombatAI.lua` в `Code/System_AI_VanillaBeasts.lua` (`JazzAI_Vanilla*`). Вход: JA3 `ModTools/Src/Lua/Tactical/CombatAI.lua`. Перезапускать после смены диапазонов в скрипте. |
 | `_audit_specs_index.py` | Сводка всех `docs/specs/**`: status, Evidence PASS/FAIL/BLOCKED, TBD, cross-refs, folder mismatch. |
 | `_aibark_bank_data.py` | Канон боевых окриков AI: 5 (RU, EN) на слот. `python docs/tools/_aibark_bank_data.py` собирает таблицы в `docs/design/combat-ai-barks.md` после `<!-- aibark-bank -->`. |
@@ -143,7 +144,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_steam_last_changes_since_aug12.txt` | Player-facing Steam changelog bullets (12 Aug 2026 → current). |
 | `_steam_last_changes_since_aug8.txt` | Older Steam draft (8 Aug window); kept for reference. |
 | `_check_last_changes_preview.py` | Print decoded `metadata.lua` `last_changes` (escape check + bullet dump). |
-| `_print_metadata_version.py` | Print `version_major.version_minor-version` from `metadata.lua` (first matches). |
+| `_print_metadata_version.py` | Корневая engine-версия `metadata.lua` (`major.minor-revision`, не dependency CommonLib). `--engine` — только строка для Discord. |
 | `_audit_steam_editor_resave.py` | Diff Steam/Mod Editor resave vs HEAD: lost `ResolveValue`, EN→RU T() fallbacks, FreeMove damage. |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
@@ -605,7 +606,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_compose_legion_unit_portraits.py` | Compose 38 Legion unit Portrait PNGs (transparent 300×300, red-only): family mark inside shield at top-center, unified single-silhouette role glyph below it, tier dots under tip. Catalog + sheet/PSD masters → `jazz-units/EnemyPortraits/Legion/`. |
 | `_audit_legion_unit_portraits.py` | Static + visual QA of all 38 portraits: alpha/color/slots/pip count/100px readability/duplicate types; writes design preview, `xN` overlay preview and QA report. |
 | `_wire_legion_unit_portraits.py` | Set `Portrait` on all `JAZZ_Legion_*` UnitData companions + matching `items.lua` blocks to `Mod/Dv3mFVN/EnemyPortraits/Legion/<File>.png`. |
-| `_dispatch_discord_player_update.ps1` | После agent `git push` в `main`: поллит до 90с; Discord run на SHA уже есть → exit. **Один пост на логическую фичу** (primary пакет); sibling с `[skip discord]`. `-SuitePackages jazz,jazz-units,jazz-nomaps` — список затронутых пакетов в поле Discord «Пакеты». `-Force`/`-AlwaysDispatch` только для явной перепубликации одного диапазона — не на все репы suite. |
+| `_dispatch_discord_player_update.ps1` | После agent `git push` в `main`: поллит до 90с; Discord run на SHA уже есть → exit. **Один пост на логическую фичу** (primary пакет); sibling с `[skip discord]`. `-SuitePackages` — список пакетов в Discord «Пакеты». `-SuiteVersions jazz:0.20-6206,jazz-units:0.19-2326` — полные engine-версии (если пусто, читает локальные `metadata.lua`). `-Force`/`-AlwaysDispatch` только для явной перепубликации одного диапазона — не на все репы suite. |
 | `_ris_copy_bank.py` | Единственный importable RU+EN канон R.I.S.: identity/sender 3, welcome 3, UI 13, AAR 60, field mail 7, 38+4 досье, 9 Strategy mails (`11322…11339`) и 8 support strings (`11340…11347`); сам ничего не пишет. |
 | `_ris_dossier_copy.py` | Compatibility facade: только переэкспортирует public bank из `_ris_copy_bank.py`, собственной прозы не содержит. |
 | `_apply_ris_editorial.py` | Канонический generated apply JAZZ-UI-RIS-002: Content Lua, 24 Email, ровно 9 Strategy metadata resources (старые `LegionTier1…5` удаляются), RU/EN runtime CSV, Strings и обе manual memory. Default = dry-run; `--check` возвращает 1 при drift; запись только с `--apply`; повторный apply идемпотентен. |

@@ -443,12 +443,67 @@ export function resolveSuitePackages({
   return SUITE_PACKAGE_KEYS.filter((key) => seen.has(key));
 }
 
-export function formatSuitePackagesField(packages) {
+export function parseSuiteVersions(raw = process.env.SUITE_VERSIONS) {
+  const allowed = new Set(SUITE_PACKAGE_KEYS);
+  const aliases = {
+    jazz_units: "jazz-units",
+    "jazz-assets": "jazz_assets",
+    jazzassets: "jazz_assets",
+    nomaps: "jazz-nomaps",
+    units: "jazz-units",
+    maps: "jazz-maps",
+    assets: "jazz_assets",
+  };
+  const out = {};
+  for (const part of String(raw ?? "")
+    .split(/[\s,;]+/)
+    .filter(Boolean)) {
+    const match = part.match(/^([a-z0-9_-]+)[:=](\d+\.\d+-\d+)$/i);
+    if (!match) {
+      continue;
+    }
+    let key = match[1].toLowerCase();
+    if (aliases[key]) {
+      key = aliases[key];
+    }
+    if (key === "jazz-assets") {
+      key = "jazz_assets";
+    }
+    if (allowed.has(key)) {
+      out[key] = match[2];
+    }
+  }
+  return out;
+}
+
+/** Root ModDef keys (one tab), not ModDependency version_major. */
+export function parseMetadataEngineVersion(text) {
+  const source = String(text ?? "");
+  const grab = (key) => {
+    const match = source.match(new RegExp(`(?:^|\\n)\\t'${key}',\\s*(\\d+)`));
+    return match ? Number(match[1]) : null;
+  };
+  const major = grab("version_major") ?? 0;
+  const minor = grab("version_minor") ?? 0;
+  const revision = grab("version") ?? 0;
+  return `${major}.${String(minor).padStart(2, "0")}-${String(revision).padStart(3, "0")}`;
+}
+
+export function formatSuitePackagesField(packages, versions = null) {
   const list = Array.isArray(packages) ? packages.filter(Boolean) : [];
   if (list.length === 0) {
     return null;
   }
-  return list.map((name) => `• ${name}`).join("\n");
+  const verMap =
+    versions && typeof versions === "object" && !Array.isArray(versions)
+      ? versions
+      : {};
+  return list
+    .map((name) => {
+      const ver = String(verMap[name] ?? "").trim();
+      return ver ? `• ${name} ${ver}` : `• ${name}`;
+    })
+    .join("\n");
 }
 
 export function analyzeCommitMarkers(commits) {
@@ -1482,6 +1537,7 @@ export function buildDiscordPayload({
   mentionRole = false,
   roleId = "",
   suitePackages = null,
+  suiteVersions = null,
 }) {
   const title =
     sanitizeForDiscord(summary.title, MAX_DISCORD_TITLE) ||
@@ -1494,7 +1550,8 @@ export function buildDiscordPayload({
   const packages =
     suitePackages ??
     resolveSuitePackages({ repository: changeSet.repository });
-  const packagesField = formatSuitePackagesField(packages);
+  const versions = suiteVersions ?? parseSuiteVersions();
+  const packagesField = formatSuitePackagesField(packages, versions);
   const packagesBlock = packagesField
     ? `\n\n**Пакеты:**\n${packagesField}`
     : "";
@@ -1800,6 +1857,18 @@ async function main() {
     return;
   }
 
+  const suiteVersions = parseSuiteVersions(process.env.SUITE_VERSIONS);
+  const postingPackage = GITHUB_REPO_TO_SUITE[changeSet.repository];
+  if (postingPackage && !suiteVersions[postingPackage]) {
+    try {
+      suiteVersions[postingPackage] = parseMetadataEngineVersion(
+        await readFile("metadata.lua", "utf8"),
+      );
+    } catch {
+      // posting checkout has no metadata.lua
+    }
+  }
+
   const payload = buildDiscordPayload({
     summary,
     changeSet,
@@ -1809,6 +1878,7 @@ async function main() {
       repository: changeSet.repository,
       suitePackagesEnv: process.env.SUITE_PACKAGES,
     }),
+    suiteVersions,
   });
 
   if (parseBoolean(process.env.DRY_RUN)) {

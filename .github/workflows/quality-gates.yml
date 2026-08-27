@@ -34,6 +34,10 @@ jobs:
         shell: pwsh
         run: scripts/check-lua-quoted-strings.ps1
 
+      - name: Reject dual Lua method wraps (stack-overflow cycles)
+        shell: pwsh
+        run: python docs/tools/_check_lua_wrap_cycles.py
+
       - name: Check whitespace in changed lines
         shell: pwsh
         run: |

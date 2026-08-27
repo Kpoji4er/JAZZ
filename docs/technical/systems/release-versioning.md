@@ -72,6 +72,7 @@ Release manifest фиксирует для каждого пакета:
 - Центральный GitHub Release содержит четыре package archives.
 - Exact SHA и metadata version каждого repo фиксируются в неизменяемом manifest.
 - Release title использует engine display из core metadata.
+- Discord player-update в поле «Пакеты» показывает ту же engine-строку **каждого** затронутого пакета (`jazz 0.20-6206`), не одно Revision. Источник — корневой `metadata.lua`; агент передаёт `-SuiteVersions` при диспатче (`.cursor/rules/jazz-git-push-chunks.mdc`).
 - Опубликованный tag, manifest и assets не заменяются; исправление получает новый editor revision.
 
 ## Поток выпуска

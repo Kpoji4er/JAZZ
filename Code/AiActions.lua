@@ -2816,7 +2816,10 @@ function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
     return targeted_parts or visible_parts
 end
 
--- JAZZ-AI-CMD-002: count ordinary grenade Execute toward difficulty budget.
+-- JAZZ-AI-CMD-002 + JAZZ-AI-BARK-001: one Execute wrap (budget then bark).
+-- A second wrap on this method (CombatBarks used to add one) re-bases
+-- ModsReloaded/DataLoaded into a cycle → "Call stack too big".
+g_JAZZ_ThrowGrenadeExecuteWrapped = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteWrapped") or false
 g_JAZZ_ThrowGrenadeExecuteBase = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase") or false
 g_JAZZ_ThrowGrenadeExecuteFn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteFn") or false
 
@@ -2833,19 +2836,23 @@ local function JazzAI_InstallThrowGrenadeExecuteWrap()
 	if ourFn and current == ourFn then
 		return true
 	end
-	if current ~= ourFn then
-		rawset(_G, "g_JAZZ_ThrowGrenadeExecuteBase", current)
-	elseif not rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase") then
-		return false
-	end
+	-- ReloadLua / ClassesBuilt restores vanilla Execute (current ~= ourFn).
+	-- Re-base only in that case. A second JAZZ wrap on this method must not
+	-- exist — taking it as base cycles with this wrap.
+	rawset(_G, "g_JAZZ_ThrowGrenadeExecuteBase", current)
 	local function wrap(self, context, action_state)
 		if type(rawget(_G, "JazzAI_NoteTeamExplosiveThrow")) == "function" then
 			JazzAI_NoteTeamExplosiveThrow(context and context.unit, action_state and action_state.jazz_grenade)
 		end
 		local base_fn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase")
-		return base_fn(self, context, action_state)
+		local res = base_fn(self, context, action_state)
+		if type(rawget(_G, "JazzAI_BarkOnGrenade")) == "function" then
+			JazzAI_BarkOnGrenade(context and context.unit, action_state and action_state.jazz_grenade, action_state and action_state.target_pos)
+		end
+		return res
 	end
 	rawset(_G, "g_JAZZ_ThrowGrenadeExecuteFn", wrap)
+	rawset(_G, "g_JAZZ_ThrowGrenadeExecuteWrapped", true)
 	cls.Execute = wrap
 	return true
 end

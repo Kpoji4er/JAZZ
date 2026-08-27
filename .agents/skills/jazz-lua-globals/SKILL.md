@@ -125,6 +125,10 @@ end
 - [ ] Early NewGame не зовёт `SetQuestVar`, если нужен только raw value для loot.
 - [ ] После фикса NoMaps: закрытие Mod Manager + NewGame без Assert; `JAZZ_LegionAIPrintEconomy()` → HQ=`A20` (не `B28`).
 
+## Не путать с wrap-циклом
+
+Второй wrap на тот же метод + re-base → `Call stack too big`, не assert «new global». Канон: `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`. Проверка: `python docs/tools/_check_lua_wrap_cycles.py`.
+
 ## Канон в репо
 
 - Wrap flags: `jazz/Code/Guardpost_Patrols.lua` (top-level init).

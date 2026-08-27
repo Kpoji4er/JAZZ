@@ -17,6 +17,8 @@ import {
   duplicatePublishSkipReason,
   formatNewGameNeededLabel,
   formatSuitePackagesField,
+  parseMetadataEngineVersion,
+  parseSuiteVersions,
   getSummarySkipReason,
   isClearlyNoiseOnly,
   neutralizeDiscordMentions,
@@ -736,6 +738,54 @@ test("resolveSuitePackages merges env list with posting repo", () => {
   assert.equal(
     formatSuitePackagesField(["jazz", "jazz-units"]),
     "• jazz\n• jazz-units",
+  );
+  assert.equal(
+    formatSuitePackagesField(["jazz", "jazz-units"], {
+      jazz: "0.20-6206",
+      "jazz-units": "0.19-2326",
+    }),
+    "• jazz 0.20-6206\n• jazz-units 0.19-2326",
+  );
+  assert.deepEqual(
+    parseSuiteVersions("jazz:0.20-6206, jazz-units=0.19-2326"),
+    { jazz: "0.20-6206", "jazz-units": "0.19-2326" },
+  );
+  assert.equal(
+    parseMetadataEngineVersion(
+      "return PlaceObj('ModDef', {\n\t'dependencies', {\n\t\tPlaceObj('ModDependency', {\n\t\t\t'version_major', 1,\n\t\t\t'version_minor', 11,\n\t\t}),\n\t},\n\t'author', \"Kpoji4er\",\n\t'version_minor', 20,\n\t'version', 6206,\n})",
+    ),
+    "0.20-6206",
+  );
+});
+
+test("Discord packages field shows full engine versions", () => {
+  const summary = {
+    should_publish: true,
+    title: "Title",
+    summary: "Summary",
+    sections: [],
+    new_game_needed: "not_needed",
+    confidence: "high",
+  };
+  const changeSet = {
+    repository: "Kpoji4er/JAZZ",
+    compareUrl: "https://github.com/Kpoji4er/JAZZ/compare/a...b",
+    commitCount: 1,
+    changedFiles: ["Code/A.lua"],
+    additions: 1,
+    deletions: 1,
+    afterSha: "1234567890abcdef",
+    timestamp: "2026-07-26T10:00:00.000Z",
+  };
+  const payload = buildDiscordPayload({
+    summary,
+    changeSet,
+    suitePackages: ["jazz", "jazz-units"],
+    suiteVersions: { jazz: "0.20-6206", "jazz-units": "0.19-2326" },
+  });
+  assert.match(
+    payload.embeds[0].fields[1].value,
+    /jazz 0\.20-6206[\s\S]*jazz-units 0\.19-2326/,
   );
 });
 
