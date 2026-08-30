@@ -23,6 +23,8 @@ import {
   isClearlyNoiseOnly,
   neutralizeDiscordMentions,
   parseAiOutput,
+  polishPlayerSummary,
+  redactHitChanceColorPercents,
   redactSecrets,
   resolveNewGameNeeded,
   resolvePlayerSummary,
@@ -718,6 +720,101 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
   assert.deepEqual(rolePayload.allowed_mentions.roles, [
     "123456789012345678",
   ]);
+});
+
+test("polishPlayerSummary strips CTH color percents and unevidenced voice claims", () => {
+  assert.equal(
+    redactHitChanceColorPercents(
+      "Шкала дополнена отдельными цветами: синим для 85–99% и белым для 100%.",
+    ).includes("%"),
+    false,
+  );
+  assert.match(
+    redactHitChanceColorPercents(
+      "Шкала дополнена отдельными цветами: синим для 85–99% и белым для 100%.",
+    ),
+    /синим.*белым/,
+  );
+  assert.equal(
+    redactHitChanceColorPercents(
+      "Для выстрела прерывания используется штраф, а не бонус к шансу попадания.",
+    ),
+    "Для выстрела прерывания используется штраф, а не бонус к шансу попадания.",
+  );
+
+  const polished = polishPlayerSummary(
+    {
+      should_publish: true,
+      title: "Overwatch",
+      summary: "Цвет сектора отражает шанс попадания.",
+      sections: [
+        {
+          name: "Интерфейс",
+          items: [
+            "Шкала цвета шанса попадания: синим для 85–99% и белым для 100%.",
+          ],
+        },
+        {
+          name: "Голосовые реплики ИИ",
+          items: [
+            "Исправлено воспроизведение голосовых реплик ИИ при атаках.",
+          ],
+        },
+        {
+          name: "Бой",
+          items: ["Сектор Overwatch шире на близкой дистанции."],
+        },
+      ],
+      new_game_needed: "not_needed",
+      confidence: "high",
+    },
+    ["Code/CombatAI.lua", "Code/CrossHairUI.lua"],
+  );
+  assert.equal(polished.sections.length, 2);
+  assert.equal(polished.sections[0].name, "Интерфейс");
+  assert.doesNotMatch(polished.sections[0].items[0], /\d/);
+  assert.equal(polished.sections[1].name, "Бой");
+
+  const payload = buildDiscordPayload({
+    summary: {
+      should_publish: true,
+      title: "Overwatch",
+      summary: "Цвет сектора отражает шанс попадания.",
+      sections: [
+        {
+          name: "Интерфейс",
+          items: ["синим для 85–99% и белым для 100%"],
+        },
+        {
+          name: "Голосовые реплики ИИ",
+          items: ["Исправлено воспроизведение голосовых реплик ИИ."],
+        },
+      ],
+      new_game_needed: "not_needed",
+      confidence: "high",
+    },
+    changeSet: {
+      repository: "Kpoji4er/JAZZ",
+      compareUrl: "https://github.com/Kpoji4er/JAZZ/compare/a...b",
+      commitCount: 1,
+      changedFiles: ["Code/CombatAI.lua"],
+      additions: 1,
+      deletions: 1,
+      afterSha: "1234567890abcdef",
+      timestamp: "2026-08-30T16:13:00.000Z",
+    },
+  });
+  const interfaceField = payload.embeds[0].fields.find(
+    (field) => field.name === "Интерфейс",
+  );
+  assert.ok(interfaceField);
+  assert.doesNotMatch(interfaceField.value, /\d{2,3}/);
+  assert.equal(
+    payload.embeds[0].fields.some(
+      (field) => field.name === "Голосовые реплики ИИ",
+    ),
+    false,
+  );
 });
 
 test("resolveSuitePackages merges env list with posting repo", () => {

@@ -206,6 +206,14 @@ webhook URL, внутренние инструкции агентов или с�
 игрока, детали — только если они заметны. Имена вроде bake/hook/fingerprint/cache/AppData
 в публичный текст не выноси.
 
+Не указывай числовые пороги процентов у цветов шанса попадания. Цвета шкалы описывай
+качественно: синий — очень высокий шанс, белый — гарантированное попадание, без цифр.
+Числовые ступени шкалы не публикуй в Discord.
+
+Не заявляй исправление голосовых реплик ИИ без явного evidence в файлах VoiceResponse,
+CombatBarks или таблиц реплик. Вызов PlayVoiceResponse рядом с Overwatch, гранатой или
+пулемётом сам по себе не есть правка озвучки.
+
 Плохо: «добавлена система подготовки отдельных боковых иконок; при наличии такой иконки
 изображение модификации скрывается».
 Хорошо: «в инвентаре оружие с обвесом может показываться боком уже с аттачами; лишний
@@ -310,6 +318,78 @@ export function redactSecrets(value) {
   );
 
   return text;
+}
+
+const HIT_CHANCE_COLOR_CONTEXT_RE =
+  /цвет|шкал|сини|бел(?:ый|ым|ого|ое|ая)|зелён|оранж|красн/i;
+const VOICE_CLAIM_RE =
+  /голос(?:ов(?:ые|ых|ая|ой))?\s+реплик|озвучк|VoiceResponse|combat\s*barks|боевые реплик/i;
+const VOICE_EVIDENCE_RE =
+  /VoiceResponse|CombatBarks|System_AI_CombatBarks|\bbarks\b/i;
+
+export function redactHitChanceColorPercents(value) {
+  const text = String(value ?? "");
+  if (!HIT_CHANCE_COLOR_CONTEXT_RE.test(text)) {
+    return text;
+  }
+
+  return text
+    .replace(/\s*для\s+\d{1,3}(?:\s*[–\-]\s*\d{1,3})?\s*%/g, "")
+    .replace(/\s*\(\s*\d{1,3}(?:\s*[–\-]\s*\d{1,3}|\s*\+)?\s*%?\s*\)/g, "")
+    .replace(/\s+\d{1,3}(?:\s*[–\-]\s*\d{1,3})?\s*%/g, "")
+    .replace(/\s+\d{1,3}\s*\+/g, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([.,;:])/g, "$1")
+    .trim();
+}
+
+export function hasVoiceImplementationEvidence(changedFiles = []) {
+  return changedFiles.some((filePath) =>
+    VOICE_EVIDENCE_RE.test(String(filePath)),
+  );
+}
+
+export function dropUnevidencedVoiceClaims(summary, changedFiles = []) {
+  if (!summary || hasVoiceImplementationEvidence(changedFiles)) {
+    return summary;
+  }
+
+  const sections = [];
+  for (const section of summary.sections ?? []) {
+    if (VOICE_CLAIM_RE.test(section.name)) {
+      continue;
+    }
+    const items = section.items.filter((item) => !VOICE_CLAIM_RE.test(item));
+    if (!section.name || items.length === 0) {
+      continue;
+    }
+    sections.push({ ...section, items });
+  }
+
+  return { ...summary, sections };
+}
+
+export function polishPlayerSummary(summary, changedFiles = []) {
+  if (!summary || typeof summary !== "object") {
+    return summary;
+  }
+
+  const polished = {
+    ...summary,
+    title: redactHitChanceColorPercents(summary.title),
+    summary: redactHitChanceColorPercents(summary.summary),
+    sections: (summary.sections ?? [])
+      .map((section) => ({
+        ...section,
+        name: redactHitChanceColorPercents(section.name),
+        items: (section.items ?? [])
+          .map((item) => redactHitChanceColorPercents(item))
+          .filter(Boolean),
+      }))
+      .filter((section) => section.name && section.items.length > 0),
+  };
+
+  return dropUnevidencedVoiceClaims(polished, changedFiles);
 }
 
 export function neutralizeDiscordMentions(value) {
@@ -1539,6 +1619,7 @@ export function buildDiscordPayload({
   suitePackages = null,
   suiteVersions = null,
 }) {
+  summary = polishPlayerSummary(summary, changeSet?.changedFiles);
   const title =
     sanitizeForDiscord(summary.title, MAX_DISCORD_TITLE) ||
     "JAZZ — изменения в основной ветке";
