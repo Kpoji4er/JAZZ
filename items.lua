@@ -81573,12 +81573,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				Parameters = {
 					PlaceObj('PresetParamNumber', {
 						'Name', "MaxPenalty",
-						'Value', -20,
+						'Value', -30,
 						'Tag', "<MaxPenalty>",
 					}),
 					PlaceObj('PresetParamNumber', {
 						'Name', "MinPenalty",
-						'Value', 10,
+						'Value', 0,
 						'Tag', "<MinPenalty>",
 					}),
 				},

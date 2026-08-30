@@ -35,10 +35,10 @@ Folding stocks and tactical flashlights toggle via **small buttons next to the w
 | Auto | Long burst: denser fire for ammo and stacked recoil; climb stronger on the tail. |
 | MG burst | Costs +1 AP at burst length or +2 AP for the longer automatic string; uses full weapon recoil, so Strength and support remain critical. |
 | Buckshot / buckshot burst / double barrel | Pellet packet (buckshot ≈9); same hit chance per pellet, no in-packet recoil or queue-climb. Double barrel costs the same AP as a normal shotgun shot — you pay in two shells. |
-| Overwatch | Cone control; each interrupt resolves from the real position. A carbine with the auto-fire module interrupts with a **short burst**, not a single shot. **Scope + sniper:** Overwatch costs **1 AP**, leftover AP kept. |
+| Overwatch | Cone control: the farther you place it, the narrower it gets (the wedge does not swell first). A pistol up close is a wide fan; a machine gun close in is thicker than at BDR; a rifle at max range is a thin strip. While aiming, cone color is hit chance against a standing full-height target **with the sector's aim** (rifles / MGs get an extra click, snipers use full aim; ignores your debuffs). After you confirm, the cone is the normal overwatch fill. Interrupt CTH is the same shot plus **−30…0** reaction (not a bonus). A carbine with the auto-fire module interrupts with a **short burst**. **Scope + sniper:** Overwatch costs **1 AP**, leftover AP kept. |
 | Pin Down | Keeps a target under reaction threat (not a hit guarantee). |
 | Mobile Shot / Run and Gun | Shot or packets during/after movement. |
-| MG Setup | Sets up the gun position; does not fire by itself. A mapped stationary MG stays under control after loading a save (no remount needed). |
+| MG Setup | Same distance-scaled cone as Overwatch (closer is wider). Does not fire by itself. A mapped stationary MG stays under control after loading a save (no remount needed). |
 
 ## Example JAZZ class techniques
 

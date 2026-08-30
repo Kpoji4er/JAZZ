@@ -7,6 +7,7 @@
 - `JAZZ-COMBAT-003` — suppression retaliation / Lightning Reaction / Psycho Will.
 - `JAZZ-COMBAT-004` — избыток ядра CTH → crit.
 - `JAZZ-WEAPONS-013` — пулемёт: спад после E за 16 клеток, не на весь WeaponRange.
+- `JAZZ-COMBAT-009` — Overwatch: ширина от дистанции (якорь BDR; inverse до BDR, пулемёт/ЛП квадрат; полоска на WeaponRange, cap 155°); aim-конус `GetCTHColor` на `CRM_AOETilesMaterial`, не `SetColorModifier`.
 
 ## Назначение и эффект для игрока
 
@@ -29,7 +30,7 @@ JAZZ заменяет основной цикл расчёта попадани�
 - `Code/AccuracyRangeCTH.lua` — общее fixed-point ядро CTH, дальности, оптики и отдачи;
 - `Code/CombatActions.lua` — действия юнитов, включая Run and Gun;
 - `Code/ExecFirearmAttacks.lua` — выполнение firearm attack и последовательность выстрелов;
-- `Code/IModeCombatAreaAim.lua` — UI-режим зонального прицеливания;
+- `Code/IModeCombatAreaAim.lua` — UI-режим зонального прицеливания; Overwatch/MGSetup/MGRotate: `GetOverwatchConeAngle`, aim-band 50% BDR…`WeaponRange` (не sight), tint `CRM_AOETilesMaterial` (COMBAT-009);
 - `Code/CrossHairUI.lua` — crosshair, разбивка модификаторов и отображение CTH;
 - `Code/CombatBadge_DeathRoll.lua` — состояние цели, LOS/LOF, боевые предупреждения, счётчики; critical icons у ника + party status parity helpers; снятие CombatBadge с трупов (`JazzHideCombatBadgeForDeadUnit`);
 - `Code/UnitPropertiesStats.lua` — дополнительные характеристики, используемые боевыми расчётами;
@@ -48,7 +49,7 @@ skill(x)      = 20 + x^1.25 × 0.25
 
 Нулевой aim преимущественно использует Dexterity. С ростом `aim_progress` результат монотонно движется к Marksmanship-каналу, а `AimAccuracy` добавляет пользу кликов через нелинейный aim mastery. Стат `Handling` удалён. Для неогнестрельных действий сохраняется прежний совместимый путь: skill + CTH presets + `weapon:GetAccuracy`, затем **после** clamp 0–100 применяются `OnCalcChanceToHit` (`Pain`, `TraumaArms*`, `TraumaHead*`, `Concussion`). Иначе запас точности рукопашной съедал штрафы боли/травм.
 
-После cap ядра CTH presets, status effects, component effects, реакции, укрытие и остальные ситуационные поправки преобразуются в именованные fixed-point факторы и применяются одним детерминированным произведением. Физически возможный выстрел ограничивается `2..100%`; невозможная атака возвращает `0%`. Опытный стрелок может получить `100%` по открытой цели в полный рост при полном aim и оптимальной дистанции, но любой применимый штраф снижает этот результат. Полная формула находится в [модели стрельбы и точности](../weapons/accuracy-model.md).
+После cap ядра CTH presets, status effects, component effects, реакции, укрытие и остальные ситуационные поправки преобразуются в именованные fixed-point факторы и применяются одним детерминированным произведением. `OpportunityAttack` (interrupt / OW): **−30…0** от Dex+Mark+уровень×5; `OpportunityAttackBonusCth` с коллиматора добавляется сверху. Физически возможный выстрел ограничивается `2..100%`; невозможная атака возвращает `0%`. Опытный стрелок может получить `100%` по открытой цели в полный рост при полном aim и оптимальной дистанции, но любой применимый штраф снижает этот результат. Полная формула находится в [модели стрельбы и точности](../weapons/accuracy-model.md).
 
 Укрытие (`RangeAttackTargetStanceCover`, owner-soften 2026-08-05): `Cover −45` → factor `×0.55`, `ExposedCover −12` → `×0.88`, crouch/prone без укрытия `−12/−23` → `×0.88/×0.77`; частичное — `InterpolateCoverEffect`. В пылевой буре (`CheckSightCondition` obscured) к Cover и ExposedCover добавляется **`DustStormCoverCTHPenalty = −40`** (один `ConstDef`; раньше дубли −10/−50). Runtime: preset `CalcValue` → `JAZZ_CTHPercentToFactor` в `Unit:CalcChanceToHit` (firearm pipeline). Проверка: `docs/tools/_calc_cover_cth_gewehr.py`, `_check_cover_params_items.py`.
 
@@ -202,6 +203,12 @@ Dust storm может **косвенно** усилить cover-graze: obscured 
 - Crosshair и area-aim являются изменёнными аналогами крупных vanilla-файлов и чувствительны к обновлению игры.
 - Изменение порядка `metadata.lua` может заменить финальную реализацию функции другой копией.
 - CTH, recoil и RNG должны оставаться детерминированными в сетевой игре.
+
+## Overwatch / MGSetup cone (JAZZ-COMBAT-009)
+
+`Firearm:GetOverwatchConeAngle(d)` — authored `OverwatchAngle` на BDR. Ближе BDR: `authored × BDR / d`; пулемёт и ЛП ещё раз `× BDR / d` (иначе наземный клин `CreateAOETilesSector` почти не толстеет). Дальше BDR — lerp к class strip на `WeaponRange`. Clamp `[2°, 155°]`. `MinRange` = 50% BDR для всех стволов, включая M2. Aim UI берёт min/max из `GetOverwatchConeParam`, не из sight-clamp `GetAimParams`. После confirm `Unit:OnOverwatchPlaced` / `OverwatchChanged` переписывает `g_Overwatch.cone_angle` и `dist` от поставленной точки — ванильный `GetAimParams` без target писал бы сырой `OverwatchAngle`.
+
+Цвет aim-конуса **только пока целишься**: после `CreateAOETilesSector` красятся поля `CRM_AOETilesMaterial` в `GetCTHColor(preview)` (белый ≥100 / синий ≥85 / зелёный ≥60 / жёлтый ≥40 / оранжевый ≥20 / красный >0 / чёрный 0). Поставленный сектор не тинтим — ванильный Confirm / Deployed / Activated (сплошная заливка CTH на уже стоящем OW была косяком). Preview CTH — `JazzOwPreviewCTH`: виртуальный Standing/Torso, `aim` из `GetOverwatchAttacksAndAim`, без укрытия, без attacker CTH-дебафов и без Opportunity Attack (боевой interrupt OA оставляет). Якорь на `SnapToPassSlab`; чёрный только если нет LoS ни на одной пробе **и** CTH=0.
 
 ## Проверка
 

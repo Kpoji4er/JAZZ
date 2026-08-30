@@ -2895,6 +2895,8 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 	-- calc cone areas for each remaining target point
 	local zones = {}
 	local cone_angle = params.cone_angle
+	local scale_ow = (action_id == "Overwatch" or action_id == "MGSetup" or action_id == "MGRotate")
+		and weapon and weapon.GetOverwatchConeAngle
 	local targets = {}
 	local attack_pos = unit:GetPos() -- make sure we're using the current position in case the unit has moved
 	local units = table.copy(context.enemies)
@@ -2912,7 +2914,11 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 			zones[#zones + 1] = zone
 		
 			local angle = CalcOrientation(attack_pos, pt)
-			local los_any, los_targets = CheckLOS(units, unit, unit:GetDist(target_pos), nil, cone_angle, angle)
+			local zone_cone = cone_angle
+			if scale_ow then
+				zone_cone = weapon:GetOverwatchConeAngle(weapon:GetOverwatchConeDistTiles(attack_pos, pt))
+			end
+			local los_any, los_targets = CheckLOS(units, unit, unit:GetDist(target_pos), nil, zone_cone, angle)
 			if los_any then
 				for i, target_unit in ipairs(units) do
 					if los_targets[i] and IsValidTarget(target_unit) then

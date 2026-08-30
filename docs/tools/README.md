@@ -8,6 +8,7 @@
 DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playbook: `.agents/docs/playbooks/dap-runtime-debug.md`.
 
 | `_check_lua_wrap_cycles.py` | Два wrap на один `Class:Method` / глобал в suite `Code/` → FAIL (cycle / stack overflow). Allowlist только install-once цепочек. `python docs/tools/_check_lua_wrap_cycles.py`. Правило: `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`. |
+| `_test_combat_009_ow_cone.py` | COMBAT-009 AC-001: якоря угла OW (Glock/MP5/AK/M1897/Mosin/ПКМ квадрат на d_min, MinRange 50% BDR). `python docs/tools/_test_combat_009_ow_cone.py`. |
 | `_gen_vanilla_beast_ai.py` | Вырезает ванильный `CombatAI.lua` в `Code/System_AI_VanillaBeasts.lua` (`JazzAI_Vanilla*`). Вход: JA3 `ModTools/Src/Lua/Tactical/CombatAI.lua`. Перезапускать после смены диапазонов в скрипте. |
 | `_audit_specs_index.py` | Сводка всех `docs/specs/**`: status, Evidence PASS/FAIL/BLOCKED, TBD, cross-refs, folder mismatch. |
 | `_aibark_bank_data.py` | Канон боевых окриков AI: 5 (RU, EN) на слот. `python docs/tools/_aibark_bank_data.py` собирает таблицы в `docs/design/combat-ai-barks.md` после `<!-- aibark-bank -->`. |

@@ -999,6 +999,12 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
     -- JAZZ-QOL-001: auto speed for unseen AI (see Code/AiFastForward.lua)
     JAZZ_UpdateAutoFastForward(unit, "behavior")
 
+    -- Dest is locked in Think (ai_destination). Shout at activation start so
+    -- the bubble is on-screen during the run, not after attacks/VR.
+    if JazzAI_BarkTryDest then
+        JazzAI_BarkTryDest(unit)
+    end
+
     if unit.ai_context and unit.ai_context.behavior then
         local status = unit.ai_context.behavior:Play(unit)
         if g_AIExecutionController then
@@ -1144,7 +1150,10 @@ local function JAZZ_AIPlayUnarmedOrMelee(unit, context, dbg_action, force_or_ski
             tostring(attack_action.id),
             IsKindOf(target, "Unit") and (target.unitdatadef_id or target.class) or tostring(target))
     end
-    local result = AIPlayCombatAction(attack_action.id, unit, nil, {target = target})
+    local result = AIPlayCombatAction(attack_action.id, unit, nil, {
+        target = target,
+        voiceResponse = "AIAttack",
+    })
     JAZZ_AIWaitIdle(unit, 40)
     return nil, result and true or false
 end
@@ -1231,10 +1240,18 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             and default_attack.FiringModeMember == "AttackShotgun" then
             default_attack_vr = "AIDoubleBarrel"
         end
-        voice_response = signature_action and (signature_action:GetVoiceResponse() or "")
-            or default_attack_vr
-        if voice_response == "" then
+        -- AISignatureAction.voice_response: non-empty = that VR; "" = silence;
+        -- false = default attack VR. `GetVoiceResponse() or ""` used to turn
+        -- false into "" and mute JAZZ signatures (flare/GL/MG/BasicAttack).
+        local sig_vr = signature_action and signature_action:GetVoiceResponse()
+        if not signature_action then
+            voice_response = default_attack_vr
+        elseif sig_vr == false or sig_vr == nil then
+            voice_response = default_attack_vr
+        elseif sig_vr == "" then
             voice_response = nil
+        else
+            voice_response = sig_vr
         end
 
         if signature_action then
@@ -2179,6 +2196,10 @@ function JazzAI_InstallMobileShotResolve()
 		if not resolved then
 			return
 		end
+		action_state.args = action_state.args or {}
+		if not action_state.args.voiceResponse or action_state.args.voiceResponse == "" then
+			action_state.args.voiceResponse = "AIMobile"
+		end
 		local prev = self.action_id
 		self.action_id = resolved
 		local base = g_JAZZ_AIActionMobileShotExecuteBase
@@ -2398,10 +2419,13 @@ function AIActionMGSetup:Execute(context, action_state)
             AIPlayChangeStance(context.unit, "Crouch", args.target)
         end
     end
-    AIPlayCombatAction(action_id, context.unit, nil, args)
     if action_id == "MGSetup" and JazzAI_TryCombatBark then
         JazzAI_TryCombatBark(context.unit, "mg_setup", empty_table)
     end
+    -- Do not inherit AIPlayAttacks' fallback AIAttack: deploy/pack is not a shot.
+    -- Speech for setup is the bark above.
+    args.voiceResponse = nil
+    AIPlayCombatAction(action_id, context.unit, nil, args)
     if action_state.action_id == "MGPack" then
         return "restart"
     end
@@ -2816,6 +2840,33 @@ function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
     return targeted_parts or visible_parts
 end
 
+function JazzAI_EnsureVoiceResponse(args, action_state, fallback)
+	args = args or {}
+	local vr = args.voiceResponse
+	if (not vr or vr == "") and action_state and action_state.args then
+		vr = action_state.args.voiceResponse
+	end
+	if not vr or vr == "" then
+		vr = fallback
+	end
+	if vr and vr ~= "" then
+		args.voiceResponse = vr
+	end
+	return args
+end
+
+function AIActionHeavyWeaponAttack:Execute(context, action_state)
+	assert(action_state.action_id and action_state.target_pos)
+	local args = JazzAI_EnsureVoiceResponse({ target = action_state.target_pos },
+		action_state, "AIThrowGrenade")
+	local caction = CombatActions[action_state.action_id]
+	local weapon = caction and caction.GetAttackWeapons and caction:GetAttackWeapons(context.unit)
+	if type(rawget(_G, "JazzAI_BarkOnGrenade")) == "function" then
+		JazzAI_BarkOnGrenade(context.unit, weapon and (weapon.ammo or weapon), action_state.target_pos)
+	end
+	AIPlayCombatAction(action_state.action_id, context.unit, nil, args)
+end
+
 -- JAZZ-AI-CMD-002 + JAZZ-AI-BARK-001: one Execute wrap (budget then bark).
 -- A second wrap on this method (CombatBarks used to add one) re-bases
 -- ModsReloaded/DataLoaded into a cycle → "Call stack too big".
@@ -2844,12 +2895,13 @@ local function JazzAI_InstallThrowGrenadeExecuteWrap()
 		if type(rawget(_G, "JazzAI_NoteTeamExplosiveThrow")) == "function" then
 			JazzAI_NoteTeamExplosiveThrow(context and context.unit, action_state and action_state.jazz_grenade)
 		end
-		local base_fn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase")
-		local res = base_fn(self, context, action_state)
 		if type(rawget(_G, "JazzAI_BarkOnGrenade")) == "function" then
 			JazzAI_BarkOnGrenade(context and context.unit, action_state and action_state.jazz_grenade, action_state and action_state.target_pos)
 		end
-		return res
+		-- Vanilla Execute rebuilds {target=} without voiceResponse. Hand
+		-- grenades still shout from Unit:ThrowGrenade — do not add a second VR.
+		local base_fn = rawget(_G, "g_JAZZ_ThrowGrenadeExecuteBase")
+		return base_fn(self, context, action_state)
 	end
 	rawset(_G, "g_JAZZ_ThrowGrenadeExecuteFn", wrap)
 	rawset(_G, "g_JAZZ_ThrowGrenadeExecuteWrapped", true)

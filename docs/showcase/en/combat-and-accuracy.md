@@ -87,7 +87,7 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 - Elites (all three near **100**) stay green at mid-range; low stats go red sooner, still gradually.
 - **At max range**, elites usually keep light scatter; a **mishap** still throws several tiles off, not 1–2 next to the aim point.
 - Underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives**.
-- While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same green→red scale as the crosshair.
+- While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same white / blue / green→red scale as the crosshair.
 - Frag / HE / flashbang: **guaranteed concussion** on blast-hit units. Zone **trauma** is **one** zone using the same after-armor damage bands as bullets (≥ **20**; heavy at ≥ **50%** Max HP) — not a pile from one grenade. In the **inner aim ring** (`CenterAreaOfEffect`) only, a strong blast can also **knock units back** (mercs included) — **Strength + Health** vs **pre-armor** damage; outer ring has no knockback; already prone units stay put. Smoke / gas / Molotov use their own packages, not concussion/knockback or **bleeding**.
 
 ## Enemy positioning
@@ -100,7 +100,9 @@ On large maps (the waterfall and similar) the enemy turn should not freeze for m
 
 A panicked fighter may flee and **despawn** at a map exit. While your mercs are within about **16** tiles, they will not vanish just by stepping behind the nearest rock — they keep running in plain sight.
 
-A visible enemy sometimes shouts over their head (new order, panic, grenade, weapon swap, long dash). Fast-forward and out-of-sight stays quiet; a team gets at most two shouts per turn.
+A visible enemy sometimes shouts over their head (new order, panic, grenade, weapon swap, long dash) — the same speech bubble as voiced attacks, no audio. Fast-forward and out-of-sight stays quiet; a team gets at most two shouts per turn.
+
+Your Overwatch **narrows with distance**: a close pistol is a wide fan, a machine gun up close is thicker than at its effective range, a long rifle is a thin strip. While placing, cone color is hit chance against a standing full-height target **with the sector's aim** (rifles / MGs get an extra click, snipers use full aim; your debuffs ignored). After you confirm, the cone is the normal overwatch fill again. A blocked wall tile is black. The interrupt itself is never a CTH bonus (**−30…0**); a reflex sight can nudge that up.
 
 Without sight, AI will not plant Overwatch into a wall at random: the cone covers the tile **where you can step into view** (house corner, doorway, rock edge). In the open it aims 1–3 tiles off the last sound. At night it prefers lit ground / night-sight, or they skip it. Shots into solid rock stop there. If you can see them and they cannot see you, they will not stand still to be farmed — they relocate and close to firing range of the last sound, not pile onto your tile.
 

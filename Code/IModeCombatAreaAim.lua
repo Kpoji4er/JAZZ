@@ -145,6 +145,12 @@ function SafeDoneMesh(obj)
 
 end
 
+local JAZZ_OW_SCALE_ACTIONS = {
+	Overwatch = true,
+	MGSetup = true,
+	MGRotate = true,
+}
+
 function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
     local attacker = dialog.attacker
     local action = dialog.action
@@ -548,6 +554,13 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
                            (weapon and
                                weapon:GetAreaAttackParams(action.id, attacker))
     if not aoe_params then return end
+    -- GetAimParams clamps Overwatch min/max to sight; that flattens MGSetup
+    -- (and can lock M2 at one ring). COMBAT-009 band is 50% BDR … WeaponRange.
+    if weapon and JAZZ_OW_SCALE_ACTIONS[action.id] and weapon.GetOverwatchConeParam then
+        aoe_params.min_range = weapon:GetOverwatchConeParam("MinRange")
+        aoe_params.max_range = Max(weapon:GetOverwatchConeParam("MaxRange") or 0,
+                                   aoe_params.min_range or 0)
+    end
     local min_aim_range = aoe_params.min_range * const.SlabSizeX
     local max_aim_range = aoe_params.max_range * const.SlabSizeX
     local lof_params =
@@ -658,6 +671,10 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
     dialog.target_as_pos = aim_pt
     local attack_distance = Clamp(attacker_pos3D:Dist(aim_pt), min_aim_range,
                                   max_aim_range)
+    if weapon and JAZZ_OW_SCALE_ACTIONS[action.id] and weapon.GetOverwatchConeAngle then
+        aoe_params.cone_angle = weapon:GetOverwatchConeAngle(
+            DivRound(attack_distance, const.SlabSizeX))
+    end
     local args = {
         target = aim_pt,
         distance = attack_distance,
@@ -697,6 +714,21 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
                                                aoe_params.cone_angle, false,
                                                aoe_params.falloff_start)
     end
-    blackboard.mesh:SetColorFromTextStyle("WeaponAOE")
+    if blackboard.mesh then
+        if weapon and JAZZ_OW_SCALE_ACTIONS[action.id] then
+            -- Recolor only when the snapped slab changes; pixel-drag reused a
+            -- flickering CheckLOS on a floating +2z point (black ↔ green).
+            local key = JazzOwPreviewCTHKey and JazzOwPreviewCTHKey(aim_pt)
+            local cth = blackboard.jazz_ow_cth
+            if key == nil or key ~= blackboard.jazz_ow_cth_key or cth == nil then
+                cth = JazzOwPreviewCTH(attacker, action, weapon, aim_pt)
+                blackboard.jazz_ow_cth_key = key
+                blackboard.jazz_ow_cth = cth
+            end
+            JazzOwApplyConeTint(blackboard.mesh, cth)
+        else
+            blackboard.mesh:SetColorFromTextStyle("WeaponAOE")
+        end
+    end
 end
 

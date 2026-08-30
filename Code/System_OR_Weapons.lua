@@ -173,17 +173,363 @@ local function find_first_hit(attack_results, hit_obj)
 	end
 end
 
+local function JazzOwProp(weapon, id, default)
+	if not weapon then
+		return default
+	end
+	local value
+	if weapon.GetProperty then
+		value = weapon:GetProperty(id)
+	end
+	if value == nil then
+		value = weapon[id]
+	end
+	if value == nil then
+		return default
+	end
+	return value
+end
+
+function Firearm:GetOverwatchConeDistTiles(from, to)
+	if not from or not to then
+		return nil
+	end
+	local slab = const.SlabSizeX
+	if not slab or slab < 1 then
+		return 1
+	end
+	return Max(1, DivRound(from:Dist2D(to), slab))
+end
+
+function Firearm:GetOverwatchClassStrip()
+	if IsKindOfClasses(self, "SniperRifle", "AssaultRifle", "BattleRifle", "MachineGun", "LightMachineGun") then
+		return 120
+	end
+	if IsKindOfClasses(self, "SubmachineGun", "Shotgun") then
+		return 480
+	end
+	if IsKindOfClasses(self, "Pistol", "Revolver") then
+		return 1200
+	end
+	return 240
+end
+
+-- JAZZ-COMBAT-009: authored OverwatchAngle is width at BDR; closer = wider, maxrange = class strip.
+-- Playtest: CQB-extra + 200° floor + 210° cap sat in 160–210°. CreateAOETilesSector is a
+-- triangle (tan of half-angle); that band made the on-ground wedge grow, then shrink.
+-- Pure inverse + 155° cap keeps pistol/SMG fans monotonic. Shotgun 100° floor is itself 1/d.
+-- MG/LMG: 1/d keeps the on-ground tile chord ~flat (PKM 10°→20° looks like the same strip).
+-- Square inverse (bdr/d)^2 makes the close fan visibly wider. Emplacement min_distance_2d
+-- is unchanged; M2 uses the same 50% BDR min as other MGs (playtest: MGSetup width).
+function Firearm:GetOverwatchConeAngle(dist_tiles)
+	local authored = Max(JazzOwProp(self, "OverwatchAngle", 1), 1)
+	if not dist_tiles then
+		return authored
+	end
+	local bdr = Max(JazzOwProp(self, "BulletDropRange", 2), 2)
+	local range = Max(JazzOwProp(self, "WeaponRange", bdr), bdr)
+	local d_min = Max(2, DivRound(bdr, 2))
+	local d = Clamp(dist_tiles, d_min, range)
+	local angle
+	if d <= bdr then
+		angle = MulDivRound(authored, bdr, d)
+		if IsKindOfClasses(self, "MachineGun", "LightMachineGun") then
+			angle = MulDivRound(angle, bdr, d)
+		end
+	else
+		local strip = self:GetOverwatchClassStrip()
+		angle = authored + MulDivRound(strip - authored, d - bdr, Max(range - bdr, 1))
+	end
+	if d < bdr and IsKindOf(self, "Shotgun") then
+		angle = Max(angle, MulDivRound(100 * 60, d_min, d))
+	end
+	return Clamp(angle, 120, 155 * 60)
+end
+
 function Firearm:GetOverwatchConeParam(param)
 	if param == "Angle" then
 		return self.OverwatchAngle
 	elseif param == "MinRange" then
-		--return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or Max(2,MulDivRound(self.WeaponRange, 20, 100))
-		return IsKindOfClasses(self, "BrowningM2HMG") and self.WeaponRange or self.BulletDropRange--Max(2,MulDivRound(self.WeaponRange, 20, 100))
+		local bdr = Max(JazzOwProp(self, "BulletDropRange", 2), 2)
+		return Max(2, DivRound(bdr, 2))
 	elseif param == "MaxRange" then
-		--return IsKindOfClasses(self, "MachineGun") and self.WeaponRange or MulDivRound(self.WeaponRange, 80, 100)
-		return MulDivRound(self.WeaponRange, 80, 100)	
+		return JazzOwProp(self, "WeaponRange", 2)
 	end
 	assert(false, string.format("unknown Overwatch parameter '%s'", param))
+end
+
+function JazzOwSnapAimSlab(aim_pt)
+	if not aim_pt then
+		return nil
+	end
+	local snap = SnapToPassSlab and SnapToPassSlab(aim_pt)
+	if not snap and GetPassSlab then
+		snap = GetPassSlab(aim_pt)
+	end
+	snap = snap or aim_pt
+	if snap.IsValidZ and not snap:IsValidZ() and snap.SetTerrainZ then
+		snap = snap:SetTerrainZ()
+	end
+	return snap
+end
+
+function JazzOwStandingPoint(aim_pt)
+	local pt, has_los = JazzOwPickStandingProbe(nil, aim_pt)
+	return pt
+end
+
+function JazzOwPickStandingProbe(attacker, aim_pt)
+	local base = JazzOwSnapAimSlab(aim_pt)
+	if not base then
+		return nil, false
+	end
+	if base.IsValidZ and not base:IsValidZ() and base.SetTerrainZ then
+		base = base:SetTerrainZ()
+	end
+	if not base.SetZ then
+		return base, attacker and JazzOwProbeLos(attacker, base)
+	end
+	local slab_z = const.SlabSizeZ or (2 * (guim or 1000))
+	local offsets = { slab_z, slab_z * 2, DivRound(slab_z, 2), slab_z * 3, 0 }
+	local fallback = base
+	for _, dz in ipairs(offsets) do
+		local pt = dz == 0 and base or base:SetZ((base:z() or 0) + dz)
+		if not attacker then
+			return pt, false
+		end
+		if JazzOwProbeLos(attacker, pt) then
+			return pt, true
+		end
+		fallback = pt
+	end
+	return fallback, false
+end
+
+function JazzOwProbeLos(attacker, pt)
+	if not attacker or not pt then
+		return false
+	end
+	local slab = const.SlabSizeX or 1
+	local range = Max(attacker:GetDist(pt), slab) + slab
+	if CheckLOS(pt, attacker, range, "Standing") then
+		return true
+	end
+	return not not CheckLOS(pt, attacker, range)
+end
+
+function JazzOwPreviewHasLos(attacker, aim_pt)
+	local _, has_los = JazzOwPickStandingProbe(attacker, aim_pt)
+	return has_los
+end
+
+function JazzOwPreviewCTHKey(aim_pt)
+	local snap = JazzOwSnapAimSlab(aim_pt)
+	if not snap or not snap.x then
+		return nil
+	end
+	return snap:x() * 100000 + snap:y()
+end
+
+-- COMBAT-009: virtual Standing/Torso, no attacker CTH-debuffs / cover.
+-- Black only if every height probe has no LoS *and* CTH is 0. A single CheckLOS
+-- miss on a +2-slab point (cursor drag) must not flash black.
+function JazzOwPreviewCTH(attacker, action, weapon, aim_pt)
+	if not attacker or not action or not weapon or not aim_pt then
+		return 0
+	end
+	local stand, has_los = JazzOwPickStandingProbe(attacker, aim_pt)
+	stand = stand or aim_pt
+	local shot = action
+	if attacker.GetDefaultAttackAction then
+		shot = attacker:GetDefaultAttackAction("ranged", "ungrouped")
+			or attacker:GetDefaultAttackAction()
+			or action
+	end
+	local aim = 0
+	if attacker.GetOverwatchAttacksAndAim then
+		local _, ow_aim = attacker:GetOverwatchAttacksAndAim(action, { target = stand })
+		aim = ow_aim or 0
+	end
+	local ok, cth = pcall(function()
+		-- No opportunity_attack: OA −20…+10 (plus reflex) is interrupt-only.
+		-- With it a 94% aimed torso became a white 100% cone.
+		return attacker:CalcChanceToHit(stand, shot, {
+			target = stand,
+			target_pos = stand,
+			target_spot_group = "Torso",
+			weapon = weapon,
+			aim = aim,
+			prediction = true,
+			jazz_ow_preview = true,
+		}, "chance_only")
+	end)
+	if not ok then
+		cth = 0
+	end
+	cth = cth or 0
+	if cth > 0 then
+		return Max(cth, 2)
+	end
+	if has_los then
+		return 2
+	end
+	return 0
+end
+
+-- CreateAOETilesSector / Confirm / Deployed swap CRM_AOETilesMaterial. Shader reads
+-- Fill/Border/Pulse/LOS/Grid — SetColorModifier does not retint it.
+-- RGB(0,0,0) is 0; never use `if tint`.
+function JazzOwApplyConeTint(mesh, cth)
+	if not mesh then
+		return
+	end
+	local color_fn = rawget(_G, "GetCTHColor")
+	local tint = color_fn and color_fn(cth or 0)
+	if tint == nil then
+		if mesh.SetColorFromTextStyle then
+			mesh:SetColorFromTextStyle("WeaponAOE")
+		end
+		return
+	end
+	local mat = mesh.CRMaterial
+	if not mat and CRM_AOETilesMaterial then
+		local src = CRM_AOETilesMaterial:GetById("Overwatch_Default")
+		mat = src and src:Clone()
+	end
+	if not mat then
+		return
+	end
+	mat.FillColor = tint
+	mat.BorderColor = tint
+	mat.PulseColor = tint
+	mat.PartialLosColor = tint
+	mat.NoLosColor = tint
+	mat.GridColor = tint
+	mat.dirty = true
+	if mesh.SetCRMaterial then
+		mesh:SetCRMaterial(mat)
+	end
+end
+
+function JazzOwApplyWallTint(mesh, cth)
+	if not mesh then
+		return
+	end
+	local color_fn = rawget(_G, "GetCTHColor")
+	local tint = color_fn and color_fn(cth or 0)
+	if tint == nil then
+		return
+	end
+	local mat = mesh.CRMaterial
+	if not mat then
+		return
+	end
+	mat.FillColor = tint
+	mat.EdgeColor = tint
+	if mat.FlashColor ~= nil then
+		mat.FlashColor = tint
+	end
+	mat.dirty = true
+	if mesh.SetCRMaterial then
+		mesh:SetCRMaterial(mat)
+	end
+end
+
+-- Vanilla OverwatchAction / CalcEarlyOverwatchEntry take cone_angle from GetAimParams
+-- with no target → authored OverwatchAngle. Preview scales in IMode; confirm must
+-- rewrite g_Overwatch from the placed point or the sector stays the card width.
+-- Do not store / re-apply CTH tint on a placed sector (vanilla Confirm/Deployed).
+function JazzOwApplyPlacedCone(unit, overwatch)
+	overwatch = overwatch or (rawget(_G, "g_Overwatch") and g_Overwatch[unit])
+	if not unit or not overwatch then
+		return overwatch
+	end
+	local origin = overwatch.origin_action_id
+	if origin and origin ~= "Overwatch" and origin ~= "MGSetup" and origin ~= "MGRotate" then
+		return overwatch
+	end
+	local weapon = unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm")
+	if not weapon or not weapon.GetOverwatchConeAngle then
+		return overwatch
+	end
+	local from = overwatch.pos
+	local to = overwatch.target_pos
+	if not from or not to then
+		return overwatch
+	end
+	local slab = const.SlabSizeX or 1
+	local min_r = (weapon:GetOverwatchConeParam("MinRange") or 2) * slab
+	local max_r = Max(weapon:GetOverwatchConeParam("MaxRange") or 0, weapon:GetOverwatchConeParam("MinRange") or 0) * slab
+	overwatch.dist = Clamp(from:Dist(to), min_r, max_r)
+	overwatch.cone_angle = Max(weapon:GetOverwatchConeAngle(DivRound(overwatch.dist, slab)), 1)
+	overwatch.jazz_ow_preview_cth = nil
+	return overwatch
+end
+
+function JazzOwCombatActionGetAimParams(self, unit, weapon)
+	if not weapon then
+		return
+	end
+	local target
+	local dlg = GetInGameInterfaceModeDlg and GetInGameInterfaceModeDlg()
+	if dlg and dlg.target_as_pos then
+		target = dlg.target_as_pos
+	end
+	local params = weapon:GetAreaAttackParams(self.id, unit, target)
+	if weapon.GetOverwatchConeParam then
+		params.min_range = weapon:GetOverwatchConeParam("MinRange")
+		params.max_range = Max(weapon:GetOverwatchConeParam("MaxRange") or 0, params.min_range or 0)
+	end
+	return params
+end
+
+g_JAZZ_OwUpdateFromOverwatchBase = rawget(_G, "g_JAZZ_OwUpdateFromOverwatchBase") or false
+g_JAZZ_OwUpdateTilesMaterialBase = rawget(_G, "g_JAZZ_OwUpdateTilesMaterialBase") or false
+g_JAZZ_OwUpdateVerticalMaterialBase = rawget(_G, "g_JAZZ_OwUpdateVerticalMaterialBase") or false
+g_JAZZ_OwUpdateFromOverwatchOrig = rawget(_G, "g_JAZZ_OwUpdateFromOverwatchOrig") or false
+g_JAZZ_OwUpdateTilesMaterialOrig = rawget(_G, "g_JAZZ_OwUpdateTilesMaterialOrig") or false
+g_JAZZ_OwUpdateVerticalMaterialOrig = rawget(_G, "g_JAZZ_OwUpdateVerticalMaterialOrig") or false
+g_JAZZ_OwVisualTintsWrapped = rawget(_G, "g_JAZZ_OwVisualTintsWrapped") or false
+
+-- JA3 runtime has no `debug` library. After ClassesBuilt the slot is engine
+-- vanilla — remember it. Do not treat *Base as orig (Reload Lua may have
+-- re-based onto the previous wrap).
+local function lOwRestoreMethod(cls, slot, orig_key, remember_orig)
+	if type(cls) ~= "table" then
+		return
+	end
+	local current = cls[slot]
+	local orig = rawget(_G, orig_key)
+	if type(orig) == "function" then
+		cls[slot] = orig
+		return
+	end
+	if remember_orig and type(current) == "function" then
+		rawset(_G, orig_key, current)
+	end
+end
+
+local function lUninstallOverwatchVisualTints(remember_orig)
+	lOwRestoreMethod(rawget(_G, "OverwatchVisuals"), "UpdateFromOverwatch",
+		"g_JAZZ_OwUpdateFromOverwatchOrig", remember_orig)
+	local based = rawget(_G, "OverwatchBasedVisuals")
+	lOwRestoreMethod(based, "UpdateTilesMaterial",
+		"g_JAZZ_OwUpdateTilesMaterialOrig", remember_orig)
+	lOwRestoreMethod(based, "UpdateVerticalMaterial",
+		"g_JAZZ_OwUpdateVerticalMaterialOrig", remember_orig)
+	rawset(_G, "g_JAZZ_OwVisualTintsWrapped", false)
+end
+
+local function lInstallOverwatchGetAimParams()
+	local actions = rawget(_G, "CombatActions")
+	local ca = actions and actions.Overwatch
+	if not ca or type(ca.GetAimParams) ~= "function" then
+		return
+	end
+	if ca.GetAimParams == JazzOwCombatActionGetAimParams then
+		return
+	end
+	ca.GetAimParams = JazzOwCombatActionGetAimParams
 end
 
 local function CaliberModPropsCombo()
@@ -2024,8 +2370,12 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		params.min_range = self:GetOverwatchConeParam("MinRange")
 		params.max_range = self:GetOverwatchConeParam("MaxRange")
 	elseif action_id == "Overwatch" or action_id == "MGRotate" or action_id == "MGSetup" then
-		params.cone_angle = self.OverwatchAngle
-		params.cone_angle = Max(params.cone_angle,1)
+		local dist
+		if attacker and target_pos then
+			local from = params.step_pos
+			dist = self:GetOverwatchConeDistTiles(from, target_pos)
+		end
+		params.cone_angle = Max(self:GetOverwatchConeAngle(dist), 1)
 		if self.emplacement_weapon then
 			params.min_distance_2d = const.EmplacementWeaponMinDistance2D
 		end
@@ -3117,6 +3467,8 @@ function OnMsg.ClassesBuilt()
 	Jazz_UninstallFirearmCalcMissVectorsWrap()
 	Jazz_InstallFirearmFireBulletStuckPosWrap()
 	Jazz_InstallFirearmProjectileFlyWrap()
+	lInstallOverwatchGetAimParams()
+	lUninstallOverwatchVisualTints(true)
 end
 
 function OnMsg.ModsReloaded()
@@ -3124,4 +3476,35 @@ function OnMsg.ModsReloaded()
 	Jazz_UninstallFirearmCalcMissVectorsWrap()
 	Jazz_InstallFirearmFireBulletStuckPosWrap()
 	Jazz_InstallFirearmProjectileFlyWrap()
+	lInstallOverwatchGetAimParams()
+	lUninstallOverwatchVisualTints(false)
 end
+
+function OnMsg.DataLoaded()
+	lInstallOverwatchGetAimParams()
+	lUninstallOverwatchVisualTints(false)
+end
+
+function OnMsg.OverwatchChanged(unit)
+	if JazzOwApplyPlacedCone(unit) and unit and unit.UpdateOverwatchVisual then
+		unit:UpdateOverwatchVisual()
+	end
+end
+
+function OnMsg.LoadGame()
+	local ow = rawget(_G, "g_Overwatch")
+	if type(ow) ~= "table" then
+		return
+	end
+	for unit, data in pairs(ow) do
+		if IsValid(unit) then
+			JazzOwApplyPlacedCone(unit, data)
+			if unit.UpdateOverwatchVisual then
+				unit:UpdateOverwatchVisual(data)
+			end
+		end
+	end
+end
+
+lInstallOverwatchGetAimParams()
+lUninstallOverwatchVisualTints()

@@ -1594,36 +1594,26 @@ function Unit:GetOverwatchAttacksAndAim(action, args, unit_ap)
 	action = action or CombatActions.Overwatch
 	local weapon = action:GetAttackWeapons(self)
 	local attack = self:GetDefaultAttackAction()
+	-- Aim range from the live fire mode (interrupt shot), not grouped Attack.
+	local shot = self:GetDefaultAttackAction("ranged", "ungrouped") or attack
 	unit_ap = unit_ap or (g_Combat and self:GetUIActionPoints() or self:GetMaxActionPoints())
-	args = table.copy(args)
+	args = table.copy(args or empty_table)
 	args.action_cost_only = true
 
-
-	local minAim, maxAim = self:GetBaseAimLevelRange(attack)
-
-	local aim = Min(minAim + 1,maxAim)
-
---	if IsKindOf(weapon, "SniperRifle") then
---		aim = maxAim
---	end
-
-	if IsKindOf(weapon, "AssaultRifle", "MachineGun", "LightMachineGun", "BattleRifle") then
-		aim = Min(aim + 1,maxAim)
+	local minAim, maxAim = self:GetBaseAimLevelRange(shot)
+	local aim = Min(minAim + 1, maxAim)
+	-- IsKindOf(obj, A, B, …) is not a multi-class test (returns nil). Carbine
+	-- is the JAZZ rifle class (M4/CAR15); same extra click as AR/BR/MG.
+	if IsKindOfClasses(weapon, "AssaultRifle", "Carbine", "BattleRifle", "MachineGun", "LightMachineGun") then
+		aim = Min(aim + 1, maxAim)
 	end
-	if IsKindOfClasses(weapon, "SniperRifle") then
-		aim = Min(aim + 2,maxAim)
-	end
-
-
 	if IsKindOfClasses(weapon, "SniperRifle") then
 		aim = maxAim
 	end
 
-
-
-	local cost = action:GetAPCost(self, args) 
+	local cost = action:GetAPCost(self, args)
 	if cost < 0 then
-		return 1
+		return 1, aim or minAim or 0
 	end
 
 	args.aim = aim
@@ -2930,6 +2920,42 @@ end
 --- @param attack_args table The attack arguments to be used for the opportunity attack.
 --- @param target_dummy boolean Whether the current unit is a target dummy.
 ---
+-- COMBAT-009: vanilla writes authored OverwatchAngle (GetAimParams has no target).
+-- Recompute from placed point before reveal / Spotter / interrupt LOS.
+function Unit:OnOverwatchPlaced()
+	local overwatch = JazzOwApplyPlacedCone(self)
+	if not overwatch then
+		return
+	end
+	if self.UpdateOverwatchVisual then
+		self:UpdateOverwatchVisual(overwatch)
+	end
+
+	local step_pos = overwatch.pos
+	local distance = overwatch.dist
+	local stance = overwatch.stance
+	local cone_angle = overwatch.cone_angle
+	local target_angle = overwatch.angle
+
+	local enemies = table.ifilter(GetAllEnemyUnits(self), function(_, enemy)
+		return enemy:GetDist(step_pos) <= distance
+	end)
+	if #enemies > 0 then
+		local maxvalue, los_values = CheckLOS(enemies, step_pos, distance, stance, cone_angle, target_angle, false)
+		for i, los in ipairs(los_values) do
+			if los then
+				if enemies[i]:HasStatusEffect("Hidden") then
+					CombatLog("short", T{353305209140, "<LogName> was revealed by enemy overwatch", enemies[i]})
+					enemies[i]:RemoveStatusEffect("Hidden")
+				end
+				if g_Combat and HasPerk(self, "Spotter") then
+					enemies[i]:AddStatusEffect("Marked")
+				end
+			end
+		end
+	end
+end
+
 function Unit:ProvokeOpportunityAttack_Overwatch(obj, attack_args, target_dummy)
 	-- Max suppression: never fire residual Overwatch (stance-command races can leave g_Overwatch).
 	if IsKindOf(obj, "Unit") and obj:HasStatusEffect("suppressionPinned") then
@@ -3276,6 +3302,7 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	end
 
 	local factors = {}
+	local ow_preview = args and args.jazz_ow_preview
 	local mod_data = {
 		attacker = self,
 		target = target,
@@ -3296,6 +3323,9 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	}
 
 	ForEachPreset("ChanceToHitModifier", function(mod)
+		if ow_preview and (mod.id == "RangeAttackTargetStanceCover" or mod.id == "Suppression") then
+			return
+		end
 		if mod.RequireTarget and not IsValidTarget(target) then
 			return
 		end
@@ -3349,22 +3379,24 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 		)
 	end)
 
-	for _, effect in ipairs(self.StatusEffects) do
-		mod_data.enabled = true
-		mod_data.display_name = effect.DisplayName
-		mod_data.meta_text = {}
-		local value = self:GatherCTHModifications(effect.class, 0, mod_data)
-		if args and not args.prediction then
-			NetUpdateHash("CalcChanceToHit_Effect_Mods", effect.class, value)
+	if not ow_preview then
+		for _, effect in ipairs(self.StatusEffects) do
+			mod_data.enabled = true
+			mod_data.display_name = effect.DisplayName
+			mod_data.meta_text = {}
+			local value = self:GatherCTHModifications(effect.class, 0, mod_data)
+			if args and not args.prediction then
+				NetUpdateHash("CalcChanceToHit_Effect_Mods", effect.class, value)
+			end
+			JAZZ_CTHAppendLegacyFactor(
+				factors,
+				effect.id or effect.class,
+				mod_data.display_name,
+				value,
+				#mod_data.meta_text > 0 and mod_data.meta_text,
+				"MoraleAndStatus"
+			)
 		end
-		JAZZ_CTHAppendLegacyFactor(
-			factors,
-			effect.id or effect.class,
-			mod_data.display_name,
-			value,
-			#mod_data.meta_text > 0 and mod_data.meta_text,
-			"MoraleAndStatus"
-		)
 	end
 
 	mod_data.weapon1 = nil
@@ -3400,9 +3432,11 @@ function Unit:CalcChanceToHit(target, action, args, chance_only)
 	mod_data.weapon2 = weapon2
 	mod_data.modifiers = modifiers
 	mod_data.enabled = true
-	self:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
-	if IsKindOf(target, "Unit") then
-		target:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+	if not ow_preview then
+		self:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+		if IsKindOf(target, "Unit") then
+			target:CallReactions("OnCalcChanceToHit", self, action, target, weapon1, weapon2, mod_data)
+		end
 	end
 
 	JAZZ_CTHAppendLegacyFactor(

@@ -69,7 +69,7 @@ AI использует собственную оценку допустимой
 - **Mishap (Max-band):** навык **не** ужимает отклонение (иначе элита сажает провал в 1–2 клетки). Нижняя граница ≥ **4** тайла (`Max(4, MinMishapRange, MaxMishapRange/2)`), верх — `MaxMishapRange`, дальше `dist_mod` 100..400% и CapTiles. Шанс mishap по-прежнему падает от навыка.
 - Профили: ThrowGrenade `(Str + Dex×2 + Expl×2)/5` (без threshold); AimedHeavy `(MS×2+Expl)/3`; Demo/пайпы `(Expl×3+Dex)/4`.
 - Cap отклонения: `Max(2×MaxMishapRange, 8)` тайлов; Min-band `dist_mod` clamp 40..200, Max-band 100..400.
-- Area-aim: **радиус** колец = зона поражения; **цвет** blast/sphere tiles и дуги траектории = `GetCTHColor(GetMishapAimReliability)` — mix `(100 − mishap%) × (100 − scatter_risk%)`, где `scatter_risk` = mid(Min-band) / CapTiles (material `FillColor`/`fill_color`).
+- Area-aim: **радиус** колец = зона поражения; **цвет** blast/sphere tiles и дуги траектории = `GetCTHColor(GetMishapAimReliability)` — mix `(100 − mishap%) × (100 − scatter_risk%)`, где `scatter_risk` = mid(Min-band) / CapTiles (material `FillColor`/`fill_color`). Шкала та же, что у прицела: белый ≥100 / синий ≥85 / зелёный ≥60 / … / чёрный 0.
 
 ## Ловушки и мины
 

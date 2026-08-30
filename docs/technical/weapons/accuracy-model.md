@@ -103,6 +103,8 @@ aim_gain = aim_clicks × AimAccuracy × aim_mastery / 100
 
 `AimAccuracy` остаётся оружейной характеристикой пользы каждого клика. `MaxAimActions` задаёт доступное число кликов. `aim_gain` является частью построения `P_core`, а не внешним ситуационным модификатором.
 
+**Overwatch cone (JAZZ-COMBAT-009):** `Firearm:GetOverwatchConeAngle(d)` — authored `OverwatchAngle` на BDR; `d ≤ BDR` inverse `authored × BDR / d` (пулемёт/ЛП ещё `× BDR / d`); `d > BDR` lerp к class strip на `WeaponRange`. Clamp `[2°, 155°]`. Shotgun-пол `100° × d_min / d`. `MinRange` = 50% BDR (включая M2). Confirm пишет тот же угол в `g_Overwatch` (`OnOverwatchPlaced`). Aim UI tint = `GetCTHColor` на `CRM_AOETilesMaterial` по виртуальному Standing/Torso без status/cover (`args.jazz_ow_preview`). Combat interrupt CTH не использует preview-флаг.
+
 `Handling` исключён из CTH и **удалён** как Firearm property / WeaponPropertyDef / GameTerm / ChanceToHitModifier (JAZZ-ATTACH-001, owner 2026-08-01). Эргономический профиль выражается через AP, число кликов, AimAccuracy, доступные действия, оптику, стойку и отдачу. Если плейтесту потребуется отдельная характеристика стрельбы навскидку, она проектируется явно под новым id, а не возвращает `Handling`.
 
 ## Дистанционный профиль оружия
@@ -137,6 +139,8 @@ P_core = (shot_skill_cth + aim_gain) × range_factor
 `epsilon` — минимальная единица дистанции, не позволяющая эффективной зоне совпасть с физическим пределом. При `d >= R` обычная атака недоступна. После `falloff_end` до `R` множитель остаётся на floor **25%**; финальный clamp — отдельная защита валидного выстрела. Показатель `p` больше единицы, поэтому спад после плато сначала мягче, затем ускоряется.
 
 **Пулемёты (JAZZ-WEAPONS-013):** лёгкие и тяжёлые не растягивают спад на весь `WeaponRange`. После `E` (BDR + оптика) кривая доходит до floor за **16** клеток. Плато до `E` не режется; стрелять до `R` всё ещё можно, но уже «в сторону». `GetRangeDamageReduction` использует тот же profile.
+
+**Overwatch cone (JAZZ-COMBAT-009):** `Firearm:GetOverwatchConeAngle(d)` — authored `OverwatchAngle` на BDR; ближе inverse `authored × BDR / d` (пулемёт/ЛП квадрат); дальше BDR — lerp к class strip на `WeaponRange`. Clamp `[2°, 155°]`. Shotgun-пол `100° × d_min / d`. `MinRange` = 50% BDR. Confirm пишет тот же угол в `g_Overwatch` (`OnOverwatchPlaced`). Aim tint = `CRM_AOETilesMaterial` + `GetCTHColor` виртуального Standing/Torso (`args.jazz_ow_preview`). Боевой interrupt CTH без preview-флага.
 
 `Grouping` нельзя сравнивать между двумя оружиями отдельно от `BDR` и `WeaponRange`. Например, меньшая кучность СВД задана на гораздо более дальней физической границе, чем кучность АК-47.
 
