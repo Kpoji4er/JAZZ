@@ -1,0 +1,123 @@
+# Versioned four-package GitHub Release from a metadata-derived tag.
+# Tag must match committed jazz/metadata.lua (vMAJOR.MINOR.REVISION).
+# Archives are built from SHA values in release/manifests/<tag>.json, never from live main.
+name: Publish suite release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Pack and draft suite release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tagged core
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Read manifest and verify tag
+        id: meta
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          MANIFEST="release/manifests/${TAG}.json"
+          if [ ! -f "$MANIFEST" ]; then
+            echo "::error::Missing $MANIFEST"
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json, os, pathlib, re, subprocess, sys
+          tag = os.environ["GITHUB_REF_NAME"]
+          manifest_path = pathlib.Path("release/manifests") / f"{tag}.json"
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          source = manifest["release_version"]["source"]
+          sha = source.split("@", 1)[1].split(":", 1)[0]
+          raw = subprocess.check_output(["git", "show", f"{sha}:metadata.lua"], text=True)
+          def grab(key, default=0):
+              match = re.search(rf"(?m)^\t'{key}',\s*(\d+)", raw)
+              return int(match.group(1)) if match else default
+          major, minor, revision = grab("version_major"), grab("version_minor"), grab("version")
+          expected = f"v{major}.{minor}.{revision}"
+          if expected != tag:
+              sys.exit(f"Tag {tag} does not match metadata {expected}")
+          if manifest["release_version"]["tag"] != tag:
+              sys.exit("Manifest tag does not match GitHub ref")
+          packages = {row["name"]: row["commit"] for row in manifest["packages"]}
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write(f"tag={tag}\n")
+              fh.write(f"display={manifest['release_version']['display']}\n")
+              fh.write(f"jazz_sha={packages['JAZZ']}\n")
+              fh.write(f"assets_sha={packages['JAZZ-assets']}\n")
+              fh.write(f"maps_sha={packages['JAZZ-maps']}\n")
+              fh.write(f"units_sha={packages['JAZZ-units']}\n")
+          print(f"suite {manifest['release_version']['display']} tag={tag}")
+          PY
+
+      - name: Checkout assets at manifest SHA
+        uses: actions/checkout@v4
+        with:
+          repository: Kpoji4er/JAZZ-assets
+          ref: ${{ steps.meta.outputs.assets_sha }}
+          path: .tmp/repos/jazz_assets
+
+      - name: Checkout maps at manifest SHA
+        uses: actions/checkout@v4
+        with:
+          repository: Kpoji4er/JAZZ-maps
+          ref: ${{ steps.meta.outputs.maps_sha }}
+          path: .tmp/repos/jazz-maps
+          lfs: true
+
+      - name: Checkout units at manifest SHA
+        uses: actions/checkout@v4
+        with:
+          repository: Kpoji4er/JAZZ-units
+          ref: ${{ steps.meta.outputs.units_sha }}
+          path: .tmp/repos/jazz-units
+
+      - name: Pack four archives and verify manifest hashes
+        run: |
+          set -euo pipefail
+          python3 docs/tools/_pack_suite_release.py \
+            --jazz-sha "${{ steps.meta.outputs.jazz_sha }}" \
+            --assets-sha "${{ steps.meta.outputs.assets_sha }}" \
+            --maps-sha "${{ steps.meta.outputs.maps_sha }}" \
+            --units-sha "${{ steps.meta.outputs.units_sha }}" \
+            --assets-repo .tmp/repos/jazz_assets \
+            --maps-repo .tmp/repos/jazz-maps \
+            --units-repo .tmp/repos/jazz-units \
+            --out-dir .tmp/suite-release \
+            --verify-manifest "release/manifests/${{ steps.meta.outputs.tag }}.json" \
+            --expected-tag "${{ steps.meta.outputs.tag }}"
+
+      - name: Create draft GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.meta.outputs.tag }}"
+          DISPLAY="${{ steps.meta.outputs.display }}"
+          NOTES="release/notes/${TAG}.md"
+          if [ ! -f "$NOTES" ]; then
+            NOTES="$(mktemp)"
+            printf 'JAZZ %s\n' "$DISPLAY" > "$NOTES"
+          fi
+          gh release create "$TAG" \
+            --title "JAZZ ${DISPLAY}" \
+            --notes-file "$NOTES" \
+            --target "${{ github.sha }}" \
+            --draft \
+            --latest \
+            .tmp/suite-release/JAZZ-${TAG}.zip \
+            .tmp/suite-release/JAZZ-assets-${TAG}.zip \
+            .tmp/suite-release/JAZZ-maps-${TAG}.zip \
+            .tmp/suite-release/JAZZ-units-${TAG}.zip \
+            "release/manifests/${TAG}.json#jazz-release-${TAG}.json" \
+            .tmp/suite-release/SHA256SUMS

@@ -75,6 +75,10 @@ Release manifest фиксирует для каждого пакета:
 - Discord player-update в поле «Пакеты» показывает ту же engine-строку **каждого** затронутого пакета (`jazz 0.20-6206`), не одно Revision. Источник — корневой `metadata.lua`; агент передаёт `-SuiteVersions` при диспатче (`.cursor/rules/jazz-git-push-chunks.mdc`).
 - Опубликованный tag, manifest и assets не заменяются; исправление получает новый editor revision.
 
+Отдельно от versioned suite release каждый пакет публикует rolling GitHub Release с тегом `playable` (workflow `publish-playable-zip.yml`): player ZIP в `Mods/`, без LFS-дыр archive ZIP. Прямая ссылка стабильна: `https://github.com/Kpoji4er/<repo>/releases/download/playable/<pkg>-playable.zip`. Тег `playable` обязан указывать на тот же SHA, что и `target` релиза; иначе страница Releases не грузит Assets/Compare. `gh release edit --target` тег не двигает — workflow force-push'ит `refs/tags/playable` на текущий SHA.
+
+С российских провайдеров playable ZIP часто **не качается без VPN**: `github.com` открывается, файл отдаётся с `release-assets.githubusercontent.com`. Это блок CDN, не 404. Игрокам без VPN — Steam Workshop (`metadata.lua` `steam_id`); `jazz-nomaps` в Workshop нет.
+
 ## Поток выпуска
 
 1. Проверить `git status`, ветки, remotes и актуальный CommonLib.
@@ -84,8 +88,10 @@ Release manifest фиксирует для каждого пакета:
 5. Подготовить и закоммитить manifest.
 6. Выполнить статические и игровые проверки.
 7. Создать metadata-derived tag.
-8. GitHub Actions повторно выводит tag из metadata, checkout каждого SHA, загружает LFS и собирает четыре архива.
+8. GitHub Actions (`publish-suite-release.yml`) повторно выводит tag из metadata, checkout каждого SHA, загружает LFS и собирает четыре архива скриптом `docs/tools/_pack_suite_release.py`.
 9. Workflow создаёт draft release; после повторной проверки assets draft публикуется.
+
+Архивы никогда не копируют working tree: `git archive` точного SHA + materialize Git LFS. Из ZIP исключаются `.git` / `.github` / `.agents` / `docs` / `scripts` / `release` / `*.md` / `*.psd` и `ModDef.ignore_files` пакета.
 
 Ветка `main` не является источником сборки после начала workflow: используются только SHA из manifest.
 
@@ -101,7 +107,9 @@ Release manifest фиксирует для каждого пакета:
 - Политика: `.agents/skills/release-jazz-suite/references/versioning-policy.md`.
 - Контракт GitHub/manifest: `.agents/skills/release-jazz-suite/references/release-contract.md`.
 - Read-only preflight: `.agents/skills/release-jazz-suite/scripts/test-release-state.ps1`.
+- Упаковка четырёх ZIP + SHA-256 + manifest: `docs/tools/_pack_suite_release.py`.
 - Релизный changelog core: [`CHANGELOG.md`](../../../CHANGELOG.md) (секции по engine display из metadata).
+- Первый versioned GitHub Release комплекта: `0.20-6211` / tag `v0.20.6211` (2026-09-01). Rolling `playable` остаётся отдельным каналом.
 - Центральный владелец release metadata и workflow: core repository `JAZZ`.
 
 ## Проверка

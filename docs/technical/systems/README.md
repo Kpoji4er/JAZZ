@@ -42,7 +42,7 @@
 2. **CommonLib** — dependency `JA3_CommonLib`, которая может заменить vanilla-код, добавить hooks или изменить данные до загрузки JAZZ.
 3. **JAZZ** — итоговые расширения и замены в `jazz`, `jazz_assets`, `jazz-maps` и `jazz-units`.
 
-Официальный репозиторий [THQNordic/JaggedAlliance3Modding](https://github.com/THQNordic/JaggedAlliance3Modding) удобен для истории, но его source drop 1.5 старее установленного ModTools. Для текущего runtime приоритет имеет установленный исходник. JAZZ всегда ориентирован на последнюю upstream-версию [ja3_commonlib](https://gitlab.com/injto4ka/ja3_commonlib); старые версии не поддерживаются. На дату среза последним был CommonLib 1.11 build 1056, commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c`; это снимок аудита, не pin.
+Официальный репозиторий [THQNordic/JaggedAlliance3Modding](https://github.com/THQNordic/JaggedAlliance3Modding) удобен для истории, но его source drop 1.5 старее установленного ModTools. Для текущего runtime приоритет имеет установленный исходник. JAZZ всегда ориентирован на последнюю upstream-версию [ja3_commonlib](https://gitlab.com/injto4ka/ja3_commonlib); старые версии не поддерживаются. На дату среза (1 сентября 2026) последним был CommonLib 1.11 build 1060, commit `6758d82e5fccbf6bdd01b0173d2496b925982c3e`; это снимок аудита, не pin.
 
 ## Статусы реализации
 

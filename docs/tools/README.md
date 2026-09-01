@@ -147,6 +147,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_steam_last_changes_since_aug8.txt` | Older Steam draft (8 Aug window); kept for reference. |
 | `_check_last_changes_preview.py` | Print decoded `metadata.lua` `last_changes` (escape check + bullet dump). |
 | `_print_metadata_version.py` | Корневая engine-версия `metadata.lua` (`major.minor-revision`, не dependency CommonLib). `--engine` — только строка для Discord. |
+| `_pack_suite_release.py` | Четыре GitHub-архива комплекта из exact SHA (`git archive` + LFS), детерминированный ZIP, SHA256SUMS, manifest. Никогда не копирует working tree. `python docs/tools/_pack_suite_release.py --jazz-sha … --assets-sha … --maps-sha … --units-sha …`. |
 | `_audit_steam_editor_resave.py` | Diff Steam/Mod Editor resave vs HEAD: lost `ResolveValue`, EN→RU T() fallbacks, FreeMove damage. |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
