@@ -205,7 +205,10 @@ def materialize(repo: Path, sha: str, dest: Path) -> None:
     dest.mkdir(parents=True)
     archive = run_git(repo, "archive", "--format=tar", sha)
     with tarfile.open(fileobj=io.BytesIO(archive.stdout), mode="r:") as tar:
-        tar.extractall(dest)
+        try:
+            tar.extractall(dest, filter="data")
+        except TypeError:
+            tar.extractall(dest)
     hydrate_lfs(dest, repo, sha)
 
 

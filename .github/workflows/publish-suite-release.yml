@@ -109,15 +109,23 @@ jobs:
             NOTES="$(mktemp)"
             printf 'JAZZ %s\n' "$DISPLAY" > "$NOTES"
           fi
-          gh release create "$TAG" \
-            --title "JAZZ ${DISPLAY}" \
-            --notes-file "$NOTES" \
-            --target "${{ github.sha }}" \
-            --draft \
-            --latest \
-            .tmp/suite-release/JAZZ-${TAG}.zip \
-            .tmp/suite-release/JAZZ-assets-${TAG}.zip \
-            .tmp/suite-release/JAZZ-maps-${TAG}.zip \
-            .tmp/suite-release/JAZZ-units-${TAG}.zip \
-            "release/manifests/${TAG}.json#jazz-release-${TAG}.json" \
-            .tmp/suite-release/SHA256SUMS
+          ASSETS=(
+            ".tmp/suite-release/JAZZ-${TAG}.zip"
+            ".tmp/suite-release/JAZZ-assets-${TAG}.zip"
+            ".tmp/suite-release/JAZZ-maps-${TAG}.zip"
+            ".tmp/suite-release/JAZZ-units-${TAG}.zip"
+            "release/manifests/${TAG}.json#jazz-release-${TAG}.json"
+            ".tmp/suite-release/SHA256SUMS"
+          )
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" --clobber "${ASSETS[@]}"
+            gh release edit "$TAG" --title "JAZZ ${DISPLAY}" --notes-file "$NOTES" --draft
+          else
+            gh release create "$TAG" \
+              --title "JAZZ ${DISPLAY}" \
+              --notes-file "$NOTES" \
+              --target "${{ github.sha }}" \
+              --draft \
+              --latest \
+              "${ASSETS[@]}"
+          fi
