@@ -1,6 +1,6 @@
 # Бой и точность
 
-[К обзору](home.md) · [Классы оружия](weapon-classes.md) · [Боевые действия](combat-actions.md) · [English](../en/combat-and-accuracy.md)
+[К обзору](home.md) · [Классы оружия](weapon-classes.md) · [Боевые действия](combat-actions.md) · [Тактический ИИ](tactical-ai.md) · [English](../en/combat-and-accuracy.md)
 
 ## Главное
 

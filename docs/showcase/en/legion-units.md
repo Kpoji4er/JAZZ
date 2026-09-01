@@ -1,6 +1,6 @@
 # Legion units
 
-[Overview](home.md) · [Legion strategy](legion-strategy.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/legion-units.md)
+[Overview](home.md) · [Tactical AI](tactical-ai.md) · [Legion strategy](legion-strategy.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/legion-units.md)
 
 Source: `jazz-units/UnitData/JAZZ_Legion_*.lua`, quest `JAZZ_LegionTier` / `Code/UtilityFunc.lua`, composition/prices in `jazz/Code/Legion*.lua`. Cross-checked with technical `legion-units-equipment-tiers.md`.
 

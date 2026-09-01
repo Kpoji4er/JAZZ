@@ -1,6 +1,6 @@
 # Officer aura
 
-[Overview](home.md) · [Legion units](legion-units.md) · [Perks](perks.md) · [Русский](../ru/officer-aura.md)
+[Overview](home.md) · [Tactical AI](tactical-ai.md) · [Legion units](legion-units.md) · [Perks](perks.md) · [Русский](../ru/officer-aura.md)
 
 In combat, AI officers show **Command aura**; nearby allies get **Under aura influence**. The tooltip shows the **current order** and a small order buff; **Focus fire** also names **who**. You do not pick the order — the officer changes it from the situation, and a repeated order gradually loses weight so the squad tries other orders.
 

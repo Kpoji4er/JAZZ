@@ -1,6 +1,6 @@
 # Юниты Легиона
 
-[К обзору](home.md) · [Легион на стратегии](legion-strategy.md) · [Кампания на Эрни](ernie-campaign.md) · [English](../en/legion-units.md)
+[К обзору](home.md) · [Тактический ИИ](tactical-ai.md) · [Легион на стратегии](legion-strategy.md) · [Кампания на Эрни](ernie-campaign.md) · [English](../en/legion-units.md)
 
 Источник: `jazz-units/UnitData/JAZZ_Legion_*.lua`, quest `JAZZ_LegionTier` / `Code/UtilityFunc.lua`, composition/prices в `jazz/Code/Legion*.lua`.
 

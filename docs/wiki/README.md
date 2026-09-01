@@ -10,6 +10,7 @@
 - [Все компоненты](weapons/components.md)
 - [Карта Grand Chien](grand-chien-map.md)
 - [Африканская биржа наёмников (A.M.E.)](african-mercenary-exchange.md)
+- [Тактический ИИ](tactical-ai.md)
 - [Командная аура](officer-aura.md)
 
 ## Как читать этот справочник

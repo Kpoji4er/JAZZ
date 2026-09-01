@@ -1,6 +1,6 @@
 # Combat and accuracy
 
-[Overview](home.md) · [Weapon classes](weapon-classes.md) · [Combat actions](combat-actions.md) · [Русский](../ru/combat-and-accuracy.md)
+[Overview](home.md) · [Weapon classes](weapon-classes.md) · [Combat actions](combat-actions.md) · [Tactical AI](tactical-ai.md) · [Русский](../ru/combat-and-accuracy.md)
 
 ## Essentials
 
