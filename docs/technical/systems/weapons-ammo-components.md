@@ -25,7 +25,7 @@ JAZZ превращает оружие из набора vanilla-статов в
 - `Code/System_InventoryStacks.lua` — **HOTFIX-005:** identical remountables (same `RemovableComponentId`) stack in SquadBag/SectorStash; mixed IDs never merge (`JazzInventoryItemsCanStack`). Do not clip `Amount` to 1 on load/sort (that deleted extra bipods). Personal loadout still uses def `MaxStacks=1`;
 - generated `InventoryItem/<JAZZ_*>.lua` remountable catalog (~144) + folder `RemovableAttachments` in `items.lua` (editor spawn); refresh: `docs/tools/_gen_removable_attachment_items.py --apply`; **Bobby Ray temp:** `CanAppearInShop=true` RestockWeight=10 MaxStock=1 Tier=1 via `_enable_remountable_bobby_ray.py` (skip integ suppressor);
 - `InventoryItem/JAZZ_ScopeParts.lua` — детали прицелов (лом / repair surcharge);
-- `Code/WeaponClasses.lua` — grenade/rocket/mortar и другие weapon class extensions;
+- `Code/WeaponClasses.lua` — grenade/rocket/mortar и другие weapon class extensions; после `UndefineClass('FlareGun')` снова заданы ванильные `GetBaseDamage` / `ValidatePos` / `GetAttackResults` (area-aim `FireFlare`; без них targeting зовёт nil `ValidatePos`);
 - `Code/Systems_Compontents_FoldingStocks.lua` — свойства пары складного приклада;
 - `Code/GetScrapParts.lua` — scrap-значения;
 - `Code/AmmoRolloverHint.lua` — UI эффектов и модификаций патронов;

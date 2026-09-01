@@ -35,7 +35,7 @@
 | `Systems_Medicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — bleed tiers / Pain / zonal traumas / bandage API (MED-001) |
 | `System_Medicine_MED006.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — MED-006 kit stabilize, % HP heal, MaxHP debt, trauma status icons |
 | `System_Medicine_MED007.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — MED-007 deferred MaxHP debt (CombatStart/End); skip-debt helper |
-| `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — `JazzStackableMedicine` (Bandage/Morphine stacks) + kit charge UI helper |
+| `System_JazzStackableMedicine.lua` | loaded | [Ранения](armor-damage-wounds-will.md), [инвентарь](inventory-items-loot-crafting.md) — `JazzStackableMedicine` stacks; INV-005 field salvage 1 Meds |
 | `System_JazzTraumaEffect.lua` | loaded | [Ранения](armor-damage-wounds-will.md) — parent `JazzTraumaEffect` for Trauma* tooltips (`ResolveValue("Description")` progress line; `GetDescription` raw for save) |
 | `Save_CharacterEffectSerialize.lua` | loaded | [Runtime](runtime-editor-integration.md) — HOTFIX: empty `CharacterEffect` props → `{}`; sanitize `PlaceCharacterEffect('Id', )` on load (mid-combat `suppressionPinned` saves) |
 | `Systems_Wounds_HealWounds.lua` | loaded | [Ранения](armor-damage-wounds-will.md) |

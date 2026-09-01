@@ -2257,6 +2257,77 @@ function Jazz_InstallWeGotThisSquadGuard()
 	rawset(_G, "g_JAZZ_WeGotThisSquadGuardWrapped", true)
 end
 
+--- WeaponPersonalization (Vicki): vanilla writes Condition % only. Restore WeaponResource / ArmorResource.
+function Jazz_RestoreEquippedResourcePercent(item, delta)
+	if not item or not item.Repairable or not delta or delta <= 0 then
+		return
+	end
+	if IsKindOf(item, "FirearmBase") and item.GetWeaponResourceMax then
+		local maximum = item:GetWeaponResourceMax()
+		local current = item:GetWeaponResourceCurrent()
+		if current < maximum then
+			item.WeaponResource = Min(maximum, current + MulDivRound(maximum, delta, 100))
+			if item.GetConditionPercent then
+				item.Condition = item:GetConditionPercent()
+			end
+			ObjModified(item)
+		end
+		return
+	end
+	if item.ArmorResource and item.GetMaxResource and item.GetCurrentResource then
+		local maximum = item:GetMaxResource()
+		local current = item:GetCurrentResource()
+		if current < maximum then
+			item.ArmorResource = Min(maximum, current + MulDivRound(maximum, delta, 100))
+			if item.GetConditionPercent then
+				item.Condition = item:GetConditionPercent()
+			end
+			ObjModified(item)
+		end
+	end
+end
+
+function Jazz_WeaponPersonalizationTick()
+	local seen = {}
+	local function tick_holder(holder)
+		if not holder then
+			return
+		end
+		local sid = holder.session_id
+		if not sid or seen[sid] then
+			return
+		end
+		if holder.HireStatus ~= "Hired" then
+			return
+		end
+		if not HasPerk(holder, "WeaponPersonalization") then
+			return
+		end
+		seen[sid] = true
+		local delta = Jazz_NamedPerkParam(holder, "WeaponPersonalization", "conditionPerHour", 1) or 1
+		local armor = holder.GetEquipedArmour and holder:GetEquipedArmour()
+		for _, item in ipairs(armor or empty_table) do
+			Jazz_RestoreEquippedResourcePercent(item, delta)
+		end
+		local weapons = holder.GetHandheldItems and holder:GetHandheldItems()
+		for _, item in ipairs(weapons or empty_table) do
+			Jazz_RestoreEquippedResourcePercent(item, delta)
+		end
+	end
+	for _, unit in pairs(g_Units or empty_table) do
+		if IsKindOf(unit, "Unit") then
+			tick_holder(unit)
+		end
+	end
+	for _, ud in pairs(gv_UnitData or empty_table) do
+		tick_holder(ud)
+	end
+end
+
+function OnMsg.NewHour()
+	Jazz_WeaponPersonalizationTick()
+end
+
 local function lInstallAllNamedPerks006()
 	lInstallNamedPerks006()
 	lInstallNamedPerks006Ops()

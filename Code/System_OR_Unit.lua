@@ -7,6 +7,21 @@ UnitProperties.properties[#UnitProperties.properties+1] = {
 -- Jazz_Perk_Lynx: one value drives daytime sight and Range CTH soften (vision → accuracy).
 Jazz_LynxSightBonus = 8
 
+-- Previous session wrap forced FireFlare as default attack (ValidatePos assert).
+-- Restore vanilla GetDefaultAttackAction if ReloadLua left that wrap installed.
+local function Jazz_UninstallFlareDefaultAttackWrap()
+	local unit_cls = rawget(_G, "Unit")
+	local base = rawget(_G, "g_JAZZ_GetDefaultAttackActionBase")
+	if type(unit_cls) == "table" and type(base) == "function" then
+		unit_cls.GetDefaultAttackAction = base
+		rawset(_G, "g_JAZZ_GetDefaultAttackActionBase", false)
+	end
+	if rawget(_G, "g_JAZZ_GetDefaultAttackActionWrapped") ~= nil then
+		rawset(_G, "g_JAZZ_GetDefaultAttackActionWrapped", false)
+	end
+end
+Jazz_UninstallFlareDefaultAttackWrap()
+
 local function add_weapon_attacks(actions, unit, weapon)
 	if IsKindOf(weapon, "LightMachineGun") and not unit:HasStatusEffect("StationedMachineGun") then
 		table.insert_unique(actions, "MGSetup")
@@ -2262,10 +2277,12 @@ local function Jazz_RegisterExtraCombatBarSlots()
 end
 
 function OnMsg.DataLoaded()
+	Jazz_UninstallFlareDefaultAttackWrap()
 	Jazz_RegisterExtraCombatBarSlots()
 end
 
 function OnMsg.ModsReloaded()
+	Jazz_UninstallFlareDefaultAttackWrap()
 	Jazz_RegisterExtraCombatBarSlots()
 end
 

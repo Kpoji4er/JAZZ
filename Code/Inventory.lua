@@ -196,7 +196,8 @@ end
 
 
 function InventoryItem:GetConditionText()
-	return T{6862025595561, "<Deterioration> <percent(condPercent)>", Deterioration = self:GetDeteriorationKeywordNoPrefixForInventory(), condPercent = self.Condition}
+	local percent = self.GetConditionPercent and self:GetConditionPercent() or self.Condition
+	return T{6862025595561, "<Deterioration> <percent(condPercent)>", Deterioration = self:GetDeteriorationKeywordNoPrefixForInventory(), condPercent = percent}
 end
 
 function ScrapItem(inventory, slot_name, item, amount, squadBag, squadId)

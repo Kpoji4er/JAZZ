@@ -29,7 +29,8 @@ JAZZ поддерживает только последнюю опубликов
 | `CombatPath:RebuildPaths` | `Lua/Tactical/CombatPath.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: AI-only AP `restrict_area` bbox + gated log (no Sleep) |
 | `Unit:StartAI` | `Lua/Tactical/Unit.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: `Sleep(1)` after think so Execute's all-unit StartAI yields |
 | `UnitProperties:SelectArchetype` | `Lua/ClassDefs/ClassDef-Zulu.generated.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-007: PickCustom before scout; `Scout_LastLocation` only via `JazzAI_ShouldRecontactScout` |
-| `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (one wrap) | JAZZ-AI-CMD-002 budget + JAZZ-AI-BARK-001 `JazzAI_BarkOnGrenade`. Install-once; do not add a second Execute wrap (ModsReloaded re-base → stack overflow) |
+| `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (one wrap) | JAZZ-AI-CMD-002 budget + JAZZ-AI-BARK-001 `JazzAI_BarkOnGrenade` **before** vanilla throw. Install-once; do not add a second Execute wrap (ModsReloaded re-base → stack overflow). Does **not** inject `voiceResponse` — `Unit:ThrowGrenade` already plays `AIThrowGrenade`. |
+| `AIActionHeavyWeaponAttack:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` | Passes `voiceResponse` (`AIThrowGrenade` fallback) + `JazzAI_BarkOnGrenade` from ammo `aoeType`. Vanilla built a fresh `{target=}` and muted GL/RL. |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `AIPickScoutLocation` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: bbox `5*guim` (80 m hung Dump on 513 maps) |
 | `AICalcAOETargetPoints` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: scout-scan only if enemy point pool empty |
@@ -51,6 +52,7 @@ JAZZ поддерживает только последнюю опубликов
 | `Unit:CombatGoto` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Snap-move без Walk-анимов для боевого транспорта |
 | `Unit:GotoSlab` | `Lua/Tactical/Unit.lua` | — | maps `Code/System_JAZZ_VehicleCombat.lua` | Exploration-move для боевого транспорта |
 | `Unit:EnumUIActions` | `Lua/UI/UnitCaching.lua` | `Code/TweaksUI.lua` | core `Code/System_OR_Unit.lua`, затем maps `Code/System_JAZZ_VehicleCombat.lua` | Core меняет UI actions; maps добавляет Pivot/Turret для vehicle unit — грузить maps после core |
+| `AmountOfSalvagedMeds` / `SalvageItem` | `Lua/Inventory.lua` | — | `Code/System_JazzStackableMedicine.lua` wrap | INV-005: `JAZZ_Bandage` / `JAZZ_Morphine` → 1 Meds, consume 1 stack; kits keep vanilla `max_meds_parts` |
 | `Unit:EnterEmplacement` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_EmplacementAmmo.lua` (wrap) | HOTFIX-004: skip `SetPos(nil)` until weapon/visual exist; LoadGame reseat |
 | `IsLineInSmoke` | Не найдено как глобальный символ в экспортированном source | `Code/_Utils.lua` | `Code/System_OR_Unit.lua` | JAZZ заменяет функцию, введённую CLib |
 | `Unit:RunAndGun` | `Lua/Tactical/UnitActions.lua` | `Code/FixAI.lua` | `Code/CombatActions.lua` | JAZZ; проверить AP, движение, очередь и AI |
@@ -58,6 +60,7 @@ JAZZ поддерживает только последнюю опубликов
 | `Unit:Retaliate` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_OR_Unit.lua` (wrap) | JAZZ-COMBAT-003: suppression mul ×90/80/70/60, pinned → no retaliate |
 | `Unit:LightningReactionCheck` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_OR_Unit.lua` | JAZZ-COMBAT-003: default 50%, skip stealth/Hidden; suppression mul, pinned=0 |
 | `UpdateSuspicion` | `Lua/Tactical/UnitAwareness.lua` | `Code/FixAI.lua` | `Code/UnitAwareness.lua` | JAZZ; высокий риск для stealth/awareness |
+| `PlacementCursorAttachmentTerrainDecal.flags.efCameraRepulse` | `CommonLua/Classes/Shapeshifter.lua` (diamond + `TerrainDecal`/`EntityClass`, no own flag) | — | `Code/VanillaDesyncFixes.lua` `ClassesGenerate` forces `false` | Без своего флага `ResolveFlagInheritance` на LoadDlcs/ReloadLua: `ambiguously inherited from ShapeshifterClass and EntityClass`. Vanilla без модов этот rebuild не ловит. |
 
 Это реальные коллизии имён, а не автоматически подтверждённые ошибки. Большинство переопределений JAZZ намеренны, поскольку мод меняет соответствующие системы. Риск состоит в том, что обновление CommonLib может исправить исходную реализацию, но JAZZ продолжит заменять её старой или независимой версией.
 
@@ -90,6 +93,7 @@ JAZZ поддерживает только последнюю опубликов
 | `TFormat.SquadNameColored` | `Lua/Tactical/Utility.lua` | сохранённая base-реализация | Заголовок managed/unmanaged squad остаётся vanilla; task больше не встраивается в name |
 | `SquadWindow:CreateRolloverWindow` | `Lua/UI/XSatelliteObjects.lua` | `JAZZ_LegionAICreateRolloverWindow` в `Guardpost_Patrols.lua` | После vanilla spawn/open добавляет сворачиваемый `idJAZZLegionAITask` под составом; обновляет его при cycle squad, unmanaged скрывает |
 | `SquadWindow:GetRolloverText` | `Lua/UI/XSatelliteObjects.lua` | passthrough `self.context` | Не мутирует persistent `Name`; CreateRolloverWindow этот путь для заголовка не использует |
+| `PDAMoneyText:Open` | `Lua/UI/PDA.lua` | `Code/System_MERC_Account.lua` (`g_JAZZ_MERC_MoneyOpenFn`) | JAZZ-UI-MERC-002: после base Open, если это `PDADialogSatellite.idMoney`, рисует chip `idJazzMERCDebt`. Install-once, без re-base. AIM/AME/MERC browser money не трогает |
 
 `Guardpost_Patrols.lua` сохраняет base через `rawget(_G, ...)` и переустанавливает icon/rollover wrappers на `ModsReloaded` / `LoadGame` / `InitSatelliteView`. Base `SquadWindow:CreateRolloverWindow` хранится отдельно и не перехватывается повторно, поэтому ReloadLua не строит recursive chain.
 

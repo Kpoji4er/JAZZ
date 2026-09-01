@@ -227,7 +227,9 @@ function Targeting_AOE_ParabolaAoE(dialog, blackboard, command, pt)
         aim_pt = attacker_pos3D + SetLen(aim_pt - attacker_pos3D, max_aim_range)
     end
 
-    aim_pt = weapon:ValidatePos(aim_pt)
+    if weapon and weapon.ValidatePos then
+        aim_pt = weapon:ValidatePos(aim_pt)
+    end
 
     -- Update prediction only when hasn't moved for a while or passed some time
     if not gas and blackboard.prediction_args and

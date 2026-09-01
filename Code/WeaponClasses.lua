@@ -25,6 +25,77 @@ DefineClass.MachineGun = { __parents = { "Firearm", }, WeaponType = "MachineGun"
 DefineClass.FlareGun = { __parents = { "Firearm", "MishapProperties" }, WeaponType = "FlareGun" }
 DefineClass.MacheteWeapon = { __parents = { "MeleeWeapon" }, WeaponType = "MeleeWeapon" }
 
+-- UndefineClass('FlareGun') drops vanilla methods. Area-aim targeting calls
+-- ValidatePos; FireFlare uses GetAttackResults (not Firearm bullet LoF).
+function FlareGun:GetBaseDamage()
+	return 0
+end
+
+function FlareGun:ValidatePos(explosion_pos)
+	return explosion_pos
+end
+
+function FlareGun:GetAttackResults(action, attack_args)
+	local attacker = attack_args.obj
+	local prediction = attack_args.prediction
+	local stealth_kill
+	local lof_idx = table.find(attack_args.lof, "target_spot_group", attack_args.target_spot_group or "Torso")
+	local lof_data = (attack_args.lof or empty_table)[lof_idx or 1]
+	local target_pos = attack_args.target_pos or lof_data and lof_data.target_pos or (IsValid(attack_args.target) and attack_args.target:GetPos())
+	if not target_pos then
+		return {}
+	end
+	if not target_pos:IsValidZ() then
+		target_pos = target_pos:SetTerrainZ()
+	end
+
+	if not self.ammo or self.ammo.Amount <= 0 then
+		return {}
+	end
+
+	local mishap
+	if not prediction and IsKindOf(self, "MishapProperties") then
+		local chance = self:GetMishapChance(attacker, target_pos)
+		if CheatEnabled("AlwaysMiss") or attacker:Random(100) < chance then
+			local dv = self:GetMishapDeviationVector(attacker, target_pos)
+			mishap = true
+			target_pos = target_pos + dv
+			attacker:ShowMishapNotification(action)
+		end
+	end
+
+	local jammed, condition = false, false
+	if prediction then
+		attack_args.jam_roll = 0
+		attack_args.condition_roll = 0
+	else
+		attack_args.jam_roll = attack_args.jam_roll or (1 + attacker:Random(100))
+		attack_args.condition_roll = attack_args.condition_roll or (1 + attacker:Random(100))
+		jammed, condition = self:ReliabilityCheck(attacker, 1, attack_args.jam_roll, attack_args.condition_roll)
+	end
+
+	if jammed then
+		return { jammed = true, condition = condition }
+	end
+	local aoe_params = self:GetAreaAttackParams(action.id, attacker, target_pos)
+	aoe_params.stealth_kill = stealth_kill
+	if attack_args.stealth_attack then
+		aoe_params.stealth_attack_roll = not prediction and attacker:Random(100) or 100
+	end
+
+	aoe_params.prediction = prediction
+	aoe_params.step_pos = target_pos
+	local results = GetAreaAttackResults(aoe_params)
+	results.ordnance = self.ammo
+	results.weapon = self
+	results.jammed = jammed
+	results.condition = condition
+	results.fired = not jammed and 1
+	results.mishap = mishap
+	results.explosion_pos = target_pos
+	return results
+end
+
 
 DefineClass.RocketLauncher = { 
 	__parents = {"HeavyWeapon"}, 

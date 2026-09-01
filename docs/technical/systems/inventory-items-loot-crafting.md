@@ -50,9 +50,9 @@ Unit inventory schema включает:
 | `PocketInventory` | `Max(0, (Mechanical-30)/20)` |
 | `KnifeInventory` | +1 NightOps/Stealthy, +1 Throwing |
 
-`EquipStartingGear` делает несколько `TryEquip` в эти ряды, но **не** расширяет вместимость: лишние Medicine/ToolItem уходят в общий `Inventory`. Стеки `JazzStackableMedicine`: Bandage **30**, Morphine **10**, Small Medkit **5**, Medium Medkit **10**, Large Medkit **15** (1 юз = 1 штука).
+`EquipStartingGear` делает несколько `TryEquip` в эти ряды, но **не** расширяет вместимость: лишние Medicine/ToolItem уходят в общий `Inventory`. Стеки `JazzStackableMedicine`: Bandage **30**, Morphine **10**, Small Medkit **5**, Medium Medkit **10**, Large Medkit **15** (1 юз = 1 штука). **INV-005:** правый клик Salvage / Разбор одного `JAZZ_Bandage` или `JAZZ_Morphine` кладёт **1 Meds** в сумку отряда и снимает **1** `Amount` (не весь стек, не Parts). Аптечки остаются на ванильном salvage от `max_meds_parts`. Wrap: `AmountOfSalvagedMeds` / `SalvageItem` + condition `InventoryContextMenu` в `Code/System_JazzStackableMedicine.lua`.
 
-Reload берёт патроны только из `AmmoInventory`; наличие ammo в другом допустимом контейнере не гарантирует возможность перезарядки. Выстрелы RPG-7 (`Warhead_Frag`) лежат в рюкзаке (`Inventory`), не в `OrdnanceInventory` (тот ряд — только ловушки/C4). Опустошённый стек снимается из фактического слота (`GetItemSlot`); `Amount<=0` не даёт Reload и не тратит ОД. Четыре `InventoryTab`: `Grenades`, `Meds`, `Melee`, `resources`.
+Reload берёт патроны только из `AmmoInventory`; наличие ammo в другом допустимом контейнере не гарантирует возможность перезарядки. **Исключение — `FlareGun`:** `GetAvailableAmmos` ищет `FlareAmmo` (`Ordnance`, калибр `JAZZ_Caliber_Flare`) в рюкзаке **и** в `AmmoInventory`. HUD Reload (`JazzHudReloadWeapons`) включает ракетницу: ванильный `GetActiveWeapons("Firearm")` её выкидывает. `GetDefaultAttackAction` как в ванили обнуляет `FlareGun` (кулак в слоте по умолчанию); кнопка выстрела — `FireFlare` из `AvailableAttacks`. Выстрелы RPG-7 (`Warhead_Frag`) лежат в рюкзаке (`Inventory`), не в `OrdnanceInventory` (тот ряд — только ловушки/C4). Опустошённый стек снимается из фактического слота (`GetItemSlot`); `Amount<=0` не даёт Reload и не тратит ОД. Четыре `InventoryTab`: `Grenades`, `Meds`, `Melee`, `resources`.
 
 `InventoryVest` существует, однако Vest slot закомментирован. Его нельзя документировать как активную пользовательскую ячейку до изменения metadata/code и save migration.
 
@@ -91,7 +91,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 
 ## Loot
 
-В `jazz-units` зарегистрировано 1257 `LootDef`; они формируют loadouts и drops для 179 UnitData и squads. В `jazz-maps` есть 18 map/campaign loot definitions и размещённые контейнеры. Core добавляет классы и runtime выпадения. Ernie-контейнеры `Bunker_Shotgun` и `Drop_12gauge_Breacher` дают `JAZZ_AMMO_12gauge_Buckshot`, не cut `_12gauge_*` (`TEST.png`). Поверхность L6 (`KhrydjM`) больше не крутит `Diamonds_Loot` / `DiamondRed_IntelStash`.
+В `jazz-units` зарегистрировано 1257 `LootDef`; они формируют loadouts и drops для 179 UnitData и squads. В `jazz-maps` есть 20 map/campaign loot definitions и размещённые контейнеры. Core добавляет классы и runtime выпадения. Ernie-контейнеры `Bunker_Shotgun` и `Drop_12gauge_Breacher` дают `JAZZ_AMMO_12gauge_Buckshot`, не cut `_12gauge_*` (`TEST.png`). Ванильные `Diamonds_Loot` и `DiamondRed_IntelStash` переопределены в `jazz-maps` (островной тир: `Jazz_Random_Ammo_Drop_T1` / `ErnieSecretStash1`), а не только ремапнуты на L6 — тот же ID подхватывают и другие маркеры (в т.ч. M5 `pSwGPnp`).
 
 ### Заряженный магазин на трупе NPC (JAZZ-INV-002)
 

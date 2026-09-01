@@ -1,5 +1,6 @@
 -- JAZZ-WEAPONS-004: per-round reloads for tube, break-action, and revolver firearms.
 -- CombatAction.Reload UI/AP is a full ModItem replace in items.lua; this file owns helpers + Unit.ReloadAction.
+g_JAZZ_ReloadFlareHudWrapped = rawget(_G, "g_JAZZ_ReloadFlareHudWrapped") or false
 -- Top-up must cap transfer at 1 round: vanilla Firearm:Reload fills MagSize in one call;
 -- breaking UnitInventory:ReloadWeapon's stack loop alone does not limit rounds transferred.
 
@@ -62,6 +63,20 @@ function OnMsg.ClassesBuilt()
 	end
 end
 
+function JazzHudReloadWeapons(unit)
+	local list = {}
+	if not unit or not unit.GetActiveWeapons then
+		return list
+	end
+	local _, _, weapons = unit:GetActiveWeapons()
+	for _, weapon in ipairs(weapons or empty_table) do
+		if IsKindOf(weapon, "Firearm") and not IsKindOf(weapon, "HeavyWeapon") then
+			list[#list + 1] = weapon
+		end
+	end
+	return list
+end
+
 function JazzResolveReloadWeapon(unit, args)
 	if not unit then
 		return false
@@ -81,6 +96,13 @@ function JazzResolveReloadWeapon(unit, args)
 		-- wrong container/unit (UnitData vs Unit) and yield ammo or another item.
 		weapon = unit.GetWeaponByDefIdOrDefault
 			and unit:GetWeaponByDefIdOrDefault("Firearm", args and args.weapon, args and args.pos, args and args.item_id)
+	end
+	if not IsKindOf(weapon, "Firearm") then
+		weapon = unit.GetWeaponByDefIdOrDefault
+			and unit:GetWeaponByDefIdOrDefault("FlareGun", args and args.weapon, args and args.pos, args and args.item_id)
+	end
+	if not IsKindOf(weapon, "Firearm") then
+		weapon = unit:GetActiveWeapons()
 	end
 	return IsKindOf(weapon, "Firearm") and weapon or false
 end
@@ -112,3 +134,96 @@ function Unit:ReloadAction(action_id, cost_ap, args)
 	end
 	self:ReloadWeapon(weapon, ammo, args and args.delayed_fx, nil, "one_round")
 end
+
+local function Jazz_InstallReloadFlareHudWrap()
+	local action = CombatActions and CombatActions.Reload
+	if not action or rawget(action, "JazzFlareReloadWrapped") then
+		return
+	end
+	local base_name = action.GetActionDisplayName
+	action.GetActionDisplayName = function(self, units)
+		local unit = units and units[1]
+		if IsKindOf(unit, "Unit") then
+			local weapons = JazzHudReloadWeapons(unit)
+			local weapon = weapons[1]
+			if IsKindOf(weapon, "Firearm") and weapon.IsPerRoundReload and weapon:IsPerRoundReload() then
+				return T(990002013, "Top up")
+			end
+			local canChange = false
+			for _, w in ipairs(weapons) do
+				local ammoForWeapon = unit:GetAvailableAmmos(w, nil, "unique")
+				local onlyAmmoIsCurrent = w.ammo and #ammoForWeapon == 1 and ammoForWeapon[1].class == w.ammo.class
+				local fullMag = not w.ammo or w.ammo.Amount == w.MagazineSize
+				canChange = canChange or (onlyAmmoIsCurrent and fullMag)
+			end
+			if canChange then
+				return T(817996274899, "Change Ammo")
+			end
+			return self.DisplayName
+		end
+		return base_name and base_name(self, units)
+	end
+	action.UIBegin = function(self, units, args)
+		local unit = units[1]
+		local mode_dlg = GetInGameInterfaceModeDlg()
+		if IsKindOf(mode_dlg, "IModeCommonUnitControl") then
+			local weaponList = JazzHudReloadWeapons(unit)
+			local processedList = {}
+			for i, w in ipairs(weaponList) do
+				local text = T{535301054415, "<weaponName>", weaponName = w.DisplayName}
+				local ammoForWeapon = unit:GetAvailableAmmos(w, nil, "unique")
+				local noAmmo = #ammoForWeapon == 0
+				if w.ammo == 0 then
+					text = text .. T(642941753004, " (Empty)")
+				end
+				local onlyAmmoIsCurrent = w.ammo and #ammoForWeapon == 1 and ammoForWeapon[1].class == w.ammo.class
+				local fullMag = not w.ammo or w.ammo.Amount == w.MagazineSize
+				local processedAmmo = {}
+				for _, a in ipairs(ammoForWeapon) do
+					local isCurrent = w.ammo and a.class == w.ammo.class
+					local ammoEntry = {
+						DisplayName = isCurrent and T{541680584484, "Current: <DisplayName>", a} or a.DisplayName,
+						ammo = a,
+						disabled = w.ammo and isCurrent and fullMag,
+						icon = a.Icon,
+						uiCtx = a,
+						rolloverTemplate = "RolloverInventory"
+					}
+					if isCurrent then
+						table.insert(processedAmmo, 1, ammoEntry)
+					else
+						table.insert(processedAmmo, ammoEntry)
+					end
+				end
+				processedList[#processedList + 1] = {
+					DisplayName = text,
+					weaponIdx = i,
+					ammo = processedAmmo,
+					disabled = noAmmo or (onlyAmmoIsCurrent and fullMag),
+					icon = w.Icon,
+					uiCtx = w,
+					rolloverTemplate = "RolloverInventory"
+				}
+			end
+			local weaponChoiceCallback = function(u, weaponWrapped)
+				local ammoChoiceCallback = function(u2, ammoWrapped)
+					self:Execute({ u2 }, { weapon = weaponWrapped.weaponIdx, target = ammoWrapped.ammo.class })
+				end
+				mode_dlg:ShowCombatActionTargetChoice(self, { u }, weaponWrapped.ammo, ammoChoiceCallback, "suppress_toggle")
+			end
+			mode_dlg:ShowCombatActionTargetChoice(self, units, processedList, weaponChoiceCallback)
+		else
+			self:Execute(units)
+		end
+	end
+	rawset(action, "JazzFlareReloadWrapped", true)
+	rawset(_G, "g_JAZZ_ReloadFlareHudWrapped", true)
+end
+
+function OnMsg.ModsReloaded()
+	Jazz_InstallReloadFlareHudWrap()
+end
+function OnMsg.DataLoaded()
+	Jazz_InstallReloadFlareHudWrap()
+end
+Jazz_InstallReloadFlareHudWrap()

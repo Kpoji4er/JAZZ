@@ -349,24 +349,33 @@ function UnitInventory:GetAvailableAmmos(weapon, ammo_type, unique)
 	if not IsKindOfClasses(weapon, "Firearm", "HeavyWeapon") then
 		return empty_table
 	end
-	local ammo_class = IsKindOfClasses(weapon, "HeavyWeapon", "FlareGun") and "Ordnance" or "Ammo"
 	local types = {}
 	local containers = {}
 	local slots = {}
-
-	local slot_name = GetContainerInventorySlotName(self)
-	if ammo_class == "Ammo" then slot_name = "AmmoInventory" end
 	local caliber = weapon.Caliber
-	self:ForEachItemInSlot(slot_name, ammo_class, function(ammo, slot_name, left, top, types, ammo_type, caliber, unique)
-		if (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber and (ammo.Amount or 0) > 0 then
-			if not unique or not table.find(types, "class", ammo.class) then
-				table.insert(types, ammo)
-			end
+	local function collect(slot_name, ammo_class)
+		if not slot_name or not self.ForEachItemInSlot then
+			return
 		end
-	end, types, ammo_type, caliber, unique)
-	for i = 1, #types do
-		containers[i] = self
-		slots[i] = slot_name
+		self:ForEachItemInSlot(slot_name, ammo_class, function(ammo, slot, left, top)
+			if (not ammo_type or ammo.class == ammo_type) and ammo.Caliber == caliber and (ammo.Amount or 0) > 0 then
+				if not unique or not table.find(types, "class", ammo.class) then
+					types[#types + 1] = ammo
+					containers[#containers + 1] = self
+					slots[#slots + 1] = slot
+				end
+			end
+		end)
+	end
+	if IsKindOf(weapon, "FlareGun") then
+		collect(GetContainerInventorySlotName(self) or "Inventory", "Ordnance")
+		collect("Inventory", "Ordnance")
+		collect("AmmoInventory", "Ordnance")
+		collect("AmmoInventory", "Ammo")
+	elseif IsKindOf(weapon, "HeavyWeapon") then
+		collect(GetContainerInventorySlotName(self) or "Inventory", "Ordnance")
+	else
+		collect("AmmoInventory", "Ammo")
 	end
 
 	--local bag = GetSquadBag(self.Squad)	
