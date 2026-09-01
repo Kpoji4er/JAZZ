@@ -1978,8 +1978,11 @@ async function main() {
     });
     const dup = duplicatePublishSkipReason(runs, changeSet.afterSha, runId);
     if (dup) {
-      console.log(`Discord update skipped: ${dup}.`);
-      return;
+      if (!forcePublish) {
+        console.log(`Discord update skipped: ${dup}.`);
+        return;
+      }
+      console.log(`Discord dedup overridden by force_publish: ${dup}.`);
     }
   }
 
