@@ -91,7 +91,7 @@ Snapshot core содержит 558 InventoryItem definitions:
 
 ## Loot
 
-В `jazz-units` зарегистрировано 1257 `LootDef`; они формируют loadouts и drops для 179 UnitData и squads. В `jazz-maps` есть 18 map/campaign loot definitions и размещённые контейнеры. Core добавляет классы и runtime выпадения.
+В `jazz-units` зарегистрировано 1257 `LootDef`; они формируют loadouts и drops для 179 UnitData и squads. В `jazz-maps` есть 18 map/campaign loot definitions и размещённые контейнеры. Core добавляет классы и runtime выпадения. Ernie-контейнеры `Bunker_Shotgun` и `Drop_12gauge_Breacher` дают `JAZZ_AMMO_12gauge_Buckshot`, не cut `_12gauge_*` (`TEST.png`). Поверхность L6 (`KhrydjM`) больше не крутит `Diamonds_Loot` / `DiamondRed_IntelStash`.
 
 ### Заряженный магазин на трупе NPC (JAZZ-INV-002)
 

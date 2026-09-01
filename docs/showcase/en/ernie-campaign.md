@@ -94,7 +94,7 @@ After liberating the village while the fort is still enemy — a **quest** sat a
 - The doctor's quest requires stabilizing **three** wounded rebels independently.
 - Accepting “Pig-sticker” brings **four** of Balumba's allies into the K6 fight.
 - Rebel helpers at K4 and M4 no longer disappear because of a wrong sector condition.
-- Herman's trail leads to **J7**; the bunker-clearance job runs through **L6 Underground** and returns to L1.
+- Herman's trail leads to **J7**; the bunker-clearance job runs through **L6 Underground** and returns to L1. Caches at the **L6** entrance and in the bunker are island-tier (T1 ammo, intel stash, shotgun), not mainland mine diamonds.
 
 ## Setpieces
 
