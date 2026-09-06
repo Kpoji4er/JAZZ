@@ -1,6 +1,24 @@
 -- Vanilla / CommonLib desync mitigations that JAZZ does not already cover via full overrides.
 -- Keep fixes narrow: replace wall-clock / AsyncRand in synced game-state paths only.
 
+-- Vanilla PlacementCursorAttachmentTerrainDecal parents ShapeshifterClass and TerrainDecal
+-- (EntityClass). Those two sources can own efCameraRepulse with different values.
+-- ResolveFlagInheritance then asserts on LoadDlcs / ReloadLua (vanilla cold start
+-- without mods does not rebuild this diamond the same way). Cursor decal is a
+-- placement helper — do not repulse the tactical camera.
+function OnMsg.ClassesGenerate(classdefs)
+	local def = classdefs and classdefs.PlacementCursorAttachmentTerrainDecal
+	if not def then
+		return
+	end
+	local flags = def.flags
+	if type(flags) ~= "table" then
+		def.flags = { efCameraRepulse = false }
+		return
+	end
+	flags.efCameraRepulse = false
+end
+
 local function JazzPlayOutroCredits()
 	local dlg = OpenDialog("Fade")
 	dlg.idFade:SetVisible(true, true)

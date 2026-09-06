@@ -114,6 +114,7 @@ jobs:
         run: |
           set -euo pipefail
           repo="${{ github.repository }}"
+          sha="${{ github.sha }}"
           notes=$(cat <<EOF
           Player-ready package (**${{ steps.meta.outputs.package_dirname }}**) — unpack into \`Mods/\`.
 
@@ -122,16 +123,24 @@ jobs:
           Direct download:
           https://github.com/${repo}/releases/download/playable/${{ steps.meta.outputs.artifact_name }}
 
-          Built from \`${{ github.sha }}\`.
+          From many Russian ISPs this ZIP needs a VPN (\`release-assets.githubusercontent.com\`). Prefer Steam Workshop (no VPN):
+          https://steamcommunity.com/sharedfiles/filedetails/?id=3321938203
+
+          Built from \`${sha}\`.
           EOF
           )
+          # `gh release edit --target` does not move the git tag. A stale `playable`
+          # tag vs a newer release target breaks the Releases page (Assets/Compare
+          # fail to load, so the download buttons look dead).
+          git tag -f playable "$sha"
+          git push --force origin "refs/tags/playable"
           if gh release view playable >/dev/null 2>&1; then
             gh release upload playable "$ZIP_PATH" --clobber
-            gh release edit playable --notes "$notes" --target "${{ github.sha }}"
+            gh release edit playable --notes "$notes" --target "$sha"
           else
             gh release create playable "$ZIP_PATH" \
               --title "${{ steps.meta.outputs.package_dirname }} (playable download)" \
               --notes "$notes" \
-              --target "${{ github.sha }}" \
+              --target "$sha" \
               --latest=false
           fi

@@ -13,6 +13,25 @@ MapVar("JazzAI_TeamExplosiveThrows", {})
 MapVar("JazzAI_TeamExplosiveThrowTurn", false)
 MapVar("JazzAI_TeamFallBackState", {})
 
+-- Optional jazz-units exports. Bare-read of a missing name asserts
+-- (mod env ≠ units env / GetRawG). CombatAI binds the full list; stub here
+-- if this file reloads first.
+if type(rawget(_G, "JazzAI_BindAllUnitsExports")) == "function" then
+	JazzAI_BindAllUnitsExports()
+else
+	rawset(_G, "JazzAI_PickTeamSemiSniper", rawget(_G, "JazzAI_PickTeamSemiSniper") or false)
+	rawset(_G, "JazzAI_PickTeamPseudoMG", rawget(_G, "JazzAI_PickTeamPseudoMG") or false)
+	rawset(_G, "JazzAI_PickTeamPusher", rawget(_G, "JazzAI_PickTeamPusher") or false)
+	rawset(_G, "JazzAI_InferRoleFamily", rawget(_G, "JazzAI_InferRoleFamily") or false)
+	rawset(_G, "JazzAI_UnitIsDynamicPseudoMG", rawget(_G, "JazzAI_UnitIsDynamicPseudoMG") or false)
+	rawset(_G, "JazzAI_UnitIsDedicatedMG", rawget(_G, "JazzAI_UnitIsDedicatedMG") or false)
+	rawset(_G, "JazzAI_UnitIsDynamicSemiSniper", rawget(_G, "JazzAI_UnitIsDynamicSemiSniper") or false)
+	rawset(_G, "JazzAI_UnitIsDedicatedSniper", rawget(_G, "JazzAI_UnitIsDedicatedSniper") or false)
+	rawset(_G, "JazzAI_UnitIsDynamicPusher", rawget(_G, "JazzAI_UnitIsDynamicPusher") or false)
+	rawset(_G, "JazzAI_TryMedicSwitch", rawget(_G, "JazzAI_TryMedicSwitch") or false)
+	rawset(_G, "JazzAI_FactionArchetypePrefix", rawget(_G, "JazzAI_FactionArchetypePrefix") or false)
+end
+
 -- JAZZ-AI-007: recontact standoff (tiles from last_known) and scout path margin.
 JazzAI_RecontactStandMin = 14
 JazzAI_RecontactStandMax = 20
@@ -22,6 +41,10 @@ JazzAI_RecontactPathMargin = 24
 JazzAI_EgressPerchStayBonus = 180
 -- JAZZ-AI-009: FallBack peel dest that breaks LoS and can OW the vacated tile.
 JazzAI_BreakLosOwDestBonus = 220
+-- CMD-003: Push when a spotter has a live shot; cling window for non-perch on Heights.
+JazzAI_DirectivePushLiveShot = 600
+JazzAI_HeightsClingMin = 2
+JazzAI_HeightsClingMax = 10
 
 -- ACT-002: who already finished AIPlayAttacks this combat turn (smoke self-cover gate).
 function JazzAI_EnsureTeamActedTable()
@@ -125,12 +148,28 @@ function JazzAI_ApplyProfileToContext(context)
 	if not context then
 		return
 	end
+	if type(rawget(_G, "JazzAI_BindAllUnitsExports")) == "function" then
+		JazzAI_BindAllUnitsExports()
+	end
 	context.jazz_profile = JazzAI_ResolveContextProfile()
 	local unit = context.unit
 	local directive = unit and JazzAI_GetTeamDirective and JazzAI_GetTeamDirective(unit)
 	context.jazz_directive = directive or false
 	context.jazz_fallback = directive == "FallBack"
-	context.jazz_occupy_heights = directive == "OccupyHeights"
+	local perch = unit and JazzAI_UnitIsLinePerchHolder and JazzAI_UnitIsLinePerchHolder(unit, context)
+	local spotter = unit and JazzAI_UnitIsHeightsSpotter and JazzAI_UnitIsHeightsSpotter(unit)
+	-- HighGround ×175% only for perch on Heights, or optics that must stay up on Push.
+	context.jazz_occupy_heights = (directive == "OccupyHeights" and perch)
+		or (directive == "Push" and spotter)
+	context.jazz_heights_cling = false
+	context.jazz_cling_anchor = false
+	if directive == "OccupyHeights" and unit and not perch then
+		context.jazz_heights_cling = true
+		if JazzAI_PickHeightsClingAnchor then
+			context.jazz_cling_anchor = JazzAI_PickHeightsClingAnchor(unit) or false
+		end
+		context.jazz_profile.TakeCoverMul = Max(context.jazz_profile.TakeCoverMul or 100, 150)
+	end
 	if context.jazz_fallback then
 		context.jazz_profile.TakeCoverMul = Max(context.jazz_profile.TakeCoverMul or 100, 180)
 	end
@@ -143,12 +182,14 @@ function JazzAI_ApplyProfileToContext(context)
 		context.jazz_need_outdoors = true
 	end
 	-- Dynamic pseudo-MG: bias toward Overwatch like Machinegunner.
-	if unit and JazzAI_UnitIsDynamicPseudoMG and JazzAI_UnitIsDynamicPseudoMG(unit) then
+	local is_pseudo = JazzAI_BindUnitsExport and JazzAI_BindUnitsExport("JazzAI_UnitIsDynamicPseudoMG")
+	if unit and type(is_pseudo) == "function" and is_pseudo(unit) then
 		context.jazz_pseudo_mg = true
 		context.jazz_profile.OverwatchMinScore = Min(context.jazz_profile.OverwatchMinScore or 300, 80)
 	end
 	-- Dedicated / pseudo MG: stay near squad (OptLoc half-cover chase used to pull them alone).
-	if unit and ((JazzAI_UnitIsDedicatedMG and JazzAI_UnitIsDedicatedMG(unit)) or context.jazz_pseudo_mg) then
+	local is_mg = JazzAI_BindUnitsExport and JazzAI_BindUnitsExport("JazzAI_UnitIsDedicatedMG")
+	if unit and ((type(is_mg) == "function" and is_mg(unit)) or context.jazz_pseudo_mg) then
 		context.jazz_mg_tether = true
 	end
 end
@@ -181,7 +222,9 @@ function JazzAI_UnitWantsRearGuard(unit)
 	if not IsValid(unit) then
 		return false
 	end
-	if JazzAI_InferRoleFamily and JazzAI_InferRoleFamily(unit) == "Heavy" then
+	local infer = JazzAI_BindUnitsExport and JazzAI_BindUnitsExport("JazzAI_InferRoleFamily")
+		or rawget(_G, "JazzAI_InferRoleFamily")
+	if type(infer) == "function" and infer(unit) == "Heavy" then
 		return true
 	end
 	local keys = unit.AIKeywords
@@ -389,19 +432,44 @@ function JazzAI_UnitHasFlankKeyword(unit)
 	return false
 end
 
-function JazzAI_UnitIsRecontactProbeCandidate(unit)
+local function JazzAI_RecontactInferFamily(unit)
+	local infer = rawget(_G, "JazzAI_InferRoleFamily")
+	if type(infer) ~= "function" and type(rawget(_G, "JazzAI_BindUnitsExport")) == "function" then
+		infer = JazzAI_BindUnitsExport("JazzAI_InferRoleFamily")
+	end
+	if type(infer) == "function" then
+		return infer(unit)
+	end
+	return false
+end
+
+-- 0 = scout/flanker, 1 = assaulter/roughneck fallback, false = not a creeper.
+function JazzAI_RecontactCreeperRank(unit)
 	if not IsValid(unit) or unit:IsDead() then
 		return false
 	end
-	if JazzAI_UnitHasFlankKeyword(unit) then
-		return true
+	local family = JazzAI_RecontactInferFamily(unit)
+	if family == "Leader" or family == "MG" or family == "Heavy" or family == "Medic" then
+		return false
 	end
 	local arch = tostring(unit.current_archetype or unit.archetype or "")
-	if string.find(arch, "Flanker", 1, true) then
-		return true
+	local class = tostring(unit.unitdatadef_id or "")
+	if family == "Scout" or JazzAI_UnitHasFlankKeyword(unit)
+		or string.find(arch, "Flanker", 1, true)
+		or string.find(class, "Flanker", 1, true)
+		or string.find(class, "Scout", 1, true) then
+		return 0
 	end
-	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamDirectiveKey(unit.team)]
-	return entry and entry.pusher == unit
+	if family == "Pusher" or string.find(arch, "Assaulter", 1, true)
+		or string.find(class, "Assault", 1, true)
+		or string.find(class, "Roughneck", 1, true) then
+		return 1
+	end
+	return false
+end
+
+function JazzAI_UnitIsRecontactProbeCandidate(unit)
+	return JazzAI_RecontactCreeperRank(unit) ~= false
 end
 
 function JazzAI_AssignRecontactProbes(team)
@@ -409,10 +477,9 @@ function JazzAI_AssignRecontactProbes(team)
 		return
 	end
 	local key = JazzAI_TeamDirectiveKey(team)
-	local entry = (JazzAI_TeamDirectives or empty_table)[key]
-	if not entry then
-		return
-	end
+	JazzAI_TeamDirectives = JazzAI_TeamDirectives or {}
+	local entry = JazzAI_TeamDirectives[key] or {}
+	JazzAI_TeamDirectives[key] = entry
 	local known
 	for _, u in ipairs(team.units) do
 		if not u:IsDead() and u.last_known_enemy_pos then
@@ -422,32 +489,46 @@ function JazzAI_AssignRecontactProbes(team)
 	end
 	local cands = {}
 	for _, u in ipairs(team.units) do
-		if JazzAI_UnitIsRecontactProbeCandidate(u) then
-			cands[#cands + 1] = u
+		local rank = JazzAI_RecontactCreeperRank(u)
+		if rank then
+			cands[#cands + 1] = { unit = u, rank = rank }
 		end
 	end
 	table.sort(cands, function(a, b)
+		if a.rank ~= b.rank then
+			return a.rank < b.rank
+		end
 		if known then
-			local da, db = a:GetDist(known), b:GetDist(known)
+			local da, db = a.unit:GetDist(known), b.unit:GetDist(known)
 			if da ~= db then
 				return da < db
 			end
 		end
-		return (a.handle or 0) < (b.handle or 0)
+		return (a.unit.handle or 0) < (b.unit.handle or 0)
 	end)
-	entry.recontact_probes = { cands[1] or false, cands[2] or false }
+	local creeper = cands[1] and cands[1].unit or false
+	entry.recontact_creeper = creeper
+	entry.recontact_probes = { creeper, false }
 end
 
-function JazzAI_UnitIsRecontactProbe(unit)
+function JazzAI_UnitIsRecontactCreeper(unit)
 	if not IsValid(unit) or not unit.team then
 		return false
 	end
 	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamDirectiveKey(unit.team)]
-	local probes = entry and entry.recontact_probes
-	if not probes then
+	return entry and entry.recontact_creeper == unit
+end
+
+function JazzAI_UnitIsRecontactProbe(unit)
+	return JazzAI_UnitIsRecontactCreeper(unit)
+end
+
+function JazzAI_RecontactCreeperShouldHide(unit)
+	if not JazzAI_UnitIsRecontactCreeper(unit) then
 		return false
 	end
-	return probes[1] == unit or probes[2] == unit
+	local vis = unit.GetVisibleEnemies and unit:GetVisibleEnemies()
+	return vis and #vis > 0
 end
 
 function JazzAI_TilesToLastKnown(unit, pos)
@@ -471,6 +552,9 @@ function JazzAI_ShouldRecontactScout(unit, picked)
 		return false
 	end
 	if JazzAI_GetTeamDirective and JazzAI_GetTeamDirective(unit) == "FallBack" then
+		return false
+	end
+	if not JazzAI_UnitIsRecontactCreeper(unit) then
 		return false
 	end
 	local vis = unit.GetVisibleEnemies and unit:GetVisibleEnemies()
@@ -582,26 +666,21 @@ function JazzAI_ScoreRecontactDest(context, dest)
 		local cur = JazzAI_TilesToLastKnown(unit) or d_tiles
 		local stand_min = JazzAI_RecontactStandMin or 14
 		local stand_max = JazzAI_RecontactStandMax or 20
-		local probe = JazzAI_UnitIsRecontactProbe and JazzAI_UnitIsRecontactProbe(unit)
-		if probe then
+		local creeper = JazzAI_UnitIsRecontactCreeper and JazzAI_UnitIsRecontactCreeper(unit)
+		if creeper then
 			if d_tiles < cur then
 				score = score + 80
 			elseif d_tiles > cur then
 				score = score - 40
 			end
-		elseif cur > stand_max then
-			if d_tiles < cur then
-				score = score + 100 + (cur - d_tiles) * 5
-			else
-				score = score - 80
+			if d_tiles >= stand_min and d_tiles <= stand_max then
+				score = score + 60
+			elseif d_tiles < stand_min then
+				score = score - 50
 			end
-		elseif d_tiles >= stand_min and d_tiles <= stand_max then
-			score = score + 60
-		elseif d_tiles < stand_min then
-			score = score - 50
-		end
-		if JazzAI_DestNearMapEdge(dest_pos) and not JazzAI_LastKnownNearMapEdge(unit) then
-			score = score - 60
+			if JazzAI_DestNearMapEdge(dest_pos) and not JazzAI_LastKnownNearMapEdge(unit) then
+				score = score - 60
+			end
 		end
 	end
 	return score
@@ -839,6 +918,135 @@ function JazzAI_MapHasHeightVariance(unit)
 	return (max_z - min_z) >= 1
 end
 
+function JazzAI_AllyNeedsMedicHeal(unit)
+	if not IsValid(unit) or unit:IsDead() then
+		return false
+	end
+	if type(rawget(_G, "JazzHasAnyBleed")) == "function" and JazzHasAnyBleed(unit) then
+		return true
+	end
+	if unit:HasStatusEffect("Bleeding") or unit:HasStatusEffect("BleedingMedium")
+		or unit:HasStatusEffect("BleedingHeavy") then
+		return true
+	end
+	return unit.HitPoints < MulDivRound(unit.MaxHitPoints or 1, 85, 100)
+end
+
+function JazzAI_PickHeightsClingAnchor(unit)
+	if not IsValid(unit) or not unit.team then
+		return false
+	end
+	if JazzAI_UnitNeedsHealSlot and JazzAI_UnitNeedsHealSlot(unit) then
+		local best, best_d
+		local maxd = 45 * (const.SlabSizeX or 1200)
+		for _, ally in ipairs(unit.team.units or empty_table) do
+			if ally ~= unit and IsValid(ally) and not ally:IsDead()
+				and JazzAI_AllyNeedsMedicHeal(ally) then
+				local d = unit:GetDist(ally)
+				if d <= maxd and (not best or d < best_d) then
+					best, best_d = ally, d
+				end
+			end
+		end
+		if best then
+			return best
+		end
+		-- Self-heal only: no cling. Other wounded absent → perch/officer below.
+		if JazzAI_AllyNeedsMedicHeal(unit) then
+			return false
+		end
+	end
+	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(unit.team)]
+	local source = entry and entry.source
+	local radius = entry and entry.radius
+	local best, best_d
+	if IsValid(source) then
+		for _, ally in ipairs(unit.team.units or empty_table) do
+			if ally ~= unit and IsValid(ally) and not ally:IsDead()
+				and JazzAI_IsInOfficerAura(ally, source, radius)
+				and JazzAI_UnitIsLinePerchHolder and JazzAI_UnitIsLinePerchHolder(ally) then
+				local d = unit:GetDist(ally)
+				if not best or d < best_d then
+					best, best_d = ally, d
+				end
+			end
+		end
+	end
+	if best then
+		return best
+	end
+	return (IsValid(source) and source) or false
+end
+
+function JazzAI_UnitHasLiveShot(unit)
+	if not IsValid(unit) or unit:IsDead() then
+		return false
+	end
+	local weapon = unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm")
+	if not weapon then
+		weapon = unit.GetActiveWeapons and unit:GetActiveWeapons()
+	end
+	if not IsKindOf(weapon, "Firearm") then
+		return false
+	end
+	local maxd = weapon.GetMaxRange and weapon:GetMaxRange()
+	if not maxd or maxd <= 0 then
+		maxd = (weapon.WeaponRange or 30) * const.SlabSizeX
+	end
+	local attack = unit.GetDefaultAttackAction and unit:GetDefaultAttackAction()
+	if attack and attack.GetUIState then
+		local st = select(1, attack:GetUIState({ unit }))
+		if st and st ~= "enabled" then
+			return false
+		end
+	end
+	for _, enemy in ipairs(g_Units or empty_table) do
+		if IsValid(enemy) and enemy.team and unit.IsOnEnemySide and unit:IsOnEnemySide(enemy)
+			and not enemy:IsDead() then
+			local vis = false
+			local okv, v = pcall(HasVisibilityTo, unit, enemy)
+			if okv and v then
+				vis = true
+			elseif unit.team then
+				local okt, tv = pcall(HasVisibilityTo, unit.team, enemy)
+				if okt and tv then
+					vis = true
+				end
+			end
+			if vis and unit:GetDist(enemy) <= maxd then
+				local okc, any = pcall(CheckLOS, { enemy }, unit, maxd)
+				if okc and any then
+					return true
+				end
+			end
+		end
+	end
+	return false
+end
+
+function JazzAI_AuraHasLiveSpotterShot(officer)
+	if not IsValid(officer) or not officer.team then
+		return false
+	end
+	local radius = JazzAI_OfficerAuraRadius(officer)
+	if (radius or 0) <= 0 then
+		return false
+	end
+	local entry = (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(officer.team)]
+	for _, u in ipairs(officer.team.units or empty_table) do
+		if IsValid(u) and not u:IsDead() and JazzAI_IsInOfficerAura(u, officer, radius) then
+			local spotter = JazzAI_UnitIsHeightsSpotter and JazzAI_UnitIsHeightsSpotter(u)
+			if not spotter and entry and entry.semi_sniper == u then
+				spotter = true
+			end
+			if spotter and JazzAI_UnitHasLiveShot(u) then
+				return true
+			end
+		end
+	end
+	return false
+end
+
 function JazzAI_ShouldOccupyHeights(unit, tiles)
 	if not JazzAI_MapHasHeightVariance(unit) then
 		return false
@@ -942,6 +1150,9 @@ function JazzAI_PickOfficerDirective(unit, profile)
 	end
 	if JazzAI_ShouldOccupyHeights(unit, tiles) then
 		add("OccupyHeights", 520)
+	end
+	if JazzAI_AuraHasLiveSpotterShot(unit) then
+		add("Push", JazzAI_DirectivePushLiveShot or 600)
 	end
 	if enemy and tiles <= JazzAI_DirectivePushMax then
 		add("Push", 500)
@@ -1507,6 +1718,9 @@ function JazzAI_PickUnitActKind(unit, smoke_thrower)
 	if JazzAI_UnitNeedsMGSetup(unit) then
 		return "mg_setup"
 	end
+	if JazzAI_UnitIsRecontactCreeper and JazzAI_UnitIsRecontactCreeper(unit) then
+		return "recontact"
+	end
 	-- Assigned pusher Late even if the fighter is a Frontliner (Push assign).
 	local team = unit and unit.team
 	local entry = team and (JazzAI_TeamDirectives or empty_table)[JazzAI_TeamSideKey(team)]
@@ -1523,7 +1737,7 @@ function JazzAI_PickUnitActKind(unit, smoke_thrower)
 end
 
 function JazzAI_ActKindPhase(kind)
-	if kind == "heal" or kind == "flare" or kind == "smoke" or kind == "mg_setup" then
+	if kind == "heal" or kind == "flare" or kind == "smoke" or kind == "mg_setup" or kind == "recontact" then
 		return "Early"
 	end
 	if kind == "press" then
@@ -1553,6 +1767,7 @@ function JazzAI_AssignTeamActSlots(team)
 	local entry = JazzAI_TeamDirectives[side] or {}
 	entry.smoke = smoke or false
 	JazzAI_TeamDirectives[side] = entry
+	JazzAI_AssignRecontactProbes(team)
 	for _, u in ipairs(JazzAI_LivingTeamUnits(team)) do
 		if type(JazzAI_UsesJazzCombatAI) ~= "function" or JazzAI_UsesJazzCombatAI(u) then
 			local kind = JazzAI_PickUnitActKind(u, smoke)
@@ -1661,29 +1876,22 @@ function JazzAI_WriteOfficerAura(unit)
 	end
 	-- Commander assigns fill-in roles inside the aura (not whole map outside radius).
 	-- Priority: semi_sniper > pseudo_mg > pusher (one role per fighter).
+	-- Picker impl lives in jazz-units; names are registered above via rawget.
 	local exclude = {}
-	if JazzAI_PickTeamSemiSniper then
-		entry.semi_sniper = JazzAI_PickTeamSemiSniper(team, unit, radius) or false
+	local pick_sniper = rawget(_G, "JazzAI_PickTeamSemiSniper")
+	if type(pick_sniper) == "function" then
+		entry.semi_sniper = pick_sniper(team, unit, radius) or false
 	else
 		entry.semi_sniper = false
 	end
 	if entry.semi_sniper then
 		exclude[entry.semi_sniper] = true
 	end
-	if JazzAI_PickTeamPseudoMG then
-		entry.pseudo_mg = false
-		local best, best_score = false, 0
-		for _, ally in ipairs(JazzAI_AuraRoleCandidates and JazzAI_AuraRoleCandidates(team, unit, radius) or empty_table) do
-			if not exclude[ally] and JazzAI_UnitPseudoMGScore then
-				local s = JazzAI_UnitPseudoMGScore(ally)
-				-- Skip if dedicated MG already on team (PickTeamPseudoMG would no-op).
-				if s > best_score then
-					best, best_score = ally, s
-				end
-			end
-		end
-		if not JazzAI_TeamHasDedicatedMG or not JazzAI_TeamHasDedicatedMG(team) then
-			entry.pseudo_mg = (best_score > 0 and best) or false
+	local pick_mg = rawget(_G, "JazzAI_PickTeamPseudoMG")
+	if type(pick_mg) == "function" then
+		entry.pseudo_mg = pick_mg(team, unit, radius) or false
+		if entry.pseudo_mg and exclude[entry.pseudo_mg] then
+			entry.pseudo_mg = false
 		end
 	else
 		entry.pseudo_mg = false
@@ -1691,14 +1899,16 @@ function JazzAI_WriteOfficerAura(unit)
 	if entry.pseudo_mg then
 		exclude[entry.pseudo_mg] = true
 	end
-	if JazzAI_PickTeamPusher then
-		entry.pusher = JazzAI_PickTeamPusher(team, unit, radius, exclude) or false
+	local pick_pusher = rawget(_G, "JazzAI_PickTeamPusher")
+	if type(pick_pusher) == "function" then
+		entry.pusher = pick_pusher(team, unit, radius, exclude) or false
 	else
 		entry.pusher = false
 	end
 	JazzAI_TeamDirectives[key] = entry
-	if JazzAI_BarkOnDirective then
-		JazzAI_BarkOnDirective(unit, prev_directive, directive, entry)
+	local bark = rawget(_G, "JazzAI_BarkOnDirective")
+	if type(bark) == "function" then
+		bark(unit, prev_directive, directive, entry)
 	end
 
 	-- Commander: visible command aura perk
@@ -1745,6 +1955,7 @@ function JazzAI_RefreshOfficerAurasForTeam(team)
 			JazzAI_SetAuraEffect(u, "Jazz_Perk_OfficerAura", false)
 			JazzAI_SetAuraEffect(u, "Jazz_Perk_OfficerAuraInfluence", false)
 		end
+		JazzAI_AssignRecontactProbes(team)
 	end
 end
 

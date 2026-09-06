@@ -57,6 +57,26 @@ const GITHUB_REPO_TO_SUITE = {
   "Kpoji4er/JAZZ-nomaps": "jazz-nomaps",
 };
 
+/** Steam Workshop file IDs from each package `metadata.lua` `steam_id`. */
+const STEAM_WORKSHOP_DOWNLOADS = [
+  { key: "jazz", label: "JAZZ", id: "3321938203" },
+  { key: "jazz_assets", label: "Assets", id: "3323959292" },
+  { key: "jazz-units", label: "Units", id: "3323312979" },
+  { key: "jazz-maps", label: "Maps", id: "3322285655" },
+];
+
+export function steamWorkshopUrl(id) {
+  return `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`;
+}
+
+/** Markdown for Discord: Steam first (works from RU without VPN). */
+export function formatSteamDownloadField() {
+  const links = STEAM_WORKSHOP_DOWNLOADS.map(
+    (item) => `[${item.label}](${steamWorkshopUrl(item.id)})`,
+  ).join(" · ");
+  return `${links}\nGitHub ZIP из РФ — часто только с VPN.`;
+}
+
 const BINARY_EXTENSIONS = new Set([
   ".7z",
   ".a",
@@ -1624,6 +1644,7 @@ export function buildDiscordPayload({
     sanitizeForDiscord(summary.title, MAX_DISCORD_TITLE) ||
     "JAZZ — изменения в основной ветке";
   const compareLink = `[Открыть изменения](${changeSet.compareUrl})`;
+  const downloadField = formatSteamDownloadField();
   const newGameLabel = formatNewGameNeededLabel(summary.new_game_needed);
   const summaryText =
     sanitizeForDiscord(summary.summary, 3_200) ||
@@ -1637,7 +1658,7 @@ export function buildDiscordPayload({
     ? `\n\n**Пакеты:**\n${packagesField}`
     : "";
   const description = truncateText(
-    `**Новая игра:** ${sanitizeForDiscord(newGameLabel, 400)}\n\n${summaryText}${packagesBlock}\n\n${compareLink}`,
+    `**Новая игра:** ${sanitizeForDiscord(newGameLabel, 400)}\n\n${summaryText}${packagesBlock}\n\n**Скачать:** ${downloadField}\n\n${compareLink}`,
     MAX_DISCORD_DESCRIPTION,
   );
   const fields = [
@@ -1654,6 +1675,11 @@ export function buildDiscordPayload({
       inline: false,
     });
   }
+  fields.push({
+    name: "Скачать",
+    value: truncateText(downloadField, MAX_DISCORD_FIELD_VALUE),
+    inline: false,
+  });
   fields.push(
     ...summary.sections
       .filter((section) => section.items.length > 0)

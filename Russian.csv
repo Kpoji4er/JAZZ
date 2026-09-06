@@ -13018,3 +13018,17 @@ Speck","Командир!
 890000000020594,Running.,Бегу.,,jazz:Code/System_AI_CombatBarks.lua
 890000000020595,Closer.,Ближе.,,jazz:Code/System_AI_CombatBarks.lua
 890000000020596,It's far. Going.,"Далеко, бегу.",,jazz:Code/System_AI_CombatBarks.lua
+890000000009944,MERC $<balance>,MERC $<balance>,,JAZZ-UI-MERC-002
+890000000009945,M.E.R.C. account,Счёт M.E.R.C.,,JAZZ-UI-MERC-002
+890000000009946,Unpaid credit. Click to open M.E.R.C. and Pay Account.,"Неоплаченный кредит. Нажмите, чтобы открыть M.E.R.C. и оплатить счёт.",,JAZZ-UI-MERC-002
+890000000009947,M.E.R.C. — settle the account,M.E.R.C. — закройте счёт,,JAZZ-UI-MERC-002
+890000000009948,Speck: your M.E.R.C. account shows $<balance>. All hired MERC contractors leave in 3 days if you do not pay.,"Спек: на счету M.E.R.C. $<balance>. Все нанятые контрактники MERC уйдут через 3 дня, если не оплатите.",,JAZZ-UI-MERC-002
+890000000009949,M.E.R.C. — they leave tomorrow,M.E.R.C. — завтра уходят,,JAZZ-UI-MERC-002
+890000000009950,Speck: $<balance> still unpaid. Hired MERC contractors leave tomorrow.,Спек: $<balance> всё ещё висит. Нанятые контрактники MERC уходят завтра.,,JAZZ-UI-MERC-002
+890000000009951,Later,Позже,,JAZZ-UI-MERC-002
+890000000009952,M.E.R.C. contractors left: <names>,Контрактники M.E.R.C. ушли: <names>,,JAZZ-UI-MERC-002
+890000000009953,M.E.R.C. contractors,Контрактники M.E.R.C.,,JAZZ-UI-MERC-002
+890000000009954,Hired MERC contractors leave if $<balance> is unpaid.,"Нанятые контрактники MERC уйдут, если не закрыть $<balance>.",,JAZZ-UI-MERC-002
+890000000009955,Pay Account on the M.E.R.C. site. Right-click opens the site.,Оплатите счёт на сайте M.E.R.C. ПКМ открывает сайт.,,JAZZ-UI-MERC-002
+890000000009956,Speck will demand payment. Contractors leave 3 days later if $<balance> is still unpaid.,"Спек потребует оплату. Контрактники уйдут через 3 дня, если $<balance> так и висит.",,JAZZ-UI-MERC-002
+890000000009957,Open M.E.R.C.,Открыть M.E.R.C.,,JAZZ-UI-MERC-002

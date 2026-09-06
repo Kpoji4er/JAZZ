@@ -832,7 +832,13 @@ function JazzAI_PeekExitAimPos(unit, anchor)
 		return false
 	end
 	if JazzAI_PosOWViable(unit, start) then
-		return JazzAI_SoundOffsetPos(unit, start) or start
+		-- SoundOffset is handle-dir ±1–3; that slab can sit in a wall.
+		-- Only keep it when the watcher still has LOS (OW-001 / 007).
+		local offset = JazzAI_SoundOffsetPos(unit, start)
+		if offset and JazzAI_PosOWViable(unit, offset) then
+			return offset
+		end
+		return start
 	end
 
 	local slab_size = const.SlabSizeX
@@ -916,6 +922,39 @@ function JazzAI_FallbackOverwatchTargetPos(unit, context)
 	return false
 end
 
+-- Fallback OW cone follows target_pt. CheckLOS can be true through a tent
+-- while the first slabs on the 2D line are a wall — that is the "OW into
+-- the shack" look. Reject those aims; no target → no OW (OW-001).
+local function JazzAI_OWAimHitsWall(unit, pos)
+	if not IsValid(unit) or not pos then
+		return true
+	end
+	local origin = unit.GetPos and unit:GetPos()
+	if not origin then
+		return true
+	end
+	local slab = const.SlabSizeX
+	local dist = origin.Dist2D and origin:Dist2D(pos) or origin:Dist(pos)
+	if type(dist) ~= "number" or dist <= slab then
+		return false
+	end
+	local steps = Min(8, Max(1, DivRound(dist, slab)))
+	local ox, oy, oz = origin:xyz()
+	local px, py, pz = pos:xyz()
+	if not ox or not px then
+		return true
+	end
+	for i = 1, steps do
+		local t = MulDivRound(i, 1000, steps + 1)
+		local x = ox + MulDivRound(px - ox, t, 1000)
+		local y = oy + MulDivRound(py - oy, t, 1000)
+		if not GetPassSlab(point(x, y, oz or pz or 0)) then
+			return true
+		end
+	end
+	return false
+end
+
 function AIPlaceFallbackOverwatch(unit, context)
 	if not context or not IsKindOf(context.weapon, "Firearm") then
 		return false
@@ -926,7 +965,10 @@ function AIPlaceFallbackOverwatch(unit, context)
 	end
 
 	local target_pt = JazzAI_FallbackOverwatchTargetPos(unit, context)
-	if not target_pt then
+	if not target_pt or not JazzAI_PosOWViable(unit, target_pt) then
+		return false
+	end
+	if JazzAI_OWAimHitsWall(unit, target_pt) then
 		return false
 	end
 
@@ -952,6 +994,12 @@ function JAZZ_AIDisengage(unit, context, did_attack)
         return
     end
     if unit:HasStatusEffect("Berserk") or unit:HasStatusEffect("Panicked") then
+        return
+    end
+    -- Spotter already has eyes on: hide this activation, do not dump or wall-OW.
+    if JazzAI_RecontactCreeperShouldHide and JazzAI_RecontactCreeperShouldHide(unit) then
+        JAZZ_AITryCoverMove(unit, context)
+        JAZZ_AIBunkerDown(unit, context, did_attack)
         return
     end
     -- Peel already committed to a break-LOS dest: do not TakeCover, place OW on vacated tile.
@@ -1200,6 +1248,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
     end
 
     while firearm and JAZZ_AICanDump(unit, context) and dump_steps < JAZZ_AI_SOFT_DUMP_CAP do
+        if JazzAI_RecontactCreeperShouldHide and JazzAI_RecontactCreeperShouldHide(unit) then
+            break
+        end
         dump_steps = dump_steps + 1
         JAZZ_AIFilterEnemies(context)
         AIUpdateContext(context, unit)
@@ -2742,8 +2793,10 @@ function AIActionBandage:Execute(context, action_state)
 	if not IsMeleeRangeTarget(unit, nil, nil, target) then
 		context.jazz_medic_bandage_fail = true
 		-- revert to faction Frontliner for remainder of Think/Play
-		if JazzAI_FactionArchetypePrefix then
-			local id = JazzAI_FactionArchetypePrefix(unit) .. "Frontliner"
+		local prefix = JazzAI_BindUnitsExport and JazzAI_BindUnitsExport("JazzAI_FactionArchetypePrefix")
+			or rawget(_G, "JazzAI_FactionArchetypePrefix")
+		if type(prefix) == "function" then
+			local id = prefix(unit) .. "Frontliner"
 			unit.archetype = id
 			if context.archetype and Presets and Presets.AIArchetype then
 				local preset = Presets.AIArchetype.Default and Presets.AIArchetype.Default[id]
@@ -2817,7 +2870,13 @@ function AIGetAttackTargetingOptions(unit, context, target, action, targeting)
         -- PERF-003: GetActionResults → PrepareAttackArgs GetLoFData hangs on M3
         -- waterfall (Marauder PickBest, part=Arms vs Wolf). CalcChanceToHit is the
         -- Dump score path and does not probe collision. Player UI still uses
-        -- GetActionResults.
+        -- GetActionResults. Cheap LoF (PERF-004) rejects tent/rock/wall shots
+        -- that still have CTH>0 because NoLineOfFire is not in CalcChanceToHit.
+        if type(Jazz_DumpCheapLineBlocked) == "function"
+            and Jazz_DumpCheapLineBlocked(unit, target, context and context.weapon) then
+            JAZZ_AIPerfLog("TargetOpts blocked cheap LoF")
+            return
+        end
         local args = { target = target, aim = 0, prediction = true }
         for _, part in ipairs(target:GetBodyParts(context and context.weapon)) do
             args.target_spot_group = part.id

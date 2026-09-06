@@ -17,6 +17,7 @@ import {
   duplicatePublishSkipReason,
   formatNewGameNeededLabel,
   formatSuitePackagesField,
+  formatSteamDownloadField,
   parseMetadataEngineVersion,
   parseSuiteVersions,
   getSummarySkipReason,
@@ -690,6 +691,17 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
   assert.equal(safePayload.embeds[0].fields[1].name, "Пакеты");
   assert.match(safePayload.embeds[0].fields[1].value, /jazz-maps/);
   assert.match(safePayload.embeds[0].description, /\*\*Пакеты:\*\*/);
+  assert.match(safePayload.embeds[0].description, /\*\*Скачать:\*\*/);
+  assert.equal(
+    safePayload.embeds[0].fields.find((field) => field.name === "Скачать")
+      ?.name,
+    "Скачать",
+  );
+  assert.match(
+    safePayload.embeds[0].fields.find((field) => field.name === "Скачать")
+      .value,
+    /steamcommunity\.com\/sharedfiles\/filedetails\/\?id=3321938203/,
+  );
   assert.match(
     safePayload.embeds[0].footer.text,
     /JAZZ-maps · 2 коммита · 1 файл/,
@@ -831,6 +843,10 @@ test("resolveSuitePackages merges env list with posting repo", () => {
       suitePackagesEnv: "",
     }),
     ["jazz-units"],
+  );
+  assert.match(
+    formatSteamDownloadField(),
+    /\[JAZZ\]\(https:\/\/steamcommunity\.com\/sharedfiles\/filedetails\/\?id=3321938203\)/,
   );
   assert.equal(
     formatSuitePackagesField(["jazz", "jazz-units"]),

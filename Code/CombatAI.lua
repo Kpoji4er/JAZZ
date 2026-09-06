@@ -11,6 +11,247 @@ const.AIShootAboveCTH = 0
 const.AIDecisionThreshold = 80 -- targets/locations up to this percent of max scored target/location can be selected
 const.AIPointBlankTargetMod = 50 -- targets in point-blank range get +50% score
 
+-- jazz-units JazzAI_* live in Mods.Dv3mFVN.env (and maybe GetRawG). A bare
+-- read in jazz env asserts "undefined global" even when units is loaded.
+JazzAI_UnitsExportNames = {
+	"JazzAI_FactionArchetypePrefix",
+	"JazzAI_InferRoleFamily",
+	"JazzAI_InferPanicTier",
+	"JazzAI_HasKeyword",
+	"JazzAI_GetActiveFirearm",
+	"JazzAI_UnitOpticMagnification",
+	"JazzAI_UnitIsDedicatedSniper",
+	"JazzAI_UnitIsDedicatedMG",
+	"JazzAI_UnitSemiSniperScore",
+	"JazzAI_UnitPseudoMGScore",
+	"JazzAI_TeamHasDedicatedSniper",
+	"JazzAI_TeamHasDedicatedMG",
+	"JazzAI_AuraRoleCandidates",
+	"JazzAI_PickTeamSemiSniper",
+	"JazzAI_PickTeamPseudoMG",
+	"JazzAI_UnitPusherScore",
+	"JazzAI_PickTeamPusher",
+	"JazzAI_GetTeamAuraRoleEntry",
+	"JazzAI_UnitIsDynamicSemiSniper",
+	"JazzAI_UnitIsDynamicPseudoMG",
+	"JazzAI_UnitIsDynamicPusher",
+	"JazzAI_NeverMelee",
+	"JazzAI_GetAltSlot",
+	"JazzAI_GetAltWeapons",
+	"JazzAI_FindAltMeleeWeapon",
+	"JazzAI_FindAltCQBFirearm",
+	"JazzAI_EnsureWeaponClass",
+	"JazzAI_MeleeAttackAPCost",
+	"JazzAI_CanReachMeleeAndAttackOnce",
+	"JazzAI_NeedPush",
+	"JazzAI_NeedFlank",
+	"JazzAI_CalcPanicChance",
+	"JazzAI_RollPanicDeserter",
+	"JazzAI_TryMedicSwitch",
+	"JazzAI_IsDedicatedMedicUnit",
+	"JazzAI_TeamHasLivingDedicatedMedic",
+	"JazzAI_ShouldBecomeMedic",
+	"JazzAI_MedicHealBehaviorScore",
+	"JazzAI_MedicCombatBehaviorScore",
+	"JazzAI_NeedsRegroup",
+	"JazzAI_ArchetypeExists",
+	"JazzAI_ResolveKnownArchetype",
+	"JazzAI_PickCombatStance",
+	"JazzAI_ApplyMedicOptLocCap",
+}
+
+-- Mod Code _ENV is isolated. Never bare-read GetRawG — that name is not in
+-- the jazz env and asserts even inside pcall.
+g_JAZZ_AIScoreGlobalsStubbed = rawget(_G, "g_JAZZ_AIScoreGlobalsStubbed") or false
+
+function JazzAI_EngineGlobalTable()
+	local mt = getmetatable(_G)
+	if type(mt) == "table" then
+		local idx = rawget(mt, "__index")
+		if type(idx) == "table" then
+			return idx
+		end
+	end
+	return false
+end
+
+-- items.lua Score / PickCustom run in the units/engine chunk env, not jazz _ENV.
+-- Editor snippets sometimes bare-read `prev` / `enemy` → debug assert.
+function JazzAI_FuncEnv(fn)
+	if type(fn) ~= "function" then
+		return false
+	end
+	local dbg = rawget(_G, "debug")
+	if type(dbg) ~= "table" or type(dbg.getupvalue) ~= "function" then
+		return false
+	end
+	local i = 1
+	while true do
+		local name, val = dbg.getupvalue(fn, i)
+		if not name then
+			break
+		end
+		if name == "_ENV" and type(val) == "table" then
+			return val
+		end
+		i = i + 1
+	end
+	return false
+end
+
+function JazzAI_StubBareAIGlobalsInEnv(env)
+	if type(env) ~= "table" then
+		return false
+	end
+	if rawget(env, "prev") == nil then
+		rawset(env, "prev", false)
+	end
+	if rawget(env, "enemy") == nil then
+		rawset(env, "enemy", false)
+	end
+	return true
+end
+
+function JazzAI_StubBareAIGlobalsInFunc(fn)
+	return JazzAI_StubBareAIGlobalsInEnv(JazzAI_FuncEnv(fn))
+end
+
+function JazzAI_StubAIScoreGlobals()
+	JazzAI_StubBareAIGlobalsInEnv(_G)
+	JazzAI_StubBareAIGlobalsInEnv(JazzAI_EngineGlobalTable())
+	local mods = rawget(_G, "Mods")
+	local rawg = JazzAI_EngineGlobalTable()
+	if type(mods) ~= "table" and rawg then
+		mods = rawget(rawg, "Mods")
+	end
+	if type(mods) == "table" then
+		local units = rawget(mods, "Dv3mFVN") or mods.Dv3mFVN
+		if type(units) == "table" then
+			JazzAI_StubBareAIGlobalsInEnv(rawget(units, "env"))
+		end
+	end
+end
+
+function JazzAI_StubLoadedAIChunkGlobals()
+	JazzAI_StubAIScoreGlobals()
+	if rawget(_G, "g_JAZZ_AIScoreGlobalsStubbed") then
+		return
+	end
+	local function stub_beh(behavior)
+		if type(behavior) == "table" then
+			JazzAI_StubBareAIGlobalsInFunc(behavior.Score)
+		end
+	end
+	local function stub_arch(arch)
+		if type(arch) ~= "table" then
+			return
+		end
+		for _, behavior in ipairs(arch.Behaviors or empty_table) do
+			stub_beh(behavior)
+		end
+	end
+	local flats = rawget(_G, "AIArchetypes")
+	if type(flats) == "table" then
+		for _, arch in pairs(flats) do
+			stub_arch(arch)
+		end
+	end
+	local presets = rawget(_G, "Presets")
+	local root = type(presets) == "table" and presets.AIArchetype
+	if type(root) == "table" then
+		for _, group in pairs(root) do
+			if type(group) == "table" then
+				for _, arch in pairs(group) do
+					stub_arch(arch)
+				end
+			end
+		end
+	end
+	local defs = rawget(_G, "UnitDataDefs")
+	if type(defs) == "table" then
+		for _, def in pairs(defs) do
+			if type(def) == "table" then
+				JazzAI_StubBareAIGlobalsInFunc(def.PickCustomArchetype)
+			end
+		end
+	end
+	rawset(_G, "g_JAZZ_AIScoreGlobalsStubbed", true)
+end
+
+function JazzAI_FindUnitsExport(name)
+	if type(name) ~= "string" or name == "" then
+		return false
+	end
+	local rawg = JazzAI_EngineGlobalTable()
+	local mods = rawget(_G, "Mods")
+	if type(mods) ~= "table" and rawg then
+		mods = rawget(rawg, "Mods")
+	end
+	local function from_env(env)
+		if type(env) ~= "table" then
+			return false
+		end
+		local fn = rawget(env, name)
+		return type(fn) == "function" and fn or false
+	end
+	if type(mods) == "table" then
+		local preferred = mods.Dv3mFVN or rawget(mods, "Dv3mFVN")
+		local got = preferred and from_env(rawget(preferred, "env"))
+		if got then
+			return got
+		end
+		for _, mod in pairs(mods) do
+			if type(mod) == "table" then
+				got = from_env(rawget(mod, "env"))
+				if got then
+					return got
+				end
+			end
+		end
+	end
+	if rawg then
+		local got = from_env(rawg)
+		if got then
+			return got
+		end
+	end
+	return false
+end
+
+function JazzAI_BindUnitsExport(name)
+	if type(name) ~= "string" or name == "" then
+		return false
+	end
+	local fn = JazzAI_FindUnitsExport(name)
+	if type(fn) ~= "function" then
+		local existing = rawget(_G, name)
+		if type(existing) == "function" then
+			fn = existing
+		end
+	end
+	if type(fn) ~= "function" then
+		if rawget(_G, name) == nil then
+			rawset(_G, name, false)
+		end
+		return false
+	end
+	rawset(_G, name, fn)
+	-- items.lua PickCustom evals against GetRawG, not jazz-units Code env.
+	local rawg = JazzAI_EngineGlobalTable()
+	if rawg then
+		rawset(rawg, name, fn)
+	end
+	return fn
+end
+
+function JazzAI_BindAllUnitsExports()
+	for _, name in ipairs(JazzAI_UnitsExportNames) do
+		JazzAI_BindUnitsExport(name)
+	end
+end
+
+JazzAI_BindAllUnitsExports()
+
 local function JAZZ_AIIsCombatFirearm(item)
 	return IsKindOf(item, "Firearm")
 		and not IsKindOfClasses(item, "HeavyWeapon", "FlareGun")
@@ -2007,7 +2248,7 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		if hg_pct and hg_pct ~= 100 and IsKindOf(policy, "AIPolicyHighGround") then
 			pscore = MulDivRound(pscore, hg_pct, 100)
 		end
-		-- CMD-001 OccupyHeights: boost HighGround for aura members.
+		-- CMD-003: HighGround ×175% only for perch / Push spotter (not whole aura).
 		if context.jazz_occupy_heights and IsKindOf(policy, "AIPolicyHighGround") then
 			pscore = MulDivRound(pscore, 175, 100)
 		end
@@ -2133,6 +2374,18 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 			if score_details then
 				score_details[#score_details + 1] = "MORTAR OUTDOORS"
 				score_details[#score_details + 1] = 120
+			end
+		end
+	end
+
+	-- CMD-003: non-perch OccupyHeights cling 2–10 to perch/officer/patient; no climb above anchor.
+	if context.jazz_heights_cling then
+		local cling = JazzAI_ScoreHeightsClingDest(context, dest)
+		if cling ~= 0 then
+			score = score + cling
+			if score_details then
+				score_details[#score_details + 1] = "HEIGHTS CLING"
+				score_details[#score_details + 1] = cling
 			end
 		end
 	end
@@ -3294,7 +3547,8 @@ function JazzAI_UnitHasSniperHoldKeyword(unit)
 		end
 	end
 	-- Dynamic fill-in: best optic/bolt when the team has no dedicated sniper.
-	if JazzAI_UnitIsDynamicSemiSniper and JazzAI_UnitIsDynamicSemiSniper(unit) then
+	local semi = JazzAI_BindUnitsExport("JazzAI_UnitIsDynamicSemiSniper")
+	if type(semi) == "function" and semi(unit) then
 		return true
 	end
 	return false
@@ -3340,43 +3594,146 @@ local function JazzAI_PosVoxelZ(pos)
 	return 0
 end
 
--- JAZZ-AI-008: sniper / marksman / semi-sniper / Frontliner / MG / OccupyHeights.
--- Not assault/flank/medic/deserter/regroup/melee/pusher.
+function JazzAI_ScoreHeightsClingDest(context, dest)
+	if not context or not dest then
+		return 0
+	end
+	local anchor = context.jazz_cling_anchor
+	if not IsValid(anchor) or anchor:IsDead() then
+		return 0
+	end
+	local apos = (anchor.ai_context and anchor.ai_context.ai_destination)
+		or (context.ally_pack_pos_stance and context.ally_pack_pos_stance[anchor])
+		or GetPackedPosAndStance(anchor)
+	if not apos then
+		return 0
+	end
+	local dist = stance_pos_dist(dest, apos) / const.SlabSizeX
+	local min_t = JazzAI_HeightsClingMin or 2
+	local max_t = JazzAI_HeightsClingMax or 10
+	local score = 0
+	if dist < min_t then
+		score = score - (min_t - dist) * 40
+	elseif dist > max_t then
+		score = score - (dist - max_t) * 35
+	else
+		score = score + 70
+	end
+	local dest_z = JazzAI_PackedDestZ(dest)
+	local anchor_z = JazzAI_PackedDestZ(apos)
+	local step = const.SlabSizeZ or 700
+	if dest_z > anchor_z and step > 0 then
+		local slabs = DivRound(dest_z - anchor_z, step)
+		if slabs > 0 then
+			score = score - slabs * 90
+		end
+	end
+	return score
+end
+
+-- CMD-003: family / UnitData / keywords — not current_archetype, not aura OccupyHeights.
+function JazzAI_UnitDataClassName(unit)
+	if not unit then
+		return ""
+	end
+	local def = unit.unitdatadef_id
+	if type(def) == "string" and def ~= "" then
+		return def
+	end
+	local name = unit.className
+	if type(name) == "string" and name ~= "" and name ~= "Unit" then
+		return name
+	end
+	local cls = unit.class
+	if type(cls) == "string" and cls ~= "" and cls ~= "Unit" then
+		return cls
+	end
+	return def or name or cls or ""
+end
+
+function JazzAI_UnitRoleFamily(unit)
+	local infer = rawget(_G, "JazzAI_InferRoleFamily")
+	if type(infer) == "function" then
+		return infer(unit)
+	end
+	local class = JazzAI_UnitDataClassName(unit)
+	if class:find("Flanker", 1, true) or class == "RebelFlanker" then
+		return "Scout"
+	end
+	if class:find("Assault", 1, true) then
+		return "Pusher"
+	end
+	if class:find("Gunner", 1, true) or class:find("Machinegun", 1, true) then
+		return "MG"
+	end
+	if class:find("Heavy", 1, true) or class:find("Mortar", 1, true) or class:find("Rocketeer", 1, true) then
+		return "Heavy"
+	end
+	if class:find("Leader", 1, true) or class:find("Sergeant", 1, true)
+		or class:find("Lieutenant", 1, true) or class:find("Captain", 1, true) then
+		return "Leader"
+	end
+	if class:find("Bonemaker", 1, true) or class:find("Medic", 1, true) then
+		return "Medic"
+	end
+	if class:find("Recruit", 1, true) then
+		return "Recruit"
+	end
+	if class:find("Front", 1, true) or class:find("Sniper", 1, true)
+		or class:find("Marksman", 1, true) or class:find("Rifleman", 1, true)
+		or class:find("Soldier", 1, true) then
+		return "Line"
+	end
+	return "Line"
+end
+
+function JazzAI_UnitIsHeightsSpotter(unit)
+	if not IsValid(unit) or unit:IsDead() then
+		return false
+	end
+	local dedicated = rawget(_G, "JazzAI_UnitIsDedicatedSniper")
+	if type(dedicated) == "function" and dedicated(unit) then
+		return true
+	end
+	local keys = unit.AIKeywords or empty_table
+	if table.find(keys, "Sniper") or table.find(keys, "Marksman") then
+		return true
+	end
+	local class = JazzAI_UnitDataClassName(unit)
+	if class:find("Sniper", 1, true) or class:find("Marksman", 1, true) then
+		return true
+	end
+	local semi = rawget(_G, "JazzAI_UnitIsDynamicSemiSniper")
+	return type(semi) == "function" and semi(unit)
+end
+
+-- JAZZ-AI-008 / CMD-003: Line / MG / Leader+optics. Not Scout/Pusher/Medic/Heavy/Recruit,
+-- not stance Frontliner, not aura OccupyHeights, not pusher/melee.
 function JazzAI_UnitIsLinePerchHolder(unit, context)
 	if not IsValid(unit) or unit:IsDead() then
 		return false
 	end
-	if JazzAI_UnitIsDynamicPusher and JazzAI_UnitIsDynamicPusher(unit) then
+	local pusher = rawget(_G, "JazzAI_UnitIsDynamicPusher")
+	if type(pusher) == "function" and pusher(unit) then
 		return false
 	end
 	local keys = unit.AIKeywords or empty_table
 	if table.find(keys, "Melee") then
 		return false
 	end
-	local arch_id = JazzAI_UnitArchetypeId(unit, context)
-	if type(arch_id) ~= "string" then
-		arch_id = tostring(arch_id or "")
-	end
-	if arch_id:find("Assaulter", 1, true) or arch_id:find("Flanker", 1, true)
-		or arch_id:find("Medic", 1, true) or arch_id:find("Deserter", 1, true)
-		or arch_id:find("Regroup", 1, true) then
+	local family = JazzAI_UnitRoleFamily(unit)
+	if family == "Scout" or family == "Pusher" or family == "Medic"
+		or family == "Heavy" or family == "Recruit" then
 		return false
 	end
-	if table.find(keys, "Sniper") or table.find(keys, "Marksman") then
+	if JazzAI_UnitIsHeightsSpotter(unit) then
 		return true
 	end
-	if JazzAI_UnitIsDynamicSemiSniper and JazzAI_UnitIsDynamicSemiSniper(unit) then
+	if family == "Line" or family == "MG" then
 		return true
 	end
-	if arch_id:find("Frontliner", 1, true) or arch_id:find("Machinegunner", 1, true) then
-		return true
-	end
-	context = context or unit.ai_context
-	if context and context.jazz_occupy_heights then
-		return true
-	end
-	if JazzAI_GetTeamDirective and JazzAI_GetTeamDirective(unit) == "OccupyHeights" then
-		return true
+	if family == "Leader" then
+		return table.find(keys, "Sniper") or table.find(keys, "Marksman")
 	end
 	return false
 end
@@ -3791,6 +4148,10 @@ g_JAZZ_SelectArchetypeFn = rawget(_G, "g_JAZZ_SelectArchetypeFn") or false
 
 function JazzAI_GetClass(name)
 	local classes = rawget(_G, "g_Classes")
+	if type(classes) ~= "table" then
+		local rawg = JazzAI_EngineGlobalTable()
+		classes = rawg and rawget(rawg, "g_Classes")
+	end
 	local cls = classes and classes[name]
 	if type(cls) == "table" then
 		return cls
@@ -3890,11 +4251,14 @@ function JazzAI_SelectArchetype(self, proto_context)
 			end
 		end
 		if not archetype then
-			local defs = rawget(_G, "UnitDataDefs")
-			local template = defs and self.unitdatadef_id and defs[self.unitdatadef_id]
-			local func = (template and template.PickCustomArchetype) or self.PickCustomArchetype
-			local picked = func and func(self, proto_context)
-			archetype = picked or self.archetype
+			JazzAI_BindAllUnitsExports()
+			JazzAI_StubLoadedAIChunkGlobals()
+			local pick = JazzAI_BindUnitsExport("JazzAI_PickCombatStance")
+			if type(pick) == "function" then
+				archetype = pick(self, proto_context) or self.archetype
+			else
+				archetype = self.archetype
+			end
 			if JazzAI_ShouldRecontactScout and JazzAI_ShouldRecontactScout(self, archetype) then
 				archetype = "Scout_LastLocation"
 			end
@@ -3908,24 +4272,26 @@ function JazzAI_SelectArchetype(self, proto_context)
 end
 
 function JazzAI_InstallSelectArchetypeWrap()
-	local cls = JazzAI_GetClass("UnitProperties")
-	if type(cls) ~= "table" then
-		return false
+	-- Unit.lua calls Unit:SelectArchetype (copied at class build). Wrapping
+	-- UnitProperties alone leaves the live method on vanilla ClassDef-Zulu.
+	local newFn = JazzAI_SelectArchetype
+	local oldFn = rawget(_G, "g_JAZZ_SelectArchetypeFn")
+	local installed = false
+	for _, cls_name in ipairs({ "Unit", "UnitProperties" }) do
+		local cls = JazzAI_GetClass(cls_name)
+		if type(cls) == "table" and type(cls.SelectArchetype) == "function" then
+			local current = cls.SelectArchetype
+			if current ~= newFn then
+				if current ~= oldFn then
+					rawset(_G, "g_JAZZ_SelectArchetypeBase", current)
+				end
+				cls.SelectArchetype = newFn
+			end
+			installed = true
+		end
 	end
-	local current = cls.SelectArchetype
-	local ourFn = rawget(_G, "g_JAZZ_SelectArchetypeFn")
-	if type(current) ~= "function" then
-		return false
-	end
-	if ourFn and current == ourFn then
-		return true
-	end
-	if current ~= ourFn then
-		rawset(_G, "g_JAZZ_SelectArchetypeBase", current)
-	end
-	rawset(_G, "g_JAZZ_SelectArchetypeFn", JazzAI_SelectArchetype)
-	cls.SelectArchetype = JazzAI_SelectArchetype
-	return true
+	rawset(_G, "g_JAZZ_SelectArchetypeFn", newFn)
+	return installed
 end
 
 function JazzAI_InstallStartAIYieldWrap()
@@ -3947,6 +4313,7 @@ function JazzAI_InstallStartAIYieldWrap()
 		return false
 	end
 	local function wrap(self, debug_data, forced_behavior)
+		JazzAI_StubLoadedAIChunkGlobals()
 		local base_fn = rawget(_G, "g_JAZZ_UnitStartAIBase")
 		local result = base_fn(self, debug_data, forced_behavior)
 		JazzAI_PerfYield()
@@ -3957,7 +4324,16 @@ function JazzAI_InstallStartAIYieldWrap()
 	return true
 end
 
+function OnMsg.CombatStart()
+	JazzAI_BindAllUnitsExports()
+	JazzAI_StubLoadedAIChunkGlobals()
+	JazzAI_InstallSelectArchetypeWrap()
+end
+
 function OnMsg.ModsReloaded()
+	JazzAI_BindAllUnitsExports()
+	rawset(_G, "g_JAZZ_AIScoreGlobalsStubbed", false)
+	JazzAI_StubLoadedAIChunkGlobals()
 	JazzAI_InstallAIScoreReachableVoxelsWrap()
 	JazzAI_InstallCombatAITurnWrap()
 	JazzAI_InstallCombatPathRestrictWrap()
@@ -3966,6 +4342,8 @@ function OnMsg.ModsReloaded()
 end
 
 function OnMsg.DataLoaded()
+	JazzAI_BindAllUnitsExports()
+	JazzAI_StubLoadedAIChunkGlobals()
 	JazzAI_InstallAIScoreReachableVoxelsWrap()
 	JazzAI_InstallCombatAITurnWrap()
 	JazzAI_InstallCombatPathRestrictWrap()

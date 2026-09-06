@@ -144,10 +144,18 @@ function AIActionThrowFlare:Execute(context, action_state)
 	if g_Combat then
 		JazzAI_FlarePushUntil = (g_Combat.current_turn or 0) + 1
 	end
-	AIPlayCombatAction(action_state.action_id, context.unit, nil, {target = action_state.target_pos})
 	if JazzAI_TryCombatBark then
 		JazzAI_TryCombatBark(context.unit, "nade_flare", { pos = action_state.target_pos })
 	end
+	-- FireFlare / pocket throw do not inherit AIPlayAttacks voiceResponse unless
+	-- it is copied here. Vanilla zone Execute also rebuilt args without VR.
+	local args = { target = action_state.target_pos }
+	if type(rawget(_G, "JazzAI_EnsureVoiceResponse")) == "function" then
+		args = JazzAI_EnsureVoiceResponse(args, action_state, self.voice_response or "AIThrowGrenade")
+	else
+		args.voiceResponse = self.voice_response or "AIThrowGrenade"
+	end
+	AIPlayCombatAction(action_state.action_id, context.unit, nil, args)
 end
 
 local function IsUnitInTheDark(hit)

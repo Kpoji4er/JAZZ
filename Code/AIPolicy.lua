@@ -74,8 +74,24 @@ end
 
 function AIActionBasicAttack:Execute(context, action_state)
 	assert(action_state.has_ap)
-	
-	AIPlayCombatAction(context.default_attack.id, context.unit, nil, action_state.args)
+	local args = action_state.args or {}
+	if type(rawget(_G, "JazzAI_EnsureVoiceResponse")) == "function" then
+		args = JazzAI_EnsureVoiceResponse(args, action_state, "AIAttack")
+	elseif not args.voiceResponse or args.voiceResponse == "" then
+		args.voiceResponse = "AIAttack"
+	end
+	local unit = context and context.unit
+	local target = args.target
+	local weapon = (context and context.weapon) or (unit and unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm"))
+	if type(rawget(_G, "Jazz_DumpCheapLineBlocked")) == "function"
+		and IsValid(unit) and IsKindOf(target, "Unit")
+		and Jazz_DumpCheapLineBlocked(unit, target, weapon) then
+		if g_AIExecutionController then
+			g_AIExecutionController:Log("  No LOF (cheap unpenetrable:basic)")
+		end
+		return
+	end
+	AIPlayCombatAction(context.default_attack.id, context.unit, nil, args)
 end
 
 

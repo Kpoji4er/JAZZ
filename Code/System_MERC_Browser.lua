@@ -579,6 +579,60 @@ function OnMsg.LoadGame()
 	end
 end
 
+local function lSwitchPDABrowserToMerc()
+	local getDlg = rawget(_G, "GetDialog")
+	local pda = type(getDlg) == "function" and getDlg("PDADialog")
+	if not pda then
+		return false
+	end
+	if pda.Mode ~= "browser" and pda.SetMode then
+		pda:SetMode("browser", { browser_page = "merc" })
+	end
+	local dlg = pda.idContent
+	if not dlg or type(dlg.SetMode) ~= "function" then
+		return false
+	end
+	-- Instance may predate merc-mode inject; XDialog ignores unknown InternalModes.
+	if type(dlg.InternalModes) == "string" and not string.find(dlg.InternalModes, "merc", 1, true) then
+		dlg.InternalModes = dlg.InternalModes .. ", merc"
+	end
+	if dlg.Mode ~= "merc" then
+		dlg:SetMode("merc")
+	end
+	return dlg.Mode == "merc"
+end
+
+function JAZZ_MERC_OpenSite()
+	if not (rawget(_G, "JAZZ_MERC_IsUnlocked") and JAZZ_MERC_IsUnlocked()) then
+		return false
+	end
+	lEnsureMercTabData()
+	lInjectMercXTemplateMode()
+	lEnsureMercTabState()
+	lMaybeDockMerc()
+	local getDlg = rawget(_G, "GetDialog")
+	local openDlg = rawget(_G, "OpenDialog")
+	local getIGI = rawget(_G, "GetInGameInterface")
+	local pda = type(getDlg) == "function" and getDlg("PDADialog")
+	if not pda and type(openDlg) == "function" then
+		local igi = type(getIGI) == "function" and getIGI()
+		-- Same pattern as vanilla OpenIMPPage / OpenBobbyRayPage: then force submode.
+		pda = openDlg("PDADialog", igi, { Mode = "browser", mode_param = { browser_page = "merc" } })
+	end
+	if not pda then
+		return false
+	end
+	if lSwitchPDABrowserToMerc() then
+		return true
+	end
+	-- Content may spawn on the next frame after OpenDialog from satellite.
+	local delayed = rawget(_G, "DelayedCall")
+	if type(delayed) == "function" then
+		delayed(0, lSwitchPDABrowserToMerc)
+	end
+	return true
+end
+
 function OnMsg.BrowserOpened()
 	lEnsureMercTabState()
 	lInstallPDAUrlWrap()

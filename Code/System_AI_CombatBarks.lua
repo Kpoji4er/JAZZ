@@ -98,7 +98,7 @@ local function JazzAI_BarkVisible(unit)
 end
 
 local function JazzAI_BarkFast()
-	return rawget(_G, "g_FastForwardSpeed") == "Fast"
+	return rawget(_G, "g_FastForwardGameSpeed") == "Fast"
 end
 
 local function JazzAI_BarkResetTurn(st)
@@ -179,6 +179,24 @@ local function JazzAI_BarkName(obj)
 	return false
 end
 
+-- AICheckIndoors / stance_pos_unpack take a packed stance dest (number).
+-- Grenade target_pos is a Point — C assert I_StancePosUnpack, pcall does not catch it.
+local function JazzAI_BarkPosIndoor(pos)
+	if type(pos) == "number" then
+		local check = rawget(_G, "AICheckIndoors")
+		if type(check) == "function" then
+			local ok, v = pcall(check, pos)
+			return ok and not not v
+		end
+	elseif IsPoint(pos) then
+		local enum = rawget(_G, "EnumVolumes")
+		if type(enum) == "function" then
+			return not not enum(pos, "smallest")
+		end
+	end
+	return false
+end
+
 local function JazzAI_BarkFacts(unit, ctx)
 	ctx = ctx or empty_table
 	local target = ctx.target
@@ -186,9 +204,8 @@ local function JazzAI_BarkFacts(unit, ctx)
 	local indoor = false
 	if IsValid(target) then
 		indoor = not not target.indoors
-	elseif pos and AICheckIndoors then
-		local ok, v = pcall(AICheckIndoors, pos)
-		indoor = ok and not not v
+	elseif pos then
+		indoor = JazzAI_BarkPosIndoor(pos)
 	else
 		indoor = not not unit.indoors
 	end
@@ -200,9 +217,11 @@ local function JazzAI_BarkFacts(unit, ctx)
 		tz = tp and tp:z()
 	elseif IsPoint(pos) then
 		tz = pos:z()
-	elseif pos and stance_pos_unpack then
-		local _x, _y, z = stance_pos_unpack(pos)
-		tz = z
+	elseif type(pos) == "number" and stance_pos_unpack then
+		local ok, _x, _y, z = pcall(stance_pos_unpack, pos)
+		if ok then
+			tz = z
+		end
 	end
 	local sp = unit:GetPos()
 	if sp and tz and (sp:z() or 0) > tz then
@@ -295,7 +314,21 @@ function JazzAI_TryCombatBark(unit, event, ctx)
 	if not line then
 		return false
 	end
-	CreateFloatingText(unit, JazzAI_BarkText(line, ctx))
+	-- Same vehicle as voiced AI attacks (TalkingHead CustomLogic = FloatingText).
+	-- CreateFloatingText on a Unit is dropped when efVisible==0 and expires in
+	-- 800ms as EditorText. If the mesh is culled, pin the bubble to VisualPos.
+	local text = JazzAI_BarkText(line, ctx)
+	local actor = unit
+	if IsValid(unit) and unit.GetEnumFlags and const.efVisible
+		and unit:GetEnumFlags(const.efVisible) == 0 and unit.GetVisualPos
+	then
+		actor = unit:GetVisualPos()
+	end
+	if type(ShowBanterFloatingText) == "function" then
+		ShowBanterFloatingText(actor, text)
+	else
+		CreateFloatingText(actor, text, "BanterFloatingText", "Headstatic")
+	end
 	st.unit_act[handle] = true
 	team.count = team.count + 1
 	team.events[event] = true
@@ -398,7 +431,13 @@ local function JazzAI_DestTiles(unit, dest)
 			return DivRound(dist, const.SlabSizeX)
 		end
 	end
-	if not stance_pos_unpack then
+	if type(dest) ~= "number" or not stance_pos_unpack then
+		if IsPoint(dest) then
+			local pos = unit:GetPos()
+			if pos then
+				return DivRound(pos:Dist2D(dest), const.SlabSizeX)
+			end
+		end
 		return 0
 	end
 	local x, y = stance_pos_unpack(dest)
@@ -414,7 +453,9 @@ function JazzAI_BarkTryDest(unit)
 		return false
 	end
 	local context = unit.ai_context
-	local dest = context and context.best_dest
+	-- JAZZ locks the run dest on ai_destination; best_dest is OptLoc and is
+	-- often stay (0 tiles) even when the unit presses/flanks.
+	local dest = context and (context.ai_destination or context.best_dest)
 	if not dest then
 		return false
 	end
