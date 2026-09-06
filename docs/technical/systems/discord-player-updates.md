@@ -90,7 +90,7 @@ DISCORD_MENTION_UPDATE_ROLE
 10. При доступном OpenAI Responses API возвращается строгий JSON по JSON Schema: `should_publish`, заголовок, вступление, разделы, `new_game_needed` и confidence. Без ключа или при ошибке API формируется fallback из subject-строк коммитов.
 11. AI-результат или fallback повторно валидируется, редактируется и укладывается в ограничения одного Discord embed. Если модель вернула больше 8 пунктов, лишние обрезаются без перехода на fallback. Отдельного `development_note` и секции «За кулисами» нет. Перед отправкой `polishPlayerSummary` снимает числовые пороги процентов у цветов шанса попадания и выбрасывает пункты про голосовые реплики ИИ, если в диапазоне нет файлов VoiceResponse / CombatBarks.
 12. Поле `new_game_needed` всегда присутствует в публикации: маркер коммита владельца имеет приоритет над AI; без маркера и без уверенного evidence используется `unknown`. В Discord оно показывается в начале description и отдельным полем «Новая игра».
-13. Discord webhook получает embed с именем репозитория-источника, compare link, short SHA, количеством коммитов и файлов, line stats и timestamp.
+13. Discord webhook получает embed с именем репозитория-источника, compare link, short SHA, количеством коммитов и файлов, line stats и timestamp. Поле **Скачать** ведёт на центральный GitHub Release `https://github.com/Kpoji4er/JAZZ/releases/latest`.
 
 Commit messages, имена файлов и diff считаются недоверенным вводом. Они передаются как данные, не выполняются shell и не могут изменить системную инструкцию. Git вызывается через массив аргументов без shell interpolation.
 
@@ -152,7 +152,7 @@ powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz
 powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
 ```
 
-Скрипт **поллит до 90с**. Если для `After` SHA уже есть Discord run (`push` или `workflow_dispatch`, queued/in_progress/success) — **не** диспатчит (анти-дубль). Явная перепубликация: `-Force -AlwaysDispatch -Before <sha> -After <sha>`.
+Скрипт **поллит до 90с**. Если для `After` SHA уже есть Discord run (`push` или `workflow_dispatch`, queued/in_progress/success) — **не** диспатчит (анти-дубль). Явная перепубликация: `-Force -AlwaysDispatch -Before <sha> -After <sha>`. `force_publish` также обходит SHA-дедуп внутри workflow: иначе успешный run с `should_publish=false` навсегда блокирует повторную отправку того же SHA.
 
 Агентам: **не** вызывать сырой `gh workflow run discord-player-updates.yml` после push — только этот скрипт. Workflow сам дедупит twin push/dispatch перед webhook (`concurrency` + Actions API).
 
@@ -205,6 +205,9 @@ powershell -File docs/tools/_dispatch_discord_player_update.ps1 -Repo jazz-units
 Новая игра
 Новая игра не нужна — можно продолжить текущий сейв.
 
+Скачать
+[GitHub Release](https://github.com/Kpoji4er/JAZZ/releases/latest)
+
 Что изменилось
 • Вражеские патрули точнее учитывают последствия недавних боёв.
 • Подкрепления аккуратнее выбирают маршруты.
@@ -246,7 +249,7 @@ git diff --check
 - проверить push range на двух коммитах и zero-before;
 - проверить, что `GITHUB_REPOSITORY=Kpoji4er/JAZZ-units` создаёт compare URL caller и метку `JAZZ-units` в Discord footer;
 - проверить valid/invalid JSON, `should_publish=false`, `[discord]`, `[discord implemented]`, приоритет `[skip discord]`, маркеры `[new game]` / `[no new game]` и автоматический fallback без ключа и при ошибке API;
-- проверить, что Discord embed всегда содержит поле «Новая игра»;
+- проверить, что Discord embed всегда содержит поле «Новая игра» и поле «Скачать» с GitHub Release `Kpoji4er/JAZZ`;
 - проверить Discord limits, empty `allowed_mentions.parse`, redaction и mention neutralization;
 - выполнить `workflow_dispatch` с `dry_run=true`;
 - не отправлять реальный webhook без доступного тестового канала.

@@ -17,7 +17,7 @@ import {
   duplicatePublishSkipReason,
   formatNewGameNeededLabel,
   formatSuitePackagesField,
-  formatSteamDownloadField,
+  formatGitHubReleaseField,
   parseMetadataEngineVersion,
   parseSuiteVersions,
   getSummarySkipReason,
@@ -700,7 +700,7 @@ test("Discord payload disables mentions and respects explicit role opt-in", () =
   assert.match(
     safePayload.embeds[0].fields.find((field) => field.name === "Скачать")
       .value,
-    /steamcommunity\.com\/sharedfiles\/filedetails\/\?id=3321938203/,
+    /github\.com\/Kpoji4er\/JAZZ\/releases/,
   );
   assert.match(
     safePayload.embeds[0].footer.text,
@@ -844,9 +844,9 @@ test("resolveSuitePackages merges env list with posting repo", () => {
     }),
     ["jazz-units"],
   );
-  assert.match(
-    formatSteamDownloadField(),
-    /\[JAZZ\]\(https:\/\/steamcommunity\.com\/sharedfiles\/filedetails\/\?id=3321938203\)/,
+  assert.equal(
+    formatGitHubReleaseField(),
+    "[GitHub Release](https://github.com/Kpoji4er/JAZZ/releases/latest)",
   );
   assert.equal(
     formatSuitePackagesField(["jazz", "jazz-units"]),

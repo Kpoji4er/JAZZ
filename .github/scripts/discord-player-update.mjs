@@ -57,24 +57,12 @@ const GITHUB_REPO_TO_SUITE = {
   "Kpoji4er/JAZZ-nomaps": "jazz-nomaps",
 };
 
-/** Steam Workshop file IDs from each package `metadata.lua` `steam_id`. */
-const STEAM_WORKSHOP_DOWNLOADS = [
-  { key: "jazz", label: "JAZZ", id: "3321938203" },
-  { key: "jazz_assets", label: "Assets", id: "3323959292" },
-  { key: "jazz-units", label: "Units", id: "3323312979" },
-  { key: "jazz-maps", label: "Maps", id: "3322285655" },
-];
+const GITHUB_SUITE_RELEASE_LATEST =
+  "https://github.com/Kpoji4er/JAZZ/releases/latest";
 
-export function steamWorkshopUrl(id) {
-  return `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`;
-}
-
-/** Markdown for Discord: Steam first (works from RU without VPN). */
-export function formatSteamDownloadField() {
-  const links = STEAM_WORKSHOP_DOWNLOADS.map(
-    (item) => `[${item.label}](${steamWorkshopUrl(item.id)})`,
-  ).join(" · ");
-  return `${links}\nGitHub ZIP из РФ — часто только с VPN.`;
+/** Markdown for Discord: central GitHub Release (four suite zips). */
+export function formatGitHubReleaseField() {
+  return `[GitHub Release](${GITHUB_SUITE_RELEASE_LATEST})`;
 }
 
 const BINARY_EXTENSIONS = new Set([
@@ -1644,7 +1632,6 @@ export function buildDiscordPayload({
     sanitizeForDiscord(summary.title, MAX_DISCORD_TITLE) ||
     "JAZZ — изменения в основной ветке";
   const compareLink = `[Открыть изменения](${changeSet.compareUrl})`;
-  const downloadField = formatSteamDownloadField();
   const newGameLabel = formatNewGameNeededLabel(summary.new_game_needed);
   const summaryText =
     sanitizeForDiscord(summary.summary, 3_200) ||
@@ -1653,6 +1640,7 @@ export function buildDiscordPayload({
     suitePackages ??
     resolveSuitePackages({ repository: changeSet.repository });
   const versions = suiteVersions ?? parseSuiteVersions();
+  const downloadField = formatGitHubReleaseField();
   const packagesField = formatSuitePackagesField(packages, versions);
   const packagesBlock = packagesField
     ? `\n\n**Пакеты:**\n${packagesField}`

@@ -123,8 +123,8 @@ jobs:
           Direct download:
           https://github.com/${repo}/releases/download/playable/${{ steps.meta.outputs.artifact_name }}
 
-          From many Russian ISPs this ZIP needs a VPN (\`release-assets.githubusercontent.com\`). Prefer Steam Workshop (no VPN):
-          https://steamcommunity.com/sharedfiles/filedetails/?id=3321938203
+          Suite release (all four packages):
+          https://github.com/Kpoji4er/JAZZ/releases/latest
 
           Built from \`${sha}\`.
           EOF
