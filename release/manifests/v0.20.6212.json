@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "release_version": {
+    "display": "0.20-6212",
+    "tag": "v0.20.6212",
+    "source": "Kpoji4er/JAZZ@0258702025ddcb5bc97fb73a1c3e26d1f164a208:metadata.lua",
+    "version_major": 0,
+    "version_minor": 20,
+    "revision": 6212
+  },
+  "game": {
+    "lua_revision": 233360,
+    "saved_with_revision": 366685
+  },
+  "commonlib": {
+    "version": "1.11",
+    "build": 1060,
+    "commit": "6758d82e5fccbf6bdd01b0173d2496b925982c3e"
+  },
+  "packages": [
+    {
+      "name": "JAZZ",
+      "repository": "Kpoji4er/JAZZ",
+      "mod_id": "e6L4ECj",
+      "commit": "0258702025ddcb5bc97fb73a1c3e26d1f164a208",
+      "version_major": 0,
+      "version_minor": 20,
+      "version": 6212,
+      "metadata_display": "0.20-6212",
+      "artifact": "JAZZ-v0.20.6212.zip",
+      "sha256": "70b54b678f30d6c3b0f1c0243fa29c587298c3218356ae77c4ea011b6c3dc6c0"
+    },
+    {
+      "name": "JAZZ-assets",
+      "repository": "Kpoji4er/JAZZ-assets",
+      "mod_id": "pDGDhr",
+      "commit": "1e9826d9e407998131205c0f6331b3b67433ff0e",
+      "version_major": 0,
+      "version_minor": 2,
+      "version": 649,
+      "metadata_display": "0.02-649",
+      "artifact": "JAZZ-assets-v0.20.6212.zip",
+      "sha256": "2adb713a1b455961d0fd6c8ad81d8d115465d6fdfd7ef48bf1c16b7e309d9ed2"
+    },
+    {
+      "name": "JAZZ-maps",
+      "repository": "Kpoji4er/JAZZ-maps",
+      "mod_id": "FhNNYd",
+      "commit": "8de81b90ef86ff412706f83c4443164aa74199e8",
+      "version_major": 1,
+      "version_minor": 7,
+      "version": 5152,
+      "metadata_display": "1.07-5152",
+      "artifact": "JAZZ-maps-v0.20.6212.zip",
+      "sha256": "d5f6ed10f07d3aa81b66f64e40251bd1fdf33b0a1ee16b8a282282056ea2df70"
+    },
+    {
+      "name": "JAZZ-units",
+      "repository": "Kpoji4er/JAZZ-units",
+      "mod_id": "Dv3mFVN",
+      "commit": "40495bf9d61b4da0f2eb9ed926c8841f80011205",
+      "version_major": 0,
+      "version_minor": 19,
+      "version": 2329,
+      "metadata_display": "0.19-2329",
+      "artifact": "JAZZ-units-v0.20.6212.zip",
+      "sha256": "d97b0f109b067a3888a669f319c77c1736877dbe66238e820f9d716fcfb11da7"
+    }
+  ]
+}
