@@ -1,12 +1,25 @@
 # Changelog JAZZ (core)
 
 Формат ориентирован на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
-Центральная версия релиза — из committed `metadata.lua` (`version_major` / `version_minor` / `version` → display `0.20-6212`, tag `v0.20.6212`).
+Центральная версия релиза — из committed `metadata.lua` (`version_major` / `version_minor` / `version` → display `0.20-6213`, tag `v0.20.6213`).
 Публичный комплект по-прежнему требует пакеты Assets / Maps / Units и актуальную `JA3_CommonLib`.
 
 ## [Unreleased]
 
 Изменения после следующего Save ModDef / нового revision появятся здесь до вырезки следующего раздела.
+
+## [0.20-6213] — 2026-09-08
+
+Состав: `jazz` `0.20-6213`, `jazz_assets` `0.02-649`, `jazz-maps` `1.07-5153`, `jazz-units` `0.19-2329`. Поддерживаемый проход — остров Эрни.
+
+### Карты Эрни
+
+- K4 Флаговый холм снова загружается: после purge осады в `objects.lua` оставались хвосты `, nil, HANDLE)` — `LoadObjects` падал на синтаксисе.
+
+### Известные ограничения
+
+- За Эрни контент ещё в разработке.
+- С российских провайдеров GitHub assets часто требуют VPN; без VPN — Steam Workshop.
 
 ## [0.20-6212] — 2026-09-06
 
