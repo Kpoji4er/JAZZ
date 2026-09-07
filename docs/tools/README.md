@@ -318,7 +318,8 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_audit_units_squad_load.py` | Audit jazz-units CheckDifficulty format + M4 InitialSquads ModItemSector vs CampaignPreset drift. |
 | `_apply_ernie_i2_lighthouse.py` | Earlier I2 lighthouse draft (superseded by overflow apply). |
 | `_probe_ernie_init_blocks.py` | Probe `InitialSquads` by `sectorId`. |
-| `_purge_k4_house_ambushers.py` | Remove K4 `HouseAmbushers`+`Legion` AdvanceTo; insert `VillaSiege_Wave2`×25 gated by `Jazz_VillaCounterAttack.Wave2Spawn`. |
+| `_purge_k4_house_ambushers.py` | Remove K4 `HouseAmbushers`+`Legion` AdvanceTo; insert `VillaSiege_Wave2`×25 gated by `Jazz_VillaCounterAttack.Wave2Spawn`. Consumes `, nil, HANDLE)` so leftover closers do not break `LoadObjects`. |
+| `_check_k4_objects_syntax.py` | K4 `objects.lua`: no orphan `, nil, HANDLE)` lines, Wave2=25, balanced braces, file ends with `LoadPersistFlagTables()`. |
 | `_add_villa_attackers_ernie.py` | Insert `JAZZ_Legion_VillaAttackers_Ernie` base 30 + metadata. |
 | `_wire_villa_counterattack.py` | Quest `Jazz_VillaCounterAttack` + FlagHill Guests + ModItemCode/metadata. |
 | `_verify_villa_counterattack_static.py` | Static: Ernie size, Wave2 count, old siege remaining=0. |

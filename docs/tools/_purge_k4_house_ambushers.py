@@ -46,9 +46,12 @@ def extract_unit_markers(text: str) -> list[tuple[int, int, str]]:
                     j += 1
                     break
             j += 1
-        # trailing ),
+        # trailing }, nil, HANDLE)  or  }),
         end = j
-        if text[end : end + 2] == "),":
+        trail = re.match(r"\s*,\s*nil\s*,\s*\d+\)\s*,?", text[end:])
+        if trail:
+            end += trail.end()
+        elif text[end : end + 2] == "),":
             end += 2
         elif text[end : end + 1] == ")":
             end += 1
@@ -86,27 +89,27 @@ def parse_pos(body: str) -> tuple[int, int, int] | None:
 
 def make_wave2_marker(handle: int, unit: str, x: int, y: int, z: int) -> str:
     return f"""PlaceObj('UnitMarker', {{
-	Groups = {{
+	'Pos', point({x}, {y}, {z}),
+	'Groups', {{
 		"VillaSiege_Wave2",
 		"Legion",
 	}},
-	Routine = "AdvanceTo",
-	RoutineArea = "EmmaAndCorazon",
-	Side = "enemy1",
-	UnitDataSpawnDefs = {{
-		PlaceObj('UnitDataSpawnDef', {{
-			'UnitDef', "{unit}",
-		}}),
-	}},
-	Spawn_Conditions = {{
+	'AllowedMask', 4294966497,
+	'Routine', "AdvanceTo",
+	'RoutineArea', "EmmaAndCorazon",
+	'Spawn_Conditions', {{
 		PlaceObj('QuestIsVariableBool', {{
 			QuestId = "Jazz_VillaCounterAttack",
 			Vars = set( "Wave2Spawn" ),
 		}}),
 	}},
-	handle = {handle},
-	Pos = point({x}, {y}, {z}),
-}}),
+	'Side', "enemy1",
+	'UnitDataSpawnDefs', {{
+		PlaceObj('UnitDataSpawnData', {{
+			'UnitDataDefId', "{unit}",
+		}}),
+	}},
+}}, nil, {handle})
 """
 
 
@@ -157,22 +160,12 @@ def main() -> None:
         unit = WAVE2_UNITS[i % len(WAVE2_UNITS)]
         wave_blocks.append(make_wave2_marker(next_h + i, unit, x, y, z))
 
-    # Append before final closing of objects file — find last PlaceObj or end of return
-    insert_at = text.rfind("\n")
-    # Prefer after last UnitMarker-ish content: append near end before empty trailing
-    # Many maps end with `}` of root — find last `}),\n` cluster
-    # Safest: insert after first remaining content following purge — search for Emma marker and insert after a block near villa
-    anchor = text.find("EmmaAndCorazon")
-    if anchor < 0:
-        raise SystemExit("EmmaAndCorazon not found for Wave2 insert anchor")
-    # find end of that PlaceObj
-    # Insert wave markers at end of file before last `}` if present
-    m_end = re.search(r"\n\}\s*$", text)
-    if m_end:
-        insert_at = m_end.start()
-        text = text[:insert_at] + "\n" + "".join(wave_blocks) + text[insert_at:]
-    else:
+    # Insert with other PlaceObj markers, before persist-flag / entity dump.
+    insert_at = text.find("LoadPersistFlagTables(")
+    if insert_at < 0:
         text = text + "\n" + "".join(wave_blocks)
+    else:
+        text = text[:insert_at] + "".join(wave_blocks) + text[insert_at:]
 
     MAP.write_text(text, encoding="utf-8")
     print(f"wrote {MAP}")
