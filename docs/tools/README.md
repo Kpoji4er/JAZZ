@@ -203,6 +203,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `localization-copy-edits/ame_runtime_statuses.csv` | Закрывает восемь накопленных AME status/filter строк RU/EN, чтобы парный runtime export был полным. |
 | `_check_ai_medic_bandage.py` | Static: Medic/Medic_Low Healer exclusive + Early + MaxHp 85; `JazzAI_ShouldBecomeMedic` (no blanket bandage→Medic); Bandage Precalc. |
 | `_check_sniper_hold_001.py` | Static JAZZ-AI-SNIPER-001: ExtremeRange; stay-hold; useless streak soft HighGround/stay weights (no hard escape). |
+| `_check_ai_dbg_001.py` | Static JAZZ-AI-DBG-001: `AIDebugLog` option default off; CombatLog short gated; dest/attack/abort hooks; no extra `AIPlayAttacks` wrap. |
 | `_check_ai_008_egress_perch.py` | Static JAZZ-AI-008: line perch holder + dest CheckLOS to shared Fallback OW egress; stay +180; hold wrap skips useless streak; no GetLoFData. |
 | `_check_ai_009_break_los_ow.py` | Static JAZZ-AI-009: FallBack peel dest (break player LoS, +220, wrap after 008 hold) + OW on vacated stay; skip TakeCover/BunkerDown; no GetLoFData. |
 | `_check_grenade_mishap_chance_curve.py` | Static JAZZ-GRENADES-001: throw blend Str+Dex+Expl; Strength `GetMaxAimRange`; smoothstep 0→full; no threshold/¼ cliff. |

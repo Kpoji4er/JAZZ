@@ -81839,6 +81839,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'CodeFileName', "Code/System_AI_CombatBarks.lua",
 				}),
 				PlaceObj('ModItemCode', {
+					'name', "AiDebugLog",
+					'comment', "JAZZ-AI-DBG-001: final AI dest/attack CombatLog when AIDebugLog is on",
+					'CodeFileName', "Code/AiDebugLog.lua",
+				}),
+				PlaceObj('ModItemCode', {
 					'name', "PushUnitAlert",
 					'CodeFileName', "Code/PushUnitAlert.lua",
 				}),
@@ -114025,6 +114030,12 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 			'DisplayName', "Свободная камера на чужом ходе",
 			'Help', "Разрешить двигать и зумить камеру во время хода врага/союзника (action camera не отключается).",
 			'DefaultValue', true,
+		}),
+		PlaceObj('ModItemOptionToggle', {
+			'name', "AIDebugLog",
+			'DisplayName', "Отладка ИИ в журнале (Snype)",
+			'Help', "Пишет в боевой журнал только финальные решения ИИ: кто куда и почему пошёл, остаток ОД, шанс попадания. Выключено по умолчанию.",
+			'DefaultValue', false,
 		}),
 		PlaceObj('ModItemConstDef', {
 			Comment = "Game speed change in combat during the enemy/ally turn, when the Fast Forward mode is checked.",

@@ -67,6 +67,7 @@
 | `AIPolicy.lua` | loaded | [AI](ai-awareness.md) |
 | `AIContextProfiles.lua` | loaded | [AI](ai-awareness.md) |
 | `System_AI_CombatBarks.lua` | loaded | [AI](ai-awareness.md) — JAZZ-AI-BARK-001 floating combat barks |
+| `AiDebugLog.lua` | loaded | [AI](ai-awareness.md) — JAZZ-AI-DBG-001 final dest/attack CombatLog behind `AIDebugLog` |
 | `CombatAI.lua` | loaded | [AI](ai-awareness.md) |
 | `UnitAwareness.lua` | loaded | [AI](ai-awareness.md) |
 | `PushUnitAlert.lua` | loaded, empty | [AI](ai-awareness.md) |

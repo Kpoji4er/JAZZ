@@ -1052,6 +1052,9 @@ function AIExecuteUnitBehavior(unit, force_or_skip_action)
     if JazzAI_BarkTryDest then
         JazzAI_BarkTryDest(unit)
     end
+    if JazzAI_DebugLogDest then
+        JazzAI_DebugLogDest(unit, unit.ai_context)
+    end
 
     if unit.ai_context and unit.ai_context.behavior then
         local status = unit.ai_context.behavior:Play(unit)
@@ -1160,6 +1163,14 @@ local function JAZZ_AIPlayUnarmedOrMelee(unit, context, dbg_action, force_or_ski
         context.action_states = context.action_states or {}
         context.action_states[signature_action] = context.action_states[signature_action] or {}
         signature_action:OnActivate(unit)
+        if JazzAI_DebugLogAttack then
+            JazzAI_DebugLogAttack(unit, context, {
+                kind = "sig",
+                action = signature_action,
+                target = JAZZ_AIPickMeleeTarget(unit, context, dest),
+                dest = dest,
+            })
+        end
         local status = signature_action:Execute(context, context.action_states[signature_action])
         context.ap_after_signature = unit.ActionPoints
         if context.max_attacks then
@@ -1178,6 +1189,9 @@ local function JAZZ_AIPlayUnarmedOrMelee(unit, context, dbg_action, force_or_ski
         if g_AIExecutionController then
             g_AIExecutionController:Log("  No melee target/action")
         end
+        if JazzAI_DebugStampAbort then
+            JazzAI_DebugStampAbort(context, "no-target")
+        end
         return nil, false
     end
 
@@ -1190,6 +1204,9 @@ local function JAZZ_AIPlayUnarmedOrMelee(unit, context, dbg_action, force_or_ski
             g_AIExecutionController:Log("  Melee AP fail cost=%s ap=%s",
                 tostring(cost), tostring(unit.ActionPoints))
         end
+        if JazzAI_DebugStampAbort then
+            JazzAI_DebugStampAbort(context, "no-ap")
+        end
         return nil, false
     end
 
@@ -1197,6 +1214,15 @@ local function JAZZ_AIPlayUnarmedOrMelee(unit, context, dbg_action, force_or_ski
         g_AIExecutionController:Log("  Melee %s -> %s",
             tostring(attack_action.id),
             IsKindOf(target, "Unit") and (target.unitdatadef_id or target.class) or tostring(target))
+    end
+    if JazzAI_DebugLogAttack then
+        JazzAI_DebugLogAttack(unit, context, {
+            kind = "melee",
+            action = attack_action,
+            target = target,
+            dest = dest,
+            cost = cost,
+        })
     end
     local result = AIPlayCombatAction(attack_action.id, unit, nil, {
         target = target,
@@ -1318,6 +1344,14 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                     context.action_states[signature_action].args or {}
                 context.action_states[signature_action].args.voiceResponse = voice_response
             end
+            if JazzAI_DebugLogAttack then
+                JazzAI_DebugLogAttack(unit, context, {
+                    kind = "sig",
+                    action = signature_action,
+                    target = (context.dest_target or empty_table)[dest],
+                    dest = dest,
+                })
+            end
             local status = signature_action:Execute(context,
                 context.action_states[signature_action])
             context.ap_after_signature = unit.ActionPoints
@@ -1344,6 +1378,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             if not IsValidTarget(target) then
                 if g_AIExecutionController then
                     g_AIExecutionController:Log("  No target")
+                end
+                if JazzAI_DebugStampAbort then
+                    JazzAI_DebugStampAbort(context, "no-target")
                 end
                 break
             end
@@ -1389,6 +1426,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 or (context.default_attack_cost or attack_action:GetAPCost(unit))
             if not cost or cost <= 0 or unit.ActionPoints < cost then
                 if not unit:HasAP(cost or 0) then
+                    if JazzAI_DebugStampAbort then
+                        JazzAI_DebugStampAbort(context, "no-ap")
+                    end
                     break
                 end
             end
@@ -1403,6 +1443,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 if g_AIExecutionController then
                     g_AIExecutionController:Log("  No team sight (skip Dump at model)")
                 end
+                if JazzAI_DebugStampAbort then
+                    JazzAI_DebugStampAbort(context, "no-team-vis")
+                end
                 context.dump_attack_mode = nil
                 context.dump_attack_target = nil
                 break
@@ -1411,6 +1454,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             if IsKindOf(target, "Unit") and (not body_parts or #body_parts == 0) then
                 if g_AIExecutionController then
                     g_AIExecutionController:Log("  No LOF (all body parts CTH=0)")
+                end
+                if JazzAI_DebugStampAbort then
+                    JazzAI_DebugStampAbort(context, "no-lof")
                 end
                 context.dump_attack_mode = nil
                 context.dump_attack_target = nil
@@ -1425,6 +1471,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                     if g_AIExecutionController then
                         g_AIExecutionController:Log("  No LOF (cheap unpenetrable:%s)",
                             tostring(cheap_reason or "blocked"))
+                    end
+                    if JazzAI_DebugStampAbort then
+                        JazzAI_DebugStampAbort(context, "no-lof")
                     end
                     context.dump_attack_mode = nil
                     context.dump_attack_target = nil
@@ -1443,6 +1492,17 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
             -- PERF-003: Dump scored CTH without GetLoFData. Execute must not
             -- re-run PrepareAttackArgs / per-bullet GetLoFData / vegetation Collide.
             args.jazz_ai_dump = true
+            if JazzAI_DebugLogAttack then
+                JazzAI_DebugLogAttack(unit, context, {
+                    kind = "dump",
+                    action = attack_action,
+                    target = target,
+                    dest = dest,
+                    cth = best_attack and best_attack.cth,
+                    aim = aim,
+                    cost = cost,
+                })
+            end
             JAZZ_AIPerfLog("DumpFire start unit=%s action=%s",
                 unit.unitdatadef_id or "?", tostring(attack_action.id))
             local result = AIPlayCombatAction(attack_action.id, unit, nil, args)
@@ -1498,6 +1558,10 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
 
     JAZZ_AIWaitIdle(unit, 40)
 
+    if JazzAI_DebugLogAbort then
+        JazzAI_DebugLogAbort(unit, context, did_attack)
+    end
+
     -- Vanilla-style fallback when nothing was spent
     if unit.ActionPoints + remaining_free_ap == start_ap
         and not unit:HasStatusEffect("ManningEmplacement") then
@@ -1516,6 +1580,9 @@ function AIPlayAttacks(unit, context, dbg_action, force_or_skip_action)
                 end
                 local goto_ap = unit.ActionPoints
                 context.ai_destination = path[1]
+                if JazzAI_DebugLogDest then
+                    JazzAI_DebugLogDest(unit, context, "closest")
+                end
                 AIPlayCombatAction("Move", unit, goto_ap, {
                     goto_pos = point(point_unpack(path[1])),
                     fallbackMove = true,
