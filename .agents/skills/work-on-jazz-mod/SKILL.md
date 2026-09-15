@@ -24,6 +24,7 @@ description: Маршрутизировать безопасную разраб�
   - `$rename-jazz-weapon-textures` — numeric DDS → `Entity_MapType`, unused purge/dedupe в `jazz_assets` (после editor import ствола);
   - `$jazz-penetration-scales` — дробное пробитие (класс + десятые), ammo UI / `GetAttackPenetrationClass`;
   - `$jazz-lua-globals` — объявление/`rawset` глобалов, wrap flags, early `SetQuestVar` vs `Groups`;
+  - `$diagnose-jazz-mod-editor` — красные/жёлтые пометки Ged, GetError/GetWarning вложенных пунктов; агент не видит панель;
   - `$release-jazz-suite` — release candidate, version, manifest, tag или публикация.
 6. Не выполнять recursive scan `jazz-maps/Maps/` без прямого картографического scope.
 

@@ -36,7 +36,7 @@
 - Для map enumeration использовать узкие area/class/flags, `MapCount` и dedicated operations; отдельно проверить Z, если нужен 3D-критерий.
 - Для UI mutation вызвать метод на настоящем объекте, не на `SubContext()`; проверить lifetime XWindow threads.
 - При рефакторинге сохранить сигнатуры, возвращаемые значения, побочные эффекты, ordering, lifecycle, поток RNG и сетевой детерминизм.
-- Подтвердить регистрацию файла для загрузки и отсутствие ошибок/asserts в панели сообщений Mod Editor.
+- Подтвердить регистрацию файла для загрузки и отсутствие ошибок/asserts в панели сообщений Mod Editor (`$diagnose-jazz-mod-editor`).
 
 ## Presets и ModItems
 
@@ -44,7 +44,7 @@
 - До изменения properties, categories, components, recipes или localization IDs найти все ссылки.
 - Для generated definitions предпочитать Mod Editor.
 - Использовать `$sync-jazz-generated-data`; проверить `items.lua`, `metadata.lua` и companion одним diff и выполнить строгий аудит после editor round-trip.
-- Проверить панель сообщений Mod Editor после load/save/reload; ignored mod, load/runtime error или assert блокирует round-trip.
+- Проверить панель сообщений Mod Editor после load/save/reload; ignored mod, load/runtime error или assert блокирует round-trip. Текст панели — `$diagnose-jazz-mod-editor`.
 - Проверить дубли definitions и порядок override между пакетами.
 
 ## Карты и сектора

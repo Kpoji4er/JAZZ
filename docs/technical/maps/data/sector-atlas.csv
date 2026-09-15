@@ -3,7 +3,7 @@ A1,Саванна (Берег),,Саванна берег,rmmxFC,,,,authored,yes
 A2,Саванна (Берег),,Саванна берег,PLg5q3T,,,,authored,yes
 A3,Саванна (Берег),,Саванна берег,PYphSvk,,,,authored,yes
 A4,Даймонд-Рэд,Diamond Red,Даймонд-Ред,UVhtJTG,Mine,,SavannahNorth,authored,yes
-A5,,Highlands,Затерянный водоём (ванильный B10),B-10 - Wasteland,,,Highlands,runtime_only,yes
+A5,,Highlands,Затерянный водоём (ванильный B10),WfHkNqA,,,Highlands,runtime_only,yes
 A6,,,,,,,,empty,no
 A7,,,,,,,,empty,no
 A8,,,,,,,,empty,no
@@ -19,8 +19,8 @@ A17,,,,,,,,empty,no
 A18,,,,,,,,empty,no
 A19,,,,,,,,empty,no
 A20,,,,,,,,empty,no
-A21,,,,,,,,empty,no
-A22,,,,,,,,empty,no
+A21,,Пит-Стоп база,Пит-Стоп база,fVoG4zR,,,,runtime_only,yes
+A22,,Термитник,Термитник,gmeyzDK,,,,runtime_only,yes
 A23,,,,,,,,empty,no
 A24,А24 Горная дорога (Конь не валялся),,Горная дорога,f7ufzi,,,,authored,yes
 A25,A25 Шахта Драхенберг,Drachenberg Mine,Шахта «Драхенберг»,fRXhJjS,Mine,Landsbach,Highlands,authored,yes
@@ -400,7 +400,7 @@ M14,Река,,,,,,,sea_or_filler,no
 M15,Река,,,,,,,sea_or_filler,no
 M16,Река,,,,,,,sea_or_filler,no
 M17,Река,,,,,,,sea_or_filler,no
-M18,Река,,,,,,,sea_or_filler,no
+M18,Река,Деревня на болотах,Деревня на болотах,qdVPuVK,,,,authored,yes
 M19,Река,,,,,,,sea_or_filler,no
 M20,Река,,,,,,,sea_or_filler,no
 M21,Река,,,,,,,sea_or_filler,no
@@ -511,7 +511,8 @@ P29,,,,,,,,empty,no
 P30,,,,Gjs3iS6,,,,runtime_only,yes
 P31,,,,,,,,empty,no
 P32,,,,,,,,empty,no
-A5_Underground,(underground — not on sheet surface grid),Lost Basin,"Затерянный водоём, бывший B10U",B-10U - Lost Basin,Dungeon,,,underground,yes
+A5_Underground,(underground — not on sheet surface grid),Lost Basin,"Затерянный водоём, бывший B10U",WfHkNqU,Dungeon,,,underground,yes
+A21_Underground,(underground — not on sheet surface grid),Шахта под СТО,Шахта под СТО,UFYsMp,Dungeon,,,underground,yes
 A24_Underground,(underground — not on sheet surface grid),U-Bahn Station A,"Станция УхБах, Бывший B11U",bDG4HgR,,,,underground,yes
 A25_Underground,(underground — not on sheet surface grid),Diesel Klinik,«Дизельклиника»,m3YqaH,,,,underground,yes
 D26_Underground,(underground — not on sheet surface grid),Freeloader's Cavern,Пещера Халявщика,nTzHv5F,Dungeon,,,underground,yes

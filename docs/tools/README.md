@@ -528,8 +528,9 @@ node scripts/docs/weapons-docs.mjs import --force
 
 | Скрипт | Назначение |
 | --- | --- |
-| `export-jazz-maps-sectors.py` | Парсит `ModItemSector` из `../jazz-maps/items.lua` (+ index `metadata.lua`); пишет `sectors-runtime.json/.csv` в `docs/technical/maps/data/`. **Не** обходит `Maps/`. |
+| `export-jazz-maps-sectors.py` | Парсит `ModItemSector` из `../jazz-maps/items.lua` (+ index `metadata.lua`); пишет `sectors-runtime.json/.csv` в `docs/technical/maps/data/`. **Не** обходит `Maps/`. `--maps-root` на диск: папка `JAZZ Maps`. |
 | `build-sector-atlas-docs.py` | Собирает атлас / трансфер / сверку sheet↔runtime (MD+CSV) из runtime JSON + снимка Google Sheet «Карта». |
+| `jazz-maps/docs/tools/_extract_vanilla_map_hpk.py` | Распаковка `Packs/Maps/<id>.hpk` в `Maps/<hash>/` (аналог editor `CopyMapFiles`). После копии — свой `mapdata.lua` с `id`/`ModMapPath`. |
 
 ```text
 python docs/tools/export-jazz-maps-sectors.py

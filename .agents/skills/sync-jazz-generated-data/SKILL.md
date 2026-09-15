@@ -51,7 +51,7 @@ description: Безопасная синхронизация generated data мо
 1. Закрыть или перезагрузить редактор, если файлы менялись снаружи после его открытия.
 2. Изменить объект в Mod Editor, Preset Editor, Map Editor или Entity Editor, владеющем данными.
 3. Выполнить одно логическое сохранение всего мода. Не чередовать ручные правки generated-файлов с сохранением устаревшего состояния редактора и не закрывать основную игру до завершения записи.
-4. Проверить панель сообщений: ignored mod, load/runtime error или assert блокирует принятие round-trip.
+4. Проверить панель сообщений: ignored mod, load/runtime error или assert блокирует принятие round-trip. Точный текст разбирать через `$diagnose-jazz-mod-editor` (агент не видит живой Ged; «nested objects» — читать вложенный пункт).
 5. Просмотреть единый diff `metadata.lua`, `items.lua` и всех companion-файлов изменённого объекта.
 6. Отделить ожидаемую сериализацию от необъяснённого editor noise. Не форматировать generated-файлы массово.
 7. Для dependency metadata повторно сверить `version_major`/`version_minor` с текущим upstream: dependency ограничивает минимальную major/minor, а revision (`version`/build) в проверке не участвует.
@@ -123,4 +123,5 @@ description: Безопасная синхронизация generated data мо
 ## Ресурсы
 
 - [generated-data-contract.md](references/generated-data-contract.md) — официальный save pipeline, роли слоёв и восстановление после рассинхронизации.
+- `$diagnose-jazz-mod-editor` — правила Ged `GetError`/`GetWarning`/`ValidateProperty`, в том числе `ModItemSector` и вложенный `SatelliteSector`.
 - `scripts/check-generated-sync.ps1` — read-only аудит четырёх пакетов; тяжёлый `jazz-maps/Maps/` исключён, пока явно не передан `-IncludeMapsContent`.

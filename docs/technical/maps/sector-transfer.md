@@ -31,20 +31,24 @@ Machine-readable: [`data/sector-transfer.csv`](data/sector-transfer.csv).
 | `I3` | `M7` | Изумрудный берег (пляж с минами) | `missing_moditem` | sheet | sheet → M7 (заглушка); runtime Emerald Coast = J7 |
 | `I1` | `M1` | Старт кампании (зона высадки) | `ok` | suite-docs | suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill. |
 | `H14` | `P17` | Камп Де Крокодиль | `ok` | suite-docs | crocodile camp; not mine H7→H14 |
-| `B10` | `A5` | Highlands / вход в Lost Basin | `ok` | owner | ванильная карта B-10 - Wasteland, не sVQSE5 |
-| `B10_Underground` | `A5_Underground` | Lost Basin | `ok` | owner | ванильная B-10U - Lost Basin; GroundSector A5 |
-| `D10` | `D18` | Аванпост Гран-При (runtime) | `ok` | suite-docs | sheet F23 missing; live Camp Grand Prix = D18 |
-| `D6` | `E14` | Окраины Понтагрюэля | `ok` | suite-docs | vanilla D6 |
+| `B10` | `A5` | Highlands / вход в Lost Basin | `ok` | owner | копия ванили Maps/WfHkNqA (B-10 - Wasteland), не sVQSE5 |
+| `B10_Underground` | `A5_Underground` | Lost Basin | `ok` | owner | копия ванили Maps/WfHkNqU (B-10U - Lost Basin); GroundSector A5 |
+| `A6` | `A21` | Пит-Стоп база (ванильный A6) | `ok` | owner | копия ванили на Maps/fVoG4zR |
+| `A6_Underground` | `A21_Underground` | Шахта под СТО (ванильный A6U) | `ok` | owner | копия ванили на Maps/UFYsMp; GroundSector A21 |
+| `A7` | `A22` | Термитник (ванильный A7) | `ok` | owner | копия ванили на Maps/gmeyzDK |
+| `G16` | `M18` | Marshlands (ванильный G16) | `ok` | owner | копия ванили на Maps/qdVPuVK; maps G16 minefield aApUtcM не тронут |
+| `D10` | `D18` | Аванпост Гран-При (runtime) | `ok` | suite-docs | sheet F23 missing_moditem; live Camp Grand Prix = D18 |
+| `D6` | `E14` | Окраины Понтагрюэля | `ok` | suite-docs | vanilla D6; maps E16 is downtown |
 | `D17` | `F28` | Иль-Мора | `ok` | suite-docs | vanilla D17 |
 | `C11` | `C14` | Старая бензоколонка | `ok` | suite-docs | vanilla C11 |
 | `B9` | `C12` | Пит-стоп | `ok` | suite-docs | ReduceCrossroads repair shop |
 | `F7` | `E10` | Кам-Саван | `ok` | suite-docs | vanilla F7 ≠ maps F7 (нет ModItem) |
-| `G6` | `G13` | Колодец Саванны | `ok` | suite-docs | water well map |
+| `G6` | `G13` | Колодец Саванны | `ok` | suite-docs | SavannaCamp water well map jfUUwFo |
 | `G10` | `L15` | Кам-Ла-Барьер | `ok` | suite-docs | vanilla G10 ≠ maps G10 Ла-Палисад |
 | `E16` | `G22` | Кам-Шьен-Саваж | `ok` | suite-docs | vanilla E16 ≠ maps E16 центр Понтагрюэля |
 | `F19` | `K21` | Кам-Бьян-Шьен | `ok` | suite-docs | vanilla F19 ≠ maps F19 берег в джунглях |
 | `F13` | `G25` | Шале-де-ла-Пе | `ok` | suite-docs | vanilla F13 ≠ maps F13 лагерь беженцев |
-| `I18` | `H31` | Вассерграб | `ok` | suite-docs | vanilla I18 ≠ maps I18 crocodile patrol |
+| `I18` | `H31` | Вассерграб | `ok` | suite-docs | vanilla I18 ≠ maps I18 Great Forest (crocodile patrol) |
 | `I19` | `H32` | Мрачная деревня / Grimer | `ok` | suite-docs | vanilla I19 ≠ maps I19 wetlands bunker |
 
 ## Статусы

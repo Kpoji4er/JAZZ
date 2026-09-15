@@ -16,7 +16,7 @@
 
 1) `.agents/skills/sync-jazz-generated-data/SKILL.md`
 2) Проверка `items.lua` + `metadata.lua` + companion-файл на целостность
-3) Проверка round-trip через Mod Editor (ignored mod, load error, runtime error, assert)
+3) Проверка round-trip через Mod Editor (ignored mod, load error, runtime error, assert). Текст панели разбирать через `$diagnose-jazz-mod-editor` — агент не видит живой Ged.
 
 ## 4) Для импорта/экспорта Entity
 

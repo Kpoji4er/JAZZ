@@ -3,13 +3,16 @@ A1,rmmxFC,,Саванна берег,,,,False,True,HotDiamonds
 A2,PLg5q3T,,Саванна берег,,,,False,True,HotDiamonds
 A3,PYphSvk,,Саванна берег,,,,False,True,HotDiamonds
 A4,UVhtJTG,Diamond Red,Даймонд-Ред,Mine,,SavannahNorth,False,True,HotDiamonds
-A5,B-10 - Wasteland,Highlands,Затерянный водоём (ванильный B10),,,Highlands,False,True,HotDiamonds
-A5_Underground,B-10U - Lost Basin,Lost Basin,"Затерянный водоём, бывший B10U",Dungeon,,,True,True,HotDiamonds
+A5,WfHkNqA,Highlands,Затерянный водоём (ванильный B10),,,Highlands,False,True,HotDiamonds
+A5_Underground,WfHkNqU,Lost Basin,"Затерянный водоём, бывший B10U",Dungeon,,,True,True,HotDiamonds
 A9,KKzpYnk,Highlands,Горы,,,,False,True,HotDiamonds
 A12,UfXn5Ky,Highlands,Горы,,,Highlands,False,True,HotDiamonds
 A13,GWkvH6,Военный аванпост - Горный,,,,,False,True,HotDiamonds
 A15,onJGJze,Hill Station,Тут дрючат бифа,,,Highlands,False,True,HotDiamonds
-A16,huAQKFA,,,,,,False,False,HotDiamonds
+A16,huAQKFA,,,,,,False,True,HotDiamonds
+A21,fVoG4zR,Пит-Стоп база,Пит-Стоп база,,,,False,True,HotDiamonds
+A21_Underground,UFYsMp,Шахта под СТО,Шахта под СТО,Dungeon,,,True,True,HotDiamonds
+A22,gmeyzDK,Термитник,Термитник,,,,False,True,HotDiamonds
 A24,f7ufzi,,Горная дорога,,,,False,True,HotDiamonds
 A24_Underground,bDG4HgR,U-Bahn Station A,"Станция УхБах, Бывший B11U",,,,True,True,HotDiamonds
 A25,fRXhJjS,Drachenberg Mine,Шахта «Драхенберг»,Mine,Landsbach,Highlands,False,True,HotDiamonds
@@ -219,6 +222,7 @@ M3,isJdmPy,Водопад,Водопад,,,,False,True,HotDiamonds
 M4,cd6xgVh,The Outlook,Смотровая площадка,Ernie,,Erny,False,True,HotDiamonds
 M5,pSwGPnp,Береговая линия,Филер по пути к пляжу,,,Erny,False,True,HotDiamonds
 M6,qzVESk5,Старый порт,Филер_2 по пути к пляжу,,,Erny,False,True,HotDiamonds
+M18,qdVPuVK,Деревня на болотах,Деревня на болотах,,,,False,True,HotDiamonds
 M22,YFRrFHK,Болванка,,,,,False,True,HotDiamonds
 M26,PNDrqcf,Farmland,Фермы,,,Farmland,False,True,HotDiamonds
 M28,u7QMzD,,,,,,False,True,HotDiamonds

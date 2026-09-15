@@ -1,9 +1,9 @@
 {
   "source": "C:/Users/23ser/AppData/Roaming/Jagged Alliance 3/Mods/JAZZ Maps/items.lua",
   "campaign": "HotDiamonds",
-  "count": 270,
-  "surface": 251,
-  "underground": 19,
+  "count": 274,
+  "surface": 254,
+  "underground": 20,
   "sectors": [
     {
       "sectorId": "A1",
@@ -63,7 +63,7 @@
       "City": "",
       "WeatherZone": "",
       "underground": false,
-      "in_metadata": false
+      "in_metadata": true
     },
     {
       "sectorId": "A2",
@@ -71,6 +71,30 @@
       "campaignId": "HotDiamonds",
       "comment": "Саванна берег",
       "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "A21",
+      "mapName": "fVoG4zR",
+      "campaignId": "HotDiamonds",
+      "comment": "Пит-Стоп база",
+      "display_name": "Пит-Стоп база",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "A22",
+      "mapName": "gmeyzDK",
+      "campaignId": "HotDiamonds",
+      "comment": "Термитник",
+      "display_name": "Термитник",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -139,7 +163,7 @@
     },
     {
       "sectorId": "A5",
-      "mapName": "B-10 - Wasteland",
+      "mapName": "WfHkNqA",
       "campaignId": "HotDiamonds",
       "comment": "Затерянный водоём (ванильный B10)",
       "display_name": "Highlands",
@@ -2394,6 +2418,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "M18",
+      "mapName": "qdVPuVK",
+      "campaignId": "HotDiamonds",
+      "comment": "Деревня на болотах",
+      "display_name": "Деревня на болотах",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "M2",
       "mapName": "qRiCMTo",
       "campaignId": "HotDiamonds",
@@ -3018,6 +3054,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "A21_Underground",
+      "mapName": "UFYsMp",
+      "campaignId": "HotDiamonds",
+      "comment": "Шахта под СТО",
+      "display_name": "Шахта под СТО",
+      "Label1": "Dungeon",
+      "City": "",
+      "WeatherZone": "",
+      "underground": true,
+      "in_metadata": true
+    },
+    {
       "sectorId": "A24_Underground",
       "mapName": "bDG4HgR",
       "campaignId": "HotDiamonds",
@@ -3043,7 +3091,7 @@
     },
     {
       "sectorId": "A5_Underground",
-      "mapName": "B-10U - Lost Basin",
+      "mapName": "WfHkNqU",
       "campaignId": "HotDiamonds",
       "comment": "Затерянный водоём, бывший B10U",
       "display_name": "Lost Basin",

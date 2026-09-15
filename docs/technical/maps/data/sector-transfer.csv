@@ -11,6 +11,23 @@ C7,E15,Окраина Понтагрюэля (Мастерская),sheet target
 D7,E15,Понтагрюэль,sheet: D7→E15 (трущобы/хаб — уточнять с runtime names),sheet,ok
 D8,E16,Понтагрюэль Больница,,sheet,ok
 D10,F23,Аванпост Гран-При,,sheet,missing_moditem
+E9,F13,Лагерь Беженцев,,sheet,ok
+F5,G9,Код-Дазур (берег со сломанным кораблём),,sheet,ok
+H2,I5,Деревня Эрни,,sheet,ok
+H3,I6,Жестянка,sheet: H3 - I6,sheet,ok
+H4,I7,Форт Ло-Блё (Аванпост),Ernie outpost / Global AI,sheet,ok
+H7,H14,Шахта (около Флитауна),,sheet,ok
+I1,K4,Флаговый холм,,sheet,ok
+I2,M4,Смотровая площадка,vanilla I2 ≠ maps I2 (доктор),sheet,ok
+I3,M7,Изумрудный берег (пляж с минами),sheet → M7 (заглушка); runtime Emerald Coast = J7,sheet,missing_moditem
+I1,M1,Старт кампании (зона высадки),"suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill.",suite-docs,ok
+H14,P17,Камп Де Крокодиль,crocodile camp; not mine H7→H14,suite-docs,ok
+B10,A5,Highlands / вход в Lost Basin,"копия ванили Maps/WfHkNqA (B-10 - Wasteland), не sVQSE5",owner,ok
+B10_Underground,A5_Underground,Lost Basin,копия ванили Maps/WfHkNqU (B-10U - Lost Basin); GroundSector A5,owner,ok
+A6,A21,Пит-Стоп база (ванильный A6),копия ванили на Maps/fVoG4zR,owner,ok
+A6_Underground,A21_Underground,Шахта под СТО (ванильный A6U),копия ванили на Maps/UFYsMp; GroundSector A21,owner,ok
+A7,A22,Термитник (ванильный A7),копия ванили на Maps/gmeyzDK,owner,ok
+G16,M18,Marshlands (ванильный G16),копия ванили на Maps/qdVPuVK; maps G16 minefield aApUtcM не тронут,owner,ok
 D10,D18,Аванпост Гран-При (runtime),sheet F23 missing_moditem; live Camp Grand Prix = D18,suite-docs,ok
 D6,E14,Окраины Понтагрюэля,vanilla D6; maps E16 is downtown,suite-docs,ok
 D17,F28,Иль-Мора,vanilla D17,suite-docs,ok
@@ -24,16 +41,3 @@ F19,K21,Кам-Бьян-Шьен,vanilla F19 ≠ maps F19 берег в джун
 F13,G25,Шале-де-ла-Пе,vanilla F13 ≠ maps F13 лагерь беженцев,suite-docs,ok
 I18,H31,Вассерграб,vanilla I18 ≠ maps I18 Great Forest (crocodile patrol),suite-docs,ok
 I19,H32,Мрачная деревня / Grimer,vanilla I19 ≠ maps I19 wetlands bunker,suite-docs,ok
-E9,F13,Лагерь Беженцев,,sheet,ok
-F5,G9,Код-Дазур (берег со сломанным кораблём),,sheet,ok
-H2,I5,Деревня Эрни,,sheet,ok
-H3,I6,Жестянка,sheet: H3 - I6,sheet,ok
-H4,I7,Форт Ло-Блё (Аванпост),Ernie outpost / Global AI,sheet,ok
-H7,H14,Шахта (около Флитауна),,sheet,ok
-I1,K4,Флаговый холм,,sheet,ok
-I2,M4,Смотровая площадка,vanilla I2 ≠ maps I2 (доктор),sheet,ok
-I3,M7,Изумрудный берег (пляж с минами),sheet → M7 (заглушка); runtime Emerald Coast = J7,sheet,missing_moditem
-I1,M1,Старт кампании (зона высадки),"suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill.",suite-docs,ok
-H14,P17,Камп Де Крокодиль,crocodile camp; not mine H7→H14,suite-docs,ok
-B10,A5,Highlands / вход в Lost Basin,"ванильная карта B-10 - Wasteland, не sVQSE5",owner,ok
-B10_Underground,A5_Underground,Lost Basin,ванильная B-10U - Lost Basin; GroundSector A5,owner,ok

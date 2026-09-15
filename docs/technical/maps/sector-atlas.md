@@ -2,7 +2,7 @@
 
 Расширенная кампания `HotDiamonds`: сетка **A–P × 1–32** (`sector_bottomright = P32`), старт **`M1`**, сателлит [`GrandChien2.png`](../../../../jazz-maps/Images/GrandChien2.png) (`map_file = Mod/FhNNYd/Images/GrandChien2.png`). Underground: `Images/BigMap_Under_1.png`.
 
-Снимок runtime: **270** `ModItemSector` (surface 251, underground 19) из `items.lua` — без обхода `Maps/`.
+Снимок runtime: **274** `ModItemSector` (surface 254, underground 20) из `items.lua` — без обхода `Maps/`.
 
 Дизайн-заметки ячеек — из Google Sheet «Карта» (новая сетка). Колонка `sheet_note` **не** равна runtime `display_name`.
 
@@ -12,12 +12,12 @@
 
 | kind | count |
 | --- | ---: |
-| authored (sheet+ModItem) | 183 |
+| authored (sheet+ModItem) | 184 |
 | sheet_only | 12 |
-| sea_or_filler | 121 |
-| runtime_only (ModItem, пустой sheet) | 68 |
-| empty (ни sheet, ни ModItem) | 128 |
-| underground | 19 |
+| sea_or_filler | 120 |
+| runtime_only (ModItem, пустой sheet) | 70 |
+| empty (ни sheet, ни ModItem) | 126 |
+| underground | 20 |
 
 ## Authored surface (есть ModItemSector)
 
@@ -27,12 +27,14 @@
 | `A2` |  | Саванна берег | `PLg5q3T` | Саванна (Берег) |
 | `A3` |  | Саванна берег | `PYphSvk` | Саванна (Берег) |
 | `A4` | Diamond Red | Даймонд-Ред | `UVhtJTG` | Даймонд-Рэд |
-| `A5` | Highlands | Затерянный водоём (ванильный B10) | `B-10 - Wasteland` |  |
+| `A5` | Highlands | Затерянный водоём (ванильный B10) | `WfHkNqA` |  |
 | `A9` | Highlands | Горы | `KKzpYnk` | А9 тоже горы и тоже без деталей |
 | `A12` | Highlands | Горы | `UfXn5Ky` | А12 Горы (Пока без деталей) |
 | `A13` | Военный аванпост - Горный |  | `GWkvH6` | А13 Военный аванпост - Горный |
 | `A15` | Hill Station | Тут дрючат бифа | `onJGJze` | А15 Лагерь на холме (Тут пенитрируют Бифа) |
 | `A16` |  |  | `huAQKFA` |  |
+| `A21` | Пит-Стоп база | Пит-Стоп база | `fVoG4zR` |  |
+| `A22` | Термитник | Термитник | `gmeyzDK` |  |
 | `A24` |  | Горная дорога | `f7ufzi` | А24 Горная дорога (Конь не валялся) |
 | `A25` | Drachenberg Mine | Шахта «Драхенберг» | `fRXhJjS` | A25 Шахта Драхенберг |
 | `A26` | Landsbach | Ландсбах | `aVwVweE` | А26 Лансбах Порт |
@@ -227,6 +229,7 @@
 | `M4` | The Outlook | Смотровая площадка | `cd6xgVh` | М4 Смотровая площадка |
 | `M5` | Береговая линия | Филер по пути к пляжу | `pSwGPnp` | М5 Заброс, скалы |
 | `M6` | Старый порт | Филер_2 по пути к пляжу | `qzVESk5` | М6 Заброс, скалы |
+| `M18` | Деревня на болотах | Деревня на болотах | `qdVPuVK` | Река |
 | `M22` | Болванка |  | `YFRrFHK` | Река |
 | `M26` | Farmland | Фермы | `PNDrqcf` |  |
 | `M28` |  |  | `u7QMzD` |  |
@@ -279,7 +282,8 @@
 
 | Id | display_name | comment | mapName |
 | --- | --- | --- | --- |
-| `A5_Underground` | Lost Basin | Затерянный водоём, бывший B10U | `B-10U - Lost Basin` |
+| `A5_Underground` | Lost Basin | Затерянный водоём, бывший B10U | `WfHkNqU` |
+| `A21_Underground` | Шахта под СТО | Шахта под СТО | `UFYsMp` |
 | `A24_Underground` | U-Bahn Station A | Станция УхБах, Бывший B11U | `bDG4HgR` |
 | `A25_Underground` | Diesel Klinik | «Дизельклиника» | `m3YqaH` |
 | `D26_Underground` | Freeloader's Cavern | Пещера Халявщика | `nTzHv5F` |
