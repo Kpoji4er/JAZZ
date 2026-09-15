@@ -72,6 +72,10 @@ Inventory UI визуализирует специализированные slo
 
 Generated `RolloverInventoryWeaponBase` обновляет icon только при наличии optional control `idIcon`; варианты template без такого control продолжают показывать тип оружия без Lua-ошибки.
 
+Строки брони «Возможность установки плиты» / «Блокирует слот лица» — label-only: не `BindTo` boolean `CanHoldPlate` с `PercentValue` (иначе `RolloverPropTextRight:CreatePropValText` → `FormatNumberProp(true)` и `[LUA ERROR]` overlay). `Open` идёт через `XWindow.Open`, не `XPropControl.Open`.
+
+Live `SquadsAndMercs` держит один `idParty.idContainer`. Вложенные окна satellite/inventory/tactical больше не повторяют тот же Id (иначе `[UI WARNING] Assigning window id 'idContainer'` на каждый spawn/respawn party HUD). Неиспользуемые копии `SquadsAndMercs2` / `SquadsAndMercs_copy` в `items.lua` по-прежнему грузятся как отдельные XTemplate.
+
 ## Will bar
 
 `WillPointsBar.lua` — крупный UI-модуль, реагирующий на `CombatEnd`, `TurnEnd` и runtime updates. Он связан с suppression/damage системой; после удаления/деспавна unit не должны оставаться orphaned controls или stale values.

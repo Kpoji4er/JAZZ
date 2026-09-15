@@ -54,6 +54,8 @@ JAZZ поддерживает только последнюю опубликов
 | `Unit:EnumUIActions` | `Lua/UI/UnitCaching.lua` | `Code/TweaksUI.lua` | core `Code/System_OR_Unit.lua`, затем maps `Code/System_JAZZ_VehicleCombat.lua` | Core меняет UI actions; maps добавляет Pivot/Turret для vehicle unit — грузить maps после core |
 | `AmountOfSalvagedMeds` / `SalvageItem` | `Lua/Inventory.lua` | — | `Code/System_JazzStackableMedicine.lua` wrap | INV-005: `JAZZ_Bandage` / `JAZZ_Morphine` → 1 Meds, consume 1 stack; kits keep vanilla `max_meds_parts` |
 | `Unit:EnterEmplacement` | `Lua/Tactical/UnitActions.lua` | — | `Code/System_EmplacementAmmo.lua` (wrap) | HOTFIX-004: skip `SetPos(nil)` until weapon/visual exist; LoadGame reseat |
+| `MachineGunEmplacement:Update` | `Lua/Tactical/Emplacement.lua` | — | `Code/System_EmplacementAmmo.lua` (wrap) | ammo remap + restore `target_dist` after vanilla MinRange reset (`Jazz_EmplacementConeDist`; `updating` guard on post-write) |
+| `MachineGunEmplacement:EndInteraction` | `Lua/Tactical/Emplacement.lua` | — | `Code/System_EmplacementAmmo.lua` (wrap) | cone length from `Jazz_EmplacementConeDist` (not sight-clamped Overwatch `GetMaxAimRange`) |
 | `IsLineInSmoke` | Не найдено как глобальный символ в экспортированном source | `Code/_Utils.lua` | `Code/System_OR_Unit.lua` | JAZZ заменяет функцию, введённую CLib |
 | `Unit:RunAndGun` | `Lua/Tactical/UnitActions.lua` | `Code/FixAI.lua` | `Code/CombatActions.lua` | JAZZ; проверить AP, движение, очередь и AI |
 | `Unit:UpdateMeleeTrainingVisual` | `Lua/Tactical/UnitOverwatch.lua` | `Code/FixesFromFys.lua` | `Code/System_OR_Unit.lua` | JAZZ; проверить очистку визуализации |

@@ -14,6 +14,40 @@ g_JAZZ_EmplacementAmmoWrapped = rawget(_G, "g_JAZZ_EmplacementAmmoWrapped") or f
 g_JAZZ_EmplacementAmmoUpdateBase = rawget(_G, "g_JAZZ_EmplacementAmmoUpdateBase") or false
 g_JAZZ_EnterEmplacementWrapped = rawget(_G, "g_JAZZ_EnterEmplacementWrapped") or false
 g_JAZZ_EnterEmplacementBase = rawget(_G, "g_JAZZ_EnterEmplacementBase") or false
+g_JAZZ_EndEmplacementInteractionWrapped = rawget(_G, "g_JAZZ_EndEmplacementInteractionWrapped") or false
+g_JAZZ_EndEmplacementInteractionBase = rawget(_G, "g_JAZZ_EndEmplacementInteractionBase") or false
+
+-- COMBAT-009 MinRange is 50% BDR so the player can plant a cone close.
+-- Vanilla MachineGun had MinRange == MaxRange == WeaponRange, so
+-- MachineGunEmplacement:Update resetting target_dist to MinRange kept full
+-- length. After COMBAT-009 that reset collapsed Browning to ~14 tiles, then
+-- EndInteraction/reseat also Min()'d against sight-clamped Overwatch
+-- GetMaxAimRange (night + prone can be a handful of tiles). MGRotate is
+-- hidden on emplacement, so that short cone stuck.
+function Jazz_EmplacementConeDist(obj)
+	if not obj then
+		return nil
+	end
+	local weapon = obj.weapon
+	local slab = const.SlabSizeX or 1
+	if not weapon or type(weapon.GetOverwatchConeParam) ~= "function" then
+		return obj.target_dist
+	end
+	local min_tiles = weapon:GetOverwatchConeParam("MinRange") or 2
+	local max_tiles = weapon:GetOverwatchConeParam("MaxRange") or min_tiles
+	if max_tiles < min_tiles then
+		max_tiles = min_tiles
+	end
+	local min_r = min_tiles * slab
+	local max_r = max_tiles * slab
+	local dist = obj.target_dist
+	if not dist or dist < min_r then
+		dist = max_r
+	elseif dist > max_r then
+		dist = max_r
+	end
+	return dist
+end
 
 local g_JAZZ_EmplacementReseatQueued = false
 
@@ -47,7 +81,18 @@ local function lInstallEmplacementAmmoRemap()
 				end
 			end
 		end
-		return g_JAZZ_EmplacementAmmoUpdateBase(self)
+		local prev_dist = self.target_dist
+		local result = g_JAZZ_EmplacementAmmoUpdateBase(self)
+		if prev_dist then
+			self.target_dist = prev_dist
+		end
+		local dist = Jazz_EmplacementConeDist(self)
+		if dist then
+			self.updating = true
+			self.target_dist = dist
+			self.updating = false
+		end
+		return result
 	end
 end
 
@@ -86,6 +131,38 @@ local function lInstallEnterEmplacementWrap()
 	end
 end
 
+local function lInstallEndEmplacementInteractionWrap()
+	if rawget(_G, "g_JAZZ_EndEmplacementInteractionWrapped") then
+		return
+	end
+	local cls = rawget(_G, "MachineGunEmplacement")
+	if type(cls) ~= "table" or type(cls.EndInteraction) ~= "function" then
+		return
+	end
+	rawset(_G, "g_JAZZ_EndEmplacementInteractionBase", cls.EndInteraction)
+	rawset(_G, "g_JAZZ_EndEmplacementInteractionWrapped", true)
+
+	function MachineGunEmplacement:EndInteraction(unit)
+		if unit and unit.EnterEmplacement then
+			unit:EnterEmplacement(self, false)
+		end
+		if unit and unit.RecalcUIActions then
+			unit:RecalcUIActions(true)
+		end
+		if unit and unit.UpdateOutfit then
+			unit:UpdateOutfit()
+		end
+		local dist = Jazz_EmplacementConeDist(self)
+		if not dist then
+			return g_JAZZ_EndEmplacementInteractionBase(self, unit)
+		end
+		local target = RotateRadius(dist, self:GetAngle(), self)
+		if unit and unit.QueueCommand then
+			unit:QueueCommand("MGTarget", "MGSetup", 0, { target = target })
+		end
+	end
+end
+
 function Jazz_ReseatMannedEmplacements(reason)
 	local units = rawget(_G, "g_Units")
 	if type(units) ~= "table" then
@@ -121,15 +198,7 @@ function Jazz_ReseatMannedEmplacements(reason)
 		local ow = overwatch and overwatch[unit]
 		local cmd = unit.command
 		if (not ow or not ow.permanent) and (cmd == "Idle" or not cmd) then
-			local dist = obj.target_dist
-			local overwatch_ca = CombatActions and CombatActions.Overwatch
-			if overwatch_ca and overwatch_ca.GetMaxAimRange then
-				local max_range = overwatch_ca:GetMaxAimRange(unit, obj.weapon)
-				if max_range then
-					dist = Min(dist or (max_range * const.SlabSizeX), max_range * const.SlabSizeX)
-				end
-			end
-			dist = dist or (10 * guim)
+			local dist = Jazz_EmplacementConeDist(obj) or (10 * guim)
 			local target = RotateRadius(dist, obj:GetAngle(), obj)
 			if unit.QueueCommand then
 				unit:QueueCommand("MGTarget", "MGSetup", 0, { target = target })
@@ -157,11 +226,13 @@ end
 function OnMsg.ModsReloaded()
 	lInstallEmplacementAmmoRemap()
 	lInstallEnterEmplacementWrap()
+	lInstallEndEmplacementInteractionWrap()
 end
 
 function OnMsg.ClassesBuilt()
 	lInstallEmplacementAmmoRemap()
 	lInstallEnterEmplacementWrap()
+	lInstallEndEmplacementInteractionWrap()
 end
 
 function OnMsg.LoadGame()
@@ -174,3 +245,4 @@ end
 
 lInstallEmplacementAmmoRemap()
 lInstallEnterEmplacementWrap()
+lInstallEndEmplacementInteractionWrap()
