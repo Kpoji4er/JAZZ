@@ -1,9 +1,9 @@
 {
-  "source": "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz-maps/items.lua",
+  "source": "C:/Users/23ser/AppData/Roaming/Jagged Alliance 3/Mods/JAZZ Maps/items.lua",
   "campaign": "HotDiamonds",
-  "count": 245,
-  "surface": 227,
-  "underground": 18,
+  "count": 270,
+  "surface": 251,
+  "underground": 19,
   "sectors": [
     {
       "sectorId": "A1",
@@ -52,6 +52,18 @@
       "WeatherZone": "Highlands",
       "underground": false,
       "in_metadata": true
+    },
+    {
+      "sectorId": "A16",
+      "mapName": "huAQKFA",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": false
     },
     {
       "sectorId": "A2",
@@ -126,6 +138,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "A5",
+      "mapName": "B-10 - Wasteland",
+      "campaignId": "HotDiamonds",
+      "comment": "Затерянный водоём (ванильный B10)",
+      "display_name": "Highlands",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "Highlands",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "A9",
       "mapName": "KKzpYnk",
       "campaignId": "HotDiamonds",
@@ -138,7 +162,7 @@
       "in_metadata": true
     },
     {
-      "sectorId": "B11",
+      "sectorId": "B10",
       "mapName": "sVQSE5",
       "campaignId": "HotDiamonds",
       "comment": "Горы",
@@ -146,6 +170,18 @@
       "Label1": "",
       "City": "",
       "WeatherZone": "Highlands",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "B11",
+      "mapName": "LHAJjiL",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -246,6 +282,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "B8",
+      "mapName": "KkQtCPH",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "C12",
       "mapName": "uSeN6U",
       "campaignId": "HotDiamonds",
@@ -271,6 +319,18 @@
     },
     {
       "sectorId": "C14",
+      "mapName": "c6zqMfR",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "C15",
       "mapName": "fM3uffW",
       "campaignId": "HotDiamonds",
       "comment": "Старая бензоколонка",
@@ -278,18 +338,6 @@
       "Label1": "",
       "City": "",
       "WeatherZone": "Highlands",
-      "underground": false,
-      "in_metadata": true
-    },
-    {
-      "sectorId": "C15",
-      "mapName": "XeGztvo",
-      "campaignId": "HotDiamonds",
-      "comment": "Филер",
-      "display_name": "",
-      "Label1": "",
-      "City": "",
-      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -1038,6 +1086,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "G20",
+      "mapName": "eEi4fwE",
+      "campaignId": "HotDiamonds",
+      "comment": "Проклятый лес",
+      "display_name": "Cursed Forest",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "CursedForest",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "G22",
       "mapName": "UjyKLp",
       "campaignId": "HotDiamonds",
@@ -1051,13 +1111,25 @@
     },
     {
       "sectorId": "G23",
-      "mapName": "eEi4fwE",
+      "mapName": "AmyUFr3",
       "campaignId": "HotDiamonds",
-      "comment": "Проклятый лес",
-      "display_name": "Cursed Forest",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
-      "WeatherZone": "CursedForest",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "G24",
+      "mapName": "imakmKT",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -1255,13 +1327,37 @@
     },
     {
       "sectorId": "H23",
-      "mapName": "caEYxx7",
+      "mapName": "EvFPKGG",
       "campaignId": "HotDiamonds",
-      "comment": "Великий лес, фашики тусят в пещере",
-      "display_name": "Great Forest",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
-      "WeatherZone": "GreatForest",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "H24",
+      "mapName": "VdeDkCm",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "H25",
+      "mapName": "toH3sCc",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -1459,37 +1555,49 @@
     },
     {
       "sectorId": "I23",
-      "mapName": "cYPzytW",
+      "mapName": "VVmrQDi",
       "campaignId": "HotDiamonds",
-      "comment": "Великий лес",
-      "display_name": "Great Forest",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
-      "WeatherZone": "GreatForest",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
     {
       "sectorId": "I24",
-      "mapName": "UYYHCow",
+      "mapName": "nA6NoWn",
       "campaignId": "HotDiamonds",
-      "comment": "Великий лес",
-      "display_name": "Great Forest",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
-      "WeatherZone": "GreatForest",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
     {
       "sectorId": "I25",
-      "mapName": "PzmTQGD",
+      "mapName": "eiLScU5",
       "campaignId": "HotDiamonds",
-      "comment": "Грязноводный мост",
-      "display_name": "Mudwater Bridge",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
-      "WeatherZone": "GreatForest",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "I26",
+      "mapName": "mizQMt",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -1511,6 +1619,18 @@
       "campaignId": "HotDiamonds",
       "comment": "Мост в Эрни",
       "display_name": "Дорога к маяку",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "I30",
+      "mapName": "oXnUPL7",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -1686,6 +1806,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "J22",
+      "mapName": "caEYxx7",
+      "campaignId": "HotDiamonds",
+      "comment": "Великий лес, фашики тусят в пещере",
+      "display_name": "Great Forest",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "GreatForest",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "J23",
       "mapName": "aDTrzgY",
       "campaignId": "HotDiamonds",
@@ -1699,13 +1831,13 @@
     },
     {
       "sectorId": "J25",
-      "mapName": "WEhxnMU",
+      "mapName": "PzmTQGD",
       "campaignId": "HotDiamonds",
-      "comment": "Берег реки в джунглях",
-      "display_name": "Jungle River Bank",
+      "comment": "Грязноводный мост",
+      "display_name": "Mudwater Bridge",
       "Label1": "",
       "City": "",
-      "WeatherZone": "SouthJungle",
+      "WeatherZone": "GreatForest",
       "underground": false,
       "in_metadata": true
     },
@@ -1835,6 +1967,18 @@
       "campaignId": "HotDiamonds",
       "comment": "Старая ретрансляционная башня",
       "display_name": "Старая ретрансляционная башня",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "K20",
+      "mapName": "bwKmGSU",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "Болванка",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -2106,6 +2250,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "L25",
+      "mapName": "WEhxnMU",
+      "campaignId": "HotDiamonds",
+      "comment": "Берег реки в джунглях",
+      "display_name": "Jungle River Bank",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "SouthJungle",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "L26",
       "mapName": "jEeRz5a",
       "campaignId": "HotDiamonds",
@@ -2119,13 +2275,37 @@
     },
     {
       "sectorId": "L27",
-      "mapName": "YbeGv36",
+      "mapName": "srKjzx",
       "campaignId": "HotDiamonds",
-      "comment": "Великий лес",
-      "display_name": "Great Forest",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
-      "WeatherZone": "SouthJungle",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "L28",
+      "mapName": "bYWPd7e",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "L29",
+      "mapName": "Ka3nbP5",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -2226,6 +2406,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "M22",
+      "mapName": "YFRrFHK",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "Болванка",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "M26",
       "mapName": "PNDrqcf",
       "campaignId": "HotDiamonds",
@@ -2234,6 +2426,18 @@
       "Label1": "",
       "City": "",
       "WeatherZone": "Farmland",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "M28",
+      "mapName": "u7QMzD",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -2346,14 +2550,14 @@
       "in_metadata": true
     },
     {
-      "sectorId": "N22",
-      "mapName": "HpXRoyW",
+      "sectorId": "N21",
+      "mapName": "UYYHCow",
       "campaignId": "HotDiamonds",
       "comment": "Великий лес",
       "display_name": "Great Forest",
       "Label1": "",
       "City": "",
-      "WeatherZone": "SouthJungle",
+      "WeatherZone": "GreatForest",
       "underground": false,
       "in_metadata": true
     },
@@ -2599,10 +2803,46 @@
     },
     {
       "sectorId": "O22",
-      "mapName": "WzdVaNV",
+      "mapName": "HpXRoyW",
       "campaignId": "HotDiamonds",
-      "comment": "Филер",
-      "display_name": "Филер",
+      "comment": "Великий лес",
+      "display_name": "Great Forest",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "SouthJungle",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "O23",
+      "mapName": "cYPzytW",
+      "campaignId": "HotDiamonds",
+      "comment": "Великий лес",
+      "display_name": "Great Forest",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "GreatForest",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "O24",
+      "mapName": "YbeGv36",
+      "campaignId": "HotDiamonds",
+      "comment": "Великий лес",
+      "display_name": "Great Forest",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "SouthJungle",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "O25",
+      "mapName": "LeWNkwP",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -2610,11 +2850,23 @@
       "in_metadata": true
     },
     {
-      "sectorId": "O23",
-      "mapName": "LDXkV6z",
+      "sectorId": "O26",
+      "mapName": "M4QPqEp",
       "campaignId": "HotDiamonds",
-      "comment": "Филер",
-      "display_name": "Филер",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "O27",
+      "mapName": "UTC4i3s",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -2642,6 +2894,18 @@
       "Label1": "",
       "City": "",
       "WeatherZone": "SouthJungle",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "P12",
+      "mapName": "ok3MSQ",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
       "underground": false,
       "in_metadata": true
     },
@@ -2706,6 +2970,30 @@
       "in_metadata": true
     },
     {
+      "sectorId": "P28",
+      "mapName": "bmQQTy7",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "P30",
+      "mapName": "Gjs3iS6",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": false,
+      "in_metadata": true
+    },
+    {
       "sectorId": "P8",
       "mapName": "aszyR5Y",
       "campaignId": "HotDiamonds",
@@ -2754,6 +3042,18 @@
       "in_metadata": true
     },
     {
+      "sectorId": "A5_Underground",
+      "mapName": "B-10U - Lost Basin",
+      "campaignId": "HotDiamonds",
+      "comment": "Затерянный водоём, бывший B10U",
+      "display_name": "Lost Basin",
+      "Label1": "Dungeon",
+      "City": "",
+      "WeatherZone": "",
+      "underground": true,
+      "in_metadata": true
+    },
+    {
       "sectorId": "D26_Underground",
       "mapName": "nTzHv5F",
       "campaignId": "HotDiamonds",
@@ -2778,18 +3078,6 @@
       "in_metadata": true
     },
     {
-      "sectorId": "H23_Underground",
-      "mapName": "iCThAm",
-      "campaignId": "HotDiamonds",
-      "comment": "Станций метро У-Бах, Бывший F12U",
-      "display_name": "U-Bahn Station B",
-      "Label1": "",
-      "City": "",
-      "WeatherZone": "",
-      "underground": true,
-      "in_metadata": true
-    },
-    {
       "sectorId": "I16_Underground",
       "mapName": "HuMwLSL",
       "campaignId": "HotDiamonds",
@@ -2807,18 +3095,6 @@
       "campaignId": "HotDiamonds",
       "comment": "",
       "display_name": "Secret Tunnel",
-      "Label1": "",
-      "City": "",
-      "WeatherZone": "",
-      "underground": true,
-      "in_metadata": true
-    },
-    {
-      "sectorId": "I23_Underground",
-      "mapName": "CQgaUwd",
-      "campaignId": "HotDiamonds",
-      "comment": "",
-      "display_name": "Underground Lab",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -2855,6 +3131,18 @@
       "campaignId": "HotDiamonds",
       "comment": "Подземка немцев без входа с земли",
       "display_name": "Underground Lab",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": true,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "J22_Underground",
+      "mapName": "iCThAm",
+      "campaignId": "HotDiamonds",
+      "comment": "Станций метро У-Бах, Бывший F12U",
+      "display_name": "U-Bahn Station B",
       "Label1": "",
       "City": "",
       "WeatherZone": "",
@@ -2915,6 +3203,18 @@
       "campaignId": "HotDiamonds",
       "comment": "Бункер партизан",
       "display_name": "Бункер партизан",
+      "Label1": "",
+      "City": "",
+      "WeatherZone": "",
+      "underground": true,
+      "in_metadata": true
+    },
+    {
+      "sectorId": "O23_Underground",
+      "mapName": "CQgaUwd",
+      "campaignId": "HotDiamonds",
+      "comment": "",
+      "display_name": "Underground Lab",
       "Label1": "",
       "City": "",
       "WeatherZone": "",

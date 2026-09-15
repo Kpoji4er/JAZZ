@@ -91707,7 +91707,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					--print(self.selected_unit)
 						--self.idUnitInfo:SetContext(self.selected_unit,true)	
 						local left = self:ResolveId("idPartyContainer")						
-						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, button in ipairs(squad_list) do	
 							local bctx = button:GetContext()
 							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
@@ -92252,7 +92252,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit then return end
 						local units = {unit}
 						local left = self:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -92322,7 +92322,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local containers = InventoryGetLootContainers(context.container) or empty_table
 						local units = {unit}
 						local left = dlg:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -92788,7 +92788,8 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 										PlaceObj('XTemplateFunc', {
 											'name', "CompareWeaponSetUI(self, force_stop)",
 											'func', function (self, force_stop)
-												local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
+												if not self.idUnitInfo then return end
+						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 												--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
 												--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
 												if not force_stop and self.compare_mode_weaponslot then
@@ -94595,7 +94596,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					--print(self.selected_unit)
 						--self.idUnitInfo:SetContext(self.selected_unit,true)	
 						local left = self:ResolveId("idPartyContainer")						
-						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, button in ipairs(squad_list) do	
 							local bctx = button:GetContext()
 							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
@@ -95141,7 +95142,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit then return end
 						local units = {unit}
 						local left = self:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -95211,7 +95212,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local containers = InventoryGetLootContainers(context.container) or empty_table
 						local units = {unit}
 						local left = dlg:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -95272,6 +95273,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "CompareWeaponSetUI(self, force_stop)",
 					'func', function (self, force_stop)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
 						--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
@@ -97498,7 +97500,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					--print(self.selected_unit)
 						--self.idUnitInfo:SetContext(self.selected_unit,true)	
 						local left = self:ResolveId("idPartyContainer")						
-						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, button in ipairs(squad_list) do	
 							local bctx = button:GetContext()
 							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
@@ -98044,7 +98046,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit then return end
 						local units = {unit}
 						local left = self:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -98114,7 +98116,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local containers = InventoryGetLootContainers(context.container) or empty_table
 						local units = {unit}
 						local left = dlg:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -98175,6 +98177,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "CompareWeaponSetUI(self, force_stop)",
 					'func', function (self, force_stop)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
 						--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
@@ -99088,13 +99091,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 																	end
 																end
 																
-																local blockfaceslot = false
-																if context:GetItemInSlot("Head") then blockfaceslot = context:GetItemInSlot("Head").BlockFaceSlot end
-																if context:GetItemInSlot("Head") and blockfaceslot then 
-																local headgear = context:GetItemInSlot("HeadGear")
-																context:RemoveItem("HeadGear",headgear)
-																context:AddItem("Inventory",headgear) 
-																
+																local head = context and context.GetItemInSlot and context:GetItemInSlot("Head")
+																if head and head.BlockFaceSlot then
+																	local headgear = context:GetItemInSlot("HeadGear")
+																	if headgear then
+																		context:RemoveItem("HeadGear", headgear)
+																		context:AddItem("Inventory", headgear)
+																	end
 																end
 																
 																--if Torso.CanHoldPlate then canholdplate = true end
@@ -99161,12 +99164,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 																end
 																
 																
-																local canholdplate = false
-																if context:GetItemInSlot("Torso") then canholdplate = context:GetItemInSlot("Torso").CanHoldPlate end
-																if (not context:GetItemInSlot("Torso") or canholdplate == false) and context:GetItemInSlot("ArmorPlate") then 
-																local armorplate = context:GetItemInSlot("ArmorPlate")
-																context:RemoveItem("ArmorPlate",armorplate)
-																context:AddItem("Inventory",armorplate) 
+																local torso = context and context.GetItemInSlot and context:GetItemInSlot("Torso")
+																local armorplate = context and context.GetItemInSlot and context:GetItemInSlot("ArmorPlate")
+																if armorplate and (not torso or not torso.CanHoldPlate) then
+																	context:RemoveItem("ArmorPlate", armorplate)
+																	context:AddItem("Inventory", armorplate)
 																end
 																--if Torso.CanHoldPlate then canholdplate = true end
 															end,
@@ -100464,7 +100466,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if self.selected_unit  then
 						self.idUnitInfo:SetContext(self.selected_unit,true)	
 						local left = self:ResolveId("idPartyContainer")						
-						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, button in ipairs(squad_list) do	
 							local bctx = button:GetContext()
 							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
@@ -100999,7 +101001,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit then return end
 						local units = {unit}
 						local left = self:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -101069,7 +101071,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local containers = InventoryGetLootContainers(context.container) or empty_table
 						local units = {unit}
 						local left = dlg:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -101083,6 +101085,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "CompareWeaponSetUI(self, force_stop)",
 					'func', function (self, force_stop)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
 						--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
@@ -101135,6 +101138,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "SetChangeWeaponRollover(self)",
 					'func', function (self)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						local unit = self.selected_unit
 						if not  self.compare_mode and InventoryIsCombatMode(unit) then
@@ -102950,7 +102954,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if self.selected_unit  then
 						self.idUnitInfo:SetContext(self.selected_unit,true)	
 						local left = self:ResolveId("idPartyContainer")						
-						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, button in ipairs(squad_list) do	
 							local bctx = button:GetContext()
 							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
@@ -103485,7 +103489,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit then return end
 						local units = {unit}
 						local left = self:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -103555,7 +103559,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local containers = InventoryGetLootContainers(context.container) or empty_table
 						local units = {unit}
 						local left = dlg:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -103569,6 +103573,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "CompareWeaponSetUI(self, force_stop)",
 					'func', function (self, force_stop)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
 						--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
@@ -103621,6 +103626,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "SetChangeWeaponRollover(self)",
 					'func', function (self)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						local unit = self.selected_unit
 						if not  self.compare_mode and InventoryIsCombatMode(unit) then
@@ -104332,13 +104338,13 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 													end
 												end
 												
-												local blockfaceslot = false
-												if context:GetItemInSlot("Head") then blockfaceslot = context:GetItemInSlot("Head").BlockFaceSlot end
-												if context:GetItemInSlot("Head") and blockfaceslot then 
-												local headgear = context:GetItemInSlot("HeadGear")
-												context:RemoveItem("HeadGear",headgear)
-												context:AddItem("Inventory",headgear) 
-												
+												local head = context and context.GetItemInSlot and context:GetItemInSlot("Head")
+												if head and head.BlockFaceSlot then
+													local headgear = context:GetItemInSlot("HeadGear")
+													if headgear then
+														context:RemoveItem("HeadGear", headgear)
+														context:AddItem("Inventory", headgear)
+													end
 												end
 												
 												--if Torso.CanHoldPlate then canholdplate = true end
@@ -104405,12 +104411,11 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												end
 												
 												
-												local canholdplate = false
-												if context:GetItemInSlot("Torso") then canholdplate = context:GetItemInSlot("Torso").CanHoldPlate end
-												if (not context:GetItemInSlot("Torso") or canholdplate == false) and context:GetItemInSlot("ArmorPlate") then 
-												local armorplate = context:GetItemInSlot("ArmorPlate")
-												context:RemoveItem("ArmorPlate",armorplate)
-												context:AddItem("Inventory",armorplate) 
+												local torso = context and context.GetItemInSlot and context:GetItemInSlot("Torso")
+												local armorplate = context and context.GetItemInSlot and context:GetItemInSlot("ArmorPlate")
+												if armorplate and (not torso or not torso.CanHoldPlate) then
+													context:RemoveItem("ArmorPlate", armorplate)
+													context:AddItem("Inventory", armorplate)
 												end
 												--if Torso.CanHoldPlate then canholdplate = true end
 											end,
@@ -106120,7 +106125,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					if self.selected_unit  then
 						self.idUnitInfo:SetContext(self.selected_unit,true)	
 						local left = self:ResolveId("idPartyContainer")						
-						local squad_list = left.idParty and left.idParty.idContainer or empty_table
+						local squad_list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, button in ipairs(squad_list) do	
 							local bctx = button:GetContext()
 							local is_selected = bctx and bctx.session_id==self.selected_unit.session_id
@@ -106655,7 +106660,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						if not unit then return end
 						local units = {unit}
 						local left = self:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -106725,7 +106730,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 						local containers = InventoryGetLootContainers(context.container) or empty_table
 						local units = {unit}
 						local left = dlg:ResolveId("idPartyContainer")						
-						local list = left.idParty and left.idParty.idContainer or empty_table
+						local list = left and left.idParty and left.idParty.idContainer or empty_table
 						for _, ctrl in ipairs(list) do
 							local data = ctrl:GetContext()
 							if data then
@@ -106739,6 +106744,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "CompareWeaponSetUI(self, force_stop)",
 					'func', function (self, force_stop)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						--set1:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==1)
 						--set2:SetVisible(self.compare_mode)-- and self.compare_mode_weaponslot==2)
@@ -106791,6 +106797,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				PlaceObj('XTemplateFunc', {
 					'name', "SetChangeWeaponRollover(self)",
 					'func', function (self)
+						if not self.idUnitInfo then return end
 						local set1,set2 = self.idUnitInfo.idWeapons1, self.idUnitInfo.idWeapons2
 						local unit = self.selected_unit
 						if not  self.compare_mode and InventoryIsCombatMode(unit) then

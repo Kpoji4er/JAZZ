@@ -70,6 +70,8 @@ Generated `ActionCameraCrosshair` не вызывает `Open` для `idContain
 
 Inventory UI визуализирует специализированные slots, resource/max resource, armor/plate, ammo modifications, weapon properties/components и ограничения экипировки. Rollover должен корректно обрабатывать отсутствующие optional properties и generated items старого save. Карточка оружия (`RolloverInventoryWeaponBase` → `RolloverPropTextRight`) показывает live ближний профиль в том же блоке, что Меткость/Настильность/Шанс клина: прирост `CloseRangeFactor` от компонентов (`resolved − base_*`, как short barrel +12); иначе штраф базы при Factor<100 (см. [accuracy-model](../weapons/accuracy-model.md)). В `AdditionalHint` / `GetRolloverHint` ближняя зона не дублируется.
 
+`EquipInventorySlot` HeadGear/ArmorPlate в live `Inventory` при context update **перекладывает** конфликтный предмет в рюкзак только если он реально есть: шлем с `BlockFaceSlot` без NVG больше не вызывает `AddItem("Inventory", nil)` → `CheckClass` на nil (Lua error, экран загрузки). `TFormat.bullets` читает `ammo.colorStyle` только при живом `ammo`. `JazzAttachChips_Apply` не создаёт chip-row на не-firearm тайлах. Live `Inventory` OnContextUpdate не индексирует `idPartyContainer`, если его нет.
+
 Generated `RolloverInventoryWeaponBase` обновляет icon только при наличии optional control `idIcon`; варианты template без такого control продолжают показывать тип оружия без Lua-ошибки.
 
 Строки брони «Возможность установки плиты» / «Блокирует слот лица» — label-only: не `BindTo` boolean `CanHoldPlate` с `PercentValue` (иначе `RolloverPropTextRight:CreatePropValText` → `FormatNumberProp(true)` и `[LUA ERROR]` overlay). `Open` идёт через `XWindow.Open`, не `XPropControl.Open`.

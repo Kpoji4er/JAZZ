@@ -28,26 +28,32 @@ Machine-readable: [`data/sector-transfer.csv`](data/sector-transfer.csv).
 | `H7` | `H14` | Шахта (около Флитауна) | `ok` | sheet |  |
 | `I1` | `K4` | Флаговый холм | `ok` | sheet |  |
 | `I2` | `M4` | Смотровая площадка | `ok` | sheet | vanilla I2 ≠ maps I2 (доктор) |
-| `I3` | `M7` | Изумрудный берег (пляж с минами) | `missing_moditem` | sheet | sheet → M7 (заглушка); **runtime Emerald Coast = J7** (quest remap / Herman) |
+| `I3` | `M7` | Изумрудный берег (пляж с минами) | `missing_moditem` | sheet | sheet → M7 (заглушка); runtime Emerald Coast = J7 |
 | `I1` | `M1` | Старт кампании (зона высадки) | `ok` | suite-docs | suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill. |
-
-### Runtime overrides (quest / suite)
-
-| vanilla | maps | note |
-| --- | --- | --- |
-| `I3` (Emerald Coast) | **`J7`** | Не sheet `M7`. `JAZZ-QUESTS-002` remap + QUESTS-001 Herman. |
-| `H14` (Camp du Crocodile) | **`P17`** | Не путать с mine `H7→H14` (Mfumu’s Mine). |
-
-`JAZZ-QUESTS-002` переносит sector refs vanilla quest clone’ов **только в `jazz-maps`** по этой таблице (+ overrides). Профиль `jazz-nomaps` не затрагивается. Targets `D22` / `F23` остаются `missing_moditem` (stub debt): quest refs уже указывают на них.
+| `H14` | `P17` | Камп Де Крокодиль | `ok` | suite-docs | crocodile camp; not mine H7→H14 |
+| `B10` | `A5` | Highlands / вход в Lost Basin | `ok` | owner | ванильная карта B-10 - Wasteland, не sVQSE5 |
+| `B10_Underground` | `A5_Underground` | Lost Basin | `ok` | owner | ванильная B-10U - Lost Basin; GroundSector A5 |
+| `D10` | `D18` | Аванпост Гран-При (runtime) | `ok` | suite-docs | sheet F23 missing; live Camp Grand Prix = D18 |
+| `D6` | `E14` | Окраины Понтагрюэля | `ok` | suite-docs | vanilla D6 |
+| `D17` | `F28` | Иль-Мора | `ok` | suite-docs | vanilla D17 |
+| `C11` | `C14` | Старая бензоколонка | `ok` | suite-docs | vanilla C11 |
+| `B9` | `C12` | Пит-стоп | `ok` | suite-docs | ReduceCrossroads repair shop |
+| `F7` | `E10` | Кам-Саван | `ok` | suite-docs | vanilla F7 ≠ maps F7 (нет ModItem) |
+| `G6` | `G13` | Колодец Саванны | `ok` | suite-docs | water well map |
+| `G10` | `L15` | Кам-Ла-Барьер | `ok` | suite-docs | vanilla G10 ≠ maps G10 Ла-Палисад |
+| `E16` | `G22` | Кам-Шьен-Саваж | `ok` | suite-docs | vanilla E16 ≠ maps E16 центр Понтагрюэля |
+| `F19` | `K21` | Кам-Бьян-Шьен | `ok` | suite-docs | vanilla F19 ≠ maps F19 берег в джунглях |
+| `F13` | `G25` | Шале-де-ла-Пе | `ok` | suite-docs | vanilla F13 ≠ maps F13 лагерь беженцев |
+| `I18` | `H31` | Вассерграб | `ok` | suite-docs | vanilla I18 ≠ maps I18 crocodile patrol |
+| `I19` | `H32` | Мрачная деревня / Grimer | `ok` | suite-docs | vanilla I19 ≠ maps I19 wetlands bunker |
 
 ## Статусы
 
 - `ok` — есть `ModItemSector` с этим `sectorId` в `jazz-maps/items.lua`.
-- `missing_moditem` — target из sheet/suite не найден среди 245 authored sectors.
+- `missing_moditem` — target из sheet/suite не найден среди authored `ModItemSector`.
 
 ## Связанные документы
 
 - [Атлас секторов](sector-atlas.md)
 - [Сверка sheet ↔ runtime](sector-sheet-vs-runtime.md)
 - Suite: [`maps-quests-content-catalog.md`](../systems/maps-quests-content-catalog.md)
-- Spec: [`JAZZ-QUESTS-002`](../../specs/active/JAZZ-QUESTS-002.md)

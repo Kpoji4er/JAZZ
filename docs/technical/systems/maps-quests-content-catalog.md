@@ -15,7 +15,7 @@
 | [sector-sheet-vs-runtime.md](../maps/sector-sheet-vs-runtime.md) | Diff Google Sheet «Карта» ↔ `ModItemSector` |
 | Player wiki / showcase | [Карта Grand Chien](../../wiki/grand-chien-map.md), showcase slug `grand-chien-map` |
 
-Vanilla quest badges/gates/journal на maps-профиле следуют таблице трансфера (не HotDiamonds ID). Ernie custom `Jazz_*` и maps-local I2/I3 не входят в этот remap. Stub debt: quest refs на `D22`/`F23` при отсутствии полного `ModItemSector`.
+Vanilla quest badges/gates/journal на maps-профиле следуют таблице трансфера (не HotDiamonds ID). Ernie custom `Jazz_*` и maps-local I2/I3 не входят в этот remap. Live Grand Prix = `D18` (sheet stub `F23` не использовать). Outpost `TargetSectors` и leftover F7/G10/F19 — `_apply_maps_outpost_sector_remap.py`.
 
 Пересборка данных: `python docs/tools/export-jazz-maps-sectors.py` затем `python docs/tools/build-sector-atlas-docs.py` из корня `jazz/` (выход: `docs/technical/maps/`).
 
@@ -49,13 +49,13 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | Объект | Количество |
 |---|---|
 | Campaign | `HotDiamonds`, `InitialSector = M1`, `sector_bottomright = P32`, `map_file = GrandChien2.png` |
-| ModItemSector | 245 (surface 227 + underground 18; regen: `docs/tools/export-jazz-maps-sectors.py`) |
+| ModItemSector | 270 (surface 251 + underground 19; regen: `docs/tools/export-jazz-maps-sectors.py`) |
 | Сектора с любыми enemy squad refs (`InitialSquads` / patrol / strong / extra) | 74 |
 | Guardpost-сектора | 9 |
 | Сектора Эрни (label/city/`WeatherZone=Erny` / Rebels_Ernie) | 23 (J7: `Label1=Ernie`, 26 июля 2026) |
 | ModItemQuestsDef | 110 (83 видимых, 27 hidden) |
 | Conversations | 24 |
-| Banters | 41 |
+| Banters | 98 (8 Ernie custom stalls + 28 vanilla stall overrides + quest/local) |
 | GuardpostObjective | 4 (`Bunker`, `EmeraldCoast`, `H4_copy`, `Bastien`) |
 | SetpiecePrg | 2 (`M1Landing` → map `EPA7FVN`, `EncounterHerman` → `qJApdx`) |
 | Локальные UnitData в maps | 3 (`JAZZ_Ernie_Locals_M2_SaveMyFamily_*`, `JAZZ_CombatHMMWV`) |
@@ -194,7 +194,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 
 ## Conversations, banters, локальные юниты
 
-- 24 `ModItemConversation`, 41 `ModItemBanterDef` — полный ID-список в `items.lua`; менять только вместе с speaker UnitData и quest vars. Новая conversation `BarrySeal_Recruit` использует внешний UnitData `Merc_BarrySeal`.
+- 24 `ModItemConversation`, 98 `ModItemBanterDef` — полный ID-список в `items.lua`; менять только вместе с speaker UnitData и quest vars. Новая conversation `BarrySeal_Recruit` использует внешний UnitData `Merc_BarrySeal`. Ванильные stall labels (`Stall_Ammo`, `Stall_Uzi`, …) скопированы в папку Stall Banters; **товар** торговцев — override `LootDef` `Vendor_Ammo` / `FleatownMarket_*` / `PoacherCamp_Ammo` / `FosseNoire_Ammo` на живые `JAZZ_AMMO_*` (`docs/tools/_apply_maps_vendor_stall_ammo_remap.py`). Кастомные лотки I5 `ubRwFgf` (`Stall_Random_762WPrandom_Parts`, `Stall_Random_12Gauge`) грантят `JAZZ_AMMO_762x39_FMJ`×40 / `JAZZ_AMMO_12gauge_Buckshot`×30 через `ItemId`, не `Drop_*`.
 - Maps-local UnitData: гражданские квеста SaveMyFamily (M2), `JAZZ_CombatHMMWV` (транспортный MVP, см. vehicles docs).
 
 ## Runtime flow (контент)
@@ -225,7 +225,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 - Снимок статический: map-only spawners и динамические TCEs не дают полный «кто стоит на карте прямо сейчас».
 - Quest source strings исторически смешивают русский и английский, но активные mod-only IDs имеют синхронные runtime-переводы RU/EN; UI-smoke обеих локалей остаётся обязательным.
 - Дубли/копии (`*_copy`, пустые DisplayName, utility quests без id в T-comment) присутствуют в данных.
-- 317+ map directories на диске ≠ 245 campaign sectors и ≠ демо-scope Эрни.
+- 317+ map directories на диске ≠ 270 campaign sectors и ≠ демо-scope Эрни.
 - Temporary extract scripts не являются частью мода и не должны коммититься в `jazz-maps`.
 
 ## Контракт сопровождения

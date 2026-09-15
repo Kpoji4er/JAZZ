@@ -361,7 +361,7 @@ SHEET_NEW: dict[str, str] = {
 }
 
 # Transfer rows from sheet «Трансфер локаций» + suite-known extras.
-# source: sheet | suite-docs
+# source: sheet | suite-docs | owner
 TRANSFERS: list[dict[str, str]] = [
     {"vanilla_id": "A2", "maps_id": "A4", "name_ru": "Даймонд Рэд", "notes": "", "source": "sheet"},
     {"vanilla_id": "A11", "maps_id": "B15", "name_ru": "Ферма Нигде (Nowhere)", "notes": "", "source": "sheet"},
@@ -392,6 +392,40 @@ TRANSFERS: list[dict[str, str]] = [
         "notes": "suite: InitialSector M1; sheet I1→K4 is Flag Hill. This row is start remap, not Flag Hill.",
         "source": "suite-docs",
     },
+    {
+        "vanilla_id": "H14",
+        "maps_id": "P17",
+        "name_ru": "Камп Де Крокодиль",
+        "notes": "crocodile camp; not mine H7→H14",
+        "source": "suite-docs",
+    },
+    {
+        "vanilla_id": "B10",
+        "maps_id": "A5",
+        "name_ru": "Highlands / вход в Lost Basin",
+        "notes": "ванильная карта B-10 - Wasteland, не sVQSE5",
+        "source": "owner",
+    },
+    {
+        "vanilla_id": "B10_Underground",
+        "maps_id": "A5_Underground",
+        "name_ru": "Lost Basin",
+        "notes": "ванильная B-10U - Lost Basin; GroundSector A5",
+        "source": "owner",
+    },
+    {"vanilla_id": "D10", "maps_id": "D18", "name_ru": "Аванпост Гран-При (runtime)", "notes": "sheet F23 missing_moditem; live Camp Grand Prix = D18", "source": "suite-docs"},
+    {"vanilla_id": "D6", "maps_id": "E14", "name_ru": "Окраины Понтагрюэля", "notes": "vanilla D6; maps E16 is downtown", "source": "suite-docs"},
+    {"vanilla_id": "D17", "maps_id": "F28", "name_ru": "Иль-Мора", "notes": "vanilla D17", "source": "suite-docs"},
+    {"vanilla_id": "C11", "maps_id": "C14", "name_ru": "Старая бензоколонка", "notes": "vanilla C11", "source": "suite-docs"},
+    {"vanilla_id": "B9", "maps_id": "C12", "name_ru": "Пит-стоп", "notes": "ReduceCrossroads repair shop", "source": "suite-docs"},
+    {"vanilla_id": "F7", "maps_id": "E10", "name_ru": "Кам-Саван", "notes": "vanilla F7 ≠ maps F7 (нет ModItem)", "source": "suite-docs"},
+    {"vanilla_id": "G6", "maps_id": "G13", "name_ru": "Колодец Саванны", "notes": "SavannaCamp water well map jfUUwFo", "source": "suite-docs"},
+    {"vanilla_id": "G10", "maps_id": "L15", "name_ru": "Кам-Ла-Барьер", "notes": "vanilla G10 ≠ maps G10 Ла-Палисад", "source": "suite-docs"},
+    {"vanilla_id": "E16", "maps_id": "G22", "name_ru": "Кам-Шьен-Саваж", "notes": "vanilla E16 ≠ maps E16 центр Понтагрюэля", "source": "suite-docs"},
+    {"vanilla_id": "F19", "maps_id": "K21", "name_ru": "Кам-Бьян-Шьен", "notes": "vanilla F19 ≠ maps F19 берег в джунглях", "source": "suite-docs"},
+    {"vanilla_id": "F13", "maps_id": "G25", "name_ru": "Шале-де-ла-Пе", "notes": "vanilla F13 ≠ maps F13 лагерь беженцев", "source": "suite-docs"},
+    {"vanilla_id": "I18", "maps_id": "H31", "name_ru": "Вассерграб", "notes": "vanilla I18 ≠ maps I18 Great Forest (crocodile patrol)", "source": "suite-docs"},
+    {"vanilla_id": "I19", "maps_id": "H32", "name_ru": "Мрачная деревня / Grimer", "notes": "vanilla I19 ≠ maps I19 wetlands bunker", "source": "suite-docs"},
 ]
 
 
@@ -611,7 +645,7 @@ def main() -> int:
         "## Статусы",
         "",
         "- `ok` — есть `ModItemSector` с этим `sectorId` в `jazz-maps/items.lua`.",
-        "- `missing_moditem` — target из sheet/suite не найден среди 245 authored sectors.",
+        "- `missing_moditem` — target из sheet/suite не найден среди authored `ModItemSector`.",
         "",
         "## Связанные документы",
         "",

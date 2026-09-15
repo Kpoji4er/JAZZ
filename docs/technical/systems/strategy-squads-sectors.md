@@ -164,7 +164,7 @@ Personal `Jazz_Perk_*` CharacterEffects need a matching `ModItemCombatAction` (`
 
 ## Межпакетные зависимости
 
-- maps: campaign, 245 sectors, geography, quests, guardpost objectives, placed markers и satellite vehicles;
+- maps: campaign, 270 sectors, geography, quests, guardpost objectives, placed markers и satellite vehicles;
 - units: UnitData, factions, 69 enemy squads, roles/archetypes;
 - assets: map/entity resources;
 - core: runtime, items, effects, economy, UI и serialization.

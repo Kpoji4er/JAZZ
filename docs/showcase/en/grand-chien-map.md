@@ -16,8 +16,10 @@ Demo scope is **Ernie Island**; mainland data exists, but a full country playthr
 | Fort L'Eau Bleu | H4 | **I7** |
 | Flag Hill | I1 | **K4** |
 | Eagle's Nest | A20 | **B28** |
+| Diamond Red | A2 | **A4** |
+| Lost Basin | B10 / B10U | **A5** / **A5_Underground** |
 
-Emerald Coast on Ernie is **J7**. Diamond Red is **A4**. Refugee camp is **F13**, poacher camp **D9**, Pantagruel **E15/E16**, Landsbach **A25/A26**, Fleatown mine **H14**, Camp du Crocodile **P17**.
+Emerald Coast on Ernie is **J7**. Diamond Red is **A4**. Lost Basin (vanilla crocodile cave) is **A5** / **A5_Underground**. Refugee camp is **F13**, poacher camp **D9**, Pantagruel **E15/E16**, Landsbach **A25/A26**, Fleatown mine **H14**, Camp du Crocodile **P17**.
 
 With the maps package, vanilla quest journals and sector gates already use these new IDs. The **JAZZ Vanilla Maps** profile keeps the old HotDiamonds IDs.
 

@@ -26,11 +26,11 @@
 В metadata/items зарегистрировано:
 
 - 1 campaign;
-- 245 sectors;
+- 270 sectors (`ModItemSector`: surface 251 + underground 19);
 - 110 quests;
-- 41 banters;
+- 98 banters (в т.ч. override ванильных stall labels `Banters_Vendors_Stalls`);
 - 24 conversations;
-- 18 loot definitions;
+- 32 loot definitions (в т.ч. 12 override ванильных vendor tables на `JAZZ_AMMO_*`); кастомные бартеры I5 `ubRwFgf` грантят `JAZZ_AMMO_762x39_FMJ` / `JAZZ_AMMO_12gauge_Buckshot` напрямую;
 - 4 guardpost objectives;
 - 4 XTemplates;
 - 4 InventoryItem definitions;
@@ -66,7 +66,7 @@ Sector ID является публичным ключом savegame, quest state
 
 ## Квесты, разговоры и banters
 
-110 Quest definitions хранят условия и эффекты, связанные с sector/unit/item/variable IDs. 24 conversations содержат ветвление и последствия; 41 banter — контекстные реплики. Активные mod-only строки синхронизируются в `Russian.csv` и `English.csv`; новый текст должен иметь один numeric ID, обе переведённые строки и проверку на коллизии.
+110 Quest definitions хранят условия и эффекты, связанные с sector/unit/item/variable IDs. 24 conversations содержат ветвление и последствия; 98 banter — контекстные реплики, включая override ванильных stall labels. Активные mod-only строки синхронизируются в `Russian.csv` и `English.csv`; новый текст должен иметь один numeric ID, обе переведённые строки и проверку на коллизии.
 
 Разговор нельзя безопасно менять изолированно: проверить speaker UnitData, map placement, quest variables, item rewards, loyalty/control effects и повторный вход в сектор.
 
@@ -89,8 +89,25 @@ Mainland / campaign vanilla quest clone’ы в `jazz-maps` ссылаются �
 
 - Apply: `docs/tools/_apply_maps_vanilla_quest_sector_remap.py --apply`
 - Audit: `docs/tools/_audit_maps_vanilla_quest_sectors.py --strict`
-- Overloads: mine `H7→H14` ≠ crocodile `H14→P17`; custom `Jazz_*` keep maps-local I2/I3; `04_Betrayal` I3→J7 — временный долг до redesign World Flip; `D22`/`F23` — quest refs по таблице при `missing_moditem` sector stubs.
+- Overloads: mine `H7→H14` ≠ crocodile `H14→P17`; custom `Jazz_*` keep maps-local I2/I3; `04_Betrayal` I3→J7 — временный долг до redesign World Flip; sheet `F23` не использовать — live Grand Prix = `D18`.
 - Static evidence (2026-08-07): audit `--strict` OK после Wave A+B apply. Runtime smoke landmark chains — open.
+
+### Outpost TargetSectors и leftover vanilla IDs
+
+После перестановки карт на сетку P32 списки `SatelliteSector.TargetSectors` и часть helper-квестов всё ещё держали vanilla ID (B12/B13/A2/F7/G10/F19/E16-as-outpost). Apply: `docs/tools/_apply_maps_outpost_sector_remap.py --apply`. Audit: `docs/tools/_audit_maps_stale_sector_refs.py`.
+
+Контекст-чувствительные пары (vanilla локация ≠ тот же ID на maps):
+
+- `F7→E10` Кам-Саван; `G10→L15` Ла-Барьер (maps G10 = Ла-Палисад);
+- `E16→G22` Кам-Шьен-Саваж только в outpost/ChienSauvage; Pantagruel downtown остаётся `E16`;
+- `F19→K21` Кам-Бьян-Шьен; maps F19 = берег в джунглях;
+- `F13→G25` Шале, если это не refugee camp (`E9→F13`);
+- `I18→H31` Вассерграб / `I19→H32` Grimer; crocodile patrol maps I18/I19 **не** трогать;
+- I7 `TargetSectors` держат `E16` как город Понтагрюэль.
+
+Статический evidence: apply `--check` идемпотентен (0 замен). Runtime: new game, spawn патруля с B28/E10/L15 и journal Larry / Bien Chien prison / ChienSauvage — open.
+
+Оставшийся долг (static): `HunterHunted` Flay badges всё ещё `E6` (нет ModItem); `Landsbach` van west `C10` (нет ModItem); `JoseFamily` beach `I1`; `Emails` D11; CampaignPreset ghost-сектора F7/E6/G6 без ModItem.
 
 ## Setpiece и guardposts
 

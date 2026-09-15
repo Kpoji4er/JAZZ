@@ -2,7 +2,7 @@
 
 Расширенная кампания `HotDiamonds`: сетка **A–P × 1–32** (`sector_bottomright = P32`), старт **`M1`**, сателлит [`GrandChien2.png`](../../../../jazz-maps/Images/GrandChien2.png) (`map_file = Mod/FhNNYd/Images/GrandChien2.png`). Underground: `Images/BigMap_Under_1.png`.
 
-Снимок runtime: **245** `ModItemSector` (surface 227, underground 18) из `items.lua` — без обхода `Maps/`.
+Снимок runtime: **270** `ModItemSector` (surface 251, underground 19) из `items.lua` — без обхода `Maps/`.
 
 Дизайн-заметки ячеек — из Google Sheet «Карта» (новая сетка). Колонка `sheet_note` **не** равна runtime `display_name`.
 
@@ -12,12 +12,12 @@
 
 | kind | count |
 | --- | ---: |
-| authored (sheet+ModItem) | 178 |
+| authored (sheet+ModItem) | 183 |
 | sheet_only | 12 |
-| sea_or_filler | 126 |
-| runtime_only (ModItem, пустой sheet) | 49 |
-| empty (ни sheet, ни ModItem) | 147 |
-| underground | 18 |
+| sea_or_filler | 121 |
+| runtime_only (ModItem, пустой sheet) | 68 |
+| empty (ни sheet, ни ModItem) | 128 |
+| underground | 19 |
 
 ## Authored surface (есть ModItemSector)
 
@@ -27,10 +27,12 @@
 | `A2` |  | Саванна берег | `PLg5q3T` | Саванна (Берег) |
 | `A3` |  | Саванна берег | `PYphSvk` | Саванна (Берег) |
 | `A4` | Diamond Red | Даймонд-Ред | `UVhtJTG` | Даймонд-Рэд |
+| `A5` | Highlands | Затерянный водоём (ванильный B10) | `B-10 - Wasteland` |  |
 | `A9` | Highlands | Горы | `KKzpYnk` | А9 тоже горы и тоже без деталей |
 | `A12` | Highlands | Горы | `UfXn5Ky` | А12 Горы (Пока без деталей) |
 | `A13` | Военный аванпост - Горный |  | `GWkvH6` | А13 Военный аванпост - Горный |
 | `A15` | Hill Station | Тут дрючат бифа | `onJGJze` | А15 Лагерь на холме (Тут пенитрируют Бифа) |
+| `A16` |  |  | `huAQKFA` |  |
 | `A24` |  | Горная дорога | `f7ufzi` | А24 Горная дорога (Конь не валялся) |
 | `A25` | Drachenberg Mine | Шахта «Драхенберг» | `fRXhJjS` | A25 Шахта Драхенберг |
 | `A26` | Landsbach | Ландсбах | `aVwVweE` | А26 Лансбах Порт |
@@ -38,7 +40,9 @@
 | `B5` |  | Саванна берег | `HPLC7p` | Саванна (Берег) |
 | `B6` |  | Аванпост_Пока нету | `dic4Pz` | B6 Запланирован аванпост |
 | `B7` | Savanna Cave | Пещера в саванне | `idDivnV` | B7 Пещера в Саванне |
-| `B11` | Highlands | Горы | `sVQSE5` | B11 Горы (Бездетальные) |
+| `B8` |  |  | `KkQtCPH` |  |
+| `B10` | Highlands | Горы | `sVQSE5` |  |
+| `B11` |  |  | `LHAJjiL` | B11 Горы (Бездетальные) |
 | `B15` | Middle of Nowhere | Нигде | `kATGgxm` | B15 Ферма Нигде |
 | `B17` |  | Санаторий Лазурь | `PKLpuCd` | B17 Санаторий |
 | `B24` |  | Горная дорога | `jHVi6rd` | B24 Горная дорога (Конь не валялся) |
@@ -50,8 +54,8 @@
 | `C8` | Savanna | Саванна | `PjNRUc7` | С8 Саванна (Нужно уточнение!!!!!!) |
 | `C12` | The PitStop | Пит-стоп | `uSeN6U` | С12 Пит-Стоп |
 | `C13` | Highlands | Горы | `cSypFKz` | С13 Горы |
-| `C14` | Old Gas Station | Старая бензоколонка | `fM3uffW` | С14 Старая бензоколонка |
-| `C15` |  | Филер | `XeGztvo` | Филер, или нет, пока маленькое нихуя |
+| `C14` |  |  | `c6zqMfR` | С14 Старая бензоколонка |
+| `C15` | Old Gas Station | Старая бензоколонка | `fM3uffW` | Филер, или нет, пока маленькое нихуя |
 | `C22` | Barrens | Пустоши | `uP4JNpT` | С22 Пустоши |
 | `C23` | Barrens | Пустоши | `mdV5qwe` | С23 Пустоши |
 | `C24` | Dead Animal Crossing | Перекресток Дохлых Зверей | `ew4nkhg` | С24 Перекресток дохлых зверей |
@@ -110,8 +114,10 @@
 | `G16` | Minefield | Минное поле | `aApUtcM` | G16 Минное поле |
 | `G17` | Great Forest | Великий лес(Вудуисты) | `GgmzYs` | G17 Великий лес (Вудуисты) |
 | `G18` | Jungle River Bank | Берег реки в джунглях | `cqxkQM` | G18 Берег реки в джунглях |
+| `G20` | Cursed Forest | Проклятый лес | `eEi4fwE` |  |
 | `G22` | Camp Chien Sauvage | Кам-Шьен-Саваж | `UjyKLp` | G22 Кам-Съен_Саваж (Аванпост с гиенами) |
-| `G23` | Cursed Forest | Проклятый лес | `eEi4fwE` | G23 Проклятый лес |
+| `G23` |  |  | `AmyUFr3` | G23 Проклятый лес |
+| `G24` |  |  | `imakmKT` |  |
 | `G25` | Chalet de la Paix | Шале-де-ла-Пе(Деревня вудуистов) | `cUsGPkp` | G25 |
 | `G28` |  | Филер | `csb3PSJ` | G28 Филер (Пока пусто) |
 | `G30` | Эль Мора | Эль Мора | `gRtnwGb` | G30 Эль-Мора |
@@ -127,7 +133,9 @@
 | `H19` | Fleatown Flea Market | Флитаунский блошиный рынок | `jCUGgPT` | H19 Флитаун (Порт) |
 | `H21` | Берег реки | Берег реки | `Pife3VC` | Н21 Берег Реки |
 | `H22` | Old Fortifications | Старые укрепления | `a6LhfeS` | Н22 Старые укрепления с бункером |
-| `H23` | Great Forest | Великий лес, фашики тусят в пещере | `caEYxx7` | H23 Пещера с фашней / опер штаб наземный |
+| `H23` |  |  | `EvFPKGG` | H23 Пещера с фашней / опер штаб наземный |
+| `H24` |  |  | `VdeDkCm` | H24 Берег реки в джунглях |
+| `H25` |  |  | `toH3sCc` | Н25 река |
 | `H27` | Jungle River Bank | Берег реки в джунглях | `r5AcnGP` | Н27 ТЗ Болота, нет локации |
 | `H28` |  | Филер | `UTHJgsX` |  |
 | `H29` | Bien Chien Island | Остров Бьян-Шьен | `GwkPAyF` |  |
@@ -149,10 +157,12 @@
 | `I19` | Wetlands | Болота с бункером | `aqcRXzW` |  |
 | `I21` | Болотистый берег | Болотистый берег | `faUJ5WN` |  |
 | `I22` | Great Forest | Великий лес | `hnJFd4t` | I22 Дом на холме, секретный вход в метро |
-| `I23` | Great Forest | Великий лес | `cYPzytW` | I23 Великий лес |
-| `I24` | Great Forest | Великий лес | `UYYHCow` | Река |
-| `I25` | Mudwater Bridge | Грязноводный мост | `PzmTQGD` | I25 Грязноводный мост (Город) |
+| `I23` |  |  | `VVmrQDi` | I23 Великий лес |
+| `I24` |  |  | `nA6NoWn` | Река |
+| `I25` |  |  | `eiLScU5` | I25 Грязноводный мост (Город) |
+| `I26` |  |  | `mizQMt` |  |
 | `I28` | Археологические раскопки | Археологические раскопки | `RRYxmQL` |  |
+| `I30` |  |  | `oXnUPL7` |  |
 | `J4` | Дорога в Эрни | Дорога | `FEMnhRu` | J4 Дорога из J5 в I4 |
 | `J5` | Фермы Эрни | Фермы Эрни | `adviFCb` | J5 Деревня эрни без берега (Фермы) |
 | `J6` | Аванпост контрабандистов | Аванпост туда ходи | `NrofrcM` | J6 Дорога контрабандистов |
@@ -167,8 +177,9 @@
 | `J19` | Болотные топи | Болотные топи | `nsxnjMR` | Зеленка (Берег реки на углу) |
 | `J20` | Wetlands | Болота | `ihuFJkn` |  |
 | `J21` | Minefield | Минное поле | `TMAVkEL` |  |
+| `J22` | Great Forest | Великий лес, фашики тусят в пещере | `caEYxx7` |  |
 | `J23` | Old Graveyard | Старое кладбище | `aDTrzgY` | J23 Старое кладбище |
-| `J25` | Jungle River Bank | Берег реки в джунглях | `WEhxnMU` | Река |
+| `J25` | Mudwater Bridge | Грязноводный мост | `PzmTQGD` | Река |
 | `J26` |  | Филер | `HKU4Wye` |  |
 | `J28` | Wetlands | Болота со входом в метро | `SQASJXH` | J28 Болота с входом в метро |
 | `J29` | Лагерь надежды | Лагерь надежды | `dRrFReT` | J29 Лагерь надежды |
@@ -181,6 +192,7 @@
 | `K7` | Заброшенный скалистый берег | Заброшенный скалистый берег | `XgdUCn7` | K7 Заброшенный скалистый берег, сожженная деревня |
 | `K15` | Берег джунглей | Берег джунглей | `jiQqxTN` | K15 T Река ниже берег джунглей |
 | `K19` | Factory Ruins | Заброшенная фабрика с зомбями | `fdktTtg` | K19 Аванпост Развалины фабрики |
+| `K20` | Болванка |  | `bwKmGSU` | Река |
 | `K21` | Camp Bien Chien | Кам-Бьян-Шьен | `ULaRXec` | К21 Кам Бьян Шьен |
 | `K22` | Bien Chien Island | Остров Бьян-Шьен | `P45egwt` |  |
 | `K23` | Bien Chien Island | Остров Бьян-Шьен | `aVwkXoE` |  |
@@ -203,8 +215,11 @@
 | `L16` | Great Forest | Великий лес | `Cpootzp` | L16 Великий лес |
 | `L17` | Fort Brigand | Разбойничий форт | `dciGExr` | L17 Разбойничий форт |
 | `L19` | Нет локации | Речные Островки | `Quohbrz` | L19 Т речные островки (Локации нет) |
+| `L25` | Jungle River Bank | Берег реки в джунглях | `WEhxnMU` | Река |
 | `L26` | Farmland | Фермы | `jEeRz5a` |  |
-| `L27` | Great Forest | Великий лес | `YbeGv36` |  |
+| `L27` |  |  | `srKjzx` |  |
+| `L28` |  |  | `bYWPd7e` |  |
+| `L29` |  |  | `Ka3nbP5` |  |
 | `L31` | Farmland | Фермы | `GSWNb` | L31 Фермы |
 | `M1` | Зона высадки | Стартовый берег | `EPA7FVN` | M1 Зона высадки |
 | `M2` | Скалистый берег | Филер_2я локация | `qRiCMTo` | М2 Водопад |
@@ -212,13 +227,15 @@
 | `M4` | The Outlook | Смотровая площадка | `cd6xgVh` | М4 Смотровая площадка |
 | `M5` | Береговая линия | Филер по пути к пляжу | `pSwGPnp` | М5 Заброс, скалы |
 | `M6` | Старый порт | Филер_2 по пути к пляжу | `qzVESk5` | М6 Заброс, скалы |
+| `M22` | Болванка |  | `YFRrFHK` | Река |
 | `M26` | Farmland | Фермы | `PNDrqcf` |  |
+| `M28` |  |  | `u7QMzD` |  |
 | `M31` | Farmland | Фермы | `tP7vqmh` | M31 Фермы |
 | `N11` | Укреп район Какао | Укреп в N11 | `nMmefSY` | N11 укреп смотрящий за входом в реку |
 | `N12` | Port Cacao City | Какао город | `camztWx` | N12 Порт Какао город |
 | `N13` | Port Cacao Docks | Доки порт_Какао | `FpCgakp` | N13 Доки порт Какао |
 | `N16` | Wetlands | Размотанный самолет | `DvDj7va` | N16 (ТС) Упавший самолет (Лаз в разбойничий форт) |
-| `N22` | Great Forest | Великий лес | `HpXRoyW` | N22 Причал |
+| `N21` | Great Forest | Великий лес | `UYYHCow` | Река |
 | `N23` | Old Graveyard | Старое кладбище | `Qz4yGQr` | N23 Старое кладбище |
 | `N24` | Farmland | Фермы | `MuKKhYV` | N24 Фермы |
 | `N25` |  | Филер | `nEhGetV` |  |
@@ -239,38 +256,46 @@
 | `O19` | Филер | Филер | `FrxvGHX` |  |
 | `O20` | Jungle River Bank | Берег реки в джунглях | `NYrtAxS` |  |
 | `O21` | Great Forest | Великий лес | `RVMSRbW` | О21 Великий лес (Берег) |
-| `O22` | Филер | Филер | `WzdVaNV` |  |
-| `O23` | Филер | Филер | `LDXkV6z` |  |
+| `O22` | Great Forest | Великий лес | `HpXRoyW` |  |
+| `O23` | Great Forest | Великий лес | `cYPzytW` |  |
+| `O24` | Great Forest | Великий лес | `YbeGv36` |  |
+| `O25` |  |  | `LeWNkwP` |  |
+| `O26` |  |  | `M4QPqEp` |  |
+| `O27` |  |  | `UTC4i3s` |  |
 | `P8` | The Good Place | Хорошее место | `aszyR5Y` | P8 Хорошее место |
 | `P9` | Jungle River Bank | Берег реки рядом с тюрьмой | `PciM4k` | Р9 Берег рядом с тюрьмой |
 | `P10` |  | Великий лес (Будет) | `qppXxPw` |  |
 | `P11` | Great Forest | Великий лес | `cSFjTT` | Р11 Великий лес (Убежище богача из заброшенного особняка) |
+| `P12` |  |  | `ok3MSQ` |  |
 | `P15` | Лес | Лес | `JAUWMKo` | Р15 Лес |
 | `P16` | ГдеГдеВезде | ГдеГдеВезде | `DYKyfjt` | Р16 гдегдевезде |
 | `P17` | Камп Де Крокодиль | Камп Де Крокодиль | `JFxNeEb` | Р17 Камп-де-крокодиль (Аванпост) |
 | `P19` | Заброшенный Аэродром | Заброшенный аэродром | `my6UMM` | Р19 Заброшенный аэродром |
 | `P26` | Военная база ЮГ | Военная база | `AcNCfY4` | P26 Военная База - ЮГ |
+| `P28` |  |  | `bmQQTy7` |  |
+| `P30` |  |  | `Gjs3iS6` |  |
 
 ## Underground
 
 | Id | display_name | comment | mapName |
 | --- | --- | --- | --- |
+| `A5_Underground` | Lost Basin | Затерянный водоём, бывший B10U | `B-10U - Lost Basin` |
 | `A24_Underground` | U-Bahn Station A | Станция УхБах, Бывший B11U | `bDG4HgR` |
 | `A25_Underground` | Diesel Klinik | «Дизельклиника» | `m3YqaH` |
 | `D26_Underground` | Freeloader's Cavern | Пещера Халявщика | `nTzHv5F` |
 | `H22_Underground` | Бункер | Бункер | `AXQt4bs` |
-| `H23_Underground` | U-Bahn Station B | Станций метро У-Бах, Бывший F12U | `iCThAm` |
 | `I6_Underground` | Bunker FB45-68 | Бункер_Жестянки | `EbAhNkL` |
 | `I7_Underground` | Армейский Бункер | Бункер Коразон | `AxdjC3b` |
 | `I16_Underground` | Mansion Cellar | Подвал особняка с призраком | `HuMwLSL` |
 | `I22_Underground` | Secret Tunnel |  | `WPsAbPx` |
-| `I23_Underground` | Underground Lab |  | `CQgaUwd` |
 | `J15_Underground` | Underground Lab | Подземка немцев без входа с земли | `AhdSa4` |
+| `J22_Underground` | U-Bahn Station B | Станций метро У-Бах, Бывший F12U | `iCThAm` |
 | `J28_Underground` | U-Bahn Station C | Станция метро | `fsivunj` |
 | `K29_Underground` | Подвал санатория | Подвал санатория | `7WHvtx` |
 | `L6_Underground` | Бункер партизан | Бункер партизан | `XnkxuED` |
 | `L16_Underground` | U-Bahn Station D | Подземелье со входом из подземелья ФоШо | `d7NYwWJ` |
 | `L17_Underground` | Underground Tunnel |  | `cGP5RH3` |
+| `O23_Underground` | Underground Lab |  | `CQgaUwd` |
 | `P8_Underground` | The Good Place (Underground) |  | `UgSe5Pc` |
 | `P15_Underground` | Underground Lab |  | `fVAahMG` |
 
@@ -287,11 +312,11 @@
 | `F24` | F24 В планах ещё бензоколонка |
 | `G15` | G15 Берег реки в джунглях |
 | `G27` | G27 Шале-Де-ла-Пе (Деревня вудуистов) |
-| `H24` | H24 Берег реки в джунглях |
 | `I31` | I31 Хижина ведьмы |
 | `M24` | M24 Тут должен быть какой-то порт - дамба |
 | `N14` | N14 ТС |
 | `N15` | N15 ТС |
+| `N22` | N22 Причал |
 
 ## Связанные документы
 

@@ -296,6 +296,19 @@ function JazzAttachChips_Apply(hostImg, item)
 	if not hostImg then
 		return false
 	end
+	if not JazzAttachChips_IsFirearm(item) then
+		local row = rawget(hostImg, "idJazzAttachChips")
+			or (hostImg.ResolveId and hostImg:ResolveId("idJazzAttachChips"))
+		if row then
+			ClearChipRow(row)
+			row:SetVisible(false)
+		end
+		local badge = FindModBadge(hostImg)
+		if badge then
+			badge:SetVisible(true)
+		end
+		return false
+	end
 	local chips = JazzAttachChips_List(item)
 	local badge = FindModBadge(hostImg)
 	local row = EnsureChipRow(hostImg)
