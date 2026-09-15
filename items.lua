@@ -23545,6 +23545,92 @@ PlaceObj('ModItemEmail', {
 					'CanAppearUsed', false,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
+	'MaxStock', 1,
+					'Group', "JAZZ - Firearm - SMG",
+					'Id', "SR3M",
+					'comment', "Tier 3-2",
+					'object_class', "SubmachineGun",
+					'ScrapParts', 10,
+					'RepairCost', 30,
+					'Reliability', 60,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/SR3M.png",
+					'DisplayName', T(761915300101, --[[ModItemInventoryItemCompositeDef SR3M DisplayName]] "СР-3М"),
+					'DisplayNamePlural', T(761915300102, --[[ModItemInventoryItemCompositeDef SR3M DisplayNamePlural]] "СР-3М"),
+					'Description', T(761915300103, --[[ModItemInventoryItemCompositeDef SR3M Description]] "Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя."),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Valuable', 1,
+					'Cost', 22000,
+					'CanAppearInShop', true,
+					'Tier', 4,
+					'RestockWeight', 20,
+					'CategoryPair', "SubmachineGuns",
+					'Caliber', "JAZZ_Caliber_9x39",
+					'Damage', 32,
+					'ObjDamageMod', 50,
+					'AimAccuracy', 10,
+					'MaxAimActions', 2,
+					'CritChanceScaled', 30,
+					'MagazineSize', 30,
+					'WeaponRange', 26,
+					'OverwatchAngle', 1500,
+					'Noise', 30,
+					'HandSlot', "TwoHanded",
+					'Entity', "SR3M",
+					'fxClass', "AK74",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'Modifiable', false,
+							'AvailableComponents', { "JAZZ_MagNormal" },
+							'DefaultComponent', "JAZZ_MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Handguard",
+							'Modifiable', false,
+							'AvailableComponents', { "JAZZ_Handguard" },
+							'DefaultComponent', "JAZZ_Handguard",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'Modifiable', false,
+							'AvailableComponents', { "JAZZ_DefMuzzle" },
+							'DefaultComponent', "JAZZ_DefMuzzle",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'Modifiable', false,
+							'AvailableComponents', { "JAZZ_StockLightFolded", "JAZZ_StockLightUnFolded" },
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"RunAndGun",
+						"JAZZ_Zipper",
+					},
+					'ShootAP', 4000,
+					'ReloadAP', 5000,
+					'WeaponMass', 27,
+					'CyclicRPM', 900,
+					'WeaponSizeClass', "Compact",
+					'BurstLimiter', 0,
+					'Recoil', 20,
+					'BurstShots', 4,
+					'AutoShots', 9,
+				
+					'CloseRange', 3,
+				
+					'CloseRangeFactor', 95,
+					'BulletDropRange', 11,
+					'Grouping', 58,
+					'BaseJamChance', -30,
+					'WeaponResource', 3000,
+					}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - SMG-1H",
 					'Id', "MP7",
 					'comment', "Tier 3-2",
@@ -24223,6 +24309,103 @@ PlaceObj('ModItemEmail', {
 					'WeaponResource', 4000,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
+	'MaxStock', 1, 'Group', "JAZZ - Firearm - Rifles-Carbines", 'Id', "AK105",
+	'comment', "Tier 3-1",
+	'object_class', "Carbine",
+	'ScrapParts', 10,
+	'RepairCost', 10,
+	'Reliability', 95,
+	'Icon', "Mod/e6L4ECj/WeaponIcons/AK105.png",
+	'DisplayName', T(761915303111, "АК-105"),
+	'DisplayNamePlural', T(761915303112, "АК-105"),
+	'Description', T(761915303113, "Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов."),
+	'LargeItem', 1,
+	'UnitStat', "Marksmanship",
+	'Valuable', 1,
+	'Cost', 14500,
+	'CanAppearInShop', true,
+	'Tier', 4,
+	'RestockWeight', 40,
+	'CategoryPair', "SubmachineGuns",
+	'Caliber', "JAZZ_Caliber_545",
+	'Damage', 27,
+	'ObjDamageMod', 45,
+	'AimAccuracy', 11,
+	'CritChanceScaled', 20,
+	'MagazineSize', 30,
+	'WeaponRange', 40,
+	'OverwatchAngle', 1320,
+	'Noise', 50,
+	'HandSlot', "TwoHanded",
+	'Entity', "AKR_AK105",
+	'fxClass', "AK74",
+	'ComponentSlots', {
+		PlaceObj('WeaponComponentSlot', { 'SlotType', "Stock", 'AvailableComponents', { "JAZZ_StockLightUnFolded", "JAZZ_StockLightFolded" }, 'DefaultComponent', "JAZZ_StockLightUnFolded" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"JAZZ_Handguard",
+			},
+			'DefaultComponent', "JAZZ_Handguard",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
+				"JAZZ_MagLarge_30_45",
+			},
+			'DefaultComponent', "JAZZ_MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_GP25",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', { 'SlotType', "Muzzle", 'AvailableComponents', { "JAZZ_DefMuzzle", "JAZZ_Compensator", "JAZZ_Suppressor" }, 'DefaultComponent', "JAZZ_DefMuzzle" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Bipod",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PSO",
+				"JAZZ_Reflex_Cobra",
+				"JAZZ_Reflex_PKAS",
+				"JAZZ_CombatScope_1P29",
+				"JAZZ_NightScope_NSPU",
+			},
+		}),
+	},
+	'HolsterSlot', "Shoulder",
+	'AvailableAttacks', { "BurstFire", "AutoFire", "SingleShot", "RunAndGun_Carbine", "JAZZ_TargetSweep" },
+	'ShootAP', 4000,
+	'ReloadAP', 6000,
+	'WeaponMass', 32,
+	'CyclicRPM', 600,
+	'WeaponSizeClass', "Carbine",
+	'BurstLimiter', 0,
+	'BurstShots', 3,
+	'Recoil', 17,
+	'AutoShots', 6,
+
+	'CloseRange', 6,
+
+	'CloseRangeFactor', 90,
+	'BulletDropRange', 14,
+	'Grouping', 55,
+	'BaseJamChance', -50,
+	'WeaponResource', 10000,
+}),
+PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Carbines",
 					'Id', "AKSU",
 					'comment', "Tier 2-3",
@@ -26006,6 +26189,110 @@ PlaceObj('ModItemEmail', {
 					'WeaponResource', 7600,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
+	'MaxStock', 1, 'Group', "JAZZ - Firearm - Rifles-AR", 'Id', "AK74M",
+	'comment', "Tier 3-1",
+	'object_class', "AssaultRifle",
+	'ScrapParts', 10,
+	'RepairCost', 10,
+	'Reliability', 95,
+	'Icon', "Mod/e6L4ECj/WeaponIcons/AK74M.png",
+	'DisplayName', T(761915303101, "АК-74М"),
+	'DisplayNamePlural', T(761915303102, "АК-74М"),
+	'Description', T(761915303103, "Автомат под патрон 5,45x39 мм с полимерным складным прикладом и общими магазинами семейства АК на 30 и 45 патронов."),
+	'LargeItem', 1,
+	'UnitStat', "Marksmanship",
+	'Valuable', 1,
+	'Cost', 16000,
+	'CanAppearInShop', true,
+	'Tier', 4,
+	'RestockWeight', 45,
+	'CategoryPair', "AssaultRifles",
+	'Caliber', "JAZZ_Caliber_545",
+	'Damage', 26,
+	'ObjDamageMod', 45,
+	'AimAccuracy', 12,
+	'CritChanceScaled', 20,
+	'MagazineSize', 30,
+	'WeaponRange', 50,
+	'OverwatchAngle', 1320,
+	'Noise', 49,
+	'HandSlot', "TwoHanded",
+	'Entity', "AKR_AK74M",
+	'fxClass', "AK74",
+	'ComponentSlots', {
+		PlaceObj('WeaponComponentSlot', { 'SlotType', "Stock", 'AvailableComponents', { "JAZZ_StockLightUnFolded", "JAZZ_StockLightFolded" }, 'DefaultComponent', "JAZZ_StockLightUnFolded" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"JAZZ_Handguard",
+			},
+			'DefaultComponent', "JAZZ_Handguard",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
+				"JAZZ_MagLarge_30_45",
+			},
+			'DefaultComponent', "JAZZ_MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_GP25",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', { 'SlotType', "Muzzle", 'AvailableComponents', { "JAZZ_DefMuzzle", "JAZZ_Compensator", "JAZZ_Suppressor" }, 'DefaultComponent', "JAZZ_DefMuzzle" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Bipod",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PSO",
+				"JAZZ_Reflex_Cobra",
+				"JAZZ_Reflex_PKAS",
+				"JAZZ_CombatScope_1P29",
+				"JAZZ_NightScope_NSPU",
+			},
+		}),
+	},
+	'HolsterSlot', "Shoulder",
+	'AvailableAttacks', {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"JAZZ_ManeuverAR",
+		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
+	},
+	'ShootAP', 5000,
+	'ReloadAP', 6000,
+	'WeaponMass', 36,
+	'CyclicRPM', 600,
+	'WeaponSizeClass', "Rifle",
+	'BurstLimiter', 0,
+	'BurstShots', 3,
+	'Recoil', 15,
+	'AutoShots', 6,
+
+	'CloseRange', 8,
+
+	'CloseRangeFactor', 85,
+	'BulletDropRange', 16,
+	'Grouping', 58,
+	'BaseJamChance', -50,
+	'WeaponResource', 10000,
+}),
+PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-AR",
 					'Id', "AK74",
 					'comment', "Tier 2-4",
@@ -26109,7 +26396,7 @@ PlaceObj('ModItemEmail', {
 					'ShootAP', 5000,
 					'ReloadAP', 6000,
 					'WeaponMass', 35,
-					'CyclicRPM', 650,
+					'CyclicRPM', 600,
 					'WeaponSizeClass', "Rifle",
 					'BurstLimiter', 0,
 					'BurstShots', 3,
@@ -28085,6 +28372,7 @@ PlaceObj('ModItemEmail', {
 			PlaceObj('ModItemFolder', {
 				'name', "JAZZ - Firearm - Rifles-Sniper",
 			}, {
+				
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Bolt",
 					'Id', "Mosin",
@@ -28112,16 +28400,19 @@ PlaceObj('ModItemEmail', {
 					'OverwatchAngle', 420,
 					'Noise', 59,
 					'HandSlot', "TwoHanded",
-					'Entity', "Mosin",
+					'Entity', "MOSIN_1891",
 					'ComponentSlots', {
-						PlaceObj('WeaponComponentSlot', {
-							'SlotType', "Scope",
-							'CanBeEmpty', true,
-							'AvailableComponents', {
-								"JAZZ_Scope_PU",
-							},
-						}),
-					},
+        PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Scope",
+            'CanBeEmpty', true,
+            'AvailableComponents', { "JAZZ_Scope_PU" },
+        }),
+        PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Barrel",
+            'AvailableComponents', { "JAZZ_Mosin1891", "JAZZ_MosinM38", "JAZZ_MosinObrez" },
+            'DefaultComponent', "JAZZ_Mosin1891",
+        }),
+    },
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -29022,6 +29313,68 @@ PlaceObj('ModItemEmail', {
 					'BaseJamChance', -30,
 					'WeaponResource', 7000,
 				}),
+				PlaceObj('ModItemInventoryItemCompositeDef', {
+	'MaxStock', 1,
+ 'Group', "JAZZ - Firearm - Rifles-Bolt", 'Id', "L42A1",
+	'comment', "Tier 2-1",
+	'object_class', "SniperRifle",
+	'ScrapParts', 14,
+	'RepairCost', 7,
+	'Reliability', 90,
+	'Icon', "Mod/e6L4ECj/WeaponIcons/L42A1.png",
+	'DisplayName', T(761915301101, "L42A1"),
+	'DisplayNamePlural', T(761915301102, "L42A1"),
+	'Description', T(761915301103, "Британская винтовка с ручным перезаряжанием под патрон 7,62x51 мм и собственным оптическим прицелом."),
+	'LargeItem', 1,
+	'UnitStat', "Marksmanship",
+	'Cost', 10000,
+	'CanAppearInShop', true,
+	'Tier', 2,
+	'RestockWeight', 35,
+	'CategoryPair', "Rifles",
+	'Caliber', "JAZZ_Caliber_762x51",
+	'Damage', 37,
+	'ObjDamageMod', 80,
+	'AimAccuracy', 14,
+	'CritChanceScaled', 50,
+	'MagazineSize', 10,
+	'WeaponRange', 72,
+	'OverwatchAngle', 420,
+	'Noise', 46,
+	'HandSlot', "TwoHanded",
+	'Entity', "L42A1",
+	'fxClass', "M24Sniper",
+	'ComponentSlots', {
+        PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Scope", 'Modifiable', false,
+            'AvailableComponents', { "JAZZ_L42A1_Scope" },
+            'DefaultComponent', "JAZZ_L42A1_Scope",
+        }),
+    },
+	'HolsterSlot', "Shoulder",
+	'AvailableAttacks', {
+		"SingleShot",
+		"JAZZ_JokerShot",
+		"JAZZ_Bullseye",
+	},
+	'ShootAP', 8000,
+	'ReloadAP', 6000,
+	'BurstShots', 0,
+	'WeaponMass', 44,
+	'CyclicRPM', 0,
+	'WeaponSizeClass', "Long",
+	'BurstLimiter', 0,
+	'Recoil', 22,
+	'AutoShots', 0,
+
+	'CloseRange', 16,
+
+	'CloseRangeFactor', 70,
+	'BulletDropRange', 18,
+	'Grouping', 43,
+	'BaseJamChance', -20,
+	'WeaponResource', 5500,
+}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Bolt",
 					'Id', "M24Sniper",
@@ -34354,6 +34707,19 @@ Parameters = {
 					comment = "Bipod Under — prone CTH+10 +1 shot",
 					Slot = "Under",
 					Visuals = {
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK74M",
+							Entity = "WeaponAttA_BipodAK47",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK105",
+							Entity = "WeaponAttA_BipodAK47",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "Galil",
 							Entity = "WeaponAttA_BipodGalil",
@@ -34404,6 +34770,9 @@ Parameters = {
 					DisplayName = T(316173123440, --[[ModItemWeaponComponent UnfoldStocks DisplayName]] "Разложенный приклад"),
 					Slot = "Stock",
 					Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_Stock", Slot = "Stock", param_bindings = false }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Stock", Slot = "Stock", param_bindings = false }),
+
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "AK74",
 							Entity = "AK74StockUnFld",
@@ -34522,6 +34891,44 @@ Parameters = {
 					group = "Default",
 					id = "JAZZ_UnfoldStocks",
 				}),
+				PlaceObj('ModItemWeaponComponent', { id = "JAZZ_Mosin1891", group = "Barrel", Slot = "Barrel", Cost = 100, Icon = "UI/Icons/Upgrades/default_barrel",
+ DisplayName = T(761915302104, "Винтовка образца 1891 года"), 
+ ModificationEffects = { "JAZZ_MosinMass", "JAZZ_MosinDamageDelta", "JAZZ_MosinCritDelta" },
+ Parameters = { PlaceObj('PresetParamNumber', { 'Name', "MosinMass", 'Value', 55, 'Tag', "<MosinMass>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MosinDamageDelta", 'Value', 0, 'Tag', "<MosinDamageDelta>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MosinCritDelta", 'Value', 0, 'Tag', "<MosinCritDelta>" }) }, Visuals = {},
+}),
+				PlaceObj('ModItemWeaponComponent', { id = "JAZZ_MosinM38", group = "Barrel", Slot = "Barrel", BlockSlots = { "Scope" }, Cost = 100, Icon = "UI/Icons/Upgrades/default_barrel",
+ DisplayName = T(761915302105, "Карабин М38"), 
+ ModificationEffects = { "JAZZ_MosinMass", "JAZZ_MosinDamageDelta", "JAZZ_MosinCritDelta", "IncreaseShotAP", "BarrelRangeReduce", "ReduceAimAccuracy15Percent", "BarrelGroupingReduce", "BarrelBulletDropReduce", "CloseRangeDecrease", "CloseRangeFactorIncrease", "BarrelRecoilIncrease" },
+ Parameters = { PlaceObj('PresetParamNumber', { 'Name', "MosinMass", 'Value', 34, 'Tag', "<MosinMass>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MosinDamageDelta", 'Value', -2, 'Tag', "<MosinDamageDelta>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MosinCritDelta", 'Value', 0, 'Tag', "<MosinCritDelta>" }),
+PlaceObj('PresetParamNumber', { 'Name', "ShotAP", 'Value', -1, 'Tag', "<ShotAP>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BarrelRangeReduce", 'Value', 14, 'Tag', "<BarrelRangeReduce>" }),
+PlaceObj('PresetParamNumber', { 'Name', "AimAccuracyPercent", 'Value', 85, 'Tag', "<AimAccuracyPercent>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BarrelGroupingReduce", 'Value', 95, 'Tag', "<BarrelGroupingReduce>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BulletDropReduce", 'Value', 85, 'Tag', "<BulletDropReduce>" }),
+PlaceObj('PresetParamNumber', { 'Name', "CloseRangeDecrease", 'Value', 4, 'Tag', "<CloseRangeDecrease>" }),
+PlaceObj('PresetParamNumber', { 'Name', "CloseRangeFactorIncrease", 'Value', 10, 'Tag', "<CloseRangeFactorIncrease>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BarrelRecoilIncrease", 'Value', 2, 'Tag', "<BarrelRecoilIncrease>" }) }, Visuals = {},
+}),
+				PlaceObj('ModItemWeaponComponent', { id = "JAZZ_MosinObrez", group = "Barrel", Slot = "Barrel", BlockSlots = { "Scope" }, Cost = 100, Icon = "UI/Icons/Upgrades/default_barrel",
+ DisplayName = T(761915302106, "Обрез"), Description = T(761915302107, "Укороченные ствол и ложа без полноценного приклада. Быстрее стреляет и удобнее навскидку вблизи, но значительно хуже прицельно и на дистанции."),
+ ModificationEffects = { "JAZZ_MosinMass", "JAZZ_MosinDamageDelta", "JAZZ_MosinCritDelta", "IncreaseShotAP", "BarrelRangeReduce", "ReduceAimAccuracy15Percent", "BarrelGroupingReduce", "BarrelBulletDropReduce", "CloseRangeDecrease", "CloseRangeFactorIncrease", "BarrelRecoilIncrease", "DecreaseMaxAimActions" },
+ Parameters = { PlaceObj('PresetParamNumber', { 'Name', "MosinMass", 'Value', 18, 'Tag', "<MosinMass>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MosinDamageDelta", 'Value', -8, 'Tag', "<MosinDamageDelta>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MosinCritDelta", 'Value', -15, 'Tag', "<MosinCritDelta>" }),
+PlaceObj('PresetParamNumber', { 'Name', "ShotAP", 'Value', -3, 'Tag', "<ShotAP>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BarrelRangeReduce", 'Value', 42, 'Tag', "<BarrelRangeReduce>" }),
+PlaceObj('PresetParamNumber', { 'Name', "AimAccuracyPercent", 'Value', 31, 'Tag', "<AimAccuracyPercent>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BarrelGroupingReduce", 'Value', 78, 'Tag', "<BarrelGroupingReduce>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BulletDropReduce", 'Value', 38, 'Tag', "<BulletDropReduce>" }),
+PlaceObj('PresetParamNumber', { 'Name', "CloseRangeDecrease", 'Value', 14, 'Tag', "<CloseRangeDecrease>" }),
+PlaceObj('PresetParamNumber', { 'Name', "CloseRangeFactorIncrease", 'Value', 25, 'Tag', "<CloseRangeFactorIncrease>" }),
+PlaceObj('PresetParamNumber', { 'Name', "BarrelRecoilIncrease", 'Value', 10, 'Tag', "<BarrelRecoilIncrease>" }),
+PlaceObj('PresetParamNumber', { 'Name', "MaxAimActionsDecrease", 'Value', 2, 'Tag', "<MaxAimActionsDecrease>" }) }, Visuals = {},
+}),
 				PlaceObj('ModItemWeaponComponent', {
 					DisplayName = T(467118505377, --[[ModItemWeaponComponent BarrelsDefs DisplayName]] "Заводской ствол"),
 					Slot = "Barrel",
@@ -34577,6 +34984,10 @@ Parameters = {
 					DisplayName = T(748633742130, --[[ModItemWeaponComponent DefMuzzle DisplayName]] "Заводской дульный тормоз"),
 					Slot = "Muzzle",
 					Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_Muzzle", Slot = "Muzzle", param_bindings = false }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Muzzle", Slot = "Muzzle", param_bindings = false }),
+
+			PlaceObj('WeaponComponentVisual', { ApplyTo = "SR3M", Entity = "SR3M_Muzzle", Slot = "Muzzle", param_bindings = false }),
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "AK74",
 							Entity = "AK74DefoultMuzzle",
@@ -34724,6 +35135,24 @@ Parameters = {
 			PlaceObj('ModItemFolder', {
 				'name', "ModEffects",
 			}, {
+				PlaceObj('ModItemWeaponComponentEffect', {
+ id = "JAZZ_MosinMass", group = "Stats", Description = T(761915302108, "Масса конфигурации"),
+ StatToModify = "WeaponMass", ModificationType = "Set",
+ Parameters = { PlaceObj('PresetParamNumber', { 'Name', "MosinMass", 'Value', 0, 'Tag', "<MosinMass>" }) },
+ RequiredParams = { "MosinMass" },
+}),
+				PlaceObj('ModItemWeaponComponentEffect', {
+ id = "JAZZ_MosinDamageDelta", group = "Stats", Description = T(761915302109, "Поправка урона конфигурации"),
+ StatToModify = "Damage", ModificationType = "Add",
+ Parameters = { PlaceObj('PresetParamNumber', { 'Name', "MosinDamageDelta", 'Value', 0, 'Tag', "<MosinDamageDelta>" }) },
+ RequiredParams = { "MosinDamageDelta" },
+}),
+				PlaceObj('ModItemWeaponComponentEffect', {
+ id = "JAZZ_MosinCritDelta", group = "Stats", Description = T(761915302110, "Поправка критического параметра конфигурации"),
+ StatToModify = "CritChanceScaled", ModificationType = "Add",
+ Parameters = { PlaceObj('PresetParamNumber', { 'Name', "MosinCritDelta", 'Value', 0, 'Tag', "<MosinCritDelta>" }) },
+ RequiredParams = { "MosinCritDelta" },
+}),
 				PlaceObj('ModItemWeaponComponentEffect', {
 					Description = T(634873665380, --[[ModItemWeaponComponentEffect IncreaseShotAP Description]] "Увеличивает цену атаки в ОД на <ShotAP>."),
 					Parameters = {
@@ -35365,6 +35794,19 @@ PlaceObj('ModItemWeaponComponentEffect', {
 					comment = "Bipod — prone CTH+10 +1 shot before recoil",
 					Slot = "Bipod",
 					Visuals = {
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK74M",
+							Entity = "WeaponAttA_BipodAK47",
+							Slot = "Bipod",
+							param_bindings = false,
+						}),
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK105",
+							Entity = "WeaponAttA_BipodAK47",
+							Slot = "Bipod",
+							param_bindings = false,
+						}),
+
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "AK47",
 							Entity = "WeaponAttA_BipodAK47",
@@ -37832,6 +38274,21 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							},
 						Slot = "Stock",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_StockAK74_01",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Stock/AK74_StockFold_v2.png",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_StockAK74_01",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Stock/AK74_StockFold_v2.png",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK47",
 								Entity = "WeaponAttA_MetalStockAK47",
@@ -37994,6 +38451,10 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							},
 						Slot = "Stock",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_StockFolded", Slot = "Stock", param_bindings = false }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_StockFolded", Slot = "Stock", param_bindings = false }),
+
+			PlaceObj('WeaponComponentVisual', { ApplyTo = "SR3M", Entity = "SR3M_StockFolded", Slot = "Stock", param_bindings = false }),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK47",
 								Entity = "WeaponAttA_MetalStockAK47",
@@ -38299,6 +38760,10 @@ PlaceObj('ModItemWeaponComponentEffect', {
 							},
 						Slot = "Stock",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_Stock", Slot = "Stock", param_bindings = false }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Stock", Slot = "Stock", param_bindings = false }),
+
+			PlaceObj('WeaponComponentVisual', { ApplyTo = "SR3M", Entity = "SR3M_Stock", Slot = "Stock", param_bindings = false }),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK47",
 								Entity = "WeaponAttA_MetalStockAK47",
@@ -38662,6 +39127,21 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						comment = "Stock Normal — full default stock, slightly above fold pair",
 						Slot = "Stock",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "AK74FullStock",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Stock/AK74_StockNormal.png",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "AK74FullStock",
+								Icon = "Mod/e6L4ECj/WeaponComponents/Stock/AK74_StockNormal.png",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK47",
 								Entity = "WeaponAttA_WoodenStockAK47",
@@ -39336,6 +39816,19 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						comment = "Side Flashlight — dark ignore + light FX (EnableAimFX)",
 						Slot = "Side",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_SideLight",
 								Slot = "Side",
@@ -39687,6 +40180,19 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						comment = "Side Tac Device — light + OW + mark + mild SK",
 						Slot = "Side",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_SideLaserLight",
 								Slot = "Side",
@@ -40078,6 +40584,19 @@ PlaceObj('ModItemWeaponComponentEffect', {
 						comment = "Side Laser — flat CTH with falloff after 5 tiles",
 						Slot = "Side",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_SideLaser",
 								Slot = "Side",
@@ -40495,6 +41014,19 @@ Parameters = {
 						comment = "Side UV — night laser CTH + stealth kill",
 						Slot = "Side",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_FrontMountAK47",
+								Slot = "Mountfront",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_SideLaser",
 								Slot = "Side",
@@ -40903,6 +41435,9 @@ Parameters = {
 							},
 						Slot = "Muzzle",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_Muzzle", Slot = "Muzzle", param_bindings = false }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Muzzle", Slot = "Muzzle", param_bindings = false }),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_Muzzle_01",
 								Slot = "Muzzle",
@@ -41367,6 +41902,21 @@ Parameters = {
 							},
 						Slot = "Muzzle",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_SuppressorWP",
+								Icon = "UI/Icons/Upgrades/AK_suppressor",
+								Slot = "Muzzle",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_SuppressorWP",
+								Icon = "UI/Icons/Upgrades/AK_suppressor",
+								Slot = "Muzzle",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_SilencerBeretta",
 								Slot = "Muzzle",
@@ -42243,6 +42793,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "Aimpoint5000",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Aimpoint5000.png",
@@ -42525,6 +43088,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterBox.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "PKM_Scope",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Reflex.png",
@@ -42812,6 +43388,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "PKAA",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PKAS.png",
@@ -42941,6 +43530,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "Ithaca_AimPoint",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/M68.png",
@@ -43236,6 +43838,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_CompactReflexSight",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ReflexOpen.png",
@@ -43532,6 +44147,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeGlock18",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ReflexOpen.png",
@@ -43711,6 +44339,19 @@ Parameters = {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterBox.png",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeReflex",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Eotech.png",
@@ -44366,6 +45007,19 @@ Parameters = {
 							comment = "Combat Universal T3 — 1P29 mid 4x, mild near ~12, OW 70%, AimAccuracy 155",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "tyulpan",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/1P29.png",
@@ -46258,6 +46912,83 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 							},
 							Cost = 40,
+ Description = T(761915301105, "Штатный оптический прицел винтовки L42A1."),
+							DisplayName = T(761915301104, "Оптический прицел L42A1"),
+							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/JAZZ_L42A1_Scope.png",
+					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Scope_PU.png",
+							ModificationDifficulty = -10,
+							ModificationEffects = {
+								"ScopeMagnification",
+								"IncreaseShotAP",
+								"CritBonusWhenFullyAimed",
+								"ScopeOverwatchAngleDecreaseBig",
+							},
+							Parameters = {
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeMagnification",
+									'Value', 3,
+									'Tag', "<ScopeMagnification>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeSubMagnification",
+									'Tag', "<ScopeSubMagnification>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeAimLevel",
+									'Value', 2,
+									'Tag', "<ScopeAimLevel>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "OpticMinRange",
+									'Value', 6,
+									'Tag', "<OpticMinRange>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "OpticNearFactor",
+									'Value', 85,
+									'Tag', "<OpticNearFactor>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ScopeOverwatchAngle",
+									'Value', 75,
+									'Tag', "<ScopeOverwatchAngle>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "ShotAP",
+									'Value', 1,
+									'Tag', "<ShotAP>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "AimAccuracyPercent",
+									'Value', 112,
+									'Tag', "<AimAccuracyPercent>",
+								}),
+								PlaceObj('PresetParamNumber', {
+									'Name', "AimAccuracyAimLevel",
+									'Value', 2,
+									'Tag', "<AimAccuracyAimLevel>",
+								}),
+							},
+							ReticleInner = "Mod/e6L4ECj/Icons/scope/PU_reticle.png",
+							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
+							comment = "L42A1 native visual; provisional low-power PU effect profile",
+							Slot = "Scope",
+							Visuals = { PlaceObj('WeaponComponentVisual', { ApplyTo = "L42A1", Entity = "L42A1_Scope", Slot = "Scope", param_bindings = false }) },
+							group = "Scope",
+							id = "JAZZ_L42A1_Scope",
+						}),
+						PlaceObj('ModItemWeaponComponent', {
+							AdditionalCosts = {
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 2,
+									'Type', "Parts",
+								}),
+								PlaceObj('WeaponComponentCost', {
+									'Amount', 1,
+									'Type', "Parts",
+								}),
+							},
+							Cost = 40,
 							DisplayName = T(237637252887, --[[ModItemWeaponComponent JAZZ_Scope_PU DisplayName]] "Оптический Прицел ПУ (3.5x)"),
 							Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PUScope.png",
 					ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Scope_PU.png",
@@ -46886,6 +47617,19 @@ PlaceObj('WeaponComponentVisual', {
 							comment = "Night Scope — NSPU 3x dark + near tax",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "NSPU",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NSPU.png",
@@ -46998,6 +47742,19 @@ PlaceObj('WeaponComponentVisual', {
 							comment = "Night Scope — 5x dark + near tax",
 							Slot = "Scope",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AKSeriaMount",
+									Slot = "General",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeThermal",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NVS.png",
@@ -47630,6 +48387,21 @@ PlaceObj('WeaponComponentVisual', {
 					},
 					Slot = "Under",
 					Visuals = {
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK74M",
+							Entity = "WeaponAttA_GrenadeLauncherAK47",
+							Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK105",
+							Entity = "WeaponAttA_GrenadeLauncherAK47",
+							Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "FAMAS",
 							Entity = "WeaponAttA_GrenadeLauncherSteyr",
@@ -47749,6 +48521,10 @@ PlaceObj('WeaponComponentVisual', {
 						Icon = "UI/Icons/Upgrades/default_grenadelauncher",
 						Slot = "Handguard",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_Handguard", Slot = "Handguard", param_bindings = false }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Handguard", Slot = "Handguard", param_bindings = false }),
+
+			PlaceObj('WeaponComponentVisual', { ApplyTo = "SR3M", Entity = "SR3M_Handguard", Slot = "Handguard", param_bindings = false }),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AKM",
 								Entity = "AKMHandguard",
@@ -47795,6 +48571,19 @@ PlaceObj('WeaponComponentVisual', {
 						ModificationDifficulty = 10,
 						Slot = "Handguard",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "AK74HandGuard",
+								Slot = "Handguard",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "AK74HandGuard",
+								Slot = "Handguard",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AKM",
 								Entity = "AKMHandguard",
@@ -47871,6 +48660,21 @@ PlaceObj('WeaponComponentVisual', {
 					},
 					Slot = "Under",
 					Visuals = {
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK74M",
+							Entity = "WeaponAttA_GrenadeLauncherAK47",
+							Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "AK105",
+							Entity = "WeaponAttA_GrenadeLauncherAK47",
+							Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "AK74",
 							Entity = "WeaponAttA_GrenadeLauncherAK47",
@@ -47999,6 +48803,10 @@ PlaceObj('WeaponComponentVisual', {
 						ModificationDifficulty = 0,
 						Slot = "Magazine",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK74M", Entity = "AKR_AK74M_Magazine", Slot = "Magazine", param_bindings = false, Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/AK74M_Native30.png" }),
+PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Magazine", Slot = "Magazine", param_bindings = false, Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/AK105_Native30.png" }),
+
+			PlaceObj('WeaponComponentVisual', { ApplyTo = "SR3M", Entity = "SR3M_Magazine", Slot = "Magazine", param_bindings = false }),
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "",
 								Slot = "Magazine",
@@ -48790,6 +49598,19 @@ PlaceObj('WeaponComponentVisual', {
 							},
 						Slot = "Magazine",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "AK74Mag",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "AK74Mag",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "",
 								Slot = "Magazine",
@@ -49422,6 +50243,21 @@ PlaceObj('WeaponComponentVisual', {
 							comment = "Mag Quick — ReloadAP-1",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "WeaponAttA_MagazineAK74_03",
+									Icon = "UI/Icons/Upgrades/quick_AK74_bakelite_magazine",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "WeaponAttA_MagazineAK74_03",
+									Icon = "UI/Icons/Upgrades/quick_AK74_bakelite_magazine",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -49980,6 +50816,19 @@ PlaceObj('WeaponComponentVisual', {
 							comment = "Mag Large — size-13 Reload+2 Rel-15 AA-15%",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -50286,6 +51135,19 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Large — size-25 Reload+2 Rel-15 AA-15%",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -50592,6 +51454,19 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Large — size-27 Reload+2 Rel-15 AA-15%",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -50898,6 +51773,19 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Large — size-28 Reload+2 Rel-15 AA-15%",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -51204,6 +52092,19 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Large — size-50 Reload+2 Rel-15 AA-15%",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -52665,6 +53566,21 @@ PlaceObj('ModItemWeaponComponent', {
 							Slot = "Magazine",
 							Visuals = {
 PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "WeaponAttA_MagazineAK74_03",
+									Icon = "UI/Icons/Upgrades/quick_AK74_bakelite_magazine",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "WeaponAttA_MagazineAK74_03",
+									Icon = "UI/Icons/Upgrades/quick_AK74_bakelite_magazine",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
+PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
 									param_bindings = false,
@@ -53311,6 +54227,19 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Large — size-8 Reload+2 Rel-15 AA-15%",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -53610,6 +54539,19 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Expanded — size-33 Reload+1",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "RPK74Mag",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_Magazine_01",
 									Slot = "Magazine",
@@ -54115,6 +55057,21 @@ PlaceObj('ModItemWeaponComponent', {
 							comment = "Mag Expanded — size-45 Reload+1",
 							Slot = "Magazine",
 							Visuals = {
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK74M",
+									Entity = "AK74_Backelite_45",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/AK74_Mag45_long.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK105",
+									Entity = "AK74_Backelite_45",
+									Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/AK74_Mag45_long.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKSU",
 									Entity = "AK74_Backelite_45",
@@ -54393,6 +55350,21 @@ PlaceObj('ModItemWeaponComponent', {
 							},
 						Slot = "Magazine",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_MagazineAK74_02",
+								Icon = "UI/Icons/Upgrades/expanded_AK74_bakelite_magazine",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_MagazineAK74_02",
+								Icon = "UI/Icons/Upgrades/expanded_AK74_bakelite_magazine",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_Magazine_01",
 								Slot = "Magazine",
@@ -54545,6 +55517,21 @@ PlaceObj('ModItemWeaponComponent', {
 							},
 						Slot = "Magazine",
 						Visuals = {
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK74M",
+								Entity = "WeaponAttA_MagazineAK74_01",
+								Icon = "UI/Icons/Upgrades/AK74_Bakelite_magazine",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "AK105",
+								Entity = "WeaponAttA_MagazineAK74_01",
+								Icon = "UI/Icons/Upgrades/AK74_Bakelite_magazine",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+
 							PlaceObj('WeaponComponentVisual', {
 								Entity = "WeaponAttA_Magazine_01",
 								Slot = "Magazine",
@@ -117824,4 +118811,5 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 		'name', "Weather",
 		'CodeFileName', "Code/Weather.lua",
 	}),
+PlaceObj('ModItemCode', { 'name', "Weapon_MosinModular", 'CodeFileName', "Code/Weapon_MosinModular.lua" }),
 }

@@ -2,6 +2,10 @@
   "JAZZ_Legion_AssaultT1_Roughneck": {
     "inventory": "Roughneck_Inventory",
     "firearm": "Roughneck_Firearm",
+    "variant_weight_overrides": {
+      "Mosin:obrez_t1": 10,
+      "Mosin:obrez_remnant": 1
+    },
     "class_tier": 1,
     "primary_tags": [
       "pistol",
@@ -118,7 +122,14 @@
       "unlock": 12,
       "chance": 55
     },
-    "melee": null,
+    "melee": {
+      "item": "Weapon_Knife",
+      "chance_by_arch": [
+        40,
+        55,
+        70
+      ]
+    },
     "armor": "Middle",
     "utility": {
       "he": {

@@ -1,5 +1,9 @@
 # Weapons and components
 
+AK74M, AK105, SR-3M and L42A1 enter the test roster through suitable Legion loadouts and Bobby Ray's catalog. One Ivan loadout also uses AK74M. Prices and combat stats remain provisional; Mosin variants keep their existing availability gates.
+
+The PU scope fits only the long sniper Mosin. Remove it before switching to the M38 or Obrez configuration.
+
 [Overview](home.md) · [Weapon classes](weapon-classes.md) · [Русский](../ru/weapons-and-ammo.md)
 
 ## Tier and sub-tier

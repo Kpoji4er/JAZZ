@@ -709,3 +709,32 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | _check_carlos_iggy.py / _check_iggy_insert.py | Verify Iggy/Carlos UnitData insert integrity. |
 | _find_grom_id.py / _probe_grom_loot.py | Locate Grom UnitData/loot wiring. |
 | _purge_restored_aim_vr_loc.py / _restore_vanilla_aim_vr_ids.py | AIM VR localization ID restore/purge helpers. |
+
+
+## Weapon import and rollout tools
+
+`_apply_weapon_rollout.py --build <build> [--apply]` — WEAPON-ROLLOUT-001: согласованные статы/цены, адресный CSV, Ivan10 и только новые AK74M/AK105/SR3M/L42A1 записи в существующих пулах Легиона. Dry-run по умолчанию; SHA-backup, защита от конкурентной записи, проверка Lua и идемпотентность. Полную перегенерацию Легиона не запускает.
+
+В том же rollout восстанавливается отдельно одобренная выдача ножа Crusher 40/55/70. `_audit_weapon_rollout.py --build <build>` сравнивает все прежние LootDef с резервной копией и проверяет сохранность старых записей пулов. `_runtime_weapon_rollout.py` — guarded DAP reload только items jazz/units и Lua, без перезагрузки карты/assets, без сохранения; останавливается при несохранённых editor edits, пишет AppData-report.
+
+`_check_mosin_configurations.py --build <Mosin build> --game-root <JA3_ROOT>` дополнительно проверяет запрет ПУ на М38/обрезе: реальные штатные UI checks, JAZZ setter и возврат доступности Scope на длинном стволе. Оптические модификаторы в этой изолированной проверке заменены нейтральным тестовым прицелом; настоящие AP/visual проверяет `_runtime_weapon_imports.lua`.
+
+Кираса Легиона (`JAZZ-APPEAR-001`): `_build_legion_armor.py` — Blender bake + FBX и нативная render-иконка; вход `--source <v2.blend> --output <build> --game-root <JA3_ROOT>`. FBX обрабатывается AssetsProcessor, staging ресурсов — `_prepare_rifle_assets.py` (prefix `JAZZ_ImprovisedCuirass`, entity `JAZZ_ImprovisedCuirass_Male`). `_install_legion_armor.py --build <build>` — одноразовая установка согласованных ModItem/metadata/companion и тестового юнита с backup при закрытой игре/редакторе. `_check_legion_armor.py` — read-only executable Lua lifecycle mocks, gear и узкий resource-graph audit; не заменяет игровой прогон. `_repair_legion_armor_record.py` — идемпотентное исправление первоначальной записи тестового юнита в property/value array (`StoreAsTable=false`) и `Group`; открытый редактор после этого должен перечитать мод с диска.
+
+СР-3М (`JAZZ-WEAPON-SR3M-001`): `_build_sr3m_assets.py` запускается через Blender `--background --factory-startup --python ... -- --source <SR_3M.blend> --output <build> --game-root <JA3_ROOT> --export`; сохраняет исходник, пересобирает модули, TGA, FBX и два preview. FBX обрабатывается установленным `ModTools/AssetsProcessor/AssetsProcessor.exe`.
+
+`_integrate_sr3m.py --export-root <ExportedEntities> --build <build> --game-root <JA3_ROOT>` устанавливает только SR3M entities, DDS/fallbacks, иконку, предмет и пять visual bindings; требует закрытого редактора, сохраняет backup core-файлов. `_localize_sr3m.py --game-csv <Game.csv> --build <build>` добавляет translation memory и вызывает канонический RU/EN экспорт во staging для review.
+
+`python docs/tools/_check_sr3m.py` — read-only Lua compile и сравнение ModItem/companion, проверка ресурсов, spots, DDS/fallbacks и переводов. Не заменяет проверку в JA3.
+
+- `_extract_vanilla_weapon_references.py --game-root <JA3> --hpk <hpk.exe> --output <reference>` — адресно извлекает Weapon_/WeaponAtt* из Meshes/Skeletons/BinAssets; пишет SHA-256 manifest. `--resume` продолжает собственную незавершённую выгрузку.
+
+- `_decode_weapon_reference_meshes.py --reference <reference> --reader <armor-hgm-reader.exe> [--cached]` — HGM LOD0 → JSON и OBJ в метрах, оси Blender (-Y,-X,Z); геометрия без переноса UV/материалов. Ошибки отдельных мешей перечислены в decode-report.json.
+
+- `_dump_weapon_reference_spots.py` — снимает ванильные точки АК74/АК47/АКС74У через временные объекты в live DAP без pause/initialize; пишет `AppData/jazz_vanilla_weapon_spots.tsv`.
+
+- `_build_ak_attachment_fit_scene.py --build <AK build> --reference <reference> --assets <assets repo>` — собирает две Blender-сцены из рабочих АК и реальных HGM ГП/сошек/ПК-А/45-зарядного магазина на установленных точках крепления. Требуются CustomGeometry/{PKAA,AKSeriaMount,AK74_Backelite_45}.json из того же HGM reader. Рендерит отдельно GP30, GP45, Bipod30 с обеих сторон; это offline fit, без записи активных игровых ресурсов.
+
+`python docs/tools/_apply_ak_visual_revision.py --build <AK build> --weapon AK74M` (или `AK105`) — применяет уже собранные ресурсы из `mod-assets-stage`, проверяет ссылки на meshes/materials/textures, запрещает незарегистрированные новые файлы и сохраняет изменяемые версии. `_export_ak_assets.py` и `_render_ak_icons.py` поддерживают `--weapon` для адресной пересборки. Загрузка сущностей не заменяет проверку посадки модулей в игре.
+
+`python docs/tools/_restore_legacy_ak_visuals.py --build <AK build>` — восстанавливает АК74/АКМ из `integration-backup/jazz`: Entity, дульные слоты, адресные визуалы компонентов и исходные иконки. Сохраняет остальные изменения и новые АК74М/АК105; создаёт резервные копии изменяемых файлов. Не перезагружает игру: перед сохранением редактора загрузить данные с диска. Проверки: `_validate_items_quick.py`, `_check_weapon_imports.py`. Возврат не означает завершённую проверку новых моделей.

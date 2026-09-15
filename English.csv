@@ -13048,3 +13048,27 @@ Speck",,JAZZ-UI-MERC-001
 761915400107,Принять $40 000,"Accept $40,000",,jazz-maps:items.lua:19311
 761915400108,Отказаться от $40 000,"Refuse $40,000",,jazz-maps:items.lua:19323 | jazz-maps:items.lua:19541
 761915400109,Принять $40 000 и попросить больше,"Accept $40,000 and request more",,jazz-maps:items.lua:19405 | jazz-maps:items.lua:19479
+761915300101,СР-3М,SR-3M,,jazz:InventoryItem/SR3M.lua:13 | jazz:items.lua:117827
+761915300102,СР-3М,SR-3M,,jazz:InventoryItem/SR3M.lua:14 | jazz:items.lua:117828
+761915300103,"Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя.","A compact 9x39 mm carbine with a folding stock and a 30-round magazine. This configuration uses the standard muzzle device, without a suppressor.",,jazz:InventoryItem/SR3M.lua:15 | jazz:items.lua:117829
+761915301101,L42A1,L42A1,,jazz:InventoryItem/L42A1.lua:13 | jazz:items.lua:29181
+761915301102,L42A1,L42A1,,jazz:InventoryItem/L42A1.lua:14 | jazz:items.lua:29182
+761915301103,"Британская винтовка с ручным перезаряжанием под патрон 7,62x51 мм и собственным оптическим прицелом.","A British bolt-action rifle chambered in 7.62x51 mm, fitted with its dedicated optical sight.",,jazz:InventoryItem/L42A1.lua:15 | jazz:items.lua:29183
+761915301104,Оптический прицел L42A1,L42A1 optical sight,,jazz:items.lua:46530
+761915301105,Штатный оптический прицел винтовки L42A1.,The dedicated optical sight for the L42A1 rifle.,,jazz:items.lua:46529
+761915302101,Винтовка Мосина — модульная,Mosin rifle — modular,,jazz:InventoryItem/JAZZ_MosinModular.lua:17 | jazz:items.lua:28185
+761915302102,Винтовки Мосина — модульные,Mosin rifles — modular,,jazz:InventoryItem/JAZZ_MosinModular.lua:18 | jazz:items.lua:28186
+761915302103,"Винтовка под патрон 7,62x54R. Слот ствола определяет конфигурацию: длинная винтовка, карабин М38 или обрез без полноценного приклада.","A 7.62x54R rifle. The barrel slot selects a full-length rifle, an M38 carbine, or an Obrez with a cut-down stock.",,jazz:InventoryItem/JAZZ_MosinModular.lua:19 | jazz:items.lua:28187
+761915302104,Винтовка образца 1891 года,Model 1891 rifle,,jazz:items.lua:34735
+761915302105,Карабин М38,M38 carbine,,jazz:items.lua:34742
+761915302106,Обрез,Obrez,,jazz:items.lua:34757
+761915302107,"Укороченные ствол и ложа без полноценного приклада. Быстрее стреляет и удобнее навскидку вблизи, но значительно хуже прицельно и на дистанции.","A shortened barrel and cut-down stock. Faster to fire and easier to point at close range, but much worse for aimed and distant shots.",,jazz:items.lua:34757
+761915302108,Масса конфигурации,Configuration weight,,jazz:items.lua:34976
+761915302109,Поправка урона конфигурации,Configuration damage adjustment,,jazz:items.lua:34982
+761915302110,Поправка критического параметра конфигурации,Configuration critical parameter adjustment,,jazz:items.lua:34988
+761915303101,АК-74М,AK-74M,,jazz:InventoryItem/AK74M.lua:13 | jazz:items.lua:26197
+761915303102,АК-74М,AK-74M,,jazz:InventoryItem/AK74M.lua:14 | jazz:items.lua:26198
+761915303103,"Автомат под патрон 5,45x39 мм с полимерным складным прикладом и общими магазинами семейства АК на 30 и 45 патронов.",A 5.45x39 mm rifle with a folding polymer stock and shared 30- and 45-round AK magazines.,,jazz:InventoryItem/AK74M.lua:15 | jazz:items.lua:26199
+761915303111,АК-105,AK-105,,jazz:InventoryItem/AK105.lua:13 | jazz:items.lua:24317
+761915303112,АК-105,AK-105,,jazz:InventoryItem/AK105.lua:14 | jazz:items.lua:24318
+761915303113,"Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов.",A compact 5.45x39 mm carbine using shared 30- and 45-round AK magazines.,,jazz:InventoryItem/AK105.lua:15 | jazz:items.lua:24319

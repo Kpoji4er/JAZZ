@@ -10013,3 +10013,23 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9786,761915400107,Принять $40 000,"Accept $40,000",manual-translation; K4 feedback
 9787,761915400108,Отказаться от $40 000,"Refuse $40,000",manual-translation; K4 feedback
 9788,761915400109,Принять $40 000 и попросить больше,"Accept $40,000 and request more",manual-translation; K4 feedback
+9760,761915300101,СР-3М,SR-3M,manual-translation; SR3M
+9761,761915300103,"Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя.","A compact 9x39 mm carbine with a folding stock and a 30-round magazine. This configuration uses the standard muzzle device, without a suppressor.",manual-translation; SR3M
+9762,761915301101,L42A1,L42A1,manual-translation; rifle
+9763,761915301103,"Британская винтовка с ручным перезаряжанием под патрон 7,62x51 мм и собственным оптическим прицелом.","A British bolt-action rifle chambered in 7.62x51 mm, fitted with its dedicated optical sight.",manual-translation; rifle
+9764,761915301104,Оптический прицел L42A1,L42A1 optical sight,manual-translation; rifle
+9765,761915301105,Штатный оптический прицел винтовки L42A1.,The dedicated optical sight for the L42A1 rifle.,manual-translation; rifle
+9766,761915302101,Винтовка Мосина — модульная,Mosin rifle — modular,manual-translation; rifle
+9767,761915302102,Винтовки Мосина — модульные,Mosin rifles — modular,manual-translation; rifle
+9768,761915302103,"Винтовка под патрон 7,62x54R. Слот ствола определяет конфигурацию: длинная винтовка, карабин М38 или обрез без полноценного приклада.","A 7.62x54R rifle. The barrel slot selects a full-length rifle, an M38 carbine, or an Obrez with a cut-down stock.",manual-translation; rifle
+9769,761915302104,Винтовка образца 1891 года,Model 1891 rifle,manual-translation; rifle
+9770,761915302105,Карабин М38,M38 carbine,manual-translation; rifle
+9771,761915302106,Обрез,Obrez,manual-translation; rifle
+9772,761915302107,"Укороченные ствол и ложа без полноценного приклада. Быстрее стреляет и удобнее навскидку вблизи, но значительно хуже прицельно и на дистанции.","A shortened barrel and cut-down stock. Faster to fire and easier to point at close range, but much worse for aimed and distant shots.",manual-translation; rifle
+9773,761915302108,Масса конфигурации,Configuration weight,manual-translation; rifle
+9774,761915302109,Поправка урона конфигурации,Configuration damage adjustment,manual-translation; rifle
+9775,761915302110,Поправка критического параметра конфигурации,Configuration critical parameter adjustment,manual-translation; rifle
+9776,761915303101,АК-74М,AK-74M,manual-translation; rifle
+9777,761915303103,"Автомат под патрон 5,45x39 мм с полимерным складным прикладом и общими магазинами семейства АК на 30 и 45 патронов.",A 5.45x39 mm rifle with a folding polymer stock and shared 30- and 45-round AK magazines.,manual-translation; rifle
+9778,761915303111,АК-105,AK-105,manual-translation; rifle
+9779,761915303113,"Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов.",A compact 5.45x39 mm carbine using shared 30- and 45-round AK magazines.,manual-translation; rifle

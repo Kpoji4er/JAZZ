@@ -1,0 +1,103 @@
+UndefineClass('AK105')
+DefineClass.AK105 = {
+	MaxStock = 1,
+	__parents = { "Carbine" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 3-1",
+	object_class = "Carbine",
+	ScrapParts = 10,
+	RepairCost = 10,
+	Reliability = 95,
+	Icon = "Mod/e6L4ECj/WeaponIcons/AK105.png",
+	DisplayName = T(761915303111, "АК-105"),
+	DisplayNamePlural = T(761915303112, "АК-105"),
+	Description = T(761915303113, "Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов."),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Valuable = 1,
+	Cost = 14500,
+	CanAppearInShop = true,
+	Tier = 4,
+	RestockWeight = 40,
+	CategoryPair = "SubmachineGuns",
+	Caliber = "JAZZ_Caliber_545",
+	Damage = 27,
+	ObjDamageMod = 45,
+	AimAccuracy = 11,
+	CritChanceScaled = 20,
+	MagazineSize = 30,
+	WeaponRange = 40,
+	OverwatchAngle = 1320,
+	Noise = 50,
+	HandSlot = "TwoHanded",
+	Entity = "AKR_AK105",
+	fxClass = "AK74",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', { 'SlotType', "Stock", 'AvailableComponents', { "JAZZ_StockLightUnFolded", "JAZZ_StockLightFolded" }, 'DefaultComponent', "JAZZ_StockLightUnFolded" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"JAZZ_Handguard",
+			},
+			'DefaultComponent', "JAZZ_Handguard",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
+				"JAZZ_MagLarge_30_45",
+			},
+			'DefaultComponent', "JAZZ_MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_GP25",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', { 'SlotType', "Muzzle", 'AvailableComponents', { "JAZZ_DefMuzzle", "JAZZ_Compensator", "JAZZ_Suppressor" }, 'DefaultComponent', "JAZZ_DefMuzzle" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Bipod",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Bipod",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PSO",
+				"JAZZ_Reflex_Cobra",
+				"JAZZ_Reflex_PKAS",
+				"JAZZ_CombatScope_1P29",
+				"JAZZ_NightScope_NSPU",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = { "BurstFire", "AutoFire", "SingleShot", "RunAndGun_Carbine", "JAZZ_TargetSweep" },
+	ShootAP = 4000,
+	ReloadAP = 6000,
+	WeaponMass = 32,
+	CyclicRPM = 600,
+	WeaponSizeClass = "Carbine",
+	BurstLimiter = 0,
+	BurstShots = 3,
+	Recoil = 17,
+	AutoShots = 6,
+
+	CloseRange = 6,
+
+	CloseRangeFactor = 90,
+	BulletDropRange = 14,
+	Grouping = 55,
+	BaseJamChance = -50,
+	WeaponResource = 10000,
+}
+

@@ -32,16 +32,19 @@ DefineClass.Mosin = {
 	OverwatchAngle = 420,
 	Noise = 59,
 	HandSlot = "TwoHanded",
-	Entity = "Mosin",
+	Entity = "MOSIN_1891",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Scope",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"JAZZ_Scope_PU",
-			},
-		}),
-	},
+        PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Scope",
+            'CanBeEmpty', true,
+            'AvailableComponents', { "JAZZ_Scope_PU" },
+        }),
+        PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Barrel",
+            'AvailableComponents', { "JAZZ_Mosin1891", "JAZZ_MosinM38", "JAZZ_MosinObrez" },
+            'DefaultComponent', "JAZZ_Mosin1891",
+        }),
+    },
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
