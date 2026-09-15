@@ -41,10 +41,14 @@ DefineClass.TraumaRibsMedium = {
 	DisplayName = T(890000000010114, "Rib Trauma (Medium)"),
 	Description = T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn."),
 	OnAdded = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	OnRemoved = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsMedium.png",

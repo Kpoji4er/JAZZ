@@ -45,10 +45,14 @@ DefineClass.TraumaRibsHeavy = {
 	DisplayName = T(890000000010116, "Rib Trauma (Heavy)"),
 	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused."),
 	OnAdded = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	OnRemoved = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsHeavy.png",

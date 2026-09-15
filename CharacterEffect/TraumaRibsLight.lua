@@ -15,10 +15,14 @@ DefineClass.TraumaRibsLight = {
 	DisplayName = T(890000000010112, "Rib Trauma (Light)"),
 	Description = T(890000000010113, "Pain at the start of the turn."),
 	OnAdded = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	OnRemoved = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsLight.png",

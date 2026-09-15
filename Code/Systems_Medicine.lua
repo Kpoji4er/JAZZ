@@ -2222,8 +2222,27 @@ function JazzClearWoundInfected(unit)
 	return true
 end
 
+-- MED-008: quest actors must not die off-screen from infected wounds.
+local function lJazzInfectionProtected(unit)
+	if not unit then return false end
+	local sid = unit.session_id
+	local ud = sid and gv_UnitData and gv_UnitData[sid]
+	local live = sid and g_Units and g_Units[sid]
+	local function immortal(obj) return obj and obj.immortal end
+	if immortal(unit) or immortal(ud) or immortal(live) then return true end
+	local function merc(obj) return obj and obj.IsMercenary end
+	local squad_id = (ud and ud.Squad) or unit.Squad
+	local squad = squad_id and gv_Squads and gv_Squads[squad_id]
+	local side = squad and squad.Side
+	if merc(unit) or merc(ud) or merc(live) or side == "player1" or side == "player2" then
+		return false
+	end
+	local function quest(obj) return obj and (obj.ImportantNPC or obj.villain) end
+	return not not (quest(unit) or quest(ud) or quest(live))
+end
+
 function JazzKillMercFromInfection(unit)
-	if not unit then
+	if not unit or lJazzInfectionProtected(unit) then
 		return false
 	end
 	local nick = unit.Nick or unit.Name or ""
@@ -2269,6 +2288,19 @@ function JazzWoundInfectedResolveProgressCheck(unit, effect)
 	if roll <= survive then
 		JazzClearWoundInfected(unit)
 		return "survive"
+	end
+	if lJazzInfectionProtected(unit) then
+		JazzInitWoundInfectedProgressTimer(effect)
+		local live, ud = lJazzWoundInfectedTargets(unit)
+		local function reset(obj)
+			local twin_effect = obj and obj.GetStatusEffect and obj:GetStatusEffect("WoundInfected")
+			if twin_effect and twin_effect ~= effect then
+				JazzInitWoundInfectedProgressTimer(twin_effect)
+			end
+		end
+		reset(live)
+		reset(ud)
+		return "protected"
 	end
 	JazzKillMercFromInfection(unit)
 	return "death"

@@ -21,6 +21,11 @@ write_set:
   - docs/tools/_tighten_villa_squads.py
   - docs/tools/_dump_villa_squads.py
   - docs/tools/README.md
+  - docs/tools/_check_villa_effect_dispatch.py
+  - docs/tools/_check_villa_conflict_order.py
+  - docs/wiki/grand-chien-map.md
+  - docs/showcase/ru/grand-chien-map.md
+  - docs/showcase/en/grand-chien-map.md
   - ../jazz-units/items.lua
   - ../jazz-units/metadata.lua
   - ../jazz-maps/items.lua
@@ -28,6 +33,15 @@ write_set:
   - ../jazz-maps/Code/System_VillaCounterAttack.lua
   - ../jazz-maps/Maps/gsSMikN/objects.lua
   - ../jazz-maps/docs/content/quests-locations-enemies.md
+  - docs/tools/_fix_k4_feedback.py
+  - docs/tools/_export_k4_localization.ps1
+  - docs/tools/_check_villa_waiting_recovery.py
+  - Localization/Strings.csv
+  - Localization/EnglishManual.csv
+  - Russian.csv
+  - English.csv
+  - docs/specs/active/JAZZ-FEEDBACK-001.md
+  - Code/SatelliteSquad.lua
 exclusive_resources:
   - jazz-units/items.lua
   - jazz-maps/items.lua
@@ -73,6 +87,9 @@ AdvanceTo к Emma, Wave2 по `CombatTurn`, опоздавшие колонны 
 - `JAZZ-QUESTS-003-REQ-006` — Wave2 ~25 markers gated by quest; TCE CombatTurn≥3 after SiegeCombat.
 - `JAZZ-QUESTS-003-REQ-007` — Late columns materialize on same TCE; cancel sat route.
 - `JAZZ-QUESTS-003-REQ-008` — FlagHill_Emma_1 guests interrupt → quest + lock ~2h + Start().
+- `JAZZ-QUESTS-003-REQ-009` — три ExecuteCode-вызова контратаки действительно исполняют текст (`SaveAsText=true`) и обращаются к функциям через environment пакета maps; глобальный CompileFunc не должен искать функции в чужом `_ENV`.
+
+- `JAZZ-QUESTS-003-REQ-010` — диалог Guests не создаёт конфликт до отправки колонн: создание/блокировка конфликта остаётся в Start после route. Дублирующий ранний SectorEnterConflict удалить. Восстановление уже застрявших сейвов и завершение PrepTimer требуют отдельной проверки.
 
 ## Инварианты и ограничения
 
@@ -94,6 +111,9 @@ AdvanceTo к Emma, Wave2 по `CombatTurn`, опоздавшие колонны 
 - `JAZZ-QUESTS-003-AC-009` — Wave2 на CombatTurn≥3 after Emma siege combat only. Runtime/human.
 - `JAZZ-QUESTS-003-AC-010` — Late sat dump on Wave2 TCE, no double spawn. Runtime/human.
 - `JAZZ-QUESTS-003-AC-011` — items validate OK. Static.
+- `JAZZ-QUESTS-003-AC-012` — из глобального окружения ExecuteCode вызывает Start, OnWave2 и PushAdvanceToEmma ровно по одному разу. Lua harness с установленным vanilla ExecuteCode; отдельно game/editor round-trip.
+
+- `JAZZ-QUESTS-003-AC-013` — harness с установленным EnterConflict и реальным порядком эффектов Guests: после route конфликт получает waiting=true и не останавливает время; воспроизведение прежнего порядка даёт waiting=false. Runtime отдельно.
 
 ## Impact и совместимость
 
@@ -115,6 +135,7 @@ AdvanceTo к Emma, Wave2 по `CombatTurn`, опоздавшие колонны 
 - Статус: approved (plan implement request 2026-08-10).
 - Кто подтвердил: project-owner.
 - Дата: 2026-08-10.
+- 2026-09-15: владелец поручил автономный разбор и исправление подтверждённых багов («начинай»). REQ-009 восстанавливает уже утверждённые REQ-002/005/006/008; состав волн, баланс и новые правила не меняются.
 
 ## Evidence
 
@@ -132,7 +153,61 @@ AdvanceTo к Emma, Wave2 по `CombatTurn`, опоздавшие колонны 
 
 ## Documentation delta
 
+- `JAZZ-QUESTS-003-AC-012`: `PASS` (Lua-harness) — `_check_villa_effect_dispatch.py`: три FAIL до исправления, три PASS после. `_validate_items_quick.py ../jazz-maps` и strict generated-sync PASS. `BLOCKED` (game/editor): JA3Debug останавливается при запуске с «Unable to start the game. Please restart». Полный сценарий и обработка PrepTimer остаются незакрытыми.
+
 - `docs/design/ernie-garrison-baseline.md`
 - `docs/technical/systems/maps-quests-content-catalog.md`
 - `jazz-maps/docs/content/quests-locations-enemies.md`
 - `docs/tools/README.md`
+
+- 2026-09-15: пользователь возобновил автономную обработку игрового фидбека; REQ-010 восстанавливает уже утверждённый маршрут подкреплений, без изменения баланса.
+
+- `JAZZ-QUESTS-003-AC-013`: `PASS` (Lua-harness) — прежний порядок воспроизведён как waiting=false/paused=true, после удаления раннего SectorEnterConflict новый порядок waiting=true/paused=false. `_check_villa_effect_dispatch.py` 3 PASS; `_validate_items_quick.py ../jazz-maps` PASS; strict generated-sync errors=0/warnings=0. Runtime и старые сейвы не проверены.
+
+
+## Дополнение по живому фидбеку K4, 2026-09-15
+
+Владелец подтвердил: коллизия реплик Emma/Corazon со статусами энергии, награда 2000 вместо желаемых 40000, конфликт без противника блокирует время. Автономное исправление разрешено; игру и редактор владелец закрыл перед ручной транзакцией.
+
+- `JAZZ-QUESTS-003-REQ-011` — развести шесть ID контратаки с COMBAT-007, новые ID 761915400101–761915400106. Старые ID статусов энергии сохраняются. Русский и английский экспортируются из одного снимка каталога.
+- `JAZZ-QUESTS-003-REQ-012` — Reward_Money и три выдачи Emma составляют 40000; пять rollover показывают актуальную сумму через три новых ID 761915400107–761915400109. Уже полученные деньги не выдавать повторно.
+- `JAZZ-QUESTS-003-REQ-013` — пустой оборонительный конфликт K4 до SiegeCombat явно waiting независимо от ванильного порога ожидания подкреплений; время доступно, выход из сектора остаётся запрещён. Другие активные конфликты и реальный бой не разблокировать.
+- `JAZZ-QUESTS-003-REQ-014` — LoadGame восстанавливает теги атакующих из сохранённых squads/custom IDs и запускает незапущенные маршруты. Start повторяем без дублирования Ernie. После начала SiegeCombat новые отряды не создавать.
+- `JAZZ-QUESTS-003-REQ-015` — подготовка длится до прихода реальной колонны. Это уточняет REQ-008 / AC-005: фиксированные 2h ранее не реализованы. Удалить неиспользуемую установку PrepTimer и обещание пары часов из реплики; скорость маршрутов не менять.
+
+- `JAZZ-QUESTS-003-AC-014` — isolated Lua: далеко идущие подкрепления, старый waiting=false, повторный Start, восстановление тегов после загрузки, реальные враги/другой конфликт/завершённый квест.
+- `JAZZ-QUESTS-003-AC-015` — static/generated: значения награды и строки RU/EN, отсутствие ID-коллизии квеста со статусами, valid items и generated sync.
+- `JAZZ-QUESTS-003-AC-016` — live/human: старое сохранение K4, корректные реплики, время идёт до прихода врага, контратака начинается.
+
+Evidence: AC-014/015/016 `BLOCKED` до проверок. Editor round-trip отдельно не выполнен. Ручная транзакция затрагивает ModItemConversation/ModItemQuestsDef в items.lua; отдельных companions этих классов нет, состав metadata неизменен. Exclusive resources дополнены диапазоном 761915400101–761915400109 и runtime CSV; один исполнитель.
+
+
+- `JAZZ-QUESTS-003-AC-014`: `PASS` — isolated Lua harness `_check_villa_waiting_recovery.py` using installed EnterConflict and actual module; not live evidence.
+- `JAZZ-QUESTS-003-AC-015`: `PASS` — canonical nine-row RU/EN export, `_validate_items_quick.py`, strict maps generated sync (0 errors/0 warnings), three dispatch cases. Full localization audit separately reports existing unrelated collisions/missing translations; no global clean bill.
+- `JAZZ-QUESTS-003-AC-016`: `BLOCKED` — live verification pending. Editor round-trip pending.
+
+
+## Уточнение владельца: без конфликта до прибытия
+
+2026-09-15: владелец требует убрать подготовительный конфликт, использовать штатный запрет движения до прибытия атаки и скриптово ускорить только колонну Эрни. Live-тест выполняет владелец; агент игру не запускает.
+
+- `JAZZ-QUESTS-003-REQ-016` — заменяет REQ-013 и прежний prep conflict: до врагов K4 не находится в конфликте. Только пустой старый искусственный конфликт InitialConflict/defend снимается без ResolveConflict (без наград/победы/побочных квестов). Реальный бой и чужие причины паузы сохраняются.
+- `JAZZ-QUESTS-003-REQ-017` — пока живые атакующие идут в K4, player squads в K4 удерживаются штатным SatelliteSquadWaitInSector. Ожидание обновляется по SatelliteTick до прибытия первой колонны; снимается при прибытии, отмене/завершении квеста или исчезновении всех маршрутов. Собственные ожидания и прежние значения сохраняются в GameVar gv_JAZZ_VillaDepartureWaits, чужие изменения ожидания не затираются.
+- `JAZZ-QUESTS-003-REQ-018` — время пути только JAZZ_Legion_VillaAttackers_Ernie к K4 при активной осаде делится на 5 перед округлением до минуты в существующем GetSectorTravelTime. Лидерство, прочие отряды, транспорт и общие константы не меняются; новых wraps нет.
+- `JAZZ-QUESTS-003-AC-017` — isolated Lua: нет prep conflict; старый пустой конфликт снимается без победы; ожидание дольше двух часов и release по прибытии/отмене; иные ожидания и конфликты сохраняются; путь Эрни ускорен x5, прочие пути неизменны.
+- `JAZZ-QUESTS-003-AC-018` — human: старое сохранение K4, время идёт без конфликта, выйти нельзя до прибытия врага; колонна Эрни подходит быстрее. Проверяет пользователь.
+
+AC-014/013 относятся к предыдущему варианту и не доказывают новую механику. AC-017 `BLOCKED` до harness, AC-018 `BLOCKED` до проверки владельцем. Write set дополнен Code/SatelliteSquad.lua; scope одобрен прямым запросом владельца.
+
+
+- `JAZZ-QUESTS-003-AC-017`: `PASS` — isolated Lua `_check_villa_waiting_recovery.py`: actual module + vanilla EnterConflict + core GetSectorTravelTime, отсутствие prep conflict, old-save cleanup, ожидание более 2h/отмена/чужое ожидание/реальные враги, x5 только Эрни.
+- `JAZZ-QUESTS-003-AC-018`: `BLOCKED` — ожидает human проверки владельцем; запуск игры агентом запрещён владельцем.
+
+
+## Уточнение блокировки прибытия, 2026-09-16
+
+Владелец подтвердил выход ровно в момент прибытия врага и разрешил исправление («поправь все»).
+- `JAZZ-QUESTS-003-REQ-019` — ожидание не снимается при появлении противника: пока квест активен, держать его при колоннах в пути, живых врагах в K4, конфликте K4 или бою K4. По окончании/отмене квеста либо исчезновении всех этих причин вернуть предыдущее ожидание. Явный Retreat сохраняет штатное поведение.
+- `JAZZ-QUESTS-003-AC-019` — offline: arrival до EnterConflict, после EnterConflict и CombatStart не создаёт окна выхода; завершение квеста и исчезновение угрозы освобождает ожидание. Ручная проверка владельца остаётся необходимой.
+
+2026-09-16: AC-019 PASS offline — hold до регистрации конфликта, после регистрации и при SiegeCombat; release по Completed и отмене угрозы. Ручная проверка перехода в боевой UI остаётся за владельцем.

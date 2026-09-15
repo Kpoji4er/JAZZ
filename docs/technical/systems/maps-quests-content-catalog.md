@@ -21,6 +21,14 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 
 ## Владелец и runtime-слои
 
+### Проверка контратаки K4 (2026-09-15)
+
+Три `ExecuteCode` в `FlagHill_Emma_1` / `Jazz_VillaCounterAttack` используют `SaveAsText=true` и вызывают функции через `Mods.FhNNYd.env`. Ранее был заполнен только `FuncCode`: vanilla `ExecuteCode:__exec` выбирал пустой `Code`, поэтому принудительное столкновение включалось без запуска колонн. Проверка `_check_villa_effect_dispatch.py` исполняет установленный vanilla dispatch/CompileFunc в Lua-harness: все три вызова PASS после исправления, FAIL до него. Отдельных companion-файлов у этих двух ModItem нет, они загружаются из `jazz-maps/items.lua`; список metadata не менялся.
+
+В Guests также удалён ранний SectorEnterConflict: Start сначала задаёт маршруты и затем создаёт конфликт с теми же lock/disable_travel. Иначе установленный EnterConflict фиксирует waiting=false до появления маршрутов и повторный вызов не пересчитывает ожидание. `_check_villa_conflict_order.py` воспроизводит прежний порядок как waiting=false/paused=true и проверяет исправленный порядок как waiting=true/paused=false при доступном подкреплении. Это harness, не игровой прогон: доступность маршрутов, PrepTimer и восстановление старого конфликта остаются непроверенными.
+
+Это частичное исправление JAZZ-QUESTS-003, **не подтверждение всей осады**: `PrepTimer` ещё не имеет обработчика, восстановление уже зависших сохранений не проверено. JA3Debug не запустился; editor round-trip, прибытие колонн и завершение боя остаются непроверенными. Asset contract не менялся.
+
 | Слой | Вклад |
 |---|---|
 | Установленная vanilla | Схема `ModItemSector` / `SatelliteSector`, `ModItemQuestsDef`, campaign `HotDiamonds`, базовые enemy squad IDs (`LegionAttackers_*`, `FortressPierre`, `LegionRaidSquad_01` и др., если не переопределены) |
@@ -105,7 +113,7 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 | J5 | Фермы Эрни | City ErnieVillage | `LegionDefenders_Shooters_Easy_Ernie` (~40) | — |
 | J7 | Изумрудный берег | Label Ernie; `EncounterHerman` / RescueHerMan; Herman groups `HermanShaking` + `Herman`; music Ernie_* | — | — |
 | K4 | Флаговый холм | Label Ernie; ForceConflict; `Jazz_VillaCounterAttack` after Emma Guests | — (no InitialSquads; Raiders map + sat siege) | — |
-| K5 | Походный лагерь Легиона | RescueTeam / RebelsSavior; после сдачи снабжения у палаток появляется `Merc_BarrySeal` | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
+| K5 | Походный лагерь Легиона | RescueTeam / RebelsSavior; после сдачи снабжения у палаток появляется `Merc_BarrySeal`; заложник `AdvanceTo` → `Rebels_Camp_LegionCamp5`; атмосфера как L5 (`Lightmodel` false, без `Jungle_Mist`) | `JAZZ_Legion_SentrySquad_AroundVilla`, `JAZZ_Legion_VillaAttackers_K5` | — |
 | K6 | Запасной лагерь контрабандистов | City ErnieVillage; `Jazz_DeadPigs`, четыре союзника Балумбы после принятия | — | — |
 | L1 | База партизан | City Rebels_Ernie; квест MeetTheRebels | `LegionErnie_Large_Outpost_B` (~40; E/H 30/70) | — |
 | L2 | Непроходимая местность | Rebels_Ernie | `LegionErnie_Medium_Forest_A` (~25; Extra Melee dropped) | — |
@@ -236,3 +244,9 @@ Vanilla quest badges/gates/journal на maps-профиле следуют та�
 2. обновить [maps-quests-dialogue.md](maps-quests-dialogue.md) при смене schema/counts;
 3. обновить wiki ernie-island-content.md и при необходимости strategy-and-world.md / content-and-limitations.md;
 4. прогнать профильные smoke из [testing.md](../testing.md).
+
+
+K4 / JAZZ-QUESTS-003: ожидание первой колонны теперь явно waiting при отсутствии врагов, независимо от порога EnemyWantsToWait. LoadGame восстанавливает теги из squads и повторно запускает только отсутствующие маршруты, не дублируя Ernie. Реальный бой и пауза других конфликтов сохраняются. Фиксированного двухчасового окна нет: подготовка до фактического прихода. Reward_Money Emma = 40000. Девять строк получили отдельные ID 761915400101–761915400109 и RU/EN экспорт. Lua harness и generated audit PASS; live пока не подтверждён.
+
+
+JAZZ-QUESTS-003, уточнение 2026-09-15: подготовительный conflict/waiting заменён штатным SatelliteSquadWaitInSector. Собственные и прежние ожидания хранятся в gv_JAZZ_VillaDepartureWaits, обновляются по SatelliteTick и снимаются по завершении/отмене квеста либо исчезновению всех угроз. При прибытии, конфликте и бое блокировка сохраняется (REQ-019), чтобы исключить окно выхода. Пустой старый InitialConflict с ForceConflict снимается без ResolveConflict и без события победы. Core GetSectorTravelTime делит длительности участков только колонны JAZZ_Legion_VillaAttackers_Ernie активной осады на 5 перед минутным округлением. Новых wraps нет. Реальный бой/другие конфликты сохраняются. Lua harness PASS, live выполняет владелец.

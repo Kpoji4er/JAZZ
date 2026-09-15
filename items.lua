@@ -65201,10 +65201,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(890000000010106, "Leg Trauma (Light)"),
 				'Description', T(890000000010107, "Pain when moving. No direct move-cost penalty."),
 				'OnAdded', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'OnRemoved', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsLight.png",
@@ -65253,10 +65257,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(890000000010108, "Leg Trauma (Medium)"),
 				'Description', T(890000000010109, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. No Free Move / sprint. +2 Pain when moving."),
 				'OnAdded', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'OnRemoved', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsMedium.png",
@@ -65309,10 +65317,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(890000000010110, "Leg Trauma (Heavy)"),
 				'Description', T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. +3 Pain when moving; +1 Pain/turn if unused."),
 				'OnAdded', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'OnRemoved', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsHeavy.png",
@@ -65335,10 +65347,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(890000000010112, "Rib Trauma (Light)"),
 				'Description', T(890000000010113, "Pain at the start of the turn."),
 				'OnAdded', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'OnRemoved', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsLight.png",
@@ -65387,10 +65403,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(890000000010114, "Rib Trauma (Medium)"),
 				'Description', T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn."),
 				'OnAdded', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'OnRemoved', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsMedium.png",
@@ -65443,10 +65463,14 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 				'DisplayName', T(890000000010116, "Rib Trauma (Heavy)"),
 				'Description', T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused."),
 				'OnAdded', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'OnRemoved', function (self, obj)
-					Msg("UnitAPChanged", obj)
+					if IsKindOf(obj, "Unit") then
+						Msg("UnitAPChanged", obj)
+					end
 				end,
 				'type', "Debuff",
 				'Icon', "Mod/e6L4ECj/Icons/StatusEffects/TraumaRibsHeavy.png",
@@ -84875,6 +84899,9 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 												'__condition', function (parent, context) return context.Repairable end,
 												'__class', "XText",
 												'Id', "idCondText",
+												'__context', function (parent, context)
+													return SubContext(context, { Condition = context:GetConditionPercent() })
+												end,
 												'Padding', box(0, 2, 2, 0),
 												'HAlign', "right",
 												'VAlign', "top",
@@ -90485,7 +90512,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							}),
 							}),
 						PlaceObj('XTemplateWindow', {
-							'Id', "idContainer",
+							'Id', "idPartyLayout",
 							'LayoutMethod', "VList",
 							'LayoutVSpacing', 3,
 							'UseClipBox', false,
@@ -90495,6 +90522,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'__condition', function (parent, context) return context and IsKindOf(GetDialog(parent), "XSatelliteDialog") end,
 							}, {
 								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
 									'ScaleModifier', point(800, 800),
 									'LayoutMethod', "VWrap",
 									'LayoutVSpacing', 3,
@@ -90794,6 +90822,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs") end,
 							}, {
 								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
 									'LayoutMethod', "VList",
 									'LayoutVSpacing', 3,
 									'UseClipBox', false,
@@ -91248,6 +91277,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 							}, {
 								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
 									'ScaleModifier', point(900, 900),
 									'LayoutMethod', "VWrap",
 									'LayoutVSpacing', 3,

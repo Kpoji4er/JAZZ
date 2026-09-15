@@ -1840,6 +1840,21 @@ function GetSectorTravelTime(from_sector_id, to_sector_id, route, units, pass_mo
 	end
 
 	-- Round to campaign time increments
+	-- QUESTS-003: the scripted Ernie relief column marches five times faster.
+	-- Use squad identity, not Leadership (the latter only affects player squads).
+	local villa_quest = gv_Quests and gv_Quests.Jazz_VillaCounterAttack
+	if side == "enemy1" and villa_quest and villa_quest.Given
+		and not villa_quest.Completed and not villa_quest.Failed then
+		local unit = units and units[1] and gv_UnitData[units[1]]
+		local squad = unit and unit.Squad and gv_Squads[unit.Squad]
+		local march = squad and squad.route
+		local last = march and march[#march]
+		if squad and squad.enemy_squad_def == "JAZZ_Legion_VillaAttackers_Ernie"
+			and (not last or last[#last] == "K4") and squad.CurrentSector ~= "K4" then
+			travel_time_1 = MulDivRound(travel_time_1, 1, 5)
+			travel_time_2 = MulDivRound(travel_time_2, 1, 5)
+		end
+	end
 	travel_time_1 = DivCeil(travel_time_1, const.Scale.min) * const.Scale.min
 	travel_time_2 = DivCeil(travel_time_2, const.Scale.min) * const.Scale.min
 	
