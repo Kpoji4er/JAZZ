@@ -67,6 +67,10 @@ local function lInstallEmplacementAmmoRemap()
 	rawset(_G, "g_JAZZ_EmplacementAmmoWrapped", true)
 
 	function MachineGunEmplacement:Update()
+		-- Vanilla recreates the weapon and resets the authored target to MinRange.
+		-- COMBAT-009 made M2 MinRange 14 tiles; keep the map's firing distance.
+		local preserve_dist = not self.updating and not IsEditorActive()
+		local prev_dist = self.target_dist
 		local mapped = JAZZ_EMPLACEMENT_AMMO_REMAP[self.ammo_template]
 		if mapped and InventoryItemDefs[mapped] then
 			self.ammo_template = mapped
@@ -81,16 +85,13 @@ local function lInstallEmplacementAmmoRemap()
 				end
 			end
 		end
-		local prev_dist = self.target_dist
 		local result = g_JAZZ_EmplacementAmmoUpdateBase(self)
-		if prev_dist then
+		if preserve_dist then
 			self.target_dist = prev_dist
-		end
-		local dist = Jazz_EmplacementConeDist(self)
-		if dist then
-			self.updating = true
-			self.target_dist = dist
-			self.updating = false
+			local dist = Jazz_EmplacementConeDist(self)
+			if dist then
+				self.target_dist = dist
+			end
 		end
 		return result
 	end

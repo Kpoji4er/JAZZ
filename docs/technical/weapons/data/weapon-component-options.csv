@@ -1160,6 +1160,9 @@ Mini14,4,Scope,true,true,,false,9,JAZZ_Scope_6x,Оптический Прице�
 Mini14,4,Scope,true,true,,false,10,JAZZ_Scope_Scout,Оптический Прицел Vortex Crossfire II Scout Scope (2-7x),jazz,false,InventoryItem/Mini14.lua,working-tree
 Mini14,5,Trigger,true,true,,false,1,JAZZ_Autofire,Автоматический огонь,jazz,false,InventoryItem/Mini14.lua,working-tree
 Mosin,1,Scope,true,true,,false,1,JAZZ_Scope_PU,Оптический Прицел ПУ (3.5x),jazz,false,InventoryItem/Mosin.lua,working-tree
+Mosin,2,Barrel,true,false,JAZZ_Mosin1891,true,1,JAZZ_Mosin1891,Винтовка образца 1891 года,jazz,true,InventoryItem/Mosin.lua,working-tree
+Mosin,2,Barrel,true,false,JAZZ_Mosin1891,true,2,JAZZ_MosinM38,Карабин М38,jazz,false,InventoryItem/Mosin.lua,working-tree
+Mosin,2,Barrel,true,false,JAZZ_Mosin1891,true,3,JAZZ_MosinObrez,Обрез,jazz,false,InventoryItem/Mosin.lua,working-tree
 MP40,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/MP40.lua,working-tree
 MP446VIKING,1,Barrel,false,false,JAZZ_BarrelsDefs,true,1,JAZZ_BarrelsDefs,Заводской ствол,jazz,true,InventoryItem/MP446VIKING.lua,working-tree
 MP446VIKING,2,Muzzle,true,false,,false,1,JAZZ_ImprovisedSuppressor,Масляной фильтр,jazz,false,InventoryItem/MP446VIKING.lua,working-tree
@@ -1758,3 +1761,41 @@ ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagNormal,Завод
 ZastavaM92,2,Magazine,true,false,JAZZ_MagNormal,true,4,JAZZ_MagQuick_AK,Quick Mag,jazz,false,InventoryItem/ZastavaM92.lua,working-tree
 ZastavaM92,3,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/ZastavaM92.lua,working-tree
 ZastavaM92,3,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/ZastavaM92.lua,working-tree
+AK74M,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightUnFolded,JAZZ_StockLightUnFolded,jazz,true,InventoryItem/AK74M.lua,working-tree
+AK74M,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightFolded,JAZZ_StockLightFolded,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,2,Handguard,false,false,JAZZ_Handguard,true,1,JAZZ_Handguard,JAZZ_Handguard,jazz,true,InventoryItem/AK74M.lua,working-tree
+AK74M,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,JAZZ_MagNormal,jazz,true,InventoryItem/AK74M.lua,working-tree
+AK74M,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagQuick_AK,JAZZ_MagQuick_AK,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagLarge_30_45,JAZZ_MagLarge_30_45,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,4,Under,true,true,,false,1,JAZZ_GP25,JAZZ_GP25,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,5,Muzzle,true,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,JAZZ_DefMuzzle,jazz,true,InventoryItem/AK74M.lua,working-tree
+AK74M,5,Muzzle,true,false,JAZZ_DefMuzzle,true,2,JAZZ_Compensator,JAZZ_Compensator,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,5,Muzzle,true,false,JAZZ_DefMuzzle,true,3,JAZZ_Suppressor,JAZZ_Suppressor,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,6,Bipod,true,true,,false,1,JAZZ_Bipod,JAZZ_Bipod,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,7,Scope,true,true,,false,1,JAZZ_Scope_PSO,JAZZ_Scope_PSO,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,7,Scope,true,true,,false,2,JAZZ_Reflex_Cobra,JAZZ_Reflex_Cobra,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,7,Scope,true,true,,false,3,JAZZ_Reflex_PKAS,JAZZ_Reflex_PKAS,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,7,Scope,true,true,,false,4,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK74M,7,Scope,true,true,,false,5,JAZZ_NightScope_NSPU,JAZZ_NightScope_NSPU,jazz,false,InventoryItem/AK74M.lua,working-tree
+AK105,1,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightUnFolded,JAZZ_StockLightUnFolded,jazz,true,InventoryItem/AK105.lua,working-tree
+AK105,1,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightFolded,JAZZ_StockLightFolded,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,2,Handguard,false,false,JAZZ_Handguard,true,1,JAZZ_Handguard,JAZZ_Handguard,jazz,true,InventoryItem/AK105.lua,working-tree
+AK105,3,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,JAZZ_MagNormal,jazz,true,InventoryItem/AK105.lua,working-tree
+AK105,3,Magazine,true,false,JAZZ_MagNormal,true,2,JAZZ_MagQuick_AK,JAZZ_MagQuick_AK,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,3,Magazine,true,false,JAZZ_MagNormal,true,3,JAZZ_MagLarge_30_45,JAZZ_MagLarge_30_45,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,4,Under,true,true,,false,1,JAZZ_GP25,JAZZ_GP25,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,5,Muzzle,true,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,JAZZ_DefMuzzle,jazz,true,InventoryItem/AK105.lua,working-tree
+AK105,5,Muzzle,true,false,JAZZ_DefMuzzle,true,2,JAZZ_Compensator,JAZZ_Compensator,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,5,Muzzle,true,false,JAZZ_DefMuzzle,true,3,JAZZ_Suppressor,JAZZ_Suppressor,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,6,Bipod,true,true,,false,1,JAZZ_Bipod,JAZZ_Bipod,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,7,Scope,true,true,,false,1,JAZZ_Scope_PSO,JAZZ_Scope_PSO,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,7,Scope,true,true,,false,2,JAZZ_Reflex_Cobra,JAZZ_Reflex_Cobra,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,7,Scope,true,true,,false,3,JAZZ_Reflex_PKAS,JAZZ_Reflex_PKAS,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,7,Scope,true,true,,false,4,JAZZ_CombatScope_1P29,JAZZ_CombatScope_1P29,jazz,false,InventoryItem/AK105.lua,working-tree
+AK105,7,Scope,true,true,,false,5,JAZZ_NightScope_NSPU,JAZZ_NightScope_NSPU,jazz,false,InventoryItem/AK105.lua,working-tree
+SR3M,1,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,JAZZ_MagNormal,jazz,true,InventoryItem/SR3M.lua,working-tree
+SR3M,2,Handguard,false,false,JAZZ_Handguard,true,1,JAZZ_Handguard,JAZZ_Handguard,jazz,true,InventoryItem/SR3M.lua,working-tree
+SR3M,3,Muzzle,false,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,JAZZ_DefMuzzle,jazz,true,InventoryItem/SR3M.lua,working-tree
+SR3M,4,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,JAZZ_StockLightFolded,jazz,false,InventoryItem/SR3M.lua,working-tree
+SR3M,4,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,JAZZ_StockLightUnFolded,jazz,true,InventoryItem/SR3M.lua,working-tree
+L42A1,1,Scope,false,false,JAZZ_L42A1_Scope,true,1,JAZZ_L42A1_Scope,JAZZ_L42A1_Scope,jazz,true,InventoryItem/L42A1.lua,working-tree

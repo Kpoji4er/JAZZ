@@ -2,7 +2,7 @@
 """Locate XTemplate idContainer sites in items.lua.
 
 Live SquadsAndMercs: Id must sit on satellite/inventory/tactical mode windows
-(HUDMerc parents), not on the outer VList wrap under idParty.
+(HUDMerc parents). Outer wrap is idPartyLayout, not a second idContainer.
 """
 from pathlib import Path
 import sys
@@ -30,6 +30,7 @@ for i, line in enumerate(lines, 1):
 
 # Contract for live HUD (id = "SquadsAndMercs", not *2 / *_copy).
 live_rows = []
+layout_rows = []
 xt_id = "?"
 for i, line in enumerate(lines, 1):
 	s = line.strip()
@@ -40,9 +41,13 @@ for i, line in enumerate(lines, 1):
 			if ks.startswith("id ="):
 				xt_id = ks
 				break
+	if xt_id == 'id = "SquadsAndMercs",' and "'Id', \"idPartyLayout\"" in line:
+		layout_rows.append((i, len(line) - len(line.lstrip("\t"))))
 	if xt_id == 'id = "SquadsAndMercs",' and "'Id', \"idContainer\"" in line:
 		live_rows.append((i, len(line) - len(line.lstrip("\t"))))
 errors = []
+if len(layout_rows) != 1:
+	errors.append(f"expected 1 idPartyLayout on live SquadsAndMercs, got {layout_rows}")
 if len(live_rows) != 3:
 	errors.append(f"expected 3 idContainer on live SquadsAndMercs, got {live_rows}")
 elif any(tabs != 9 for _, tabs in live_rows):
@@ -52,4 +57,4 @@ if errors:
 	for e in errors:
 		print(" -", e)
 	sys.exit(1)
-print("OK live SquadsAndMercs: 3 mode-window idContainer (tabs=9), no outer wrap Id")
+print("OK live SquadsAndMercs: idPartyLayout + 3 mode-window idContainer (tabs=9)")

@@ -49,6 +49,13 @@ end
 
 local function JazzInstallTreatWoundsEligibility()
 	local operations = rawget(_G, "SectorOperations")
+	local hospital = operations and operations.HospitalTreatment
+	if hospital then
+		-- MED-009: hospital patients also have trauma/HP debt without Wounded.
+		hospital.FilterAvailable = function(self, merc)
+			return JazzUnitNeedsTreatWounds(merc)
+		end
+	end
 	local operation = operations and operations.TreatWounds
 	if not operation then
 		return

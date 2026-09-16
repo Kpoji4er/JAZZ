@@ -76,7 +76,7 @@ Generated `RolloverInventoryWeaponBase` обновляет icon только п�
 
 Строки брони «Возможность установки плиты» / «Блокирует слот лица» — label-only: не `BindTo` boolean `CanHoldPlate` с `PercentValue` (иначе `RolloverPropTextRight:CreatePropValText` → `FormatNumberProp(true)` и `[LUA ERROR]` overlay). `Open` идёт через `XWindow.Open`, не `XPropControl.Open`.
 
-Live `SquadsAndMercs`: `idParty.idContainer` обязан быть окном, чьи дети — `HUDMerc` (satellite / inventory / tactical layout-обёртки). Внешняя VList-обёртка Id не несёт: иначе `ipairs(idParty.idContainer)` в `Inventory` OnContextUpdate обходит layout, а не портреты, и зовёт `SetSelected` на обычном `XWindow` (`[LUA ERROR]`, инвентарь не открывается). Дубликат Id на родителе+ребёнке даёт `[UI WARNING] Assigning window id 'idContainer'`. Неиспользуемые копии `SquadsAndMercs2` / `SquadsAndMercs_copy` в `items.lua` по-прежнему грузятся как отдельные XTemplate.
+Live `SquadsAndMercs`: внешняя VList — `idPartyLayout`; `idParty.idContainer` — mode-окно (satellite / inventory / tactical), чьи дети — `HUDMerc`. Если `idContainer` повесить на обёртку, `Inventory` OnContextUpdate обходит layout и зовёт `SetSelected` на обычном `XWindow` (`[LUA ERROR]`). Дубликат Id на родителе+ребёнке даёт `[UI WARNING] Assigning window id 'idContainer'`. Канон-проверка: `docs/tools/_check_inventory_portrait_container.py`. Неиспользуемые копии `SquadsAndMercs2` / `SquadsAndMercs_copy` в `items.lua` по-прежнему грузятся как отдельные XTemplate.
 
 ## Will bar
 

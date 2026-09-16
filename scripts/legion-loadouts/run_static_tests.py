@@ -488,13 +488,22 @@ def main() -> int:
     skirmisher_recipe = recipes["JAZZ_Legion_FlankerT2_Skirmisher"]
     skirmisher = block_for(text, skirmisher_recipe["firearm"])
     skirmisher_refs = re.findall(r'loot_def = "(JAZZ_GenW_[^"]+)"', skirmisher)
+    def rifle_package_or_m38(ref: str) -> bool:
+        if "_rifle_" in ref and "_flanker_" not in ref:
+            return True
+        # Approved Mosin configuration is issued as a battle rifle, like MAS-36.
+        # Validate the actual upgrade instead of requiring its ID to say rifle.
+        if ref.startswith("JAZZ_GenW_Mosin_m38_"):
+            combo = block_for(text, ref)
+            return 'weapon = "Mosin"' in combo and '"JAZZ_MosinM38"' in combo and '"JAZZ_MosinObrez"' not in combo
+        return False
     if skirmisher_recipe.get("primary_tags") != ["battle"]:
         fail("HOTFIX-003 Skirmisher recipe is not battle-only")
     elif not all(str(p).startswith("rifle_") for p in skirmisher_recipe.get("packages_by_arch") or []):
         fail("HOTFIX-003 Skirmisher packages are not rifle packages")
     elif skirmisher_recipe.get("ammo_cap") != "Match":
         fail("HOTFIX-003 Skirmisher ammo cap is not Match")
-    elif not skirmisher_refs or any("_rifle_" not in ref or "_flanker_" in ref for ref in skirmisher_refs):
+    elif not skirmisher_refs or not all(rifle_package_or_m38(ref) for ref in skirmisher_refs):
         fail("HOTFIX-003 Skirmisher generated firearm uses non-rifle package")
     elif not any(ref.endswith("_ammo_ap") for ref in skirmisher_refs):
         fail("HOTFIX-003 Skirmisher generated firearm lacks upgraded ammo combos")

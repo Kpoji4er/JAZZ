@@ -45,10 +45,14 @@ DefineClass.TraumaLegsHeavy = {
 	DisplayName = T(890000000010110, "Leg Trauma (Heavy)"),
 	Description = T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. +3 Pain when moving; +1 Pain/turn if unused."),
 	OnAdded = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	OnRemoved = function(self, obj)
-		Msg("UnitAPChanged", obj)
+		if IsKindOf(obj, "Unit") then
+			Msg("UnitAPChanged", obj)
+		end
 	end,
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaLegsHeavy.png",

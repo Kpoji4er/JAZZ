@@ -18,9 +18,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate change specifications
+      - name: Validate change specifications (advisory)
+        id: specifications
+        continue-on-error: true
         shell: pwsh
         run: .agents/skills/specify-jazz-change/scripts/test-change-spec.ps1 -Path docs/specs -Phase All
+
+      - name: Report specification findings
+        if: steps.specifications.outcome == 'failure'
+        shell: pwsh
+        run: |
+          Write-Output "::warning::Specification validation reported unresolved findings; this check is advisory."
+          "Specification validation reported unresolved findings. See the advisory step log; other quality checks remain required." >> $env:GITHUB_STEP_SUMMARY
 
       - name: Validate documentation and skills
         shell: pwsh

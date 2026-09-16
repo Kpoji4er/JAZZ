@@ -1,5 +1,7 @@
 # Grand Chien map
 
+On **K4 (Flag Hill)**, the skipped counterattack trigger after Emma's conversation has been fixed. The full siege sequence and saves with an already stuck conflict still need validation.
+
 [Overview](home.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/grand-chien-map.md)
 
 With the maps package, the campaign uses an **expanded** Grand Chien: grid **A–P** through column **32**, start sector **M1**. The vanilla A–L×20 layout is not used here.
@@ -43,3 +45,14 @@ Ernie sector list: [Ernie campaign](ernie-campaign.md).
 ## Without maps
 
 The **JAZZ Vanilla Maps** profile keeps vanilla HotDiamonds and the old IDs (H4, A20, …). This page is for the **maps** install only.
+
+The K4 counterattack now issues reinforcement routes before creating its locked conflict. The full siege and previously stuck saves still need in-game verification.
+
+
+Sector tooltips support region descriptions stored as plain text in older saves.
+
+
+K4: Emma offers $40,000. Defense preparations last until the first column arrives; campaign time advances while leaving the sector remains blocked.
+
+
+K4 preparations do not create a conflict. Squads cannot leave until the first attacking column arrives; the Ernie column travels five times faster.

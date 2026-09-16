@@ -98,7 +98,12 @@ def load_weapons(overrides: dict):
             if not sub_raw.isdigit():
                 continue  # skip UNIQ / non-ladder weapons from tiered pools
             tags = list(CLASS_TO_TAG.get(r["object_class"], []))
-            tags += overrides.get(r["id"], [])
+            override = overrides.get(r["id"], [])
+            if isinstance(override, dict):
+                tags = list(override.get("replace_tags", tags))
+                tags += override.get("add_tags", [])
+            else:
+                tags += override
             class_id = inventory_class_id(r["id"], r.get("source_file"))
             rows.append(
                 {
@@ -141,6 +146,11 @@ def resolve_package(weapon_id: str, package: dict, comps) -> list[str]:
                     break
             if picked:
                 break
+        # Mosin's dedicated PU is the available optic for rifle/sniper packages.
+        # Keep other guns' keyword selection and all progression gates unchanged.
+        if not picked and weapon_id == "Mosin" and slot == "Scope":
+            if "JAZZ_Scope_PU" in options and any(kw.startswith("scope_") for kw in keywords):
+                picked = "JAZZ_Scope_PU"
         if picked:
             upgrades.append(picked)
     return upgrades
@@ -484,6 +494,10 @@ def weapon_weight(w: dict, arch: int, recipe: dict | None = None) -> tuple[int, 
         floor = (recipe or {}).get("arch1_all_subs_from") if arch == 1 else None
         if floor is not None:
             amin = min(amin, int(floor))
+        # Preserve the old Legion rifle ladder: MAS-36 at 11, Mosin at 12.
+        # Dedicated sniper recipes retain the earlier PU-equipped Mosin exception.
+        if w["id"] == "Mosin" and arch == 1 and "sniper" not in tags_for_recipe(recipe or {}, arch):
+            amin = max(amin, 12)
         return amin, 100000 + w["balance_subtier"] * 1000
     if bt == arch - 1 and arch == 2:
         # ~1% remnant of tier1 on arch2 (tuned vs mid pool; evidence AC-004)
@@ -599,6 +613,10 @@ def collect_firearm_plan(
         pkg_name = (recipe.get("packages_by_arch") or ["m0", "m0", "m0"])[arch - 1]
         package = packages.get(pkg_name) or packages["m0"]
         upgrades = resolve_package(w["id"], package, comps) if package.get("keywords") else []
+        if w["id"] == "Mosin" and "sniper" in tags_for_recipe(recipe, arch):
+            upgrades = ["JAZZ_Mosin1891"] + upgrades
+            if "JAZZ_Scope_PU" not in upgrades:
+                upgrades.append("JAZZ_Scope_PU")
         ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
         cid = combo_id(w["id"], pkg_name, ammo)
         if cid not in combos:
@@ -677,6 +695,7 @@ def collect_firearm_plan(
             else:
                 upper = 10 * arch + 9
             weight = int(variant.get("weight") or (100000 + min(unlock % 10, 5) * 1000))
+            weight = int((recipe.get("variant_weight_overrides") or {}).get(f"{wid}:{pkg_name}", weight))
             entries_meta.append((cid, amin, upper, weight))
 
     return entries_meta, combos
@@ -1024,6 +1043,35 @@ def replace_or_warn(text: str, loot_id: str, new_block: str) -> tuple[str, bool]
         return text, False
     s, e = found
     return text[:s] + new_block + text[e:], True
+
+
+def upsert_shared_combos(text: str, combos: dict[str, str]) -> str:
+    """Merge combo loot defs into the generated marker block without wiping others."""
+    if MARKER_BEGIN not in text or MARKER_END not in text:
+        return inject_shared(text, emit_shared({}, combos))
+    for cid, block in combos.items():
+        found = find_moditem_block(text, cid)
+        if found:
+            s, e = found
+            text = text[:s] + block + text[e:]
+        else:
+            e = text.find(MARKER_END)
+            text = text[:e] + block + "\n" + text[e:]
+    return text
+
+
+
+def recipe_for_cqb(recipe: dict) -> dict:
+    cqb = recipe["cqb_secondary"]
+    syn = dict(recipe)
+    syn["primary_tags"] = list(cqb["primary_tags"])
+    syn["packages_by_arch"] = list(cqb.get("packages_by_arch") or ["cqb_m1", "cqb_m2", "cqb_m2"])
+    syn["firearm"] = cqb["firearm"]
+    syn.pop("arch3_extra_tags", None)
+    if cqb.get("arch3_extra_tags"):
+        syn["arch3_extra_tags"] = cqb["arch3_extra_tags"]
+    return syn
+
 
 
 def inject_shared(text: str, shared: str) -> str:

@@ -177,7 +177,11 @@ DefineClass.Region = {
     -- Инфо по региону
     hint[#hint+1] = T{2378508273054, "<em>Регион: <region></em>", region = self.DisplayName or "Неизвестно"}
     if self.Description and self.Description ~= "" then
-        hint[#hint+1] = T{227814808041, "<Description>", Description = self.Description} 
+        local description = self.Description
+        if type(description) == "string" then
+            description = Untranslated(description)
+        end
+        hint[#hint+1] = T{227814808041, "<Description>", Description = description}
     end
     hint[#hint+1] = T{2378508273055, "  Лояльность: <loyalty>%", loyalty = self.Loyalty or 0}
     hint[#hint+1] = T{2378508273056, "  Уровень тревоги: <heat>", heat = self:GetHeat()}

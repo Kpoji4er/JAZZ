@@ -1,5 +1,27 @@
 {
   "_comment": "JAZZ-UNITS-008: module configs that change niche and/or unlock earlier than CSV tier_label. tags = recipe allow-list (not CSV family). no_lower_gate = arch1 upper bound only (old LegionT1_Carbine M1). Auto-borrow of folded/light ARs into carbine is applied in generate.py.",
+  "Mosin": [
+    {
+      "id": "m38_t1", "unlock": 12, "tags": ["battle", "rifle"],
+      "upgrades": ["JAZZ_MosinM38"], "weight": 101000,
+      "comment": "M38, restored Legion T1-2 gate; iron sights."
+    },
+    {
+      "id": "obrez_t1", "unlock": 12, "tags": ["carbine", "smg"],
+      "upgrades": ["JAZZ_MosinObrez"], "weight": 100,
+      "comment": "Short bolt-action for early close-quarters slots, including Marauder."
+    },
+    {
+      "id": "m38_remnant", "unlock": 20, "tags": ["battle", "rifle"],
+      "upgrades": ["JAZZ_MosinM38"], "weight": 1400,
+      "comment": "T1 weapon remnant in the existing 20-29 band."
+    },
+    {
+      "id": "obrez_remnant", "unlock": 20, "tags": ["carbine", "smg"],
+      "upgrades": ["JAZZ_MosinObrez"], "weight": 10,
+      "comment": "T1 weapon remnant in the existing 20-29 band."
+    }
+  ],
   "M2Carbine": [
     {
       "id": "early_m1",

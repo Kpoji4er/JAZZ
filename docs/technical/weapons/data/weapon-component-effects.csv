@@ -44,3 +44,6 @@ SilentShots,SilentShots,Уменьшает звук выстрела до <Noise
 SmallMagnification,SmallMagnification,Прицел: доп. уровень зума: <SmallMagnification>.<SmallSubMagnification> кратности  (от <SmallAimLevel> уровня прицеливания и выше),SmallMagnification=1,jazz,working-tree
 ThreadedForSuppressor,ThreadedForSuppressor,Ствол: резьба под глушитель — открывает слот дула.,,jazz,working-tree
 TwoHanded,TwoHanded,Нельзя стрелять с одной руки,,jazz,working-tree
+JAZZ_MosinMass,JAZZ_MosinMass,Масса конфигурации,MosinMass=0,jazz,working-tree
+JAZZ_MosinDamageDelta,JAZZ_MosinDamageDelta,Поправка урона конфигурации,MosinDamageDelta=0,jazz,working-tree
+JAZZ_MosinCritDelta,JAZZ_MosinCritDelta,Поправка критического параметра конфигурации,MosinCritDelta=0,jazz,working-tree
