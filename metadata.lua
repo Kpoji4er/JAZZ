@@ -67,7 +67,7 @@ return PlaceObj('ModDef', {
 	'id', "e6L4ECj",
 	'author', "Kpoji4er",
 	'version_minor', 20,
-	'version', 6219,
+	'version', 6220,
 	'lua_revision', 233360,
 	'saved_with_revision', 366685,
 	'code', {
@@ -1138,6 +1138,7 @@ return PlaceObj('ModDef', {
 		"Code/System_Vest.lua",
 		"Code/AmmoRolloverHint.lua",
 		"Code/System_UnitAppearance.lua",
+		"Code/System_LegionArmorVisuals.lua",
 		"Code/Inventory.lua",
 		"Code/GetScrapParts.lua",
 		"InventoryItem/Vest_test.lua",
