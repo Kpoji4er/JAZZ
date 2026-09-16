@@ -90485,7 +90485,6 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							}),
 							}),
 						PlaceObj('XTemplateWindow', {
-							'Id', "idContainer",
 							'LayoutMethod', "VList",
 							'LayoutVSpacing', 3,
 							'UseClipBox', false,
@@ -90495,6 +90494,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'__condition', function (parent, context) return context and IsKindOf(GetDialog(parent), "XSatelliteDialog") end,
 							}, {
 								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
 									'ScaleModifier', point(800, 800),
 									'LayoutMethod', "VWrap",
 									'LayoutVSpacing', 3,
@@ -90794,6 +90794,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'__condition', function (parent, context) return GetDialog(GetDialog(parent).parent) == GetDialog("FullscreenGameDialogs") end,
 							}, {
 								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
 									'LayoutMethod', "VList",
 									'LayoutVSpacing', 3,
 									'UseClipBox', false,
@@ -91248,6 +91249,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 								'__condition', function (parent, context) return IsKindOf(GetDialog(parent), "IModeCommonUnitControl") or IsKindOf(GetDialog(parent), "IModeDeployment") end,
 							}, {
 								PlaceObj('XTemplateWindow', {
+									'Id', "idContainer",
 									'ScaleModifier', point(900, 900),
 									'LayoutMethod', "VWrap",
 									'LayoutVSpacing', 3,

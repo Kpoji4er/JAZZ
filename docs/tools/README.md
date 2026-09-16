@@ -10,7 +10,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_check_lua_wrap_cycles.py` | Два wrap на один `Class:Method` / глобал в suite `Code/` → FAIL (cycle / stack overflow). Allowlist только install-once цепочек. `python docs/tools/_check_lua_wrap_cycles.py`. Правило: `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`. |
 | `_audit_ja3_log_errors.py` | Сводка `[LUA ERROR]` / `[UI WARNING]` / missing assets из последнего `logs/JA3.exe-*.log`. `python docs/tools/_audit_ja3_log_errors.py [path]`. |
 | `_audit_xtemplate_idcontainer.py` | Все `'Id', "idContainer"` в `items.lua` с XTemplate id (поиск nested collision). |
-| `_fix_xtemplate_idcontainer_and_canholdplate.py` | Снимает nested `idContainer` у live `SquadsAndMercs`; boolean `CanHoldPlate`/`BlockFaceSlot` больше не BindTo PercentValue. |
+| `_fix_xtemplate_idcontainer_and_canholdplate.py` | Boolean `CanHoldPlate`/`BlockFaceSlot` больше не BindTo PercentValue. **Не** снимает `idContainer` с mode-окон live `SquadsAndMercs` (это ломает инвентарь). |
 | `_check_inv005_meds_salvage.py` | INV-005: `Jazz_FieldMedicineSalvageMeds` даёт 1 Meds с бинта/морфина; аптечки не в таблице; wrap + UI patch на месте. |
 | `_test_combat_009_ow_cone.py` | COMBAT-009 AC-001: якоря угла OW (Glock/MP5/AK/M1897/Mosin/ПКМ квадрат на d_min, MinRange 50% BDR). `python docs/tools/_test_combat_009_ow_cone.py`. |
 | `_gen_vanilla_beast_ai.py` | Вырезает ванильный `CombatAI.lua` в `Code/System_AI_VanillaBeasts.lua` (`JazzAI_Vanilla*`). Вход: JA3 `ModTools/Src/Lua/Tactical/CombatAI.lua`. Перезапускать после смены диапазонов в скрипте. |

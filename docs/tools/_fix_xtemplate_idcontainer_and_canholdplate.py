@@ -1,36 +1,21 @@
 #!/usr/bin/env python3
-"""Fix SquadsAndMercs nested idContainer and boolean armor rollover binds in items.lua."""
+"""Armor rollover BindTo/PercentValue strip; do NOT strip live SquadsAndMercs inner idContainer.
+
+4063af91 removed nested `'Id', "idContainer"` from satellite/inventory/tactical
+layout windows. Those windows are the ones `Inventory` iterates as
+`idParty.idContainer` (HUDMerc children). Stripping the inner Id left the
+outer VList wrapper as idContainer, so Open Inventory called SetSelected on
+a layout XWindow. Correct layout: Id on the three mode windows, not the outer wrap.
+"""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 path = ROOT / "items.lua"
 text = path.read_text(encoding="utf-8")
 orig = text
-lines = text.splitlines(keepends=True)
 
-xt_id = None
-out = []
-removed = 0
-i = 0
-while i < len(lines):
-	line = lines[i]
-	s = line.strip()
-	if s.startswith("PlaceObj('ModItemXTemplate'"):
-		xt_id = None
-	if xt_id is None and s.startswith("id =") and '"SquadsAndMercs' in s:
-		xt_id = s.split('"')[1]
-	if (
-		xt_id == "SquadsAndMercs"
-		and "'Id', \"idContainer\"" in line
-		and (len(line) - len(line.lstrip("\t"))) >= 9
-	):
-		removed += 1
-		i += 1
-		continue
-	out.append(line)
-	i += 1
-
-text = "".join(out)
+# idContainer: live SquadsAndMercs must keep Id on mode windows.
+# Re-running the 4063af91 strip would break inventory again — skip it.
 
 old_plate = """						PlaceObj('XTemplateTemplate', {
 							'comment', "Canholdplate",
@@ -151,8 +136,8 @@ if old_face not in text:
 text = text.replace(old_plate, new_plate, 1)
 text = text.replace(old_face, new_face, 1)
 
-if text == orig and removed == 0:
+if text == orig:
 	raise SystemExit("no changes")
 path.write_bytes(text.encode("utf-8"))
-print(f"removed nested idContainer Ids: {removed}")
 print("patched CanHoldPlate/BlockFaceSlot rollover binds")
+print("skipped idContainer strip (inner mode windows must keep Id)")
