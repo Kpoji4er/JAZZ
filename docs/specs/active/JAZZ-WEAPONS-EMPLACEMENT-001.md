@@ -11,14 +11,25 @@ generated_data: false
 runtime_validation: required
 write_set:
   - Code/System_EmplacementAmmo.lua
+  - Code/System_OR_Weapons.lua
+  - Code/IModeCombatAreaAim.lua
+  - Code/CombatAI.lua
   - docs/tools/_check_emplacement_target_distance.py
+  - docs/tools/_audit_emplacement_cone_range.py
   - docs/tools/README.md
   - docs/specs/active/JAZZ-WEAPONS-EMPLACEMENT-001.md
   - docs/technical/systems/weapons-ammo-components.md
+  - docs/technical/systems/combat-cth-actions.md
   - docs/technical/systems/file-coverage.md
-  - docs/wiki/weapons-and-ammo.md
-  - docs/showcase/ru/weapons-and-ammo.md
-  - docs/showcase/en/weapons-and-ammo.md
+  - docs/technical/override-matrix.md
+  - docs/technical/weapons/combat-actions.md
+  - docs/technical/weapons/accuracy-model.md
+  - docs/wiki/combat-actions.md
+  - docs/wiki/combat-and-accuracy.md
+  - docs/showcase/ru/combat-actions.md
+  - docs/showcase/en/combat-actions.md
+  - docs/showcase/ru/combat-and-accuracy.md
+  - docs/showcase/en/combat-and-accuracy.md
 exclusive_resources:
   - none
 related_decisions:
@@ -26,40 +37,44 @@ related_decisions:
 approved_by: project-owner
 ---
 
-# JAZZ-WEAPONS-EMPLACEMENT-001: сохранять дистанцию станкового пулемёта
+# JAZZ-WEAPONS-EMPLACEMENT-001: станковый сектор = MaxRange ствола × 45°
 
 ## Проблема
 
-На M1 карта EPA7FVN задаёт MachineGunEmplacement handle 1557665098 target_dist=91200. Vanilla Update при создании оружия заменяет target_dist на MinRange. После COMBAT-009 MinRange Browning стал 14 клеток вместо прежнего WeaponRange, из-за чего начальный сектор огня стал коротким.
+После COMBAT-009 `MinRange` пулемёта — 50% BDR. Vanilla `MachineGunEmplacement:Update` пишет `target_dist = MinRange`, а `OverwatchAction` / `GetMaxAimRange` дополнительно режут сектор зрением. На картах с коротким authored `target_dist` все станки остаются короткими. Когда длину подняли до MaxRange, COMBAT-009 сжал угол до классовой полоски (~2° у Browning на 95 клетках). Нужна длинная дальность **и** фиксированная ширина 45°.
 
 ## Цели
 
-- Сохранять заданную на карте дистанцию автоматического MGTarget при runtime Update.
+- У каждого `MachineGunEmplacement` runtime-длина сектора = `WeaponRange` / `GetOverwatchConeParam("MaxRange")` ствола.
+- Угол сектора станка = **45°** (`45 * 60` engine minutes), не COMBAT-009 `1/d` и не `OverwatchAngle` карточки.
+- Переносной Overwatch / MGSetup / MGRotate с рук не менять.
 
 ## Non-goals
 
-- Изменение характеристик Browning, формулы CTH, минимальной дальности ручного прицеливания или Map Editor.
+- Правка `WeaponRange` / `BulletDropRange` / `OverwatchAngle` предметов, формулы CTH, Map Editor preview, геометрия карт.
 
 ## Требования
 
-- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-001` — существующий wrapper Update после vanilla вызова восстанавливает исходный target_dist, ограниченный текущими MinRange/MaxRange оружия. Только вне редактора и вне вложенного updating.
-- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-002` — сохранить ammo remap, один wrapper, штатное поведение при отсутствии оружия/дистанции.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-001` — superseded REQ-004: map `target_dist` больше не задаёт длину боевого сектора.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-002` — сохранить ammo remap, один wrapper Update / EndInteraction, штатное поведение при отсутствии оружия.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-004` — runtime `Jazz_EmplacementConeDist` всегда возвращает MaxRange ствола (не map slider, не MinRange, не sight). Update (вне editor / вложенного updating), EndInteraction и Idle reseat ставят этот dist. `Overwatch.GetMaxAimRange` без зрения только если `emplacement_weapon` или `ManningEmplacement`; иначе ванильный Min(range, sight).
+- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-005` — `Jazz_EmplacementConeAngle` = 45°. `JazzOwApplyPlacedCone`, `Firearm:GetAreaAttackParams` (Overwatch/MGSetup/MGRotate при `emplacement_weapon`), aim preview (`IModeCombatAreaAim`) и AI-зона (`CombatAI`) для станка берут этот угол, не `GetOverwatchConeAngle(d)`.
 
 ## Инварианты и ограничения
 
-- Без новых файлов загрузки и изменений карт. При интеграции 4063af91 сохранены его helper и флаги единственного EndInteraction wrapper. Не менять editor preview и исходные предметы. target_dist не является полем DynamicData; новая загрузка карты получает authored значение.
+- Без правок карт и предметов. Editor preview по-прежнему ванильный MinRange. Portable Overwatch остаётся с COMBAT-009 + sight в `GetMaxAimRange`. Один wrap `GetMaxAimRange` (install-once, base только ваниль). `GetOverwatchConeAngle` глобально не менять.
 
 ## Acceptance criteria
 
-- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-001` — Lua-harness с vanilla Update и существующим wrapper: 91200 сохраняется, слишком малая/большая дистанция ограничивается, ammo remap работает; повторный Update не сокращает сектор.
-- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-002` — в игре на M1 занятие станка даёт authored сектор, ручной поворот работает; save/load сохраняет работоспособность.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-001` — Lua-harness: любой authored `target_dist` после Update становится MaxRange ствола (95×slab); ammo remap; повторный Update не укорачивает; editor/reentry не трогаем; `Jazz_EmplacementConeAngle() == 2700`.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-002` — в игре занятие любого станка даёт длинный сектор по дальности ствола и ширину **45°** (не 155° у упора и не 2° на пределе); save/load; переносной MGSetup/Overwatch как раньше.
 
 ## Impact и совместимость
 
-- Vanilla MachineGunEmplacement.Update остаётся основой. JAZZ меняет runtime сохранение target_dist в уже имеющемся wrapper.
-- Saves: без миграции; уже выставленный g_Overwatch не переписывается автоматически, повторное занятие станка/загрузка сектора получает корректную дистанцию.
-- Network/determinism: чистый Clamp без RNG. Generated data: нет. Cross-package: чтение authored M1, без правок maps.
-- Rollback: удалить сохранение target_dist из wrapper.
+- Vanilla `MachineGunEmplacement.Update` остаётся основой. Runtime `target_dist` после Update = MaxRange ствола; `g_Overwatch.cone_angle` на станке = 45°.
+- Saves: без миграции; уже поставленный `g_Overwatch` обновляется при reseat / повторном занятии.
+- Network/determinism: без RNG. Generated data: нет. Карты не меняем.
+- Rollback: вернуть helper к clamp map dist; снять wrap `GetMaxAimRange`; убрать фиксацию 45°.
 
 ## План и ownership
 
@@ -67,22 +82,17 @@ approved_by: project-owner
 
 ## Решение владельца
 
-- approved: project-owner, 2026-09-15, автономное исправление подтверждённых багов («начинай»). Сохраняется авторская дистанция, баланс не пересматривается.
+- approved: project-owner, 2026-09-16: проблема во **всех** стационарных пулемётах; дальность должна быть существенной (MaxRange ствола), не слайдер карты и не зрение; другое оружие не трогать.
+- approved: project-owner, 2026-09-17: при существующей длине держать ширину **45°**.
 
 ## Evidence
 
-- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-001`: `PASS` — 2026-09-15, _check_emplacement_target_distance.py: authored distance, min/max clamp, repeated Update, ammo remap.
-- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-002`: `BLOCKED` — требуется игровой прогон.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-001`: `PASS` — `_audit_emplacement_cone_range.py` PASSED; `_check_emplacement_target_distance.py` PASS (любой authored dist → 95×slab=114000; `Jazz_EmplacementConeAngle()==2700`; повторный Update; ammo remap; editor/reentry; EndInteraction). `_check_lua_wrap_cycles.py` OK. Статический анализ, не runtime.
+- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-002`: `BLOCKED` — живой прогон владельца (длина MaxRange + ширина 45°).
 
 ## Documentation delta
 
-- Системная страница оружия, coverage и player weapon pages.
+- technical: weapons-ammo-components, combat-cth-actions, combat-actions, accuracy-model, file-coverage, override-matrix.
+- wiki + showcase RU/EN: combat-actions, combat-and-accuracy.
 
-## Интеграция upstream, 2026-09-16
-
-Владелец разрешил объединить новые Git-изменения с локальной работой без push. Включён 4063af91: единый Jazz_EmplacementConeDist для Update, EndInteraction и reseat; занятие станка больше не обрезает сектор по видимости. Сохранены локальные ограничения: editor и вложенный Update не восстанавливают старую дистанцию.
-
-- `JAZZ-WEAPONS-EMPLACEMENT-001-REQ-003` — уточнение REQ-001: отсутствующая или меньшая MinRange дистанция получает MaxRange согласно upstream; authored дистанция в диапазоне сохраняется, превышающая максимум ограничивается. Это заменяет прежний нижний Clamp к MinRange. EndInteraction и reseat используют тот же helper.
-- `JAZZ-WEAPONS-EMPLACEMENT-001-AC-003` — offline Lua: нижний fallback MaxRange, editor/reentry guards, занятие станка без ограничения видимостью, один wrapper при повторной установке. Runtime AC-002 остаётся на ручной проверке владельца.
-
-Интеграционная проверка 2026-09-16: AC-001 и AC-003 PASS (offline Lua с настоящим vanilla Update), upstream `_audit_emplacement_cone_range.py` PASS, wrapper audit PASS (133 sites, 2 existing allowlist). AC-002 не выполнен: живую игру проверяет владелец.
+`REQ-003` (сохранять authored map dist в диапазоне) superseded `REQ-004`.

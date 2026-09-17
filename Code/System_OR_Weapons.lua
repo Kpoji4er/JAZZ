@@ -439,6 +439,22 @@ end
 -- with no target → authored OverwatchAngle. Preview scales in IMode; confirm must
 -- rewrite g_Overwatch from the placed point or the sector stays the card width.
 -- Do not store / re-apply CTH tint on a placed sector (vanilla Confirm/Deployed).
+local function JazzOwFirearmFromUnit(unit)
+	local weapon = unit and unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm")
+	if weapon then
+		return weapon
+	end
+	if not (unit and unit.HasStatusEffect and unit:HasStatusEffect("ManningEmplacement")) then
+		return nil
+	end
+	local handle = unit.GetEffectValue and unit:GetEffectValue("hmg_emplacement")
+	local obj = handle and (rawget(_G, "HandleToObject") or {})[handle]
+	if IsKindOf(obj, "MachineGunEmplacement") then
+		return obj.weapon
+	end
+	return nil
+end
+
 function JazzOwApplyPlacedCone(unit, overwatch)
 	overwatch = overwatch or (rawget(_G, "g_Overwatch") and g_Overwatch[unit])
 	if not unit or not overwatch then
@@ -448,7 +464,7 @@ function JazzOwApplyPlacedCone(unit, overwatch)
 	if origin and origin ~= "Overwatch" and origin ~= "MGSetup" and origin ~= "MGRotate" then
 		return overwatch
 	end
-	local weapon = unit.GetActiveWeapons and unit:GetActiveWeapons("Firearm")
+	local weapon = JazzOwFirearmFromUnit(unit)
 	if not weapon or not weapon.GetOverwatchConeAngle then
 		return overwatch
 	end
@@ -459,11 +475,37 @@ function JazzOwApplyPlacedCone(unit, overwatch)
 	end
 	local slab = const.SlabSizeX or 1
 	local min_r = (weapon:GetOverwatchConeParam("MinRange") or 2) * slab
-	local max_r = Max(weapon:GetOverwatchConeParam("MaxRange") or 0, weapon:GetOverwatchConeParam("MinRange") or 0) * slab
-	overwatch.dist = Clamp(from:Dist(to), min_r, max_r)
-	overwatch.cone_angle = Max(weapon:GetOverwatchConeAngle(DivRound(overwatch.dist, slab)), 1)
+	local max_r = Max(weapon:GetOverwatchConeParam("MaxRange") or 0, weapon.WeaponRange or 0, weapon:GetOverwatchConeParam("MinRange") or 0) * slab
+	local dist = from:Dist(to)
+	local manning_emplacement = unit.HasStatusEffect and unit:HasStatusEffect("ManningEmplacement")
+	if manning_emplacement then
+		local handle = unit.GetEffectValue and unit:GetEffectValue("hmg_emplacement")
+		local obj = handle and (rawget(_G, "HandleToObject") or {})[handle]
+		local emp_fn = rawget(_G, "Jazz_EmplacementConeDist")
+		local emp_dist = type(emp_fn) == "function" and obj and emp_fn(obj)
+		if emp_dist then
+			dist = emp_dist
+		end
+	end
+	overwatch.dist = Clamp(dist, min_r, max_r)
+	local emp_ang = manning_emplacement and rawget(_G, "Jazz_EmplacementConeAngle")
+	if type(emp_ang) == "function" then
+		overwatch.cone_angle = Max(emp_ang(), 1)
+	else
+		overwatch.cone_angle = Max(weapon:GetOverwatchConeAngle(DivRound(overwatch.dist, slab)), 1)
+	end
 	overwatch.jazz_ow_preview_cth = nil
 	return overwatch
+end
+
+g_JAZZ_OwGetMaxAimRangeBase = rawget(_G, "g_JAZZ_OwGetMaxAimRangeBase") or false
+g_JAZZ_OwGetMinAimRangeBase = rawget(_G, "g_JAZZ_OwGetMinAimRangeBase") or false
+
+local function JazzOwIsEmplacementWeapon(unit, weapon)
+	if weapon and weapon.emplacement_weapon then
+		return true
+	end
+	return unit and unit.HasStatusEffect and unit:HasStatusEffect("ManningEmplacement") and true or false
 end
 
 function JazzOwCombatActionGetAimParams(self, unit, weapon)
@@ -480,7 +522,48 @@ function JazzOwCombatActionGetAimParams(self, unit, weapon)
 		params.min_range = weapon:GetOverwatchConeParam("MinRange")
 		params.max_range = Max(weapon:GetOverwatchConeParam("MaxRange") or 0, params.min_range or 0)
 	end
+	if JazzOwIsEmplacementWeapon(unit, weapon) then
+		local emp_ang = rawget(_G, "Jazz_EmplacementConeAngle")
+		if type(emp_ang) == "function" then
+			params.cone_angle = Max(emp_ang(), 1)
+		end
+	end
 	return params
+end
+
+-- Sight clamp stays for handheld Overwatch. Stationary MG uses gun MaxRange.
+function JazzOwCombatActionGetMaxAimRange(self, unit, weapon)
+	if JazzOwIsEmplacementWeapon(unit, weapon) then
+		if weapon and weapon.GetOverwatchConeParam then
+			return Max(weapon:GetOverwatchConeParam("MaxRange") or 0, weapon.WeaponRange or 0)
+		end
+		return weapon and weapon.WeaponRange or 0
+	end
+	local base = rawget(_G, "g_JAZZ_OwGetMaxAimRangeBase")
+	if type(base) == "function" then
+		return base(self, unit, weapon)
+	end
+	if weapon and weapon.GetOverwatchConeParam then
+		return weapon:GetOverwatchConeParam("MaxRange")
+	end
+	return 0
+end
+
+function JazzOwCombatActionGetMinAimRange(self, unit, weapon)
+	if JazzOwIsEmplacementWeapon(unit, weapon) then
+		if weapon and weapon.GetOverwatchConeParam then
+			return weapon:GetOverwatchConeParam("MinRange")
+		end
+		return 2
+	end
+	local base = rawget(_G, "g_JAZZ_OwGetMinAimRangeBase")
+	if type(base) == "function" then
+		return base(self, unit, weapon)
+	end
+	if weapon and weapon.GetOverwatchConeParam then
+		return weapon:GetOverwatchConeParam("MinRange")
+	end
+	return 2
 end
 
 g_JAZZ_OwUpdateFromOverwatchBase = rawget(_G, "g_JAZZ_OwUpdateFromOverwatchBase") or false
@@ -523,13 +606,24 @@ end
 local function lInstallOverwatchGetAimParams()
 	local actions = rawget(_G, "CombatActions")
 	local ca = actions and actions.Overwatch
-	if not ca or type(ca.GetAimParams) ~= "function" then
+	if not ca then
 		return
 	end
-	if ca.GetAimParams == JazzOwCombatActionGetAimParams then
-		return
+	if type(ca.GetAimParams) == "function" and ca.GetAimParams ~= JazzOwCombatActionGetAimParams then
+		ca.GetAimParams = JazzOwCombatActionGetAimParams
 	end
-	ca.GetAimParams = JazzOwCombatActionGetAimParams
+	if type(ca.GetMaxAimRange) == "function" and ca.GetMaxAimRange ~= JazzOwCombatActionGetMaxAimRange then
+		if not rawget(_G, "g_JAZZ_OwGetMaxAimRangeBase") then
+			rawset(_G, "g_JAZZ_OwGetMaxAimRangeBase", ca.GetMaxAimRange)
+		end
+		ca.GetMaxAimRange = JazzOwCombatActionGetMaxAimRange
+	end
+	if type(ca.GetMinAimRange) == "function" and ca.GetMinAimRange ~= JazzOwCombatActionGetMinAimRange then
+		if not rawget(_G, "g_JAZZ_OwGetMinAimRangeBase") then
+			rawset(_G, "g_JAZZ_OwGetMinAimRangeBase", ca.GetMinAimRange)
+		end
+		ca.GetMinAimRange = JazzOwCombatActionGetMinAimRange
+	end
 end
 
 local function CaliberModPropsCombo()
@@ -2377,6 +2471,10 @@ function Firearm:GetAreaAttackParams(action_id, attacker, target_pos, step_pos, 
 		end
 		params.cone_angle = Max(self:GetOverwatchConeAngle(dist), 1)
 		if self.emplacement_weapon then
+			local emp_ang = rawget(_G, "Jazz_EmplacementConeAngle")
+			if type(emp_ang) == "function" then
+				params.cone_angle = Max(emp_ang(), 1)
+			end
 			params.min_distance_2d = const.EmplacementWeaponMinDistance2D
 		end
 		params.min_range = self:GetOverwatchConeParam("MinRange")

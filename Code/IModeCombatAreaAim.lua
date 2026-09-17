@@ -674,8 +674,14 @@ function Targeting_AOE_Cone(dialog, blackboard, command, pt)
     local attack_distance = Clamp(attacker_pos3D:Dist(aim_pt), min_aim_range,
                                   max_aim_range)
     if weapon and JAZZ_OW_SCALE_ACTIONS[action.id] and weapon.GetOverwatchConeAngle then
-        aoe_params.cone_angle = weapon:GetOverwatchConeAngle(
-            DivRound(attack_distance, const.SlabSizeX))
+        local emp_ang = (weapon.emplacement_weapon or (attacker.HasStatusEffect and attacker:HasStatusEffect("ManningEmplacement")))
+            and rawget(_G, "Jazz_EmplacementConeAngle")
+        if type(emp_ang) == "function" then
+            aoe_params.cone_angle = emp_ang()
+        else
+            aoe_params.cone_angle = weapon:GetOverwatchConeAngle(
+                DivRound(attack_distance, const.SlabSizeX))
+        end
     end
     local args = {
         target = aim_pt,

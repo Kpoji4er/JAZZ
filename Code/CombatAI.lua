@@ -3168,7 +3168,7 @@ function AIPrecalcConeTargetZones(context, action_id, additional_target_pt, stan
 		
 			local angle = CalcOrientation(attack_pos, pt)
 			local zone_cone = cone_angle
-			if scale_ow then
+			if scale_ow and not weapon.emplacement_weapon then
 				zone_cone = weapon:GetOverwatchConeAngle(weapon:GetOverwatchConeDistTiles(attack_pos, pt))
 			end
 			local los_any, los_targets = CheckLOS(units, unit, unit:GetDist(target_pos), nil, zone_cone, angle)

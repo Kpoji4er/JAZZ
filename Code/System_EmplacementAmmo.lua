@@ -17,36 +17,35 @@ g_JAZZ_EnterEmplacementBase = rawget(_G, "g_JAZZ_EnterEmplacementBase") or false
 g_JAZZ_EndEmplacementInteractionWrapped = rawget(_G, "g_JAZZ_EndEmplacementInteractionWrapped") or false
 g_JAZZ_EndEmplacementInteractionBase = rawget(_G, "g_JAZZ_EndEmplacementInteractionBase") or false
 
--- COMBAT-009 MinRange is 50% BDR so the player can plant a cone close.
--- Vanilla MachineGun had MinRange == MaxRange == WeaponRange, so
--- MachineGunEmplacement:Update resetting target_dist to MinRange kept full
--- length. After COMBAT-009 that reset collapsed Browning to ~14 tiles, then
--- EndInteraction/reseat also Min()'d against sight-clamped Overwatch
--- GetMaxAimRange (night + prone can be a handful of tiles). MGRotate is
--- hidden on emplacement, so that short cone stuck.
+-- COMBAT-009 MinRange is 50% BDR so handheld Overwatch can plant close.
+-- Vanilla MachineGun had MinRange == MaxRange == WeaponRange, so emplacement
+-- Update resetting target_dist to MinRange kept full length. After COMBAT-009
+-- that reset (and map sliders saved at the new minimum) left every stationary
+-- MG short; MGRotate is hidden on the gun so the cone stuck. Combat cone is
+-- always the gun MaxRange / WeaponRange — not the map slider, not sight.
 function Jazz_EmplacementConeDist(obj)
 	if not obj then
 		return nil
 	end
 	local weapon = obj.weapon
 	local slab = const.SlabSizeX or 1
-	if not weapon or type(weapon.GetOverwatchConeParam) ~= "function" then
+	if not weapon then
 		return obj.target_dist
 	end
-	local min_tiles = weapon:GetOverwatchConeParam("MinRange") or 2
-	local max_tiles = weapon:GetOverwatchConeParam("MaxRange") or min_tiles
-	if max_tiles < min_tiles then
-		max_tiles = min_tiles
+	local max_tiles = weapon.WeaponRange or 0
+	if type(weapon.GetOverwatchConeParam) == "function" then
+		max_tiles = Max(weapon:GetOverwatchConeParam("MaxRange") or 0, max_tiles)
 	end
-	local min_r = min_tiles * slab
-	local max_r = max_tiles * slab
-	local dist = obj.target_dist
-	if not dist or dist < min_r then
-		dist = max_r
-	elseif dist > max_r then
-		dist = max_r
+	if max_tiles < 1 then
+		return obj.target_dist
 	end
-	return dist
+	return max_tiles * slab
+end
+
+-- Engine OverwatchAngle unit is minutes of a degree. COMBAT-009 would squeeze
+-- a MaxRange emplacement cone to the MG class strip (~2°); owner wants 45°.
+function Jazz_EmplacementConeAngle()
+	return 45 * 60
 end
 
 local g_JAZZ_EmplacementReseatQueued = false
@@ -68,7 +67,7 @@ local function lInstallEmplacementAmmoRemap()
 
 	function MachineGunEmplacement:Update()
 		-- Vanilla recreates the weapon and resets the authored target to MinRange.
-		-- COMBAT-009 made M2 MinRange 14 tiles; keep the map's firing distance.
+		-- Combat cone is gun MaxRange, not the map slider.
 		local preserve_dist = not self.updating and not IsEditorActive()
 		local prev_dist = self.target_dist
 		local mapped = JAZZ_EMPLACEMENT_AMMO_REMAP[self.ammo_template]

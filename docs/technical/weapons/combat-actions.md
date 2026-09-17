@@ -240,7 +240,7 @@ visible_actions =
 
 - **Тип:** позиционное действие; само не наносит урон в момент нажатия.
 - **Совместимость:** лёгкие и тяжёлые пулемёты по runtime-проверкам.
-- **Поведение:** фиксирует позицию и создаёт постоянный пулемётный сектор, способный реагировать даже при нулевом текущем AP. Без halfcover укладывает стрелка в `Prone`. При `CoverLow` и `coverage > 80` относительно точки сектора — `BipodUnfolded` и **без** forced Prone (обычно Crouch за парапетом). **Станок (`MachineGunEmplacement`):** длина сектора — map `target_dist` в `[MinRange, WeaponRange]` (`Jazz_EmplacementConeDist`); не сброс на 50% BDR и не sight-clamp `Overwatch:GetMaxAimRange`.
+- **Поведение:** фиксирует позицию и создаёт постоянный пулемётный сектор, способный реагировать даже при нулевом текущем AP. Без halfcover укладывает стрелка в `Prone`. При `CoverLow` и `coverage > 80` относительно точки сектора — `BipodUnfolded` и **без** forced Prone (обычно Crouch за парапетом). **Станок (`MachineGunEmplacement`):** длина — MaxRange ствола (`Jazz_EmplacementConeDist`); ширина — **45°** (`Jazz_EmplacementConeAngle`), не COMBAT-009 `1/d`. Переносной MGSetup без изменений.
 - **ИИ (JAZZ-AI-ACT-003):** тот же halfcover-предикат по выбранному `target_pos`; при halfcover перед setup переводит в Crouch; dest score слегка предпочитает usable low cover. Open-ground setup остаётся Prone.
 - **Стоимость:** от 7 до 18 AP в зависимости от Strength; порог расчёта начинается с 30 Strength. Лёгкий пулемёт уменьшает базовую и минимальную стоимость вдвое.
 - **Ограничения:** нельзя разворачивать в воде; учитываются боеприпасы и заклинивание.

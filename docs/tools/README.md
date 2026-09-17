@@ -154,7 +154,7 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_audit_steam_editor_resave.py` | Diff Steam/Mod Editor resave vs HEAD: lost `ResolveValue`, EN→RU T() fallbacks, FreeMove damage. |
 | `_audit_hotfix_005.py` | Static HOTFIX-005: remountable CanStack by RemovableComponentId; no Amount=1 clip on bag mark/normalize. |
 | `_audit_mg_emplacement.py` | Сводка `MachineGunEmplacement` в `jazz-maps/Maps/*/objects.lua` (weapon/ammo heuristics). |
-| `_audit_emplacement_cone_range.py` | Static: станковый MG конус через `Jazz_EmplacementConeDist` (map/`WeaponRange`, не MinRange 50% BDR и не sight-clamped `GetMaxAimRange`). |
+| `_audit_emplacement_cone_range.py` | Static: станковый MG конус = MaxRange ствола (`Jazz_EmplacementConeDist`) и **45°** (`Jazz_EmplacementConeAngle`); не map slider / MinRange / sight / COMBAT-009 `1/d`; `GetMaxAimRange` без зрения только на станке. |
 | `_count_emplacement_ammo.py` | Счётчик `ammo_template` / `weapon_template` по всем `MachineGunEmplacement` в `jazz-maps/Maps`. |
 | `_fix_fortify_ernie_mg_handin.py` | GreasyBasil `FortifyErnie`: `MG42` → `Jazz_Browning_MuchineGun`+`Jazz_Browning_Bench` (has/take); I5 `ubRwFgf` ammo_template → `JAZZ_AMMO_50BMG_Basic`. |
 | `_patch_ernie_counterattack_heavies.py` | `jazz-units` EnemySquadDef `ErnieCounterAttack`: 1× Rocketeer + 2× AssaultT1_Grenadier + 1× Mortarman (no HeavyT2 hand GL). |
