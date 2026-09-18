@@ -1338,10 +1338,13 @@ local function lInstallNamedPerks006Economy()
 				g_JAZZ_StaticPartsBase_ModCost(self, slotFilter, placedComponentOverride)
 			local owner = self.context and self.context.owner
 			local unit = owner
-			if type(JazzGetOwnerUnit) == "function" then
-				unit = JazzGetOwnerUnit(owner) or owner
-			elseif type(owner) == "string" and gv_UnitData then
-				unit = gv_UnitData[owner] or g_Units and g_Units[owner]
+			local resolve = rawget(_G, "JazzGetOwnerUnit")
+			if type(resolve) == "function" then
+				unit = resolve(owner) or owner
+			elseif type(owner) == "string" then
+				local data = rawget(_G, "gv_UnitData")
+				local units = rawget(_G, "g_Units")
+				unit = (data and data[owner]) or (units and units[owner]) or owner
 			end
 			if costs and costs.Parts then
 				costs.Parts = Jazz_StaticApplyPartsDiscount(unit, costs.Parts)

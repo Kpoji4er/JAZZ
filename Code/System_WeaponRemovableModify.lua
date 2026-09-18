@@ -9,6 +9,7 @@ if FirstLoad then
 	JazzEquipIsDropTarget_Vanilla = false
 	JAZZ_IsHiddenModifyWeaponCraftOption = false
 	JAZZ_FilterModifyWeaponCraftOptions = false
+	JazzGetOwnerUnit = false
 end
 
 function JazzIsRemovableInstallTarget(attachment, weapon)
@@ -235,8 +236,13 @@ local function JazzFindRemovableAttachmentItem(unit, component_id)
 	end
 end
 
-local function JazzGetOwnerUnit(owner_id)
-	return g_Units[owner_id] or gv_UnitData[owner_id]
+function JazzGetOwnerUnit(owner_id)
+	if not owner_id then
+		return
+	end
+	local units = rawget(_G, "g_Units")
+	local data = rawget(_G, "gv_UnitData")
+	return (units and units[owner_id]) or (data and data[owner_id])
 end
 
 -- Folded half of a fold/unfold pair is combat-toggle only — hide from craft popup.
