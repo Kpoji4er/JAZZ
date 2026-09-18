@@ -1,4 +1,8 @@
-"""Bind complete LDW soldier to the official JA3 Male rest skeleton."""
+"""Withdrawn prototype helper: bind LDW soldier to the official JA3 Male rest skeleton.
+
+JAZZ-APPEAR-001-REQ-023: do not install JAZZ_SpecOpsBody_Male / JAZZ_Legion_SpecOpsTest.
+The in-game entity was removed; this script stays as source-only tooling.
+"""
 import argparse,sys,json
 from pathlib import Path
 import bpy

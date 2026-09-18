@@ -33,6 +33,10 @@
 | `Russian.csv` / `English.csv` / `T()` | `$manage-jazz-localization` |
 | Релиз, теги, Steam upload | `$release-jazz-suite` |
 | «Проверь в игре», DAP, live Lua | `.cursor/rules/jazz-dap-runtime-debug.mdc` |
+| Красные/жёлтые пометки Mod Editor / Ged | `$diagnose-jazz-mod-editor` |
+| Броня/одежда Легиона, equipped appearance, `ArmorTest` | `.agents/docs/playbooks/legion-armor-modeling.md` |
+| Portrait мерка/NPC | `.cursor/rules/jazz-merc-portraits.mdc` + `$create-jazz-merc-portraits` |
+| Полный мерк из generation-статьи | `$create-jazz-merc` |
 
 Дальше — `.agents/docs/index.md` и **один** профильный playbook. Не грузить весь набор документов.
 
@@ -45,6 +49,7 @@
 5. Абсолютный `<JA3_ROOT>` не коммитить.
 6. Речь про сложность игры: **лёгкий** = `Normal`, **нормальный** = `Hard`, **сложный** = `VeryHard`. Игрового Easy нет.
 7. **JA3 запускать через Steam**, например `Start-Process 'steam://rungameid/1084160'`, не напрямую через `JA3.exe` / `JA3Debug.exe`. Прямой запуск здесь даёт «Unable to start the game. Please restart». Для DAP отдельно проверить debug-сборку и порт 8165; обычный запуск Steam сам по себе DAP не гарантирует.
+8. Overlay `AGENTS.md` каждого sibling-пакета держать согласованным с этой таблицей: те же имена правил/skills, актуальные пути. Обязательные маршруты suite-gate: `../jazz/AGENTS.md`, `../jazz/docs/specs/active/`, `../jazz/.agents/skills/work-on-jazz-mod/SKILL.md`, `../jazz/.cursor/rules/jazz-docs-sync.mdc`. Player-facing слой ведётся из `jazz`; в overlay не писать, что wiki отключён. Проверка: `python docs/tools/_check_suite_agents_overlays.py`.
 
 ## Источники
 

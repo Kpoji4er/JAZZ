@@ -20,4 +20,4 @@
 ## После правки
 
 - Обновить соответствующую technical-страницу (`docs/technical/systems/units-progression-specializations.md` и др.).
-- Указать влияние на игрока в технической заметке для временной замены wiki.
+- Если эффект заметен игроку — `.cursor/rules/jazz-docs-sync.mdc` (technical + wiki + showcase RU/EN).

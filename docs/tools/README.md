@@ -733,6 +733,9 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | _purge_restored_aim_vr_loc.py / _restore_vanilla_aim_vr_ids.py | AIM VR localization ID restore/purge helpers. |
 
 - `_check_agent_docs_validation.py` — изолированные fixtures для полного/локального check-system-docs.ps1 (JAZZ-AGENT-SKILLS-001); запуск `python docs/tools/_check_agent_docs_validation.py`, PASS/ненулевой exit, рабочие документы не меняет.
+- `_check_suite_agents_overlays.py` — sibling `AGENTS.md` рядом с `jazz`: обязательные маршруты suite-gate + `jazz-docs-sync.mdc`, без `docs/wiki/` и «wiki не ведётся». `python docs/tools/_check_suite_agents_overlays.py`.
+- `_rig_specops_model.py` — source-only Blender bind LDW soldier → Male sample. Не ставить `JAZZ_SpecOpsBody_Male` (снят REQ-023).
+- `_remove_specops_body.py` — снять установленный SpecOpsBody + SpecOpsTest из assets/units items/metadata/companion. `python docs/tools/_remove_specops_body.py`.
 
 - `_check_villa_conflict_order.py` — реальный EnterConflict и порядок эффектов Guests: воспроизводит прежнюю паузу до маршрутов и проверяет ожидание после них; `python docs/tools/_check_villa_conflict_order.py`, Lua-harness, без запуска игры.
 
@@ -790,6 +793,7 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 - `_prepare_heavy_armor_variants.py` — Blender CPU `--source <donor-textured.blend> --output <folder> [--body <calibrated HGM JSON>]`: separates connected parts with preserved UVs, produces five shared geometry configurations, renders and a source-only manifest. Optional body is an unrigged rest-fit reference; guide `.agents/docs/playbooks/legion-armor-modeling.md`.
 - `_prepare_clean_hav_blends.py --source <modular-source.blend> --woodland <reference.png> --output <folder>` — Blender creates nine packed, editable Light/Medium/Full material variants with separate parts, no rig or morph; asserts unchanged shared donor geometry across colors. No game writes.
 - `_prepare_hav_rig_scenes.py --source <clean nine blends folder> --reference <fitted source with official sample and shirt> --output <folder>` — adds the official Male skeleton/body and static Legion shirt to nine editable scenes, leaving armor unbound and unchanged. Removes approximate shirt weights; renders front/back once per geometry. No game writes.
+- `_preview_armor_icon.py <icon stems> [--output <scratch folder>] [--scale N] [--flatten R,G,B]` — апскейл `ArmorIcons/*.png` для чтения силуэта до моделирования: число пластин, ворот, плечи, низ, ремни. Пишет только в scratch-каталог, репозиторий не меняет. Очередь партии жилетов — `docs/design/armor-vest-batch-queue.md`.
 - `_model_camo_uniform.py --source <extracted LDW archive> --output <folder>` — Blender restores supplied OBJ UVs and packed diffuse/normal textures and renders the donor before any cutting. Audit found a balaclava and inseparable tactical vest, no boonie hat; do not treat it as three ready clothing objects.
 
 

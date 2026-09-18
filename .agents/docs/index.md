@@ -1,6 +1,6 @@
 # Индекс документации AGENTS
 
-Правила Cursor **не always-on**. Таблица «задача → правило/skill» — в корневом `AGENTS.md`. Открывать только совпавшую строку.
+Правила Cursor **не always-on**. Таблица «задача → правило/skill» — в корневом `AGENTS.md`. Overlay каждого sibling-пакета (`jazz_assets`, `jazz-units`, `jazz-maps`, `jazz-nomaps`) держать согласованным с этой таблицей. Открывать только совпавшую строку.
 
 - Spec/DoR/DoD: `.agents/skills/specify-jazz-change/SKILL.md`, `docs/specs/README.md`
 - Общее: `.agents/docs/reference/project-scope.md`

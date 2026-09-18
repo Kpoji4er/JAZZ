@@ -25,4 +25,4 @@
 ## После правки
 
 - Технически зафиксировать изменённые поверхности (resource IDs, entity IDs, load-порядок).
-- Если UI/звук меняется для игрока — добавлять заметки в docs при последующей сборке wiki.
+- Если UI/звук меняется для игрока — `.cursor/rules/jazz-docs-sync.mdc` (technical + wiki + showcase RU/EN).

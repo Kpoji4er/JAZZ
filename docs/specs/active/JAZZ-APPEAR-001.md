@@ -115,7 +115,7 @@ exclusive_resources:
   - jazz-units/items.lua
   - jazz-units/metadata.lua
   - editor state
-approved_by: project-owner (current conversation, 2026-09-15; vanilla torso+helmets + test units, 2026-09-19)
+approved_by: project-owner (current conversation, 2026-09-15; vanilla torso+helmets + test units, 2026-09-19; withdraw SpecOpsBody, 2026-09-19)
 ---
 
 # JAZZ-APPEAR-001: броня на теле Легиона и тестовый юнит
@@ -138,6 +138,8 @@ approved_by: project-owner (current conversation, 2026-09-15; vanilla torso+helm
 
 - JAZZ-APPEAR-001-REQ-020 — 2026-09-16 владелец явно поручил доработать Chainmail, TireBrigantine, TireArmor, установить их и подготовить разные тестовые юниты. Для этой партии добавить три Torso→Armor mapping к одноимённым JAZZ_*_Male entities, три тестовых юнита с существующим LegionGoon/MP40/120 патронов. Сохранить кирасу. Текстуры и геометрия следуют текущим иконкам; физические high-poly кольца не экспортировать. Проверка модели/весов/экспорта и согласованности регистрации обязательна; runtime/editor приёмка остаётся открытой до ручного запуска владельцем. Twaron/Guardian/Zylon остаются отдельной незавершённой партией, не регистрировать неготовые meshes.
 
+- JAZZ-APPEAR-001-REQ-023 — 2026-09-19 владелец снял LDW full-body прототип: `JAZZ_SpecOpsBody_Male` плохо заригован. Удалить entity и ресурсы из `jazz_assets`, тестовые `JAZZ_Legion_SpecOpsTest` UnitData/AppearancePreset из `jazz-units`, и все записи items/metadata/companion. Не оставлять orphan. Не регистрировать заново, пока не будет отдельно утверждённый полный Body. `_rig_specops_model.py` оставить как source-only tooling, не как установленный ассет.
+
 - JAZZ-APPEAR-001-REQ-022 — 2026-09-19 владелец утвердил ванильные строки из design-таблицы для JAZZ_Legion_ Male: пять Torso (FlakM1955/M69, IBALight/IBA/IBAFull) и четырнадцать mapped Head (UniformCap, ConstructionHelmet, AdrianHelmet, SovietHelm, M1Helm, Stahlhelm, PASGTHelm, 6b7Helm, Twaron/Zylon/Guardian Helm и Heavy). Torso остаётся parts.Armor/Origin; шлемы — parts.Hat со штатным Head-spot и Hide Hair; mesh лица parts.Head, Shirt, оружие и статы не заменяются. Общие меши различаются C1/C2/C3 из таблицы. Без AttachEntries, без мод-опции, без Female/Scale/Offset. По тестовому юниту на предмет, группа JAZZ Tests, MP40, вне боевых пулов.
 
 - JAZZ-APPEAR-001-REQ-001 — gate по unitdatadef_id с точным префиксом JAZZ_Legion_, а не affiliation или appearance. Стартовый mapping: JazzArmor_ImprovisedCuirass → JAZZ_ImprovisedCuirass_Male, Male; только Torso. Остальные предметы/пол безопасно сохраняют baseline.
@@ -156,6 +158,8 @@ approved_by: project-owner (current conversation, 2026-09-15; vanilla torso+helm
 ## Acceptance criteria
 
 - JAZZ-APPEAR-001-AC-020 — три новые кустарные брони проходят CPU skin/pose QA, штатный экспорт, проверку ресурсов и согласованную установку; три уникальных тестовых UnitData имеют правильные armor/MP40/120 FMJ в companion и ModItem. Результат 2026-09-16: PASS static/executable/install, `soft-final-v5`, installed-check.json; 40 файлов установлены с backup и SHA256. Runtime/editor/human остаются NOT_RUN, поэтому общая игровая приёмка spec не закрыта.
+
+- JAZZ-APPEAR-001-AC-023 — после удаления нет `JAZZ_SpecOpsBody_Male` / `JAZZ_Legion_SpecOpsTest` в items.lua, metadata.lua, companion, entities/code/resources трёх пакетов; бинарные mesh/mtl/dds удалены; runtime/code не ссылается на эти ID. Историческая запись в этом spec и `_rig_specops_model.py` не считаются установкой.
 
 - JAZZ-APPEAR-001-AC-022 — executable mocks и isolated generated-graph: пять ванильных Torso и четырнадцать Head применяют нужные Male-entity и цвета; смена предметов с общим мешем меняет tint; снятие восстанавливает baseline Armor/Hat и Hair; merc/AME/vanilla Legion/Female не меняются; 19 тестовых UnitData имеют Head или Torso loadout, MP40 и 120 FMJ, группа JAZZ Tests, записи items/metadata/companion совпадают.
 
@@ -178,8 +182,11 @@ Spec/аудит → bake/export/entity → runtime map → test UnitData → ico
 
 2026-09-19: владелец утвердил ванильный Torso-набор из design-таблицы, отдельно поручил добавить замапленные шлемы, оставить gate только для Легиона и сделать тестовые юниты. Это разрешение REQ-022.
 
+2026-09-19: «SpecOpsBody кстати надо будет удалить - оно плохо заригалось». Это разрешение REQ-023: снять установленный full-body прототип и тестовый юнит.
+
 ## Evidence
 
+- JAZZ-APPEAR-001-AC-023: PASS — static: `JAZZ_SpecOpsBody_Male` / `JAZZ_Legion_SpecOpsTest` отсутствуют в items/metadata/companion jazz, jazz_assets, jazz-units; 11 файлов entity/mesh/dds/UnitData удалены; Code не ссылается. Editor/runtime reload NOT_RUN.
 - JAZZ-APPEAR-001-AC-022: PASS — `python docs/tools/_check_legion_armor.py`: ванильные Flak/IBA tint и смена общего меша, хат PASGT→6b7, Hide Hair, restore, merc exclusion; 19 UnitData items/companion/metadata и Head/Torso loadouts. Runtime/editor/human NOT_RUN.
 - JAZZ-APPEAR-001-AC-001: PASS — `python docs/tools/_check_legion_armor.py`: executable Lua mocks покрывают prefix, Male, Torso, invalid entity, unmapped, AME/merc/vanilla exclusions.
 - JAZZ-APPEAR-001-AC-002: PASS — тот же тест: equip/unequip, Inventory, baseline restore, новая appearance, потеря weak cache при загрузке, повторный install/reload, возврат результатов CommonLib. Это mock evidence, не игровой прогон.
@@ -230,7 +237,7 @@ Offline continuation: all 53 JAZZ Body geometries imported through calibrated HG
 
 ## Heavy Armor Vest: утверждённый донор
 
-Owner-approved LDW follow-up: supplied LDW generic military archive is a continuous soldier mesh with balaclava and tactical vest, not the intended boonie uniform. Owner explicitly redirected it to a special-forces prototype. Preserve original woodland and complete silhouette; bind a full-body CharacterBodyMale entity `JAZZ_SpecOpsBody_Male` to the official Male sample. Add only an isolated `JAZZ_Legion_SpecOpsTest` appearance/unit, not campaign pools or AI changes. No duplicate head/pants attachments on the full-body entity. Keep the US Soldier 2 archive for a separate uniform task. Acceptance: resource graph and synchronized records PASS, finite normalized skin and representative posed renders PASS; native game animation acceptance remains separate and must not be claimed from offline checks. Inventory uses existing uniform/balaclava items and MP40 for the isolated test.
+Owner-approved LDW follow-up (superseded 2026-09-19 by REQ-023): supplied LDW generic military archive was a continuous soldier mesh with balaclava and tactical vest. It was briefly bound as `JAZZ_SpecOpsBody_Male` + isolated `JAZZ_Legion_SpecOpsTest`. Owner withdrew it: the rig is not acceptable. Do not reinstall these IDs. Keep the US Soldier 2 archive for a separate uniform task.
 
 Latest owner direction: stop further fit/rig iterations and prepare nine clean Blender files only. Approved source-only deliverable: original donor geometry in Light/Medium/Full, Twaron/Guardian/Zylon materials, packed textures, separate editable components, no deformation/rig or game installation. Completed with `_prepare_clean_hav_blends.py`; nine files saved in the owner's HAV_Blender_Clean asset directory. Existing game fit acceptance remains open; this deliverable does not replace installed resources.
 
