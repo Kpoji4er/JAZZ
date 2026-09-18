@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+<ItemGroup><Compile Include="$(HgmSourceRoot)/Formats/Hgm.cs" Link="Hgm.cs"/><Compile Include="$(HgmSourceRoot)/Formats/HgmExtensions.cs" Link="HgmExtensions.cs"/><PackageReference Include="KaitaiStruct.Runtime.CSharp" Version="0.10.0"/></ItemGroup>
+</Project>

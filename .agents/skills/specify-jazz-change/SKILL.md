@@ -1,6 +1,8 @@
 ---
 name: specify-jazz-change
-description: Создавать и проверять change specification, Definition of Ready, Definition of Done и evidence для изменений JAZZ. Использовать до реализации нового поведения, изменения архитектуры, публичных ID, формул, generated data, dependencies, load order, save/network contract или межпакетных связей; также использовать при изменении уже утверждённого scope. Не требуется для чистого read-only анализа и тривиальной правки документации, не меняющей контракт.
+description: >-
+  Использовать до нового поведения, public ID, generated data, load order
+  или смены уже утверждённого scope. Не для read-only и docs без смены контракта.
 ---
 
 # Спецификация изменения JAZZ
@@ -9,18 +11,18 @@ description: Создавать и проверять change specification, Defi
 
 ## Рабочий цикл
 
-1. Скопировать `docs/specs/_template/change.md` в `docs/specs/active/<SPEC-ID>.md`.
+1. Сначала найти существующую spec нужного scope и продолжить её. Для нового scope скопировать `docs/specs/_template/change.md` в `docs/specs/active/<SPEC-ID>.md`.
 2. Заполнить problem, goals, non-goals, requirements, invariants, acceptance criteria, impact, ownership и declared write set.
 3. Назначить стабильные `REQ-*` и `AC-*`. Не кодировать номер строки или имя агента в ID.
 4. Зафиксировать exclusive resources: `items.lua`, `metadata.lua`, editor state, localization ID range, map или release manifest.
-5. Получить решение владельца проекта и установить `status: approved`.
+5. Зафиксировать решение владельца проекта и установить `status: approved`. Явное разрешение конкретного scope в текущей беседе уже является решением: записать его основание без повторного вопроса. Просьба только написать draft реализацию не разрешает.
 6. Запустить:
 
    ```powershell
    .agents/skills/specify-jazz-change/scripts/test-change-spec.ps1 -Path docs/specs/active/<SPEC-ID>.md -Phase Ready
    ```
 
-7. Реализовывать только утверждённый scope. Для нового требования сначала обновить spec и повторить DoR.
+7. Реализовывать только утверждённый scope. Для нового требования вне утверждённого scope сначала обновить spec, получить решение владельца и повторить DoR.
 8. В разделе evidence сопоставить каждый `AC-*` с результатом `PASS`, `FAIL` или `BLOCKED` и указать уровень проверки: static, editor, runtime или human.
 9. Перед завершением установить `status: implemented` и выполнить `-Phase Done`.
 10. После независимого ревью и human acceptance установить `status: accepted` и перенести spec в `docs/specs/accepted/`.

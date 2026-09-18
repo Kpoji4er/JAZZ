@@ -1,5 +1,7 @@
 ---
-description: JA12 appearance playtest — не повторять ошибки волны 2026-08-05
+description: >-
+  Read when editing JA12 appearances, mercs-ja12 articles, or
+  _gen_ja12_appearances.py. Playtest gotchas from 2026-08-05.
 globs:
   - docs/tools/_gen_ja12_appearances.py
   - docs/design/mercs-ja12/**

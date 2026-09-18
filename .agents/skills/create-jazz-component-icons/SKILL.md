@@ -1,10 +1,7 @@
 ---
 name: create-jazz-component-icons
 description: >-
-  Создавать и обновлять WeaponComponent.Icon JAZZ для кабинета ModifyWeaponDlg
-  (style B: WeaponComponents 100×100 3D; опционально Full flat). Не для ChipIcon
-  миниатюр на тайле. Использовать при component Icon, upgrade icon, иконке
-  обвеса в моддинге оружия; магазины — ориентация как на боковом профиле винтовки.
+  Использовать при WeaponComponent.Icon кабинета (100×100). Не для ChipIcon на тайле.
 ---
 
 # Создание WeaponComponent.Icon (кабинет)
@@ -19,6 +16,8 @@ description: >-
 **Barrel**: уникальные Icon не требуются (vanilla OK).
 
 Asset-only PNG не требует spec. Wire `Icon` → `items.lua` sync.
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Контракт (style B)
 
@@ -46,14 +45,14 @@ Asset-only PNG не требует spec. Wire `Icon` → `items.lua` sync.
 
 1. `ComponentId`
 2. Slot + DisplayName / отличие
-3. Показать draft до wire (если не «сразу вставь»)
+3. Уточнить scope из запроса: только draft или готовая вставка. Для явно разрешённой вставки повторное согласование не нужно; при запросе draft wiring не выполнять.
 
 ## Workflow
 
 ```text
 - [ ] 1. Id, конфликты; Scope/Magazine → unique Icon if unique look
 - [ ] 2. Рефы: **shape** = WC 3D / Visual.Icon / vanilla (chip — last resort); **style** = Anaconda + Optics
-- [ ] 3. GenerateImage на #FF00FF **с точным shape-рефом** (не chip-глиф, если есть CarbineMag/Optics)
+- [ ] 3. генерация изображения на #FF00FF **с точным shape-рефом** (не chip-глиф, если есть CarbineMag/Optics)
 - [ ] 4. Finalize → WeaponComponents/<Folder>/<ComponentId>.png
 - [ ] 5. Ревью (силуэт = chip, край = Anaconda)
 - [ ] 6. Wire Icon = "Mod/e6L4ECj/WeaponComponents/<Folder>/<ComponentId>.png"

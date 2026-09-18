@@ -1,10 +1,7 @@
-﻿---
+---
 name: create-jazz-merc-portraits
 description: >-
-  PNG-портреты мерков/NPC JAZZ в стиле JA3 (300+2000): рендер на #504633,
-  фон снимать отдельным проходом (BiRefNet / useknockout; fallback soft-key),
-  color grade как vanilla, наёмник без лычек, класс по киту.
-  При запросе мерка/портрета/BigPortrait/field medic.
+  Использовать при генерации Portrait/BigPortrait мерка или NPC. Не для cadr UI 300×300 — это $frame-jazz-merc-ui-portrait.
 ---
 
 # Создание merc / NPC portraits
@@ -12,6 +9,8 @@ description: >-
 Пакет: `jazz-units` → `MercPortraits/` / `NPCPortraits/` (`_wip/` для черновиков).  
 Rule: `.cursor/rules/jazz-merc-portraits.mdc`.  
 Style: [references/style-and-naming.md](references/style-and-naming.md).
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Style-референсы
 
@@ -28,7 +27,7 @@ Face/pose от пользователя и `*.ja2-face.*` — **identity** (уз
 - Класс по киту; **пистолет в кобуре — ок**; огнестрел в руках / на столе / винтовки — нет.
 - Полевой медик: IFAK/турникеты/shears/gauze + простой red cross — не «врач со стетоскопом».
 - **Quality bar:** `MercPortraits/_quality_bar/Highball_ideal_Big.png` — эталон уровня (пропорции, поза, чистота, kit). Сверять каждый Big; ниже бара = reject. Не копировать Highball-образ на чужих мерков.
-- **Много мелких складок на штанах = HARD reject** → чинить **GPT GenerateImage denoise** (noisy Big + `OK_clean_folds_Laura_pants.png`; keep sharp; 2–3 прохода ок). **Не** OpenCV/bilateral (мыло). Regen если GPT-денойз не спас.
+- **Много мелких складок на штанах = HARD reject** → чинить **GPT генерация изображения denoise** (noisy Big + `OK_clean_folds_Laura_pants.png`; keep sharp; 2–3 прохода ок). **Не** OpenCV/bilateral (мыло). Regen если GPT-денойз не спас.
 - **Позы интересные:** как у refs — ¾, вес на одной ноге, асимметрия рук / жест с kit; **не** симметричный mannequin. Роль/характер влияют на стойку. Pose-ref пользователя — копировать. Без огнестрела в руках и без ломки пропорций/кадра (кобура с пистолетом ок).
 - **Big framing:** голова/волосы и ноги/ботинки **не обрезаны**; поля `#504633` сверху и снизу.
 - **Оба слота:** Portrait 300 (tight headshot — лицо почти на весь кадр) + Big 2000; skill `frame-jazz-merc-ui-portrait`. Не поясной crop.
@@ -41,7 +40,7 @@ Face/pose от пользователя и `*.ja2-face.*` — **identity** (уз
 
 ## Фон + альфа (два прохода)
 
-1. GenerateImage **только** opaque на solid `#504633` (не чёрный, не transparent в промпте).
+1. генерация изображения **только** opaque на solid `#504633` (не чёрный, не transparent в промпте).
 2. Сохранить сырой кадр **до cut** в отдельную **`_raw/`** (не в папку с финальными RGBA).
 3. Удачный кадр не перегенерировать ради альфы.
 4. **Снятие фона — отдельный проход**, предпочтительно локальной нейронкой:
@@ -58,7 +57,7 @@ Face/pose от пользователя и `*.ja2-face.*` — **identity** (уз
 ```text
 - [ ] Id / роль / face / References style-refs
 - [ ] Строка sheet → 5 суффиксов варианта в `newrules2/<Id>/`
-- [ ] GenerateImage Portrait+Big на #504633 → …/_raw/ (opaque, до обрезания)
+- [ ] генерация изображения Portrait+Big на #504633 → …/_raw/ (opaque, до обрезания)
 - [ ] QA стиля: **длина ног / рост** (не карлик), цвет, экспозиция, поза, чистота vs References + `_quality_bar/Highball_ideal_Big.png`
 - [ ] Отдельный cut: rembg BiRefNet (preferred) → RGBA вне _raw/; иначе soft-key fallback
 - [ ] Resize 300/2000; DoD cornerA=0; Read cut рядом с refs (в т.ч. экспозиция)

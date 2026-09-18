@@ -63,8 +63,11 @@ Filters on site: **All**, **Available**, **My Team** (no AME category tabs).
 | Hire | Vanilla prepaid refunded; first day (`StartingSalary` / daily wage) → `balance`. Messenger `CanAffordMerc` always true for `Affiliation=MERC` (Offer works at $0 cash). Medical deposit waived on credit hire (`MedicalPaidWhenHired=0`) so end-of-contract deposit does not double-refund. |
 | Daily | Each Hired `Affiliation=MERC` adds daily wage to `balance` |
 | Pay Account | Spend player money → −`balance`, +`paid_total`; clears warning if paid off |
-| Reminder | ~7 days with unpaid balance → `MERC_AccountReminder` |
-| Quit | +3 days grace → `MERC_QuitWarning` + release hired MERC |
+| Reminder | ~7 days with unpaid balance → `MERC_AccountReminder` **and** satellite popup (Pay / Later); 3 days left |
+| Eve | +2 days after reminder → second popup «leave tomorrow» |
+| Quit | +3 days grace → `MERC_QuitWarning` + CombatLog names + release hired MERC |
+| Satellite chip | While `balance > 0`: `MERC $X` next to satellite money (yellow, then red after reminder). Click opens the MERC site. |
+| Time track | Same unpaid window: `jazz-merc-reminder` at clock+7d (stage 0) and `jazz-merc-quit` at the walk deadline. Icon = AIM contract. Right-click opens MERC. Cleared on pay/quit. |
 | AIM/AME | Prepaid paths untouched (`CanAffordMerc` base) |
 
 ## Mail
@@ -92,6 +95,6 @@ Sender: Speck / M.E.R.C. Loc inline IDs: `890000000009903+` (avoid AME `6900`s).
 
 ## Related
 
-- Spec: [`JAZZ-UI-MERC-001`](../specs/active/JAZZ-UI-MERC-001.md)
+- Spec: [`JAZZ-UI-MERC-001`](../specs/active/JAZZ-UI-MERC-001.md), alarm [`JAZZ-UI-MERC-002`](../specs/active/JAZZ-UI-MERC-002.md)
 - AME (separate market): [`ame-mercenary-exchange.md`](ame-mercenary-exchange.md)
 - Biff design: [`mercs-ja12/biff.md`](mercs-ja12/biff.md)

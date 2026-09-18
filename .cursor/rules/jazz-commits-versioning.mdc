@@ -1,22 +1,26 @@
 ---
-description: При коммите пакета JAZZ обновлять Revision в metadata; version_minor только на большой мульти-spec фиче.
-alwaysApply: true
+description: >-
+  Read when the user asks to commit, bump Revision, or write package
+  metadata last_changes.
+globs:
+  - "**/metadata.lua"
+alwaysApply: false
 ---
 
 # Коммиты и версии metadata
 
-Когда пользователь просит **закоммитить** изменения в любом из четырёх пакетов (`jazz`, `jazz_assets`, `jazz-maps`, `jazz-units`):
+Когда пользователь просит **закоммитить** изменения в любом из пакетов (`jazz`, `jazz_assets`, `jazz-maps`, `jazz-units`):
 
 1. В том же change set обновить `metadata.lua` **этого** пакета.
-2. Обычный коммит (одна спека, fix, контент, docs с игровым контрактом, одиночная фича) — поднять `version` (**Revision**) на `+1`, если Mod Editor в этом change set ещё не поднял его сам. `version_major` / `version_minor` не трогать.
-3. `version_minor` поднимать на `+1` **только** при новой **большой фиче**: несколько утверждённых спеков, объединённых в одну волну/релизный срез (явный запрос владельца или спека/plan с пометкой minor bump). Один спек / один feature-коммит minor **не** двигает.
-4. Для breaking после стабилизации публичного контракта — `version_major` по политике релизов; до `1.0` breaking обычно тоже через `version_minor` с явной пометкой в notes (и только как большая волна, не каждый breaking-коммит подряд).
-5. **Не** править вручную `saved`, `code_hash` и прочие editor-generated поля ради номера версии. `version` (Revision) при коммите **можно и нужно** инкрементировать по п.2, если editor не сделал этого.
-6. Не трогать metadata sibling-пакета, который не менялся в этом коммите.
+2. Обычный коммит — `version` (**Revision**) `+1`, если Mod Editor ещё не поднял. `version_major` / `version_minor` не трогать.
+3. `version_minor` `+1` **только** на большой мульти-spec волне (явный запрос или spec/plan с пометкой minor bump). Один спек / один feature-коммит minor не двигает.
+4. Breaking до `1.0` — обычно тоже через `version_minor` на большой волне, не каждый breaking-коммит.
+5. Не править вручную `saved`, `code_hash`. Revision при коммите — да, если editor не поднял.
+6. Не трогать metadata sibling-пакета, который не менялся.
 7. Не вписывать номер версии в `title`/`description`.
-8. `last_changes` при обычном коммите **дописывать** (append) краткой строкой/буллетом по сути изменения; **не** перезатирать поле целиком. Полная перезапись `last_changes` — только при заливке пакета в Steam Workshop (см. `$release-jazz-suite`). **Формат:** только escape `\n` между буллетами, никогда raw newline в кавычках — см. `.cursor/rules/jazz-metadata-last-changes.mdc`.
-9. Bump версии — часть того же коммита с логическим изменением, а не отдельный «шумный» metadata-only коммит без причины.
+8. `last_changes` — **append** буллета, не перезаписывать целиком. Полная перезапись — только Steam upload (`$release-jazz-suite`). Формат: только escape `\n`, никогда raw newline — `.cursor/rules/jazz-metadata-last-changes.mdc`.
+9. Bump — в том же коммите, что логическое изменение.
 
-Мелкая правка без игрового контракта (типофикс, чисто внутренние docs) может оставить и Revision без изменения, если metadata пакета в коммите не трогалась.
+Мелкая правка без игрового контракта (типофикс, внутренние docs) может не трогать Revision, если metadata в коммите не менялась.
 
-Центральный display-релиз комплекта по-прежнему читается из `jazz/metadata.lua` при release; пакетные minor/revision живут своей историей.
+Связано: `docs/technical/systems/release-versioning.md`.

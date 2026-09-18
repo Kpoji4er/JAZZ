@@ -22,7 +22,7 @@ On large fights (**M1** landing, the waterfall) **allied** turns are sped up: le
 | **Assault** | Presses, throws grenades, and sometimes wraps a flank if the front is jammed. A knife in the second hand slot means they cut if they have enough AP to reach and hit once. |
 | **Line** | Holds range, cover, and height. A sniper / marksman will not crawl into point-blank under a long scope. |
 | **Flanker** | Walks around for a wrap. On **Push** they may hit you head-on. |
-| **Machine gun** | Plants a cone. Behind low cover they crouch and unfold the bipod — not always prone. If you are already within **8** tiles they shoot first instead of spinning a distant sector. After setup they can still dump a burst. |
+| **Machine gun** | They walk to a tile **with a firing lane** first, then plant a cone. Behind low cover they crouch and unfold the bipod — not always prone. If you are already within **8** tiles they shoot first instead of spinning a distant sector. After setup they can still dump a burst. |
 | **Medic** | Treats **before** the rest. Bleeding beats a high HP percent; they walk up to the patient and ignore crowding. Not every bandage carrier becomes a medic — usually the dedicated bone-setter, or one fill-in. |
 | **Commander** | Stays off the tip. Writes the aura and the order. Sergeant — **15** tiles, lieutenant — **25**, captain — **the whole map**. |
 | **Heavies** | The rocketeer stays in the rear and shoots. The mortar looks for **open ground**: Bombard does not work indoors. |
@@ -42,7 +42,7 @@ The AI wants a tile it can shoot from **and** that is not open ground.
 - The retinue stays near the commander instead of scattering across the map.
 - A lone Legionnaire far from the pack runs to the group. Rocketeers and mortars do not — they stay back and shoot.
 
-On large maps the AI only paths within **this turn’s** reach. A clear line can hit (same math as the crosshair). Shots into rock, cliff, or wall stop there.
+On large maps the AI only paths within **this turn’s** reach. A clear line can hit (same math as the crosshair). They will not fire into rock, a cliff, a wall, or a tent.
 
 Empty human hands: they pull a firearm from the other hand slot or from inventory and reload it. Heavy weapons and the flare pistol are not grabbed this way.
 
@@ -56,7 +56,7 @@ Empty human hands: they pull a firearm from the other hand slot or from inventor
 
 ## When they cannot see you
 
-- The line will not sit in a corner to be farmed. They close to firing range of the last sound (**14–20** tiles, not onto your tile). Two scouts / pressers may come closer.
+- One fighter creeps the last sound: a scout, or an assaulter/roughneck if there is no scout, using cover, to **14–20** tiles — not onto your tile. Once he sees you he hides that same turn; the rest open fire. An officer and a high-ground line do not run with him.
 - A no-sight cone covers the tile **where you can step into view** (house corner, doorway, rock edge), not the wall.
 - A **sniper / firing line on high ground** that can see that exit **stays** and holds the cone there — they do not drop down “closer to the sound”. An assaulter at the foot still relocates.
 - Anyone you can already see while they cannot see you must move.

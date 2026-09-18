@@ -1,0 +1,40 @@
+---
+description: >-
+  Read when changing player-facing combat/CTH/grazing/cover/smoke, wiki,
+  showcase, or when docs/technical drifts from loaded code.
+globs:
+  - docs/**
+  - Code/**/*.lua
+  - English.csv
+  - Russian.csv
+alwaysApply: false
+---
+
+# Docs sync: technical + wiki + showcase
+
+Слои: `docs/technical/` = загруженный runtime; `docs/wiki/` = игрок; `docs/showcase/ru`+`en` = витрина (ADR-0003). GitHub Wiki руками не править.
+
+## В том же change set, если заметно игроку
+
+Бой, CTH, grazing, укрытие, дым/погода, оружие/патроны, статусы, UI-числа, роли отрядов:
+
+1. Профильная `docs/technical/systems/*` (формулы, caps, load-state). Новый/удалённый `Code/*.lua` → ещё `file-coverage.md`.
+2. Профильная `docs/wiki/*`. Оружейные числа — только CSV + `scripts/docs/weapons-docs.mjs`.
+3. Обе страницы аспекта в `docs/showcase/ru/` и `docs/showcase/en/`. Новый аспект → slug в `pages.json`.
+4. Не спрашивать «обновить ли вики» для боя/CTH/grazing/укрытия/дыма. Не коммитить `.tmp/github-wiki*`.
+
+Витрина: числа для игрока, без load order и absolute paths. Внутренние ссылки — относительные `.md`.
+
+## Когда спросить
+
+Если пользователь не сказал «правь docs», а изменение **не** player-facing — спросить, какие technical-страницы обновить. Явный «правь docs / веди вики» = править без спроса.
+
+Spec `approved` vs technical «уже shipped» — спросить wording или ждать acceptance (`.cursor/rules/jazz-spec-sync.mdc`).
+
+## Не оставлять расхождений
+
+- Technical не описывает старый контракт после смены runtime и не выдаёт future/approved за loaded.
+- Wiki/showcase не обещают механику, которую код убрал.
+- Одна каноническая systems-страница владельца.
+
+Связано: `.agents/skills/document-jazz-systems/SKILL.md`, `.agents/docs/reference/documentation-contract.md`.

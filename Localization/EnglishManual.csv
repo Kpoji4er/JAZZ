@@ -10004,15 +10004,6 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9757,890000000020594,Running.,Running.,JAZZ-AI-BARK-001
 9758,890000000020595,Closer.,Closer.,JAZZ-AI-BARK-001
 9759,890000000020596,It's far. Going.,It's far. Going.,JAZZ-AI-BARK-001
-9780,761915400101,Контратака на виллу,Villa counterattack,manual-translation; K4 feedback
-9781,761915400102,Легион идёт на виллу Коразон. Приготовьтесь к обороне — уйти из сектора нельзя.,The Legion is advancing on Corazon's villa. Prepare to defend it; you cannot leave the sector.,manual-translation; K4 feedback
-9782,761915400103,Контратака на виллу отбита.,The villa counterattack has been repelled.,manual-translation; K4 feedback
-9783,761915400104,Гости,Guests,manual-translation; K4 feedback
-9784,761915400105,Тихо. У нас гости.,Quiet. We have company.,manual-translation; K4 feedback
-9785,761915400106,Легион снова идёт на виллу — с лагерей и со стороны Эрни. Займите позиции до подхода противника. Уйти отсюда сейчас нельзя.,"The Legion is advancing on the villa again, from the camps and Ernie. Take your positions before they arrive. You cannot leave now.",manual-translation; K4 feedback
-9786,761915400107,Принять $40 000,"Accept $40,000",manual-translation; K4 feedback
-9787,761915400108,Отказаться от $40 000,"Refuse $40,000",manual-translation; K4 feedback
-9788,761915400109,Принять $40 000 и попросить больше,"Accept $40,000 and request more",manual-translation; K4 feedback
 9760,761915300101,СР-3М,SR-3M,manual-translation; SR3M
 9761,761915300103,"Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя.","A compact 9x39 mm carbine with a folding stock and a 30-round magazine. This configuration uses the standard muzzle device, without a suppressor.",manual-translation; SR3M
 9762,761915301101,L42A1,L42A1,manual-translation; rifle
@@ -10033,3 +10024,16 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9777,761915303103,"Автомат под патрон 5,45x39 мм с полимерным складным прикладом и общими магазинами семейства АК на 30 и 45 патронов.",A 5.45x39 mm rifle with a folding polymer stock and shared 30- and 45-round AK magazines.,manual-translation; rifle
 9778,761915303111,АК-105,AK-105,manual-translation; rifle
 9779,761915303113,"Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов.",A compact 5.45x39 mm carbine using shared 30- and 45-round AK magazines.,manual-translation; rifle
+9780,761915400101,Контратака на виллу,Villa counterattack,manual-translation; K4 feedback
+9781,761915400102,Легион идёт на виллу Коразон. Приготовьтесь к обороне — уйти из сектора нельзя.,The Legion is advancing on Corazon's villa. Prepare to defend it; you cannot leave the sector.,manual-translation; K4 feedback
+9782,761915400103,Контратака на виллу отбита.,The villa counterattack has been repelled.,manual-translation; K4 feedback
+9783,761915400104,Гости,Guests,manual-translation; K4 feedback
+9784,761915400105,Тихо. У нас гости.,Quiet. We have company.,manual-translation; K4 feedback
+9785,761915400106,Легион снова идёт на виллу — с лагерей и со стороны Эрни. Займите позиции до подхода противника. Уйти отсюда сейчас нельзя.,"The Legion is advancing on the villa again, from the camps and Ernie. Take your positions before they arrive. You cannot leave now.",manual-translation; K4 feedback
+9786,761915400107,Принять $40 000,"Accept $40,000",manual-translation; K4 feedback
+9787,761915400108,Отказаться от $40 000,"Refuse $40,000",manual-translation; K4 feedback
+9788,761915400109,Принять $40 000 и попросить больше,"Accept $40,000 and request more",manual-translation; K4 feedback
+9789,890000000014200,Бронежилет EOD,EOD Vest,manual-translation
+9790,890000000014201,Бронежилеты EOD,EOD Vests,manual-translation
+9791,890000000014202,"Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.","A heavy sapper vest for bomb disposal. Thick fragmentation packs and a high collar handle blast well, but it does little against a rifle round and the vest is noticeably heavy.",manual-translation
+9792,890000000014203,Броня для разминирования,Explosive ordnance disposal armor,manual-translation

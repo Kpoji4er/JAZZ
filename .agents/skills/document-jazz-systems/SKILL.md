@@ -1,6 +1,8 @@
 ---
 name: document-jazz-systems
-description: Обновлять и проверять техническую документацию JAZZ как current-state источник истины по реализации и синхронизировать с ней игроковую docs/wiki для заметного игроку поведения. Использовать при изменении runtime behavior, generated data, load-state, public IDs, dependencies, compatibility, тестового контракта или границ пакетов, а также при documentation-only аудите.
+description: >-
+  Использовать при правке docs/technical, docs/wiki или docs/showcase под
+  загруженный runtime. Не открывать для чисто кодового фикса без documentation delta.
 ---
 
 # Техническая документация JAZZ
@@ -21,9 +23,9 @@ description: Обновлять и проверять техническую д�
    - `technical-debt.md` — подтверждённый долг.
 6. Для изменённого icon, preview, sprite, portrait, entity или sound asset указать repository-relative media path либо явно отметить, что asset contract не менялся.
 7. Сопоставить technical diff с фактическим diff реализации и spec. Не описывать approved, но ещё не реализованное поведение как текущее.
-8. Если изменение заметно игроку, **обязательно** обновить профильную `docs/wiki/`-страницу **и** `docs/showcase/ru`+`en` в том же change set (`.cursor/rules/jazz-docs-wiki-sync.mdc`). Не спрашивать «нужна ли вики» для боя/CTH/grazing/укрытия/дыма. Оружейные числа — CSV + `scripts/docs/weapons-docs.mjs`, не руками в generated pages.
+8. Если изменение заметно игроку, **обязательно** обновить профильную `docs/wiki/`-страницу **и** `docs/showcase/ru`+`en` в том же change set (`.cursor/rules/jazz-docs-sync.mdc`). Не спрашивать «нужна ли вики» для боя/CTH/grazing/укрытия/дыма. Оружейные числа — CSV + `scripts/docs/weapons-docs.mjs`, не руками в generated pages.
 9. Не править GitHub Wiki вручную — публикация через `scripts/docs/publish-github-wiki.ps1` / workflow.
-10. Запустить `.agents/skills/document-jazz-systems/scripts/check-system-docs.ps1`.
+10. Для локального изменения запустить `.agents/skills/document-jazz-systems/scripts/check-system-docs.ps1 -Paths @("docs/technical/systems/<page>.md")`, перечислив изменённые Markdown и при необходимости agents/openai.yaml. Режим проверяет выбранные документы/навыки и ссылки, но не глобальный coverage/index/showcase. Для общего аудита запускать без -Paths; сообщать его результат отдельно от локального.
 
 ## Definition of Done
 

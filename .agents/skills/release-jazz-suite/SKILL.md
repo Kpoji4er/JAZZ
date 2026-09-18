@@ -1,6 +1,8 @@
 ---
 name: release-jazz-suite
-description: Планировать, проверять и публиковать релизы JAZZ из четырёх GitHub-репозиториев с версией, полученной из committed jazz/metadata.lua. Использовать при изменении metadata, выборе major/minor, подготовке release manifest и changelog, создании тегов и GitHub Releases, упаковке четырёх мод-пакетов, настройке release workflow и проверке release-кандидата.
+description: >-
+  Использовать при релизе, тегах, GitHub Release, Steam upload или смене
+  major/minor комплекта. Не для обычного commit Revision +1.
 ---
 
 # Релизы комплекта JAZZ

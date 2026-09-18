@@ -1,8 +1,7 @@
 ﻿---
 description: >-
-  Генерация PNG-портретов мерков/NPC JAZZ в стиле JA3 (300+2000, рендер на
-  #504633, альфа отдельным neural cut BiRefNet/useknockout, color grade как
-  vanilla, kit, не военный). При запросе мерка/портрета/BigPortrait.
+  Read when generating merc/NPC Portrait or BigPortrait. Skill:
+  $create-jazz-merc-portraits.
 alwaysApply: false
 ---
 

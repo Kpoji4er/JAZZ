@@ -83,6 +83,28 @@ if c_avg_mid <= c_elite_mid:
 if abs(c26 - c20) >= 12:
     failed.append(f"sharp step near ¼ ({c20:.1f}→{c26:.1f})")
 
+if "function MishapProperties:GetMishapDeviationSectorDeg" not in weapons:
+    failed.append("GetMishapDeviationSectorDeg missing")
+if not re.search(r"expl < 20", weapons):
+    failed.append("sector gate Explosives < 20 missing")
+if not re.search(r"MulDivRound\(t, 330, 80\)", weapons):
+    failed.append("sector lerp 360→30 missing")
+
+
+def sector_deg(expl):
+    if expl < 20:
+        return 360
+    t = max(0, min(80, expl - 20))
+    return 360 - int(round(t * 330 / 80.0))
+
+
+if sector_deg(10) != 360:
+    failed.append(f"expl 10 sector {sector_deg(10)}")
+if sector_deg(20) != 360:
+    failed.append(f"expl 20 sector {sector_deg(20)}")
+if sector_deg(100) != 30:
+    failed.append(f"expl 100 sector {sector_deg(100)}")
+
 if failed:
     print("FAIL grenade mishap curve:", ", ".join(failed))
     sys.exit(1)

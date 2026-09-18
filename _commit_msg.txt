@@ -1,0 +1,3 @@
+Show equipped Legion armor and helmets; fix EOD vest name [no new game]
+
+Ship the experimental JAZZ_Legion visualizer, agent-rule updates, and remaining local work so the test set can be pushed.

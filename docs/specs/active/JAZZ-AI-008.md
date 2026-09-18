@@ -61,7 +61,7 @@ Fallback OW уже умеет целиться в клетку выхода (007
 
 ## Требования
 
-- `JAZZ-AI-008-REQ-001` — `JazzAI_UnitIsLinePerchHolder(unit)`: keyword `Sniper`/`Marksman`, или dynamic semi-sniper, или archetype `*_Frontliner` / `*_Machinegunner`, или aura `OccupyHeights`. **Не** Assaulter / Flanker / Medic / Deserter / `Legion_Regroup` / melee keyword / aura `pusher`.
+- `JAZZ-AI-008-REQ-001` — `JazzAI_UnitIsLinePerchHolder(unit)`: **membership superseded by [JAZZ-AI-CMD-003](JAZZ-AI-CMD-003.md) REQ-001** (семья Line/MG / Leader+optics / dedicated Front|MG UnitData; не `current_archetype` Frontliner, не aura `OccupyHeights`). Stay-hold / egress / +180 без изменения. **Не** Assaulter / Flanker / Medic / Deserter / `Legion_Regroup` / melee keyword / aura `pusher`.
 - `JAZZ-AI-008-REQ-002` — `JazzAI_DestIsEgressPerch(context, dest)` истинно только если все:
   1. holder (REQ-001);
   2. нет личных видимых врагов (`GetVisibleEnemies` пуст);

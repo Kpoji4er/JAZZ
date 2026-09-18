@@ -2,7 +2,7 @@
 
 ## Style B (канон для уникальных Scope / Magazine)
 
-Канон: [`WeaponComponents/references/PROMPT.md`](../../../WeaponComponents/references/PROMPT.md).
+Канон: [`WeaponComponents/references/PROMPT.md`](../../../../WeaponComponents/references/PROMPT.md).
 
 | | |
 | --- | --- |

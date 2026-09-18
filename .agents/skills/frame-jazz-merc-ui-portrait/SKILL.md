@@ -1,9 +1,7 @@
 ---
 name: frame-jazz-merc-ui-portrait
 description: >-
-  Кадрирование UI-портрета мерка JAZZ 300×300: лицо почти на всю плоскость
-  как у vanilla JA3 (Blood/Ice), не поясной/chest-up. При генерации Portrait,
-  bust crop из Big, жалобе что портрет мелкий / лицо маленькое.
+  Использовать при кадрировании UI Portrait 300×300 (лицо на всю плоскость) или жалобе «портрет мелкий».
 ---
 
 # UI Portrait framing (300×300)
@@ -11,6 +9,8 @@ description: >-
 Пакет: `jazz-units` → `MercPortraits/`.  
 Связанный skill: `create-jazz-merc-portraits` (Big + общий стиль).  
 Rule: `.cursor/rules/jazz-merc-portraits.mdc`.
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Проблема
 
@@ -37,9 +37,9 @@ Reject: extreme zoom — обрезаны макушка/подбородок/р
 
 ## Два пути
 
-### A) GenerateImage bust (предпочтительно для нового слота)
+### A) генерация изображения bust (предпочтительно для нового слота)
 
-`aspect_ratio` `1:1`. Refs: face_png + `References/Portraits/` (Blood/Ice) + quality bar framing.
+`пропорции результата` `1:1`. Refs: face_png + `References/Portraits/` (Blood/Ice) + quality bar framing.
 
 ```text
 JA3 mercenary UI PORTRAIT, square 300-style close-up.

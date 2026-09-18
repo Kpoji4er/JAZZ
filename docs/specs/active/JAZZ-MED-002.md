@@ -114,3 +114,5 @@ status note: **implemented** 2026-08-18 — morphine / WoundInfected / BloodLoss
 - docs/showcase/ru|en/combat-and-accuracy.md
 - docs/design/medicine.md
 - 2026-08-18: hospital instant Trauma clear documented as **deferred / not loaded** (wiki+showcase: Hospital Treatment ≠ trauma clear).
+
+MED-008 (2026-09-15) уточняет REQ-003 и AC-002: смертельный исход сохраняется для обычных врагов и бойцов игрока, но запрещён для immortal и важных квестовых NPC вне отрядов игрока.

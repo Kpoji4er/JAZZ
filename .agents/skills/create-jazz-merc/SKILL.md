@@ -1,11 +1,8 @@
 ---
 name: create-jazz-merc
 description: >-
-  Собрать полностью готового наёмника JAZZ из generation-статьи
-  docs/design/mercs-ja12/<slug>.md: UnitData, именной перк, loot, портреты,
-  AIM-чат, VoiceResponse, RU/EN локализация. Использовать при команде
-  «сгенерируй мерка», create-jazz-merc, или когда статья executable и нужна
-  реализация. Не использовать для design-only правок статей без генерации.
+  Использовать при команде «сгенерируй мерка» из generation-статьи docs/design/mercs-ja12.
+  Не для design-only правок статьи без генерации.
 ---
 
 # Создание мерка из generation-статьи
@@ -16,10 +13,12 @@ description: >-
 Контракт: [references/article-contract.md](references/article-contract.md), checklist: [references/unitdata-checklist.md](references/unitdata-checklist.md).  
 Шаблон: `docs/design/mercs-ja12/_template.md`. Фразы: `docs/design/mercs-ja12/_phrase-checklist.md`.
 
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
+
 ## Вход
 
 1. Путь к статье или slug (`colby` → `docs/design/mercs-ja12/colby.md`).
-2. Явное подтверждение генерации (не invent из пустой статьи).
+2. Запрос пользователя на генерацию является разрешением в его scope; повторного подтверждения не требуется. Из пустой статьи персонажа не придумывать.
 
 ## Preflight
 
@@ -46,7 +45,7 @@ description: >-
 - [ ] H. Evidence / DoD в spec волны
 ```
 
-Портреты: skill `$create-jazz-merc-portraits` + [style-and-naming.md](../create-jazz-merc-portraits/references/style-and-naming.md). Промпт из статьи; запрет стволов в кадре; класс-кит обязателен. Если в статье есть ``*.ja2-face.*`` — лицо в Portrait/BigPortrait должно быть похоже на этот JA2-референс (`reference_image_paths` + явный Match JA2 face в CHARACTER_DESCRIPTION).
+Портреты: skill `$create-jazz-merc-portraits` + [style-and-naming.md](../create-jazz-merc-portraits/references/style-and-naming.md). Промпт из статьи; запрет стволов в кадре; класс-кит обязателен. Если в статье есть ``*.ja2-face.*`` — лицо в Portrait/BigPortrait должно быть похоже на этот JA2-референс (референсы + явный Match JA2 face в CHARACTER_DESCRIPTION).
 
 ## Запреты
 
@@ -61,4 +60,4 @@ description: >-
 - Обновить `status: ready` в статье и указать пути UnitData/loot/perk/portraits.
 - Индекс `docs/design/mercs-ja12/README.md` — перенести slug в Ready.
 - Technical note при изменении публичных ID/load: `$document-jazz-systems`.
-- При одобренном push выкладывать `jazz` и `jazz-units` **отдельными push**: Discord публикует отдельную новость на каждый пакет, без межпакетной агрегации.
+- При отдельно одобренной публикации следовать `.cursor/rules/jazz-git-push-chunks.mdc`; локальной альтернативной процедуры Discord здесь нет.

@@ -74,7 +74,7 @@ Sector ID является публичным ключом savegame, quest state
 
 - `RebelsSavior` завершается только после сдачи 4×`ZastavaM76` и 4×`Medkit`; после сдачи у палаток K5 появляется `Merc_BarrySeal` из `jazz-units`, которого бесплатно присоединяет разговор `BarrySeal_Recruit`.
 - `Jazz_Doctor_need_Help` забирает ресурсы из player squads и требует независимо стабилизировать три wounded-маркера I2.
-- `RescueTeam` считает спасение только при живом `Rebel_Hostage`; смерть заложника фиксирует failed outcome.
+- `RescueTeam` считает спасение только при живом `Rebel_Hostage`; смерть заложника фиксирует failed outcome. После бантера заложник идёт `AdvanceTo` на Logic-маркер `Rebels_Camp_LegionCamp5` (не на собственную группу).
 - `Jazz_DeadPigs` защищает аванс и выдачу боеприпасов от повторов; после принятия в K6 появляются четыре союзника группы `DeadPigs_Reinforcements`, не входящие в `Pigs`.
 - `JAZZ_REBELS_1_SeizeTheOutlook` использует состояние `M4_UnderControl`; payoff-маркеры K4/M4 привязаны к собственным секторам и не despawn в тот же tick.
 - `RescueHerMan` использует J7 в TCE и journal, marker Германа входит в группы `HermanShaking` и `Herman`, а обе sector-копии J7 вызывают `EncounterHerman`.

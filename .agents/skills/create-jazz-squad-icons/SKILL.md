@@ -1,10 +1,7 @@
 ---
 name: create-jazz-squad-icons
 description: >-
-  Создавать и обновлять 64×64 сателлитные иконки ролей отрядов JAZZ
-  (Legion/Army/Adonis/Rebels/Smugglers) по единому шаблону щит+символ.
-  Использовать при запросе новой squad icon, role PNG в SquadsIcons/Enemy,
-  переносе силуэта на щиты фракций или правке галереи squad-role-icons.md.
+  Использовать при новой squad role icon 64×64 (SquadsIcons/Enemy) или переносе силуэта на щит.
 ---
 
 # Создание squad role icons
@@ -14,6 +11,8 @@ Current-state каталог: `docs/technical/systems/squad-role-icons.md`.
 Детали стиля и промпта: [references/style-and-naming.md](references/style-and-naming.md).
 
 Asset-only PNG **не** требует spec. Привязка role → path в `Guardpost_Patrols.lua` / director — отдельное behaviour-изменение → `$specify-jazz-change`.
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Вход от пользователя
 
@@ -32,7 +31,7 @@ Asset-only PNG **не** требует spec. Привязка role → path в `
 
 ```text
 - [ ] 1. Имя файла и конфликты
-- [ ] 2. Draft символа (GenerateImage + референсы)
+- [ ] 2. Draft символа (генерация изображения + референсы)
 - [ ] 3. Композит Legion
 - [ ] 4. Порты фракций
 - [ ] 5. Визуальная проверка
@@ -52,7 +51,7 @@ Asset-only PNG **не** требует spec. Привязка role → path в `
 
 1. Прочитать style bible в [style-and-naming.md](references/style-and-naming.md).
 2. Взять референсы: `_shields/legion.png` + 2–3 близких `legion/legion_*_squad.png`.
-3. Сгенерировать draft через `GenerateImage` (`aspect_ratio` `1:1`), промпт из reference.
+3. Сгенерировать draft через `генерация изображения` (`пропорции результата` `1:1`), промпт из reference.
 4. Итерировать, пока силуэт читается на 64×64 и не путается с соседними ролями.
 
 ### 3. Композит Legion

@@ -1,6 +1,8 @@
 ---
 name: jazz-penetration-scales
-description: Считать и показывать дробное пробитие JAZZ (PenetrationClass + PenetrationBonus в десятых). Использовать при AmmoRolloverHint, GetAttackPenetrationClass, CaliberModification на pen, UI «Бронебойность»/Penetration, правках формул брони.
+description: >-
+  Использовать при UI или формулах PenetrationClass + десятые
+  (AmmoRolloverHint, бронебойность).
 ---
 
 # Шкалы пробития JAZZ

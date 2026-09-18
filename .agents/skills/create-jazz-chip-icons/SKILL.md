@@ -1,9 +1,7 @@
 ---
 name: create-jazz-chip-icons
 description: >-
-  Создавать и обновлять ChipIcon-миниатюры WeaponComponent JAZZ для inventory/HUD
-  chips (64×64, Icons/Upgrades/Chips). Не для полной Icon кабинета моддинга.
-  Использовать при ChipIcon, chip icon, чипах обвеса на тайле, JAZZ-UI-001 chips.
+  Использовать при ChipIcon 64×64 (Icons/Upgrades/Chips). Не для полной Icon кабинета.
 ---
 
 # Создание ChipIcon (миниатюры чипов)
@@ -16,6 +14,8 @@ description: >-
 Новый компонент, доступный на оружии: сделать **оба** skill (пара Icon + ChipIcon), но генерация раздельная.
 
 Asset-only PNG не требует spec. Wire `ChipIcon` → `items.lua` sync.
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Контракт
 
@@ -35,16 +35,16 @@ Runtime: `ChipIcon` → иначе `Icon` → иначе `slot_*` fallback (`$cr
 
 1. `ComponentId`
 2. Slot + DisplayName / отличие от соседей
-3. Показать draft до wire (если не «сразу вставь»)
+3. Уточнить scope из запроса: только draft или готовая вставка. Для явно разрешённой вставки повторное согласование не нужно; при запросе draft wiring не выполнять.
 
 ## Workflow
 
 ```text
 - [ ] 1. Id, конфликты PNG
 - [ ] 2. Рефы: Icons/Upgrades/Chips/references/ + соседние Chips/
-- [ ] 3. GenerateImage (PROMPT chip)
+- [ ] 3. генерация изображения (PROMPT chip)
 - [ ] 4. Finalize → Icons/Upgrades/Chips/<ComponentId>.png
-- [ ] 5. Ревью пользователем
+- [ ] 5. Самостоятельная визуальная QA; согласование draft только если пользователь его запросил
 - [ ] 6. Wire ChipIcon path в items.lua
 ```
 

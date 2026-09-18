@@ -1,38 +1,38 @@
 ---
 description: >-
-  Один wrap на Class:Method/глобал; не re-base на чужую обёртку
-  (cycle → Call stack too big). Проверка при любой wrap-правке.
-alwaysApply: true
+  Read when adding or changing a Lua wrap, Install*Wrap, g_JAZZ_*Base,
+  or rawset of a Class:Method. Two wraps → Call stack too big.
+globs:
+  - "**/*.lua"
+alwaysApply: false
 ---
 
 # Lua wraps: один символ — один wrap
 
-Два wrap на один `Class:Method` (или глобал) + `rawset(*Base, current)` на `ModsReloaded` / `DataLoaded` / `ClassesBuilt` = взаимная рекурсия → assert `Call stack too big`.
+Два wrap на один `Class:Method` (или глобал) + `rawset(*Base, current)` на `ModsReloaded` / `DataLoaded` / `ClassesBuilt` = взаимная рекурсия → `Call stack too big`.
 
-Уже ломало: RIS↔NoMaps `UnitMarker:SpawnObjects` (пустой I1); CombatBarks↔AiActions `AIActionThrowGrenade:Execute` (ход ИИ).
+Уже ломало: RIS↔NoMaps `UnitMarker:SpawnObjects`; CombatBarks↔AiActions `AIActionThrowGrenade:Execute`.
 
 ## Запрещено
 
 - Второй wrap на уже обёрнутый метод/глобал. Новый хук **вшивать** в существующий.
 - `rawset(_G, "g_JAZZ_*Base", current)`, если `current` — чужой JAZZ wrap.
-- Рекурсивный `JazzAI_*` / wrap без явного depth/reentry guard (на reentry звать **orig**, не `*Base`).
+- Рекурсивный `JazzAI_*` / wrap без depth/reentry guard (на reentry звать **orig**, не `*Base`).
 
 ## Надо
 
-- install-once: `current == ourFn` → return; чужой wrap на слоте → **не** re-base (как RIS `lInstallUnitMarkerWrap`).
+- install-once: `current == ourFn` → return; чужой wrap на слоте → **не** re-base.
 - Перед сдачей wrap / `Install*Wrap` / `OnMsg.ModsReloaded` install:
 
 ```text
 python docs/tools/_check_lua_wrap_cycles.py
 ```
 
-`rg` по `Class:Method` и `g_JAZZ_*Base` во **всех** пакетах suite. Exit 0 обязателен. Не расширять allowlist скрипта без явного согласия — вшивать хук в существующий wrap.
-
-## Плохо / хорошо
+`rg` по `Class:Method` и `g_JAZZ_*Base` во **всех** пакетах suite. Exit 0 обязателен. Allowlist не расширять без согласия.
 
 ```lua
 -- BAD: второй wrap + re-base на current
-rawset(_G, "g_JAZZ_FooBase", cls.Foo)  -- cls.Foo уже чужой wrap
+rawset(_G, "g_JAZZ_FooBase", cls.Foo)
 cls.Foo = function(...) return g_JAZZ_FooBase(...) end
 
 -- GOOD: один wrap, оба хука внутри

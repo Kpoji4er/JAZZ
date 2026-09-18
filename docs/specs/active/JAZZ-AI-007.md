@@ -8,7 +8,7 @@ repositories:
   - jazz
   - jazz-units
 risk: medium
-generated_data: false
+generated_data: true
 runtime_validation: required
 write_set:
   - jazz/docs/specs/active/JAZZ-AI-007.md
@@ -16,7 +16,11 @@ write_set:
   - jazz/Code/AIContextProfiles.lua
   - jazz/Code/CombatAI.lua
   - jazz/Code/AiActions.lua
+  - jazz-units/items.lua
   - jazz/docs/technical/systems/ai-awareness.md
+  - jazz/docs/wiki/tactical-ai.md
+  - jazz/docs/showcase/ru/tactical-ai.md
+  - jazz/docs/showcase/en/tactical-ai.md
   - jazz/docs/technical/override-matrix.md
   - jazz/docs/design/tactical-ai-archetypes.md
   - jazz/docs/wiki/officer-aura.md
@@ -47,7 +51,7 @@ approved_by: project-owner
 - `PickCustom` всегда после hard-state (panic / deserter / emplacement / reposition / pinned).
 - Ванильный scout-gate не перебивает JAZZ.
 - Отход: шанс на пороге, срыв при слиянии (≥3 живых в 8 тайлах).
-- Нет LOS + last known: линия идёт в пояс 14–20 тайлов; 1–2 пробы ближе.
+- Нет LOS + last known: **один** ползун (разведчик, иначе штурмовик/головорез) идёт к звуку под укрытием; увидел — прячется в том же ходе; остальные стреляют, не бегут всей кучей.
 - Кого игрок видит, а боец игрока нет — обязан сдвинуться.
 - OW по звуку: конус на клетку, куда враг может выйти в LOS (камень, угол дома, дверь), не в стену и не в клетку за ней.
 - Dump по звуку: якорь last known ±1–3 тайла. В непробиваемый камень не бить (уже PERF-004).
@@ -64,10 +68,10 @@ approved_by: project-owner
 ## Требования
 
 - `JAZZ-AI-007-REQ-001` — wrap `UnitProperties:SelectArchetype`: hard-state ванили; без блока `can_scout → Scout_LastLocation`; затем `PickCustom`; `Scout_LastLocation` только если `JazzAI_ShouldRecontactScout`.
-- `JAZZ-AI-007-REQ-002` — `JazzAI_ShouldRecontactScout`: нет видимых врагов; есть `last_known_enemy_pos` (не создавать через `AIPickScoutLocation`); picked не Medic/Deserter/Melee/Legion_Regroup; directive не FallBack; дистанция до last known > 20 тайлов.
+- `JAZZ-AI-007-REQ-002` — `JazzAI_ShouldRecontactScout`: только **назначенный creeper** (`JazzAI_AssignRecontactProbes`: rank 0 = Scout/Flanker, иначе rank 1 = Assaulter/Roughneck; один на команду). Нет видимых врагов; есть `last_known_enemy_pos` (не создавать через `AIPickScoutLocation`); picked не Medic/Deserter/Melee/Legion_Regroup; directive не FallBack; дистанция до last known > 20 тайлов. Leader/MG/Heavy/Medic не creeper. Creeper ходит **Early**. Если у creeper появился vis — не Dump, `TakeCover`/`BunkerDown` в том же ходе (остальные стреляют по team vis).
 - `JAZZ-AI-007-REQ-003` — FallBack eligibility по-прежнему dead≥2 и ≥30%. Старт: один `InteractionRand(100, "JazzAI_FallBack")` на команду на порог 30/50/70; шанс = текущий процент потерь. Не стартовать без `GetNearestEnemy` у офицера. Состояние в `MapVar JazzAI_TeamFallBackState`. Повторный бросок только на более высоком пороге.
 - `JAZZ-AI-007-REQ-004` — срыв Отхода: у офицера-источника ≥3 живых союзника в 8 тайлах (включая себя). Тогда `committed=false`, picker не добавляет FallBack.
-- `JAZZ-AI-007-REQ-005` — `AIScoreDest`: линия (не probe) вне пояса 14–20 получает бонус за сближение с last known и штраф за отход/стойку; внутри пояса штраф за dest < 14 (не наезжать на звук). Probe (`Flank` keyword / aura `pusher` / Flanker archetype, не больше двух на команду) может идти ближе. Край карты (8 тайлов от bbox), если last known не у края — штраф.
+- `JAZZ-AI-007-REQ-005` — `AIScoreDest`: бонус за сближение с last known **только** у creeper (укрытие — `Scout_LastLocation` EndTurnPolicies TakeCover). Остальные без vis не идут к звуку. Creeper в поясе 14–20: бонус; dest < 14 — штраф. Край карты (8 тайлов от bbox), если last known не у края — штраф только creeper.
 - `JAZZ-AI-007-REQ-006` — farm: игрок имеет LOS на юнита, юнит не имеет LOS ни на одного player_team. Stay dest штраф; dest с большим cover / дальше от spotter — бонус.
 - `JAZZ-AI-007-REQ-007` — `Scout_LastLocation` / recontact: path-bbox margin 24 тайла (cap 64), чтобы ход сокращал дистанцию, а не 2 клетки.
 - `JAZZ-AI-007-REQ-008` — `JazzAI_FallbackOverwatchTargetPos`: якорь last known / nearest enemy. Если якорь сам `JazzAI_PosOWViable` — открытое, `JazzAI_SoundOffsetPos` ±1–3. Иначе цель = первая проходимая плита по BFS от якоря (≤8 тайлов / 40 клеток) с `JazzAI_PosOWViable` — выход в обзор: угол дома, дверь, камень. Не кольцо 1–2 (дом дальше). Нет кандидата → `false`. Ночные правила OW-001 сохраняются.

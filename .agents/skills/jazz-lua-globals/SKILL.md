@@ -1,6 +1,8 @@
 ---
 name: jazz-lua-globals
-description: Правильно объявлять и писать Lua-глобалы JAZZ/JA3 без Assert «Attempt to create a new global». Использовать при rawset/_G, g_JAZZ_*, wrapper flags, OnMsg install, GameVar/MapVar, или любом runtime-присвоении нового имени в _G (jazz, jazz-nomaps, jazz-units, jazz-maps).
+description: >-
+  Использовать при новом g_JAZZ_* / rawset / GameVar / MapVar или Assert
+  «Attempt to create a new global».
 ---
 
 # JA3 / JAZZ: глобалы без Assert

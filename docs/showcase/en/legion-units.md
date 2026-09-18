@@ -120,3 +120,7 @@ Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bo
 ## Strategic prices
 
 `LegionUnitPrices.lua`: line **500/1000/2000/3500**, specialist **800/1500/2800/4500**, leader **800/1500/2500/4000** (T1→T4).
+
+## Experimental armor visuals
+
+The local experimental build includes the improvised cuirass, chainmail, brigantine, tire armor, and nine Twaron, Guardian, and Zylon torso variants, plus vanilla stand-ins for Flak / Interceptor vests and the mapped helmets. Light, Medium, and Full differ by protective components; test fighters use MP40s and remain outside campaign squads. Only JAZZ Legion males show these visuals. The modern custom vests were reshaped around the test Legion fighter's shirt to reduce excessive rear clearance. Clothing fit and animations still require in-game validation.

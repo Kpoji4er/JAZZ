@@ -1,11 +1,33 @@
 # `docs/tools` — скрипты агентов и аудита
 
-Рабочие утилиты для generated data, аттачей, CSV и design-артефактов.  
+Рабочие утилиты для generated data, аттачей, CSV и design-артефактов.
+
+`_apply_weapon_rollout.py --build <build> [--apply]` — WEAPON-ROLLOUT-001: согласованные статы/цены, адресный CSV, Ivan10 и только новые AK74M/AK105/SR3M/L42A1 записи в существующих пулах Легиона. Dry-run по умолчанию; SHA-backup, защита от конкурентной записи, проверка Lua и идемпотентность. Полную перегенерацию Легиона не запускает.
+
+В том же rollout восстанавливается отдельно одобренная выдача ножа Crusher 40/55/70. `_audit_weapon_rollout.py --build <build>` сравнивает все прежние LootDef с резервной копией и проверяет сохранность старых записей пулов. `_runtime_weapon_rollout.py` — guarded DAP reload только items jazz/units и Lua, без перезагрузки карты/assets, без сохранения; останавливается при несохранённых editor edits, пишет AppData-report.
+
+`_check_mosin_configurations.py --build <Mosin build> --game-root <JA3_ROOT>` дополнительно проверяет запрет ПУ на М38/обрезе: реальные штатные UI checks, JAZZ setter и возврат доступности Scope на длинном стволе. Оптические модификаторы в этой изолированной проверке заменены нейтральным тестовым прицелом; настоящие AP/visual проверяет `_runtime_weapon_imports.lua`.
 Политика хранения: `.agents/docs/reference/agent-tooling.md`, `.cursor/rules/jazz-agent-tooling.mdc`.
 
 Запуск из корня пакета `jazz/` (если не указано иное).
 
+Кираса Легиона (`JAZZ-APPEAR-001`): `_build_legion_armor.py` — Blender bake + FBX и нативная render-иконка; вход `--source <v2.blend> --output <build> --game-root <JA3_ROOT>`. FBX обрабатывается AssetsProcessor, staging ресурсов — `_prepare_rifle_assets.py` (prefix `JAZZ_ImprovisedCuirass`, entity `JAZZ_ImprovisedCuirass_Male`). `_install_legion_armor.py --build <build>` — одноразовая установка согласованных ModItem/metadata/companion и тестового юнита с backup при закрытой игре/редакторе. `_check_legion_armor.py` — read-only executable Lua lifecycle mocks, gear и узкий resource-graph audit; не заменяет игровой прогон. `_install_vanilla_armor_visuals.py` — идемпотентные 19 тестовых UnitData для ванильных Flak/IBA и mapped шлемов (companion + items/metadata); dry-run по умолчанию, `--apply` при закрытой игре/редакторе. Runtime-карту `System_LegionArmorVisuals.lua` не переписывает. `_fix_eod_armor_name.py` — отделяет `JazzArmor_EOD` от клонированных ID/текстов Flak M69 (новые 890000000014200–203, RU/EN). `_repair_legion_armor_record.py` — идемпотентное исправление первоначальной записи тестового юнита в property/value array (`StoreAsTable=false`) и `Group`; открытый редактор после этого должен перечитать мод с диска.
+
+СР-3М (`JAZZ-WEAPON-SR3M-001`): `_build_sr3m_assets.py` запускается через Blender `--background --factory-startup --python ... -- --source <SR_3M.blend> --output <build> --game-root <JA3_ROOT> --export`; сохраняет исходник, пересобирает модули, TGA, FBX и два preview. FBX обрабатывается установленным `ModTools/AssetsProcessor/AssetsProcessor.exe`.
+`_integrate_sr3m.py --export-root <ExportedEntities> --build <build> --game-root <JA3_ROOT>` устанавливает только SR3M entities, DDS/fallbacks, иконку, предмет и пять visual bindings; требует закрытого редактора, сохраняет backup core-файлов. `_localize_sr3m.py --game-csv <Game.csv> --build <build>` добавляет translation memory и вызывает канонический RU/EN экспорт во staging для review.
+`python docs/tools/_check_sr3m.py` — read-only Lua compile и сравнение ModItem/companion, проверка ресурсов, spots, DDS/fallbacks и переводов. Не заменяет проверку в JA3.
+
+`_audit_weapon_balance_runtime.py` — read-only аудит оружия: исполняет выбранные текущие Lua-методы через `lupa`, сверяет числовые поля CSV с companions, печатает воспроизведение shotgun/armor и изолированные recoil/range-пробы. Без записи данных; требуется `lupa`; не заменяет JA3 runtime. Отчёт: `docs/design/weapon-balance-audit-2026-09-15.md`.
+
 DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playbook: `.agents/docs/playbooks/dap-runtime-debug.md`.
+
+`_extract_save_lua_frames.py SAVE --out DIRECTORY` — read-only извлечение Zstandard-фреймов сохранения для диагностики; не исполняет Lua и не изменяет исходный сейв. Требует `zstandard`.
+
+`_check_villa_effect_dispatch.py` — Lua-harness трёх ExecuteCode-вызовов осады K4 через установленный vanilla dispatch/CompileFunc; проверяет SaveAsText и доступ к maps env. Требует `lupa` и `.ja3-root.local`; не заменяет проверку в игре.
+
+`_check_hud_condition_context.py` — Lua-harness контекста HUD: процент через GetConditionPercent(), исходный предмет не изменяется. Требует `lupa`.
+
+`_check_emplacement_target_distance.py` — Lua-harness штатного MachineGunEmplacement.Update с JAZZ wrapper: authored дальность, Clamp, повторное создание оружия и ammo remap. Требует `lupa` и `.ja3-root.local`.
 
 | `_check_lua_wrap_cycles.py` | Два wrap на один `Class:Method` / глобал в suite `Code/` → FAIL (cycle / stack overflow). Allowlist только install-once цепочек. `python docs/tools/_check_lua_wrap_cycles.py`. Правило: `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`. |
 | `_audit_ja3_log_errors.py` | Сводка `[LUA ERROR]` / `[UI WARNING]` / missing assets из последнего `logs/JA3.exe-*.log`. `python docs/tools/_audit_ja3_log_errors.py [path]`. |
@@ -710,31 +732,77 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 | _find_grom_id.py / _probe_grom_loot.py | Locate Grom UnitData/loot wiring. |
 | _purge_restored_aim_vr_loc.py / _restore_vanilla_aim_vr_ids.py | AIM VR localization ID restore/purge helpers. |
 
+- `_check_agent_docs_validation.py` — изолированные fixtures для полного/локального check-system-docs.ps1 (JAZZ-AGENT-SKILLS-001); запуск `python docs/tools/_check_agent_docs_validation.py`, PASS/ненулевой exit, рабочие документы не меняет.
 
-## Weapon import and rollout tools
+- `_check_villa_conflict_order.py` — реальный EnterConflict и порядок эффектов Guests: воспроизводит прежнюю паузу до маршрутов и проверяет ожидание после них; `python docs/tools/_check_villa_conflict_order.py`, Lua-harness, без запуска игры.
 
-`_apply_weapon_rollout.py --build <build> [--apply]` — WEAPON-ROLLOUT-001: согласованные статы/цены, адресный CSV, Ivan10 и только новые AK74M/AK105/SR3M/L42A1 записи в существующих пулах Легиона. Dry-run по умолчанию; SHA-backup, защита от конкурентной записи, проверка Lua и идемпотентность. Полную перегенерацию Легиона не запускает.
+- `_check_infection_nonlethal.py` — MED-008, проверка защиты квестовых/бессмертных NPC, таймеров Unit/UnitData и сохранения смертей обычных врагов/бойцов игрока; `python docs/tools/_check_infection_nonlethal.py`, требует lupa, игровые сейвы не меняет.
 
-В том же rollout восстанавливается отдельно одобренная выдача ножа Crusher 40/55/70. `_audit_weapon_rollout.py --build <build>` сравнивает все прежние LootDef с резервной копией и проверяет сохранность старых записей пулов. `_runtime_weapon_rollout.py` — guarded DAP reload только items jazz/units и Lua, без перезагрузки карты/assets, без сохранения; останавливается при несохранённых editor edits, пишет AppData-report.
 
-`_check_mosin_configurations.py --build <Mosin build> --game-root <JA3_ROOT>` дополнительно проверяет запрет ПУ на М38/обрезе: реальные штатные UI checks, JAZZ setter и возврат доступности Scope на длинном стволе. Оптические модификаторы в этой изолированной проверке заменены нейтральным тестовым прицелом; настоящие AP/visual проверяет `_runtime_weapon_imports.lua`.
+`python docs/tools/_check_region_description_translation.py` — реальный Lua-метод подсказки: plain/T/empty/nil и неизменность описания.
 
-Кираса Легиона (`JAZZ-APPEAR-001`): `_build_legion_armor.py` — Blender bake + FBX и нативная render-иконка; вход `--source <v2.blend> --output <build> --game-root <JA3_ROOT>`. FBX обрабатывается AssetsProcessor, staging ресурсов — `_prepare_rifle_assets.py` (prefix `JAZZ_ImprovisedCuirass`, entity `JAZZ_ImprovisedCuirass_Male`). `_install_legion_armor.py --build <build>` — одноразовая установка согласованных ModItem/metadata/companion и тестового юнита с backup при закрытой игре/редакторе. `_check_legion_armor.py` — read-only executable Lua lifecycle mocks, gear и узкий resource-graph audit; не заменяет игровой прогон. `_repair_legion_armor_record.py` — идемпотентное исправление первоначальной записи тестового юнита в property/value array (`StoreAsTable=false`) и `Group`; открытый редактор после этого должен перечитать мод с диска.
+`python docs/tools/_check_hospital_eligibility.py` — реальный фильтр госпиталя и прогресс травмы без Wounded, сохранность остальных callbacks. Оба требуют Python + lupa; игровые сейвы не изменяют.
+# Возврат прежних визуалов АК
 
-СР-3М (`JAZZ-WEAPON-SR3M-001`): `_build_sr3m_assets.py` запускается через Blender `--background --factory-startup --python ... -- --source <SR_3M.blend> --output <build> --game-root <JA3_ROOT> --export`; сохраняет исходник, пересобирает модули, TGA, FBX и два preview. FBX обрабатывается установленным `ModTools/AssetsProcessor/AssetsProcessor.exe`.
-
-`_integrate_sr3m.py --export-root <ExportedEntities> --build <build> --game-root <JA3_ROOT>` устанавливает только SR3M entities, DDS/fallbacks, иконку, предмет и пять visual bindings; требует закрытого редактора, сохраняет backup core-файлов. `_localize_sr3m.py --game-csv <Game.csv> --build <build>` добавляет translation memory и вызывает канонический RU/EN экспорт во staging для review.
-
-`python docs/tools/_check_sr3m.py` — read-only Lua compile и сравнение ModItem/companion, проверка ресурсов, spots, DDS/fallbacks и переводов. Не заменяет проверку в JA3.
+## Ванильные оружейные референсы для Blender
 
 - `_extract_vanilla_weapon_references.py --game-root <JA3> --hpk <hpk.exe> --output <reference>` — адресно извлекает Weapon_/WeaponAtt* из Meshes/Skeletons/BinAssets; пишет SHA-256 manifest. `--resume` продолжает собственную незавершённую выгрузку.
-
 - `_decode_weapon_reference_meshes.py --reference <reference> --reader <armor-hgm-reader.exe> [--cached]` — HGM LOD0 → JSON и OBJ в метрах, оси Blender (-Y,-X,Z); геометрия без переноса UV/материалов. Ошибки отдельных мешей перечислены в decode-report.json.
-
 - `_dump_weapon_reference_spots.py` — снимает ванильные точки АК74/АК47/АКС74У через временные объекты в live DAP без pause/initialize; пишет `AppData/jazz_vanilla_weapon_spots.tsv`.
-
 - `_build_ak_attachment_fit_scene.py --build <AK build> --reference <reference> --assets <assets repo>` — собирает две Blender-сцены из рабочих АК и реальных HGM ГП/сошек/ПК-А/45-зарядного магазина на установленных точках крепления. Требуются CustomGeometry/{PKAA,AKSeriaMount,AK74_Backelite_45}.json из того же HGM reader. Рендерит отдельно GP30, GP45, Bipod30 с обеих сторон; это offline fit, без записи активных игровых ресурсов.
 
 `python docs/tools/_apply_ak_visual_revision.py --build <AK build> --weapon AK74M` (или `AK105`) — применяет уже собранные ресурсы из `mod-assets-stage`, проверяет ссылки на meshes/materials/textures, запрещает незарегистрированные новые файлы и сохраняет изменяемые версии. `_export_ak_assets.py` и `_render_ak_icons.py` поддерживают `--weapon` для адресной пересборки. Загрузка сущностей не заменяет проверку посадки модулей в игре.
 
 `python docs/tools/_restore_legacy_ak_visuals.py --build <AK build>` — восстанавливает АК74/АКМ из `integration-backup/jazz`: Entity, дульные слоты, адресные визуалы компонентов и исходные иконки. Сохраняет остальные изменения и новые АК74М/АК105; создаёт резервные копии изменяемых файлов. Не перезагружает игру: перед сохранением редактора загрузить данные с диска. Проверки: `_validate_items_quick.py`, `_check_weapon_imports.py`. Возврат не означает завершённую проверку новых моделей.
+
+- `_model_legion_armor.py` — Blender: `--sample <official BlenderScene_Appearance.blend> --output <folder>`; создаёт сварную кирасу, привязку к Male, рендеры и FBX. Входы/выходы вне runtime, не запускает игру.
+- `_refresh_legion_armor.py` — `--build <staged build> --assets <jazz_assets> --core <jazz> --mount <Mod/id/>`: адресно заменяет существующие ресурсы кирасы и иконку, сохраняет backup и reload.lua. Runtime mount читать из Mods; абсолютный путь диска для ReloadEntityResource не работает.
+- `_armor_live_eval.py --file <Lua>` / `--expr <expression>` — одно live-evaluate на :8165 без initialize/pause; изменения только через GameTimeThread, результат >380 символов через AppData. Не выполняет reload автоматически.
+
+- `_preview_legion_armor_pose.py` — Blender CPU: `--source <blend> --output <folder>`; проверяет до 4 нормализованных влияний и рендерит синтетический наклон/плечо. Не заменяет JA3 runtime acceptance.
+
+- `_model_legion_soft_armor.py` — CPU source prototypes: `--sample <official blend> --output <folder> --kind chainmail|brigantine|tire`; реальная геометрия проволочных колец служит high-poly источником для последующего bake, не runtime-мешем. Не регистрирует сущности.
+- `_stage_legion_armor_tests.py --output <folder>` — готовит companion + ModItem на Torso-предмет, исполняет loadout в Lua mock. 37 новых определений остаются вне активных пакетов до готовности соответствующих визуалов.
+
+- `_qa_legion_armor.py --blender <exe> --game-root <JA3_ROOT> --export-root <ExportedEntities> --output <new folder> [--install-existing]` — offline QA-pass кирасы: source → 4 CPU pose/anchor/rim checks → bake/export → AssetProcessor → DDS staging → executable graph checks → optional existing-resource install with backup and hashes. Каждому проходу новый каталог; Blender errors stop the pass. Игра не запускается, reload.lua не исполняется. JSON/logs/8 renders и game-acceptance.md сохраняются; PASS_OFFLINE не заменяет игровую приёмку.
+- `_model_legion_soft_armor.py` теперь ориентируется на ArmorIcons/Chainmail, TireBrigantine, TireArmor: криволинейные резиновые секции, горизонтальные полосы бригантины, ремни/клёпка и материалы кустарной брони. Это исходники на доработке, без регистрации и runtime acceptance.
+
+- `_extract_legion_armor_references.py --game-root <JA3_ROOT> --hpk <hpk.exe> --output <new folder>` — адресно извлекает 10 Legion tops с LOD, Male skeleton и бинарные материалы; SHA256 manifest и appearance-map, без полной распаковки текстур/игры.
+- `_audit_legion_armor_sample.py` — Blender `--sample <official scene> --output <json>`: read-only transforms, parents, hgskeleton, UV/materials, weights и bounds всех clothing meshes. Гайд: `.agents/docs/playbooks/legion-armor-modeling.md`.
+
+- `_audit_legion_armor_presets.py --game-root <JA3_ROOT> --output <json>` — QA roster по JAZZ_Legion UnitData: vanilla presets с приоритетом JAZZ overrides, Body/Armor/Pants/accessories, unresolved вызывает FAIL. Включён в следующий полный `_qa_legion_armor.py` как stage 00.
+
+
+`_fix_k4_feedback.py --game-csv <Game.csv> --build <staging>` applies the scoped K4 IDs/reward transaction with backups; `_export_k4_localization.ps1` exports its nine rows through the canonical exporter. `_check_villa_waiting_recovery.py` tests the real module and vanilla conflict flow: distant arrivals, old saves, repeat start, other conflicts and combat guards.
+
+- `armor-hgm-reader/armor-hgm-reader.csproj` — headless HGM→JSON for offline fit, using external MIT mxtsdev/hgm-viewer parser at bbcd41c6d1416fcfe8e98dd3a75ffa6e90a9904c. Build `dotnet build <csproj> -p:HgmSourceRoot=<checkout> -o <outside-repo output>`; run `dotnet <dll> <hgm> <json>`. Preserves geometry, bone names/indices/weights; no material or animation round-trip claim.
+- `_calibrate_armor_hgm.py` — Blender `--source <cuirass blend> --hgm-json <compiled same cuirass JSON> --output <report>` validates coordinate conversion against source (threshold 3 mm).
+- `_preview_armor_jazz_bodies.py` — Blender CPU `--source <cuirass blend> --models <HGM JSON folder> --roster <JAZZ roster JSON> --output <folder>`: imports every actual Body, preserves available bone weights, creates fitting scene and 5×2 example renders. Signed-distance candidate counts need visual review; never runtime PASS.
+- `_extract_legion_armor_references.py --roster <JAZZ roster JSON>` additionally selects all actual JAZZ Body names, rather than only Faction_Legion_Top.
+
+- `_preview_armor_vest_source.py` — Blender CPU `--source <extracted HAV> --output <folder> [--textured]`: restores the three source materials from supplied PNGs and packs textures into a diagnostic blend; no runtime writes.
+- `_qa_soft_legion_armor.py --blender <exe> --game-root <JA3_ROOT> --reference-shirt <HGM JSON> --output <new folder>` — последовательный CPU model → pose QA → bake/FBX → AssetsProcessor → staging трёх кустарных броней. Останавливается при ошибке; в игру не устанавливает.
+- `_check_soft_armor_poses.py` — Blender `--source <blend> --output <folder>`: веса/кости, четыре синтетические позы × два ракурса, предел растяжения p99; отчёт явно не подтверждает игровые коллизии.
+- `_render_soft_armor_icons.py` — Blender CPU `--build-root <QA folder>`: прозрачные 110×110 рендеры трёх моделей с опущенными руками и автоматическим кадрированием полного силуэта. Позу экспортируемых meshes не меняет.
+- `_install_soft_legion_armor.py --build-root <QA folder> [--apply]` — адресная установка трёх entity/иконок/тестовых UnitData с согласованными ModItem/metadata, проверкой закрытой игры, backup и SHA256. Без `--apply` только preflight.
+- `_check_soft_legion_armor.py --build-root <installed QA folder>` — проверка установленных хэшей, регистрации, pose reports и исполнение loadout из ModItem и companion. `_check_legion_armor.py` дополнительно проверяет переключение всех четырёх броней и восстановление baseline.
+- `_fit_heavy_armor_vest.py` — Blender CPU `--source <modular-source.blend with reference shirt> --output <new folder>`: saves a separate unrigged Light fitting candidate for LegionGoon, with two renders and transform report. No game install; entry point described in the armor modeling playbook.
+- `_prepare_heavy_armor_variants.py` — Blender CPU `--source <donor-textured.blend> --output <folder> [--body <calibrated HGM JSON>]`: separates connected parts with preserved UVs, produces five shared geometry configurations, renders and a source-only manifest. Optional body is an unrigged rest-fit reference; guide `.agents/docs/playbooks/legion-armor-modeling.md`.
+- `_prepare_clean_hav_blends.py --source <modular-source.blend> --woodland <reference.png> --output <folder>` — Blender creates nine packed, editable Light/Medium/Full material variants with separate parts, no rig or morph; asserts unchanged shared donor geometry across colors. No game writes.
+- `_prepare_hav_rig_scenes.py --source <clean nine blends folder> --reference <fitted source with official sample and shirt> --output <folder>` — adds the official Male skeleton/body and static Legion shirt to nine editable scenes, leaving armor unbound and unchanged. Removes approximate shirt weights; renders front/back once per geometry. No game writes.
+- `_model_camo_uniform.py --source <extracted LDW archive> --output <folder>` — Blender restores supplied OBJ UVs and packed diffuse/normal textures and renders the donor before any cutting. Audit found a balaclava and inseparable tactical vest, no boonie hat; do not treat it as three ready clothing objects.
+
+
+Обновлён `_check_villa_waiting_recovery.py`: проверяет вариант без подготовительного конфликта, сохранение/восстановление штатных ожиданий и реальный GetSectorTravelTime с ускорением только колонны Эрни x5.
+
+
+`python docs/tools/_probe_inventory_hang.py` — read-only снимок уже запущенного JA3Debug: причины открытого loading screen, состояние окна инвентаря, его потоки и ограниченный список UI-предметов. Без initialize/pause, запуска игры и изменений инвентаря. Длинный отчёт: AppData/jazz_inventory_hang.txt; DAP envelope: .tmp/bug-triage/inventory-hang/dap-response.json. `--self-test` проверяет Lua, восстановление SafeEval и DAP framing/EOF без игры.
+
+- `_model_heavy_legion_armor.py` — Blender CPU HAV fitter and material preview: `--source <modular-source.blend> --sample <official Male sample> --output <folder> --family Twaron|Guardian|Zylon --variant Light|Medium|Full|Legs|HeavyLegs`. Zylon additionally requires `--woodland <user reference image>`; the original image is packed unchanged into the blend. Emits model.blend, front.png, geometry hash and NOT_RUN runtime status. See `.agents/docs/playbooks/legion-armor-modeling.md`.
+
+- `_qa_heavy_legion_armor.py` — nine HAV torso builds, skin QA, CPU bake, official export and staging. Requires `--blender --game-root --output --source --woodland --shirt <calibrated HGM JSON> --reference-armor <original Light blend>`; optional `--only` limits configurations. Clothing-fit morph gate is mandatory. No installation.
+- `_morph_heavy_armor_fit.py` — Blender morph of existing HAV shell to a real Legion shirt: `--source --reference-armor --shirt --output`. Preserves UVs and thickness, reports rear clearance, renders four rest views plus two approximate clothed lean views, and saves model.blend. It does not prove native game animation fit.
+- `_refresh_heavy_armor_fit.py --build-root <QA output> [--apply] [--live]` — checks nine fitted resource graphs, geometry equality across material families and skin reports; replaces only already installed binary resources with backup. `--live` requires explicit owner authorization to update the running game; resource reload remains a separate step. No generated metadata or unit ID changes.
+- `_rebind_heavy_armor.py` — Blender `--source <fitted model.blend> --output <folder>`: rebinds torso after morph using cuirass-style front/back transitions, retains rigid limb panels, lowers collar and narrows shoulders. Rechecks rear garment clearance and saves the source and reports.
+- `_qa_heavy_rebind.py --source-root --output --blender --game-root [--only ...]` — builds nine material variants, checks clothed synthetic poses only once for each Light/Medium/Full geometry, bakes and stages existing entity IDs. Reuses QA only after exact geometry, topology, weights, skeleton and transform hashes match within the current run; records the source report. No installation or native animation acceptance.
+- `_install_soft_legion_armor.py --heavy-torso` and `_check_soft_legion_armor.py --heavy-torso` reuse the atomic registration/loadout checks for nine modern torso variants, preserving existing icons. Use `--build-root`; installer is staging-only unless `--apply`.

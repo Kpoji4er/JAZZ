@@ -1,0 +1,36 @@
+--- a/InventoryItem/AK47.lua
++++ b/InventoryItem/AK47.lua
+@@ -79,12 +79,12 @@
+ 	ShootAP = 6000,
+ 	ReloadAP = 6000,
+ 	WeaponMass = 36,
+-	CyclicRPM = 700,
++	CyclicRPM = 600,
+ 	WeaponSizeClass = "Rifle",
+ 	BurstLimiter = 0,
+-	BurstShots = 4,
++	BurstShots = 3,
+ 	Recoil = 21,
+-	AutoShots = 7,
++	AutoShots = 6,
+ 
+ 	CloseRange = 8,
+ 
+--- a/items.lua
++++ b/items.lua
+@@ -25697,12 +25697,12 @@
+ 					'ShootAP', 6000,
+ 					'ReloadAP', 6000,
+ 					'WeaponMass', 36,
+-					'CyclicRPM', 700,
++					'CyclicRPM', 600,
+ 					'WeaponSizeClass', "Rifle",
+ 					'BurstLimiter', 0,
+-					'BurstShots', 4,
++					'BurstShots', 3,
+ 					'Recoil', 21,
+-					'AutoShots', 7,
++					'AutoShots', 6,
+ 					'BulletDropRange', 14,
+ 
+ 					'CloseRange', 8,

@@ -14,7 +14,7 @@
 
 Изменение поведения, архитектуры, generated data, dependencies, load order, public ID или save/network contract начинается с spec. Technical docs обновляются после реализации и не должны выдавать approved target за current runtime.
 
-Если runtime уже разошёлся с active/accepted spec, или technical страница явно отстаёт от кода — **спросить владельца** до молчаливой правки контракта (см. `.cursor/rules/jazz-spec-sync.mdc`, `.cursor/rules/jazz-technical-docs-sync.mdc`).
+Если runtime уже разошёлся с active/accepted spec, или technical страница явно отстаёт от кода — **спросить владельца** до молчаливой правки контракта (см. `.cursor/rules/jazz-spec-sync.mdc`, `.cursor/rules/jazz-docs-sync.mdc`).
 
 ## Что меняется вместе с реализацией
 
@@ -26,7 +26,7 @@
 - Spec evidence — для каждого `AC-*`.
 - Полезные миграционные/audit-скрипты — оставить в `docs/tools/` и описать в `docs/tools/README.md` (`.agents/docs/reference/agent-tooling.md`); не удалять после прогона.
 - Профильная `docs/wiki/*` — **обязательно**, если изменение заметно игроку (бой, CTH, grazing, укрытие, дым/погода, UI); generated weapon pages — через CSV + `scripts/docs/weapons-docs.mjs`.
-- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — **обязательно** вместе с wiki для того же аспекта; не спрашивать отдельно (`.cursor/rules/jazz-docs-wiki-sync.mdc`).
+- Соответствующие `docs/showcase/ru/*` и `docs/showcase/en/*` — **обязательно** вместе с wiki для того же аспекта; не спрашивать отдельно (`.cursor/rules/jazz-docs-sync.mdc`).
 
 Не требовать изменения сводного документа, если его факт не изменился. Отсутствие documentation delta фиксировать в spec с причиной.
 

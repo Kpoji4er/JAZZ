@@ -1,10 +1,7 @@
 ---
 name: create-jazz-status-icons
 description: >-
-  Создавать и обновлять 40×40 HUD-иконки статус-эффектов JAZZ (CharacterEffect)
-  в стиле JA3: цвет по Buff/Debuff/System, прозрачный canvas, GenerateImage +
-  референсы. Использовать при запросе status effect icon, Icons/StatusEffects,
-  suppression/officer aura PNG или правке PROMPT.md референсов.
+  Использовать при status-effect icon 40×40 (Icons/StatusEffects). Не для perk или HUD action.
 ---
 
 # Создание status effect icons
@@ -15,6 +12,8 @@ Style bank + mapping icon→CharacterEffect→цвет: [`Icons/StatusEffects/re
 
 Asset-only PNG **не** требует spec. Новый CharacterEffect / смена поведения → `$specify-jazz-change`.  
 Смена только `Icon` path у уже существующего эффекта: companion `.lua` + `items.lua` (generated-data sync).
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Вход от пользователя
 
@@ -30,7 +29,7 @@ Asset-only PNG **не** требует spec. Новый CharacterEffect / сме
 ```text
 - [ ] 1. Id, type, семья цвета, конфликты имён
 - [ ] 2. Референсы той же семьи из Icons/StatusEffects/references/
-- [ ] 3. GenerateImage (промпт из PROMPT.md)
+- [ ] 3. генерация изображения (промпт из PROMPT.md)
 - [ ] 4. Finalize → 40×40 transparent PNG
 - [ ] 5. Визуальная проверка (Read)
 - [ ] 6. Wire Icon path (если просили / эффект существует)
@@ -51,11 +50,11 @@ Asset-only PNG **не** требует spec. Новый CharacterEffect / сме
 | Hidden only | cream | `#E0D8C8` |
 | Treating only | cyan | `#50A0C8` |
 
-### 2–3. GenerateImage
+### 2–3. генерация изображения
 
 1. Прочитать PROMPT.md (таблица рефов + шаблон промпта).
-2. `reference_image_paths`: 2–3 PNG **той же семьи** из `Icons/StatusEffects/references/` (+ сосед серии из `Icons/StatusEffects/` для ladder).
-3. `GenerateImage`, `aspect_ratio` `1:1`. В промпте: `EFFECT_ID`, `EFFECT_TYPE`, `COLOR_HEX`, `SYMBOL`.
+2. референсы: 2–3 PNG **той же семьи** из `Icons/StatusEffects/references/` (+ сосед серии из `Icons/StatusEffects/` для ladder).
+3. `генерация изображения`, `пропорции результата` `1:1`. В промпте: `EFFECT_ID`, `EFFECT_TYPE`, `COLOR_HEX`, `SYMBOL`.
 4. Draft может быть на чёрном фоне — это нормально до finalize.
 
 ### 4. Finalize

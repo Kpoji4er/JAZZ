@@ -1,7 +1,7 @@
 ---
 description: >-
-  Signature ability / Passive hotbar icons are always cool blue (Hud LEFT),
-  never cream/white. SteroidPunch-style Passive 54×54 and SignatureAbilities PNG.
+  Read when editing SignatureAbilities or HUD action icons. Passive/signature
+  glyphs stay cool blue (Hud LEFT), never cream.
 globs: Perks/SignatureAbilities/**,Icons/Hud/**,docs/tools/_build_passive_signature_icon_54.py,.agents/skills/create-jazz-action-icons/**
 alwaysApply: false
 ---

@@ -51,9 +51,9 @@ Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png
 | MANPOWER | колонна солдат с флагом |
 | TAX | мешок с монетами |
 
-## Промпт GenerateImage (шаблон)
+## Промпт генерации изображения (шаблон)
 
-Подставить `SYMBOL_DESCRIPTION` и приложить `reference_image_paths` на `legion.png` + 2–3 существующих role PNG.
+Подставить `SYMBOL_DESCRIPTION` и приложить референсы: `legion.png` + 2–3 существующих role PNG.
 
 ```text
 Create ONE Jagged Alliance 3 64x64 satellite squad icon matching references EXACTLY.

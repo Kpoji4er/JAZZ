@@ -1034,12 +1034,12 @@
     "firearm": "Pathfinder_Firearm",
     "class_tier": 3,
     "primary_tags": [
-      "carbine",
-      "smg"
+      "rifle",
+      "sniper"
     ],
     "packages_by_arch": [
-      "flanker_m2",
-      "flanker_m3",
+      "rifle_m2",
+      "sniper_m2",
       "flanker_m3"
     ],
     "sidearm": null,
@@ -1063,7 +1063,7 @@
       },
       "smoke_chance": 50
     },
-    "ammo_cap": "Army",
+    "ammo_cap": "Match",
     "flaregun": 18,
     "misc_chance": 10,
     "valuables": {
@@ -1079,14 +1079,28 @@
     "firearm": "Ranger_Firearm",
     "class_tier": 4,
     "primary_tags": [
-      "carbine",
-      "smg"
+      "sniper"
+    ],
+    "arch3_extra_tags": [
+      "battle"
     ],
     "packages_by_arch": [
-      "flanker_m3",
-      "flanker_m3",
+      "sniper_m2",
+      "sniper_m3",
       "merc_m4"
     ],
+    "cqb_secondary": {
+      "firearm": "Ranger_CQB",
+      "primary_tags": [
+        "carbine",
+        "smg"
+      ],
+      "packages_by_arch": [
+        "cqb_m1",
+        "cqb_m2",
+        "cqb_m2"
+      ]
+    },
     "sidearm": {
       "unlock": 11,
       "chance": 45

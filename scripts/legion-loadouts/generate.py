@@ -758,6 +758,15 @@ def emit_inventory(unit_id: str, recipe: dict, prices: dict) -> str:
             f"\t\t\t\t\t\t\tloot_def = \"{launcher}\",",
             "\t\t\t\t\t\t}),",
         ]
+    cqb = recipe.get("cqb_secondary")
+    if cqb:
+        cqb_id = cqb.get("firearm") or fir.replace("_Firearm", "_CQB")
+        lines += [
+            "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {",
+            "\t\t\t\t\t\t\tcomment = \"JAZZ-AI-ROLE-004 guaranteed CQB secondary\",",
+            f"\t\t\t\t\t\t\tloot_def = \"{cqb_id}\",",
+            "\t\t\t\t\t\t}),",
+        ]
 
     side = recipe.get("sidearm")
     if side:
@@ -1045,6 +1054,19 @@ def replace_or_warn(text: str, loot_id: str, new_block: str) -> tuple[str, bool]
     return text[:s] + new_block + text[e:], True
 
 
+def replace_or_insert_after(text: str, loot_id: str, new_block: str, after_id: str) -> tuple[str, bool]:
+    found = find_moditem_block(text, loot_id)
+    if found:
+        s, e = found
+        return text[:s] + new_block + text[e:], True
+    after = find_moditem_block(text, after_id)
+    if not after:
+        print(f"WARN: missing ModItemLootDef id={loot_id} and after={after_id}", file=sys.stderr)
+        return text, False
+    _, e = after
+    return text[:e] + "\n" + new_block + text[e:], True
+
+
 def upsert_shared_combos(text: str, combos: dict[str, str]) -> str:
     """Merge combo loot defs into the generated marker block without wiping others."""
     if MARKER_BEGIN not in text or MARKER_END not in text:
@@ -1060,7 +1082,6 @@ def upsert_shared_combos(text: str, combos: dict[str, str]) -> str:
     return text
 
 
-
 def recipe_for_cqb(recipe: dict) -> dict:
     cqb = recipe["cqb_secondary"]
     syn = dict(recipe)
@@ -1071,7 +1092,6 @@ def recipe_for_cqb(recipe: dict) -> dict:
     if cqb.get("arch3_extra_tags"):
         syn["arch3_extra_tags"] = cqb["arch3_extra_tags"]
     return syn
-
 
 
 def inject_shared(text: str, shared: str) -> str:
@@ -1116,6 +1136,7 @@ def validate_upgrades(text: str, comps) -> list[str]:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pilot", action="store_true", help="Only Roughneck/ShockTrooper/Sniper")
+    ap.add_argument("--ids", nargs="+", help="Only these UnitData ids")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--validate-only", action="store_true")
     args = ap.parse_args()
@@ -1136,9 +1157,16 @@ def main():
         "JAZZ_Legion_FrontT3_Sniper",
     }
     selected = {k: v for k, v in recipes.items() if (k in pilot_ids if args.pilot else True)}
+    if args.ids:
+        wanted = set(args.ids)
+        selected = {k: v for k, v in selected.items() if k in wanted}
+        missing = wanted - set(selected)
+        if missing:
+            raise SystemExit(f"unknown --ids: {sorted(missing)}")
 
     all_combos: dict[str, str] = {}
     plans: dict[str, list] = {}
+    cqb_plans: dict[str, list] = {}
     for unit_id, recipe in selected.items():
         meta, combos = collect_firearm_plan(
             recipe, weapons, packages, comps, caliber_ammo, early_variants
@@ -1146,10 +1174,20 @@ def main():
         plans[unit_id] = meta
         all_combos.update(combos)
         print(f"plan {unit_id}: {len(meta)} firearm entries, {len(combos)} combos")
+        if recipe.get("cqb_secondary"):
+            cqb_meta, cqb_combos = collect_firearm_plan(
+                recipe_for_cqb(recipe), weapons, packages, comps, caliber_ammo, early_variants
+            )
+            cqb_plans[unit_id] = cqb_meta
+            all_combos.update(cqb_combos)
+            print(f"plan {unit_id} CQB: {len(cqb_meta)} firearm entries, {len(cqb_combos)} combos")
 
     text = ITEMS.read_text(encoding="utf-8")
-    shared = emit_shared(caliber_ammo, all_combos)
-    text = inject_shared(text, shared)
+    if args.ids or args.pilot:
+        text = upsert_shared_combos(text, all_combos)
+    else:
+        shared = emit_shared(caliber_ammo, all_combos)
+        text = inject_shared(text, shared)
 
     ok = 0
     for unit_id, recipe in selected.items():
@@ -1157,7 +1195,12 @@ def main():
         inv = emit_inventory(unit_id, recipe, prices)
         text, a = replace_or_warn(text, recipe["firearm"], fir)
         text, b = replace_or_warn(text, recipe["inventory"], inv)
-        if a and b:
+        c_ok = True
+        if recipe.get("cqb_secondary"):
+            cqb_id = recipe["cqb_secondary"]["firearm"]
+            cqb_block = emit_firearm_from_plan(cqb_id, cqb_plans[unit_id])
+            text, c_ok = replace_or_insert_after(text, cqb_id, cqb_block, recipe["firearm"])
+        if a and b and c_ok:
             ok += 1
             print(f"OK {unit_id}")
         else:

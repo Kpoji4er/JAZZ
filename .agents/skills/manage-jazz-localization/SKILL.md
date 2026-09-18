@@ -1,6 +1,8 @@
 ---
 name: manage-jazz-localization
-description: "Аудитировать, обновлять и экспортировать CSV локализации JAZZ без потери многострочных полей и без смешения одинаковых numeric localization ID. Использовать при работе с Russian.csv, English.csv, базовым Game.csv, Localization/Strings.csv, переводами T(...)/T{...}, поиском коллизий ID и подготовкой полных русской и английской таблиц мода."
+description: >-
+  Использовать при правке Russian.csv / English.csv, T() ID или экспорте
+  локализации. Не для обычного кода без новых строк.
 ---
 
 # Локализация JAZZ

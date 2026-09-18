@@ -1,5 +1,7 @@
 # Индекс документации AGENTS
 
+Правила Cursor **не always-on**. Таблица «задача → правило/skill» — в корневом `AGENTS.md`. Открывать только совпавшую строку.
+
 - Spec/DoR/DoD: `.agents/skills/specify-jazz-change/SKILL.md`, `docs/specs/README.md`
 - Общее: `.agents/docs/reference/project-scope.md`
 - Runtime/потоки: `.agents/docs/reference/runtime-model.md`
@@ -31,3 +33,5 @@
 - Lua wrap cycles (один символ — один wrap, не re-base): `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`, `docs/tools/_check_lua_wrap_cycles.py`
 
 Для задачи на стыке систем читать только общий контур, точные runtime/generated references и затронутые playbooks. Не загружать весь набор документов.
+
+- Броня/одежда Легиона, developer sample, HGM-референсы и offline QA-pass: `.agents/docs/playbooks/legion-armor-modeling.md`.

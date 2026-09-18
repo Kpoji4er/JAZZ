@@ -214,3 +214,7 @@ Personal `Jazz_Perk_*` CharacterEffects need a matching `ModItemCombatAction` (`
 ## Ограничения и сопровождение
 
 Satellite/guardpost files являются крупными изменёнными vanilla-копиями. После обновления игры выполнять трёхсторонний diff. Изменения events, GameVars, squad/sector IDs, travel state или операции всегда обновляют compatibility/testing и эту страницу.
+
+### JAZZ-UI-REGION-001: описание региона
+
+Region:GetRolloverHint оборачивает непустой строковый Description в Untranslated перед подстановкой в T. Готовое T-значение передаётся без изменения; исходное поле не мутируется. Проверено изолированным Lua harness; повторный live-тест gosp ещё не выполнен.

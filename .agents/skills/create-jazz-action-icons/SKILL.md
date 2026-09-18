@@ -1,11 +1,8 @@
 ---
 name: create-jazz-action-icons
 description: >-
-  Создавать и обновлять HUD/hotbar action icons JAZZ (CombatAction / signature
-  abilities): 108×54 dual-state PNG в стиле JA3 ui/Icons/Hud. Использовать при
-  запросе action icon, HUD icon, hotbar icon, Perks/SignatureAbilities,
-  Icons/Med CombatAction glyphs или правке Icons/Hud/references/PROMPT.md.
-  Не для Personal perk tiles (68×68), status effects (40×40) или ChipIcon.
+  Использовать при HUD/hotbar action icon: Active 108×54, Passive 54×54 (CombatAction, SignatureAbilities).
+  Не для Personal perk 68×68, status 40×40 или ChipIcon.
 ---
 
 # Создание HUD / action-bar icons
@@ -41,7 +38,9 @@ Asset-only PNG **не** требует spec. Новый CombatAction / смен�
 | `$create-jazz-status-icons` | CharacterEffect HUD, **40×40** в `Icons/StatusEffects/` |
 | `$create-jazz-chip-icons` | WeaponComponent ChipIcon, **64×64** |
 
-## Контракт canvas
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
+
+## Контракт canvas: Active
 
 | | |
 | --- | --- |
@@ -72,22 +71,22 @@ Status-эффекты Bleeding/Pain/Analgesia — **не** этот skill (`$cre
 ## Workflow
 
 ```text
-- [ ] 1. Id, output folder, конфликты имён
+- [ ] 1. Id, output folder, конфликты имён; определить Active (SetColumns(2)) или Passive (SetColumns(1))
 - [ ] 2. 2–3 рефа из Icons/Hud/references/ (attack/bullseye/run_and_gun/first_aid/…)
-- [ ] 3. GenerateImage (PROMPT.md), aspect_ratio 16:9
-- [ ] 4. Finalize → 108×54 transparent PNG
-- [ ] 5. Визуальная QA (Read): dual strip, углы A=0, читаемый силуэт
+- [ ] 3. Генерация по PROMPT.md: Active — две половины, Passive — один синий глиф
+- [ ] 4. Active → finalize-action-icon.ps1, 108×54; Passive → _build_passive_signature_icon_54.py, 54×54 (сверить параметры скрипта перед вызовом)
+- [ ] 5. Визуальная QA: Active — dual strip; Passive — один синий глиф; углы A=0, читаемый силуэт
 - [ ] 6. Wire Icon path (если просили / action существует)
 ```
 
-### GenerateImage
+### генерация изображения
 
 1. Прочитать `Icons/Hud/references/PROMPT.md`.
-2. `reference_image_paths`: 2–3 PNG из `Icons/Hud/references/` (+ опционально сосед из `Perks/SignatureAbilities/` при QA-regen той же семьи).
-3. `GenerateImage`, `aspect_ratio` **`16:9`** (ближе всего к 2:1; finalize жёстко режет в 108×54).
+2. референсы: 2–3 PNG из `Icons/Hud/references/` (+ опционально сосед из `Perks/SignatureAbilities/` при QA-regen той же семьи).
+3. Active: композиция 2:1 для 108×54. Passive: один квадратный синий глиф для 54×54; не применять active-finalizer.
 4. Draft на чёрном фоне — норма до finalize.
 
-### Finalize
+### Finalize: только Active
 
 ```powershell
 .agents/skills/create-jazz-action-icons/scripts/finalize-action-icon.ps1 `
@@ -110,9 +109,9 @@ Medical:
 
 Read итогового PNG:
 
-- размер 108×54
+- Active: размер 108×54; Passive: 54×54
 - угол `(0,0)` с `A≈0`
-- два глифа side-by-side (grey + sand)
+- Active: два глифа side-by-side (grey + sand); Passive: один синий глиф из LEFT, без cream/right
 - нет непрозрачного чёрного кадра; нет текста
 - силуэт читается на hotbar scale
 

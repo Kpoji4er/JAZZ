@@ -106,7 +106,7 @@
 | --- | --- | --- | --- |
 | `JazzArmor_FlakM1955` | Flak M1955 | FlakM1955 | **FLAK** |
 | `JazzArmor_FlakM69` | Flak M69 | FlakM69 | **FLAK** (+collar) |
-| `JazzArmor_EOD` | (иконка EOD; в DisplayName сейчас Flak M69 — баг данных?) | EOD | **HAV** heavy / отдельный EOD если найдётся |
+| `JazzArmor_EOD` | Бронежилет EOD | EOD | **HAV** heavy / отдельный EOD если найдётся |
 | `JazzArmor_PASGT` | Бронежилет PASGT | PASGT | **FLAK** |
 | `JazzArmor_PoliceVest` | Полицейский | Police | **FLAK** light skin |
 | `JazzArmor_RBA` | Американский | RBA | **FLAK** / MMC2 |

@@ -79,12 +79,12 @@ DefineClass.AK47 = {
 	ShootAP = 6000,
 	ReloadAP = 6000,
 	WeaponMass = 36,
-	CyclicRPM = 700,
+	CyclicRPM = 600,
 	WeaponSizeClass = "Rifle",
 	BurstLimiter = 0,
-	BurstShots = 4,
+	BurstShots = 3,
 	Recoil = 21,
-	AutoShots = 7,
+	AutoShots = 6,
 
 	CloseRange = 8,
 

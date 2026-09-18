@@ -1,10 +1,7 @@
 ---
 name: rename-jazz-weapon-textures
 description: >-
-  Нормализовать DDS текстуры оружия в jazz_assets: Entity_MapType.dds,
-  unused purge, content-dedupe, sync .mtl и items.lua. Использовать после
-  editor import новой пушки с numeric DDS, при texture rename, unused
-  textures, JAZZ-ASSETS-002.
+  Использовать после editor import ствола в jazz_assets (numeric DDS → Entity_MapType, unused purge).
 ---
 
 # Rename weapon textures (jazz_assets)

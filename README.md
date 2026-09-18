@@ -47,21 +47,28 @@ JAZZ находится в стадии демо.
 - Расширяются квесты, разговоры, события, патрули, guardposts и стратегические отряды.
 - Меняются источники дохода, операции и развитие мира кампании.
 
-## Скачать для игры (GitHub, без git)
+## Скачать для игры
 
-Не используй **Code → Download ZIP** / `archive/…/main.zip` — у `jazz-maps` там нет LFS-карты (~70 MB) → чёрная sat-карта.
+**Основной путь — Steam Workshop** (из РФ открывается без VPN). Нужны все четыре пакета + последняя `JA3_CommonLib`:
 
-Бери готовые ZIP (обновляются на каждый push в `main`):
+| Пакет | Steam |
+| --- | --- |
+| JAZZ | https://steamcommunity.com/sharedfiles/filedetails/?id=3321938203 |
+| JAZZ Assets | https://steamcommunity.com/sharedfiles/filedetails/?id=3323959292 |
+| JAZZ Units | https://steamcommunity.com/sharedfiles/filedetails/?id=3323312979 |
+| JAZZ Maps | https://steamcommunity.com/sharedfiles/filedetails/?id=3322285655 |
 
-| Пакет | Ссылка |
+GitHub playable ZIP — запасной путь для установки вручную в `Mods/`. Не используй **Code → Download ZIP** / `archive/…/main.zip` (у `jazz-maps` нет LFS-карты → чёрная sat-карта).
+
+С российских провайдеров сам файл часто **не качается без VPN**: страница GitHub открывается, а ZIP уходит на `release-assets.githubusercontent.com`. Это блок CDN, не мёртвая ссылка.
+
+| Пакет | GitHub ZIP (часто нужен VPN) |
 | --- | --- |
 | jazz | https://github.com/Kpoji4er/JAZZ/releases/download/playable/jazz-playable.zip |
 | jazz_assets | https://github.com/Kpoji4er/JAZZ-assets/releases/download/playable/jazz_assets-playable.zip |
 | jazz-maps | https://github.com/Kpoji4er/JAZZ-maps/releases/download/playable/jazz-maps-playable.zip |
 | jazz-units | https://github.com/Kpoji4er/JAZZ-units/releases/download/playable/jazz-units-playable.zip |
-| jazz-nomaps (вместо maps) | https://github.com/Kpoji4er/JAZZ-nomaps/releases/download/playable/jazz-nomaps-playable.zip |
-
-Распаковать в `Mods/` под именами папок из таблицы. Нужны все пакеты профиля + `JA3_CommonLib`. Steam Workshop — тоже нормальный путь.
+| jazz-nomaps (вместо maps; в Steam нет) | https://github.com/Kpoji4er/JAZZ-nomaps/releases/download/playable/jazz-nomaps-playable.zip |
 
 ## Состав комплекта
 

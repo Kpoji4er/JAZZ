@@ -1,6 +1,8 @@
 ---
 name: work-on-jazz-mod
-description: Маршрутизировать безопасную разработку, диагностику и ревью JAZZ как комплекта из четырёх репозиториев. Использовать для изменений runtime Lua, generated data, карт, юнитов, assets, dependencies, load order и межпакетных контрактов, а также для impact analysis по vanilla, CommonLib и JAZZ. Подключает только профильные references и специализированные skills.
+description: >-
+  Использовать при смене пакета-владельца, load order или правке сразу
+  нескольких репозиториев JAZZ. Не для однофайлового фикса в одном пакете.
 ---
 
 # Работа с JAZZ
@@ -9,23 +11,16 @@ description: Маршрутизировать безопасную разраб�
 
 ## Маршрутизация
 
-1. Прочитать применимые `AGENTS.md` и `.agents/docs/index.md`.
-2. Для изменения поведения, архитектуры, generated data, dependencies, load order, публичных ID или save/network contract сначала использовать `$specify-jazz-change` и пройти DoR.
+1. Следовать таблице «Когда что читать» в `AGENTS.md`. Index — только нужный playbook.
+2. Для изменения поведения, архитектуры, generated data, dependencies, load order, публичных ID или save/network contract сначала `$specify-jazz-change` и DoR.
 3. Определить пакет-владелец данных, runtime-владельца и exact target ID/path. Не определять ownership только по имени файла.
 4. Прочитать только профильный playbook и системную technical-страницу.
-5. Подключить специализированный skill:
-   - `$sync-jazz-generated-data` — ModItem, `items.lua`, `metadata.lua`, companion, Entity или editor-owned data;
-   - `$document-jazz-systems` — фактическое изменение реализации, load-state или technical contract;
-  - `$create-jazz-squad-icons` — сателлитные PNG ролей отрядов в `SquadsIcons/Enemy`;
-  - `$create-jazz-component-icons` — полная `WeaponComponent.Icon` (`Icons/Upgrades/Full/`);
-  - `$create-jazz-chip-icons` — `ChipIcon` миниатюры чипов (`Icons/Upgrades/Chips/`);
-  - `$create-jazz-merc-portraits` — PNG Portrait/BigPortrait мерков и NPC в `jazz-units/MercPortraits` и `NPCPortraits`;
-  - `$create-jazz-merc` — полный наёмник из `docs/design/mercs-ja12/<slug>.md` (UnitData, perk, loot, portraits, loc, VR);
-  - `$rename-jazz-weapon-textures` — numeric DDS → `Entity_MapType`, unused purge/dedupe в `jazz_assets` (после editor import ствола);
-  - `$jazz-penetration-scales` — дробное пробитие (класс + десятые), ammo UI / `GetAttackPenetrationClass`;
-  - `$jazz-lua-globals` — объявление/`rawset` глобалов, wrap flags, early `SetQuestVar` vs `Groups`;
-  - `$diagnose-jazz-mod-editor` — красные/жёлтые пометки Ged, GetError/GetWarning вложенных пунктов; агент не видит панель;
-  - `$release-jazz-suite` — release candidate, version, manifest, tag или публикация.
+5. Подключить **только совпавший** skill (иконки/портреты — `.agents/docs/index.md`):
+   - `$sync-jazz-generated-data` — ModItem, `items.lua`, `metadata.lua`, companion;
+   - `$document-jazz-systems` — documentation delta под loaded runtime;
+   - `$jazz-lua-globals` — новый global / `rawset` / GameVar;
+   - `$diagnose-jazz-mod-editor` — красные/жёлтые пометки Ged и вложенные GetError/GetWarning;
+   - `$release-jazz-suite` — релиз, теги, Steam.
 6. Не выполнять recursive scan `jazz-maps/Maps/` без прямого картографического scope.
 
 ## Исследование
@@ -49,21 +44,12 @@ Runtime guardrails читать в `.agents/docs/reference/runtime-model.md`; п
 ## Завершение
 
 1. Выполнить профильные static/generated/editor/runtime проверки.
-2. Обновить technical current-state docs без требования отсутствующей wiki.
+2. Обновить current-state docs по `.cursor/rules/jazz-docs-sync.mdc` (player-facing → technical + wiki + showcase RU/EN).
 3. Записать evidence для каждого `AC-*` и выполнить DoD validator.
 4. Просмотреть diff каждого затронутого репозитория и перечислить непроверенные риски.
 5. Если runtime недоступен, не заменять его статическим выводом: оставить соответствующий `AC-*` незакрытым.
 6. Полезные миграционные/audit-скрипты из сессии **сохранить** в `docs/tools/` и описать в `docs/tools/README.md` (`.agents/docs/reference/agent-tooling.md`). Не чистить их «для порядка».
 
-## Discord-новости по пакетам
+## Discord / push
 
-Push в `main` **может** дать player-сводку на пакет. Не склеивать разные **независимые** фичи разных реп в одно сообщение.
-
-При **одном** логическом change set на несколько пакетов (пример: NoMaps remap + `jazz-units` pack + docs в `jazz`):
-
-1. **Один** Discord-пост с **primary** пакета (player-facing runtime/items).
-2. Sibling (docs, remap-only, tools, metadata): commit с **`[skip discord]`**.
-3. После одобренного push диспатчить `_dispatch_discord_player_update.ps1` **только** для primary — не `-Force -AlwaysDispatch` на каждый репозиторий. Передавать `-SuitePackages` со всеми затронутыми пакетами (например `jazz,jazz-units,jazz-nomaps`), чтобы в Discord было поле «Пакеты».
-4. Если правка ломает текущий сейв или требует новой кампании — ставить в commit message `[new game]` (или `[new game recommended]` / `[no new game]`). Discord-сводка всегда показывает поле «Новая игра»; маркер владельца важнее AI-оценки.
-
-Независимые фичи в разных пакетах в разных push — отдельные новости ок.
+Процедура push и Discord — только `.cursor/rules/jazz-git-push-chunks.mdc` (один primary на логическую фичу; sibling с `[skip discord]`). Ломает сейв → `[new game]` / `[new game recommended]` / `[no new game]` в commit message.

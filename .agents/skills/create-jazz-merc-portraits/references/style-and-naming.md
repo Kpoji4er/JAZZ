@@ -1,8 +1,8 @@
-﻿# Style bible: JA3 / JAZZ merc & NPC portraits
+# Style bible: JA3 / JAZZ merc & NPC portraits
 
 ## Style-референсы (обязательно)
 
-Для стиля / color grade / пропорций / framing в `GenerateImage` использовать **только**:
+Для стиля / color grade / пропорций / framing в `генерации изображения` использовать **только**:
 
 `jazz-units/MercPortraits/References/`  
 (включая `References/Portraits/` для bust)
@@ -26,7 +26,7 @@ JA3 `References/` легко «протекают» в генерацию: чу�
 
 Правила:
 
-1. **Первым** в `reference_image_paths` — ship Big (и/или face) **этого** мерка.
+1. **Первым** в списке референсов — ship Big (и/или face) **этого** мерка.
 2. Style-refs (Raven/Buns/Shadow/Grizzly/Fox/MD…) — только для **color grade / skin undertone / exposure / proportions LEVEL**.
 3. В промпте всегда блок `IDENTITY/KIT LOCK` + `STYLE REFS ANTI-BLEED` (см. шаблоны ниже).
 4. При style-match regen предпочтительно **не** класть full-body чужих мерков в refs — достаточно ship + face; grade описать текстом («fair pink-peach like JA3 Raven», «rich brown like Ice/Magic»).
@@ -92,12 +92,12 @@ BACKSTORY/LOOK: <Бекстори/внешка>
 
 ## Фон генерации (обязательно)
 
-GenerateImage всегда на **сплошном olive-brown хромакее `#504633`**, не на чёрном:
+Генерировать всегда на **сплошном olive-brown хромакее `#504633`**, не на чёрном:
 
 - Цвет: **pure olive-brown chroma `#504633`** (rgb 255,0,255), плоский, без градиента.
 - Запрещено в промпте просить: black bg, transparent, checkerboard, gray/white matte.
 - На персонаже **нельзя** olive-brown chroma (кожа, волосы, одежда, kit).
-- Генератор выдаёт **opaque** кадр на #504633; альфу **не** просить у GenerateImage.
+- Генератор выдаёт **opaque** кадр на #504633; альфу **не** просить у генерации изображения.
 - Сырой результат **до обрезания** сохранять в соседнюю папку **`_raw/`**:
   - `_wip/_raw/<Id>.png`, `_wip/_raw/<Id>_Big.png`
   - `wip-regen/<variant>/_raw/<Id>_bust.png`, `…/_raw/<Id>_big.png`
@@ -109,7 +109,7 @@ GenerateImage всегда на **сплошном olive-brown хромакее 
 Если кадр уже хороший по стилю/лицу/позе (файл лежит в `_raw/`):
 
 1. **Не перегенерировать** ради фона.
-2. Снять фон **отдельным** инструментом (не смешивать с GenerateImage); вход — файл из `_raw/`.
+2. Снять фон **отдельным** инструментом (не смешивать с генерации изображения); вход — файл из `_raw/`.
 3. Выход cut писать **рядом / выше `_raw/`**, не поверх raw (raw сохранить).
 
 ### Preferred: neural matting (BiRefNet)
@@ -177,7 +177,7 @@ BiRefNet сейчас сильный SOTA по волосам/меху/тонк�
 **HARD REJECT:** плотная сетка мелких складок/морщин по штанам, куртке, crotch/бёдрам/коленям —  
 `MercPortraits/_quality_bar/REJECT_excess_folds_Laura_pants.png`.
 
-**Как чинить:** **GPT GenerateImage denoise** (2–3 прохода ок), эталон `OK_clean_folds_Laura_pants.png`.  
+**Как чинить:** **денойз через генератор изображений** (2–3 прохода ок), эталон `OK_clean_folds_Laura_pants.png`.  
 Refs: noisy Big + OK Laura pants. Промпт: keep sharp identity/pose/kit; remove dense micro-wrinkle noise on fabric only; few large structural folds.  
 **Не** OpenCV bilateral — мылит и не убирает сетку. Полный переген — если GPT-денойз не хватил.
 
@@ -234,7 +234,7 @@ NPCPortraits/<Id>.png  | <Id>_Big.png
 docs/design/mercs-ja12/<slug>.ja2-face.gif|.jpg — JA2 face identity (обязательный face ref для legacy мерков)
 ```
 
-Для мерков из `docs/design/mercs-ja12/`: всегда включать ``<slug>.ja2-face.*`` в `reference_image_paths`.
+Для мерков из `docs/design/mercs-ja12/`: всегда включать ``<slug>.ja2-face.*`` в список референсов.
 
 ### Лицо: узнаваемое + чуть реалистичнее
 
@@ -249,7 +249,7 @@ Reject: другое лицо; flat sticker; over-beautify; потеря узн�
 
 ## BigPortrait identity, pose & framing
 
-- Сначала утвердить Portrait; Big всегда с `reference_image_paths` = готовый bust **первым**.
+- Сначала утвердить Portrait; Big всегда с готовым bust **первым** в списке референсов.
 - Лицо Big = лицо Portrait (не старить, не перерисовывать).
 - **Поза (обязательно интересная, как в `References/`):** не симметричный front-facing mannequin.
   - ¾ корпус + голова к камере или чуть мимо;

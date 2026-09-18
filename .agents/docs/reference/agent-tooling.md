@@ -30,3 +30,7 @@
 | ATTACH / weapons generated | `.agents/docs/playbooks/weapons-balance.md` |
 | Cursor rule | `.cursor/rules/jazz-agent-tooling.mdc` |
 | Spec ATTACH-001 | `docs/specs/active/JAZZ-ATTACH-001.md` |
+
+## Проверка локальной документации
+
+`check-system-docs.ps1 -Paths @("путь/к/файлу.md")` проверяет явно выбранные документы и их ссылки. Без -Paths выполняется полный аудит комплекта. Локальный PASS не означает проверку общего coverage/index/showcase. UI metadata agents/openai.yaml необязательна; существующий файл проверяется. Регрессионная проверка: `python docs/tools/_check_agent_docs_validation.py`. На Windows системный quick_validate.py запускать как `python -X utf8`, поскольку навыки записаны в UTF-8.

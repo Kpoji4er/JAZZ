@@ -1,5 +1,7 @@
 # Игра, CommonLib и JAZZ
 
+`JAZZ-APPEAR-001`: `System_LegionArmorVisuals.lua` — единственный JAZZ-wrap `Unit:UpdateItemAppearance` из CommonLib. Сначала вызывается CommonLib, затем для `JAZZ_Legion_*` обновляются `parts.Armor` (Torso) и `parts.Hat` (Head). `Unit:ApplyAppearance`, `AttachInventoryItem`, item AttachEntries и боевые методы не переопределяются. Проверено против CommonLib main `f1e02404` (2026-09-15), метод совпадает с извлечённым Workshop source. Повторная установка на том же классе не захватывает чужую обёртку. Runtime acceptance ожидается.
+
 ## Как читать матрицу
 
 Загрузка рассматривается как последовательность:
@@ -28,13 +30,13 @@ JAZZ поддерживает только последнюю опубликов
 | `Combat:AITurn` | `Lua/Tactical/Combat.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-CMD-002: `JazzAI_AssignTeamActSlots` then PERF-001 timing |
 | `CombatPath:RebuildPaths` | `Lua/Tactical/CombatPath.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: AI-only AP `restrict_area` bbox + gated log (no Sleep) |
 | `Unit:StartAI` | `Lua/Tactical/Unit.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-PERF-003: `Sleep(1)` after think so Execute's all-unit StartAI yields |
-| `UnitProperties:SelectArchetype` | `Lua/ClassDefs/ClassDef-Zulu.generated.lua` | — | `Code/CombatAI.lua` (wrap) | JAZZ-AI-007: PickCustom before scout; `Scout_LastLocation` only via `JazzAI_ShouldRecontactScout` |
+| `Unit:SelectArchetype` / `UnitProperties:SelectArchetype` | `Lua/Tactical/Unit.lua` + `Lua/ClassDefs/ClassDef-Zulu.generated.lua` | — | `Code/CombatAI.lua` (wrap both) | JAZZ-AI-007: `JazzAI_PickCombatStance` (bound from jazz-units) before scout; `Scout_LastLocation` only via `JazzAI_ShouldRecontactScout`. Unit.lua calls the Unit method — wrapping UnitProperties alone does not intercept. |
 | `AIActionThrowGrenade:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` (one wrap) | JAZZ-AI-CMD-002 budget + JAZZ-AI-BARK-001 `JazzAI_BarkOnGrenade` **before** vanilla throw. Install-once; do not add a second Execute wrap (ModsReloaded re-base → stack overflow). Does **not** inject `voiceResponse` — `Unit:ThrowGrenade` already plays `AIThrowGrenade`. |
 | `AIActionHeavyWeaponAttack:Execute` | `Lua/Tactical/AIActions.lua` | — | `Code/AiActions.lua` | Passes `voiceResponse` (`AIThrowGrenade` fallback) + `JazzAI_BarkOnGrenade` from ammo `aoeType`. Vanilla built a fresh `{target=}` and muted GL/RL. |
 | `AISelectAction` | `Lua/Tactical/CombatAI.lua` | `Code/FixAI.lua` | `Code/CombatAI.lua` | JAZZ; сигнатуры слоёв различаются, высокий риск |
 | `AIPickScoutLocation` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: bbox `5*guim` (80 m hung Dump on 513 maps) |
 | `AICalcAOETargetPoints` | `Lua/Tactical/CombatAI.lua` | — | `Code/CombatAI.lua` | JAZZ-AI-PERF-003: scout-scan only if enemy point pool empty |
-| `Firearm:GetAttackResults` / `ProjectileFly` / `Unit:PrepareAttackArgs` | `Lua/Tactical/Weapon.lua` / `Unit.lua` | — | `Code/System_OR_Weapons.lua`, `Code/ExecFirearmAttacks.lua` | JAZZ-AI-PERF-003: Dump `jazz_ai_dump` skips GetLoFData/`Collide`; PERF-004 cheap terrain + 3-slab impassable + unit-sphere fills Dump hits or stuck; Dump at model needs team LOS + clear LoF (personal LOS not required); AI TargetOpts uses CalcChanceToHit; player firearms vanilla; wrap snaps 2D fly points via `SetTerrainZ` |
+| `Firearm:GetAttackResults` / `ProjectileFly` / `Unit:PrepareAttackArgs` | `Lua/Tactical/Weapon.lua` / `Unit.lua` | — | `Code/System_OR_Weapons.lua`, `Code/ExecFirearmAttacks.lua` | JAZZ-AI-PERF-003: Dump `jazz_ai_dump` skips per-bullet GetLoFData/`Collide`; PERF-004 one prediction `GetLoFData` (CombatAI args) fills Dump hits or stuck; TargetOpts/BasicAttack abort on `stuck`; Dump at model needs team LOS + clear LoF (personal LOS not required); AI TargetOpts CTH via CalcChanceToHit; player firearms vanilla; wrap snaps 2D fly points via `SetTerrainZ` |
 | `Firearm:GetBaseAttack` | `Lua/Tactical/Weapon.lua` | — | `Code/System_Firearm_AddProperties.lua` | `EnableBurst`/`EnableFullAuto` prepend Burst/Auto if missing from preset (M2/Mini14 Overwatch); baked-in order unchanged |
 | `GetRandomSquadLogo` | `Lua/Satellite/SatelliteSquad.lua` | `Code/ModItems.lua` | `Code/SatelliteSquad.lua` | JAZZ; проверить пользовательские squad logos |
 | `gameOverState` (`MapVar`) | `Lua/Satellite/SatelliteSquad.lua` | — | `Code/SatelliteSquad.lua` использует значение, но не регистрирует его | Владелец registration — vanilla; повторный `MapVar` в JAZZ вызывает cold-load assert |

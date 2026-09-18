@@ -116,6 +116,9 @@ local function lDestWhy(unit, context, dest, stay, why_override)
 	if type(why_override) == "string" and why_override ~= "" then
 		return why_override
 	end
+	if context and context.jazz_stay_shot then
+		return "stay-shot"
+	end
 	if context and context.jazz_break_los_ow_anchor then
 		return "peel-OW"
 	end

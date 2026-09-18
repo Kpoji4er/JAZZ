@@ -1,10 +1,7 @@
 ---
 name: create-jazz-perk-icons
 description: >-
-  Создавать и обновлять 68×68 PNG-иконки именных перков JAZZ (Perks/Personal)
-  в стиле JA3. Использовать при запросе perk icon, Perks/Personal, Personal perk
-  или иконок JA1/JA2-мерков. Не для hotbar SignatureAbilities / CombatAction
-  (это $create-jazz-action-icons, 108×54).
+  Использовать при именном perk icon 68×68 (Perks/Personal). Не для hotbar Signature 108×54.
 ---
 
 # Создание иконок перков JAZZ
@@ -14,6 +11,8 @@ Hotbar CombatAction / `Perks/SignatureAbilities/` (108×54 dual strip) → **`$c
 Референсы vanilla: `Perks/references/vanilla/`.
 
 Asset-only PNG не требует spec. Изменение `Icon` path требует синхронизации companion и `items.lua`.
+
+Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Контракт
 
@@ -28,7 +27,7 @@ Asset-only PNG не требует spec. Изменение `Icon` path треб
 
 1. Прочитать Named perk в `docs/design/mercs-ja12/<slug>.md`: `Description` и `Mechanics`.
 2. Выбрать 2–3 референса из `Perks/Personal/` или `Perks/references/vanilla/`.
-3. GenerateImage, `aspect_ratio: 1:1`; явно потребовать transparent-ready black draft, no text.
+3. генерация изображения, `пропорции результата: 1:1`; явно потребовать transparent-ready black draft, no text.
 4. Финализировать:
 
    ```powershell

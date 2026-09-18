@@ -1,6 +1,8 @@
 ---
 name: sync-jazz-generated-data
-description: Безопасная синхронизация generated data модов JAZZ между metadata.lua, items.lua и companion Lua-файлами. Использовать при создании, изменении, переименовании, удалении или переносе ModItem, preset, InventoryItem, CharacterEffect, UnitData, Entity, XTemplate, ActionFX, кода, dependency metadata и любых editor-generated данных; перед сохранением Mod Editor, после ручного diff и перед релизом. Предотвращает перезапись изменений устаревшим слоем и проверяет все четыре пакета как единый комплект.
+description: >-
+  Использовать при создании, переносе или удалении ModItem, items.lua,
+  metadata.lua, companion или editor-owned данных.
 ---
 
 # Синхронизация generated data JAZZ
@@ -18,17 +20,17 @@ description: Безопасная синхронизация generated data мо
 
 По умолчанию аудитор не обходит тяжёлый `jazz-maps/Maps/`. Использовать `-IncludeMapsContent` только по прямому указанию на эту папку, конкретную карту, сектор или map patch.
 
-Перед работой полностью прочитать [generated-data-contract.md](references/generated-data-contract.md).
+[generated-data-contract.md](references/generated-data-contract.md) читать по операции: «Роли файлов» и «Границы транзакции» при неясном ownership; «Что делает сохранение» для editor save; соответствующий «Сценарий восстановления» при рассинхронизации.
 
 ## Начало задачи
 
-1. Прочитать применимые `AGENTS.md` и skill `$work-on-jazz-mod`.
-2. Проверить последнюю upstream-версию CommonLib по правилам проекта.
-3. Зафиксировать `git status`, существующий diff и владельца данных во всех четырёх пакетах.
-4. Запустить read-only аудит:
+1. Определить затронутые пакеты и тип операции по `AGENTS.md`. `$work-on-jazz-mod` нужен при межпакетном impact, смене ownership или load order.
+2. Проверять upstream CommonLib для изменений зависимости или compatibility-sensitive контракта; использовать уже подтверждённый snapshot текущей задачи. Обычная правка Icon существующего ModItem этого не требует.
+3. Зафиксировать `git status`, существующий diff и владельца данных в затронутых пакетах.
+4. Запустить read-only аудит пакета-владельца (в примере jazz). Для межпакетной задачи повторить для затронутых пакетов; вызов без -Package оставить для общего аудита комплекта:
 
    ```powershell
-   .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1
+   .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz
    ```
 
    Для прямо указанной картографической задачи:
@@ -58,7 +60,7 @@ description: Безопасная синхронизация generated data мо
 8. Запустить строгий аудит и профильные проверки:
 
    ```powershell
-   .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Strict
+   .agents/skills/sync-jazz-generated-data/scripts/check-generated-sync.ps1 -Package jazz -Strict
    ```
 
 9. Перезагрузить мод из диска, повторно проверить панель сообщений и выполнить runtime/editor smoke test. Только после успешного round-trip считать изменение устойчивым.

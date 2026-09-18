@@ -3,6 +3,7 @@
 ## Связанные specs
 
 - `JAZZ-HOTFIX-001` — исправление lifecycle crosshair, optional rollover controls и Thompson particle resource.
+- `JAZZ-UI-CONDITION-001` — `UIWeaponDisplay.idCondText` получает процент через `GetConditionPercent()` в отдельном `SubContext`. Это устраняет чтение устаревшего `Condition` у оружия с ресурсом; исходный предмет не изменяется. Проверено Lua-harness (0/43/100), игровой UI и editor round-trip ещё не проверены. ModItem живёт в `items.lua`, отдельного companion нет; metadata и asset contract не менялись.
 
 ## Назначение и эффект для игрока
 

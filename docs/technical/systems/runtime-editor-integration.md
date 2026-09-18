@@ -93,6 +93,7 @@ Entity export является инкрементальным и не удаля
 - `Code/EditorExtension.lua` — loaded editor/development helper; добавляет доступные ModItem preset types.
 - `Code/GameRules_HideAdvanced.lua` — loaded; на `DataLoaded` выставляет `show_in_new_game = false` и `option = false` всем `GameRuleDef` с `advanced`; XTemplate `NewGameMenuGameRules` без секции Advanced Rules. Базовые правила (Dead is Dead, Ironman, Lethal Weapons, Forgiving Mode, Active Pause) остаются.
 - `Code/InfiniteLoopFix.lua` — loaded runtime guard thresholds.
+- `Code/VanillaDesyncFixes.lua` — also `OnMsg.ClassesGenerate`: force `PlacementCursorAttachmentTerrainDecal.flags.efCameraRepulse = false`. Vanilla child parents both `ShapeshifterClass` and `TerrainDecal`/`EntityClass`; JAZZ/ReloadLua class rebuild can leave those sources with different flag values and trip `ResolveFlagInheritance`. Cursor decal does not repulse the camera. Evidence: **static** (vanilla classdef + engine assert); **runtime/human** pending owner reload after this hook.
 - `Code/Debug.lua` — loaded empty placeholder. Рабочий набор console/cheat-команд (включая satellite teleport Ctrl-T) — в [debug.md](../debug.md).
 - `Code/UtilityFunc.lua` — loaded utility с gameplay side effect при satellite open.
 - `Code/Savefix.lua` — dormant/unlisted.

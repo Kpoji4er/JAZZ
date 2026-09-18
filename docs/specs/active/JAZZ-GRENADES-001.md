@@ -153,7 +153,13 @@ Max band (mishap):
 
 dev = RandRange(min_dev, max_dev)
 dev = Min(dev, CapTiles * SlabSizeX)
-угол равномерный
+
+угол (owner 2026-09-06, только Max-band / mishap):
+  Explosives < 20 → полный круг (как раньше)
+  иначе сектор вокруг линии броска attacker→цель:
+    ширина° = 360 − (Explosives−20)×330/80   -- 20→360°, 100→30°
+    offset ∈ [−width/2, +width/2]
+  Min-band (лёгкий scatter) остаётся 360°
 ```
 
 **Owner playtest (2026-08-11):** D (thr 50) + ранний chance-ramp (¼→½); magnitude half≈old max, full≈+25% на **scatter**. Пол skill 40% на scatter отвергнут — душил элиту на дальнем броске. `ThrowMaxRange` не режем.
@@ -214,6 +220,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-REQ-006` — item Min/MaxMishapRange; Demo MaxMishapChance усилен; честные RU/EN hints (в т.ч. уверенность гранат ~с **50**).
 - `JAZZ-GRENADES-001-REQ-007` — technical + showcase/wiki sync.
 - `JAZZ-GRENADES-001-REQ-008` — tint зоны поражения/дуги `GetCTHColor(GetMishapAimReliability)`; радиусы = AoE; без колец разброса.
+- `JAZZ-GRENADES-001-REQ-009` — угол **mishap** (Max-band): полный круг при `Explosives < 20`; иначе сектор вокруг линии броска, ширина линейно `360°@20 → 30°@100`. Лёгкий scatter (Min-band) остаётся 360°. Величина Max-band по-прежнему без skill shrink.
 
 ## Инварианты и ограничения
 
@@ -233,6 +240,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-006` — runtime/MP smoke без десинха на throw и underslung.
 - `JAZZ-GRENADES-001-AC-007` — docs technical + showcase/wiki.
 - `JAZZ-GRENADES-001-AC-008` — human aim: цвет зоны/дуги = `GetCTHColor(reliability)` (mishap% × scatter_risk mix); радиусы = AoE; нет лишних колец разброса.
+- `JAZZ-GRENADES-001-AC-009` — static: `GetMishapDeviationSectorDeg` — `<20` → 360; `20` → 360; `100` → 30. Runtime/human: Explosives 93 не уносит гранату в противоположную сторону; Explosives 10 может.
 
 ## Impact и совместимость
 
@@ -265,6 +273,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 4. **Suppression/Inaccurate** — **и шанс, и разброс**.
 5. **UI** — радиусы = зона поражения; цвет = mix mishap% + Min-band scatter → `GetCTHColor(reliability)`.
 6. **Mishap magnitude (2026-08-24)** — Max-band без `skill_x100`; пол `tile_lo ≥ 4`. Навык режет шанс и лёгкий scatter, не величину провала.
+7. **Mishap angle (2026-09-06)** — полный круг при Explosives **< 20**; иначе сектор attacker→цель, ширина **360°@20 → 30°@100**. Только Max-band.
 
 ## Evidence
 
@@ -277,6 +286,7 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 - `JAZZ-GRENADES-001-AC-006`: `BLOCKED` — runtime/MP: общий playtest smoke.
 - `JAZZ-GRENADES-001-AC-007`: `PASS` — technical + wiki + showcase ru/en updated.
 - `JAZZ-GRENADES-001-AC-008`: `BLOCKED` — human aim tint vs GetCTHColor: общий playtest.
+- `JAZZ-GRENADES-001-AC-009`: `BLOCKED` — static PASS (`_check_grenade_mishap_chance_curve.py` sector deg); runtime/human после ReloadLua.
 
 ## Documentation delta
 

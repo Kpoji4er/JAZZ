@@ -1,6 +1,7 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param(
-    [string]$SuiteRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path
+    [string]$SuiteRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..')).Path,
+    [string[]]$Paths
 )
 
 Set-StrictMode -Version Latest
@@ -24,6 +25,24 @@ $roots = @(
     ) | Where-Object { Test-Path -LiteralPath $_ -PathType Container } | Select-Object -Unique
 )
 
+$localMode = $PSBoundParameters.ContainsKey('Paths')
+$selected = @()
+$systemPages = @()
+if ($localMode) {
+    if (-not $Paths -or $Paths.Count -eq 0) { Add-DocError '-Paths требует хотя бы один файл.' }
+    foreach ($relative in $Paths) {
+        $candidate = [IO.Path]::GetFullPath((Join-Path $main $relative))
+        if ([IO.Path]::IsPathRooted($relative) -or -not $candidate.StartsWith($main.TrimEnd('\', '/') + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
+            Add-DocError "Путь вне репозитория: $relative"
+        } elseif (-not (Test-Path -LiteralPath $candidate -PathType Leaf)) {
+            Add-DocError "Не найден выбранный файл: $relative"
+        } elseif ($candidate -notmatch '(?i)\.md$|[\\/]agents[\\/]openai\.yaml$') {
+            Add-DocError "Неподдерживаемый тип документа: $relative"
+        } else { $selected += Get-Item -LiteralPath $candidate }
+    }
+    Write-Host 'Documentation scope: local; global coverage/index/showcase checks NOT RUN.'
+} else {
+Write-Host 'Documentation scope: full.'
 $required = @(
     'docs/README.md',
     'docs/specs/README.md',
@@ -132,18 +151,23 @@ foreach ($root in $roots) {
     }
 }
 
+}
+
 $markdownRoots = @(
     (Join-Path $main 'docs'),
     (Join-Path $main '.agents')
 )
-$markdown = @($markdownRoots | ForEach-Object {
+$markdown = if ($localMode) { @($selected | Where-Object { $_.Extension -eq '.md' }) } else { $allMarkdown = @($markdownRoots | ForEach-Object {
     Get-ChildItem -LiteralPath $_ -Recurse -File -Filter '*.md'
 })
 $rootAgents = Join-Path $main 'AGENTS.md'
 if (Test-Path -LiteralPath $rootAgents -PathType Leaf) {
-    $markdown += Get-Item -LiteralPath $rootAgents
+    $allMarkdown += Get-Item -LiteralPath $rootAgents
+}
+$allMarkdown
 }
 
+$markdown = @($markdown)
 foreach ($file in $markdown) {
     $relativeSource = $file.FullName.Substring($main.Length).TrimStart('\', '/').Replace('\', '/')
     $text = [IO.File]::ReadAllText($file.FullName, [Text.Encoding]::UTF8)
@@ -176,7 +200,15 @@ foreach ($file in $markdown) {
 }
 
 $skillRoot = Join-Path $main '.agents/skills'
-$skills = @(Get-ChildItem -LiteralPath $skillRoot -Directory)
+$skills = if ($localMode) {
+    @($selected | ForEach-Object {
+        $rel = $_.FullName.Substring($main.Length).Replace('\', '/')
+        if ($rel -match '^/\.agents/skills/(?<name>[^/]+)/') {
+            Get-Item -LiteralPath (Join-Path $skillRoot $Matches['name'])
+        }
+    } | Sort-Object -Property FullName -Unique)
+} elseif (Test-Path -LiteralPath $skillRoot) { @(Get-ChildItem -LiteralPath $skillRoot -Directory) } else { @() }
+$skills = @($skills)
 foreach ($skill in $skills) {
     $skillFile = Join-Path $skill.FullName 'SKILL.md'
     $agentFile = Join-Path $skill.FullName 'agents/openai.yaml'
@@ -194,11 +226,9 @@ foreach ($skill in $skills) {
     if ($skillText -match '\[TODO' -or $skillText.IndexOf([char]0x045F) -ge 0 -or $skillText.IndexOf([char]0x0402) -ge 0 -or $skillText.IndexOf([char]0x0403) -ge 0) {
         Add-DocError "Skill содержит TODO или признаки mojibake: $($skill.Name)"
     }
-    if (-not (Test-Path -LiteralPath $agentFile -PathType Leaf)) {
-        Add-DocError "Skill без agents/openai.yaml: $($skill.Name)"
-    } else {
+    if (Test-Path -LiteralPath $agentFile -PathType Leaf) {
         $agentText = [IO.File]::ReadAllText($agentFile, [Text.Encoding]::UTF8)
-        if ($agentText -notmatch [regex]::Escape('$' + $skill.Name)) {
+        if ($agentText -notmatch '(?m)^interface:\s*$' -or $agentText -notmatch ('(?m)^  default_prompt:.*' + [regex]::Escape('$' + $skill.Name))) {
             Add-DocError ("default_prompt не упоминает {0}: {1}" -f ('$' + $skill.Name), $skill.Name)
         }
         if ($agentText.Contains([char]0xFFFD)) {

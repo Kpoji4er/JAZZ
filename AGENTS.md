@@ -1,59 +1,53 @@
 # Правила работы с JAZZ
 
-JAZZ состоит из четырёх канонических репозиториев (+ опциональный пятый профиль без maps):
+Четыре канонических репозитория (+ опциональный пятый без maps):
 
-| Репозиторий | Локальный каталог | Что он содержит |
+| Репозиторий | Каталог | Что содержит |
 | --- | --- | --- |
 | `jazz` | `..\jazz` | Код оверхола, предметы, эффекты, UI |
 | `jazz_assets` | `..\jazz_assets` | Сущности, модели, материалы, текстуры |
 | `jazz-maps` | `..\jazz-maps` | Карты, квесты, диалоги, сектора, патчи |
 | `jazz-units` | `..\jazz-units` | UnitData, AI-архетипы, отряды, прогрессия |
-| `jazz-nomaps` | `..\jazz-nomaps` | **Опционально вместо maps** (display: **JAZZ Vanilla Maps**): vanilla HotDiamonds + Legion AI (`7MsJ2Eq`) |
+| `jazz-nomaps` | `..\jazz-nomaps` | Опционально вместо maps (display: **JAZZ Vanilla Maps**) |
 
-Профили: **канон** = assets+units+maps+jazz; **без maps** = assets+units+nomaps+jazz. Не включать maps и nomaps как обязательную пару.
+Профили: **канон** = assets+units+maps+jazz; **без maps** = assets+units+nomaps+jazz. Не включать maps и nomaps как обязательную пару. Не переносить файлы между репозиториями.
 
-Перед любым изменением определяй пакет-владельца данных и не переноси файлы между репозиториями ради удобства.
+## Когда что читать
 
-## Быстрый путь чтения
+Не открывать все `.cursor/rules` и skills. Только строка, которая совпала с задачей:
 
-Сначала открыть `.agents/docs/index.md`, затем только релевантный reference/playbook:
+| Задача | Открыть |
+| --- | --- |
+| Новое поведение, public ID, generated data, load order, смена scope | `$specify-jazz-change` |
+| Несколько пакетов, ownership, impact | `$work-on-jazz-mod` |
+| `items.lua` / `metadata.lua` / ModItem / companion | `$sync-jazz-generated-data` + `.cursor/rules/jazz-items-metadata-validate.mdc` |
+| Новый shoppable item, Bobby Ray, ECON-004, shop Tier/RW | `.cursor/rules/jazz-bobby-ray-new-items.mdc` |
+| Коммит, Revision, `last_changes` | `.cursor/rules/jazz-commits-versioning.mdc` + `.cursor/rules/jazz-metadata-last-changes.mdc` |
+| `git push`, Discord после push | `.cursor/rules/jazz-git-push-chunks.mdc` |
+| Player-facing бой/CTH/wiki/showcase или drift technical | `.cursor/rules/jazz-docs-sync.mdc` + `$document-jazz-systems` |
+| Runtime разошёлся со spec | `.cursor/rules/jazz-spec-sync.mdc` |
+| Lua wrap / `g_JAZZ_*Base` / второй хук | `.cursor/rules/jazz-lua-wrap-no-cycle.mdc` |
+| Новый Lua global / `rawset` / GameVar | `$jazz-lua-globals` |
+| Скрипт в `docs/tools` или `.agents` | `.cursor/rules/jazz-agent-tooling.mdc` |
+| Лёгкий / нормальный / сложный, `GameDifficulty` | `.cursor/rules/jazz-game-difficulty.mdc` |
+| `Russian.csv` / `English.csv` / `T()` | `$manage-jazz-localization` |
+| Релиз, теги, Steam upload | `$release-jazz-suite` |
+| «Проверь в игре», DAP, live Lua | `.cursor/rules/jazz-dap-runtime-debug.mdc` |
 
-- Spec/DoR/DoD: `.agents/skills/specify-jazz-change/SKILL.md`, `docs/specs/README.md`
-- Общий контур: `.agents/docs/reference/project-scope.md`
-- Runtime/потоки/сообщения: `.agents/docs/reference/runtime-model.md`
-- Generated data: `.agents/docs/reference/generated-data-sync.md`
-- Проверки и release: `.agents/docs/reference/checklists-and-release.md`
-- Current-state документация: `.agents/docs/reference/documentation-contract.md`
-- Agent tooling (скрипты не выкидывать): `.agents/docs/reference/agent-tooling.md`, `docs/tools/README.md`
+Дальше — `.agents/docs/index.md` и **один** профильный playbook. Не грузить весь набор документов.
 
-## Ролевые playbookы
+## Всегда (коротко)
 
-- Runtime-тест в живой игре (DAP): `.agents/docs/playbooks/dap-runtime-debug.md`
-- AI / CTH / боеприпасы: `.agents/docs/playbooks/ai-system.md`
-- Оружие и баланс: `.agents/docs/playbooks/weapons-balance.md`
-- Карты, квесты, диалоги: `.agents/docs/playbooks/maps-content.md`
-- Юниты и прогрессия: `.agents/docs/playbooks/units-squads.md`
-- Assets, UI, звук, FX: `.agents/docs/playbooks/assets-and-ui.md`
-
-## Минимальные обязательства
-
-1. Изменение поведения, архитектуры, generated data, dependencies, load order, публичных ID или save/network contract начинается с approved spec и прошедшего DoR.
-2. Перед compatibility-sensitive изменением использовать свежий CommonLib snapshot аудитора; обновлять upstream при истёкшем snapshot или dependency/release scope.
-3. Generated data изменять транзакцией `items.lua` + `metadata.lua` + companion и проверять профильным sync-аудитом.
-4. Не смешивать логическое изменение с перепаковкой, массовой регенерацией или форматированием.
-5. Не запускать общий обход `jazz-maps/Maps/` без прямого запроса на конкретную карту/сектор/patch.
-6. Полная замена vanilla-класса сохраняет исходные class name/ID и пару `UndefineClass('<Id>')` → `DefineClass.<Id> = { ... }`; подробности живут в generated-data contract.
-7. `docs/technical/` описывает текущее состояние для разработчика, `docs/wiki/` — текущее состояние для игрока, `docs/showcase/` — двуязычная публичная витрина (GitHub Wiki), а `docs/specs/` — утверждённое намерение; затронутые уровни документации входят в DoD. Для player-facing боя/CTH/grazing/укрытия/дыма обновлять technical + wiki + showcase RU/EN **в том же change set** (`.cursor/rules/jazz-docs-wiki-sync.mdc`).
-8. Не выполнять `git push`, force-push, публикацию тегов, релизов или PR без отдельного явного одобрения пользователя на конкретную публикацию. Запрос на commit, merge или перенос в ветку не разрешает push. При **одобренном** push разбивать ahead-коммиты на чанки **≤8** и после push в `main` обеспечивать Discord через `docs/tools/_dispatch_discord_player_update.ps1` **один раз на логическую фичу** (primary пакет; sibling с `[skip discord]`; `-SuitePackages` со всеми затронутыми пакетами; `-SuiteVersions` с **полной** engine-версией каждого из `metadata.lua`, например `jazz:0.20-6206,jazz-units:0.19-2326` — иначе в Discord нет номера или он обрезан). Agent push часто не триггерит Actions; см. `.cursor/rules/jazz-git-push-chunks.mdc`.
-9. При добавлении или изменении mod-only строки локализации в том же change set обновлять обе runtime-таблицы — `Russian.csv` и `English.csv`. Изменение не завершено, пока для активной строки не заполнены оба языка, множества mod-only ID таблиц не совпадают и аудитор сообщает `needs Russian=0` и `needs English=0`.
-10. При коммите изменений пакета в том же change set обновлять его `metadata.lua`: обычный коммит поднимает `version` (Revision) на `+1`; `version_minor` — только на большой мульти-spec фиче/волне. Не править вручную `saved`, `code_hash`. Sibling-пакеты без изменений не трогать. `last_changes` при коммите **дописывать**, полностью перезатирать только при Steam upload. Подробности: `.cursor/rules/jazz-commits-versioning.mdc`, `docs/technical/systems/release-versioning.md`, `$release-jazz-suite`.
-11. Новый shoppable `InventoryItem` (оружие/броня/ammo/медицина/тулзы/аттач…): в том же change set решить **Bobby Ray in|out** и выставить shop-поля (или явный out + причина). Не откладывать «потом в каталог». См. `.cursor/rules/jazz-bobby-ray-new-items.mdc`, ECON-004.
-12. Не вешать второй wrap на тот же `Class:Method`/глобал и не `rawset(*Base, current)` на чужую обёртку (`ModsReloaded`/`DataLoaded` → `Call stack too big`). Новый хук вшивать в существующий wrap. Перед сдачей wrap-правки: `python docs/tools/_check_lua_wrap_cycles.py`. Канон: `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`.
+1. Не `git push` / force-push / теги / релизы / PR без явного одобрения на **эту** публикацию. «Закоммить» push не разрешает.
+2. Не обходить `jazz-maps/Maps/` целиком без запроса на конкретную карту/сектор.
+3. Не смешивать логическое изменение с mass regen / formatting.
+4. Один wrap на `Class:Method` / глобал; новый хук вшивать в существующий.
+5. Абсолютный `<JA3_ROOT>` не коммитить.
+6. Речь про сложность игры: **лёгкий** = `Normal`, **нормальный** = `Hard`, **сложный** = `VeryHard`. Игрового Easy нет.
+7. **JA3 запускать через Steam**, например `Start-Process 'steam://rungameid/1084160'`, не напрямую через `JA3.exe` / `JA3Debug.exe`. Прямой запуск здесь даёт «Unable to start the game. Please restart». Для DAP отдельно проверить debug-сборку и порт 8165; обычный запуск Steam сам по себе DAP не гарантирует.
 
 ## Источники
 
 - Runtime JA3: `<JA3_ROOT>\ModTools\Src`
 - Официальная документация: `<JA3_ROOT>\ModTools\Docs`
 - CommonLib: <https://gitlab.com/injto4ka/ja3_commonlib>
-
-Абсолютное значение `<JA3_ROOT>` не коммитить.

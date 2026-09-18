@@ -78,7 +78,7 @@ CLI без MCP: `py -3 scripts/dap/ja3_dap_mcp.py --cli probe|connect`.
 ## Сценарий debugger
 
 ```
-probe → (нет порта: Start-Process JA3Debug.exe, ждать listen)
+probe → (нет порта: запуск через Steam; проверить debug-сборку и listen)
 → connect          -- только если IDE не держит debug-сессию
 → set_breakpoints(abs_path, lines)
 → воспроизвести действие
@@ -178,9 +178,9 @@ Mods.e6L4ECj and true
 Если порт молчит и нужен runtime-тест:
 
 1. Нет ли уже `JA3` / `JA3Debug`.
-2. `Start-Process` на `…\Jagged Alliance 3\JA3Debug.exe` (cwd = корень игры).
-3. Поллить `ja3_dap_probe` до listen (десятки секунд на cold start).
-4. Затем connect. «Ещё грузится» — не FAIL.
+2. **Запускать через Steam**, например `Start-Process 'steam://rungameid/1084160'`. Не запускать `JA3.exe` / `JA3Debug.exe` напрямую: в этой установке прямой запуск даёт «Unable to start the game. Please restart» (подтверждено владельцем 2026-09-15).
+3. Обычный Steam URI запускает retail и не гарантирует DAP. Проверить фактический процесс. Для debugger нужен подтверждённый способ запуска debug-сборки через Steam; не придумывать флаги запуска и не менять EXE. Если запущен retail, можно проверять через игровой интерфейс, но DAP недоступен.
+4. Для debug-сборки проверить `ja3_dap_probe` до listen (десятки секунд на cold start), затем connect. «Ещё грузится» — не FAIL.
 
 Steam/DRM: exe сразу умер — сказать пользователю, не крутить relaunch.
 
@@ -219,3 +219,6 @@ Steam/DRM: exe сразу умер — сказать пользователю, 
 - `.agents/skills/jazz-lua-globals/SKILL.md` — обычные runtime-глобалы (eval идёт через `rawset`)
 - `ModTools/Docs/ModItemCode.md.html` — официальный Debugging
 - CommonLib: `Code/_Utils.lua` → `SafeEvalStart` / `SafeEvalEnd` / `SafeEval`
+
+
+Для FB-18 (зависание инвентаря): `python docs/tools/_probe_inventory_hang.py` читает состояние существующего процесса без initialize, pause, reload и очистки BP. Запускать после ручного воспроизведения пользователем; игру агент не запускает. `--self-test` — полностью offline. Если сам Lua-поток перестал отвечать, ограниченный timeout сохраняет управление агенту, но снимок получить нельзя.

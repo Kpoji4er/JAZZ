@@ -1,8 +1,7 @@
 ---
 description: >-
-  Runtime-тест JA3 через DAP: MCP ja3-dap, JA3Debug.exe, breakpoints /
-  live eval / stack. Когда пользователь просит проверить в игре, отладить
-  Lua, воспроизвести баг, посмотреть runtime-значения или «протестируй».
+  Read when the user asks to test in-game, debug live Lua, set breakpoints,
+  or «протестируй». MCP ja3-dap + JA3Debug.
 alwaysApply: false
 ---
 
@@ -22,7 +21,7 @@ alwaysApply: false
 ## Обязательный runtime
 
 1. Только **`JA3Debug.exe`** (`Platform.debug`). Retail `JA3.exe` — порт `8165` не слушает.
-2. Путь: `F:\SteamLibrary\steamapps\common\Jagged Alliance 3\JA3Debug.exe` (или актуальный Steam library).
+2. **Запуск только через Steam**, не прямым вызовом EXE. Обычный запуск: `Start-Process 'steam://rungameid/1084160'`. Для DAP нужен отдельно подтверждённый способ запуска debug-сборки через Steam; URI обычной игры этого не гарантирует. EXE расположен в `<JA3_ROOT>`.
 3. MCP: `ja3_dap_probe` → работа → не оставлять игру навечно на pause.
 
 `ja3_dap_connect` шлёт `initialize` → движок **сносит все breakpoints** и делает `Continue`. Не подключаться поверх IDE-отладки пользователя.

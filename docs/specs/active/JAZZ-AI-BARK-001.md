@@ -87,7 +87,7 @@ approved_by: pending
 
 | Param | Value |
 | --- | --- |
-| Vehicle | `CreateFloatingText` on the speaker unit |
+| Vehicle | `ShowBanterFloatingText` (same bubble as voiced AI attacks). `CreateFloatingText` on a Unit is dropped when `efVisible==0` and expires as 800ms EditorText. |
 | Color | one speech color, not damage / heal / `Reload` |
 | Voice | none |
 | Who | enemy AI only (`team.player_enemy` or enemy side) |
@@ -109,12 +109,12 @@ approved_by: pending
 
 ## Требования
 
-- `JAZZ-AI-BARK-001-REQ-001` — новый loaded `jazz/Code/System_AI_CombatBarks.lua` в `metadata.lua.code` (рядом с прочими AI Code). `JazzAI_TryCombatBark(unit, event, ctx)` — единственная точка показа. Не создаёт глобалы в `OnMsg` обычным присвоением (`$jazz-lua-globals`).
+- `JAZZ-AI-BARK-001-REQ-001` — новый loaded `jazz/Code/System_AI_CombatBarks.lua` в `metadata.lua.code` (рядом с прочими AI Code). `JazzAI_TryCombatBark(unit, event, ctx)` — единственная точка показа (`ShowBanterFloatingText`). Не создаёт глобалы в `OnMsg` обычным присвоением (`$jazz-lua-globals`).
 - `JAZZ-AI-BARK-001-REQ-002` — барк не ставится, если юнит мёртв / invalid / unconscious; не враг; нет PoV visibility; идёт Fast-forward; сработал team/unit/event cap; `panic`/`desert` уже были в этом бою у юнита.
 - `JAZZ-AI-BARK-001-REQ-003` — хуки только **после** решения:
   1. `JazzAI_WriteOfficerAura` — если `directive` ≠ last (все 10 директив CMD-001, включая `HoldLine` и `GoHidden`);
   2. смена динамического архетипа: `Panicked` / `Deserter` / `Berserk` / medic / melee (`JazzAI_SelectArchetype`, once/combat на юнита);
-  3. Execute гранаты по `aoeType` → `nade_flare` / `nade_smoke` / `nade_frag` / `nade_fire` / `nade_gas`;
+  3. Execute гранаты по `aoeType` → `nade_flare` / `nade_smoke` / `nade_frag` / `nade_fire` / `nade_gas` (ручка — wrap `AIActionThrowGrenade`; ГП/РПГ — `AIActionHeavyWeaponAttack`; фаер — `AIActionThrowFlare`);
   4. смена bark-класса оружия после `SwapActiveWeapon` / `ChangeWeapon` → `wpn_rifle` | `wpn_shotgun` | `wpn_mg` | `wpn_sidearm` | `wpn_gl` | `wpn_rocket` | `wpn_sniper` | `wpn_melee`. Не орать на `JAZZ_AIEnsureActiveFirearm` (пустые руки→ствол);
   5. `AIActionMGSetup` deploy → `mg_setup` (не то же событие, что `wpn_mg`);
   6. после lock dest, **не** меняя dest. Приоритет (одно на активацию):
@@ -159,7 +159,7 @@ approved_by: pending
 
 ## Impact и совместимость
 
-- Vanilla/CommonLib: только `CreateFloatingText` + тонкие after-hooks на уже переопределённых JAZZ AI функциях.
+- Vanilla/CommonLib: `ShowBanterFloatingText` + тонкие after-hooks на уже переопределённых JAZZ AI функциях.
 - Saves: mid-combat MapVar; старые сейвы без поля — пустой init.
 - Network/determinism: cosmetic; `unit:Random` sync.
 - Generated data: нет ModItem. `metadata.lua.code` — одна запись нового файла (не косметический reorder прочих).

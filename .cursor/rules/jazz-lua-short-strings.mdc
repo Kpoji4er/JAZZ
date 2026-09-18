@@ -1,5 +1,7 @@
 ---
-description: Lua short strings cannot contain raw newlines (JA3 unfinished string)
+description: >-
+  Read when editing Lua short strings ("..." / '...'). Raw newline inside
+  quotes → unfinished string.
 globs: "**/*.lua"
 alwaysApply: false
 ---

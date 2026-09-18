@@ -87,7 +87,7 @@ Throws **always** have light scatter — there is no perfect pin-point landing.
 
 - **Strength** extends throw range. **Dexterity, Explosives, and Strength** keep the throw clean: risk rises smoothly to the edge of the circle, with no cliff.
 - Elites (all three near **100**) stay green at mid-range; low stats go red sooner, still gradually.
-- **At max range**, elites usually keep light scatter; a **mishap** still throws several tiles off, not 1–2 next to the aim point.
+- **At max range**, elites usually keep light scatter; a **mishap** still throws several tiles off, not 1–2 next to the aim point. Below **Explosives 20** a mishap can go any direction; above that it stays in a sector along the throw, down to about **30°** at **100**.
 - Underslung/GL/rockets — **Marksmanship + Explosives**; pipes/TNT — mostly **Explosives**.
 - While aiming: ring **size** = damage area; ring and throw-arc **color** = mix of mishap risk and light-scatter size on the same white / blue / green→red scale as the crosshair.
 - Frag / HE / flashbang: **guaranteed concussion** on blast-hit units. Zone **trauma** is **one** zone using the same after-armor damage bands as bullets (≥ **20**; heavy at ≥ **50%** Max HP) — not a pile from one grenade. In the **inner aim ring** (`CenterAreaOfEffect`) only, a strong blast can also **knock units back** (mercs included) — **Strength + Health** vs **pre-armor** damage; outer ring has no knockback; already prone units stay put. Smoke / gas / Molotov use their own packages, not concussion/knockback or **bleeding**.
@@ -98,7 +98,7 @@ AI units are less eager to crowd around a single ideal firing position. Occupied
 
 This remains a soft preference rather than a movement ban: narrow passages stay traversable. Melee units use a gentler crowding floor. **Medics** ignore crowding so they can reach a patient. Other fighters prefer a **free cover tile** over sharing the same bush.
 
-On large maps (the waterfall and similar) the enemy turn should not freeze for minutes. AI pathing uses this-turn reach, not the whole map. A shot from the current tile no longer fires thousands of collision rays through the waterfall mesh: chance uses the same math as the aim UI, and the bullet fly is simplified. **A clear AI shot can still hit** (same CTH as the crosshair). Shots into solid rock, cliff, or wall stop there — they do not punch through unbreakable ground. Your shots and the aim UI are unchanged.
+On large maps (the waterfall and similar) the enemy turn should not freeze for minutes. AI pathing uses this-turn reach, not the whole map. A shot from the current tile no longer fires thousands of collision rays through the waterfall mesh: chance uses the same math as the aim UI, and the bullet fly is simplified. **A clear AI shot can still hit** (same CTH as the crosshair). They will not fire into solid rock, a cliff, a wall, or a tent — the bullet would not get through. Your shots and the aim UI are unchanged.
 
 A panicked fighter may flee and **despawn** at a map exit. While your mercs are within about **16** tiles, they will not vanish just by stepping behind the nearest rock — they keep running in plain sight.
 
@@ -106,7 +106,7 @@ A visible enemy sometimes shouts over their head (new order, panic, grenade, wea
 
 Your Overwatch **narrows with distance**: a close pistol is a wide fan, a machine gun up close is thicker than at its effective range, a long rifle is a thin strip. Any mapped stationary MG starts with a **long** cone at that gun's max range and a **45°** sweep, not the close-in Overwatch minimum. While placing, cone color is hit chance against a standing full-height target **with the sector's aim** (rifles / MGs get an extra click, snipers use full aim; your debuffs ignored). After you confirm, the cone is the normal overwatch fill again. A blocked wall tile is black. The interrupt itself is never a CTH bonus (**−30…0**); a reflex sight can nudge that up.
 
-Without sight, AI will not plant Overwatch into a wall at random: the cone covers the tile **where you can step into view** (house corner, doorway, rock edge). In the open it aims 1–3 tiles off the last sound. At night it prefers lit ground / night-sight, or they skip it. Shots into solid rock stop there. If you can see them and they cannot see you, they will not stand still to be farmed — they relocate and close to firing range of the last sound, not pile onto your tile.
+Without sight, AI will not plant Overwatch into a wall at random: the cone covers the tile **where you can step into view** (house corner, doorway, rock edge). In the open it aims 1–3 tiles off the last sound. At night it prefers lit ground / night-sight, or they skip it. Shots into solid rock or a tent stop there. If you can see them and they cannot see you, they will not stand still to be farmed — they relocate and close to firing range of the last sound, not pile onto your tile.
 
 ## What the UI shows
 
@@ -121,3 +121,8 @@ Recoil         ---
 ```
 
 More signs means a stronger effect. Crosshair, AI, and the real shot share one calculation.
+
+Quest NPCs (ImportantNPC/villain actors outside player squads who are not mercenaries) and immortal units cannot die from wound infection: a failed check keeps the infection for another 16 hours. Ordinary enemies and player units retain the lethal outcome; immortality takes priority. This does not revive NPCs who have already died.
+
+
+Hospital treatment accepts mercs with missing health or trauma that has not started healing. Treatment starts trauma recovery rather than removing the trauma immediately.

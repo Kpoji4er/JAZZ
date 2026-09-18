@@ -1,12 +1,14 @@
 # Weapons and components
 
+[Overview](home.md) · [Weapon classes](weapon-classes.md) · [Русский](../ru/weapons-and-ammo.md)
+
+## Tier and sub-tier
+
 AK74M, AK105, SR-3M and L42A1 enter the test roster through suitable Legion loadouts and Bobby Ray's catalog. One Ivan loadout also uses AK74M. Prices and combat stats remain provisional; Mosin variants keep their existing availability gates.
 
 The PU scope fits only the long sniper Mosin. Remove it before switching to the M38 or Obrez configuration.
 
-[Overview](home.md) · [Weapon classes](weapon-classes.md) · [Русский](../ru/weapons-and-ammo.md)
-
-## Tier and sub-tier
+The weapon condition percentage in the bottom panel and inventory uses the same current resource value. This display fix does not change wear or repair costs.
 
 A **tier** is a noticeable power band inside a class. Moving up a major tier raises overall combat value; it does not have to raise every individual stat.
 
@@ -15,6 +17,8 @@ A **sub-tier** orders close variants (magazine, RoF, range, reliability, modules
 `UNIQ` means a unique variant. Items with no tier are quest/technical or not yet classified.
 
 ## How to read the stats
+
+The AK-47 and AKM have a nominal cyclic rate of 600 rounds per minute: a short burst fires 3 rounds and a long burst fires 6.
 
 | Field | Meaning |
 | --- | --- |

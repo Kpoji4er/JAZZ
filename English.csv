@@ -13039,15 +13039,6 @@ Speck",,JAZZ-UI-MERC-001
 890000000009955,Оплатите счёт на сайте M.E.R.C. ПКМ открывает сайт.,Pay Account on the M.E.R.C. site. Right-click opens the site.,,JAZZ-UI-MERC-002
 890000000009956,"Спек потребует оплату. Контрактники уйдут через 3 дня, если $<balance> так и висит.",Speck will demand payment. Contractors leave 3 days later if $<balance> is still unpaid.,,JAZZ-UI-MERC-002
 890000000009957,Открыть M.E.R.C.,Open M.E.R.C.,,JAZZ-UI-MERC-002
-761915400101,Контратака на виллу,Villa counterattack,,jazz-maps:items.lua:96588
-761915400102,Легион идёт на виллу Коразон. Приготовьтесь к обороне — уйти из сектора нельзя.,The Legion is advancing on Corazon's villa. Prepare to defend it; you cannot leave the sector.,,jazz-maps:items.lua:96596
-761915400103,Контратака на виллу отбита.,The villa counterattack has been repelled.,,jazz-maps:items.lua:96606
-761915400104,Гости,Guests,,jazz-maps:items.lua:20229
-761915400105,Тихо. У нас гости.,Quiet. We have company.,,jazz-maps:items.lua:20233
-761915400106,Легион снова идёт на виллу — с лагерей и со стороны Эрни. Займите позиции до подхода противника. Уйти отсюда сейчас нельзя.,"The Legion is advancing on the villa again, from the camps and Ernie. Take your positions before they arrive. You cannot leave now.",,jazz-maps:items.lua:20237
-761915400107,Принять $40 000,"Accept $40,000",,jazz-maps:items.lua:19311
-761915400108,Отказаться от $40 000,"Refuse $40,000",,jazz-maps:items.lua:19323 | jazz-maps:items.lua:19541
-761915400109,Принять $40 000 и попросить больше,"Accept $40,000 and request more",,jazz-maps:items.lua:19405 | jazz-maps:items.lua:19479
 761915300101,СР-3М,SR-3M,,jazz:InventoryItem/SR3M.lua:13 | jazz:items.lua:117827
 761915300102,СР-3М,SR-3M,,jazz:InventoryItem/SR3M.lua:14 | jazz:items.lua:117828
 761915300103,"Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя.","A compact 9x39 mm carbine with a folding stock and a 30-round magazine. This configuration uses the standard muzzle device, without a suppressor.",,jazz:InventoryItem/SR3M.lua:15 | jazz:items.lua:117829
@@ -13072,3 +13063,16 @@ Speck",,JAZZ-UI-MERC-001
 761915303111,АК-105,AK-105,,jazz:InventoryItem/AK105.lua:13 | jazz:items.lua:24317
 761915303112,АК-105,AK-105,,jazz:InventoryItem/AK105.lua:14 | jazz:items.lua:24318
 761915303113,"Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов.",A compact 5.45x39 mm carbine using shared 30- and 45-round AK magazines.,,jazz:InventoryItem/AK105.lua:15 | jazz:items.lua:24319
+761915400101,Контратака на виллу,Villa counterattack,,jazz-maps:items.lua:96588
+761915400102,Легион идёт на виллу Коразон. Приготовьтесь к обороне — уйти из сектора нельзя.,The Legion is advancing on Corazon's villa. Prepare to defend it; you cannot leave the sector.,,jazz-maps:items.lua:96596
+761915400103,Контратака на виллу отбита.,The villa counterattack has been repelled.,,jazz-maps:items.lua:96606
+761915400104,Гости,Guests,,jazz-maps:items.lua:20229
+761915400105,Тихо. У нас гости.,Quiet. We have company.,,jazz-maps:items.lua:20233
+761915400106,Легион снова идёт на виллу — с лагерей и со стороны Эрни. Займите позиции до подхода противника. Уйти отсюда сейчас нельзя.,"The Legion is advancing on the villa again, from the camps and Ernie. Take your positions before they arrive. You cannot leave now.",,jazz-maps:items.lua:20237
+761915400107,Принять $40 000,"Accept $40,000",,jazz-maps:items.lua:19311
+761915400108,Отказаться от $40 000,"Refuse $40,000",,jazz-maps:items.lua:19323 | jazz-maps:items.lua:19541
+761915400109,Принять $40 000 и попросить больше,"Accept $40,000 and request more",,jazz-maps:items.lua:19405 | jazz-maps:items.lua:19479
+890000000014200,Бронежилет EOD,EOD Vest,,jazz:InventoryItem/JazzArmor_EOD.lua
+890000000014201,Бронежилеты EOD,EOD Vests,,jazz:InventoryItem/JazzArmor_EOD.lua
+890000000014202,"Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.","A heavy sapper vest for bomb disposal. Thick fragmentation packs and a high collar handle blast well, but it does little against a rifle round and the vest is noticeably heavy.",,jazz:InventoryItem/JazzArmor_EOD.lua
+890000000014203,Броня для разминирования,Explosive ordnance disposal armor,,jazz:InventoryItem/JazzArmor_EOD.lua

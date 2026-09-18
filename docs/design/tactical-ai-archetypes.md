@@ -279,8 +279,8 @@ Leader (`JAZZ_Legion_Leader*`, RebelSergeant, keyword `Leader`) раз в ход
 | `LowVisHold` | Night/Fog/Dust без массового стелса | hold; +2 CTH |
 | `FocusFire` | threat score (sniper/MG/close≤8 / HP≤55) | `focus_target`; attack ×2; +5 CTH |
 | `TakeCover` | ≥18 + outshot | Frontliner; −3 CTH defense |
-| `OccupyHeights` | elevation variance, enemy ≥10, не indoor-heavy | HighGround ×175%; +2 CTH |
-| `Push` | nearest ≤12 | Scout → Assaulter; +1 AP |
+| `OccupyHeights` | elevation variance, enemy ≥10, не indoor-heavy; **нет** живого выстрела у Sniper/Marksman/semi-sniper | HighGround ×175% **только perch** (Line/MG / Leader+optics; не stance Frontliner, не aura); не-perch cling 2–10 + TakeCover; медик → пациент; +2 CTH |
+| `Push` | nearest ≤12 **или** ≥1 spotter в ауре видит и может стрелять (вес **600**) | Scout → Assaulter; spotter остаётся на высоте (HighGround ×175%); +1 AP |
 | `OccupyBuildings` | Urban / indoor; mid-range | Frontliner; +2 CTH |
 | `Envelop` | nearest ≥24 | Pusher → Flanker; +2 CTH |
 | `HoldLine` | default | family default; +2 CTH |
@@ -624,7 +624,8 @@ StartAI → archetype (+ PickCustom)
 Пока идут ROLE-001 / POL-001, вести чеклист (design → evidence):
 
 - [x] TakeCover: threat-weight + cover×shot в `AIPolicy.lua` (POL-001); live OptLoc Weights Front **20+40** / Assault **10** / Flank **15** (locked 2026-08-18; not 80–150)
-- [x] Proximity: `ScoreMode` closer_better / farther_better; **Legion/Rebels Frontliner+Assaulter+Machinegunner** ally Proximity → `closer_better` (MG OptLoc Weight 80 + EndTurn glue; Flanker already had closer_better)
+- [x] Proximity: `ScoreMode` closer_better / farther_better; **Legion/Rebels Frontliner+Assaulter+Machinegunner** ally Proximity → `closer_better` (MG OptLoc Weight 80 + StandardAI EndTurn glue; Flanker already had closer_better)
+- [x] MG PositioningAI `Label=MGSetup` EndTurn: `LosToEnemy` Required 300 + range/damage (2026-09-06; K5 huddle — empty EndTurn made Score 0)
 - [x] ROLE-002/003: `AICombatStance.lua` + thin PickCustom Legion/Rebel (**items.lua** synced 2026-08-18)
 - [x] ROLE-001 REQ-005: Assaulter/Frontliner Flanker AI **weak** (Weight 80 / Flanking 150); true Flanker 500/1000 (2026-08-18)
 - [x] Smoke LOS-break / OW LowVis / flare→Push (ACT-001)

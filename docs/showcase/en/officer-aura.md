@@ -19,12 +19,12 @@ Outside the radius or after the commander dies, influence drops. With several of
 | Order | When | Feel |
 | --- | --- | --- |
 | **Hold the line** | default range | default roles; **+2 CTH** |
-| **Push** | enemy ≤ **12** | scouts assault; **+1 AP** |
+| **Push** | enemy ≤ **12**, **or** a sniper/marksman in the aura can see and shoot a living target | assault goes forward; snipers stay on the height and shoot; **+1 AP** |
 | **Envelop** | enemy ≥ **24** | flank; **+2 CTH** |
 | **Fall back** | ≥2 dead and ≥30% — a **chance** to break; cancelled when the group reunites | break LoS, overwatch the vacated tile; **−5 CTH** vs them |
 | **Focus fire** | sniper / MG / close / wounded threat | shoot **that** target (score ×2); tooltip shows **who**; **+5 CTH** |
 | **Occupy buildings** | urban | fight from buildings; **+2 CTH** |
-| **Take the high ground** | hills / elevation | high ground; **+2 CTH** |
+| **Take the high ground** | hills, while snipers still have no live shot | shooters and the MG take the height; the rest cling 2–10 tiles to them; a medic goes to the wounded; **+2 CTH** |
 | **Take cover** | losing a long firefight | cover; **−3 CTH** vs them |
 | **Go hidden** | night/fog or stealth OK | **Hidden** |
 | **Low visibility — hold** | night/fog, no mass stealth | hold; **+2 CTH** |

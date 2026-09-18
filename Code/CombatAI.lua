@@ -40,6 +40,7 @@ JazzAI_UnitsExportNames = {
 	"JazzAI_GetAltWeapons",
 	"JazzAI_FindAltMeleeWeapon",
 	"JazzAI_FindAltCQBFirearm",
+	"JazzAI_UnitIsFlankingSniper",
 	"JazzAI_EnsureWeaponClass",
 	"JazzAI_MeleeAttackAPCost",
 	"JazzAI_CanReachMeleeAndAttackOnce",
@@ -1111,21 +1112,21 @@ function AIFindDestinations(unit, context)
     if vis_tbl[enemy] then visible = true; break end
   end
 
-  -- 1) аккуратный резерв без «стоимости приседа» (её спишем из dest_ap позже)
+  -- 1) JAZZ-AI-010: reserve a shot when the team already sees someone.
   local ap = unit.ActionPoints
   local half = MulDivRound(ap, 50, 100)
   local attack_cost = context.attack_AP_reserved or context.default_attack_cost or half
   local min_move_ap = context.min_move_ap or 0
   local safe_stride  = context.safe_stride_ap or 8 * const.Scale.AP
   local disengage_reserve = 2 * const.Scale.AP -- SoftDisengageTiles = 2
+  context.visible = visible
 
-  -- хотим оставить AP минимум под атаку и не больше safe_stride тратить за вызов
-  local desired_move_ap = Min(ap - attack_cost, safe_stride)
-  desired_move_ap = Max(desired_move_ap, min_move_ap) + 2 * const.Scale.AP
-  local reserve_from_stride = Max(0, ap - desired_move_ap)
-
-  local reserved_AP = visible and 0 or Max(attack_cost, reserve_from_stride, half)
-  reserved_AP = reserved_AP + disengage_reserve
+  local reserved_AP
+  if visible then
+    reserved_AP = attack_cost + disengage_reserve
+  else
+    reserved_AP = Max(safe_stride, attack_cost) + disengage_reserve
+  end
   reserved_AP = Min(reserved_AP, Max(0, ap - min_move_ap))
   reserved_AP = Max(0, reserved_AP)
 
@@ -2195,6 +2196,31 @@ local function JazzAI_CrowdDangerModifier(context, dest)
 		danger = danger + 10 * (casualties - 1)
 	end
 
+	-- JAZZ-AI-ROLE-004: bare high dest + ally on same Z within 2 tiles.
+	local stay = context.unit_stance_pos
+	if stay then
+		local sx, sy, sz = stance_pos_unpack(stay)
+		local dx, dy, dz = stance_pos_unpack(dest)
+		if dz and sz and dz > sz and not JazzAI_PackedHasCover(dest) then
+			for _, ally in ipairs(context.allies or empty_table) do
+				if ally ~= unit and IsValid(ally) and not ally:IsDead() then
+					local upos = context.ally_pack_pos_stance and context.ally_pack_pos_stance[ally]
+					if ally.ai_context and ally.ai_context.ai_destination then
+						upos = ally.ai_context.ai_destination
+					end
+					if upos then
+						local ax, ay, az = stance_pos_unpack(upos)
+						local adist = stance_pos_dist(dest, upos) / scale
+						if az == dz and adist < 2 then
+							danger = danger + 50
+							break
+						end
+					end
+				end
+			end
+		end
+	end
+
 	local min_mod = 25
 	local keywords = unit.AIKeywords or empty_table
 	if (context.EffectiveRange or 0) <= 1 or table.find(keywords, "Melee") then
@@ -2251,6 +2277,20 @@ function AIScoreDest(context, policies, dest, grid_voxel, base_score, visual_vox
 		-- CMD-003: HighGround ×175% only for perch / Push spotter (not whole aura).
 		if context.jazz_occupy_heights and IsKindOf(policy, "AIPolicyHighGround") then
 			pscore = MulDivRound(pscore, 175, 100)
+		end
+		-- JAZZ-AI-ROLE-004: bare climb with no shot scores no HighGround plus.
+		if IsKindOf(policy, "AIPolicyHighGround") and pscore > 0 then
+			local ux, uy, uz = point_unpack(context.unit_grid_voxel)
+			local gx, gy, gz = point_unpack(grid_voxel)
+			if gz > uz then
+				local dts = (context.dest_target_score or empty_table)[dest] or 0
+				local covered = JazzAI_PackedHasCover(dest)
+				if dts <= 0 and not covered then
+					pscore = 0
+				elseif JazzAI_HeightClimbBlocked(context, dest) and not (covered and dts > 0) then
+					pscore = 0
+				end
+			end
 		end
 		local failed = policy.Required and pscore <= 0
 		score = score + pscore
@@ -3441,6 +3481,51 @@ function AISelectHealTarget(context, dest, grid_voxel, heal_policy)
 	return best_target, best_score
 end
 
+-- JAZZ-AI-ROLE-004: after a descent, do not reclimb a bare roof for 2 turns.
+MapVar("JazzAI_HeightHysteresis", {})
+
+function JazzAI_DestVoxelZ(dest)
+	if not dest then
+		return false
+	end
+	local x, y, z = stance_pos_unpack(dest)
+	local vx, vy, vz = WorldToVoxel(x, y, z)
+	return vz
+end
+
+function JazzAI_HeightClimbBlocked(context, dest)
+	local unit = context and context.unit
+	if not unit or not dest then
+		return false
+	end
+	local rec = JazzAI_HeightHysteresis and JazzAI_HeightHysteresis[unit.handle]
+	if not rec or not rec.descended_turn then
+		return false
+	end
+	local turn = g_Combat and g_Combat.current_turn or 0
+	return turn < rec.descended_turn + 2
+end
+
+function JazzAI_NoteHeightHysteresis(context, dest)
+	local unit = context and context.unit
+	if not unit or not dest then
+		return
+	end
+	JazzAI_HeightHysteresis = JazzAI_HeightHysteresis or {}
+	local vz = JazzAI_DestVoxelZ(dest)
+	if not vz then
+		return
+	end
+	local rec = JazzAI_HeightHysteresis[unit.handle] or {}
+	local last_z = rec.last_z
+	local turn = g_Combat and g_Combat.current_turn or 0
+	if last_z and vz <= last_z - 1 then
+		rec.descended_turn = turn
+	end
+	rec.last_z = vz
+	JazzAI_HeightHysteresis[unit.handle] = rec
+end
+
 -- JAZZ-AI-SNIPER-001: hold when a usable shot exists; useless streak soft-downweights HighGround/stay.
 g_JAZZ_AIScoreReachableVoxelsBase = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsBase") or false
 g_JAZZ_AIScoreReachableVoxelsFn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsFn") or false
@@ -3660,11 +3745,12 @@ function JazzAI_UnitRoleFamily(unit)
 	if class:find("Flanker", 1, true) or class == "RebelFlanker" then
 		return "Scout"
 	end
-	if class:find("Assault", 1, true) then
-		return "Pusher"
-	end
+	-- Gunner before Assault: AssaultGunner is MG, not Pusher (JAZZ-AI-ROLE-004).
 	if class:find("Gunner", 1, true) or class:find("Machinegun", 1, true) then
 		return "MG"
+	end
+	if class:find("Assault", 1, true) then
+		return "Pusher"
 	end
 	if class:find("Heavy", 1, true) or class:find("Mortar", 1, true) or class:find("Rocketeer", 1, true) then
 		return "Heavy"
@@ -4107,6 +4193,49 @@ function JazzAI_ApplyBreakLosOverwatchDestination(context, dest)
 	return best
 end
 
+function JazzAI_DestAllowsShot(context, dest)
+	if not dest then
+		return false
+	end
+	return ((context.dest_target_score or empty_table)[dest] or 0) > 0
+end
+
+--- JAZZ-AI-010: if stay already has a shot, do not walk to a no-shot / no-AP dest.
+function JazzAI_ApplyStayIfShotDestination(context, dest)
+	if not context or not dest then
+		return dest
+	end
+	if context.jazz_break_los_ow_anchor then
+		return dest
+	end
+	local unit = context.unit
+	if context.reposition or (unit and unit:HasStatusEffect("Burning")) then
+		return dest
+	end
+	if context.can_heal then
+		return dest
+	end
+	if JazzAI_UnitIsRecontactCreeper and JazzAI_UnitIsRecontactCreeper(unit) then
+		return dest
+	end
+	if JazzAI_UnitNeedsMGSetup and JazzAI_UnitNeedsMGSetup(unit) then
+		return dest
+	end
+	local stay = context.unit_stance_pos or (unit and GetPackedPosAndStance(unit))
+	if not stay or not JazzAI_DestAllowsShot(context, stay) then
+		return dest
+	end
+	local dest_score = (context.dest_target_score or empty_table)[dest] or 0
+	local dest_ap = context.dest_ap and context.dest_ap[dest] or 0
+	local attack_cost = context.attack_AP_reserved or context.default_attack_cost or 0
+	if dest_score > 0 and dest_ap >= attack_cost then
+		return dest
+	end
+	context.dest_action = false
+	context.jazz_stay_shot = true
+	return stay
+end
+
 local function JazzAI_InstallAIScoreReachableVoxelsWrap()
 	local ourFn = rawget(_G, "g_JAZZ_AIScoreReachableVoxelsFn")
 	local current = rawget(_G, "AIScoreReachableVoxels")
@@ -4131,6 +4260,8 @@ local function JazzAI_InstallAIScoreReachableVoxelsWrap()
 		local dest, score = base_fn(context, policies, opt_loc_weight, score_details, ...)
 		dest = JazzAI_ApplySniperHoldDestination(context, dest)
 		dest = JazzAI_ApplyBreakLosOverwatchDestination(context, dest)
+		dest = JazzAI_ApplyStayIfShotDestination(context, dest)
+		JazzAI_NoteHeightHysteresis(context, dest)
 		return dest, score
 	end
 	rawset(_G, "g_JAZZ_AIScoreReachableVoxelsFn", wrap)
@@ -4325,6 +4456,7 @@ function JazzAI_InstallStartAIYieldWrap()
 end
 
 function OnMsg.CombatStart()
+	JazzAI_HeightHysteresis = {}
 	JazzAI_BindAllUnitsExports()
 	JazzAI_StubLoadedAIChunkGlobals()
 	JazzAI_InstallSelectArchetypeWrap()
