@@ -27886,7 +27886,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'object_class', "BattleRifle",
 					'ScrapParts', 10,
 					'RepairCost', 11,
-					'Reliability', 65,
+					'Reliability', 55,
 					'Icon', "Mod/e6L4ECj/WeaponIcons/FNFAL.png",
 					'DisplayName', T(291629379642, --[[ModItemInventoryItemCompositeDef FNFAL DisplayName]] "FN-FAL"),
 					'DisplayNamePlural', T(103102569939, --[[ModItemInventoryItemCompositeDef FNFAL DisplayNamePlural]] "FN-FALs"),
@@ -27895,10 +27895,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'LargeItem', 1,
 					'UnitStat', "Marksmanship",
 					'Valuable', 1,
-					'Cost', 7250,
+					'Cost', 6300,
 					'CanAppearInShop', true,
 					'RestockWeight', 70,
-					'Tier', 3,
+					'Tier', 2,
 					'CategoryPair', "AssaultRifles",
 					'Caliber', "JAZZ_Caliber_762x51",
 					'Damage', 34,
@@ -27971,10 +27971,10 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 							'SlotType', "Stock",
 							'AvailableComponents', {
 								"JAZZ_StockNormal",
-								"JAZZ_StockHeavy",
-								"JAZZ_StockLight",
+								"JAZZ_StockLightUnFolded",
+								"JAZZ_StockLightFolded",
 							},
-							'DefaultComponent', "JAZZ_StockNormal",
+							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Under",
@@ -28025,8 +28025,158 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 
 					'CloseRangeFactor', 80,
 					'Grouping', 51,
-					'BaseJamChance', -10,
+					'BaseJamChance', 0,
 					'WeaponResource', 7500,
+				}),
+PlaceObj('ModItemInventoryItemCompositeDef', {
+					'Group', "JAZZ - Firearm - Rifles-Battle",
+					'Id', "JAZZ_FNFAL_Tactical",
+					'comment', "Tier 3 - JAZZ-WEAPON-FAL-FAMILY-001",
+					'object_class', "BattleRifle",
+					'ScrapParts', 10,
+					'RepairCost', 12,
+					'Reliability', 70,
+					'Icon', "Mod/e6L4ECj/WeaponIcons/JAZZ_FNFAL_Tactical.png",
+					'DisplayName', T(990002700, --[[ModItemInventoryItemCompositeDef JAZZ_FNFAL_Tactical DisplayName]] "FN FAL Tactical"),
+					'DisplayNamePlural', T(990002701, --[[ModItemInventoryItemCompositeDef JAZZ_FNFAL_Tactical DisplayNamePlural]] "FN FAL Tacticals"),
+					'Description', T(990002702, --[[ModItemInventoryItemCompositeDef JAZZ_FNFAL_Tactical Description]] "Та же фалочка, но собранная под современное железо: цевьё на планках, полимерный приклад, место под длинный ствол. Бельгийская классика, доведённая до ума теми, кому из неё стрелять."),
+					'AdditionalHint', T(990002703, --[[ModItemInventoryItemCompositeDef JAZZ_FNFAL_Tactical AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Планки везде \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ровнее в очереди \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длинный ствол"),
+					'LargeItem', 1,
+					'UnitStat', "Marksmanship",
+					'Valuable', 1,
+					'Cost', 8500,
+					'CanAppearInShop', true,
+					'RestockWeight', 60,
+					'Tier', 3,
+					'CategoryPair', "AssaultRifles",
+					'Caliber', "JAZZ_Caliber_762x51",
+					'Damage', 34,
+					'ObjDamageMod', 80,
+					'AimAccuracy', 14,
+					'MagazineSize', 20,
+					'WeaponRange', 57,
+					'OverwatchAngle', 960,
+					'Noise', 62,
+					'HandSlot', "TwoHanded",
+					'Entity', "Weapon_FNFAL",
+					'ComponentSlots', {
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Handguard",
+							'Modifiable', false,
+							'AvailableComponents', {
+								"JAZZ_FNFAL_TacHandguard",
+							},
+							'DefaultComponent', "JAZZ_FNFAL_TacHandguard",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Side",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Flashlight",
+								"JAZZ_FlashlightOff",
+								"JAZZ_FlashlightDot",
+								"JAZZ_LaserDot",
+								"JAZZ_UVDot",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Muzzle",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Compensator",
+								"JAZZ_Suppressor",
+								"JAZZ_ImprovisedSuppressor",
+								"JAZZ_SuppressorImproved",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Magazine",
+							'AvailableComponents', {
+								"JAZZ_MagNormal",
+								"JAZZ_MagNormalFine_FAL",
+								"JAZZ_MagLarge_20_30_FAL",
+							},
+							'DefaultComponent', "JAZZ_MagNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Bipod",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Bipod",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Barrel",
+							'AvailableComponents', {
+								"JAZZ_BarrelNormal",
+								"JAZZ_BarrelLong",
+								"JAZZ_BarrelLongImproved",
+								"JAZZ_BarrelNormalImproved",
+								"JAZZ_BarrelHeavy",
+								"JAZZ_BarrelShort",
+								"JAZZ_BarrelShortImproved",
+							},
+							'DefaultComponent', "JAZZ_BarrelNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Stock",
+							'AvailableComponents', {
+								"JAZZ_StockNormal",
+								"JAZZ_StockHeavy",
+							},
+							'DefaultComponent', "JAZZ_StockNormal",
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Under",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_GrenadeLauncher",
+								"JAZZ_TacGrip",
+								"JAZZ_VerticalGrip",
+							},
+						}),
+						PlaceObj('WeaponComponentSlot', {
+							'SlotType', "Scope",
+							'CanBeEmpty', true,
+							'AvailableComponents', {
+								"JAZZ_Reflex_Aimpoint5000",
+								"JAZZ_Reflex_Closed",
+								"JAZZ_Reflex_Eotech",
+								"JAZZ_Reflex_M68",
+								"JAZZ_CombatScope_2x",
+								"JAZZ_CombatScope_ACOG",
+								"JAZZ_NightScope",
+								"JAZZ_Scope_6x",
+								"JAZZ_Scope_12x",
+								"JAZZ_Scope_Scout",
+							},
+						}),
+					},
+					'HolsterSlot', "Shoulder",
+					'AvailableAttacks', {
+						"BurstFire",
+						"AutoFire",
+						"SingleShot",
+						"JAZZ_Salvo",
+						"JAZZ_LargeAutoFire",
+					},
+					'ShootAP', 7000,
+					'ReloadAP', 7000,
+					'WeaponMass', 43,
+					'CyclicRPM', 650,
+					'WeaponSizeClass', "Rifle",
+					'BurstLimiter', 0,
+					'BurstShots', 3,
+					'Recoil', 36,
+					'AutoShots', 6,
+					'BulletDropRange', 19,
+
+					'CloseRange', 11,
+
+					'CloseRangeFactor', 80,
+					'Grouping', 51,
+					'BaseJamChance', -15,
+					'WeaponResource', 8200,
 				}),
 				PlaceObj('ModItemInventoryItemCompositeDef', {
 					'Group', "JAZZ - Firearm - Rifles-Battle",
@@ -35873,6 +36023,13 @@ PlaceObj('WeaponComponentVisual', {
 							param_bindings = false,
 						}),
 						PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "JAZZ_FNFAL_Tactical",
+							Entity = "WeaponAttA_BipodFNFal",
+							Icon = "UI/Icons/Upgrades/HK21_bipod",
+							Slot = "Bipod",
+							param_bindings = false,
+						}),
+						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "FNMinimi",
 							Entity = "WeaponAttA_BipodFNMinimi",
 							Slot = "Bipod",
@@ -36454,6 +36611,12 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Barrel",
 								param_bindings = false,
 							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_BarrelFNFal_01",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
 						},
 						group = "Barrel",
 						id = "JAZZ_BarrelHeavy",
@@ -36587,6 +36750,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_BarrelFNFal_03",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_BarrelFNFal_03",
 								Slot = "Barrel",
 								param_bindings = false,
@@ -36783,6 +36952,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_BarrelFNFal_03",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_BarrelFNFal_03",
 								Slot = "Barrel",
 								param_bindings = false,
@@ -36997,6 +37172,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_BarrelFNFal_01",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_BarrelFNFal_01",
 								Slot = "Barrel",
 								param_bindings = false,
@@ -37291,6 +37472,12 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_BarrelFNFal_01",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNMinimi",
 								Entity = "WeaponAttA_BarrelFNMinimi_02",
 								Slot = "Barrel",
@@ -37424,6 +37611,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_BarrelFNFal_02",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_BarrelFNFal_02",
 								Slot = "Barrel",
 								param_bindings = false,
@@ -37695,6 +37888,12 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_BarrelFNFal_02",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNMinimi",
 								Entity = "WeaponAttA_BarrelFNMinimi_01",
 								Slot = "Barrel",
@@ -37838,6 +38037,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_BarrelFNFal_02",
+								Slot = "Barrel",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_BarrelFNFal_02",
 								Slot = "Barrel",
 								param_bindings = false,
@@ -38205,6 +38410,13 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_StockFNFal_03",
+								Icon = "UI/Icons/Upgrades/fnfal_stock_heavy",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNMinimi",
 								Entity = "WeaponAttA_StockFNMinimi_03",
 								Icon = "UI/Icons/Upgrades/fnfal_stock_heavy",
@@ -38359,6 +38571,13 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_StockFNFal_01",
+								Icon = "UI/Icons/Upgrades/fnfal_stock_light",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNMinimi",
 								Entity = "WeaponAttA_StockFNMinimi_02",
 								Icon = "UI/Icons/Upgrades/fnminimi_stock_light",
@@ -38500,7 +38719,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Stock
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
-								Entity = "WeaponAttA_StockFNFal_01",
+								Entity = "FNFAL_ParaStk_fld",
+								Icon = "UI/Icons/Upgrades/fnfal_stock_light",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "FNFAL_ParaStk_fld",
 								Icon = "UI/Icons/Upgrades/fnfal_stock_light",
 								Slot = "Stock",
 								param_bindings = false,
@@ -38808,6 +39034,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Stock
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_StockFNFal_01",
+								Icon = "UI/Icons/Upgrades/fnfal_stock_light",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_StockFNFal_01",
 								Icon = "UI/Icons/Upgrades/fnfal_stock_light",
 								Slot = "Stock",
@@ -39238,6 +39471,12 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "JAZZ_FNFAL_TacStock",
+								Slot = "Stock",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNMinimi",
 								Entity = "WeaponAttA_StockFNMinimi_01",
 								Slot = "Stock",
@@ -39414,6 +39653,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MountFNFal_02",
+								Slot = "Mount2",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MountFNFal_02",
 								Slot = "Mount2",
 								param_bindings = false,
@@ -39619,6 +39864,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MountFNFal_02",
+								Slot = "Mount2",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MountFNFal_02",
 								Slot = "Mount2",
 								param_bindings = false,
@@ -39950,6 +40201,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MountFNFal_03",
+								Slot = "Mount3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MountFNFal_03",
 								Slot = "Mount3",
 								param_bindings = false,
@@ -40320,6 +40577,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MountFNFal_03",
+								Slot = "Mount3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MountFNFal_03",
 								Slot = "Mount3",
 								param_bindings = false,
@@ -40724,6 +40987,12 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MountFNFal_03",
+								Slot = "Mount3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MountFNFal_03",
 								Slot = "Mount3",
 								param_bindings = false,
@@ -41153,6 +41422,12 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_MountFNFal_03",
+								Slot = "Mount3",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HK21",
 								Entity = "WeaponAttA_MountHK21_02",
 								Slot = "Mount2",
@@ -41565,6 +41840,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Muzzl
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MuzzleFNFal",
+								Icon = "UI/Icons/Upgrades/muzzle_fal_01",
+								Slot = "Muzzle",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MuzzleFNFal",
 								Icon = "UI/Icons/Upgrades/muzzle_fal_01",
 								Slot = "Muzzle",
@@ -42011,6 +42293,13 @@ PlaceObj('WeaponComponentVisual', {
 								param_bindings = false,
 							}),
 							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
+								Entity = "WeaponAttA_Suppressor762",
+								Icon = "UI/Icons/Upgrades/762_suppressor",
+								Slot = "Muzzle",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AR15",
 								Entity = "WeaponAttA_SuppressorNATO",
 								Icon = "UI/Icons/Upgrades/556_suppressor",
@@ -42317,6 +42606,13 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_SilencerDesertEagle",
+								Icon = "UI/Icons/Upgrades/shotgun_suppressor",
+								Slot = "Muzzle",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_SilencerDesertEagle",
 								Icon = "UI/Icons/Upgrades/shotgun_suppressor",
 								Slot = "Muzzle",
@@ -42965,6 +43261,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -43267,6 +43569,12 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MountFNFal_01",
 									Slot = "Mount1",
 									param_bindings = false,
@@ -43714,6 +44022,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -44011,6 +44325,12 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MountFNFal_01",
 									Slot = "Mount1",
 									param_bindings = false,
@@ -44503,6 +44823,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -44774,6 +45100,12 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MountFNFal_01",
 									Slot = "Mount1",
 									param_bindings = false,
@@ -45328,6 +45660,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -45806,6 +46144,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -46052,6 +46396,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -46266,6 +46616,12 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MountFNFal_01",
 									Slot = "Mount1",
 									param_bindings = false,
@@ -46490,6 +46846,12 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MountFNFal_01",
 									Slot = "Mount1",
 									param_bindings = false,
@@ -46738,6 +47100,12 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MountFNFal_01",
 									Slot = "Mount1",
 									param_bindings = false,
@@ -47869,6 +48237,12 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MountFNFal_01",
+									Slot = "Mount1",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK21",
 									Entity = "WeaponAttA_MountHK21_01",
 									Slot = "Mount1",
@@ -48410,6 +48784,12 @@ PlaceObj('WeaponComponentVisual', {
 						}),
 						PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "FNFAL",
+							Entity = "WeaponAttA_GrenadeLauncherM14",
+							Slot = "Under",
+							param_bindings = false,
+						}),
+						PlaceObj('WeaponComponentVisual', {
+							ApplyTo = "JAZZ_FNFAL_Tactical",
 							Entity = "WeaponAttA_GrenadeLauncherM14",
 							Slot = "Under",
 							param_bindings = false,
@@ -48960,6 +49340,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "AK105", Entity = "AKR_AK105_Magaz
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MagazineFNFal_01",
+								Icon = "Mod/e6L4ECj/magpictures/fnfal_normal.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MagazineFNFal_01",
 								Icon = "Mod/e6L4ECj/magpictures/fnfal_normal.png",
 								Slot = "Magazine",
@@ -49749,6 +50136,13 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MagazineFNFal_01",
+								Icon = "Mod/e6L4ECj/magpictures/fnfal_normal.png",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MagazineFNFal_01",
 								Icon = "Mod/e6L4ECj/magpictures/fnfal_normal.png",
 								Slot = "Magazine",
@@ -50961,6 +51355,13 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Galil",
 									Entity = "WeaponAttA_MagazineGalil_02",
 									Icon = "UI/Icons/Upgrades/galil_magazine_large",
@@ -51274,6 +51675,13 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MagazineFNFal_02",
 									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
 									Slot = "Magazine",
@@ -51599,6 +52007,13 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Galil",
 									Entity = "WeaponAttA_MagazineGalil_02",
 									Icon = "UI/Icons/Upgrades/galil_magazine_large",
@@ -51918,6 +52333,13 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Galil",
 									Entity = "WeaponAttA_MagazineGalil_02",
 									Icon = "UI/Icons/Upgrades/galil_magazine_large",
@@ -52231,6 +52653,13 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MagazineFNFal_02",
 									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
 									Slot = "Magazine",
@@ -52768,6 +53197,13 @@ PlaceObj('ModItemWeaponComponent', {
 							Visuals = {
 PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MagazineFNFal_02",
 									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
 									Slot = "Magazine",
@@ -53407,6 +53843,13 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MagazineErgonomicFNFal_01",
+								Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_normal",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MagazineErgonomicFNFal_01",
 								Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_normal",
 								Slot = "Magazine",
@@ -54372,6 +54815,13 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Galil",
 									Entity = "WeaponAttA_MagazineGalil_02",
 									Icon = "UI/Icons/Upgrades/galil_magazine_large",
@@ -54678,6 +55128,13 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MagazineFNFal_02",
 									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
 									Slot = "Magazine",
@@ -55245,6 +55702,13 @@ PlaceObj('WeaponComponentVisual', {
 									param_bindings = false,
 								}),
 								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MicroUZI",
 									Entity = "WeaponAttA_MagazineUzi_02",
 									Icon = "UI/Icons/Upgrades/uzi_mag_large",
@@ -55308,6 +55772,13 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "FNFAL",
+									Entity = "WeaponAttA_MagazineFNFal_02",
+									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+								PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "JAZZ_FNFAL_Tactical",
 									Entity = "WeaponAttA_MagazineFNFal_02",
 									Icon = "Mod/e6L4ECj/magpictures/fnfal_expanded.png",
 									Slot = "Magazine",
@@ -55476,6 +55947,13 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MagazineErgonomicFNFal_02",
+								Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_large",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MagazineErgonomicFNFal_02",
 								Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_large",
 								Slot = "Magazine",
@@ -55651,6 +56129,13 @@ PlaceObj('WeaponComponentVisual', {
 							}),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "FNFAL",
+								Entity = "WeaponAttA_MagazineErgonomicFNFal_01",
+								Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_normal",
+								Slot = "Magazine",
+								param_bindings = false,
+							}),
+							PlaceObj('WeaponComponentVisual', {
+								ApplyTo = "JAZZ_FNFAL_Tactical",
 								Entity = "WeaponAttA_MagazineErgonomicFNFal_01",
 								Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_normal",
 								Slot = "Magazine",
@@ -56125,6 +56610,22 @@ PlaceObj('WeaponComponentVisual', {
 							group = "Clip",
 							id = "JAZZ_MagBelt_100_200",
 						}),
+							PlaceObj('ModItemWeaponComponent', {
+								DisplayName = T(990002704, --[[ModItemWeaponComponent JAZZ_FNFAL_TacHandguard DisplayName]] "RIS Handguard"),
+								ModificationDifficulty = -25,
+								Slot = "Handguard",
+								Visuals = {
+									PlaceObj('WeaponComponentVisual', {
+										ApplyTo = "JAZZ_FNFAL_Tactical",
+										Entity = "JAZZ_FNFAL_TacHandguard",
+										Slot = "Handguard",
+										param_bindings = false,
+									}),
+								},
+								comment = "FAL family - tactical RIS forend",
+								group = "FNFAL Specific",
+								id = "JAZZ_FNFAL_TacHandguard",
+							}),
 						}),
 					}),
 				}),
@@ -58547,7 +59048,7 @@ PlaceObj('WeaponComponentVisual', {
 					'comment', "WEAPONS-002 remountable → component JAZZ_MagLarge_20_30_FAL",
 					'object_class', "JAZZ_RemovableAttachment",
 					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/galil_magazine_large",
+					'Icon', "UI/Icons/Upgrades/fnfal_mag_ergo_large",
 					'DisplayName', T(990002544, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_20_30_FAL DisplayName]] "Магазин на 30 патрон"),
 					'DisplayNamePlural', T(990002545, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_20_30_FAL DisplayNamePlural]] "Магазин на 30 патрон"),
 					'AdditionalHint', T(990002546, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_20_30_FAL AdditionalHint]] "Семья магазинов: FAL. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
@@ -58809,7 +59310,7 @@ PlaceObj('ModItemInventoryItemCompositeDef', {
 					'comment', "WEAPONS-002 remountable → component JAZZ_MagNormalFine_FAL",
 					'object_class', "JAZZ_RemovableAttachment",
 					'Repairable', false,
-					'Icon', "UI/Icons/Upgrades/m16_magazine",
+					'Icon', "UI/Icons/Upgrades/fnfal_mag_ergo_normal",
 					'DisplayName', T(990002589, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_FAL DisplayName]] "Fine-Tuned Mag"),
 					'DisplayNamePlural', T(990002590, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_FAL DisplayNamePlural]] "Fine-Tuned Mag"),
 					'AdditionalHint', T(990002591, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_FAL AdditionalHint]] "Семья магазинов: FAL. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
