@@ -3,6 +3,7 @@
 ## Связанные specs
 
 - `JAZZ-ASSETS-001` — исправление collision-регрессии `HMMWV` и structural quality gate для Entity.
+- `JAZZ-ASSETS-003` — первый собственный character element (`JazzHat_SSh68`) и воспроизводимый маршрут Blender → entity.
 
 ## Назначение и эффект для игрока
 
@@ -14,24 +15,24 @@
 |---|---|
 | Vanilla | EntityData schema, resource pipeline, states/spots, materials и rendering APIs |
 | CommonLib | Прямого владения ресурсами JAZZ в проверенном срезе нет |
-| JAZZ | 490 зарегистрированных Entity ModItems и несколько тысяч custom resources |
+| JAZZ | 491 зарегистрированный Entity ModItem и несколько тысяч custom resources |
 
 ## Снимок ресурсов
 
 Текущий `jazz_assets` содержит:
 
-- 490 зарегистрированных `ModItemEntity`;
-- 503 `.ent` и 503 entity Lua-файла на диске;
-- **1367** top-level `Entities/Textures/*.dds` + **1356** `Textures/Fallbacks/*.dds` (после JAZZ-ASSETS-002: numeric→`Entity_MapType`, unused purge, content-dedupe **только внутри одного map-suffix**; unused=0);
-- 522 `.mtl` materials;
-- 516 `.hgm` meshes;
+- 491 зарегистрированный `ModItemEntity`;
+- 504 `.ent` и 504 entity Lua-файла на диске;
+- **1370** top-level `Entities/Textures/*.dds` + **1356** `Textures/Fallbacks/*.dds` (у трёх DDS из `JAZZ-ASSETS-003` fallback появится после Mod Editor SaveWholeMod) (после JAZZ-ASSETS-002: numeric→`Entity_MapType`, unused purge, content-dedupe **только внутри одного map-suffix**; unused=0);
+- 523 `.mtl` materials;
+- 517 `.hgm` meshes;
 - 511 `.mtlbin` compiled materials → после JAZZ-ASSETS-002 **16** оставшихся (без numeric paths); **495** stale `mtlbin` с путями на удалённые numeric DDS сняты, чтобы runtime читал актуальные `.mtl`. Полный rebuild `mtlbin` по-прежнему рекомендуется через Mod Editor SaveWholeMod;
 - 114 folder ModItems;
 - 22 `.bak` файла, требующие отдельной проверки как технический долг.
 
 Контракт имён DDS (JAZZ-ASSETS-002): `<EntityOrPart>_{Base|Norm|RM|AO|SPEC|SI|Color}[_N].dds`. Инструмент: `$rename-jazz-weapon-textures` / `texture-audit-rename.ps1`. Отчёты: `jazz_assets/docs/texture-*.csv|txt`.
 
-Разница 503 entity-файла на диске против 490 зарегистрированных означает 13 unlisted/orphan-candidate definitions. Это не доказательство мусора: они могут быть parent/variant/source remnants или использоваться непрямо. Удалять только после проверки metadata, inheritance и ссылок четырёх пакетов.
+Разница 504 entity-файла на диске против 491 зарегистрированного означает 13 unlisted/orphan-candidate definitions. Это не доказательство мусора: они могут быть parent/variant/source remnants или использоваться непрямо. Удалять только после проверки metadata, inheritance и ссылок четырёх пакетов.
 
 Structural audit дополнительно фиксирует 19 предупреждений в dormant/unlisted Entity:
 
@@ -109,5 +110,13 @@ Core metadata объявляет assets обязательной dependency (`pD
 ## Сопровождение
 
 Изменение entity/resource обновляет эту страницу и профильную weapon/unit/map/UI-FX документацию. Изменение количества registered/on-disk entities требует обновить snapshot и причину расхождения.
+
+## Character elements
+
+С `JAZZ-ASSETS-003` в пакете есть один собственный элемент внешности: `JazzHat_SSh68`, класс `CharacterHat` (без суффикса пола, как vanilla `EquipmentBlood_Hat`). 827 вершин / 1374 треугольника, LOD1, state `idle`, без `<inherit>`. Не назначен ни одному юниту: существует как entity в dropdown Hat.
+
+`CharacterHat` — жёсткий attach на спот `Head` (`AppearancePreset.HatSpot` default `"Head"`). Одежда (Body/Pants/Armor) — skinned, с `<inherit entity="Male">` и `hgskeleton`. Путать эти два маршрута нельзя: шапка в координатах тела плюс attach к Head улетает на рост выше черепа. Origin шапки — location кости `Bip001 Head`, без поворота кости. Экспортёр `axis_forward=Y`: +Y лицо, −Y затылок.
+
+Исходники — `jazz_assets/Sources/Character/<Entity>/`, вне Steam-пака (`ignore_files` `*Sources/*`). Маршрут — skill `$export-jazz-character-element`.
 
 Гайд по **новым building slab** (стена/пол/крыша, контракт имён, MVP отдельного мода) — [RU](../../design/ja3-how-to-custom-slabs.md) / [EN](../../design/ja3-how-to-custom-slabs.en.md). Это процедура автора, не loaded runtime JAZZ: своих `SlabMaterials` в комплекте нет.

@@ -35,6 +35,7 @@
 | «Проверь в игре», DAP, live Lua | `.cursor/rules/jazz-dap-runtime-debug.mdc` |
 | Красные/жёлтые пометки Mod Editor / Ged | `$diagnose-jazz-mod-editor` |
 | Броня/одежда Легиона, equipped appearance, `ArmorTest` | `.agents/docs/playbooks/legion-armor-modeling.md` |
+| Свой Hat/Body/Pants/Armor из Blender, HGE, `hgskeleton`, AP | `$export-jazz-character-element` |
 | Portrait мерка/NPC | `.cursor/rules/jazz-merc-portraits.mdc` + `$create-jazz-merc-portraits` |
 | Полный мерк из generation-статьи | `$create-jazz-merc` |
 

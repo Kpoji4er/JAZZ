@@ -31,6 +31,7 @@
 - Lua globals / wrap flags (no «Attempt to create a new global»): `.agents/skills/jazz-lua-globals/SKILL.md`
 - Mod Editor / Ged diagnostics (GetError, nested_obj, сектора): `.agents/skills/diagnose-jazz-mod-editor/SKILL.md`
 - Lua wrap cycles (один символ — один wrap, не re-base): `.cursor/rules/jazz-lua-wrap-no-cycle.mdc`, `docs/tools/_check_lua_wrap_cycles.py`
+- Character element (Hat/Body/Pants/Armor) Blender → AP: `.agents/skills/export-jazz-character-element/SKILL.md`
 
 Для задачи на стыке систем читать только общий контур, точные runtime/generated references и затронутые playbooks. Не загружать весь набор документов.
 

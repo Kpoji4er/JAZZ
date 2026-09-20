@@ -15,9 +15,10 @@ description: >-
 2. Для изменения поведения, архитектуры, generated data, dependencies, load order, публичных ID или save/network contract сначала `$specify-jazz-change` и DoR.
 3. Определить пакет-владелец данных, runtime-владельца и exact target ID/path. Не определять ownership только по имени файла.
 4. Прочитать только профильный playbook и системную technical-страницу.
-5. Подключить **только совпавший** skill (иконки/портреты — `.agents/docs/index.md`):
+5. Подключить **только совпавший** skill (иконки/портреты — `.agents/docs/index.md`; одежда/шляпы — `$export-jazz-character-element`):
    - `$sync-jazz-generated-data` — ModItem, `items.lua`, `metadata.lua`, companion;
    - `$document-jazz-systems` — documentation delta под loaded runtime;
+   - `$export-jazz-character-element` — Blender → AssetsProcessor → `Character*` entity;
    - `$jazz-lua-globals` — новый global / `rawset` / GameVar;
    - `$diagnose-jazz-mod-editor` — красные/жёлтые пометки Ged и вложенные GetError/GetWarning;
    - `$release-jazz-suite` — релиз, теги, Steam.
