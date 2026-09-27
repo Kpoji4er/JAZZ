@@ -848,3 +848,5 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 
 - `test_legion_newgame.py`: execute Legion start-tier and clock contracts in Lua via Python `lupa`; checks all starts/speeds/profiles, boundaries, legacy state and UI callbacks. Run `python docs/tools/test_legion_newgame.py`.
 - `export_legion_newgame_localization.ps1 -GameCsv <Game.csv> -Build <staging>`: canonical audit plus paired RU/EN export of the eight PROGRESSION-001 IDs. Full unrelated audit findings remain visible; it does not replace runtime CSV automatically.
+
+- `_pack_suite_release.py` excludes Blender source/backup files (`.blend`, `.blend1`, `.blend2`, case-insensitive); use process-local Git `core.autocrlf=false` on Windows for matching Linux release hashes.

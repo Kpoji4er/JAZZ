@@ -24,6 +24,8 @@ write_set:
   - jazz/docs/wiki/legion-global-ai.md
   - jazz/docs/showcase/ru/legion-units.md
   - jazz/docs/showcase/en/legion-units.md
+  - jazz/docs/tools/_pack_suite_release.py
+  - jazz/docs/technical/systems/release-versioning.md
   - jazz/docs/tools/test_legion_newgame.py
   - jazz/docs/tools/export_legion_newgame_localization.ps1
   - jazz/docs/tools/README.md
@@ -115,3 +117,5 @@ CommonLib release snapshot: upstream main `a1a5f4819d60b4d410d515f926ef45646c698
 Full clean localization audit is not clean: existing 11 active-ID and 606 base-ID collisions, 101 missing Russian / 522 missing English under task-only translation memory, one pre-existing wide row per runtime CSV. These unrelated records were preserved; task-scoped export has no missing translations or collisions. No claim of global localization acceptance.
 
 DoD validator was run and correctly rejected AC-003 BLOCKED. Status remains approved until runtime/human acceptance; the code is available in a prerelease, not declared accepted.
+
+Release-preparation delta (within owner-authorized release): packaging excludes Blender source/backup files (.blend/.blend1/.blend2), discovered in committed assets. Runtime/core metadata version is unchanged by this internal packaging correction.

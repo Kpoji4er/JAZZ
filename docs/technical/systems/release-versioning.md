@@ -128,3 +128,7 @@ git diff --check
 - [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) — семантика совместимости major/minor и неизменяемость релиза
 - [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) — рекомендуемая классификация commit history
 - установленный `<JA3_ROOT>/ModTools/Src/CommonLua/Classes/Mod.lua` — фактический формат версии ModDef
+
+## Исключение исходников Blender
+
+PROGRESSION-001 release preparation: `docs/tools/_pack_suite_release.py` исключает `.blend`, `.blend1`, `.blend2` без учёта регистра наряду с PSD и прочими development-only файлами. Игровые HGM/HGA/материалы/текстуры остаются в архиве. На Windows упаковку для сравнения с Linux Actions запускать с process-local `core.autocrlf=false`, чтобы `git archive` сохранял байты committed blob.

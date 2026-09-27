@@ -175,7 +175,7 @@ def should_skip(rel_posix: str, ignore_patterns: list[str]) -> bool:
         return True
     if name in ALWAYS_SKIP_NAMES:
         return True
-    if name.endswith((".bak", ".pyc", ".pyo", ".psd", ".zip")):
+    if name.lower().endswith((".bak", ".pyc", ".pyo", ".psd", ".blend", ".blend1", ".blend2", ".zip")):
         return True
     if name.endswith(".md"):
         return True
