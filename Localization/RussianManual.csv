@@ -8881,3 +8881,11 @@ Cuatro, cinco, seis
 8636,890000000014201,Бронежилеты EOD,Бронежилеты EOD,manual-translation
 8637,890000000014202,"Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.","Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.",manual-translation
 8638,890000000014203,Броня для разминирования,Броня для разминирования,manual-translation
+8642,718927001001,Starting world tier,Стартовый тир мира,manual-translation
+8643,718927001002,Tier progression,Рост тира,manual-translation
+8644,718927001003,Choose the initial Legion tier for the whole world. Equipment and all strategic systems linked to this tier start at the selected level. This does not complete quests or grant money or mercenary equipment. Click to cycle through tiers.,Выберите начальный тир Легиона для всего мира. Снаряжение и все связанные с тиром стратегические системы сразу используют выбранный уровень. Квесты не завершаются; деньги и снаряжение наёмникам не выдаются. Нажимайте для выбора тира.,manual-translation
+8645,718927001004,"Campaign uses the usual mainland, mine and story milestones. Timed modes advance through every tier up to T3-3 without those milestones. At x1, each step takes 7 days in T1 and 30 in T2/T3 with JAZZ Maps, or 3 and 14 days without maps. x2 and x4 shorten these intervals. The next step starts counting from your chosen tier. Click to cycle through modes.","Кампания сохраняет обычные условия материка, шахт и сюжета. Режимы по времени проходят всю лестницу до T3-3 без этих условий. При x1 шаг занимает 7 дней в T1 и 30 дней в T2/T3 с JAZZ Maps либо 3 и 14 дней без карт. x2 и x4 сокращают эти интервалы. Следующий шаг отсчитывается от выбранного стартового тира. Нажимайте для выбора режима.",manual-translation
+8646,718927001005,Campaign,Кампания,manual-translation
+8647,718927001006,Timed x1,По времени x1,manual-translation
+8648,718927001007,Timed x2,По времени x2,manual-translation
+8649,718927001008,Timed x4,По времени x4,manual-translation

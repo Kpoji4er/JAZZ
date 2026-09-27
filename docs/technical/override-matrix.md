@@ -134,3 +134,7 @@ CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти сим
 4. Для каждого пересечения решить: принять fix CLib, перенести его в JAZZ или осознанно оставить JAZZ override.
 5. Выполнить AI, UI, awareness, Run and Gun, smoke и satellite smoke-тесты.
 6. Обновить этот документ.
+
+## PROGRESSION-001: NewGameMenuGameRules
+
+`Code/GameRules_HideAdvanced.lua` inserts two cycling choices into the vanilla template and registers hidden GameRuleDef presets at DataLoaded/ModsReloaded. Existing hide-advanced behavior remains. No function wrapper or replacement of the base template. Runtime UI smoke is pending.

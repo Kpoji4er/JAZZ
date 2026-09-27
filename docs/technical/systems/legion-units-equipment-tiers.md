@@ -2,6 +2,18 @@
 
 Целевой дизайн лоадаутов (arch/sub, силуэты классов, модули, ammo grade, маппинг на `weapons.csv` `X-Y` ↔ `XY`): [`docs/design/legion-loadouts.md`](../../design/legion-loadouts.md). Spec реализации: [`JAZZ-UNITS-003`](../../specs/active/JAZZ-UNITS-003.md). Эта страница — **current-state** реализации, не target.
 
+## Стартовый тир и рост в новой игре
+
+В правилах новой игры доступны **Стартовый тир мира** (T1-1…T3-3) и **Рост тира**. Нажатие на строку переключает значение. По умолчанию: T1-1 и «Кампания». Стартовый тир сразу задаёт снаряжение и связанную с тиром стратегическую активность Легиона, включая пробуждение регионов и рост отрядов. Пропущенные тиры не отправляют караваны задним числом. Сюжетные квесты, шахты, деньги и снаряжение наёмников автоматически не выдаются.
+
+«Кампания» сохраняет описанные ниже условия материка/шахт/сюжета. При повышенном старте следующий подшаг отсчитывается от выбранного тира. Режимы **По времени x1/x2/x4** проходят всю лестницу `T1-1 → T1-2 → T1-3 → T2-1 → … → T2-5 → T3-1 → T3-2 → T3-3` независимо от захватов и сюжета. При x1 исходящий шаг из T1 занимает 7 дней с картами JAZZ и 3 дня без карт; из T2/T3 — 30 и 14 дней соответственно. Это относится также к T1-3→T2-1 и T2-5→T3-1. x2/x4 делят время ожидания на 2/4. На T3-3 рост прекращается.
+
+Настройки закрепляются за новой кампанией и сохраняются с ней; старые сохранения продолжают прежнюю прогрессию. В кооперативном лобби выбор делает ведущий.
+
+Implementation: [JAZZ-PROGRESSION-001](../../specs/active/JAZZ-PROGRESSION-001.md), `Code/LegionTierProgression.lua` and `Code/GameRules_HideAdvanced.lua` (existing metadata registrations). Hidden runtime GameRuleDef IDs `JAZZ_LegionStart12`…`JAZZ_LegionStart33` (valid ladder only) and `JAZZ_LegionClock1/2/4` use vanilla `ApplyNewGameOptions` / `Game.game_rules` / lobby-info. No rules mean 11/Campaign. The NewGame handler seeds both profile states before deferred NoMaps bootstrap. `start_tier`, `start_at`, `clock_speed`, `start_pending` extend existing GameVars; Campaign backdates the major timer by the selected sub-tier offset. Timed calculation consumes elapsed CampaignTime × speed across outgoing intervals and reports only an actual increase through the existing loot/RIS/AI event path. Initial assignment has no raise event. The existing quest/var IDs, load order and asset contract are unchanged. The selector extends `NewGameMenuGameRules` idempotently using vanilla `NewGameBoolEntry` styling; no vanilla Lua function is wrapped.
+
+Validation: executable Lua tests cover 352 timing boundaries and initialization/old-save/UI callbacks. Live UI/new-game/save-load and two-client co-op are not yet verified; do not treat static tests as runtime acceptance.
+
 ## Назначение и наблюдаемый эффект
 
 Легион реализован как фиксированный каталог из **38** `JAZZ_Legion_*` классов `UnitData` (37 боевых линий + `JAZZ_Legion_Recruit` для recruiter/manpower). Боевые классы разделены на шесть семейств: штурмовики, стрелки, фланкеры, пулемётчики, командиры и гранатомётчики. Семейство определяет тактическую роль, AI archetype и линию усиления, а конкретный класс — стартовый уровень, характеристики, perks, appearance и корневой equipment preset.

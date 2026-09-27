@@ -10037,3 +10037,11 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9790,890000000014201,Бронежилеты EOD,EOD Vests,manual-translation
 9791,890000000014202,"Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.","A heavy sapper vest for bomb disposal. Thick fragmentation packs and a high collar handle blast well, but it does little against a rifle round and the vest is noticeably heavy.",manual-translation
 9792,890000000014203,Броня для разминирования,Explosive ordnance disposal armor,manual-translation
+9798,718927001001,Starting world tier,Starting world tier,manual-translation
+9799,718927001002,Tier progression,Tier progression,manual-translation
+9800,718927001003,Choose the initial Legion tier for the whole world. Equipment and all strategic systems linked to this tier start at the selected level. This does not complete quests or grant money or mercenary equipment. Click to cycle through tiers.,Choose the initial Legion tier for the whole world. Equipment and all strategic systems linked to this tier start at the selected level. This does not complete quests or grant money or mercenary equipment. Click to cycle through tiers.,manual-translation
+9801,718927001004,"Campaign uses the usual mainland, mine and story milestones. Timed modes advance through every tier up to T3-3 without those milestones. At x1, each step takes 7 days in T1 and 30 in T2/T3 with JAZZ Maps, or 3 and 14 days without maps. x2 and x4 shorten these intervals. The next step starts counting from your chosen tier. Click to cycle through modes.","Campaign uses the usual mainland, mine and story milestones. Timed modes advance through every tier up to T3-3 without those milestones. At x1, each step takes 7 days in T1 and 30 in T2/T3 with JAZZ Maps, or 3 and 14 days without maps. x2 and x4 shorten these intervals. The next step starts counting from your chosen tier. Click to cycle through modes.",manual-translation
+9802,718927001005,Campaign,Campaign,manual-translation
+9803,718927001006,Timed x1,Timed x1,manual-translation
+9804,718927001007,Timed x2,Timed x2,manual-translation
+9805,718927001008,Timed x4,Timed x4,manual-translation

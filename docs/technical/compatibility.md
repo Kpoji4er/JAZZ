@@ -129,3 +129,7 @@ Strategy observer читает synced `gv_JAZZ_LegionAI` и squad/outpost state,
 ## Сопровождение совместимости
 
 Любое изменение публичного ID, save field, NetSync event, metadata order, dependency, generated schema или vanilla/CommonLib override обновляет профильную страницу [каталога систем](systems/README.md), эту страницу и тесты в той же задаче. Новые одноимённые пересечения заносятся в [override matrix](override-matrix.md).
+
+## PROGRESSION-001: campaign progression settings
+
+New campaigns serialize starting Legion tier and timed speed through hidden `Game.game_rules` entries, shared by vanilla lobby-info. Existing saves without these flags preserve Campaign progression and are not restarted or retiered. The two existing Legion tier GameVars add optional clock/baseline fields. Removing this feature from a save with its GameRules is not a supported downgrade. Single-player save/load and co-op require runtime confirmation; see [spec](../specs/active/JAZZ-PROGRESSION-001.md).

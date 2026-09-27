@@ -4,6 +4,14 @@
 
 Source: `jazz-units/UnitData/JAZZ_Legion_*.lua`, quest `JAZZ_LegionTier` / `Code/UtilityFunc.lua`, composition/prices in `jazz/Code/Legion*.lua`. Cross-checked with technical `legion-units-equipment-tiers.md`.
 
+## Starting world tier and progression
+
+New-game rules offer **Starting world tier** (T1-1 through T3-3) and **Tier progression**. Click a row to cycle its value. Defaults are T1-1 and Campaign. The starting tier immediately controls Legion equipment and existing tier-linked strategy, including region activation and squad growth. Skipped tiers do not dispatch retroactive convoys. Quests, mines, money and mercenary equipment are not granted automatically.
+
+**Campaign** retains the mainland, mine and story conditions described below. With a higher starting tier, the next sub-tier interval begins at the selected tier. **Timed x1/x2/x4** advance through the entire ladder `T1-1 → T1-2 → T1-3 → T2-1 → … → T2-5 → T3-1 → T3-2 → T3-3` independently of captures and story events. At x1, an outgoing T1 step takes 7 days with JAZZ Maps or 3 days without maps; a T2/T3 step takes 30 or 14 days respectively. This also covers T1-3→T2-1 and T2-5→T3-1. x2/x4 divide these intervals by 2/4. Progression stops at T3-3.
+
+These choices belong to the new campaign and persist in saves. Existing campaigns keep their original progression. The host controls both choices in multiplayer lobbies.
+
 ## Two axes
 
 1. **Class T1–T4** — fixed UnitData (stats, role, AI, root preset). Living units do **not** morph mid-fight.

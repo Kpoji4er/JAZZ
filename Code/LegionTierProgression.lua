@@ -31,6 +31,37 @@ local MAX_SUB = {
 	[3] = 3,
 }
 
+-- PROGRESSION-001: the same rules travel through the vanilla lobby and savegame.
+local TIER_LADDER = { 11, 12, 13, 21, 22, 23, 24, 25, 31, 32, 33 }
+
+function JAZZ_GetLegionCampaignSettings(rules)
+	rules = rules or (Game and Game.game_rules) or empty_table
+	local start, speed = 11, 0
+	for _, tier in ipairs(TIER_LADDER) do
+		if rules["JAZZ_LegionStart" .. tier] then start = tier end
+	end
+	for _, multiplier in ipairs({ 1, 2, 4 }) do
+		if rules["JAZZ_LegionClock" .. multiplier] then speed = multiplier end
+	end
+	return start, speed
+end
+
+-- The outgoing tier determines the interval, including 13 -> 21 and 25 -> 31.
+function JAZZ_ComputeLegionTimedTier(now, started_at, start_tier, speed, nomaps)
+	local index = table.find(TIER_LADDER, start_tier) or 1
+	local elapsed = Max(0, (now or 0) - (started_at or now or 0)) * speed
+	while index < #TIER_LADDER do
+		local major = math.floor(TIER_LADDER[index] / 10)
+		local days = nomaps and (major == 1 and NOMAPS_T1_SUB_INTERVAL_DAYS or NOMAPS_T2_T3_SUB_INTERVAL_DAYS)
+			or (major == 1 and MAPS_T1_SUB_INTERVAL_DAYS or MAPS_T2_T3_SUB_INTERVAL_DAYS)
+		local interval = days * lDay()
+		if elapsed < interval then break end
+		elapsed = elapsed - interval
+		index = index + 1
+	end
+	return TIER_LADDER[index]
+end
+
 local NOMAPS_STATE_SCHEMA = 2
 local MAPS_STATE_SCHEMA = 1
 
@@ -229,6 +260,14 @@ local function lSetTier(value)
 	return true
 end
 
+local function lInitializeSelectedTier(st)
+	if not st.start_pending then return true end
+	-- Initial state, not a progression event: do not dispatch skipped convoys/mail.
+	if not lSetTier(Max(lGetCurrentTier() or 11, st.start_tier or 11)) then return false end
+	st.start_pending = false
+	return true
+end
+
 local function lApplyTierRaise(computed, log_label, extra)
 	local current = lGetCurrentTier() or 11
 	local quest_state = QuestGetState and QuestGetState(QUEST_ID)
@@ -341,6 +380,10 @@ function JAZZ_UpdateLegionTierForNoMaps()
 
 	local now = lNow()
 	local st = lEnsureNoMapsState()
+	if not lInitializeSelectedTier(st) then return false end
+	if (st.clock_speed or 0) > 0 then
+		return lApplyTierRaise(JAZZ_ComputeLegionTimedTier(now, st.start_at, st.start_tier, st.clock_speed, true), "NoMaps clock")
+	end
 	local mines = JAZZ_CountPlayerMines()
 	lMigrateNoMapsState(st, now, mines)
 
@@ -416,6 +459,10 @@ function JAZZ_UpdateLegionTierForMaps()
 
 	local now = lNow()
 	local st = lEnsureMapsState()
+	if not lInitializeSelectedTier(st) then return false end
+	if (st.clock_speed or 0) > 0 then
+		return lApplyTierRaise(JAZZ_ComputeLegionTimedTier(now, st.start_at, st.start_tier, st.clock_speed, false), "Maps clock")
+	end
 	st.schema = MAPS_STATE_SCHEMA
 
 	-- Existing saves already on mainland geography: latch without requiring a new capture.
@@ -466,6 +513,10 @@ function OnMsg.OpenSatelliteView()
 	JAZZ_UpdateLegionTierProgression()
 end
 
+function OnMsg.CampaignStarted()
+	JAZZ_UpdateLegionTierProgression()
+end
+
 function OnMsg.LoadGame()
 	-- Nomaps bootstrap may run after this handler (jazz loads first). Skip until active;
 	-- nomaps calls update after bootstrap, and SatelliteTick / OpenSatelliteView recover.
@@ -477,21 +528,26 @@ function OnMsg.LoadGame()
 end
 
 function OnMsg.NewGame()
-	if lNoMapsActive() then
-		gv_JAZZ_LegionTierNoMaps = {
-			schema = NOMAPS_STATE_SCHEMA,
+	local start, speed = JAZZ_GetLegionCampaignSettings()
+	local now, major, sub = lNow(), math.floor(start / 10), start % 10
+	-- Seed BOTH profiles: NoMaps bootstrap may only become active later in NewGame.
+	local function state(schema, interval)
+		return {
+			schema = schema,
 			first_mine_at = false,
-			major = 1,
-			major_started_at = lNow(),
+			mainland_at = false,
+			major = major,
+			major_started_at = now - (sub - 1) * interval * lDay(),
+			start_tier = start,
+			start_at = now,
+			clock_speed = speed,
+			start_pending = true,
 		}
-		JAZZ_UpdateLegionTierForNoMaps()
-		return
 	end
-	gv_JAZZ_LegionTierMaps = {
-		schema = MAPS_STATE_SCHEMA,
-		mainland_at = false,
-		major = 1,
-		major_started_at = lNow(),
-	}
-	JAZZ_UpdateLegionTierForMaps()
+	gv_JAZZ_LegionTierNoMaps = state(NOMAPS_STATE_SCHEMA, lNoMapsSubIntervalDays(major))
+	gv_JAZZ_LegionTierMaps = state(MAPS_STATE_SCHEMA, lMapsSubIntervalDays(major))
+	-- QuestGetState lazily creates the quest before CampaignPreset:Initialize
+	-- spawns initial squads. Do not wait for the first satellite tick.
+	lInitializeSelectedTier(lNoMapsActive() and gv_JAZZ_LegionTierNoMaps or gv_JAZZ_LegionTierMaps)
+	JAZZ_UpdateLegionTierProgression()
 end
