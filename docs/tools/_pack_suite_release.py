@@ -204,12 +204,19 @@ def materialize(repo: Path, sha: str, dest: Path) -> None:
     if dest.exists():
         raise RuntimeError(f"Refusing to overwrite {dest}")
     dest.mkdir(parents=True)
-    archive = run_git(repo, "archive", "--format=tar", sha)
-    with tarfile.open(fileobj=io.BytesIO(archive.stdout), mode="r:") as tar:
-        try:
-            tar.extractall(dest, filter="data")
-        except TypeError:
-            tar.extractall(dest)
+    ignore = parse_ignore_files(read_committed_metadata(repo, sha))
+    # Stream committed bytes and discard development sources before extraction.
+    # Large tracked capture/source trees must not multiply CI memory/disk usage.
+    with subprocess.Popen(["git", "-C", str(repo), "archive", "--format=tar", sha],
+                          stdout=subprocess.PIPE) as proc:
+        assert proc.stdout is not None
+        with tarfile.open(fileobj=proc.stdout, mode="r|") as tar:
+            for member in tar:
+                if not member.isfile() or should_skip(member.name, ignore):
+                    continue
+                tar.extract(member, dest, filter="data")
+        if proc.wait() != 0:
+            raise RuntimeError(f"git archive failed for {repo}@{sha}")
     hydrate_lfs(dest, repo, sha)
 
 

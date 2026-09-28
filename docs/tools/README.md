@@ -1064,3 +1064,5 @@ Feedback round 2: `_weapon_feedback_chainmail.py` продлевает суще�
 - Generated-data audit uses `.agents/skills/sync-jazz-generated-data/scripts/parse-moditems.py`: lexical ModItem parsing supports inline/nested records without executing Lua. Development `tmp` directories are excluded from both the audit and runtime release archives.
 
 - `_test_moditem_parser.py`: regression checks for inline/nested records, Lua strings/comments and malformed tables. Dormant duplicate companions are warnings only when the same class/ID has an actual metadata-loaded companion.
+
+- `_pack_suite_release.py` streams exact-commit archives and skips development paths before staging; no full source tar is retained in memory.

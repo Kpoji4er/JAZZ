@@ -138,3 +138,5 @@ PROGRESSION-001 release preparation: `docs/tools/_pack_suite_release.py` иск�
 Runtime archives exclude both `.tmp/` and `tmp/`, including tracked development snapshots. All requested source changes remain in Git. The generated-data auditor reads ModItem properties lexically, independent of indentation or inline serialization, and excludes development snapshots from active companion discovery. Runtime smoke remains a separate prerelease limitation.
 
 Six legacy root-level unique-weapon companions are inactive copies: metadata loads the matching identities under `InventoryItem/vanillunique/`. The auditor now distinguishes these copies from missing active registrations; it does not enable or delete them.
+
+The packer streams `git archive` and filters development files before extraction, keeping CI memory and staging disk bounded by runtime files. ZIP ordering, timestamps and SHA-256 remain unchanged.
