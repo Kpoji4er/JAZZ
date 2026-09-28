@@ -26,7 +26,7 @@ AIM Doctors (`Specialization=Doctor`) start with **Meds** scaled by Medical — 
 
 All 48 have a named perk in StartingPerks; **working hooks** are only a subset — see [perks](perks.md).
 
-Returning JA1/JA2/M.E.R.C. recruits use remastered portraits and classic voice-bank material. Biff intentionally keeps the vanilla JA3 portrait; Spouke keeps his approved custom appearance.
+Returning JA1/JA2/M.E.R.C. recruits use remastered portraits and classic voice-bank material. Biff intentionally keeps the vanilla JA3 portrait; Spouke retains his recognizable custom design in the refreshed portrait.
 
 ## A.M.E. (local market)
 
@@ -92,3 +92,7 @@ Salary = `StartingSalary`. `0` means zero in data.
 | Jazz_Vince | Винс | Doctor | 4 | Veteran | AIM | Jazz_Perk_Vince | 1200 |
 
 ✓ = perk with confirmed gameplay hooks. Spider: Doctor + perk + AIM chat, but UnitData has no StartingSalary / StartingLevel / Tier (only SalaryLv1/Max).
+
+## Portrait refresh — September 2026
+
+Barry Seal, Spouke, Conrad, Nervous, Ira, Laura, Meat, Lucky, Vilde, Blade, Henning and Steiger have refreshed UI and full-body portraits, with cleaner clothing folds and refined proportions while retaining their individual designs. This is a prerelease; in-game display validation is pending.

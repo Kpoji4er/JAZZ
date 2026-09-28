@@ -209,3 +209,8 @@ Maps имеют прямые ссылки на units package; неполная �
 ## Ограничения и сопровождение
 
 Generated UnitData/appearance/loot править через Mod Editor. Новый unit/archetype/keyword/specialization должен быть отражён в этой странице и профильной AI/strategy документации. `AimHiringScreen_Template.lua` остаётся dormant, пока metadata явно не изменена.
+## Portrait refresh — 2026-09-28
+
+Updated existing `jazz-units/MercPortraits/<Id>.png` and `<Id>_Big.png` for BarrySeal, Spouke, Conrad, Nervous, Ira, Laura, Meat, Lucky, Vilde, Blade, Henning and Steiger. UI portraits remain 300×300 RGBA; full-body portraits are 2000×2000 RGBA. Existing UnitData and items.lua paths, IDs and appearance presets are unchanged. The changes refine likeness, adult body proportions, fabric folds and silhouette edges. No Blender prototype is included.
+
+Validation: visual review and static PNG dimensions/alpha checks. Native generated images were 1254×1254 and resized for the Big slot. Fine artificial fabric texture remains in places; in-game roster, save/load and new-game checks are pending, so this release is a prerelease.
