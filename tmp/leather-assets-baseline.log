@@ -1,0 +1,147 @@
+JAZZ generated-data sync audit (read-only)
+Packages: jazz_assets
+[jazz_assets] metadata.code=611; ModItem=654; generated=0; entities=624; errors=142; warnings=13
+ERROR [jazz_assets] Entities/AKR_AK103_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK103_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK103_Muzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK103_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK103_StockFolded.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK103.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK105_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK105_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK105_Muzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK105_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK105_StockFolded.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK105.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74_Muzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74M_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74M_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74M_Muzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74M_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74M_StockFolded.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AK74M.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AKM_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AKM_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AKM_Muzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AKM_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/AKR_AKM.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/JAZZ_M14_ART.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/JAZZ_M14_MkIII.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/JAZZ_M14.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/L42A1_Scope.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/L42A1.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_Barrel.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_BarrelShort.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_CarryHandle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_DefMuzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_Handgrip.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_HandguardRIS.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_Magazine20.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_RearSight.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4_StockLight.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M16R_M16A4.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_Barrel.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_BarrelLong.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_BarrelShort.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_CarryHandle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_DefMuzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_Handgrip.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_HandguardRifle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_HandguardRIS.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_Magazine20.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_RearSight.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1_StockFolded.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/M4R_M4A1.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/MK14EBR.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/MOSIN_1891.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/MOSIN_M38.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/MOSIN_Obrez.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/SR3M_Handguard.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/SR3M_Magazine.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/SR3M_Muzzle.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/SR3M_Stock.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/SR3M_StockFolded.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] Entities/SR3M.lua: Активный Entity companion не имеет ModItemEntity в items.lua.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74M_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: MK14EBR.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74_Muzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK103_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AKM.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74M.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: MOSIN_M38.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: SR3M_Muzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74M_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK105_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74M_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: SR3M_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK103_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK105_Muzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_HandguardRIS.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK105_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK105_StockFolded.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK103_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_Barrel.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AKM_Muzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_RearSight.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK105_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_Magazine20.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_Handgrip.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_CarryHandle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_HandguardRifle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: JAZZ_M14.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_DefMuzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_DefMuzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_CarryHandle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AKM_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK103_StockFolded.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_HandguardRIS.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: L42A1_Scope.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_BarrelShort.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AKM_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK105.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK103.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74M_StockFolded.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_Handgrip.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_BarrelLong.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74M_Muzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: MOSIN_1891.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: SR3M_StockFolded.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: JAZZ_M14_MkIII.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: SR3M_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_StockFolded.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK103_Muzzle.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74_Magazine.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_Stock.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_Magazine20.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AKM_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: L42A1.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_StockLight.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_Barrel.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_BarrelShort.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M4R_M4A1_RearSight.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: MOSIN_Obrez.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: JAZZ_M14_ART.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: AKR_AK74_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: SR3M.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: M16R_M16A4_Handguard.
+ERROR [jazz_assets] metadata.lua: metadata.entities не имеет ModItemEntity в items.lua: SR3M_Stock.
+WARNING SUMMARY [jazz_assets] count=13; examples: Entities/Chevy_S10_SM.lua, Entities/G36Mag.lua, Entities/Hamvee.lua
+RESULT: FAILED (142 blocking issue(s), 13 warning(s))

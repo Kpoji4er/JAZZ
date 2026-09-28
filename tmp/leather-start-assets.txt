@@ -1,0 +1,679 @@
+ M AGENTS.md
+ M Entities/AKR_AK105.ent
+ M Entities/AKR_AK74M.ent
+ M Entities/CAR15.ent
+ M Entities/JAZZ_Chainmail_Male.ent
+ M Entities/JAZZ_FNFAL_TacHandguard.ent
+ M Entities/JAZZ_TireArmor_Male.ent
+ M Entities/JAZZ_TireBrigantine_Male.ent
+ M Entities/L42A1.ent
+ M Entities/L42A1_Scope.ent
+ M Entities/M16A1.ent
+ M Entities/M16A2.ent
+ M Entities/M16A4.ent
+ M Entities/M4A1.ent
+ M Entities/MOSIN_Obrez.ent
+ M Entities/Materials/JAZZ_Chainmail_Male_mesh.mtl
+ M Entities/Materials/JAZZ_TireArmor_Male_mesh.mtl
+ M Entities/Materials/JAZZ_TireBrigantine_Male_mesh.mtl
+ M Entities/Meshes/AKR_AK105_Mesh.m.hgm
+ M Entities/Meshes/AKR_AK74M_Mesh.m.hgm
+ M Entities/Meshes/JAZZ_Chainmail_Male_mesh.m.hgm
+ M Entities/Meshes/JAZZ_FNFAL_TacHandguard_Mesh.m.hgm
+ M Entities/Meshes/JAZZ_TireArmor_Male_mesh.m.hgm
+ M Entities/Meshes/JAZZ_TireBrigantine_Male_mesh.m.hgm
+ M Entities/Meshes/L42A1_Mesh.m.hgm
+ M Entities/Meshes/L42A1_Scope_Mesh.m.hgm
+ M Entities/Meshes/SR3M_Mesh.m.hgm
+ M Entities/SR3M.ent
+ M Entities/Textures/10649002.dds
+ M Entities/Textures/10649003.dds
+ M Entities/Textures/11254001.dds
+ M Entities/Textures/11254003.dds
+ M Entities/Textures/11254005.dds
+ M Entities/Textures/11254007.dds
+ M Entities/Textures/11254009.dds
+ M Entities/Textures/11254011.dds
+ M Entities/Textures/12367002.dds
+ M Entities/Textures/12367003.dds
+ M Entities/Textures/12367006.dds
+ M Entities/Textures/12367007.dds
+ M Entities/Textures/12367010.dds
+ M Entities/Textures/12367011.dds
+ M Entities/Textures/12930002.dds
+ M Entities/Textures/12930003.dds
+ M Entities/Textures/12930006.dds
+ M Entities/Textures/12930007.dds
+ M Entities/Textures/12930010.dds
+ M Entities/Textures/12930011.dds
+ M Entities/Textures/12968002.dds
+ M Entities/Textures/12968003.dds
+ M Entities/Textures/13573002.dds
+ M Entities/Textures/13573003.dds
+ M Entities/Textures/13573006.dds
+ M Entities/Textures/13573007.dds
+ M Entities/Textures/13573010.dds
+ M Entities/Textures/13573011.dds
+ M Entities/Textures/14739002.dds
+ M Entities/Textures/14739003.dds
+ M Entities/Textures/8214002.dds
+ M Entities/Textures/8214003.dds
+ M Entities/Textures/8214006.dds
+ M Entities/Textures/8214007.dds
+ M Entities/Textures/8214010.dds
+ M Entities/Textures/8214011.dds
+ M Entities/Textures/9420002.dds
+ M Entities/Textures/9420003.dds
+ M Entities/Textures/9420006.dds
+ M Entities/Textures/9420007.dds
+ M Entities/Textures/9420010.dds
+ M Entities/Textures/9420011.dds
+ M Entities/Textures/AKR_AK105_11_Base.dds
+ M Entities/Textures/AKR_AK105_12_RM.dds
+ M Entities/Textures/AKR_AK105_2_Base.dds
+ M Entities/Textures/AKR_AK105_3_RM.dds
+ M Entities/Textures/AKR_AK105_5_Base.dds
+ M Entities/Textures/AKR_AK105_6_RM.dds
+ M Entities/Textures/AKR_AK105_8_Base.dds
+ M Entities/Textures/AKR_AK105_9_RM.dds
+ M Entities/Textures/AKR_AK74M_2_Base.dds
+ M Entities/Textures/AKR_AK74M_3_RM.dds
+ M Entities/Textures/AKR_AK74M_5_Base.dds
+ M Entities/Textures/AKR_AK74M_6_RM.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_11_Base.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_12_RM.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_2_Base.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_3_RM.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_5_Base.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_6_RM.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_8_Base.dds
+ M Entities/Textures/Fallbacks/AKR_AK105_9_RM.dds
+ M Entities/Textures/Fallbacks/AKR_AK74M_2_Base.dds
+ M Entities/Textures/Fallbacks/AKR_AK74M_3_RM.dds
+ M Entities/Textures/Fallbacks/AKR_AK74M_5_Base.dds
+ M Entities/Textures/Fallbacks/AKR_AK74M_6_RM.dds
+ M Entities/Textures/Fallbacks/JAZZ_Chainmail_1_Norm.dds
+ M Entities/Textures/Fallbacks/JAZZ_Chainmail_2_Base.dds
+ M Entities/Textures/Fallbacks/JAZZ_Chainmail_3_RM.dds
+ M Entities/Textures/Fallbacks/JAZZ_TireArmor_1_Norm.dds
+ M Entities/Textures/Fallbacks/JAZZ_TireArmor_2_Base.dds
+ M Entities/Textures/Fallbacks/JAZZ_TireArmor_3_RM.dds
+ M Entities/Textures/Fallbacks/JAZZ_TireBrigantine_1_Norm.dds
+ M Entities/Textures/Fallbacks/JAZZ_TireBrigantine_2_Base.dds
+ M Entities/Textures/Fallbacks/JAZZ_TireBrigantine_3_RM.dds
+ M Entities/Textures/Fallbacks/MOSIN_11_Base.dds
+ M Entities/Textures/Fallbacks/MOSIN_7_Base.dds
+ M Entities/Textures/JAZZ_Chainmail_1_Norm.dds
+ M Entities/Textures/JAZZ_Chainmail_2_Base.dds
+ M Entities/Textures/JAZZ_Chainmail_3_RM.dds
+ M Entities/Textures/JAZZ_TireArmor_1_Norm.dds
+ M Entities/Textures/JAZZ_TireArmor_2_Base.dds
+ M Entities/Textures/JAZZ_TireArmor_3_RM.dds
+ M Entities/Textures/JAZZ_TireBrigantine_1_Norm.dds
+ M Entities/Textures/JAZZ_TireBrigantine_2_Base.dds
+ M Entities/Textures/JAZZ_TireBrigantine_3_RM.dds
+ M Entities/Textures/MOSIN_11_Base.dds
+ M Entities/Textures/MOSIN_7_Base.dds
+ M items.lua
+ M metadata.lua
+?? Entities/AKR_AK103.ent
+?? Entities/AKR_AK103.lua
+?? Entities/AKR_AK103_Handguard.ent
+?? Entities/AKR_AK103_Handguard.lua
+?? Entities/AKR_AK103_Magazine.ent
+?? Entities/AKR_AK103_Magazine.lua
+?? Entities/AKR_AK103_Muzzle.ent
+?? Entities/AKR_AK103_Muzzle.lua
+?? Entities/AKR_AK103_Stock.ent
+?? Entities/AKR_AK103_Stock.lua
+?? Entities/AKR_AK103_StockFolded.ent
+?? Entities/AKR_AK103_StockFolded.lua
+?? Entities/JAZZ_6B3_Male.ent
+?? Entities/JAZZ_6B3_Male.lua
+?? Entities/JAZZ_M14.ent
+?? Entities/JAZZ_M14.lua
+?? Entities/JAZZ_M14_ART.ent
+?? Entities/JAZZ_M14_ART.lua
+?? Entities/JAZZ_M14_BarrelLong.ent
+?? Entities/JAZZ_M14_BarrelLong.lua
+?? Entities/JAZZ_M14_BarrelNormal.ent
+?? Entities/JAZZ_M14_BarrelNormal.lua
+?? Entities/JAZZ_M14_BarrelShort.ent
+?? Entities/JAZZ_M14_BarrelShort.lua
+?? Entities/JAZZ_M14_MagazineNormal.ent
+?? Entities/JAZZ_M14_MagazineNormal.lua
+?? Entities/JAZZ_M14_MagazineShort.ent
+?? Entities/JAZZ_M14_MagazineShort.lua
+?? Entities/JAZZ_M14_MkIII.ent
+?? Entities/JAZZ_M14_MkIII.lua
+?? Entities/JAZZ_M14_MkIII_BarrelLong.ent
+?? Entities/JAZZ_M14_MkIII_BarrelLong.lua
+?? Entities/JAZZ_M14_MkIII_BarrelNormal.ent
+?? Entities/JAZZ_M14_MkIII_BarrelNormal.lua
+?? Entities/JAZZ_M14_MkIII_BarrelShort.ent
+?? Entities/JAZZ_M14_MkIII_BarrelShort.lua
+?? Entities/JAZZ_M14_MkIII_MagazineNormal.ent
+?? Entities/JAZZ_M14_MkIII_MagazineNormal.lua
+?? Entities/JAZZ_M14_MkIII_MagazineShort.ent
+?? Entities/JAZZ_M14_MkIII_MagazineShort.lua
+?? Entities/JAZZ_M14_OpticsMount.ent
+?? Entities/JAZZ_M14_OpticsMount.lua
+?? Entities/JAZZ_VZ58.ent
+?? Entities/JAZZ_VZ58.lua
+?? Entities/JAZZ_VZ58_Foregrip.ent
+?? Entities/JAZZ_VZ58_Foregrip.lua
+?? Entities/JAZZ_VZ58_GripModern.ent
+?? Entities/JAZZ_VZ58_GripModern.lua
+?? Entities/JAZZ_VZ58_GripWood.ent
+?? Entities/JAZZ_VZ58_GripWood.lua
+?? Entities/JAZZ_VZ58_HandguardRIS.ent
+?? Entities/JAZZ_VZ58_HandguardRIS.lua
+?? Entities/JAZZ_VZ58_HandguardWood.ent
+?? Entities/JAZZ_VZ58_HandguardWood.lua
+?? Entities/JAZZ_VZ58_MagQuick.ent
+?? Entities/JAZZ_VZ58_MagQuick.lua
+?? Entities/JAZZ_VZ58_Magazine.ent
+?? Entities/JAZZ_VZ58_Magazine.lua
+?? Entities/JAZZ_VZ58_Reflex.ent
+?? Entities/JAZZ_VZ58_Reflex.lua
+?? Entities/JAZZ_VZ58_StockModern.ent
+?? Entities/JAZZ_VZ58_StockModern.lua
+?? Entities/JAZZ_VZ58_StockWire.ent
+?? Entities/JAZZ_VZ58_StockWire.lua
+?? Entities/JAZZ_VZ58_StockWireFolded.ent
+?? Entities/JAZZ_VZ58_StockWireFolded.lua
+?? Entities/JAZZ_VZ58_StockWood.ent
+?? Entities/JAZZ_VZ58_StockWood.lua
+?? Entities/JAZZ_VZ58_Suppressor.ent
+?? Entities/JAZZ_VZ58_Suppressor.lua
+?? Entities/JAZZ_VektorR4.ent
+?? Entities/JAZZ_VektorR4.lua
+?? Entities/M16R_M16A4.ent
+?? Entities/M16R_M16A4.lua
+?? Entities/M16R_M16A4_Barrel.ent
+?? Entities/M16R_M16A4_Barrel.lua
+?? Entities/M16R_M16A4_BarrelShort.ent
+?? Entities/M16R_M16A4_BarrelShort.lua
+?? Entities/M16R_M16A4_CarryHandle.ent
+?? Entities/M16R_M16A4_CarryHandle.lua
+?? Entities/M16R_M16A4_DefMuzzle.ent
+?? Entities/M16R_M16A4_DefMuzzle.lua
+?? Entities/M16R_M16A4_FrontSight.ent
+?? Entities/M16R_M16A4_FrontSight.lua
+?? Entities/M16R_M16A4_Handgrip.ent
+?? Entities/M16R_M16A4_Handgrip.lua
+?? Entities/M16R_M16A4_Handguard.ent
+?? Entities/M16R_M16A4_Handguard.lua
+?? Entities/M16R_M16A4_HandguardRIS.ent
+?? Entities/M16R_M16A4_HandguardRIS.lua
+?? Entities/M16R_M16A4_Magazine.ent
+?? Entities/M16R_M16A4_Magazine.lua
+?? Entities/M16R_M16A4_Magazine20.ent
+?? Entities/M16R_M16A4_Magazine20.lua
+?? Entities/M16R_M16A4_RearSight.ent
+?? Entities/M16R_M16A4_RearSight.lua
+?? Entities/M16R_M16A4_Stock.ent
+?? Entities/M16R_M16A4_Stock.lua
+?? Entities/M16R_M16A4_StockLight.ent
+?? Entities/M16R_M16A4_StockLight.lua
+?? Entities/M4R_M4A1.ent
+?? Entities/M4R_M4A1.lua
+?? Entities/M4R_M4A1_Barrel.ent
+?? Entities/M4R_M4A1_Barrel.lua
+?? Entities/M4R_M4A1_BarrelLong.ent
+?? Entities/M4R_M4A1_BarrelLong.lua
+?? Entities/M4R_M4A1_BarrelShort.ent
+?? Entities/M4R_M4A1_BarrelShort.lua
+?? Entities/M4R_M4A1_CarryHandle.ent
+?? Entities/M4R_M4A1_CarryHandle.lua
+?? Entities/M4R_M4A1_DefMuzzle.ent
+?? Entities/M4R_M4A1_DefMuzzle.lua
+?? Entities/M4R_M4A1_FrontSight.ent
+?? Entities/M4R_M4A1_FrontSight.lua
+?? Entities/M4R_M4A1_Handgrip.ent
+?? Entities/M4R_M4A1_Handgrip.lua
+?? Entities/M4R_M4A1_Handguard.ent
+?? Entities/M4R_M4A1_Handguard.lua
+?? Entities/M4R_M4A1_HandguardRIS.ent
+?? Entities/M4R_M4A1_HandguardRIS.lua
+?? Entities/M4R_M4A1_HandguardRifle.ent
+?? Entities/M4R_M4A1_HandguardRifle.lua
+?? Entities/M4R_M4A1_Magazine.ent
+?? Entities/M4R_M4A1_Magazine.lua
+?? Entities/M4R_M4A1_Magazine20.ent
+?? Entities/M4R_M4A1_Magazine20.lua
+?? Entities/M4R_M4A1_RearSight.ent
+?? Entities/M4R_M4A1_RearSight.lua
+?? Entities/M4R_M4A1_Stock.ent
+?? Entities/M4R_M4A1_Stock.lua
+?? Entities/M4R_M4A1_StockFolded.ent
+?? Entities/M4R_M4A1_StockFolded.lua
+?? Entities/MK14EBR.ent
+?? Entities/MK14EBR.lua
+?? Entities/MK14EBR_BarrelLong.ent
+?? Entities/MK14EBR_BarrelLong.lua
+?? Entities/MK14EBR_BarrelNormal.ent
+?? Entities/MK14EBR_BarrelNormal.lua
+?? Entities/MK14EBR_BarrelShort.ent
+?? Entities/MK14EBR_BarrelShort.lua
+?? Entities/Materials/AKR_AK103_Handguard_Mesh.mtl
+?? Entities/Materials/AKR_AK103_Magazine_Mesh.mtl
+?? Entities/Materials/AKR_AK103_Mesh.mtl
+?? Entities/Materials/AKR_AK103_Muzzle_Mesh.mtl
+?? Entities/Materials/AKR_AK103_StockFolded_Mesh.mtl
+?? Entities/Materials/AKR_AK103_Stock_Mesh.mtl
+?? Entities/Materials/JAZZ_6B3_Male_mesh.mtl
+?? Entities/Materials/JAZZ_M14_ART_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_BarrelLong_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_BarrelNormal_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_BarrelShort_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MagazineNormal_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MagazineShort_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MkIII_BarrelLong_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MkIII_BarrelNormal_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MkIII_BarrelShort_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MkIII_MagazineNormal_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MkIII_MagazineShort_Mesh.mtl
+?? Entities/Materials/JAZZ_M14_MkIII_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_Foregrip_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_GripModern_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_GripWood_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_HandguardRIS_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_HandguardWood_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_MagQuick_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_Magazine_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_Reflex_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_StockModern_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_StockWireFolded_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_StockWire_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_StockWood_Mesh.mtl
+?? Entities/Materials/JAZZ_VZ58_Suppressor_Mesh.mtl
+?? Entities/Materials/JAZZ_VektorR4_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_BarrelShort_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Barrel_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_CarryHandle_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_DefMuzzle_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_FrontSight_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Handgrip_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_HandguardRIS_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Handguard_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Magazine20_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Magazine_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_RearSight_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_StockLight_Mesh.mtl
+?? Entities/Materials/M16R_M16A4_Stock_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_BarrelLong_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_BarrelShort_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Barrel_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_CarryHandle_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_DefMuzzle_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_FrontSight_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Handgrip_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_HandguardRIS_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_HandguardRifle_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Handguard_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Magazine20_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Magazine_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_RearSight_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_StockFolded_Mesh.mtl
+?? Entities/Materials/M4R_M4A1_Stock_Mesh.mtl
+?? Entities/Materials/MK14EBR_BarrelLong_Mesh.mtl
+?? Entities/Materials/MK14EBR_BarrelNormal_Mesh.mtl
+?? Entities/Materials/MK14EBR_BarrelShort_Mesh.mtl
+?? Entities/Materials/MK14EBR_Mesh.mtl
+?? Entities/Meshes/AKR_AK103_Handguard_Mesh.m.hgm
+?? Entities/Meshes/AKR_AK103_Magazine_Mesh.m.hgm
+?? Entities/Meshes/AKR_AK103_Mesh.m.hgm
+?? Entities/Meshes/AKR_AK103_Muzzle_Mesh.m.hgm
+?? Entities/Meshes/AKR_AK103_StockFolded_Mesh.m.hgm
+?? Entities/Meshes/AKR_AK103_Stock_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_6B3_Male_mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_ART_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_BarrelLong_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_BarrelNormal_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_BarrelShort_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MagazineNormal_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MagazineShort_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MkIII_BarrelLong_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MkIII_BarrelNormal_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MkIII_BarrelShort_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MkIII_MagazineNormal_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MkIII_MagazineShort_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_MkIII_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_M14_OpticsMount_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_Foregrip_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_GripModern_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_GripWood_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_HandguardRIS_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_HandguardWood_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_MagQuick_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_Magazine_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_Reflex_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_StockModern_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_StockWireFolded_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_StockWire_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_StockWood_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VZ58_Suppressor_Mesh.m.hgm
+?? Entities/Meshes/JAZZ_VektorR4_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_BarrelShort_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Barrel_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_CarryHandle_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_DefMuzzle_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_FrontSight_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Handgrip_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_HandguardRIS_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Handguard_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Magazine20_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Magazine_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_RearSight_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_StockLight_Mesh.m.hgm
+?? Entities/Meshes/M16R_M16A4_Stock_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_BarrelLong_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_BarrelShort_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Barrel_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_CarryHandle_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_DefMuzzle_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_FrontSight_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Handgrip_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_HandguardRIS_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_HandguardRifle_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Handguard_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Magazine20_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Magazine_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_RearSight_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_StockFolded_Mesh.m.hgm
+?? Entities/Meshes/M4R_M4A1_Stock_Mesh.m.hgm
+?? Entities/Meshes/MK14EBR_BarrelLong_Mesh.m.hgm
+?? Entities/Meshes/MK14EBR_BarrelNormal_Mesh.m.hgm
+?? Entities/Meshes/MK14EBR_BarrelShort_Mesh.m.hgm
+?? Entities/Meshes/MK14EBR_Mesh.m.hgm
+?? Entities/Textures/AKR_AK103_0_Norm.dds
+?? Entities/Textures/AKR_AK103_10_Norm.dds
+?? Entities/Textures/AKR_AK103_11_Base.dds
+?? Entities/Textures/AKR_AK103_12_RM.dds
+?? Entities/Textures/AKR_AK103_13_Norm.dds
+?? Entities/Textures/AKR_AK103_14_Base.dds
+?? Entities/Textures/AKR_AK103_15_RM.dds
+?? Entities/Textures/AKR_AK103_1_Base.dds
+?? Entities/Textures/AKR_AK103_2_RM.dds
+?? Entities/Textures/AKR_AK103_3_Norm.dds
+?? Entities/Textures/AKR_AK103_4_Base.dds
+?? Entities/Textures/AKR_AK103_5_RM.dds
+?? Entities/Textures/AKR_AK103_6_Norm.dds
+?? Entities/Textures/AKR_AK103_7_AO.dds
+?? Entities/Textures/AKR_AK103_8_Base.dds
+?? Entities/Textures/AKR_AK103_9_RM.dds
+?? Entities/Textures/Fallbacks/10649000.dds
+?? Entities/Textures/Fallbacks/10649001.dds
+?? Entities/Textures/Fallbacks/10649002.dds
+?? Entities/Textures/Fallbacks/10649003.dds
+?? Entities/Textures/Fallbacks/11254000.dds
+?? Entities/Textures/Fallbacks/11254001.dds
+?? Entities/Textures/Fallbacks/11254002.dds
+?? Entities/Textures/Fallbacks/11254003.dds
+?? Entities/Textures/Fallbacks/11254004.dds
+?? Entities/Textures/Fallbacks/11254005.dds
+?? Entities/Textures/Fallbacks/11254006.dds
+?? Entities/Textures/Fallbacks/11254007.dds
+?? Entities/Textures/Fallbacks/11254008.dds
+?? Entities/Textures/Fallbacks/11254009.dds
+?? Entities/Textures/Fallbacks/11254010.dds
+?? Entities/Textures/Fallbacks/11254011.dds
+?? Entities/Textures/Fallbacks/12367000.dds
+?? Entities/Textures/Fallbacks/12367001.dds
+?? Entities/Textures/Fallbacks/12367002.dds
+?? Entities/Textures/Fallbacks/12367003.dds
+?? Entities/Textures/Fallbacks/12367004.dds
+?? Entities/Textures/Fallbacks/12367005.dds
+?? Entities/Textures/Fallbacks/12367006.dds
+?? Entities/Textures/Fallbacks/12367007.dds
+?? Entities/Textures/Fallbacks/12367008.dds
+?? Entities/Textures/Fallbacks/12367009.dds
+?? Entities/Textures/Fallbacks/12367010.dds
+?? Entities/Textures/Fallbacks/12367011.dds
+?? Entities/Textures/Fallbacks/12930000.dds
+?? Entities/Textures/Fallbacks/12930001.dds
+?? Entities/Textures/Fallbacks/12930002.dds
+?? Entities/Textures/Fallbacks/12930003.dds
+?? Entities/Textures/Fallbacks/12930004.dds
+?? Entities/Textures/Fallbacks/12930005.dds
+?? Entities/Textures/Fallbacks/12930006.dds
+?? Entities/Textures/Fallbacks/12930007.dds
+?? Entities/Textures/Fallbacks/12930008.dds
+?? Entities/Textures/Fallbacks/12930009.dds
+?? Entities/Textures/Fallbacks/12930010.dds
+?? Entities/Textures/Fallbacks/12930011.dds
+?? Entities/Textures/Fallbacks/12968000.dds
+?? Entities/Textures/Fallbacks/12968001.dds
+?? Entities/Textures/Fallbacks/12968002.dds
+?? Entities/Textures/Fallbacks/12968003.dds
+?? Entities/Textures/Fallbacks/13573000.dds
+?? Entities/Textures/Fallbacks/13573001.dds
+?? Entities/Textures/Fallbacks/13573002.dds
+?? Entities/Textures/Fallbacks/13573003.dds
+?? Entities/Textures/Fallbacks/13573004.dds
+?? Entities/Textures/Fallbacks/13573005.dds
+?? Entities/Textures/Fallbacks/13573006.dds
+?? Entities/Textures/Fallbacks/13573007.dds
+?? Entities/Textures/Fallbacks/13573008.dds
+?? Entities/Textures/Fallbacks/13573009.dds
+?? Entities/Textures/Fallbacks/13573010.dds
+?? Entities/Textures/Fallbacks/13573011.dds
+?? Entities/Textures/Fallbacks/14739000.dds
+?? Entities/Textures/Fallbacks/14739001.dds
+?? Entities/Textures/Fallbacks/14739002.dds
+?? Entities/Textures/Fallbacks/14739003.dds
+?? Entities/Textures/Fallbacks/8214000.dds
+?? Entities/Textures/Fallbacks/8214001.dds
+?? Entities/Textures/Fallbacks/8214002.dds
+?? Entities/Textures/Fallbacks/8214003.dds
+?? Entities/Textures/Fallbacks/8214004.dds
+?? Entities/Textures/Fallbacks/8214005.dds
+?? Entities/Textures/Fallbacks/8214006.dds
+?? Entities/Textures/Fallbacks/8214007.dds
+?? Entities/Textures/Fallbacks/8214008.dds
+?? Entities/Textures/Fallbacks/8214009.dds
+?? Entities/Textures/Fallbacks/8214010.dds
+?? Entities/Textures/Fallbacks/8214011.dds
+?? Entities/Textures/Fallbacks/9420000.dds
+?? Entities/Textures/Fallbacks/9420001.dds
+?? Entities/Textures/Fallbacks/9420002.dds
+?? Entities/Textures/Fallbacks/9420003.dds
+?? Entities/Textures/Fallbacks/9420004.dds
+?? Entities/Textures/Fallbacks/9420005.dds
+?? Entities/Textures/Fallbacks/9420006.dds
+?? Entities/Textures/Fallbacks/9420007.dds
+?? Entities/Textures/Fallbacks/9420008.dds
+?? Entities/Textures/Fallbacks/9420009.dds
+?? Entities/Textures/Fallbacks/9420010.dds
+?? Entities/Textures/Fallbacks/9420011.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_0_Norm.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_10_Norm.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_11_Base.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_12_RM.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_13_Norm.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_14_Base.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_15_RM.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_1_Base.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_2_RM.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_3_Norm.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_4_Base.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_5_RM.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_6_Norm.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_7_AO.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_8_Base.dds
+?? Entities/Textures/Fallbacks/AKR_AK103_9_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_6B3_1_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_6B3_2_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_6B3_3_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_AO.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_ART_AO.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_ART_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_ART_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_ART_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_MkIII_AO.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_MkIII_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_MkIII_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_MkIII_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_M14_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_10_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_11_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_12_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_13_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_14_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_15_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_16_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_17_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_18_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_19_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_1_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_20_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_21_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_22_AO.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_23_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_24_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_25_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_26_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_27_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_28_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_29_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_2_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_30_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_3_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_4_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_5_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_6_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_7_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_8_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VZ58_9_RM.dds
+?? Entities/Textures/Fallbacks/JAZZ_VektorR4_1_Norm.dds
+?? Entities/Textures/Fallbacks/JAZZ_VektorR4_2_AO.dds
+?? Entities/Textures/Fallbacks/JAZZ_VektorR4_3_Base.dds
+?? Entities/Textures/Fallbacks/JAZZ_VektorR4_4_RM.dds
+?? Entities/Textures/Fallbacks/M16R_10_Norm.dds
+?? Entities/Textures/Fallbacks/M16R_11_Base.dds
+?? Entities/Textures/Fallbacks/M16R_12_RM.dds
+?? Entities/Textures/Fallbacks/M16R_13_Norm.dds
+?? Entities/Textures/Fallbacks/M16R_14_Base.dds
+?? Entities/Textures/Fallbacks/M16R_15_RM.dds
+?? Entities/Textures/Fallbacks/M16R_1_Norm.dds
+?? Entities/Textures/Fallbacks/M16R_2_Base.dds
+?? Entities/Textures/Fallbacks/M16R_3_RM.dds
+?? Entities/Textures/Fallbacks/M16R_4_Norm.dds
+?? Entities/Textures/Fallbacks/M16R_5_Base.dds
+?? Entities/Textures/Fallbacks/M16R_6_RM.dds
+?? Entities/Textures/Fallbacks/M16R_7_Norm.dds
+?? Entities/Textures/Fallbacks/M16R_8_Base.dds
+?? Entities/Textures/Fallbacks/M16R_9_RM.dds
+?? Entities/Textures/Fallbacks/M4R_10_Norm.dds
+?? Entities/Textures/Fallbacks/M4R_11_Base.dds
+?? Entities/Textures/Fallbacks/M4R_12_RM.dds
+?? Entities/Textures/Fallbacks/M4R_13_Norm.dds
+?? Entities/Textures/Fallbacks/M4R_14_Base.dds
+?? Entities/Textures/Fallbacks/M4R_15_RM.dds
+?? Entities/Textures/Fallbacks/M4R_1_Norm.dds
+?? Entities/Textures/Fallbacks/M4R_2_Base.dds
+?? Entities/Textures/Fallbacks/M4R_3_RM.dds
+?? Entities/Textures/Fallbacks/M4R_4_Norm.dds
+?? Entities/Textures/Fallbacks/M4R_5_Base.dds
+?? Entities/Textures/Fallbacks/M4R_6_RM.dds
+?? Entities/Textures/Fallbacks/M4R_7_Norm.dds
+?? Entities/Textures/Fallbacks/M4R_8_Base.dds
+?? Entities/Textures/Fallbacks/M4R_9_RM.dds
+?? Entities/Textures/Fallbacks/MK14EBR_AO.dds
+?? Entities/Textures/Fallbacks/MK14EBR_Base.dds
+?? Entities/Textures/Fallbacks/MK14EBR_Norm.dds
+?? Entities/Textures/Fallbacks/MK14EBR_RM.dds
+?? Entities/Textures/JAZZ_6B3_1_Norm.dds
+?? Entities/Textures/JAZZ_6B3_2_Base.dds
+?? Entities/Textures/JAZZ_6B3_3_RM.dds
+?? Entities/Textures/JAZZ_M14_AO.dds
+?? Entities/Textures/JAZZ_M14_ART_AO.dds
+?? Entities/Textures/JAZZ_M14_ART_Base.dds
+?? Entities/Textures/JAZZ_M14_ART_Norm.dds
+?? Entities/Textures/JAZZ_M14_ART_RM.dds
+?? Entities/Textures/JAZZ_M14_Base.dds
+?? Entities/Textures/JAZZ_M14_MkIII_AO.dds
+?? Entities/Textures/JAZZ_M14_MkIII_Base.dds
+?? Entities/Textures/JAZZ_M14_MkIII_Norm.dds
+?? Entities/Textures/JAZZ_M14_MkIII_RM.dds
+?? Entities/Textures/JAZZ_M14_Norm.dds
+?? Entities/Textures/JAZZ_M14_RM.dds
+?? Entities/Textures/JAZZ_VZ58_10_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_11_Base.dds
+?? Entities/Textures/JAZZ_VZ58_12_RM.dds
+?? Entities/Textures/JAZZ_VZ58_13_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_14_Base.dds
+?? Entities/Textures/JAZZ_VZ58_15_RM.dds
+?? Entities/Textures/JAZZ_VZ58_16_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_17_Base.dds
+?? Entities/Textures/JAZZ_VZ58_18_RM.dds
+?? Entities/Textures/JAZZ_VZ58_19_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_1_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_20_Base.dds
+?? Entities/Textures/JAZZ_VZ58_21_RM.dds
+?? Entities/Textures/JAZZ_VZ58_22_AO.dds
+?? Entities/Textures/JAZZ_VZ58_23_Base.dds
+?? Entities/Textures/JAZZ_VZ58_24_RM.dds
+?? Entities/Textures/JAZZ_VZ58_25_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_26_Base.dds
+?? Entities/Textures/JAZZ_VZ58_27_RM.dds
+?? Entities/Textures/JAZZ_VZ58_28_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_29_Base.dds
+?? Entities/Textures/JAZZ_VZ58_2_Base.dds
+?? Entities/Textures/JAZZ_VZ58_30_RM.dds
+?? Entities/Textures/JAZZ_VZ58_3_RM.dds
+?? Entities/Textures/JAZZ_VZ58_4_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_5_Base.dds
+?? Entities/Textures/JAZZ_VZ58_6_RM.dds
+?? Entities/Textures/JAZZ_VZ58_7_Norm.dds
+?? Entities/Textures/JAZZ_VZ58_8_Base.dds
+?? Entities/Textures/JAZZ_VZ58_9_RM.dds
+?? Entities/Textures/JAZZ_VektorR4_1_Norm.dds
+?? Entities/Textures/JAZZ_VektorR4_2_AO.dds
+?? Entities/Textures/JAZZ_VektorR4_3_Base.dds
+?? Entities/Textures/JAZZ_VektorR4_4_RM.dds
+?? Entities/Textures/M16R_10_Norm.dds
+?? Entities/Textures/M16R_11_Base.dds
+?? Entities/Textures/M16R_12_RM.dds
+?? Entities/Textures/M16R_13_Norm.dds
+?? Entities/Textures/M16R_14_Base.dds
+?? Entities/Textures/M16R_15_RM.dds
+?? Entities/Textures/M16R_1_Norm.dds
+?? Entities/Textures/M16R_2_Base.dds
+?? Entities/Textures/M16R_3_RM.dds
+?? Entities/Textures/M16R_4_Norm.dds
+?? Entities/Textures/M16R_5_Base.dds
+?? Entities/Textures/M16R_6_RM.dds
+?? Entities/Textures/M16R_7_Norm.dds
+?? Entities/Textures/M16R_8_Base.dds
+?? Entities/Textures/M16R_9_RM.dds
+?? Entities/Textures/M4R_10_Norm.dds
+?? Entities/Textures/M4R_11_Base.dds
+?? Entities/Textures/M4R_12_RM.dds
+?? Entities/Textures/M4R_13_Norm.dds
+?? Entities/Textures/M4R_14_Base.dds
+?? Entities/Textures/M4R_15_RM.dds
+?? Entities/Textures/M4R_1_Norm.dds
+?? Entities/Textures/M4R_2_Base.dds
+?? Entities/Textures/M4R_3_RM.dds
+?? Entities/Textures/M4R_4_Norm.dds
+?? Entities/Textures/M4R_5_Base.dds
+?? Entities/Textures/M4R_6_RM.dds
+?? Entities/Textures/M4R_7_Norm.dds
+?? Entities/Textures/M4R_8_Base.dds
+?? Entities/Textures/M4R_9_RM.dds
+?? Entities/Textures/MK14EBR_AO.dds
+?? Entities/Textures/MK14EBR_Base.dds
+?? Entities/Textures/MK14EBR_Norm.dds
+?? Entities/Textures/MK14EBR_RM.dds

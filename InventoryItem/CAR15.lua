@@ -38,15 +38,13 @@ DefineClass.CAR15 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine_AR15",
-				"JAZZ_MagLarge_50_AR15",
-				"JAZZ_MagQuick_AR15",
 				"JAZZ_MagSmall30_20",
 			},
 			'DefaultComponent', "JAZZ_MagSmall30_20",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
+			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Flashlight",
 				"JAZZ_FlashlightOff",
@@ -98,16 +96,13 @@ DefineClass.CAR15 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	WeaponMass = 30,
-	CyclicRPM = 750,
-	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
 	Recoil = 22,
 	BurstShots = 4,
 	AutoShots = 8,
-
+	WeaponMass = 30,
+	CyclicRPM = 750,
+	WeaponSizeClass = "Carbine",
 	CloseRange = 5,
-
 	CloseRangeFactor = 90,
 	BulletDropRange = 14,
 	Grouping = 55,

@@ -1,0 +1,15 @@
+{
+  "ids": [
+    "BarretM82",
+    "Gewehr98",
+    "M24Sniper"
+  ],
+  "variants": [
+    "all"
+  ],
+  "matte": true,
+  "distance": 2100,
+  "prerequisites": {},
+  "label_prefix": "",
+  "capture_source_sha256": "df12b1d91f04353aa7247f62639aa8375072cb50d40298369efcac7538563233"
+}

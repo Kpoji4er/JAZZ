@@ -13,7 +13,6 @@ DefineClass.JazzArmor_TireArmor = {
 	Description = T(247198247081, --[[ModItemInventoryItemCompositeDef JazzArmor_TireArmor Description]] "С любовью вырезанная из старых шин для грузовика  полнотельная броня с рукавами. Не хотелось бы огорчать автора жестокой действительностью касательно способностей его брони.\n"),
 	AdditionalHint = T(287567251502, --[[ModItemInventoryItemCompositeDef JazzArmor_TireArmor AdditionalHint]] "Самодельная броня из шин"),
 	Cost = 800,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 25,

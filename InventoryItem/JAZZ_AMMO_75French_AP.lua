@@ -11,7 +11,6 @@ DefineClass.JAZZ_AMMO_75French_AP = {
 	colorStyle = "AmmoAPColor",
 	Description = T(890000000000827, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_AP Description]] "Бронебойные патроны, действительно суровые и эффективные, можно не только прошибать броню, но ещё и броню за стенами."),
 	Cost = 850,
-	CanAppearInShop = false,
 	MaxStock = 5,
 	RestockWeight = 1,
 	CategoryPair = "792",

@@ -5,33 +5,12 @@ DefineClass.DesignerExplosives = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "hoursToProduce",
-			'Value', 168,
-			'Tag', "<hoursToProduce>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "amountToProduce",
-			'Value', 2,
-			'Tag', "<amountToProduce>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "nextProductionTime",
-			'Tag', "<nextProductionTime>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "craft_discount",
-			'Value', 30,
-			'Tag', "<craft_discount>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnNewHour",
 			Handler = function (self, target)
 				if target.HireStatus ~= "Hired" then return end
-
+				
 				local next_production = self:ResolveValue("nextProductionTime")
 				-- Saves that loaded the broken CE rewrite may lack nextProductionTime.
 				if not next_production or next_production == 0 then
@@ -39,11 +18,11 @@ DefineClass.DesignerExplosives = {
 					return
 				end
 				if Game.CampaignTime < next_production or gv_Squads[target.Squad].water_travel then return end
-
+				
 				local amountToProduce = self:ResolveValue("amountToProduce")
 				local item_name = amountToProduce > 1 and g_Classes["ShapedCharge"].DisplayNamePlural or g_Classes["ShapedCharge"].DisplayName
 				self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
-
+				
 				local slots = { "Handheld A", "Handheld B", "Inventory" }
 				local canPlaceError, amountLeft
 				local amountToPlace = amountToProduce
@@ -58,7 +37,7 @@ DefineClass.DesignerExplosives = {
 						end
 					end
 				end
-
+				
 				local text = T{318623454402, "<merc> produced <amount> <item_name>.", merc = target.Nick, amount = amountToProduce, item_name = item_name}
 				if canPlaceError or (amountLeft and amountLeft > 0) then
 					amountToPlace = amountToPlace or amountToProduce
@@ -79,3 +58,4 @@ DefineClass.DesignerExplosives = {
 	Icon = "UI/Icons/Perks/DesignerExplosives",
 	Tier = "Personal",
 }
+

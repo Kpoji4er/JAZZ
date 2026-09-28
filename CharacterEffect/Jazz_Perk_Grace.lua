@@ -5,13 +5,6 @@ DefineClass.Jazz_Perk_Grace = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "knife_range",
-			'Value', 12,
-			'Tag', "<knife_range>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -52,3 +45,4 @@ DefineClass.Jazz_Perk_Grace = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Grace.png",
 	Tier = "Personal",
 }
+

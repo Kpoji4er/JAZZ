@@ -16,10 +16,10 @@ Snapshot before full Ernie / Legion squad rework. **Do not treat as target desig
 | **Medium** | **20** | **25** | **40** | обычный гарнизон / forest / coastal / road Init |
 | **Large** | **30** | **40** | **70** | людный узел (не hub-исключения) |
 
-**Easy/Hard = сразу в authored packs (owner 2026-08-10):** цели headcount по таблице выше — **в scope UNITS-007**, не follow-up.  
-В пресете `EnemySquads` нет отдельных полей EasyAmount/HardAmount: слот считает `UnitCountMin`/`UnitCountMax` через `InteractionRandRange` (это **variance**, не game difficulty). Чтобы Easy/Normal/Hard давали **разные** суммы, на телесных ролях — **difficulty-gated слоты** (`conditions` / `Difficulty Easy|Normal|Hard` на `weightedList`, пустой list → слот пропускается) с count = E/N/H цели роли; якоря по-прежнему Min=Max и обычно на всех сложностях. Альтернатива — тонкий JAZZ-wrap `GenerateRandEnemySquadUnits` (только если gated slots окажутся слишком шумными).  
-**Slot count variance (owner):** внутри одной сложности на телесных слотах допустим рандом **±10…20%** вокруг цели роли этой сложности. Якоря (officer/medic/mortar/RPG/named/≤1 GL) — **фиксированные** Min=Max.  
-**Исключения (уже locked, не эта шкала):** I5 XL **60**, J5 **40**, villa Sentry+Attackers 22–26, quest packs.  
+**Easy/Hard = сразу в authored packs (owner 2026-08-10):** цели headcount по таблице выше — **в scope UNITS-007**, не follow-up.<br>
+В пресете `EnemySquads` нет отдельных полей EasyAmount/HardAmount: слот считает `UnitCountMin`/`UnitCountMax` через `InteractionRandRange` (это **variance**, не game difficulty). Чтобы Easy/Normal/Hard давали **разные** суммы, на телесных ролях — **difficulty-gated слоты** (`conditions` / `Difficulty Easy|Normal|Hard` на `weightedList`, пустой list → слот пропускается) с count = E/N/H цели роли; якоря по-прежнему Min=Max и обычно на всех сложностях. Альтернатива — тонкий JAZZ-wrap `GenerateRandEnemySquadUnits` (только если gated slots окажутся слишком шумными).<br>
+**Slot count variance (owner):** внутри одной сложности на телесных слотах допустим рандом **±10…20%** вокруг цели роли этой сложности. Якоря (officer/medic/mortar/RPG/named/≤1 GL) — **фиксированные** Min=Max.<br>
+**Исключения (уже locked, не эта шкала):** I5 XL **60**, J5 **40**, villa Sentry+Attackers 22–26, quest packs.<br>
 Quest / story между тирами ок (CounterAttack 30, Wave2 ~25), если роль ясна.
 
 Старый глобальный «Easy = base−10 / Hard = base+10» для Init Эрни **superseded** этой таблицей (для Small/Medium/Large). Medic Easy+/Hard− (STRATEGY-015) — отдельно, не путать с body count.
@@ -57,7 +57,7 @@ Island budget: большинство Init — **A/B**; C–E точечно. **
 
 **Универсальный Extra:** `LegionExtra_Ernie_Mixed` (6–9) — **по одному роллу на юнита** из пула специальностей (gunner / marksman / grenadier / raider / crusher / scout). Не один `EnemySquadUnit` 6–9: ванильный `GenerateRandEnemySquadUnits` иначе берёт тип один раз и клонирует → монотип в UI. Без офицеров/медиков. Один ID на много секторов.
 
-Правила: Extra не = второй Medium; ставить где карта велика относительно base; **не** 2×Extra. Старый `LegionExtraSquadFireArms`(15) на Эрни Init — заменить на эти 5–10 packs.  
+Правила: Extra не = второй Medium; ставить где карта велика относительно base; **не** 2×Extra. Старый `LegionExtraSquadFireArms`(15) на Эрни Init — заменить на эти 5–10 packs.<br>
 **UNITS-007 retire:** старые overflow-стеки (`*_Easy` Attackers/Defenders, толстые ExtraFireArms…), после смены Init и zero refs — в jazz-units `ModItemFolder` **Deprecated** (Id не hard-delete, если ещё referenced).
 
 **4. Terrain / site presets (роль локации)**
@@ -245,7 +245,7 @@ Policy: with Legion Global AI, static `InitialSquads` = starting garrisons or qu
 | **7** | I7 Форт Ло-Блё | J7 Изумрудный берег | K7 сожж. деревня / скалистый берег | L7 малая береговая деревня | — заглушка — |
 | **1** | — | — | — | L1 лагерь повстанцев | M1 зона высадки |
 
-**Init scope:** перегибы UNITS-007 = M4–M6, I2–I4, L1–L2, L6/UG, I7.  
+**Init scope:** перегибы UNITS-007 = M4–M6, I2–I4, L1–L2, L6/UG, I7.<br>
 **Исключения Init:** M1–M3 map-only; J4/J6 map-only; I5/J5 size+officers locked/exception; villa K3/K5/L3–L5 locked; I6/J7/K6/K7/L7 — отдельно (часто 0 Init или non-Legion map).
 
 ## Counts by sector

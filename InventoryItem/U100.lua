@@ -53,7 +53,6 @@ DefineClass.U100 = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagDrum_30_100_G3",
-				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -92,16 +91,13 @@ DefineClass.U100 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 6000,
-	WeaponMass = 80,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 18,
 	BurstShots = 4,
 	AutoShots = 7,
-
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 14,
 	Grouping = 42,

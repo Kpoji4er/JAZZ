@@ -1,0 +1,31 @@
+{
+	"14114000717206619522": {
+		"command_line": " -silent -nocuda -dds10 -mipfilter kaiser -bc5 -Rg 1.0",
+		"map_type": "NormalMap",
+		"path_color_expand": "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Base.tga",
+		"path_main_source": "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Norm.tga",
+		"source_paths": [
+			"C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Norm.tga",
+			"C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Base.tga"
+		]
+	},
+	"14114001426928131271": {
+		"command_line": " -silent -nocuda -dds10 -mipfilter kaiser -bc3 -Rg 2.2 -srgb -FixMips4ATest 128",
+		"map_type": "BaseColorMap",
+		"path_main_source": "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Base.tga",
+		"alpha_test": 128,
+		"source_paths": [
+			"C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Base.tga"
+		]
+	},
+	"14114002058226795191": {
+		"command_line": " -silent -nocuda -dds10 -mipfilter kaiser -bc1 -Rg 1.0 -specAA \"C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Norm.tga\"",
+		"map_type": "RoughnessMetallicMap",
+		"path_color_expand": "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Base.tga",
+		"path_main_source": "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_RM.tga",
+		"source_paths": [
+			"C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_RM.tga",
+			"C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male_Base.tga"
+		]
+	}
+}

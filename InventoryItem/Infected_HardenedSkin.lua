@@ -7,7 +7,6 @@ DefineClass.Infected_HardenedSkin = {
 	object_class = "Armor",
 	ScrapParts = 3,
 	RepairCost = 1000,
-	CanAppearInShop = false,
 	Repairable = false,
 	Degradation = 0,
 	Icon = "UI/Icons/Items/kevlar_vest",

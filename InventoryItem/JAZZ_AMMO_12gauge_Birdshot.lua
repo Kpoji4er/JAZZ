@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_12gauge_Birdshot = {
 	AdditionalHint = "",
 	Cost = 120,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 8,
 	RestockWeight = 90,
 	ShopStackSize = 25,

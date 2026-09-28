@@ -3,11 +3,11 @@ DefineClass.RSH12 = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 3-UNIQ",
 	object_class = "Revolver",
 	ScrapParts = 8,
 	RepairCost = 30,
-	CanAppearInShop = false,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/HiCalRev.png",
 	DisplayName = T(363425699078, --[[ModItemInventoryItemCompositeDef RSH12 DisplayName]] "РШ-12"),
@@ -40,7 +40,6 @@ DefineClass.RSH12 = {
 				"JAZZ_LaserDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -51,17 +50,12 @@ DefineClass.RSH12 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 18,
+	ReloadStyle = "Revolver",
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 10,
 	Grouping = 88,
 	BaseJamChance = -50,

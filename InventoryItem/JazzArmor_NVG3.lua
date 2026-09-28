@@ -11,7 +11,6 @@ DefineClass.JazzArmor_NVG3 = {
 	Description = T(298672605271, --[[ModItemInventoryItemCompositeDef JazzArmor_NVG3 Description]] "Самый современный прибор ночного видения третьего поколения. Светопоглощающая матрица из арсенида галлия и инфракрасный прожектор позволяют бойцу видеть ночью практически как днем."),
 	AdditionalHint = T(684296538295, --[[ModItemInventoryItemCompositeDef JazzArmor_NVG3 AdditionalHint]] "Прибор ночного зрения третьего поколения"),
 	Cost = 28000,
-	CanAppearInShop = true,
 	Tier = 5,
 	RestockWeight = 8,
 	PenetrationClass = 2,

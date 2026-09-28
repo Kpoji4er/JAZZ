@@ -1,0 +1,11 @@
+{
+  "seq": 1,
+  "type": "response",
+  "body": {
+    "type": "string",
+    "result": "OK: {\"camera\":\"{\\n\\tpoint(160841, 170135, 17950),\\n\\tpoint(155400, 155400, 6950),\\n\\t\\\"Tac\\\",\\n\\t750,\\n\\t{\\n\\t\\tfloor = 0,\\n\\t\\toverview = false,\\n\\t},\\n\\t4200,\\n}\",\"light\":\"Dry_Coastal_Day\",\"capture_area_objects\":[],\"map\":\"ModEditor\",\"render\":{\"particles\":1,\"auto_exposure\":1,\"sky\":1,\"clutter\":true,\"rain\":1,\"terrain\":1},\"time_factor\":1100} {\n\tmetatable = table: 00000224B16D4808 [1]\n}"
+  },
+  "command": "evaluate",
+  "success": true,
+  "request_seq": 1
+}

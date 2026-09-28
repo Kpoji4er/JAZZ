@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_3006_Match = {
 	Cost = 840,
 	CanAppearInShop = true,
 	Tier = 4,
-	MaxStock = 3,
 	RestockWeight = 18,
 	CategoryPair = "3006",
 	ShopStackSize = 20,

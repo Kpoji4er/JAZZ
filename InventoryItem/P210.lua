@@ -3,6 +3,7 @@ DefineClass.P210 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -14,10 +15,9 @@ DefineClass.P210 = {
 	Description = T(931652226138, --[[ModItemInventoryItemCompositeDef P210 Description]] "Самый дорогой военный пистолет в мире, самый точный военный пистолет в мире, самый надежный военный пистолет в мире. Нельзя сказать, что самый редкий военный пистолет в мире, но стремится к этому."),
 	AdditionalHint = T(310575798556, --[[ModItemInventoryItemCompositeDef P210 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Надежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Удобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Убойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Пистолет швейцарской маминой подруги."),
 	UnitStat = "Marksmanship",
-	CanAppearInShop = true,
-	Tier = 1,
-	RestockWeight = 115,
 	Cost = 4000,
+	CanAppearInShop = true,
+	RestockWeight = 115,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 21,
@@ -73,7 +73,6 @@ DefineClass.P210 = {
 				"JAZZ_UVDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -85,18 +84,12 @@ DefineClass.P210 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 3000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
 	Grouping = 62,
 	BaseJamChance = -50,
 	WeaponResource = 1200,

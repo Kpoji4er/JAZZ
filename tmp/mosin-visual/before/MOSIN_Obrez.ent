@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entity path="" name="MOSIN_Obrez">
+	<state id="idle">
+		<mesh_ref ref="Mesh" />
+	</state>
+	<mesh_description id="Mesh">
+		<lod idx="0" distance="0">
+			<mesh file="Meshes/MOSIN_Obrez_Mesh.m.hgm" />
+			<material file="Materials/MOSIN_Obrez_Mesh.mtl" />
+			<bsphere value="9.111,1.997,-2.009,19.623" />
+			<box min="-8.863,-1.767,-9.642" max="27.085,5.761,5.623" />
+			</lod>
+		<attach name="Barrel" spot_pos="0.000,0.000,0.000" spot_rot="0.000000,0.000000,1.000000,0.0000" />
+		<attach name="Hand_l_grip" spot_pos="5.000,0.000,1.500" spot_rot="0.000000,0.000000,1.000000,0.0000" />
+		<attach name="Magazine" spot_pos="8.000,0.000,-4.000" spot_rot="0.000000,0.000000,1.000000,0.0000" />
+		<attach name="Muzzle" spot_pos="27.085,0.000,4.000" spot_rot="0.000000,0.000000,1.000000,0.0000" />
+		<attach name="Trigger" spot_pos="2.000,0.000,-2.500" spot_rot="0.000000,0.000000,1.000000,0.0000" />
+	<attach name="Scope" spot_pos="9.721,-1.328,7.329" spot_rot="0,0,1,0" /></mesh_description>
+</entity>

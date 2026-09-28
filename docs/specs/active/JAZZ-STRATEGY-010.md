@@ -95,7 +95,7 @@ Roadmap 7b: spawn должен тратить людей; recruits копятс�
 
 ## Решение владельца
 
-28 июля 2026 — «доделай всю задачу по глобалке» includes 7b with locked defaults.  
+28 июля 2026 — «доделай всю задачу по глобалке» includes 7b with locked defaults.<br>
 2026-08-18: `RecruiterCooldown` **48h** и POI pulse **96h** — [JAZZ-STRATEGY-016](JAZZ-STRATEGY-016.md). Recruiter path/schema unchanged.
 
 ## Evidence

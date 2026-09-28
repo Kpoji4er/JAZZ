@@ -19,29 +19,15 @@ DefineClass.Jazz_Perk_Vicious = {
 					end
 				end
 				women = Min(women, 3)
-				target:SetEffectValue("Jazz_Perk_Vicious", women > 0 and women or nil)
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function (self, target)
-				local women = target:GetEffectValue("Jazz_Perk_Vicious")
-				if women and not target:GetEffectValue("Jazz_Perk_Vicious_Applied") then
+				if women > 0 then
 					target:GainAP(women * const.Scale.AP)
-					target:SetEffectValue("Jazz_Perk_Vicious_Applied", true)
 				end
 			end,
 		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCombatEnd",
-			Handler = function (self, target)
-				target:SetEffectValue("Jazz_Perk_Vicious", nil)
-				target:SetEffectValue("Jazz_Perk_Vicious_Applied", nil)
-			end,
-		}),
 	},
-	DisplayName = T(890000000002700, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vicious DisplayName]] "Дамский угодник"),
+	DisplayName = T(--[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vicious DisplayName]] "Perk"),
 	Description = T(890000000002701, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Vicious Description]] "В начале боя: +1 ОД за каждую женщину в отряде (макс. 3)."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Vicious.png",
 	Tier = "Personal",
 }
+

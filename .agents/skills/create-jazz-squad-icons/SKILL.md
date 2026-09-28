@@ -6,8 +6,8 @@ description: >-
 
 # Создание squad role icons
 
-Пакет-владелец ассетов: `jazz` → `SquadsIcons/Enemy/<faction>/` (+ `_shields/`, `_misc/`).  
-Current-state каталог: `docs/technical/systems/squad-role-icons.md`.  
+Пакет-владелец ассетов: `jazz` → `SquadsIcons/Enemy/<faction>/` (+ `_shields/`, `_misc/`).<br>
+Current-state каталог: `docs/technical/systems/squad-role-icons.md`.<br>
 Детали стиля и промпта: [references/style-and-naming.md](references/style-and-naming.md).
 
 Asset-only PNG **не** требует spec. Привязка role → path в `Guardpost_Patrols.lua` / director — отдельное behaviour-изменение → `$specify-jazz-change`.
@@ -76,7 +76,7 @@ Asset-only PNG **не** требует spec. Привязка role → path в `
 
 ### 4. Порты фракций
 
-Тот же силуэт на `_shields/army.png` / `adonis.png` / `rebels.png` / `smugglers.png`.  
+Тот же силуэт на `_shields/army.png` / `adonis.png` / `rebels.png` / `smugglers.png`.<br>
 Скрипт с `-Factions` без `legion` — только порты с уже готового `legion/legion_<ROLE>_squad.png`:
 
 ```powershell

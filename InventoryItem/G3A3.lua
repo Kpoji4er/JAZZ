@@ -3,6 +3,7 @@ DefineClass.G3A3 = {
 	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-5",
 	object_class = "BattleRifle",
 	ScrapParts = 10,
@@ -19,8 +20,8 @@ DefineClass.G3A3 = {
 	Cost = 9750,
 	CanAppearInShop = true,
 	Tier = 4,
-	RestockWeight = 50,
 	MaxStock = 1,
+	RestockWeight = 50,
 	CategoryPair = "AssaultRifles",
 	Caliber = "JAZZ_Caliber_762x51",
 	Damage = 35,
@@ -84,16 +85,12 @@ DefineClass.G3A3 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
+	Recoil = 27,
+	AutoShots = 6,
 	WeaponMass = 44,
 	CyclicRPM = 550,
-	WeaponSizeClass = "Rifle",
 	BurstLimiter = 3,
-	Recoil = 27,
-	BurstShots = 3,
-	AutoShots = 6,
-
 	CloseRange = 11,
-
 	CloseRangeFactor = 80,
 	BulletDropRange = 20,
 	Grouping = 51,

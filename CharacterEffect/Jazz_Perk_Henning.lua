@@ -3,14 +3,8 @@ DefineClass.Jazz_Perk_Henning = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "radius",
-			'Value', 10,
-			'Tag', "<radius>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -33,3 +27,4 @@ DefineClass.Jazz_Perk_Henning = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Henning.png",
 	Tier = "Personal",
 }
+

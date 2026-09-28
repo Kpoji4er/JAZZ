@@ -92,7 +92,7 @@ Feasibility — инженерная оценка «как делать», не 
 | D. Toggle + effect value | Spouke `Jazz_Perk_00` | активный личный toggle |
 | E. Status/aura marker | `Jazz_Perk_OfficerAura*` | ауры; не AIM StartingPerk |
 
-Доступные `UnitReaction` Event (уже встречаются в `CharacterEffect/`):  
+Доступные `UnitReaction` Event (уже встречаются в `CharacterEffect/`):<br>
 `OnCalcChanceToHit`, `OnModifyCTHModifier`, `GatherCTHModifications`, `OnCalcDamageAndEffects`, `OnCalcCritChance`, `OnCalcAPCost`, `OnCalcStartTurnAP`, `OnCalcFreeMove`, `OnCalcStealthKillChance`, `OnCalcStealthKillMinChance`, `OnCalcSightModifier`, `OnBeginTurn`, `OnEndTurn`, `OnCombatStarted`/`Starting`/`End`, `OnUnitAttack`, `OnFirearmAttackStart`, `OnHeal`, `OnUnitBandaged`, `OnCalcPersonalMorale`, `OnSatelliteTick`, …
 
 Правила волны перков:
@@ -218,20 +218,20 @@ Feasibility — инженерная оценка «как делать», не 
 
 Порядок предложения:
 
-1. Madman, Blade (v1), Nervous  
-2. Henning, Vicious (v1), Dynamo (v1)  
-3. Eskimo, Lucky, Shank, Vilde  
-4. Laura, Vince  
+1. Madman, Blade (v1), Nervous<br>
+2. Henning, Vicious (v1), Dynamo (v1)<br>
+3. Eskimo, Lucky, Shank, Vilde<br>
+4. Laura, Vince<br>
 5. Steiger (aura night — из HARD↓EASY)
 
 DoD на перк: Description = фактический эффект; `unit_reactions` или `HasPerk` hook; RU/EN; smoke в редакторе/бое.
 
 ### Фаза 2 — Wave B (MEDIUM) High leftovers + сильные Medium
 
-1. Grom, Mike (**с упрощением**), Dimitri (без пула)  
-2. Cougar (stealth-kill only), Gaston (elevated), Horg (str ignore)  
-3. Grace, Ricochet, Carlos, Bull  
-4. Kulba, Devin (Burning), Meat, Quinten (AP only), Monk  
+1. Grom, Mike (**с упрощением**), Dimitri (без пула)<br>
+2. Cougar (stealth-kill only), Gaston (elevated), Horg (str ignore)<br>
+3. Grace, Ricochet, Carlos, Bull<br>
+4. Kulba, Devin (Burning), Meat, Quinten (AP only), Monk<br>
 5. Hitman (active), Allik, Cord/Static/Biggens — по одной cost/detect точке
 
 ### Фаза 3 — Wave C (HARD) после отдельного approve

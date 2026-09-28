@@ -30,7 +30,8 @@ DefineClass.JAZZ_AMMO_762x54_Tracer = {
 		}),
 	},
 	AppliedEffects = {
-		"ExposedMarkedTraccers",
+		"Exposed",
+		"MarkedTraccers",
 	},
 }
 

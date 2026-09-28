@@ -31,15 +31,47 @@ DefineClass.M16A4 = {
 	OverwatchAngle = 1200,
 	Noise = 52,
 	HandSlot = "TwoHanded",
-	Entity = "M16A4",
+	Entity = "M16R_M16A4",
 	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'AvailableComponents', {
+				"JAZZ_Handguard",
+				"JAZZ_Handguard_RIS",
+			},
+			'DefaultComponent', "JAZZ_Handguard",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShort",
+			},
+			'DefaultComponent', "JAZZ_BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Stock",
+            'Modifiable', false,
+            'AvailableComponents', { "JAZZ_StockNormal" },
+            'DefaultComponent', "JAZZ_StockNormal",
+        }),
+		PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Handgrip",
+            'Modifiable', false,
+            'AvailableComponents', { "JAZZ_Handgrip_Default" },
+            'DefaultComponent', "JAZZ_Handgrip_Default",
+        }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Trigger",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Autofire",
+			},
+		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine_AR15",
-				"JAZZ_MagLarge_50_AR15",
-				"JAZZ_MagQuick_AR15",
 				"JAZZ_MagSmall30_20",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -72,11 +104,15 @@ DefineClass.M16A4 = {
 				"JAZZ_ImprovisedSuppressor",
 				"JAZZ_Suppressor",
 				"JAZZ_SuppressorImproved",
+				"JAZZ_DefMuzzle",
+			
 			},
-		}),
+		
+				'DefaultComponent', "JAZZ_DefMuzzle",
+			}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
-			'CanBeEmpty', true,
+			'CanBeEmpty', false,
 			'AvailableComponents', {
 				"JAZZ_Reflex_Aimpoint5000",
 				"JAZZ_Reflex_Closed",
@@ -89,8 +125,10 @@ DefineClass.M16A4 = {
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
 				"JAZZ_DefaultIronsight_AR15",
+				"JAZZ_CarryHandle_AR15",
+			
 			},
-			'DefaultComponent', "JAZZ_DefaultIronsight_AR15",
+			'DefaultComponent', "JAZZ_CarryHandle_AR15",
 		}),
 	},
 	HolsterSlot = "Shoulder",
@@ -103,16 +141,12 @@ DefineClass.M16A4 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	WeaponMass = 34,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Rifle",
-	BurstLimiter = 3,
-	BurstShots = 3,
 	Recoil = 17,
 	AutoShots = 7,
-
+	WeaponMass = 34,
+	CyclicRPM = 700,
+	BurstLimiter = 3,
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 17,
 	Grouping = 62,

@@ -3,6 +3,7 @@ DefineClass.Jazz_Perk_Lucky = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
 	unit_reactions = {},
 	DisplayName = T(890000000005043, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Lucky DisplayName]] "Госпожа Удача"),
@@ -10,3 +11,4 @@ DefineClass.Jazz_Perk_Lucky = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Lucky.png",
 	Tier = "Personal",
 }
+

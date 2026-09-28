@@ -1,6 +1,8 @@
 # Броня и одежда Легиона: рабочий пайплайн и QA
 
-Область: JAZZ Torso, сначала Male Legion. Это инструкция производства, а не заявление, что все семейства готовы. `qa-pass` ниже проверяет только явно перечисленные свойства; визуальная приёмка и JA3-анимации остаются отдельными этапами.
+Исправление кустарных моделей после кругового аудита: `_model_rebuilt_legion_armor.py` сваривает совпадающие импортные швы до offset, использует общую посадочную поверхность и native Shirt_08 skin; плечи кольчуги не сглаживать вместе с торсом. `_qa_rebuilt_armor_candidate.py` выполняет clothed review, экспорт и двусторонний compiled HGM audit. `_refresh_rebuilt_legion_armor.py` требует отдельно записанный визуальный review с SHA256 исходника, а не только численный pose PASS. Проверочные нейтральные материалы и JSON рубашки не входят в экспорт. Команды — в `docs/tools/README.md`.
+
+Область: JAZZ Torso, сначала Male Legion. Это инструкция производства, а не заявление, что все семейства готовы. `qa-pass` ниже проверяет только явно перечисленные свойства; визуальная приёмка и JA3-анимации остаются отдельными этапами. Что уже стоит на диске и что смотреть в игре: `.agents/docs/playbooks/model-export-qa-handoff.md`.
 
 ## Источники и уровень проверки
 
@@ -71,6 +73,8 @@ Body replacement должен сохранять исходный Body и вос
 7. Только после gates: адресная установка существующих файлов с backup, повторный graph check, сверка SHA256.
 
 Полный проход пока реализован для кирасы. Для каждой новой entity нужен такой же собственный отчёт и тестовый юнит. `PASS_OFFLINE` не означает human/style acceptance. Первый сбой QA остановил установку из-за отсутствующей QA-разметки; второй — из-за неверного ожидаемого ExportedEntities. Это исправлено, третий полный проход PASS.
+
+Нормали: всегда пересчитать, кастомные/split не оставлять и не писать. Успешный exporter не ловит кривой weld — в анимации это полигон на пол-экрана. Канон: `.agents/docs/playbooks/mesh-export-normals.md`, `prepare_export_mesh`, `python docs/tools/_check_mesh_export_normals.py`.
 
 AssetsProcessor выбирает ExportedEntities относительно экспортируемого FBX/конфигурации. Не брать старый .ent из похожего каталога: проверять путь из лога и свежесть. Ошибка FBX/SDK version может сопровождать успешный выход, поэтому проверять выходные файлы и последующий runtime отдельно.
 
@@ -155,3 +159,14 @@ Live refresh is allowed only when explicitly requested: `_refresh_heavy_armor_fi
 Owner rejected the installed HAV rear fit. Uniform depth scale 1.16 had left a median 93 mm gap to the actual LegionGoon shirt; front-only previews and no-render pose checks missed it. `_morph_heavy_armor_fit.py` samples the original Light inner shell against the calibrated NPCCostumeMale_Shirt_08 garment, constructs a smoothed radial displacement field, and applies it to all torso components while preserving thickness and UVs. Fade outside the torso keeps arm guards out of the morph cage. Do not apply the morph twice: always start from the original modular build.
 
 Require four clothed rest views (front/back/side/oblique), two approximate clothed lean views, and rear inner clearance gates (minimum > -3 mm, p95 < 35 mm). Shirt pose weights are transferred from the official sample and explicitly do not claim recovered native shirt weights. `_qa_heavy_legion_armor.py --shirt ... --reference-armor ...` enables this gate for all nine configurations; `_refresh_heavy_armor_fit.py` updates existing resources only after all pass. Keep original builds and a resource backup. These checks do not cover every Legion body.
+
+## Переделка кустарных моделей, 2026-09-26
+Владелец отверг прежние Chainmail/TireBrigantine/TireArmor, сохранив кирасу эталоном. Новый source builder: `docs/tools/_model_rebuilt_legion_armor.py`; обновление только существующих ресурсов/иконок: `docs/tools/_refresh_rebuilt_legion_armor.py` (сначала dry-run, затем `--apply`, закрытая игра, backup/rollback). Партия `rebuilt-20260926-v8` установлена для игровой приёмки, не accepted. Численный pose PASS не закрывает видимые зазоры креплений при экстремальном наклоне; reference-shirt имеет приблизительные веса. Для наручей добавлять `--elbows` к `_check_soft_armor_poses.py`.
+
+### Цвета брони, 2026-09-27
+
+Для точечной замены albedo без повторного экспорта геометрии: `_stage_armor_colors.py` → Blender `_bake_armor_colors.py` → `_preview_armor_colors.py` → stage `--apply`; параметры в tools README. Guardian — чёрный, Twaron — зелёный, Zylon — сохранённый четырёхцветный woodland. Кольчуга: светлые стальные кольца на тёмных промежутках. Все Light/Medium/Full; исходные mesh/UV/rig/Normal/RM защищены хэшами. Native shader bake сохраняет фактуру ткани; runtime/human acceptance отдельно.
+
+### LeatherArmor: контакт лямок
+
+`_model_leather_armor.py` проецирует весь пришитый нахлёст на actual solidified panel, а не только крайние вершины. `leather_anchor`/`leather_surface` point attributes проходят join и позволяют `_check_leather_armor_contacts.py` измерять зазор после Armature в четырёх позах. Кожа запекается через общий exporter: prepare перед bake, только ExportUV после bake. Порядок export/stage/install и параметры — в tools README; текущий результат в `docs/design/leather-armor-production.md`. Не выдавать численный contact PASS за игровую посадку на всех Body.

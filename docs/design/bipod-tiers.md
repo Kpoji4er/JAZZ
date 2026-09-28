@@ -1,6 +1,6 @@
 # Сошки (Bipod) — prone only
 
-Канон. Apply: `docs/tools/_rebalance_bipod_tiers.py` (+ `_fix_dup_bipod.py` если remap оставил дубли).  
+Канон. Apply: `docs/tools/_rebalance_bipod_tiers.py` (+ `_fix_dup_bipod.py` если remap оставил дубли).<br>
 Связано: `attachments-rebalance.md`, `JAZZ-ATTACH-001`.
 
 **Статус:** applied 2026-08-01.

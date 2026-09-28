@@ -149,11 +149,11 @@ Already OK / locked (не трогать размер в этой спеке):
 
 ## Решение владельца
 
-2026-08-10: срезать перегибы; Эрни в основном T1–T2; ключи I7/L1/I2 — B; I5/J5/villa locked.  
-**Size×difficulty (InitialSquads):** Small 5/10/15 · Medium 20/**25**/40 · Large 30/**40**/70 — **author E/N/H now** (gated slots).  
-**Extra lock:** I3=`Flankers`; I2=`Veterans` light (~5–7); I7 FortressDefenders **applied** (48 + drop Ordnance).  
-**Deprecated:** audit done — overflow stacks still referenced elsewhere → no folder move this wave.  
-**Extra per-unit (owner 2026-08-21):** усиления рандомят **каждого** бойца, не группу одного типа (ванильный clone `UnitCount`). Status **approved**.  
+2026-08-10: срезать перегибы; Эрни в основном T1–T2; ключи I7/L1/I2 — B; I5/J5/villa locked.<br>
+**Size×difficulty (InitialSquads):** Small 5/10/15 · Medium 20/**25**/40 · Large 30/**40**/70 — **author E/N/H now** (gated slots).<br>
+**Extra lock:** I3=`Flankers`; I2=`Veterans` light (~5–7); I7 FortressDefenders **applied** (48 + drop Ordnance).<br>
+**Deprecated:** audit done — overflow stacks still referenced elsewhere → no folder move this wave.<br>
+**Extra per-unit (owner 2026-08-21):** усиления рандомят **каждого** бойца, не группу одного типа (ванильный clone `UnitCount`). Status **approved**.<br>
 **L2 Extra drop (owner 2026-08-23):** проходной сектор, карта тесная — снять `LegionExtra_Ernie_Melee`; Init = только `LegionErnie_Medium_Forest_A` (~25). Пак Extra Melee не удалять.
 
 ## Evidence

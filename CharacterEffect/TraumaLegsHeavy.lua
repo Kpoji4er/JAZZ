@@ -2,54 +2,17 @@ UndefineClass('TraumaLegsHeavy')
 DefineClass.TraumaLegsHeavy = {
 	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "JazzTraumaEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "move_ap_modifier",
-			'Value', 150,
-			'Tag', "<move_ap_modifier>",
-		}),
-	},
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnEndTurn",
-			Handler = function(self, target)
-				JazzTraumaHeavyPainRamp(target)
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcMoveModifier",
-			Handler = function(self, target, value, action)
-				JazzTraumaPainOnZoneUse(target, "Legs")
-				return value + JazzTraumaResolveNum(self, target, JazzTraumaLegsMoveAp, "move_ap_modifier")
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcFreeMove",
-			Handler = function(self, target, data)
-				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
-					data.add = 0
-					data.mul = 0
-				end
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function(self, target)
-				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
-					target:RemoveStatusEffect("FreeMove")
-				end
-			end,
-		}),
-	},
-	DisplayName = T(890000000010110, "Leg Trauma (Heavy)"),
-	Description = T(890000000010111, "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. +3 Pain when moving; +1 Pain/turn if unused."),
-	OnAdded = function(self, obj)
+	DisplayName = T(890000000010110, --[[ModItemCharacterEffectCompositeDef TraumaLegsHeavy DisplayName]] "Leg Trauma (Heavy)"),
+	Description = T(890000000010111, --[[ModItemCharacterEffectCompositeDef TraumaLegsHeavy Description]] "Move cost <color EmStyle>+<move_ap_modifier>%</color>. Almost immobile. +3 Pain when moving; +1 Pain/turn if unused."),
+	OnAdded = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
 	end,
-	OnRemoved = function(self, obj)
+	OnRemoved = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
@@ -60,3 +23,4 @@ DefineClass.TraumaLegsHeavy = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

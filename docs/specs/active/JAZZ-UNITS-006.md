@@ -49,7 +49,7 @@ source_sheet: "https://docs.google.com/spreadsheets/d/1h6Q_NXa3M1W8nQ59KQAJZIn58
 
 Google Sheet **JAZZ Mercs → Лист2** задаёт целевые имена/механики именных перков (`сигна` + `JAZZ MOD`) для всего ростера: JA12/`Jazz_Perk_`* и оригинальных JA3. Часть JA12 уже зашита по `JAZZ-UNITS-003` и расходится с листом; ванильные personal часто тоже ≠ лист. Нужна единая каноническая сверка **оригинал → Лист2** и реализация батчами.
 
-**Канон дизайна:** Лист2 + Locked decisions / Mechanics ниже.  
+**Канон дизайна:** Лист2 + Locked decisions / Mechanics ниже.<br>
 **Оригинал:** текущий wired эффект (vanilla CE / JAZZ override / `JAZZ-UNITS-003` / stub article).
 
 ## Цели

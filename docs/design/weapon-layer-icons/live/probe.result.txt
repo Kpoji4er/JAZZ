@@ -1,0 +1,75 @@
+OK: GetCamera=function
+WaitCaptureScreenshot=function
+LuaToJSON=function
+TableToJSON=nil
+PlaceInventoryItem=function
+SetLightmodel=function
+SetCamera=function
+GetTimeFactor=function
+map=ModEditor
+time=1100
+camera={
+	point(160841, 170135, 17950),
+	point(155400, 155400, 6950),
+	"Tac",
+	750,
+	{
+		floor = 0,
+		overview = false,
+	},
+	4200,
+}
+light=PlaceObj('LightmodelPreset', {
+	ae_key_bias = -549839,
+	ao_lower_limit = 200,
+	base_color_desat = 200,
+	emissive_boost = 1000,
+	env_capture_map = "__LightmodelsBake",
+	env_exterior_capture_pos = point(121535, 95060, 11718),
+	env_exterior_capture_sky_exp = 200,
+	env_interior_capture_pos = point(121535, 95060, 11718),
+	env_interior_capture_sky_exp = 200,
+	ext_env_exposure = 30,
+	exterior_envmap = "Dry_Noon_Bake",
+	fog_color = 4287355647,
+	fog_density = 50,
+	fog_height_falloff = 2500,
+	fog_start = 70000,
+	gamma = 4284896326,
+	group = "Dry",
+	id = "Dry_Coastal_Day",
+	int_env_exposure = 50,
+	interior_envmap = "Dry_Noon_Bake",
+	lightcolor1 = 4293638025,
+	lm_capture = "ArtTest_Atmos",
+	mie_coefs = 4292257895,
+	mie_mc = 999,
+	mie_sh = 300,
+	pp_bloom_colorization = 40,
+	pp_bloom_contrast = 40,
+	pp_bloom_inner_tint = 4294946814,
+	pp_bloom_mip2_radius = 4,
+	pp_bloom_mip3_radius = 8,
+	pp_bloom_mip4_radius = 16,
+	pp_bloom_mip6_radius = 64,
+	pp_bloom_outer_tint = 4294936680,
+	pp_bloom_strength = 30,
+	pp_bloom_threshold = 40,
+	pp_ssao_strength = 180,
+	ps_exposure = 100,
+	rain_color = 4294966781,
+	rain_drop_radius = 1000,
+	ray_coefs = 4280058623,
+	ray_sh = 12000,
+	shadow = 940,
+	sky_exp = 80,
+	sun_alt = 630,
+	sun_angular_radius = 350,
+	sun_azi = 155,
+	sun_diffuse_color = 4294755453,
+	sun_intensity = 350,
+	three_point_lighting = "Dry_Savanna_Day",
+	unit_lighting_strength = 0,
+	use_time_of_day = false,
+	wind = "mid_gusts",
+})

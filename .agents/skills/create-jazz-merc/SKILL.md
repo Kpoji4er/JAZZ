@@ -9,8 +9,8 @@ description: >-
 
 Пакеты: `jazz-units` (UnitData, loot, portraits, VR), `jazz` (именной perk CharacterEffect, shared loc CSV).
 
-Эталон готовых статей: `docs/design/mercs-ja12/lynx.md`, `tosca.md`, `spider.md`, `spouke.md`.  
-Контракт: [references/article-contract.md](references/article-contract.md), checklist: [references/unitdata-checklist.md](references/unitdata-checklist.md).  
+Эталон готовых статей: `docs/design/mercs-ja12/lynx.md`, `tosca.md`, `spider.md`, `spouke.md`.<br>
+Контракт: [references/article-contract.md](references/article-contract.md), checklist: [references/unitdata-checklist.md](references/unitdata-checklist.md).<br>
 Шаблон: `docs/design/mercs-ja12/_template.md`. Фразы: `docs/design/mercs-ja12/_phrase-checklist.md`.
 
 Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.

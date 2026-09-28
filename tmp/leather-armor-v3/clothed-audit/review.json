@@ -1,0 +1,18 @@
+{
+  "source": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v3\\source\\LeatherArmor.blend",
+  "views": [
+    "front",
+    "right",
+    "back",
+    "left",
+    "rear_left",
+    "top",
+    "bottom"
+  ],
+  "geometry_modified": false,
+  "blend_saved": false,
+  "diagnostic_materials": true,
+  "synthetic_poses": true,
+  "shirt_json": "C:\\Users\\SsAnd\\.codex\\artifacts\\armor-prototype\\jazz-body-reference\\json\\NPCCostumeMale_Shirt_08_mesh.json",
+  "scope": "visual audit; supplied shirt uses native weights; synthetic poses are not runtime acceptance"
+}

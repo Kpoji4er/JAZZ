@@ -136,8 +136,8 @@ t = (Medical − gate) / (100 − gate)   -- 0 at gate, 1 at 100
 heal% = kit_at_100% × (0.30 + 0.70 × t)
 ```
 
-Примеры Medium: Med 50 → 18%; Med 75 → 39%; Med 100 → 60%.  
-Heal amount = `MulDivRound(patient.MaxHitPoints, heal%, 100)`, затем clamp к недостающим ОЗ.  
+Примеры Medium: Med 50 → 18%; Med 75 → 39%; Med 100 → 60%.<br>
+Heal amount = `MulDivRound(patient.MaxHitPoints, heal%, 100)`, затем clamp к недостающим ОЗ.<br>
 Supersedes MED-003 `REQ-004` (`heal_modifier` +0/+50/+100%). Perk-модификаторы хила (например MD `BuildingConfidence`) применяются **после** этого % (mul/add к уже посчитанному amount), если уже висят на `OnCalcHealAmount` — не ломать; не давать суммарно выше недостающих ОЗ.
 
 ### Стабилизация (`jazz_stabilized`)

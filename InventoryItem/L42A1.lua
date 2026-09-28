@@ -1,6 +1,5 @@
 UndefineClass('L42A1')
 DefineClass.L42A1 = {
-	MaxStock = 1,
 	__parents = { "SniperRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -11,14 +10,15 @@ DefineClass.L42A1 = {
 	RepairCost = 7,
 	Reliability = 90,
 	Icon = "Mod/e6L4ECj/WeaponIcons/L42A1.png",
-	DisplayName = T(761915301101, "L42A1"),
-	DisplayNamePlural = T(761915301102, "L42A1"),
-	Description = T(761915301103, "Британская винтовка с ручным перезаряжанием под патрон 7,62x51 мм и собственным оптическим прицелом."),
+	DisplayName = T(761915301101, --[[ModItemInventoryItemCompositeDef L42A1 DisplayName]] "L42A1"),
+	DisplayNamePlural = T(761915301102, --[[ModItemInventoryItemCompositeDef L42A1 DisplayNamePlural]] "L42A1"),
+	Description = T(761915301103, --[[ModItemInventoryItemCompositeDef L42A1 Description]] "Британская винтовка с ручным перезаряжанием под патрон 7,62x51 мм и собственным оптическим прицелом."),
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Cost = 10000,
 	CanAppearInShop = true,
 	Tier = 2,
+	MaxStock = 1,
 	RestockWeight = 35,
 	CategoryPair = "Rifles",
 	Caliber = "JAZZ_Caliber_762x51",
@@ -34,13 +34,17 @@ DefineClass.L42A1 = {
 	Entity = "L42A1",
 	fxClass = "M24Sniper",
 	ComponentSlots = {
-        PlaceObj('WeaponComponentSlot', {
-            'SlotType', "Scope", 'Modifiable', false,
-            'AvailableComponents', { "JAZZ_L42A1_Scope" },
-            'DefaultComponent', "JAZZ_L42A1_Scope",
-        }),
-    },
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"JAZZ_L42A1_Scope",
+			},
+			'DefaultComponent', "JAZZ_L42A1_Scope",
+		}),
+	},
 	HolsterSlot = "Shoulder",
+	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"SingleShot",
 		"JAZZ_JokerShot",
@@ -48,16 +52,12 @@ DefineClass.L42A1 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 6000,
-	BurstShots = 0,
-	WeaponMass = 44,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 22,
+	BurstShots = 0,
 	AutoShots = 0,
-
+	WeaponMass = 44,
+	WeaponSizeClass = "Long",
 	CloseRange = 16,
-
 	CloseRangeFactor = 70,
 	BulletDropRange = 18,
 	Grouping = 43,

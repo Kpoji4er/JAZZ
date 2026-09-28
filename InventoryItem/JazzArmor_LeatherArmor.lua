@@ -13,7 +13,6 @@ DefineClass.JazzArmor_LeatherArmor = {
 	Description = T(970768508285, --[[ModItemInventoryItemCompositeDef JazzArmor_LeatherArmor Description]] "Самодельный кожаный нагрудник. По идее, как самостоятельное средство защиты применяться не должен - его нужно проклепать или навешать металлических пластин."),
 	AdditionalHint = T(119076303373, --[[ModItemInventoryItemCompositeDef JazzArmor_LeatherArmor AdditionalHint]] "Самодельный плотный кожаный нагрудник."),
 	Cost = 1200,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 25,

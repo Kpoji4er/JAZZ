@@ -14,7 +14,6 @@ DefineClass.JazzArmor_SovietAssaultArmor = {
 	Description = T(745507740881, --[[ModItemInventoryItemCompositeDef JazzArmor_SovietAssaultArmor Description]] "Советская штурмовая кираса, использовавшаяся специальными подразделениями РККА в ходе Великой Отечественной войны. С уверенностью останавливает 9-мм пистолетную пулю из МП40, что, безусловно, послужило неприятным сюрпризом для солдат Вермахта в схватках накоротке."),
 	AdditionalHint = T(521194187625, --[[ModItemInventoryItemCompositeDef JazzArmor_SovietAssaultArmor AdditionalHint]] "Советская штурмовая броня второй мировой войны"),
 	Cost = 1600,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 25,

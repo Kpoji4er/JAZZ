@@ -13,7 +13,6 @@ DefineClass.JazzArmor_ImprovisedCuirass = {
 	Description = T(476224341686, --[[ModItemInventoryItemCompositeDef JazzArmor_ImprovisedCuirass Description]] 'Самодельная кираса из листового железа "Мейд бай Легион". По задумке, должна защищать тяжелого бойца Легиона от винтовочного и пулеметного огня. Главное, чтоб тяжелый боец Легиона в это верил.'),
 	AdditionalHint = T(168857410077, --[[ModItemInventoryItemCompositeDef JazzArmor_ImprovisedCuirass AdditionalHint]] "Самодельная кираса, сваренная из листов железа и обшитая кожей"),
 	Cost = 1100,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 25,

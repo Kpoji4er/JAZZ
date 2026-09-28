@@ -3,14 +3,8 @@ DefineClass.Jazz_Perk_Nervous = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "stack_cap",
-			'Value', 10,
-			'Tag', "<stack_cap>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
@@ -74,3 +68,4 @@ DefineClass.Jazz_Perk_Nervous = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Nervous.png",
 	Tier = "Personal",
 }
+

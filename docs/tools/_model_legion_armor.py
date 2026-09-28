@@ -3,6 +3,9 @@ import bpy, math, random, json
 from pathlib import Path
 from mathutils import Vector
 import argparse, sys
+_TOOLS=Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:sys.path.insert(0,str(_TOOLS))
+from _ja3_mesh_prepare import prepare_export_mesh
 parser=argparse.ArgumentParser()
 parser.add_argument('--sample',type=Path,required=True)
 parser.add_argument('--output',type=Path,required=True)
@@ -265,7 +268,8 @@ for o in parts:o.select_set(True)
 bpy.context.view_layer.objects.active=parts[0]; bpy.ops.object.join(); armor=bpy.context.object; armor.name='TEST_ImprovisedCuirass_Male_v7'
 armor['qa_anchors']=json.dumps(strap_checks)
 bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
-bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT'); bpy.ops.mesh.normals_make_consistent(inside=False); bpy.ops.uv.smart_project(island_margin=.008); bpy.ops.object.mode_set(mode='OBJECT')
+bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT'); bpy.ops.uv.smart_project(island_margin=.008); bpy.ops.object.mode_set(mode='OBJECT')
+prepare_export_mesh(armor)
 armor.parent=rig; armor.data.calc_loop_triangles()
 report={'vertices':len(armor.data.vertices),'triangles':len(armor.data.loop_triangles),'unweighted_vertices':sum(not any(g.weight>0 for g in v.groups) for v in armor.data.vertices),'reference':'ArmorIcons/ImprovisedCuirass.png','status':'Welded sheet iron prototype; full Legion animation coverage unverified','materials':'Procedural; not baked for JA3','strap_anchors':strap_checks,'lower_back_binding':'continuous Spine1 lower edge shared by plate and lining'}
 (OUT/'report.json').write_text(json.dumps(report,indent=2),encoding='utf8')

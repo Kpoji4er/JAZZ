@@ -13,7 +13,6 @@ DefineClass.JAZZ_AMMO_792x33_AP = {
 	Description = T(890000000000657, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_AP Description]] "Бронебойный вариант армейского патрона 7.92х33 FMJ, на сколько это вообще возможно, все кто может подтвердить умерли от старости."),
 	AdditionalHint = "",
 	Cost = 4200,
-	CanAppearInShop = false,
 	MaxStock = 10,
 	RestockWeight = 1,
 	CategoryPair = "762WP",

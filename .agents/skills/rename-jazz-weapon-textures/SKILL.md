@@ -6,8 +6,8 @@ description: >-
 
 # Rename weapon textures (jazz_assets)
 
-Пакет: `jazz_assets` → `Entities/Textures/` (+ `Fallbacks/`), `Entities/Materials/*.mtl`, `items.lua`.  
-Скрипт: [`../sync-jazz-generated-data/scripts/texture-audit-rename.ps1`](../sync-jazz-generated-data/scripts/texture-audit-rename.ps1).  
+Пакет: `jazz_assets` → `Entities/Textures/` (+ `Fallbacks/`), `Entities/Materials/*.mtl`, `items.lua`.<br>
+Скрипт: [`../sync-jazz-generated-data/scripts/texture-audit-rename.ps1`](../sync-jazz-generated-data/scripts/texture-audit-rename.ps1).<br>
 Spec: `docs/specs/active/JAZZ-ASSETS-002.md`.
 
 ## Когда
@@ -30,9 +30,9 @@ Spec: `docs/specs/active/JAZZ-ASSETS-002.md`.
 | SIMap | `SI` |
 | ColorizationMap | `Color` |
 
-Имя: `<EntityOrPart>_<Suffix>.dds`, коллизии → `…_2`, `…_3`.  
-Owner: body entity предпочтительнее Mag/Barrel/Bipod/…  
-Байт-идентичные used → один файл **только если тот же map-suffix** (не склеивать Norm с Base).  
+Имя: `<EntityOrPart>_<Suffix>.dds`, коллизии → `…_2`, `…_3`.<br>
+Owner: body entity предпочтительнее Mag/Barrel/Bipod/…<br>
+Байт-идентичные used → один файл **только если тот же map-suffix** (не склеивать Norm с Base).<br>
 Fallbacks переименовывать/удалять **парой** с Textures.
 
 ## Workflow (новый ствол)

@@ -2,54 +2,17 @@ UndefineClass('TraumaRibsHeavy')
 DefineClass.TraumaRibsHeavy = {
 	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "JazzTraumaEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "APLoss",
-			'Value', 5,
-			'Tag', "<APLoss>",
-		}),
-	},
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnEndTurn",
-			Handler = function(self, target)
-				JazzTraumaHeavyPainRamp(target)
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcStartTurnAP",
-			Handler = function(self, target, value)
-				JazzTraumaPainOnZoneUse(target, "Ribs")
-				return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcFreeMove",
-			Handler = function(self, target, data)
-				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
-					data.add = 0
-					data.mul = 0
-				end
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function(self, target)
-				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
-					target:RemoveStatusEffect("FreeMove")
-				end
-			end,
-		}),
-	},
-	DisplayName = T(890000000010116, "Rib Trauma (Heavy)"),
-	Description = T(890000000010117, "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused."),
-	OnAdded = function(self, obj)
+	DisplayName = T(890000000010116, --[[ModItemCharacterEffectCompositeDef TraumaRibsHeavy DisplayName]] "Rib Trauma (Heavy)"),
+	Description = T(890000000010117, --[[ModItemCharacterEffectCompositeDef TraumaRibsHeavy Description]] "Start-of-turn AP <color EmStyle>-<APLoss></color>. Combat-ineffective. +3 Pain at turn start; +1 Pain/turn if unused."),
+	OnAdded = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
 	end,
-	OnRemoved = function(self, obj)
+	OnRemoved = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
@@ -60,3 +23,4 @@ DefineClass.TraumaRibsHeavy = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

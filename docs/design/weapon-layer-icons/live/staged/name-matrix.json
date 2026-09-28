@@ -1,0 +1,5733 @@
+{
+  "count": 183,
+  "rows": [
+    {
+      "id": "AA12",
+      "name": "AA12",
+      "plural": "AA12",
+      "entity": "Weapon_AA12",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongShotgun",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAA12_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AA12__Barrel-JAZZ_BarrelLongShotgun.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/AA12__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "AA52",
+      "name": "AA-52",
+      "plural": "AA-52",
+      "entity": "AA52",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/AA52__default.png",
+      "ignored_for_naming": [
+        "Bipod"
+      ]
+    },
+    {
+      "id": "AK103",
+      "name": "АК-103",
+      "plural": "АК-103",
+      "entity": "AKR_AK103",
+      "decision": "preserve",
+      "reason": "Положение штатного складного приклада не меняет АК-103.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AKR_AK103_StockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AK103__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Положение штатного складного приклада не меняет АК-103."
+        }
+      ],
+      "default_icon": "icons/AK103__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Magazine",
+        "Scope",
+        "Muzzle",
+        "Side",
+        "Bipod"
+      ]
+    },
+    {
+      "id": "AK105",
+      "name": "АК-105",
+      "plural": "АК-105",
+      "entity": "AKR_AK105",
+      "decision": "preserve",
+      "reason": "Не получать АК-105 из другого автомата по одному короткому стволу.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AKR_AK105_StockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AK105__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Не получать АК-105 из другого автомата по одному короткому стволу."
+        }
+      ],
+      "default_icon": "icons/AK105__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "AK47",
+      "name": "АК-47",
+      "plural": "АК-47",
+      "entity": "J_AK47",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/AK47__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Under",
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "AK74",
+      "name": "АК-74",
+      "plural": "АК-74",
+      "entity": "AK74",
+      "decision": "explicit-rule",
+      "reason": "АК-74 → АКС-74 только для двух штатных складных прикладов; положение не меняет имя.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AK74StockUnFld",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AK74__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "АК-74 → АКС-74 только для двух штатных складных прикладов; положение не меняет имя."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AK74Stockfld",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AK74__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "АК-74 → АКС-74 только для двух штатных складных прикладов; положение не меняет имя."
+        }
+      ],
+      "default_icon": "icons/AK74__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "AK74M",
+      "name": "АК-74М",
+      "plural": "АК-74М",
+      "entity": "AKR_AK74M",
+      "decision": "preserve",
+      "reason": "АК-74М сохраняет собственное обозначение при складывании.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AKR_AK74M_StockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AK74M__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "АК-74М сохраняет собственное обозначение при складывании."
+        }
+      ],
+      "default_icon": "icons/AK74M__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "AKM",
+      "name": "AKM",
+      "plural": "AKM",
+      "entity": "AKM",
+      "decision": "explicit-rule",
+      "reason": "АКМ → АКМС для штатного металлического приклада, складывающегося под оружие; оба положения. Подтверждены live-геометрия и руководство производителя.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AKMFoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AKM__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "АКМ → АКМС для штатного металлического приклада, складывающегося под оружие; оба положения. Подтверждены live-геометрия и руководство производителя."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "AKMUnfoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AKM__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "АКМ → АКМС для штатного металлического приклада, складывающегося под оружие; оба положения. Подтверждены live-геометрия и руководство производителя."
+        }
+      ],
+      "default_icon": "icons/AKM__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Magazine",
+        "Scope",
+        "Muzzle",
+        "Side",
+        "Bipod"
+      ]
+    },
+    {
+      "id": "AKSU",
+      "name": "АКС-74У",
+      "plural": "АКС-74У",
+      "entity": "Weapon_AKS74U",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_AKSU_VerticalGrip",
+          "component_name": "Вертикальная рукоять",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_HandgripAKS74U_02",
+              "spot": "Handgrip"
+            }
+          ],
+          "capture": "icons/AKSU__Handguard-JAZZ_AKSU_VerticalGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/AKSU__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "AN94",
+      "name": "АН-94",
+      "plural": "АН-94",
+      "entity": "AN94",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "AN94FldStk",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AN94__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/AN94__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "APS",
+      "name": "Пистолет Стечкина",
+      "plural": "Пистолеты Стечкина",
+      "entity": "APS",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormal_Sil",
+          "component_name": "Ствол с резьбой под глушитель",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "APSBarrelSilencer",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/APS__Barrel-JAZZ_BarrelNormal_Sil.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/APS__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "AR10",
+      "name": "AR-10",
+      "plural": "AR-10",
+      "entity": "AR10_Auto",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/AR10__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "AR10DMR",
+      "name": "AR-10 DMR",
+      "plural": "AR-10 DMR",
+      "entity": "AR_10_DMR",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/AR10DMR__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "AR15",
+      "name": "ОТКЛЮЧЕНО",
+      "plural": "ОТКЛЮЧЕНО",
+      "entity": "Weapon_AR15",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAR15_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AR15__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAR15_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AR15__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAR15_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AR15__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAR15_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AR15__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongImproved",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAR15_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AR15__Barrel-JAZZ_BarrelLongImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "StockLight_AR_BurstOnly",
+          "component_name": "Легкий приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockAR15_02",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AR15__Stock-StockLight_AR_BurstOnly.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "StockBump",
+          "component_name": "Скользящий приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockAR15_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AR15__Stock-StockBump.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/AR15__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Magazine",
+        "Under",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "AS_Val",
+      "name": "АС-ВАЛ",
+      "plural": "АС-ВАЛ",
+      "entity": "ASVal",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "ValFoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/AS_Val__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/AS_Val__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "AUG",
+      "name": "AUG",
+      "plural": "AUG",
+      "entity": "Weapon_Steyr",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort_AUG",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelSteyr_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AUG__Barrel-JAZZ_BarrelShort_AUG.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved_AUG",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelSteyr_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AUG__Barrel-JAZZ_BarrelShortImproved_AUG.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong_AUG",
+          "component_name": "Удлиненный ствол с сошками",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelSteyr_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AUG__Barrel-JAZZ_BarrelLong_AUG.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongImproved_AUG",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом (с сошками)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelSteyr_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/AUG__Barrel-JAZZ_BarrelLongImproved_AUG.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/AUG__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Under",
+        "Grenadelauncher",
+        "Magazine",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "AVT40",
+      "name": "АВТ-40",
+      "plural": "АВТ-40",
+      "entity": "SVT_40",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/AVT40__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Agram2000",
+      "name": "Аграм 2000",
+      "plural": "«Аграм-2000»",
+      "entity": "Agram2000",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Agram2000__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "ArcticWarfare",
+      "name": "Arctic Warfare",
+      "plural": "Arctic Warfare",
+      "entity": "AWM",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/ArcticWarfare__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "Auto5",
+      "name": "Auto-5",
+      "plural": "Auto-5",
+      "entity": "Weapon_Auto5",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_Auto5_Basic_LMag",
+          "component_name": "Магазин повышенной емкости",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_01",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_02",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5__Barrel-JAZZ_Auto5_Basic_LMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_Auto5_Long_LMag",
+          "component_name": "Длинный ствол, магазин повышенной емкости",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_03",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_02",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5__Barrel-JAZZ_Auto5_Long_LMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_Auto5_Long_NMag",
+          "component_name": "Длинный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_03",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_01",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5__Barrel-JAZZ_Auto5_Long_NMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_Auto5_Short_NMag",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_02",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_01",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5__Barrel-JAZZ_Auto5_Short_NMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Auto5__default.png",
+      "ignored_for_naming": [
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Auto5_quest",
+      "name": "«Усмиритель» Мамаши",
+      "plural": "«Усмирители» Мамаши",
+      "entity": "Weapon_Auto5",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "Auto5_Basic_NMag",
+          "component_name": "Базовая конфигурация",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_01",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_01",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5_quest__Barrel-Auto5_Basic_NMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve-unique",
+          "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса."
+        },
+        {
+          "slot": "Barrel",
+          "component": "Auto5_Long_LMag",
+          "component_name": "Длинный ствол, магазин повышенной емкости",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_03",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_02",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5_quest__Barrel-Auto5_Long_LMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve-unique",
+          "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса."
+        },
+        {
+          "slot": "Barrel",
+          "component": "Auto5_Long_NMag",
+          "component_name": "Длинный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_03",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_01",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5_quest__Barrel-Auto5_Long_NMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve-unique",
+          "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса."
+        },
+        {
+          "slot": "Barrel",
+          "component": "Auto5_Short_NMag",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAuto5_02",
+              "spot": "Barrel"
+            },
+            {
+              "entity": "WeaponAttA_MagazineAuto5_01",
+              "spot": "Magazine"
+            }
+          ],
+          "capture": "icons/Auto5_quest__Barrel-Auto5_Short_NMag.png",
+          "capture_status": "captured",
+          "name_decision": "preserve-unique",
+          "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса."
+        }
+      ],
+      "default_icon": "icons/Auto5_quest__default.png",
+      "ignored_for_naming": [
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "BAR",
+      "name": "Бар",
+      "plural": "Бар",
+      "entity": "BAR",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/BAR__default.png",
+      "ignored_for_naming": [
+        "Bipod"
+      ]
+    },
+    {
+      "id": "BarretM82",
+      "name": "M82",
+      "plural": "M82",
+      "entity": "Weapon_BarrettM82",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/BarretM82__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Bereta92",
+      "name": "Beretta 92F",
+      "plural": "Beretta 92F",
+      "entity": "Weapon_Beretta92F",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBeretta_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Bereta92__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Bereta92__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Side"
+      ]
+    },
+    {
+      "id": "Beretta93r",
+      "name": "Beretta 93r",
+      "plural": "Beretta 93r",
+      "entity": "Beretta93r",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Beretta93r__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "BerettaM12",
+      "name": "Беретта М12",
+      "plural": "Beretta M12",
+      "entity": "BerettaM12",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "BerettaM12FldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/BerettaM12__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/BerettaM12__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "BrowningM2HMG",
+      "name": "M2 Browning",
+      "plural": "M2 Browning",
+      "entity": "Weapon_M2Browning",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/BrowningM2HMG__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "CAR15",
+      "name": "CAR-15",
+      "plural": "CAR-15",
+      "entity": "CAR15",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "CAR15FoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/CAR15__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/CAR15__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Side",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "CZ52",
+      "name": "CZ Vz. 52",
+      "plural": "CZ Vz. 52",
+      "entity": "CZ52",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/CZ52__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "CZ75",
+      "name": "CZ75",
+      "plural": "CZ75",
+      "entity": "CZ75",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/CZ75__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "China_Lake",
+      "name": "China Lake",
+      "plural": "China Lake",
+      "entity": "China_Lake",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/China_Lake__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Colt1911",
+      "name": "Colt M1911",
+      "plural": "Colt M1911",
+      "entity": "Colt1911",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Colt1911__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Colt38Special",
+      "name": "Colt .38 Special",
+      "plural": "Colt .38 Special",
+      "entity": "38Special",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormal",
+          "component_name": "Стандартный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "38SpecialBarrelL",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Colt38Special__Barrel-JAZZ_BarrelNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Colt38Special__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "ColtAnaconda",
+      "name": "Anaconda",
+      "plural": "Anaconda",
+      "entity": "Weapon_ColtAnaconda44",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelAnaconda_Short",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/ColtAnaconda__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/ColtAnaconda__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "ColtM1917",
+      "name": "Colt M1917 .45 Service Revolver",
+      "plural": "Colt M1917 .45 Service Revolver",
+      "entity": "Colt1917",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/ColtM1917__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "ColtPeacemaker",
+      "name": "Peacemaker",
+      "plural": "Peacemaker",
+      "entity": "Weapon_Colt",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelColt_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/ColtPeacemaker__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/ColtPeacemaker__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "DP27",
+      "name": "ДП-27",
+      "plural": "ДП-27",
+      "entity": "DP27",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/DP27__default.png",
+      "ignored_for_naming": [
+        "Bipod"
+      ]
+    },
+    {
+      "id": "DeLisle",
+      "name": "De Lisle Carbine",
+      "plural": "De Lisle Carbines",
+      "entity": "DeLisle",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/DeLisle__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "DebugAuto",
+      "name": "Дебаг-пушка",
+      "plural": "Дебаг-пушки",
+      "entity": "Weapon_AK47",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Stock-StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "StockBump",
+          "component_name": "Скользящий приклад",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Stock-StockBump.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Stock-StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Handguard",
+          "component": "AK47_VerticalGrip",
+          "component_name": "Вертикальная рукоять",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_VerticalGripAK47",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/DebugAuto__Handguard-AK47_VerticalGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Handguard",
+          "component": "AK47_TacGrip",
+          "component_name": "Тактическая рукоять",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_VerticalGripAK47",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/DebugAuto__Handguard-AK47_TacGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelHeavy",
+          "component_name": "Утяжеленный ствол",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Barrel-BarrelHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Barrel-BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelLongImproved",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Barrel-BarrelLongImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelNormal",
+          "component_name": "Стандартный ствол",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Barrel-BarrelNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Barrel-BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/DebugAuto__Barrel-BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/DebugAuto__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Grenadelauncher",
+        "Magazine",
+        "Scope",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "DesertEagle",
+      "name": "Desert Eagle",
+      "plural": "Desert Eagle",
+      "entity": "Weapon_DesertEagle",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_Barrel50BMG_DesertEagle",
+          "component_name": "Ствол под калибр .50 BMG",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelDesertEagle_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/DesertEagle__Barrel-JAZZ_Barrel50BMG_DesertEagle.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/DesertEagle__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "DoubleBarrelShotgun",
+      "name": "Двустволка",
+      "plural": "Двустволки",
+      "entity": "Weapon_DBShotgun",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongShotgun",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelDBS_Long",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/DoubleBarrelShotgun__Barrel-JAZZ_BarrelLongShotgun.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortShotgun",
+          "component_name": "Укороченный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelDBS_Short",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/DoubleBarrelShotgun__Barrel-JAZZ_BarrelShortShotgun.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/DoubleBarrelShotgun__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "DragunovSVD",
+      "name": "СВД",
+      "plural": "СВД",
+      "entity": "Weapon_Dragunov",
+      "decision": "rejected-candidate",
+      "reason": "StockLight в игре — цельная ложа с отверстием под большой палец; отдельной рукоятки и складного рамочного приклада нет. СВДС не включать.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockDragunov_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/DragunovSVD__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "rejected-candidate",
+          "reason": "StockLight в игре — цельная ложа с отверстием под большой палец; отдельной рукоятки и складного рамочного приклада нет. СВДС не включать."
+        }
+      ],
+      "default_icon": "icons/DragunovSVD__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "DragunovSVD_Custom",
+      "name": "\"Шах и Мат\"",
+      "plural": "\"Шах и Мат\"",
+      "entity": "SVDCustom",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [],
+      "default_icon": "icons/DragunovSVD_Custom__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "FAMAS",
+      "name": "FAMAS",
+      "plural": "FAMAS",
+      "entity": "Weapon_FAMAS",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/FAMAS__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Bipod",
+        "Side",
+        "Scope",
+        "Muzzle",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "FG42",
+      "name": "FG42",
+      "plural": "FG42",
+      "entity": "FG42",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/FG42__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "FNFAL",
+      "name": "FN-FAL",
+      "plural": "FN-FAL",
+      "entity": "Weapon_FNFAL",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNFAL__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelHeavy",
+          "component_name": "Утяжеленный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNFAL__Barrel-JAZZ_BarrelHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNFAL__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNFAL__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNormal",
+          "component_name": "Стандартный приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockFNFal_02",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/FNFAL__Stock-JAZZ_StockNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "FNFAL_ParaStk_fld",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/FNFAL__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/FNFAL__default.png",
+      "ignored_for_naming": [
+        "Side",
+        "Muzzle",
+        "Magazine",
+        "Bipod",
+        "Under",
+        "Scope"
+      ]
+    },
+    {
+      "id": "FNMAG",
+      "name": "FN MAG",
+      "plural": "FN MAG",
+      "entity": "KSP_58_B",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/FNMAG__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Scope",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "FNMinimi",
+      "name": "Minimi",
+      "plural": "Minimi",
+      "entity": "Weapon_FNMinimi",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNMinimi_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNMinimi__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongImproved",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNMinimi_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNMinimi__Barrel-JAZZ_BarrelLongImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNMinimi_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNMinimi__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNMinimi_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNMinimi__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNMinimi_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/FNMinimi__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockFNMinimi_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/FNMinimi__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/FNMinimi__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Scope",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "FRF2",
+      "name": "FR F2",
+      "plural": "FR F2",
+      "entity": "FRF2",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/FRF2__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Muzzle",
+        "Bipod"
+      ]
+    },
+    {
+      "id": "FiveSeven",
+      "name": "FiveSeven",
+      "plural": "FiveSeven",
+      "entity": "Five_Seven",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/FiveSeven__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "FlareHandgun",
+      "name": "Ракетница",
+      "plural": "Ракетницы",
+      "entity": "Weapon_FlareGun",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/FlareHandgun__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "G36",
+      "name": "G36",
+      "plural": "G36",
+      "entity": "Weapon_HKG36",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelHKG36_Long",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/G36__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockFolded",
+          "component_name": "Складывающийся приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockHKG36_02",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/G36__Stock-JAZZ_StockFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockHKG36_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/G36__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/G36__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Under",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "G36c",
+      "name": "G36c",
+      "plural": "G36c",
+      "entity": "G36c",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "G36cFldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/G36c__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/G36c__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle",
+        "Magazine",
+        "Under",
+        "Side"
+      ]
+    },
+    {
+      "id": "G3A3",
+      "name": "G3A3",
+      "plural": "G3A3",
+      "entity": "G3A3",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/G3A3__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "G3A4",
+      "name": "G3A4",
+      "plural": "G3A4",
+      "entity": "G3A4",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "G3A4Stock_Fold",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/G3A4__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/G3A4__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Scope",
+        "Muzzle",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "G3SniperV1",
+      "name": "G3 SG",
+      "plural": "G3 SG",
+      "entity": "G3Sniper",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/G3SniperV1__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Muzzle",
+        "Scope",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "G43",
+      "name": "G43",
+      "plural": "G43",
+      "entity": "G43",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/G43__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "Galil",
+      "name": "Galil",
+      "plural": "Galil",
+      "entity": "Weapon_Galil",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelGalil_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Galil__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelGalil_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Galil__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockGalil_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Galil__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Galil__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Under",
+        "Scope",
+        "Magazine",
+        "Side"
+      ]
+    },
+    {
+      "id": "Galil_FlagHill",
+      "name": "«Наемник»",
+      "plural": "«Наемники»",
+      "entity": "Weapon_Galil",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [],
+      "default_icon": "icons/Galil_FlagHill__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Under",
+        "Scope",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Gewehr98",
+      "name": "Gewehr 98",
+      "plural": "Gewehr 98",
+      "entity": "Weapon_Gewehr98",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Gewehr98__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Glock17",
+      "name": "Glock 17",
+      "plural": "Glock 17",
+      "entity": "Glock_17",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Glock17__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Side"
+      ]
+    },
+    {
+      "id": "Glock18",
+      "name": "Glock 18",
+      "plural": "Glock 18",
+      "entity": "G18",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Glock18__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Side"
+      ]
+    },
+    {
+      "id": "GoldenGun",
+      "name": "«Золотая лихорадка»",
+      "plural": "«Золотые лихорадки»",
+      "entity": "Weapon_M14_GoldEquip",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [],
+      "default_icon": "icons/GoldenGun__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "GrizzlyLAR",
+      "name": "Grizzly LAR",
+      "plural": "Grizzly LAR",
+      "entity": "GrizzlyLAR",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/GrizzlyLAR__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "HK21",
+      "name": "HK21",
+      "plural": "HK21",
+      "entity": "Weapon_HK21",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelHK21_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK21__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongImproved",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelHK21_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK21__Barrel-JAZZ_BarrelLongImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelHK21_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK21__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelHK21_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK21__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelHK21_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK21__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockHK21_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/HK21__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/HK21__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Scope",
+        "Side",
+        "Bipod",
+        "Under",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "HK23e",
+      "name": "HK23e",
+      "plural": "HK23e",
+      "entity": "HK23e",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/HK23e__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Magazine",
+        "Side",
+        "Bipod"
+      ]
+    },
+    {
+      "id": "HK33",
+      "name": "HK33",
+      "plural": "HK33",
+      "entity": "HK_33",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_HK33HandguardMod",
+          "component_name": "Цевье с планками",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "HK33_HandGuardMod",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/HK33__Handguard-JAZZ_HK33HandguardMod.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortRunNGun",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "HK_33Short_Barrel",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK33__Barrel-JAZZ_BarrelShortRunNGun.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "HK33_longBarrel",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HK33__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/HK33__default.png",
+      "ignored_for_naming": [
+        "General",
+        "Bipod",
+        "Muzzle",
+        "Magazine",
+        "Under",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "HiPower",
+      "name": "Hi-Power",
+      "plural": "Hi-Power",
+      "entity": "Weapon_Browning_HP",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBHP_Standart",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HiPower__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBHP_Short",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HiPower__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBHP_Short",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HiPower__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBHP_Long",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HiPower__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongImproved",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBHP_Long",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/HiPower__Barrel-JAZZ_BarrelLongImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/HiPower__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Ithaca",
+      "name": "Ithaca37",
+      "plural": "Ithaca37",
+      "entity": "Ithaca37",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortShotgun",
+          "component_name": "Укороченный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "Ithaca37_ShortBar",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Ithaca__Barrel-JAZZ_BarrelShortShotgun.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNo",
+          "component_name": "Нет приклада",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "Ithaca37_NoStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Ithaca__Stock-JAZZ_StockNo.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Ithaca__default.png",
+      "ignored_for_naming": [
+        false,
+        "Scope"
+      ]
+    },
+    {
+      "id": "JAZZ_FNFAL_Tactical",
+      "name": "FN FAL Tactical",
+      "plural": "FN FAL Tacticals",
+      "entity": "Weapon_FNFAL",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLongImproved",
+          "component_name": "Удлиненный нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Barrel-JAZZ_BarrelLongImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelHeavy",
+          "component_name": "Утяжеленный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Barrel-JAZZ_BarrelHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelFNFal_02",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockFNFal_03",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/JAZZ_FNFAL_Tactical__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/JAZZ_FNFAL_Tactical__default.png",
+      "ignored_for_naming": [
+        "Side",
+        "Muzzle",
+        "Magazine",
+        "Bipod",
+        "Under",
+        "Scope"
+      ]
+    },
+    {
+      "id": "JAZZ_M14_MkIII",
+      "name": "M14 Mk III",
+      "plural": "M14 Mk III",
+      "entity": "JAZZ_M14_MkIII",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNormal",
+          "component_name": "Стандартный приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/JAZZ_M14_MkIII__Stock-JAZZ_StockNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/JAZZ_M14_MkIII__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/JAZZ_M14_MkIII__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "Kimber",
+      "name": "Kimber",
+      "plural": "Kimber",
+      "entity": "Kimber",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "KimberBarrelL",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Kimber__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Kimber__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "Korth",
+      "name": "Korth Revolver",
+      "plural": "Korth Revolver",
+      "entity": "KorthRev",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/Korth__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Korth__default.png",
+      "ignored_for_naming": [
+        "Handgrip"
+      ]
+    },
+    {
+      "id": "L42A1",
+      "name": "L42A1",
+      "plural": "L42A1",
+      "entity": "L42A1",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/L42A1__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "LionRoar",
+      "name": "«Львиный рык»",
+      "plural": "«Львиные рыки»",
+      "entity": "Weapon_Uzi_LionsRoar",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [],
+      "default_icon": "icons/LionRoar__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Luger",
+      "name": "Люгер",
+      "plural": "Люгер",
+      "entity": "Luger",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Luger__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "M14SAW",
+      "name": "M-14",
+      "plural": "M-14",
+      "entity": "JAZZ_M14",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M14SAW__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M14SAW__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M14SAW__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "M16A1",
+      "name": "M16A1",
+      "plural": "M16A1",
+      "entity": "M16A1",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_M16A1LaunchHandGuard",
+          "component_name": "Гранатомет",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M16A1LaunchHandG",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/M16A1__Handguard-JAZZ_M16A1LaunchHandGuard.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/M16A1__default.png",
+      "ignored_for_naming": [
+        "Side",
+        "Magazine",
+        "General",
+        "Scope"
+      ]
+    },
+    {
+      "id": "M16A2",
+      "name": "M16A2",
+      "plural": "M16A2",
+      "entity": "M16A2",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_M16A1LaunchHandGuard",
+          "component_name": "Гранатомет",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M16A1LaunchHandG",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/M16A2__Handguard-JAZZ_M16A1LaunchHandGuard.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/M16A2__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "M16A4",
+      "name": "M16A4",
+      "plural": "M16A4",
+      "entity": "M16R_M16A4",
+      "decision": "preserve",
+      "reason": "Короткий ствол/RIS не превращает винтовку автоматически в M4.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_Handguard_RIS",
+          "component_name": "Цевьё с планкой",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M16R_M16A4_HandguardRIS",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/M16A4__Handguard-JAZZ_Handguard_RIS.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M16R_M16A4_BarrelShort",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/M16A4__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Короткий ствол/RIS не превращает винтовку автоматически в M4."
+        }
+      ],
+      "default_icon": "icons/M16A4__default.png",
+      "ignored_for_naming": [
+        "Handgrip",
+        "Trigger",
+        "Magazine",
+        "Under",
+        "Side",
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "M1897",
+      "name": "M1897",
+      "plural": "M1897",
+      "entity": "M1897",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M1897__default.png",
+      "ignored_for_naming": [
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "M1A",
+      "name": "M1A",
+      "plural": "M1A",
+      "entity": "M1A",
+      "decision": "candidate",
+      "reason": "Короткий ствол/ложа требуют отдельной проверки; не присваивать Scout/SOCOM/Mk14 по одному модулю.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortImproved",
+          "component_name": "Короткий нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M1a_Short_Barrel",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/M1A__Barrel-JAZZ_BarrelShortImproved.png",
+          "capture_status": "captured",
+          "name_decision": "candidate",
+          "reason": "Короткий ствол/ложа требуют отдельной проверки; не присваивать Scout/SOCOM/Mk14 по одному модулю."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNormal",
+          "component_name": "Стандартный приклад",
+          "modifiable": false,
+          "visuals": [],
+          "capture": "icons/M1A__Stock-JAZZ_StockNormal.png",
+          "capture_status": "captured",
+          "name_decision": "candidate",
+          "reason": "Короткий ствол/ложа требуют отдельной проверки; не присваивать Scout/SOCOM/Mk14 по одному модулю."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": false,
+          "visuals": [],
+          "capture": "icons/M1A__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "candidate",
+          "reason": "Короткий ствол/ложа требуют отдельной проверки; не присваивать Scout/SOCOM/Mk14 по одному модулю."
+        },
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_HandguardM1ARail",
+          "component_name": "Цевьё с планкой",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M1a_HandguardRail",
+              "spot": "General"
+            }
+          ],
+          "capture": "icons/M1A__Handguard-JAZZ_HandguardM1ARail.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/M1A__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "M1Garand",
+      "name": "M1 Garand",
+      "plural": "M1 Garand",
+      "entity": "Garand",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M1Garand__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "M21",
+      "name": "M-21",
+      "plural": "M-21",
+      "entity": "JAZZ_M14",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNormal",
+          "component_name": "Стандартный приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M21__Stock-JAZZ_StockNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M21__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M21__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "M24Sniper",
+      "name": "M24",
+      "plural": "M24",
+      "entity": "Weapon_M24",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_HeavyStockM24",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M24Sniper__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_LightStockM24",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M24Sniper__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M24Sniper__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Scope",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "M2Carbine",
+      "name": "Карабин",
+      "plural": "Карабин",
+      "entity": "M2Carbine",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M2CarStockLightF",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M2Carbine__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M2CarStockLightU",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M2Carbine__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNo",
+          "component_name": "Нет приклада",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M2CarNoStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M2Carbine__Stock-JAZZ_StockNo.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M2Carbine__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Trigger",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "M3GreaseGun",
+      "name": "M3 Grease Gun",
+      "plural": "M3 Grease Guns",
+      "entity": "Grease",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "Grease_Stock_fld",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M3GreaseGun__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M3GreaseGun__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "M41Shotgun",
+      "name": "M1014",
+      "plural": "M1014",
+      "entity": "Weapon_Benelli_M4",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShortShotgun_Benelli",
+          "component_name": "Укороченный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelBenelli_Short",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/M41Shotgun__Barrel-JAZZ_BarrelShortShotgun_Benelli.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M41Shotgun__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "M45",
+      "name": "Carl Gustaf M/45",
+      "plural": "Carl Gustaf M/45",
+      "entity": "M45",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "M45StockF",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M45__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M45__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "M4A1",
+      "name": "M4A1",
+      "plural": "M4A1",
+      "entity": "M4R_M4A1",
+      "decision": "preserve",
+      "reason": "20/30/расширенный магазин, RIS, положение приклада и доступные стволы сохраняют M4A1 без отдельного доказанного правила.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_Handguard_RIS",
+          "component_name": "Цевьё с планкой",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M4R_M4A1_HandguardRIS",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/M4A1__Handguard-JAZZ_Handguard_RIS.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M4R_M4A1_BarrelShort",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/M4A1__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "20/30/расширенный магазин, RIS, положение приклада и доступные стволы сохраняют M4A1 без отдельного доказанного правила."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M4R_M4A1_BarrelLong",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/M4A1__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "20/30/расширенный магазин, RIS, положение приклада и доступные стволы сохраняют M4A1 без отдельного доказанного правила."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "M4R_M4A1_StockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M4A1__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "20/30/расширенный магазин, RIS, положение приклада и доступные стволы сохраняют M4A1 без отдельного доказанного правила."
+        }
+      ],
+      "default_icon": "icons/M4A1__default.png",
+      "ignored_for_naming": [
+        "Handgrip",
+        "Scope",
+        "Magazine",
+        "Under",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "M4Commando",
+      "name": "ОТКЛЮЧЕНО",
+      "plural": "ОТКЛЮЧЕНО",
+      "entity": "Weapon_CAR15",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockCAR15_01",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/M4Commando__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/M4Commando__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Magazine",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "M60",
+      "name": "M60 \"Свинья\"",
+      "plural": "M60 «Свинья»",
+      "entity": "M60",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M60__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "M60E3",
+      "name": "M60E3",
+      "plural": "M60E3",
+      "entity": "M60E3",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M60E3__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "M60E4",
+      "name": "M60E4",
+      "plural": "M60E4",
+      "entity": "M60E4",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M60E4__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Scope",
+        "Side",
+        "Under"
+      ]
+    },
+    {
+      "id": "M700",
+      "name": "M700",
+      "plural": "M700",
+      "entity": "M700",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M700__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "M72LAW",
+      "name": "M72 LAW",
+      "plural": "M72 LAW",
+      "entity": "M72LAW2",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M72LAW__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "M79",
+      "name": "M79",
+      "plural": "M79",
+      "entity": "M79",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/M79__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "MAC10",
+      "name": "MAC-10",
+      "plural": "MAC-10",
+      "entity": "MAC10",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "MAC10UnfldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MAC10__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MAC10__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "MAC1950",
+      "name": "MAC Mle 1950",
+      "plural": "MAC Mle 1950",
+      "entity": "MAC1950",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MAC1950__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "MAC2429",
+      "name": "Mac 2429",
+      "plural": "Mac 2429",
+      "entity": "MAC2429",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MAC2429__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "MAS36",
+      "name": "MAS36",
+      "plural": "MAS36",
+      "entity": "MAS36",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MAS36__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "MAS49",
+      "name": "MAS-49/56",
+      "plural": "MAS-49/56",
+      "entity": "MAS49",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MAS49__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "MAT49",
+      "name": "MAT-49",
+      "plural": "MAT-49",
+      "entity": "MAT49",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "MAT49FldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MAT49__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MAT49__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "MG42",
+      "name": "MG42",
+      "plural": "MG42",
+      "entity": "Weapon_MG42",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MG42__default.png",
+      "ignored_for_naming": [
+        "Bipod"
+      ]
+    },
+    {
+      "id": "MG58",
+      "name": "MG58",
+      "plural": "MG58",
+      "entity": "Weapon_MG42",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MG58__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "MGL",
+      "name": "MGL",
+      "plural": "MGL",
+      "entity": "Weapon_MilkorMGL",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MGL__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "MK14EBR",
+      "name": "Mk 14 EBR",
+      "plural": "Mk 14 EBR",
+      "entity": "MK14EBR",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MK14EBR__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MK14EBR__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MK14EBR__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Under",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "MP40",
+      "name": "MP40",
+      "plural": "MP40",
+      "entity": "Weapon_MP40",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MP40__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "MP446VIKING",
+      "name": "MP-446 \"Викинг\"",
+      "plural": "MP-446 \"Викинг\"",
+      "entity": "Viking",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MP446VIKING__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Side",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "MP5",
+      "name": "ОТКЛЮЧЕНО",
+      "plural": "ОТКЛЮЧЕНО",
+      "entity": "Weapon_MP5",
+      "decision": "candidate",
+      "reason": "Проверить сочетание корпуса, спусковой группы и приклада для A2/A3; отсутствие приклада не превращает MP5 в MP5K.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelMP5_03",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/MP5__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "candidate",
+          "reason": "Проверить сочетание корпуса, спусковой группы и приклада для A2/A3; отсутствие приклада не превращает MP5 в MP5K."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockMP5_Heavy",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "candidate",
+          "reason": "Проверить сочетание корпуса, спусковой группы и приклада для A2/A3; отсутствие приклада не превращает MP5 в MP5K."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNo",
+          "component_name": "Нет приклада",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockMP5_Cap",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5__Stock-JAZZ_StockNo.png",
+          "capture_status": "captured",
+          "name_decision": "candidate",
+          "reason": "Проверить сочетание корпуса, спусковой группы и приклада для A2/A3; отсутствие приклада не превращает MP5 в MP5K."
+        }
+      ],
+      "default_icon": "icons/MP5__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Magazine",
+        "Side",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "MP5A2",
+      "name": "MP5A2",
+      "plural": "MP5A2",
+      "entity": "MP5A2",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MP5A2__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "MP5A4",
+      "name": "MP5A4",
+      "plural": "MP5A4",
+      "entity": "MP5A4",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "MP5FoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5A4__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "MP5UnfoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5A4__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MP5A4__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "MP5K",
+      "name": "MP5K",
+      "plural": "MP5K",
+      "entity": "Weapon_MP5",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNormal",
+          "component_name": "Стандартный приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockMP5_Extended",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5K__Stock-JAZZ_StockNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockMP5_Heavy",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5K__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MP5K__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Magazine",
+        "Side",
+        "Scope",
+        "Muzzle",
+        "Freeswap"
+      ]
+    },
+    {
+      "id": "MP5SD",
+      "name": "MP5SD",
+      "plural": "MP5SD",
+      "entity": "MP5SD",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "MP5FoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5SD__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "MP5UnfoldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP5SD__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MP5SD__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "MP7",
+      "name": "MP7",
+      "plural": "MP7",
+      "entity": "MP7",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "MP7_FldStk",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MP7__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MP7__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "MPL",
+      "name": "Walther MP",
+      "plural": "Walther MP",
+      "entity": "MPL",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "MPLStockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/MPL__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MPL__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "MR73",
+      "name": "Manurhin MR 73",
+      "plural": "Manurhin MR 73",
+      "entity": "M73Base",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "M73BarrelLong",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/MR73__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MR73__default.png",
+      "ignored_for_naming": [
+        "Handgrip"
+      ]
+    },
+    {
+      "id": "Makarov",
+      "name": "Пистолет Макарова",
+      "plural": "Пистолеты Макарова",
+      "entity": "Makarov",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Makarov__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "MicroUZI",
+      "name": "Мини Узи",
+      "plural": "Мини Узи",
+      "entity": "Weapon_Uzi",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelUzi_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/MicroUZI__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/MicroUZI__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Side",
+        "Scope",
+        "Muzzle",
+        "Freeswap"
+      ]
+    },
+    {
+      "id": "Mini14",
+      "name": "Мини-14",
+      "plural": "Мини-14",
+      "entity": "Mini14",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "Mini14_Short_Barrel",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Mini14__Barrel-JAZZ_BarrelShort.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "Mini14_FldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Mini14__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Mini14__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Trigger"
+      ]
+    },
+    {
+      "id": "MortarInventoryItem",
+      "name": "Миномет",
+      "plural": "Минометы",
+      "entity": "Weapon_M224",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/MortarInventoryItem__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Mosin",
+      "name": "Винтовка Мосина",
+      "plural": "Винтовки Мосина",
+      "entity": "MOSIN_1891",
+      "decision": "coordinated-pending",
+      "reason": "1891 / М38 / обрез: существующий Weapon_MosinModular меняет модель/размер/Icon, но в проверенном коде не имя. Именование согласовать с подготовленным изменением основной задачи; второй хук не создавать.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_MosinM38",
+          "component_name": "Карабин М38",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/Mosin__Barrel-JAZZ_MosinM38.png",
+          "capture_status": "captured",
+          "name_decision": "coordinated-pending",
+          "reason": "1891 / М38 / обрез: существующий Weapon_MosinModular меняет модель/размер/Icon, но в проверенном коде не имя. Именование согласовать с подготовленным изменением основной задачи; второй хук не создавать."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_MosinObrez",
+          "component_name": "Обрез",
+          "modifiable": true,
+          "visuals": [],
+          "capture": "icons/Mosin__Barrel-JAZZ_MosinObrez.png",
+          "capture_status": "captured",
+          "name_decision": "coordinated-pending",
+          "reason": "1891 / М38 / обрез: существующий Weapon_MosinModular меняет модель/размер/Icon, но в проверенном коде не имя. Именование согласовать с подготовленным изменением основной задачи; второй хук не создавать."
+        }
+      ],
+      "default_icon": "icons/Mosin__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "P210",
+      "name": "P-210",
+      "plural": "P-210",
+      "entity": "P210",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "P210BarrelLong",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/P210__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/P210__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Handgrip",
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "P220",
+      "name": "P-220",
+      "plural": "P-220",
+      "entity": "P220",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/P220__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Side",
+        "Scope"
+      ]
+    },
+    {
+      "id": "P226",
+      "name": "P-226",
+      "plural": "P-226",
+      "entity": "P226ff",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort_Pistol",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "P226BarrelS",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/P226__Barrel-JAZZ_BarrelShort_Pistol.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/P226__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Handgrip",
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "P38",
+      "name": "P38",
+      "plural": "P38",
+      "entity": "P38",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort_Pistol",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "p38KBarrel",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/P38__Barrel-JAZZ_BarrelShort_Pistol.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/P38__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "P90",
+      "name": "P90",
+      "plural": "P90",
+      "entity": "P90",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/P90__default.png",
+      "ignored_for_naming": [
+        "Side",
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "PB",
+      "name": "Пистолет ПБ",
+      "plural": "Пистолеты ПБ",
+      "entity": "pb",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/PB__default.png",
+      "ignored_for_naming": [
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "PKM",
+      "name": "ПКМ",
+      "plural": "ПКМ",
+      "entity": "PKM",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_PKMModStock",
+          "component_name": "Приклад ПКМ на заказ",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "PKMModStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/PKM__Stock-JAZZ_PKMModStock.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_PKMModHandGrip",
+          "component_name": "Модифицированная рукоятка ПКМ",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "PKMModHandGrip",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/PKM__Handguard-JAZZ_PKMModHandGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/PKM__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Scope",
+        "Side",
+        "Bipod",
+        "Under",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "PP19Bizon",
+      "name": "ПП-19 «Бизон»",
+      "plural": "ПП-19 «Бизон»",
+      "entity": "Bizon",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "Bizon_FldStk",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/PP19Bizon__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/PP19Bizon__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "PPS43",
+      "name": "ППС-43",
+      "plural": "ППС-43",
+      "entity": "PPS_43",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "PPS_43_Stk_fld",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/PPS43__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/PPS43__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "PPSH",
+      "name": "ППШ",
+      "plural": "ППШ",
+      "entity": "PPSH",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/PPSH__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "PSG1",
+      "name": "PSG1",
+      "plural": "PSG1",
+      "entity": "Weapon_PSG1",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockPSG_Wooden",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/PSG1__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/PSG1__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Muzzle",
+        "Magazine",
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "R870",
+      "name": "R870",
+      "plural": "R870",
+      "entity": "R870",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/R870__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Side",
+        "Side2"
+      ]
+    },
+    {
+      "id": "RPD",
+      "name": "РПД",
+      "plural": "РПД",
+      "entity": "RPD",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/RPD__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Bipod",
+        "Scope"
+      ]
+    },
+    {
+      "id": "RPG7",
+      "name": "РПГ-7",
+      "plural": "РПГ-7",
+      "entity": "Weapon_RPG7_Copy",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/RPG7__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "RPK",
+      "name": "РПК",
+      "plural": "РПК",
+      "entity": "Weapon_RPK74",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelRPK74_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/RPK__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_RPK74_VerticalGrip",
+          "component_name": "Вертикальная рукоять",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_HandguardRPK74_02",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/RPK__Handguard-JAZZ_RPK74_VerticalGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/RPK__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "RPK74",
+      "name": "РПК-74",
+      "plural": "РПК-74",
+      "entity": "Weapon_RPK74",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelNormalImproved",
+          "component_name": "Нарезной ствол с возрастающим шагом",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelRPK74_01",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/RPK74__Barrel-JAZZ_BarrelNormalImproved.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_RPK74_VerticalGrip",
+          "component_name": "Вертикальная рукоять",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_HandguardRPK74_02",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/RPK74__Handguard-JAZZ_RPK74_VerticalGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLight",
+          "component_name": "Легкий приклад",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_StockRPK74_01",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/RPK74__Stock-JAZZ_StockLight.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/RPK74__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "RSH12",
+      "name": "РШ-12",
+      "plural": "РШ-12",
+      "entity": "HighCalRev",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/RSH12__default.png",
+      "ignored_for_naming": [
+        "Side"
+      ]
+    },
+    {
+      "id": "SKS",
+      "name": "СКС",
+      "plural": "СКС",
+      "entity": "SKS",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SKS__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "SPAS12",
+      "name": "SPAS-12",
+      "plural": "SPAS-12",
+      "entity": "Spas12",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SPAS12__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "SR3M",
+      "name": "СР-3М",
+      "plural": "СР-3М",
+      "entity": "SR3M",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "SR3M_StockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/SR3M__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/SR3M__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Magazine",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "STG44",
+      "name": "StG-44",
+      "plural": "StG-44",
+      "entity": "STG44",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/STG44__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "SVT40",
+      "name": "СВТ-40",
+      "plural": "СВТ-40",
+      "entity": "SVT_40",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SVT40__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "SVU",
+      "name": "СВУ",
+      "plural": "СВУ",
+      "entity": "SVU",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SVU__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Bipod"
+      ]
+    },
+    {
+      "id": "SWModel10",
+      "name": "S&W Model10 .38 Special",
+      "plural": "S&W Model10 .38 Special",
+      "entity": "SWModel10",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort_Pistol",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SWModel10BarrelS",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/SWModel10__Barrel-JAZZ_BarrelShort_Pistol.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/SWModel10__default.png",
+      "ignored_for_naming": [
+        "Side"
+      ]
+    },
+    {
+      "id": "SWModel19",
+      "name": "S*W Model19 .357 Combat Magnum",
+      "plural": "SWModel19",
+      "entity": "SW19",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SW19BarrelL",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/SWModel19__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort_Pistol",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SW19BarrelS",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/SWModel19__Barrel-JAZZ_BarrelShort_Pistol.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/SWModel19__default.png",
+      "ignored_for_naming": [
+        "Side"
+      ]
+    },
+    {
+      "id": "SWModel29",
+      "name": "SWModel29",
+      "plural": "SWModel29",
+      "entity": "SWModel29",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelShort_Pistol",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SWModel29BarrelS",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/SWModel29__Barrel-JAZZ_BarrelShort_Pistol.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/SWModel29__default.png",
+      "ignored_for_naming": [
+        "Side"
+      ]
+    },
+    {
+      "id": "SWModel52",
+      "name": "S&W Model 52 .38 Special Pistol",
+      "plural": "S&W Model 52",
+      "entity": "SWModel52",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SWModel52__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "SWModel5906",
+      "name": "S&W Model 5906",
+      "plural": "S&W Model 5906",
+      "entity": "SWModel5906",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SWModel5906__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Side"
+      ]
+    },
+    {
+      "id": "Scorpion",
+      "name": "Scorpion",
+      "plural": "Scorpion",
+      "entity": "Scorpion",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "ScorpionStockU",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Scorpion__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Scorpion__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Freeswap"
+      ]
+    },
+    {
+      "id": "ScoutSniper",
+      "name": "Steyr Scout",
+      "plural": "Steyr Scout",
+      "entity": "SteyrScout",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/ScoutSniper__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Sig550",
+      "name": "Sig 550",
+      "plural": "Sig 550",
+      "entity": "Sig550",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGdefFldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sig550__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SigErgoStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sig550__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_SigErgoHandGrip",
+          "component_name": "Эргономичная рукоять для SIG",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handgrip"
+            },
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/Sig550__Handguard-JAZZ_SigErgoHandGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/Sig550__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Bipod",
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "Sig550Custom",
+      "name": "Sig 550 RIS",
+      "plural": "Sig 550 RIS",
+      "entity": "Sig550Custom",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_SigErgoHandGrip",
+          "component_name": "Эргономичная рукоять для SIG",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handgrip"
+            },
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/Sig550Custom__Handguard-JAZZ_SigErgoHandGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGdefFldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sig550Custom__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve-unique",
+          "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SigErgoStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sig550Custom__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve-unique",
+          "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса."
+        }
+      ],
+      "default_icon": "icons/Sig550Custom__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Side",
+        "Magazine",
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "Sig552",
+      "name": "Sig 552",
+      "plural": "Sig 552",
+      "entity": "SIG552",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_SigErgoHandGrip",
+          "component_name": "Эргономичная рукоять для SIG",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handgrip"
+            },
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/Sig552__Handguard-JAZZ_SigErgoHandGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGdefFldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sig552__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SigErgoStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sig552__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Sig552__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Magazine",
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Sig552SWAT",
+      "name": "Sig 552 SWAT",
+      "plural": "Sig 552 SWAT",
+      "entity": "Sig552SWAT",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_SigErgoHandGrip",
+          "component_name": "Эргономичная рукоять для SIG",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handgrip"
+            },
+            {
+              "entity": "SIGErgoHandGrip",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/Sig552SWAT__Handguard-JAZZ_SigErgoHandGrip.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        }
+      ],
+      "default_icon": "icons/Sig552SWAT__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Magazine",
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "SpectreM4",
+      "name": "Spectre M4",
+      "plural": "Spectre M4",
+      "entity": "Spectr_M4",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/SpectreM4__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Springfield",
+      "name": "Springfield 1903",
+      "plural": "Springfield 1903",
+      "entity": "M1903",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Springfield__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "Sterling",
+      "name": "Стерлинг",
+      "plural": "СТЕРЛИНГ",
+      "entity": "Sterling",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "Sterling_FldStk",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Sterling__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Sterling__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Stoeger",
+      "name": "Вертикалка",
+      "plural": "Вертикалки",
+      "entity": "stoeger_outback",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Stoeger__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Striker",
+      "name": "Страйкер",
+      "plural": "Страйкеры",
+      "entity": "Striker",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "StrikerFold",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Striker__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Striker__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "TMP",
+      "name": "TMP",
+      "plural": "TMP",
+      "entity": "TMP",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/TMP__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "General",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "TT33",
+      "name": "Пистолет ТТ",
+      "plural": "Пистолеты ТТ",
+      "entity": "TT33f",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/TT33__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "TexRevolver",
+      "name": "Именной револьвер",
+      "plural": "Именные револьверы",
+      "entity": "Tex_Rev",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [],
+      "default_icon": "icons/TexRevolver__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Thompson",
+      "name": "Thompson",
+      "plural": "Thompsons",
+      "entity": "THOMPSON_SMG",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Thompson__default.png",
+      "ignored_for_naming": [
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Type56",
+      "name": "Type 56",
+      "plural": "Type 56",
+      "entity": "Type56",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Type56__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine",
+        "Under"
+      ]
+    },
+    {
+      "id": "U100",
+      "name": "U100",
+      "plural": "U100",
+      "entity": "U100",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/U100__default.png",
+      "ignored_for_naming": [
+        "Bipod",
+        "Magazine",
+        "Mountfront",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "UMP45",
+      "name": "UMP45",
+      "plural": "UMP45",
+      "entity": "UMP45",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "UMPStockFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/UMP45__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/UMP45__default.png",
+      "ignored_for_naming": [
+        "Under",
+        "Magazine",
+        "Side",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "USAS12",
+      "name": "USAS12",
+      "plural": "USAS12",
+      "entity": "USAS12",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/USAS12__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Muzzle",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "USP45",
+      "name": "USP45 Tactical",
+      "plural": "USP45 Tactical",
+      "entity": "USP45",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/USP45__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle",
+        "Scope",
+        "Side"
+      ]
+    },
+    {
+      "id": "UZI",
+      "name": "Узи Полноразмерный",
+      "plural": "Узи Полноразмерные",
+      "entity": "UziFull",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "UzifldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/UZI__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockNormal",
+          "component_name": "Стандартный приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "UziWoodenStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/UZI__Stock-JAZZ_StockNormal.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/UZI__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "UnderslungGrenadeLauncher",
+      "name": "Подствол. гранатомет",
+      "plural": "Подствол. гранатометы",
+      "entity": false,
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/UnderslungGrenadeLauncher__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "VSS",
+      "name": "ВСС",
+      "plural": "ВСС",
+      "entity": "VSS",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/VSS__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope"
+      ]
+    },
+    {
+      "id": "VZ58",
+      "name": "vz. 58",
+      "plural": "vz. 58",
+      "entity": "JAZZ_VZ58",
+      "decision": "explicit-rule",
+      "reason": "vz. 58 P для штатного деревянного приклада; vz. 58 V для штатного металлического складного в обоих положениях. Тактический приклад — исходное имя без исторического суффикса.",
+      "structural_variants": [
+        {
+          "slot": "Handguard",
+          "component": "JAZZ_Handguard_RIS",
+          "component_name": "Цевьё с планкой",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "JAZZ_VZ58_HandguardRIS",
+              "spot": "Handguard"
+            }
+          ],
+          "capture": "icons/VZ58__Handguard-JAZZ_Handguard_RIS.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Цевьё/рейка сами по себе не меняют имя модели."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightUnFolded",
+          "component_name": "Рамочный приклад (разложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "JAZZ_VZ58_StockWire",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/VZ58__Stock-JAZZ_StockLightUnFolded.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "vz. 58 P для штатного деревянного приклада; vz. 58 V для штатного металлического складного в обоих положениях. Тактический приклад — исходное имя без исторического суффикса."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "JAZZ_VZ58_StockWireFolded",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/VZ58__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "vz. 58 P для штатного деревянного приклада; vz. 58 V для штатного металлического складного в обоих положениях. Тактический приклад — исходное имя без исторического суффикса."
+        },
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockHeavy",
+          "component_name": "Тяжелый приклад",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "JAZZ_VZ58_StockModern",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/VZ58__Stock-JAZZ_StockHeavy.png",
+          "capture_status": "captured",
+          "name_decision": "explicit-rule",
+          "reason": "vz. 58 P для штатного деревянного приклада; vz. 58 V для штатного металлического складного в обоих положениях. Тактический приклад — исходное имя без исторического суффикса."
+        }
+      ],
+      "default_icon": "icons/VZ58__default.png",
+      "ignored_for_naming": [
+        "Scope",
+        "Magazine",
+        "Handgrip",
+        "Under",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "VectorCP1",
+      "name": "Vektor CP1",
+      "plural": "Vektor CP1",
+      "entity": "VectorCP1",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/VectorCP1__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "VektorR4",
+      "name": "Vektor R4",
+      "plural": "Vektor R4",
+      "entity": "JAZZ_VektorR4",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/VektorR4__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Webley",
+      "name": "Webley Mk VI",
+      "plural": "Webley Mk VI",
+      "entity": "Webleyf",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WebleyBarrel",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Webley__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Webley__default.png",
+      "ignored_for_naming": []
+    },
+    {
+      "id": "Welrod",
+      "name": "Welrod",
+      "plural": "Welrod",
+      "entity": "Welrod",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/Welrod__default.png",
+      "ignored_for_naming": [
+        "Muzzle"
+      ]
+    },
+    {
+      "id": "Winchester1894",
+      "name": "Winchester 1894",
+      "plural": "Winchester 1894",
+      "entity": "Weapon_Winchester",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Barrel",
+          "component": "JAZZ_BarrelLong",
+          "component_name": "Удлиненный ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelWinchester_Long",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Winchester1894__Barrel-JAZZ_BarrelLong.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        },
+        {
+          "slot": "Barrel",
+          "component": "BarrelShort_Winchester",
+          "component_name": "Короткий ствол",
+          "modifiable": true,
+          "visuals": [
+            {
+              "entity": "WeaponAttA_BarrelWinchester_Short",
+              "spot": "Barrel"
+            }
+          ],
+          "capture": "icons/Winchester1894__Barrel-BarrelShort_Winchester.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Winchester1894__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Scope"
+      ]
+    },
+    {
+      "id": "Winchester_Quest",
+      "name": "«Верный друг»",
+      "plural": "«Верные друзья»",
+      "entity": "Weapon_Winchester",
+      "decision": "preserve-unique",
+      "reason": "Сохранять собственное имя уникального оружия; не наследовать переименование базового класса.",
+      "structural_variants": [],
+      "default_icon": "icons/Winchester_Quest__default.png",
+      "ignored_for_naming": [
+        "Scope"
+      ]
+    },
+    {
+      "id": "ZastavaM76",
+      "name": "Zastava M76",
+      "plural": "Zastava M76",
+      "entity": "m76",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [],
+      "default_icon": "icons/ZastavaM76__default.png",
+      "ignored_for_naming": [
+        "Magazine",
+        "Scope"
+      ]
+    },
+    {
+      "id": "ZastavaM92",
+      "name": "Zastava M92",
+      "plural": "Zastava M92",
+      "entity": "M92",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "M92_FldStock",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/ZastavaM92__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/ZastavaM92__default.png",
+      "ignored_for_naming": [
+        "Muzzle",
+        "Magazine"
+      ]
+    },
+    {
+      "id": "Zastava_M70",
+      "name": "Zastava M70",
+      "plural": "Zastava M70",
+      "entity": "Zastava_M70",
+      "decision": "preserve",
+      "reason": "Нет доказанного правила смены модели; сохранять исходное название.",
+      "structural_variants": [
+        {
+          "slot": "Stock",
+          "component": "JAZZ_StockLightFolded",
+          "component_name": "Складной приклад (сложен)",
+          "modifiable": false,
+          "visuals": [
+            {
+              "entity": "Zast_M70_FldStk",
+              "spot": "Stock"
+            }
+          ],
+          "capture": "icons/Zastava_M70__Stock-JAZZ_StockLightFolded.png",
+          "capture_status": "captured",
+          "name_decision": "preserve",
+          "reason": "Нет доказанного правила смены модели; сохранять исходное название."
+        }
+      ],
+      "default_icon": "icons/Zastava_M70__default.png",
+      "ignored_for_naming": [
+        "General",
+        "Magazine",
+        "Bipod",
+        "Muzzle"
+      ]
+    }
+  ]
+}

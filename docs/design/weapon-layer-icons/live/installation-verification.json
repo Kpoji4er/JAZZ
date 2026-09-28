@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "lua_cases": 5281,
+  "installed_icons": 1739,
+  "compiled_files": 4,
+  "runtime": "not tested: game is closed, DAP unavailable",
+  "excluded": "UnderslungGrenadeLauncher: no standalone entity",
+  "deduplicated_configurations": 2
+}

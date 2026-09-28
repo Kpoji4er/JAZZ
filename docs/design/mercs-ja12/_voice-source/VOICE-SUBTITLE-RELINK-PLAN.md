@@ -32,29 +32,29 @@ Sources in pack (cp1251 / mixed):
 
 Pipeline (new tool, keep in `docs/tools/`):
 
-1. `_import_ja2mercs_subtitle_bank.py`  
-   - Read each `*.txt` (try utf-8 / cp1251 / utf-16).  
+1. `_import_ja2mercs_subtitle_bank.py`<br>
+   - Read each `*.txt` (try utf-8 / cp1251 / utf-16).<br>
    - Emit `docs/design/mercs-ja12/_voice-source/subtitles/<slug>.csv`: `stem,ru_text,bytes_wav,has_audio`.
-2. `_apply_ja12_subtitles.py` (careful, slot-scoped):  
-   - Map Jazz VR slot → stem via `SLOT_WAV` / `AIM_CHAT_WAV` (first preferred stem with text).  
-   - Update UnitData companion **and** `items.lua` `T(id, … "text")` RU string for that line.  
-   - Sync `Russian.csv` + `English.csv` via `$manage-jazz-localization` (EN: keep existing Jazz EN if good; else mercedt/EN stub marked WIP — **do not** invent lore).  
-   - **Never** overwrite Name/Nick/Bio from speech txt.  
+2. `_apply_ja12_subtitles.py` (careful, slot-scoped):<br>
+   - Map Jazz VR slot → stem via `SLOT_WAV` / `AIM_CHAT_WAV` (first preferred stem with text).<br>
+   - Update UnitData companion **and** `items.lua` `T(id, … "text")` RU string for that line.<br>
+   - Sync `Russian.csv` + `English.csv` via `$manage-jazz-localization` (EN: keep existing Jazz EN if good; else mercedt/EN stub marked WIP — **do not** invent lore).<br>
+   - **Never** overwrite Name/Nick/Bio from speech txt.<br>
    - Start scope: mercs with txt **and** shipped VO: kulba, biggens, gaston, horg, + WF AIM with txt; then SJ (benny/simon/grom/escimo). Mike/Vince: only if txt exists (Mike: none in pack → skip text or use RPC schema + mercedt later).
 3. Validate: `_validate_items_quick.py` on `jazz-units`; loc auditor `needs Russian=0` / `needs English=0` for touched IDs.
 
 ## Phase C — docs / verify
 
-- Update `VERIFY.md` ear-check rows for Mike/Vince/Kulba/Biggens.  
-- Alignment CSV notes: R_ fuller-bank rule.  
+- Update `VERIFY.md` ear-check rows for Mike/Vince/Kulba/Biggens.<br>
+- Alignment CSV notes: R_ fuller-bank rule.<br>
 - Owner ear-check before mass subtitle apply beyond ЦС+WF pilot.
 
 ## Out of scope / do not
 
-- Spouke, workshop Merc_*.  
-- Biff/Lynx/Buzz/Spider (no ja2mercs folder).  
-- Blind Selection→chat fill.  
-- Mixing 118 into Kulba.  
+- Spouke, workshop Merc_*.<br>
+- Biff/Lynx/Buzz/Spider (no ja2mercs folder).<br>
+- Blind Selection→chat fill.<br>
+- Mixing 118 into Kulba.<br>
 - Mass-rewriting all Jazz merc bios from speech txt.
 
 ## Status
@@ -81,8 +81,8 @@ A1 resolve longer(R_)  →  A2 map mike/vince/kulba/biggens  →  A3 remesh 4
 
 ## Acceptance
 
-- Mike: Selection plays non-silent opus from 074/R_074.  
-- Vince/Kulba/Biggens: AimAttack/Selection duration clearly > stub chirp; identity matches txt self-lines where present.  
-- Rothman: bit-identical / unchanged.  
-- Pilot subtitles: Greeting/Selection/AimAttack RU in-game matches pack txt for that stem.  
+- Mike: Selection plays non-silent opus from 074/R_074.<br>
+- Vince/Kulba/Biggens: AimAttack/Selection duration clearly > stub chirp; identity matches txt self-lines where present.<br>
+- Rothman: bit-identical / unchanged.<br>
+- Pilot subtitles: Greeting/Selection/AimAttack RU in-game matches pack txt for that stem.<br>
 - Loc tables balanced for touched IDs.

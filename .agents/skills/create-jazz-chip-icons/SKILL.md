@@ -6,11 +6,11 @@ description: >-
 
 # Создание ChipIcon (миниатюры чипов)
 
-Пакет: `jazz` → `Icons/Upgrades/Chips/`.  
-Промпты: [`Icons/Upgrades/Chips/references/PROMPT.md`](../../../Icons/Upgrades/Chips/references/PROMPT.md).  
+Пакет: `jazz` → `Icons/Upgrades/Chips/`.<br>
+Промпты: [`Icons/Upgrades/Chips/references/PROMPT.md`](../../../Icons/Upgrades/Chips/references/PROMPT.md).<br>
 Шпаргалка: [references/style-and-naming.md](references/style-and-naming.md).
 
-Полная иконка кабинета (`WeaponComponent.Icon`) — **другой** skill: `$create-jazz-component-icons`.  
+Полная иконка кабинета (`WeaponComponent.Icon`) — **другой** skill: `$create-jazz-component-icons`.<br>
 Новый компонент, доступный на оружии: сделать **оба** skill (пара Icon + ChipIcon), но генерация раздельная.
 
 Asset-only PNG не требует spec. Wire `ChipIcon` → `items.lua` sync.

@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Manuel = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Manuel.png",
 	Tier = "Personal",
 }
+

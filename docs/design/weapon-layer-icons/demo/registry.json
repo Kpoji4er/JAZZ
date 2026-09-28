@@ -1,0 +1,374 @@
+{
+  "revision": "prototype-m4-snapshot-v1",
+  "weapons": {
+    "M4A1": {
+      "host": "M4R_M4A1",
+      "slots": {
+        "Barrel": {
+          "default": "JAZZ_BarrelNormal",
+          "options": {
+            "JAZZ_BarrelNormal": true,
+            "JAZZ_BarrelShort": true,
+            "JAZZ_BarrelLong": true
+          }
+        },
+        "Handguard": {
+          "default": "JAZZ_Handguard",
+          "options": {
+            "JAZZ_Handguard": true,
+            "JAZZ_Handguard_RIS": true
+          }
+        },
+        "Handgrip": {
+          "default": "JAZZ_Handgrip_Default",
+          "options": {
+            "JAZZ_Handgrip_Default": true
+          }
+        },
+        "Magazine": {
+          "default": "JAZZ_MagNormal",
+          "options": {
+            "JAZZ_MagNormal": true,
+            "JAZZ_MagSmall30_20": true
+          }
+        },
+        "Stock": {
+          "default": "JAZZ_StockLightUnFolded",
+          "options": {
+            "JAZZ_StockLightUnFolded": true,
+            "JAZZ_StockLightFolded": true
+          }
+        },
+        "Scope": {
+          "default": "JAZZ_CarryHandle_AR15",
+          "options": {
+            "JAZZ_CarryHandle_AR15": true,
+            "JAZZ_IronSight": true
+          }
+        },
+        "Under": {
+          "default": "",
+          "options": {
+            "": true
+          }
+        },
+        "Side": {
+          "default": "",
+          "options": {
+            "": true
+          }
+        },
+        "Muzzle": {
+          "default": "JAZZ_DefMuzzle",
+          "options": {
+            "": true,
+            "JAZZ_DefMuzzle": true
+          }
+        }
+      },
+      "hosts": {
+        "M4R_M4A1": {
+          "width": 648,
+          "height": 330,
+          "layers": {
+            "stock": {
+              "image": "layers/stock.png",
+              "z": 10,
+              "entity": "M4R_M4A1_Stock",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "stock_collapsed": {
+              "image": "layers/stock_collapsed.png",
+              "z": 10,
+              "entity": "M4R_M4A1_StockFolded",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "barrel": {
+              "image": "layers/barrel.png",
+              "z": 20,
+              "entity": "M4R_M4A1_Barrel",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "barrel_short": {
+              "image": "layers/barrel_short.png",
+              "z": 20,
+              "entity": "M4R_M4A1_BarrelShort",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "barrel_long": {
+              "image": "layers/barrel_long.png",
+              "z": 20,
+              "entity": "M4R_M4A1_BarrelLong",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "magazine": {
+              "image": "layers/magazine.png",
+              "z": 30,
+              "entity": "M4R_M4A1_Magazine",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "grip": {
+              "image": "layers/grip.png",
+              "z": 35,
+              "entity": "M4R_M4A1_Handgrip",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "body": {
+              "image": "layers/body.png",
+              "z": 40,
+              "entity": "M4R_M4A1",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "frontsight": {
+              "image": "layers/frontsight.png",
+              "z": 45,
+              "entity": "M4R_M4A1_FrontSight",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "handguard": {
+              "image": "layers/handguard.png",
+              "z": 50,
+              "entity": "M4R_M4A1_Handguard",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "ris": {
+              "image": "layers/ris.png",
+              "z": 50,
+              "entity": "M4R_M4A1_HandguardRIS",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "carry": {
+              "image": "layers/carry.png",
+              "z": 60,
+              "entity": "M4R_M4A1_CarryHandle",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "rear": {
+              "image": "layers/rear.png",
+              "z": 60,
+              "entity": "M4R_M4A1_RearSight",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "muzzle": {
+              "image": "layers/muzzle.png",
+              "z": 70,
+              "entity": "M4R_M4A1_DefMuzzle",
+              "delta_m": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "muzzle_short": {
+              "image": "layers/muzzle_short.png",
+              "z": 70,
+              "entity": "M4R_M4A1_DefMuzzle",
+              "delta_m": [
+                0.0,
+                0.1082800030708313,
+                0.0
+              ]
+            },
+            "muzzle_long": {
+              "image": "layers/muzzle_long.png",
+              "z": 70,
+              "entity": "M4R_M4A1_DefMuzzle",
+              "delta_m": [
+                0.0,
+                -0.1468699872493744,
+                0.0
+              ]
+            }
+          },
+          "fixed": [
+            "body",
+            "frontsight"
+          ],
+          "slots": {
+            "Barrel": {
+              "JAZZ_BarrelNormal": {
+                "layers": [
+                  "barrel"
+                ]
+              },
+              "JAZZ_BarrelShort": {
+                "layers": [
+                  "barrel_short"
+                ]
+              },
+              "JAZZ_BarrelLong": {
+                "layers": [
+                  "barrel_long"
+                ]
+              }
+            },
+            "Handguard": {
+              "JAZZ_Handguard": {
+                "layers": [
+                  "handguard"
+                ]
+              },
+              "JAZZ_Handguard_RIS": {
+                "layers": [
+                  "ris"
+                ]
+              }
+            },
+            "Handgrip": {
+              "JAZZ_Handgrip_Default": {
+                "layers": [
+                  "grip"
+                ]
+              }
+            },
+            "Magazine": {
+              "JAZZ_MagNormal": {
+                "layers": [
+                  "magazine"
+                ]
+              }
+            },
+            "Stock": {
+              "JAZZ_StockLightUnFolded": {
+                "layers": [
+                  "stock"
+                ]
+              },
+              "JAZZ_StockLightFolded": {
+                "layers": [
+                  "stock_collapsed"
+                ]
+              }
+            },
+            "Scope": {
+              "JAZZ_CarryHandle_AR15": {
+                "layers": [
+                  "carry"
+                ]
+              },
+              "JAZZ_IronSight": {
+                "layers": [
+                  "rear"
+                ]
+              }
+            },
+            "Under": {
+              "": {
+                "layers": []
+              }
+            },
+            "Side": {
+              "": {
+                "layers": []
+              }
+            },
+            "Muzzle": {
+              "": {
+                "layers": []
+              },
+              "JAZZ_DefMuzzle": {
+                "variants": [
+                  {
+                    "when": {
+                      "Barrel": "JAZZ_BarrelNormal"
+                    },
+                    "layers": [
+                      "muzzle"
+                    ]
+                  },
+                  {
+                    "when": {
+                      "Barrel": "JAZZ_BarrelShort"
+                    },
+                    "layers": [
+                      "muzzle_short"
+                    ]
+                  },
+                  {
+                    "when": {
+                      "Barrel": "JAZZ_BarrelLong"
+                    },
+                    "layers": [
+                      "muzzle_long"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "provenance": {
+    "blend_name": "M4A1-assembled.blend",
+    "blend_sha256": "719211fc87bd88ebec98dd37ea0416ef793941110e6827064eef6fa723baf4e0",
+    "camera": {
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "target_m": [
+        0.0,
+        -0.1599999964237213,
+        0.03999999910593033
+      ],
+      "ortho_width_m": 1.2
+    },
+    "light": "3 fixed area lights, Standard +1 exposure, no per-layer auto fit",
+    "limitations": "Snapshot art only. Real 20-round magazine is WeaponAttA_MagazineCAR15_02, not snapshot Magazine20; intentionally unsupported until game capture. Side/Under external attachments unsupported. Long barrel keeps snapshot fore-end/sight; not a production legal-configuration preview."
+  }
+}

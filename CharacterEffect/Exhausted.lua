@@ -3,19 +3,8 @@ DefineClass.Exhausted = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "ap_loss",
-			'Value', -2,
-			'Tag', "<ap_loss>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "duration",
-			'Value', 12,
-			'Tag', "<duration>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -45,3 +34,4 @@ DefineClass.Exhausted = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

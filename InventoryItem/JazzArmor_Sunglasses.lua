@@ -14,7 +14,6 @@ DefineClass.JazzArmor_Sunglasses = {
 	AdditionalHint = T(424825139337, --[[ModItemInventoryItemCompositeDef JazzArmor_Sunglasses AdditionalHint]] "Улучшают видимость днем, но ухудшают ночью"),
 	Cost = 300,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 1,
 	RestockWeight = 120,
 	Slot = "HeadGear",

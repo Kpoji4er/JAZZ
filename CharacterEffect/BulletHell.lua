@@ -11,3 +11,4 @@ DefineClass.BulletHell = {
 	Icon = "UI/Icons/Perks/BulletHell",
 	Tier = "Personal",
 }
+

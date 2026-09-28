@@ -3,9 +3,9 @@ DefineClass.ColtPeacemaker = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-2",
 	object_class = "Revolver",
-	ReloadStyle = "Revolver",
 	ScrapParts = 6,
 	RepairCost = 4,
 	Reliability = 95,
@@ -16,7 +16,6 @@ DefineClass.ColtPeacemaker = {
 	AdditionalHint = T(890000000000512, --[[ModItemInventoryItemCompositeDef ColtPeacemaker AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Анахронизм"),
 	UnitStat = "Marksmanship",
 	Cost = 1600,
-	CanAppearInShop = false,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_357",
 	Damage = 34,
@@ -37,7 +36,6 @@ DefineClass.ColtPeacemaker = {
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -48,17 +46,12 @@ DefineClass.ColtPeacemaker = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 17,
+	ReloadStyle = "Revolver",
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 28,
 	BaseJamChance = -100,

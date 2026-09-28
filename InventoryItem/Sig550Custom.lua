@@ -118,16 +118,12 @@ DefineClass.Sig550Custom = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
+	Recoil = 14,
+	AutoShots = 7,
 	WeaponMass = 41,
 	CyclicRPM = 700,
-	WeaponSizeClass = "Rifle",
 	BurstLimiter = 3,
-	Recoil = 14,
-	BurstShots = 3,
-	AutoShots = 7,
-
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 63,

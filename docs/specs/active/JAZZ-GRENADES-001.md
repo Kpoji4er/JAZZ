@@ -176,7 +176,7 @@ dev = Min(dev, CapTiles * SlabSizeX)
 | `Max + 4` | 12 | 10 | жёстче |
 | fixed 12 | 12 | 12 | единообразно |
 
-**Зафиксировано расчётом:** `CapTiles = Max(2 × MaxMishapRange, 8)`.  
+**Зафиксировано расчётом:** `CapTiles = Max(2 × MaxMishapRange, 8)`.<br>
 Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не вводится в этом spec.
 
 ### Визуал area-aim
@@ -192,14 +192,14 @@ Frag ≤16, GL ≤12, default Max=4 → 8. Отдельный item override не
 ### Shared API
 
 - `MishapProperties:GetMishapSkillProfile()` → `ThrowGrenade` | `AimedHeavy` | `Demo`
-- `MishapProperties:GetMishapSkillBlend(attacker)` → integer blend  
-- `MishapProperties:GetEffectiveMishapDist(attacker, target)`  
-- `MishapProperties:GetMishapChance` — override: Str+Dex+Expl throw blend, smoothstep 0→full personal range, suppression  
+- `MishapProperties:GetMishapSkillBlend(attacker)` → integer blend<br>
+- `MishapProperties:GetEffectiveMishapDist(attacker, target)`<br>
+- `MishapProperties:GetMishapChance` — override: Str+Dex+Expl throw blend, smoothstep 0→full personal range, suppression<br>
 - `MishapProperties:GetMishapDeviationBounds(unit, target, band)` → `min_dev, max_dev` (no RNG)
-- `MishapProperties:GetMishapDeviationVectorMin/Max` — integer, raw blend, smoother Min  
+- `MishapProperties:GetMishapDeviationVectorMin/Max` — integer, raw blend, smoother Min<br>
 - `MishapProperties:GetMishapAimReliability(attacker, target)` → `reliability, chance, scatter_risk`
-- `MishapProperties:ApplyImpactDeviation(...)` → `target_pos, mishap_flag`  
-- `Grenade` / `HeavyWeapon` GetAttackResults → Apply*; ValidatePos retry для parabola  
+- `MishapProperties:ApplyImpactDeviation(...)` → `target_pos, mishap_flag`<br>
+- `Grenade` / `HeavyWeapon` GetAttackResults → Apply*; ValidatePos retry для parabola<br>
 - `Targeting_AOE_ParabolaAoE` (+ cone path) — tint через `GetMishapAimReliability` + `GetCTHColor`
 
 Удалить free `MishapChanceByDist` / `MishapDeviationVectorByDist` после переноса.

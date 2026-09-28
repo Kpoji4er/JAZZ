@@ -10,3 +10,4 @@ DefineClass.GrizzlyPerk = {
 	Icon = "UI/Icons/Perks/GrizzlyPerk",
 	Tier = "Personal",
 }
+

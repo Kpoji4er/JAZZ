@@ -31,7 +31,7 @@ approved_by: project-owner
 
 > **Phase-1 only — temporary.** Урезанный one-file в core `jazz` уже в main.
 > Целевой дизайн: отдельный пакет **`jazz-nomaps`** —
-> draft [`JAZZ-COMPAT-002`](JAZZ-COMPAT-002.md).
+> draft [`JAZZ-COMPAT-002`](../active/JAZZ-COMPAT-002.md).
 > При реализации COMPAT-002 этот код **удаляется** из `jazz` и переносится в новый пакет;
 > COMPAT-001 → `superseded`. **Не расширять** `StandaloneNoMapsFallback.lua` новыми фичами.
 

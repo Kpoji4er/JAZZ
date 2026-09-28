@@ -494,10 +494,10 @@ def weapon_weight(w: dict, arch: int, recipe: dict | None = None) -> tuple[int, 
         floor = (recipe or {}).get("arch1_all_subs_from") if arch == 1 else None
         if floor is not None:
             amin = min(amin, int(floor))
-        # Preserve the old Legion rifle ladder: MAS-36 at 11, Mosin at 12.
-        # Dedicated sniper recipes retain the earlier PU-equipped Mosin exception.
-        if w["id"] == "Mosin" and arch == 1 and "sniper" not in tags_for_recipe(recipe or {}, arch):
-            amin = max(amin, 12)
+        # Long Mosin (including PU) starts at T1-3. M38/Obrez have their own
+        # T1-1 gates in early_variants; commander floors cannot bypass this.
+        if w["id"] == "Mosin" and arch == 1:
+            amin = max(amin, 13)
         return amin, 100000 + w["balance_subtier"] * 1000
     if bt == arch - 1 and arch == 2:
         # ~1% remnant of tier1 on arch2 (tuned vs mid pool; evidence AC-004)
@@ -696,7 +696,18 @@ def collect_firearm_plan(
                 upper = 10 * arch + 9
             weight = int(variant.get("weight") or (100000 + min(unlock % 10, 5) * 1000))
             weight = int((recipe.get("variant_weight_overrides") or {}).get(f"{wid}:{pkg_name}", weight))
-            entries_meta.append((cid, amin, upper, weight))
+            steps = variant.get("weight_steps")
+            if steps:
+                starts = [int(step["unlock"]) for step in steps]
+                assert amin is not None and starts[0] == amin
+                assert starts == sorted(set(starts)) and (upper is None or starts[-1] <= upper)
+                for i, step in enumerate(steps):
+                    step_upper = starts[i + 1] - 1 if i + 1 < len(steps) else upper
+                    step_weight = int((recipe.get("variant_weight_overrides") or {}).get(f"{wid}:{pkg_name}", step["weight"]))
+                    assert step_weight > 0
+                    entries_meta.append((cid, starts[i], step_upper, step_weight))
+            else:
+                entries_meta.append((cid, amin, upper, weight))
 
     return entries_meta, combos
 
@@ -720,6 +731,9 @@ def emit_firearm_from_plan(fid: str, entries_meta: list[tuple]) -> str:
     # Unconditional fallback (pre-003 LegionT1_* style): if quest var missing/0 or no band
     # matches, still roll a weapon. Low weight vs gated pools when they are active.
     fallback_cid = entries_meta[0][0] if entries_meta else "LegionT1_SMG"
+    # Never issue a Mosin outside its authored tier bands via the fallback.
+    if fallback_cid.startswith("JAZZ_GenW_Mosin_"):
+        fallback_cid = next((e[0] for e in entries_meta if not e[0].startswith("JAZZ_GenW_Mosin_")), "LegionT1_SMG")
     fallback_weight = 1000 if entries_meta else 10000
     entries.append(
         "\t\t\t\t\t\tPlaceObj('LootEntryLootDef', {\n"

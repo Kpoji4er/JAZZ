@@ -27,3 +27,4 @@ DefineClass.Jazz_Perk_Vilde = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Vilde.png",
 	Tier = "Personal",
 }
+

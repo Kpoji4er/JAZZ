@@ -23,3 +23,4 @@ DefineClass.Armsshot = {
 	HideOnBadge = true,
 	HasFloatingText = true,
 }
+

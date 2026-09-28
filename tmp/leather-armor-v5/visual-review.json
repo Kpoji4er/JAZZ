@@ -1,0 +1,13 @@
+{
+  "status": "REVIEWED_OFFLINE",
+  "source_sha256": "c5ae4b4af7f9b41395694957f4eaaa086651756da82bb9b4ddb4e15947650cd6",
+  "views": [
+    "front.png",
+    "anchors-detail.png",
+    "clothed-audit/deep_lean_back.png",
+    "baked-preview/baked_front.png",
+    "baked-preview/baked_back.png"
+  ],
+  "scope": "Source and exported 2048 atlas reviewed, full overlap contacts checked in four synthetic poses; runtime not run.",
+  "baked_reviewed": true
+}

@@ -2,24 +2,17 @@ UndefineClass('TraumaLegsLight')
 DefineClass.TraumaLegsLight = {
 	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "JazzTraumaEffect",
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcMoveModifier",
-			Handler = function(self, target, value, action)
-				JazzTraumaPainOnZoneUse(target, "Legs")
-				return value
-			end,
-		}),
-	},
-	DisplayName = T(890000000010106, "Leg Trauma (Light)"),
-	Description = T(890000000010107, "Pain when moving. No direct move-cost penalty."),
-	OnAdded = function(self, obj)
+	DisplayName = T(890000000010106, --[[ModItemCharacterEffectCompositeDef TraumaLegsLight DisplayName]] "Leg Trauma (Light)"),
+	Description = T(890000000010107, --[[ModItemCharacterEffectCompositeDef TraumaLegsLight Description]] "Pain when moving. No direct move-cost penalty."),
+	OnAdded = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
 	end,
-	OnRemoved = function(self, obj)
+	OnRemoved = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
@@ -30,3 +23,4 @@ DefineClass.TraumaLegsLight = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

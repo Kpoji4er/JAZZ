@@ -132,3 +132,9 @@ git diff --check
 ## Исключение исходников Blender
 
 PROGRESSION-001 release preparation: `docs/tools/_pack_suite_release.py` исключает `.blend`, `.blend1`, `.blend2` без учёта регистра наряду с PSD и прочими development-only файлами. Игровые HGM/HGA/материалы/текстуры остаются в архиве. На Windows упаковку для сравнения с Linux Actions запускать с process-local `core.autocrlf=false`, чтобы `git archive` сохранял байты committed blob.
+
+### Release preparation, 2026-09-28
+
+Runtime archives exclude both `.tmp/` and `tmp/`, including tracked development snapshots. All requested source changes remain in Git. The generated-data auditor reads ModItem properties lexically, independent of indentation or inline serialization, and excludes development snapshots from active companion discovery. Runtime smoke remains a separate prerelease limitation.
+
+Six legacy root-level unique-weapon companions are inactive copies: metadata loads the matching identities under `InventoryItem/vanillunique/`. The auditor now distinguishes these copies from missing active registrations; it does not enable or delete them.

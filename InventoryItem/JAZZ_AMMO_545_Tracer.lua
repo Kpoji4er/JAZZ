@@ -51,7 +51,9 @@ DefineClass.JAZZ_AMMO_545_Tracer = {
 		}),
 	},
 	AppliedEffects = {
-		"ExposedBleedingChanceMarkedTraccers",
+		"Exposed",
+		"BleedingChance",
+		"MarkedTraccers",
 	},
 }
 

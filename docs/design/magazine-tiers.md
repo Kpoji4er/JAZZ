@@ -1,7 +1,7 @@
 # Магазины — четыре роли
 
-Канон для `JAZZ_Mag*`.  
-Apply (ReloadAP/roles): `docs/tools/_rebalance_magazine_tiers.py`.  
+Канон для `JAZZ_Mag*`.<br>
+Apply (ReloadAP/roles): `docs/tools/_rebalance_magazine_tiers.py`.<br>
 Связано: [`attachments-rebalance.md`](attachments-rebalance.md), `JAZZ-ATTACH-001` REQ-015/016.
 
 **Статус ёмкости:** data-pass применён: live `JAZZ_Mag*` используют `MagazineSizeSet` с абсолютным N, а shared `JAZZ_MagLarge` разрезан по целевым ёмкостям. Runtime smoke/editor round-trip остаётся обязательным.
@@ -20,9 +20,9 @@ Apply (ReloadAP/roles): `docs/tools/_rebalance_magazine_tiers.py`.
 
 ### Runtime
 
-Vanilla `SetWeaponComponent` знает только `Add` / `Multiply` / `Subtract`.  
-`ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=1000, add=N−base)`  
-(формула движка `MulDivRound(base + mod_add, mod_mul, 1000)`; `mul=0` давал MagSize 0/1).  
+Vanilla `SetWeaponComponent` знает только `Add` / `Multiply` / `Subtract`.<br>
+`ModificationType = "Set"` → `AddModifier(id, "MagazineSize", mul=1000, add=N−base)`<br>
+(формула движка `MulDivRound(base + mod_add, mod_mul, 1000)`; `mul=0` давал MagSize 0/1).<br>
 Data содержит effect preset `MagazineSizeSet`; heal на `LoadGame`/`NewGame` в `Code/System_WeaponComponent_Set.lua`.
 
 ### Правила данных
@@ -99,14 +99,14 @@ ReloadAP **+1**, без Rel/AA. Fine — без Reload+.
 
 ## Семьи магазинов (platform / mag well)
 
-Съёмный `InventoryItem` магазина ставится только на оружие, у которого этот **component id** в `AvailableComponents`.  
+Съёмный `InventoryItem` магазина ставится только на оружие, у которого этот **component id** в `AvailableComponents`.<br>
 Общий `JAZZ_MagLarge_50` на АК и M16 означал бы один предмет на обе платформы — **запрещено**.
 
 | Семья | Примеры стволов | Пример id |
 | --- | --- | --- |
 | **AK 7.62×39** | AK47, AKM, Type56, **RPK**, Zastava M70/M92 | **`JAZZ_MagLarge_30_40`** (на 40); drum `30_75`; `JAZZ_MagQuick_AK` |
 | **AK 5.45×39** | AK74, AKSU, **RPK74**, AN94 | **`JAZZ_MagLarge_30_45`** (на 45); `JAZZ_MagQuick_AK` |
-| **AR15** | AR15, M16*, M4*, CAR15 | `…_AR15` |
+| **AR15** | M16*, M4*, CAR15 (ванильный `AR15` — отключённая заглушка, `catalog_status = excluded_disabled`) | `…_AR15` |
 | **SIG** | Sig550/552* | `…_SIG` |
 | **MP5** / **UZI** / … | свои линейки | суффикс семьи |
 | **MP40** | только заводской **32** (`JAZZ_MagNormal`); expanded family **нет** | — |

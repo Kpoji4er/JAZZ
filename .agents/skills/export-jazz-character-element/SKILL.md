@@ -29,7 +29,7 @@ description: Создавать элемент внешности юнита (Ha
 6. **Human-шаги владельца**: Mod Editor — проверить entity, пересобрать `mtlbin`, убедиться в наличии элемента в нужном dropdown `AppearancePreset`; прогон в игре.
 
 ```powershell
-$B = "C:\Program Files\Blender Foundation\Blender 4.4\blender.exe"
+$B = "<BLENDER_EXE>"
 & $B -b "<sample>.blend" -P scripts/build_sh68_helmet.py -- --out "<assets>/Sources/Character/<Entity>"
 & $B -b "<assets>/Sources/Character/<Entity>/<Entity>.blend" -P scripts/preview_character_element.py -- --object <Entity> --out <preview_dir>
 & $B -b "<assets>/Sources/Character/<Entity>/<Entity>.blend" -P scripts/export_character_element.py -- --object <Entity>

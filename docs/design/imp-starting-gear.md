@@ -16,7 +16,7 @@ Design contract for **JAZZ-IMP-001**. Runtime owner: `Code/System_IMP_StartingGe
 3. `AutoWeapons` → Mark 50/70/85: `MPL` / `TMP` / `CAR15`
 4. Иначе Mark 50/70/85: `TT33` / `R870` / `SKS`
 
-Secondary: Melee/CQC сайдарм (Mark 50/70/85) `APS` / `MicroUZI` / `Glock17` → Handheld B или Inventory.  
+Secondary: Melee/CQC сайдарм (Mark 50/70/85) `APS` / `MicroUZI` / `Glock17` → Handheld B или Inventory.<br>
 Heavy alone (без LMG-ветки): `M79` + 2×`JAZZ_AMMO_40mmFlashbangGrenade` + 3×`JAZZ_AMMO_40mmFragGrenade`.
 
 ## Статы
@@ -54,7 +54,7 @@ Heavy alone (без LMG-ветки): `M79` + 2×`JAZZ_AMMO_40mmFlashbangGrenade`
 | `Stealthy` | см. primary override |
 | `AutoWeapons` / `HeavyWeaponsTraining` / `MeleeTraining` | см. оружие |
 
-`MeleeTraining` → sidearm ladder (APS→MicroUZI→Glock17).  
+`MeleeTraining` → sidearm ladder (APS→MicroUZI→Glock17).<br>
 `CQCTraining` → `Machete`.
 
 ## Ammo

@@ -63,3 +63,5 @@
 - [совместимость](../compatibility.md) и [тестирование](../testing.md), когда меняется соответствующий контракт.
 
 Проверка автоматизирована skill `$document-jazz-systems` и скриптом `.agents/skills/document-jazz-systems/scripts/check-system-docs.ps1`.
+
+- [JA1/JA2 mercenary inventory presets](ja12-merc-inventory-presets.md).

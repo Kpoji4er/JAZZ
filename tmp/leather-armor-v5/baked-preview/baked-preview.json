@@ -1,0 +1,12 @@
+{
+  "entity": "JAZZ_LeatherArmor_Male",
+  "uv_layers": [
+    "ExportUV"
+  ],
+  "maps": [
+    "Base",
+    "Norm",
+    "RM"
+  ],
+  "runtime": "NOT_RUN"
+}

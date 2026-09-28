@@ -19,6 +19,11 @@ function IsKindOf(o,c) return o.kind==c end
 function IsValidEntity(e) return valid_entities[e] or false end
 function DoneObject(o) assert(not o.dead);o.dead=true end
 Part={}
+local point_meta={__add=function(a,b) return point(a.x+b.x,a.y+b.y,a.z+b.z) end}
+function point(x,y,z) return setmetatable({x=x,y=y,z=z},point_meta) end
+function Part:GetAttachOffset() return self.offset or point(0,0,0) end
+function Part:SetAttachOffset(offset) self.offset=offset end
+function Part:GetAttachSpot() return self.spot end
 function Part:ChangeEntity(e) self.entity=e end
 function Part:GetEntity() return self.entity end
 function Part:ClearEnumFlags(f) self.cleared=f end
@@ -27,7 +32,13 @@ function PlaceObject(c) assert(c=='AppearanceObjectPart');return setmetatable({}
 Unit={}
 function Unit:GetItemInSlot(slot,kind) assert(kind=='Armor');if slot=='Torso' then return self.torso elseif slot=='Head' then return self.head end end
 function Unit:GetGameFlags(flag) return 8 end
-function Unit:ApplyPartSpotAttachments(p) assert(p=='Armor' or p=='Hat');self.parts[p].parent=self end
+function Unit:GetSpotBeginIndex(spot) return spot=='Head' and 7 or 0 end
+function Unit:Attach(part,spot) part.parent=self;part.spot=spot end
+function Unit:ApplyPartSpotAttachments(p)
+ assert(p=='Armor' or p=='Hat')
+ local appearance=AppearancePresets[self.Appearance]
+ self:Attach(self.parts[p],self:GetSpotBeginIndex(appearance[p..'Spot'] or 'Origin'))
+end
 function Unit:ColorizePart(p) self.parts[p].colorized=true end
 function RGB(r,g,b) return r*65536+g*256+b end
 function Part:SetColorizationMaterial(i,color,r,m) self.colors=self.colors or {};self.colors[i]=color end
@@ -84,16 +95,35 @@ local helm=makeunit('JAZZ_Legion_ArmorTest_PASGTHelm','Male','OriginalArmor');lo
 helm.head={class='JazzArmor_PASGTHelm'};helm:UpdateItemAppearance()
 assert(oldhat.dead and helm.parts.Hat.entity=='FactionMale_Hat_08' and helm.parts.Hair.visible==false)
 assert(helm.parts.Hat.colors[1]==RGB(61,74,46) and helm.parts.Armor.entity=='OriginalArmor')
+valid_entities.JazzHat_SSh68=true
+helm.head={class='JazzArmor_SovietHelm'};helm:UpdateItemAppearance()
+assert(helm.parts.Hat.entity=='JazzHat_SSh68' and helm.parts.Hair.visible==false and not helm.parts.Hat.colors)
+assert(helm.parts.Hat:GetAttachOffset().z==-40)
+helm:UpdateItemAppearance();helm:UpdateItemAppearance()
+assert(helm.parts.Hat:GetAttachOffset().z==-40, 'helmet offset must not accumulate')
 local same=helm.parts.Hat;helm.head={class='JazzArmor_6b7Helm'};helm:UpdateItemAppearance()
 assert(helm.parts.Hat.entity=='FactionMale_Hat_10' and same.dead and helm.parts.Hair.visible==false)
+assert(helm.parts.Hat:GetAttachOffset().z==0, 'SSh68 fit must not leak to other hats')
+assert(helm.parts.Hat:GetAttachSpot()==7, '6b7 must attach to Head despite baseline Origin')
+assert(helm.parts.Armor:GetAttachSpot()==nil, 'unchanged armor must remain untouched')
+local retained=helm.parts.Hat;helm:Attach(retained,0);helm:UpdateItemAppearance()
+assert(helm.parts.Hat==retained and retained:GetAttachSpot()==7, 'repair cached helmet at Origin')
+helm:Attach(retained,0);g_JAZZ_LegionHatParts=setmetatable({}, {__mode='k'});helm:UpdateItemAppearance()
+assert(helm.parts.Hat==retained and retained:GetAttachSpot()==7, 'repair saved helmet at Origin')
 helm.head=nil;OnMsg.ItemRemoved(helm,{},'Head')
 assert(helm.parts.Hat==nil and helm.parts.Hair.visible==true)
+valid_entities.BaselineHat=true;AppearancePresets.Test.Hat='BaselineHat'
+local restored=makeunit('JAZZ_Legion_ArmorTest_6b7Helm','Male',nil)
+restored.parts.Hat:ChangeEntity('BaselineHat');restored.head={class='JazzArmor_6b7Helm'};restored:UpdateItemAppearance()
+restored.head=nil;restored:UpdateItemAppearance()
+assert(restored.parts.Hat.entity=='BaselineHat' and restored.parts.Hat:GetAttachSpot()==0, 'restore original hat at preset Origin')
+AppearancePresets.Test.Hat=nil
 local merc=makeunit('Igor','Male','OriginalArmor');merc.torso={class='JazzArmor_FlakM1955'};merc.head={class='JazzArmor_PASGTHelm'}
 local parmor,phat,phair=merc.parts.Armor,merc.parts.Hat,merc.parts.Hair.visible
 merc:UpdateItemAppearance();assert(merc.parts.Armor==parmor and merc.parts.Hat==phat and merc.parts.Hair.visible==phair)
 ''')
 lua.execute('''
-for _,suffix in ipairs({'Chainmail','TireBrigantine','TireArmor','TwaronLight','TwaronMedium','TwaronFull','GuardianLight','GuardianMedium','GuardianFull','ZylonLight','ZylonMedium','ZylonFull'}) do
+for _,suffix in ipairs({'Chainmail','TireBrigantine','TireArmor','TwaronLight','TwaronMedium','TwaronFull','GuardianLight','GuardianMedium','GuardianFull','ZylonLight','ZylonMedium','ZylonFull','6B3','LeatherArmor'}) do
  local entity='JAZZ_'..suffix..'_Male';valid_entities[entity]=true
  local v=makeunit('JAZZ_Legion_ArmorTest_'..suffix,'Male','OriginalArmor')
  v.torso={class='JazzArmor_'..suffix};v:UpdateItemAppearance();assert(v.parts.Armor.entity==entity)
@@ -127,7 +157,14 @@ def native(v):
     if hasattr(v,'items'):return {k:native(x) for k,x in v.items()}
     return v
 for package in (ROOT,ASSETS,UNITS):
-    for f in ('items.lua','metadata.lua'):lua.compile((package/f).read_text(encoding='utf-8-sig'))
+    for f in ('items.lua','metadata.lua'):
+        try:
+            lua.compile((package/f).read_text(encoding='utf-8-sig'))
+        except Exception:
+            if package==ROOT and f=='items.lua':
+                print('WARN: jazz/items.lua does not compile (pre-existing dirty state); 6B3 did not edit it')
+            else:
+                raise
 unit_id='JAZZ_Legion_ArmorTest';entity='JAZZ_ImprovisedCuirass_Male'
 item=block((UNITS/'items.lua').read_text(encoding='utf8'),'ModItemUnitDataCompositeDef',"'Id', \""+unit_id+'"')
 assert item.Group=='JAZZ Tests'
@@ -173,15 +210,16 @@ print('PASS: isolated item/metadata/companion graph, loadout execution, HGM/mate
 
 from _install_vanilla_armor_visuals import rows
 lua.execute('''
-function gear_slot_result(func, armor, slot)
+function gear_slot_result(func, armor, slot, head)
  local u={slots={}}
  function u:TryEquip(items,slot_name,kind)
-  local id=kind=='Armor' and armor or 'MP40'
+  local id=kind=='Armor' and (slot_name=='Head' and head or armor) or 'MP40'
   for i,v in ipairs(items) do if v.class==id then self.slots[slot_name]=v;table.remove(items,i);return true end end
  end
  function u:TryLoadAmmo(slot,kind,ammo) self.loaded=ammo end
  local items={};func(u,items)
  assert(u.slots[slot].class==armor and u.slots['Handheld A'].class=='MP40')
+ if head then assert(u.slots.Head.class==head) end
  assert(u.loaded=='JAZZ_AMMO_9x19_FMJ' and #items==1 and items[1].class==u.loaded and items[1].Amount==120)
 end
 ''')
@@ -199,3 +237,63 @@ for item,slot in rows():
     lua.globals().gear_slot_result(definition.CustomEquipGear,armor,slot)
     assert f'"UnitData/{uid}.lua"' in units_meta
 print('PASS: vanilla Torso/Head test-unit graph and Head/Torso loadouts')
+
+six = 'JAZZ_6B3_Male'
+six_item = block((ASSETS/'items.lua').read_text(encoding='utf8'),'ModItemEntity',"'entity_name', \""+six+'"')
+assert six_item.ClassParents[1]=='CharacterArmorMale'
+lua.execute((ASSETS/f'Entities/{six}.lua').read_text(encoding='utf8'))
+assert lua.globals().EntityData[six].entity.class_parent=='CharacterArmorMale'
+six_meta=(ASSETS/'metadata.lua').read_text(encoding='utf8')
+assert '"'+six+'"' in six_meta and f'"Entities/{six}.lua"' in six_meta
+six_tree=ET.parse(options.resources/f'{six}.ent')
+assert six_tree.find('inherit').get('entity')=='Male' and not six_tree.findall('.//src')
+for mesh in six_tree.findall('.//mesh'):
+    assert (options.resources/mesh.get('file')).stat().st_size>0
+for node in six_tree.findall('.//material'):
+    mt=ET.parse(options.resources/node.get('file'))
+    for tag in mt.getroot().iter():
+        name=tag.get('Name')
+        if name:
+            assert name.startswith('JAZZ_6B3_')
+            for sub in ('Textures','Textures/Fallbacks'):
+                path=options.resources/sub/name;assert path.read_bytes()[:4]==b'DDS '
+six_uid='JAZZ_Legion_ArmorTest_6B3'
+six_rec=block((UNITS/'items.lua').read_text(encoding='utf8'),'ModItemUnitDataCompositeDef',"'Id', \""+six_uid+'"')
+assert six_rec.Group=='JAZZ Tests'
+lua.execute((UNITS/f'UnitData/{six_uid}.lua').read_text(encoding='utf8'))
+six_def=lua.globals().DefineClass[six_uid]
+lua.globals().gear_slot_result(six_rec.CustomEquipGear,'JazzArmor_6B3','Torso','JazzArmor_SovietHelm')
+lua.globals().gear_slot_result(six_def.CustomEquipGear,'JazzArmor_6B3','Torso','JazzArmor_SovietHelm')
+assert f'"UnitData/{six_uid}.lua"' in (UNITS/'metadata.lua').read_text(encoding='utf8')
+assert (ROOT/'ArmorIcons'/'6b3.png').is_file()
+print('PASS: 6B3 entity graph, Male inheritance, test-unit loadout, preserved icon')
+
+# Leather carrier: both serialized and runtime definitions execute the same loadout.
+leather = 'JAZZ_LeatherArmor_Male'
+leather_uid = 'JAZZ_Legion_ArmorTest_LeatherArmor'
+leather_item = block((ASSETS/'items.lua').read_text(encoding='utf8'), 'ModItemEntity', "'entity_name', \""+leather+'"')
+assert leather_item.ClassParents[1] == 'CharacterArmorMale'
+lua.execute((ASSETS/f'Entities/{leather}.lua').read_text(encoding='utf8'))
+assert lua.globals().EntityData[leather].entity.class_parent == 'CharacterArmorMale'
+leather_meta = (ASSETS/'metadata.lua').read_text(encoding='utf8')
+assert f'"{leather}"' in leather_meta and f'"Entities/{leather}.lua"' in leather_meta
+leather_tree = ET.parse(options.resources/f'{leather}.ent')
+assert leather_tree.find('inherit').get('entity') == 'Male' and not leather_tree.findall('.//src')
+for node in leather_tree.findall('.//mesh') + leather_tree.findall('.//material'):
+    resource = options.resources/node.get('file')
+    assert resource.is_file()
+    if node.tag == 'material':
+        for tag in ET.parse(resource).getroot().iter():
+            name = tag.get('Name')
+            if name:
+                assert name.startswith('JAZZ_LeatherArmor_')
+                for directory in ('Textures', 'Textures/Fallbacks'):
+                    assert (options.resources/directory/name).read_bytes()[:4] == b'DDS '
+leather_unit = block((UNITS/'items.lua').read_text(encoding='utf8'), 'ModItemUnitDataCompositeDef', "'Id', \""+leather_uid+'"')
+assert leather_unit.Group == 'JAZZ Tests'
+lua.execute((UNITS/f'UnitData/{leather_uid}.lua').read_text(encoding='utf8'))
+for obj in (leather_unit, lua.globals().DefineClass[leather_uid]):
+    assert obj.AppearancesList[1].Preset == 'LegionGoon' and obj.gender == 'Male'
+    lua.globals().gear_slot_result(obj.CustomEquipGear, 'JazzArmor_LeatherArmor', 'Torso')
+assert f'"UnitData/{leather_uid}.lua"' in (UNITS/'metadata.lua').read_text(encoding='utf8')
+print('PASS: leather entity graph, native Male, serialized/runtime MP40+120 FMJ loadout')

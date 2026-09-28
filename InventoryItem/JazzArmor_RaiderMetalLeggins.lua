@@ -6,8 +6,6 @@ DefineClass.JazzArmor_RaiderMetalLeggins = {
 
 	comment = "Class1 H",
 	object_class = "Armor",
-	CanAppearInShop = false,
-	Cost = 600,
 	ScrapParts = 6,
 	Degradation = 60,
 	Icon = "Mod/e6L4ECj/ArmorIcons/MetalPads.png",

@@ -1,6 +1,45 @@
 # `docs/tools` — скрипты агентов и аудита
 
+## Повторная оружейная приёмка 28.09.2026
+
+- `_weapon_feedback_islands.py`: Blender, read-only связанные поверхности и bounds (`--blend --entity --output`).
+- `_weapon_feedback_parts.py`: Blender `--mode m14|grip --blend --islands --output --game-root`; отделяет 742 грани планки либо исправляет UV деревянной оболочки (`--base` decoded albedo). Исходники не перезаписывает.
+- `_weapon_feedback_compile.py --only <entity>` повторяет compile/audit одного изменённого кандидата; сохраняет остальные завершённые audits.
+- `_weapon_feedback_graph.py --game-root --output [--items --assets --setter]`: полный граф компонентов, реальный setter и vanilla UpdateVisualObj; AR15 normal/short, установка/снятие планки M14/M21.
+- `_weapon_feedback_preview_test.py --game-root --module`: воспроизводит исходный UI blocked для отсутствующего Side2, проверяет исправленный helper и сохранённую блокировку занятого слота.
+- `_weapon_feedback_icons.py`: JSON поддерживает blend/entity или точную vanilla Geometry JSON (нейтральный материал), parent/spot и поворот; `_weapon_feedback_views.py --blend --target X,Y,Z --scale --output` снимает крупные планы собранной сцены.
+- `_weapon_feedback_stage028.py --build`: готовит адресную транзакцию, manifest и stage; `--apply` требует закрытой игры и исходных хэшей, сохраняет backup. `_weapon_feedback_validate028.py --build` перед установкой проверяет ModItem/companion, папку оружия, новую entity, compiled audits и цвет/границы иконок.
+
+Порядок: отдельная сборка → compiled audit → stage → render/QA → повторный stage с иконками → validate → apply → sync audit. Backup содержит старые файлы; новый OpticsMount при откате исключается вместе с регистрацией. При повторном экспорте использовать сохранённые кандидаты или повторить этот pipeline. Это offline evidence, не editor round-trip.
+
+
+## Визуальные замечания к оружию 27.09.2026
+
+`_weapon_feedback_maps.py` декодирует установленные DDS для проверки материалов (BC5 Z восстанавливается); `_weapon_feedback_review.py` сравнивает оба бока с картой/без неё. `_weapon_feedback_mesh.py` разделяет жёсткие стыки без custom normals, проверяет сохранность поверхности/UV; `--compiled-prior` удаляет только измеренные микрограни, схлопнувшиеся в HGM. `_weapon_feedback_compile.py` выполняет официальный compile и geometry/winding audit. Пути игры и сборок передаются аргументами.
+
+`_weapon_feedback_materials.py` готовит отдельные PBR-кандидаты (родной atlas АК-103, normal strength, маски дерева M14/металла R4); `_weapon_feedback_components.py` готовит сошки M14 и исполняет штатный `UpdateVisualObj` в Lua-harness для normal/short/long M4. `_weapon_feedback_bipod.py` проверяет посадку ванильных АК-сошек по декодированной геометрии.
+
+`_weapon_feedback_icons.py --config <JSON> --assets <jazz_assets> --maps <decoded maps> --output <dir>` собирает детали из blend по установленным `.ent` spots и снимает 324×165 иконки. `_weapon_feedback_install.py --build <dir>` формирует manifest/stage; `--apply` проверяет закрытую игру, исходные хэши и сохраняет backup. Возврат — восстановить файлы из `install-backup` при закрытой игре. Исходные Blender/TGA не перезаписываются: будущий экспорт требует повторного применения кандидатов. Контекст и игровая приёмка: `docs/design/weapon-visual-feedback-20260927.md`.
+
+- `_tune_ak_polymer_materials.py`: коррекция тона и шероховатости установленных АК-74М/АК-105, 24 Base/RM DDS с fallback и всеми mip. По умолчанию staging/backup/report в `tmp/ak-material/tune-v1`; `--apply` устанавливает, повторный запуск с тем же `--output` не накапливает коррекцию. Не меняет исходные Blender/TGA.
+
 Рабочие утилиты для generated data, аттачей, CSV и design-артефактов.
+
+`_diagnose_ak103_shading.py` — Blender: `--blend <rig.blend> --out <review>`; одинаковый свет и оба бока корпуса/приклада, исходная normal map, отключённая и инверсия X/Y. Корпус показан крупным планом; это не обзор всего оружия. Записывает bindings.json, не меняет исходник или игру.
+
+`_rebake_ak103_tangent_basis.py` — Blender: `--native <native build> --out <новая сборка> --game-root <JA3_ROOT>`. Требует подтверждённый `--cover-prefix ksk` при native-импорте. Перепекает исходный шейдинг на подготовленный экспортный меш, сохраняя его геометрию, UV и пересчитанные нормали по хешам. Custom normals исходника доступны только для чтения при bake и не попадают в FBX. Выход — TGA, blend, FBX и отчёт; установка и runtime-приёмка отдельные.
+
+`_fit_ak103_donor_cover.py` — Blender: `--donor <AK74M_JAZZ.blend> --out <отдельная сборка> --source-build <AK103 build> --game-root <JA3_ROOT> --render`; `--inspect` только описывает острова донора. Переносит крышку с родными UV/PBR, подгоняет передний край и цвет, сохраняет прочую геометрию/UV; отчёт, FBX и пары рендеров. Приёмка/установка: `docs/specs/active/JAZZ-WEAPON-AK103-001.md`.
+
+`_restore_ak103_materials.py` — Blender: `--source-build <native> --out <отдельная сборка> --components <all-parts-audit.json> --game-root <JA3_ROOT> --render`. Восстанавливает материал крышки на отдельном участке атласа из однотонной родной краски, ограничивает чрезмерный блеск; сохраняет геометрию/нормали и проверяет их хеши. Выход: rig/FBX, TGA, отчёт и одинаково освещённые пары before/after; процедура и пределы приёмки — `docs/specs/active/JAZZ-WEAPON-AK103-001.md`.
+
+`_import_ak103_native_maps.py` — Blender: `--archive <AK-103 (6П45).zip> --reference <предыдущий rig.blend> --build <отдельный каталог> --game-root <JA3_ROOT>`. Родные UV/PBR, прежние pivots/spots, безопасный corner budget и один материал-атлас на entity; clean/rigged сцены, FBX, PNG, JSON. `_check_ak103_native_stage.py --build <каталог>` проверяет staged entity/mesh/material/DDS/fallback, прежние spots и размеры иконок; DXGI DDS проверяются по заголовку, не выдаются за декодированный PNG. Установка — существующий `_integrate_ak103.py --replace-assets --apply` при закрытой игре, после сравнения HGM всех шести entity.
+
+`_import_jaweapons_batch.py --audit <materials.json> --out <build> --blender <exe>` + Blender-worker `_import_jaweapons_scene.py` — изолированный импорт всех неотклонённых источников, SHA256, материалы, UV/mesh-аудит, clean blend и PNG. `--only N`, `--reimport`, `--summarize-only --report <stem>`; worker `--uv-review` показывает no-UV меши красным. Не устанавливает игровые предметы и не запускает JA3; неоднозначные карты сохраняет в material library без случайного назначения. `docs/design/weapons-import-batch-results.md` — текущие результаты.
+
+`_audit_jaweapons_materials.py --list <weaponslist.txt> --out <report stem>` — весь список ZIP/RAR/GLB, вложенные ZIP, декодирование текстур, OBJ UV/MTL references и встроенные GLB-материалы. Пишет Markdown + JSON, отличает REJECT без материалов от текстур с невосстановленными назначениями; RAR читает через 7-Zip, JA3 не запускает.
+
+`_prepare_hatchet_source.py` — Blender background: `--archive <Just A Hatchet.zip> --out <новый build-каталог>` после `--`. Сохраняет копию OBJ, clean/Hatchet.blend, SHA256/UV/mesh-аудит и три PNG; проверяет повторное открытие и неизменность архива. Без запуска JA3; текстуры отсутствуют, масштаб исходный, игровой импорт не выполнен.
 
 `_apply_weapon_rollout.py --build <build> [--apply]` — WEAPON-ROLLOUT-001: согласованные статы/цены, адресный CSV, Ivan10 и только новые AK74M/AK105/SR3M/L42A1 записи в существующих пулах Легиона. Dry-run по умолчанию; SHA-backup, защита от конкурентной записи, проверка Lua и идемпотентность. Полную перегенерацию Легиона не запускает.
 
@@ -29,7 +68,8 @@
 `_build_weapon_scale_overlay.py --new <clean.blend> --name <ID> --ref <AK*_JAZZ.blend> --out <dir>` — обязательный гейт масштаба: совмещает новый ствол с принятыми АК по магазину и даёт side/top с подписанными длинами в метрах. Эталоны аппендятся вместе с Origin-empty: если тащить только меши, референс «усыхает» на 5–15%.
 `_overlay_weapon_length.py --build <label>=<blend> [--scale <label>=<factor>] [--spots <label>=<report>] --entity <label>=<entity> --assets <jazz_assets> --out <dir>` + `_annotate_scale_overlay.py --out <dir> --reference <label>` — тот же гейт для случая «сравнить несколько кандидатов длины сразу». Строит N рядов в одном метрическом кадре, ставит метровую линейку с левым краем, привязанным к нулю, выравнивает по дулу и по `Hand_l_grip`, а `--scale` даёт примерить множитель без пересборки. Точки берёт из установленного `.ent` или, для ещё не установленной сборки, из build-отчёта. Требует `sensor_fit='HORIZONTAL'`: при высоком кадре Blender иначе применяет `ortho_scale` к высоте и режет стволы. **Пересекается с `_build_weapon_scale_overlay.py`** — два инструмента на одну задачу, консолидация не согласована.
 `_render_weapon_icons.py --icon <label>=<blend> --out <dir>` + `_finalize_weapon_icons.py --out <dir> --reference AK74` — иконки инвентаря в формате рукодельных: 324×165 RGBA, дуло вправо, композиция `DilateErode` по альфе → почти чёрный слой → `AlphaOver` под картинку плюс размытый ореол. Рендер в 2× и LANCZOS вниз, иначе кольцо пикселит; `--ring 7 --halo 12` дают около 3 и 6 px на финале. Запас по краю кадра обязателен, иначе ореол срезается в плоскую линию. Finalize печатает профиль обводки по глубине и собирает листы сравнения на `#2a2a2a`; для чёрных корпусов цифры глубже 3 px завышены краской модели. **Пересекается с `_compose_icon_review.py`** в части листов сравнения. `_render_ak_icons.py` остаётся для 512×256 с `distance=2` и для иконок магазинов.
-AK-103 (`JAZZ-WEAPON-AK103-001`): `_build_ak103_assets.py --blend <frostoise/ak103 clean.blend> --build <build> --render` — clean-сцена из CC-BY «AK 103» (Frostoise), ориентация −Y/Z, масштаб по паспортным 943 мм, модули по материалам и loose-island (магазин/цевьё/приклад/дуло), опорные empties `LM_*`. `_export_ak103_assets.py --build <build> --game-root <JA3_ROOT>` — rigged: кадр привязан к `AKM.ent` по губкам магазина, оптика на собственной планке, подствол по смещениям АКМ от дула; Origin-empty, триангуляция с `keep_custom_normals`, атласы Base/Normal/RM 2048 TGA и FBX. Повторная установка геометрии: `_integrate_ak103.py --replace-assets`.
+Нормали меша: `_ja3_mesh_prepare.prepare_export_mesh` — триангуляция без custom/split, всегда recalc. Успешный AssetsProcessor не ловит кривой weld. `python docs/tools/_check_mesh_export_normals.py` падает, если какой-то `docs/tools/*.py` снова ставит keep-custom; `--scan-dir` проверяет OBJ / HGM JSON; `--summary` — счётчики. Открытый `.blend`: `blender --background --factory-startup <file.blend> --python docs/tools/_audit_blender_normals.py`. Прогон `prepare_export_mesh` без записи: `_prepare_blender_normals_dryrun.py`. Playbook: `.agents/docs/playbooks/mesh-export-normals.md`.
+AK-103 (`JAZZ-WEAPON-AK103-001`): `_build_ak103_assets.py --blend <frostoise/ak103 clean.blend> --build <build> --render` — clean-сцена из CC-BY «AK 103» (Frostoise), ориентация −Y/Z, масштаб по паспортным 943 мм, модули по материалам и loose-island (магазин/цевьё/приклад/дуло), опорные empties `LM_*`. `_export_ak103_assets.py --build <build> --game-root <JA3_ROOT>` — rigged: кадр привязан к `AKM.ent` по губкам магазина, оптика на собственной планке, подствол по смещениям АКМ от дула; Origin-empty, `prepare_export_mesh` (recalc, без custom normals), атласы Base/Normal/RM 2048 TGA и FBX. Повторная установка геометрии: `_integrate_ak103.py --replace-assets`.
 
 `_audit_weapon_balance_runtime.py` — read-only аудит оружия: исполняет выбранные текущие Lua-методы через `lupa`, сверяет числовые поля CSV с companions, печатает воспроизведение shotgun/armor и изолированные recoil/range-пробы. Без записи данных; требуется `lupa`; не заменяет JA3 runtime. Отчёт: `docs/design/weapon-balance-audit-2026-09-15.md`.
 
@@ -310,7 +350,9 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_export_fal_assets.py` | JAZZ-WEAPON-FAL-FAMILY-001: ранний сборщик Para-приклада из архива. Разложенное состояние с архива не село на спот `Stock` — для unfolded используем ванильный `WeaponAttA_StockFNFal_01`, складку собирает `_export_fal_folded_vanilla.py`. |
 | `_export_fal_folded_vanilla.py` | JAZZ-WEAPON-FAL-FAMILY-001: складывает ванильный `WeaponAttA_StockFNFal_01` (10 островов, петля по `max Y`). Пишет только `FNFAL_ParaStk_fld`. Дальше `AssetsProcessor` + `_apply_weapon_geometry_update.py`. |
 | `_fix_fal_stock_seat.py` | JAZZ-WEAPON-FAL-FAMILY-001: unfolded visual → `WeaponAttA_StockFNFal_01`, дефолт классического `FNFAL` → `JAZZ_StockLightUnFolded`. |
-| `_export_fal_tactical_assets.py` | JAZZ-WEAPON-FAL-FAMILY-001: то же для тактических цевья и приклада из архива `FN FAL _Tactical_`. Сваривает вершины донора (иначе острова не отделяются), масштабирует см→м, выравнивает по ванильному аналогу, пишет `FNFAL_Tactical.fbx` + `fal-tactical-report.json`. |
+| `_export_fal_tactical_assets.py` | JAZZ-WEAPON-FAL-FAMILY-001: то же для тактических цевья и приклада из архива `FN FAL _Tactical_`. Сваривает вершины донора, масштабирует см→м. Цевьё сажает по заднему (приёмному) торцу `max-Y`; приклад — по переднему `min-Y`. `--only` ограничивает сущности. Пишет `FNFAL_Tactical.fbx` + `fal-tactical-report.json`. |
+| `_inspect_fal_tactical_handguard.py` | Read-only bbox/торцы ванильного `HandguardFNFal_01` и донора `model_2`. |
+| `_preview_fal_tactical_handguard.py` | Overlay ванильного цевья и RIS: старая посадка по дулу vs новая по приёмному торцу. В пакет не пишет. |
 | `_install_fal_assets.py` | JAZZ-WEAPON-FAL-FAMILY-001: раскладывает собранные сущности FAL в `jazz_assets` и регистрирует их в `items.lua` + `metadata.entities`/`code`. |
 | `_apply_fal_family.py` | JAZZ-WEAPON-FAL-FAMILY-001: переводит классический `FNFAL` на Tier 2 со складным Para-прикладом и чинит иконки предметов-магазинов FAL. |
 | `_add_fal_tactical_item.py` | JAZZ-WEAPON-FAL-FAMILY-001: создаёт `JAZZ_FNFAL_Tactical` — ModItem, companion, `metadata.code` и зеркалирование визуалов с `FNFAL` на новый ID. Идемпотентен: повторный запуск схлопывает дубли визуалов. |
@@ -320,7 +362,13 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_apply_fal_legion_stock_loot.py` | JAZZ-WEAPON-FAL-FAMILY-001 REQ-007: в `jazz-units/items.lua` фиксирует обычный приклад на легионных FAL-дефах, чинит `BattleRifles_FNFALLight` на `JAZZ_StockLightUnFolded` и подключает его в три пула Легиона. `--apply`. |
 | `_apply_m14_family_grip_stock.py` | JAZZ-WEAPON-M14-FAMILY-001: `ModifyRightHandGrip` на `M14SAW`/`M21`; визуалы Heavy/Plastic → `WeaponAttA_StockM14_Standard`. `--apply`. |
 | `_extract_m14_family_sources.py` | JAZZ-WEAPON-M14-FAMILY-001: уникальные OBJ/PNG из M14 zip во временный каталог, архивы не меняет. |
-| `_export_m14_family_assets.py` | JAZZ-WEAPON-M14-FAMILY-001: Blender, посадка Lego-дерева и ART на ванильный `Weapon_M14`. Пишет FBX в build, в пакеты не ставит. |
+| `_export_m14_family_assets.py` | JAZZ-WEAPON-M14-FAMILY-001: Blender, посадка Lego-дерева, ART, Sage EBR и уника на ванильный `Weapon_M14`. Доворот по Y, атлас для EBR/уника. Пишет FBX в build, в пакеты не ставит. |
+| `_m14_inspect_parts.py` | Blender: read-only галерея `part_*.obj` в исходных осях, `--source <dir> --output <png>`. Помогает отличать альтернативные сборки от недостающих деталей. |
+| `_m14_repair_ebr.py` | Заменяет ошибочную EBR-ветку старого exporter: полный Sage, правильные карты деталей, явная ориентация, normal/short/long barrel. `--source <mk14> --output <new build> --game-root <JA3_ROOT>`, строгий mesh QA, blend/FBX и previews; в мод не пишет. |
+| `_m14_repair_classic.py` | По одной entity: `--source <blend> --entity JAZZ_M14|JAZZ_M14_ART|JAZZ_M14_MkIII --output <new build> --game-root <JA3_ROOT>`. Исправляет ориентацию классики/ART, отделяет barrel/magazine, убирает запечённый обвес Mk III; возвращает его magazine/bolt из исходного part_03 с правильной UV-картой. Строгая подготовка, FBX, отчёт и assembled preview. |
+| `_m14_install_ebr_repair.py` | После AssetsProcessor: `--host MK14EBR|JAZZ_M14|JAZZ_M14_MkIII --export-root <ExportedEntities> --build <repair> --game-root <JA3_ROOT> [--apply]`. Точечные ресурсы, ApplyTo и регистрации, backup при закрытой игре. Классика/MkIII сохраняют текущие DDS; EBR получает исправленный atlas. MkIII: штатные сменные 12x/Suppressor по умолчанию, винтовочный хват. ART ставится через `_apply_weapon_geometry_update.py`. |
+| `_integrate_m14_family.py` | JAZZ-WEAPON-M14-FAMILY-001: стейдж сущностей, `M14SAW`/`M21` → `JAZZ_M14`, предметы `MK14EBR` и `JAZZ_M14_MkIII`, ART как дефолт M21, зеркало визуалов. Требует закрытой игры. |
+| `_render_m14_family_icons.py` | JAZZ-WEAPON-M14-FAMILY-001: иконки 324×165 с обводкой серии. Blender raw, затем `--post`. |
 | `_apply_fal_tactical_loot.py` | JAZZ-WEAPON-FAL-FAMILY-001 REQ-008: `JAZZ_FNFAL_Tactical` в легионные T2-4 пулы и `Adonis_AssaultRifle` / `AdonisElite_AssaultRifle`. Пишет `items.lua` + metadata resources. `--apply`. |
 | `_analyze_weapons_balance.py` | Аудит баланса по `weapons.csv`: within-family z-score, residual vs tier, rare `AvailableAttacks`, peaks → `.tmp/weapon_analysis.json`. |
 | `_analyze_weapons_followup.py` | Печать срезов (AR/SMG/sniper/uniques) из `.tmp/weapon_analysis.json` для ручного разбора. |
@@ -827,7 +875,10 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 - `_prepare_heavy_armor_variants.py` — Blender CPU `--source <donor-textured.blend> --output <folder> [--body <calibrated HGM JSON>]`: separates connected parts with preserved UVs, produces five shared geometry configurations, renders and a source-only manifest. Optional body is an unrigged rest-fit reference; guide `.agents/docs/playbooks/legion-armor-modeling.md`.
 - `_prepare_clean_hav_blends.py --source <modular-source.blend> --woodland <reference.png> --output <folder>` — Blender creates nine packed, editable Light/Medium/Full material variants with separate parts, no rig or morph; asserts unchanged shared donor geometry across colors. No game writes.
 - `_prepare_hav_rig_scenes.py --source <clean nine blends folder> --reference <fitted source with official sample and shirt> --output <folder>` — adds the official Male skeleton/body and static Legion shirt to nine editable scenes, leaving armor unbound and unchanged. Removes approximate shirt weights; renders front/back once per geometry. No game writes.
-- `_model_6b3_vest.py --sample <official BlenderScene_Appearance.blend> --shirt <calibrated NPCCostumeMale_Shirt_08 JSON> --output <new folder> [--skip-renders]` — Blender CPU: собирает 6Б3ТМ-01 как **clean** геометрию по фактической одежде LegionGoon и фото владельца, без арматуры, весов и деформеров. Гейтит зазор до рубашки (min > -1 мм, p95 < 35 мм). Пишет `clean/JazzArmor_6B3.blend`, preview-карты в `textures/` (чехол, подсумки, стропа, кожа, металл), studio-рендеры с этими картами, иконку, clay и wireframe. Это preview, не JA3 bake. Риг и установка — отдельные стадии.
+- `_model_6b3_vest.py --sample <official BlenderScene_Appearance.blend> --shirt <calibrated NPCCostumeMale_Shirt_08 JSON> --output <new folder> [--skip-renders]` — Blender CPU: собирает 6Б3ТМ-01 как **clean** геометрию по фактической одежде LegionGoon и фото владельца, без арматуры, весов и деформеров. Гейтит зазор до рубашки (min > -1 мм, p95 < 35 мм). Пишет `clean/JazzArmor_6B3.blend`, preview-карты в `textures/` (чехол, подсумки, стропа, кожа, металл), studio-рендеры с этими картами, иконку, clay и wireframe. Это preview, не JA3 bake.
+- `_rig_6b3_vest.py --sample <official scene> --clean <JazzArmor_6B3.blend> --output <folder>` — Blender: переносит веса с Male sample (торс как у кирасы, плечи через clavicle/twist), склеивает `TEST_6B3`, нормализует до 4 влияний. Не экспортирует и не ставит в игру.
+- `_qa_6b3_vest.py --blender <exe> --game-root <JA3_ROOT> --shirt <HGM JSON> --output <new folder>` — clean → rig → CPU pose QA → bake/FBX → AssetsProcessor → staging. В активные моды не пишет.
+- `_install_6b3_vest.py --build-root <qa folder> [--apply]` — одна транзакция: `JAZZ_6B3_Male`, mapping `JazzArmor_6B3`, тестовый `JAZZ_Legion_ArmorTest_6B3`. Иконку `ArmorIcons/6b3.png` не трогает. `--apply` только при закрытой игре/редакторе.
 - `_preview_armor_icon.py <icon stems> [--output <scratch folder>] [--scale N] [--flatten R,G,B]` — апскейл `ArmorIcons/*.png` для чтения силуэта до моделирования: число пластин, ворот, плечи, низ, ремни. Пишет только в scratch-каталог, репозиторий не меняет. Очередь партии жилетов — `docs/design/armor-vest-batch-queue.md`.
 - `_model_camo_uniform.py --source <extracted LDW archive> --output <folder>` — Blender restores supplied OBJ UVs and packed diffuse/normal textures and renders the donor before any cutting. Audit found a balaclava and inseparable tactical vest, no boonie hat; do not treat it as three ready clothing objects.
 
@@ -846,7 +897,170 @@ apply обязан вернуть `0`. Legacy wrapper-команды не зап
 - `_qa_heavy_rebind.py --source-root --output --blender --game-root [--only ...]` — builds nine material variants, checks clothed synthetic poses only once for each Light/Medium/Full geometry, bakes and stages existing entity IDs. Reuses QA only after exact geometry, topology, weights, skeleton and transform hashes match within the current run; records the source report. No installation or native animation acceptance.
 - `_install_soft_legion_armor.py --heavy-torso` and `_check_soft_legion_armor.py --heavy-torso` reuse the atomic registration/loadout checks for nine modern torso variants, preserving existing icons. Use `--build-root`; installer is staging-only unless `--apply`.
 
+`_check_legion_armor.py`: проверяет также mapping советской каски на СШ-68 и Head+Torso loadout тестового 6Б3 в ModItem и companion (REQ-025); только mocks/static, без запуска игры.
+
+`_run_weapon_model_live_qa.py` + `_weapon_model_live_qa.lua`: приёмка 16 стволов handoff в уже запущенном JA3Debug на ModEditor; scan всех доступных компонентов, equip/pose на отдельном временном QA-юните. Выход `AppData/jazz_weapon_model_qa.txt`; без initialize/pause/reload/save и изменения ассетов.
+`pairs` проверяет последовательности двух компонентов разных слотов через runtime-правила кабинета, без стоимости и ресурса механика; визуальную посадку не заменяет. `view 2300` — другой бок, `finish` — Idle. Камера использует `GetVisualPos()`; подробности в playbook `model-export-qa-handoff.md`.
+
+`armor JazzArmor_<family><variant>` — меняет Torso только отдельного WeaponQA-юнита: девять HAV, 6Б3 или кираса. Печатает actual parts/body/pose и ставит камеру; без сохранения, перезагрузки ресурсов или изменения ассетов.
+
+
+Инструменты исправлений приёмки (2026-09-22; runtime остаётся отдельным этапом):
+
+- `_m14_repair_winding.py` — Blender: `--entity` выбирает корпус или деталь M14/EBR/MkIII; сварка совпадающих вершин перед `prepare_export_mesh`, контроль числа граней и всех loop UV, отчёт о перевёрнутых гранях. Сохраняет отдельный blend/FBX; не устанавливает и не доказывает устранение дыр в игре.
+- `_m14_fit_preview.py --assets DIR --vanilla DIR --output DIR [--revised]` — Blender: read-only сборка M14 с оптикой, сошками и фонарём из HGM для проверки посадки через `_m14_render_culling.py`.
+- `_m14_stage_visual_revision.py --output DIR --build DIR --game-root DIR [--apply]` — правка 27.09.2026: шесть проверенных мешей EBR/MkIII, посадка M14, линейная RM-карта дерева (roughness −12/255), только сошки в Under, MK14 Т3-1. Staging/manifest/хэши/backup, установка при закрытой игре; регистрации и shop Tier не меняет.
+- `_m14_fixed_barrel.py` — staging фиксированного normal Barrel для M14SAW/M21/MK14EBR/JAZZ_M14_MkIII: items.lua, четыре companion и исходные хэши. `--apply` применяет при закрытой игре/редакторе, с backup и проверкой исходных хэшей.
+- `_m14_render_culling.py` — Blender, `--blend FILE --output DIR`: две противоположные стороны с backface culling; исходный blend не меняет. Offline диагностика, не игровая приёмка.
+- `_ar15_revision_fixed_slots.py --output DIR [--apply]` — фиксированные Handgrip M4A1/M16A4 и Stock M16A4, items/companions вместе, backup и закрытая игра.
+- `_ar15_revision_test.py [--setter FILE]` — настоящие Lua setter/CanModifySlot в минимальном harness: RIS в обоих порядках, снятие, независимость Scope, fixed parts, M14 Under только сошки и очистка старых рукоятей/GL через LoadGame, незатронутые семьи. `--setter` проверяет staged файл до установки.
+- `_ar15_revision_inspect.py` — Blender read-only острова и spots: `--blend FILE --output JSON`.
+- `_ar15_revision_sights.py` — Blender staging одного M4A1 или M16A4: отдельная FrontSight на Gassblock для механических прицелов, исправление целика, длинная труба M4 без замены цевья; `--weapon M4A1|M16A4 --blend FILE --output DIR --game-root ROOT`. Строгая подготовка без custom normals.
+- `_ar15_revision_install.py` — установка одного собранного AR15: `--weapon M4A1|M16A4 --build DIR --export-root DIR [--apply]`; требует compiled audit, сохраняет backup, регистрирует FrontSight и использует существующие текстуры.
+- `_ar15_revision_visual_data.py` — `--weapon M4A1|M16A4|M21 --output DIR [--apply]`: ванильный плоский магазин AR15 либо общий Side mount M21; `--fix-grip` для M4 переносит вертикальную рукоять на Under. Проверяет Lua и исходные байты, сохраняет backup.
+- `_ar15_revision_magazine_preview.py` — Blender: галерея декодированных ванильных магазинов или примерка через `--blend`/`--target`; только внешний preview, без установки.
+- `_weapon_grip_surface.py` — Blender read-only `--blend FILE --entity ID --output JSON`: raycast нижней поверхности цевья относительно Hand_l_grip.
+- `_weapon_grip_fix.py` — Blender `--blend FILE --entity ID --output DIR --game-root ROOT [--y METERS]`: отдельный blend/FBX с grip на 2 мм ниже поверхности; установка отдельно после compiled audit.
+
+Повторный 6Б3, 23.09: `_model_6b3_vest.py` строит чехол с тонкими плечами, тканью и проецированными швами (16520 треугольников, бюджет 17000). `_rig_6b3_vest.py --shirt JSON --reference V7_BLEND --native-only` использует сглаженное поле весов реальной рубашки; v7 проверяет rest skeleton, не подменяет игровые анимации. `_qa_6b3_vest.py` передаёт эти параметры и `--texture-size 2048` в `_build_legion_armor.py`. Для refresh обязательны отдельный HGM round-trip и pose-check; runtime остаётся NOT_RUN. См. playbook `model-export-qa-handoff.md`.
+
+- `_repair_ak103_export.py --source <blend> --output <build> --game-root <JA3_ROOT> --assets <jazz_assets>` — ограничивает экспортный corner budget, пересобирает Base/Norm/RM и исправляет Scope/Mount. Запуск через Blender; исходник не перезаписывается.
+- `_repair_ak103_visuals.py --backup <folder> [--apply]` — три отсутствовавших AK103 ApplyTo (GP25, Bipod, Mag40), точечно в items.lua, backup и проверка закрытой игры.
+- `_audit_compiled_weapon_mesh.py --blend <blend> --entity <id> --decoded <HGM JSON> --report <json>` — Blender-сравнение вершин и центров треугольников до/после AssetsProcessor, включая обратное покрытие. Пригоден и для torso в rest pose; не проверяет игровые анимации. Старый AK103 даёт FAIL, новый PASS.
+- `_repair_ar15_geometry.py --blend <blend> --weapon M16A4|M4A1 --output <folder> --game-root <JA3_ROOT>` — Blender, один предмет за проход: короткий ствол с rifle-position мушкой либо origin на рукояти M4. Экспортирует только изменённую entity. У M16 короткий barrel использует UV/material нормального barrel; при установке копируется соответствующий normal .mtl.
+- `_repair_hav_armor_skin.py --source <export blend> --reference <cuirass v7 blend> --output <new folder> --game-root <JA3_ROOT>` — Blender, один HAV: сверка native skeleton с v7, веса верхней спины/плеч, сохранение геометрии/UV/материалов, before/after pose-рендеры, strict mesh gate, FBX. Не устанавливает и не закрывает live-приёмку.
+- `_install_6b3_vest.py --build-root <QA folder> --refresh [--apply]` — обновление уже зарегистрированного 6Б3: требует pose-check и compiled-audit, заменяет только девять ресурсов с backup. Сохраняет UnitData, metadata, mapping и существующую иконку. Без `--refresh` остаётся первоначальная установка.
+- `_model_6b3_vest.py` — актуальный фронтальный референс владельца: неглубокая горловина, тёмные верхние усиления, высокие подсумки и плечи по уклону Shirt08. Все части без custom normals. `_rig_6b3_vest.py` использует непрерывный переход torso/back/sample через швы и лямки.
+- `_check_legion_armor.py` проверяет также однократное смещение СШ68 на −4 см и отсутствие переноса смещения на другой шлем; это mock, не доказательство посадки в игре.
+- `_check_legion_armor.py` проверяет Head-привязку 6Б7 при исходном HatSpot=Origin, исправление сохранённой/кэшированной привязки и возврат исходного головного убора на Origin после снятия; уровень mocks/static.
+
+### Rebuilt improvised armor review (2026-09-26)
+`_model_rebuilt_legion_armor.py`: Blender CPU source builder for chainmail, brigantine, tire. Inputs `--sample`, `--reference-shirt` (HGM JSON), `--kind`, `--output`; writes editable/export-ready blends and four review views, without installing resources. Shared fitting utilities derive from the legacy builder; new components implement APPEAR REQ-026.
+
+- `_optimize_ak103_mesh.py` — отдельные Blender-пробы planar/collapse для native АК-103; вход `--source`, выход `--out` (blend, числа треугольников и выборочные расстояния), `--render` даёт парные PBR/clay ракурсы. Ничего не устанавливает: успешный экспорт не означает приёмку; варианты 26.09.2026 отклонены по качеству.
+
+- `_audit_ak103_interior.py` — read-only проверка native АК-103: вход `--build`, выход `--out` с группами исходных материалов, пробами видимости (96 направлений) и выделением Bolt_group/ksk. Невидимость центров граней не разрешает их удаление; внешние части ksk и затворной группы сохранять.
+
+- `_repair_hav_armor_materials.py`: `--assets`, `--source` (HAV split G/B), `--output`, `--game-root`; собирает RM и с `--apply` исправляет 21 DDS/84 fallback девяти HAV. Проверяет исходные карты и хэши защищённой геометрии; сохраняет backup и JSON.
+- `_rig_6b3_vest.py` / `_qa_6b3_vest.py`: `--surface-skin` сочетает перенос весов с ближайших треугольников рубашки и локальное сглаживание швов; исходная широкая область поиска не используется. Требуется runtime-приёмка; офлайн позы не проверяют JA3 IK.
+
+- `_audit_ak103_hidden_geometry.py` — все шесть native entity по отдельности: `--build`, `--out`; связные острова, совпадающие грани и кандидаты по 192 направлениям/7 точкам, без изменения исходника.
+- `_strip_ak103_hidden_geometry.py` — отдельный кандидат по `--source`, `--audit`, `--out`, `--rings 2`; удаляет только закрытые грани с защитой соседей, проверяет точные UV/координаты и нормали видимых граней. `--render` создаёт обзор и sweep; сам не устанавливает.
+- `_compare_weapon_quality_renders.py` — каталоги пар `*_before.png`/`*_after.png` → `pixel-diff.json` для контроля RGB/alpha. Числа не заменяют визуальный осмотр. Процедура и приёмка: `docs/specs/active/JAZZ-WEAPON-AK103-001.md`.
+## Vektor R4 import
+
+`_check_r4.py --build <build>` — read-only gate синхронизации Lua/metadata, графа entity/MTL/DDS, размеров иконки, тира, локализации RU/EN и восьми пулов Легиона. Проверяет сохранённый compiled-mesh audit; editor/runtime отмечает NOT_RUN.
+
+`_build_r4_assets.py` — Blender: native OBJ/UV/PBR → метрическая сборка, пересчитанные нормали, FBX, два бока/3⁄4 и иконка; параметры `--source --build --game-root`. Исходник read-only. Затем штатный AssetsProcessor и `_prepare_rifle_assets.py` с prefix/entity `JAZZ_VektorR4`.
+`_integrate_r4.py --build <build> [--apply]` — ограниченная установка предмета/каталога/ресурсов с backup; `_integrate_r4_loot.py` — только R4-записи канонического Legion generator, без mass regen. `_localize_r4.py --game-csv <Game.csv> --build <build>` и `_export_r4_localization.ps1` — канонический двуязычный экспорт трёх строк с сохранением остальных записей.
+`_refresh_rebuilt_legion_armor.py --build-root <build>` validates only the three existing graphs/loadouts/poses; `--apply` replaces resources and icons with backup/rollback while the game is closed. No metadata, companion or test-unit edits.
+`_check_soft_armor_poses.py --elbows` adds a bilateral elbow pose for the tire forearm guards; `--clothed` uses the explicitly approximate weighted LegionGoon reference.
+
+`_audit_armor_views.py`: Blender read-only supplemental left/rear-left/top/bottom views of `--source` into `--output`; `--wide` includes tire forearm guards. Shows body and approximate reference shirt, never saves or modifies the source blend.
+`_audit_armor_views.py --diagnostic --poses` adds neutral contrast materials, studio lights and clothed synthetic lean/deep-lean/twist views; render-only overrides, source stays unchanged.
+`--shirt <decoded HGM JSON>` includes the real Shirt_08 geometry with native skin weights for clothed rest/pose inspection.
+`_model_rebuilt_legion_armor.py`: repair pass welds imported garment seams before offset, uses a shared fitted envelope/skin for components, projects shoulder hangers and fasteners onto their supports, and connects the chainmail shield to its belt.
+`_qa_rebuilt_armor_candidate.py --blender <exe> --game-root <JA3> --root <candidate> --shirt <JSON> --kind <kind> --phase review|export`: repeatable per-item clothed review or 2048 bake/compile/stage, without installation. Requires external visual review before refresh.
+
+## VZ58 — JAZZ-WEAPON-VZ58-001
+
+`_inspect_vz58_source.py <build>` (Blender) показывает состав двух архивов из `<build>/source/{classic,modern}`. `_build_vz58_assets.py --build <build> --game-root <JA3_ROOT>` (Blender) восстанавливает родные PBR/UV, выделяет 14 модульных сущностей и сохраняет FBX, blend, иконку и превью. `_compile_vz58_assets.py --build <build> --game-root <JA3_ROOT> --blender <exe> --decoder <legacy-reader>` компилирует/stage-ит и сравнивает HGM с Blender; `--skip-compile` повторяет только stage/audit. Встроенный `_decode_vz58_hgm.py` читает static HGM v14, учитывая float после сферы и общую систему квантования подмешей; старый reader оставлен аргументом совместимости.
+
+`_integrate_vz58.py --build <build> [--apply]` добавляет предмет, визуалы, приватное цевьё, assets и каталог одной ограниченной транзакцией с бэкапами. `_integrate_vz58_loot.py` с теми же аргументами добавляет только generator-derived VZ58-записи. `_localize_vz58.py --game-csv <Game.csv> --build <build>` и `_export_vz58_localization.ps1` проводят канонический аудит и парный RU/EN-экспорт трёх новых ID; существующие строки сохраняются. `_check_vz58.py --build <build>` проверяет Lua, ресурсы, 160 конфигураций, каталог, loot, локализацию и compiled-audit; `--skip-localization` предназначен только для промежуточного запуска.
+
+`_refresh_vz58_assets.py --build <build> [--apply]` обновляет только проверенный граф ресурсов VZ58, сохраняет бэкапы и удаляет только свои более не используемые DDS.
+`_qa_rebuilt_armor_candidate.py --phase compiled --reader <armor-hgm-reader.exe>` verifies staged HGM topology/positions against the prepared export blend (both directions, 0.1 mm limit).
+
+`_normalize_vz58_entity_records.py --build <build> [--apply]` переводит только 13 VZ58 ModItemEntity в многострочную форму, которую распознаёт sync-аудитор. Новая интеграция сразу пишет эту форму.
+Refresh now requires `compiled-audit.json` plus `visual-review.json` (`REVIEWED_FOR_GAME_TEST`, matching source SHA256); numeric pose PASS alone cannot authorize a stale/unreviewed candidate. Native Shirt_08 skin drives clothed review; torso attachment layers sample one common radial fitting point.
+
+`_build_vz58_folding.py --source <blend> --build <fold-build> --game-root <JA3_ROOT>` (Blender) создаёт сложенный металлический приклад с неподвижным креплением, FBX и превью. `_integrate_vz58_folding.py --build <fold-build> --base-build <build> [--apply]` устанавливает проверенную сущность и штатную пару компонентов с бэкапами. `_check_vz58_folding.py` проверяет настоящие Lua-действия и HUD на минимальном unit stub: оба направления, 4 AP, disabled/hidden и видимость в кабинете; игровой runtime не имитирует.
+
+- 6Б3, ревизия по четырём ракурсам 27.09.2026: `_model_6b3_vest.py` выдаёт также `studio_back.png` и `studio_side.png`; задний верхний карман, боковые подсумки, поясной ремень, тонкие плечи и округлая горловина проверяются вместе. Источник референсов и backup сохраняются в каталоге сборки.
+- `_preview_baked_armor.py --build <build folder> --entity <ID> --output <folder>` (Blender) — независимые front/back рендеры запечённых Base/Norm/RM на export mesh; проверяет единственную UV-развёртку. Для 6Б3 `_rig_6b3_vest.py` сохраняет SourceUV до bake, `_build_legion_armor.py` удаляет её после bake: в FBX остаётся только ExportUV.
+
+### VZ58 / R4 — восстановление поверхностей (27.09.2026)
+
+Перед recalc экспортёры соединяют только совпадающие позиции UV-швов (допуск 0.1 мкм в игровом масштабе), сохраняя loop UV и число треугольников. `_prepare_weapon_open_surfaces.py` вызывает общий normal gate и сохраняет исходную сторону открытых островов; custom normals не создаёт. `_audit_vz58_winding.py --build <build> --output <report.json>` сравнивает стороны подготовленных поверхностей с авторскими OBJ normals; `--r4-source <source>` включает R4. `_audit_compiled_weapon_mesh.py --check-winding` дополнительно проверяет ориентацию HGM с учётом отражения координат.
+
+`_build_vz58_assets.py` принимает необязательные `<build>/material-overrides/Wood_Base.png` и `StockWood_Base.png` — готовые atlas edits с исходной UV-раскладкой; шероховатость неметаллической мебели ограничена снизу 0.72. `_refresh_weapon_surfaces.py --build <build> --export-root <ExportedEntities> --family vz58|r4 [--apply]` обновляет только существующие mesh/texture bytes и иконку, сохраняет имена DDS/материалы/регистрации, пишет backup и `reload-surfaces.lua` для штатного editor resource refresh. Путь игры передаётся переменной окружения `JA3_ASSET_GAME_ROOT`. Generated ModItem/companion transaction этим инструментом не выполняется.
+
+- `_diagnose_ak103_material_uv.py` — отдельное before/flip-V сравнение native blend (`--source`, `--out`), без установки. Flip-V 27.09.2026 отвергнут; крышка model_9 получила неподтверждённую карту корпуса. `_import_ak103_native_maps.py` теперь требует явный проверенный `--cover-prefix`, вместо молчаливой подстановки карты корпуса.
+- `_integrate_ak103.py` размещает новый AK103 рядом с AK74M в editor-папке `Items/Weapons/JAZZ - Firearm - Rifles-Assault`, Group `JAZZ - Firearm - Rifles-AR`; существующий ModItem перенесён туда 27.09.2026 без изменения runtime-параметров.
+
+- `_repair_mosin_visuals.py`: точная коррекция красного дерева M38 прямо в BC1 DDS с сохранением mips и нейтральных блоков; preview по умолчанию, `--apply` пишет DDS/fallback и Hand_l_grip обреза X=8. Вход — исходные DDS из `--assets`, выход/backup — `--output`; исходные SHA256 защищают от повторной коррекции. Требует numpy/Pillow.
+- `_match_mosin_wood.py`: следующая итерация M38 + Obrez; маска RM, учёт linear/sRGB и диффузной доли длинной винтовки. Вход `--assets`, preview/backup/report в `--output` (сохранять для повторных запусков), `--apply` устанавливает только четыре Base DDS. Заголовки/mips и блоки вне маски сохраняются; numpy/Pillow, игровые совпадения отдельно проверяет владелец.
+- `_retier_mosin_loot.py`: точечно синхронизирует Mosin-записи существующих Legion LootDef с генератором (M38/Obrez 11, длинная 13), удаляет дубли и безусловные обходы; чужие записи сохраняет. Dry-run по умолчанию, `--apply` с backup (`--backup <path>` для следующей транзакции), `--check` проверяет установленный результат и идемпотентность; отсутствующий baseline Ranger_CQB не создаёт. Поддерживает ступени M38: 20000 на 11, 101000 на 12–19, 1400 на 20–29.
+
+`_check_weapon_surface_uv.py --before <blend> --after <blend> --report <json>` (Blender) сравнивает весь набор треугольников по corner position/UV, игнорируя только индексы и winding; ловит потерю поверхности/UV при сварке. У `_audit_vz58_winding.py` флаг `--require-outward` включает gate по площади, допустимое расхождение с авторскими OBJ normals <0.1%.
+
+`_retier_stg44.py --output <folder> [--apply]` готовит/сохраняет только comment StG44 `Tier 2-1` → `Tier 1-2` в ModItem и companion. Каталог/loot уже Т1-2 и не меняются. Lua проверяется до записи; apply требует закрытой игры/редактора и сохраняет backup.
+
+- `_ar15_revision_fit.py` — Blender staging M16A4/M4A1: масштаб собственных деталей +10%, отдельная посадка прямого/изогнутого магазина, восстановление короткой трубы M16, Scope M4 вперёд с компенсацией CarryHandle. `--weapon --blend --output --game-root`; перед установкой `_audit_compiled_weapon_mesh.py --check-winding` для всех имён из `fit-report.json`, затем geometry-only installer.
+
+### VZ58/R4 — дерево, блики и боковая иконка (27.09.2026)
+
+`_weapon_material_finish.py` задаёт bounded normal amplitude/metal roughness и R4 hard-edge/sliver cleanup; вызывается обоими исходными экспортёрами. `_tune_vz58_r4_materials.py --blend <pre-fix.blend> --family vz58|r4 --build <dir> --game-root <JA3_ROOT> [--wood <dir>]` пересобирает материал из снимка **до** коррекции, не применять повторно к уже обработанным картам. Wood folder: ImageGen `Wood_Base.png`, `StockWood_Base.png`; sRGB учитывается ровно один раз. `_preview_vz58_r4_materials.py` делает original/no-normal/flip-green сравнение; `--final` также рендерит боковую VZ58 иконку.
+
+После штатной компиляции `_install_vz58_r4_materials.py --vz58-build <dir> --r4-build <dir> --export-root <dir> --game-root <JA3_ROOT> --output <dir> [--icon <png>] [--apply]` заменяет только существующие DDS/fallbacks, проверенный R4 HGM и иконку, сохраняя backup. `_audit_vz58_r4_materials.py --install <dir>` проверяет установленные хэши, форматы, размеры и normal RMS. R4 обязан пройти HGM audit и `_check_weapon_surface_uv.py --allow-submicron-slivers`: исключение только для <10 граней с area<1e-8 м² и area/longest-edge²<1e-4, все остальные UV/поверхности совпадают.
+
+`_update_vz58_optics.py --output <dir> [--apply]` готовит закрытый/компактный/EOTech/M68 в Scope, использует уже зарегистрированные generic visuals. Apply требует закрытой игры/редактора и синхронно меняет VZ58 ModItem + companion; metadata не меняется. Установлены все четыре варианта; VZ58 gate проверяет 352 конфигурации. Каталог обновляется в той же транзакции.
+
 - `test_legion_newgame.py`: execute Legion start-tier and clock contracts in Lua via Python `lupa`; checks all starts/speeds/profiles, boundaries, legacy state and UI callbacks. Run `python docs/tools/test_legion_newgame.py`.
 - `export_legion_newgame_localization.ps1 -GameCsv <Game.csv> -Build <staging>`: canonical audit plus paired RU/EN export of the eight PROGRESSION-001 IDs. Full unrelated audit findings remain visible; it does not replace runtime CSV automatically.
 
+`_audit_armor_color_maps.py --assets <jazz_assets> --output <folder>` decodes the four installed albedo examples for inspection; handles DDS sRGB format tags without changing pixels.
+`_stage_armor_colors.py --assets <jazz_assets> --output <fresh folder> --game-root <JA3_ROOT>` captures 22 albedo maps and protects the remaining resource graph. `_bake_armor_colors.py` (Blender; `--plan --chainmail --woodland`) bakes native black/green/woodland materials and brighter procedural mail. `_preview_armor_colors.py` (Blender; `--plan --hav --chainmail`) renders four offline previews. Finish with stage script `--apply`: compile full mip chains/fallbacks, shared-map guard, backup, hash validation and rollback. Requires closed game/editor; not repeat-applicable over its own output. No geometry/UV/RM/normal export.
+Read-only final verification: `_stage_armor_colors.py` with the same arguments and `--verify` checks installed hashes, protected files, mip/fallback headers, and mean BC7 albedo error against the native bake (threshold 2/255). Reports `verification.json`; it does not validate game lighting.
+
 - `_pack_suite_release.py` excludes Blender source/backup files (`.blend`, `.blend1`, `.blend2`, case-insensitive); use process-local Git `core.autocrlf=false` on Windows for matching Linux release hashes.
+
+### Кожаный нагрудник: отдельная подготовка модели
+
+`_model_leather_armor.py` (Blender CPU): `--sample BLEND --shirt JSON --output DIR` строит кожаный плитник по существующей `ArmorIcons/LeatherArmor.png`, сохраняет clean blend и пять материалов/посадочных видов. Никаких записей в runtime-пакеты.
+`_qa_leather_armor.py`: `--blender EXE --sample BLEND --shirt JSON --reference V7_BLEND --output DIR [--views]` собирает rigged source, проверяет нормали и четыре синтетические позы; `--views` добавляет круговой осмотр и позы на реальной рубашке. Установка и игровой экспорт отдельно.
+`_rig_6b3_vest.py --item LeatherArmor` задаёт ID source/report/mesh, сохраняя default 6B3. `_audit_blender_normals.py -- --mesh-prefix TEST_LeatherArmor` ограничивает проверку авторским мешем: неизменённый reference body разработчиков может содержать custom normals и не является экспортируемым ресурсом. Пустое совпадение — ошибка.
+`--torso-carrier` в `_rig_6b3_vest.py` — отдельный native torso skin field для толстого кожаного плитника: центр переда/спины, вертикальное сглаживание, плавный переход к плечам; предотвращает попадание sleeve-весов в боковые ремни. Без флага поведение прежнее. Текущий source-only результат: `docs/design/leather-armor-production.md`.
+
+
+### Weapon and armor feedback, 28 September, follow-up
+
+`_weapon_feedback_inventory.py --output JSON` lists complete offered component visuals without modifying the game. `_weapon_feedback_stage029.py --build DIR` stages M14 spot casing, permanent FAL rail, AR15 attachment locations, Mosin names and compiled candidates with source hashes; it does not install.
+
+Blender `_weapon_feedback_handguard.py --blend FILE --output DIR --game-root DIR` extends M16 RIS to the standard fore-end front while retaining barrel geometry. `_weapon_feedback_scope.py --source FILE --output DIR --game-root DIR` recovers the MkIII donor optic and reuses its atlas. `_weapon_feedback_mag_normal.py --source native.tga --output DIR --game-root DIR` compiles the magazine-only original normal map at reduced strength. `_weapon_feedback_icons.py --series-light` uses common physical light and zero display exposure; `--component` renders 100x100.
+
+`_weapon_feedback_armor_skin.py --source FILE --shirt native.json --entity ID --output DIR --game-root DIR` prepares a clothed-donor skin candidate without changing positions/UV/materials. `_check_soft_armor_poses.py --entity ID` can inspect an existing baked source. These are candidate tools: compiled, visual and game acceptance remain separate. `_weapon_feedback_barrel.py` is the abandoned rear-cylinder experiment (export rejected by spike gate); do not install its outputs, the owner selected handguard extension instead.
+
+Leather installation continuation: `_check_leather_armor_contacts.py` (Blender, `--source --output`) измеряет 58 маркированных точек пришитого нахлёста относительно настоящих деформированных панелей в четырёх позах. `_qa_leather_armor.py` включает этот gate. `_export_leather_armor.py --blender --game-root --root --reader` запекает 2048 Base/Norm/RM, вызывает штатный processor, stage и двусторонний HGM/winding audit. `_install_leather_armor.py --root candidate [--apply]` требует source/contact/compiled/visual gates, готовит ModItem/companion/metadata + mapping + isolated test unit, проверяет закрытую игру, делает backup и контролирует конкурентные изменения. Старая иконка сохранена. Общий `_check_legion_armor.py` теперь проверяет также lifecycle и loadout кожаного плитника.
+
+
+Feedback round 2: `_weapon_feedback_chainmail.py` продлевает существующие ремни текущего v19 под пояс без смены atlas. `_weapon_feedback_decode_skin.py` адаптирует только временный v14 HGM для legacy-reader, проверяет ссылку на Male skeleton и использует native bone order; исходный HGM не меняется. `_weapon_feedback_skin_review.py` сравнивает compiled before/after с настоящей рубашкой в четырёх синтетических позах.
+
+`_weapon_feedback_native_skin.py`, `_weapon_feedback_hgm_skin.py` и `_weapon_feedback_hav_batch.py` готовят эксперименты HAV: меняются только поля skin, геометрия/UV/нормали сохраняются. Эти эксперименты и кандидат 6Б3 **не приняты и не входят в установку**. `_weapon_feedback_icons.py --oblique` предназначен только для примерки, не для финальных иконок.
+
+`_weapon_feedback_install029.py --build DIR` проверяет staging; `--apply` требует закрытой игры, проверяет concurrent hashes, сохраняет backup и откатывает собственные записи при ошибке. Состояние и незакрытые пункты: [второй проход](../design/weapon-visual-feedback-20260928-round2.md).
+
+- `weapon_layer_icons/`: изолированный прототип послойных иконок; `audit.py` читает InventoryItem/items.lua, `render.py` читает assembled Blender + assets, `build_review.py` проверяет Lua selector/binder и пишет HTML/PNG. Только offline outputs; см. [контракт и съёмку в игре](../design/weapon-layer-icons/README.md).
+- `weapon_layer_icons/test_names.py`: offline Lua-проверка названий по значимым модулям из `names.json`; сверяет текущие AK74/DragunovSVD slots, пишет `names-verification.json`. Общий стиль и границы переименования — [style-and-names.md](../design/weapon-layer-icons/style-and-names.md).
+- `weapon_layer_icons/export_catalog.py`, `dispatch_capture.py`, `capture.lua`: live-каталог и временная съёмка на ModEditor через уже открытый DAP, без установки и inventory edits; вход — IDs/slots, выход — beauty/matte/background, реальный parts graph и отчёт восстановления.
+- `weapon_layer_icons/process_live.py`, `survey_names.py`, `live_gallery.py`, `verify_live.py`: PNG → прозрачные 324×165 иконки, единые профили, полная матрица имён, HTML и проверка покрытия/файлов. Порядок и ограничения — [live/REPLAY.md](../design/weapon-layer-icons/live/REPLAY.md); SDD — [live/SDD.md](../design/weapon-layer-icons/live/SDD.md).
+- `weapon_layer_icons/audit_live_visuals.py` сравнивает объявленные entities с фактическими vis.parts и пишет очередь ревью; `deliver_live.py` собирает сводку, PNG-сравнение и ZIP. `cleanup_probe.lua` читает восстановленную сцену; `finish_view.lua` скрывает только диагностический overlay, сохраняя лог.
+
+- `weapon_layer_icons/install_presentation.py`: manifest → exact-match registry + PNG; scoped installation via `--active`, backups via `--backup`, preserves unrelated active changes.
+- `weapon_layer_icons/test_installed_presentation.py`: installed Lua selector, unknown build fallback, existing getter branches, PNG hashes/format and compilation; JSON evidence via `--output`.
+
+- `weapon_layer_icons/content_scope.py`: общий фильтр `excluded_disabled` из оружейного CSV для съёмки, установки и галереи.
+
+- `weapon_layer_icons/icon_layout.py`: shared native-capture output recipe, original icon dimensions, silhouette fit and tone correction.
+- `weapon_layer_icons/refit_live.py --backup <directory>`: rebuild active icons from preserved RGBA, retain previous icons, produce original/before/after comparison.
+- `weapon_layer_icons/refit_review.py`: rebuild contact sheets and record alpha bounds for every active output.
+
+- `weapon_layer_icons/calibrate_color.py`: fixed per-weapon luminance/saturation profiles from original icons; writes `live/color-profiles.json`.
+- `weapon_layer_icons/test_color_match.py --before <backup> [--outline-expanded]`: verify dimensions, alpha/outline and tonal proximity to original icons; writes `live/color-verification.json`.
+
+- `weapon_layer_icons/refit_silver_pistols.py --backup <directory>`: targeted 18-variant DesertEagle/HiPower rebuild with smooth tone profiles; verifies unchanged alpha and writes original/before/after comparison.
+
+- `_merge_lf_conflicts.py`: resolves only clean three-way merges and CRLF-only conflicts in the current Git merge; leaves semantic conflicts for review.
+- Generated-data audit uses `.agents/skills/sync-jazz-generated-data/scripts/parse-moditems.py`: lexical ModItem parsing supports inline/nested records without executing Lua. Development `tmp` directories are excluded from both the audit and runtime release archives.
+
+- `_test_moditem_parser.py`: regression checks for inline/nested records, Lua strings/comments and malformed tables. Dormant duplicate companions are warnings only when the same class/ID has an actual metadata-loaded companion.

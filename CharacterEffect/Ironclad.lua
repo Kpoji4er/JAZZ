@@ -12,3 +12,4 @@ DefineClass.Ironclad = {
 	Stat = "Strength",
 	StatValue = 80,
 }
+

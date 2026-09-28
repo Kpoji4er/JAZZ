@@ -2,7 +2,7 @@
 
 Канон (промпты + рефы): `Icons/Hud/references/PROMPT.md`.
 
-Style-референсы GenerateImage: **только** `Icons/Hud/references/*.png`  
+Style-референсы GenerateImage: **только** `Icons/Hud/references/*.png`<br>
 (+ runtime `Perks/SignatureAbilities/*.png` / `Icons/Med/*.png` при regen соседней семьи).
 
 ## Canvas

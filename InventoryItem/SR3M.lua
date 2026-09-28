@@ -1,7 +1,5 @@
 UndefineClass('SR3M')
 DefineClass.SR3M = {
-	MaxStock = 1,
-	CanAppearInShop = true,
 	__parents = { "SubmachineGun" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -12,14 +10,16 @@ DefineClass.SR3M = {
 	RepairCost = 30,
 	Reliability = 60,
 	Icon = "Mod/e6L4ECj/WeaponIcons/SR3M.png",
-	DisplayName = T(761915300101, "СР-3М"),
-	DisplayNamePlural = T(761915300102, "СР-3М"),
-	Description = T(761915300103, "Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя."),
+	DisplayName = T(761915300101, --[[ModItemInventoryItemCompositeDef SR3M DisplayName]] "СР-3М"),
+	DisplayNamePlural = T(761915300102, --[[ModItemInventoryItemCompositeDef SR3M DisplayNamePlural]] "СР-3М"),
+	Description = T(761915300103, --[[ModItemInventoryItemCompositeDef SR3M Description]] "Компактный автомат под патрон 9×39 мм со складным прикладом и магазином на 30 патронов. В этой комплектации установлен штатный дульный насадок, без глушителя."),
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Valuable = 1,
 	Cost = 22000,
+	CanAppearInShop = true,
 	Tier = 4,
+	MaxStock = 1,
 	RestockWeight = 20,
 	CategoryPair = "SubmachineGuns",
 	Caliber = "JAZZ_Caliber_9x39",
@@ -35,6 +35,17 @@ DefineClass.SR3M = {
 	Entity = "SR3M",
 	fxClass = "AK74",
 	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_M68",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_CombatScope_ACOG",
+			},
+		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'Modifiable', false,
@@ -53,11 +64,21 @@ DefineClass.SR3M = {
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
-			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_DefMuzzle",
 			},
 			'DefaultComponent', "JAZZ_DefMuzzle",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Side",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Flashlight",
+				"JAZZ_FlashlightOff",
+				"JAZZ_FlashlightDot",
+				"JAZZ_LaserDot",
+				"JAZZ_UVDot",
+			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",

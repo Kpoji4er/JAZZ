@@ -1,7 +1,7 @@
 # Дуло (Muzzle) — отдача vs тишина
 
-Канон для `JAZZ_*` muzzle.  
-Apply: `docs/tools/_rebalance_muzzle_tiers.py`.  
+Канон для `JAZZ_*` muzzle.<br>
+Apply: `docs/tools/_rebalance_muzzle_tiers.py`.<br>
 Связано: [`attachments-rebalance.md`](attachments-rebalance.md).
 
 **Статус:** applied 2026-08-01 (SK ladder + sil без Recoil; FlashHider = стелс без Silent; MuzzleBooster **cut**).

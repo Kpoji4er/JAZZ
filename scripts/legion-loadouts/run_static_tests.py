@@ -639,6 +639,51 @@ def main() -> int:
         if fold_w is None:
             fail("UNITS-008 carbine_fold entry body not parsed")
 
+    # MOSIN-001 REQ-009: inspect installed entries, including stray duplicate
+    # fallbacks, independently of the generator's expected plan.
+    mosin_count = 0
+    for entry in placeobj_blocks(text, 'LootEntryLootDef'):
+        match = re.search(r'loot_def = "(JAZZ_GenW_Mosin_[^"]+)"', entry)
+        if not match:
+            continue
+        mosin_count += 1
+        ref = match[1]
+        amounts = [int(n) for n in re.findall(r'Amount = (\d+)', entry)]
+        short = '_m38_' in ref or '_obrez_' in ref
+        expected_start = 11 if short else 13
+        allowed_bands = ([11, 11], [12, 19], [20, 29]) if '_m38_' in ref else ([expected_start, 19], [20, 29])
+        if amounts not in allowed_bands:
+            fail(f'MOSIN-001 invalid tier band/fallback: {ref}: {amounts}')
+        weight = re.search(r'weight = (\d+)', entry)
+        if '_m38_' in ref:
+            expected_weight = {(11, 11): 20000, (12, 19): 101000, (20, 29): 1400}.get(tuple(amounts))
+            if not weight or int(weight[1]) != expected_weight:
+                fail(f'MOSIN-001 M38 stepped weight: {ref}: {amounts}')
+        if '_obrez_' in ref:
+            allowed = {1, 10} if amounts == [20, 29] else {10, 100}
+            if not weight or int(weight[1]) not in allowed:
+                fail(f'MOSIN-001 Obrez weight bypass: {ref}')
+    for recipe in recipes.values():
+        m38 = [e for e in placeobj_blocks(block_for(text, recipe['firearm']), 'LootEntryLootDef') if 'loot_def = "JAZZ_GenW_Mosin_m38_' in e]
+        if not m38:
+            continue
+        for tier, expected in [(10, []), (11, [20000]), (12, [101000]), (19, [101000]), (20, [1400]), (29, [1400]), (30, [])]:
+            active = []
+            for entry in m38:
+                band = [int(n) for n in re.findall(r'Amount = (\d+)', entry)]
+                if len(band) == 2 and band[0] <= tier <= band[1]:
+                    active.append(int(re.search(r'weight = (\d+)', entry)[1]))
+            if active != expected:
+                fail(f'MOSIN-001 M38 gap/overlap at {tier} in {recipe["firearm"]}: {active}')
+    for fid, ref in [('LegionT1_RifleBolt', 'RiflesBolt_Mosin'), ('LegionT1_RifleSniper', 'RiflesBolt_MosinScope')]:
+        selected = [e for e in placeobj_blocks(block_for(text, fid), 'LootEntryLootDef') if f'loot_def = "{ref}"' in e]
+        if len(selected) != 1 or re.findall(r'Amount = (\d+)', selected[0]) != ['13']:
+            fail(f'MOSIN-001 legacy long rifle gate: {fid}')
+    if not mosin_count:
+        fail('MOSIN-001 no configured Mosin entries')
+    else:
+        ok(f'MOSIN-001 {mosin_count} installed entries: short 11, long 13, remnant 20-29; no unconditional Mosin')
+
     print("---")
     if fails:
         print(f"RESULT: FAILED ({len(fails)} issues)")

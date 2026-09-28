@@ -3,6 +3,7 @@ DefineClass.G3SniperV1 = {
 	__parents = { "SniperRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-5",
 	object_class = "SniperRifle",
 	ScrapParts = 14,
@@ -45,9 +46,9 @@ DefineClass.G3SniperV1 = {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_Compensator",
-								"JAZZ_SuppressorImproved",
-							},
+				"JAZZ_Compensator",
+				"JAZZ_SuppressorImproved",
+			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
@@ -70,8 +71,8 @@ DefineClass.G3SniperV1 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagNormal",
 				"JAZZ_MagSmall20_10_G3",
+				"JAZZ_MagNormal",
 			},
 			'DefaultComponent', "JAZZ_MagSmall20_10_G3",
 		}),
@@ -84,16 +85,12 @@ DefineClass.G3SniperV1 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 0,
-	WeaponMass = 55,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 22,
+	BurstShots = 0,
 	AutoShots = 0,
-
+	WeaponMass = 55,
+	WeaponSizeClass = "Long",
 	CloseRange = 16,
-
 	CloseRangeFactor = 70,
 	BulletDropRange = 20,
 	Grouping = 50,

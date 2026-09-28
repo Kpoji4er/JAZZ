@@ -16,7 +16,6 @@ DefineClass.PETN = {
 	CanAppearInShop = true,
 	Tier = 3,
 	RestockWeight = 25,
-	MaxStock = 3,
 	CategoryPair = "Components",
 	CenterObjDamageMod = 500,
 	CenterAppliedEffects = {

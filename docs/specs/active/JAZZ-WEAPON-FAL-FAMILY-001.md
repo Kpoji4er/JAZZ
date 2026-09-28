@@ -12,6 +12,9 @@ risk: medium
 generated_data: true
 runtime_validation: required
 write_set:
+  - jazz/docs/tools/_weapon_feedback_*
+  - jazz/docs/design/*visual-feedback*
+  - jazz/docs/design/references/*feedback*/*
   - jazz/items.lua
   - jazz/metadata.lua
   - jazz/InventoryItem/FNFAL.lua
@@ -167,3 +170,18 @@ approved_by: project-owner in conversation 2026-09-19
 - `docs/technical/weapons/data/*` — строки обоих FAL и опции компонентов.
 - `docs/wiki/weapons-and-ammo.md` и обе страницы `docs/showcase/ru` и `docs/showcase/en` — игроку заметны новый ствол, смена тира и складной приклад.
 - `docs/design/weapons-import-queue.md` — отметить израсходованные архивы и отложенные заготовки.
+
+
+## Повторная приёмка 28.09.2026, второй проход
+
+Решение владельца: после сбора замечаний и паузы команда «делай» разрешает реализацию сохранённого списка, без commit/push. Пауза снята.
+
+- `JAZZ-WEAPON-FAL-FAMILY-001-REQ-FEEDBACK-028B` — Тактический FAL: планка видна постоянно, включая отсутствие оптики; проверить invalid spot из лога 28.09.
+- `JAZZ-WEAPON-FAL-FAMILY-001-AC-FEEDBACK-028B` — static/compiled: корректный граф ресурсов и отсутствие регрессий; offline: сравнение до/после; runtime/human: повторить показанный владельцем сценарий.
+
+Evidence `JAZZ-WEAPON-FAL-FAMILY-001-AC-FEEDBACK-028B`: BLOCKED — реализация и повторная приёмка в работе. Установка только после подготовки кандидатов, проверок и закрытия игры. Новые рабочие скрипты `_weapon_feedback_*`, материалы приёмки и исходные write sets входят в этот проход.
+
+
+Второй проход 28.09: [отчёт staging и открытых пунктов](../../design/weapon-visual-feedback-20260928-round2.md). Проверенные кандидаты подготовлены отдельно; установка/runtime/editor NOT_RUN. Статус approved сохранён. HAV и 6Б3 не приняты по эксперименту с весами и исключены из транзакции.
+
+28.09.2026, после «игра закрыта, применяй»: проверенный пакет второго прохода установлен, 27 файлов и backup SHA256 PASS; installed graph/structural PASS. Новых generated ERROR нет; общий baseline остаётся FAILED. HAV/6Б3 исключены из установки, runtime/editor/human остаются NOT_RUN. По последующему запросу разрешены локальные коммиты; push не разрешён.

@@ -2,50 +2,17 @@ UndefineClass('TraumaRibsMedium')
 DefineClass.TraumaRibsMedium = {
 	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "JazzTraumaEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "APLoss",
-			'Value', 2,
-			'Tag', "<APLoss>",
-		}),
-	},
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcStartTurnAP",
-			Handler = function(self, target, value)
-				if self.class == "TraumaRibsMedium" then
-					JazzTraumaPainOnZoneUse(target, "Ribs")
-				end
-				return value - JazzTraumaResolveNum(self, target, JazzTraumaRibsApLoss, "APLoss") * const.Scale.AP
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcFreeMove",
-			Handler = function(self, target, data)
-				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
-					data.add = 0
-					data.mul = 0
-				end
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnBeginTurn",
-			Handler = function(self, target)
-				if not JazzTraumaBlocksFreeMove or JazzTraumaBlocksFreeMove(self, target) then
-					target:RemoveStatusEffect("FreeMove")
-				end
-			end,
-		}),
-	},
-	DisplayName = T(890000000010114, "Rib Trauma (Medium)"),
-	Description = T(890000000010115, "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn."),
-	OnAdded = function(self, obj)
+	DisplayName = T(890000000010114, --[[ModItemCharacterEffectCompositeDef TraumaRibsMedium DisplayName]] "Rib Trauma (Medium)"),
+	Description = T(890000000010115, --[[ModItemCharacterEffectCompositeDef TraumaRibsMedium Description]] "Start-of-turn AP <color EmStyle>-<APLoss></color>. No Free Move. +2 Pain at the start of the turn."),
+	OnAdded = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
 	end,
-	OnRemoved = function(self, obj)
+	OnRemoved = function (self, obj)
 		if IsKindOf(obj, "Unit") then
 			Msg("UnitAPChanged", obj)
 		end
@@ -56,3 +23,4 @@ DefineClass.TraumaRibsMedium = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

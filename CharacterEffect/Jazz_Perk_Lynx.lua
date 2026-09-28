@@ -4,8 +4,6 @@ DefineClass.Jazz_Perk_Lynx = {
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
 
-	-- Sight bonus lives in Code/System_OR_Unit.lua (+Jazz_LynxSightBonus).
-	-- The same value softens Range/Bullet Drop CTH: vision is the accuracy buff.
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -27,3 +25,4 @@ DefineClass.Jazz_Perk_Lynx = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Lynx.png",
 	Tier = "Personal",
 }
+

@@ -8,6 +8,8 @@
 | Предмет | Слот | Entity | Владелец | Подтверждение |
 | --- | --- | --- | --- | --- |
 | `JazzArmor_ImprovisedCuirass` | Torso | `JAZZ_ImprovisedCuirass_Male` | `jazz_assets` | custom; runtime acceptance open |
+| `JazzArmor_6B3` | Torso | `JAZZ_6B3_Male` | `jazz_assets` | custom; runtime acceptance open |
+| `JazzArmor_LeatherArmor` | Torso | `JAZZ_LeatherArmor_Male` | `jazz_assets` | installed; contact/pose/HGM/mock PASS, runtime open |
 | `JazzArmor_Chainmail` / `TireBrigantine` / `TireArmor` | Torso | `JAZZ_*_Male` | `jazz_assets` | custom; runtime acceptance open |
 | Twaron / Guardian / Zylon Light·Medium·Full | Torso | `JAZZ_*_Male` | `jazz_assets` | custom; runtime acceptance open |
 | `JazzArmor_FlakM1955` | Torso | `EquipmentMale_FlackVest` | vanilla | C1 `61,74,46`; mock PASS |
@@ -40,7 +42,7 @@ Status: `todo` | `mapped` | `skip` (причина в notes).
 | `JazzArmor_UniformCap`         | Военная кепка          | Class 1 N     | vanilla   | `FactionMale_Hat_0`             | `FactionMale_Hat_05`            | `Hair`     | mapped | entity `FactionMale_Hat_05`; Spot=`Head`; оба пола; **C1 camo** `RGBA(58, 72, 38)`; C2/C3 black unless needed                                                            |
 | `JazzArmor_ConstructionHelmet` | Строительная каска     | Class1 L      | vanilla?  | `Construction_Helmet_01`        | `Construction_Helmet_01`        | `Hair`     | mapped | entity `Construction_Helmet_01`; Spot=`Head`; оба пола; **C1** `RGBA(200, 160, 20)`; C2/C3 black or match                                                                |
 | `JazzArmor_AdrianHelmet`       | Каска Адриана          | Class1 L      | vanilla   | `JungleCamp_GraveyardHelmet_02` | `JungleCamp_GraveyardHelmet_02` | `Hair`     | mapped | entity `JungleCamp_GraveyardHelmet_02`; Spot=`Head`; Offset Z=0.5; оба пола; **C1** `RGBA(88, 98, 92)`. superseded: `CODWW2_bel_m_hat_01`/`CODWW2_bel_f_hat_01` @ Origin |
-| `JazzArmor_SovietHelm`         | Советская каска СШ-40  | Class1 L      | vanilla   | `FactionMale_Hat_09`            | `FactionMale_Hat_09`            | `Hair`     | mapped | entity `FactionMale_Hat_09` (тот же что M1); **C1=C3** `RGBA(70, 78, 58)` RU drab без сетки; C2 same                                                                     |
+| `JazzArmor_SovietHelm` | Советская каска СШ-40 | Class1 L | custom | `JazzHat_SSh68` | — | `Hair` | mapped | Модель СШ-68, CharacterHat / Head-local; только JAZZ_Legion_ Male, собственная текстура без tint; название предмета сохранено. |
 | `JazzArmor_MetalHelm`          | Самодельный шлем       | Class1 M      |           |                                 |                                 | `Hair`     | todo   | improvised                                                                                                                                                               |
 | `JazzArmor_WieldingHelm`       | Сварочная маска        | Class1 H      |           |                                 |                                 | `Hair`     | todo   | mask-like; Spot Head/Hat?                                                                                                                                                |
 | `JazzArmor_M1Helm`             | Каска М1               | Class2 M      | vanilla   | `FactionMale_Hat_09`            | `FactionMale_Hat_09`            | `Hair`     | mapped | entity `FactionMale_Hat_09`; Spot=`Head`; оба пола; **C1** `RGBA(61, 74, 46)`; **C2** same; **C3 net** `RGBA(48, 36, 26)`; R/M=0                                         |

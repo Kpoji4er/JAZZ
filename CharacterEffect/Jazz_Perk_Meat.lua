@@ -20,3 +20,4 @@ DefineClass.Jazz_Perk_Meat = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Meat.png",
 	Tier = "Personal",
 }
+

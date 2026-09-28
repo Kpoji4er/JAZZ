@@ -1,9 +1,9 @@
 # Style & naming — status effect icons
 
-Канон (таблица icon→CharacterEffect→hex, полные промпты):  
+Канон (таблица icon→CharacterEffect→hex, полные промпты):<br>
 `Icons/StatusEffects/references/PROMPT.md`.
 
-Style-референсы GenerateImage: **только** `Icons/StatusEffects/references/*.png`  
+Style-референсы GenerateImage: **только** `Icons/StatusEffects/references/*.png`<br>
 (+ runtime `Icons/StatusEffects/*.png` для JAZZ-серий). Не брать UI из extract вне этой папки.
 
 ## Canvas

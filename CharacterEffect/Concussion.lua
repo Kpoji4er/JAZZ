@@ -5,23 +5,6 @@ DefineClass.Concussion = {
 
 
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "APLoss",
-			'Value', 2,
-			'Tag', "<APLoss>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "cth_penalty",
-			'Value', 15,
-			'Tag', "<cth_penalty>%",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "move_ap_modifier",
-			'Value', 30,
-			'Tag', "<move_ap_modifier>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
@@ -86,3 +69,4 @@ DefineClass.Concussion = {
 	Shown = true,
 	HasFloatingText = true,
 }
+

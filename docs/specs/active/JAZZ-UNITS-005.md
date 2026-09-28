@@ -149,8 +149,8 @@ approved_by: project-owner
 
 Остальные слоты — Irregulars / Fighters / Hardened (целевая плотность витрины: Irregulars ~40%, Fighters ~35%, Hardened ~20%, Specialists ~5–8% видимых).
 
-- `JAZZ-UNITS-005-REQ-014` — лестница зарплат AME (owner weekly bands, playtest 2026-08-05):  
-  `Irregulars < Fighters < Hardened ≪ Specialists`. JA3 hire week ≈ `StartingSalary × 7`.  
+- `JAZZ-UNITS-005-REQ-014` — лестница зарплат AME (owner weekly bands, playtest 2026-08-05):<br>
+  `Irregulars < Fighters < Hardened ≪ Specialists`. JA3 hire week ≈ `StartingSalary × 7`.<br>
   Ориентиры **$/week → daily `StartingSalary`**: floor cheap Irregulars ~**$50**/wk (~7); Irregulars **50–350**/wk (**7–50**); Fighters **400–750**/wk (**57–107**); Hardened **750–1000**/wk (**107–143**); Specialists **1100–2000**/wk (**157–286**). Specialists stay **below** Igor/Barry weekly (~$3150 / $3290). Apply: `_apply_ame_weekly_salaries.py` / `_sync_ame_salary_items.py`.
 - `JAZZ-UNITS-005-REQ-015` — Instructor: обязательный perk `Teacher` + статы Instructor-band (REQ-016); цена в верхнем диапазоне Specialists (дороже Medic того же пула при прочих равных).
 

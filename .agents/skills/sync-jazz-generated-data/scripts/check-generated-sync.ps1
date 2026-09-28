@@ -76,26 +76,11 @@ function Get-StringProperty {
 }
 
 function Get-ModItemRecords {
-    param([string]$Text)
-
-    $pattern = "(?ms)^(?<indent>[ `t]*)PlaceObj\('(?<class>ModItem[^']*)',\s*\{\s*\r?\n(?<body>.*?)^\k<indent>\}(?:\)|,\s*\{)"
-    foreach ($match in [regex]::Matches($Text, $pattern)) {
-        $body = $match.Groups['body'].Value
-        $id = Get-StringProperty -Body $body -Name 'Id'
-        if ([string]::IsNullOrEmpty($id)) { $id = Get-StringProperty -Body $body -Name 'id' }
-        $name = Get-StringProperty -Body $body -Name 'name'
-        $entityName = Get-StringProperty -Body $body -Name 'entity_name'
-        $codeFileName = Get-StringProperty -Body $body -Name 'CodeFileName'
-
-        [pscustomobject]@{
-            Class = $match.Groups['class'].Value
-            Id = $id
-            Name = $name
-            EntityName = $entityName
-            CodeFileName = $codeFileName
-            Offset = $match.Index
-        }
-    }
+    param([string]$Path)
+    $json = & python (Join-Path $PSScriptRoot 'parse-moditems.py') $Path
+    if ($LASTEXITCODE -ne 0) { throw "ModItem lexical parser failed: $Path" }
+    $parsed = $json | ConvertFrom-Json
+    foreach ($record in $parsed) { Write-Output $record }
 }
 
 function Get-SafePresetId {
@@ -168,7 +153,7 @@ foreach ($repoName in $selectedNames) {
         }
         $codePaths = @($codeResult.Values | ForEach-Object { Normalize-RelativePath $_ })
         $metadataEntities = if ($entityResult.Found) { @($entityResult.Values) } else { @() }
-        $records = @(Get-ModItemRecords -Text $itemsText)
+        $records = @(Get-ModItemRecords -Path $itemsPath)
     } catch {
         Add-Issue -Level 'FATAL' -Repo $repoName -Path '.' -Message ('Ошибка разбора generated data: ' + $_.Exception.Message)
         $script:fatal = $true
@@ -201,7 +186,7 @@ foreach ($repoName in $selectedNames) {
 
     $generated = New-Object 'System.Collections.Generic.List[object]'
     $classFolders = @{}
-    $excludedTopLevel = @('.git', '.agents', '.codex', '.openai', 'codex_worktrees', 'docs', 'Code', 'Entities')
+    $excludedTopLevel = @('.git', '.agents', '.codex', '.openai', 'codex_worktrees', 'docs', 'Code', 'Entities', 'tmp', '.tmp', '_review', '__pycache__')
     if ($repoName -eq 'jazz-maps' -and -not $IncludeMapsContent) {
         $excludedTopLevel += 'Maps'
     }
@@ -216,6 +201,20 @@ foreach ($repoName in $selectedNames) {
     ) | Where-Object {
         $_.Name -notin @('items.lua', 'metadata.lua') -and
         $_.FullName -notmatch '\\(?:\.git|\.agents|\.codex|\.openai|codex_worktrees|docs|Code|Entities)\\'
+    }
+
+    # An older companion at another path can share an ID with the active one.
+    # Resolve identities through metadata.code before classifying unreferenced copies.
+    $activeGeneratedKeys = @{}
+    foreach ($codePath in $codePaths) {
+        $activePath = Join-Path $repoRoot ($codePath.Replace('/', '\'))
+        if (-not (Test-Path -LiteralPath $activePath -PathType Leaf)) { continue }
+        $activeText = Read-Utf8Text $activePath
+        $activeClass = [regex]::Match($activeText, '__generated_by_class\s*=\s*"(?<class>[^"]+)"')
+        $activeId = [regex]::Match($activeText, 'UndefineClass\(["''](?<id>[^"'']+)["'']\)')
+        if ($activeClass.Success -and $activeId.Success) {
+            $activeGeneratedKeys[$activeClass.Groups['class'].Value + '|' + $activeId.Groups['id'].Value] = $codePath
+        }
     }
 
     foreach ($file in $luaFiles) {
@@ -248,7 +247,8 @@ foreach ($repoName in $selectedNames) {
 
         $hasCodePath = $codeSet.ContainsKey($relative)
         $hasModItem = $itemKeys.ContainsKey($entry.Class + '|' + $entry.Id)
-        if (-not $hasCodePath -and -not $hasModItem) {
+        $activeElsewhere = $activeGeneratedKeys.ContainsKey($entry.Class + '|' + $entry.Id)
+        if (-not $hasCodePath -and (-not $hasModItem -or $activeElsewhere)) {
             Add-Issue -Level 'WARNING' -Repo $repoName -Path $relative -Message ("Generated companion находится вне активного items/metadata graph; классифицировать как intentional dormant или orphan: {0} / {1}." -f $entry.Class, $entry.Id)
         } else {
             if (-not $hasCodePath) {

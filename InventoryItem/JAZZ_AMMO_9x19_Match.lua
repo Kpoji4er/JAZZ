@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_9x19_Match = {
 	Cost = 1900,
 	CanAppearInShop = true,
 	Tier = 3,
-	MaxStock = 3,
 	RestockWeight = 18,
 	CategoryPair = "9mm",
 	ShopStackSize = 50,

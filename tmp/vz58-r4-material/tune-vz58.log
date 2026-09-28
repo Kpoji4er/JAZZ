@@ -1,0 +1,31 @@
+[HG] Assigning special names
+
+FBX export starting... 'D:\\JaWeapons\\Weapons\\_vz58_material_20260927\\rigged\\JAZZ_VZ58.fbx'
+export finished in 0.0194 sec.
+[HG] Reverting special names
+[HG] Assigning special names
+
+FBX export starting... 'D:\\JaWeapons\\Weapons\\_vz58_material_20260927\\rigged\\JAZZ_VZ58_StockWood.fbx'
+export finished in 0.0082 sec.
+[HG] Reverting special names
+[HG] Assigning special names
+
+FBX export starting... 'D:\\JaWeapons\\Weapons\\_vz58_material_20260927\\rigged\\JAZZ_VZ58_HandguardWood.fbx'
+export finished in 0.0087 sec.
+[HG] Reverting special names
+[HG] Assigning special names
+
+FBX export starting... 'D:\\JaWeapons\\Weapons\\_vz58_material_20260927\\rigged\\JAZZ_VZ58_GripWood.fbx'
+export finished in 0.0061 sec.
+[HG] Reverting special names
+[HG] Assigning special names
+
+FBX export starting... 'D:\\JaWeapons\\Weapons\\_vz58_material_20260927\\rigged\\JAZZ_VZ58_Magazine.fbx'
+export finished in 0.0092 sec.
+[HG] Reverting special names
+Info: Saved as "vz58_material.blend"
+{"JAZZ_VZ58_Mag": {"normal_strength_metal": 0.30000150203704834, "roughness_before": 0.5797372460365295, "roughness_after": 0.6821415424346924}, "JAZZ_VZ58_Steel": {"normal_strength_metal": 0.22000078856945038, "roughness_before": 0.603280246257782, "roughness_after": 0.6900333166122437}, "JAZZ_VZ58_StockWood": {"normal_strength_metal": 0.2999995946884155, "roughness_before": 0.6065712571144104, "roughness_after": 0.6867166757583618}, "JAZZ_VZ58_Wood": {"normal_strength_metal": 0.2999995946884155, "roughness_before": 0.6308456063270569, "roughness_after": 0.7009335160255432}}
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Read blend: "D:\JaWeapons\Weapons\_vz58_repair_20260927\rigged\VZ58_JA3.blend"
+
+Blender quit

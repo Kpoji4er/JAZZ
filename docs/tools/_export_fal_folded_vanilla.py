@@ -18,6 +18,11 @@ from pathlib import Path
 import bpy
 from mathutils import Matrix, Vector
 
+_TOOLS = Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+from _ja3_mesh_prepare import prepare_export_mesh
+
 # Islands whose furthest Y sits beyond this (metres, vanilla local space) swing.
 MOVE_Y = 0.10
 
@@ -122,9 +127,7 @@ def main():
     bpy.ops.object.select_all(action='DESELECT')
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
-    tri = obj.modifiers.new('Triangulate', 'TRIANGULATE')
-    tri.keep_custom_normals = True
-    bpy.ops.object.modifier_apply(modifier=tri.name)
+    prepare_export_mesh(obj)
 
     origin = bpy.data.objects.new('FNFAL_ParaStk_fld_Origin', None)
     bpy.context.collection.objects.link(origin)

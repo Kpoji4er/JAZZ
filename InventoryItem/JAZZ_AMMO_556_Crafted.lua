@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_556_Crafted = {
 	Description = T(890000000001055, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_556_Crafted Description]] "Что будет, если на коленке собрать современный патрон, наплевав на всякие допуски? Правильно, он заклинит, отымеет ваше оружие и поможет отыметь вас, но у него хотя бы пуля не из бумаги..."),
 	AdditionalHint = "",
 	Cost = 60,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 5,
 	RestockWeight = 50,

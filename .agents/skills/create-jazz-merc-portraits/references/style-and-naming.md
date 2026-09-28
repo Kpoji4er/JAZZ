@@ -4,7 +4,7 @@
 
 Для стиля / color grade / пропорций / framing в `генерации изображения` использовать **только**:
 
-`jazz-units/MercPortraits/References/`  
+`jazz-units/MercPortraits/References/`<br>
 (включая `References/Portraits/` для bust)
 
 - Big → файлы из `References/*.png`
@@ -147,7 +147,7 @@ BiRefNet сейчас сильный SOTA по волосам/меху/тонк�
 
 ## QA после генерации: пропорции + цвет по References (обязательно)
 
-Канон — **только** готовые мерки в `MercPortraits/References/` (+ `Portraits/` для bust).  
+Канон — **только** готовые мерки в `MercPortraits/References/` (+ `Portraits/` для bust).<br>
 До принятия любого кадра агент обязан:
 
 1. `Read` кандидат (Portrait или Big).
@@ -169,19 +169,19 @@ BiRefNet сейчас сильный SOTA по волосам/меху/тонк�
 - Не пересвет (выбитые блики на лбу/тканях) и не underexposure / crushed blacks.
 - Лицо и одежда в том же «окне» midtones, что у Raven/Buns/MD и др.
 - После cut на прозрачном фоне сравнивать сам субъект с refs, не яркость фона.
-- В промпте:  
+- В промпте:<br>
   `EXPOSURE: match JA3 Mercs refs brightness — readable midtones, not overexposed, not dark muddy underexposure.`
 
 ### Чистый силуэт (меньше шума / лишних складок)
 
-**HARD REJECT:** плотная сетка мелких складок/морщин по штанам, куртке, crotch/бёдрам/коленям —  
+**HARD REJECT:** плотная сетка мелких складок/морщин по штанам, куртке, crotch/бёдрам/коленям —<br>
 `MercPortraits/_quality_bar/REJECT_excess_folds_Laura_pants.png`.
 
-**Как чинить:** **денойз через генератор изображений** (2–3 прохода ок), эталон `OK_clean_folds_Laura_pants.png`.  
-Refs: noisy Big + OK Laura pants. Промпт: keep sharp identity/pose/kit; remove dense micro-wrinkle noise on fabric only; few large structural folds.  
+**Как чинить:** **денойз через генератор изображений** (2–3 прохода ок), эталон `OK_clean_folds_Laura_pants.png`.<br>
+Refs: noisy Big + OK Laura pants. Промпт: keep sharp identity/pose/kit; remove dense micro-wrinkle noise on fabric only; few large structural folds.<br>
 **Не** OpenCV bilateral — мылит и не убирает сетку. Полный переген — если GPT-денойз не хватил.
 
-В промпте gen:  
+В промпте gen:<br>
 `SURFACE: clean readable forms like JA3 Mercs / Highball / OK_clean_folds_Laura_pants — only a few large fabric folds; NO dense wrinkle grid on pants or jacket, NO excess wrinkle noise, NO micro-dirt spam, NO over-detailed noisy cloth texture.`
 В Read/DoD: excess folds = reject; cleanup target = OK Laura pants.
 Сверять с refs: у JA3 Mercs крупные читаемые формы, не «пережаренный» AI-detail.
@@ -220,8 +220,8 @@ QA: кандидат не хуже этого бара по пропорциям
 - **Portrait vs Big:** одно телосложение.
 - **Поза:** суставы правдоподобны; pose-ref не оправдывает карлика/короткие ноги.
 
-В промпте Big явно:  
-`PROPORTIONS: anatomically correct adult like JA3 Mercs refs (~7.5-8 heads tall) — crotch near mid-height, legs about half of body height, FULL-LENGTH natural legs; NO dwarf, NO short stubby legs, NO oversized head, realistic hands/feet.`  
+В промпте Big явно:<br>
+`PROPORTIONS: anatomically correct adult like JA3 Mercs refs (~7.5-8 heads tall) — crotch near mid-height, legs about half of body height, FULL-LENGTH natural legs; NO dwarf, NO short stubby legs, NO oversized head, realistic hands/feet.`<br>
 В Read/DoD: отклонить короткий-ногий / карликовый кадр сразу.
 
 ## Naming
@@ -242,7 +242,7 @@ docs/design/mercs-ja12/<slug>.ja2-face.gif|.jpg — JA2 face identity (обяз�
 - **Вдохновляться** источником, не paste/стикер: лицо встроено в JA3 semi-real стиль refs.
 - Анатомия **чуть лучше/реалистичнее** JA2-sprite: объём лба/скул/челюсти, симметрия глаз, уши, шея, естественная кожа — как у Raven/Buns/MD, не кукла и не фото-beauty.
 - Узнаваемость важнее «идеальной» красоты: характерные дефекты/асимметрия JA2 сохранять, если они часть образа.
-- В промпте:  
+- В промпте:<br>
   `FACE: recognizable identity from JA2 face ref (same person) — inspire from source, improve anatomy/volume slightly toward JA3 Mercs realism; NOT flat pixel-sticker paste; NOT beauty-filter / plastic skin.`
 
 Reject: другое лицо; flat sticker; over-beautify; потеря узнаваемости.

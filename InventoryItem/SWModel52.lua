@@ -3,6 +3,7 @@ DefineClass.SWModel52 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-2",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -15,7 +16,6 @@ DefineClass.SWModel52 = {
 	AdditionalHint = T(890000000000605, --[[ModItemInventoryItemCompositeDef SWModel52 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  .38 Special\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120>  Cпасибо, что стреляет"),
 	UnitStat = "Marksmanship",
 	Cost = 2100,
-	CanAppearInShop = false,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_38",
@@ -34,7 +34,6 @@ DefineClass.SWModel52 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_13_PISTOL_52",
 				"JAZZ_MagLarge_8_PISTOL_52",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -44,9 +43,9 @@ DefineClass.SWModel52 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_ImprovisedSuppressor",
-								"JAZZ_Suppressor",
-							},
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+			},
 		}),
 	},
 	HolsterSlot = "Leg",
@@ -59,18 +58,12 @@ DefineClass.SWModel52 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 15,
+	BurstShots = 0,
 	AutoShots = 0,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 5,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
 	Grouping = 88,
 	BaseJamChance = -20,
 	WeaponResource = 700,

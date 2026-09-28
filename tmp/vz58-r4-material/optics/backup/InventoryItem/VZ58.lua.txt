@@ -1,0 +1,115 @@
+UndefineClass('VZ58')
+DefineClass.VZ58 = {
+	__parents = { "AssaultRifle" },
+	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
+	comment = "Tier 2-2",
+	object_class = "AssaultRifle",
+	ScrapParts = 10,
+	RepairCost = 10,
+	Reliability = 85,
+	Icon = "Mod/e6L4ECj/WeaponIcons/VZ58.png",
+	DisplayName = T(890000000019501, "vz. 58"),
+	DisplayNamePlural = T(890000000019502, "vz. 58"),
+	Description = T(890000000019503, "Чехословацкий автомат под патрон 7,62x39 мм. Лёгкий, скорострельный, с магазином на 30 патронов. Штатную мебель можно заменить современными прикладом, рукоятью и цевьём с планками."),
+	LargeItem = 1,
+	UnitStat = "Marksmanship",
+	Cost = 6000,
+	CanAppearInShop = true,
+	Tier = 2,
+	MaxStock = 2,
+	RestockWeight = 55,
+	CategoryPair = "AssaultRifles",
+	Caliber = "JAZZ_Caliber_762x39",
+	Damage = 27,
+	ObjDamageMod = 50,
+	AimAccuracy = 10,
+	MagazineSize = 30,
+	WeaponRange = 38,
+	OverwatchAngle = 1320,
+	Noise = 55,
+	HandSlot = "TwoHanded",
+	Entity = "JAZZ_VZ58",
+	fxClass = "AK47",
+	ComponentSlots = {
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Reflex_Closed",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Magazine",
+			'AvailableComponents', {
+				"JAZZ_MagNormal",
+				"JAZZ_MagQuick",
+			},
+			'DefaultComponent', "JAZZ_MagNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'AvailableComponents', {
+				"JAZZ_VZ58_HandguardWood",
+				"JAZZ_Handguard_RIS",
+			},
+			'DefaultComponent', "JAZZ_VZ58_HandguardWood",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handgrip",
+			'AvailableComponents', {
+				"JAZZ_Handgrip_Default",
+				"JAZZ_Handgrip_Ergo",
+			},
+			'DefaultComponent', "JAZZ_Handgrip_Default",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Under",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_VerticalGrip",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"JAZZ_StockNormal",
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+				"JAZZ_StockHeavy",
+			},
+			'DefaultComponent', "JAZZ_StockNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Suppressor",
+			},
+		}),
+	},
+	HolsterSlot = "Shoulder",
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"JAZZ_ManeuverAR",
+		"JAZZ_ControllableBurst",
+		"JAZZ_LargeAutoFire",
+	},
+	ShootAP = 5000,
+	ReloadAP = 6000,
+	Recoil = 23,
+	BurstShots = 4,
+	AutoShots = 8,
+	WeaponMass = 29,
+	CyclicRPM = 800,
+	CloseRange = 7,
+	CloseRangeFactor = 85,
+	BulletDropRange = 14,
+	Grouping = 60,
+	BaseJamChance = -15,
+	WeaponResource = 7000,
+}
+

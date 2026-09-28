@@ -4,10 +4,10 @@
 
 Новые иконки создавать по skill [`.agents/skills/create-jazz-squad-icons/SKILL.md`](../../../.agents/skills/create-jazz-squad-icons/SKILL.md).
 
-Пути runtime: `Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png`  
+Пути runtime: `Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png`<br>
 Ассеты: [`SquadsIcons/Enemy/`](../../../SquadsIcons/Enemy/)
 
-Раскладка: `_shields/` (пустые щиты), `<faction>/` (ролевые PNG), `_misc/` (прочее).  
+Раскладка: `_shields/` (пустые щиты), `<faction>/` (ролевые PNG), `_misc/` (прочее).<br>
 Стратегический контекст: [strategy-squads-sectors.md](strategy-squads-sectors.md) · wiki: [legion-global-ai.md](../../wiki/legion-global-ai.md)
 
 ---
@@ -46,10 +46,10 @@
 | `manpower` | Конвой живой силы | колонна солдат с флагом | asset only |
 | `tax` | Сбор налогов / дани | мешок с монетами | asset only |
 
-`wired` = путь в `Guardpost_Patrols.lua` → `JAZZ_GetLegionAISquadIcon`.  
+`wired` = путь в `Guardpost_Patrols.lua` → `JAZZ_GetLegionAISquadIcon`.<br>
 `asset only` = PNG есть у всех фракций, роль в director ещё не привязана.
 
-Имена файлов: `<faction>/<faction>_<ROLE>_squad.png`  
+Имена файлов: `<faction>/<faction>_<ROLE>_squad.png`<br>
 `faction` ∈ `legion` · `army` · `adonis` · `rebels` · `smugglers`
 
 ---

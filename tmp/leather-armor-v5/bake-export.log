@@ -1,0 +1,79 @@
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Read blend: "C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v5\source\LeatherArmor.blend"
+Fra:0 Mem:48.88M (Peak 48.88M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | TEST_LeatherArmor
+Fra:0 Mem:49.93M (Peak 49.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:0 Mem:42.37M (Peak 49.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:0 Mem:42.37M (Peak 49.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:0 Mem:42.37M (Peak 49.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:0 Mem:42.37M (Peak 49.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Procedurals
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Background
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Camera
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Meshes Flags
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Objects
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Particle Systems
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Meshes
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:0 Mem:42.54M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:0 Mem:42.61M (Peak 49.93M) | Time:00:00.00 | Mem:0.09M, Peak:0.09M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:0 Mem:42.61M (Peak 49.93M) | Time:00:00.00 | Mem:0.16M, Peak:0.16M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:0 Mem:42.61M (Peak 49.93M) | Time:00:00.00 | Mem:0.16M, Peak:0.16M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:0 Mem:42.61M (Peak 49.93M) | Time:00:00.00 | Mem:0.53M, Peak:0.53M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:0 Mem:42.61M (Peak 49.93M) | Time:00:00.01 | Mem:0.89M, Peak:1.26M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:0 Mem:42.61M (Peak 49.93M) | Time:00:00.01 | Mem:0.89M, Peak:1.26M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:0.89M, Peak:1.26M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.22M, Peak:1.26M | Scene, ViewLayer | Updating Objects Flags
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.22M, Peak:1.26M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.22M, Peak:1.26M | Scene, ViewLayer | Updating Images
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.22M, Peak:1.26M | Scene, ViewLayer | Updating Camera Volume
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.22M, Peak:1.26M | Scene, ViewLayer | Updating Lookup Tables
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.30M, Peak:1.30M | Scene, ViewLayer | Updating Lights
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.30M, Peak:1.30M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:0 Mem:42.94M (Peak 49.93M) | Time:00:00.01 | Mem:1.30M, Peak:1.30M | Scene, ViewLayer | Updating Integrator
+Fra:0 Mem:43.94M (Peak 49.93M) | Time:00:00.01 | Mem:2.30M, Peak:2.30M | Scene, ViewLayer | Updating Film
+Fra:0 Mem:43.94M (Peak 49.93M) | Time:00:00.01 | Mem:2.22M, Peak:2.30M | Scene, ViewLayer | Updating Lookup Tables
+Fra:0 Mem:43.94M (Peak 49.93M) | Time:00:00.01 | Mem:2.30M, Peak:2.30M | Scene, ViewLayer | Updating Baking
+Fra:0 Mem:43.94M (Peak 49.93M) | Time:00:00.01 | Mem:2.30M, Peak:2.30M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:0 Mem:43.95M (Peak 49.93M) | Time:00:00.01 | Mem:2.30M, Peak:2.30M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:0 Mem:43.95M (Peak 49.93M) | Time:00:00.01 | Mem:2.30M, Peak:2.30M | Scene, ViewLayer | Sample 0/96
+Fra:0 Mem:44.87M (Peak 49.93M) | Time:00:00.01 | Remaining:00:00.29 | Mem:3.18M, Peak:3.18M | Scene, ViewLayer | Sample 1/96
+Fra:0 Mem:44.87M (Peak 49.93M) | Time:00:00.37 | Remaining:00:00.07 | Mem:3.18M, Peak:3.18M | Scene, ViewLayer | Sample 80/96
+Fra:0 Mem:45.24M (Peak 49.93M) | Time:00:00.45 | Remaining:00:00.08 | Mem:3.18M, Peak:3.18M | Scene, ViewLayer | Sample 0/96
+Fra:0 Mem:45.24M (Peak 49.93M) | Time:00:00.45 | Remaining:00:00.08 | Mem:3.18M, Peak:3.18M | Scene, ViewLayer | Finished
+Saved: 'C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v5\build\LeatherArmor.png'
+Time: 00:00.49 (Saving: 00:00.04)
+
+Fra:0 Mem:273.06M (Peak 273.06M) | Time:00:00.64 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | TEST_LeatherArmor
+Fra:0 Mem:274.06M (Peak 274.15M) | Time:00:00.64 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:0 Mem:274.05M (Peak 274.15M) | Time:00:00.64 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading JAZZ_LeatherArmor_Male_Base
+Info: Applied modifier was not first, result may not be as expected
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED Base
+Fra:0 Mem:273.32M (Peak 819.69M) | Time:00:27.15 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | TEST_LeatherArmor
+Fra:0 Mem:274.15M (Peak 819.69M) | Time:00:27.15 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:0 Mem:274.15M (Peak 819.69M) | Time:00:27.15 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading JAZZ_LeatherArmor_Male_Norm
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED Norm
+Fra:0 Mem:273.42M (Peak 819.79M) | Time:00:55.74 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | TEST_LeatherArmor
+Fra:0 Mem:274.25M (Peak 819.79M) | Time:00:55.74 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:0 Mem:274.25M (Peak 819.79M) | Time:00:55.74 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading JAZZ_LeatherArmor_Male_Rough
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED Rough
+Fra:0 Mem:273.50M (Peak 819.79M) | Time:01:27.15 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | TEST_LeatherArmor
+Fra:0 Mem:274.24M (Peak 819.79M) | Time:01:27.15 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:0 Mem:274.24M (Peak 819.79M) | Time:01:27.15 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading JAZZ_LeatherArmor_Male_Metal
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED Metal
+Info: Applied modifier was not first, result may not be as expected
+Info: Saved as "JAZZ_LeatherArmor_Male.blend"
+[HG] Assigning special names
+
+FBX export starting... 'C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v5\\build\\JAZZ_LeatherArmor_Male.fbx'
+(bpy.data.armatures['Bones'], 'POSE')
+export finished in 0.1290 sec.
+[HG] Reverting special names
+EXPORT_READY {'entity': 'JAZZ_LeatherArmor_Male', 'triangles': 11966, 'inherit': 'Male', 'hgskeleton': 'JAZZ_LeatherArmor_Male_mesh', 'icon': [110, 110], 'baked_maps': ['Base', 'Norm', 'RM']}
+
+Blender quit

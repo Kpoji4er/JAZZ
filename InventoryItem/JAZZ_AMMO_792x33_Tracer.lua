@@ -13,7 +13,6 @@ DefineClass.JAZZ_AMMO_792x33_Tracer = {
 	Description = T(890000000000658, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792x33_Tracer Description]] "Версия патрона с трассером, иными словами прокладывающий путь к душам и сердцам по ту сторону ствола, патрон старый, но светит всё также.... кажется."),
 	AdditionalHint = "",
 	Cost = 1600,
-	CanAppearInShop = false,
 	MaxStock = 10,
 	RestockWeight = 1,
 	CategoryPair = "762WP",
@@ -51,6 +50,7 @@ DefineClass.JAZZ_AMMO_792x33_Tracer = {
 	},
 	AppliedEffects = {
 		"Exposed",
+		"",
 	},
 }
 

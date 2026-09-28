@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Iggy = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Iggy.png",
 	Tier = "Personal",
 }
+

@@ -3,19 +3,8 @@ DefineClass.Jazz_Perk_Steiger = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "radius",
-			'Value', 10,
-			'Tag', "<radius>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "cth_bonus",
-			'Value', 5,
-			'Tag', "<cth_bonus>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -38,3 +27,4 @@ DefineClass.Jazz_Perk_Steiger = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Steiger.png",
 	Tier = "Personal",
 }
+

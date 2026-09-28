@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_12gauge_Saltshot = {
 	AdditionalHint = "",
 	Cost = 70,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 5,
 	RestockWeight = 80,
 	ShopStackSize = 25,

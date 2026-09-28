@@ -1,0 +1,4 @@
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Read blend: "C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v4\source\LeatherArmor.blend"
+BLEND_NORMALS={"blend": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v4\\source\\LeatherArmor.blend", "objects": [{"name": "TEST_LeatherArmor", "custom_normals": false, "issues": 0, "kinds": {}, "samples": []}]}
+OK LeatherArmor.blend: 0 fatal issue(s) on 1 mesh(es)

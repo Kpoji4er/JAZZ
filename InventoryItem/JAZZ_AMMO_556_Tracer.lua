@@ -13,8 +13,8 @@ DefineClass.JAZZ_AMMO_556_Tracer = {
 	Cost = 1800,
 	CanAppearInShop = true,
 	Tier = 3,
-	RestockWeight = 45,
 	MaxStock = 5,
+	RestockWeight = 45,
 	CategoryPair = "556",
 	ShopStackSize = 120,
 	MaxStacks = 90,
@@ -53,7 +53,8 @@ DefineClass.JAZZ_AMMO_556_Tracer = {
 		}),
 	},
 	AppliedEffects = {
-		"ExposedMarkedTraccers",
+		"Exposed",
+		"MarkedTraccers",
 	},
 }
 

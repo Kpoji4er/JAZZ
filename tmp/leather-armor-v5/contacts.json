@@ -1,0 +1,72 @@
+{
+  "source": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v5\\source\\LeatherArmor.blend",
+  "runtime": "NOT_RUN",
+  "poses": [
+    {
+      "pose": "rest",
+      "side": 1,
+      "samples": 32,
+      "max_gap_m": 0.0003472503158263862,
+      "p95_gap_m": 0.000346683751558885,
+      "limit_m": 0.0015
+    },
+    {
+      "pose": "rest",
+      "side": 2,
+      "samples": 26,
+      "max_gap_m": 0.00034988767583854496,
+      "p95_gap_m": 0.00034974192385561764,
+      "limit_m": 0.0015
+    },
+    {
+      "pose": "lean",
+      "side": 1,
+      "samples": 32,
+      "max_gap_m": 0.0005066005978733301,
+      "p95_gap_m": 0.0004723715828731656,
+      "limit_m": 0.006
+    },
+    {
+      "pose": "lean",
+      "side": 2,
+      "samples": 26,
+      "max_gap_m": 0.0005082182469777763,
+      "p95_gap_m": 0.00047334691043943167,
+      "limit_m": 0.006
+    },
+    {
+      "pose": "deep_lean",
+      "side": 1,
+      "samples": 32,
+      "max_gap_m": 0.0006763376877643168,
+      "p95_gap_m": 0.0006423084414564073,
+      "limit_m": 0.006
+    },
+    {
+      "pose": "deep_lean",
+      "side": 2,
+      "samples": 26,
+      "max_gap_m": 0.00045465503353625536,
+      "p95_gap_m": 0.0003952170955017209,
+      "limit_m": 0.006
+    },
+    {
+      "pose": "twist",
+      "side": 1,
+      "samples": 32,
+      "max_gap_m": 0.00040916798752732575,
+      "p95_gap_m": 0.0004076572949998081,
+      "limit_m": 0.006
+    },
+    {
+      "pose": "twist",
+      "side": 2,
+      "samples": 26,
+      "max_gap_m": 0.00045452621998265386,
+      "p95_gap_m": 0.00044950091978535056,
+      "limit_m": 0.006
+    }
+  ],
+  "status": "PASS_SEWN_CONTACT",
+  "failures": []
+}

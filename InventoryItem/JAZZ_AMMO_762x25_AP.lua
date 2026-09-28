@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_762x25_AP = {
 	Description = T(890000000000621, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_AP Description]] "Бронебойный патрон 7.62х25, на самом деле он не бронебойный, но ничего лучше в данном калибре нету. Неплохо подходит для стрельбы в спину союзников."),
 	Cost = 1600,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 2,
 	RestockWeight = 10,
 	CategoryPair = "762x25",

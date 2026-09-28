@@ -15,7 +15,6 @@ DefineClass.JAZZ_AMMO_12gauge_APSlug = {
 	Cost = 1800,
 	CanAppearInShop = true,
 	Tier = 4,
-	MaxStock = 3,
 	RestockWeight = 14,
 	ShopStackSize = 25,
 	MaxStacks = 20,

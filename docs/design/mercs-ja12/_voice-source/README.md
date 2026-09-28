@@ -1,13 +1,13 @@
 # JA2 / NightOps / UB voice sources
 
-Mapping: `jazz_to_ja2_profile.csv` (profile_id + speech_source + status).  
-Folder crosswalk: `jazz_to_ja2mercs_folders.csv` (from `docs/tools/_ja2mercs_folder_map.py`).  
-Speech ID bands (Bayun + схема реплик): `JA2_SPEECH_ID_RANGES.md`, `schemas/AIM-stem-roles.md`.  
+Mapping: `jazz_to_ja2_profile.csv` (profile_id + speech_source + status).<br>
+Folder crosswalk: `jazz_to_ja2mercs_folders.csv` (from `docs/tools/_ja2mercs_folder_map.py`).<br>
+Speech ID bands (Bayun + схема реплик): `JA2_SPEECH_ID_RANGES.md`, `schemas/AIM-stem-roles.md`.<br>
 In-game ear-check: `VERIFY.md`.
 
 ## Preferred source: `Downloads/ja2mercs (1)/ja2mercs`
 
-Pid-prefixed folders (`аимовцы/005 trevor`, `цс/165 gaston`, …) + `схема реплик *.xlsx` (copied under `schemas/`).  
+Pid-prefixed folders (`аимовцы/005 trevor`, `цс/165 gaston`, …) + `схема реплик *.xlsx` (copied under `schemas/`).<br>
 Fallback: `Downloads/ja2mercs/ja2mercs` (legacy unprefixed names; ship resolves both).
 
 ```text
@@ -67,6 +67,6 @@ Do not mix co-folder banks (Carlos≠Gaston, Shank≠Benny, Dynamo≠Simon).
 
 ## Ship notes
 
-Gold pattern: `Jazz_Colby` — hire from `081–120` (`AIM_CHAT_WAV`); combat from battle + `000–080`.  
-Never overwrite `spouke` / `lynx` / `tosca` / `spider` (`done_manual` — original JA3 VO).  
+Gold pattern: `Jazz_Colby` — hire from `081–120` (`AIM_CHAT_WAV`); combat from battle + `000–080`.<br>
+Never overwrite `spouke` / `lynx` / `tosca` / `spider` (`done_manual` — original JA3 VO).<br>
 MERK / локался without hire files: combat only; AIM chat stays silent (do not copy Selection).

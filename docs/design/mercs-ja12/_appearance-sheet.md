@@ -128,7 +128,7 @@ Runtime combine map (Body/Head donors, same-gender only): [`ja12-appearance-map.
 
 ## Брием "Шенк" Друз
 - priority: низкий
-- APPEARANCE: 
+- APPEARANCE:
 - BACKSTORY/LOOK: темная майка или толстовка с длинными рукавами, изможденное лицо, синяки под глазами
 - BIO JA2: Богатенький мальчик, наркоша, по доносу родителей попал в тюрьму. Ненавидит родителей и Дейдрану
 

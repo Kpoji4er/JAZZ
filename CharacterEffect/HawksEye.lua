@@ -5,33 +5,6 @@ DefineClass.HawksEye = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "pindownCostOverwrite",
-			'Value', 1,
-			'Tag', "<pindownCostOverwrite>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "overwatchCostOverwrite",
-			'Value', 1,
-			'Tag', "<overwatchCostOverwrite>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "hoursToProduce",
-			'Value', 96,
-			'Tag', "<hoursToProduce>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "amountToProduce",
-			'Value', 7,
-			'Tag', "<amountToProduce>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "nextProductionTime",
-			'Tag', "<nextProductionTime>",
-		}),
-	},
-	Comment = "Scope: sniper OW 1 AP keep leftover; PinDown min 1; sniper suppress ×2; biscuits 96h×7 + hire",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnMercHired",
@@ -51,7 +24,7 @@ DefineClass.HawksEye = {
 			Event = "OnNewHour",
 			Handler = function (self, target)
 				if target.HireStatus ~= "Hired" then return end
-
+				
 				local next_production = self:ResolveValue("nextProductionTime")
 				if not next_production or next_production == 0 then
 					self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
@@ -59,12 +32,12 @@ DefineClass.HawksEye = {
 				end
 				local squad = target.Squad and gv_Squads[target.Squad]
 				if Game.CampaignTime < next_production or (squad and squad.water_travel) then return end
-
+				
 				local amountToProduce = self:ResolveValue("amountToProduce")
 				local cookie = g_Classes["Cookie"]
 				local item_name = cookie and (amountToProduce > 1 and cookie.DisplayNamePlural or cookie.DisplayName) or Untranslated("Cookie")
 				self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
-
+				
 				local slots = { "Handheld A", "Handheld B", "Inventory" }
 				local canPlaceError, amountLeft
 				local amountToPlace = amountToProduce
@@ -79,7 +52,7 @@ DefineClass.HawksEye = {
 						end
 					end
 				end
-
+				
 				local text = T{318623454402, "<merc> produced <amount> <item_name>.", merc = target.Nick, amount = amountToProduce, item_name = item_name}
 				if canPlaceError or (amountLeft and amountLeft > 0) then
 					amountToPlace = amountToPlace or amountToProduce
@@ -102,3 +75,4 @@ DefineClass.HawksEye = {
 	Icon = "UI/Icons/Perks/HawksEye",
 	Tier = "Personal",
 }
+

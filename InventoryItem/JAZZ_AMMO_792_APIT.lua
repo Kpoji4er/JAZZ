@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_792_APIT = {
 	Description = T(890000000000825, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_APIT Description]] "БЗТ патрон, что ещё тут надо добавлять? Он прекрасен, хоть и стар. Превратите войну в искусство."),
 	AdditionalHint = "",
 	Cost = 1100,
-	CanAppearInShop = false,
 	MaxStock = 5,
 	RestockWeight = 1,
 	CategoryPair = "792",

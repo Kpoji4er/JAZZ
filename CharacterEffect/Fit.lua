@@ -3,29 +3,8 @@ DefineClass.Fit = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "ap_gain",
-			'Value', 1,
-			'Tag', "<ap_gain>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "fm_mul",
-			'Value', 120,
-			'Tag', "<fm_mul>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "opening_fm_turns",
-			'Value', 1,
-			'Tag', "<opening_fm_turns>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "opening_fm_bonus",
-			'Value', 2,
-			'Tag', "<opening_fm_bonus>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
@@ -53,3 +32,4 @@ DefineClass.Fit = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

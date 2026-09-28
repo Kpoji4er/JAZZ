@@ -1,0 +1,841 @@
+{
+  "status": "PASS",
+  "checked_dimensions_and_outline": 1742,
+  "outline_expanded": true,
+  "references": 166,
+  "mean_luminance_quantile_error_before": 0.1277854981329956,
+  "mean_luminance_quantile_error_after": 0.03265569766574169,
+  "improved_weapons": 163,
+  "comparisons": [
+    {
+      "weapon": "AA12",
+      "before_error": 0.08636520382315672,
+      "after_error": 0.06586375794997074
+    },
+    {
+      "weapon": "AA52",
+      "before_error": 0.13247196630692482,
+      "after_error": 0.011709944400071965
+    },
+    {
+      "weapon": "AK103",
+      "before_error": 0.032144593668326796,
+      "after_error": 0.015575095546081684
+    },
+    {
+      "weapon": "AK105",
+      "before_error": 0.15175806765988278,
+      "after_error": 0.008078528308111177
+    },
+    {
+      "weapon": "AK47",
+      "before_error": 0.11543314266032073,
+      "after_error": 0.03272315681287015
+    },
+    {
+      "weapon": "AK74",
+      "before_error": 0.1014131602404233,
+      "after_error": 0.03514312289594698
+    },
+    {
+      "weapon": "AK74M",
+      "before_error": 0.1338521785015482,
+      "after_error": 0.02095215712624955
+    },
+    {
+      "weapon": "AKM",
+      "before_error": 0.08806818478146937,
+      "after_error": 0.0179336766754202
+    },
+    {
+      "weapon": "AKSU",
+      "before_error": 0.17520018951793948,
+      "after_error": 0.01591670937173066
+    },
+    {
+      "weapon": "AN94",
+      "before_error": 0.09203633111545444,
+      "after_error": 0.023522049301925967
+    },
+    {
+      "weapon": "APS",
+      "before_error": 0.22777407013827938,
+      "after_error": 0.05311778707822595
+    },
+    {
+      "weapon": "AR10",
+      "before_error": 0.21477981359970189,
+      "after_error": 0.08355388564569495
+    },
+    {
+      "weapon": "AR10DMR",
+      "before_error": 0.1696728798536807,
+      "after_error": 0.019134095589794266
+    },
+    {
+      "weapon": "AS_Val",
+      "before_error": 0.18541185844577848,
+      "after_error": 0.03153235524851089
+    },
+    {
+      "weapon": "AUG",
+      "before_error": 0.08044786770571763,
+      "after_error": 0.015402942780423878
+    },
+    {
+      "weapon": "AVT40",
+      "before_error": 0.11695449205640421,
+      "after_error": 0.008825581163043147
+    },
+    {
+      "weapon": "Agram2000",
+      "before_error": 0.1304207080738358,
+      "after_error": 0.01867946153357624
+    },
+    {
+      "weapon": "ArcticWarfare",
+      "before_error": 0.16324685667388372,
+      "after_error": 0.018398020355799648
+    },
+    {
+      "weapon": "Auto5",
+      "before_error": 0.16445717411065275,
+      "after_error": 0.017860541060872998
+    },
+    {
+      "weapon": "BAR",
+      "before_error": 0.16832409213101301,
+      "after_error": 0.08239140873005238
+    },
+    {
+      "weapon": "BarretM82",
+      "before_error": 0.061882414227962514,
+      "after_error": 0.02963909191645684
+    },
+    {
+      "weapon": "Bereta92",
+      "before_error": 0.15119816298841682,
+      "after_error": 0.022801150413334532
+    },
+    {
+      "weapon": "Beretta93r",
+      "before_error": 0.0841005023033172,
+      "after_error": 0.05315884180448952
+    },
+    {
+      "weapon": "BerettaM12",
+      "before_error": 0.18839010030344122,
+      "after_error": 0.035389092074371874
+    },
+    {
+      "weapon": "CAR15",
+      "before_error": 0.1311896477000508,
+      "after_error": 0.007949608885450262
+    },
+    {
+      "weapon": "CZ52",
+      "before_error": 0.18992279095407952,
+      "after_error": 0.02052084914890684
+    },
+    {
+      "weapon": "CZ75",
+      "before_error": 0.16375723901449524,
+      "after_error": 0.048043166940592276
+    },
+    {
+      "weapon": "China_Lake",
+      "before_error": 0.08377996275180158,
+      "after_error": 0.016465041450228545
+    },
+    {
+      "weapon": "Colt1911",
+      "before_error": 0.1173911447006687,
+      "after_error": 0.06112241812419141
+    },
+    {
+      "weapon": "Colt38Special",
+      "before_error": 0.1548460813183338,
+      "after_error": 0.027131076070070204
+    },
+    {
+      "weapon": "ColtAnaconda",
+      "before_error": 0.1224836809096635,
+      "after_error": 0.07346874444425117
+    },
+    {
+      "weapon": "ColtM1917",
+      "before_error": 0.11948599136403834,
+      "after_error": 0.050146181357867074
+    },
+    {
+      "weapon": "ColtPeacemaker",
+      "before_error": 0.18596631195840238,
+      "after_error": 0.02932964498188346
+    },
+    {
+      "weapon": "DP27",
+      "before_error": 0.21907660336513618,
+      "after_error": 0.04248202526281954
+    },
+    {
+      "weapon": "DeLisle",
+      "before_error": 0.05044519881244746,
+      "after_error": 0.022601882339876124
+    },
+    {
+      "weapon": "DesertEagle",
+      "before_error": 0.20526372256875058,
+      "after_error": 0.10862783337786819
+    },
+    {
+      "weapon": "DoubleBarrelShotgun",
+      "before_error": 0.1328630869741402,
+      "after_error": 0.014645693367504467
+    },
+    {
+      "weapon": "DragunovSVD",
+      "before_error": 0.10119738726255109,
+      "after_error": 0.02043584193314239
+    },
+    {
+      "weapon": "DragunovSVD_Custom",
+      "before_error": 0.18035390828041725,
+      "after_error": 0.007827637812640061
+    },
+    {
+      "weapon": "FAMAS",
+      "before_error": 0.11546223837488911,
+      "after_error": 0.012918996754452804
+    },
+    {
+      "weapon": "FG42",
+      "before_error": 0.2754712400200395,
+      "after_error": 0.022491975008663786
+    },
+    {
+      "weapon": "FNFAL",
+      "before_error": 0.0968629842843265,
+      "after_error": 0.016560080518431886
+    },
+    {
+      "weapon": "FNMAG",
+      "before_error": 0.011069587958183693,
+      "after_error": 0.008513409647564973
+    },
+    {
+      "weapon": "FNMinimi",
+      "before_error": 0.1400658133967071,
+      "after_error": 0.013685074708122882
+    },
+    {
+      "weapon": "FRF2",
+      "before_error": 0.034161077831564454,
+      "after_error": 0.010617578962575598
+    },
+    {
+      "weapon": "FiveSeven",
+      "before_error": 0.08065298420800364,
+      "after_error": 0.03166088993378447
+    },
+    {
+      "weapon": "G36",
+      "before_error": 0.14862578895911582,
+      "after_error": 0.01809874789176877
+    },
+    {
+      "weapon": "G36c",
+      "before_error": 0.09241516687356716,
+      "after_error": 0.022983151725046405
+    },
+    {
+      "weapon": "G3A3",
+      "before_error": 0.12616273156580335,
+      "after_error": 0.029375270969361225
+    },
+    {
+      "weapon": "G3A4",
+      "before_error": 0.10747718057423798,
+      "after_error": 0.040534786289036215
+    },
+    {
+      "weapon": "G3SniperV1",
+      "before_error": 0.10256445128819347,
+      "after_error": 0.0387609212190807
+    },
+    {
+      "weapon": "G43",
+      "before_error": 0.18570908408335685,
+      "after_error": 0.01835456092517901
+    },
+    {
+      "weapon": "Galil",
+      "before_error": 0.17822581712355834,
+      "after_error": 0.010419938977522906
+    },
+    {
+      "weapon": "Gewehr98",
+      "before_error": 0.10184136947310521,
+      "after_error": 0.0213537347298041
+    },
+    {
+      "weapon": "Glock17",
+      "before_error": 0.3298081225967407,
+      "after_error": 0.03393158722333604
+    },
+    {
+      "weapon": "Glock18",
+      "before_error": 0.02330044279818983,
+      "after_error": 0.04835714341601718
+    },
+    {
+      "weapon": "GrizzlyLAR",
+      "before_error": 0.04292974832344046,
+      "after_error": 0.01777646158739926
+    },
+    {
+      "weapon": "HK21",
+      "before_error": 0.07278254669456181,
+      "after_error": 0.018857281501013765
+    },
+    {
+      "weapon": "HK23e",
+      "before_error": 0.04211797828559549,
+      "after_error": 0.033517000366881586
+    },
+    {
+      "weapon": "HK33",
+      "before_error": 0.07233638216264546,
+      "after_error": 0.022974178086578766
+    },
+    {
+      "weapon": "HiPower",
+      "before_error": 0.19185358576966832,
+      "after_error": 0.009732356274800293
+    },
+    {
+      "weapon": "Ithaca",
+      "before_error": 0.16370002235875647,
+      "after_error": 0.024628552723126515
+    },
+    {
+      "weapon": "JAZZ_FNFAL_Tactical",
+      "before_error": 0.06589167477192356,
+      "after_error": 0.02101255625549699
+    },
+    {
+      "weapon": "JAZZ_M14_MkIII",
+      "before_error": 0.04461587667924337,
+      "after_error": 0.021160680522765037
+    },
+    {
+      "weapon": "Kimber",
+      "before_error": 0.18708868022039526,
+      "after_error": 0.029133658949673215
+    },
+    {
+      "weapon": "Korth",
+      "before_error": 0.13342378695325932,
+      "after_error": 0.030333616384951467
+    },
+    {
+      "weapon": "L42A1",
+      "before_error": 0.1852455453151708,
+      "after_error": 0.010356181479182132
+    },
+    {
+      "weapon": "Luger",
+      "before_error": 0.12750944742694797,
+      "after_error": 0.023645335052531274
+    },
+    {
+      "weapon": "M14SAW",
+      "before_error": 0.1257542453001663,
+      "after_error": 0.02968036240851881
+    },
+    {
+      "weapon": "M16A1",
+      "before_error": 0.08525121572512204,
+      "after_error": 0.014529321237573497
+    },
+    {
+      "weapon": "M16A2",
+      "before_error": 0.07217401650664211,
+      "after_error": 0.0403130816164613
+    },
+    {
+      "weapon": "M16A4",
+      "before_error": 0.15480735505724896,
+      "after_error": 0.023340071135830122
+    },
+    {
+      "weapon": "M1897",
+      "before_error": 0.12227320423499854,
+      "after_error": 0.059420064052803354
+    },
+    {
+      "weapon": "M1A",
+      "before_error": 0.04258872528001668,
+      "after_error": 0.009940632691755942
+    },
+    {
+      "weapon": "M1Garand",
+      "before_error": 0.05732535695694116,
+      "after_error": 0.010217043633650075
+    },
+    {
+      "weapon": "M21",
+      "before_error": 0.1262030132024512,
+      "after_error": 0.0332022360334173
+    },
+    {
+      "weapon": "M24Sniper",
+      "before_error": 0.06754658034929634,
+      "after_error": 0.015603500634744773
+    },
+    {
+      "weapon": "M2Carbine",
+      "before_error": 0.14292705229927344,
+      "after_error": 0.02941034648856254
+    },
+    {
+      "weapon": "M3GreaseGun",
+      "before_error": 0.23231525776962936,
+      "after_error": 0.0201518114948869
+    },
+    {
+      "weapon": "M41Shotgun",
+      "before_error": 0.07188705922381575,
+      "after_error": 0.016666778622701883
+    },
+    {
+      "weapon": "M45",
+      "before_error": 0.05330166887373475,
+      "after_error": 0.017024439462453127
+    },
+    {
+      "weapon": "M4A1",
+      "before_error": 0.11902801156365866,
+      "after_error": 0.011055817863956069
+    },
+    {
+      "weapon": "M60",
+      "before_error": 0.08525169020989899,
+      "after_error": 0.01693227772855754
+    },
+    {
+      "weapon": "M60E3",
+      "before_error": 0.17678563771275616,
+      "after_error": 0.01398770002586949
+    },
+    {
+      "weapon": "M60E4",
+      "before_error": 0.16838994365832216,
+      "after_error": 0.01858185522805901
+    },
+    {
+      "weapon": "M700",
+      "before_error": 0.07473990152687579,
+      "after_error": 0.01866970744652209
+    },
+    {
+      "weapon": "M79",
+      "before_error": 0.05799849149471145,
+      "after_error": 0.01970051140819859
+    },
+    {
+      "weapon": "MAC10",
+      "before_error": 0.10133123761561523,
+      "after_error": 0.04667192349244659
+    },
+    {
+      "weapon": "MAC1950",
+      "before_error": 0.06855683695209401,
+      "after_error": 0.11530353391128775
+    },
+    {
+      "weapon": "MAC2429",
+      "before_error": 0.10432805396362022,
+      "after_error": 0.033168695330604854
+    },
+    {
+      "weapon": "MAS36",
+      "before_error": 0.2882394753396492,
+      "after_error": 0.019150466691266074
+    },
+    {
+      "weapon": "MAS49",
+      "before_error": 0.19832818223553103,
+      "after_error": 0.01924189605872091
+    },
+    {
+      "weapon": "MAT49",
+      "before_error": 0.06552052563123398,
+      "after_error": 0.07429326574928302
+    },
+    {
+      "weapon": "MG42",
+      "before_error": 0.08687734025119996,
+      "after_error": 0.007447549585858337
+    },
+    {
+      "weapon": "MK14EBR",
+      "before_error": 0.10279353005084393,
+      "after_error": 0.034104994381397975
+    },
+    {
+      "weapon": "MP40",
+      "before_error": 0.1610455731204152,
+      "after_error": 0.010605064037729033
+    },
+    {
+      "weapon": "MP446VIKING",
+      "before_error": 0.1810722297379374,
+      "after_error": 0.08912398561019445
+    },
+    {
+      "weapon": "MP5A2",
+      "before_error": 0.11960652762524779,
+      "after_error": 0.04895928110110767
+    },
+    {
+      "weapon": "MP5A4",
+      "before_error": 0.032001429465115125,
+      "after_error": 0.023108371957279605
+    },
+    {
+      "weapon": "MP5K",
+      "before_error": 0.11008345760463176,
+      "after_error": 0.020502731719441752
+    },
+    {
+      "weapon": "MP5SD",
+      "before_error": 0.06283338635277741,
+      "after_error": 0.017789289169374896
+    },
+    {
+      "weapon": "MP7",
+      "before_error": 0.21819656551046673,
+      "after_error": 0.02303056725472214
+    },
+    {
+      "weapon": "MPL",
+      "before_error": 0.0551685273217485,
+      "after_error": 0.04079822132038331
+    },
+    {
+      "weapon": "MR73",
+      "before_error": 0.1259910839734078,
+      "after_error": 0.03313866314327719
+    },
+    {
+      "weapon": "Makarov",
+      "before_error": 0.21177964047256856,
+      "after_error": 0.08819721336432551
+    },
+    {
+      "weapon": "MicroUZI",
+      "before_error": 0.155787521201916,
+      "after_error": 0.011554558234684176
+    },
+    {
+      "weapon": "Mini14",
+      "before_error": 0.18982168919780656,
+      "after_error": 0.02881324194264971
+    },
+    {
+      "weapon": "Mosin",
+      "before_error": 0.18247470374728736,
+      "after_error": 0.042933116189193016
+    },
+    {
+      "weapon": "P210",
+      "before_error": 0.06363680085327474,
+      "after_error": 0.04733586278971268
+    },
+    {
+      "weapon": "P220",
+      "before_error": 0.06069834184433512,
+      "after_error": 0.046685640980333135
+    },
+    {
+      "weapon": "P226",
+      "before_error": 0.18084266336180277,
+      "after_error": 0.029831927633643045
+    },
+    {
+      "weapon": "P38",
+      "before_error": 0.11330978950208474,
+      "after_error": 0.0500008793983981
+    },
+    {
+      "weapon": "P90",
+      "before_error": 0.053175607615523056,
+      "after_error": 0.03909394448801872
+    },
+    {
+      "weapon": "PB",
+      "before_error": 0.09598616077632269,
+      "after_error": 0.02105351757216451
+    },
+    {
+      "weapon": "PKM",
+      "before_error": 0.17213393996074233,
+      "after_error": 0.02635606046201658
+    },
+    {
+      "weapon": "PP19Bizon",
+      "before_error": 0.18697950432053212,
+      "after_error": 0.015750282927446076
+    },
+    {
+      "weapon": "PPS43",
+      "before_error": 0.06935086740328367,
+      "after_error": 0.03797524433007819
+    },
+    {
+      "weapon": "PPSH",
+      "before_error": 0.05901630865741149,
+      "after_error": 0.04154299688552697
+    },
+    {
+      "weapon": "PSG1",
+      "before_error": 0.2147962427109778,
+      "after_error": 0.01566961357562237
+    },
+    {
+      "weapon": "R870",
+      "before_error": 0.1470818467662297,
+      "after_error": 0.05397234565617706
+    },
+    {
+      "weapon": "RPD",
+      "before_error": 0.1052991590294242,
+      "after_error": 0.024259841889254733
+    },
+    {
+      "weapon": "RPK",
+      "before_error": 0.16344394151291997,
+      "after_error": 0.019789185801513537
+    },
+    {
+      "weapon": "RPK74",
+      "before_error": 0.1294608782976719,
+      "after_error": 0.016204636264018538
+    },
+    {
+      "weapon": "RSH12",
+      "before_error": 0.0522720415299963,
+      "after_error": 0.02204675923760242
+    },
+    {
+      "weapon": "SKS",
+      "before_error": 0.1556392259782431,
+      "after_error": 0.018849233637321796
+    },
+    {
+      "weapon": "SPAS12",
+      "before_error": 0.11992313282475997,
+      "after_error": 0.03859942886127532
+    },
+    {
+      "weapon": "SR3M",
+      "before_error": 0.14730094766382118,
+      "after_error": 0.009167613398954258
+    },
+    {
+      "weapon": "STG44",
+      "before_error": 0.36619284539554264,
+      "after_error": 0.02889827787262387
+    },
+    {
+      "weapon": "SVT40",
+      "before_error": 0.1224161010749172,
+      "after_error": 0.008258308620758296
+    },
+    {
+      "weapon": "SVU",
+      "before_error": 0.0778864879698902,
+      "after_error": 0.01113455500038154
+    },
+    {
+      "weapon": "SWModel10",
+      "before_error": 0.08820439132010384,
+      "after_error": 0.04173567028003926
+    },
+    {
+      "weapon": "SWModel19",
+      "before_error": 0.07157133597840734,
+      "after_error": 0.04220671730696761
+    },
+    {
+      "weapon": "SWModel29",
+      "before_error": 0.1389466516603055,
+      "after_error": 0.07383172781536275
+    },
+    {
+      "weapon": "SWModel52",
+      "before_error": 0.04608477757728101,
+      "after_error": 0.03812588270744682
+    },
+    {
+      "weapon": "SWModel5906",
+      "before_error": 0.09779452015088498,
+      "after_error": 0.0434418846655637
+    },
+    {
+      "weapon": "Scorpion",
+      "before_error": 0.049846400268957064,
+      "after_error": 0.019063381667569337
+    },
+    {
+      "weapon": "ScoutSniper",
+      "before_error": 0.30460298772611466,
+      "after_error": 0.180527518676035
+    },
+    {
+      "weapon": "Sig550",
+      "before_error": 0.08524308701059968,
+      "after_error": 0.02052817957951883
+    },
+    {
+      "weapon": "Sig550Custom",
+      "before_error": 0.0956774126595333,
+      "after_error": 0.03522254074635167
+    },
+    {
+      "weapon": "Sig552",
+      "before_error": 0.06812755412776768,
+      "after_error": 0.023884652475759403
+    },
+    {
+      "weapon": "Sig552SWAT",
+      "before_error": 0.12336612890395518,
+      "after_error": 0.12167952919351864
+    },
+    {
+      "weapon": "SpectreM4",
+      "before_error": 0.22335800713085377,
+      "after_error": 0.08069513307327757
+    },
+    {
+      "weapon": "Springfield",
+      "before_error": 0.07928513390519838,
+      "after_error": 0.04801899542500819
+    },
+    {
+      "weapon": "Sterling",
+      "before_error": 0.17579958415125274,
+      "after_error": 0.053617921513646374
+    },
+    {
+      "weapon": "Stoeger",
+      "before_error": 0.07504278702155878,
+      "after_error": 0.024711400617485783
+    },
+    {
+      "weapon": "Striker",
+      "before_error": 0.22060294447286422,
+      "after_error": 0.038685187923882335
+    },
+    {
+      "weapon": "TMP",
+      "before_error": 0.23678312168102705,
+      "after_error": 0.03564537130664241
+    },
+    {
+      "weapon": "TT33",
+      "before_error": 0.10707230003911253,
+      "after_error": 0.0608146060809493
+    },
+    {
+      "weapon": "TexRevolver",
+      "before_error": 0.1871070151857604,
+      "after_error": 0.1613871908723098
+    },
+    {
+      "weapon": "Thompson",
+      "before_error": 0.08142418823142715,
+      "after_error": 0.02278877373588099
+    },
+    {
+      "weapon": "Type56",
+      "before_error": 0.0576275053157304,
+      "after_error": 0.015896320920357598
+    },
+    {
+      "weapon": "U100",
+      "before_error": 0.14672128152433037,
+      "after_error": 0.022686443182021333
+    },
+    {
+      "weapon": "UMP45",
+      "before_error": 0.03892748524197181,
+      "after_error": 0.015299400565572016
+    },
+    {
+      "weapon": "USAS12",
+      "before_error": 0.13183241951905206,
+      "after_error": 0.005225103095397452
+    },
+    {
+      "weapon": "USP45",
+      "before_error": 0.12594946469835938,
+      "after_error": 0.03941231216044723
+    },
+    {
+      "weapon": "UZI",
+      "before_error": 0.19975992795225234,
+      "after_error": 0.04176281579470638
+    },
+    {
+      "weapon": "VSS",
+      "before_error": 0.2634178187211528,
+      "after_error": 0.03856077617373321
+    },
+    {
+      "weapon": "VZ58",
+      "before_error": 0.05301455462297233,
+      "after_error": 0.0212784199933913
+    },
+    {
+      "weapon": "VectorCP1",
+      "before_error": 0.14884785163404413,
+      "after_error": 0.028146686989661353
+    },
+    {
+      "weapon": "VektorR4",
+      "before_error": 0.055111222116470286,
+      "after_error": 0.03966627675771338
+    },
+    {
+      "weapon": "Webley",
+      "before_error": 0.1204588091923445,
+      "after_error": 0.011999827304676195
+    },
+    {
+      "weapon": "Welrod",
+      "before_error": 0.09847637609073517,
+      "after_error": 0.022520990527972573
+    },
+    {
+      "weapon": "Winchester1894",
+      "before_error": 0.12589732712689786,
+      "after_error": 0.011890226956017269
+    },
+    {
+      "weapon": "ZastavaM76",
+      "before_error": 0.18822129183590408,
+      "after_error": 0.06008078839823968
+    },
+    {
+      "weapon": "ZastavaM92",
+      "before_error": 0.21389930884649044,
+      "after_error": 0.010427402880159201
+    },
+    {
+      "weapon": "Zastava_M70",
+      "before_error": 0.1198628118755193,
+      "after_error": 0.05069360104277729
+    }
+  ]
+}

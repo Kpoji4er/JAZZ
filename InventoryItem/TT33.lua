@@ -3,6 +3,7 @@ DefineClass.TT33 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -16,7 +17,6 @@ DefineClass.TT33 = {
 	UnitStat = "Marksmanship",
 	Cost = 600,
 	CanAppearInShop = true,
-	Tier = 1,
 	RestockWeight = 120,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
@@ -42,7 +42,6 @@ DefineClass.TT33 = {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -54,18 +53,12 @@ DefineClass.TT33 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 8,
 	Grouping = 55,
 	BaseJamChance = -10,

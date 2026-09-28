@@ -3,6 +3,7 @@ DefineClass.CZ75 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -17,7 +18,6 @@ DefineClass.CZ75 = {
 	Cost = 2000,
 	CanAppearInShop = true,
 	Tier = 2,
-	RestockWeight = 100,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_9x19",
@@ -35,7 +35,6 @@ DefineClass.CZ75 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_25_PISTOL_9",
 				"JAZZ_MagLarge_27",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -45,11 +44,10 @@ DefineClass.CZ75 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_ImprovisedSuppressor",
-								"JAZZ_Suppressor",
-							},
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -61,17 +59,11 @@ DefineClass.CZ75 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 7,
 	Grouping = 72,
 	BaseJamChance = -20,

@@ -436,6 +436,18 @@ function WeaponComponentWindowClass:ToggleOptions()
 	XDestroyRolloverWindow()
 end
 
+-- Missing slots are empty: Side2 must not block short-barrel previews on AR15s.
+function GetComponentBlocksAnyOfAttachedSlots(weapon, partDef)
+	for _, slot in ipairs(partDef and partDef.BlockSlots or empty_table) do
+		local attached = weapon.components[slot] or ""
+		local slotDef = table.find_value(weapon.ComponentSlots, "SlotType", slot)
+		local default = slotDef and slotDef.DefaultComponent or ""
+		if attached ~= "" and attached ~= default then
+			return true, attached
+		end
+	end
+end
+
 local VanillaCanModifySlot = ModifyWeaponDlg.CanModifySlot
 function ModifyWeaponDlg:CanModifySlot(slot, partId)
 	if partId and JAZZ_IsHiddenModifyWeaponCraftOption(partId) then
@@ -443,6 +455,21 @@ function ModifyWeaponDlg:CanModifySlot(slot, partId)
 	end
 	if not slot then
 		return VanillaCanModifySlot(self, slot, partId)
+	end
+	local weapon = self.context and self.context.weapon
+	if weapon and (weapon.class == "M4A1" or weapon.class == "M16A4") then
+		local components = weapon.components or empty_table
+		if (slot.SlotType == "Side" or slot.SlotType == "Under")
+			and components.Handguard ~= "JAZZ_Handguard_RIS"
+			and partId ~= "" then
+			return false, "blocked", components.Handguard or "JAZZ_Handguard"
+		end
+		if slot.SlotType == "Handguard" and partId and partId ~= "JAZZ_Handguard_RIS" then
+			local attached = (components.Under or "") ~= "" and components.Under or components.Side
+			if attached and attached ~= "" then
+				return false, "blocked", attached
+			end
+		end
 	end
 	local filtered = JAZZ_FilterModifyWeaponCraftOptions(slot.AvailableComponents)
 	local slot_view = setmetatable({ AvailableComponents = filtered }, { __index = slot })

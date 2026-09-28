@@ -27,7 +27,7 @@ Mag-as-ammo-container — **backlog**. Failed mount: **−1% max**, current clam
 
 После провала Mech на **снятии** (всегда −1% max):
 
-`P(break|fail) = Clamp(100 - resourcePct, 0, 95)`  
+`P(break|fail) = Clamp(100 - resourcePct, 0, 95)`<br>
 `resourcePct = MulDivRound(current, 100, max)`
 
 | Исход | Эффект |
@@ -80,5 +80,5 @@ UI: rollover карточки → `GetDisplayJamChancePercent`.
 
 ## Max / выстрел
 
-Шанс **0.5%** −max за выстрел; при hit loss **≤ 1** unit.  
+Шанс **0.5%** −max за выстрел; при hit loss **≤ 1** unit.<br>
 Также: jam, failed unjam, failed mount (−1% max). Ремонт max не поднимает.

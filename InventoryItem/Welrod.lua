@@ -3,6 +3,7 @@ DefineClass.Welrod = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "T1-UNIQ",
 	object_class = "Revolver",
 	ScrapParts = 6,
@@ -31,7 +32,6 @@ DefineClass.Welrod = {
 	Noise = 1,
 	Entity = "Welrod",
 	ComponentSlots = {
-		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'Modifiable', false,
@@ -51,18 +51,13 @@ DefineClass.Welrod = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 4,
 	Recoil = 18,
+	ReloadStyle = "Revolver",
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 4,
 	Grouping = 82,
 	BaseJamChance = -100,

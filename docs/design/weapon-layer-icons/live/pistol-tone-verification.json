@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "variants": 18,
+  "size_and_alpha": "unchanged",
+  "profiles": {
+    "DesertEagle": {
+      "max_discrete_contrast_gain": 0.7288072234390529,
+      "fit": {
+        "method": "bounded-power",
+        "gamma": 0.98,
+        "gain": 0.6523007368513569,
+        "max_slope": 0.6392547221143298
+      }
+    },
+    "HiPower": {
+      "max_discrete_contrast_gain": 1.8555651397714428,
+      "fit": {
+        "method": "bounded-power",
+        "gamma": 2.2,
+        "gain": 0.8454196357605351,
+        "max_slope": 1.8599231986731775
+      }
+    }
+  }
+}

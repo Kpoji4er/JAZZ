@@ -3,6 +3,7 @@ DefineClass.USP45 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-4",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -63,7 +64,6 @@ DefineClass.USP45 = {
 				"JAZZ_FlashlightDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -75,17 +75,11 @@ DefineClass.USP45 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 8,
 	Grouping = 88,
 	BaseJamChance = -20,

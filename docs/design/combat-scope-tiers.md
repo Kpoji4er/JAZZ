@@ -1,7 +1,7 @@
 # Боевые прицелы (Combat) — средняя дистанция
 
-Канон для `JAZZ_CombatScope_*` (+ `JAZZ_G36Scope` как 3×-класс).  
-Apply: `docs/tools/_rebalance_combat_scopes.py`.  
+Канон для `JAZZ_CombatScope_*` (+ `JAZZ_G36Scope` как 3×-класс).<br>
+Apply: `docs/tools/_rebalance_combat_scopes.py`.<br>
 Калибровка: `docs/tools/_cmp_optic_cth.py --weapon DragunovSVD` (СВД). АКМ — только sanity для ШВ.
 
 **Статус:** settled 2026-08-01 (owner: mid ~+20–30%; оставляем числа).

@@ -1,0 +1,3 @@
+OK: Diagnostic overlay hidden; log retained {
+	metatable = table: 00000224B16D4808 [1]
+}

@@ -3,6 +3,7 @@ DefineClass.Jazz_Perk_Blade = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -44,3 +45,4 @@ DefineClass.Jazz_Perk_Blade = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Blade.png",
 	Tier = "Personal",
 }
+

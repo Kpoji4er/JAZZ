@@ -18,5 +18,5 @@ Chip → `$create-jazz-chip-icons`.
 
 ## Legacy Flat Full (опционально)
 
-Старый flat 128×128 путь: `Icons/Upgrades/Full/` + `Icons/Upgrades/Full/references/PROMPT.md`.  
+Старый flat 128×128 путь: `Icons/Upgrades/Full/` + `Icons/Upgrades/Full/references/PROMPT.md`.<br>
 Для Scope/Magazine новых уникальных Icon предпочитать **style B**.

@@ -38,7 +38,6 @@ DefineClass.UZI = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagDrum_30_50_UZI",
-				"JAZZ_MagLarge_20_30_UZI",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -81,16 +80,11 @@ DefineClass.UZI = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	WeaponMass = 35,
-	CyclicRPM = 600,
-	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
-	BurstShots = 3,
 	Recoil = 12,
 	AutoShots = 6,
-
+	CyclicRPM = 600,
+	WeaponSizeClass = "Carbine",
 	CloseRange = 3,
-
 	CloseRangeFactor = 95,
 	BulletDropRange = 10,
 	Grouping = 50,

@@ -6,8 +6,6 @@ DefineClass.JazzArmor_WieldingHelm = {
 
 	comment = "Class1 H",
 	object_class = "Armor",
-	CanAppearInShop = false,
-	Cost = 500,
 	ScrapParts = 6,
 	Degradation = 30,
 	Icon = "Mod/e6L4ECj/ArmorIcons/WieldingHelm.png",

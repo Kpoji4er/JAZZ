@@ -1,5 +1,12 @@
 # Покрытие файлов системной документацией
 
+## Дополнение 28.09.2026
+
+Новый активный asset companion `jazz_assets/Entities/JAZZ_M14_OpticsMount.lua` зарегистрирован в metadata.code; источник — ModItemEntity в assets items.lua, геометрия — одноимённые ent/HGM. Документационный владелец: [assets-entities](assets-entities.md), поведение: [weapons-ammo-components](weapons-ammo-components.md). Существующие Code-модули остаются в прежнем load order.
+
+
+Добавочный generated-контент 26.09.2026: `InventoryItem/VektorR4.lua` зарегистрирован в `metadata.code`; entity `JAZZ_VektorR4` принадлежит `jazz_assets`. Владелец контракта — [оружие, боеприпасы и компоненты](weapons-ammo-components.md), spec `JAZZ-WEAPON-R4-001`. Ручные runtime-модули не добавлены; игровая загрузка нового предмета ещё не проверена.
+
 Этот реестр фиксирует статус каждого ручного `Code/*.lua` и указывает страницу-владельца. Статус определяется `metadata.lua`, а не фактом существования файла. Срез обновлён **26 августа 2026**.
 
 Обозначения: **loaded** — загружается; **dormant** — существует, но не указан в metadata; **empty** — нулевая/пустая заготовка; **inert** — загружается, но активная логика отсутствует; **editor** — инструментальная логика.
@@ -215,3 +222,19 @@ Generated ModItems покрываются системами по типу:
 - assets EntityData/resources — assets page.
 
 При появлении нового типа ModItem добавить его на профильную страницу и в этот раздел.
+
+## VZ58 — JAZZ-WEAPON-VZ58-001
+
+`InventoryItem/VZ58.lua` активен через `metadata.code`, зеркален ModItem в `items.lua`. Частный `JAZZ_VZ58_HandguardWood` и 13 доступных вариантов компонентов (плюс прежний визуал JAZZ_StockLight для сохранённых экземпляров) загружаются из `items.lua`; WeaponComponent здесь items-owned, отдельного companion нет. В `jazz_assets` активны 14 `Entities/JAZZ_VZ58*.lua/.ent` и связанные Meshes/Materials/Textures, зарегистрированные в items/metadata. `WeaponIcons/VZ58.png` используется предметом. `jazz-units/items.lua` и metadata.affected_resources регистрируют три `JAZZ_GenW_VZ58_*` и добавления восьми пулов. Владелец документации — [оружие, боеприпасы и компоненты](weapons-ammo-components.md).
+
+27.09.2026: существующие бинарные ресурсы `JAZZ_VZ58*` и `JAZZ_VektorR4`, DDS мебели VZ58 и обе иконки обновлены для исправления нормалей. Регистрации/имена/граф материалов прежние; см. раздел исправления визуалов в [оружии и компонентах](weapons-ammo-components.md).
+
+### Release audit additions (2026-09-28)
+
+| File | Owner / purpose |
+| --- | --- |
+| `jazz/Code/System_ReloadStyle.lua` | Weapon reload styles. |
+| `jazz/Code/System_WeaponComponent_Set.lua` | Weapon component mutation and fixed-slot cleanup. |
+| `jazz/Code/System_WeaponRemovableModify.lua` | Removable component modification UI. |
+| `jazz/Code/Weapon_MosinModular.lua` | Mosin configuration names. |
+| `jazz-units/Code/LegionMedicineLoadouts.lua` | Legion medicine loadouts. |

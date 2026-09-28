@@ -59,16 +59,11 @@ DefineClass.M45 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	WeaponMass = 35,
-	CyclicRPM = 600,
-	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
-	BurstShots = 3,
 	Recoil = 12,
 	AutoShots = 6,
-
+	CyclicRPM = 600,
+	WeaponSizeClass = "Carbine",
 	CloseRange = 3,
-
 	CloseRangeFactor = 95,
 	BulletDropRange = 12,
 	Grouping = 55,

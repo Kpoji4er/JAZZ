@@ -3,18 +3,17 @@ DefineClass.JAZZ_MagSmall30_15_M2CARBINE = {
 	__parents = { "JAZZ_RemovableAttachment" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
+	comment = "WEAPONS-002 remountable → component JAZZ_MagSmall30_15_M2CARBINE",
 	object_class = "JAZZ_RemovableAttachment",
-	Repairable = false,
 	Icon = "UI/Icons/Upgrades/mp5_mag_normal",
 	DisplayName = T(990002625, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_M2CARBINE DisplayName]] "Магазин на 15 патрон"),
 	DisplayNamePlural = T(990002626, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_M2CARBINE DisplayNamePlural]] "Магазин на 15 патрон"),
 	AdditionalHint = T(990002627, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_M2CARBINE AdditionalHint]] "Семья магазинов: M2CARBINE. Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 1500,
 	CanAppearInShop = true,
-	RestockWeight = 50,
 	MaxStock = 1,
-	Tier = 1,
+	RestockWeight = 50,
 	CategoryPair = "Magazines",
-	MaxStacks = 1,
-	RemovableComponentId = "JAZZ_MagSmall30_15_M2CARBINE",
 }
+

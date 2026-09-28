@@ -5,13 +5,6 @@ DefineClass.RecklessAssault = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "cth_bonus",
-			'Value', 15,
-			'Tag', "<cth_bonus>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -32,3 +25,4 @@ DefineClass.RecklessAssault = {
 	Icon = "UI/Icons/Perks/RecklessAssault",
 	Tier = "Personal",
 }
+

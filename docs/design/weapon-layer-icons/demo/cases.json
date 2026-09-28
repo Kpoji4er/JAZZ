@@ -1,0 +1,252 @@
+{
+  "Default": {
+    "host": "M4R_M4A1",
+    "key": "24:prototype-m4-snapshot-v14:M4A18:M4R_M4A15:stock16:layers/stock.png2:106:barrel17:layers/barrel.png2:208:magazine19:layers/magazine.png2:304:grip15:layers/grip.png2:354:body15:layers/body.png2:4010:frontsight21:layers/frontsight.png2:459:handguard20:layers/handguard.png2:505:carry16:layers/carry.png2:606:muzzle17:layers/muzzle.png2:70",
+    "layers": [
+      {
+        "id": "stock",
+        "image": "layers/stock.png",
+        "z": 10
+      },
+      {
+        "id": "barrel",
+        "image": "layers/barrel.png",
+        "z": 20
+      },
+      {
+        "id": "magazine",
+        "image": "layers/magazine.png",
+        "z": 30
+      },
+      {
+        "id": "grip",
+        "image": "layers/grip.png",
+        "z": 35
+      },
+      {
+        "id": "body",
+        "image": "layers/body.png",
+        "z": 40
+      },
+      {
+        "id": "frontsight",
+        "image": "layers/frontsight.png",
+        "z": 45
+      },
+      {
+        "id": "handguard",
+        "image": "layers/handguard.png",
+        "z": 50
+      },
+      {
+        "id": "carry",
+        "image": "layers/carry.png",
+        "z": 60
+      },
+      {
+        "id": "muzzle",
+        "image": "layers/muzzle.png",
+        "z": 70
+      }
+    ]
+  },
+  "Short + RIS + collapsed": {
+    "host": "M4R_M4A1",
+    "key": "24:prototype-m4-snapshot-v14:M4A18:M4R_M4A115:stock_collapsed26:layers/stock_collapsed.png2:1012:barrel_short23:layers/barrel_short.png2:208:magazine19:layers/magazine.png2:304:grip15:layers/grip.png2:354:body15:layers/body.png2:4010:frontsight21:layers/frontsight.png2:453:ris14:layers/ris.png2:505:carry16:layers/carry.png2:6012:muzzle_short23:layers/muzzle_short.png2:70",
+    "layers": [
+      {
+        "id": "stock_collapsed",
+        "image": "layers/stock_collapsed.png",
+        "z": 10
+      },
+      {
+        "id": "barrel_short",
+        "image": "layers/barrel_short.png",
+        "z": 20
+      },
+      {
+        "id": "magazine",
+        "image": "layers/magazine.png",
+        "z": 30
+      },
+      {
+        "id": "grip",
+        "image": "layers/grip.png",
+        "z": 35
+      },
+      {
+        "id": "body",
+        "image": "layers/body.png",
+        "z": 40
+      },
+      {
+        "id": "frontsight",
+        "image": "layers/frontsight.png",
+        "z": 45
+      },
+      {
+        "id": "ris",
+        "image": "layers/ris.png",
+        "z": 50
+      },
+      {
+        "id": "carry",
+        "image": "layers/carry.png",
+        "z": 60
+      },
+      {
+        "id": "muzzle_short",
+        "image": "layers/muzzle_short.png",
+        "z": 70
+      }
+    ]
+  },
+  "Long (geometry study)": {
+    "host": "M4R_M4A1",
+    "key": "24:prototype-m4-snapshot-v14:M4A18:M4R_M4A15:stock16:layers/stock.png2:1011:barrel_long22:layers/barrel_long.png2:208:magazine19:layers/magazine.png2:304:grip15:layers/grip.png2:354:body15:layers/body.png2:4010:frontsight21:layers/frontsight.png2:459:handguard20:layers/handguard.png2:505:carry16:layers/carry.png2:6011:muzzle_long22:layers/muzzle_long.png2:70",
+    "layers": [
+      {
+        "id": "stock",
+        "image": "layers/stock.png",
+        "z": 10
+      },
+      {
+        "id": "barrel_long",
+        "image": "layers/barrel_long.png",
+        "z": 20
+      },
+      {
+        "id": "magazine",
+        "image": "layers/magazine.png",
+        "z": 30
+      },
+      {
+        "id": "grip",
+        "image": "layers/grip.png",
+        "z": 35
+      },
+      {
+        "id": "body",
+        "image": "layers/body.png",
+        "z": 40
+      },
+      {
+        "id": "frontsight",
+        "image": "layers/frontsight.png",
+        "z": 45
+      },
+      {
+        "id": "handguard",
+        "image": "layers/handguard.png",
+        "z": 50
+      },
+      {
+        "id": "carry",
+        "image": "layers/carry.png",
+        "z": 60
+      },
+      {
+        "id": "muzzle_long",
+        "image": "layers/muzzle_long.png",
+        "z": 70
+      }
+    ]
+  },
+  "Muzzle removed": {
+    "host": "M4R_M4A1",
+    "key": "24:prototype-m4-snapshot-v14:M4A18:M4R_M4A15:stock16:layers/stock.png2:106:barrel17:layers/barrel.png2:208:magazine19:layers/magazine.png2:304:grip15:layers/grip.png2:354:body15:layers/body.png2:4010:frontsight21:layers/frontsight.png2:459:handguard20:layers/handguard.png2:505:carry16:layers/carry.png2:60",
+    "layers": [
+      {
+        "id": "stock",
+        "image": "layers/stock.png",
+        "z": 10
+      },
+      {
+        "id": "barrel",
+        "image": "layers/barrel.png",
+        "z": 20
+      },
+      {
+        "id": "magazine",
+        "image": "layers/magazine.png",
+        "z": 30
+      },
+      {
+        "id": "grip",
+        "image": "layers/grip.png",
+        "z": 35
+      },
+      {
+        "id": "body",
+        "image": "layers/body.png",
+        "z": 40
+      },
+      {
+        "id": "frontsight",
+        "image": "layers/frontsight.png",
+        "z": 45
+      },
+      {
+        "id": "handguard",
+        "image": "layers/handguard.png",
+        "z": 50
+      },
+      {
+        "id": "carry",
+        "image": "layers/carry.png",
+        "z": 60
+      }
+    ]
+  },
+  "Iron sights": {
+    "host": "M4R_M4A1",
+    "key": "24:prototype-m4-snapshot-v14:M4A18:M4R_M4A15:stock16:layers/stock.png2:106:barrel17:layers/barrel.png2:208:magazine19:layers/magazine.png2:304:grip15:layers/grip.png2:354:body15:layers/body.png2:4010:frontsight21:layers/frontsight.png2:459:handguard20:layers/handguard.png2:504:rear15:layers/rear.png2:606:muzzle17:layers/muzzle.png2:70",
+    "layers": [
+      {
+        "id": "stock",
+        "image": "layers/stock.png",
+        "z": 10
+      },
+      {
+        "id": "barrel",
+        "image": "layers/barrel.png",
+        "z": 20
+      },
+      {
+        "id": "magazine",
+        "image": "layers/magazine.png",
+        "z": 30
+      },
+      {
+        "id": "grip",
+        "image": "layers/grip.png",
+        "z": 35
+      },
+      {
+        "id": "body",
+        "image": "layers/body.png",
+        "z": 40
+      },
+      {
+        "id": "frontsight",
+        "image": "layers/frontsight.png",
+        "z": 45
+      },
+      {
+        "id": "handguard",
+        "image": "layers/handguard.png",
+        "z": 50
+      },
+      {
+        "id": "rear",
+        "image": "layers/rear.png",
+        "z": 60
+      },
+      {
+        "id": "muzzle",
+        "image": "layers/muzzle.png",
+        "z": 70
+      }
+    ]
+  }
+}

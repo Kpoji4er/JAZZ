@@ -15,7 +15,6 @@ DefineClass.SkillMag_Medical = {
 	Valuable = 1,
 	Cost = 1500,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 1,
 	RestockWeight = 10,
 	effect_moment = "on_use",

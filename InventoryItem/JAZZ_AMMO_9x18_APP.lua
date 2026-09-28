@@ -13,7 +13,6 @@ DefineClass.JAZZ_AMMO_9x18_APP = {
 	Cost = 1850,
 	CanAppearInShop = true,
 	Tier = 3,
-	MaxStock = 3,
 	RestockWeight = 16,
 	CategoryPair = "9x18",
 	ShopStackSize = 50,

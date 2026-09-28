@@ -6,25 +6,25 @@ description: >-
 
 # UI Portrait framing (300×300)
 
-Пакет: `jazz-units` → `MercPortraits/`.  
-Связанный skill: `create-jazz-merc-portraits` (Big + общий стиль).  
+Пакет: `jazz-units` → `MercPortraits/`.<br>
+Связанный skill: `create-jazz-merc-portraits` (Big + общий стиль).<br>
 Rule: `.cursor/rules/jazz-merc-portraits.mdc`.
 
 Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Проблема
 
-Новые мерки в UI выглядят «мелкими»: в квадрате торс по пояс, голова ~20% кадра.  
+Новые мерки в UI выглядят «мелкими»: в квадрате торс по пояс, голова ~20% кадра.<br>
 У ванили (Len/Grizzly/Blood/Ice) **лицо занимает почти всю плоскость** (голова + шея + чуть плеч).
 
 ## Эталон кадра
 
-`MercPortraits/_quality_bar/OK_ui_portrait_framing_Blood.png`  
+`MercPortraits/_quality_bar/OK_ui_portrait_framing_Blood.png`<br>
 (+ `References/Portraits/*.png`)
 
 Accept: headshot like Ice/Blood/Omryn — **вся голова в кадре** (макушка + подбородок), чуть плеч/груди; лицо крупное, но не обрезанное.
 
-Reject: waist-up / distant passport.  
+Reject: waist-up / distant passport.<br>
 Reject: extreme zoom — обрезаны макушка/подбородок/рот (перебор).
 
 
@@ -53,7 +53,7 @@ SURFACE: sharp; few large folds only on visible cloth.
 
 ### B) Crop из утверждённого Big (если bust-ген тащит оружие)
 
-Скрипт: `create-jazz-merc-portraits/scripts/bust_crop_tight.py`  
+Скрипт: `create-jazz-merc-portraits/scripts/bust_crop_tight.py`<br>
 или `_postprocess.py` → `bust_crop` с **head fraction ~0.28** высоты силуэта (Ice/Blood; не 0.42 waist-up и не 0.15 face-clip).
 
 ```text
@@ -66,5 +66,5 @@ python bust_crop_tight.py --ship MercPortraits --frac 0.22 --skip Benny
 
 ## QA
 
-До принятия Portrait: `Read` кандидата рядом с Blood/Ice / `OK_ui_portrait_framing_Blood.png`.  
+До принятия Portrait: `Read` кандидата рядом с Blood/Ice / `OK_ui_portrait_framing_Blood.png`.<br>
 Если голова заметно меньше, чем у ванили → reject / tighter crop / regen.

@@ -5,13 +5,6 @@ DefineClass.ExplodingPalm = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamPercent', {
-			'Name', "sat_debt_speed_percent",
-			'Value', 30,
-			'Tag', "<sat_debt_speed_percent>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
@@ -30,3 +23,4 @@ DefineClass.ExplodingPalm = {
 	Icon = "UI/Icons/Perks/ExplodingPalm",
 	Tier = "Personal",
 }
+

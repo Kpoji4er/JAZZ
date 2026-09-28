@@ -1,15 +1,15 @@
 # Аттачи: рефакторинг Handling → живые рычаги + ребаланс
 
-Канон контракта: `docs/specs/active/JAZZ-ATTACH-001.md` (**approved; один большой спек на весь Phase C**).  
+Канон контракта: `docs/specs/active/JAZZ-ATTACH-001.md` (**approved; один большой спек на весь Phase C**).<br>
 Статус 2026-08-01: Handling/ID/static green; Scope/Barrel/Muzzle/Mag/Stock/Under-grips/**Bipod**/**Side** applied; absolute MagSize (docs-only); Bayonet **distant backlog**; AC-004 editor / AC-006 smoke human.
 
 ## Жёсткие лимиты (от владельца)
 
-1. **ShootAP от аттачей суммарно не больше ±1.**  
-   `-2` к стоимости выстрела (сложенный приклад + короткий ствол + …) слишком сильно поднимает темп.  
-   ReloadAP магазинов — отдельный бюджет (цена ёмкости).  
+1. **ShootAP от аттачей суммарно не больше ±1.**<br>
+   `-2` к стоимости выстрела (сложенный приклад + короткий ствол + …) слишком сильно поднимает темп.<br>
+   ReloadAP магазинов — отдельный бюджет (цена ёмкости).<br>
    Сейчас `JAZZ_Scope_8x_SCROME` выровнен до ShotAP=1; leftover `LROptics*` удалены из unused.
-2. **`WeaponRange` / `BulletDropRange` — только ствол.**  
+2. **`WeaponRange` / `BulletDropRange` — только ствол.**<br>
    Оптика двигает окно через `optic_reach` / AimLevel / near-factor, не через R/BDR.
 3. **Ближняя зона** — база оружия (`CloseRange` / `CloseRangeFactor`); **ствол сдвигает**:
    - короткий на пистолете → стрельба в упор;
@@ -139,12 +139,12 @@ p > 1  // падение с ускорением: сначала почти пл
 
 Audit сейчас (`docs/tools/_tmp_audit_effects.py`):
 
-**Уже 0 comps (можно выкинуть как effect):**  
+**Уже 0 comps (можно выкинуть как effect):**<br>
 `ScopeCTHBonus`, `ScopeAccuracyIncreace`, `ScopeAccuracyReduce`, `ReduceRange50Percent`, `ReduceAuto50Percent`, `ReduceAimAccuracy50Percent`, `ReduceAimAccuracy80Percent`.
 
 **Оставить:** `PointBlankBonus`, `TwoHanded`.
 
-**После strip с comps — удалить Handling presets:**  
+**После strip с comps — удалить Handling presets:**<br>
 `ScopeHandlingReduce`, `SilencerHandlingReduce`, `MagazineHandling*`, `BarrelHandling*`, `GripHandlingIncrease`, `StockHandlingIncrease`, `GLHandlingDecrease`, `BipodsHandlingDecrease`, `Cumbersome` (если не property).
 
 Не трогать vanilla effects и живые рычаги.
@@ -166,7 +166,7 @@ Audit сейчас (`docs/tools/_tmp_audit_effects.py`):
 
 #### Коллиматоры
 
-Канон тиров/архетипов: **[`docs/design/reflex-collimator-tiers.md`](reflex-collimator-tiers.md)** (Precision / Overwatch / Universal).  
+Канон тиров/архетипов: **[`docs/design/reflex-collimator-tiers.md`](reflex-collimator-tiers.md)** (Precision / Overwatch / Universal).<br>
 Apply: `docs/tools/_rebalance_reflex_tiers.py`.
 
 #### Боевые прицелы

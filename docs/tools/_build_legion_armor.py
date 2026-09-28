@@ -13,14 +13,18 @@ from mathutils import Vector
 p=argparse.ArgumentParser(); p.add_argument('--source',required=True,type=Path); p.add_argument('--output',required=True,type=Path); p.add_argument('--game-root',required=True,type=Path)
 p.add_argument('--entity',default='JAZZ_ImprovisedCuirass_Male');p.add_argument('--mesh-prefix',default='TEST_ImprovisedCuirass');p.add_argument('--icon',default='ImprovisedCuirass')
 p.add_argument('--frame-all',action='store_true',help='Frame the full mesh for non-torso characters')
+p.add_argument('--texture-size',type=int,choices=(1024,2048),default=1024)
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:]); out=a.output.resolve(); out.mkdir(parents=True,exist_ok=True)
+_TOOLS=Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:sys.path.insert(0,str(_TOOLS))
+from _ja3_mesh_prepare import prepare_export_mesh
 entity=a.entity
 spec=importlib.util.spec_from_file_location('armor_hge',a.game_root/'ModTools/BlenderExport.py'); hge=importlib.util.module_from_spec(spec); spec.loader.exec_module(hge)
 hge.SETTINGS.update(version='71',game='Zulu',appid='Jagged Alliance 3',mtl_prop_0_visible=True,mtl_prop_0_name='Unit',enable_colliders=True); hge.register()
 bpy.ops.wm.open_mainfile(filepath=str(a.source.resolve()))
 armor=next(o for o in bpy.data.objects if o.name.startswith(a.mesh_prefix))
 rig=next(o for o in bpy.data.objects if o.type=='ARMATURE')
-scene=bpy.context.scene; scene.cycles.device="CPU"
+scene=bpy.context.scene; scene.render.engine='CYCLES'; scene.cycles.device="CPU"
 # The icon is a direct render of the same model, with native antialiasing.
 for o in bpy.data.objects:
     if o.type=='MESH' and o!=armor:o.hide_render=True
@@ -37,10 +41,14 @@ scene.render.filepath=str(out/(a.icon+'.png')); bpy.ops.render.render(write_stil
 for o in list(bpy.data.objects):
     if o not in (armor,rig):bpy.data.objects.remove(o,do_unlink=True)
 bpy.ops.object.select_all(action='DESELECT'); armor.hide_set(False); armor.select_set(True); bpy.context.view_layer.objects.active=armor
+if entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male'):
+    # Bake against the final triangle normals/tangents, not the source quads.
+    # Changing the quad diagonal after a normal bake leaves dark edge specks.
+    prepare_export_mesh(armor)
 scene.cycles.samples=16; scene.render.bake.margin=8; scene.render.bake.use_selected_to_active=False
-original=list(armor.data.materials); imgs={}
+original=list(armor.data.materials); imgs={}; texture_size=a.texture_size
 for label,kind in [('Base','DIFFUSE'),('Norm','NORMAL'),('Rough','ROUGHNESS'),('Metal','EMIT')]:
-    im=bpy.data.images.new(entity+'_'+label,width=1024,height=1024,alpha=True); im.colorspace_settings.name='sRGB' if label=='Base' else 'Non-Color'; imgs[label]=im
+    im=bpy.data.images.new(entity+'_'+label,width=texture_size,height=texture_size,alpha=True); im.colorspace_settings.name='sRGB' if label=='Base' else 'Non-Color'; imgs[label]=im
     restore=[]
     for m in original:
         node=m.node_tree.nodes.new('ShaderNodeTexImage');node.image=im;m.node_tree.nodes.active=node
@@ -55,9 +63,9 @@ for label,kind in [('Base','DIFFUSE'),('Norm','NORMAL'),('Rough','ROUGHNESS'),('
     for m,output,old,emission in restore:m.node_tree.links.new(old,output.inputs['Surface']);m.node_tree.nodes.remove(emission)
     im.filepath_raw=str(out/(entity+'_'+label+'.tga'));im.file_format='TARGA_RAW';im.save()
     print('BAKED',label,flush=True)
-r=np.empty(1024*1024*4,np.float32);me=np.empty_like(r);imgs['Rough'].pixels.foreach_get(r);imgs['Metal'].pixels.foreach_get(me)
-rm=np.ones((1024*1024,4),np.float32);rm[:,0]=r.reshape(-1,4)[:,0];rm[:,1]=0;rm[:,2]=me.reshape(-1,4)[:,0]
-im=bpy.data.images.new(entity+'_RM',width=1024,height=1024,alpha=True);im.colorspace_settings.name='Non-Color';im.pixels.foreach_set(rm.ravel());im.filepath_raw=str(out/(entity+'_RM.tga'));im.file_format='TARGA_RAW';im.save();imgs['RM']=im
+r=np.empty(texture_size*texture_size*4,np.float32);me=np.empty_like(r);imgs['Rough'].pixels.foreach_get(r);imgs['Metal'].pixels.foreach_get(me)
+rm=np.ones((texture_size*texture_size,4),np.float32);rm[:,0]=r.reshape(-1,4)[:,0];rm[:,1]=0;rm[:,2]=me.reshape(-1,4)[:,0]
+im=bpy.data.images.new(entity+'_RM',width=texture_size,height=texture_size,alpha=True);im.colorspace_settings.name='Non-Color';im.pixels.foreach_set(rm.ravel());im.filepath_raw=str(out/(entity+'_RM.tga'));im.file_format='TARGA_RAW';im.save();imgs['RM']=im
 mat=bpy.data.materials.new(entity);mat.use_nodes=True;hge.add_material_props(mat)
 for prop in hge.MATERIAL_PROPERTIES:
     if prop.settings_name:
@@ -70,12 +78,18 @@ for prop in hge.MATERIAL_PROPERTIES:
     if prop.settings_name in ('project_specific_0','cast_shadows','receive_shadows','depth_write'):mat[prop.id]=True
 armor.data.materials.clear();armor.data.materials.append(mat)
 for face in armor.data.polygons:face.material_index=0
+# 6B3 keeps its authored material UVs only until they have been baked. The game
+# receives one atlas UV layer, so the FBX reader cannot choose the source UVs.
+if entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male') and 'SourceUV' in armor.data.uv_layers:
+    assert armor.data.uv_layers.active.name == 'ExportUV'
+    armor.data.uv_layers.remove(armor.data.uv_layers['SourceUV'])
+    assert len(armor.data.uv_layers) == 1
 armor.name=entity
 origin=bpy.data.objects.new(entity+'_Origin',None);bpy.context.collection.objects.link(origin)
 world=armor.matrix_world.copy();armor.parent=origin;armor.matrix_world=world
 settings=armor.hge_obj_settings;settings.entity=entity;settings.mesh='mesh';settings.lod=1;settings.inherit_animation='Male';settings.ignore=False;armor.hge_export=True
 rig['hgskeleton']=entity+'_mesh';rig.hge_obj_settings.ignore=False
-tri=armor.modifiers.new('Export triangulation','TRIANGULATE');bpy.context.view_layer.objects.active=armor;bpy.ops.object.modifier_apply(modifier=tri.name)
+prepare_export_mesh(armor)
 bpy.ops.wm.save_as_mainfile(filepath=str(out/(entity+'.blend')))
 with hge.ObjectNamesExportContext(bpy.context):
     bpy.ops.export_scene.fbx(filepath=str(out/(entity+'.fbx')),axis_forward='Y',axis_up='Z',apply_scale_options='FBX_SCALE_ALL',object_types={'MESH','EMPTY','ARMATURE'},use_custom_props=True,add_leaf_bones=False,bake_anim=False)

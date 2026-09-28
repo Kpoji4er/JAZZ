@@ -14,7 +14,6 @@ DefineClass.JazzArmor_SpectraFullCompositum = {
 	Description = T(944517269185, --[[ModItemInventoryItemCompositeDef JazzArmor_SpectraFullCompositum Description]] "Тяжелые бронежилеты СПЕКТРА были модифицированы неугомонными руками доктора Грузельхайма путем замены бронеэлементов на аналогичные из Композитума-58. Весьма успешно надо сказать, расковырять неоарийцев в этих бронежилетах задача та еще. Тяжелый штурмовой вариант с защитой шеи, паха и рук."),
 	AdditionalHint = "",
 	Cost = 5500,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 25,

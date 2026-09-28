@@ -14,7 +14,6 @@ DefineClass.JazzArmor_ESS = {
 	AdditionalHint = T(806826966692, --[[ModItemInventoryItemCompositeDef JazzArmor_ESS AdditionalHint]] "Защита для глаз во время песчанных бурь"),
 	Cost = 1200,
 	CanAppearInShop = true,
-	Tier = 1,
 	RestockWeight = 120,
 	Slot = "HeadGear",
 	AdditionalReduction = 20,

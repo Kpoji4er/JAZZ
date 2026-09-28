@@ -45,8 +45,8 @@ DefineClass.M4Commando = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagNormalFine_AR15",
-				"JAZZ_MagLargeFine",
 				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagLargeFine",
 				"JAZZ_MagQuick_AR15",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -70,12 +70,11 @@ DefineClass.M4Commando = {
 				"JAZZ_UVDot",
 			},
 		}),
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Compensator",
-
 				"JAZZ_Suppressor",
 				"JAZZ_ImprovisedSuppressor",
 			},

@@ -22,3 +22,4 @@ DefineClass.BleedingChance = {
 	RemoveOnCampaignTimeAdvance = true,
 	HideOnBadge = true,
 }
+

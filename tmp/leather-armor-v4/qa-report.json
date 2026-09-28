@@ -1,0 +1,87 @@
+{
+  "status": "PASS_SOURCE_OFFLINE",
+  "rig": {
+    "item": "JazzArmor_LeatherArmor",
+    "entity": "JAZZ_LeatherArmor_Male",
+    "stage": "rigged",
+    "blend": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v4\\source\\LeatherArmor.blend",
+    "vertices": 6494,
+    "triangles": 12126,
+    "unweighted_vertices": 0,
+    "max_influences": 4,
+    "bones": [
+      "Bip001 Head",
+      "Bip001 L Clavicle",
+      "Bip001 LUpArmTwist",
+      "Bip001 LUpArmTwist1",
+      "Bip001 Neck",
+      "Bip001 Pelvis",
+      "Bip001 R Clavicle",
+      "Bip001 RUpArmTwist",
+      "Bip001 RUpArmTwist1",
+      "Bip001 Spine",
+      "Bip001 Spine1",
+      "Bip001 Spine2"
+    ],
+    "runtime": "NOT_RUN",
+    "native_shirt": "C:\\Users\\SsAnd\\.codex\\artifacts\\armor-prototype\\jazz-body-reference\\json\\NPCCostumeMale_Shirt_08_mesh.json",
+    "surface_skin": true,
+    "torso_carrier": true,
+    "cuirass_reference": "C:\\Users\\SsAnd\\.codex\\artifacts\\armor-prototype\\qa-v7-01\\source\\improvised_cuirass_v7.blend"
+  },
+  "poses": {
+    "status": "PASS_SKIN_STRUCTURE",
+    "runtime": "NOT_RUN",
+    "collision_acceptance": false,
+    "vertices": 6494,
+    "poses": [
+      {
+        "pose": "rest",
+        "max_motion_m": 7.072323124881686e-05,
+        "edge_strain_p99": 1.0001542858696029,
+        "reference_body_p99": 1.0000340336098767,
+        "limit": 1.8
+      },
+      {
+        "pose": "lean",
+        "max_motion_m": 0.1448749608725668,
+        "edge_strain_p99": 1.264289242243554,
+        "reference_body_p99": 1.1447516021497988,
+        "limit": 1.8
+      },
+      {
+        "pose": "deep_lean",
+        "max_motion_m": 0.23917417232055316,
+        "edge_strain_p99": 1.685712722465906,
+        "reference_body_p99": 1.1461564636099815,
+        "limit": 1.8
+      },
+      {
+        "pose": "twist",
+        "max_motion_m": 0.29180643163931674,
+        "edge_strain_p99": 1.4547999917462184,
+        "reference_body_p99": 1.161561984851236,
+        "limit": 1.8
+      }
+    ]
+  },
+  "export": "NOT_RUN",
+  "installed": false,
+  "runtime": "NOT_RUN",
+  "human_acceptance": "PENDING",
+  "visual_review": {
+    "status": "REVIEWED_OFFLINE",
+    "source_sha256": "666de3909c2bb981ddca32fb76b4fcce90eb6f64eae3c186a574db323afc5ed9",
+    "views": [
+      "front",
+      "back",
+      "side",
+      "oblique",
+      "clothed",
+      "clothed-audit/right",
+      "clothed-audit/deep_lean_back",
+      "clothed-audit/twist_front"
+    ],
+    "scope": "Geometry/material candidate reviewed; native game animations and other Body variants not tested."
+  }
+}

@@ -5,34 +5,6 @@ DefineClass.DangerClose = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		-- Keep rangeThreshold/damageMod for any leftover vanilla callers; List2 uses ≥minRange.
-		PlaceObj('PresetParamNumber', {
-			'Name', "rangeThreshold",
-			'Value', 8,
-			'Tag', "<rangeThreshold>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "damageMod",
-			'Value', 40,
-			'Tag', "<damageMod>%",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "minRange",
-			'Value', 8,
-			'Tag', "<minRange>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "damageBonus",
-			'Value', 40,
-			'Tag', "<damageBonus>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "bleed_stacks",
-			'Value', 2,
-			'Tag', "<bleed_stacks>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStimmedTiredness",
@@ -58,3 +30,4 @@ DefineClass.DangerClose = {
 	Icon = "UI/Icons/Perks/DangerClose",
 	Tier = "Personal",
 }
+

@@ -5,13 +5,6 @@ DefineClass.Jazz_OrderCTH = {
 
 
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "cth_bonus",
-			'Value', 5,
-			'Tag', "<cth_bonus>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -28,7 +21,8 @@ DefineClass.Jazz_OrderCTH = {
 	Description = T(890000000006201, --[[ModItemCharacterEffectCompositeDef Jazz_OrderCTH Description]] "+5 к шансу попадания на следующую атаку."),
 	type = "Buff",
 	lifetime = "Until End of Turn",
-	Icon = "UI/Hud/Status effects/accuracy",
+	Icon = "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/UI/Hud/Status effects/accuracy",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

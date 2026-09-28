@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Simon = {
 	Icon = "UI/Icons/Perks/HawksEye",
 	Tier = "Personal",
 }
+

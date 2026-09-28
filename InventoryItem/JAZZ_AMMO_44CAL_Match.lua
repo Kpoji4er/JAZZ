@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_44CAL_Match = {
 	Cost = 1100,
 	CanAppearInShop = true,
 	Tier = 3,
-	MaxStock = 3,
 	RestockWeight = 18,
 	CategoryPair = "44CAL",
 	ShopStackSize = 25,

@@ -31,7 +31,8 @@ DefineClass._44CAL_Shock = {
 		}),
 	},
 	AppliedEffects = {
-		"ExposedBleeding",
+		"Exposed",
+		"Bleeding",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_shock.png",
 }

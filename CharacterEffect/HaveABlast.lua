@@ -45,3 +45,4 @@ DefineClass.HaveABlast = {
 	Icon = "UI/Icons/Perks/HaveABlast",
 	Tier = "Personal",
 }
+

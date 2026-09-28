@@ -135,7 +135,7 @@ F4 «MG без flag не режет»: flag Коммандо = keyword `CQB` + `
 
 Для всех human `JazzAI_UsesJazzCombatAI`. Животные — ваниль.
 
-**Высокий dest:** voxel Z dest ≥ voxel Z stay + 1 `SlabSizeZ`.  
+**Высокий dest:** voxel Z dest ≥ voxel Z stay + 1 `SlabSizeZ`.<br>
 **Голый dest:** `JazzAI_PackedHasCover(dest)` = false.
 
 | Правило | Норматив |

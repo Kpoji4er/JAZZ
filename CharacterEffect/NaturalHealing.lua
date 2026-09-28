@@ -5,43 +5,12 @@ DefineClass.NaturalHealing = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "hoursToProduce",
-			'Value', 48,
-			'Tag', "<hoursToProduce>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "amountToProduce",
-			'Value', 1,
-			'Tag', "<amountToProduce>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "nextProductionTime",
-			'Tag', "<nextProductionTime>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "sat_debt_speed_percent",
-			'Value', 15,
-			'Tag', "<sat_debt_speed_percent>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "willRestoreMin",
-			'Value', 20,
-			'Tag', "<willRestoreMin>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "willRestoreMax",
-			'Value', 25,
-			'Tag', "<willRestoreMax>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnNewHour",
 			Handler = function (self, target)
 				if target.HireStatus ~= "Hired" then return end
-
+				
 				local next_production = self:ResolveValue("nextProductionTime")
 				if not next_production or next_production == 0 then
 					self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
@@ -50,11 +19,11 @@ DefineClass.NaturalHealing = {
 				if Game.CampaignTime < next_production then return end
 				local squad = target.Squad and gv_Squads[target.Squad]
 				if squad and squad.water_travel then return end
-
+				
 				local amountToProduce = self:ResolveValue("amountToProduce")
 				local item_name = amountToProduce > 1 and g_Classes["HerbalMedicine"].DisplayNamePlural or g_Classes["HerbalMedicine"].DisplayName
 				self:SetParameter("nextProductionTime", Game.CampaignTime + self:ResolveValue("hoursToProduce") * const.Scale.h)
-
+				
 				local slots = { "Inventory" }
 				local canPlaceError, amountLeft
 				local amountToPlace = amountToProduce
@@ -69,7 +38,7 @@ DefineClass.NaturalHealing = {
 						end
 					end
 				end
-
+				
 				local text = T{318623454402, "<merc> produced <amount> <item_name>.", merc = target.Nick, amount = amountToProduce, item_name = item_name}
 				if canPlaceError or (amountLeft and amountLeft > 0) then
 					amountToPlace = amountToPlace or amountToProduce
@@ -101,3 +70,4 @@ DefineClass.NaturalHealing = {
 	Icon = "UI/Icons/Perks/NaturalHealing",
 	Tier = "Personal",
 }
+

@@ -104,7 +104,7 @@ executable: true
 
 **CHARACTER_DESCRIPTION:** African-American male sapper, athletic, street-to-marine vibe, demo satchel and detonator clacker on chest, EOD patch — NO shotgun in hands. Confident grin.
 
-**Class kit:** demo satchel, detonator, EOD patch, frag pouches  
+**Class kit:** demo satchel, detonator, EOD patch, frag pouches<br>
 **Refs:** existing `Spouke.png` / `Spouke_Big.png`
 
 ## Phrases — AIM chat

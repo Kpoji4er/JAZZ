@@ -1,0 +1,11 @@
+{
+  "seq": 1,
+  "type": "response",
+  "body": {
+    "type": "string",
+    "result": "OK: Diagnostic overlay hidden; log retained {\n\tmetatable = table: 00000224B16D4808 [1]\n}"
+  },
+  "command": "evaluate",
+  "success": true,
+  "request_seq": 1
+}

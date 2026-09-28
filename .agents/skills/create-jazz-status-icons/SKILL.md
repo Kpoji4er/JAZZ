@@ -6,11 +6,11 @@ description: >-
 
 # Создание status effect icons
 
-Пакет: `jazz` → `Icons/StatusEffects/`.  
-Style bank + mapping icon→CharacterEffect→цвет: [`Icons/StatusEffects/references/PROMPT.md`](../../../Icons/StatusEffects/references/PROMPT.md).  
+Пакет: `jazz` → `Icons/StatusEffects/`.<br>
+Style bank + mapping icon→CharacterEffect→цвет: [`Icons/StatusEffects/references/PROMPT.md`](../../../Icons/StatusEffects/references/PROMPT.md).<br>
 Краткая шпаргалка: [references/style-and-naming.md](references/style-and-naming.md).
 
-Asset-only PNG **не** требует spec. Новый CharacterEffect / смена поведения → `$specify-jazz-change`.  
+Asset-only PNG **не** требует spec. Новый CharacterEffect / смена поведения → `$specify-jazz-change`.<br>
 Смена только `Icon` path у уже существующего эффекта: companion `.lua` + `items.lua` (generated-data sync).
 
 Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.

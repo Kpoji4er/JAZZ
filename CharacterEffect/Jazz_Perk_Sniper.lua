@@ -3,12 +3,12 @@ DefineClass.Jazz_Perk_Sniper = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcMaxAimActions",
-			-- CallReactions_Modify: (effect, owner, value, attacker, attack_target, action, weapon)
-			Handler = function(self, target, value, attacker, attack_target, action, weapon)
+			Handler = function (self, target, value, attacker, attack_target, action, weapon)
 				if target == attacker then
 					return value + 1
 				end
@@ -20,3 +20,4 @@ DefineClass.Jazz_Perk_Sniper = {
 	Icon = "UI/Icons/Perks/Deadeye",
 	Tier = "Specialization",
 }
+

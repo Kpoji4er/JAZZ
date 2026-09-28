@@ -1,0 +1,4 @@
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Read blend: "C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v2\source\LeatherArmor.blend"
+BLEND_NORMALS={"blend": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v2\\source\\LeatherArmor.blend", "objects": [{"name": "M_BaseMesh Skin_BIP", "custom_normals": true, "issues": 1, "kinds": {"custom_normals": 1}, "samples": ["M_BaseMesh Skin_BIP: custom/split normals still present"]}, {"name": "TEST_LeatherArmor", "custom_normals": false, "issues": 0, "kinds": {}, "samples": []}]}
+FAIL LeatherArmor.blend: 1 fatal issue(s) on 2 mesh(es)

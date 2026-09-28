@@ -3,18 +3,18 @@ DefineClass.JAZZ_Reflex_PKAS = {
 	__parents = { "JAZZ_RemovableAttachment" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
+	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_PKAS",
 	object_class = "JAZZ_RemovableAttachment",
-	Repairable = false,
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PKAS.png",
 	DisplayName = T(990002337, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_PKAS DisplayName]] "Коллиматор ПК-АА"),
 	DisplayNamePlural = T(990002338, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_PKAS DisplayNamePlural]] "Коллиматор ПК-АА"),
 	AdditionalHint = T(990002339, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_PKAS AdditionalHint]] "Съёмный модуль. Перетащите на совместимое оружие или установите в кабинете модификации."),
 	Cost = 10000,
 	CanAppearInShop = true,
-	RestockWeight = 8,
-	MaxStock = 1,
 	Tier = 4,
+	MaxStock = 1,
+	RestockWeight = 8,
 	CategoryPair = "Optics",
-	MaxStacks = 1,
-	RemovableComponentId = "JAZZ_Reflex_PKAS",
 }
+

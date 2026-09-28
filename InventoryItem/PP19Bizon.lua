@@ -64,16 +64,12 @@ DefineClass.PP19Bizon = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 7000,
+	Recoil = 12,
+	AutoShots = 7,
 	WeaponMass = 27,
 	CyclicRPM = 680,
 	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
-	Recoil = 12,
-	BurstShots = 3,
-	AutoShots = 7,
-
 	CloseRange = 3,
-
 	CloseRangeFactor = 95,
 	BulletDropRange = 9,
 	Grouping = 60,

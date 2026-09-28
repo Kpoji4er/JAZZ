@@ -3,9 +3,9 @@ DefineClass.SWModel10 = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-1",
 	object_class = "Revolver",
-	ReloadStyle = "Revolver",
 	ScrapParts = 6,
 	RepairCost = 1,
 	Reliability = 95,
@@ -17,7 +17,6 @@ DefineClass.SWModel10 = {
 	UnitStat = "Marksmanship",
 	Cost = 800,
 	CanAppearInShop = true,
-	Tier = 1,
 	RestockWeight = 110,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_38",
@@ -31,7 +30,6 @@ DefineClass.SWModel10 = {
 	Noise = 15,
 	Entity = "SWModel10",
 	ComponentSlots = {
-		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
@@ -62,17 +60,12 @@ DefineClass.SWModel10 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 5000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 15,
+	ReloadStyle = "Revolver",
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 5,
 	Grouping = 50,
 	BaseJamChance = -100,

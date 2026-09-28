@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Dimitri = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Dimitri.png",
 	Tier = "Personal",
 }
+

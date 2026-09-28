@@ -1,0 +1,1046 @@
+ M .agents/docs/index.md
+ M .agents/docs/playbooks/assets-and-ui.md
+ M .agents/docs/playbooks/legion-armor-modeling.md
+ M .agents/docs/playbooks/units-squads.md
+ M .agents/docs/playbooks/weapons-balance.md
+ M AGENTS.md
+ M ArmorIcons/Chainmail.png
+ M ArmorIcons/TireArmor.png
+ M ArmorIcons/TireBrigantine.png
+ M CharacterEffect/Analgesia.lua
+ M CharacterEffect/Armsshot.lua
+ M CharacterEffect/AutoWeapons.lua
+ M CharacterEffect/BandageInCombat.lua
+ M CharacterEffect/Bleeding.lua
+ M CharacterEffect/BleedingChance.lua
+ M CharacterEffect/BleedingHeavy.lua
+ M CharacterEffect/BleedingMedium.lua
+ M CharacterEffect/BleedingOut.lua
+ M CharacterEffect/Blinded.lua
+ M CharacterEffect/BloodLoss1.lua
+ M CharacterEffect/BloodLoss10.lua
+ M CharacterEffect/BloodLoss20.lua
+ M CharacterEffect/BloodLoss30.lua
+ M CharacterEffect/BloodLoss40.lua
+ M CharacterEffect/BloodLoss5.lua
+ M CharacterEffect/BloodLoss50.lua
+ M CharacterEffect/Bond.lua
+ M CharacterEffect/BuildingConfidence.lua
+ M CharacterEffect/BulletHell.lua
+ M CharacterEffect/Burning.lua
+ M CharacterEffect/Choking.lua
+ M CharacterEffect/Claustrophobic.lua
+ M CharacterEffect/Concussion.lua
+ M CharacterEffect/DamageReduction.lua
+ M CharacterEffect/DangerClose.lua
+ M CharacterEffect/DesignerExplosives.lua
+ M CharacterEffect/Drunk.lua
+ M CharacterEffect/Exhausted.lua
+ M CharacterEffect/ExplodingPalm.lua
+ M CharacterEffect/Fatigued.lua
+ M CharacterEffect/Fit.lua
+ M CharacterEffect/FreeMove.lua
+ M CharacterEffect/GloryHog.lua
+ M CharacterEffect/GrizzlyPerk.lua
+ M CharacterEffect/Groinshot.lua
+ M CharacterEffect/GruntyPerk.lua
+ M CharacterEffect/GruntyPerk_JAZZ.lua
+ M CharacterEffect/Grunty_AdditionalAP.lua
+ M CharacterEffect/HaveABlast.lua
+ M CharacterEffect/HawksEye.lua
+ M CharacterEffect/Headshot.lua
+ M CharacterEffect/HeavyWeaponsTraining.lua
+ M CharacterEffect/Hemophobic.lua
+ M CharacterEffect/Inaccurate.lua
+ M CharacterEffect/InnerInfo.lua
+ M CharacterEffect/InnerInfo_JAZZ.lua
+ M CharacterEffect/Ironclad.lua
+ M CharacterEffect/JackOfAllTrades.lua
+ M CharacterEffect/Jazz_CombatMedicBuff.lua
+ M CharacterEffect/Jazz_MakeThemBleedBuff.lua
+ M CharacterEffect/Jazz_MiguelAuraDown.lua
+ M CharacterEffect/Jazz_MiguelAuraUp.lua
+ M CharacterEffect/Jazz_OrderAP.lua
+ M CharacterEffect/Jazz_OrderCTH.lua
+ M CharacterEffect/Jazz_Perk_Allik.lua
+ M CharacterEffect/Jazz_Perk_Benny.lua
+ M CharacterEffect/Jazz_Perk_Biff.lua
+ M CharacterEffect/Jazz_Perk_Biggens.lua
+ M CharacterEffect/Jazz_Perk_Blade.lua
+ M CharacterEffect/Jazz_Perk_Bull.lua
+ M CharacterEffect/Jazz_Perk_Buzz.lua
+ M CharacterEffect/Jazz_Perk_Carlos.lua
+ M CharacterEffect/Jazz_Perk_Colby.lua
+ M CharacterEffect/Jazz_Perk_Conrad.lua
+ M CharacterEffect/Jazz_Perk_Cord.lua
+ M CharacterEffect/Jazz_Perk_Cougar.lua
+ M CharacterEffect/Jazz_Perk_Devin.lua
+ M CharacterEffect/Jazz_Perk_Dimitri.lua
+ M CharacterEffect/Jazz_Perk_Dynamo.lua
+ M CharacterEffect/Jazz_Perk_Eskimo.lua
+ M CharacterEffect/Jazz_Perk_Flo.lua
+ M CharacterEffect/Jazz_Perk_Gamos.lua
+ M CharacterEffect/Jazz_Perk_Gaston.lua
+ M CharacterEffect/Jazz_Perk_Grace.lua
+ M CharacterEffect/Jazz_Perk_Grom.lua
+ M CharacterEffect/Jazz_Perk_Henning.lua
+ M CharacterEffect/Jazz_Perk_Highball.lua
+ M CharacterEffect/Jazz_Perk_Hitman.lua
+ M CharacterEffect/Jazz_Perk_Hobbit.lua
+ M CharacterEffect/Jazz_Perk_Horg.lua
+ M CharacterEffect/Jazz_Perk_Iggy.lua
+ M CharacterEffect/Jazz_Perk_Ira.lua
+ M CharacterEffect/Jazz_Perk_Kulba.lua
+ M CharacterEffect/Jazz_Perk_Laura.lua
+ M CharacterEffect/Jazz_Perk_Lucky.lua
+ M CharacterEffect/Jazz_Perk_Lynx.lua
+ M CharacterEffect/Jazz_Perk_Madman.lua
+ M CharacterEffect/Jazz_Perk_Manuel.lua
+ M CharacterEffect/Jazz_Perk_Meat.lua
+ M CharacterEffect/Jazz_Perk_Miguel.lua
+ M CharacterEffect/Jazz_Perk_Mike.lua
+ M CharacterEffect/Jazz_Perk_Mimicry.lua
+ M CharacterEffect/Jazz_Perk_Monk.lua
+ M CharacterEffect/Jazz_Perk_Nervous.lua
+ M CharacterEffect/Jazz_Perk_OfficerAura.lua
+ M CharacterEffect/Jazz_Perk_OfficerAuraInfluence.lua
+ M CharacterEffect/Jazz_Perk_Quinten.lua
+ M CharacterEffect/Jazz_Perk_Ricochet.lua
+ M CharacterEffect/Jazz_Perk_Rothman.lua
+ M CharacterEffect/Jazz_Perk_Shank.lua
+ M CharacterEffect/Jazz_Perk_Simon.lua
+ M CharacterEffect/Jazz_Perk_Sniper.lua
+ M CharacterEffect/Jazz_Perk_Spider.lua
+ M CharacterEffect/Jazz_Perk_Static.lua
+ M CharacterEffect/Jazz_Perk_Steiger.lua
+ M CharacterEffect/Jazz_Perk_Veteran.lua
+ M CharacterEffect/Jazz_Perk_Vicious.lua
+ M CharacterEffect/Jazz_Perk_Vilde.lua
+ M CharacterEffect/Jazz_Perk_Vince.lua
+ M CharacterEffect/KillingWind.lua
+ M CharacterEffect/Legsshot.lua
+ M CharacterEffect/Loner.lua
+ M CharacterEffect/MakeThemBleed.lua
+ M CharacterEffect/MarkedTraccers.lua
+ M CharacterEffect/NaturalHealing.lua
+ M CharacterEffect/Nazdarovya.lua
+ M CharacterEffect/Negotiator.lua
+ M CharacterEffect/Optimist.lua
+ M CharacterEffect/Pain.lua
+ M CharacterEffect/Pessimist.lua
+ M CharacterEffect/Psycho.lua
+ M CharacterEffect/RecklessAssault.lua
+ M CharacterEffect/Scoundrel.lua
+ M CharacterEffect/Slowed.lua
+ M CharacterEffect/Spiritual.lua
+ M CharacterEffect/SteadyBreathing.lua
+ M CharacterEffect/Stealthy.lua
+ M CharacterEffect/SteroidPunch.lua
+ M CharacterEffect/Tired.lua
+ M CharacterEffect/Torsoshot.lua
+ M CharacterEffect/TraumaArmsHeavy.lua
+ M CharacterEffect/TraumaArmsLight.lua
+ M CharacterEffect/TraumaArmsMedium.lua
+ M CharacterEffect/TraumaBurnHeavy.lua
+ M CharacterEffect/TraumaBurnLight.lua
+ M CharacterEffect/TraumaBurnMedium.lua
+ M CharacterEffect/TraumaHeadHeavy.lua
+ M CharacterEffect/TraumaHeadLight.lua
+ M CharacterEffect/TraumaHeadMedium.lua
+ M CharacterEffect/TraumaLegsHeavy.lua
+ M CharacterEffect/TraumaLegsLight.lua
+ M CharacterEffect/TraumaLegsMedium.lua
+ M CharacterEffect/TraumaRibsHeavy.lua
+ M CharacterEffect/TraumaRibsLight.lua
+ M CharacterEffect/TraumaRibsMedium.lua
+ M CharacterEffect/TrueGrit.lua
+ M CharacterEffect/Unconscious.lua
+ M CharacterEffect/Weight_1Class.lua
+ M CharacterEffect/Weight_2Class.lua
+ M CharacterEffect/Weight_3Class.lua
+ M CharacterEffect/Weight_4Class.lua
+ M CharacterEffect/Weight_5Class.lua
+ M CharacterEffect/WellRested.lua
+ M CharacterEffect/Winded.lua
+ M CharacterEffect/WoundInfected.lua
+ M CharacterEffect/Wounded.lua
+ M CharacterEffect/Zoophobic.lua
+ M CharacterEffect/suppressionHeavy.lua
+ M CharacterEffect/suppressionHeavy2.lua
+ M CharacterEffect/suppressionLight.lua
+ M CharacterEffect/suppressionMedium.lua
+ M CharacterEffect/suppressionPinned.lua
+ M Code/GameRules_HideAdvanced.lua
+ M Code/LegionTierProgression.lua
+ M Code/System_LegionArmorVisuals.lua
+ M Code/System_WeaponComponent_Set.lua
+ M Code/System_WeaponRemovableModify.lua
+ M Code/Weapon_MosinModular.lua
+ M English.csv
+ M InventoryItem/AA12.lua
+ M InventoryItem/AA52.lua
+ M InventoryItem/AK105.lua
+ M InventoryItem/AK47.lua
+ M InventoryItem/AK74.lua
+ M InventoryItem/AK74M.lua
+ M InventoryItem/AKM.lua
+ M InventoryItem/AKSU.lua
+ M InventoryItem/AN94.lua
+ M InventoryItem/APS.lua
+ M InventoryItem/AR10.lua
+ M InventoryItem/AR10DMR.lua
+ M InventoryItem/AR15.lua
+ M InventoryItem/AS_Val.lua
+ M InventoryItem/AUG.lua
+ M InventoryItem/AVT40.lua
+ M InventoryItem/Agram2000.lua
+ M InventoryItem/ArcticWarfare.lua
+ M InventoryItem/Auto5.lua
+ M InventoryItem/Auto5_quest.lua
+ M InventoryItem/BAR.lua
+ M InventoryItem/BarretM82.lua
+ M InventoryItem/Bayonet.lua
+ M InventoryItem/Bereta92.lua
+ M InventoryItem/Beretta93r.lua
+ M InventoryItem/BerettaM12.lua
+ M InventoryItem/BlackPowder.lua
+ M InventoryItem/BrowningM2HMG.lua
+ M InventoryItem/C4.lua
+ M InventoryItem/CAR15.lua
+ M InventoryItem/CZ52.lua
+ M InventoryItem/CZ75.lua
+ M InventoryItem/CamoArmor_Light.lua
+ M InventoryItem/CamoArmor_Light_Kompositum.lua
+ M InventoryItem/CamoArmor_Medium.lua
+ M InventoryItem/CamoArmor_Medium_Kompositum.lua
+ M InventoryItem/China_Lake.lua
+ M InventoryItem/Coin.lua
+ M InventoryItem/Colt1911.lua
+ M InventoryItem/Colt38Special.lua
+ M InventoryItem/ColtAnaconda.lua
+ M InventoryItem/ColtM1917.lua
+ M InventoryItem/ColtPeacemaker.lua
+ M InventoryItem/CombatStim.lua
+ M InventoryItem/Combination_CeramicPlates.lua
+ M InventoryItem/Combination_Kompositum58.lua
+ M InventoryItem/Combination_WeavePadding.lua
+ M InventoryItem/ConcussiveGrenade.lua
+ M InventoryItem/Cookie.lua
+ M InventoryItem/CrocodileHide.lua
+ M InventoryItem/Crowbar.lua
+ M InventoryItem/CustomPDA.lua
+ M InventoryItem/DP27.lua
+ M InventoryItem/DeLisle.lua
+ M InventoryItem/DesertEagle.lua
+ M InventoryItem/Diesel.lua
+ M InventoryItem/DoubleBarrelShotgun.lua
+ M InventoryItem/DragunovSVD.lua
+ M InventoryItem/DragunovSVD_Custom.lua
+ M InventoryItem/EndlessKnives.lua
+ M InventoryItem/FAMAS.lua
+ M InventoryItem/FG42.lua
+ M InventoryItem/FNMAG.lua
+ M InventoryItem/FNMinimi.lua
+ M InventoryItem/FRF2.lua
+ M InventoryItem/FineSteelPipe.lua
+ M InventoryItem/FirstAidKit.lua
+ M InventoryItem/FiveSeven.lua
+ M InventoryItem/FlakArmor.lua
+ M InventoryItem/FlakArmor_CeramicPlates.lua
+ M InventoryItem/FlakArmor_Kompositum.lua
+ M InventoryItem/FlakArmor_WeavePadding.lua
+ M InventoryItem/FlakLeggings.lua
+ M InventoryItem/FlakLeggings_Kompositum.lua
+ M InventoryItem/FlakLeggings_WeavePadding.lua
+ M InventoryItem/FlakVest.lua
+ M InventoryItem/FlakVest_CeramicPlates.lua
+ M InventoryItem/FlakVest_Kompositum.lua
+ M InventoryItem/FlakVest_WeavePadding.lua
+ M InventoryItem/FlareAmmo.lua
+ M InventoryItem/FlareHandgun.lua
+ M InventoryItem/FlareStick.lua
+ M InventoryItem/FragGrenade.lua
+ M InventoryItem/G36.lua
+ M InventoryItem/G36c.lua
+ M InventoryItem/G3A3.lua
+ M InventoryItem/G3A4.lua
+ M InventoryItem/G3SniperV1.lua
+ M InventoryItem/G43.lua
+ M InventoryItem/Galil.lua
+ M InventoryItem/Galil_FlagHill.lua
+ M InventoryItem/GasMask.lua
+ M InventoryItem/Gasmaskenhelm.lua
+ M InventoryItem/Gewehr98.lua
+ M InventoryItem/Glock17.lua
+ M InventoryItem/Glock18.lua
+ M InventoryItem/GlowStick.lua
+ M InventoryItem/GoldenGun.lua
+ M InventoryItem/GoldenWatch.lua
+ M InventoryItem/GrizzlyLAR.lua
+ M InventoryItem/GutHookKnife.lua
+ M InventoryItem/HE_Grenade.lua
+ M InventoryItem/HK21.lua
+ M InventoryItem/HK23e.lua
+ M InventoryItem/HK33.lua
+ M InventoryItem/HeavyArmorChestplate.lua
+ M InventoryItem/HeavyArmorChestplate_CeramicPlates.lua
+ M InventoryItem/HeavyArmorChestplate_Kompositum.lua
+ M InventoryItem/HeavyArmorChestplate_WeavePadding.lua
+ M InventoryItem/HeavyArmorHelmet.lua
+ M InventoryItem/HeavyArmorHelmet_Kompositum.lua
+ M InventoryItem/HeavyArmorHelmet_WeavePadding.lua
+ M InventoryItem/HeavyArmorLeggings.lua
+ M InventoryItem/HeavyArmorLeggings_Kompositum.lua
+ M InventoryItem/HeavyArmorLeggings_WeavePadding.lua
+ M InventoryItem/HeavyArmorTorso.lua
+ M InventoryItem/HeavyArmorTorso_CeramicPlates.lua
+ M InventoryItem/HeavyArmorTorso_Kompositum.lua
+ M InventoryItem/HeavyArmorTorso_WeavePadding.lua
+ M InventoryItem/HerbalMedicine.lua
+ M InventoryItem/HiPower.lua
+ M InventoryItem/Infected_HardenedSkin.lua
+ M InventoryItem/Ithaca.lua
+ M InventoryItem/IvanUshanka.lua
+ M InventoryItem/JAZZ_AMMO_12gauge_APSlug.lua
+ M InventoryItem/JAZZ_AMMO_12gauge_Birdshot.lua
+ M InventoryItem/JAZZ_AMMO_12gauge_Saltshot.lua
+ M InventoryItem/JAZZ_AMMO_3006_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_3006_Match.lua
+ M InventoryItem/JAZZ_AMMO_30_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_30_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_357_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_38special_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_38special_JHP.lua
+ M InventoryItem/JAZZ_AMMO_40mmFlashbangGrenade.lua
+ M InventoryItem/JAZZ_AMMO_40mmFragGrenade.lua
+ M InventoryItem/JAZZ_AMMO_44CAL_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_44CAL_Match.lua
+ M InventoryItem/JAZZ_AMMO_45ACP_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_45ACP_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_45ACP_P.lua
+ M InventoryItem/JAZZ_AMMO_45ACP_Poor.lua
+ M InventoryItem/JAZZ_AMMO_46_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_50BMG_APIT.lua
+ M InventoryItem/JAZZ_AMMO_545_AP.lua
+ M InventoryItem/JAZZ_AMMO_545_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_545_EPR.lua
+ M InventoryItem/JAZZ_AMMO_545_Poor.lua
+ M InventoryItem/JAZZ_AMMO_545_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_556_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_556_EPR.lua
+ M InventoryItem/JAZZ_AMMO_556_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_556_Match.lua
+ M InventoryItem/JAZZ_AMMO_556_Poor.lua
+ M InventoryItem/JAZZ_AMMO_556_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_75French_AP.lua
+ M InventoryItem/JAZZ_AMMO_75French_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_762x25_AP.lua
+ M InventoryItem/JAZZ_AMMO_762x25_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_762x25_JHP.lua
+ M InventoryItem/JAZZ_AMMO_762x25_Poor.lua
+ M InventoryItem/JAZZ_AMMO_762x39_APP.lua
+ M InventoryItem/JAZZ_AMMO_762x39_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_762x39_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_762x39_Poor.lua
+ M InventoryItem/JAZZ_AMMO_762x39_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_762x39_US.lua
+ M InventoryItem/JAZZ_AMMO_762x51_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_762x51_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_762x51_Match.lua
+ M InventoryItem/JAZZ_AMMO_762x51_Poor.lua
+ M InventoryItem/JAZZ_AMMO_762x51_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_762x54_APIT.lua
+ M InventoryItem/JAZZ_AMMO_762x54_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_762x54_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_762x54_Match.lua
+ M InventoryItem/JAZZ_AMMO_762x54_Poor.lua
+ M InventoryItem/JAZZ_AMMO_762x54_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_792_AP.lua
+ M InventoryItem/JAZZ_AMMO_792_APIT.lua
+ M InventoryItem/JAZZ_AMMO_792_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_792x33_AP.lua
+ M InventoryItem/JAZZ_AMMO_792x33_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_792x33_Tracer.lua
+ M InventoryItem/JAZZ_AMMO_9x18_APP.lua
+ M InventoryItem/JAZZ_AMMO_9x18_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_9x18_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_9x18_Poor.lua
+ M InventoryItem/JAZZ_AMMO_9x19_APP.lua
+ M InventoryItem/JAZZ_AMMO_9x19_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_9x19_FMJ.lua
+ M InventoryItem/JAZZ_AMMO_9x19_Match.lua
+ M InventoryItem/JAZZ_AMMO_9x19_Poor.lua
+ M InventoryItem/JAZZ_AMMO_9x39_Crafted.lua
+ M InventoryItem/JAZZ_AMMO_MortarShell_Gas.lua
+ M InventoryItem/JAZZ_AMMO_MortarShell_HE.lua
+ M InventoryItem/JAZZ_AMMO_MortarShell_Smoke.lua
+ M InventoryItem/JAZZ_AUGCompensator_01.lua
+ M InventoryItem/JAZZ_AUGCompensator_03.lua
+ M InventoryItem/JAZZ_Bandage.lua
+ M InventoryItem/JAZZ_BarrelParts.lua
+ M InventoryItem/JAZZ_Bipod.lua
+ M InventoryItem/JAZZ_Bipod_Galil.lua
+ M InventoryItem/JAZZ_Bipod_Under.lua
+ M InventoryItem/JAZZ_CombatScope_1P29.lua
+ M InventoryItem/JAZZ_CombatScope_2x.lua
+ M InventoryItem/JAZZ_CombatScope_3x.lua
+ M InventoryItem/JAZZ_CombatScope_ACOG.lua
+ M InventoryItem/JAZZ_CombatScope_FeroZ24.lua
+ M InventoryItem/JAZZ_Compensator.lua
+ M InventoryItem/JAZZ_DuckbillChoke.lua
+ M InventoryItem/JAZZ_FlashHider.lua
+ M InventoryItem/JAZZ_Flashlight.lua
+ M InventoryItem/JAZZ_FlashlightDot.lua
+ M InventoryItem/JAZZ_FlashlightDot_Anaconda.lua
+ M InventoryItem/JAZZ_FlashlightDot_PSG_M1.lua
+ M InventoryItem/JAZZ_FlashlightDot_aa12.lua
+ M InventoryItem/JAZZ_Flashlight_PSG_M1.lua
+ M InventoryItem/JAZZ_Flashlight_aa12.lua
+ M InventoryItem/JAZZ_FullChoke.lua
+ M InventoryItem/JAZZ_G36Scope.lua
+ M InventoryItem/JAZZ_G36Sight.lua
+ M InventoryItem/JAZZ_GP25.lua
+ M InventoryItem/JAZZ_Galil_Brake_Default.lua
+ M InventoryItem/JAZZ_GrenadeLauncher.lua
+ M InventoryItem/JAZZ_GrenadeLauncher_AUG.lua
+ M InventoryItem/JAZZ_GrenadeLauncher_Commando.lua
+ M InventoryItem/JAZZ_GrenadeLauncher_Galil.lua
+ M InventoryItem/JAZZ_GrenadeLauncher_M14.lua
+ M InventoryItem/JAZZ_HandlingWrap.lua
+ M InventoryItem/JAZZ_ImprovisedSuppressor.lua
+ M InventoryItem/JAZZ_LaserDot.lua
+ M InventoryItem/JAZZ_LaserDot_Anaconda.lua
+ M InventoryItem/JAZZ_LaserDot_PSG_M1.lua
+ M InventoryItem/JAZZ_LaserDot_aa12.lua
+ M InventoryItem/JAZZ_M70_Grenade.lua
+ M InventoryItem/JAZZ_MagBelt_100_200.lua
+ M InventoryItem/JAZZ_MagBelt_40_100.lua
+ M InventoryItem/JAZZ_MagDrum_30_100.lua
+ M InventoryItem/JAZZ_MagDrum_30_100_G3.lua
+ M InventoryItem/JAZZ_MagDrum_30_100_HK33.lua
+ M InventoryItem/JAZZ_MagDrum_30_100_cumbersome.lua
+ M InventoryItem/JAZZ_MagDrum_30_50.lua
+ M InventoryItem/JAZZ_MagDrum_30_50_THOMPSON.lua
+ M InventoryItem/JAZZ_MagDrum_30_50_UZI.lua
+ M InventoryItem/JAZZ_MagDrum_30_75.lua
+ M InventoryItem/JAZZ_MagDrum_35_71.lua
+ M InventoryItem/JAZZ_MagLargeFine.lua
+ M InventoryItem/JAZZ_MagLarge_10_20.lua
+ M InventoryItem/JAZZ_MagLarge_10_20_SVD.lua
+ M InventoryItem/JAZZ_MagLarge_10_20_VAL.lua
+ M InventoryItem/JAZZ_MagLarge_13.lua
+ M InventoryItem/JAZZ_MagLarge_13_PISTOL_52.lua
+ M InventoryItem/JAZZ_MagLarge_13_PISTOL_DE.lua
+ M InventoryItem/JAZZ_MagLarge_17_33.lua
+ M InventoryItem/JAZZ_MagLarge_18_20.lua
+ M InventoryItem/JAZZ_MagLarge_20_30.lua
+ M InventoryItem/JAZZ_MagLarge_20_30_MINI14.lua
+ M InventoryItem/JAZZ_MagLarge_20_30_UZI.lua
+ M InventoryItem/JAZZ_MagLarge_25.lua
+ M InventoryItem/JAZZ_MagLarge_25_40.lua
+ M InventoryItem/JAZZ_MagLarge_25_AA12.lua
+ M InventoryItem/JAZZ_MagLarge_25_PISTOL_9.lua
+ M InventoryItem/JAZZ_MagLarge_25_USAS.lua
+ M InventoryItem/JAZZ_MagLarge_27.lua
+ M InventoryItem/JAZZ_MagLarge_28.lua
+ M InventoryItem/JAZZ_MagLarge_30_40.lua
+ M InventoryItem/JAZZ_MagLarge_30_42.lua
+ M InventoryItem/JAZZ_MagLarge_30_45.lua
+ M InventoryItem/JAZZ_MagLarge_50.lua
+ M InventoryItem/JAZZ_MagLarge_50_AR15.lua
+ M InventoryItem/JAZZ_MagLarge_50_MP5.lua
+ M InventoryItem/JAZZ_MagLarge_50_SIG.lua
+ M InventoryItem/JAZZ_MagLarge_5_10.lua
+ M InventoryItem/JAZZ_MagLarge_7_10.lua
+ M InventoryItem/JAZZ_MagLarge_8.lua
+ M InventoryItem/JAZZ_MagLarge_8_10.lua
+ M InventoryItem/JAZZ_MagLarge_8_BARRET.lua
+ M InventoryItem/JAZZ_MagLarge_8_PISTOL_52.lua
+ M InventoryItem/JAZZ_MagLarge_8_PSG1.lua
+ M InventoryItem/JAZZ_MagNormalFine.lua
+ M InventoryItem/JAZZ_MagNormalFine_AR15.lua
+ M InventoryItem/JAZZ_MagNormalFine_M14.lua
+ M InventoryItem/JAZZ_MagNormalFine_PISTOL_9.lua
+ M InventoryItem/JAZZ_MagNormalFine_PSG1.lua
+ M InventoryItem/JAZZ_MagNormalG18.lua
+ M InventoryItem/JAZZ_MagQuick.lua
+ M InventoryItem/JAZZ_MagQuick_AK.lua
+ M InventoryItem/JAZZ_MagQuick_AR15.lua
+ M InventoryItem/JAZZ_MagQuick_AUG.lua
+ M InventoryItem/JAZZ_MagQuick_G36.lua
+ M InventoryItem/JAZZ_MagQuick_GALIL.lua
+ M InventoryItem/JAZZ_MagQuick_MP5.lua
+ M InventoryItem/JAZZ_MagSmall20_10.lua
+ M InventoryItem/JAZZ_MagSmall20_10_G3.lua
+ M InventoryItem/JAZZ_MagSmall20_10_M14.lua
+ M InventoryItem/JAZZ_MagSmall30_15.lua
+ M InventoryItem/JAZZ_MagSmall30_15_M2CARBINE.lua
+ M InventoryItem/JAZZ_MagSmall30_15_MP5.lua
+ M InventoryItem/JAZZ_MagSmall30_15_TMP.lua
+ M InventoryItem/JAZZ_MagSmall30_20.lua
+ M InventoryItem/JAZZ_Morphine.lua
+ M InventoryItem/JAZZ_NightScope.lua
+ M InventoryItem/JAZZ_NightScope_M3.lua
+ M InventoryItem/JAZZ_NightScope_NSPU.lua
+ M InventoryItem/JAZZ_PistolSuppressor.lua
+ M InventoryItem/JAZZ_Reflex_Aimpoint5000.lua
+ M InventoryItem/JAZZ_Reflex_Closed.lua
+ M InventoryItem/JAZZ_Reflex_Cobra.lua
+ M InventoryItem/JAZZ_Reflex_Eotech.lua
+ M InventoryItem/JAZZ_Reflex_Garand.lua
+ M InventoryItem/JAZZ_Reflex_M68.lua
+ M InventoryItem/JAZZ_Reflex_Open.lua
+ M InventoryItem/JAZZ_Reflex_PKAS.lua
+ M InventoryItem/JAZZ_Reflex_Pistol.lua
+ M InventoryItem/JAZZ_RemovableAttachment.lua
+ M InventoryItem/JAZZ_ScopeParts.lua
+ M InventoryItem/JAZZ_Scope_12x.lua
+ M InventoryItem/JAZZ_Scope_3x_9x.lua
+ M InventoryItem/JAZZ_Scope_6x.lua
+ M InventoryItem/JAZZ_Scope_8x_SCROME.lua
+ M InventoryItem/JAZZ_Scope_DA15_6x.lua
+ M InventoryItem/JAZZ_Scope_Garand.lua
+ M InventoryItem/JAZZ_Scope_PSG.lua
+ M InventoryItem/JAZZ_Scope_PSO.lua
+ M InventoryItem/JAZZ_Scope_PU.lua
+ M InventoryItem/JAZZ_Scope_Scout.lua
+ M InventoryItem/JAZZ_Scope_Springfield.lua
+ M InventoryItem/JAZZ_Scope_ZF4.lua
+ M InventoryItem/JAZZ_Scope_ZRAK.lua
+ M InventoryItem/JAZZ_Suppressor.lua
+ M InventoryItem/JAZZ_SuppressorImproved.lua
+ M InventoryItem/JAZZ_SuppressorIntegrated.lua
+ M InventoryItem/JAZZ_SurgicalKit.lua
+ M InventoryItem/JAZZ_TacGrip.lua
+ M InventoryItem/JAZZ_TacGrip_M14.lua
+ M InventoryItem/JAZZ_Type56Bayo.lua
+ M InventoryItem/JAZZ_Type56BayoF.lua
+ M InventoryItem/JAZZ_UVDot.lua
+ M InventoryItem/JAZZ_UVDot_Anaconda.lua
+ M InventoryItem/JAZZ_UVDot_PSG_M1.lua
+ M InventoryItem/JAZZ_UVDot_aa12.lua
+ M InventoryItem/JAZZ_VerticalGrip.lua
+ M InventoryItem/JAZZ_VerticalGrip_Commando.lua
+ M InventoryItem/JAZZ_VerticalGrip_M14.lua
+ M InventoryItem/JazzArmorPlates_Kevlar.lua
+ M InventoryItem/JazzArmorPlates_Scrap.lua
+ M InventoryItem/JazzArmorPlates_Twaron.lua
+ M InventoryItem/JazzArmor_AdrianHelmet.lua
+ M InventoryItem/JazzArmor_AssaultCuirass.lua
+ M InventoryItem/JazzArmor_CamoBalaclava.lua
+ M InventoryItem/JazzArmor_Chainmail.lua
+ M InventoryItem/JazzArmor_ConstructionHelmet.lua
+ M InventoryItem/JazzArmor_EOD.lua
+ M InventoryItem/JazzArmor_ESS.lua
+ M InventoryItem/JazzArmor_FlakM1955.lua
+ M InventoryItem/JazzArmor_FlakM69.lua
+ M InventoryItem/JazzArmor_ImprovisedCuirass.lua
+ M InventoryItem/JazzArmor_LeatherArmor.lua
+ M InventoryItem/JazzArmor_LeatherJacketBlk.lua
+ M InventoryItem/JazzArmor_LeatherJacketBrn.lua
+ M InventoryItem/JazzArmor_LeatherPants.lua
+ M InventoryItem/JazzArmor_LeatherVest.lua
+ M InventoryItem/JazzArmor_M1Helm.lua
+ M InventoryItem/JazzArmor_MetalHelm.lua
+ M InventoryItem/JazzArmor_MotoKneePads.lua
+ M InventoryItem/JazzArmor_NVG1.lua
+ M InventoryItem/JazzArmor_NVG2.lua
+ M InventoryItem/JazzArmor_NVG3.lua
+ M InventoryItem/JazzArmor_RaiderKneePads.lua
+ M InventoryItem/JazzArmor_RaiderMetalLeggins.lua
+ M InventoryItem/JazzArmor_SovietAssaultArmor.lua
+ M InventoryItem/JazzArmor_SovietHelm.lua
+ M InventoryItem/JazzArmor_SpectraCompositum.lua
+ M InventoryItem/JazzArmor_SpectraFullCompositum.lua
+ M InventoryItem/JazzArmor_Stahlhelm.lua
+ M InventoryItem/JazzArmor_Sunglasses.lua
+ M InventoryItem/JazzArmor_SwatPads.lua
+ M InventoryItem/JazzArmor_TireArmor.lua
+ M InventoryItem/JazzArmor_TireBrigantine.lua
+ M InventoryItem/JazzArmor_Uniform.lua
+ M InventoryItem/JazzArmor_UniformCap.lua
+ M InventoryItem/JazzArmor_UniformPants.lua
+ M InventoryItem/JazzArmor_WieldingHelm.lua
+ M InventoryItem/KevlarChestplate.lua
+ M InventoryItem/KevlarChestplate_CeramicPlates.lua
+ M InventoryItem/KevlarChestplate_Kompositum.lua
+ M InventoryItem/KevlarChestplate_WeavePadding.lua
+ M InventoryItem/KevlarHelmet.lua
+ M InventoryItem/KevlarHelmet_Kompositum.lua
+ M InventoryItem/KevlarHelmet_WeavePadding.lua
+ M InventoryItem/KevlarLeggings.lua
+ M InventoryItem/KevlarLeggings_Kompositum.lua
+ M InventoryItem/KevlarLeggings_WeavePadding.lua
+ M InventoryItem/KevlarVest.lua
+ M InventoryItem/KevlarVest_CeramicPlates.lua
+ M InventoryItem/KevlarVest_Kompositum.lua
+ M InventoryItem/KevlarVest_WeavePadding.lua
+ M InventoryItem/Kimber.lua
+ M InventoryItem/Knife.lua
+ M InventoryItem/Knife_Balanced.lua
+ M InventoryItem/Knife_Sharpened.lua
+ M InventoryItem/Korth.lua
+ M InventoryItem/L42A1.lua
+ M InventoryItem/LightHelmet.lua
+ M InventoryItem/LightHelmet_Kompositum.lua
+ M InventoryItem/LightHelmet_WeavePadding.lua
+ M InventoryItem/LionRoar.lua
+ M InventoryItem/Lockpick.lua
+ M InventoryItem/Luger.lua
+ M InventoryItem/M14SAW.lua
+ M InventoryItem/M16A1.lua
+ M InventoryItem/M16A2.lua
+ M InventoryItem/M16A4.lua
+ M InventoryItem/M1897.lua
+ M InventoryItem/M1A.lua
+ M InventoryItem/M1Garand.lua
+ M InventoryItem/M21.lua
+ M InventoryItem/M24Sniper.lua
+ M InventoryItem/M2Carbine.lua
+ M InventoryItem/M3GreaseGun.lua
+ M InventoryItem/M41Shotgun.lua
+ M InventoryItem/M45.lua
+ M InventoryItem/M4A1.lua
+ M InventoryItem/M4Commando.lua
+ M InventoryItem/M60.lua
+ M InventoryItem/M60E3.lua
+ M InventoryItem/M60E4.lua
+ M InventoryItem/M700.lua
+ M InventoryItem/M72LAW.lua
+ M InventoryItem/M79.lua
+ M InventoryItem/MAC10.lua
+ M InventoryItem/MAC1950.lua
+ M InventoryItem/MAC2429.lua
+ M InventoryItem/MAS36.lua
+ M InventoryItem/MAS49.lua
+ M InventoryItem/MAT49.lua
+ M InventoryItem/MG42.lua
+ M InventoryItem/MG58.lua
+ M InventoryItem/MGL.lua
+ M InventoryItem/MP40.lua
+ M InventoryItem/MP446VIKING.lua
+ M InventoryItem/MP5.lua
+ M InventoryItem/MP5A2.lua
+ M InventoryItem/MP5A4.lua
+ M InventoryItem/MP5K.lua
+ M InventoryItem/MP5SD.lua
+ M InventoryItem/MP7.lua
+ M InventoryItem/MPL.lua
+ M InventoryItem/MR73.lua
+ M InventoryItem/Machete.lua
+ M InventoryItem/Machete_Balanced.lua
+ M InventoryItem/Machete_Sharpened.lua
+ M InventoryItem/Makarov.lua
+ M InventoryItem/MedicalReport.lua
+ M InventoryItem/Medkit.lua
+ M InventoryItem/Meds.lua
+ M InventoryItem/MetaviraShot.lua
+ M InventoryItem/MicroUZI.lua
+ M InventoryItem/Microchip.lua
+ M InventoryItem/Mini14.lua
+ M InventoryItem/Molotov.lua
+ M InventoryItem/MortarInventoryItem.lua
+ M InventoryItem/MortarShell_Gas.lua
+ M InventoryItem/MortarShell_HE.lua
+ M InventoryItem/MortarShell_Smoke.lua
+ M InventoryItem/Mosin.lua
+ M InventoryItem/NailsLeatherVest.lua
+ M InventoryItem/NightVisionGoggles.lua
+ M InventoryItem/OilFilter.lua
+ M InventoryItem/OpticalLens.lua
+ M InventoryItem/P210.lua
+ M InventoryItem/P220.lua
+ M InventoryItem/P226.lua
+ M InventoryItem/P38.lua
+ M InventoryItem/P90.lua
+ M InventoryItem/PB.lua
+ M InventoryItem/PETN.lua
+ M InventoryItem/PKM.lua
+ M InventoryItem/PP19Bizon.lua
+ M InventoryItem/PPS43.lua
+ M InventoryItem/PPSH.lua
+ M InventoryItem/PSG1.lua
+ M InventoryItem/PaBaggzWill.lua
+ M InventoryItem/Pamphlets.lua
+ M InventoryItem/Pamphlets_LysRouge.lua
+ M InventoryItem/Parts.lua
+ M InventoryItem/Personal_Vicki_CustomTools.lua
+ M InventoryItem/PierreMachete.lua
+ M InventoryItem/PipeBomb.lua
+ M InventoryItem/PlasmaGun_Crowbar.lua
+ M InventoryItem/PostApoHelmet.lua
+ M InventoryItem/ProximityC4.lua
+ M InventoryItem/ProximityPETN.lua
+ M InventoryItem/ProximityTNT.lua
+ M InventoryItem/R870.lua
+ M InventoryItem/RPD.lua
+ M InventoryItem/RPG7.lua
+ M InventoryItem/RPK.lua
+ M InventoryItem/RPK74.lua
+ M InventoryItem/RSH12.lua
+ M InventoryItem/Reanimationsset.lua
+ M InventoryItem/RemoteC4.lua
+ M InventoryItem/RemotePETN.lua
+ M InventoryItem/RemoteTNT.lua
+ M InventoryItem/SKS.lua
+ M InventoryItem/SPAS12.lua
+ M InventoryItem/SR3M.lua
+ M InventoryItem/STG44.lua
+ M InventoryItem/SVT40.lua
+ M InventoryItem/SVU.lua
+ M InventoryItem/SWModel10.lua
+ M InventoryItem/SWModel19.lua
+ M InventoryItem/SWModel29.lua
+ M InventoryItem/SWModel52.lua
+ M InventoryItem/SWModel5906.lua
+ M InventoryItem/Scorpion.lua
+ M InventoryItem/ScoutSniper.lua
+ M InventoryItem/ShamanHelmet.lua
+ M InventoryItem/ShamanLeggings.lua
+ M InventoryItem/ShamanTorso.lua
+ M InventoryItem/ShapedCharge.lua
+ M InventoryItem/Sig550.lua
+ M InventoryItem/Sig550Custom.lua
+ M InventoryItem/Sig552.lua
+ M InventoryItem/Sig552SWAT.lua
+ M InventoryItem/SkillMag_Agility.lua
+ M InventoryItem/SkillMag_Dexterity.lua
+ M InventoryItem/SkillMag_Explosives.lua
+ M InventoryItem/SkillMag_Health.lua
+ M InventoryItem/SkillMag_Leadership.lua
+ M InventoryItem/SkillMag_Marksmanship.lua
+ M InventoryItem/SkillMag_Mechanical.lua
+ M InventoryItem/SkillMag_Medical.lua
+ M InventoryItem/SkillMag_Strength.lua
+ M InventoryItem/SkillMag_Wisdom.lua
+ M InventoryItem/SmokeGrenade.lua
+ M InventoryItem/SpectreM4.lua
+ M InventoryItem/Springfield.lua
+ M InventoryItem/Sterling.lua
+ M InventoryItem/Stoeger.lua
+ M InventoryItem/Striker.lua
+ M InventoryItem/TMP.lua
+ M InventoryItem/TNT.lua
+ M InventoryItem/TT33.lua
+ M InventoryItem/TearGasGrenade.lua
+ M InventoryItem/Ted.lua
+ M InventoryItem/TexRevolver.lua
+ M InventoryItem/Thompson.lua
+ M InventoryItem/TimedC4.lua
+ M InventoryItem/TimedPETN.lua
+ M InventoryItem/TimedTNT.lua
+ M InventoryItem/ToxicGasGrenade.lua
+ M InventoryItem/Trench_Shovel.lua
+ M InventoryItem/Trophy.lua
+ M InventoryItem/Type56.lua
+ M InventoryItem/U100.lua
+ M InventoryItem/UMP45.lua
+ M InventoryItem/USAS12.lua
+ M InventoryItem/USP45.lua
+ M InventoryItem/US_Passport.lua
+ M InventoryItem/UZI.lua
+ M InventoryItem/Unarmed.lua
+ M InventoryItem/UnderslungGrenadeLauncher.lua
+ M InventoryItem/VSS.lua
+ M InventoryItem/VectorCP1.lua
+ M InventoryItem/Vest_test.lua
+ M InventoryItem/VirusSample.lua
+ M InventoryItem/Warhead_Frag.lua
+ M InventoryItem/Webley.lua
+ M InventoryItem/WeirdosMap.lua
+ M InventoryItem/Welrod.lua
+ M InventoryItem/Wig.lua
+ M InventoryItem/Winchester1894.lua
+ M InventoryItem/Winchester_Quest.lua
+ M InventoryItem/Wirecutter.lua
+ M InventoryItem/WorkerDiary.lua
+ M InventoryItem/WriterDiary.lua
+ M InventoryItem/WriterLetter.lua
+ M InventoryItem/WriterPage.lua
+ M InventoryItem/ZastavaM76.lua
+ M InventoryItem/ZastavaM92.lua
+ M InventoryItem/Zastava_M70.lua
+ M InventoryItem/_12gauge_Saltshot.lua
+ M InventoryItem/_40mmFlashbangGrenade.lua
+ M InventoryItem/_40mmFragGrenade.lua
+ M InventoryItem/_44CAL_AP.lua
+ M InventoryItem/_44CAL_Shock.lua
+ M InventoryItem/_50BMG_Basic.lua
+ M InventoryItem/_50BMG_HE.lua
+ M InventoryItem/_50BMG_Incendiary.lua
+ M InventoryItem/_50BMG_SLAP.lua
+ M InventoryItem/_556_Match.lua
+ M InventoryItem/_762NATO_Tracer.lua
+ M InventoryItem/_762WP_AP.lua
+ M InventoryItem/_762WP_Match.lua
+ M InventoryItem/_762WP_Tracer.lua
+ M InventoryItem/_9mm_Shock.lua
+ M InventoryItem/_9mm_Subsonic.lua
+ M InventoryItem/_9mm_Tracer.lua
+ M Localization/EnglishManual.csv
+ M Localization/RussianManual.csv
+ M Localization/Strings.csv
+ M Russian.csv
+ M WeaponIcons/AK105.png
+ M WeaponIcons/AK74M.png
+ M WeaponIcons/L42A1.png
+ M WeaponIcons/M14.png
+ M WeaponIcons/M21.png
+ M WeaponIcons/M4A1.png
+ M WeaponIcons/SR3M.png
+ M docs/design/equipped-armor-appearance-map.md
+ M docs/design/legion-armor-production.md
+ M docs/design/legion-weapon-availability-by-tier.md
+ M docs/design/magazine-tiers.md
+ M docs/showcase/en/legion-units.md
+ M docs/showcase/en/weapons-and-ammo.md
+ M docs/showcase/ru/legion-units.md
+ M docs/showcase/ru/weapons-and-ammo.md
+ M docs/specs/active/JAZZ-APPEAR-001.md
+ M docs/specs/active/JAZZ-WEAPON-AK-FAMILY-001.md
+ M docs/specs/active/JAZZ-WEAPON-FAL-FAMILY-001.md
+ M docs/specs/active/JAZZ-WEAPON-L42A1-001.md
+ M docs/specs/active/JAZZ-WEAPON-MOSIN-001.md
+ M docs/specs/active/JAZZ-WEAPON-SR3M-001.md
+ M docs/technical/compatibility.md
+ M docs/technical/override-matrix.md
+ M docs/technical/systems/assets-entities.md
+ M docs/technical/systems/file-coverage.md
+ M docs/technical/systems/legion-units-equipment-tiers.md
+ M docs/technical/systems/release-versioning.md
+ M docs/technical/systems/visibility-weather-appearance.md
+ M docs/technical/systems/weapons-ammo-components.md
+ M docs/technical/weapons/data/weapons.csv
+ M docs/tools/README.md
+ M docs/tools/_build_legion_armor.py
+ M docs/tools/_build_sr3m_assets.py
+ M docs/tools/_check_legion_armor.py
+ M docs/tools/_check_mosin_configurations.py
+ M docs/tools/_check_soft_armor_poses.py
+ M docs/tools/_check_sr3m.py
+ M docs/tools/_export_ak_assets.py
+ M docs/tools/_export_fal_assets.py
+ M docs/tools/_export_fal_folded_vanilla.py
+ M docs/tools/_export_fal_tactical_assets.py
+ M docs/tools/_export_l42a1_assets.py
+ M docs/tools/_export_mosin_assets.py
+ M docs/tools/_gen_legion_weapon_availability_map.py
+ M docs/tools/_model_legion_armor.py
+ M docs/tools/_pack_suite_release.py
+ M docs/wiki/legion-global-ai.md
+ M docs/wiki/weapons-and-ammo.md
+ M docs/wiki/weapons/README.md
+ M docs/wiki/weapons/assault-rifle.md
+ M items.lua
+ M metadata.lua
+ M scripts/legion-loadouts/data/early_variants.json
+ M scripts/legion-loadouts/generate.py
+ M scripts/legion-loadouts/run_static_tests.py
+?? .agents/docs/playbooks/mesh-export-normals.md
+?? .agents/docs/playbooks/model-export-qa-handoff.md
+?? Icons/Upgrades/Chips/JAZZ_CarryHandle_AR15.png
+?? Icons/Upgrades/Chips/JAZZ_Handguard_RIS.png
+?? InventoryItem/AK103.lua
+?? InventoryItem/JAZZ_M14_MkIII.lua
+?? InventoryItem/MK14EBR.lua
+?? InventoryItem/VZ58.lua
+?? InventoryItem/VektorR4.lua
+?? WeaponComponents/Magazine/AK103_Native30.png
+?? WeaponIcons/AK103.png
+?? WeaponIcons/JAZZ_M14_MkIII.png
+?? WeaponIcons/MK14EBR.png
+?? WeaponIcons/VZ58.png
+?? WeaponIcons/VektorR4.png
+?? docs/design/armor-vest-batch-queue.md
+?? docs/design/armor-visual-feedback-20260928.md
+?? docs/design/leather-armor-production.md
+?? docs/design/references/
+?? docs/design/weapon-3d-model-map.md
+?? docs/design/weapon-visual-feedback-20260927.md
+?? docs/design/weapons-import-batch-results.json
+?? docs/design/weapons-import-batch-results.md
+?? docs/design/weapons-import-plan-jaweapons.md
+?? docs/design/weapons-material-audit-jaweapons.json
+?? docs/design/weapons-material-audit-jaweapons.md
+?? docs/specs/active/JAZZ-PROGRESSION-001.md
+?? docs/specs/active/JAZZ-WEAPON-AK103-001.md
+?? docs/specs/active/JAZZ-WEAPON-AR15-FAMILY-001.md
+?? docs/specs/active/JAZZ-WEAPON-BATCH-IMPORT-001.md
+?? docs/specs/active/JAZZ-WEAPON-HATCHET-PREP-001.md
+?? docs/specs/active/JAZZ-WEAPON-M14-FAMILY-001.md
+?? docs/specs/active/JAZZ-WEAPON-R4-001.md
+?? docs/specs/active/JAZZ-WEAPON-STG44-001.md
+?? docs/specs/active/JAZZ-WEAPON-VZ58-001.md
+?? docs/tools/_annotate_scale_overlay.py
+?? docs/tools/_apply_m14_family_grip_stock.py
+?? docs/tools/_apply_sr3m_slots.py
+?? docs/tools/_apply_weapon_geometry_update.py
+?? docs/tools/_ar15_revision_fit.py
+?? docs/tools/_ar15_revision_fixed_slots.py
+?? docs/tools/_ar15_revision_inspect.py
+?? docs/tools/_ar15_revision_install.py
+?? docs/tools/_ar15_revision_magazine_preview.py
+?? docs/tools/_ar15_revision_sights.py
+?? docs/tools/_ar15_revision_test.py
+?? docs/tools/_ar15_revision_visual_data.py
+?? docs/tools/_audit_ak103_hidden_geometry.py
+?? docs/tools/_audit_ak103_interior.py
+?? docs/tools/_audit_ar15_entity_graph.py
+?? docs/tools/_audit_ar15_slots.py
+?? docs/tools/_audit_armor_color_maps.py
+?? docs/tools/_audit_armor_views.py
+?? docs/tools/_audit_blender_normals.py
+?? docs/tools/_audit_compiled_weapon_mesh.py
+?? docs/tools/_audit_jaweapons_materials.py
+?? docs/tools/_audit_vz58_r4_materials.py
+?? docs/tools/_audit_vz58_winding.py
+?? docs/tools/_audit_weapon_rm_maps.py
+?? docs/tools/_bake_armor_colors.py
+?? docs/tools/_build_ak103_archive.py
+?? docs/tools/_build_ak103_assets.py
+?? docs/tools/_build_ar15_assets.py
+?? docs/tools/_build_r4_assets.py
+?? docs/tools/_build_sr3m_attachment_fit_scene.py
+?? docs/tools/_build_vz58_assets.py
+?? docs/tools/_build_vz58_folding.py
+?? docs/tools/_build_weapon_attachment_fit_scene.py
+?? docs/tools/_build_weapon_scale_overlay.py
+?? docs/tools/_check_ak103.py
+?? docs/tools/_check_ak103_native_stage.py
+?? docs/tools/_check_mesh_export_normals.py
+?? docs/tools/_check_r4.py
+?? docs/tools/_check_vz58.py
+?? docs/tools/_check_vz58_folding.py
+?? docs/tools/_check_weapon_surface_uv.py
+?? docs/tools/_compare_weapon_quality_renders.py
+?? docs/tools/_compile_vz58_assets.py
+?? docs/tools/_compose_icon_review.py
+?? docs/tools/_decode_vz58_hgm.py
+?? docs/tools/_diagnose_ak103_material_uv.py
+?? docs/tools/_diagnose_ak103_shading.py
+?? docs/tools/_export_ak103_assets.py
+?? docs/tools/_export_m14_family_assets.py
+?? docs/tools/_export_r4_localization.ps1
+?? docs/tools/_export_vz58_localization.ps1
+?? docs/tools/_extract_m14_family_sources.py
+?? docs/tools/_finalize_weapon_icons.py
+?? docs/tools/_fit_ak103_donor_cover.py
+?? docs/tools/_fix_ak103_roughness.py
+?? docs/tools/_import_ak103_native_maps.py
+?? docs/tools/_import_jaweapons_batch.py
+?? docs/tools/_import_jaweapons_scene.py
+?? docs/tools/_inspect_ak103_archive.py
+?? docs/tools/_inspect_ak103_archive_islands.py
+?? docs/tools/_inspect_ak103_bake_align.py
+?? docs/tools/_inspect_ak103_frostoise.py
+?? docs/tools/_inspect_ak103_frostoise_nodes.py
+?? docs/tools/_inspect_ak103_normals.py
+?? docs/tools/_inspect_fal_tactical_handguard.py
+?? docs/tools/_inspect_vz58_source.py
+?? docs/tools/_inspect_weapon_source.py
+?? docs/tools/_install_6b3_vest.py
+?? docs/tools/_install_vz58_r4_materials.py
+?? docs/tools/_integrate_ak103.py
+?? docs/tools/_integrate_ar15_family.py
+?? docs/tools/_integrate_m14_family.py
+?? docs/tools/_integrate_r4.py
+?? docs/tools/_integrate_r4_loot.py
+?? docs/tools/_integrate_vz58.py
+?? docs/tools/_integrate_vz58_folding.py
+?? docs/tools/_integrate_vz58_loot.py
+?? docs/tools/_ja3_mesh_prepare.py
+?? docs/tools/_lift_ak103_albedo.py
+?? docs/tools/_localize_r4.py
+?? docs/tools/_localize_vz58.py
+?? docs/tools/_m14_fit_preview.py
+?? docs/tools/_m14_fixed_barrel.py
+?? docs/tools/_m14_inspect_parts.py
+?? docs/tools/_m14_install_ebr_repair.py
+?? docs/tools/_m14_render_culling.py
+?? docs/tools/_m14_repair_classic.py
+?? docs/tools/_m14_repair_ebr.py
+?? docs/tools/_m14_repair_winding.py
+?? docs/tools/_m14_stage_visual_revision.py
+?? docs/tools/_match_mosin_wood.py
+?? docs/tools/_measure_ak_grip.py
+?? docs/tools/_model_6b3_vest.py
+?? docs/tools/_model_leather_armor.py
+?? docs/tools/_model_rebuilt_legion_armor.py
+?? docs/tools/_normalize_vz58_entity_records.py
+?? docs/tools/_optimize_ak103_mesh.py
+?? docs/tools/_overlay_weapon_length.py
+?? docs/tools/_prepare_blender_normals_dryrun.py
+?? docs/tools/_prepare_hatchet_source.py
+?? docs/tools/_prepare_weapon_open_surfaces.py
+?? docs/tools/_preview_armor_colors.py
+?? docs/tools/_preview_armor_icon.py
+?? docs/tools/_preview_baked_armor.py
+?? docs/tools/_preview_fal_tactical_handguard.py
+?? docs/tools/_preview_vz58_r4_materials.py
+?? docs/tools/_qa_6b3_vest.py
+?? docs/tools/_qa_leather_armor.py
+?? docs/tools/_qa_rebuilt_armor_candidate.py
+?? docs/tools/_reanchor_ak_grip.py
+?? docs/tools/_rebake_ak103_archive.py
+?? docs/tools/_rebake_ak103_tangent_basis.py
+?? docs/tools/_refresh_rebuilt_legion_armor.py
+?? docs/tools/_refresh_vz58_assets.py
+?? docs/tools/_refresh_weapon_surfaces.py
+?? docs/tools/_render_ak103_icon.py
+?? docs/tools/_render_m14_family_icons.py
+?? docs/tools/_render_weapon_icons.py
+?? docs/tools/_repair_ak103_export.py
+?? docs/tools/_repair_ak103_visuals.py
+?? docs/tools/_repair_ar15_geometry.py
+?? docs/tools/_repair_hav_armor_materials.py
+?? docs/tools/_repair_hav_armor_skin.py
+?? docs/tools/_repair_mosin_visuals.py
+?? docs/tools/_restore_ak103_materials.py
+?? docs/tools/_restore_mosin_barrels.py
+?? docs/tools/_retier_mosin_loot.py
+?? docs/tools/_retier_stg44.py
+?? docs/tools/_rig_6b3_vest.py
+?? docs/tools/_run_weapon_model_live_qa.py
+?? docs/tools/_stage_armor_colors.py
+?? docs/tools/_strip_ak103_hidden_geometry.py
+?? docs/tools/_test_ak103_muzzle_bake.py
+?? docs/tools/_tune_ak_polymer_materials.py
+?? docs/tools/_tune_vz58_r4_materials.py
+?? docs/tools/_update_vz58_optics.py
+?? docs/tools/_weapon_feedback_armor_skin.py
+?? docs/tools/_weapon_feedback_barrel.py
+?? docs/tools/_weapon_feedback_bipod.py
+?? docs/tools/_weapon_feedback_compile.py
+?? docs/tools/_weapon_feedback_components.py
+?? docs/tools/_weapon_feedback_graph.py
+?? docs/tools/_weapon_feedback_handguard.py
+?? docs/tools/_weapon_feedback_hgm_skin.py
+?? docs/tools/_weapon_feedback_icons.py
+?? docs/tools/_weapon_feedback_install.py
+?? docs/tools/_weapon_feedback_inventory.py
+?? docs/tools/_weapon_feedback_islands.py
+?? docs/tools/_weapon_feedback_mag_normal.py
+?? docs/tools/_weapon_feedback_maps.py
+?? docs/tools/_weapon_feedback_materials.py
+?? docs/tools/_weapon_feedback_mesh.py
+?? docs/tools/_weapon_feedback_native_skin.py
+?? docs/tools/_weapon_feedback_parts.py
+?? docs/tools/_weapon_feedback_preview_test.py
+?? docs/tools/_weapon_feedback_review.py
+?? docs/tools/_weapon_feedback_scope.py
+?? docs/tools/_weapon_feedback_skin_review.py
+?? docs/tools/_weapon_feedback_stage028.py
+?? docs/tools/_weapon_feedback_stage029.py
+?? docs/tools/_weapon_feedback_validate028.py
+?? docs/tools/_weapon_feedback_views.py
+?? docs/tools/_weapon_grip_fix.py
+?? docs/tools/_weapon_grip_surface.py
+?? docs/tools/_weapon_material_finish.py
+?? docs/tools/_weapon_model_live_qa.lua
+?? docs/tools/_wire_ar15_visible_modules.py
+?? docs/tools/export_legion_newgame_localization.ps1
+?? docs/tools/test_legion_newgame.py
+?? release/manifests/v0.20.6223.json
+?? release/manifests/v0.20.6226.json
+?? release/notes/v0.20.6226.md
+?? tmp/

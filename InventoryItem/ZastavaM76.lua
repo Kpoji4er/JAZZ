@@ -47,7 +47,6 @@ DefineClass.ZastavaM76 = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_10_20_SVD",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -77,16 +76,12 @@ DefineClass.ZastavaM76 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	BurstShots = 0,
-	WeaponMass = 55,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
+	WeaponMass = 55,
+	WeaponSizeClass = "Long",
 	CloseRange = 16,
-
 	CloseRangeFactor = 70,
 	BulletDropRange = 16,
 	Grouping = 45,

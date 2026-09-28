@@ -1,0 +1,15 @@
+{
+  "options": [
+    "JAZZ_Reflex_Closed",
+    "JAZZ_Reflex_Open",
+    "JAZZ_Reflex_Eotech",
+    "JAZZ_Reflex_M68"
+  ],
+  "generic_scope_visuals": {
+    "JAZZ_Reflex_Open": "WeaponAttA_CompactReflexSight",
+    "JAZZ_Reflex_Eotech": "WeaponAttA_ScopeReflex",
+    "JAZZ_Reflex_M68": "Ithaca_AimPoint"
+  },
+  "metadata_changed": false,
+  "applied": true
+}

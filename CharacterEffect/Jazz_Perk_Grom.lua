@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Grom = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Grom.png",
 	Tier = "Personal",
 }
+

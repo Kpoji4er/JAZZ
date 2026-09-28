@@ -5,18 +5,6 @@ DefineClass.BuildingConfidence = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "percentPerLevel",
-			'Value', 10,
-			'Tag', "<percentPerLevel>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "percentCap",
-			'Value', 50,
-			'Tag', "<percentCap>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -60,3 +48,4 @@ DefineClass.BuildingConfidence = {
 	Icon = "UI/Icons/Perks/BuildingConfidence",
 	Tier = "Personal",
 }
+

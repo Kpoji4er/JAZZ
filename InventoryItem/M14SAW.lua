@@ -30,21 +30,14 @@ DefineClass.M14SAW = {
 	OverwatchAngle = 960,
 	Noise = 65,
 	HandSlot = "TwoHanded",
-	Entity = "Weapon_M14",
+	Entity = "JAZZ_M14",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Barrel",
-			'AvailableComponents', {
-				"JAZZ_BarrelHeavy",
-				"JAZZ_BarrelLong",
-				"JAZZ_BarrelLongImproved",
-				"JAZZ_BarrelNormal",
-				"JAZZ_BarrelNormalImproved",
-				"JAZZ_BarrelShort",
-				"JAZZ_BarrelShortImproved",
-			},
-			'DefaultComponent', "JAZZ_BarrelNormal",
-		}),
+            'SlotType', "Barrel",
+            'Modifiable', false,
+            'AvailableComponents', { "JAZZ_BarrelNormal" },
+            'DefaultComponent', "JAZZ_BarrelNormal",
+        }),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Stock",
 			'Modifiable', false,
@@ -59,7 +52,6 @@ DefineClass.M14SAW = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine_M14",
 				"JAZZ_MagSmall20_10_M14",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -68,9 +60,6 @@ DefineClass.M14SAW = {
 			'SlotType', "Under",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-				"JAZZ_GrenadeLauncher_M14",
-				"JAZZ_TacGrip_M14",
-				"JAZZ_VerticalGrip_M14",
 				"JAZZ_Bipod_Under",
 			},
 		}),
@@ -113,6 +102,7 @@ DefineClass.M14SAW = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
+	ModifyRightHandGrip = true,
 	AvailableAttacks = {
 		"BurstFire",
 		"AutoFire",
@@ -122,16 +112,12 @@ DefineClass.M14SAW = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
-	WeaponMass = 36,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Rifle",
-	BurstLimiter = 0,
 	Recoil = 36,
 	BurstShots = 4,
 	AutoShots = 7,
-
+	WeaponMass = 36,
+	CyclicRPM = 700,
 	CloseRange = 11,
-
 	CloseRangeFactor = 80,
 	BulletDropRange = 17,
 	Grouping = 41,

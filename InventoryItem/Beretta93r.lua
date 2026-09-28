@@ -3,6 +3,7 @@ DefineClass.Beretta93r = {
 	__parents = { "Autopistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-3",
 	object_class = "Autopistol",
 	ScrapParts = 6,
@@ -36,7 +37,6 @@ DefineClass.Beretta93r = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_25_PISTOL_9",
 				"JAZZ_MagLarge_27",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -46,11 +46,10 @@ DefineClass.Beretta93r = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_ImprovisedSuppressor",
-								"JAZZ_Suppressor",
-							},
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -62,18 +61,13 @@ DefineClass.Beretta93r = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
+	MaxAimActions = 2,
+	Recoil = 22,
+	AutoShots = 0,
 	WeaponMass = 26,
 	CyclicRPM = 1100,
 	WeaponSizeClass = "Compact",
 	BurstLimiter = 3,
-	BurstShots = 3,
-	MaxAimActions = 2,
-	Recoil = 22,
-	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
 	BulletDropRange = 6,
 	Grouping = 65,
 	BaseJamChance = -20,

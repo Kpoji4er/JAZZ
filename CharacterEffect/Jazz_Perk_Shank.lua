@@ -3,12 +3,14 @@ DefineClass.Jazz_Perk_Shank = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
 			Handler = function (self, target, attacker, action, attack_target, weapon1, weapon2, data)
 				if target == attack_target and action and action.ActionType == "Melee Attack" then
+					-- 50% melee defense ≈ −50 CTH vs melee (shipping baseline kept / named as defense)
 					ApplyCthModifier_Add(self, data, -50)
 				end
 			end,
@@ -16,6 +18,14 @@ DefineClass.Jazz_Perk_Shank = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
 			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+				-- target here is the perk owner when reacting on owner; for defense we need owner == attack_target
+				local owner = self and (IsKindOf(self, "StatusEffect") and self.owner) or nil
+			end,
+		}),
+		PlaceObj('UnitReaction', {
+			Event = "OnUnitAttack",
+			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
+				-- When Shank is the attack_target and melee misses, throw knife back if attacker within 8
 				if target ~= attack_target then
 					return
 				end
@@ -40,8 +50,13 @@ DefineClass.Jazz_Perk_Shank = {
 						if not knife then knife = item end
 					end)
 				end
-				if knife and CombatActions and CombatActions.KnifeThrow and CombatActions.KnifeThrow.Run then
-					CombatActions.KnifeThrow:Run(attack_target, { target = attacker, weapon = knife })
+				if knife and attack_target.ThrowKnife then
+					attack_target:ThrowKnife(attacker, knife)
+				elseif knife and CombatActions and CombatActions.KnifeThrow then
+					local ca = CombatActions.KnifeThrow
+					if ca and ca.Run then
+						ca:Run(attack_target, { target = attacker, weapon = knife })
+					end
 				end
 			end,
 		}),
@@ -51,3 +66,4 @@ DefineClass.Jazz_Perk_Shank = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Shank.png",
 	Tier = "Personal",
 }
+

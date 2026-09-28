@@ -1,0 +1,557 @@
+{
+  "catalog_count": 183,
+  "expected_single_slot_configurations": 1779,
+  "manifest_configurations": 1811,
+  "missing": [],
+  "additional_configurations": [
+    [
+      "Auto5_quest",
+      "Barrel-JAZZ_Auto5_Basic_NMag"
+    ],
+    [
+      "Auto5_quest",
+      "Barrel-JAZZ_Auto5_Long_LMag"
+    ],
+    [
+      "Auto5_quest",
+      "Barrel-JAZZ_Auto5_Long_NMag"
+    ],
+    [
+      "Auto5_quest",
+      "Barrel-JAZZ_Auto5_Short_NMag"
+    ],
+    [
+      "Auto5_quest",
+      "Muzzle-JAZZ_Compensator"
+    ],
+    [
+      "Auto5_quest",
+      "Muzzle-JAZZ_DuckbillChoke"
+    ],
+    [
+      "Auto5_quest",
+      "Muzzle-JAZZ_FullChoke"
+    ],
+    [
+      "Galil_FlagHill",
+      "Magazine-JAZZ_MagLarge_25_40"
+    ],
+    [
+      "Galil_FlagHill",
+      "Muzzle-JAZZ_Compensator"
+    ],
+    [
+      "Galil_FlagHill",
+      "Muzzle-JAZZ_Suppressor"
+    ],
+    [
+      "GoldenGun",
+      "Muzzle-JAZZ_Compensator"
+    ],
+    [
+      "GoldenGun",
+      "Muzzle-JAZZ_Suppressor"
+    ],
+    [
+      "LionRoar",
+      "Muzzle-JAZZ_Compensator"
+    ],
+    [
+      "LionRoar",
+      "Muzzle-JAZZ_PistolSuppressor"
+    ],
+    [
+      "M16A4",
+      "RIS__Side-JAZZ_Flashlight"
+    ],
+    [
+      "M16A4",
+      "RIS__Side-JAZZ_FlashlightDot"
+    ],
+    [
+      "M16A4",
+      "RIS__Side-JAZZ_FlashlightOff"
+    ],
+    [
+      "M16A4",
+      "RIS__Side-JAZZ_LaserDot"
+    ],
+    [
+      "M16A4",
+      "RIS__Side-JAZZ_UVDot"
+    ],
+    [
+      "M16A4",
+      "RIS__Under-JAZZ_GrenadeLauncher"
+    ],
+    [
+      "M16A4",
+      "RIS__Under-JAZZ_TacGrip"
+    ],
+    [
+      "M16A4",
+      "RIS__Under-JAZZ_VerticalGrip"
+    ],
+    [
+      "M16A4",
+      "RIS__default"
+    ],
+    [
+      "M4A1",
+      "RIS__Side-JAZZ_Flashlight"
+    ],
+    [
+      "M4A1",
+      "RIS__Side-JAZZ_FlashlightDot"
+    ],
+    [
+      "M4A1",
+      "RIS__Side-JAZZ_FlashlightOff"
+    ],
+    [
+      "M4A1",
+      "RIS__Side-JAZZ_LaserDot"
+    ],
+    [
+      "M4A1",
+      "RIS__Side-JAZZ_UVDot"
+    ],
+    [
+      "M4A1",
+      "RIS__Under-JAZZ_GrenadeLauncher"
+    ],
+    [
+      "M4A1",
+      "RIS__Under-JAZZ_TacGrip"
+    ],
+    [
+      "M4A1",
+      "RIS__Under-JAZZ_VerticalGrip"
+    ],
+    [
+      "M4A1",
+      "RIS__default"
+    ]
+  ],
+  "errors": [],
+  "batches": [
+    {
+      "batch": "production-capture",
+      "phase": "done",
+      "camera_restored": true,
+      "captured": 1764,
+      "failures": [
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Under",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_GrenadeLauncher",
+          "label": "Under-JAZZ_GrenadeLauncher",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Under",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_VerticalGrip",
+          "label": "Under-JAZZ_VerticalGrip",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Under",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_TacGrip",
+          "label": "Under-JAZZ_TacGrip",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_Flashlight",
+          "label": "Side-JAZZ_Flashlight",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_FlashlightOff",
+          "label": "Side-JAZZ_FlashlightOff",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_FlashlightDot",
+          "label": "Side-JAZZ_FlashlightDot",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_LaserDot",
+          "label": "Side-JAZZ_LaserDot",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M16A4",
+          "name": "M16A4",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M16A4",
+          "requested_component": "JAZZ_UVDot",
+          "label": "Side-JAZZ_UVDot",
+          "entity": "M16R_M16A4",
+          "valid_entity": true,
+          "components": {
+            "Trigger": "",
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Stock": "JAZZ_StockNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Magazine": "JAZZ_MagNormal",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Under",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_GrenadeLauncher",
+          "label": "Under-JAZZ_GrenadeLauncher",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Under",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_VerticalGrip",
+          "label": "Under-JAZZ_VerticalGrip",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Under",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_TacGrip",
+          "label": "Under-JAZZ_TacGrip",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_Flashlight",
+          "label": "Side-JAZZ_Flashlight",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_FlashlightOff",
+          "label": "Side-JAZZ_FlashlightOff",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_FlashlightDot",
+          "label": "Side-JAZZ_FlashlightDot",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_LaserDot",
+          "label": "Side-JAZZ_LaserDot",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        },
+        {
+          "plural": "M4A1",
+          "name": "M4A1",
+          "status": "rejected-component",
+          "requested_slot": "Side",
+          "weapon": "M4A1",
+          "requested_component": "JAZZ_UVDot",
+          "label": "Side-JAZZ_UVDot",
+          "entity": "M4R_M4A1",
+          "valid_entity": true,
+          "components": {
+            "Side": "",
+            "Handgrip": "JAZZ_Handgrip_Default",
+            "Barrel": "JAZZ_BarrelNormal",
+            "Under": "",
+            "Magazine": "JAZZ_MagNormal",
+            "Handguard": "JAZZ_Handguard",
+            "Stock": "JAZZ_StockLightUnFolded",
+            "Scope": "JAZZ_CarryHandle_AR15",
+            "Muzzle": "JAZZ_DefMuzzle"
+          }
+        }
+      ]
+    },
+    {
+      "batch": "wide-capture",
+      "phase": "done",
+      "camera_restored": true,
+      "captured": 38,
+      "failures": []
+    },
+    {
+      "batch": "ris-capture",
+      "phase": "done",
+      "camera_restored": true,
+      "captured": 18,
+      "failures": []
+    },
+    {
+      "batch": "quest-capture",
+      "phase": "done",
+      "camera_restored": true,
+      "captured": 20,
+      "failures": []
+    },
+    {
+      "batch": "consistency-capture",
+      "phase": "done",
+      "camera_restored": true,
+      "captured": 1,
+      "failures": []
+    }
+  ],
+  "cleanup": {
+    "camera": "{\n\tpoint(160841, 170135, 17950),\n\tpoint(155400, 155400, 6950),\n\t\"Tac\",\n\t750,\n\t{\n\t\tfloor = 0,\n\t\toverview = false,\n\t},\n\t4200,\n}",
+    "light": "Dry_Coastal_Day",
+    "capture_area_objects": [],
+    "map": "ModEditor",
+    "render": {
+      "particles": 1,
+      "auto_exposure": 1,
+      "sky": 1,
+      "clutter": true,
+      "rain": 1,
+      "terrain": 1
+    },
+    "time_factor": 1100
+  },
+  "limits": [
+    "single-slot changes relative to defaults, not all combinations",
+    "UI legality not established by direct component setter",
+    "mount geometry provisional",
+    "staged only; not installed"
+  ],
+  "pass": true
+}

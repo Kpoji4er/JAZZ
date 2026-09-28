@@ -13018,6 +13018,7 @@ Speck","Командир!
 890000000020594,Running.,Бегу.,,jazz:Code/System_AI_CombatBarks.lua
 890000000020595,Closer.,Ближе.,,jazz:Code/System_AI_CombatBarks.lua
 890000000020596,It's far. Going.,"Далеко, бегу.",,jazz:Code/System_AI_CombatBarks.lua
+890000000020597,Ручка для переноски,Ручка для переноски,,jazz:items.lua ModItemWeaponComponent JAZZ_CarryHandle_AR15 DisplayName
 890000000009944,MERC $<balance>,MERC $<balance>,,JAZZ-UI-MERC-002
 890000000009945,M.E.R.C. account,Счёт M.E.R.C.,,JAZZ-UI-MERC-002
 890000000009946,Unpaid credit. Click to open M.E.R.C. and Pay Account.,"Неоплаченный кредит. Нажмите, чтобы открыть M.E.R.C. и оплатить счёт.",,JAZZ-UI-MERC-002
@@ -13069,6 +13070,21 @@ Speck","Командир!
 890000000014201,Бронежилеты EOD,Бронежилеты EOD,,jazz:InventoryItem/JazzArmor_EOD.lua
 890000000014202,"Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.","Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.",,jazz:InventoryItem/JazzArmor_EOD.lua
 890000000014203,Броня для разминирования,Броня для разминирования,,jazz:InventoryItem/JazzArmor_EOD.lua
+990002710,Mk 14 EBR,Mk 14 EBR,,jazz:InventoryItem/MK14EBR.lua
+990002711,Mk 14 EBR,Mk 14 EBR,,jazz:InventoryItem/MK14EBR.lua
+990002712,"Mk 14 EBR на шасси Sage: пистолетная рукоять, складной AR-приклад и рейки. Тот же 7.62x51, но уже не ложка USGI.","Mk 14 EBR на шасси Sage: пистолетная рукоять, складной AR-приклад и рейки. Тот же 7.62x51, но уже не ложка USGI.",,jazz:InventoryItem/MK14EBR.lua
+990002713,Современное шасси / очередь и авто,Современное шасси / очередь и авто,,jazz:InventoryItem/MK14EBR.lua
+990002714,M14 Mk III,M14 Mk III,,jazz:InventoryItem/JAZZ_M14_MkIII.lua
+990002715,M14 Mk III,M14 Mk III,,jazz:InventoryItem/JAZZ_M14_MkIII.lua
+990002716,"Кастомный M14 с рельсой Mk III, своим камуфляжем и обвесом. Не путать с золотым Gold Fever.","Кастомный M14 с рельсой Mk III, своим камуфляжем и обвесом. Не путать с золотым Gold Fever.",,jazz:InventoryItem/JAZZ_M14_MkIII.lua
+990002717,Уник / не в Bobby Ray,Уник / не в Bobby Ray,,jazz:InventoryItem/JAZZ_M14_MkIII.lua
+990002718,ART / Leatherwood,ART / Leatherwood,,jazz:items.lua
+890000000019401,Vektor R4,Vektor R4,,jazz:InventoryItem/VektorR4.lua:15 | jazz:items.lua:119098
+890000000019402,Vektor R4,Vektor R4,,jazz:InventoryItem/VektorR4.lua:16 | jazz:items.lua:119099
+890000000019403,"Южноафриканский армейский автомат под патрон 5,56x45 мм. Тяжёлый и надёжный, с магазином на 35 патронов. Штатная конфигурация с открытым прицелом.","Южноафриканский армейский автомат под патрон 5,56x45 мм. Тяжёлый и надёжный, с магазином на 35 патронов. Штатная конфигурация с открытым прицелом.",,jazz:InventoryItem/VektorR4.lua:17 | jazz:items.lua:119100
+890000000019501,vz. 58,vz. 58,,jazz:InventoryItem/VZ58.lua:15 | jazz:items.lua:119165
+890000000019502,vz. 58,vz. 58,,jazz:InventoryItem/VZ58.lua:16 | jazz:items.lua:119166
+890000000019503,"Чехословацкий автомат под патрон 7,62x39 мм. Лёгкий, скорострельный, с магазином на 30 патронов. Штатную мебель можно заменить современными прикладом, рукоятью и цевьём с планками.","Чехословацкий автомат под патрон 7,62x39 мм. Лёгкий, скорострельный, с магазином на 30 патронов. Штатную мебель можно заменить современными прикладом, рукоятью и цевьём с планками.",,jazz:InventoryItem/VZ58.lua:17 | jazz:items.lua:119167
 718927001001,Starting world tier,Стартовый тир мира,,jazz:Code/GameRules_HideAdvanced.lua:18
 718927001002,Tier progression,Рост тира,,jazz:Code/GameRules_HideAdvanced.lua:19
 718927001003,Choose the initial Legion tier for the whole world. Equipment and all strategic systems linked to this tier start at the selected level. This does not complete quests or grant money or mercenary equipment. Click to cycle through tiers.,Выберите начальный тир Легиона для всего мира. Снаряжение и все связанные с тиром стратегические системы сразу используют выбранный уровень. Квесты не завершаются; деньги и снаряжение наёмникам не выдаются. Нажимайте для выбора тира.,,jazz:Code/GameRules_HideAdvanced.lua:20

@@ -111,7 +111,7 @@ executable: true
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `tosca.ja2-face.gif` (same face identity). Female American autorifleman mid-20s/30s, intense eyes, dark hair, tactical vest with ammo pouches and hearing protection — NO rifle. Hostile edge.
 
-**Class kit:** ammo pouches, earpro, heavy-weapons instructor patch  
+**Class kit:** ammo pouches, earpro, heavy-weapons instructor patch<br>
 **Refs:** existing `Buzz.png` / `Buzz_Big.png`
 
 ## Phrases — AIM chat

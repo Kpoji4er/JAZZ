@@ -3,6 +3,7 @@ DefineClass.SWModel5906 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -17,7 +18,6 @@ DefineClass.SWModel5906 = {
 	Cost = 1500,
 	CanAppearInShop = true,
 	Tier = 2,
-	RestockWeight = 100,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_9x19",
@@ -36,7 +36,6 @@ DefineClass.SWModel5906 = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_25_PISTOL_9",
 				"JAZZ_MagLarge_27",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -46,9 +45,9 @@ DefineClass.SWModel5906 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_ImprovisedSuppressor",
-								"JAZZ_Suppressor",
-							},
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
@@ -61,7 +60,6 @@ DefineClass.SWModel5906 = {
 				"JAZZ_UVDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -73,18 +71,12 @@ DefineClass.SWModel5906 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 74,
 	BaseJamChance = -20,

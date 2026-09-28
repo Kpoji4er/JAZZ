@@ -3,6 +3,7 @@ DefineClass.Jazz_Perk_Mike = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "Perk",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -17,3 +18,4 @@ DefineClass.Jazz_Perk_Mike = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Mike.png",
 	Tier = "Personal",
 }
+

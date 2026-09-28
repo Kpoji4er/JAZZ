@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_792_FMJ = {
 	Description = T(890000000000829, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_FMJ Description]] "Фашисты хоть и пидоры, но в оружии разбирались, отличные патроны, с отличными свойствами, минус лишь в том,  что патроны старые и оружие соответственно."),
 	AdditionalHint = "",
 	Cost = 200,
-	CanAppearInShop = false,
 	MaxStock = 5,
 	RestockWeight = 1,
 	CategoryPair = "792",

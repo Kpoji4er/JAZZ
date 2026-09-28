@@ -1,0 +1,15 @@
+{
+  "entity": "JAZZ_LeatherArmor_Male",
+  "triangles": 11966,
+  "inherit": "Male",
+  "hgskeleton": "JAZZ_LeatherArmor_Male_mesh",
+  "icon": [
+    110,
+    110
+  ],
+  "baked_maps": [
+    "Base",
+    "Norm",
+    "RM"
+  ]
+}

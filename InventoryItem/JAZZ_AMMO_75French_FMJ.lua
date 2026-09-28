@@ -11,7 +11,6 @@ DefineClass.JAZZ_AMMO_75French_FMJ = {
 	colorStyle = "AmmoBasicColor",
 	Description = T(890000000000828, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_75French_FMJ Description]] "Что-то на французском, вроде как базовый патрон, но пенетрирует не хуже некоторых бронебойных, жаль оружие под него вышло в тираж."),
 	Cost = 200,
-	CanAppearInShop = false,
 	MaxStock = 5,
 	RestockWeight = 1,
 	CategoryPair = "792",

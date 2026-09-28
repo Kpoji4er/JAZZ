@@ -3,6 +3,7 @@ DefineClass.HiPower = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-2",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -17,7 +18,6 @@ DefineClass.HiPower = {
 	Cost = 1100,
 	CanAppearInShop = true,
 	Tier = 2,
-	RestockWeight = 100,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_9x19",
@@ -60,7 +60,6 @@ DefineClass.HiPower = {
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -72,18 +71,12 @@ DefineClass.HiPower = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 7,
 	Grouping = 70,
 	BaseJamChance = -10,

@@ -212,7 +212,7 @@ Stairs_{id}_01
 
 Separate entities (`SlabWallObject`). They **cut a hole** in `Wall`. Until an entity of that name exists, you cannot insert a window into that material. Vanilla `Window_Adobe_Single_01` will not stick to your `JazzBrick`.
 
-Pattern: `{Type}_{id}_{width}_{NN}`  
+Pattern: `{Type}_{id}_{width}_{NN}`<br>
 Function: `SlabWallObjectName`.
 
 | Cell height | Window | Door |
@@ -472,7 +472,7 @@ Search the log for `Failed to load` / missing entity with the **full** name the 
 - Pivot and thickness — “wall in the floor” / double thickness at the joint.
 - Without a Collision surface the wall looks fine but is shoot-through and gives no cover.
 - `hge_export` on references — the human and the ground leave with the mod.
-- Broken texture paths from another machine (`C:\Users\…`) will not survive moving the Blend file.
+- Broken texture paths from another machine (`<OTHER_USER_HOME>`) will not survive moving the Blend file.
 
 ## Checklist
 

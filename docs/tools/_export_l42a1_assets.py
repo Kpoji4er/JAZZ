@@ -1,13 +1,21 @@
-import bpy, importlib.util, math, numpy as np
+import bpy, importlib.util, json, math, numpy as np
 from pathlib import Path
 from mathutils import Matrix,Vector
 import argparse,sys
+_TOOLS=Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:sys.path.insert(0,str(_TOOLS))
+from _ja3_mesh_prepare import prepare_export_mesh
 parser=argparse.ArgumentParser()
 parser.add_argument('--build',type=Path,required=True)
 parser.add_argument('--game-root',type=Path,required=True)
 parser.add_argument('--source',type=Path,required=True)
+# JAZZ-WEAPON-L42A1-001: uniform scale about the entity origin, so the right-hand
+# attachment stays put and every spot scales with the mesh.
+parser.add_argument('--scale',type=float,default=1.0)
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 out=args.build
+clean=out/'clean';rigged=out/'rigged'
+for folder in (clean,rigged):folder.mkdir(parents=True,exist_ok=True)
 game=args.game_root
 
 spec=importlib.util.spec_from_file_location('rifle_hge',game/'ModTools/BlenderExport.py')
@@ -35,25 +43,35 @@ for mat in [bpy.data.materials['L42A1_Body'],bpy.data.materials['L42A1_Lenses']]
             key={'base_color':'Base','normal_map':'Normal','roughness_metallic_map':'RM','ambient_occlusion_map':'AO'}.get(prop.settings_name)
             mat[prop.id]=images[key].filepath_raw if key in images else '' if prop.map else getattr(mat.hgm_settings,prop.settings_name)
 meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']
-transform=Matrix.Translation(Vector((0,-.1645,.014)))@Matrix.Rotation(-math.pi/2,4,'Z')
+transform=Matrix.Scale(args.scale,4)@Matrix.Translation(Vector((0,-.1645,.014)))@Matrix.Rotation(-math.pi/2,4,'Z')
 for o in meshes:
     o.data.transform(transform@o.matrix_world);o.matrix_world=Matrix.Identity(4);o.hide_render=False
+bpy.context.scene.unit_settings.system='METRIC';bpy.context.scene.unit_settings.scale_length=1
+bpy.ops.wm.save_as_mainfile(filepath=str(clean/'L42A1.blend'))
 for o in list(bpy.data.objects):
     if o.type!='MESH':bpy.data.objects.remove(o,do_unlink=True)
 bpy.ops.object.select_all(action='DESELECT')
 for name in ['L42A1_ScopeBody','L42A1_Lenses']:bpy.data.objects[name].select_set(True)
 bpy.context.view_layer.objects.active=bpy.data.objects['L42A1_ScopeBody'];bpy.ops.object.join();scope=bpy.context.object;scope.name='L42A1_Scope'
-root=bpy.data.objects['L42A1'];pivot=Vector((0,-.055,.068))
+root=bpy.data.objects['L42A1'];pivot=Vector((0,-.055,.068))*args.scale
 for o in [root,scope]:
     bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o
-    tri=o.modifiers.new('Triangulate','TRIANGULATE');tri.keep_custom_normals=True;bpy.ops.object.modifier_apply(modifier=tri.name)
+    prepare_export_mesh(o)
     origin=bpy.data.objects.new(o.name+'_Origin',None);bpy.context.collection.objects.link(origin)
     point=pivot if o==scope else Vector();origin.location=point;o.data.transform(Matrix.Translation(-point));o.parent=origin;o.location=Vector()
     settings=o.hge_obj_settings;settings.entity=o.name;settings.mesh='Mesh';settings.state='idle';settings.lod=1;settings.ignore=False;o.hge_export=True
-for name,point in {'Scope':pivot,'Muzzle':(0,-.714,.057),'Hand_l_grip':(0,-.2,-.012),'Trigger':(0,-.025,-.025),'Magazine':(0,-.09,-.025)}.items():
+spots={name:Vector(point)*args.scale for name,point in {'Muzzle':(0,-.714,.057),'Hand_l_grip':(0,-.2,-.012),'Trigger':(0,-.025,-.025),'Magazine':(0,-.09,-.025)}.items()}
+spots['Scope']=pivot
+for name,point in spots.items():
     o=bpy.data.objects.new(name,None);bpy.context.collection.objects.link(o);o.parent=root;o.location=point;o.hge_obj_settings.spot_name=name
 bpy.context.scene.unit_settings.system='METRIC';bpy.context.scene.unit_settings.scale_length=1
-bpy.ops.wm.save_as_mainfile(filepath=str(out/'L42A1_JAZZ.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(rigged/'L42A1_JA3.blend'))
 with hge.ObjectNamesExportContext(bpy.context):
-    bpy.ops.export_scene.fbx(filepath=str(out/'L42A1_JAZZ.fbx'),axis_forward='Y',axis_up='Z',apply_scale_options='FBX_SCALE_ALL',object_types={'MESH','EMPTY'},use_custom_props=True,add_leaf_bones=False,bake_anim=False)
-print('Exported L42A1 and L42A1_Scope')
+    bpy.ops.export_scene.fbx(filepath=str(rigged/'L42A1_JA3.fbx'),axis_forward='Y',axis_up='Z',apply_scale_options='FBX_SCALE_ALL',object_types={'MESH','EMPTY'},use_custom_props=True,add_leaf_bones=False,bake_anim=False)
+report={'scale':args.scale,'spots_m':{k:list(v) for k,v in spots.items()},'entities':{}}
+for o in [root,scope]:
+    points=[o.matrix_world@Vector(v) for v in o.bound_box]
+    lo=[min(p[i] for p in points) for i in range(3)];hi=[max(p[i] for p in points) for i in range(3)]
+    report['entities'][o.name]={'min':lo,'max':hi,'length_y':hi[1]-lo[1],'triangles':len(o.data.polygons)}
+(out/'rescale-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+print('L42A1_EXPORT='+json.dumps(report))

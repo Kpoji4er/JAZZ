@@ -3,6 +3,7 @@ DefineClass.Colt1911 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -16,7 +17,6 @@ DefineClass.Colt1911 = {
 	UnitStat = "Marksmanship",
 	Cost = 1400,
 	CanAppearInShop = true,
-	Tier = 1,
 	RestockWeight = 110,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_45ACP",
@@ -56,18 +56,12 @@ DefineClass.Colt1911 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 4,
 	Grouping = 61,
 	BaseJamChance = -10,

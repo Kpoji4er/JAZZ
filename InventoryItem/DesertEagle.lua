@@ -32,7 +32,7 @@ DefineClass.DesertEagle = {
 	Noise = 36,
 	Entity = "Weapon_DesertEagle",
 	ComponentSlots = {
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
@@ -78,17 +78,11 @@ DefineClass.DesertEagle = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 8,
 	Grouping = 74,
 	WeaponResource = 700,

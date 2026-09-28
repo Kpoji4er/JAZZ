@@ -4,8 +4,8 @@
 
 - Шаблон: [`_template.md`](_template.md)
 - Фразы: [`_phrase-checklist.md`](_phrase-checklist.md)
-- Skill: [`.agents/skills/create-jazz-merc/SKILL.md`](../../.agents/skills/create-jazz-merc/SKILL.md)
-- План генерации (один за другим): [`.agents/skills/create-jazz-merc/references/generation-plan.md`](../../.agents/skills/create-jazz-merc/references/generation-plan.md)
+- Skill: [`.agents/skills/create-jazz-merc/SKILL.md`](../../../.agents/skills/create-jazz-merc/SKILL.md)
+- План генерации (один за другим): [`.agents/skills/create-jazz-merc/references/generation-plan.md`](../../../.agents/skills/create-jazz-merc/references/generation-plan.md)
 - Источник дизайна: [AIM sheet → «Наемники из JA1/2»](https://docs.google.com/spreadsheets/d/19Je4n5Ju4cYmTLimzw45aFq_Ll8Wxz21RLIETFRsH2g/edit?gid=1773591798#gid=1773591798)
 
 **Портреты:** без оружия в руках (кобура — крайний случай); роль по классовому киту (эталон — [Паук](spider.md)). Лицо — по JA2-референсу ``<slug>.ja2-face.*`` рядом со статьёй.
@@ -20,8 +20,8 @@
 
 ## Ready (as-shipped / wave codegen)
 
-Внешние эталоны: lynx, tosca, spider, spouke.  
-Волна JAZZ-UNITS-002: **44/44** — UnitData + perk companion + портреты 300/2000.  
+Внешние эталоны: lynx, tosca, spider, spouke.<br>
+Волна JAZZ-UNITS-002: **44/44** — UnitData + perk companion + портреты 300/2000.<br>
 Очередь: [`_generation-queue.md`](_generation-queue.md). Gaps (perk hooks, rich AIM, Appearance, sync/loc audit) — там же.
 
 | Slug | Nick | UnitData Id |

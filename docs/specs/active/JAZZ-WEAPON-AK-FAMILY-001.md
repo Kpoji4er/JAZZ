@@ -22,6 +22,10 @@ write_set:
   - jazz/docs/tools/*rifle*
   - jazz/docs/tools/*mosin*
   - jazz/docs/tools/*ak*
+  - jazz/docs/tools/_render_weapon_icons.py
+  - jazz/docs/tools/_finalize_weapon_icons.py
+  - jazz/docs/tools/_measure_ak_grip.py
+  - jazz/docs/tools/_reanchor_ak_grip.py
   - jazz/docs/tools/README.md
   - jazz/docs/design/weapons-import-queue.md
   - jazz/docs/specs/active/JAZZ-WEAPON-AK-FAMILY-001.md
@@ -66,6 +70,8 @@ approved_by: project-owner in conversation 2026-09-15
 - `JAZZ-WEAPON-AK-FAMILY-001-REQ-001` — Ремастер существующих AK74 и AKM с сохранением ID и базовых статов; новые AK74M и AK105 на базе соответствующих калибра и класса. Общие магазины 5.45: 30/45, 7.62: 30/40/75. Сохранять существующие component IDs, исключить совместимость между калибрами, проверить штатные и увеличенные магазины на всех затронутых АК. Допустимы подходящие vanilla/existing assets. Новые образцы получают тестовые статы и FX от AK74.
 - `JAZZ-WEAPON-AK-FAMILY-001-REQ-002` — сохранить исходники; экспортировать отдельные entities с attachment spots, согласовать ModItem, metadata, companion и локализацию.
 - `JAZZ-WEAPON-AK-FAMILY-001-REQ-003` — иконка из Blender, направление слева направо, прозрачный фон и обводка.
+- `JAZZ-WEAPON-AK-FAMILY-001-REQ-004` — иконки AK74M и AK105 приводятся к формату рукодельных: ровно 324×165 RGBA, дуло вправо, прозрачный фон, сплошное почти чёрное кольцо 3–6 px плюс мягкий ореол, без белой каймы. Рукодельные `AK74.png`, `AKM.png`, `UMP45.png` и геометрия AK74/AKM не затрагиваются.
+- `JAZZ-WEAPON-AK-FAMILY-001-REQ-005` — origin корпуса `AKR_AK74M` и `AKR_AK105` сдвигается так, чтобы пистолетная рукоять совпала с принятым AK74: рука на рукояти, не на магазине. Сдвигаются только body mesh и spots; магазины, приклад, цевьё и дуло остаются в своих entity. `ModifyRightHandGrip` не ставится. Решение владельца: скрины idle 2026-09-20.
 
 ## Инварианты и ограничения
 
@@ -78,6 +84,8 @@ approved_by: project-owner in conversation 2026-09-15
 - `JAZZ-WEAPON-AK-FAMILY-001-AC-001` — static: материалы восстановлены, геометрия и точки крепления согласованы; исходники сохранены.
 - `JAZZ-WEAPON-AK-FAMILY-001-AC-002` — static: Lua и ссылки проходят проверки; RU/EN, иконка и граф ресурсов присутствуют.
 - `JAZZ-WEAPON-AK-FAMILY-001-AC-003` — editor/runtime: загрузка, предмет в руках/на земле, смена доступных компонентов, выстрел/перезарядка со звуком и save/reload без ошибок.
+- `JAZZ-WEAPON-AK-FAMILY-001-AC-004` — static: `WeaponIcons/AK74M.png` и `AK105.png` имеют размер 324×165 RGBA, а замер доли почти чёрных пикселей по глубине от края силуэта показывает сплошное кольцо не тоньше 3 px.
+- `JAZZ-WEAPON-AK-FAMILY-001-AC-005` — static: `.ent` box и spot `Magazine` корпуса сдвинуты на согласованный offset (AK74M +4.63/−1.11 см, AK105 +3.66/+0.35 см по X/Z); human/runtime: в idle правая рука на пистолетной рукояти.
 
 ## Impact и совместимость
 
@@ -103,6 +111,14 @@ approved_by: project-owner in conversation 2026-09-15
 - Дата: 2026-09-15.
 
 ## Evidence
+
+### Хват AK74M/AK105, 2026-09-20
+
+- `JAZZ-WEAPON-AK-FAMILY-001-AC-005`: `PASS` static — idle-скрины показали руку на магазине у AK74M и чуть впереди рукояти у AK105. Центр рукояти относительно origin: AK74 +0.39/−2.21 см, AK74M −4.24/−1.10 см, AK105 −3.27/−2.56 см. Корпус сдвинут на +4.63/−1.11 и +3.66/+0.35 см; новый box AK74M `-4.400 .. 60.369`, Magazine 13.630 (ванильный AK74 Magazine 14.035); AK105 box `-5.647 .. 50.416`, Magazine 12.384. Модули не менялись. Runtime/human — после reload с диска.
+
+### Иконки 324×165 с обводкой, 2026-09-19
+
+- `JAZZ-WEAPON-AK-FAMILY-001-AC-004`: `PASS` static — `docs/tools/_render_weapon_icons.py` рендерит в 2× с композицией `DilateErode` по альфе → почти чёрный слой → `AlphaOver` под картинку, плюс размытая широкая копия как ореол; `_finalize_weapon_icons.py` сводит к 324×165 через LANCZOS и печатает профиль обводки. Доля почти чёрных пикселей по глубине от края силуэта — AK74M: 1 px 1.00, 2 px 1.00, 3 px 0.81, 4 px 0.53; AK105: 1.00 / 1.00 / 0.86 / 0.73; эталон AK74: 1.00 / 0.96 / 0.60 / 0.32. Прежние 512×256 давали около 1.5 px. На глубине от 4 px значение завышено собственной чёрной краской моделей. Геометрия AK74M и AK105 не менялась, рукодельные `AK74.png`, `AKM.png`, `UMP45.png` не тронуты.
 
 ### Ванильные референсы и offline fit, 2026-09-16
 

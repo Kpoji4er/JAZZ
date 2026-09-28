@@ -738,7 +738,8 @@ function InventoryItem:GetItemUIIcon()
 	if IsKindOf(self, "JAZZ_RemovableAttachment") then
 		return JAZZ_RemovableAttachment_GetItemUIIcon(self)
 	end
-	return VanillaInventoryItemGetItemUIIcon(self)
+	local captured = JazzWeaponIcon_GetCaptured and JazzWeaponIcon_GetCaptured(self)
+	return captured or VanillaInventoryItemGetItemUIIcon(self)
 end
 
 end -- FirstLoad: InventoryItem rollover/icon hooks

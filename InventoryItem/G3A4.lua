@@ -3,6 +3,7 @@ DefineClass.G3A4 = {
 	__parents = { "BattleRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-5",
 	object_class = "BattleRifle",
 	ScrapParts = 10,
@@ -93,16 +94,12 @@ DefineClass.G3A4 = {
 	},
 	ShootAP = 7000,
 	ReloadAP = 7000,
+	Recoil = 28,
+	AutoShots = 6,
 	WeaponMass = 43,
 	CyclicRPM = 550,
-	WeaponSizeClass = "Rifle",
 	BurstLimiter = 3,
-	Recoil = 28,
-	BurstShots = 3,
-	AutoShots = 6,
-
 	CloseRange = 11,
-
 	CloseRangeFactor = 80,
 	BulletDropRange = 20,
 	Grouping = 51,

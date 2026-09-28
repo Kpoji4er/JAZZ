@@ -63,9 +63,9 @@ approved_by: pending
 
 ## Канон резерва
 
-`attack_cost` = `context.attack_AP_reserved` или `context.default_attack_cost` или `floor(AP/2)` — как сейчас в `AIFindDestinations`.  
-`disengage_reserve` = `2 * const.Scale.AP` (AI-002 SoftDisengageTiles).  
-`safe_stride` = `context.safe_stride_ap` или `8 * const.Scale.AP`.  
+`attack_cost` = `context.attack_AP_reserved` или `context.default_attack_cost` или `floor(AP/2)` — как сейчас в `AIFindDestinations`.<br>
+`disengage_reserve` = `2 * const.Scale.AP` (AI-002 SoftDisengageTiles).<br>
+`safe_stride` = `context.safe_stride_ap` или `8 * const.Scale.AP`.<br>
 `min_move_ap` = `context.min_move_ap` или 0.
 
 | Командный vis | Норматив `reserved_AP` |

@@ -13,7 +13,6 @@ DefineClass.JAZZ_AMMO_545_EPR = {
 	Cost = 4000,
 	CanAppearInShop = true,
 	Tier = 4,
-	MaxStock = 3,
 	RestockWeight = 22,
 	CategoryPair = "545",
 	ShopStackSize = 120,

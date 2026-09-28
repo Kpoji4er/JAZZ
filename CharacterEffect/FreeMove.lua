@@ -3,6 +3,7 @@ DefineClass.FreeMove = {
 	__parents = { "CharacterEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "CharacterEffect",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -16,7 +17,6 @@ DefineClass.FreeMove = {
 	},
 	Conditions = {
 		PlaceObj('CheckExpression', {
-			-- JAZZ-COMBAT-007: allow Free Move while Winded/Fatigued/Tired; block only at Exhausted.
 			Expression = function (self, obj)
 				local cap = rawget(const, "utExhausted") or 4
 				return g_Combat and (obj.Tiredness or 0) < cap
@@ -35,7 +35,6 @@ DefineClass.FreeMove = {
 	Description = T(824694494336, --[[ModItemCharacterEffectCompositeDef FreeMove Description]] "Move without spending AP. Removed after attacking or after moving the allowed distance (based on <agility>)."),
 	OnAdded = function (self, obj)
 		if not IsKindOf(obj, "Unit") then return end
-
 		local cur_free_ap = obj.free_move_ap
 		local free_ap = Max(0, MulDivRound(obj.Agility - 40, const.Scale.AP, 10))
 		local data = {min = 0, max = 999, add = 0, mul = 100}
@@ -53,7 +52,6 @@ DefineClass.FreeMove = {
 				free_ap = Max(0, free_ap - MulDivRound(free_ap, Min(wounds.stacks, max_wounds)*per_wound_percent, 100))
 			end
 		end
-
 		local prev_ap = obj.ActionPoints
 		obj:GainAP(free_ap - cur_free_ap)
 		if obj.ActionPoints > prev_ap then
@@ -75,25 +73,3 @@ DefineClass.FreeMove = {
 	Shown = true,
 }
 
--- Tooltip uses ResolveValue("Description"); GetDescription stays raw for save __toluacode.
-function FreeMove:ResolveValue(key)
-	if key == "Description" then
-		local fmt = rawget(_G, "JazzFormatFreeMoveDescription")
-		if type(fmt) == "function" then
-			return fmt(self)
-		end
-	end
-	return CharacterEffect.ResolveValue(self, key)
-end
-
-function FreeMove:GetDescription()
-	local defs = rawget(_G, "CharacterEffectDefs")
-	local def = defs and defs.FreeMove
-	if def then
-		local d = rawget(def, "Description")
-		if d then
-			return d
-		end
-	end
-	return rawget(FreeMove, "Description") or ""
-end

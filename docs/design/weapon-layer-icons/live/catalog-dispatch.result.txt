@@ -1,0 +1,3 @@
+OK: catalog=183 {
+	metatable = table: 00000224B16D4808 [1]
+}

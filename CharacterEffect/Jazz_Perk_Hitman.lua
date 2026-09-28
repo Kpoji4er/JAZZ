@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Hitman = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Hitman.png",
 	Tier = "Personal",
 }
+

@@ -2,10 +2,12 @@ UndefineClass('Analgesia')
 DefineClass.Analgesia = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "StatusEffect",
-	DisplayName = T(890000000010009, "Analgesia"),
-	Description = T(890000000010010, "Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries."),
-	OnAdded = function(self, obj)
+	DisplayName = T(890000000010009, --[[ModItemCharacterEffectCompositeDef Analgesia DisplayName]] "Analgesia"),
+	Description = T(890000000010010, --[[ModItemCharacterEffectCompositeDef Analgesia Description]] "Clears Pain and suppresses new Pain stacks. Does not stop bleeding or heal injuries."),
+	OnAdded = function (self, obj)
 		local refund_ap = rawget(_G, "JazzRefundPainStartTurnAP")
 		if type(refund_ap) == "function" then
 			refund_ap(obj)
@@ -21,3 +23,4 @@ DefineClass.Analgesia = {
 	Shown = true,
 	ShownSatelliteView = true,
 }
+

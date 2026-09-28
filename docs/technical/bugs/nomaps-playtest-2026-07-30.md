@@ -1,9 +1,9 @@
 # Playtest bug report: `jazz-nomaps` (Discord, 2026-07-30)
 
-**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6) — COMPAT-010; **B24** (I1 empty) — RIS `UnitMarker` wrap cycle, I1 sector-skip reverted; **B25** (Pierre H4) — COMPAT-011 keep-vanilla  
-**Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`  
-**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала); Discord Firestarter 2026-08-18 (A2/F5/G6); Discord papasa44 2026-08-20 (I1/Пьер)  
-**Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md), [JAZZ-COMPAT-010](../../specs/active/JAZZ-COMPAT-010.md), [JAZZ-COMPAT-011](../../specs/active/JAZZ-COMPAT-011.md)  
+**Статус:** fixed in jazz-nomaps **0.5** (PR #1) + **0.6** armor remap + **0.7–0.9** Global AI; **B9 Bastien remap** fixed in nomaps code (named suffix skip); **B21–B23** (A2/F5/G6) — COMPAT-010; **B24** (I1 empty) — RIS `UnitMarker` wrap cycle, I1 sector-skip reverted; **B25** (Pierre H4) — COMPAT-011 keep-vanilla<br>
+**Профиль:** `jazz_assets` + `jazz-units` + **`jazz-nomaps`** (`7MsJ2Eq`) + `jazz` (+ CommonLib), без `jazz-maps`<br>
+**Источник:** Discord playtest (Sergej 1973 / Kpoji4er), скрины инвентаря сектор **I2**; follow-up Discord 2026-07-31 (броня с оригинала); Discord Firestarter 2026-08-18 (A2/F5/G6); Discord papasa44 2026-08-20 (I1/Пьер)<br>
+**Спека:** [JAZZ-COMPAT-002](../../specs/active/JAZZ-COMPAT-002.md), [JAZZ-COMPAT-010](../../specs/active/JAZZ-COMPAT-010.md), [JAZZ-COMPAT-011](../../specs/active/JAZZ-COMPAT-011.md)<br>
 **Пакет-владелец фикса:** `jazz-nomaps` (лут/sanitize/remap); cut-реестр — [weapons/cut-content.md](../weapons/cut-content.md)
 
 ## Краткий вердикт
@@ -53,7 +53,7 @@ Inject на `ExplorationStart` / `CombatStart` кладёт эти классы 
 
 ### B4 — Несовпадение калибра Hi-Power vs выпавшие патроны
 
-`InventoryItem/HiPower.lua`: `Caliber = "JAZZ_Caliber_9x19"`.  
+`InventoryItem/HiPower.lua`: `Caliber = "JAZZ_Caliber_9x19"`.<br>
 `.45` / `9x18` к Hi-Power — чужой калибр (другие пистолеты JAZZ: USP/1911 → `.45ACP`, APS/PB/Scorpion → `9x18`).
 
 Вероятный путь: ванильный archetype + старый ammo loot / не тот `GetAmmosWithCaliber` fallback, либо в инвентаре лежат cut `_9mm_*` / чужие `JAZZ_AMMO_*`, пока ствол уже на `JAZZ_Caliber_9x19`. Калаш на `JAZZ_Caliber_762x39` чаще совпадает с живым пулом → «к калашу нормальные».

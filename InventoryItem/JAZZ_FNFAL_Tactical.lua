@@ -33,14 +33,7 @@ DefineClass.JAZZ_FNFAL_Tactical = {
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_FNFAL",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Handguard",
-			'Modifiable', false,
-			'AvailableComponents', {
-				"JAZZ_FNFAL_TacHandguard",
-			},
-			'DefaultComponent', "JAZZ_FNFAL_TacHandguard",
-		}),
+
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
 			'CanBeEmpty', true,
@@ -123,6 +116,14 @@ DefineClass.JAZZ_FNFAL_Tactical = {
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
 			},
+		}),
+PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'Modifiable', false,
+			'AvailableComponents', {
+				"JAZZ_FNFAL_TacHandguard",
+			},
+			'DefaultComponent', "JAZZ_FNFAL_TacHandguard",
 		}),
 	},
 	HolsterSlot = "Shoulder",

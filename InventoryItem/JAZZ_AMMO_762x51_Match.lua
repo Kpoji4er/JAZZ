@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_762x51_Match = {
 	Cost = 2800,
 	CanAppearInShop = true,
 	Tier = 4,
-	MaxStock = 3,
 	RestockWeight = 6,
 	CategoryPair = "762NATO",
 	ShopStackSize = 20,

@@ -1,0 +1,18 @@
+{
+  "ids": [
+    "Auto5_quest",
+    "Galil_FlagHill",
+    "GoldenGun",
+    "LionRoar"
+  ],
+  "variants": [
+    "Barrel",
+    "Muzzle",
+    "Magazine"
+  ],
+  "matte": true,
+  "distance": 0,
+  "prerequisites": {},
+  "label_prefix": "",
+  "capture_source_sha256": "02890ecda7b8ee40211553b2bccf1f1b88957698bca829370e5d3c6ae67f9f2f"
+}

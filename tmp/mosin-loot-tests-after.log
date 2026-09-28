@@ -1,0 +1,28 @@
+PASS: AC-005 recipes=37
+PASS: AC-005 Recruit excluded
+PASS: AC-001 markers present
+PASS: AC-001 no stacked `}),),` closers
+PASS: AC-001 items.lua paren/brace balanced
+PASS: AC-006 no DiamondBriefcase in generated region
+PASS: no LegionT*_Shotgun nested as ammo in GenW combos
+PASS: AC-001 shared pools present
+PASS: AC-001 night lights spawn always (no TOD gate)
+PASS: AC-002 pilot inventories structure
+PASS: AC-002 Roughneck no mid carbine/AR norm
+PASS: AC-004 no open-ended early firearm entries on Roughneck
+PASS: AC-004 remnant pct=0.969% (tol ±0.5 around 1%)
+PASS: AC-005 all recipe loot ids present
+PASS: AC-005 all class blocks marked generated
+PASS: HOTFIX-003 recipe/inventory/UnitData contracts 37/37
+PASS: HOTFIX-003 Commando guaranteed Machete + Molotov and melee equip
+PASS: HOTFIX-003 Skirmisher battle/rifle/Match contract
+PASS: UNITS-004 unconditional firearm fallback present
+PASS: AC-007 metadata has all 761 JAZZ_Gen* resources
+PASS: UNITS-008 M1 combo is stocked semi
+PASS: UNITS-008 no-stock M1 combo
+PASS: UNITS-008 Warden M1 has no lower Amount gate
+PASS: UNITS-008 Roughneck no-stock SMG only
+PASS: UNITS-008 carbine_fold JAZZ_GenW_Zastava_M70_carbine_fold_762x39_ar_ammo_ap weight=6000 Amount=[22, 29]
+PASS: MOSIN-001 68 installed entries: short 11, long 13, remnant 20-29; no unconditional Mosin
+---
+RESULT: PASSED (static AC suite)

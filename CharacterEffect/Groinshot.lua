@@ -22,3 +22,4 @@ DefineClass.Groinshot = {
 	RemoveOnCampaignTimeAdvance = true,
 	HideOnBadge = true,
 }
+

@@ -1,0 +1,115 @@
+{
+  "pass": true,
+  "files": [
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_1_Norm.dds",
+      "hashes": "PASS",
+      "normal_rms_ratio": 0.24886232614517212
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_1_Norm.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_3_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_3_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_25_Norm.dds",
+      "hashes": "PASS",
+      "normal_rms_ratio": 0.2652876377105713
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_25_Norm.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_27_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_27_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_26_Base.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_26_Base.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_10_Norm.dds",
+      "hashes": "PASS",
+      "normal_rms_ratio": 0.2549523115158081
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_10_Norm.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_12_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_12_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_11_Base.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_11_Base.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_16_Norm.dds",
+      "hashes": "PASS",
+      "normal_rms_ratio": 0.3179420232772827
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_16_Norm.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VZ58_18_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VZ58_18_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VektorR4_1_Norm.dds",
+      "hashes": "PASS",
+      "normal_rms_ratio": 0.2806205153465271
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VektorR4_1_Norm.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\JAZZ_VektorR4_4_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_VektorR4_4_RM.dds",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz\\WeaponIcons\\VZ58.png",
+      "hashes": "PASS"
+    },
+    {
+      "path": "jazz_assets\\Entities\\Meshes\\JAZZ_VektorR4_Mesh.m.hgm",
+      "hashes": "PASS"
+    }
+  ],
+  "runtime_verified": false
+}

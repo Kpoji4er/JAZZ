@@ -53,8 +53,8 @@ Design thread (Discord 2026-08-17…20) + chat 2026-08-23: аптечка дол
 
 Меняет момент MaxHP debt из [JAZZ-MED-006](JAZZ-MED-006.md) и HP-ветку travel из [JAZZ-COMBAT-008](JAZZ-COMBAT-008.md) `REQ-003`. Тиры, stabilize, kit heal%, TreatWounds, Legs foot-slow — без пересмотра. **Ribs travel-mul COMBAT-008 REQ-002 снят** (owner 2026-08-23): рёбра не ускоряют Tired в пути.
 
-Supersedes MED-006 non-goal «долг только после боя — отклонено».  
-Supersedes COMBAT-008 `REQ-003` (`GetHPAdditionalTiredTime` всегда 0).  
+Supersedes MED-006 non-goal «долг только после боя — отклонено».<br>
+Supersedes COMBAT-008 `REQ-003` (`GetHPAdditionalTiredTime` всегда 0).<br>
 Supersedes COMBAT-008 `REQ-002` (Ribs travel tiredness mul).
 
 ## Проблема
@@ -85,7 +85,7 @@ Supersedes COMBAT-008 `REQ-002` (Ribs travel tiredness mul).
 
 `JazzTraumaMaxHpDebtPercent` без изменений. Wrap `RecalcMaxHitPoints` **не** вычитает долг, если у `session_id` есть живой `g_Units[id]` и активен `g_Combat` (кроме force-path).
 
-На `CombatStart` — recalc участников (потолок поднимается до базы, текущие ОЗ не растут).  
+На `CombatStart` — recalc участников (потолок поднимается до базы, текущие ОЗ не растут).<br>
 На `CombatEnd` — force-recalc с долгом и кламп.
 
 Вне боя / чужой сектор / exploration: долг сразу.

@@ -15,7 +15,6 @@ DefineClass.JAZZ_AMMO_44CAL_FMJ = {
 	CanAppearInShop = true,
 	Tier = 3,
 	MaxStock = 8,
-	RestockWeight = 100,
 	CategoryPair = "44CAL",
 	ShopStackSize = 25,
 	MaxStacks = 80,

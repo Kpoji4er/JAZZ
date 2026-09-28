@@ -1,0 +1,3 @@
+OK: {"camera":"{\n\tpoint(155734, 171421, 17950),\n\tpoint(155734, 155711, 6950),\n\t\"Tac\",\n\t750,\n\t{\n\t\tfloor = 0,\n\t\toverview = false,\n\t},\n\t4200,\n}","light":"Dry_Coastal_Day","render":{"clutter":true,"auto_exposure":1,"rain":1,"sky":1,"terrain":1,"particles":1},"map":"ModEditor","capture_area_objects":[],"time_factor":1100} {
+	metatable = table: 0000024CAF4A4808 [1]
+}

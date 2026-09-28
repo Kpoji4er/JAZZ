@@ -10,6 +10,11 @@ from _integrate_sr3m import ROOT, ASSETS, ENTITIES, TEXTS, matching
 lua = LuaRuntime(unpack_returned_tuples=True)
 lua.execute('''
 function T(id, text) return {id=id,text=text} end
+function point(x, y, z) return {x=x,y=y,z=z} end
+function box(...) return {...} end
+function range(a, b) return {a,b} end
+function RGB(...) return {...} end
+function RGBA(...) return {...} end
 function PlaceObj(class, props, children)
   local result = {__class=class}
   for k,v in pairs(props or {}) do if type(k)=='string' then result[k]=v end end
@@ -86,25 +91,61 @@ for texture in textures:
         height,width=struct.unpack_from('<II',data,12)
         assert 0<width<=maximum and 0<height<=maximum,(texture,width,height)
 
-count=0
-for slot in weapon['ComponentSlots'].values():
+def spot_position(entity, name):
+    return [float(v) for v in entity_spots[entity][name].get('spot_pos').split(',')]
+
+# The SR3M has no dovetail of any kind: optics ride the generated receiver Picatinny only.
+FORBIDDEN={'JAZZ_Scope_PSO','JAZZ_CombatScope_1P29','JAZZ_NightScope_NSPU',
+           'JAZZ_Reflex_Cobra','JAZZ_Reflex_PKAS'}
+slots={s['SlotType']:s for s in weapon['ComponentSlots'].values()}
+assert set(slots)=={'Scope','Magazine','Handguard','Muzzle','Side','Stock'}, sorted(slots)
+assert slots['Scope'].get('CanBeEmpty') is True
+# Empty by default so the modelled irons stay visible instead of hiding under an optic.
+assert not slots['Scope'].get('DefaultComponent'), slots['Scope'].get('DefaultComponent')
+assert slots['Side'].get('CanBeEmpty') is True
+# Muzzle is unlocked ahead of the 9A-91 suppressor but still ships the standard device.
+assert slots['Muzzle'].get('Modifiable') is not False
+assert slots['Muzzle'].get('DefaultComponent')=='JAZZ_DefMuzzle'
+assert len(slots['Muzzle']['AvailableComponents'])==1, 'Muzzle gained a component; check the spec REQ'
+
+own=inherited=0
+for name,slot in slots.items():
     for ident in slot['AvailableComponents'].values():
+        assert ident not in FORBIDDEN, (name,'dovetail optic on a rail-only weapon',ident)
         m=re.search(r'\bid\s*=\s*"'+ident+'"',items)
+        assert m, ident
         start=items.rfind("PlaceObj('ModItemWeaponComponent'",0,m.start())
         end=matching(items,items.index('(',start))
         comp=native(lua.execute('return '+items[start:end]))
-        visuals=[v for v in comp['Visuals'].values() if v.get('ApplyTo')=='SR3M']
-        assert len(visuals)==1, (ident,visuals)
-        visual=visuals[0]
-        assert visual['Entity'] in ENTITIES
-        assert visual['Slot'] in entity_spots['SR3M']
-        count+=1
-assert count==5
-assert {'Hand_l_grip','Trigger','Muzzle'} <= entity_spots['SR3M'].keys()
+        visuals=[native(v) for v in comp['Visuals'].values()]
+        addressed=[v for v in visuals if v.get('ApplyTo')=='SR3M']
+        fallback=[v for v in visuals if not v.get('ApplyTo')]
+        if addressed:
+            assert len(addressed)==1, (ident,addressed)
+            visual=addressed[0]
+            assert visual['Entity'] in ENTITIES, (ident,visual)
+            own+=1
+        else:
+            # Picatinny hosts reuse the component's default visual, as M4A1 does.
+            assert len(fallback)==1, (ident,'no default visual and no SR3M override')
+            visual=fallback[0]
+            inherited+=1
+        assert visual['Slot'] in entity_spots['SR3M'], (ident,visual['Slot'])
+assert (own,inherited)==(5,10), (own,inherited)
+
+assert {'Hand_l_grip','Trigger','Muzzle','Scope','Side','Under'} <= entity_spots['SR3M'].keys()
 assert 'Muzzle' in entity_spots['SR3M_Muzzle']
+# Scope rides the rail crown on the bore line; Side sits out on the handguard's flank pad.
+x,y,z=spot_position('SR3M','Scope')
+assert 4.0<=x<=9.0 and abs(y)<0.5 and 10.4<=z<=11.6, ('Scope spot off the rail',x,y,z)
+x,y,z=spot_position('SR3M','Side')
+assert abs(y)>=3.0 and 6.4<=z<=8.6, ('Side spot not on the handguard pad',x,y,z)
+assert entity_spots['SR3M']['Side'].get('spot_rot'), 'Side spot needs a roll about the bore'
 for filename,language_index in [('Russian.csv',1),('English.csv',2)]:
     rows=csv_ids(ROOT/filename)
     for ident,ru,en in TEXTS.values():
         row=rows[str(ident)]
         assert row['Translation']==(ru if language_index==1 else en), (filename,ident,row)
-print(f'PASS: SR3M Lua/ModItem equality, 6 entities, 5 visual bindings, {len(textures)} DDS/fallback pairs, RU/EN.')
+print(f'PASS: SR3M Lua/ModItem equality, 6 entities, {own} addressed + {inherited} inherited '
+      f'visual bindings over 6 slots, Scope/Side spots on the rail and handguard pad, '
+      f'{len(textures)} DDS/fallback pairs, RU/EN.')

@@ -1,1 +1,8 @@
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 Localization/*.csv whitespace=-trailing-space
+/tmp/leather-armor-v1/clean/JazzArmor_LeatherArmor.blend filter=lfs diff=lfs merge=lfs -text
+/tmp/leather-armor-v2/clean/JazzArmor_LeatherArmor.blend filter=lfs diff=lfs merge=lfs -text
+/tmp/leather-armor-v3/clean/JazzArmor_LeatherArmor.blend filter=lfs diff=lfs merge=lfs -text
+/tmp/leather-armor-v4/clean/JazzArmor_LeatherArmor.blend filter=lfs diff=lfs merge=lfs -text
+/tmp/leather-armor-v5/clean/JazzArmor_LeatherArmor.blend filter=lfs diff=lfs merge=lfs -text
+/docs/design/weapon-layer-icons/live/JAZZ-weapon-capture.zip filter=lfs diff=lfs merge=lfs -text

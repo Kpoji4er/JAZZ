@@ -3,7 +3,9 @@ DefineClass.BandageInCombat = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
+	msg_reactions = {},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -64,7 +66,7 @@ DefineClass.BandageInCombat = {
 			target:RemoveStatusEffect("Stabilized")
 			target:AddStatusEffect("BleedingOut")
 		end
-
+		
 		if not obj:IsDead() then
 			obj:ClearBehaviors("Bandage")
 			if CurrentThread() == obj.command_thread then
@@ -78,3 +80,4 @@ DefineClass.BandageInCombat = {
 	RemoveOnSatViewTravel = true,
 	Shown = true,
 }
+

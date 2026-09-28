@@ -37,13 +37,11 @@ DefineClass.MP5SD = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_50_MP5",
-				"JAZZ_MagQuick_MP5",
 				"JAZZ_MagSmall30_15_MP5",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
@@ -85,16 +83,13 @@ DefineClass.MP5SD = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 4000,
+	Recoil = 13,
+	BurstShots = 4,
+	AutoShots = 8,
 	WeaponMass = 34,
 	CyclicRPM = 800,
 	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
-	BurstShots = 4,
-	Recoil = 13,
-	AutoShots = 8,
-
 	CloseRange = 3,
-
 	CloseRangeFactor = 95,
 	BulletDropRange = 11,
 	Grouping = 70,

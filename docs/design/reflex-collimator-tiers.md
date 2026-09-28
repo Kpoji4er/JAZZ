@@ -1,8 +1,8 @@
 # Коллиматоры JAZZ — архетипы и тиры
 
-Канон для текущих `JAZZ_Reflex_*` и для будущих **отдельных InventoryItem**-коллиматоров (loot / магазины / уникалы).  
-Связанный rebalance: `docs/design/attachments-rebalance.md` (Phase C).  
-Apply: `docs/tools/_rebalance_reflex_tiers.py`.  
+Канон для текущих `JAZZ_Reflex_*` и для будущих **отдельных InventoryItem**-коллиматоров (loot / магазины / уникалы).<br>
+Связанный rebalance: `docs/design/attachments-rebalance.md` (Phase C).<br>
+Apply: `docs/tools/_rebalance_reflex_tiers.py`.<br>
 Калибровка цели: `docs/tools/_cmp_optic_cth.py --weapon DragunovSVD` (СВД — канон для mid/long; АКМ только для CQB-оценки ШВ).
 
 **Статус:** settled 2026-08-01 (owner: оставляем числа; специализация зафиксирована).
@@ -30,7 +30,7 @@ Apply: `docs/tools/_rebalance_reflex_tiers.py`.
 
 ## Цель ощущения (АКМ, Dex70/Mrk70)
 
-Топ Precision на близкой (полный aim колема vs irons snap): примерно **×1.20**.  
+Топ Precision на близкой (полный aim колема vs irons snap): примерно **×1.20**.<br>
 Same-mode full vs full намеренно не раздуваем — колемы режут MaxAim.
 
 ## Таблица

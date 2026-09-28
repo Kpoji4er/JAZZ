@@ -11,7 +11,6 @@ DefineClass.JAZZ_AMMO_545_Crafted = {
 	colorStyle = "AmmoCraftedColor",
 	Description = T(890000000001352, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_545_Crafted Description]] "Заклинивший автомат калашникова больше не выдуманная история, используйте так, чтобы никто не видел."),
 	Cost = 90,
-	CanAppearInShop = false,
 	CategoryPair = "545",
 	ShopStackSize = 30,
 	MaxStacks = 90,

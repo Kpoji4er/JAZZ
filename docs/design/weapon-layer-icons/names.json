@@ -1,0 +1,87 @@
+{
+  "revision": "structural-name-prototype-v1",
+  "weapons": {
+    "AK74": {
+      "host": "AK74",
+      "defaults": {"Stock": "JAZZ_StockNormal"},
+      "rules": [
+        {
+          "id": "ak74-fixed-stock",
+          "when": {"Stock": {"JAZZ_StockNormal": true}},
+          "labels": {
+            "ru": {"singular": "АК-74", "plural": "АК-74"},
+            "en": {"singular": "AK-74", "plural": "AK-74s"}
+          }
+        },
+        {
+          "id": "aks74-folding-stock-family",
+          "when": {"Stock": {"JAZZ_StockLightFolded": true, "JAZZ_StockLightUnFolded": true}},
+          "labels": {
+            "ru": {"singular": "АКС-74", "plural": "АКС-74"},
+            "en": {"singular": "AKS-74", "plural": "AKS-74s"}
+          }
+        }
+      ]
+    },
+    "AKM": {
+      "host": "AKM",
+      "defaults": {"Stock": "JAZZ_StockNormal"},
+      "rules": [
+        {
+          "id": "akm-fixed-stock",
+          "when": {"Stock": {"JAZZ_StockNormal": true}},
+          "labels": {
+            "ru": {"singular": "АКМ", "plural": "АКМ"},
+            "en": {"singular": "AKM", "plural": "AKMs"}
+          }
+        },
+        {
+          "id": "akms-underfolding-stock-family",
+          "when": {"Stock": {"JAZZ_StockLightFolded": true, "JAZZ_StockLightUnFolded": true}},
+          "labels": {
+            "ru": {"singular": "АКМС", "plural": "АКМС"},
+            "en": {"singular": "AKMS", "plural": "AKMS rifles"}
+          }
+        }
+      ]
+    },
+    "VZ58": {
+      "host": "JAZZ_VZ58",
+      "defaults": {"Stock": "JAZZ_StockNormal"},
+      "rules": [
+        {
+          "id": "vz58-p-fixed-stock",
+          "when": {"Stock": {"JAZZ_StockNormal": true}},
+          "labels": {
+            "ru": {"singular": "vz. 58 P", "plural": "vz. 58 P"},
+            "en": {"singular": "vz. 58 P", "plural": "vz. 58 P rifles"}
+          }
+        },
+        {
+          "id": "vz58-v-folding-stock",
+          "when": {"Stock": {"JAZZ_StockLightFolded": true, "JAZZ_StockLightUnFolded": true}},
+          "labels": {
+            "ru": {"singular": "vz. 58 V", "plural": "vz. 58 V"},
+            "en": {"singular": "vz. 58 V", "plural": "vz. 58 V rifles"}
+          }
+        }
+      ]
+    },
+    "DragunovSVD": {
+      "host": "Weapon_Dragunov",
+      "defaults": {"Stock": "JAZZ_StockNormal"},
+      "rules": [
+        {
+          "id": "svds-candidate-awaiting-game-capture",
+          "enabled": false,
+          "reason": "Live capture 2026-09-28 confirms WeaponAttA_StockDragunov_03 is a continuous thumbhole stock, without separate pistol grip and folding frame. This installed configuration must not be called SVDS. See live/SDD.md.",
+          "when": {"Stock": {"JAZZ_StockLight": true}},
+          "labels": {
+            "ru": {"singular": "СВДС", "plural": "СВДС"},
+            "en": {"singular": "SVDS", "plural": "SVDS rifles"}
+          }
+        }
+      ]
+    }
+  }
+}

@@ -17,7 +17,7 @@
 
 ## Очередь
 
-Хелпер: [`docs/design/mercs-ja12/_generation-queue.md`](../../../../docs/design/mercs-ja12/_generation-queue.md)  
+Хелпер: [`docs/design/mercs-ja12/_generation-queue.md`](../../../../docs/design/mercs-ja12/_generation-queue.md)<br>
 Wave-spec: [`docs/specs/active/JAZZ-UNITS-002.md`](../../../../docs/specs/active/JAZZ-UNITS-002.md)
 
 Порядок: **High → Medium → Low**. Портреты 300/2000 входят в DoD каждого slug.

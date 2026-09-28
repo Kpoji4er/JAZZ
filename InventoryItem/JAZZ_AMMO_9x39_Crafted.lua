@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_9x39_Crafted = {
 	colorStyle = "AmmoCraftedColor",
 	Description = T(890000000000380, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_9x39_Crafted Description]] "Что-то среднее, между СП-5 и СП-6 собранное на коленке, как водится тут есть все минусы собранных на коленке патронов, возможно он даже не дозвуковой, проверяйте сами."),
 	Cost = 80,
-	CanAppearInShop = false,
 	Tier = 3,
 	MaxStock = 99,
 	RestockWeight = 10,

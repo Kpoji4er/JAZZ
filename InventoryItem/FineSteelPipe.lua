@@ -11,7 +11,6 @@ DefineClass.FineSteelPipe = {
 	DisplayNamePlural = T(384360336628, --[[ModItemInventoryItemCompositeDef FineSteelPipe DisplayNamePlural]] "Steel Pipes"),
 	AdditionalHint = T(906442723868, --[[ModItemInventoryItemCompositeDef FineSteelPipe AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется при создании улучшенных компонентов для оружия"),
 	Cost = 2900,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 15,

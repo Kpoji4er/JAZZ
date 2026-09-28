@@ -33,3 +33,4 @@ DefineClass.Jazz_Perk_Colby = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Colby.png",
 	Tier = "Personal",
 }
+

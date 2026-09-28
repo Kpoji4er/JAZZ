@@ -2,37 +2,15 @@ UndefineClass('TraumaArmsMedium')
 DefineClass.TraumaArmsMedium = {
 	__parents = { "JazzTraumaEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "JazzTraumaEffect",
-	Parameters = {
-		PlaceObj('PresetParamPercent', {
-			'Name', "cth_penalty",
-			'Value', 20,
-			'Tag', "<cth_penalty>%",
-		}),
-	},
-	unit_reactions = {
-		PlaceObj('UnitReaction', {
-			Event = "OnFirearmAttackStart",
-			Handler = function(self, target, attacker, attack_target, action, attack_args)
-				if target == attacker then
-					JazzTraumaPainOnZoneUse(attacker, "Arms")
-				end
-			end,
-		}),
-		PlaceObj('UnitReaction', {
-			Event = "OnCalcChanceToHit",
-			Handler = function(self, target, attacker, action, attack_target, weapon1, weapon2, data)
-				if target == attacker then
-					ApplyCthModifier_Add(self, data, -JazzTraumaResolveNum(self, attacker, JazzTraumaArmsCthPenalty, "cth_penalty"))
-				end
-			end,
-		}),
-	},
-	DisplayName = T(890000000010102, "Arm Trauma (Medium)"),
-	Description = T(890000000010103, "Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when using arms."),
+	DisplayName = T(890000000010102, --[[ModItemCharacterEffectCompositeDef TraumaArmsMedium DisplayName]] "Arm Trauma (Medium)"),
+	Description = T(890000000010103, --[[ModItemCharacterEffectCompositeDef TraumaArmsMedium Description]] "Accuracy penalty <color EmStyle><cth_penalty>%</color>. +2 Pain when using arms."),
 	type = "Debuff",
 	Icon = "Mod/e6L4ECj/Icons/StatusEffects/TraumaArmsMedium.png",
 	Shown = true,
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

@@ -2,6 +2,9 @@ import bpy, importlib.util, math, numpy as np
 from pathlib import Path
 from mathutils import Matrix,Vector
 import argparse,sys
+_TOOLS=Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:sys.path.insert(0,str(_TOOLS))
+from _ja3_mesh_prepare import prepare_export_mesh
 parser=argparse.ArgumentParser()
 parser.add_argument('--build',type=Path,required=True)
 parser.add_argument('--game-root',type=Path,required=True)
@@ -52,7 +55,7 @@ for variant,prefix,parts in [('1891','Mosin1891',[1]),('M38','MosinM38',[2,3,4])
     bpy.context.view_layer.objects.active=objects[0]
     if len(objects)>1:bpy.ops.object.join()
     o=bpy.context.object;o.name=name
-    tri=o.modifiers.new('Triangulate','TRIANGULATE');tri.keep_custom_normals=True;bpy.ops.object.modifier_apply(modifier=tri.name)
+    prepare_export_mesh(o)
     origin=bpy.data.objects.new(name+'_Origin',None);bpy.context.collection.objects.link(origin);o.parent=origin
     st=o.hge_obj_settings;st.entity=name;st.mesh='Mesh';st.state='idle';st.lod=1;st.ignore=False;o.hge_export=True
     muzzle_y=min(v.co.y for v in o.data.vertices)

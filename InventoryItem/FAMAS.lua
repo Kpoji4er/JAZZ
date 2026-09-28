@@ -103,16 +103,12 @@ DefineClass.FAMAS = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 8000,
+	Recoil = 17,
+	AutoShots = 9,
 	WeaponMass = 37,
 	CyclicRPM = 900,
-	WeaponSizeClass = "Rifle",
 	BurstLimiter = 3,
-	BurstShots = 3,
-	AutoShots = 9,
-	Recoil = 17,
-
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 13,
 	Grouping = 62,

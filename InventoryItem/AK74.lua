@@ -104,16 +104,10 @@ DefineClass.AK74 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	WeaponMass = 35,
-	CyclicRPM = 600,
-	WeaponSizeClass = "Rifle",
-	BurstLimiter = 0,
-	BurstShots = 3,
 	Recoil = 15,
 	AutoShots = 6,
-
+	CyclicRPM = 600,
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 16,
 	Grouping = 56,

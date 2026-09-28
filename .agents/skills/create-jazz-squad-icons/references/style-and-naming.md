@@ -28,7 +28,7 @@
 Mod/e6L4ECj/SquadsIcons/Enemy/<faction>/<faction>_<ROLE>_squad.png
 ```
 
-Пустые щиты: `SquadsIcons/Enemy/_shields/<faction>.png`  
+Пустые щиты: `SquadsIcons/Enemy/_shields/<faction>.png`<br>
 Прочее: `SquadsIcons/Enemy/_misc/`.
 
 `ROLE` — `SCREAMING_SNAKE` без пробелов (`TAX`, `REINFORCE`, `QRF`).

@@ -1,0 +1,76 @@
+plan JAZZ_Legion_AssaultT1_Roughneck: 93 firearm entries, 93 combos
+plan JAZZ_Legion_AssaultT1_Grenadier: 90 firearm entries, 90 combos
+plan JAZZ_Legion_AssaultT1_Crusher: 13 firearm entries, 13 combos
+plan JAZZ_Legion_AssaultT2_Pillager: 46 firearm entries, 46 combos
+plan JAZZ_Legion_AssaultT2_ShockTrooper: 87 firearm entries, 87 combos
+plan JAZZ_Legion_AssaultT2_Pyro: 68 firearm entries, 68 combos
+plan JAZZ_Legion_AssaultT3_Punisher: 49 firearm entries, 46 combos
+plan JAZZ_Legion_AssaultT3_SkullCrusher: 56 firearm entries, 56 combos
+plan JAZZ_Legion_AssaultT4_Headsman: 49 firearm entries, 46 combos
+plan JAZZ_Legion_FrontT1_Rifleman: 38 firearm entries, 38 combos
+plan JAZZ_Legion_FrontT1_Bonemaker: 115 firearm entries, 115 combos
+plan JAZZ_Legion_FrontT1_Marauder: 93 firearm entries, 93 combos
+plan JAZZ_Legion_FrontT2_Ambusher: 38 firearm entries, 38 combos
+plan JAZZ_Legion_FrontT2_Raider: 87 firearm entries, 87 combos
+plan JAZZ_Legion_FrontT2_Marksman: 38 firearm entries, 38 combos
+plan JAZZ_Legion_FrontT3_Sniper: 19 firearm entries, 16 combos
+plan JAZZ_Legion_FrontT3_Veteran: 49 firearm entries, 46 combos
+plan JAZZ_Legion_FrontT4_Mercenary: 49 firearm entries, 49 combos
+plan JAZZ_Legion_FrontT4_MercenarySniper: 19 firearm entries, 16 combos
+plan JAZZ_Legion_FlankerT1_Warden: 64 firearm entries, 64 combos
+plan JAZZ_Legion_FlankerT2_Scout: 46 firearm entries, 46 combos
+plan JAZZ_Legion_FlankerT2_Skirmisher: 21 firearm entries, 21 combos
+plan JAZZ_Legion_FlankerT3_Recon: 68 firearm entries, 63 combos
+plan JAZZ_Legion_FlankerT3_Pathfinder: 41 firearm entries, 41 combos
+plan JAZZ_Legion_FlankerT4_Ranger: 19 firearm entries, 19 combos
+plan JAZZ_Legion_FlankerT4_Ranger CQB: 68 firearm entries, 68 combos
+plan JAZZ_Legion_GunnerT1_Gunner: 21 firearm entries, 21 combos
+plan JAZZ_Legion_GunnerT2_GMPG: 21 firearm entries, 21 combos
+plan JAZZ_Legion_GunnerT2_AssaultGunner: 11 firearm entries, 11 combos
+plan JAZZ_Legion_GunnerT3_VeteranGunner: 21 firearm entries, 21 combos
+plan JAZZ_Legion_GunnerT4_MercGunner: 21 firearm entries, 17 combos
+plan JAZZ_Legion_LeaderT1_Sergeant: 31 firearm entries, 31 combos
+plan JAZZ_Legion_LeaderT2_Lieutenant: 88 firearm entries, 88 combos
+plan JAZZ_Legion_LeaderT3_Captain: 64 firearm entries, 55 combos
+plan JAZZ_Legion_LeaderT4_MercenaryCaptain: 49 firearm entries, 49 combos
+plan JAZZ_Legion_HeavyT1_Rocketeer: 90 firearm entries, 67 combos
+plan JAZZ_Legion_HeavyT2_Grenadier: 90 firearm entries, 90 combos
+plan JAZZ_Legion_HeavyT3_Mortarman: 90 firearm entries, 81 combos
+OK JAZZ_Legion_AssaultT1_Roughneck
+OK JAZZ_Legion_AssaultT1_Grenadier
+OK JAZZ_Legion_AssaultT1_Crusher
+OK JAZZ_Legion_AssaultT2_Pillager
+OK JAZZ_Legion_AssaultT2_ShockTrooper
+OK JAZZ_Legion_AssaultT2_Pyro
+OK JAZZ_Legion_AssaultT3_Punisher
+OK JAZZ_Legion_AssaultT3_SkullCrusher
+OK JAZZ_Legion_AssaultT4_Headsman
+OK JAZZ_Legion_FrontT1_Rifleman
+OK JAZZ_Legion_FrontT1_Bonemaker
+OK JAZZ_Legion_FrontT1_Marauder
+OK JAZZ_Legion_FrontT2_Ambusher
+OK JAZZ_Legion_FrontT2_Raider
+OK JAZZ_Legion_FrontT2_Marksman
+OK JAZZ_Legion_FrontT3_Sniper
+OK JAZZ_Legion_FrontT3_Veteran
+OK JAZZ_Legion_FrontT4_Mercenary
+OK JAZZ_Legion_FrontT4_MercenarySniper
+OK JAZZ_Legion_FlankerT1_Warden
+OK JAZZ_Legion_FlankerT2_Scout
+OK JAZZ_Legion_FlankerT2_Skirmisher
+OK JAZZ_Legion_FlankerT3_Recon
+OK JAZZ_Legion_FlankerT3_Pathfinder
+OK JAZZ_Legion_FlankerT4_Ranger
+OK JAZZ_Legion_GunnerT1_Gunner
+OK JAZZ_Legion_GunnerT2_GMPG
+OK JAZZ_Legion_GunnerT2_AssaultGunner
+OK JAZZ_Legion_GunnerT3_VeteranGunner
+OK JAZZ_Legion_GunnerT4_MercGunner
+OK JAZZ_Legion_LeaderT1_Sergeant
+OK JAZZ_Legion_LeaderT2_Lieutenant
+OK JAZZ_Legion_LeaderT3_Captain
+OK JAZZ_Legion_LeaderT4_MercenaryCaptain
+OK JAZZ_Legion_HeavyT1_Rocketeer
+OK JAZZ_Legion_HeavyT2_Grenadier
+OK JAZZ_Legion_HeavyT3_Mortarman
+dry-run complete, would patch 37/37; combos=743

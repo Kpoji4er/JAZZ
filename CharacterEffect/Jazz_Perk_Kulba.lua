@@ -5,16 +5,10 @@ DefineClass.Jazz_Perk_Kulba = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamPercent', {
-			'Name', "recoil_mul",
-			'Value', 50,
-			'Tag', "<recoil_mul>",
-		}),
-	},
 	unit_reactions = {},
 	DisplayName = T(890000000005035, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Kulba DisplayName]] "Оружейник старой закалки"),
 	Description = T(890000000005036, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Kulba Description]] "Американские автоматы (M3/Thompson/M4/M16/BAR/M60/M14/M1 carbine и родственники) дают −50% отдачи."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Kulba.png",
 	Tier = "Personal",
 }
+

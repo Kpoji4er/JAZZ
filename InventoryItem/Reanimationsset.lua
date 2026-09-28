@@ -2,13 +2,15 @@ UndefineClass('Reanimationsset')
 DefineClass.Reanimationsset = {
 	__parents = { "JazzStackableMedicine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
+
+
 	object_class = "JazzStackableMedicine",
 	ScrapParts = 1,
 	Repairable = false,
 	Icon = "UI/Icons/Items/reanimationsset.png",
-	DisplayName = T(890000000010031, "Large Medkit"),
-	DisplayNamePlural = T(890000000010032, "Large Medkits"),
-	AdditionalHint = T(890000000010030, "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory"),
+	DisplayName = T(890000000010031, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayName]] "Large Medkit"),
+	DisplayNamePlural = T(890000000010032, --[[ModItemInventoryItemCompositeDef Reanimationsset DisplayNamePlural]] "Large Medkits"),
+	AdditionalHint = T(890000000010030, --[[ModItemInventoryItemCompositeDef Reanimationsset AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Stabilizes one eligible trauma of any severity (eases combat penalties one tier; does not heal trauma)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Restores HP as % of max HP (scales with Medical: 30–100% from Medical 80 to 100)\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Removes all bleeding\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory"),
 	UnitStat = "Medical",
 	Cost = 1800,
 	CanAppearInShop = true,
@@ -19,3 +21,4 @@ DefineClass.Reanimationsset = {
 	MaxStacks = 15,
 	UsePriority = 2,
 }
+

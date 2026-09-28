@@ -1,0 +1,34 @@
+					Main 0:00:00:007
+*** executable info
+Timestamp:     	66e3df13
+Date:          	Fri Sep 13 09:43:31 2024
+Command line:  	C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v5\build\JAZZ_LeatherArmor_Male.fbx -globalappdirs -gamepath F:\SteamLibrary\steamapps\common\Jagged Alliance 3
+Compiler:      	194033811, 142 (VS 2019) or newer
+Working dir:   	C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz
+
+
+*** hardware info
+CPU name      	11th Gen Intel(R) Core(TM) i7-11700K @ 3.60GHz
+CPU MHz       	3600
+CPU cores     	8/16
+Phys. Memory   	32631 MBytes
+Memory In Use  	60%
+					Main 0:00:00:008
+Disk Free      	9626 MBytes
+
+
+*** OS info
+OS:            	Windows 10
+Version:       	10.0.26200 
+
+
+*** Debug::Init()
+
+
+					Main 0:00:13:699
+
+
+*** Debug::Done()
+Time (ms)	13699
+
+

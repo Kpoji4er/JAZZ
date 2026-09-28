@@ -3,6 +3,7 @@ DefineClass.ColtM1917 = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-2",
 	object_class = "Revolver",
 	ScrapParts = 6,
@@ -15,7 +16,6 @@ DefineClass.ColtM1917 = {
 	AdditionalHint = T(890000000000513, --[[ModItemInventoryItemCompositeDef ColtM1917 AdditionalHint]] "Револьвер \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Компактный \n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Сорок пятый"),
 	UnitStat = "Marksmanship",
 	Cost = 1100,
-	CanAppearInShop = false,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_45ACP",
 	Damage = 26,
@@ -27,9 +27,7 @@ DefineClass.ColtM1917 = {
 	OverwatchAngle = 5100,
 	Noise = 28,
 	Entity = "Colt1917",
-	ComponentSlots = {
-		
-	},
+	ComponentSlots = {},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"SingleShot",
@@ -39,17 +37,12 @@ DefineClass.ColtM1917 = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 5000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 18,
+	ReloadStyle = "Revolver",
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 5,
 	Grouping = 78,
 	BaseJamChance = -100,

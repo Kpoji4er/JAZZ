@@ -3,6 +3,7 @@ DefineClass.CZ52 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-2",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -16,7 +17,6 @@ DefineClass.CZ52 = {
 	UnitStat = "Marksmanship",
 	Cost = 900,
 	CanAppearInShop = true,
-	Tier = 1,
 	RestockWeight = 115,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
@@ -37,7 +37,6 @@ DefineClass.CZ52 = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagLarge_13_PISTOL_52",
-				"JAZZ_MagLarge_8_PISTOL_52",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -46,9 +45,9 @@ DefineClass.CZ52 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_ImprovisedSuppressor",
-								"JAZZ_Suppressor",
-							},
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
@@ -61,7 +60,6 @@ DefineClass.CZ52 = {
 				"JAZZ_UVDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -73,18 +71,12 @@ DefineClass.CZ52 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 8,
 	Grouping = 56,
 	BaseJamChance = -20,

@@ -1,6 +1,5 @@
 UndefineClass('AK74M')
 DefineClass.AK74M = {
-	MaxStock = 1,
 	__parents = { "AssaultRifle" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -11,15 +10,16 @@ DefineClass.AK74M = {
 	RepairCost = 10,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AK74M.png",
-	DisplayName = T(761915303101, "АК-74М"),
-	DisplayNamePlural = T(761915303102, "АК-74М"),
-	Description = T(761915303103, "Автомат под патрон 5,45x39 мм с полимерным складным прикладом и общими магазинами семейства АК на 30 и 45 патронов."),
+	DisplayName = T(761915303101, --[[ModItemInventoryItemCompositeDef AK74M DisplayName]] "АК-74М"),
+	DisplayNamePlural = T(761915303102, --[[ModItemInventoryItemCompositeDef AK74M DisplayNamePlural]] "АК-74М"),
+	Description = T(761915303103, --[[ModItemInventoryItemCompositeDef AK74M Description]] "Автомат под патрон 5,45x39 мм с полимерным складным прикладом и общими магазинами семейства АК на 30 и 45 патронов."),
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Valuable = 1,
 	Cost = 16000,
 	CanAppearInShop = true,
 	Tier = 4,
+	MaxStock = 1,
 	RestockWeight = 45,
 	CategoryPair = "AssaultRifles",
 	Caliber = "JAZZ_Caliber_545",
@@ -35,7 +35,14 @@ DefineClass.AK74M = {
 	Entity = "AKR_AK74M",
 	fxClass = "AK74",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', { 'SlotType', "Stock", 'AvailableComponents', { "JAZZ_StockLightUnFolded", "JAZZ_StockLightFolded" }, 'DefaultComponent', "JAZZ_StockLightUnFolded" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+			},
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
+		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'Modifiable', false,
@@ -60,7 +67,15 @@ DefineClass.AK74M = {
 				"JAZZ_GP25",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', { 'SlotType', "Muzzle", 'AvailableComponents', { "JAZZ_DefMuzzle", "JAZZ_Compensator", "JAZZ_Suppressor" }, 'DefaultComponent', "JAZZ_DefMuzzle" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
+			},
+			'DefaultComponent', "JAZZ_Compensator",
+		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
@@ -91,16 +106,11 @@ DefineClass.AK74M = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	WeaponMass = 36,
-	CyclicRPM = 600,
-	WeaponSizeClass = "Rifle",
-	BurstLimiter = 0,
-	BurstShots = 3,
 	Recoil = 15,
 	AutoShots = 6,
-
+	WeaponMass = 36,
+	CyclicRPM = 600,
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 16,
 	Grouping = 58,

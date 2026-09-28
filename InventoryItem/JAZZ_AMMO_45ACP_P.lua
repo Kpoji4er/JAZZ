@@ -13,7 +13,6 @@ DefineClass.JAZZ_AMMO_45ACP_P = {
 	AdditionalHint = "",
 	Cost = 540,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 8,
 	RestockWeight = 80,
 	CategoryPair = "45ACP",

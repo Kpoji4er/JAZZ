@@ -12,7 +12,6 @@ DefineClass.FlareAmmo = {
 	Description = T(286757968282, --[[ModItemInventoryItemCompositeDef FlareAmmo Description]] "Ammo for the Flare Gun."),
 	Cost = 150,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 8,
 	RestockWeight = 40,
 	CategoryPair = "UtilityAmmo",

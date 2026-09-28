@@ -21,3 +21,4 @@ DefineClass.Legsshot = {
 	HideOnBadge = true,
 	HasFloatingText = true,
 }
+

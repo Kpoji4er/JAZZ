@@ -110,7 +110,7 @@ executable: true
 
 **CHARACTER_DESCRIPTION:** Match JA2 face reference `spider.ja2-face.gif` (same face identity). Young female field surgeon, elegant but practical, dark hair, white/olive medic vest with hanging med pouches, bandages, trauma shears, clear medic cross chevron on shoulder — NO firearm (Peacemaker only in inventory, not portrait). Calm professional warmth.
 
-**Refs:** existing `Spider.png` / `Spider_Big.png`  
+**Refs:** existing `Spider.png` / `Spider_Big.png`<br>
 **Class kit:** med pouches, shears, bandage rolls, medic chevron
 
 ## Phrases — AIM chat

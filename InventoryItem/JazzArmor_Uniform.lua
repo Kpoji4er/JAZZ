@@ -15,7 +15,6 @@ DefineClass.JazzArmor_Uniform = {
 	AdditionalHint = T(340489681757, --[[ModItemInventoryItemCompositeDef JazzArmor_Uniform AdditionalHint]] "Камуфляжная военная форма"),
 	Cost = 500,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 1,
 	RestockWeight = 120,
 	CategoryPair = "Light",

@@ -5,13 +5,6 @@ DefineClass.KillingWind = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "gritPerEnemyHit",
-			'Value', 8,
-			'Tag', "<gritPerEnemyHit>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
@@ -19,8 +12,7 @@ DefineClass.KillingWind = {
 				if target ~= attacker then
 					return
 				end
-				-- Aggregate firearm grit is applied in ExecFirearmAttacks after all OnAttack calls.
-				-- Keep CE path for melee/other single-results attacks; helper is idempotent per results.
+				-- Aggregate firearm grit: ExecFirearmAttacks after all OnAttack; CE for melee/other.
 				if type(Jazz_KillingWindTryGrit) == "function" then
 					Jazz_KillingWindTryGrit(attacker, results)
 				end
@@ -32,3 +24,4 @@ DefineClass.KillingWind = {
 	Icon = "UI/Icons/Perks/KillingWind",
 	Tier = "Personal",
 }
+

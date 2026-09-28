@@ -19,5 +19,7 @@
 
 ## После правки
 
+- Точечная синхронизация мосинок без полной регенерации: `docs/tools/_retier_mosin_loot.py` (`--apply` / `--check`); сохраняет чужие записи, убирает Mosin fallback вне диапазонов. Канон порогов — `JAZZ-WEAPON-MOSIN-001` REQ-009.
+
 - Обновить соответствующую technical-страницу (`docs/technical/systems/units-progression-specializations.md` и др.).
 - Если эффект заметен игроку — `.cursor/rules/jazz-docs-sync.mdc` (technical + wiki + showcase RU/EN).

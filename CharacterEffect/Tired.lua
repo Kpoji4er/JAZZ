@@ -3,24 +3,8 @@ DefineClass.Tired = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "ap_loss",
-			'Value', -1,
-			'Tag', "<ap_loss>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "fm_mul",
-			'Value', 50,
-			'Tag', "<fm_mul>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "duration",
-			'Value', 12,
-			'Tag', "<duration>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcStartTurnAP",
@@ -43,3 +27,4 @@ DefineClass.Tired = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

@@ -1,0 +1,5 @@
+{
+  "mean_absolute_rgb_difference_on_solid_weapon": 0.8812214151197202,
+  "p99_absolute_channel_difference": 5.0,
+  "purpose": "Validate explicit LightmodelPreset defaults reproduce previous actual empty-copy result"
+}

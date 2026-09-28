@@ -64,7 +64,6 @@ DefineClass.G36c = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagQuick_G36",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -111,16 +110,14 @@ DefineClass.G36c = {
 	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
+	Recoil = 22,
+	BurstShots = 2,
+	AutoShots = 8,
 	WeaponMass = 30,
 	CyclicRPM = 750,
 	WeaponSizeClass = "Carbine",
 	BurstLimiter = 2,
-	BurstShots = 2,
-	Recoil = 22,
-	AutoShots = 8,
-
 	CloseRange = 5,
-
 	CloseRangeFactor = 90,
 	BulletDropRange = 14,
 	Grouping = 63,

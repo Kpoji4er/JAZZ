@@ -21,7 +21,8 @@ DefineClass._50BMG_Incendiary = {
 	Caliber = "50BMG",
 	Modifications = {},
 	AppliedEffects = {
-		"ExposedBurning",
+		"Exposed",
+		"Burning",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_shock.png",
 }

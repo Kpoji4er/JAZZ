@@ -3,6 +3,7 @@ DefineClass.Korth = {
 	__parents = { "Revolver" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 3-1",
 	object_class = "Revolver",
 	ScrapParts = 6,
@@ -30,7 +31,6 @@ DefineClass.Korth = {
 	Noise = 32,
 	Entity = "KorthRev",
 	ComponentSlots = {
-		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Barrel",
 			'AvailableComponents', {
@@ -57,18 +57,13 @@ DefineClass.Korth = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 5000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 4,
 	Recoil = 17,
+	ReloadStyle = "Revolver",
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 7,
 	Grouping = 55,
 	BaseJamChance = -100,

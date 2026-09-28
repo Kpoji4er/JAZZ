@@ -36,3 +36,4 @@ DefineClass.Grunty_AdditionalAP = {
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

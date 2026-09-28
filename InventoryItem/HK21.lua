@@ -109,8 +109,6 @@ DefineClass.HK21 = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagBelt_40_100",
-				"JAZZ_MagDrum_30_100_G3",
-				"JAZZ_MagSmall20_10_G3",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -125,16 +123,13 @@ DefineClass.HK21 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 7000,
-	WeaponMass = 80,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 22,
 	BurstShots = 4,
 	AutoShots = 7,
-
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 20,
 	Grouping = 53,

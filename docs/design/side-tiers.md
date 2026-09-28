@@ -1,6 +1,6 @@
 # Side — фонарь / тактик / лазер / UV
 
-Канон. Apply: `docs/tools/_rebalance_side_tiers.py`, `_fix_flashlight_off_opts.py`.  
+Канон. Apply: `docs/tools/_rebalance_side_tiers.py`, `_fix_flashlight_off_opts.py`.<br>
 Связано: `attachments-rebalance.md`, `JAZZ-ATTACH-001`.
 
 **Статус:** applied 2026-08-01.

@@ -3,6 +3,7 @@ DefineClass.FiveSeven = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 3-5",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -49,7 +50,6 @@ DefineClass.FiveSeven = {
 				"JAZZ_FlashlightDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -61,17 +61,11 @@ DefineClass.FiveSeven = {
 	},
 	ShootAP = 2000,
 	ReloadAP = 3000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	Recoil = 17,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 10,
 	Grouping = 45,
 	BaseJamChance = -20,

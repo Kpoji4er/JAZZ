@@ -37,3 +37,4 @@ DefineClass.Jazz_Perk_Eskimo = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Eskimo.png",
 	Tier = "Personal",
 }
+

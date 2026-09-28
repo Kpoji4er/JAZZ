@@ -72,8 +72,8 @@ DefineClass.AUG = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
-				"JAZZ_MagNormal",
 				"JAZZ_MagLarge_30_42",
+				"JAZZ_MagNormal",
 				"JAZZ_MagQuick_AUG",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -117,16 +117,12 @@ DefineClass.AUG = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 8000,
+	Recoil = 16,
+	AutoShots = 7,
 	WeaponMass = 36,
 	CyclicRPM = 700,
-	WeaponSizeClass = "Rifle",
 	BurstLimiter = 3,
-	AutoShots = 7,
-	Recoil = 16,
-	BurstShots = 3,
-
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 15,
 	Grouping = 63,

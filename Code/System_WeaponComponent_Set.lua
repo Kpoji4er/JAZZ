@@ -3,12 +3,50 @@
 -- Engine formula: MulDivRound(base + mod_add, mod_mul, 1000).
 -- Set must NOT use mul=0 (that always yields 0 → UI MagSize 1). Use mul=1000, add=N-base.
 
+-- Approved model QA: these parts no longer have interchangeable geometry.
+local JazzModelFixedComponents = {
+	M14SAW = { Barrel = "JAZZ_BarrelNormal" },
+	M21 = { Barrel = "JAZZ_BarrelNormal" },
+	MK14EBR = { Barrel = "JAZZ_BarrelNormal" },
+	JAZZ_M14_MkIII = { Barrel = "JAZZ_BarrelNormal" },
+	M16A4 = { Handgrip = "JAZZ_Handgrip_Default", Stock = "JAZZ_StockNormal" },
+	M4A1 = { Handgrip = "JAZZ_Handgrip_Default" },
+}
+
 function FirearmBase:SetWeaponComponent(slot, id, is_init)
 	local def = WeaponComponents[id]
 	slot = slot or (def and def.Slot)
+	local fixed = JazzModelFixedComponents[self.class]
+	if fixed and fixed[slot] then
+		id = fixed[slot]
+		def = WeaponComponents[id]
+	end
 	
+	-- M14 wood stock: Under accepts only a bipod or no component.
+	if self.class == "M14SAW" and slot == "Under" and id ~= "JAZZ_Bipod_Under" then
+		id = ""
+		def = nil
+	end
+
+	if self.class == "MK14EBR" and slot == "Under" and id == "JAZZ_GrenadeLauncher_M14" then
+		id = ""
+		def = nil
+	end
+
 	if not slot then
 		return
+	end
+	-- AR15 receiver optics use their own rail; only fore-end attachments need RIS.
+	if self.class == "M4A1" or self.class == "M16A4" then
+		local components = self.components or empty_table
+		if (slot == "Side" or slot == "Under") and id and id ~= ""
+			and components.Handguard ~= "JAZZ_Handguard_RIS" then
+			return false
+		end
+		if slot == "Handguard" and id ~= "JAZZ_Handguard_RIS"
+			and ((components.Side or "") ~= "" or (components.Under or "") ~= "") then
+			return false
+		end
 	end
 	
 	local function unload_weapon(weapon)
@@ -227,6 +265,20 @@ local function JazzHealMagazineSizeSetEverywhere()
 			return
 		end
 		container:ForEachItem("FirearmBase", function(item)
+			local fixed = JazzModelFixedComponents[item.class]
+			for slot, id in sorted_pairs(fixed or empty_table) do
+				if item.components and item.components[slot] ~= id then
+					item:SetWeaponComponent(slot, id, "init")
+				end
+			end
+			if item.class == "M14SAW" and item.components
+				and (item.components.Under or "") ~= ""
+				and item.components.Under ~= "JAZZ_Bipod_Under" then
+				item:SetWeaponComponent("Under", "", "init")
+			end
+			if item.class == "MK14EBR" and item.components and item.components.Under == "JAZZ_GrenadeLauncher_M14" then
+				item:SetWeaponComponent("Under", "", "init")
+			end
 			JazzReseatObsoleteMagazineOnFirearm(item)
 			JazzHealMagazineSizeSetOnFirearm(item)
 		end)

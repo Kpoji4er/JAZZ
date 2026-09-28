@@ -22,3 +22,4 @@ DefineClass.Headshot = {
 	RemoveOnCampaignTimeAdvance = true,
 	HideOnBadge = true,
 }
+

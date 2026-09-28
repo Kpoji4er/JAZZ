@@ -6,8 +6,6 @@ DefineClass.JazzArmor_AdrianHelmet = {
 
 	comment = "Class1 L",
 	object_class = "Armor",
-	CanAppearInShop = false,
-	Cost = 350,
 	ScrapParts = 6,
 	Degradation = 30,
 	Icon = "Mod/e6L4ECj/ArmorIcons/AdrianHelm.png",

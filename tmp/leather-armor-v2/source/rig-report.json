@@ -1,0 +1,29 @@
+{
+  "item": "JazzArmor_LeatherArmor",
+  "entity": "JAZZ_LeatherArmor_Male",
+  "stage": "rigged",
+  "blend": "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz\\tmp\\leather-armor-v2\\source\\LeatherArmor.blend",
+  "vertices": 6378,
+  "triangles": 11906,
+  "unweighted_vertices": 0,
+  "max_influences": 4,
+  "bones": [
+    "Bip001 Head",
+    "Bip001 L Clavicle",
+    "Bip001 LThighTwist",
+    "Bip001 LUpArmTwist",
+    "Bip001 LUpArmTwist1",
+    "Bip001 Neck",
+    "Bip001 Pelvis",
+    "Bip001 R Clavicle",
+    "Bip001 RUpArmTwist",
+    "Bip001 RUpArmTwist1",
+    "Bip001 Spine",
+    "Bip001 Spine1",
+    "Bip001 Spine2"
+  ],
+  "runtime": "NOT_RUN",
+  "native_shirt": "C:\\Users\\SsAnd\\.codex\\artifacts\\armor-prototype\\jazz-body-reference\\json\\NPCCostumeMale_Shirt_08_mesh.json",
+  "surface_skin": true,
+  "cuirass_reference": "C:\\Users\\SsAnd\\.codex\\artifacts\\armor-prototype\\qa-v7-01\\source\\improvised_cuirass_v7.blend"
+}

@@ -93,7 +93,7 @@ executable: false # true только без Open blockers
 
 Лицо в портрете должно быть **похоже на JA2-референс**:
 
-![JA2 face](<slug>.ja2-face.gif)
+JA2 face: `<slug>.ja2-face.gif`
 
 Файл: ``<slug>.ja2-face.gif`` (или `.jpg`) рядом со статьёй.
 

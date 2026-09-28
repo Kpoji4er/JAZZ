@@ -63,7 +63,7 @@ JA3 не даёт матрицы фракций: runtime по сути дели�
 
 ## Locked defaults (owner 2026-08-02)
 
-Фракции overlay (полные): `player`, `legion`, `adonis`, `army`, `rebels`.  
+Фракции overlay (полные): `player`, `legion`, `adonis`, `army`, `rebels`.<br>
 `smugglers` — **минифракция** (иконки/тема есть); полноценный director/ownership **не** в scope 014, пока owner не решит иначе.
 
 | Отношение | Правило |
@@ -82,7 +82,7 @@ JA3 не даёт матрицы фракций: runtime по сути дели�
 
 ## Visual identity (щиты `SquadsIcons/Enemy`)
 
-Канон UI/docs: те же подложки, что squad-role icons ([squad-role-icons.md](../../technical/systems/squad-role-icons.md), skill `create-jazz-squad-icons`).  
+Канон UI/docs: те же подложки, что squad-role icons ([squad-role-icons.md](../../technical/systems/squad-role-icons.md), skill `create-jazz-squad-icons`).<br>
 Общий стиль: щит 64×64, прозрачный canvas, ivory-символ ≈ `#E6DECA`, outline ≈ `#301C1C`.
 
 | Faction id | Щит | Тема | Avg fill (sampled) | Dominant / accents |

@@ -23,7 +23,7 @@ approved_by: project-owner
 
 # JAZZ Legion Global AI — roadmap после STRATEGY-002/003
 
-Утверждённый порядок работ. Каждый пункт дальше оформляется отдельным change spec перед реализацией.  
+Утверждённый порядок работ. Каждый пункт дальше оформляется отдельным change spec перед реализацией.<br>
 Иконки (в `SquadsIcons/Enemy/<faction>/`): REINFORCE, SUPPORT, RETRIBUTION, RECRUITER, MANPOWER, TAX, …
 
 ## Сделано
@@ -136,9 +136,9 @@ Vanilla якоря:
 Реализовано: `JAZZ_GenerateLegionSquadComposition` + soft caps + poor/full auto; combat spawn списывает сумму цен. Generator `false` → **не спавнить** (нет preset + flat cost). Manpower gate — с 010. **HOTFIX-006:** same-id cap + logistics Front cap + Marksman deny on tax/supply/shipment.
 
 #### 6d. Порядок внутри пункта 6
-1. Таблица цен `JAZZ_Legion_*` + документы.  
-2. Role recipes (allow-list + min/max + веса).  
-3. Generator policy poor/full + resource gates.  
+1. Таблица цен `JAZZ_Legion_*` + документы.<br>
+2. Role recipes (allow-list + min/max + веса).<br>
+3. Generator policy poor/full + resource gates.<br>
 4. Подключение к spawn в `Guardpost_Patrols` (после п.0 $; manpower — с 7b).
 
 ### 7. Двухресурсная экономика: $ + люди

@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Gamos = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Gamos.png",
 	Tier = "Personal",
 }
+

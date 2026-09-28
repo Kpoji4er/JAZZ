@@ -31,11 +31,35 @@ DefineClass.M4A1 = {
 	OverwatchAngle = 1560,
 	Noise = 55,
 	HandSlot = "TwoHanded",
-	Entity = "M4A1",
+	Entity = "M4R_M4A1",
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Handguard",
+			'AvailableComponents', {
+				"JAZZ_Handguard",
+				"JAZZ_Handguard_RIS",
+			
+			},
+			'DefaultComponent', "JAZZ_Handguard",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"JAZZ_BarrelNormal",
+				"JAZZ_BarrelShort",
+				"JAZZ_BarrelLong",
+			},
+			'DefaultComponent', "JAZZ_BarrelNormal",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+            'SlotType', "Handgrip",
+            'Modifiable', false,
+            'AvailableComponents', { "JAZZ_Handgrip_Default" },
+            'DefaultComponent', "JAZZ_Handgrip_Default",
+        }),
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
-			'CanBeEmpty', true,
+			'CanBeEmpty', false,
 			'AvailableComponents', {
 				"JAZZ_Reflex_Aimpoint5000",
 				"JAZZ_IronSight",
@@ -48,16 +72,15 @@ DefineClass.M4A1 = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
+				"JAZZ_CarryHandle_AR15",
+			
 			},
-			'DefaultComponent', "JAZZ_IronSight",
+			'DefaultComponent', "JAZZ_CarryHandle_AR15",
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagNormalFine_AR15",
-				"JAZZ_MagLarge_50_AR15",
-				"JAZZ_MagQuick_AR15",
 				"JAZZ_MagSmall30_20",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -99,8 +122,12 @@ DefineClass.M4A1 = {
 				"JAZZ_ImprovisedSuppressor",
 				"JAZZ_Suppressor",
 				"JAZZ_SuppressorImproved",
+				"JAZZ_DefMuzzle",
+			
 			},
-		}),
+		
+				'DefaultComponent', "JAZZ_DefMuzzle",
+			}),
 	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
@@ -112,16 +139,13 @@ DefineClass.M4A1 = {
 	},
 	ShootAP = 5000,
 	ReloadAP = 6000,
-	WeaponMass = 33,
-	CyclicRPM = 800,
-	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
 	Recoil = 20,
 	BurstShots = 4,
 	AutoShots = 8,
-
+	WeaponMass = 33,
+	CyclicRPM = 800,
+	WeaponSizeClass = "Carbine",
 	CloseRange = 5,
-
 	CloseRangeFactor = 90,
 	BulletDropRange = 15,
 	Grouping = 57,

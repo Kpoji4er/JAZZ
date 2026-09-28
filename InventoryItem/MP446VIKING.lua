@@ -3,6 +3,7 @@ DefineClass.MP446VIKING = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -17,7 +18,6 @@ DefineClass.MP446VIKING = {
 	Cost = 1900,
 	CanAppearInShop = true,
 	Tier = 2,
-	RestockWeight = 100,
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 25,
@@ -60,11 +60,9 @@ DefineClass.MP446VIKING = {
 			'Modifiable', false,
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
-				"JAZZ_MagLarge_25_PISTOL_9",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -76,18 +74,12 @@ DefineClass.MP446VIKING = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 7,
 	Grouping = 68,
 	BaseJamChance = -20,

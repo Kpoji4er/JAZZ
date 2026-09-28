@@ -2,10 +2,13 @@ UndefineClass('Jazz_Perk_Devin')
 DefineClass.Jazz_Perk_Devin = {
 	__parents = { "Perk" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
+
+
 	object_class = "Perk",
 	unit_reactions = {},
-	DisplayName = T(890000000005054, "IRA"),
-	Description = T(890000000005055, "Эта именная способность пока не действует."),
+	DisplayName = T(890000000005054, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Devin DisplayName]] "IRA"),
+	Description = T(890000000005055, --[[ModItemCharacterEffectCompositeDef Jazz_Perk_Devin Description]] "Эта именная способность пока не действует."),
 	Icon = "Mod/e6L4ECj/Perks/Personal/Devin.png",
 	Tier = "Personal",
 }
+

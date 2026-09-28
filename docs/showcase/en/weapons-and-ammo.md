@@ -1,5 +1,22 @@
 # Weapons and components
 
+## Visual fixes, 28 September 2026
+
+Fixed short-barrel previews for the M4 and M16A4. The M14 optics mount now follows the optic, and its bipod attaches to the gas cylinder. EBR attachments use its RIS rails; the M203 option was removed. Corrected the pale Vz.58 grip border, refined AK-103 smoothing, and refreshed icons including the coloured M14 MkIII. Installed locally; acceptance in a fresh game process is still pending.
+
+
+The local visual update dated 27 September 2026 adjusts hard joins and materials on the AK-103, Mk14 EBR and Vz.58, slightly darkens M14 wood and R4 metal, and gives the standard M14 an AK-style bipod model. Seven weapon icons were rendered again. In-game acceptance is still pending, including a fresh check of the M4 short barrel.
+
+The local M14 update dated 27 September 2026 assigns Mk14 EBR to T3-1. The standard M14 keeps only a bipod in its underbarrel slot; lights sit by the barrel without a separate rail. Attachment placement and a subtle wood sheen were adjusted, and EBR/Mk III mesh faces were repaired. In-game acceptance is still pending.
+
+AK-74M and AK-105: the local material adjustment dated 2026-09-27 brings their tones closer. AK-74M has reduced gloss, especially on polymer; AK-105 metal is slightly lighter and glossier. Comparison under in-game lighting is still pending.
+
+The Vektor R4 joins early Tier 2: a heavy, reliable 5.56 mm rifle with a 35-round magazine and standard iron sights. Legion troops receive it as regular service equipment from Tier 2-1, with a selection weight comparable to AK rifles. Bobby Ray stocks it for 5500. This local addition still awaits in-game acceptance.
+
+The AK-103 update dated 27 September 2026 restores its original dust cover and surface detail, rebakes normal maps to remove false ripples in stock highlights, and refreshes the icon. Both stock positions and weapon stats are preserved. The new appearance has been checked in offline renders; in-game confirmation is still required.
+
+The local model corrections dated 23 September 2026 await in-game acceptance: fixed M14-family barrels, independent M4 barrel and handguard choices, M4/M16 front sights that leave with the iron-sight module, and RIS requirements for fore-end attachments. The M16 keeps its standard stock; M4/M16 use the straight vanilla 20-round magazine model. These changes have not yet been rechecked in game.
+
 [Overview](home.md) · [Weapon classes](weapon-classes.md) · [Русский](../ru/weapons-and-ammo.md)
 
 ## Tier and sub-tier
@@ -73,3 +90,26 @@ Full tables:
 - [All components](../../wiki/weapons/components.md)
 
 Numbers are built from canonical CSVs via `scripts/docs/weapons-docs.mjs` and published to the GitHub Wiki with the showcase — do not hand-edit them on the wiki.
+
+<!-- JAZZ-WEAPON-VZ58-001 -->
+### vz. 58
+
+The lightweight Czechoslovak 7.62×39 mm rifle joins T2-2 with a 30-round magazine, an 800 RPM cyclic rate, 4/8-round bursts and a 5 AP shot. Regular Legion troops can carry it, and Bobby Ray stocks it from shop tier two.
+
+Replace its classic furniture with a modern stock, pistol grip and railed handguard. The VZ.58V metal stock, a suppressor and a native magazine with a quick-reload pull loop are also available. The reflex sight and foregrip require the railed handguard. The metal stock folds and unfolds for 4 AP.
+
+A second local Mosin visual pass adjusts the brightness and hue of both M38 and Obrez wood toward the long rifle while preserving the original grain. The earlier forward adjustment to the Obrez support-hand grip remains. The updated in-game appearance still awaits verification.
+
+The vz. 58 uses subdued matte brown furniture. The vz. 58 and R4 models include a fix for missing surfaces.
+
+M16A4 and M4A1 models are slightly larger to seat their magazines. The short M16 barrel ends closer to the handguard; M4 optics sit farther forward while the carry handle keeps its receiver position.
+
+The vz. 58 now has dark wood grain inspired by the AKM and a horizontal side-view inventory icon. Its metal finish and the R4 finish have reduced normal-map relief and higher roughness. A near-degenerate R4 face that produced a zero normal during export was removed. Offline renders were checked; in-game appearance still awaits acceptance.
+
+With the railed handguard, the vz. 58 supports four reflex sights: closed, compact, EOTech and M68.
+
+## Weapon configuration icons
+
+Photographed weapon configurations now have icons in a consistent style. Coverage currently includes default builds, individual component changes and selected combinations. Builds without an exact photograph, such as an unrecorded magazine-and-scope combination, retain their previous icon. Attachment badges remain available. Automatic stock-dependent weapon names are not enabled yet.
+
+Icons now fill their original weapon tile formats: excess transparent margins are removed and pistols use the compact format. Color and brightness follow the previous in-game icons; all configurations of a weapon share the same color profile. A stronger dark outline improves readability.

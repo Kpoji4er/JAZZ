@@ -50,7 +50,6 @@ DefineClass.MP5 = {
 				"JAZZ_MagNormal",
 				"JAZZ_MagLarge_50_MP5",
 				"JAZZ_MagQuick_MP5",
-				"JAZZ_MagSmall30_15_MP5",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -73,7 +72,7 @@ DefineClass.MP5 = {
 				"JAZZ_FlashlightDot",
 			},
 		}),
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {

@@ -1,5 +1,9 @@
 # Legion units
 
+Legion SMG/carbine pools include the Mosin Obrez from T1-1, with lower weight at T2. The M38 joins battle rifles alongside the MAS-36 at T1-1 with a low selection weight, increasing roughly fivefold at T1-2. The long Mosin, including its PU configuration, enters sniper-role pools at T1-3. Tables have passed static checks; in-game distribution still awaits verification.
+
+The September 23 6B3 revision adds thinner shoulder sections, fabric materials and seams. The new model still awaits another in-game fit check.
+
 [Overview](home.md) · [Tactical AI](tactical-ai.md) · [Legion strategy](legion-strategy.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/legion-units.md)
 
 Source: `jazz-units/UnitData/JAZZ_Legion_*.lua`, quest `JAZZ_LegionTier` / `Code/UtilityFunc.lua`, composition/prices in `jazz/Code/Legion*.lua`. Cross-checked with technical `legion-units-equipment-tiers.md`.
@@ -131,4 +135,10 @@ Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bo
 
 ## Experimental armor visuals
 
+The September 26 trial rebuild gives chainmail separate plates on leather straps, the brigantine broad tire bands, and heavy tire armor large tread sections and forearm guards. Buckles, rivets, and side lacing add construction detail. The cuirass is preserved. These models still await in-game and visual acceptance; strap fit during extreme bends is not final.
+
 The local experimental build includes the improvised cuirass, chainmail, brigantine, tire armor, and nine Twaron, Guardian, and Zylon torso variants, plus vanilla stand-ins for Flak / Interceptor vests and the mapped helmets. Light, Medium, and Full differ by protective components; test fighters use MP40s and remain outside campaign squads. Only JAZZ Legion males show these visuals. The modern custom vests were reshaped around the test Legion fighter's shirt to reduce excessive rear clearance. Clothing fit and animations still require in-game validation.
+
+The Soviet helmet on male JAZZ Legion fighters uses a dedicated SSh-68 model, also equipped by the 6B3 test fighter. The item retains its SSh-40 name; the new model still needs an in-game fit check.
+
+Leather armor now has its own improvised plate carrier with riveted shoulder straps, side belts and worn leather texture. It appears on male JAZZ Legion fighters without changing the item's protection. The model is installed in the local experimental build; in-game fit and animation acceptance are still pending.

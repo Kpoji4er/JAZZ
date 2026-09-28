@@ -5,28 +5,6 @@ DefineClass.Drunk = {
 
 
 	object_class = "CharacterEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "melee_damage_flat",
-			'Value', 20,
-			'Tag', "<melee_damage_flat>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "range_cth_mod",
-			'Value', -15,
-			'Tag', "<range_cth_mod>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "hoursPerStack",
-			'Value', 3,
-			'Tag', "<hoursPerStack>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "nextDecayTime",
-			'Tag', "<nextDecayTime>",
-		}),
-	},
-	Comment = "Nazdarovya intoxication: stacks ≤5; sat debt 3h/stack",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -87,8 +65,8 @@ DefineClass.Drunk = {
 	end,
 	Icon = "UI/Hud/Status effects/drunk",
 	max_stacks = 5,
-	RemoveOnEndCombat = false,
 	Shown = true,
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

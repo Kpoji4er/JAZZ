@@ -27,7 +27,7 @@ DefineClass.AR15 = {
 	HandSlot = "TwoHanded",
 	Entity = "Weapon_AR15",
 	ComponentSlots = {
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Scope",
 			'AvailableComponents', {
 				"JAZZ_DefaultIronsight_AR15",
@@ -40,8 +40,8 @@ DefineClass.AR15 = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagNormalFine_AR15",
-				"JAZZ_MagLargeFine",
 				"JAZZ_MagLarge_50_AR15",
+				"JAZZ_MagLargeFine",
 				"JAZZ_MagQuick_AR15",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
@@ -94,7 +94,6 @@ DefineClass.AR15 = {
 				"JAZZ_Compensator",
 				"JAZZ_ImprovisedSuppressor",
 				"JAZZ_Suppressor",
-
 			},
 			'DefaultComponent', "JAZZ_Compensator",
 		}),

@@ -56,7 +56,6 @@ DefineClass.M1A = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagNormalFine_M14",
-				"JAZZ_MagSmall20_10_M14",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -125,16 +124,12 @@ DefineClass.M1A = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
-	BurstShots = 0,
-	WeaponMass = 55,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 22,
+	BurstShots = 0,
 	AutoShots = 0,
-
+	WeaponMass = 55,
+	WeaponSizeClass = "Long",
 	CloseRange = 16,
-
 	CloseRangeFactor = 70,
 	BulletDropRange = 19,
 	Grouping = 59,

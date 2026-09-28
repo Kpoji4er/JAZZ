@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_762x25_JHP = {
 	Description = T(890000000000622, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_762x25_JHP Description]] "Экспансивный патрон, на сколько это вообще возможно, коммерческий дешевый, но какой есть. Тут надо брать не качеством, а количеством."),
 	Cost = 450,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 5,
 	RestockWeight = 75,
 	CategoryPair = "762x25",

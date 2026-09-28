@@ -3,6 +3,7 @@ DefineClass.P220 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier3-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -65,7 +66,6 @@ DefineClass.P220 = {
 			},
 			'DefaultComponent', "JAZZ_IronSight",
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -77,18 +77,12 @@ DefineClass.P220 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 3000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 82,
 	BaseJamChance = -20,

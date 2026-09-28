@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity path="" name="">
+	<inherit entity="Male" mesh_ref="mesh"/>
+	<state id="_mesh">
+		<mesh_ref ref="mesh"/>
+	</state>
+	<mesh_description id="mesh">
+		<lod idx="0" distance="0">
+			<mesh file="Meshes/JAZZ_LeatherArmor_Male_mesh.m.hgm"/>
+			<material file="Materials/JAZZ_LeatherArmor_Male_mesh.mtl"/>
+			<bsphere value="2.071,-0.727,131.319,31.335"/>
+			<box min="-16.748,-24.292,108.100" max="20.891,22.837,154.538"/>
+			<src file="C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male.fbx"/>
+		</lod>
+	</mesh_description>
+</entity>

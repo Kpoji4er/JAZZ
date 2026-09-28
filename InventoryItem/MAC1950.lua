@@ -3,6 +3,7 @@ DefineClass.MAC1950 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-1",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -14,7 +15,6 @@ DefineClass.MAC1950 = {
 	AdditionalHint = T(809154413425, --[[ModItemInventoryItemCompositeDef MAC1950 AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Неудобный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Ненадежный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Малый магазин\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Недальнобойный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Старый\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесполезный"),
 	UnitStat = "Marksmanship",
 	Cost = 1100,
-	CanAppearInShop = false,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_9x19",
@@ -34,7 +34,6 @@ DefineClass.MAC1950 = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagLarge_13_PISTOL_52",
-				"JAZZ_MagLarge_8_PISTOL_52",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -43,9 +42,9 @@ DefineClass.MAC1950 = {
 			'Modifiable', false,
 			'CanBeEmpty', true,
 			'AvailableComponents', {
-								"JAZZ_ImprovisedSuppressor",
-								"JAZZ_Suppressor",
-							},
+				"JAZZ_ImprovisedSuppressor",
+				"JAZZ_Suppressor",
+			},
 		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Side",
@@ -58,7 +57,6 @@ DefineClass.MAC1950 = {
 				"JAZZ_UVDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -70,18 +68,12 @@ DefineClass.MAC1950 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 5,
 	Grouping = 40,
 	BaseJamChance = -20,

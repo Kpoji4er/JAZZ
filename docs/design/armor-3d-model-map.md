@@ -1,7 +1,7 @@
 # JazzArmor → 3D models (Fab / Sketchfab)
 
-Карта **всех** `JazzArmor_*` (без плит `JazzArmorPlates_*` — UI-only, меш не нужен).  
-Источники: **Fab + Sketchfab** (платные ок). CGTrader — нет.  
+Карта **всех** `JazzArmor_*` (без плит `JazzArmorPlates_*` — UI-only, меш не нужен).<br>
+Источники: **Fab + Sketchfab** (платные ок). CGTrader — нет.<br>
 Без retopo: только game-ready low-poly. Soft poly ok.
 
 ## Легенда моделей (база)
@@ -156,9 +156,9 @@
 
 ## Приоритет закупки
 
-1. **HAV + FLAK + MASKA + ZSH** (Slayver) — закрывает ~45 айтемов семьями.  
-2. Free: **M1, ADR, PVS14, HARD**.  
-3. **MMC2** — PASGT/MICH/caps/pants/pads + UE5.  
+1. **HAV + FLAK + MASKA + ZSH** (Slayver) — закрывает ~45 айтемов семьями.<br>
+2. Free: **M1, ADR, PVS14, HARD**.<br>
+3. **MMC2** — PASGT/MICH/caps/pants/pads + UE5.<br>
 4. Точечно: Stahlhelm, SSH-40 lowpoly, welding, ProTec, Soviet cuirass.
 
 ## JA3 slot classes (напоминание)

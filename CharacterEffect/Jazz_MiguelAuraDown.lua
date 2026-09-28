@@ -5,18 +5,6 @@ DefineClass.Jazz_MiguelAuraDown = {
 
 
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "cth_penalty",
-			'Value', 15,
-			'Tag', "<cth_penalty>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "will_penalty",
-			'Value', 30,
-			'Tag', "<will_penalty>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -41,9 +29,10 @@ DefineClass.Jazz_MiguelAuraDown = {
 	},
 	DisplayName = T(890000000009897, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown DisplayName]] "Команданте (−)"),
 	Description = T(890000000009898, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraDown Description]] "−15 CTH и −30 Will, пока Мигель сбит в ауре."),
-	Icon = "UI/Hud/Status effects/injured",
 	type = "Debuff",
 	lifetime = "Until End of Turn",
+	Icon = "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/UI/Hud/Status effects/injured",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

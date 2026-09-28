@@ -1,8 +1,8 @@
 # Appearance preset generation rules (WIP)
 
-Working contract for building / cloning `AppearancePreset` for JAZZ mercs (JA12, AME, handcraft).  
-Visual donor inventory: [`_appearance-donor-visual-catalog.md`](_appearance-donor-visual-catalog.md).  
-Existing codegen: `docs/tools/_gen_ja12_appearances.py`, map `ja12-appearance-map.json`.  
+Working contract for building / cloning `AppearancePreset` for JAZZ mercs (JA12, AME, handcraft).<br>
+Visual donor inventory: [`_appearance-donor-visual-catalog.md`](_appearance-donor-visual-catalog.md).<br>
+Existing codegen: `docs/tools/_gen_ja12_appearances.py`, map `ja12-appearance-map.json`.<br>
 AME policy (Af heads, blue accent): [`../ame-appearance-assets.md`](../ame-appearance-assets.md).
 
 Status: **collect correspondences first**; expand recipe rules later.
@@ -11,24 +11,24 @@ Status: **collect correspondences first**; expand recipe rules later.
 
 ## Hard gates
 
-1. **Male ↔ Female skeletons are incompatible.**  
-   Never put female Head/Hair/Hat/Body/Shirt/Pants meshes on a male preset (or reverse).  
-   Gender of the *target merc* locks the entire donor pool for that recipe.  
+1. **Male ↔ Female skeletons are incompatible.**<br>
+   Never put female Head/Hair/Hat/Body/Shirt/Pants meshes on a male preset (or reverse).<br>
+   Gender of the *target merc* locks the entire donor pool for that recipe.<br>
    Audit already treats ♀-on-♂ (and reverse) as hard fail (`Head_Fauda` / `Head_Lami` on male AME, etc.).
 
 2. **Same-gender donors only** when mixing Body from A + Head/Hair/Hat from B.
 
-3. Prefer **faction/NPC/Thug/Civ body + one head donor**.  
-   **Do not ship hireables as pure AIM merc clones** (`body=head=Red`, full Sidney, full Len, etc.) — owner veto 2026-08-05.  
+3. Prefer **faction/NPC/Thug/Civ body + one head donor**.<br>
+   **Do not ship hireables as pure AIM merc clones** (`body=head=Red`, full Sidney, full Len, etc.) — owner veto 2026-08-05.<br>
    AIM×AIM cross-kits are fragile (neck/collar scale) — warn / avoid.
 
-4. **Vanilla AIM kits are usually non-paintable.**  
-   Named AIM `Equipment*` / `Head_*` look is baked; BodyColor/PantsColor/HatColor typically do nothing useful.  
+4. **Vanilla AIM kits are usually non-paintable.**<br>
+   Named AIM `Equipment*` / `Head_*` look is baked; BodyColor/PantsColor/HatColor typically do nothing useful.<br>
    For recolors / color twins prefer faction/NPC/militia donors (or accept a different *non-clone* kit).
 
 5. Do not invent mesh IDs; only IDs observed in catalog / live `Presets.AppearancePreset` / shipped items.
 
-6. **Read the merc sheet first** (`docs/design/mercs-ja12/<slug>.md` CHARACTER_DESCRIPTION + JA2 face).  
+6. **Read the merc sheet first** (`docs/design/mercs-ja12/<slug>.md` CHARACTER_DESCRIPTION + JA2 face).<br>
    BigPortrait one-liners in the generator are guesses — sheet ethnicity, kit (спецовка / medic / knife / demo), and «не клон AIM» beat a lazy donor pick.
 
 7. **Verify in-session after every change.** Mutating `AppearancePresets` is not enough if `Unit.Appearance` is stale or `ApplyAppearance` was not run from UnitData. See § Session refresh below.
@@ -250,8 +250,8 @@ Full regen wipes hand-tuned colors unless these keys (or KEEP_HANDCRAFTED) prese
 
 ### WorkingGuy / WorkingGirl kits
 
-`WorkingGuy01`–`04` — magenta/pink + red pants; leg artifacts with AIM heads. **Banned** as JA12 body donors.  
-`WorkingGirl01`/`04` — purple Mollie tunic + pink skirt. **Banned** for hireables (same carnival look).  
+`WorkingGuy01`–`04` — magenta/pink + red pants; leg artifacts with AIM heads. **Banned** as JA12 body donors.<br>
+`WorkingGirl01`/`04` — purple Mollie tunic + pink skirt. **Banned** for hireables (same carnival look).<br>
 
 Purged WG/WGirl wave: Colby→Barry, Static→Thor, Kulba→Gus, Cord→Mario+Sidney, Allik→DirtyHenri+Sidney, Hobbit→Barry, Nervous→Tex, Grace→Meltdown+Buns, Ira/Flo→RebelFemale+Fox/Buns, Rothman→Sidney+NPC pants, Horg→Adonis_Heavy (not Bonecrusher), Bull→Steroid pale + Bonecrusher pants (owner: white, not Bonecrusher dark).
 

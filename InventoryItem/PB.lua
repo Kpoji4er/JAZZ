@@ -3,6 +3,7 @@ DefineClass.PB = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-UNIQ",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -15,7 +16,6 @@ DefineClass.PB = {
 	AdditionalHint = T(890000000000101, --[[ModItemInventoryItemCompositeDef PB AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Бесшумный\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Длинная рука Кремля."),
 	UnitStat = "Marksmanship",
 	Cost = 1800,
-	CanAppearInShop = false,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
 	Caliber = "JAZZ_Caliber_9x18",
@@ -38,7 +38,6 @@ DefineClass.PB = {
 			},
 			'DefaultComponent', "JAZZ_SuppressorIntegrated",
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -50,18 +49,12 @@ DefineClass.PB = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 4,
 	Recoil = 14,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 80,
 	BaseJamChance = -100,

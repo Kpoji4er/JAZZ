@@ -1,0 +1,2688 @@
+{
+  "checked_single_slot_rows": 1558,
+  "review_queue": [
+    {
+      "weapon": "AR15",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_AR15",
+          "entity": "WeaponAttA_BarrelAR15_02",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "Weapon_AR15",
+          "entity": "WeaponAttA_MagazineCAR15_02",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "WeaponAttA_BarrelAR15_02",
+          "entity": "WeaponAttA_Muzzle_01",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "Weapon_AR15",
+          "entity": "WeaponAttA_IronSightAR15",
+          "spot": "Scope"
+        },
+        {
+          "parent": "Weapon_AR15",
+          "entity": "WeaponAttA_StockAR15_01",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/AR15__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "Beretta93r",
+      "label": "Magazine-JAZZ_MagLarge_27",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/Beretta93r__Magazine-JAZZ_MagLarge_27.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "CZ52",
+      "label": "Magazine-JAZZ_MagLarge_13_PISTOL_52",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/CZ52__Magazine-JAZZ_MagLarge_13_PISTOL_52.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "CZ75",
+      "label": "Magazine-JAZZ_MagLarge_27",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/CZ75__Magazine-JAZZ_MagLarge_27.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "G36",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_HKG36",
+          "entity": "WeaponAttA_BarrelHKG36_Short",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "Weapon_HKG36",
+          "entity": "WeaponAttA_MagazineHKG36_01",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_HKG36",
+          "entity": "WeaponAttA_ScopeHKG36_01",
+          "spot": "Scope"
+        },
+        {
+          "parent": "Weapon_HKG36",
+          "entity": "WeaponAttA_StockHKG36_01",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/G36__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "G3A4",
+      "label": "Muzzle-JAZZ_DefMuzzle",
+      "declared_but_not_in_parts": [
+        "G3MuzzleV1"
+      ],
+      "parts": [
+        {
+          "parent": "G3A4",
+          "entity": "G3A4Magazine_20",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "G3A4",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "G3A4",
+          "entity": "G3A4Stock_Unfold",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/G3A4__Muzzle-JAZZ_DefMuzzle.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "GoldenGun",
+      "label": "Scope-JAZZ_CombatScope_2x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeCOG"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_M14_GoldEquip",
+          "entity": "WeaponAttA_BipodM14_GoldEquip",
+          "spot": "Bipod"
+        }
+      ],
+      "icon": "icons/GoldenGun__Scope-JAZZ_CombatScope_2x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "GoldenGun",
+      "label": "Scope-JAZZ_CombatScope_ACOG",
+      "declared_but_not_in_parts": [
+        "ACOGV2"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_M14_GoldEquip",
+          "entity": "WeaponAttA_BipodM14_GoldEquip",
+          "spot": "Bipod"
+        }
+      ],
+      "icon": "icons/GoldenGun__Scope-JAZZ_CombatScope_ACOG.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "GoldenGun",
+      "label": "Scope-JAZZ_Scope_6x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeLongRange"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_M14_GoldEquip",
+          "entity": "WeaponAttA_BipodM14_GoldEquip",
+          "spot": "Bipod"
+        }
+      ],
+      "icon": "icons/GoldenGun__Scope-JAZZ_Scope_6x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "GoldenGun",
+      "label": "Scope-JAZZ_Scope_12x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeSniperX10"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_M14_GoldEquip",
+          "entity": "WeaponAttA_BipodM14_GoldEquip",
+          "spot": "Bipod"
+        }
+      ],
+      "icon": "icons/GoldenGun__Scope-JAZZ_Scope_12x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Reflex_Aimpoint5000",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Aimpoint5000",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Reflex_Aimpoint5000.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Reflex_Closed",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "PKM_Scope",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Reflex_Closed.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Reflex_Eotech",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_ScopeReflex",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Reflex_Eotech.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Reflex_M68",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Ithaca_AimPoint",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Reflex_M68.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_CombatScope_2x",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_ScopeCOG",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_CombatScope_2x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_CombatScope_ACOG",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "ACOGV2",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_CombatScope_ACOG.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_NightScope",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_ScopeThermal",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_NightScope.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Scope_6x",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_ScopeLongRange",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Scope_6x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Scope_12x",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_ScopeSniperX10",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Scope_12x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Scope-JAZZ_Scope_Scout",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "SteyrS_Scope",
+          "spot": "Scope"
+        }
+      ],
+      "icon": "icons/HK23e__Scope-JAZZ_Scope_Scout.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Side-JAZZ_Flashlight",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_SideLight",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/HK23e__Side-JAZZ_Flashlight.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Side-JAZZ_LaserDot",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_SideLaser",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/HK23e__Side-JAZZ_LaserDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK23e",
+      "label": "Side-JAZZ_FlashlightDot",
+      "declared_but_not_in_parts": [
+        "Hk23eFurniture"
+      ],
+      "parts": [
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eBipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "Hk23eMag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "HK23e",
+          "entity": "WeaponAttA_SideLaserLight",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/HK23e__Side-JAZZ_FlashlightDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK33",
+      "label": "General-JAZZ_HK33LowerMod",
+      "declared_but_not_in_parts": [
+        "HK_33_Lower_Mod"
+      ],
+      "parts": [
+        {
+          "parent": "HK_33",
+          "entity": "HK_33_MidBarrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "HK_33",
+          "entity": "HK_33_Lower",
+          "spot": "General"
+        },
+        {
+          "parent": "HK_33",
+          "entity": "HK33_MagDef",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/HK33__General-JAZZ_HK33LowerMod.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK33",
+      "label": "Under-JAZZ_TacGrip",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_VerticalGripGlock18"
+      ],
+      "parts": [
+        {
+          "parent": "HK_33",
+          "entity": "HK_33_MidBarrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "HK_33",
+          "entity": "HK_33_Lower",
+          "spot": "General"
+        },
+        {
+          "parent": "HK_33",
+          "entity": "HK33_MagDef",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/HK33__Under-JAZZ_TacGrip.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "HK33",
+      "label": "Under-JAZZ_VerticalGrip",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_GripMP5"
+      ],
+      "parts": [
+        {
+          "parent": "HK_33",
+          "entity": "HK_33_MidBarrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "HK_33",
+          "entity": "HK_33_Lower",
+          "spot": "General"
+        },
+        {
+          "parent": "HK_33",
+          "entity": "HK33_MagDef",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/HK33__Under-JAZZ_VerticalGrip.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Reflex_Aimpoint5000",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "Aimpoint5000",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Reflex_Aimpoint5000.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Reflex_Closed",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "PKM_Scope",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Reflex_Closed.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Reflex_Eotech",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeReflex",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Reflex_Eotech.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Reflex_M68",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "Ithaca_AimPoint",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Reflex_M68.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_CombatScope_2x",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeCOG",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_CombatScope_2x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_CombatScope_ACOG",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "ACOGV2",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_CombatScope_ACOG.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_NightScope",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeThermal",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_NightScope.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Scope_6x",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeLongRange",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Scope_6x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Scope_12x",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeSniperX10",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Scope_12x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M14SAW",
+      "label": "Scope-JAZZ_Scope_Scout",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineNormal",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "SteyrS_Scope",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M14SAW__Scope-JAZZ_Scope_Scout.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M16A2",
+      "label": "Side-JAZZ_Flashlight",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_MountFrontCAR15"
+      ],
+      "parts": [
+        {
+          "parent": "M16A2",
+          "entity": "M16A2HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "Stanag30V2",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "WeaponAttA_SideLight",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/M16A2__Side-JAZZ_Flashlight.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M16A2",
+      "label": "Side-JAZZ_FlashlightDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_MountM16_03"
+      ],
+      "parts": [
+        {
+          "parent": "M16A2",
+          "entity": "M16A2HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "Stanag30V2",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "WeaponAttA_SideLaserLight",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/M16A2__Side-JAZZ_FlashlightDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M16A2",
+      "label": "Side-JAZZ_LaserDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_MountM16_03"
+      ],
+      "parts": [
+        {
+          "parent": "M16A2",
+          "entity": "M16A2HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "Stanag30V2",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "WeaponAttA_SideLaser",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/M16A2__Side-JAZZ_LaserDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M16A2",
+      "label": "Side-JAZZ_UVDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_MountM16_03"
+      ],
+      "parts": [
+        {
+          "parent": "M16A2",
+          "entity": "M16A2HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "Stanag30V2",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M16A2",
+          "entity": "WeaponAttA_SideLaser",
+          "spot": "Side"
+        }
+      ],
+      "icon": "icons/M16A2__Side-JAZZ_UVDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Side-JAZZ_LaserDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaser"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Side-JAZZ_LaserDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Side-JAZZ_FlashlightDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaserLight"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Side-JAZZ_FlashlightDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Side-JAZZ_UVDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaser"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Side-JAZZ_UVDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Side-JAZZ_Flashlight",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Side-JAZZ_Flashlight.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Reflex_Aimpoint5000",
+      "declared_but_not_in_parts": [
+        "Aimpoint5000"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Reflex_Aimpoint5000.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Reflex_Closed",
+      "declared_but_not_in_parts": [
+        "PKM_Scope"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Reflex_Closed.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Reflex_Eotech",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeReflex"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Reflex_Eotech.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Reflex_M68",
+      "declared_but_not_in_parts": [
+        "Ithaca_AimPoint"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Reflex_M68.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_CombatScope_2x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeCOG"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_CombatScope_2x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_CombatScope_ACOG",
+      "declared_but_not_in_parts": [
+        "ACOGV2"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_CombatScope_ACOG.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_NightScope",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeThermal"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_NightScope.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Scope_6x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeLongRange"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Scope_6x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Scope_12x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeSniperX10"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Scope_12x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M1A",
+      "label": "Scope-JAZZ_Scope_Scout",
+      "declared_but_not_in_parts": [
+        "SteyrS_Scope"
+      ],
+      "parts": [
+        {
+          "parent": "M1A",
+          "entity": "M1a_Long_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1a_Handguard",
+          "spot": "General"
+        },
+        {
+          "parent": "M1A",
+          "entity": "M1aMag_Def",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/M1A__Scope-JAZZ_Scope_Scout.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Reflex_Aimpoint5000",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "Aimpoint5000",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Reflex_Aimpoint5000.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Reflex_Closed",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "PKM_Scope",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Reflex_Closed.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Reflex_Eotech",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeReflex",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Reflex_Eotech.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Reflex_M68",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "Ithaca_AimPoint",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Reflex_M68.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_CombatScope_2x",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeCOG",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_CombatScope_2x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_CombatScope_ACOG",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "ACOGV2",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_CombatScope_ACOG.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_NightScope",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeThermal",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_NightScope.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Scope_6x",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeLongRange",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Scope_6x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Scope_12x",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "WeaponAttA_ScopeSniperX10",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Scope_12x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M21",
+      "label": "Scope-JAZZ_Scope_Scout",
+      "declared_but_not_in_parts": [
+        "JAZZ_M14_OpticsMount"
+      ],
+      "parts": [
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_BarrelNormal",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "JAZZ_M14_MagazineShort",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Mount"
+        },
+        {
+          "parent": "JAZZ_M14_BarrelNormal",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "SteyrS_Scope",
+          "spot": "Scope"
+        },
+        {
+          "parent": "JAZZ_M14",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M21__Scope-JAZZ_Scope_Scout.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M24Sniper",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_M24",
+          "entity": "WeaponAttA_MagazineM24_01",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_M24",
+          "entity": "WeaponAttA_MountM24",
+          "spot": "Mount"
+        },
+        {
+          "parent": "Weapon_M24",
+          "entity": "WeaponAttA_ScopeLongRange",
+          "spot": "Scope"
+        },
+        {
+          "parent": "Weapon_M24",
+          "entity": "WeaponAttA_BasicStockM24",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M24Sniper__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M41Shotgun",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_Benelli_M4",
+          "entity": "WeaponAttA_BarrelBenelli_Standard",
+          "spot": "Barrel"
+        }
+      ],
+      "icon": "icons/M41Shotgun__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "M4Commando",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_CAR15",
+          "entity": "WeaponAttA_HandguardCAR15",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "Weapon_CAR15",
+          "entity": "WeaponAttA_MagazineCAR15_02",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_CAR15",
+          "entity": "WeaponAttA_Muzzle_01",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "Weapon_CAR15",
+          "entity": "WeaponAttA_StockCAR15_02",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/M4Commando__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "MAC1950",
+      "label": "Magazine-JAZZ_MagLarge_13_PISTOL_52",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/MAC1950__Magazine-JAZZ_MagLarge_13_PISTOL_52.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "MP5",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_BarrelMP5_01",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_MagazineMP5_01",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_StockMP5_Extended",
+          "spot": "Stock"
+        },
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_HandguardMP5_01",
+          "spot": "Under"
+        }
+      ],
+      "icon": "icons/MP5__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "MP5K",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_BarrelMP5_02",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_MagazineMP5_01",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_StockMP5_Cap",
+          "spot": "Stock"
+        },
+        {
+          "parent": "Weapon_MP5",
+          "entity": "WeaponAttA_HandguardMP5_02",
+          "spot": "Under"
+        }
+      ],
+      "icon": "icons/MP5K__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "P38",
+      "label": "Magazine-JAZZ_MagLarge_13_PISTOL_52",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [
+        {
+          "parent": "P38",
+          "entity": "p38Barrel",
+          "spot": "Barrel"
+        }
+      ],
+      "icon": "icons/P38__Magazine-JAZZ_MagLarge_13_PISTOL_52.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Side-JAZZ_Flashlight",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Side-JAZZ_Flashlight.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Side-JAZZ_LaserDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaser"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Side-JAZZ_LaserDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Side-JAZZ_FlashlightDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaserLight"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Side-JAZZ_FlashlightDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Side-JAZZ_UVDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaser"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Side-JAZZ_UVDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Stock-JAZZ_PKMModStock",
+      "declared_but_not_in_parts": [
+        "PKMModStock"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Stock-JAZZ_PKMModStock.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Under-JAZZ_TacGrip",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_VerticalGripGlock18"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Under-JAZZ_TacGrip.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Under-JAZZ_VerticalGrip",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_GripMP5"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Under-JAZZ_VerticalGrip.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "PKM",
+      "label": "Handguard-JAZZ_PKMModHandGrip",
+      "declared_but_not_in_parts": [
+        "PKMModHandGrip"
+      ],
+      "parts": [
+        {
+          "parent": "PKM",
+          "entity": "PKM_Bipod",
+          "spot": "Bipod"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "PKM",
+          "entity": "",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "PKM",
+          "entity": "PKM_Wood_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/PKM__Handguard-JAZZ_PKMModHandGrip.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "SWModel52",
+      "label": "Magazine-JAZZ_MagLarge_8_PISTOL_52",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/SWModel52__Magazine-JAZZ_MagLarge_8_PISTOL_52.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "SWModel5906",
+      "label": "Magazine-JAZZ_MagLarge_27",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/SWModel5906__Magazine-JAZZ_MagLarge_27.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "Sig550",
+      "label": "Side-JAZZ_Flashlight",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Sig550",
+          "entity": "SIGHandGripDef",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SigMagDef",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SIGUnfoldStock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/Sig550__Side-JAZZ_Flashlight.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "Sig550",
+      "label": "Side-JAZZ_FlashlightOff",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLight"
+      ],
+      "parts": [
+        {
+          "parent": "Sig550",
+          "entity": "SIGHandGripDef",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SigMagDef",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SIGUnfoldStock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/Sig550__Side-JAZZ_FlashlightOff.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "Sig550",
+      "label": "Side-JAZZ_LaserDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaser"
+      ],
+      "parts": [
+        {
+          "parent": "Sig550",
+          "entity": "SIGHandGripDef",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SigMagDef",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SIGUnfoldStock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/Sig550__Side-JAZZ_LaserDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "Sig550",
+      "label": "Side-JAZZ_FlashlightDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaserLight"
+      ],
+      "parts": [
+        {
+          "parent": "Sig550",
+          "entity": "SIGHandGripDef",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SigMagDef",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SIGUnfoldStock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/Sig550__Side-JAZZ_FlashlightDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "Sig550",
+      "label": "Side-JAZZ_UVDot",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_SideLaser"
+      ],
+      "parts": [
+        {
+          "parent": "Sig550",
+          "entity": "SIGHandGripDef",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SigMagDef",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Sig550",
+          "entity": "SIGUnfoldStock",
+          "spot": "Stock"
+        }
+      ],
+      "icon": "icons/Sig550__Side-JAZZ_UVDot.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_Reflex_Aimpoint5000",
+      "declared_but_not_in_parts": [
+        "Aimpoint5000"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_Reflex_Aimpoint5000.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_Reflex_Closed",
+      "declared_but_not_in_parts": [
+        "PKM_Scope"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_Reflex_Closed.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_Reflex_Eotech",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeReflex"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_Reflex_Eotech.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_Reflex_M68",
+      "declared_but_not_in_parts": [
+        "Ithaca_AimPoint"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_Reflex_M68.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_CombatScope_2x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeCOG"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_CombatScope_2x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_CombatScope_3x",
+      "declared_but_not_in_parts": [
+        "M16ScopeX3"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_CombatScope_3x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_CombatScope_ACOG",
+      "declared_but_not_in_parts": [
+        "ACOGV2"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_CombatScope_ACOG.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_NightScope",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeThermal"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_NightScope.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_Scope_12x",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_ScopeSniperX10"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_Scope_12x.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "USAS12",
+      "label": "Scope-JAZZ_Scope_Scout",
+      "declared_but_not_in_parts": [
+        "SteyrS_Scope"
+      ],
+      "parts": [
+        {
+          "parent": "USAS12",
+          "entity": "USAS12Mag",
+          "spot": "Magazine"
+        }
+      ],
+      "icon": "icons/USAS12__Scope-JAZZ_Scope_Scout.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    },
+    {
+      "weapon": "VectorCP1",
+      "label": "Magazine-JAZZ_MagLarge_25_PISTOL_9",
+      "declared_but_not_in_parts": [
+        "WeaponAttA_Magazine_01"
+      ],
+      "parts": [],
+      "icon": "icons/VectorCP1__Magazine-JAZZ_MagLarge_25_PISTOL_9.png",
+      "interpretation": "Requires dependency/geometry review; not automatically a broken asset."
+    }
+  ],
+  "note": "Declared matching visual entities compared with actual vis.parts. Host substitutions and dependency overrides may be intentional."
+}

@@ -13,7 +13,6 @@ DefineClass.JazzArmor_TireBrigantine = {
 	Description = T(573274131078, --[[ModItemInventoryItemCompositeDef JazzArmor_TireBrigantine Description]] "Легкая (относительно) бригантина из обрезков шин, используемая подвижными подразделениями Легиона. Ладно хоть в красный не покрасили."),
 	AdditionalHint = T(140035693819, --[[ModItemInventoryItemCompositeDef JazzArmor_TireBrigantine AdditionalHint]] "Самодельная бригантина из кольчуги и обрезков шин"),
 	Cost = 900,
-	CanAppearInShop = false,
 	Tier = 2,
 	MaxStock = 1,
 	RestockWeight = 25,

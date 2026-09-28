@@ -3,6 +3,7 @@ DefineClass.Jazz_CombatMedicBuff = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
@@ -26,7 +27,8 @@ DefineClass.Jazz_CombatMedicBuff = {
 	Description = T(890000000006221, --[[ModItemCharacterEffectCompositeDef Jazz_CombatMedicBuff Description]] "+15 к шансу попадания и критическому удару до конца следующего хода."),
 	type = "Buff",
 	lifetime = "Until End of Next Turn",
-	Icon = "UI/Hud/Status effects/accuracy",
+	Icon = "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/UI/Hud/Status effects/accuracy",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

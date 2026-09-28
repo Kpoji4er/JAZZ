@@ -378,10 +378,10 @@ valuables:
 
 Правила:
 
-1. Class recipe **никогда** не выдаёт `DiamondBriefcase` и не подменяет payload миссии.  
-2. На managed-логистике — **`valuables: none`** в смысле L18 (карман); груз кладёт только Global AI (`lEnsureMoneyCargo`).  
-3. Груз **лутаемый** в тактике — награда за перехват сборщика/конвоя.  
-4. **Regen** — open / as-is (L19); не blocker.  
+1. Class recipe **никогда** не выдаёт `DiamondBriefcase` и не подменяет payload миссии.<br>
+2. На managed-логистике — **`valuables: none`** в смысле L18 (карман); груз кладёт только Global AI (`lEnsureMoneyCargo`).<br>
+3. Груз **лутаемый** в тактике — награда за перехват сборщика/конвоя.<br>
+4. **Regen** — open / as-is (L19); не blocker.<br>
 5. Один UI-предмет (`TinyDiamonds`) ок; карман ≠ tax payload.
 
 Ссылки: roadmap / STRATEGY-007/009, `Guardpost_Patrols.lua` → `lEnsureMoneyCargo`.

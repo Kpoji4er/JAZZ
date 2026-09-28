@@ -1,0 +1,344 @@
+{
+  "maps": {
+    "JAZZ_Chainmail_2_Base.dds": {
+      "family": "Chainmail",
+      "before": "2518c8da536b58390ea4a892865007e5a5ee3da374e4e974c1db162569a85ecb",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "14739002.dds": {
+      "family": "Guardian",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "9420002.dds": {
+      "family": "Guardian",
+      "before": "3f3cae196be27e629ef1377e1ce28274c8c8960559d794a4f4fa3826c22c5380",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "9420006.dds": {
+      "family": "Guardian",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "9420010.dds": {
+      "family": "Guardian",
+      "before": "541a1890227740c92a8dd18e97e7bc4273f2a0076e9d0b6535f2d874fe637ea5",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "8214002.dds": {
+      "family": "Guardian",
+      "before": "3f3cae196be27e629ef1377e1ce28274c8c8960559d794a4f4fa3826c22c5380",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "8214006.dds": {
+      "family": "Guardian",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "8214010.dds": {
+      "family": "Guardian",
+      "before": "541a1890227740c92a8dd18e97e7bc4273f2a0076e9d0b6535f2d874fe637ea5",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "10649002.dds": {
+      "family": "Twaron",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "11254001.dds": {
+      "family": "Twaron",
+      "before": "3f3cae196be27e629ef1377e1ce28274c8c8960559d794a4f4fa3826c22c5380",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "11254003.dds": {
+      "family": "Twaron",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "11254005.dds": {
+      "family": "Twaron",
+      "before": "541a1890227740c92a8dd18e97e7bc4273f2a0076e9d0b6535f2d874fe637ea5",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "12930002.dds": {
+      "family": "Twaron",
+      "before": "3f3cae196be27e629ef1377e1ce28274c8c8960559d794a4f4fa3826c22c5380",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "12930006.dds": {
+      "family": "Twaron",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "12930010.dds": {
+      "family": "Twaron",
+      "before": "541a1890227740c92a8dd18e97e7bc4273f2a0076e9d0b6535f2d874fe637ea5",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "12968002.dds": {
+      "family": "Zylon",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "13573002.dds": {
+      "family": "Zylon",
+      "before": "3f3cae196be27e629ef1377e1ce28274c8c8960559d794a4f4fa3826c22c5380",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "13573006.dds": {
+      "family": "Zylon",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "13573010.dds": {
+      "family": "Zylon",
+      "before": "541a1890227740c92a8dd18e97e7bc4273f2a0076e9d0b6535f2d874fe637ea5",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    "12367002.dds": {
+      "family": "Zylon",
+      "before": "3f3cae196be27e629ef1377e1ce28274c8c8960559d794a4f4fa3826c22c5380",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "12367006.dds": {
+      "family": "Zylon",
+      "before": "68510f3de2224034a2eef1ff1af08a11b84f1cc04196c4afeeb27a9b5dd089f7",
+      "size": [
+        4096,
+        4096
+      ]
+    },
+    "12367010.dds": {
+      "family": "Zylon",
+      "before": "541a1890227740c92a8dd18e97e7bc4273f2a0076e9d0b6535f2d874fe637ea5",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  },
+  "protected": {
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_Chainmail_Male.ent": "b50016f423d058513f2215f662e1e89ba30d3e8cf9531610916f3963941d351e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\JAZZ_Chainmail_Male_mesh.m.hgm": "f1c30b0cb9a9524c3cd60b6f9680031d333e78ab0ca1091cfcb14ab7bb34dca1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\JAZZ_Chainmail_Male_mesh.mtl": "2d1fe6fb8e1ec4cf654a0644aa096df19623044c07ae3872ee6434b928a829cf",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\JAZZ_Chainmail_1_Norm.dds": "671f14f5166a10af6b2f40d2692bb225f0a3ff3267bea7fb7971d2efd895ff4a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_Chainmail_1_Norm.dds": "b518542adf63792b808c353c7719b0505fd21e2cf654b33b140988645a7343b0",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\JAZZ_Chainmail_3_RM.dds": "5355bae12a2f9b56e749809e73f8557bd2ba58d28ca8c91b34bb71ede19adbae",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_Chainmail_3_RM.dds": "dce0a0ab2f41505e1f9c78dfc53afc1231b30e909235746eb327287ddf979f68",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_GuardianLight_Male.ent": "fbf2e2b58b03ecfeb61069ecc874acca62c6aff66249e2563df8b8d4fb74b12d",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\JAZZ_GuardianLight_Male_mesh.m.hgm": "216e7e50bc8589b19f5e168207c18d9f71770bee4cbdec911195c4a71391a07d",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\JAZZ_GuardianLight_Male_mesh.mtl": "a087ac79a6cdbb771e565e467843b8fcabdda28a309780c4b6549639f94737bf",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\14739001.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\14739001.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\14739000.dds": "c6baf934250653e11dbec352b5b12d7037cb4f424ff9c5c24ac22fad177fd803",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\14739000.dds": "9002360edc395566cb573ce8d730ba85e68a9a23905c22836c54d5e4be0af6a9",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\14739003.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\14739003.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_GuardianMedium_Male.ent": "953108c4b18b179975ba3266d1cc65d96069b7696e850cef4991d0a0294a55fc",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\GuardianMedium_mesh.m.hgm": "86e671482a4b456fb891b0dfd6908e5acbee61eccf8d308af469300996cc5b18",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\GuardianMedium_mesh.mtl": "05bdb9dbc05f1b1ff9983e6c86f675403442424685cea9c4643a1047e13d7c3f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420001.dds": "67e3ee32be22a26930df7564f4a0d63df0b54e70bf30a27a2551a4305caed17b",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420001.dds": "d17739d8a016d6074ab7be77d3ba6ba3aaf95f20fb7c80a6520151a89654420a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420000.dds": "79c761c4b1864150434d521f9ddbfa5e4f07d22934832b840e478a071bac4c5d",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420000.dds": "1ecda94fbd8a06b25cc5f54468140abb439735aa7de686e88de7b7333a9dbae8",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420003.dds": "d32b41e9c4c62f8158ef82e8b286c38cb047ecfa84eb9d922edc215f8719017a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420003.dds": "a28aab1d061b7d80328609c96397372ced2e29d4f1edb18825f66b371d80137e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420005.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420005.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420004.dds": "c6baf934250653e11dbec352b5b12d7037cb4f424ff9c5c24ac22fad177fd803",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420004.dds": "9002360edc395566cb573ce8d730ba85e68a9a23905c22836c54d5e4be0af6a9",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420007.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420007.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420009.dds": "1171d4b8780a15ecc69ffe51eae3698d00088049749d846a4f980d78468fe5c4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420009.dds": "74bcadc6214ff8acc2d9f3da6592df600c2b1072e9e5eba2de62d317ac3aab50",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420008.dds": "e0bf0745f299222d63bc139d99f78acf47ee67b5e808031be91daa345def1f0e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420008.dds": "f5e5e058b64be0b661a0b4974258fb8b83512b104bfec250041c2752b5ff92e4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\9420011.dds": "9748ab612c81630a98bced1d397d8d0932c3ba39537c058fe0804e1020a75e70",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\9420011.dds": "c93287bae3e617ce559f4bfec515992a01fb97b454a73dcc0f52bf51e09900cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_GuardianFull_Male.ent": "540d7480a044bc7de5dd7ae261d18aafd34e0060e62a473b7e005a9cf14da2ac",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\GuardianFull_mesh.m.hgm": "97d2e175ecaa2c7d94e720be46c56c3d05f87f4691ed9b62039a01e0e5aee9c5",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\GuardianFull_mesh.mtl": "31a24249fb481c7c28c429c5a0357b4bcf6938b8f708459688beed6762514621",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214001.dds": "67e3ee32be22a26930df7564f4a0d63df0b54e70bf30a27a2551a4305caed17b",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214001.dds": "d17739d8a016d6074ab7be77d3ba6ba3aaf95f20fb7c80a6520151a89654420a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214000.dds": "79c761c4b1864150434d521f9ddbfa5e4f07d22934832b840e478a071bac4c5d",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214000.dds": "1ecda94fbd8a06b25cc5f54468140abb439735aa7de686e88de7b7333a9dbae8",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214003.dds": "d32b41e9c4c62f8158ef82e8b286c38cb047ecfa84eb9d922edc215f8719017a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214003.dds": "a28aab1d061b7d80328609c96397372ced2e29d4f1edb18825f66b371d80137e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214005.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214005.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214004.dds": "c6baf934250653e11dbec352b5b12d7037cb4f424ff9c5c24ac22fad177fd803",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214004.dds": "9002360edc395566cb573ce8d730ba85e68a9a23905c22836c54d5e4be0af6a9",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214007.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214007.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214009.dds": "1171d4b8780a15ecc69ffe51eae3698d00088049749d846a4f980d78468fe5c4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214009.dds": "74bcadc6214ff8acc2d9f3da6592df600c2b1072e9e5eba2de62d317ac3aab50",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214008.dds": "e0bf0745f299222d63bc139d99f78acf47ee67b5e808031be91daa345def1f0e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214008.dds": "f5e5e058b64be0b661a0b4974258fb8b83512b104bfec250041c2752b5ff92e4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\8214011.dds": "9748ab612c81630a98bced1d397d8d0932c3ba39537c058fe0804e1020a75e70",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\8214011.dds": "c93287bae3e617ce559f4bfec515992a01fb97b454a73dcc0f52bf51e09900cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_TwaronLight_Male.ent": "7fd4dcf9fc2427c4df1bd55dcb3b22894aabeec619bdc2f1d7105488475fc241",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\Jazz_TwaronLight_Jazz_TwaronLight.m.hgm": "e851041734138b1be303561a6221041468b18a5ded854e4a69b8013ceb235e2f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\Jazz_TwaronLight_mesh.m.hgm": "4023365668703bc02d4967af936caf67afe54b492079343f95380a2893fff218",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\Jazz_TwaronLight_Jazz_TwaronLight.mtl": "ce545fe65a02698a0238386a38d936caf70770296f43e5e335b7172f4b37b585",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\10649001.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\10649001.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\10649000.dds": "8c5764b5181cad86f6283105eda0bb7352b26c35de2eda32a060b454936e912f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\10649000.dds": "6b7c0fb84f7075f2df55f709c5f0d17160ff73d8faf2e3b89925a8871e6e3439",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\10649003.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\10649003.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\Jazz_TwaronLight_mesh.mtl": "0d2768f711a72e99e872e686a1a607bb89fa6726663f93959641a623e2d5585a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_TwaronMedium_Male.ent": "31cc776a42d696958f090862bb5d2ab51ed622bec629f81a58bb9b6145918bd8",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\Jazz_TwaronMedium_mesh.m.hgm": "cdd75c30c7ddc6632caf9c21ef9dd6221cf3a5c11774466a4707da4268a1df47",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\Jazz_TwaronMedium_mesh.mtl": "6ac927ca37108b925b80ab2dc61dc519ba6f7e6069268d18225bf066121926ce",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254000.dds": "67e3ee32be22a26930df7564f4a0d63df0b54e70bf30a27a2551a4305caed17b",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254000.dds": "d17739d8a016d6074ab7be77d3ba6ba3aaf95f20fb7c80a6520151a89654420a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254006.dds": "b02342d0eec7b2a02816bcbcd321c5b4090a620c2a0f789382b98f30c1d12055",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254006.dds": "7be008c37a4e2ab49c3aae20771f60ebbb27dc38f5b510206ac7a809a73b3e95",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254007.dds": "d32b41e9c4c62f8158ef82e8b286c38cb047ecfa84eb9d922edc215f8719017a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254007.dds": "a28aab1d061b7d80328609c96397372ced2e29d4f1edb18825f66b371d80137e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254002.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254002.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254008.dds": "8c5764b5181cad86f6283105eda0bb7352b26c35de2eda32a060b454936e912f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254008.dds": "6b7c0fb84f7075f2df55f709c5f0d17160ff73d8faf2e3b89925a8871e6e3439",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254009.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254009.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254004.dds": "1171d4b8780a15ecc69ffe51eae3698d00088049749d846a4f980d78468fe5c4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254004.dds": "74bcadc6214ff8acc2d9f3da6592df600c2b1072e9e5eba2de62d317ac3aab50",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254010.dds": "3956ecbbed6e2f35bfd9d9113618f79eef9986ed6de7a97ebd64e98288285835",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254010.dds": "ca0c3176e27056d05e3acfe1f16b11ef3d15c46692c2d44f2d7c971780b1c395",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\11254011.dds": "9748ab612c81630a98bced1d397d8d0932c3ba39537c058fe0804e1020a75e70",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\11254011.dds": "c93287bae3e617ce559f4bfec515992a01fb97b454a73dcc0f52bf51e09900cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_TwaronFull_Male.ent": "2ec45fda50fbc18993d5430ebc0f2a6ff8bdf4e99381262f4e13222c8347ac6e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\JAZZ_TwaronFull_Male_mesh.m.hgm": "e7d0baa75e3ab809fa35a96c3025dc4c4d817b85871f4c3dc35344c770f45756",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\JAZZ_TwaronFull_Male_mesh.mtl": "520771f26cbb86d0fb83dc79e584af0c46a67c3955af29ef51605765b6d733b4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930001.dds": "67e3ee32be22a26930df7564f4a0d63df0b54e70bf30a27a2551a4305caed17b",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930001.dds": "d17739d8a016d6074ab7be77d3ba6ba3aaf95f20fb7c80a6520151a89654420a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930000.dds": "b02342d0eec7b2a02816bcbcd321c5b4090a620c2a0f789382b98f30c1d12055",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930000.dds": "7be008c37a4e2ab49c3aae20771f60ebbb27dc38f5b510206ac7a809a73b3e95",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930003.dds": "d32b41e9c4c62f8158ef82e8b286c38cb047ecfa84eb9d922edc215f8719017a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930003.dds": "a28aab1d061b7d80328609c96397372ced2e29d4f1edb18825f66b371d80137e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930005.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930005.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930004.dds": "8c5764b5181cad86f6283105eda0bb7352b26c35de2eda32a060b454936e912f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930004.dds": "6b7c0fb84f7075f2df55f709c5f0d17160ff73d8faf2e3b89925a8871e6e3439",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930007.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930007.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930009.dds": "1171d4b8780a15ecc69ffe51eae3698d00088049749d846a4f980d78468fe5c4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930009.dds": "74bcadc6214ff8acc2d9f3da6592df600c2b1072e9e5eba2de62d317ac3aab50",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930008.dds": "3956ecbbed6e2f35bfd9d9113618f79eef9986ed6de7a97ebd64e98288285835",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930008.dds": "ca0c3176e27056d05e3acfe1f16b11ef3d15c46692c2d44f2d7c971780b1c395",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12930011.dds": "9748ab612c81630a98bced1d397d8d0932c3ba39537c058fe0804e1020a75e70",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12930011.dds": "c93287bae3e617ce559f4bfec515992a01fb97b454a73dcc0f52bf51e09900cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_ZylonLight_Male.ent": "cb9779fa9cd55cdf6f5ffc1a9fccd5797cdcea057ac172c8f645cbf7d5f49eb0",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\JAZZ_ZylonLight_Male_mesh.m.hgm": "1cf2cf986b4e197c2deb320bb210036a3addf9a4d8bb17c240d4f6a70133e10e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\JAZZ_ZylonLight_Male_mesh.mtl": "7026b538bf866298f33c4965ce8c673f42ccfe407de302a10281348639974013",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12968001.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12968001.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12968000.dds": "8c5764b5181cad86f6283105eda0bb7352b26c35de2eda32a060b454936e912f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12968000.dds": "6b7c0fb84f7075f2df55f709c5f0d17160ff73d8faf2e3b89925a8871e6e3439",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12968003.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12968003.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_ZylonMedium_Male.ent": "d1a4fb4d10af68a7295882e497c49ec82e89376b5400e069dd2f0f6e3b3b804d",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\JAZZ_ZylonMedium_Male_mesh.m.hgm": "b98565ff5df5c7deede3003cb7faccfb05adc1f7769468e8f0ded32a236ed9a3",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\JAZZ_ZylonMedium_Male_mesh.mtl": "94cdb5f304d031ec945c2329e8e1e0697ff56ad88742a58f98ed3bc42a73944d",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573001.dds": "67e3ee32be22a26930df7564f4a0d63df0b54e70bf30a27a2551a4305caed17b",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573001.dds": "d17739d8a016d6074ab7be77d3ba6ba3aaf95f20fb7c80a6520151a89654420a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573000.dds": "b02342d0eec7b2a02816bcbcd321c5b4090a620c2a0f789382b98f30c1d12055",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573000.dds": "7be008c37a4e2ab49c3aae20771f60ebbb27dc38f5b510206ac7a809a73b3e95",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573003.dds": "d32b41e9c4c62f8158ef82e8b286c38cb047ecfa84eb9d922edc215f8719017a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573003.dds": "a28aab1d061b7d80328609c96397372ced2e29d4f1edb18825f66b371d80137e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573005.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573005.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573004.dds": "8c5764b5181cad86f6283105eda0bb7352b26c35de2eda32a060b454936e912f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573004.dds": "6b7c0fb84f7075f2df55f709c5f0d17160ff73d8faf2e3b89925a8871e6e3439",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573007.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573007.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573009.dds": "1171d4b8780a15ecc69ffe51eae3698d00088049749d846a4f980d78468fe5c4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573009.dds": "74bcadc6214ff8acc2d9f3da6592df600c2b1072e9e5eba2de62d317ac3aab50",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573008.dds": "3956ecbbed6e2f35bfd9d9113618f79eef9986ed6de7a97ebd64e98288285835",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573008.dds": "ca0c3176e27056d05e3acfe1f16b11ef3d15c46692c2d44f2d7c971780b1c395",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\13573011.dds": "9748ab612c81630a98bced1d397d8d0932c3ba39537c058fe0804e1020a75e70",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\13573011.dds": "c93287bae3e617ce559f4bfec515992a01fb97b454a73dcc0f52bf51e09900cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\JAZZ_ZylonFull_Male.ent": "828b5bdc81047ad41969fe3d648ae67498fa325c0df9ab7cde0015f1b602c8d1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Meshes\\JAZZ_ZylonFull_Male_mesh.m.hgm": "de6e3084c68d0cb53e5f85b0c572a60c0fb4be1d50763768ea6c393953bbb855",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Materials\\JAZZ_ZylonFull_Male_mesh.mtl": "f02ee2e7c7f6c8e31b3e11a3c8e95c1eb59f702e614249140907e95411012308",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367001.dds": "67e3ee32be22a26930df7564f4a0d63df0b54e70bf30a27a2551a4305caed17b",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367001.dds": "d17739d8a016d6074ab7be77d3ba6ba3aaf95f20fb7c80a6520151a89654420a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367000.dds": "b02342d0eec7b2a02816bcbcd321c5b4090a620c2a0f789382b98f30c1d12055",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367000.dds": "7be008c37a4e2ab49c3aae20771f60ebbb27dc38f5b510206ac7a809a73b3e95",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367003.dds": "d32b41e9c4c62f8158ef82e8b286c38cb047ecfa84eb9d922edc215f8719017a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367003.dds": "a28aab1d061b7d80328609c96397372ced2e29d4f1edb18825f66b371d80137e",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367005.dds": "9c93a40d5d796648257f29966c7d0bdfc12361f9926eb095b08b85618998913a",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367005.dds": "c63f594b2889d94caf59cb19a73a93801889dfb1ff18d914e11ae6ea630289cd",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367004.dds": "8c5764b5181cad86f6283105eda0bb7352b26c35de2eda32a060b454936e912f",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367004.dds": "6b7c0fb84f7075f2df55f709c5f0d17160ff73d8faf2e3b89925a8871e6e3439",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367007.dds": "ceb62495c04c2e1c94e5d37b8652de2dd48c17c49b1d0c30c6932cb9cd725bd1",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367007.dds": "21bc255126e3f67a4f90bd41374c8ef18ae92e5d1cceaf077063245ac041c905",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367009.dds": "1171d4b8780a15ecc69ffe51eae3698d00088049749d846a4f980d78468fe5c4",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367009.dds": "74bcadc6214ff8acc2d9f3da6592df600c2b1072e9e5eba2de62d317ac3aab50",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367008.dds": "3956ecbbed6e2f35bfd9d9113618f79eef9986ed6de7a97ebd64e98288285835",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367008.dds": "ca0c3176e27056d05e3acfe1f16b11ef3d15c46692c2d44f2d7c971780b1c395",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\12367011.dds": "9748ab612c81630a98bced1d397d8d0932c3ba39537c058fe0804e1020a75e70",
+    "C:\\Users\\SsAnd\\AppData\\Roaming\\Jagged Alliance 3\\Mods\\jazz_assets\\Entities\\Textures\\Fallbacks\\12367011.dds": "c93287bae3e617ce559f4bfec515992a01fb97b454a73dcc0f52bf51e09900cd"
+  }
+}

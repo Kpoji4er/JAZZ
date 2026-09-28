@@ -15,7 +15,6 @@ DefineClass.JazzArmor_LeatherJacketBlk = {
 	AdditionalHint = T(168419531911, --[[ModItemInventoryItemCompositeDef JazzArmor_LeatherJacketBlk AdditionalHint]] "Крепкая кожаная куртка."),
 	Cost = 400,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 1,
 	RestockWeight = 120,
 	AdditionalReduction = 40,

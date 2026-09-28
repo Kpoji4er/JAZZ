@@ -40,6 +40,12 @@ def main():
             if key not in (11, 12, 13, 21, 22, 23, 24, 25, 31, 32, 33):
                 continue
             wid = (r.get("id") or "").strip()
+            if wid == "Mosin":
+                by[11]["Боевые винтовки"].append("`Mosin/M38` (М38)")
+                by[11]["Карабины"].append("`Mosin/Obrez` (Обрез)")
+                by[11]["ПП"].append("`Mosin/Obrez` (Обрез)")
+                by[13]["Снайперские"].append("`Mosin` (Винтовка Мосина, длинная/ПУ)")
+                continue
             name = (r.get("display_name") or wid).strip()
             oc = (r.get("object_class") or "").strip()
             bucket = BUCKET.get(oc, oc or "Прочее")

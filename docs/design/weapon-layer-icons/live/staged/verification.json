@@ -1,0 +1,122 @@
+{
+  "weapons": 183,
+  "defaults": 183,
+  "variants": 1628,
+  "captured": 1795,
+  "icons": 1795,
+  "flagged": [
+    {
+      "weapon": "M16A4",
+      "label": "Under-JAZZ_GrenadeLauncher",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Under-JAZZ_VerticalGrip",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Under-JAZZ_TacGrip",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Side-JAZZ_Flashlight",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Side-JAZZ_FlashlightOff",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Side-JAZZ_FlashlightDot",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Side-JAZZ_LaserDot",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M16A4",
+      "label": "Side-JAZZ_UVDot",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Under-JAZZ_GrenadeLauncher",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Under-JAZZ_VerticalGrip",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Under-JAZZ_TacGrip",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Side-JAZZ_Flashlight",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Side-JAZZ_FlashlightOff",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Side-JAZZ_FlashlightDot",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Side-JAZZ_LaserDot",
+      "issues": [
+        "rejected-component"
+      ]
+    },
+    {
+      "weapon": "M4A1",
+      "label": "Side-JAZZ_UVDot",
+      "issues": [
+        "rejected-component"
+      ]
+    }
+  ],
+  "missing_defaults": []
+}

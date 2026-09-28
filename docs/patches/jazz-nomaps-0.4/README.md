@@ -31,5 +31,5 @@ git apply docs/patches/jazz-nomaps-0.4/0003-nomaps-global-ai-economy.patch
 
 `version_minor` → **8**.
 
-Спека: [JAZZ-COMPAT-003](../../specs/active/JAZZ-COMPAT-003.md).  
+Спека: [JAZZ-COMPAT-003](../../specs/active/JAZZ-COMPAT-003.md).<br>
 Баг-заметки: [nomaps playtest](../../technical/bugs/nomaps-playtest-2026-07-30.md).

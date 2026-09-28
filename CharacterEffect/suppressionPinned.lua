@@ -23,7 +23,6 @@ DefineClass.suppressionPinned = {
 			Event = "OnBeginTurn",
 			Handler = function (self, target)
 				-- Pinned units cannot keep prepared attacks (incl. permanent MG OW).
-				-- Jazz BeginTurn otherwise preserves permanent overwatch across turns.
 				if type(Jazz_StripPinnedPreparedAttacks) == "function" then
 					Jazz_StripPinnedPreparedAttacks(target)
 				else
@@ -82,9 +81,7 @@ DefineClass.suppressionPinned = {
 				strip_prepared()
 			end
 		end)
-
 		obj.ActionPoints = Clamp(obj.ActionPoints, 0, 4*const.Scale.AP)
-
 		if not obj:IsDead() then
 			if obj:IsMerc() then
 				PlayVoiceResponse(obj, "AIArchetypeScared")
@@ -97,3 +94,4 @@ DefineClass.suppressionPinned = {
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

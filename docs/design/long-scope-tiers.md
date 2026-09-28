@@ -1,8 +1,8 @@
 # Длинная оптика (Scope) — баф максимального прицеливания
 
-Канон для `JAZZ_Scope_*` (день) и лёгкий pass night.  
-Связано: Combat mid [`combat-scope-tiers.md`](combat-scope-tiers.md), Reflex CQB [`reflex-collimator-tiers.md`](reflex-collimator-tiers.md).  
-Apply: `docs/tools/_rebalance_long_scopes.py`.  
+Канон для `JAZZ_Scope_*` (день) и лёгкий pass night.<br>
+Связано: Combat mid [`combat-scope-tiers.md`](combat-scope-tiers.md), Reflex CQB [`reflex-collimator-tiers.md`](reflex-collimator-tiers.md).<br>
+Apply: `docs/tools/_rebalance_long_scopes.py`.<br>
 Калибровка: `docs/tools/_cmp_optic_cth.py --weapon DragunovSVD` (СВД); лоутир-винтовки — `Mosin` / `Springfield`.
 
 **Статус:** settled 2026-08-01 (owner: оставляем числа; max-aim роль зафиксирована).

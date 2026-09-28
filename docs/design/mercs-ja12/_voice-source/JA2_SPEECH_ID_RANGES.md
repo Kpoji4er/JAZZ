@@ -1,6 +1,6 @@
 # JA2 SPEECH line ID ranges (Bayun canon)
 
-Источник: Discord / Баюн (пустой follow-up = принять как истину для JA2 speech IDs).  
+Источник: Discord / Баюн (пустой follow-up = принять как истину для JA2 speech IDs).<br>
 Связано: `VERIFY.md`, `SLOT_WAV` / `AIM_CHAT_WAV` в `docs/tools/_ship_ja2_merc_voices.py`, эталон AIM у Colby (`_ship_colby_voices_ja2_only.py`).
 
 ## Диапазоны (один profile_id = один банк `NNN_###`)
@@ -14,17 +14,17 @@
 
 ## MERK
 
-Мерки из **MERK** (в ja2mercs часто папка `мерки/`: Razor, Haywire, Flo, Cougar, Gasket, Gumpy, Numb, Bubba…): **нет hiring phrases**.  
+Мерки из **MERK** (в ja2mercs часто папка `мерки/`: Razor, Haywire, Flo, Cougar, Gasket, Gumpy, Numb, Bubba…): **нет hiring phrases**.<br>
 Не ждать полноценных `081–120` для AIM/Snype; chat либо молчит, либо осознанный fallback (не выдавать ATTN за «найм»).
 
 ## Коллизии адресов
 
-Один и тот же numeric `profile_id` / префикс файла у **разных модов** может означать **разный контент**. Подстановка — **по содержимому** (голос/текст/STT), не по имени папки и не по EDT-нику в filename.  
+Один и тот же numeric `profile_id` / префикс файла у **разных модов** может означать **разный контент**. Подстановка — **по содержимому** (голос/текст/STT), не по имени папки и не по EDT-нику в filename.<br>
 Уже зафиксированные Jazz-кейсы: Carlos≠Gaston (`058`), Shank≠Benny (`067`), Dynamo≠Simon (`066`), Manuel≠Dimitri (`060`), Grom pack `076`+`047` (owner).
 
 ## Сборка из «базовых» фраз
 
-В ja2mercs банки часто свалены по папкам. Следующий remesh/ship должен **собирать** слоты Jazz из базовых stems по таблице ниже (а не копировать чужой банк целиком и не кормить hire из Selection).  
+В ja2mercs банки часто свалены по папкам. Следующий remesh/ship должен **собирать** слоты Jazz из базовых stems по таблице ниже (а не копировать чужой банк целиком и не кормить hire из Selection).<br>
 Hire-файлы могут прийти отдельно (renamed) — маппить в `081–120` по слоту AIM, не в combat VR.
 
 ## Jazz impact (после remesh 2026-08)
@@ -93,6 +93,6 @@ MERK: таблицу hire **не применять**, пока нет отде�
 
 ## Процесс (Kpoji4er)
 
-1. Не копировать схему Trevor/Colby blindly на всех (первый проход = mess).  
-2. Второй проход: **расшифровка слов** (STT / EDT text) → подтвердить, что stem совпадает с ролью слота и персонажем.  
+1. Не копировать схему Trevor/Colby blindly на всех (первый проход = mess).<br>
+2. Второй проход: **расшифровка слов** (STT / EDT text) → подтвердить, что stem совпадает с ролью слота и персонажем.<br>
 3. Адреса коллизий — только после content-check.

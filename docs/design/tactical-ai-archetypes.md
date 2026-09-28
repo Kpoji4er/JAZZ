@@ -126,7 +126,7 @@ end
 
 ### 2.5. UnitData после рефактора
 
-Хранит: `archetype`, `AIKeywords`, флаги (`AllowPanic`, `PanicTier`, `AllowMedicSwitch`, `MeleeSecondary`, `NeverMelee`, `RoleFamily=Scout|Pusher|Line|…`).  
+Хранит: `archetype`, `AIKeywords`, флаги (`AllowPanic`, `PanicTier`, `AllowMedicSwitch`, `MeleeSecondary`, `NeverMelee`, `RoleFamily=Scout|Pusher|Line|…`).<br>
 **Не** хранит 60 строк inline Lua.
 
 ---

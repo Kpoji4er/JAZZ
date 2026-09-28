@@ -39,7 +39,7 @@ approved_by: project-owner
 
 ## Проблема
 
-Живой рынок AME (`JAZZ_AME_MarketTick` каждые 14 дней, init на NewGame) уже крутит витрину, но игрок **не получает оповещений**: нет письма о том, что такое биржа, нет письма о смене листинга, вкладка PDA `ame` принудительно `locked = false` с первого дня ([`Code/System_AME_Browser.lua`](../../Code/System_AME_Browser.lua)). Игрок может не заметить AME или ротацию.
+Живой рынок AME (`JAZZ_AME_MarketTick` каждые 14 дней, init на NewGame) уже крутит витрину, но игрок **не получает оповещений**: нет письма о том, что такое биржа, нет письма о смене листинга, вкладка PDA `ame` принудительно `locked = false` с первого дня ([`Code/System_AME_Browser.lua`](../../../Code/System_AME_Browser.lua)). Игрок может не заметить AME или ротацию.
 
 Канал **не** связан с R.I.S. (см. [`JAZZ-UI-RIS-001`](JAZZ-UI-RIS-001.md)).
 

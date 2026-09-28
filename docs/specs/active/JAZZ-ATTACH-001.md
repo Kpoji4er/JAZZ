@@ -136,13 +136,13 @@ approved_by: project-owner
 
 После того как comps больше не ссылаются на эффект — удалить **mod-owned** preset из `items.lua` (+ metadata sync), если он не нужен иначе.
 
-**Уже orphan (0 comps) — кандидаты сразу:**  
+**Уже orphan (0 comps) — кандидаты сразу:**<br>
 `ScopeCTHBonus`, `ScopeAccuracyIncreace`, `ScopeAccuracyReduce`, `ReduceRange50Percent`, `ReduceAuto50Percent`, `ReduceAimAccuracy50Percent`, `ReduceAimAccuracy80Percent`.
 
-**Оставить (не удалять):**  
+**Оставить (не удалять):**<br>
 `PointBlankBonus`, `TwoHanded` — свойства/флаги оружия; effect-preset тоже оставить, пока не мигрируем PointBlank → `CloseRange*`.
 
-**После strip Handling — удалить presets:**  
+**После strip Handling — удалить presets:**<br>
 `ScopeHandlingReduce`, `SilencerHandlingReduce`, `SilencerHandlingDecrease` (если есть), `MagazineHandlingDecrease/Increase`, `BarrelHandlingIncrease/Reduce`, `GripHandlingIncrease`, `StockHandlingIncrease`, `GLHandlingDecrease`, `BipodsHandlingDecrease`, `Cumbersome` (если Cumbersome только как component effect и не property).
 
 **Не удалять:** vanilla/CommonLib effects; живые рычаги (Recoil, ShotAP, Mag, Silent, optic mag…); `PointBlankBonus`, `TwoHanded`.
@@ -156,8 +156,8 @@ approved_by: project-owner
 | `CloseRange` | тайлы: ниже этого — ближняя неэффективность (0 = нет зоны, типичный пистолет) |
 | `CloseRangeFactor` | множитель CTH на `d = 0` (1.0 = без штрафа; &lt;1 хуже в упор); к `CloseRange` поднимается до 1.0 |
 
-Ствол сдвигает эти поля (short → меньше `CloseRange` / выше factor; long → наоборот).  
-Оптика отдельно: `OpticMinRange` / `OpticNearFactor` — поверх, не вместо.  
+Ствол сдвигает эти поля (short → меньше `CloseRange` / выше factor; long → наоборот).<br>
+Оптика отдельно: `OpticMinRange` / `OpticNearFactor` — поверх, не вместо.<br>
 `PointBlankBonus` пока **не удалять**; после ввода `CloseRange*` — отдельным micro-pass deprecate/скрыть.
 
 ### Phase C — ребаланс ролей (единый pass, один спек)

@@ -27,7 +27,8 @@ DefineClass._9mm_Shock = {
 		}),
 	},
 	AppliedEffects = {
-		"ExposedBleeding",
+		"Exposed",
+		"Bleeding",
 	},
 	ammo_type_icon = "UI/Icons/Items/ta_shock.png",
 }

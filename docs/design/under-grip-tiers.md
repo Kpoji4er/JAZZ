@@ -1,7 +1,7 @@
 # Рукоятки (Under / Handgrip / Side wrap) — мелкие дешёвые роли
 
-Канон для grip-comps.  
-Apply: `docs/tools/_rebalance_under_grip_tiers.py`.  
+Канон для grip-comps.<br>
+Apply: `docs/tools/_rebalance_under_grip_tiers.py`.<br>
 Связано: [`attachments-rebalance.md`](attachments-rebalance.md), `JAZZ-ATTACH-001`.
 
 **Статус:** applied 2026-08-01 (owner roles).

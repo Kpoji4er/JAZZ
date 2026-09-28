@@ -14,7 +14,6 @@ DefineClass.JAZZ_AMMO_762x39_APP = {
 	Cost = 2200,
 	CanAppearInShop = true,
 	Tier = 5,
-	MaxStock = 3,
 	RestockWeight = 12,
 	CategoryPair = "762WP",
 	ShopStackSize = 100,

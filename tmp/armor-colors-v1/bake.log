@@ -1,0 +1,73 @@
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Fra:1 Mem:904.33M (Peak 904.33M) | Time:47:58:41.22 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:904.33M (Peak 904.33M) | Time:47:58:41.22 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:904.33M (Peak 904.33M) | Time:47:58:41.22 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 14739002.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 2 file(s)
+Info: Saved as "14739002.dds.blend"
+BAKED Guardian 14739002.dds
+Fra:1 Mem:904.33M (Peak 3144.44M) | Time:47:58:46.39 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:904.33M (Peak 3144.44M) | Time:47:58:46.39 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:904.33M (Peak 3144.44M) | Time:47:58:46.39 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 9420002.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 2 file(s)
+Info: Saved as "9420002.dds.blend"
+BAKED Guardian 9420002.dds
+Fra:1 Mem:232.33M (Peak 3144.44M) | Time:47:58:51.38 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:232.33M (Peak 3144.44M) | Time:47:58:51.38 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:232.33M (Peak 3144.44M) | Time:47:58:51.38 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 9420010.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 2 file(s)
+Info: Saved as "9420010.dds.blend"
+BAKED Guardian 9420010.dds
+Fra:1 Mem:904.37M (Peak 3144.44M) | Time:47:58:52.67 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:904.37M (Peak 3144.44M) | Time:47:58:52.67 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:904.37M (Peak 3144.44M) | Time:47:58:52.67 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 10649002.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 2 file(s)
+Info: Saved as "10649002.dds.blend"
+BAKED Twaron 10649002.dds
+Fra:1 Mem:904.37M (Peak 3144.48M) | Time:47:58:57.79 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:904.37M (Peak 3144.48M) | Time:47:58:57.79 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:904.37M (Peak 3144.48M) | Time:47:58:57.79 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 11254001.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 2 file(s)
+Info: Saved as "11254001.dds.blend"
+BAKED Twaron 11254001.dds
+Fra:1 Mem:232.37M (Peak 3144.48M) | Time:47:59:03.02 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:232.37M (Peak 3144.48M) | Time:47:59:03.02 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:232.37M (Peak 3144.48M) | Time:47:59:03.02 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 11254005.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 2 file(s)
+Info: Saved as "11254005.dds.blend"
+BAKED Twaron 11254005.dds
+Fra:1 Mem:904.44M (Peak 3144.48M) | Time:47:59:04.27 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:904.44M (Peak 3144.48M) | Time:47:59:04.27 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:904.43M (Peak 3144.48M) | Time:47:59:04.27 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 12968002.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 3 file(s)
+Info: Saved as "12968002.dds.blend"
+BAKED Zylon 12968002.dds
+Fra:1 Mem:904.44M (Peak 3149.87M) | Time:47:59:09.17 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:904.44M (Peak 3149.87M) | Time:47:59:09.17 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:904.43M (Peak 3149.87M) | Time:47:59:09.17 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 13573002.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 3 file(s)
+Info: Saved as "13573002.dds.blend"
+BAKED Zylon 13573002.dds
+Fra:1 Mem:232.44M (Peak 3149.87M) | Time:47:59:13.91 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | Plane
+Fra:1 Mem:232.44M (Peak 3149.87M) | Time:47:59:13.91 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:232.43M (Peak 3149.87M) | Time:47:59:13.91 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading 13573010.dds
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Packed 3 file(s)
+Info: Saved as "13573010.dds.blend"
+BAKED Zylon 13573010.dds
+Read blend: "C:\Users\SsAnd\.codex\artifacts\armor-prototype\rebuilt-20260926-v19\chainmail\chainmail.blend"
+Fra:0 Mem:260.90M (Peak 3149.87M) | Time:47:59:15.00 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | TEST_chainmail_Male
+Fra:0 Mem:263.24M (Peak 3149.87M) | Time:47:59:15.00 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:0 Mem:263.23M (Peak 3149.87M) | Time:47:59:15.00 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading JAZZ_Chainmail_2_Base.dds
+Info: Saved as "chainmail-material.blend"
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED Chainmail JAZZ_Chainmail_2_Base.dds
+
+Blender quit

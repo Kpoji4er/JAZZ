@@ -33,7 +33,6 @@ DefineClass.MakeThemBleed = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
 			Handler = function (self, target, attacker, action, attack_target, results, attack_args)
-				-- Refresh after Flay's attack (bleed may have been applied).
 				if target == attacker and type(Jazz_MakeThemBleedSyncBuff) == "function" then
 					Jazz_MakeThemBleedSyncBuff(attacker)
 				end
@@ -45,3 +44,4 @@ DefineClass.MakeThemBleed = {
 	Icon = "UI/Icons/Perks/MakeThemBleed",
 	Tier = "Personal",
 }
+

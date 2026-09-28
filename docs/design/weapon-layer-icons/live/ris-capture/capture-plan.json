@@ -1,0 +1,17 @@
+{
+  "ids": [
+    "M4A1",
+    "M16A4"
+  ],
+  "variants": [
+    "Under",
+    "Side"
+  ],
+  "matte": true,
+  "distance": 0,
+  "prerequisites": {
+    "Handguard": "JAZZ_Handguard_RIS"
+  },
+  "label_prefix": "RIS__",
+  "capture_source_sha256": "df12b1d91f04353aa7247f62639aa8375072cb50d40298369efcac7538563233"
+}

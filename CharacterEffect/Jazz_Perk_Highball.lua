@@ -34,3 +34,4 @@ DefineClass.Jazz_Perk_Highball = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Highball.png",
 	Tier = "Personal",
 }
+

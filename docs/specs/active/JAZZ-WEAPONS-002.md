@@ -85,9 +85,9 @@ approved_by: project-owner
 - `JAZZ_GunFurniture` — по сути те же `Parts`, отдельный id не нужен.
 - `JAZZ_SpringSet` — нет конкретной игровой петли (что именно чинит/крафтит uniquely); не плодить item «на всякий случай». Если позже появится явный кейс (только restore `WeaponResourceMax` после jam) — отдельный micro-REQ.
 
-**Убрать из экономики (items + craft + loot/shop):** `FineSteelPipe`, `OpticalLens`, `Microchip` — **удалить** как расходники.  
-**Оставить в gunsmith-экономике:** `Parts`, `JAZZ_BarrelParts`, `JAZZ_ScopeParts`, плюс **InventoryItem аттачей** (removable).  
-**Сейвы:** стеки старых расходников конвертировать при load (`FineSteelPipe` → `JAZZ_BarrelParts` 1:1; `OpticalLens`/`Microchip` → `Parts` 1:1).  
+**Убрать из экономики (items + craft + loot/shop):** `FineSteelPipe`, `OpticalLens`, `Microchip` — **удалить** как расходники.<br>
+**Оставить в gunsmith-экономике:** `Parts`, `JAZZ_BarrelParts`, `JAZZ_ScopeParts`, плюс **InventoryItem аттачей** (removable).<br>
+**Сейвы:** стеки старых расходников конвертировать при load (`FineSteelPipe` → `JAZZ_BarrelParts` 1:1; `OpticalLens`/`Microchip` → `Parts` 1:1).<br>
 **Снимаемые обвесы** — сами InventoryItem, не расходники.
 
 ## Политика обвесов
@@ -98,7 +98,7 @@ approved_by: project-owner
 | Toggle | **Folding stock** (сложил/разложил) | не item — переключение component/state | на стволе |
 | Permanent | Barrel; non-fold Stock; Handguard structural; irons | ModifyWeapon + parts | `Parts` / `JAZZ_BarrelParts` |
 
-**Mag:** removable в этом spec как модуль; полная модель **магазин = контейнер патронов** — **backlog** (отдельный change после).  
+**Mag:** removable в этом spec как модуль; полная модель **магазин = контейнер патронов** — **backlog** (отдельный change после).<br>
 **ГП:** InventoryItem без атаки вне слота.
 
 ### Mechanical и провал
@@ -111,10 +111,10 @@ approved_by: project-owner
 
 При **провале** шанса монтажа/снятия: операция не проходит **и** режется **`WeaponResourceMax` на 1%** (`MulDivRound(max, 1, 100)`, минимум 1 если max≥1); current clamp ≤ new max.
 
-**Дополнение (remove fail → break attach):** после −1% max на **снятии** бросок  
-`P(break|fail) = Clamp(100 - resourcePct, 0, 95)` (`resourcePct = MulDivRound(current, 100, max)`).  
-- Не break → аттач **остаётся** на оружии.  
-- Break → слот очищается; **Scope** (не Iron*): в сумку **`JAZZ_ScopeParts` × 1** вместо InventoryItem прицела; прочий remountable → уничтожен без предмета.  
+**Дополнение (remove fail → break attach):** после −1% max на **снятии** бросок<br>
+`P(break|fail) = Clamp(100 - resourcePct, 0, 95)` (`resourcePct = MulDivRound(current, 100, max)`).<br>
+- Не break → аттач **остаётся** на оружии.<br>
+- Break → слот очищается; **Scope** (не Iron*): в сумку **`JAZZ_ScopeParts` × 1** вместо InventoryItem прицела; прочий remountable → уничтожен без предмета.<br>
 Install fail: только −1% max (без поломки аттача).
 
 ### Убывание max — как сейчас vs цель

@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Horg = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Horg.png",
 	Tier = "Personal",
 }
+

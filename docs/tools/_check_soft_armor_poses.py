@@ -6,9 +6,11 @@ from mathutils import Vector
 p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
 p.add_argument('--no-renders',action='store_true')
 p.add_argument('--clothed',action='store_true')
+p.add_argument('--entity',help='Explicit mesh name for an existing baked source')
+p.add_argument('--elbows',action='store_true',help='Also check forearm guards on improvised tire armor')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);a.output.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(a.source))
-armor=next(o for o in bpy.data.objects if o.type=='MESH' and o.name.startswith('TEST_'))
+armor=bpy.data.objects[a.entity] if a.entity else next(o for o in bpy.data.objects if o.type=='MESH' and o.name.startswith('TEST_'))
 rig=next(o for o in bpy.data.objects if o.type=='ARMATURE')
 if a.clothed:
  shirt=bpy.data.objects.get('QA actual LegionGoon shirt');assert shirt,'Missing clothed reference'
@@ -21,9 +23,11 @@ for v in armor.data.vertices:
 poses={'rest':[], 'lean':[('Bip001 Spine1',(12,0,0)),('Bip001 Spine2',(23,0,12)),('Bip001 R UpperArm',(0,35,-25))],
        'deep_lean':[('Bip001 Spine1',(28,0,0)),('Bip001 Spine2',(35,0,-18))],
        'twist':[('Bip001 Spine1',(0,0,25)),('Bip001 Spine2',(0,0,25)),('Bip001 L Clavicle',(0,0,20))]}
-if armor.name.endswith('Full'):
+if a.elbows or armor.name.endswith('Full'):
  poses['elbows']=[('Bip001 R Forearm',(0,0,-65)),('Bip001 L Forearm',(0,0,65))]
 scene=bpy.context.scene;scene.cycles.device='CPU';scene.cycles.samples=12;scene.render.resolution_x=600;scene.render.resolution_y=600
+if scene.camera is None:
+ bpy.ops.object.camera_add(location=(-1,-2.6,1.95));scene.camera=bpy.context.object;scene.camera.data.type='ORTHO';scene.camera.data.ortho_scale=1.18
 rest=[v.co.copy() for v in armor.data.vertices];rows=[]
 reference=bpy.data.objects['M_BaseMesh Skin_BIP']
 reference_rest=[v.co.copy() for v in reference.data.vertices]
@@ -57,4 +61,4 @@ for name,rotations in poses.items():
   scene.camera.location=loc;scene.camera.rotation_euler=(Vector((0,0,1.25))-scene.camera.location).to_track_quat('-Z','Y').to_euler();scene.camera.data.ortho_scale=1.18
   scene.render.filepath=str(a.output/(name+'_'+side+'.png'));bpy.ops.render.render(write_still=True)
 (a.output/'pose-check.json').write_text(json.dumps({'status':'PASS_SKIN_STRUCTURE','runtime':'NOT_RUN','collision_acceptance':False,'vertices':len(rest),'poses':rows},indent=2))
-print('PASS skin weights/bones/finite animated geometry and eight CPU views')
+print('PASS skin weights/bones/finite animated geometry;',len(poses),'poses;',0 if a.no_renders else len(poses)*2,'CPU views')

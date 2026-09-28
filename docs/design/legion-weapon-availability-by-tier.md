@@ -15,13 +15,12 @@ Briefs: `docs/design/ris-legion-tier-briefs.md` + `docs/tools/_rewrite_ris_legio
 ## Tier 11 (arch 1-1)
 
 - **LightMachineGun:** `MAC2429` (Mac 2429)
-- **Боевые винтовки:** `SKS` (СКС), `Mas36` (MAS36)
+- **Боевые винтовки:** `SKS` (СКС), `Mas36` (MAS36), `Mosin/M38` (М38)
 - **Дробовики:** `DoubleBarrelShotgun` (Double-Barrel)
-- **Карабины:** `Winchester1894` (Winchester 1894)
-- **ПП:** `MAT49` (MAT-49), `MP40`
+- **Карабины:** `Winchester1894` (Winchester 1894), `Mosin/Obrez` (Обрез)
+- **ПП:** `MAT49` (MAT-49), `MP40`, `Mosin/Obrez` (Обрез)
 - **Пистолеты / револьверы:** `MAC1950` (MAC Mle 1950), `SWModel10` (S&W Model10 .38 Special)
 - **Пулемёты:** `DP27` (ДП-27)
-- **Снайперские:** `Mosin` (Винтовка Мосина)
 
 ## Tier 12 (arch 1-2)
 
@@ -42,6 +41,7 @@ Briefs: `docs/design/ris-legion-tier-briefs.md` + `docs/tools/_rewrite_ris_legio
 - **ПП:** `PPS43` (ППС-43), `PPSH` (ППШ), `Thompson`, `MPL` (Walther MP)
 - **Пистолеты / револьверы:** `Makarov` (Пистолет Макарова), `Colt1911` (Colt M1911), `CZ52` (CZ Vz. 52), `P210` (P-210), `P38`, `SWModel19` (S*W Model19 .357 Combat Magnum)
 - **Пулемёты:** `MG42`
+- **Снайперские:** `Mosin` (Винтовка Мосина, длинная/ПУ)
 
 ## Tier 21 (arch 2-1)
 
@@ -52,7 +52,7 @@ Briefs: `docs/design/ris-legion-tier-briefs.md` + `docs/tools/_rewrite_ris_legio
 - **Карабины:** `Mini14` (Мини-14), `ZastavaM92` (Zastava M92)
 - **ПП:** `Agram2000` (Аграм 2000), `UZI` (Узи Полноразмерный), `M45` (Carl Gustaf M/45)
 - **Пистолеты / револьверы:** `HiPower` (Hi-Power), `SWModel5906` (S&W Model 5906), `VectorCP1` (Vektor CP1), `Webley` (Webley Mk VI)
-- **Штурмовые:** `M16A1`, `Type56` (Type 56)
+- **Штурмовые:** `M16A1`, `Type56` (Type 56), `VektorR4` (Vektor R4; обычный вес 101000, Amount 21–29)
 
 ## Tier 22 (arch 2-2)
 

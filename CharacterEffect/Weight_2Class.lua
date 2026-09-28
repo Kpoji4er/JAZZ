@@ -9,7 +9,7 @@ DefineClass.Weight_2Class = {
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcMoveModifier",
-			Handler = function(self, target, value, action)
+			Handler = function (self, target, value, action)
 				JazzArmorWeightPainOnMove(target)
 				return value
 			end,
@@ -26,3 +26,4 @@ DefineClass.Weight_2Class = {
 	Shown = true,
 	ShownSatelliteView = true,
 }
+

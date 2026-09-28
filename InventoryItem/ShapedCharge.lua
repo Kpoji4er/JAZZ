@@ -14,7 +14,6 @@ DefineClass.ShapedCharge = {
 	AdditionalHint = T(622419236578, --[[ModItemInventoryItemCompositeDef ShapedCharge AdditionalHint]] "<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Наносит урон по сектору\n<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Высокая вероятность неудачи при использовании всеми, кроме Барри"),
 	UnitStat = "Explosives",
 	Cost = 1500,
-	CanAppearInShop = false,
 	RestockWeight = 0,
 	MaxStacks = 2,
 	MinMishapChance = 2,

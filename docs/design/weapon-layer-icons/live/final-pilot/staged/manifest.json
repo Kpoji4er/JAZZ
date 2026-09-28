@@ -1,0 +1,882 @@
+{
+  "schema": 1,
+  "catalog_count": 183,
+  "sources": [
+    {
+      "directory": "final-pilot",
+      "phase": "done",
+      "camera_restored": true,
+      "recipe": {
+        "angle": 0,
+        "fov": 1200,
+        "light": "fixed neutral studio v1: Day clone, Default LUT, EV+1, sun1000 az90 alt40",
+        "distance": 1500,
+        "height": 660,
+        "width": 1296,
+        "mounts": "provisional"
+      }
+    }
+  ],
+  "style": {
+    "size": [
+      324,
+      165
+    ],
+    "outline_px": 2,
+    "profile_crops": {
+      "pistol": [
+        493,
+        290,
+        755,
+        423
+      ],
+      "long": [
+        78,
+        -2,
+        1208,
+        574
+      ]
+    },
+    "alpha": "silhouette background ratio, floor .06, full .85",
+    "color": "original live RGB; edge decontamination only"
+  },
+  "rows": [
+    {
+      "plural": "АК-74",
+      "name": "АК-74",
+      "light": "",
+      "status": "captured",
+      "camera_distance": 1500,
+      "weapon": "AK74",
+      "parts": [
+        {
+          "parent": "AK74",
+          "entity": "AK74HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74FullStock",
+          "spot": "Stock"
+        }
+      ],
+      "label": "default",
+      "image": "raw/AK74__default.png",
+      "entity": "AK74",
+      "valid_entity": true,
+      "bounds": "(149952, 149975, 149914)-(150619, 150055, 150134)",
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Magazine": "JAZZ_MagNormal",
+        "Bipod": "",
+        "Stock": "JAZZ_StockNormal",
+        "Scope": "",
+        "Muzzle": ""
+      },
+      "exposure": 0,
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        397,
+        271,
+        969,
+        460
+      ],
+      "source_sha256": "be81dace47f2ae96ebb2f8207979a1e463c6fb42289a057502ce679b24c8ab01",
+      "rgba": "rgba/AK74__default.png",
+      "icon": "icons/AK74__default.png"
+    },
+    {
+      "plural": "АК-74",
+      "name": "АК-74",
+      "light": "",
+      "image": "raw/AK74__Stock-JAZZ_StockLightFolded.png",
+      "status": "captured",
+      "requested_slot": "Stock",
+      "camera_distance": 1500,
+      "weapon": "AK74",
+      "requested_component": "JAZZ_StockLightFolded",
+      "label": "Stock-JAZZ_StockLightFolded",
+      "bounds": "(149952, 149975, 149914)-(150619, 150055, 150134)",
+      "entity": "AK74",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Magazine": "JAZZ_MagNormal",
+        "Bipod": "",
+        "Stock": "JAZZ_StockLightFolded",
+        "Scope": "",
+        "Muzzle": ""
+      },
+      "parts": [
+        {
+          "parent": "AK74",
+          "entity": "AK74HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74StockUnFld",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        553,
+        271,
+        969,
+        460
+      ],
+      "source_sha256": "0ec91931354a588412dd508a68193921598fc79bd06e70ed971cf2c1b70bea87",
+      "rgba": "rgba/AK74__Stock-JAZZ_StockLightFolded.png",
+      "icon": "icons/AK74__Stock-JAZZ_StockLightFolded.png"
+    },
+    {
+      "plural": "АК-74",
+      "name": "АК-74",
+      "light": "",
+      "image": "raw/AK74__Stock-JAZZ_StockLightUnFolded.png",
+      "status": "captured",
+      "requested_slot": "Stock",
+      "camera_distance": 1500,
+      "weapon": "AK74",
+      "requested_component": "JAZZ_StockLightUnFolded",
+      "label": "Stock-JAZZ_StockLightUnFolded",
+      "bounds": "(149952, 149975, 149914)-(150619, 150055, 150134)",
+      "entity": "AK74",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Magazine": "JAZZ_MagNormal",
+        "Bipod": "",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Scope": "",
+        "Muzzle": ""
+      },
+      "parts": [
+        {
+          "parent": "AK74",
+          "entity": "AK74HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74Mag",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74Stockfld",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        400,
+        271,
+        969,
+        460
+      ],
+      "source_sha256": "d144106bbc6f221c25737decbc703e3b0738a6e333c7d959995d38c7b816313e",
+      "rgba": "rgba/AK74__Stock-JAZZ_StockLightUnFolded.png",
+      "icon": "icons/AK74__Stock-JAZZ_StockLightUnFolded.png"
+    },
+    {
+      "plural": "АК-74",
+      "name": "АК-74",
+      "light": "",
+      "image": "raw/AK74__Magazine-JAZZ_MagQuick_AK.png",
+      "status": "captured",
+      "requested_slot": "Magazine",
+      "camera_distance": 1500,
+      "weapon": "AK74",
+      "requested_component": "JAZZ_MagQuick_AK",
+      "label": "Magazine-JAZZ_MagQuick_AK",
+      "bounds": "(149952, 149975, 149914)-(150619, 150055, 150134)",
+      "entity": "AK74",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Magazine": "JAZZ_MagQuick_AK",
+        "Bipod": "",
+        "Stock": "JAZZ_StockNormal",
+        "Scope": "",
+        "Muzzle": ""
+      },
+      "parts": [
+        {
+          "parent": "AK74",
+          "entity": "AK74HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "AK74",
+          "entity": "WeaponAttA_MagazineAK74_03",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74FullStock",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        397,
+        271,
+        969,
+        450
+      ],
+      "source_sha256": "78cc644278406dac79224e20f839dc1ca07a7bfd783ffc0f5f72377dbdd4eab3",
+      "rgba": "rgba/AK74__Magazine-JAZZ_MagQuick_AK.png",
+      "icon": "icons/AK74__Magazine-JAZZ_MagQuick_AK.png"
+    },
+    {
+      "plural": "АК-74",
+      "name": "АК-74",
+      "light": "",
+      "image": "raw/AK74__Magazine-JAZZ_MagLarge_30_45.png",
+      "status": "captured",
+      "requested_slot": "Magazine",
+      "camera_distance": 1500,
+      "weapon": "AK74",
+      "requested_component": "JAZZ_MagLarge_30_45",
+      "label": "Magazine-JAZZ_MagLarge_30_45",
+      "bounds": "(149952, 149975, 149914)-(150619, 150055, 150134)",
+      "entity": "AK74",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Magazine": "JAZZ_MagLarge_30_45",
+        "Bipod": "",
+        "Stock": "JAZZ_StockNormal",
+        "Scope": "",
+        "Muzzle": ""
+      },
+      "parts": [
+        {
+          "parent": "AK74",
+          "entity": "AK74HandGuard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74_Backelite_45",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "AK74",
+          "entity": "AK74FullStock",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        397,
+        271,
+        969,
+        483
+      ],
+      "source_sha256": "06a9464bc3a50f0d763ae71dfe0297813a07933df1ee87ee86cde65245164924",
+      "rgba": "rgba/AK74__Magazine-JAZZ_MagLarge_30_45.png",
+      "icon": "icons/AK74__Magazine-JAZZ_MagLarge_30_45.png"
+    },
+    {
+      "plural": "M4A1",
+      "name": "M4A1",
+      "light": "",
+      "status": "captured",
+      "camera_distance": 1500,
+      "weapon": "M4A1",
+      "parts": [
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_FrontSight",
+          "spot": "Gassblock"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Handgrip",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Handguard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Magazine",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M4R_M4A1_Barrel",
+          "entity": "M4R_M4A1_DefMuzzle",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_CarryHandle",
+          "spot": "Scope"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "label": "default",
+      "image": "raw/M4A1__default.png",
+      "entity": "M4R_M4A1",
+      "valid_entity": true,
+      "bounds": "(149722, 149972, 150000)-(150193, 150035, 150117)",
+      "components": {
+        "Side": "",
+        "Handgrip": "JAZZ_Handgrip_Default",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Under": "",
+        "Magazine": "JAZZ_MagNormal",
+        "Handguard": "JAZZ_Handguard",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Scope": "JAZZ_CarryHandle_AR15",
+        "Muzzle": "JAZZ_DefMuzzle"
+      },
+      "exposure": 0,
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        371,
+        255,
+        948,
+        415
+      ],
+      "source_sha256": "98324b82718a4bd4682a218516c053014e84114c0e8fa3ad002762baa0b49eac",
+      "rgba": "rgba/M4A1__default.png",
+      "icon": "icons/M4A1__default.png"
+    },
+    {
+      "plural": "M4A1",
+      "name": "M4A1",
+      "light": "",
+      "image": "raw/M4A1__Magazine-JAZZ_MagSmall30_20.png",
+      "status": "captured",
+      "requested_slot": "Magazine",
+      "camera_distance": 1500,
+      "weapon": "M4A1",
+      "requested_component": "JAZZ_MagSmall30_20",
+      "label": "Magazine-JAZZ_MagSmall30_20",
+      "bounds": "(149722, 149972, 150000)-(150193, 150035, 150117)",
+      "entity": "M4R_M4A1",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Side": "",
+        "Handgrip": "JAZZ_Handgrip_Default",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Under": "",
+        "Magazine": "JAZZ_MagSmall30_20",
+        "Handguard": "JAZZ_Handguard",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Scope": "JAZZ_CarryHandle_AR15",
+        "Muzzle": "JAZZ_DefMuzzle"
+      },
+      "parts": [
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_FrontSight",
+          "spot": "Gassblock"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Handgrip",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Handguard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "WeaponAttA_MagazineCAR15_02",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M4R_M4A1_Barrel",
+          "entity": "M4R_M4A1_DefMuzzle",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_CarryHandle",
+          "spot": "Scope"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Stock",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        371,
+        255,
+        948,
+        401
+      ],
+      "source_sha256": "29f52c4720d7ef3cc03f324bf646ba444fb8e3edbe9cf31f0752680a1c7d31b0",
+      "rgba": "rgba/M4A1__Magazine-JAZZ_MagSmall30_20.png",
+      "icon": "icons/M4A1__Magazine-JAZZ_MagSmall30_20.png"
+    },
+    {
+      "plural": "M4A1",
+      "name": "M4A1",
+      "light": "",
+      "image": "raw/M4A1__Stock-JAZZ_StockLightFolded.png",
+      "status": "captured",
+      "requested_slot": "Stock",
+      "camera_distance": 1500,
+      "weapon": "M4A1",
+      "requested_component": "JAZZ_StockLightFolded",
+      "label": "Stock-JAZZ_StockLightFolded",
+      "bounds": "(149722, 149972, 150000)-(150193, 150035, 150117)",
+      "entity": "M4R_M4A1",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Side": "",
+        "Handgrip": "JAZZ_Handgrip_Default",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Under": "",
+        "Magazine": "JAZZ_MagNormal",
+        "Handguard": "JAZZ_Handguard",
+        "Stock": "JAZZ_StockLightFolded",
+        "Scope": "JAZZ_CarryHandle_AR15",
+        "Muzzle": "JAZZ_DefMuzzle"
+      },
+      "parts": [
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Barrel",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_FrontSight",
+          "spot": "Gassblock"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Handgrip",
+          "spot": "Handgrip"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Handguard",
+          "spot": "Handguard"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_Magazine",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "M4R_M4A1_Barrel",
+          "entity": "M4R_M4A1_DefMuzzle",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_CarryHandle",
+          "spot": "Scope"
+        },
+        {
+          "parent": "M4R_M4A1",
+          "entity": "M4R_M4A1_StockFolded",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        409,
+        255,
+        948,
+        415
+      ],
+      "source_sha256": "7b1fa3813c10660dad9a2f151a1e0027476838161ed6ff3bcf5566e399f67112",
+      "rgba": "rgba/M4A1__Stock-JAZZ_StockLightFolded.png",
+      "icon": "icons/M4A1__Stock-JAZZ_StockLightFolded.png"
+    },
+    {
+      "plural": "СВД",
+      "name": "СВД",
+      "light": "",
+      "status": "captured",
+      "camera_distance": 1500,
+      "weapon": "DragunovSVD",
+      "parts": [
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_MagazineDragunov_01",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_MuzzleDragunov_01",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_ScopeDragunov_01",
+          "spot": "Scope"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_StockDragunov_02",
+          "spot": "Stock"
+        }
+      ],
+      "label": "default",
+      "image": "raw/DragunovSVD__default.png",
+      "entity": "Weapon_Dragunov",
+      "valid_entity": true,
+      "bounds": "(149980, 149981, 149972)-(150887, 150035, 150099)",
+      "components": {
+        "Bipod": "",
+        "Stock": "JAZZ_StockNormal",
+        "Magazine": "JAZZ_MagNormal",
+        "Scope": "JAZZ_Scope_PSO",
+        "Muzzle": "JAZZ_Compensator"
+      },
+      "exposure": 0,
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        422,
+        261,
+        1184,
+        403
+      ],
+      "source_sha256": "4dc2cf9d80c1de75cecb6f6d0f1dfb446fa1dad9f6c1e53a18e7303cdde57f73",
+      "rgba": "rgba/DragunovSVD__default.png",
+      "icon": "icons/DragunovSVD__default.png"
+    },
+    {
+      "plural": "СВД",
+      "name": "СВД",
+      "light": "",
+      "image": "raw/DragunovSVD__Stock-JAZZ_StockLight.png",
+      "status": "captured",
+      "requested_slot": "Stock",
+      "camera_distance": 1500,
+      "weapon": "DragunovSVD",
+      "requested_component": "JAZZ_StockLight",
+      "label": "Stock-JAZZ_StockLight",
+      "bounds": "(149980, 149981, 149972)-(150887, 150035, 150099)",
+      "entity": "Weapon_Dragunov",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Bipod": "",
+        "Stock": "JAZZ_StockLight",
+        "Magazine": "JAZZ_MagNormal",
+        "Scope": "JAZZ_Scope_PSO",
+        "Muzzle": "JAZZ_Compensator"
+      },
+      "parts": [
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_MagazineDragunov_01",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_MuzzleDragunov_01",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_ScopeDragunov_01",
+          "spot": "Scope"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_StockDragunov_03",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        427,
+        261,
+        1184,
+        403
+      ],
+      "source_sha256": "38eb92e9a87361f926dc24a316cf7cbb63d4916365e3d2b826511c0278868bed",
+      "rgba": "rgba/DragunovSVD__Stock-JAZZ_StockLight.png",
+      "icon": "icons/DragunovSVD__Stock-JAZZ_StockLight.png"
+    },
+    {
+      "plural": "СВД",
+      "name": "СВД",
+      "light": "",
+      "image": "raw/DragunovSVD__Magazine-JAZZ_MagLarge_10_20_SVD.png",
+      "status": "captured",
+      "requested_slot": "Magazine",
+      "camera_distance": 1500,
+      "weapon": "DragunovSVD",
+      "requested_component": "JAZZ_MagLarge_10_20_SVD",
+      "label": "Magazine-JAZZ_MagLarge_10_20_SVD",
+      "bounds": "(149980, 149981, 149972)-(150887, 150035, 150099)",
+      "entity": "Weapon_Dragunov",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Bipod": "",
+        "Stock": "JAZZ_StockNormal",
+        "Magazine": "JAZZ_MagLarge_10_20_SVD",
+        "Scope": "JAZZ_Scope_PSO",
+        "Muzzle": "JAZZ_Compensator"
+      },
+      "parts": [
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_MagazineDragunov_02",
+          "spot": "Magazine"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_MuzzleDragunov_01",
+          "spot": "Muzzle"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_ScopeDragunov_01",
+          "spot": "Scope"
+        },
+        {
+          "parent": "Weapon_Dragunov",
+          "entity": "WeaponAttA_StockDragunov_02",
+          "spot": "Stock"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        422,
+        261,
+        1184,
+        419
+      ],
+      "source_sha256": "9d431a0f1be63ccb67a530fe5543ed27d6139ba68ffcd3553c7cc65abe08fe09",
+      "rgba": "rgba/DragunovSVD__Magazine-JAZZ_MagLarge_10_20_SVD.png",
+      "icon": "icons/DragunovSVD__Magazine-JAZZ_MagLarge_10_20_SVD.png"
+    },
+    {
+      "plural": "Beretta 92F",
+      "name": "Beretta 92F",
+      "light": "",
+      "status": "captured",
+      "camera_distance": 1500,
+      "weapon": "Bereta92",
+      "parts": [
+        {
+          "parent": "Weapon_Beretta92F",
+          "entity": "WeaponAttA_BarrelBeretta_01",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "Weapon_Beretta92F",
+          "entity": "WeaponAttA_MagazineBeretta_01",
+          "spot": "Magazine"
+        }
+      ],
+      "label": "default",
+      "image": "raw/Bereta92__default.png",
+      "entity": "Weapon_Beretta92F",
+      "valid_entity": true,
+      "bounds": "(149954, 149980, 149932)-(150163, 150019, 150065)",
+      "components": {
+        "Side": "",
+        "Muzzle": "",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Magazine": "JAZZ_MagNormal"
+      },
+      "exposure": 0,
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "pistol",
+      "bounds_px": [
+        557,
+        314,
+        691,
+        399
+      ],
+      "source_sha256": "54082ee7cb81aeb531622a6e022978dbb6f7ef09b7120cefd07245668b804a2e",
+      "rgba": "rgba/Bereta92__default.png",
+      "icon": "icons/Bereta92__default.png"
+    },
+    {
+      "plural": "Beretta 92F",
+      "name": "Beretta 92F",
+      "light": "",
+      "image": "raw/Bereta92__Magazine-JAZZ_MagNormalFine_PISTOL_9.png",
+      "status": "captured",
+      "requested_slot": "Magazine",
+      "camera_distance": 1500,
+      "weapon": "Bereta92",
+      "requested_component": "JAZZ_MagNormalFine_PISTOL_9",
+      "label": "Magazine-JAZZ_MagNormalFine_PISTOL_9",
+      "bounds": "(149954, 149980, 149932)-(150163, 150019, 150065)",
+      "entity": "Weapon_Beretta92F",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Side": "",
+        "Muzzle": "",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Magazine": "JAZZ_MagNormalFine_PISTOL_9"
+      },
+      "parts": [
+        {
+          "parent": "Weapon_Beretta92F",
+          "entity": "WeaponAttA_BarrelBeretta_01",
+          "spot": "Barrel"
+        },
+        {
+          "parent": "Weapon_Beretta92F",
+          "entity": "WeaponAttA_MagazineBeretta_01",
+          "spot": "Magazine"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "pistol",
+      "bounds_px": [
+        557,
+        314,
+        691,
+        399
+      ],
+      "source_sha256": "3dc2b9280d275b4294a81097c14b6bd088cab08b2c17f028893110ce3a25d4e0",
+      "rgba": "rgba/Bereta92__Magazine-JAZZ_MagNormalFine_PISTOL_9.png",
+      "icon": "icons/Bereta92__Magazine-JAZZ_MagNormalFine_PISTOL_9.png"
+    },
+    {
+      "plural": "Beretta 92F",
+      "name": "Beretta 92F",
+      "light": "",
+      "image": "raw/Bereta92__Magazine-JAZZ_MagLarge_18_20.png",
+      "status": "captured",
+      "requested_slot": "Magazine",
+      "camera_distance": 1500,
+      "weapon": "Bereta92",
+      "requested_component": "JAZZ_MagLarge_18_20",
+      "label": "Magazine-JAZZ_MagLarge_18_20",
+      "bounds": "(149954, 149980, 149932)-(150163, 150019, 150065)",
+      "entity": "Weapon_Beretta92F",
+      "valid_entity": true,
+      "exposure": 0,
+      "components": {
+        "Side": "",
+        "Muzzle": "",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Magazine": "JAZZ_MagLarge_18_20"
+      },
+      "parts": [
+        {
+          "parent": "Weapon_Beretta92F",
+          "entity": "WeaponAttA_BarrelBeretta_01",
+          "spot": "Barrel"
+        }
+      ],
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "pistol",
+      "bounds_px": [
+        558,
+        314,
+        691,
+        397
+      ],
+      "source_sha256": "096a13ef8221227e1cbf30c52debbc07dfd66c2e69be416fc4f4db008a401140",
+      "rgba": "rgba/Bereta92__Magazine-JAZZ_MagLarge_18_20.png",
+      "icon": "icons/Bereta92__Magazine-JAZZ_MagLarge_18_20.png"
+    },
+    {
+      "plural": "M2 Browning",
+      "name": "M2 Browning",
+      "light": "",
+      "status": "captured",
+      "camera_distance": 2500,
+      "weapon": "BrowningM2HMG",
+      "parts": [],
+      "label": "default",
+      "image": "raw/BrowningM2HMG__default.png",
+      "entity": "Weapon_M2Browning",
+      "valid_entity": true,
+      "bounds": "(148908, 149452, 149926)-(151111, 150548, 150688)",
+      "components": [],
+      "exposure": 0,
+      "source_batch": "final-pilot",
+      "issues": [],
+      "profile": "long",
+      "bounds_px": [
+        102,
+        89,
+        1026,
+        379
+      ],
+      "source_sha256": "aa23706f7a060d08930c4b1397c5a4afd56d2b0bf36982ec29dc07115aaea0b2",
+      "rgba": "rgba/BrowningM2HMG__default.png",
+      "icon": "icons/BrowningM2HMG__default.png"
+    }
+  ]
+}

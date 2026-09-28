@@ -3,14 +3,8 @@ DefineClass.Winded = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamPercent', {
-			'Name', "fm_mul",
-			'Value', 100,
-			'Tag', "<fm_mul>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcFreeMove",
@@ -28,3 +22,4 @@ DefineClass.Winded = {
 	ShownSatelliteView = true,
 	HasFloatingText = true,
 }
+

@@ -1,0 +1,11 @@
+{
+  "ids": [
+    "M4A1"
+  ],
+  "variants": [],
+  "matte": true,
+  "distance": 0,
+  "prerequisites": {},
+  "label_prefix": "",
+  "capture_source_sha256": "e79dab01826382a580eb39e5ebd13d3ad343fa3943cd51e68be65721083aea6b"
+}

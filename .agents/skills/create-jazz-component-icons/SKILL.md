@@ -6,13 +6,13 @@ description: >-
 
 # Создание WeaponComponent.Icon (кабинет)
 
-**Канон сейчас — style B** (тёмный 3D): `WeaponComponents/<Folder>/`.  
-Промпты: [`WeaponComponents/references/PROMPT.md`](../../../WeaponComponents/references/PROMPT.md).  
+**Канон сейчас — style B** (тёмный 3D): `WeaponComponents/<Folder>/`.<br>
+Промпты: [`WeaponComponents/references/PROMPT.md`](../../../WeaponComponents/references/PROMPT.md).<br>
 Шпаргалка: [references/style-and-naming.md](references/style-and-naming.md).
 
 Миниатюра тайла (`ChipIcon`) — **другой** skill: `$create-jazz-chip-icons`.
 
-Уникальные Entity / уникальный Id у **Scope** и **Magazine** → уникальный `Icon`.  
+Уникальные Entity / уникальный Id у **Scope** и **Magazine** → уникальный `Icon`.<br>
 **Barrel**: уникальные Icon не требуются (vanilla OK).
 
 Asset-only PNG не требует spec. Wire `Icon` → `items.lua` sync.
@@ -35,11 +35,11 @@ Asset-only PNG не требует spec. Wire `Icon` → `items.lua` sync.
 
 Как магазин висит на винтовке **вид сбоку**, дуло вправо:
 
-1. Губки (**feed lips**) — сверху  
-2. Пятка — снизу  
-3. Изгиб AK — вперёд/вправо (к дулу)  
-4. Почти вертикально, лёгкий forward lean  
-5. Только магазин — без receiver / magwell  
+1. Губки (**feed lips**) — сверху<br>
+2. Пятка — снизу<br>
+3. Изгиб AK — вперёд/вправо (к дулу)<br>
+4. Почти вертикально, лёгкий forward lean<br>
+5. Только магазин — без receiver / magwell<br>
 
 ## Вход
 

@@ -1,0 +1,11 @@
+[HG] Assigning special names
+
+FBX export starting... 'D:\\JaWeapons\\Weapons\\_r4_material_20260927\\rigged\\JAZZ_VektorR4.fbx'
+export finished in 0.0225 sec.
+[HG] Reverting special names
+Info: Saved as "r4_material.blend"
+{"JAZZ_VektorR4": {"normal_strength_metal": 0.2200007438659668, "roughness_before": 0.4280403256416321, "roughness_after": 0.6199977993965149}}
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Read blend: "D:\JaWeapons\Weapons\_r4_repair_20260927\rigged\VektorR4_JA3.blend"
+
+Blender quit

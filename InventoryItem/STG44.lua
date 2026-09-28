@@ -4,7 +4,7 @@ DefineClass.STG44 = {
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
 
-	comment = "Tier 2-1",
+	comment = "Tier 1-2",
 	object_class = "AssaultRifle",
 	ScrapParts = 10,
 	RepairCost = 3,
@@ -16,7 +16,6 @@ DefineClass.STG44 = {
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Cost = 3200,
-	CanAppearInShop = false,
 	MaxStock = 5,
 	RestockWeight = 150,
 	CategoryPair = "AssaultRifles",
@@ -57,16 +56,12 @@ DefineClass.STG44 = {
 	},
 	ShootAP = 6000,
 	ReloadAP = 6000,
+	Recoil = 12,
+	BurstShots = 4,
+	AutoShots = 7,
 	WeaponMass = 36,
 	CyclicRPM = 700,
-	WeaponSizeClass = "Rifle",
-	BurstLimiter = 0,
-	BurstShots = 4,
-	Recoil = 12,
-	AutoShots = 7,
-
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 12,
 	Grouping = 66,

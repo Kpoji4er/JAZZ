@@ -65,6 +65,7 @@ ALWAYS_SKIP_TOP = {
     ".agents",
     ".cursor",
     ".tmp",
+    "tmp",
     "docs",
     "scripts",
     "release",

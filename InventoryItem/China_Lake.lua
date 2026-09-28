@@ -12,7 +12,6 @@ DefineClass.China_Lake = {
 	MinMishapChance = -3,
 	MaxMishapChance = 40,
 	MaxMishapRange = 6,
-	MinMishapRange = 1,
 	Caliber = "JAZZ_Caliber_40mmGrenade",
 	BombardRadius = 3,
 	ComponentSlots = {},

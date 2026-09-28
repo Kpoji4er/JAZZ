@@ -67,7 +67,7 @@ DefineClass.RPK = {
 			},
 			'DefaultComponent', "JAZZ_RPK74_Hanguard_Basic",
 		}),
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
@@ -94,16 +94,13 @@ DefineClass.RPK = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 6000,
-	WeaponMass = 80,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 18,
 	BurstShots = 4,
 	AutoShots = 7,
-
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 15,
 	Grouping = 62,

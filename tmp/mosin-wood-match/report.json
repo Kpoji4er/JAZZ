@@ -1,0 +1,53 @@
+{
+  "reference_diffuse_srgb": [
+    72.0864268250054,
+    60.33242531840833,
+    50.0766013972413
+  ],
+  "files": {
+    "MOSIN_7_Base.dds": {
+      "changed_blocks": 163565,
+      "protected_blocks": 185791,
+      "before": "09cea278250f4119c938d4ee90c1e165432360ba9f6c5090adac2ed52683e456",
+      "after": "125ec05a62539afec6e44e06d768827e9ee38669ba2f5b581bc93f3dc5ae135e",
+      "source_median": [
+        30.0,
+        16.0,
+        5.0
+      ]
+    },
+    "Fallbacks/MOSIN_7_Base.dds": {
+      "changed_blocks": 243,
+      "protected_blocks": 83,
+      "before": "be8fa22134623ef11a93a4076559ba0e1263a8df63882d23aa496e9dc3dc44d1",
+      "after": "3737abe625a8ad069cef21d7389eda51acbda86382f349c894cf1ea7613cfba4",
+      "source_median": [
+        30.0,
+        16.0,
+        5.0
+      ]
+    },
+    "MOSIN_11_Base.dds": {
+      "changed_blocks": 50638,
+      "protected_blocks": 298764,
+      "before": "601c7c6c006c5294668263495497eae02267f3a11ff0d268a79b0e7c3f12ee7e",
+      "after": "21d96de1461677d11bdfc795716f8d9c4638d87512f1c71d9179a5681fd2d4e4",
+      "source_median": [
+        49.0,
+        30.0,
+        21.0
+      ]
+    },
+    "Fallbacks/MOSIN_11_Base.dds": {
+      "changed_blocks": 73,
+      "protected_blocks": 266,
+      "before": "22438dd5d9a6e16c9a3cd1a1dc67ff8fca89a42ac05642fa04cf42af60e91059",
+      "after": "cd1bfc918fa89a3273ae0c36791df39f58b8aa4f494d3c4299f421371df10c03",
+      "source_median": [
+        49.0,
+        30.0,
+        21.0
+      ]
+    }
+  }
+}

@@ -9,9 +9,9 @@ description: >-
 
 **Цвет (locked):** signature / Passive hotbar — **всегда синий** (Hud LEFT). Не cream/white. Правило: `.cursor/rules/jazz-signature-icons-blue.mdc`.
 
-Пакет: `jazz`.  
-**Primary runtime output:** `Perks/SignatureAbilities/<ActionId>.png`  
-**Style bank:** [`Icons/Hud/references/`](../../../Icons/Hud/references/) (+ [`PROMPT.md`](../../../Icons/Hud/references/PROMPT.md)).  
+Пакет: `jazz`.<br>
+**Primary runtime output:** `Perks/SignatureAbilities/<ActionId>.png`<br>
+**Style bank:** [`Icons/Hud/references/`](../../../Icons/Hud/references/) (+ [`PROMPT.md`](../../../Icons/Hud/references/PROMPT.md)).<br>
 Шпаргалка: [references/style-and-naming.md](references/style-and-naming.md).
 
 Vanilla SoT (extract, read-only): `<JA3_UI_EXTRACT>/ui/Icons/Hud/*.dds` → PNG bank в `Icons/Hud/references/`.
@@ -26,7 +26,7 @@ Vanilla SoT (extract, read-only): `<JA3_UI_EXTRACT>/ui/Icons/Hud/*.dds` → PNG 
 
 Wire path: `Mod/e6L4ECj/Perks/SignatureAbilities/<file>.png` (or `Mod/e6L4ECj/Icons/Med/<file>.png`).
 
-Asset-only PNG **не** требует spec. Новый CombatAction / смена поведения → `$specify-jazz-change`.  
+Asset-only PNG **не** требует spec. Новый CombatAction / смена поведения → `$specify-jazz-change`.<br>
 Смена только `Icon` path: companion + `items.lua` (`$sync-jazz-generated-data`).
 
 ### Не путать с другими skill
@@ -50,15 +50,15 @@ Asset-only PNG **не** требует spec. Новый CombatAction / смен�
 | Style | flat tactical HUD stencil; soft AA; optional light scanline/distress like vanilla Hud |
 | Forbid | текст/буквы/цифры/рамка кнопки/портрет/инвентарный цветной арт |
 
-Некоторые vanilla `perk_*` refs — **54×54** single tile (**Passive** hotbar: `SetColumns(1)`).  
-**Active** CombatAction / signature attack: **108×54** dual strip (`SetColumns(2)`).  
+Некоторые vanilla `perk_*` refs — **54×54** single tile (**Passive** hotbar: `SetColumns(1)`).<br>
+**Active** CombatAction / signature attack: **108×54** dual strip (`SetColumns(2)`).<br>
 JAZZ Passive Signature (SteroidPunch, TagTeam-style): write **54×54** cool **blue** from Hud **LEFT** half (`docs/tools/_build_passive_signature_icon_54.py`). Do **not** use cream/right half or 108×54 dual for Passive — cream reads white; dual with `SetColumns(1)` squashes both states.
 
 ### Icons/Med (medical-action subset)
 
-`Icons/Med/*.png` — те же HUD action icons для medical CombatActions (bandage, injector, …): **108×54** dual strip.  
-Глиф в каждой половине 54×54: целевой fill ≈**34–38px** (`pad≈8–10`), по центру половины — не edge-to-edge (иначе на хотбаре «жирно»). Починка: `python docs/tools/_recenter_med_action_icons.py --pad 9`.  
-Inventory цветные `Icons/Items/JAZZ_{Bandage,Morphine,IFAK,Medkit,SurgicalKit}.png` — оставлять ~15% поля вокруг предмета (не заполнять 110×110 под край).  
+`Icons/Med/*.png` — те же HUD action icons для medical CombatActions (bandage, injector, …): **108×54** dual strip.<br>
+Глиф в каждой половине 54×54: целевой fill ≈**34–38px** (`pad≈8–10`), по центру половины — не edge-to-edge (иначе на хотбаре «жирно»). Починка: `python docs/tools/_recenter_med_action_icons.py --pad 9`.<br>
+Inventory цветные `Icons/Items/JAZZ_{Bandage,Morphine,IFAK,Medkit,SurgicalKit}.png` — оставлять ~15% поля вокруг предмета (не заполнять 110×110 под край).<br>
 Status-эффекты Bleeding/Pain/Analgesia — **не** этот skill (`$create-jazz-status-icons`).
 
 ## Вход от пользователя

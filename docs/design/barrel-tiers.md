@@ -1,7 +1,7 @@
 # Стволы (Barrel) — эффективная дистанция
 
-Канон для `JAZZ_Barrel*`.  
-Apply: `docs/tools/_rebalance_barrel_tiers.py`.  
+Канон для `JAZZ_Barrel*`.<br>
+Apply: `docs/tools/_rebalance_barrel_tiers.py`.<br>
 Связано: [`attachments-rebalance.md`](attachments-rebalance.md), `accuracy-model.md`.
 
 **Статус:** applied 2026-08-01 — **BDR в %** (Multiply), чтобы револьверы/пистолеты не ломались абсолютными −6.
@@ -55,5 +55,5 @@ APS (без стат-модов): `JAZZ_BarrelNormal_Sil` / `JAZZ_BarrelNormal_n
 
 ## Цель ощущения
 
-На FAL short vs normal: заметный выигрыш @5, проигрыш после бывшего BDR.  
+На FAL short vs normal: заметный выигрыш @5, проигрыш после бывшего BDR.<br>
 На револьвере short: −1 BDR и Factor↑ — не обнуление плато.

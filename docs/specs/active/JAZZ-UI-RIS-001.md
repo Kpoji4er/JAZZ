@@ -45,7 +45,7 @@ approved_by: project-owner
 
 ## Проблема
 
-`JAZZ_Legion_Tier` растёт из [`Code/LegionTierProgression.lua`](../../Code/LegionTierProgression.lua), но игрок не видит человеческих оповещений. В `items.lua` лежат stub Email `LegionTier1`…`5` (sender «JAZZ», body «Тир1-1»), **`ReceiveEmail` не вызывается**. Нет PDA-сайта разведки, досье по встреченным бойцам Легиона и after-action сводок боёв.
+`JAZZ_Legion_Tier` растёт из [`Code/LegionTierProgression.lua`](../../../Code/LegionTierProgression.lua), но игрок не видит человеческих оповещений. В `items.lua` лежат stub Email `LegionTier1`…`5` (sender «JAZZ», body «Тир1-1»), **`ReceiveEmail` не вызывается**. Нет PDA-сайта разведки, досье по встреченным бойцам Легиона и after-action сводок боёв.
 
 Канал **отделён от AME** ([`JAZZ-UI-AME-001`](JAZZ-UI-AME-001.md)).
 

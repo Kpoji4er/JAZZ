@@ -15,7 +15,6 @@ DefineClass.JAZZ_AMMO_556_Match = {
 	CanAppearInShop = true,
 	Tier = 4,
 	RestockWeight = 18,
-	MaxStock = 3,
 	CategoryPair = "556",
 	ShopStackSize = 120,
 	MaxStacks = 90,

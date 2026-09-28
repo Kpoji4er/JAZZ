@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_38special_JHP = {
 	Description = T(890000000000285, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_38special_JHP Description]] "Стандартный патрон для дамских сверчков, но экспансивный, можно вытащить револьвер из носка и размозжить кому-то голову в упор."),
 	Cost = 500,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 5,
 	RestockWeight = 75,
 	CategoryPair = "44CAL",

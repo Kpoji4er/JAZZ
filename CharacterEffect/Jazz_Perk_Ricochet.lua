@@ -5,18 +5,6 @@ DefineClass.Jazz_Perk_Ricochet = {
 
 
 	object_class = "Perk",
-	Parameters = {
-		PlaceObj('PresetParamPercent', {
-			'Name', "splash_percent",
-			'Value', 35,
-			'Tag', "<splash_percent>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "splash_range",
-			'Value', 1,
-			'Tag', "<splash_range>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnUnitAttack",
@@ -52,3 +40,4 @@ DefineClass.Jazz_Perk_Ricochet = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Ricochet.png",
 	Tier = "Personal",
 }
+

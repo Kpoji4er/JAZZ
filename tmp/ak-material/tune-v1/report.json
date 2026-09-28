@@ -1,0 +1,146 @@
+[
+  {
+    "path": "AKR_AK74M_2_Base.dds",
+    "before": "b69bcea0a4006206241f6c59f377e9241ca772eb3bcbdbc41df07a34cbcbfc21",
+    "after": "769d43c3d98b6b8eeac17f3a2497575a35f9569dcdd745bbecfb9677f9b8424f",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK74M_3_RM.dds",
+    "before": "2d86dfe9e286fa8acd9ab48f734aabdeac088ec876f7d9279547b4a2ff2632df",
+    "after": "9157d112a6a04204fb250ef36a0b5414b5188e27da0f5df9a8f5faee18676ff8",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK74M_5_Base.dds",
+    "before": "4c012cd2e776a5e203f3b82a512416e1261075e672b654b8f408bd88e3911bdc",
+    "after": "4d7d688a5876ad976ea32cfc7604e8fde82b027657330effcf0bfcfa27b889ca",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK74M_6_RM.dds",
+    "before": "273bca7e4988f7b150a8e2bc976e9375def42c7f766f8b813a01fae35d632b12",
+    "after": "4911f43a3dc92aeba1fedc764cf41db0f850648835459cd4905073eb381d8645",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_2_Base.dds",
+    "before": "2233d36d7d18059ddd4014c0595c79387bccff9276fda2f778d289025f596d03",
+    "after": "2c0b0465d019d83affbb50cbf7d6221a3f1e683c9b84e633e76104871af7dafd",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_3_RM.dds",
+    "before": "2beec6e9f8a1fef7041a70a90afe396946e1135baa50b11d3db9a526b53320f4",
+    "after": "635a2f9c558a9448e00672f9c9ab470b1e5d43b45edf58589468084f3bcb4517",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_5_Base.dds",
+    "before": "7e7168612790b66455fd1288968d76b65094168505c0852ed3063b5a465ec08e",
+    "after": "85b5cd0731077e0afab0a9553320f93727aa410f8eda1001b15212775ca57764",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_6_RM.dds",
+    "before": "116846a36af934ffdc6f17b235bd7d65a815bbf589bedfc1dead99f63bdd1ee5",
+    "after": "08a36dde0bc551f6a1a5ab58d76007783c0b19e8f51a91f4be02b5f99555af8b",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_8_Base.dds",
+    "before": "6e587aa1e31e423bdd11efed79861126a7d1ea225bcdc67a4853755090a370d6",
+    "after": "72a7bd6119613d4874b7f472f2fee685584c8276450ae1106922f17b10c55b14",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_9_RM.dds",
+    "before": "b4b55712e5228ddd9af8daaf4fae7452d2e82fde14ce84dca9296584ac3b5f9c",
+    "after": "4fc2371d8d4524f07e8dad201691cc9ce6c1dc17b5986d1f2066d063f004c667",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_11_Base.dds",
+    "before": "cef1e03208a2243306e85947bb906e98566b4e64246d2ff7ff56f1320effd60f",
+    "after": "6cc0411bf988f1cfe9b86c58d33799fec8d38bcdd6ec01d967927e02cda989e0",
+    "bytes": 2796364
+  },
+  {
+    "path": "AKR_AK105_12_RM.dds",
+    "before": "d29181723f8f182798d02e690bb06ec36e36045dbf99ed3147c4ac6098f548b7",
+    "after": "45d14ec43707577335ca31267ca3d93ce5c11a9cd6776f896d713fa66c6654aa",
+    "bytes": 2796364
+  },
+  {
+    "path": "Fallbacks/AKR_AK74M_2_Base.dds",
+    "before": "78dbc1c9a3b3fa243575357f2da6f4fc86791c25ae8dd9c0d58214860c5d4d78",
+    "after": "884eda1ee7713b838ac74c9d9001f238ae3eaba87244e87d46bf5ca7aa7d7b07",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK74M_3_RM.dds",
+    "before": "eda652756a2c84b6885a0134061910842c30d8f0d65dbd6c112d50a6a470d50b",
+    "after": "439215b1a4044d8c417a5075845798effc29538728fa6c860278f841ae17095c",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK74M_5_Base.dds",
+    "before": "9d5b1943a58327cebc46959d92cb587967e5a5cff9df9ddfd0288e847b9865ad",
+    "after": "c3df7800a1403289a742d1e601f7a3e903ed3d6edc2655fa0e2ac8102ab0d7ce",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK74M_6_RM.dds",
+    "before": "5c1fa611370bafb72d71d75eca822b0f83d72d452293d406fa4b04288b384525",
+    "after": "4769ab002c62783b324f4e21266cea4879cb452033c15d98ee6bbafde8aa205f",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_2_Base.dds",
+    "before": "6f1253a4e8f89358cd9afdb1f16e3563539f36c14e4d00c2409d594d0ecf444c",
+    "after": "3187794b8c784d087856e0953005a58586d8f596c2becfde02e30403d49838db",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_3_RM.dds",
+    "before": "b94aa3f33caedb2509abc1d1d852229fe9950ae5e147368e3eb3a336efae7e8e",
+    "after": "16cfef81ee4236cee124c7939c546c09e3b323c44c718a646a3461bbba84068f",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_5_Base.dds",
+    "before": "865c698a9c8a6d67aaed0ed5f13e5946fb59d6dccb3e44e8cf575f7828c60218",
+    "after": "488959a1b1f036c889ef98002992289bc822a627518456b64f20b25bcc5c059a",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_6_RM.dds",
+    "before": "1a11fe349ce671c33ecf66bc840ee660edd45146912a3405a73fc857134cc65c",
+    "after": "d52f6400ac7be5acc9290c46e17f98ad718a78e076fd1c9849b8c87c9d510763",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_8_Base.dds",
+    "before": "c6fbfc62c513d3d647607b401344fe296a919295e7e8df037e9b8261fb0be177",
+    "after": "5b47fcf27d3ba978ddb5ccfd8d357a06b94c2afff64408c9627a20faae8d0e81",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_9_RM.dds",
+    "before": "818fb3dc194a0438b9c41f9836fd766ad41761316b4fd2cc2490215d1373078e",
+    "after": "f043adcf9142c28706eb73e34834180a9669cf41768b25473c3527886eceebae",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_11_Base.dds",
+    "before": "a2880c53d01f4135471930dba95e790fd250c3b939ce83262cdc80bd0001a2fc",
+    "after": "f4a7d52dfed509775042e1d837301ca69790dcbb109d703fcbf059bc6ba7f391",
+    "bytes": 2892
+  },
+  {
+    "path": "Fallbacks/AKR_AK105_12_RM.dds",
+    "before": "f125543c607b5111cb78bf7329c6bc1c8657b2403877d80f2618a23eb6d2b1c9",
+    "after": "5f964455d02b3fabf6dd617e96d71ed8dd8d692b631a14d0cd1c26753b52e5e2",
+    "bytes": 2892
+  }
+]

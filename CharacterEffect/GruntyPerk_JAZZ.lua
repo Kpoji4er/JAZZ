@@ -27,7 +27,7 @@ DefineClass.GruntyPerk_JAZZ = {
 				if target:HasStatusEffect("Grunty_AdditionalAP") then
 					return
 				end
-				-- Personal morale = team BD + likes/wounds/etc, clamped −5…5; chance uses max(0,morale).
+				-- Personal morale = team BD + likes/wounds/etc; chance uses max(0,morale).
 				local morale = 0
 				if target.GetPersonalMorale then
 					morale = target:GetPersonalMorale() or 0
@@ -61,3 +61,4 @@ DefineClass.GruntyPerk_JAZZ = {
 	Icon = "UI/Icons/Perks/GruntyPerk",
 	Tier = "Personal",
 }
+

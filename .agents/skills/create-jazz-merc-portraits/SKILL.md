@@ -6,17 +6,17 @@ description: >-
 
 # Создание merc / NPC portraits
 
-Пакет: `jazz-units` → `MercPortraits/` / `NPCPortraits/` (`_wip/` для черновиков).  
-Rule: `.cursor/rules/jazz-merc-portraits.mdc`.  
+Пакет: `jazz-units` → `MercPortraits/` / `NPCPortraits/` (`_wip/` для черновиков).<br>
+Rule: `.cursor/rules/jazz-merc-portraits.mdc`.<br>
 Style: [references/style-and-naming.md](references/style-and-naming.md).
 
 Для генерации/редактирования применять доступный `$imagegen` и актуальную схему его инструмента. Размеры и пропорции ниже — требования к результату, не имена API-параметров. Передавать референсы способом, поддерживаемым инструментом; финализацию выполнять с учётом его инструкций.
 
 ## Style-референсы
 
-**Только** `jazz-units/MercPortraits/References/` (+ `Portraits/`).  
-Никакие другие пути как style/color/proportions refs не использовать.  
-Face/pose от пользователя и `*.ja2-face.*` — **identity** (узнаваемость), не замена `References/`.  
+**Только** `jazz-units/MercPortraits/References/` (+ `Portraits/`).<br>
+Никакие другие пути как style/color/proportions refs не использовать.<br>
+Face/pose от пользователя и `*.ja2-face.*` — **identity** (узнаваемость), не замена `References/`.<br>
 Лицо: вдохновляться JA2-face, оставаться узнаваемым, но анатомия/объём **чуть реалистичнее** как у лиц в `References/` (не плоский стикер, не beauty-filter).
 
 ## Правила персонажа
@@ -35,7 +35,7 @@ Face/pose от пользователя и `*.ja2-face.*` — **identity** (уз
 - **Appearance sheet — 5 вариантов** в `MercPortraits/newrules2/<Id>/`:
   - файлы: `<Id>_<variant>.png` + `<Id>_<variant>_Big.png`
   - суффиксы: `appearance` | `appearance_backstory` | `appearance_backstory_bio` | `bio` | `bio_backstory`
-  Источник: `docs/design/mercs-ja12/_appearance-sheet.md` (+ Google sheet). Нет строки / нет face → не генерить.  
+  Источник: `docs/design/mercs-ja12/_appearance-sheet.md` (+ Google sheet). Нет строки / нет face → не генерить.<br>
   Огнестрел в руках / длинноствол из sheet не рисовать; пистолет в кобуре — ок.
 
 ## Фон + альфа (два прохода)
@@ -44,8 +44,8 @@ Face/pose от пользователя и `*.ja2-face.*` — **identity** (уз
 2. Сохранить сырой кадр **до cut** в отдельную **`_raw/`** (не в папку с финальными RGBA).
 3. Удачный кадр не перегенерировать ради альфы.
 4. **Снятие фона — отдельный проход**, предпочтительно локальной нейронкой:
-   - **Локально (предпочтительно на этой машине):** `rembg` + BiRefNet  
-     `...\Python312\Scripts\rembg.exe i -m birefnet-general <raw.png> <out.png>`  
+   - **Локально (предпочтительно на этой машине):** `rembg` + BiRefNet<br>
+     `...\Python312\Scripts\rembg.exe i -m birefnet-general <raw.png> <out.png>`<br>
      (после `winget` Python 3.12 + `pip install "rembg[cpu,cli]"`).
    - Hosted: [useknockout](https://useknockout.com/) при наличии `KNOCKOUT_TOKEN`.
    - Запасной UI: Photoroom / remove.bg.

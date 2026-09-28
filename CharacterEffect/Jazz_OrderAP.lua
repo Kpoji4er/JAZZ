@@ -3,14 +3,8 @@ DefineClass.Jazz_OrderAP = {
 	__parents = { "StatusEffect" },
 	__generated_by_class = "ModItemCharacterEffectCompositeDef",
 
+
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "ap_bonus",
-			'Value', 3,
-			'Tag', "<ap_bonus>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnBeginTurn",
@@ -32,7 +26,8 @@ DefineClass.Jazz_OrderAP = {
 	end,
 	type = "Buff",
 	lifetime = "Until End of Turn",
-	Icon = "UI/Hud/Status effects/accuracy",
+	Icon = "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/UI/Hud/Status effects/accuracy",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

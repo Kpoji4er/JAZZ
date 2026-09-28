@@ -36,3 +36,7 @@
 Для задачи на стыке систем читать только общий контур, точные runtime/generated references и затронутые playbooks. Не загружать весь набор документов.
 
 - Броня/одежда Легиона, developer sample, HGM-референсы и offline QA-pass: `.agents/docs/playbooks/legion-armor-modeling.md`.
+- Нормали и сварка полигонов при экспорте (не кастомные, всегда recalc): `.agents/docs/playbooks/mesh-export-normals.md`.
+- Приёмка свежих экспортов (что стоит на диске, что смотреть в игре, промпт Астре): `.agents/docs/playbooks/model-export-qa-handoff.md`.
+
+- Release merge with CRLF-only conflicts: `docs/tools/_merge_lf_conflicts.py`; inspect remaining semantic conflicts before committing.

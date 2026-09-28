@@ -5,8 +5,6 @@ DefineClass.Gasmaskenhelm = {
 
 
 	object_class = "GasMaskBase",
-	CanAppearInShop = false,
-	Cost = 2600,
 	ScrapParts = 2,
 	Degradation = 12,
 	Icon = "UI/Icons/Items/gasmaskenhelm.png",

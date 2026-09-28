@@ -6,8 +6,8 @@ description: >-
 
 # Создание иконок перков JAZZ
 
-Пакет: `jazz`. Runtime: **`Perks/Personal/`** only (68×68 named perk tiles).  
-Hotbar CombatAction / `Perks/SignatureAbilities/` (108×54 dual strip) → **`$create-jazz-action-icons`**.  
+Пакет: `jazz`. Runtime: **`Perks/Personal/`** only (68×68 named perk tiles).<br>
+Hotbar CombatAction / `Perks/SignatureAbilities/` (108×54 dual strip) → **`$create-jazz-action-icons`**.<br>
 Референсы vanilla: `Perks/references/vanilla/`.
 
 Asset-only PNG не требует spec. Изменение `Icon` path требует синхронизации companion и `items.lua`.

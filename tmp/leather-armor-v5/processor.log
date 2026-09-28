@@ -1,0 +1,52 @@
+FBX SDK version: 7.7.0
+FBX file version: 7.4.0
+FBX file creator: Blender (stable FBX IO) - 4.5.3 LTS - 5.13.0
+[ERROR]: Missmatched FBX file and SDK versions
+Original System Unit: m scale factor 100.000000
+System Unit: m scale factor 100.000000
+***************************************************************************
+Source FBX file: C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/leather-armor-v5/build/JAZZ_LeatherArmor_Male.fbx
+FBX SDK version: 7.7.0
+FBX file version: 7.7.0
+FBX file creator: FBX SDK/FBX Plugins version 2020.3.4
+Original System Unit: m scale factor 100.000000
+System Unit: m scale factor 100.000000
+Coord Sys: Right Handed
+Up axis: + Z
+Front axis: Odd
+
+Mesh: hgm:JAZZ_LeatherArmor_Male:mesh:1:0:s=_mesh:i=Male mesh
+Material: JAZZ_LeatherArmor_Male
+CustomFileTexture: C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v5\build\JAZZ_LeatherArmor_Male_Norm.tga UVSet: UVChannel_1
+CustomFileTexture: C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v5\build\JAZZ_LeatherArmor_Male_Base.tga UVSet: UVChannel_1
+CustomFileTexture: C:\Users\SsAnd\AppData\Roaming\Jagged Alliance 3\Mods\jazz\tmp\leather-armor-v5\build\JAZZ_LeatherArmor_Male_RM.tga UVSet: UVChannel_1
+Layer 0: UVSetCount 1 VertexColors No
+UVset: UVChannel_1 channel: 14
+SkinDeformers: 1
+
+Begin processing mesh: mesh from entity: JAZZ_LeatherArmor_Male
+    The origin for entity 'JAZZ_LeatherArmor_Male' mesh 'mesh' is 'JAZZ_LeatherArmor_Male_Origin'
+    Adding mesh: hgm:JAZZ_LeatherArmor_Male:mesh:1:0:s=_mesh:i=Male mesh
+    Parse material: JAZZ_LeatherArmor_Male
+    Vertices Merged: 26090
+    Entity 'JAZZ_LeatherArmor_Male' mesh 'mesh' imported as animated mesh with skeleton root 'Bip001'
+Using skeleton Skeletons/Male_mesh.hgskel
+    Compress NormalMap "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ModAssets/TextureCompressTemp/expand_colors/14114000717206619522.tga"
+        to "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ExportedEntities/Textures/14114000717206619522.dds"
+    Compress RoughnessMetallicMap "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ModAssets/TextureCompressTemp/expand_colors/14114002058226795191.tga"
+        to "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ExportedEntities/Textures/14114002058226795191.dds"
+    Compress BaseColorMap "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ModAssets/TextureCompressTemp/expand_colors/14114001426928131271.tga"
+        to "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ExportedEntities/Textures/14114001426928131271.dds"
+
+    Vertices: 9808
+    Triangles: 11966
+    Bones: 86
+    Sub-meshes: 1
+    Textures: 3
+    C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ExportedEntities/Textures/14114000717206619522.dds: 2048x2048, size: 5592580
+    C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ExportedEntities/Textures/14114001426928131271.dds: 2048x2048, size: 5592580
+    C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/tmp/ExportedEntities/Textures/14114002058226795191.dds: 2048x2048, size: 2796364
+    Vertex compression...
+    OK
+End processing: mesh
+*** Done! ***

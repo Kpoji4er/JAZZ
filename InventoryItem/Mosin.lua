@@ -8,10 +8,6 @@ DefineClass.Mosin = {
 	object_class = "SniperRifle",
 	ScrapParts = 8,
 	RepairCost = 3,
-	CanAppearInShop = true,
-	Tier = 1,
-	RestockWeight = 110,
-	Cost = 1100,
 	Reliability = 90,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Mosin.png",
 	DisplayName = T(890000000000481, --[[ModItemInventoryItemCompositeDef Mosin DisplayName]] "Винтовка Мосина"),
@@ -34,17 +30,23 @@ DefineClass.Mosin = {
 	HandSlot = "TwoHanded",
 	Entity = "MOSIN_1891",
 	ComponentSlots = {
-        PlaceObj('WeaponComponentSlot', {
-            'SlotType', "Scope",
-            'CanBeEmpty', true,
-            'AvailableComponents', { "JAZZ_Scope_PU" },
-        }),
-        PlaceObj('WeaponComponentSlot', {
-            'SlotType', "Barrel",
-            'AvailableComponents', { "JAZZ_Mosin1891", "JAZZ_MosinM38", "JAZZ_MosinObrez" },
-            'DefaultComponent', "JAZZ_Mosin1891",
-        }),
-    },
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Scope",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Scope_PU",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Barrel",
+			'AvailableComponents', {
+				"JAZZ_Mosin1891",
+				"JAZZ_MosinM38",
+				"JAZZ_MosinObrez",
+			},
+			'DefaultComponent', "JAZZ_Mosin1891",
+		}),
+	},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {
@@ -54,16 +56,12 @@ DefineClass.Mosin = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 5000,
-	BurstShots = 0,
-	WeaponMass = 55,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
+	WeaponMass = 55,
+	WeaponSizeClass = "Long",
 	CloseRange = 16,
-
 	CloseRangeFactor = 70,
 	BulletDropRange = 16,
 	Grouping = 41,

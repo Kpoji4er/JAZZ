@@ -13,3 +13,4 @@ DefineClass.Jazz_MakeThemBleedBuff = {
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

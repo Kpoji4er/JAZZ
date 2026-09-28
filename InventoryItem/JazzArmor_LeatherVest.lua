@@ -15,7 +15,6 @@ DefineClass.JazzArmor_LeatherVest = {
 	AdditionalHint = T(796609766807, --[[ModItemInventoryItemCompositeDef JazzArmor_LeatherVest AdditionalHint]] "Черный кожаный жилет"),
 	Cost = 250,
 	CanAppearInShop = true,
-	Tier = 1,
 	MaxStock = 1,
 	RestockWeight = 120,
 	CategoryPair = "Light",

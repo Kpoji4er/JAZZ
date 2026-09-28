@@ -14,7 +14,7 @@ DefineClass.InnerInfo_JAZZ = {
 				if target.HireStatus ~= "Hired" or not sector or not sector.intel_discovered then
 					return
 				end
-
+				
 				CreateGameTimeThread(function()
 					local playVr
 					while GetInGameInterfaceMode() == "IModeDeployment" do
@@ -56,3 +56,4 @@ DefineClass.InnerInfo_JAZZ = {
 	Icon = "UI/Icons/Perks/InnerInfo",
 	Tier = "Personal",
 }
+

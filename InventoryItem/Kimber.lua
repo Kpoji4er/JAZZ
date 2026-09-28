@@ -3,6 +3,7 @@ DefineClass.Kimber = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-4",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -37,7 +38,6 @@ DefineClass.Kimber = {
 				"JAZZ_PistolSuppressor",
 			},
 		}),
-		
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
@@ -82,18 +82,12 @@ DefineClass.Kimber = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 3000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 80,
 	BaseJamChance = -10,

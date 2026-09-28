@@ -6,7 +6,6 @@ DefineClass.JAZZ_AMMO_MortarShell_Smoke = {
 
 	object_class = "Ordnance",
 	RepairCost = 0,
-	CanAppearInShop = false,
 	Repairable = false,
 	Reliability = 100,
 	Icon = "UI/Icons/Items/mortar_shell_smoke",

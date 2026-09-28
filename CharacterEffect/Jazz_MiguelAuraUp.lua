@@ -5,18 +5,6 @@ DefineClass.Jazz_MiguelAuraUp = {
 
 
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "cth_bonus",
-			'Value', 15,
-			'Tag', "<cth_bonus>",
-		}),
-		PlaceObj('PresetParamNumber', {
-			'Name', "will_bonus",
-			'Value', 30,
-			'Tag', "<will_bonus>",
-		}),
-	},
 	unit_reactions = {
 		PlaceObj('UnitReaction', {
 			Event = "OnCalcChanceToHit",
@@ -41,9 +29,10 @@ DefineClass.Jazz_MiguelAuraUp = {
 	},
 	DisplayName = T(890000000009895, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp DisplayName]] "Команданте (+)"),
 	Description = T(890000000009896, --[[ModItemCharacterEffectCompositeDef Jazz_MiguelAuraUp Description]] "+15 CTH и +30 Will, пока Мигель в ауре и на ногах."),
-	Icon = "UI/Hud/Status effects/accuracy",
 	type = "Buff",
 	lifetime = "Until End of Turn",
+	Icon = "C:/Users/SsAnd/AppData/Roaming/Jagged Alliance 3/Mods/jazz/UI/Hud/Status effects/accuracy",
 	RemoveOnEndCombat = true,
 	Shown = true,
 }
+

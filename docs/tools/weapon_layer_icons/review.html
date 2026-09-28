@@ -1,0 +1,26 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>JAZZ · послойные иконки</title>
+<style>
+body{margin:0;background:#15191f;color:#e7e9ee;font:16px system-ui}main{max-width:1120px;margin:40px auto;padding:0 24px}h1{font-size:32px;margin-bottom:8px}p{color:#b7c1ce;line-height:1.5}section{display:flex;gap:32px;flex-wrap:wrap}aside{width:310px}label{display:block;margin:12px 0;font-size:13px;color:#bec9d8}select{display:block;width:100%;margin-top:5px;padding:9px;background:#262d37;color:white;border:1px solid #495463;border-radius:6px}canvas{display:block;background:#252a32;border:1px solid #465160;max-width:100%;height:auto}button{padding:10px 15px;background:#c1d775;border:0;border-radius:6px;cursor:pointer}pre{font-size:12px;white-space:pre-wrap;color:#b7c1ce}small{color:#aebbd0}.preview{flex:1;min-width:324px}#status{color:#c1d775}</style>
+<main><small>JAZZ / OFFLINE PROTOTYPE / M4A1 SNAPSHOT</small><h1>Иконка из видимых деталей</h1>
+<p>Переключайте детали: ракурс и масштаб сохраняются, дульник следует за стволом. Снятая деталь исчезает. Это проверка сборки слоёв из 3D-снимка, а не установленная игровая система.</p>
+<section><aside id="controls"></aside><div class="preview"><canvas id="large" width="648" height="330"></canvas><p>Размер иконки 324 × 165</p><canvas id="small" width="324" height="165"></canvas><p id="status"></p><pre id="layers"></pre><button id="reset">Вернуть исходную сборку</button></div></section>
+<p>20-зарядный магазин в игре — прямой ванильный WeaponAttA_MagazineCAR15_02. Ошибочный магазин из старой сцены исключён: выбор 20 патронов показывает обычную иконку с предупреждением, пока нет съёмки реальной детали.</p>
+<p>Слои прозрачные, контур в этом просмотре отключён, чтобы видеть стыки. PNG с общим контуром находятся рядом. Длинный ствол — исследование геометрии: допустимость сочетаний кабинетом здесь не проверяется. Внешняя оптика, подствольное и боковое оборудование ещё не отрисованы; для них требуется обычная иконка целиком. Следующий этап — отдельная съёмка реальных сборок в игре.</p></main>
+<script>
+const data=/*PAYLOAD*/;
+const images={},controls=document.querySelector('#controls'),selection={};
+for(const [slot,def] of Object.entries(data.slots)){
+ const label=document.createElement('label');label.textContent=slot;const select=document.createElement('select');select.dataset.slot=slot;
+ for(const id of Object.keys(def.options)){const op=document.createElement('option');op.value=id;op.textContent=id||'Пусто';select.append(op)}
+ select.value=def.default;selection[slot]=def.default;select.onchange=()=>{selection[slot]=select.value;draw()};label.append(select);controls.append(label)
+}
+async function start(){await Promise.all(Object.entries({...data.images,fallback:data.fallback}).map(([id,src])=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{images[id]=im;resolve()};im.onerror=reject;im.src=src})));draw()}
+function draw(){const row=data.combinations.find(r=>Object.keys(selection).every(k=>r.components[k]===selection[k]));
+ const plan=row&&row.plan;
+ for(const id of ['large','small']){const c=document.getElementById(id),ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);if(plan){for(const l of plan.layers)ctx.drawImage(images[l.id],0,0,c.width,c.height)}else{ctx.drawImage(images.fallback,0,0,c.width,c.height)}}
+ document.querySelector('#status').textContent=plan?`${plan.layers.length} слоёв · ${plan.host}`:'Обычная иконка: нет достоверного слоя этой конфигурации';
+ document.querySelector('#layers').textContent=plan?plan.layers.map(l=>`${l.z}  ${l.id}`).join('\n'):'';
+}
+document.querySelector('#reset').onclick=()=>{for(const select of controls.querySelectorAll('select')){const s=select.dataset.slot;select.value=selection[s]=data.slots[s].default}draw()};
+start().catch(e=>document.querySelector('#status').textContent='Ошибка загрузки слоёв: '+e);
+</script></html>

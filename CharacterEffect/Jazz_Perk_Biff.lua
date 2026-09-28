@@ -11,3 +11,4 @@ DefineClass.Jazz_Perk_Biff = {
 	Icon = "Mod/e6L4ECj/Perks/Personal/Biff.png",
 	Tier = "Personal",
 }
+

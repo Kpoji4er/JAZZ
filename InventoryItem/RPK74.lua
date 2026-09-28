@@ -85,7 +85,7 @@ DefineClass.RPK74 = {
 			},
 			'DefaultComponent', "JAZZ_StockNormal",
 		}),
-			},
+	},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"MGBurstFire",
@@ -96,16 +96,13 @@ DefineClass.RPK74 = {
 	},
 	ShootAP = 8000,
 	ReloadAP = 6000,
-	WeaponMass = 80,
-	CyclicRPM = 700,
-	WeaponSizeClass = "Long",
-	BurstLimiter = 0,
 	Recoil = 18,
 	BurstShots = 4,
 	AutoShots = 7,
-
+	WeaponMass = 80,
+	CyclicRPM = 700,
+	WeaponSizeClass = "Long",
 	CloseRange = 8,
-
 	CloseRangeFactor = 85,
 	BulletDropRange = 18,
 	Grouping = 56,

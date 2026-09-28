@@ -2,6 +2,9 @@ import bpy,bmesh,importlib.util,math,json,numpy as np
 from pathlib import Path
 from mathutils import Matrix,Vector
 import argparse,sys
+_TOOLS=Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:sys.path.insert(0,str(_TOOLS))
+from _ja3_mesh_prepare import prepare_export_mesh
 parser=argparse.ArgumentParser()
 parser.add_argument('--build',type=Path,required=True)
 parser.add_argument('--game-root',type=Path,required=True)
@@ -74,12 +77,16 @@ for weapon in args.weapon or ['AK74','AKM','AK74M','AK105']:
         stock=separate_islands(furniture,'Stock',lambda lo,hi:lo.y>.21)
         hand=separate_islands(furniture,'Handguard',lambda lo,hi:hi.y<0)
         core=[bpy.data.objects['AK74M_1'],furniture]
-        transform=Matrix.Translation(Vector((0,-.14,.04)))
+        # Extra (−Y 4.63 cm, −Z 1.11 cm) seats the pistol grip on the entity
+        # origin so the right hand is not on the magazine (2026-09-20).
+        transform=Matrix.Translation(Vector((0,-.1863,.0289)))
     else:
         stock=bpy.data.objects['AK105_0'];mag=bpy.data.objects['AK105_3'];body=bpy.data.objects['AK105_1']
         hand=separate_islands(body,'Handguard',lambda lo,hi:lo.y>=-.296 and hi.y<=-.1385)
         core=[body,bpy.data.objects['AK105_2']]
-        transform=Matrix.Translation(Vector((0,-.025,0)))
+        # Extra −Y 3.66 cm seats the pistol grip on the entity origin; Z already
+        # matched the accepted AK74 grip height (2026-09-20).
+        transform=Matrix.Translation(Vector((0,-.0616,.0035)))
     meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']
     for o in meshes:o.data.transform(transform@o.matrix_world);o.matrix_world=Matrix.Identity(4)
     root=join(core,'AKR_'+weapon)
@@ -154,7 +161,7 @@ for weapon in args.weapon or ['AK74','AKM','AK74M','AK105']:
                 mat[prop.id]=paths[key] if key in paths else '' if prop.map else getattr(mat.hgm_settings,prop.settings_name)
     for name,o in entities.items():
         o.name=name;bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o
-        tri=o.modifiers.new('Triangulate','TRIANGULATE');tri.keep_custom_normals=True;bpy.ops.object.modifier_apply(modifier=tri.name)
+        prepare_export_mesh(o)
         pivot=spots[name.rsplit('_',1)[1]] if o!=root else Vector()
         origin=bpy.data.objects.new(name+'_Origin',None);bpy.context.collection.objects.link(origin);origin.location=pivot;o.data.transform(Matrix.Translation(-pivot));o.parent=origin;o.location=Vector()
         st=o.hge_obj_settings;st.entity=name;st.mesh='Mesh';st.state='idle';st.lod=1;st.ignore=False;o.hge_export=True

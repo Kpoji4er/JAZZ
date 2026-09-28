@@ -1,7 +1,7 @@
 # Приклады (Stock) — плечо vs мобильность
 
-Канон для `JAZZ_Stock*`.  
-Apply: `docs/tools/_rebalance_stock_tiers.py`.  
+Канон для `JAZZ_Stock*`.<br>
+Apply: `docs/tools/_rebalance_stock_tiers.py`.<br>
 Связано: [`attachments-rebalance.md`](attachments-rebalance.md), `JAZZ-ATTACH-001`.
 
 **Статус:** applied 2026-08-01.

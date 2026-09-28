@@ -11,7 +11,6 @@ DefineClass.JazzArmor_NVG2 = {
 	Description = T(925462880253, --[[ModItemInventoryItemCompositeDef JazzArmor_NVG2 Description]] "Прибор ночного видения второго поколения менее чувсвителен к паразитной засветке, и, к тому же, имеет встроенную инфракрасную подсветку, позволяющую получать изображения в отсутствие естественного света вовсе."),
 	AdditionalHint = T(533537838532, --[[ModItemInventoryItemCompositeDef JazzArmor_NVG2 AdditionalHint]] "Прибор ночного зрения второго поколения"),
 	Cost = 12000,
-	CanAppearInShop = true,
 	Tier = 4,
 	RestockWeight = 18,
 	PenetrationClass = 2,

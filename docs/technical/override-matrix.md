@@ -1,5 +1,10 @@
 # Игра, CommonLib и JAZZ
 
+## Исправление предпросмотра ствола 28.09.2026
+
+`Code/System_WeaponRemovableModify.lua` напрямую исправляет существующий vanilla `GetComponentBlocksAnyOfAttachedSlots`: отсутствующее значение components[slot] считается пустым. Без новых globals, сохранённых base-функций и дополнительного wrap. Сохраняются проверки реально занятого недефолтного слота; исходная ошибка и исправление исполнены на штатном `ModifyWeaponDlg:CanModifySlot` в offline harness. Остальной кабинет и сеть не переопределяются.
+
+
 `JAZZ-APPEAR-001`: `System_LegionArmorVisuals.lua` — единственный JAZZ-wrap `Unit:UpdateItemAppearance` из CommonLib. Сначала вызывается CommonLib, затем для `JAZZ_Legion_*` обновляются `parts.Armor` (Torso) и `parts.Hat` (Head). `Unit:ApplyAppearance`, `AttachInventoryItem`, item AttachEntries и боевые методы не переопределяются. Проверено против CommonLib main `f1e02404` (2026-09-15), метод совпадает с извлечённым Workshop source. Повторная установка на том же классе не захватывает чужую обёртку. Runtime acceptance ожидается.
 
 ## Как читать матрицу
@@ -138,3 +143,5 @@ CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти сим
 ## PROGRESSION-001: NewGameMenuGameRules
 
 `Code/GameRules_HideAdvanced.lua` inserts two cycling choices into the vanilla template and registers hidden GameRuleDef presets at DataLoaded/ModsReloaded. Existing hide-advanced behavior remains. No function wrapper or replacement of the base template. Runtime UI smoke is pending.
+
+JAZZ-WEAPON-PRESENTATION-001: existing InventoryItem:GetItemUIIcon hook in System_WeaponResourceMaintenance.lua now delegates exact photographed configurations to JazzWeaponIcon_GetCaptured. No second wrapper; original fallback and removable attachment branch preserved. Runtime validation pending game launch.

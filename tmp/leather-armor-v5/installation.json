@@ -1,0 +1,29 @@
+{
+  "installed": true,
+  "runtime": "NOT_RUN",
+  "entity": "JAZZ_LeatherArmor_Male",
+  "unit": "JAZZ_Legion_ArmorTest_LeatherArmor",
+  "icon_preserved": true,
+  "protected_sha256": {
+    "jazz\\ArmorIcons\\LeatherArmor.png": "1811718bc7cac223042614919652347f1a471eee6c88d9099afe5d50decce72f",
+    "jazz\\InventoryItem\\JazzArmor_LeatherArmor.lua": "c12778586dae861fbf3c11ee7d68edef64e7b58e75df92c60d8a8b075ffac96d"
+  },
+  "sha256": {
+    "jazz_assets\\items.lua": "f806d47d95bc85f1e45f904b478c59ffdf838d5adc4c1a0cf404314f6137127a",
+    "jazz_assets\\metadata.lua": "00c142a0b33ed9035e7aac9d9c529f2b1b516fcb0c3dd257cfe2b430c9167f39",
+    "jazz-units\\items.lua": "05d6902d5cc3ef158fc772760f8116ff7a9a296fe7516ed048df4a832f5f8616",
+    "jazz-units\\metadata.lua": "765d8b68a0b674c9f801ecc937a8a9ab9fe39a491f95b8d0b4280a304dac2a1f",
+    "jazz\\Code\\System_LegionArmorVisuals.lua": "e6ae6faf64e802b42278818186afd6853339662f3bbbcb4033d3d9a361633b2d",
+    "jazz-units\\UnitData\\JAZZ_Legion_ArmorTest_LeatherArmor.lua": "30a975e7caaba5813c1025d9d3cf4db28727f044809fdfff55e92a03a6e6dd57",
+    "jazz_assets\\Entities\\JAZZ_LeatherArmor_Male.ent": "2c6dcbe8e1e0aaeb65e5c989c8c8a021ad18957932ce6a3f367e205342aefe0e",
+    "jazz_assets\\Entities\\JAZZ_LeatherArmor_Male.lua": "f1f9f58261e688637313d8974f3bae6f2bf1bacf801db351f7b6a62482454959",
+    "jazz_assets\\Entities\\Materials\\JAZZ_LeatherArmor_Male_mesh.mtl": "6d47ac7459d0682537ff0a0f6c9716b5dcf13b996ca4789e827845d63eb5c3ad",
+    "jazz_assets\\Entities\\Meshes\\JAZZ_LeatherArmor_Male_mesh.m.hgm": "e01cf9895324afcaea056899047cb3e039b24d5bd193d877331ee93093f7e1ff",
+    "jazz_assets\\Entities\\Textures\\JAZZ_LeatherArmor_1_Norm.dds": "218585712742578235394aca2795bb6d3a647e220e0e8f40333d14f1f82f3287",
+    "jazz_assets\\Entities\\Textures\\JAZZ_LeatherArmor_2_Base.dds": "bc74268d36300d589607bad75cef561e1ca332c44bbd7b6b23253ab6ce89f02e",
+    "jazz_assets\\Entities\\Textures\\JAZZ_LeatherArmor_3_RM.dds": "6f5316ea253eec0ec16254ed99f3d42a6fef44ffdd524cdf8088636ed5cd78ca",
+    "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_LeatherArmor_1_Norm.dds": "c7e157e590e9a9a0ad534608dc93aa804f584f6587e6d3061c10f2c14fcd25e3",
+    "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_LeatherArmor_2_Base.dds": "0b95af0e5eb5453bbd913df3a02a3a9847d3e89a88635ccfb76027a855ffd80f",
+    "jazz_assets\\Entities\\Textures\\Fallbacks\\JAZZ_LeatherArmor_3_RM.dds": "94222a5b3ef91e2d36b8956a4a68da83b7d9443caa5b073e4ba47b9bb6b02aca"
+  }
+}

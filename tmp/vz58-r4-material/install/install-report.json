@@ -1,0 +1,135 @@
+{
+  "applied": true,
+  "files": [
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_1_Norm.dds",
+      "before": "ec2a3ef32cd3a60d8a8e6a103bd5e37d3eee80b47d8a55ab79d372664b0e41dc",
+      "after": "03ad11294503549b9a11096198f8f5b193193106e2cdf8fcb89494719f6b53fe"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_1_Norm.dds",
+      "before": "00dd70d40153dc559b5ef70769b0ed9e4f10d1ccd092e5fe087350349acc250a",
+      "after": "65e89c388986709405e9ef9fdb3fceed2432dc0454a0bc56624086eeed93ed6a"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_3_RM.dds",
+      "before": "19e0aaf7a08c54d87a7a9820002f43c1d7351d0eeb2b076633f2df165575d1eb",
+      "after": "1aa1574423d8faca3f412d0b42276278b393c47b73a93e3a3f3066c3a13f5956"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_3_RM.dds",
+      "before": "aebe48fb212c4ee592b823a2a670a54f26b1a410d51be5ff977d30c727837c99",
+      "after": "3a69a725f2306816201d28a1f932841562bc53fdc1efe79e01976de0221341c4"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_25_Norm.dds",
+      "before": "bed1a072a233fa03bc79915ac66d419f59d0b702f6ed3a04a5e5502c5e25ce4b",
+      "after": "4e39e9b57fd678370b527a18254a5b37db07594e53db6db9d52ed500df482b44"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_25_Norm.dds",
+      "before": "7fb9e69e2018067c6e247b080db5b55fbc8fbae039fac317a611dd90a0877b96",
+      "after": "3f9d1df105754f6dc3c240c7b85d39dbf0d506f8fc0f93d9c906e0a92705a95f"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_27_RM.dds",
+      "before": "c2e709c05603ca8444099e22f326cb799148c0ef53ed948351a57d43a308708c",
+      "after": "2d000fe6cf9e6feedbae17abb41a601173046ee809f2fff78e66531e4f4e75aa"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_27_RM.dds",
+      "before": "e40380bc73146da3a0f532bea25a93ffd49d9ce0839d169122f90cf0d113ae75",
+      "after": "3de6028f1bd81946c140289aa2f1b5fc4a7280a89f1c16d6038389ff79c37ce0"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_26_Base.dds",
+      "before": "414eb44d3714f612393a7b7b22609be33db37dc098b10e84683b866a2b70a994",
+      "after": "9be63f8378acf53200dc0a0e929731005f3ad82d27a0c64a568c510b6053c6f2"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_26_Base.dds",
+      "before": "18eb1329d16e3631f229762ff32686fcb166248319aeb28d2f8b1c4c96b8a030",
+      "after": "44fa7a095e3bc63bcb3a2ad6a09ae4428d6681f461a3354a950c5492a2afaa03"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_10_Norm.dds",
+      "before": "862d88614e6f25b45bd5dc12d72e8dcbb88b9c2b75c8f2c2d232ae8ca3107435",
+      "after": "9df104742c664ee70c468c6f5587a1b895c2f4e2eb6d64e4b30c0167ceff5d34"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_10_Norm.dds",
+      "before": "f1ff27cfbf4190fbdca491520c848294967244daae0baea643cc329756c263e6",
+      "after": "abdad8dd39f1154cf9e82c14dcfaa72978babbd2b1114263673b4b59a4821fe0"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_12_RM.dds",
+      "before": "35aabfc0318cab19d367e0dafbe7a8361bcc1e4e700641f13c0c7c3b7e4d7a56",
+      "after": "6575575a59d6a8f39f3e6358e3a6fad649f4636751f70c17fa5504272896dd34"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_12_RM.dds",
+      "before": "0ab33ec161afb2cde5cec547eafe860c930f20e9e615ea220cb1920be1355e3c",
+      "after": "73863d7471a4df2f7d3f32e01d660cce050201b9f076db25931b9bd00b2f321b"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_11_Base.dds",
+      "before": "3aa37d2afb570c3f7e48385c1d2642a9967e5c486f34446a5b3eae5f0016944e",
+      "after": "2bc8015a359f3404ac2d3f4aea9d37020ef182900bf43a50dd83df36547a6263"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_11_Base.dds",
+      "before": "3d20699c1c98eaa52f3796077b553406cdef449a3388f3ae68ef4f6171591f5a",
+      "after": "8c760f5a15f573d6b5bcdd1bf3324220275629cfc99908a8b108259b307d21a1"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_16_Norm.dds",
+      "before": "5e34b9df6adc2da557104f9286e20b3dc31282b7a814c9b8567f3a9dec49d771",
+      "after": "18c2f0441a1bd1396d26adc72b0ec6630622c6dbd5ba8b75817378be160ea712"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_16_Norm.dds",
+      "before": "abe5e14fdd0f6bae791d2eea29ca216b7cf842623ae1d6d4db6c30d3aba0ac60",
+      "after": "77c8c4bf1bd74a7cbfac1f59b00d01fddd5157387f0faef53cf6a57c4504005c"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VZ58_18_RM.dds",
+      "before": "dcda5d012d1153c4f35f8d80c94cf3f4637ac086a008c572d2416096d04a196d",
+      "after": "c8503c682f35e19cc215a47221d40aa90e74c9c9c1ca338d6d3dbd6edef13df7"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VZ58_18_RM.dds",
+      "before": "659f3b3c96765f567250f7d5966cb0c33f10a8a5dcfb24d5a0ea765a4a2f23fd",
+      "after": "f4eafe22a1906349b7f6660289fc461dfa420201d79ec03453abe65acbac02cd"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VektorR4_1_Norm.dds",
+      "before": "efe056d45cdfd03996f43994214e6b57418262c7834b745d8c8034c9935e8093",
+      "after": "e8f1cc64fe8699f169499d129e623052ffe42f5a54fc0b3db624ad944577a75f"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VektorR4_1_Norm.dds",
+      "before": "d61892d2b00dedd2885e38e91c53c24f4518b1cc29ed53fdcb4ffc49c1365c8e",
+      "after": "ba5012fc4a2ff69ed64ff4fe912082e8e5293c45eea20f55e63e3b6fd3294115"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/JAZZ_VektorR4_4_RM.dds",
+      "before": "ef1c90d74561d4cc3ecaaadd2b2452d5bc0b348a7b7f238d9da4d8ff90061fea",
+      "after": "eadeecca981d93f7ee28916049f9db557ff8bacda43d7cc35055a36d63fb28b8"
+    },
+    {
+      "path": "jazz_assets/Entities/Textures/Fallbacks/JAZZ_VektorR4_4_RM.dds",
+      "before": "4f21e56d1919fd9d23f3b96ba5412a7d56cba446b1855a06da1fca2594da560e",
+      "after": "1fb8d7823e482782878c0f1063c893993318754f75ada5368a9017118fb6a1c1"
+    },
+    {
+      "path": "jazz/WeaponIcons/VZ58.png",
+      "before": "b4fe8fd4fcae736e176bf3acf3538cce017548a6ddc951a0884b45f0beda056e",
+      "after": "43353906bd2ef112cec76ac150ec7a6015a72d8a9ff9b42af2837ff66421b7cf"
+    },
+    {
+      "path": "jazz_assets/Entities/Meshes/JAZZ_VektorR4_Mesh.m.hgm",
+      "before": "67fd6dea35c9b08c2c932967d2bb63a12733e6acc9b733de1db59e6669d77507",
+      "after": "7ed9f8a9a4d358cccbfa80e76d734c22f2ecfd13046d802db7103ce096c5b787"
+    }
+  ]
+}

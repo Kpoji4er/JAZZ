@@ -12,7 +12,6 @@ DefineClass.JAZZ_AMMO_792_AP = {
 	Description = T(890000000000826, --[[ModItemInventoryItemCompositeDef JAZZ_AMMO_792_AP Description]] "Бронебойная версия армейского патрона, не понятно что потребовало его изобрести, но вероятно вы рады, что у вас есть такая опция."),
 	AdditionalHint = "",
 	Cost = 850,
-	CanAppearInShop = false,
 	MaxStock = 5,
 	RestockWeight = 1,
 	CategoryPair = "792",

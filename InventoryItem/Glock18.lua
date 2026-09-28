@@ -3,6 +3,7 @@ DefineClass.Glock18 = {
 	__parents = { "Autopistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 2-5",
 	object_class = "Autopistol",
 	ScrapParts = 6,
@@ -21,15 +22,15 @@ DefineClass.Glock18 = {
 	CategoryPair = "Handguns",
 	Caliber = "JAZZ_Caliber_9x19",
 	Damage = 19,
-	AimAccuracy = 3,
 	ObjDamageMod = 15,
+	AimAccuracy = 3,
 	MagazineSize = 17,
 	WeaponRange = 18,
 	OverwatchAngle = 5400,
 	Noise = 22,
 	Entity = "G18",
 	ComponentSlots = {
-				PlaceObj('WeaponComponentSlot', {
+		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Muzzle",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
@@ -49,9 +50,9 @@ DefineClass.Glock18 = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
+				"JAZZ_MagLarge_17_33",
 				"JAZZ_MagNormal",
 				"JAZZ_MagNormalG18",
-				"JAZZ_MagLarge_17_33",
 			},
 			'DefaultComponent', "JAZZ_MagNormalG18",
 		}),
@@ -66,7 +67,6 @@ DefineClass.Glock18 = {
 				"JAZZ_UVDot",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -78,18 +78,13 @@ DefineClass.Glock18 = {
 	},
 	ShootAP = 2000,
 	ReloadAP = 3000,
-	WeaponMass = 26,
-	CyclicRPM = 1200,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
 	MaxAimActions = 2,
 	Recoil = 22,
 	BurstShots = 6,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 26,
+	CyclicRPM = 1200,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 8,
 	Grouping = 72,
 	WeaponResource = 1500,

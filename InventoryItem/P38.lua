@@ -3,6 +3,7 @@ DefineClass.P38 = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-3",
 	object_class = "Pistol",
 	ScrapParts = 6,
@@ -16,7 +17,6 @@ DefineClass.P38 = {
 	UnitStat = "Marksmanship",
 	Cost = 1100,
 	CanAppearInShop = true,
-	Tier = 1,
 	RestockWeight = 85,
 	CategoryPair = "Handguns",
 	CanAppearStandard = false,
@@ -37,7 +37,6 @@ DefineClass.P38 = {
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
 				"JAZZ_MagLarge_13_PISTOL_52",
-				"JAZZ_MagLarge_8_PISTOL_52",
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
@@ -57,7 +56,6 @@ DefineClass.P38 = {
 				"JAZZ_PistolSuppressor",
 			},
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -69,18 +67,12 @@ DefineClass.P38 = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 3000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 56,
 	BaseJamChance = -20,

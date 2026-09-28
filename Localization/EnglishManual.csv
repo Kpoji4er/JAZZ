@@ -10037,6 +10037,11 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9790,890000000014201,Бронежилеты EOD,EOD Vests,manual-translation
 9791,890000000014202,"Тяжёлый сапёрный бронежилет для работ по разминированию. Толстые противоосколочные пакеты и высокий воротник хорошо держат взрывную волну, но от винтовочной пули толку мало, а сам жилет ощутимо тяжёлый.","A heavy sapper vest for bomb disposal. Thick fragmentation packs and a high collar handle blast well, but it does little against a rifle round and the vest is noticeably heavy.",manual-translation
 9792,890000000014203,Броня для разминирования,Explosive ordnance disposal armor,manual-translation
+9793,890000000020597,Ручка для переноски,Carry Handle,manual-translation
+9794,890000000019401,Vektor R4,Vektor R4,technical-copy
+9795,890000000019403,"Южноафриканский армейский автомат под патрон 5,56x45 мм. Тяжёлый и надёжный, с магазином на 35 патронов. Штатная конфигурация с открытым прицелом.","A South African service rifle chambered in 5.56x45 mm. Heavy and reliable, with a 35-round magazine. Standard configuration with iron sights.",manual-translation; VektorR4
+9796,890000000019501,vz. 58,vz. 58,technical-copy
+9797,890000000019503,"Чехословацкий автомат под патрон 7,62x39 мм. Лёгкий, скорострельный, с магазином на 30 патронов. Штатную мебель можно заменить современными прикладом, рукоятью и цевьём с планками.","A Czechoslovak service rifle chambered in 7.62x39 mm. Light and fast-firing, with a 30-round magazine. Its original furniture can be replaced with a modern stock, pistol grip and railed handguard.",manual-translation; VZ58
 9798,718927001001,Starting world tier,Starting world tier,manual-translation
 9799,718927001002,Tier progression,Tier progression,manual-translation
 9800,718927001003,Choose the initial Legion tier for the whole world. Equipment and all strategic systems linked to this tier start at the selected level. This does not complete quests or grant money or mercenary equipment. Click to cycle through tiers.,Choose the initial Legion tier for the whole world. Equipment and all strategic systems linked to this tier start at the selected level. This does not complete quests or grant money or mercenary equipment. Click to cycle through tiers.,manual-translation

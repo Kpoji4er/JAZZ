@@ -1,7 +1,7 @@
 # Appearance donor visual catalog (AME browse)
 
-Working notes from Anim Metadata Editor: **left = in-game look, right = preset id**.  
-Slots dumped from live `Presets.AppearancePreset` via DAP (2026-08-04).  
+Working notes from Anim Metadata Editor: **left = in-game look, right = preset id**.<br>
+Slots dumped from live `Presets.AppearancePreset` via DAP (2026-08-04).<br>
 **Generation rules (gender lock, recipe shape):** [`_appearance-preset-rules.md`](_appearance-preset-rules.md).
 
 Format per preset: **gender** + mesh slots (non-empty). Colors omitted unless they define the look.
@@ -1358,8 +1358,8 @@ Addicted twin: football helmet, torn tank, dynamite belt + teddy, torn pants. Sa
 
 ## Legion_* · Male · vanilla Legion (role kits)
 
-Vanilla spelling: **`Legion_Demolishion`** (not Demolition).  
-Within each role, `…02`/`…03`/… share **identical mesh slots** — treat as **color twins** (BodyColor/PantsColor/HatColor), not separate kits.  
+Vanilla spelling: **`Legion_Demolishion`** (not Demolition).<br>
+Within each role, `…02`/`…03`/… share **identical mesh slots** — treat as **color twins** (BodyColor/PantsColor/HatColor), not separate kits.<br>
 `Legionraider` = same meshes as `Legion_Soldier` family.
 
 ### Legion_Artillery (+02/03)
@@ -1447,7 +1447,7 @@ Look: tall horned wooden mask, bright red body paint, cropped pants, boots; no C
 
 ### Legion_Soldier (+02…06) · Legionraider
 
-Look: skull face paint, red/check shemagh over lower face, bare chest + white arm bands, hip pouches + frag, torn cargos.  
+Look: skull face paint, red/check shemagh over lower face, bare chest + white arm bands, hip pouches + frag, torn cargos.<br>
 `Legionraider` dumps identical slots to Soldier.
 
 | Slot | ID | Look |

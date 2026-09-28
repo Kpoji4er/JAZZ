@@ -1,6 +1,5 @@
 UndefineClass('AK105')
 DefineClass.AK105 = {
-	MaxStock = 1,
 	__parents = { "Carbine" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
@@ -11,15 +10,16 @@ DefineClass.AK105 = {
 	RepairCost = 10,
 	Reliability = 95,
 	Icon = "Mod/e6L4ECj/WeaponIcons/AK105.png",
-	DisplayName = T(761915303111, "АК-105"),
-	DisplayNamePlural = T(761915303112, "АК-105"),
-	Description = T(761915303113, "Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов."),
+	DisplayName = T(761915303111, --[[ModItemInventoryItemCompositeDef AK105 DisplayName]] "АК-105"),
+	DisplayNamePlural = T(761915303112, --[[ModItemInventoryItemCompositeDef AK105 DisplayNamePlural]] "АК-105"),
+	Description = T(761915303113, --[[ModItemInventoryItemCompositeDef AK105 Description]] "Укороченный автомат под патрон 5,45x39 мм. Использует общие магазины семейства АК на 30 и 45 патронов."),
 	LargeItem = 1,
 	UnitStat = "Marksmanship",
 	Valuable = 1,
 	Cost = 14500,
 	CanAppearInShop = true,
 	Tier = 4,
+	MaxStock = 1,
 	RestockWeight = 40,
 	CategoryPair = "SubmachineGuns",
 	Caliber = "JAZZ_Caliber_545",
@@ -35,7 +35,14 @@ DefineClass.AK105 = {
 	Entity = "AKR_AK105",
 	fxClass = "AK74",
 	ComponentSlots = {
-		PlaceObj('WeaponComponentSlot', { 'SlotType', "Stock", 'AvailableComponents', { "JAZZ_StockLightUnFolded", "JAZZ_StockLightFolded" }, 'DefaultComponent', "JAZZ_StockLightUnFolded" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Stock",
+			'AvailableComponents', {
+				"JAZZ_StockLightUnFolded",
+				"JAZZ_StockLightFolded",
+			},
+			'DefaultComponent', "JAZZ_StockLightUnFolded",
+		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
 			'Modifiable', false,
@@ -60,7 +67,15 @@ DefineClass.AK105 = {
 				"JAZZ_GP25",
 			},
 		}),
-		PlaceObj('WeaponComponentSlot', { 'SlotType', "Muzzle", 'AvailableComponents', { "JAZZ_DefMuzzle", "JAZZ_Compensator", "JAZZ_Suppressor" }, 'DefaultComponent', "JAZZ_DefMuzzle" }),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Muzzle",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Compensator",
+				"JAZZ_Suppressor",
+			},
+			'DefaultComponent', "JAZZ_Compensator",
+		}),
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Bipod",
 			'CanBeEmpty', true,
@@ -81,19 +96,21 @@ DefineClass.AK105 = {
 		}),
 	},
 	HolsterSlot = "Shoulder",
-	AvailableAttacks = { "BurstFire", "AutoFire", "SingleShot", "RunAndGun_Carbine", "JAZZ_TargetSweep" },
+	AvailableAttacks = {
+		"BurstFire",
+		"AutoFire",
+		"SingleShot",
+		"RunAndGun_Carbine",
+		"JAZZ_TargetSweep",
+	},
 	ShootAP = 4000,
 	ReloadAP = 6000,
+	Recoil = 17,
+	AutoShots = 6,
 	WeaponMass = 32,
 	CyclicRPM = 600,
 	WeaponSizeClass = "Carbine",
-	BurstLimiter = 0,
-	BurstShots = 3,
-	Recoil = 17,
-	AutoShots = 6,
-
 	CloseRange = 6,
-
 	CloseRangeFactor = 90,
 	BulletDropRange = 14,
 	Grouping = 55,

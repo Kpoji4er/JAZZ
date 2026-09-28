@@ -15,7 +15,6 @@ DefineClass.JazzArmorPlates_Scrap = {
 	Description = T(618294702085, --[[ModItemInventoryItemCompositeDef JazzArmorPlates_Scrap Description]] "Самодельная бронепластина из гнилого ржавого железа. Легион в огромном количестве снабжает своих бойцов такими."),
 	AdditionalHint = T(430834060272, --[[ModItemInventoryItemCompositeDef JazzArmorPlates_Scrap AdditionalHint]] "Обеспечивает защиту по 1 классу. Вставляется в бронежилеты."),
 	Cost = 800,
-	CanAppearInShop = false,
 	Slot = "ArmorPlate",
 	AdditionalReduction = 80,
 	ProtectedBodyParts = set( "Torso" ),

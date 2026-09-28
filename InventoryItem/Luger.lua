@@ -3,11 +3,11 @@ DefineClass.Luger = {
 	__parents = { "Pistol" },
 	__generated_by_class = "ModItemInventoryItemCompositeDef",
 
+
 	comment = "Tier 1-2",
 	object_class = "Pistol",
 	ScrapParts = 6,
 	RepairCost = 2,
-	CanAppearInShop = false,
 	Reliability = 25,
 	Icon = "Mod/e6L4ECj/WeaponIcons/Luger.png",
 	DisplayName = T(446454386055, --[[ModItemInventoryItemCompositeDef Luger DisplayName]] "Люгер"),
@@ -37,7 +37,6 @@ DefineClass.Luger = {
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
-		
 	},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
@@ -49,18 +48,12 @@ DefineClass.Luger = {
 	},
 	ShootAP = 3000,
 	ReloadAP = 4000,
-	WeaponMass = 10,
-	CyclicRPM = 0,
-	WeaponSizeClass = "Compact",
-	BurstLimiter = 0,
-	BurstShots = 0,
 	MaxAimActions = 2,
 	Recoil = 18,
+	BurstShots = 0,
 	AutoShots = 0,
-
-	CloseRange = 0,
-
-	CloseRangeFactor = 100,
+	WeaponMass = 10,
+	WeaponSizeClass = "Compact",
 	BulletDropRange = 6,
 	Grouping = 52,
 	BaseJamChance = 10,

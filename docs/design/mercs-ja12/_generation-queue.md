@@ -1,8 +1,8 @@
 # Очередь генерации наёмников JA12
 
-Канон: [generation-plan.md](../../.agents/skills/create-jazz-merc/references/generation-plan.md)  
-Spec волны: [JAZZ-UNITS-002](../specs/active/JAZZ-UNITS-002.md)  
-Порядок: **priority High → Medium → Low**, внутри — как в README.  
+Канон: [generation-plan.md](../../../.agents/skills/create-jazz-merc/references/generation-plan.md)<br>
+Spec волны: [JAZZ-UNITS-002](../../specs/active/JAZZ-UNITS-002.md)<br>
+Порядок: **priority High → Medium → Low**, внутри — как в README.<br>
 Готовые вне волны: lynx, tosca, spider, spouke.
 
 Статусы: `pending` | `design` | `codegen` | `portraits` | `loc` | `done` | `blocked`

@@ -5,34 +5,6 @@ DefineClass.Wounded = {
 
 
 	object_class = "StatusEffect",
-	Parameters = {
-		PlaceObj('PresetParamNumber', {
-			'Name', "MaxHpReductionPerStack",
-			'Value', 8,
-			'Tag', "<MaxHpReductionPerStack>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "MinMaxHp",
-			'Value', 10,
-			'Tag', "<MinMaxHp>%",
-		}),
-		-- MED-001: sentinel — combat HP loss must not grant Wounded stacks.
-		PlaceObj('PresetParamNumber', {
-			'Name', "HpLossToAddStack",
-			'Value', 999999,
-			'Tag', "<HpLossToAddStack>",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "WoundsImmunityThreshold",
-			'Value', 80,
-			'Tag', "<WoundsImmunityThreshold>%",
-		}),
-		PlaceObj('PresetParamPercent', {
-			'Name', "cth_penalty",
-			'Value', -5,
-			'Tag', "<cth_penalty>%",
-		}),
-	},
 	msg_reactions = {
 		PlaceObj('MsgActorReaction', {
 			ActorParam = "attacker",
@@ -117,6 +89,39 @@ DefineClass.Wounded = {
 		if not IsKindOf(obj, "Unit") then
 			return
 		end
+		---------------------------------------
+		local effect = obj:GetStatusEffect("Wounded")
+		local count
+		if effect then
+		 	count = effect.stacks 
+		else 
+			count = 0
+		end
+		local mod1 = 20 + count * (-10)
+		
+		if not RollSkillCheck(obj, "Health", 90, mod1) then
+			obj:AddStatusEffect("Bleeding")
+		end
+		
+		--if not RollSkillCheck(obj, "Health", 70, mod1) then
+		--	obj:AddStatusEffect("Bleeding")
+		--end
+		
+		--if not RollSkillCheck(obj, "Health", 50, mod1) then
+		--	local roll = 1 + obj:Random(100)
+		--	if roll < 35 then
+		--	obj:AddStatusEffect("Slowed")
+		--	elseif roll <70 then
+		--	obj:AddStatusEffect("Inaccurate")
+		--	elseif roll <85 then
+		--	obj:AddStatusEffect("Blinded")
+		--	else
+		--	obj:AddStatusEffect("Unconscious")
+		--	end 	
+		--end
+		
+		---------------------------------------------------------------
+		
 		if not obj:HasStainType("Blood") then
 			local spot = obj:GetEffectValue("wounded_stain_spot")
 			if spot then
