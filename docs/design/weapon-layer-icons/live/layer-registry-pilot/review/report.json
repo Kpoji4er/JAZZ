@@ -1,0 +1,13 @@
+{
+  "level": "offline raster comparison; human visual review required",
+  "weapons": [
+    {
+      "weapon": "AK74",
+      "references": 13,
+      "mean_before": 3.838,
+      "mean_after": 3.838,
+      "worst": 5.659,
+      "worst_label": "Under-JAZZ_GP25"
+    }
+  ]
+}

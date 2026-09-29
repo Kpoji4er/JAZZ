@@ -1,0 +1,44 @@
+[
+  {
+    "weapon": "AK74",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Handguard": "JAZZ_Handguard",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "",
+      "Bipod": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|AK74|AK74|53680f726b3f21f3a5fd|2626048bcabe10289d47|776db3ef329a24f77124|12fbeda90f69ff6dc180"
+  },
+  {
+    "weapon": "AK74",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagLarge_30_45",
+      "Under": "JAZZ_GP25",
+      "Stock": "JAZZ_StockLightFolded",
+      "Handguard": "JAZZ_Handguard",
+      "Scope": "JAZZ_Reflex_Cobra"
+    },
+    "key": "native-layers-v4|AK74|AK74|ac54e4fb9b44043b7bf8|933d3e11e869335d82c9|60c5c388713489bd6d25|12e4e415bbda4d3c91e3|2626048bcabe10289d47|776db3ef329a24f77124|6e528e08196b37053a75"
+  },
+  {
+    "weapon": "AK74",
+    "column": 2,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "JAZZ_GP25",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Handguard": "JAZZ_Handguard",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|AK74|AK74|53680f726b3f21f3a5fd|933d3e11e869335d82c9|60c5c388713489bd6d25|d3eae2a70f7b81445192|213fbac3da795b9129e1|2626048bcabe10289d47|776db3ef329a24f77124|a755e5f5e023af8c8571"
+  }
+]

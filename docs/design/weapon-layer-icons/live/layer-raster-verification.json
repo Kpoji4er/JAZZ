@@ -1,0 +1,1429 @@
+{
+  "level": "offline raster comparison; human visual review required",
+  "weapons": [
+    {
+      "weapon": "AA12",
+      "references": 21,
+      "mean_before": 1.494,
+      "mean_after": 1.494,
+      "worst": 1.711,
+      "worst_label": "Magazine-JAZZ_MagLarge_25_AA12"
+    },
+    {
+      "weapon": "AA52",
+      "references": 1,
+      "mean_before": 1.021,
+      "mean_after": 1.021,
+      "worst": 1.021,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "AK103",
+      "references": 30,
+      "mean_before": 3.459,
+      "mean_after": 3.459,
+      "worst": 5.692,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "AK105",
+      "references": 13,
+      "mean_before": 2.196,
+      "mean_after": 2.196,
+      "worst": 3.235,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "AK47",
+      "references": 8,
+      "mean_before": 1.553,
+      "mean_after": 1.553,
+      "worst": 2.476,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "AK74",
+      "references": 13,
+      "mean_before": 3.137,
+      "mean_after": 3.137,
+      "worst": 3.968,
+      "worst_label": "Under-JAZZ_GP25"
+    },
+    {
+      "weapon": "AK74M",
+      "references": 13,
+      "mean_before": 3.262,
+      "mean_after": 3.262,
+      "worst": 3.908,
+      "worst_label": "Scope-JAZZ_Scope_PSO"
+    },
+    {
+      "weapon": "AKM",
+      "references": 31,
+      "mean_before": 2.705,
+      "mean_after": 2.705,
+      "worst": 3.768,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "AKSU",
+      "references": 11,
+      "mean_before": 1.748,
+      "mean_after": 1.748,
+      "worst": 1.949,
+      "worst_label": "Magazine-JAZZ_MagQuick_AK"
+    },
+    {
+      "weapon": "AN94",
+      "references": 10,
+      "mean_before": 1.548,
+      "mean_after": 1.548,
+      "worst": 2.447,
+      "worst_label": "Scope-JAZZ_NightScope_NSPU"
+    },
+    {
+      "weapon": "APS",
+      "references": 6,
+      "mean_before": 1.252,
+      "mean_after": 1.252,
+      "worst": 2.096,
+      "worst_label": "Muzzle-JAZZ_PistolSuppressor"
+    },
+    {
+      "weapon": "AR10",
+      "references": 13,
+      "mean_before": 1.151,
+      "mean_after": 1.151,
+      "worst": 1.57,
+      "worst_label": "Scope-JAZZ_Scope_12x"
+    },
+    {
+      "weapon": "AR10DMR",
+      "references": 13,
+      "mean_before": 0.786,
+      "mean_after": 0.786,
+      "worst": 1.217,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "AS_Val",
+      "references": 23,
+      "mean_before": 3.254,
+      "mean_after": 3.254,
+      "worst": 4.779,
+      "worst_label": "Scope-JAZZ_Scope_PSO"
+    },
+    {
+      "weapon": "AUG",
+      "references": 31,
+      "mean_before": 2.434,
+      "mean_after": 2.434,
+      "worst": 3.373,
+      "worst_label": "Magazine-JAZZ_MagQuick_AUG"
+    },
+    {
+      "weapon": "AVT40",
+      "references": 1,
+      "mean_before": 0.829,
+      "mean_after": 0.829,
+      "worst": 0.829,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Agram2000",
+      "references": 2,
+      "mean_before": 1.372,
+      "mean_after": 1.372,
+      "worst": 1.966,
+      "worst_label": "Muzzle-JAZZ_PistolSuppressor"
+    },
+    {
+      "weapon": "ArcticWarfare",
+      "references": 8,
+      "mean_before": 1.153,
+      "mean_after": 1.153,
+      "worst": 1.771,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "Auto5_quest",
+      "references": 12,
+      "mean_before": 3.375,
+      "mean_after": 3.375,
+      "worst": 4.118,
+      "worst_label": "Barrel-Auto5_Long_NMag"
+    },
+    {
+      "weapon": "BAR",
+      "references": 1,
+      "mean_before": 1.445,
+      "mean_after": 1.445,
+      "worst": 1.445,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Bereta92",
+      "references": 10,
+      "mean_before": 2.966,
+      "mean_after": 2.966,
+      "worst": 3.983,
+      "worst_label": "Side-JAZZ_FlashlightOff"
+    },
+    {
+      "weapon": "Beretta93r",
+      "references": 4,
+      "mean_before": 0.947,
+      "mean_after": 0.947,
+      "worst": 2.046,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "BerettaM12",
+      "references": 4,
+      "mean_before": 1.439,
+      "mean_after": 1.439,
+      "worst": 1.603,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "BrowningM2HMG",
+      "references": 1,
+      "mean_before": 0.322,
+      "mean_after": 0.322,
+      "worst": 0.322,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "CAR15",
+      "references": 18,
+      "mean_before": 1.756,
+      "mean_after": 1.756,
+      "worst": 2.101,
+      "worst_label": "Scope-JAZZ_Scope_6x"
+    },
+    {
+      "weapon": "CZ52",
+      "references": 9,
+      "mean_before": 1.904,
+      "mean_after": 1.904,
+      "worst": 2.704,
+      "worst_label": "Side-JAZZ_Flashlight"
+    },
+    {
+      "weapon": "CZ75",
+      "references": 4,
+      "mean_before": 1.174,
+      "mean_after": 1.174,
+      "worst": 2.592,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "China_Lake",
+      "references": 1,
+      "mean_before": 0.242,
+      "mean_after": 0.242,
+      "worst": 0.242,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Colt1911",
+      "references": 2,
+      "mean_before": 1.065,
+      "mean_after": 1.065,
+      "worst": 1.492,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "Colt38Special",
+      "references": 2,
+      "mean_before": 1.571,
+      "mean_after": 1.571,
+      "worst": 1.631,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "ColtAnaconda",
+      "references": 6,
+      "mean_before": 4.42,
+      "mean_after": 4.42,
+      "worst": 5.331,
+      "worst_label": "Scope-JAZZ_UVDot_Anaconda"
+    },
+    {
+      "weapon": "ColtM1917",
+      "references": 1,
+      "mean_before": 0.422,
+      "mean_after": 0.422,
+      "worst": 0.422,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "ColtPeacemaker",
+      "references": 2,
+      "mean_before": 1.687,
+      "mean_after": 1.687,
+      "worst": 1.837,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "DP27",
+      "references": 1,
+      "mean_before": 1.512,
+      "mean_after": 1.512,
+      "worst": 1.512,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "DeLisle",
+      "references": 11,
+      "mean_before": 1.251,
+      "mean_after": 1.251,
+      "worst": 1.909,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "DesertEagle",
+      "references": 9,
+      "mean_before": 6.437,
+      "mean_after": 6.437,
+      "worst": 8.683,
+      "worst_label": "Muzzle-JAZZ_Suppressor"
+    },
+    {
+      "weapon": "DoubleBarrelShotgun",
+      "references": 3,
+      "mean_before": 1.858,
+      "mean_after": 1.858,
+      "worst": 2.067,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "DragunovSVD",
+      "references": 15,
+      "mean_before": 3.061,
+      "mean_after": 3.061,
+      "worst": 3.315,
+      "worst_label": "Scope-JAZZ_NightScope_NSPU"
+    },
+    {
+      "weapon": "DragunovSVD_Custom",
+      "references": 2,
+      "mean_before": 0.555,
+      "mean_after": 0.555,
+      "worst": 0.818,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "FAMAS",
+      "references": 20,
+      "mean_before": 0.721,
+      "mean_after": 0.721,
+      "worst": 0.989,
+      "worst_label": "Scope-JAZZ_Scope_12x"
+    },
+    {
+      "weapon": "FG42",
+      "references": 2,
+      "mean_before": 1.807,
+      "mean_after": 1.807,
+      "worst": 1.868,
+      "worst_label": "Scope-JAZZ_Scope_ZF4"
+    },
+    {
+      "weapon": "FNFAL",
+      "references": 36,
+      "mean_before": 3.321,
+      "mean_after": 3.321,
+      "worst": 3.979,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "FNMAG",
+      "references": 11,
+      "mean_before": 1.365,
+      "mean_after": 1.365,
+      "worst": 1.765,
+      "worst_label": "Scope-JAZZ_Scope_12x"
+    },
+    {
+      "weapon": "FNMinimi",
+      "references": 18,
+      "mean_before": 2.118,
+      "mean_after": 2.118,
+      "worst": 2.46,
+      "worst_label": "Scope-JAZZ_Scope_12x"
+    },
+    {
+      "weapon": "FRF2",
+      "references": 2,
+      "mean_before": 1.437,
+      "mean_after": 1.437,
+      "worst": 1.683,
+      "worst_label": "Muzzle-JAZZ_SuppressorImproved"
+    },
+    {
+      "weapon": "FiveSeven",
+      "references": 8,
+      "mean_before": 1.561,
+      "mean_after": 1.561,
+      "worst": 2.83,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "FlareHandgun",
+      "references": 1,
+      "mean_before": 0.261,
+      "mean_after": 0.261,
+      "worst": 0.261,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "G36",
+      "references": 33,
+      "mean_before": 2.834,
+      "mean_after": 2.834,
+      "worst": 3.619,
+      "worst_label": "Stock-JAZZ_StockFolded"
+    },
+    {
+      "weapon": "G36c",
+      "references": 22,
+      "mean_before": 2.859,
+      "mean_after": 2.859,
+      "worst": 3.87,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "G3A3",
+      "references": 16,
+      "mean_before": 1.342,
+      "mean_after": 1.342,
+      "worst": 1.889,
+      "worst_label": "Scope-JAZZ_Scope_Scout"
+    },
+    {
+      "weapon": "G3A4",
+      "references": 18,
+      "mean_before": 1.981,
+      "mean_after": 1.981,
+      "worst": 2.593,
+      "worst_label": "Scope-JAZZ_Scope_Scout"
+    },
+    {
+      "weapon": "G3SniperV1",
+      "references": 16,
+      "mean_before": 1.815,
+      "mean_after": 1.815,
+      "worst": 2.37,
+      "worst_label": "Muzzle-JAZZ_SuppressorImproved"
+    },
+    {
+      "weapon": "G43",
+      "references": 2,
+      "mean_before": 0.478,
+      "mean_after": 0.478,
+      "worst": 0.759,
+      "worst_label": "Scope-JAZZ_Scope_ZF4"
+    },
+    {
+      "weapon": "Galil",
+      "references": 35,
+      "mean_before": 3.509,
+      "mean_after": 3.509,
+      "worst": 4.108,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "Galil_FlagHill",
+      "references": 7,
+      "mean_before": 4.032,
+      "mean_after": 4.032,
+      "worst": 4.166,
+      "worst_label": "Muzzle-Suppressor"
+    },
+    {
+      "weapon": "Gewehr98",
+      "references": 6,
+      "mean_before": 2.038,
+      "mean_after": 2.038,
+      "worst": 2.939,
+      "worst_label": "Scope-JAZZ_Scope_ZF4"
+    },
+    {
+      "weapon": "Glock17",
+      "references": 11,
+      "mean_before": 1.231,
+      "mean_after": 1.231,
+      "worst": 1.63,
+      "worst_label": "Side-JAZZ_Flashlight"
+    },
+    {
+      "weapon": "Glock18",
+      "references": 11,
+      "mean_before": 1.877,
+      "mean_after": 1.877,
+      "worst": 2.618,
+      "worst_label": "Side-JAZZ_Flashlight"
+    },
+    {
+      "weapon": "GoldenGun",
+      "references": 8,
+      "mean_before": 1.411,
+      "mean_after": 1.411,
+      "worst": 1.504,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "GrizzlyLAR",
+      "references": 1,
+      "mean_before": 0.384,
+      "mean_after": 0.384,
+      "worst": 0.384,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "HK21",
+      "references": 28,
+      "mean_before": 3.848,
+      "mean_after": 3.848,
+      "worst": 4.174,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "HK23e",
+      "references": 15,
+      "mean_before": 1.257,
+      "mean_after": 1.257,
+      "worst": 1.506,
+      "worst_label": "Scope-JAZZ_Scope_6x"
+    },
+    {
+      "weapon": "HK33",
+      "references": 40,
+      "mean_before": 2.831,
+      "mean_after": 2.831,
+      "worst": 3.521,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "HiPower",
+      "references": 9,
+      "mean_before": 4.372,
+      "mean_after": 4.372,
+      "worst": 4.892,
+      "worst_label": "Barrel-JAZZ_BarrelShort"
+    },
+    {
+      "weapon": "Ithaca",
+      "references": 13,
+      "mean_before": 3.126,
+      "mean_after": 3.126,
+      "worst": 3.705,
+      "worst_label": "Stock-JAZZ_StockNo"
+    },
+    {
+      "weapon": "JAZZ_FNFAL_Tactical",
+      "references": 41,
+      "mean_before": 3.177,
+      "mean_after": 3.177,
+      "worst": 3.872,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "JAZZ_M14_MkIII",
+      "references": 27,
+      "mean_before": 0.899,
+      "mean_after": 0.899,
+      "worst": 2.05,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Kimber",
+      "references": 8,
+      "mean_before": 3.513,
+      "mean_after": 3.513,
+      "worst": 4.554,
+      "worst_label": "Side-JAZZ_FlashlightOff"
+    },
+    {
+      "weapon": "Korth",
+      "references": 3,
+      "mean_before": 0.456,
+      "mean_after": 0.456,
+      "worst": 0.481,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "L42A1",
+      "references": 1,
+      "mean_before": 1.225,
+      "mean_after": 1.225,
+      "worst": 1.225,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "LionRoar",
+      "references": 3,
+      "mean_before": 0.446,
+      "mean_after": 0.446,
+      "worst": 0.502,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Luger",
+      "references": 1,
+      "mean_before": 0.335,
+      "mean_after": 0.335,
+      "worst": 0.335,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "M14SAW",
+      "references": 23,
+      "mean_before": 0.827,
+      "mean_after": 0.827,
+      "worst": 0.99,
+      "worst_label": "Under-JAZZ_Bipod_Under"
+    },
+    {
+      "weapon": "M16A1",
+      "references": 16,
+      "mean_before": 1.45,
+      "mean_after": 1.45,
+      "worst": 2.669,
+      "worst_label": "General-JAZZ_HolsterBelt"
+    },
+    {
+      "weapon": "M16A2",
+      "references": 23,
+      "mean_before": 1.938,
+      "mean_after": 1.938,
+      "worst": 2.379,
+      "worst_label": "Scope-JAZZ_Scope_12x"
+    },
+    {
+      "weapon": "M16A4",
+      "references": 27,
+      "mean_before": 3.449,
+      "mean_after": 3.449,
+      "worst": 4.312,
+      "worst_label": "combination-0005"
+    },
+    {
+      "weapon": "M1897",
+      "references": 3,
+      "mean_before": 0.418,
+      "mean_after": 0.418,
+      "worst": 0.566,
+      "worst_label": "Muzzle-JAZZ_DuckbillChoke"
+    },
+    {
+      "weapon": "M1A",
+      "references": 33,
+      "mean_before": 5.216,
+      "mean_after": 5.216,
+      "worst": 6.518,
+      "worst_label": "combination-0082"
+    },
+    {
+      "weapon": "M1Garand",
+      "references": 4,
+      "mean_before": 0.894,
+      "mean_after": 0.894,
+      "worst": 1.239,
+      "worst_label": "Muzzle-JAZZ_Suppressor"
+    },
+    {
+      "weapon": "M21",
+      "references": 28,
+      "mean_before": 0.798,
+      "mean_after": 0.798,
+      "worst": 1.554,
+      "worst_label": "Under-JAZZ_GrenadeLauncher_M14"
+    },
+    {
+      "weapon": "M2Carbine",
+      "references": 9,
+      "mean_before": 4.615,
+      "mean_after": 4.615,
+      "worst": 6.841,
+      "worst_label": "Stock-JAZZ_StockLightUnFolded"
+    },
+    {
+      "weapon": "M3GreaseGun",
+      "references": 2,
+      "mean_before": 1.047,
+      "mean_after": 1.047,
+      "worst": 1.283,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "M41Shotgun",
+      "references": 20,
+      "mean_before": 1.723,
+      "mean_after": 1.723,
+      "worst": 2.402,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "M45",
+      "references": 2,
+      "mean_before": 1.156,
+      "mean_after": 1.156,
+      "worst": 1.446,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "M4A1",
+      "references": 32,
+      "mean_before": 3.176,
+      "mean_after": 3.176,
+      "worst": 3.956,
+      "worst_label": "combination-0008"
+    },
+    {
+      "weapon": "M60",
+      "references": 1,
+      "mean_before": 1.206,
+      "mean_after": 1.206,
+      "worst": 1.206,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "M60E3",
+      "references": 1,
+      "mean_before": 1.066,
+      "mean_after": 1.066,
+      "worst": 1.066,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "M60E4",
+      "references": 17,
+      "mean_before": 1.13,
+      "mean_after": 1.13,
+      "worst": 1.367,
+      "worst_label": "Scope-JAZZ_Scope_12x"
+    },
+    {
+      "weapon": "M700",
+      "references": 1,
+      "mean_before": 1.379,
+      "mean_after": 1.379,
+      "worst": 1.379,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "M72LAW",
+      "references": 1,
+      "mean_before": 0.503,
+      "mean_after": 0.503,
+      "worst": 0.503,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "M79",
+      "references": 1,
+      "mean_before": 0.32,
+      "mean_after": 0.32,
+      "worst": 0.32,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MAC10",
+      "references": 4,
+      "mean_before": 2.157,
+      "mean_after": 2.157,
+      "worst": 3.128,
+      "worst_label": "Muzzle-JAZZ_PistolSuppressor"
+    },
+    {
+      "weapon": "MAC1950",
+      "references": 9,
+      "mean_before": 1.702,
+      "mean_after": 1.702,
+      "worst": 2.662,
+      "worst_label": "Side-JAZZ_FlashlightOff"
+    },
+    {
+      "weapon": "MAC2429",
+      "references": 1,
+      "mean_before": 3.659,
+      "mean_after": 3.659,
+      "worst": 3.659,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MAS36",
+      "references": 1,
+      "mean_before": 0.224,
+      "mean_after": 0.224,
+      "worst": 0.224,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MAS49",
+      "references": 1,
+      "mean_before": 0.258,
+      "mean_after": 0.258,
+      "worst": 0.258,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MAT49",
+      "references": 2,
+      "mean_before": 3.102,
+      "mean_after": 3.102,
+      "worst": 3.25,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "MG42",
+      "references": 1,
+      "mean_before": 1.043,
+      "mean_after": 1.043,
+      "worst": 1.043,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MG58",
+      "references": 1,
+      "mean_before": 0.924,
+      "mean_after": 0.924,
+      "worst": 0.924,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MGL",
+      "references": 1,
+      "mean_before": 0.392,
+      "mean_after": 0.392,
+      "worst": 0.392,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MK14EBR",
+      "references": 25,
+      "mean_before": 1.419,
+      "mean_after": 1.419,
+      "worst": 1.866,
+      "worst_label": "Scope-JAZZ_Scope_Scout"
+    },
+    {
+      "weapon": "MP40",
+      "references": 1,
+      "mean_before": 0.679,
+      "mean_after": 0.679,
+      "worst": 0.679,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "MP446VIKING",
+      "references": 8,
+      "mean_before": 4.764,
+      "mean_after": 4.764,
+      "worst": 5.057,
+      "worst_label": "Side-JAZZ_FlashlightOff"
+    },
+    {
+      "weapon": "MP5A2",
+      "references": 11,
+      "mean_before": 1.351,
+      "mean_after": 1.351,
+      "worst": 1.719,
+      "worst_label": "Scope-JAZZ_CombatScope_2x"
+    },
+    {
+      "weapon": "MP5A4",
+      "references": 15,
+      "mean_before": 2.257,
+      "mean_after": 2.257,
+      "worst": 2.787,
+      "worst_label": "Scope-JAZZ_CombatScope_FeroZ24"
+    },
+    {
+      "weapon": "MP5K",
+      "references": 20,
+      "mean_before": 3.906,
+      "mean_after": 3.906,
+      "worst": 5.004,
+      "worst_label": "Scope-JAZZ_CombatScope_FeroZ24"
+    },
+    {
+      "weapon": "MP5SD",
+      "references": 12,
+      "mean_before": 1.999,
+      "mean_after": 1.999,
+      "worst": 2.468,
+      "worst_label": "Scope-JAZZ_CombatScope_FeroZ24"
+    },
+    {
+      "weapon": "MP7",
+      "references": 12,
+      "mean_before": 2.323,
+      "mean_after": 2.323,
+      "worst": 2.746,
+      "worst_label": "Scope-JAZZ_Reflex_Aimpoint5000"
+    },
+    {
+      "weapon": "MPL",
+      "references": 2,
+      "mean_before": 1.603,
+      "mean_after": 1.603,
+      "worst": 1.994,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "MR73",
+      "references": 3,
+      "mean_before": 5.589,
+      "mean_after": 5.589,
+      "worst": 5.955,
+      "worst_label": "Barrel-JAZZ_BarrelLong"
+    },
+    {
+      "weapon": "Makarov",
+      "references": 2,
+      "mean_before": 1.67,
+      "mean_after": 1.67,
+      "worst": 2.841,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "MicroUZI",
+      "references": 14,
+      "mean_before": 0.88,
+      "mean_after": 0.88,
+      "worst": 1.339,
+      "worst_label": "Scope-JAZZ_Reflex_M68"
+    },
+    {
+      "weapon": "Mini14",
+      "references": 15,
+      "mean_before": 1.63,
+      "mean_after": 1.63,
+      "worst": 1.961,
+      "worst_label": "Scope-JAZZ_Scope_Scout"
+    },
+    {
+      "weapon": "MortarInventoryItem",
+      "references": 1,
+      "mean_before": 0.27,
+      "mean_after": 0.27,
+      "worst": 0.27,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Mosin",
+      "references": 4,
+      "mean_before": 0.432,
+      "mean_after": 0.432,
+      "worst": 0.863,
+      "worst_label": "Scope-JAZZ_Scope_PU"
+    },
+    {
+      "weapon": "P210",
+      "references": 11,
+      "mean_before": 6.455,
+      "mean_after": 6.455,
+      "worst": 6.915,
+      "worst_label": "Side-JAZZ_Flashlight"
+    },
+    {
+      "weapon": "P220",
+      "references": 10,
+      "mean_before": 3.56,
+      "mean_after": 3.56,
+      "worst": 4.655,
+      "worst_label": "Side-JAZZ_Flashlight"
+    },
+    {
+      "weapon": "P226",
+      "references": 20,
+      "mean_before": 8.413,
+      "mean_after": 8.413,
+      "worst": 9.802,
+      "worst_label": "combination-0095"
+    },
+    {
+      "weapon": "P38",
+      "references": 7,
+      "mean_before": 5.489,
+      "mean_after": 5.489,
+      "worst": 14.352,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "P90",
+      "references": 8,
+      "mean_before": 2.88,
+      "mean_after": 2.88,
+      "worst": 3.333,
+      "worst_label": "Muzzle-JAZZ_PistolSuppressor"
+    },
+    {
+      "weapon": "PB",
+      "references": 1,
+      "mean_before": 0.358,
+      "mean_after": 0.358,
+      "worst": 0.358,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "PKM",
+      "references": 20,
+      "mean_before": 2.758,
+      "mean_after": 2.758,
+      "worst": 3.14,
+      "worst_label": "Scope-JAZZ_Scope_Scout"
+    },
+    {
+      "weapon": "PP19Bizon",
+      "references": 7,
+      "mean_before": 1.403,
+      "mean_after": 1.403,
+      "worst": 1.732,
+      "worst_label": "Scope-JAZZ_Scope_PSO"
+    },
+    {
+      "weapon": "PPS43",
+      "references": 2,
+      "mean_before": 0.894,
+      "mean_after": 0.894,
+      "worst": 1.143,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "PPSH",
+      "references": 2,
+      "mean_before": 1.26,
+      "mean_after": 1.26,
+      "worst": 1.453,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "PSG1",
+      "references": 23,
+      "mean_before": 1.586,
+      "mean_after": 1.586,
+      "worst": 1.98,
+      "worst_label": "Side-JAZZ_UVDot_PSG_M1"
+    },
+    {
+      "weapon": "R870",
+      "references": 16,
+      "mean_before": 1.042,
+      "mean_after": 1.042,
+      "worst": 1.792,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "RPD",
+      "references": 1,
+      "mean_before": 3.605,
+      "mean_after": 3.605,
+      "worst": 3.605,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "RPG7",
+      "references": 1,
+      "mean_before": 0.284,
+      "mean_after": 0.284,
+      "worst": 0.284,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "RPK",
+      "references": 9,
+      "mean_before": 2.371,
+      "mean_after": 2.371,
+      "worst": 2.62,
+      "worst_label": "Bipod-empty"
+    },
+    {
+      "weapon": "RPK74",
+      "references": 8,
+      "mean_before": 2.503,
+      "mean_after": 2.503,
+      "worst": 2.793,
+      "worst_label": "Stock-JAZZ_StockLight"
+    },
+    {
+      "weapon": "RSH12",
+      "references": 6,
+      "mean_before": 0.809,
+      "mean_after": 0.809,
+      "worst": 1.022,
+      "worst_label": "Side-JAZZ_Flashlight"
+    },
+    {
+      "weapon": "SKS",
+      "references": 1,
+      "mean_before": 0.529,
+      "mean_after": 0.529,
+      "worst": 0.529,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "SPAS12",
+      "references": 1,
+      "mean_before": 0.472,
+      "mean_after": 0.472,
+      "worst": 0.472,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "SR3M",
+      "references": 12,
+      "mean_before": 1.7,
+      "mean_after": 1.7,
+      "worst": 1.979,
+      "worst_label": "Scope-JAZZ_CombatScope_2x"
+    },
+    {
+      "weapon": "STG44",
+      "references": 3,
+      "mean_before": 0.4,
+      "mean_after": 0.4,
+      "worst": 0.683,
+      "worst_label": "Scope-JAZZ_Scope_ZF4"
+    },
+    {
+      "weapon": "SVT40",
+      "references": 2,
+      "mean_before": 1.122,
+      "mean_after": 1.122,
+      "worst": 1.519,
+      "worst_label": "Scope-JAZZ_Scope_PU"
+    },
+    {
+      "weapon": "SVU",
+      "references": 7,
+      "mean_before": 2.065,
+      "mean_after": 2.065,
+      "worst": 3.154,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "SWModel10",
+      "references": 7,
+      "mean_before": 3.257,
+      "mean_after": 3.257,
+      "worst": 3.564,
+      "worst_label": "Side-JAZZ_FlashlightDot"
+    },
+    {
+      "weapon": "SWModel19",
+      "references": 8,
+      "mean_before": 2.895,
+      "mean_after": 2.895,
+      "worst": 3.444,
+      "worst_label": "Barrel-JAZZ_BarrelLong"
+    },
+    {
+      "weapon": "SWModel29",
+      "references": 10,
+      "mean_before": 2.928,
+      "mean_after": 2.928,
+      "worst": 3.329,
+      "worst_label": "Side-JAZZ_FlashlightOff"
+    },
+    {
+      "weapon": "SWModel52",
+      "references": 4,
+      "mean_before": 1.335,
+      "mean_after": 1.335,
+      "worst": 2.572,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "SWModel5906",
+      "references": 9,
+      "mean_before": 1.686,
+      "mean_after": 1.686,
+      "worst": 3.125,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "Scorpion",
+      "references": 2,
+      "mean_before": 1.667,
+      "mean_after": 1.667,
+      "worst": 1.774,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "ScoutSniper",
+      "references": 9,
+      "mean_before": 2.1,
+      "mean_after": 2.1,
+      "worst": 2.406,
+      "worst_label": "Muzzle-JAZZ_SuppressorImproved"
+    },
+    {
+      "weapon": "Sig550",
+      "references": 26,
+      "mean_before": 2.042,
+      "mean_after": 2.042,
+      "worst": 2.843,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "Sig550Custom",
+      "references": 27,
+      "mean_before": 2.135,
+      "mean_after": 2.135,
+      "worst": 2.743,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "Sig552",
+      "references": 20,
+      "mean_before": 2.58,
+      "mean_after": 2.58,
+      "worst": 3.191,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "Sig552SWAT",
+      "references": 18,
+      "mean_before": 2.312,
+      "mean_after": 2.312,
+      "worst": 3.063,
+      "worst_label": "Scope-JAZZ_NightScope"
+    },
+    {
+      "weapon": "SpectreM4",
+      "references": 1,
+      "mean_before": 0.917,
+      "mean_after": 0.917,
+      "worst": 0.917,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Springfield",
+      "references": 2,
+      "mean_before": 0.616,
+      "mean_after": 0.616,
+      "worst": 0.88,
+      "worst_label": "Scope-JAZZ_Scope_Springfield"
+    },
+    {
+      "weapon": "Sterling",
+      "references": 2,
+      "mean_before": 1.331,
+      "mean_after": 1.331,
+      "worst": 1.48,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "Stoeger",
+      "references": 1,
+      "mean_before": 0.293,
+      "mean_after": 0.293,
+      "worst": 0.293,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Striker",
+      "references": 2,
+      "mean_before": 0.803,
+      "mean_after": 0.803,
+      "worst": 0.877,
+      "worst_label": "Stock-JAZZ_StockLightFolded"
+    },
+    {
+      "weapon": "TMP",
+      "references": 4,
+      "mean_before": 0.862,
+      "mean_after": 0.862,
+      "worst": 1.646,
+      "worst_label": "General-JAZZ_HolsterBelt"
+    },
+    {
+      "weapon": "TT33",
+      "references": 1,
+      "mean_before": 0.314,
+      "mean_after": 0.314,
+      "worst": 0.314,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "TexRevolver",
+      "references": 1,
+      "mean_before": 0.958,
+      "mean_after": 0.958,
+      "worst": 0.958,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Thompson",
+      "references": 2,
+      "mean_before": 0.738,
+      "mean_after": 0.738,
+      "worst": 0.793,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Type56",
+      "references": 6,
+      "mean_before": 1.794,
+      "mean_after": 1.794,
+      "worst": 1.976,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "U100",
+      "references": 2,
+      "mean_before": 2.701,
+      "mean_after": 2.701,
+      "worst": 2.747,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "UMP45",
+      "references": 18,
+      "mean_before": 2.898,
+      "mean_after": 2.898,
+      "worst": 3.478,
+      "worst_label": "Scope-JAZZ_CombatScope_2x"
+    },
+    {
+      "weapon": "USAS12",
+      "references": 15,
+      "mean_before": 0.56,
+      "mean_after": 0.56,
+      "worst": 0.691,
+      "worst_label": "Muzzle-JAZZ_Suppressor"
+    },
+    {
+      "weapon": "USP45",
+      "references": 9,
+      "mean_before": 1.142,
+      "mean_after": 1.142,
+      "worst": 2.127,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "UZI",
+      "references": 10,
+      "mean_before": 1.749,
+      "mean_after": 1.749,
+      "worst": 2.144,
+      "worst_label": "Scope-JAZZ_Reflex_M68"
+    },
+    {
+      "weapon": "VSS",
+      "references": 17,
+      "mean_before": 1.142,
+      "mean_after": 1.142,
+      "worst": 2.274,
+      "worst_label": "Scope-JAZZ_NightScope_NSPU"
+    },
+    {
+      "weapon": "VZ58",
+      "references": 13,
+      "mean_before": 5.728,
+      "mean_after": 5.728,
+      "worst": 6.183,
+      "worst_label": "Stock-JAZZ_StockHeavy"
+    },
+    {
+      "weapon": "VectorCP1",
+      "references": 4,
+      "mean_before": 1.186,
+      "mean_after": 1.186,
+      "worst": 2.367,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "VektorR4",
+      "references": 1,
+      "mean_before": 0.351,
+      "mean_after": 0.351,
+      "worst": 0.351,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Webley",
+      "references": 2,
+      "mean_before": 1.927,
+      "mean_after": 1.927,
+      "worst": 2.003,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Welrod",
+      "references": 1,
+      "mean_before": 0.622,
+      "mean_after": 0.622,
+      "worst": 0.622,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "Winchester1894",
+      "references": 17,
+      "mean_before": 3.597,
+      "mean_after": 3.597,
+      "worst": 4.312,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "Winchester_Quest",
+      "references": 3,
+      "mean_before": 3.534,
+      "mean_after": 3.534,
+      "worst": 3.72,
+      "worst_label": "Scope-JAZZ_CombatScope_2x"
+    },
+    {
+      "weapon": "ZastavaM76",
+      "references": 4,
+      "mean_before": 3.073,
+      "mean_after": 3.073,
+      "worst": 3.566,
+      "worst_label": "default"
+    },
+    {
+      "weapon": "ZastavaM92",
+      "references": 6,
+      "mean_before": 1.396,
+      "mean_after": 1.396,
+      "worst": 1.863,
+      "worst_label": "Muzzle-JAZZ_ImprovisedSuppressor"
+    },
+    {
+      "weapon": "Zastava_M70",
+      "references": 8,
+      "mean_before": 1.93,
+      "mean_after": 1.93,
+      "worst": 2.529,
+      "worst_label": "Bipod-JAZZ_Bipod"
+    },
+    {
+      "weapon": "BarretM82",
+      "references": 11,
+      "mean_before": 2.259,
+      "mean_after": 2.259,
+      "worst": 2.548,
+      "worst_label": "combination-0039"
+    },
+    {
+      "weapon": "M24Sniper",
+      "references": 6,
+      "mean_before": 3.548,
+      "mean_after": 3.548,
+      "worst": 4.019,
+      "worst_label": "combination-0004"
+    },
+    {
+      "weapon": "Auto5",
+      "references": 7,
+      "mean_before": 3.475,
+      "mean_after": 3.475,
+      "worst": 4.645,
+      "worst_label": "combination-0002"
+    }
+  ]
+}

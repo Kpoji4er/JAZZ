@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "cases": 228,
+  "excluded_fixed_variants": 1,
+  "coverage": [
+    {
+      "weapon": "AK74",
+      "cartesian_cases": 216,
+      "unresolved": 0
+    }
+  ],
+  "failures": [],
+  "level": "offline Lua and captured native graph; UI not exercised"
+}

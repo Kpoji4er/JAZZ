@@ -1,0 +1,28 @@
+{
+  "weapon": "AK74",
+  "components": {
+    "Bipod": "",
+    "Muzzle": "",
+    "Magazine": "JAZZ_MagLarge_30_45",
+    "Under": "",
+    "Stock": "JAZZ_StockLightUnFolded",
+    "Handguard": "JAZZ_Handguard",
+    "Scope": "JAZZ_Reflex_PKAS"
+  },
+  "best_back_to_front": [
+    "layer-Magazine",
+    "layer-Scope",
+    "layer-General",
+    "layer-host",
+    "layer-Handguard",
+    "layer-Stock"
+  ],
+  "reference_mask_premultiplied_mae_255": 3.719,
+  "layer_count": 6,
+  "camera_restored": true,
+  "light_restored": true,
+  "render_restored": true,
+  "disposed": true,
+  "inventory_pause_restored": true,
+  "acceptance": "pilot comparison only; broader composition/dependency acceptance pending"
+}

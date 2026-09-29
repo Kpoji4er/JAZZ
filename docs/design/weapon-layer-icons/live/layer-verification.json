@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "native layered weapon icons, including tone v4",
+  "weapons": 178,
+  "nodes": 1929,
+  "visible_layers": 1928,
+  "selector_cases": 448950,
+  "excluded_blocked_combinations": 76286,
+  "native_graphs": 9797,
+  "registry_sha256": "3ebf58a45799f1b41165b4e27446146936f6e0ea8f9a265c31296564f27b9d9f",
+  "selector_sha256": "071551acfaf2015100263ab228281643029565f86da615df971ddb7696497bce",
+  "png_sha256": "86674106646bbe9f92c256ebb25c9c9a476b05c579853233f5a807f68f1c298c",
+  "installed_hashes": {
+    "workspace": true,
+    "active": true
+  },
+  "runtime_examples": [
+    "AK74",
+    "M4A1",
+    "DesertEagle"
+  ],
+  "runtime_surfaces": [
+    "XImage",
+    "XInventoryItem",
+    "open inventory"
+  ],
+  "editor_callbacks": 2,
+  "editor_roundtrip": "official save + load/reload; baseline load order retained after unrelated serialization cleanup",
+  "visual_review": "agent comparison of original/previous/smooth and real UI screenshots; no independent human acceptance",
+  "limitations": [
+    "Structural weapon names remain blocked by existing localization conflict.",
+    "Not every Cartesian combination was inspected by a person.",
+    "Campaign new-game/save-load smoke remains outside this icon probe.",
+    "Twelve classes without local original Icon use the measured median tone profile."
+  ],
+  "raster_comparison_weapons": 178
+}

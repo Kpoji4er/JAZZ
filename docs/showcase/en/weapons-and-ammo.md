@@ -110,6 +110,6 @@ With the railed handguard, the vz. 58 supports four reflex sights: closed, compa
 
 ## Weapon configuration icons
 
-Photographed weapon configurations now have icons in a consistent style. Coverage currently includes default builds, individual component changes and selected combinations. Builds without an exact photograph, such as an unrecorded magazine-and-scope combination, retain their previous icon. Attachment badges remain available. Automatic stock-dependent weapon names are not enabled yet.
+Icons for 178 active weapon models combine photographed native parts: installed magazines, sights, stocks, muzzle devices and other modules appear together in their in-game positions. An unknown component restores the complete standard icon instead of showing a partial assembly. Attachment badges remain available; automatic stock-dependent names are not enabled yet.
 
 Icons now fill their original weapon tile formats: excess transparent margins are removed and pistols use the compact format. Color and brightness follow the previous in-game icons; all configurations of a weapon share the same color profile. A stronger dark outline improves readability.

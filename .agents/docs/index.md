@@ -40,3 +40,5 @@
 - Приёмка свежих экспортов (что стоит на диске, что смотреть в игре, промпт Астре): `.agents/docs/playbooks/model-export-qa-handoff.md`.
 
 - Release merge with CRLF-only conflicts: `docs/tools/_merge_lf_conflicts.py`; inspect remaining semantic conflicts before committing.
+
+- Сочетания модулей на иконках: `docs/design/weapon-layer-icons/live/LAYERS-REPLAY.md` (native capture, графы совместимости, слои и приёмка UI).

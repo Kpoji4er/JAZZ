@@ -1,0 +1,38 @@
+[
+  {
+    "batch": "arsenal-layers",
+    "phase": "done",
+    "rows": 9440,
+    "captured": 3531,
+    "errors": 0,
+    "camera_restored": true,
+    "render_restored": true,
+    "light_restored": true,
+    "inventory_pause_restored": true,
+    "disposed": true
+  },
+  {
+    "batch": "supplement",
+    "phase": "done",
+    "rows": 724,
+    "captured": 235,
+    "errors": 0,
+    "camera_restored": true,
+    "render_restored": true,
+    "light_restored": true,
+    "inventory_pause_restored": true,
+    "disposed": true
+  },
+  {
+    "batch": "auto5-supplement",
+    "phase": "done",
+    "rows": 34,
+    "captured": 19,
+    "errors": 0,
+    "camera_restored": true,
+    "render_restored": true,
+    "light_restored": true,
+    "inventory_pause_restored": true,
+    "disposed": true
+  }
+]

@@ -20,7 +20,7 @@ return function(output)
           modifiable=slot.Modifiable,options={}}
         for _,cid in ipairs(slot.AvailableComponents or {}) do
           local comp=WeaponComponents[cid]
-          local option={id=cid,name=comp and tr(comp.DisplayName) or "",visuals={}}
+          local option={id=cid,name=comp and tr(comp.DisplayName) or "",visuals={},blocked_slots=table.copy(comp and comp.BlockSlots or {})}
           local chosen={}
           for _,v in ipairs(comp and comp.Visuals or {}) do
             if v:Match(id) then

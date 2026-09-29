@@ -22,22 +22,32 @@ def target_size(entry):
 def color_profiles():
     return json.loads((ROOT/'docs/design/weapon-layer-icons/live/color-profiles.json').read_text(encoding='utf-8'))
 
-def render(source,size,weapon):
+def colorize(source,weapon,profiles=None):
+    """Apply the fixed family tone without changing alpha or shared coordinates."""
     rgba=source.convert('RGBA')
-    bounds=rgba.getchannel('A').point(lambda a:255 if a>16 else 0).getbbox()
-    if not bounds: raise ValueError('Empty weapon silhouette')
-    x0,y0,x1,y1=bounds
-    rgba=rgba.crop((max(0,x0-2),max(0,y0-2),min(rgba.width,x1+2),min(rgba.height,y1+2)))
     a=np.asarray(rgba).copy()
     rgb=a[...,:3].astype(np.float32)/255
     lum=rgb[...,0:1]*.2126+rgb[...,1:2]*.7152+rgb[...,2:3]*.0722
-    profiles=color_profiles()
+    profiles=profiles or color_profiles()
     profile=profiles['profiles'].get(weapon,profiles['fallback'])
     rgb=lum+(rgb-lum)*profile['saturation']
     mapped=np.interp(lum,profile['source_luma'],profile['target_luma'])
     rgb=rgb*(mapped/np.maximum(lum,.0001))
     a[...,:3]=np.round(np.clip(rgb,0,1)*255).astype(np.uint8)
     rgba=Image.fromarray(a)
+    return rgba
+
+def render(source,size,weapon):
+    return fit(colorize(source,weapon),size)
+
+
+def fit(source,size):
+    """Fit and outline already graded layers without applying the tone twice."""
+    rgba=source.convert('RGBA')
+    bounds=rgba.getchannel('A').point(lambda a:255 if a>16 else 0).getbbox()
+    if not bounds: raise ValueError('Empty weapon silhouette')
+    x0,y0,x1,y1=bounds
+    rgba=rgba.crop((max(0,x0-2),max(0,y0-2),min(rgba.width,x1+2),min(rgba.height,y1+2)))
     pad=RECIPE['padding_small'] if size[0]==162 else RECIPE['padding_large']
     scale=min((size[0]-2*pad)/rgba.width,(size[1]-2*pad)/rgba.height)
     rgba=rgba.resize((max(1,round(rgba.width*scale)),max(1,round(rgba.height*scale))),Image.Resampling.LANCZOS)

@@ -85508,6 +85508,9 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 							'run_after', function (child, context, item, i, n, last)
 								local itemIcon = child.idIcon
 								itemIcon:SetImage(item.Icon)
+								if JazzWeaponIcon_BindItemImage then
+									JazzWeaponIcon_BindItemImage(itemIcon, item)
+								end
 								itemIcon:SetMinHeight(HUDButtonHeight)
 								itemIcon:SetMaxHeight(HUDButtonHeight)
 								
@@ -86120,6 +86123,9 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 										'run_after', function (child, context, item, i, n, last)
 											local itemIcon = child.idIcon
 											itemIcon:SetImage(item.Icon)
+											if JazzWeaponIcon_BindItemImage then
+												JazzWeaponIcon_BindItemImage(itemIcon, item)
+											end
 											itemIcon:SetMinHeight(HUDButtonHeight)
 											itemIcon:SetMaxHeight(HUDButtonHeight)
 											

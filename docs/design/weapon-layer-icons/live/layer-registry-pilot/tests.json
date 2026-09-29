@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "registry_sha256": "17f7c5f5f3656d159b7dbd07ea779e3146ccc70fe10cace4d3edb374ea0d51f0",
+  "selector_sha256": "3023157e8dfdcabcbee31e66e48d58d9025d28df4c026572e19128d87913ec18",
+  "cases": 286,
+  "excluded_fixed_variants": 1,
+  "superseded_camera_references": 0,
+  "coverage": [
+    {
+      "weapon": "AK74",
+      "cartesian_cases": 216,
+      "unresolved": 0
+    }
+  ],
+  "failures": [],
+  "level": "offline Lua and captured native graph; UI not exercised"
+}

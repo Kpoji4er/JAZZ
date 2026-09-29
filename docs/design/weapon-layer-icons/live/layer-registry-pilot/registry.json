@@ -1,0 +1,484 @@
+{
+  "revision": "native-layers-v4",
+  "layers": {
+    "2626048bcabe10289d47": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/2626048bcabe10289d47.png",
+      "bounds": [
+        556,
+        271,
+        969,
+        408
+      ],
+      "z": 11,
+      "signature": "AK74|AK74|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "776db3ef329a24f77124": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/776db3ef329a24f77124.png",
+      "bounds": [
+        725,
+        280,
+        830,
+        334
+      ],
+      "z": 12,
+      "signature": "AK74|AK74HandGuard|idle|(312, 0, 86)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "53680f726b3f21f3a5fd": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/53680f726b3f21f3a5fd.png",
+      "bounds": [
+        646,
+        320,
+        732,
+        461
+      ],
+      "z": 0,
+      "signature": "AK74|AK74Mag|idle|(140, 0, 46)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "12fbeda90f69ff6dc180": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/12fbeda90f69ff6dc180.png",
+      "bounds": [
+        397,
+        307,
+        559,
+        385
+      ],
+      "z": 13,
+      "signature": "AK74|AK74FullStock|idle|(-48, 0, 73)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "6e528e08196b37053a75": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/6e528e08196b37053a75.png",
+      "bounds": [
+        554,
+        308,
+        715,
+        376
+      ],
+      "z": 14,
+      "signature": "AK74|AK74StockUnFld|idle|(-48, 0, 73)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "a755e5f5e023af8c8571": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/a755e5f5e023af8c8571.png",
+      "bounds": [
+        400,
+        307,
+        715,
+        377
+      ],
+      "z": 15,
+      "signature": "AK74|AK74Stockfld|idle|(-48, 0, 73)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "6a352c41cb2f29f9cb58": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/6a352c41cb2f29f9cb58.png",
+      "bounds": [
+        648,
+        317,
+        732,
+        451
+      ],
+      "z": 1,
+      "signature": "AK74|WeaponAttA_MagazineAK74_03|idle|(140, 0, 46)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "ac54e4fb9b44043b7bf8": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/ac54e4fb9b44043b7bf8.png",
+      "bounds": [
+        645,
+        309,
+        750,
+        483
+      ],
+      "z": 2,
+      "signature": "AK74|AK74_Backelite_45|idle|(140, 0, 46)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "60c5c388713489bd6d25": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/60c5c388713489bd6d25.png",
+      "bounds": [
+        733,
+        300,
+        925,
+        376
+      ],
+      "z": 4,
+      "signature": "AK74|WeaponAttA_GrenadeLauncherAK47|idle|(483, 0, 65)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "ef77bc8689f656dd1190": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/ef77bc8689f656dd1190.png",
+      "bounds": [
+        962,
+        301,
+        1012,
+        319
+      ],
+      "z": 16,
+      "signature": "AK74|AK74DefoultMuzzle|idle|(614, 0, 72)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "933d3e11e869335d82c9": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/933d3e11e869335d82c9.png",
+      "bounds": [
+        827,
+        301,
+        876,
+        477
+      ],
+      "z": 3,
+      "signature": "AK74|WeaponAttA_BipodAK47|idle|(427, 0, 67)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "522c5d701c48ef367ce2": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/522c5d701c48ef367ce2.png",
+      "bounds": [
+        494,
+        245,
+        703,
+        330
+      ],
+      "z": 7,
+      "signature": "AK74|WeaponAttA_ScopeDragunov_01|idle|(52, 1, 123)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "12e4e415bbda4d3c91e3": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/12e4e415bbda4d3c91e3.png",
+      "bounds": [
+        572,
+        257,
+        664,
+        341
+      ],
+      "z": 5,
+      "signature": "AK74|Kobra|idle|(52, 1, 123)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "213fbac3da795b9129e1": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/213fbac3da795b9129e1.png",
+      "bounds": [
+        587,
+        312,
+        664,
+        329
+      ],
+      "z": 10,
+      "signature": "AK74|AKSeriaMount|idle|(68, 0, 60)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "c08d183aabaa700bf7ae": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/c08d183aabaa700bf7ae.png",
+      "bounds": [
+        577,
+        234,
+        653,
+        335
+      ],
+      "z": 8,
+      "signature": "AK74|PKAA|idle|(52, 1, 123)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "d3eae2a70f7b81445192": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/d3eae2a70f7b81445192.png",
+      "bounds": [
+        537,
+        233,
+        662,
+        337
+      ],
+      "z": 9,
+      "signature": "AK74|tyulpan|idle|(52, 1, 123)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "27fe2f0e60a31a7198ea": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/27fe2f0e60a31a7198ea.png",
+      "bounds": [
+        513,
+        211,
+        847,
+        333
+      ],
+      "z": 6,
+      "signature": "AK74|NSPU|idle|(52, 1, 123)|(0, 0, 4096)|0|100|4284769380|1500"
+    }
+  },
+  "weapons": {
+    "AK74": {
+      "width": 324,
+      "height": 165,
+      "slots": [
+        {
+          "slot": "Stock",
+          "default": "JAZZ_StockNormal",
+          "options": {
+            "JAZZ_StockLightFolded": true,
+            "JAZZ_StockLightUnFolded": true,
+            "JAZZ_StockNormal": true
+          }
+        },
+        {
+          "slot": "Handguard",
+          "default": "JAZZ_Handguard",
+          "options": {
+            "JAZZ_Handguard": true
+          }
+        },
+        {
+          "slot": "Magazine",
+          "default": "JAZZ_MagNormal",
+          "options": {
+            "JAZZ_MagLarge_30_45": true,
+            "JAZZ_MagNormal": true,
+            "JAZZ_MagQuick_AK": true
+          }
+        },
+        {
+          "slot": "Under",
+          "default": "",
+          "options": {
+            "": true,
+            "JAZZ_GP25": true
+          }
+        },
+        {
+          "slot": "Muzzle",
+          "default": "",
+          "options": {
+            "": true
+          }
+        },
+        {
+          "slot": "Bipod",
+          "default": "",
+          "options": {
+            "": true,
+            "JAZZ_Bipod": true
+          }
+        },
+        {
+          "slot": "Scope",
+          "default": "",
+          "options": {
+            "": true,
+            "JAZZ_CombatScope_1P29": true,
+            "JAZZ_NightScope_NSPU": true,
+            "JAZZ_Reflex_Cobra": true,
+            "JAZZ_Reflex_PKAS": true,
+            "JAZZ_Scope_PSO": true
+          }
+        }
+      ],
+      "rules": {
+        "Stock": {
+          "JAZZ_StockNormal": {},
+          "JAZZ_StockLightFolded": {
+            "Stock": "AK74StockUnFld"
+          },
+          "JAZZ_StockLightUnFolded": {
+            "Stock": "AK74Stockfld"
+          }
+        },
+        "Handguard": {
+          "JAZZ_Handguard": {}
+        },
+        "Magazine": {
+          "JAZZ_MagNormal": {},
+          "JAZZ_MagQuick_AK": {
+            "Magazine": "WeaponAttA_MagazineAK74_03"
+          },
+          "JAZZ_MagLarge_30_45": {
+            "Magazine": "AK74_Backelite_45"
+          }
+        },
+        "Under": {
+          "": {},
+          "JAZZ_GP25": {
+            "Under": "WeaponAttA_GrenadeLauncherAK47"
+          }
+        },
+        "Muzzle": {
+          "": {},
+          "JAZZ_Compensator": {
+            "Muzzle": "AK74DefoultMuzzle"
+          }
+        },
+        "Bipod": {
+          "": {},
+          "JAZZ_Bipod": {
+            "Bipod": "WeaponAttA_BipodAK47"
+          }
+        },
+        "Scope": {
+          "": {},
+          "JAZZ_Scope_PSO": {
+            "Scope": "WeaponAttA_ScopeDragunov_01"
+          },
+          "JAZZ_Reflex_Cobra": {
+            "Scope": "Kobra"
+          },
+          "JAZZ_Reflex_PKAS": {
+            "General": "AKSeriaMount",
+            "Scope": "PKAA"
+          },
+          "JAZZ_CombatScope_1P29": {
+            "General": "AKSeriaMount",
+            "Scope": "tyulpan"
+          },
+          "JAZZ_NightScope_NSPU": {
+            "General": "AKSeriaMount",
+            "Scope": "NSPU"
+          }
+        }
+      },
+      "base": {
+        "__host": "AK74",
+        "Handguard": "AK74HandGuard",
+        "Magazine": "AK74Mag",
+        "Stock": "AK74FullStock"
+      },
+      "art": {
+        "AK74": {
+          "__host": {
+            "AK74": [
+              {
+                "id": "2626048bcabe10289d47",
+                "when": {}
+              }
+            ]
+          },
+          "Handguard": {
+            "AK74HandGuard": [
+              {
+                "id": "776db3ef329a24f77124",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "Magazine": {
+            "AK74Mag": [
+              {
+                "id": "53680f726b3f21f3a5fd",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "WeaponAttA_MagazineAK74_03": [
+              {
+                "id": "6a352c41cb2f29f9cb58",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "AK74_Backelite_45": [
+              {
+                "id": "ac54e4fb9b44043b7bf8",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "Stock": {
+            "AK74FullStock": [
+              {
+                "id": "12fbeda90f69ff6dc180",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "AK74StockUnFld": [
+              {
+                "id": "6e528e08196b37053a75",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "AK74Stockfld": [
+              {
+                "id": "a755e5f5e023af8c8571",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "Under": {
+            "WeaponAttA_GrenadeLauncherAK47": [
+              {
+                "id": "60c5c388713489bd6d25",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "Muzzle": {
+            "AK74DefoultMuzzle": [
+              {
+                "id": "ef77bc8689f656dd1190",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "Bipod": {
+            "WeaponAttA_BipodAK47": [
+              {
+                "id": "933d3e11e869335d82c9",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "Scope": {
+            "WeaponAttA_ScopeDragunov_01": [
+              {
+                "id": "522c5d701c48ef367ce2",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "Kobra": [
+              {
+                "id": "12e4e415bbda4d3c91e3",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "PKAA": [
+              {
+                "id": "c08d183aabaa700bf7ae",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "tyulpan": [
+              {
+                "id": "d3eae2a70f7b81445192",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ],
+            "NSPU": [
+              {
+                "id": "27fe2f0e60a31a7198ea",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          },
+          "General": {
+            "AKSeriaMount": [
+              {
+                "id": "213fbac3da795b9129e1",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "2626048bcabe10289d47"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

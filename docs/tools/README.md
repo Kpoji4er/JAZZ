@@ -1066,3 +1066,22 @@ Feedback round 2: `_weapon_feedback_chainmail.py` продлевает суще�
 - `_test_moditem_parser.py`: regression checks for inline/nested records, Lua strings/comments and malformed tables. Dormant duplicate companions are warnings only when the same class/ID has an actual metadata-loaded companion.
 
 - `_pack_suite_release.py` streams exact-commit archives and skips development paths before staging; no full source tar is retained in memory.
+
+- `weapon_layer_icons/dispatch_capture.py --layers --matte`: capture the full reference build plus isolated native host/attachment objects with the same camera and transforms. Combine `--prerequisite Slot=ID` for multi-module references. Outputs stay in the requested capture directory; no installed UI changes.
+- `--resume-inventory-pause` temporarily removes only the inventory pause on ModEditor and restores it after capture. `plan_dependencies.py` lists additional barrel and RIS contexts; never dispatch overlapping camera capture batches.
+- `weapon_layer_icons/audit_combinations.py` counts slot-domain combinations (an upper bound before compatibility). `compile_layers.py` compiles native signatures, shared coordinates and parent constraints into a layer library; `test_layers.py` checks Lua selection against captured graphs and enumerates slot domains.
+- `weapon_layer_icons/layer_selector.lua` and `layer_binder.lua` are local modules embedded by `install_layers.py` into the existing InventoryUI binder. Installation requires selector test evidence and keeps a backup; `test_layer_binder.py` checks lifecycle offline, `probe_layer_binder.py` exercises disposable real XImage windows through DAP.
+- `weapon_layer_icons/review_layers.py` compares a small isolated-layer pilot with its native full reference and searches draw order. Pilot evidence does not certify the whole arsenal. Procedure: [native layer replay](../design/weapon-layer-icons/live/LAYERS-REPLAY.md).
+- `weapon_layer_icons/audit_native_graphs.py` records effective native attachment graphs for every pair of slot choices plus dense builds using disposable clones. `complete_capture.py` selects a finite supplement covering missing signatures, optionally waits for the initial batch and dispatches it; `run_dependencies.py` supports an explicit sequential prerequisite plan.
+- `weapon_layer_icons/review_registry.py` compares composed native layers with full photographs and can optimize one consistent drawing order per weapon; outputs comparison sheets and error metrics for visual review. `icon_layout.fit` fits and outlines already graded compositions without applying color correction twice.
+- `weapon_layer_icons/preview_layers.py` renders default and dense combined builds through the exact Lua selector; input is a compiled library and native graph audit, output is a PNG review sheet plus chosen component sets.
+- `weapon_layer_icons/capture_settings.py` shares per-family camera distances between photography and native graph auditing. A changed distance requires fresh family captures and graphs.
+- `weapon_layer_icons/inspect_templates.lua` reads loaded HUD callback provenance; `editor_transaction.py` backs up tracked Lua and calls `edit_template_bindings.lua` for official editor save/reload of both weapon-display binders, with a verification receipt.
+- `weapon_layer_icons/probe_installed_ui.py` / `.lua` exercise the installed binder in real disposable XImages and photograph the inventory, then dispose temporary objects and restore pause; output is screenshots plus `verification.json`.
+
+- `weapon_layer_icons/calibrate_layers.py` builds smooth family tone profiles from fresh default photographs and original icons; outputs JSON plus original/previous/smooth comparison. It preserves source geometry and alpha.
+- `weapon_layer_icons/normalize_editor_save.py` preserves the verified two-callback editor delta and official generated fields while restoring pre-save formatting, unrelated companions and load order; archives all replaced post-save files. Follow with explicit editor reload validation.
+
+- `weapon_layer_icons/test_layer_tone.py` verifies smooth monotonic profiles and exact alpha/dimension preservation against the previous installed layers; writes pixel evidence and a combined PNG hash.
+
+- `weapon_layer_icons/reload_layers.py` reloads installed ModItems and UI, preserves metadata load order, verifies both HUD callbacks and optionally refreshes textures for explicitly named pilot families; does not load every arsenal texture into memory.

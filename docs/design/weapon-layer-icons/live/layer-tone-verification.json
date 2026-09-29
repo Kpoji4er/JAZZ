@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "images": 1928,
+  "changed_rgb": 1928,
+  "unchanged_alpha": 1928,
+  "profiles": 166,
+  "fallback_weapons": [
+    "Auto5_quest",
+    "BrowningM2HMG",
+    "FlareHandgun",
+    "Galil_FlagHill",
+    "GoldenGun",
+    "LionRoar",
+    "M72LAW",
+    "MG58",
+    "MGL",
+    "MortarInventoryItem",
+    "RPG7",
+    "Winchester_Quest"
+  ],
+  "combined_png_sha256": "86674106646bbe9f92c256ebb25c9c9a476b05c579853233f5a807f68f1c298c",
+  "profiles_sha256": "fbdd3f5251d63ae4c5318fbe4a01efd9624663377dc8fb22a56460b22c565ad2",
+  "failures": [],
+  "level": "offline pixels and smooth monotonic profiles; visual comparison is separate"
+}

@@ -1,0 +1,4288 @@
+{
+  "schema": 1,
+  "meaning": "upper bound before runtime compatibility and visual-equivalence deduplication",
+  "excluded": [
+    "AR15",
+    "DebugAuto",
+    "M4Commando",
+    "MP5",
+    "UnderslungGrenadeLauncher"
+  ],
+  "weapon_count": 178,
+  "upper_bound": 505749,
+  "weapons": [
+    {
+      "weapon": "FNFAL",
+      "domains": {
+        "Handguard": [
+          "FNFAL_Handguard"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_20_30_FAL",
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalFine_FAL"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelHeavy",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved",
+          "JAZZ_BarrelShort",
+          "JAZZ_BarrelShortImproved"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 118800
+    },
+    {
+      "weapon": "JAZZ_FNFAL_Tactical",
+      "domains": {
+        "Handguard": [
+          "JAZZ_FNFAL_TacHandguard"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_20_30_FAL",
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalFine_FAL"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelHeavy",
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelLongImproved",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved",
+          "JAZZ_BarrelShort",
+          "JAZZ_BarrelShortImproved"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockNormal"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 110880
+    },
+    {
+      "weapon": "HK33",
+      "domains": {
+        "General": [
+          "JAZZ_HK33Lower",
+          "JAZZ_HK33LowerMod"
+        ],
+        "Handguard": [
+          "JAZZ_HK33Handguard",
+          "JAZZ_HK33HandguardMod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShortRunNGun"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_100_HK33",
+          "JAZZ_MagNormal"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_DA15_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 80640
+    },
+    {
+      "weapon": "M16A4",
+      "domains": {
+        "Handguard": [
+          "JAZZ_Handguard",
+          "JAZZ_Handguard_RIS"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default"
+        ],
+        "Trigger": [
+          "",
+          "JAZZ_Autofire"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_20"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_DefMuzzle",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Scope": [
+          "JAZZ_CarryHandle_AR15",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_DefaultIronsight_AR15",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 27648
+    },
+    {
+      "weapon": "G36",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_100_cumbersome",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_G36"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Stock": [
+          "JAZZ_StockFolded",
+          "JAZZ_StockHeavy",
+          "JAZZ_StockNormal"
+        ],
+        "Scope": [
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_G36Scope",
+          "JAZZ_G36Sight",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 25920
+    },
+    {
+      "weapon": "M4A1",
+      "domains": {
+        "Handguard": [
+          "JAZZ_Handguard",
+          "JAZZ_Handguard_RIS"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default"
+        ],
+        "Scope": [
+          "JAZZ_CarryHandle_AR15",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_IronSight",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_20"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_DefMuzzle",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ]
+      },
+      "upper_bound": 20736
+    },
+    {
+      "weapon": "Galil",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort"
+        ],
+        "Stock": [
+          "JAZZ_StockLight",
+          "JAZZ_StockNormal"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_Galil_Brake_Default",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Under": [
+          "Galil_Handguard_Default",
+          "JAZZ_Bipod_Galil",
+          "JAZZ_GrenadeLauncher_Galil"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_25_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_GALIL"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 17820
+    },
+    {
+      "weapon": "AKM",
+      "domains": {
+        "Under": [
+          "",
+          "JAZZ_GP25"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_PSO",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 16320
+    },
+    {
+      "weapon": "M1A",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShortImproved"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalFine_M14"
+        ],
+        "Under": [
+          "",
+          "JAZZ_Bipod_Under",
+          "JAZZ_GrenadeLauncher_M14",
+          "JAZZ_TacGrip_M14",
+          "JAZZ_VerticalGrip_M14"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_M14_Default_Muzzle",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Handguard": [
+          "JAZZ_HandguardM1A",
+          "JAZZ_HandguardM1ARail"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 13200
+    },
+    {
+      "weapon": "Sig550Custom",
+      "domains": {
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher",
+          "JAZZ_VerticalGrip"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Handguard": [
+          "JAZZ_SigDefHandGuard",
+          "JAZZ_SigErgoHandGrip"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_50_SIG",
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_DefaultIronsight_AR15",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 11232
+    },
+    {
+      "weapon": "AK103",
+      "domains": {
+        "Under": [
+          "",
+          "JAZZ_GP25"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_PSO",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_DefMuzzle",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 10880
+    },
+    {
+      "weapon": "HK21",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelLongImproved",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved",
+          "JAZZ_BarrelShort",
+          "JAZZ_BarrelShortImproved"
+        ],
+        "Muzzle": [
+          "DefaultMuzzle_HK21",
+          "JAZZ_Compensator"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockNormal"
+        ],
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Under": [
+          "",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Magazine": [
+          "JAZZ_MagBelt_40_100",
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 9504
+    },
+    {
+      "weapon": "Sig550",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_50_SIG",
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Handguard": [
+          "JAZZ_SigDefHandGuard",
+          "JAZZ_SigErgoHandGrip"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_DefaultIronsight_AR15",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 7488
+    },
+    {
+      "weapon": "AUG",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLongImproved_AUG",
+          "JAZZ_BarrelLong_AUG",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShortImproved_AUG",
+          "JAZZ_BarrelShort_AUG"
+        ],
+        "Muzzle": [
+          "AUGCompensator_01",
+          "AUGCompensator_03",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Under": [
+          "JAZZ_VerticalGrip"
+        ],
+        "Grenadelauncher": [
+          "",
+          "JAZZ_GrenadeLauncher_AUG"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_42",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AUG"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ],
+        "Scope": [
+          "JAZZ_AUGScope_Default",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 6600
+    },
+    {
+      "weapon": "M21",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_M14"
+        ],
+        "Under": [
+          "",
+          "JAZZ_Bipod_Under",
+          "JAZZ_GrenadeLauncher_M14",
+          "JAZZ_TacGrip_M14",
+          "JAZZ_VerticalGrip_M14"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_M14_Default_Muzzle",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_M21_ART",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 3600
+    },
+    {
+      "weapon": "JAZZ_M14_MkIII",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_M14"
+        ],
+        "Under": [
+          "",
+          "JAZZ_Bipod_Under",
+          "JAZZ_GrenadeLauncher_M14",
+          "JAZZ_TacGrip_M14",
+          "JAZZ_VerticalGrip_M14"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_M14_Default_Muzzle",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 3300
+    },
+    {
+      "weapon": "PSG1",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockNormal"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_8_PSG1",
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalFine_PSG1"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_PSG",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_FlashlightDot_PSG_M1",
+          "JAZZ_Flashlight_PSG_M1",
+          "JAZZ_LaserDot_PSG_M1",
+          "JAZZ_UVDot_PSG_M1"
+        ]
+      },
+      "upper_bound": 2880
+    },
+    {
+      "weapon": "MK14EBR",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_M14"
+        ],
+        "Under": [
+          "",
+          "JAZZ_Bipod_Under",
+          "JAZZ_TacGrip_M14",
+          "JAZZ_VerticalGrip_M14"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_M14_Default_Muzzle",
+          "JAZZ_Suppressor"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 2112
+    },
+    {
+      "weapon": "M16A2",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_50_AR15",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AR15"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard",
+          "JAZZ_M16A1LaunchHandGuard"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_3x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 1728
+    },
+    {
+      "weapon": "M24Sniper",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockLight",
+          "JAZZ_StockNormal"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_5_10",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 1512
+    },
+    {
+      "weapon": "MP5K",
+      "domains": {
+        "Under": [
+          "JAZZ_VerticalGrip"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelShort"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_15_MP5"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockNo",
+          "JAZZ_StockNormal"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_DA15_6x"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Freeswap": [
+          "JAZZ_Freeswap"
+        ]
+      },
+      "upper_bound": 1296
+    },
+    {
+      "weapon": "M14SAW",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_M14"
+        ],
+        "Under": [
+          "",
+          "JAZZ_Bipod_Under"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_M14_Default_Muzzle",
+          "JAZZ_Suppressor"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 1056
+    },
+    {
+      "weapon": "G36c",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "JAZZ_DefMuzzle",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GrenadeLauncher_M14",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 792
+    },
+    {
+      "weapon": "P226",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_18_20",
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort_Pistol"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default",
+          "JAZZ_Handgrip_Ergo"
+        ],
+        "Scope": [
+          "JAZZ_IronSight",
+          "JAZZ_IronSight_AIM",
+          "JAZZ_IronSight_FAST",
+          "JAZZ_IronSight_NIGHT",
+          "JAZZ_Reflex_Pistol"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 720
+    },
+    {
+      "weapon": "AA12",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLongShotgun",
+          "JAZZ_BarrelNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_25_AA12",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_FlashlightDot_aa12",
+          "JAZZ_Flashlight_aa12",
+          "JAZZ_LaserDot_aa12",
+          "JAZZ_UVDot_aa12"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor"
+        ]
+      },
+      "upper_bound": 660
+    },
+    {
+      "weapon": "FAMAS",
+      "domains": {
+        "Under": [
+          "",
+          "JAZZ_VerticalGrip"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 660
+    },
+    {
+      "weapon": "VZ58",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard_RIS",
+          "JAZZ_VZ58_HandguardWood"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default",
+          "JAZZ_Handgrip_Ergo"
+        ],
+        "Under": [
+          "",
+          "JAZZ_VerticalGrip"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Suppressor"
+        ]
+      },
+      "upper_bound": 640
+    },
+    {
+      "weapon": "Sig552",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_50_SIG",
+          "JAZZ_MagNormal"
+        ],
+        "Handguard": [
+          "JAZZ_SigDefHandGuard",
+          "JAZZ_SigErgoHandGrip"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ]
+      },
+      "upper_bound": 576
+    },
+    {
+      "weapon": "UMP45",
+      "domains": {
+        "Under": [
+          "",
+          "JAZZ_TacGrip",
+          "JAZZ_VerticalGrip"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 504
+    },
+    {
+      "weapon": "AK105",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_45",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GP25"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_PSO"
+        ]
+      },
+      "upper_bound": 432
+    },
+    {
+      "weapon": "AK74M",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_45",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GP25"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_PSO"
+        ]
+      },
+      "upper_bound": 432
+    },
+    {
+      "weapon": "MicroUZI",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_20_30_UZI",
+          "JAZZ_MagNormal"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Pistol"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Freeswap": [
+          "JAZZ_Freeswap"
+        ]
+      },
+      "upper_bound": 360
+    },
+    {
+      "weapon": "MP5A4",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_15_MP5"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_DA15_6x"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightOff"
+        ]
+      },
+      "upper_bound": 324
+    },
+    {
+      "weapon": "M41Shotgun",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShortShotgun_Benelli"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator"
+        ]
+      },
+      "upper_bound": 288
+    },
+    {
+      "weapon": "FNMinimi",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelLongImproved",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved",
+          "JAZZ_BarrelShort",
+          "JAZZ_BarrelShortImproved"
+        ],
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Stock": [
+          "JAZZ_StockHeavy",
+          "JAZZ_StockNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagBelt_100_200",
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 264
+    },
+    {
+      "weapon": "AK74",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_45",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GP25"
+        ],
+        "Muzzle": [
+          ""
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_PSO"
+        ]
+      },
+      "upper_bound": 216
+    },
+    {
+      "weapon": "CAR15",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_20"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightOff"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_3x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Muzzle": [
+          "JAZZ_DefMuzzle",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ]
+      },
+      "upper_bound": 216
+    },
+    {
+      "weapon": "AS_Val",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_10_20_VAL",
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "JAZZ_SuppressorIntegrated"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_PSO",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 192
+    },
+    {
+      "weapon": "G3A4",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_DA15_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_DefMuzzle",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_G3"
+        ]
+      },
+      "upper_bound": 192
+    },
+    {
+      "weapon": "M16A1",
+      "domains": {
+        "Side": [
+          "",
+          "JAZZ_LaserDot"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard",
+          "JAZZ_M16A1LaunchHandGuard"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_20"
+        ],
+        "General": [
+          "",
+          "JAZZ_HolsterBelt"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_3x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 192
+    },
+    {
+      "weapon": "Sig552SWAT",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_50_SIG",
+          "JAZZ_MagNormal"
+        ],
+        "Handguard": [
+          "JAZZ_SigDefHandGuard",
+          "JAZZ_SigErgoHandGrip"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 192
+    },
+    {
+      "weapon": "DragunovSVD",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLight",
+          "JAZZ_StockNormal"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_10_20_SVD",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_PSO",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator"
+        ]
+      },
+      "upper_bound": 176
+    },
+    {
+      "weapon": "G3A3",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_G3"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_DA15_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 144
+    },
+    {
+      "weapon": "G3SniperV1",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_DA15_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall20_10_G3"
+        ]
+      },
+      "upper_bound": 144
+    },
+    {
+      "weapon": "P210",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default",
+          "JAZZ_Handgrip_Ergo"
+        ],
+        "Scope": [
+          "JAZZ_IronSight",
+          "JAZZ_IronSight_AIM"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 144
+    },
+    {
+      "weapon": "M60E4",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Under": [
+          "",
+          "JAZZ_VerticalGrip"
+        ]
+      },
+      "upper_bound": 132
+    },
+    {
+      "weapon": "AKSU",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Handguard": [
+          "AKSU_Hanguard_Basic",
+          "JAZZ_AKSU_VerticalGrip"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_45",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor"
+        ]
+      },
+      "upper_bound": 108
+    },
+    {
+      "weapon": "M2Carbine",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNo",
+          "JAZZ_StockNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_15_M2CARBINE"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_NightScope_M3"
+        ],
+        "Trigger": [
+          "",
+          "JAZZ_Autofire"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_FlashHider"
+        ]
+      },
+      "upper_bound": 96
+    },
+    {
+      "weapon": "R870",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ],
+        "Side2": [
+          "",
+          "JAZZ_SpeedLoader"
+        ]
+      },
+      "upper_bound": 96
+    },
+    {
+      "weapon": "RPK",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Handguard": [
+          "JAZZ_RPK74_Hanguard_Basic",
+          "JAZZ_RPK74_VerticalGrip"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ]
+      },
+      "upper_bound": 96
+    },
+    {
+      "weapon": "UZI",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagDrum_30_50_UZI",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ]
+      },
+      "upper_bound": 90
+    },
+    {
+      "weapon": "Mini14",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_20_30_MINI14",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Trigger": [
+          "",
+          "JAZZ_Autofire"
+        ]
+      },
+      "upper_bound": 88
+    },
+    {
+      "weapon": "Glock17",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_28",
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalG18"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 72
+    },
+    {
+      "weapon": "Glock18",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Handguard": [
+          "MuzzleBooster_Glock18"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_17_33",
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalG18"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 72
+    },
+    {
+      "weapon": "P220",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_8_10",
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Scope": [
+          "JAZZ_IronSight",
+          "JAZZ_Reflex_Pistol"
+        ]
+      },
+      "upper_bound": 72
+    },
+    {
+      "weapon": "USAS12",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_3x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_25_USAS",
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 72
+    },
+    {
+      "weapon": "Winchester1894",
+      "domains": {
+        "Barrel": [
+          "BarrelShort_Winchester",
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_ImprovedIronsight",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 72
+    },
+    {
+      "weapon": "Kimber",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_7_10",
+          "JAZZ_MagNormal"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ],
+        "Scope": [
+          "JAZZ_IronSight",
+          "JAZZ_Reflex_Pistol"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ]
+      },
+      "upper_bound": 64
+    },
+    {
+      "weapon": "HK23e",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagBelt_40_100"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ],
+        "Bipod": [
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 55
+    },
+    {
+      "weapon": "MP5SD",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_15_MP5"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_DA15_6x"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded",
+          "JAZZ_StockLightUnFolded",
+          "JAZZ_StockNormal"
+        ],
+        "Muzzle": [
+          "JAZZ_SuppressorIntegrated"
+        ]
+      },
+      "upper_bound": 54
+    },
+    {
+      "weapon": "BarretM82",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_8_BARRET",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_ImprovedIronsight",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "JAZZ_Compensator",
+          "JAZZ_Suppressor"
+        ]
+      },
+      "upper_bound": 48
+    },
+    {
+      "weapon": "Bereta92",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_18_20",
+          "JAZZ_MagNormal",
+          "JAZZ_MagNormalFine_PISTOL_9"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot"
+        ]
+      },
+      "upper_bound": 45
+    },
+    {
+      "weapon": "Ithaca",
+      "domains": {
+        "false": [
+          ""
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShortShotgun"
+        ],
+        "Stock": [
+          "JAZZ_StockNo",
+          "JAZZ_StockNormal"
+        ]
+      },
+      "upper_bound": 44
+    },
+    {
+      "weapon": "MP5A2",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_15_MP5"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_FeroZ24",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open",
+          "JAZZ_Scope_DA15_6x"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 36
+    },
+    {
+      "weapon": "MP7",
+      "domains": {
+        "Under": [
+          "JAZZ_VerticalGrip",
+          "JAZZ_VerticalGripFld"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_DefaultIronsight_AR15",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_Open"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 36
+    },
+    {
+      "weapon": "SR3M",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Handguard": [
+          "JAZZ_Handguard"
+        ],
+        "Muzzle": [
+          "JAZZ_DefMuzzle"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 36
+    },
+    {
+      "weapon": "USP45",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_Reflex_Pistol"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 36
+    },
+    {
+      "weapon": "VSS",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_10_20_VAL",
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_PSO",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 32
+    },
+    {
+      "weapon": "AR10",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_3x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator"
+        ]
+      },
+      "upper_bound": 24
+    },
+    {
+      "weapon": "AR10DMR",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_DefaultIronsight_AR15",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 24
+    },
+    {
+      "weapon": "DesertEagle",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagLarge_13_PISTOL_DE",
+          "JAZZ_MagNormal"
+        ],
+        "Barrel": [
+          "JAZZ_Barrel50BMG_DesertEagle",
+          "JAZZ_BarrelNormal"
+        ],
+        "Muzzle": [
+          ""
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 24
+    },
+    {
+      "weapon": "RPK74",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelNormalImproved"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_45",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Handguard": [
+          "JAZZ_RPK74_Hanguard_Basic"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ]
+      },
+      "upper_bound": 24
+    },
+    {
+      "weapon": "ScoutSniper",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "JAZZ_DefMuzzle",
+          "JAZZ_Suppressor",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelsDefs"
+        ]
+      },
+      "upper_bound": 21
+    },
+    {
+      "weapon": "Auto5",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_DuckbillChoke",
+          "JAZZ_FullChoke"
+        ],
+        "Barrel": [
+          "JAZZ_Auto5_Basic_LMag",
+          "JAZZ_Auto5_Basic_NMag",
+          "JAZZ_Auto5_Long_LMag",
+          "JAZZ_Auto5_Long_NMag",
+          "JAZZ_Auto5_Short_NMag"
+        ]
+      },
+      "upper_bound": 20
+    },
+    {
+      "weapon": "Auto5_quest",
+      "domains": {
+        "Muzzle": [
+          "",
+          "Compensator",
+          "DuckbillChoke",
+          "FullChoke"
+        ],
+        "Barrel": [
+          "Auto5_Basic_LMag",
+          "Auto5_Basic_NMag",
+          "Auto5_Long_LMag",
+          "Auto5_Long_NMag",
+          "Auto5_Short_NMag"
+        ]
+      },
+      "upper_bound": 20
+    },
+    {
+      "weapon": "GoldenGun",
+      "domains": {
+        "Bipod": [
+          "Bipod"
+        ],
+        "Muzzle": [
+          "",
+          "Compensator",
+          "M14_Default_Muzzle",
+          "Suppressor"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x"
+        ]
+      },
+      "upper_bound": 20
+    },
+    {
+      "weapon": "AN94",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_30_45",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_PSO"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 18
+    },
+    {
+      "weapon": "FiveSeven",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 18
+    },
+    {
+      "weapon": "MP446VIKING",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelsDefs"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 18
+    },
+    {
+      "weapon": "P90",
+      "domains": {
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 18
+    },
+    {
+      "weapon": "SWModel19",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort_Pistol"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 18
+    },
+    {
+      "weapon": "AK47",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Under": [
+          "",
+          "JAZZ_GP25"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 16
+    },
+    {
+      "weapon": "ArcticWarfare",
+      "domains": {
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ]
+      },
+      "upper_bound": 14
+    },
+    {
+      "weapon": "SVU",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_PSO"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 12
+    },
+    {
+      "weapon": "SWModel10",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort_Pistol"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 12
+    },
+    {
+      "weapon": "SWModel29",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort_Pistol"
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 12
+    },
+    {
+      "weapon": "DeLisle",
+      "domains": {
+        "Scope": [
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_IronSight",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Muzzle": [
+          "JAZZ_SuppressorIntegrated"
+        ]
+      },
+      "upper_bound": 11
+    },
+    {
+      "weapon": "FNMAG",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 11
+    },
+    {
+      "weapon": "PKM",
+      "domains": {
+        "Muzzle": [
+          "JAZZ_DefMuzzle"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_CombatScope_ACOG",
+          "JAZZ_NightScope",
+          "JAZZ_Reflex_Aimpoint5000",
+          "JAZZ_Reflex_Closed",
+          "JAZZ_Reflex_Eotech",
+          "JAZZ_Reflex_M68",
+          "JAZZ_Scope_12x",
+          "JAZZ_Scope_6x",
+          "JAZZ_Scope_Scout"
+        ],
+        "Side": [
+          ""
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Under": [
+          ""
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Handguard": [
+          "JAZZ_PKMDefHandGrip"
+        ]
+      },
+      "upper_bound": 11
+    },
+    {
+      "weapon": "ColtAnaconda",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort"
+        ],
+        "Scope": [
+          "JAZZ_BaseIronsight_Anaconda",
+          "JAZZ_FlashlightDot_Anaconda",
+          "JAZZ_ImprovedIronsight",
+          "JAZZ_LaserDot_Anaconda",
+          "JAZZ_UVDot_Anaconda"
+        ]
+      },
+      "upper_bound": 10
+    },
+    {
+      "weapon": "Gewehr98",
+      "domains": {
+        "Scope": [
+          "JAZZ_CombatScope_2x",
+          "JAZZ_IronSight",
+          "JAZZ_Scope_DA15_6x",
+          "JAZZ_Scope_Scout",
+          "JAZZ_Scope_ZF4"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor"
+        ]
+      },
+      "upper_bound": 10
+    },
+    {
+      "weapon": "TMP",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal",
+          "JAZZ_MagSmall30_15_TMP"
+        ],
+        "General": [
+          "",
+          "JAZZ_HolsterBelt"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 8
+    },
+    {
+      "weapon": "Type56",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Under": [
+          "JAZZ_Type56BayoF"
+        ]
+      },
+      "upper_bound": 8
+    },
+    {
+      "weapon": "ZastavaM92",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 8
+    },
+    {
+      "weapon": "Zastava_M70",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "General": [
+          "JAZZ_M70_Fld_GL"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_75",
+          "JAZZ_MagLarge_30_40",
+          "JAZZ_MagNormal",
+          "JAZZ_MagQuick_AK"
+        ],
+        "Bipod": [
+          "",
+          "JAZZ_Bipod"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 8
+    },
+    {
+      "weapon": "APS",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal_Sil",
+          "JAZZ_BarrelNormal_noSil"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "CZ52",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "HiPower",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_ImprovisedSuppressor"
+        ],
+        "Magazine": [
+          "JAZZ_MagLarge_25_PISTOL_9",
+          "JAZZ_MagNormal"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "M1Garand",
+      "domains": {
+        "Scope": [
+          "JAZZ_DefaultIronsight_AR15",
+          "JAZZ_Reflex_Garand",
+          "JAZZ_Scope_Garand"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Suppressor"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "MAC1950",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "Mosin",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_Scope_PU"
+        ],
+        "Barrel": [
+          "JAZZ_Mosin1891",
+          "JAZZ_MosinM38",
+          "JAZZ_MosinObrez"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "P38",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort_Pistol"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "PP19Bizon",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_CombatScope_1P29",
+          "JAZZ_NightScope_NSPU",
+          "JAZZ_Reflex_Cobra",
+          "JAZZ_Reflex_PKAS",
+          "JAZZ_Scope_PSO"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "RSH12",
+      "domains": {
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "SWModel5906",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ],
+        "Side": [
+          "",
+          "JAZZ_Flashlight",
+          "JAZZ_FlashlightDot",
+          "JAZZ_FlashlightOff",
+          "JAZZ_LaserDot",
+          "JAZZ_UVDot"
+        ]
+      },
+      "upper_bound": 6
+    },
+    {
+      "weapon": "Korth",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default",
+          "JAZZ_Handgrip_Ergo"
+        ]
+      },
+      "upper_bound": 4
+    },
+    {
+      "weapon": "MR73",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ],
+        "Handgrip": [
+          "JAZZ_Handgrip_Default",
+          "JAZZ_Handgrip_Ergo"
+        ]
+      },
+      "upper_bound": 4
+    },
+    {
+      "weapon": "STG44",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_Scope_ZF4"
+        ],
+        "Side": [
+          "",
+          "JAZZ_HandlingWrap"
+        ]
+      },
+      "upper_bound": 4
+    },
+    {
+      "weapon": "BerettaM12",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 3
+    },
+    {
+      "weapon": "DoubleBarrelShotgun",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLongShotgun",
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShortShotgun"
+        ]
+      },
+      "upper_bound": 3
+    },
+    {
+      "weapon": "M1897",
+      "domains": {
+        "Muzzle": [
+          "",
+          "JAZZ_DuckbillChoke",
+          "JAZZ_FullChoke"
+        ]
+      },
+      "upper_bound": 3
+    },
+    {
+      "weapon": "MAC10",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_Compensator",
+          "JAZZ_PistolSuppressor"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded"
+        ]
+      },
+      "upper_bound": 3
+    },
+    {
+      "weapon": "Winchester_Quest",
+      "domains": {
+        "Barrel": [
+          "BarrelNormal"
+        ],
+        "Scope": [
+          "ImprovedIronsight",
+          "JAZZ_CombatScope_2x",
+          "JAZZ_Reflex_Closed"
+        ]
+      },
+      "upper_bound": 3
+    },
+    {
+      "weapon": "Agram2000",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_PistolSuppressor"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "Colt1911",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "Colt38Special",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort_Pistol"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "ColtPeacemaker",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelNormal",
+          "JAZZ_BarrelShort"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "FG42",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "JAZZ_IronSight",
+          "JAZZ_Scope_ZF4"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "FRF2",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "JAZZ_Scope_8x_SCROME"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_SuppressorImproved"
+        ],
+        "Bipod": [
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "G43",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_Scope_ZF4"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "Makarov",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          "",
+          "JAZZ_ImprovisedSuppressor"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "PPSH",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagDrum_35_71",
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "SVT40",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_Scope_PU"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "Springfield",
+      "domains": {
+        "Scope": [
+          "",
+          "JAZZ_Scope_Springfield"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "Thompson",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagDrum_30_50_THOMPSON",
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "U100",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelsDefs"
+        ],
+        "Magazine": [
+          "JAZZ_MagDrum_30_100_G3",
+          "JAZZ_MagNormal"
+        ],
+        "Mountfront": [
+          "JAZZ_U100Handle"
+        ],
+        "Muzzle": [
+          "JAZZ_DefMuzzle"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "Webley",
+      "domains": {
+        "Barrel": [
+          "JAZZ_BarrelLong",
+          "JAZZ_BarrelNormal"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "ZastavaM76",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Scope": [
+          "",
+          "JAZZ_Scope_ZRAK"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelsDefs"
+        ]
+      },
+      "upper_bound": 2
+    },
+    {
+      "weapon": "AA52",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "AVT40",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "BAR",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Beretta93r",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "BrowningM2HMG",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "CZ75",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "China_Lake",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "ColtM1917",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "DP27",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "DragunovSVD_Custom",
+      "domains": {
+        "Scope": [
+          "JAZZ_Scope_3x_9x"
+        ],
+        "Muzzle": [
+          "JAZZ_SuppressorIntegrated"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "FlareHandgun",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Galil_FlagHill",
+      "domains": {
+        "Barrel": [
+          "BarrelNormal"
+        ],
+        "Stock": [
+          "StockNormal"
+        ],
+        "Muzzle": [
+          "MuzzleBooster"
+        ],
+        "Under": [
+          "Bipod_Galil"
+        ],
+        "Scope": [
+          "JAZZ_Reflex_Aimpoint5000"
+        ],
+        "Magazine": [
+          "MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "GrizzlyLAR",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "L42A1",
+      "domains": {
+        "Scope": [
+          "JAZZ_L42A1_Scope"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "LionRoar",
+      "domains": {
+        "Muzzle": [
+          "Compensator_cosmetic"
+        ],
+        "Magazine": [
+          "MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Luger",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M3GreaseGun",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M45",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M60",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M60E3",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M700",
+      "domains": {
+        "Scope": [
+          "JAZZ_Scope_3x_9x"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M72LAW",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "M79",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MAC2429",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelsDefs"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MAS36",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MAS49",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MAT49",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MG42",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MG58",
+      "domains": {
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "JAZZ_ImprovedIronsight"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MGL",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MP40",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MPL",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "MortarInventoryItem",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "PB",
+      "domains": {
+        "Muzzle": [
+          "JAZZ_SuppressorIntegrated"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "PPS43",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "RPD",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Barrel": [
+          "JAZZ_BarrelsDefs"
+        ],
+        "Stock": [
+          "JAZZ_StockNormal"
+        ],
+        "Bipod": [
+          "JAZZ_Bipod"
+        ],
+        "Scope": [
+          "JAZZ_IronSight"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "RPG7",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "SKS",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "SPAS12",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "SWModel52",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Scorpion",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Stock": [
+          "JAZZ_StockLightFolded"
+        ],
+        "Freeswap": [
+          "JAZZ_Freeswap"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "SpectreM4",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Sterling",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Stoeger",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Striker",
+      "domains": {
+        "Stock": [
+          "JAZZ_StockLightUnFolded"
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "TT33",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "TexRevolver",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "VectorCP1",
+      "domains": {
+        "Magazine": [
+          "JAZZ_MagNormal"
+        ],
+        "Muzzle": [
+          ""
+        ]
+      },
+      "upper_bound": 1
+    },
+    {
+      "weapon": "VektorR4",
+      "domains": {},
+      "upper_bound": 1
+    },
+    {
+      "weapon": "Welrod",
+      "domains": {
+        "Muzzle": [
+          "JAZZ_SuppressorIntegrated"
+        ]
+      },
+      "upper_bound": 1
+    }
+  ]
+}

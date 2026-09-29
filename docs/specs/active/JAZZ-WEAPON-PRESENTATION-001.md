@@ -7,9 +7,11 @@ systems:
 repositories:
   - jazz
 risk: medium
-generated_data: false
+generated_data: true
 runtime_validation: required
 write_set:
+  - items.lua
+  - metadata.lua
   - Code/InventoryUI.lua
   - Code/System_WeaponResourceMaintenance.lua
   - Code/System_WeaponComponent_Set.lua
@@ -27,6 +29,9 @@ write_set:
   - docs/showcase/en/weapons-and-ammo.md
   - docs/specs/active/JAZZ-WEAPON-PRESENTATION-001.md
 exclusive_resources:
+  - mod-editor-state
+  - items.lua
+  - metadata.lua
   - weapon-presentation-hooks
   - localization-runtime-export
 approved_by: project-owner
@@ -44,7 +49,7 @@ approved_by: project-owner
 
 ## Non-goals
 
-Произвольная композиция слоёв, отдельные крепления, новые модели, публикация и изменение баланса. Имена Mosin принадлежат отдельной модельной задаче.
+Отдельный редактор креплений, новые модели, публикация и изменение баланса. Послойная композиция входит в расширение от 29.09.2026. Имена Mosin принадлежат отдельной модельной задаче.
 
 ## Требования
 
@@ -88,7 +93,7 @@ approved_by: project-owner
 
 - `JAZZ-WEAPON-PRESENTATION-001-AC-001`: `PASS` — static: 1739 установленных PNG, Lua-harness полного каталога, неизвестные host/component возвращают fallback.
 - `JAZZ-WEAPON-PRESENTATION-001-AC-002`: `BLOCKED` — имена не установлены: существующий конфликт RussianManual.csv (AnchorID 890000000020255); файлы локализации не изменялись.
-- `JAZZ-WEAPON-PRESENTATION-001-AC-003`: `BLOCKED` — игра закрыта, DAP connection refused. Установка выполнена на диск; live UI не проверен.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-003`: `PASS` — runtime: M4A1 с малым магазином и AK74 со сложенным прикладом отрисованы в XImage/XInventoryItem; chips остаются отдельными дочерними окнами. Evidence: `layer-runtime-verification.json`, `layer-runtime-combinations.png`.
 
 ## Documentation delta
 
@@ -116,3 +121,25 @@ UI technical, weapons wiki и showcase RU/EN фиксируют exact-match snap
 
 
 Уточнение после v3: DesertEagle и HiPower выглядят пятнисто. Для этих двух семейств заменить резкую квантильную кривую на гладкую степенную аппроксимацию с ограничением усиления контраста до 2; сохранить прежние размеры, alpha и обводку. Основание — замечание владельца «дигл и хайпаур странные». Проверить все варианты двух классов и сравнить оригинал/до/после.
+
+
+## Полные сочетания модулей — 29.09.2026
+
+Решение владельца: «надо сделать все комбинации аттачей у оружия чтоб были видны». Это разрешает расширить прежний exact-match scope: все допустимые сочетания активного оружия должны одновременно отображать установленные видимые детали. Отключённое оружие и служебный DebugAuto не снимать. Невидимые механические модификации не требуют отдельного изображения.
+
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-004`: подготовить зарегистрированные слои из настоящих visual objects игры; использовать фактические entity, parent/spot, transform и состояние корпуса. Зависимость модуля от ствола/цевья/крепления учитывается в ключе. Не вычитать детали из старых полных снимков.
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-005`: композиция обновляется в существующем image binder без изменения предмета/сохранения; единое кадрирование по объединённому силуэту, единые профили цвета, приближённые к исходным иконкам, обводка под всеми цветными слоями. Неактуальные слои удаляются при замене, снятии, смене оружия и закрытии UI.
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-006`: крепления имеют отдельные layer IDs и зависимости, пригодные для последующей переделки. На этом этапе не меняется их игровая модульность.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-004`: runtime/visual — АК с магазином + прицелом + прикладом одновременно; сравнить целый игровой снимок с композицией, включая перекрытия, отверстия и размеры.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-005`: static/runtime — аудит всех активных классов и доступных визуальных вариантов; проверка зависимых пар, пустых слотов, A→B→A и отсутствия устаревших слоёв. Отдельно перечислить незакрытые конфигурации, не объявлять частичное покрытие полным.
+
+Стратегия: сначала подтвердить native layer capture на АК; затем общий каталог слоёв и зависимостей, интеграция существующего binder и проверка полного арсенала. Полный плоский декартов продукт не является выбранным форматом хранения. Прежние запреты runtime bake, компрессорных hooks и изменения боевых данных сохраняются. Файлы разработки/сырой съёмки остаются в docs/design/weapon-layer-icons/live и docs/tools/weapon_layer_icons; установка готовых слоёв — WeaponIcons/Live. Игра уже запущена владельцем, подтверждён ModEditor и read-only live DAP, без initialize/pause.
+
+Evidence AC-004/005: PASS для native composition — см. итоговое evidence ниже; старые 1739 exact-match PNG остаются fallback.
+
+Уточнение write set для того же одобренного scope: два `run_after` шаблона `UIWeaponDisplay` в `items.lua` вызывают тот же binder, чтобы обе панели оружия сразу показывали состав модулей. У `ModItemXTemplate/UIWeaponDisplay` нет companion Lua; runtime подтвердил `GetCodeFileName() == nil`. Правка выполняется через `CompileFunc`/свойство ModItem и официальный save/reload после завершения съёмки. `metadata.lua` меняется штатным сохранением; порядок кода и другие ModItem не меняются намеренно. Перед сохранением проверить актуальность загруженных items и сохранить внешний baseline, затем проверить scoped diff и round-trip.
+
+
+Уточнение владельца 29.09.2026: «ещё обработать бы картинки чтоб ± было как раньше выглядело». Для native layers утверждена плавная коррекция по текущим default captures и исходным Icon; один ограниченный профиль яркости/насыщенности на семейство, без усиления отдельных диапазонов бликов. `layer-color-profiles.json`, `calibrate_layers.py` и сравнение original/previous/smooth входят в существующий write set инструментов и visual evidence. Геометрия/alpha/цветовая согласованность модулей сохраняются.
+
+Промежуточное evidence нового scope: AC-004 — runtime PASS на реальных XImage/XInventoryItem для AK74, M4A1, DesertEagle с несколькими модулями одновременно. AC-005 — offline PASS 448950 случаев, 9797 native graphs; 76286 BlockSlots-конфликтов явно исключены. Все 178 активных классов имеют композицию, compile issues=0. Цветовой проход v4 установлен: 1928 PNG, alpha сохранена побайтно, визуально проверены исходные/новые иконки и реальный открытый инвентарь. Evidence: `docs/design/weapon-layer-icons/live/layer-verification.json`. Полная spec остаётся approved из-за открытого AC-002 по именам; завершение иконок не означает выполнение переименований.

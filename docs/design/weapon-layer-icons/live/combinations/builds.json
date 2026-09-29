@@ -1,0 +1,5157 @@
+[
+  {
+    "weapon": "AA12",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Side": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|AA12|Weapon_AA12|63b1e33072b3e47cabf0|30a5c7d932e73099d72c|5d3d0e7db6d251919c1c"
+  },
+  {
+    "weapon": "AA12",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight_aa12",
+      "Magazine": "JAZZ_MagLarge_25_AA12",
+      "Barrel": "JAZZ_BarrelLongShotgun",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|AA12|Weapon_AA12|145a477b9ef2d01df474|aa0eb904e0ed530f3b64|1fa0fa61ad951ba75ad3|422cb06deb28d81b3d6c|5d3d0e7db6d251919c1c|952bd5b8934f1165b047|4a6c5068d654401a8aa1"
+  },
+  {
+    "weapon": "AA12",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_UVDot_aa12",
+      "Magazine": "JAZZ_MagLarge_25_AA12",
+      "Barrel": "JAZZ_BarrelLongShotgun",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|AA12|Weapon_AA12|145a477b9ef2d01df474|839bf3bc65cd5877048d|1fa0fa61ad951ba75ad3|5d3d0e7db6d251919c1c|385239442afe70bd153b|952bd5b8934f1165b047|05e4816ddc8298f6d89e"
+  },
+  {
+    "weapon": "AA52",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|AA52|AA52|bacb356e3f8ef434b5a8|e601ba0970bb65a4485d"
+  },
+  {
+    "weapon": "AA52",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|AA52|AA52|bacb356e3f8ef434b5a8|e601ba0970bb65a4485d"
+  },
+  {
+    "weapon": "AK103",
+    "column": 0,
+    "components": {
+      "Under": "",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_Handguard",
+      "Scope": "",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Side": "",
+      "Bipod": ""
+    },
+    "key": "native-layers-v4|AK103|AKR_AK103|9b2895e63ce86bb66a38|9c67099d151f7af91d8e|3782d2eacd83c1d27dce|080955d1fcfe09d7c453|158f890fa640cc266bf6"
+  },
+  {
+    "weapon": "AK103",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Under": "JAZZ_GP25",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|AK103|AKR_AK103|9b2895e63ce86bb66a38|d84fa8e71865305f6429|3782d2eacd83c1d27dce|e9c7eb664667597db0f4|339cdc5621364fda8d75|080955d1fcfe09d7c453|61f115723d84207816d2|fba1854cd4d342d6391d|6701c0ec312e8f4f0ee6"
+  },
+  {
+    "weapon": "AK103",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Under": "JAZZ_GP25",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_Reflex_Closed"
+    },
+    "key": "native-layers-v4|AK103|AKR_AK103|9b2895e63ce86bb66a38|56b351e94eaf0b0733ea|3782d2eacd83c1d27dce|e9c7eb664667597db0f4|339cdc5621364fda8d75|080955d1fcfe09d7c453|61f115723d84207816d2|fba1854cd4d342d6391d|ab614c989b00f059e6c0"
+  },
+  {
+    "weapon": "AK105",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Handguard": "JAZZ_Handguard",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "JAZZ_Compensator",
+      "Bipod": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|AK105|AKR_AK105|3b8a9bfdbd547ff0ea56|47c52a09afa2e7d10f68|1737905197b7a0d0f75d|9e9627296cef8e9560ef|77e6a7b279a2b3210f6a"
+  },
+  {
+    "weapon": "AK105",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Under": "JAZZ_GP25",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Scope_PSO"
+    },
+    "key": "native-layers-v4|AK105|AKR_AK105|3b8a9bfdbd547ff0ea56|dc22b9784b0ef46dca8d|7265b5a8f85e7b976290|1737905197b7a0d0f75d|541fd8de0d9e1bf3a671|a33837461f4d32ea5f79|fff84dd1732386329f62|9e9627296cef8e9560ef"
+  },
+  {
+    "weapon": "AK105",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Stock": "JAZZ_StockLightFolded",
+      "Under": "",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_NightScope_NSPU"
+    },
+    "key": "native-layers-v4|AK105|AKR_AK105|7e22d0260601c482a2d4|e2b803120e0b5c904fd0|7265b5a8f85e7b976290|1737905197b7a0d0f75d|fff84dd1732386329f62|9e9627296cef8e9560ef|a2252dad57b5030f0313"
+  },
+  {
+    "weapon": "AK47",
+    "column": 0,
+    "components": {
+      "Bipod": "",
+      "Under": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|AK47|J_AK47|ad21a75846db0a1dd252|0747704b7b7fd1598bdd"
+  },
+  {
+    "weapon": "AK47",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_30_75",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Under": ""
+    },
+    "key": "native-layers-v4|AK47|J_AK47|59bf2aacce905fe0e5bb|0747704b7b7fd1598bdd|847d9d0b91698b522c59"
+  },
+  {
+    "weapon": "AK47",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Under": ""
+    },
+    "key": "native-layers-v4|AK47|J_AK47|ad31ac3d8b7fce753b20|0747704b7b7fd1598bdd|847d9d0b91698b522c59"
+  },
+  {
+    "weapon": "AK74",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Handguard": "JAZZ_Handguard",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "",
+      "Bipod": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|AK74|AK74|12fbeda90f69ff6dc180|53680f726b3f21f3a5fd|2626048bcabe10289d47|776db3ef329a24f77124"
+  },
+  {
+    "weapon": "AK74",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Stock": "JAZZ_StockLightFolded",
+      "Under": "JAZZ_GP25",
+      "Magazine": "JAZZ_MagLarge_30_45",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Scope": "JAZZ_Reflex_Cobra"
+    },
+    "key": "native-layers-v4|AK74|AK74|ac54e4fb9b44043b7bf8|12e4e415bbda4d3c91e3|6e528e08196b37053a75|2626048bcabe10289d47|933d3e11e869335d82c9|776db3ef329a24f77124|60c5c388713489bd6d25"
+  },
+  {
+    "weapon": "AK74",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Under": "JAZZ_GP25",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|AK74|AK74|d3eae2a70f7b81445192|a755e5f5e023af8c8571|53680f726b3f21f3a5fd|213fbac3da795b9129e1|2626048bcabe10289d47|933d3e11e869335d82c9|776db3ef329a24f77124|60c5c388713489bd6d25"
+  },
+  {
+    "weapon": "AK74M",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Handguard": "JAZZ_Handguard",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "JAZZ_Compensator",
+      "Bipod": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|AK74M|AKR_AK74M|0690fe3f18bc2fa6984f|2f8d68734b0c0b0093f6|3ef61de9c42694507d86|9ba33b7a7220c2edd78e|80279d421bf324153704"
+  },
+  {
+    "weapon": "AK74M",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Under": "JAZZ_GP25",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Scope_PSO"
+    },
+    "key": "native-layers-v4|AK74M|AKR_AK74M|22edd7b6ba0f58de6740|0690fe3f18bc2fa6984f|a55862a68198e78e35d9|9d292dfe53764d70b6e4|9ba33b7a7220c2edd78e|287c01d7e81f4f4badcf|80279d421bf324153704|ff770725110c8c81b050"
+  },
+  {
+    "weapon": "AK74M",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Stock": "JAZZ_StockLightFolded",
+      "Under": "",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_NightScope_NSPU"
+    },
+    "key": "native-layers-v4|AK74M|AKR_AK74M|22edd7b6ba0f58de6740|a5a73dd934cf84486932|dd0f3122e9c360150a9b|9d292dfe53764d70b6e4|9ba33b7a7220c2edd78e|80279d421bf324153704|ba9baa8907d9d96c3814"
+  },
+  {
+    "weapon": "AKM",
+    "column": 0,
+    "components": {
+      "Under": "",
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_Handguard",
+      "Scope": "",
+      "Muzzle": "",
+      "Side": "",
+      "Bipod": ""
+    },
+    "key": "native-layers-v4|AKM|AKM|887cbb1f7d388d5b0188|66bf4c507b825a6dfc64|fbdda57c1802eb2358ce|9c637b7b91efa71123d4"
+  },
+  {
+    "weapon": "AKM",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Under": "JAZZ_GP25",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|AKM|AKM|a9331a8e2825730c47f0|e33d4dbe9db0cfcf61c0|1b73925ec22c26ea3e9d|3005b871b73fb0a620fb|52eddf3e1e45fa18bdf8|fbdda57c1802eb2358ce|c38a456cf2df9dd76778|9c637b7b91efa71123d4|d1e608e506583e98aed2|5c74819ecc8e142eed38"
+  },
+  {
+    "weapon": "AKM",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Under": "JAZZ_GP25",
+      "Stock": "JAZZ_StockLightFolded",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|AKM|AKM|76d62096363f8a573efc|bd6247879f06f271e6d7|52eddf3e1e45fa18bdf8|fbdda57c1802eb2358ce|c38a456cf2df9dd76778|6cd46be01726201dd44b|d61a4d63587586a1a048|9c637b7b91efa71123d4|d1e608e506583e98aed2|2004250ec2e49d0a0c5e"
+  },
+  {
+    "weapon": "AKSU",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handguard": "AKSU_Hanguard_Basic",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "",
+      "Muzzle": "JAZZ_Compensator"
+    },
+    "key": "native-layers-v4|AKSU|Weapon_AKS74U|90c9903b5f9017a82838|1c4737ebaae3a5bee55a|8e6c16a86b40596cb996|1c20f8340f1cc4b68f7c"
+  },
+  {
+    "weapon": "AKSU",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_AKSU_VerticalGrip",
+      "Side": "JAZZ_UVDot",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": ""
+    },
+    "key": "native-layers-v4|AKSU|Weapon_AKS74U|f741633fae42c2d19b9b|05360a4669a90c0140c6|8b6800a3b2308e8eefae|8e6c16a86b40596cb996|ec9319ac7aa8fd6a98b9|02a4281524416ff3bcc9"
+  },
+  {
+    "weapon": "AKSU",
+    "column": 2,
+    "components": {
+      "Handguard": "AKSU_Hanguard_Basic",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": ""
+    },
+    "key": "native-layers-v4|AKSU|Weapon_AKS74U|f741633fae42c2d19b9b|8b6800a3b2308e8eefae|5ec52ae03d51a34bcb92|8e6c16a86b40596cb996|02a4281524416ff3bcc9|1c20f8340f1cc4b68f7c"
+  },
+  {
+    "weapon": "AN94",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|AN94|AN94|c5e9f1fa0808b0bd5c21|339b2c58309d0be5bb9d|e930404c9474f7bc8e8c"
+  },
+  {
+    "weapon": "AN94",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_30_45",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|AN94|AN94|30e0ea040f0793f20398|cdb7ea43e421543abd9d|339b2c58309d0be5bb9d|e930404c9474f7bc8e8c"
+  },
+  {
+    "weapon": "AN94",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_30_45",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Scope": "JAZZ_NightScope_NSPU"
+    },
+    "key": "native-layers-v4|AN94|AN94|30e0ea040f0793f20398|638ecffdc581b6141f53|339b2c58309d0be5bb9d|e930404c9474f7bc8e8c"
+  },
+  {
+    "weapon": "APS",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal_noSil",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|APS|APS|f02796da132ae4801687|7e22e5a6ae4332cdf9f3"
+  },
+  {
+    "weapon": "APS",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelNormal_Sil"
+    },
+    "key": "native-layers-v4|APS|APS|8414eaeedb128045f8cf|7e22e5a6ae4332cdf9f3|73515efbc39c17d4b08f"
+  },
+  {
+    "weapon": "APS",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Barrel": "JAZZ_BarrelNormal_Sil"
+    },
+    "key": "native-layers-v4|APS|APS|8414eaeedb128045f8cf|bb12b51db790694074a9|7e22e5a6ae4332cdf9f3"
+  },
+  {
+    "weapon": "AR10",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|AR10|AR10_Auto|d95d7666829294a6fe43"
+  },
+  {
+    "weapon": "AR10",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|AR10|AR10_Auto|5b026fd34ab93f7dc7d3|456e3ffa3b04c2a0ee1b|9e66249e166fec71cc68|d95d7666829294a6fe43"
+  },
+  {
+    "weapon": "AR10",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_3x"
+    },
+    "key": "native-layers-v4|AR10|AR10_Auto|725eb3e503378fc4361a|9e66249e166fec71cc68|d95d7666829294a6fe43"
+  },
+  {
+    "weapon": "AR10DMR",
+    "column": 0,
+    "components": {
+      "Muzzle": "",
+      "Scope": "JAZZ_Scope_6x"
+    },
+    "key": "native-layers-v4|AR10DMR|AR_10_DMR|9597eb9e8eadac9051e2|7a060b2826455b2f31a3"
+  },
+  {
+    "weapon": "AR10DMR",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|AR10DMR|AR_10_DMR|baa947eaa350c2a39b87|c945f3640337dac717bc|9597eb9e8eadac9051e2"
+  },
+  {
+    "weapon": "AR10DMR",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|AR10DMR|AR_10_DMR|c945f3640337dac717bc|9597eb9e8eadac9051e2|da7b1086e58ed88c1ef8"
+  },
+  {
+    "weapon": "AS_Val",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_10_20_VAL",
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Side": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|AS_Val|ASVal|f993cb7a237049662adf|ca6bb45cca14512ba5b4|b0a3d55368ad3e478b72"
+  },
+  {
+    "weapon": "AS_Val",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|AS_Val|ASVal|970f2b50b1db04d94955|f993cb7a237049662adf|876593e3ad6854d691c2|e9621d5a8cfa2dff4661|b0a3d55368ad3e478b72|c9361bc4c94038c42298"
+  },
+  {
+    "weapon": "AS_Val",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|AS_Val|ASVal|970f2b50b1db04d94955|f993cb7a237049662adf|41b00ad91c8759ad4845|376461c79e57caf159cd|e9621d5a8cfa2dff4661|b0a3d55368ad3e478b72"
+  },
+  {
+    "weapon": "AUG",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "AUGCompensator_01",
+      "Under": "JAZZ_VerticalGrip",
+      "Grenadelauncher": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "",
+      "Scope": "JAZZ_AUGScope_Default"
+    },
+    "key": "native-layers-v4|AUG|Weapon_Steyr|35ba743c4128cc06cb09|9e67fd5dc67074b2b1f9|bbc6d6fa580752729808|297e7d9065d70635d10a|8ce95a29e875eb97187d|e0613d2f3e07a0cb58de"
+  },
+  {
+    "weapon": "AUG",
+    "column": 1,
+    "components": {
+      "Under": "",
+      "Side": "JAZZ_FlashlightOff",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Grenadelauncher": "JAZZ_GrenadeLauncher_AUG",
+      "Magazine": "JAZZ_MagLarge_30_42",
+      "Barrel": "JAZZ_BarrelShortImproved_AUG",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|AUG|Weapon_Steyr|e29b52bde3975f57bccd|1847665998fd1fb7ca9f|297e7d9065d70635d10a|b355fd1615d6f3a1db61|5a71601a3a3dc636ef0a|d5d05adc8d44c0ee1456|6c541b67fe867edcc061|47677db4b703845e1838"
+  },
+  {
+    "weapon": "AUG",
+    "column": 2,
+    "components": {
+      "Under": "",
+      "Side": "JAZZ_LaserDot",
+      "Muzzle": "AUGCompensator_03",
+      "Grenadelauncher": "JAZZ_GrenadeLauncher_AUG",
+      "Magazine": "JAZZ_MagLarge_30_42",
+      "Barrel": "JAZZ_BarrelShort_AUG",
+      "Scope": "JAZZ_Scope_6x"
+    },
+    "key": "native-layers-v4|AUG|Weapon_Steyr|e29b52bde3975f57bccd|1847665998fd1fb7ca9f|297e7d9065d70635d10a|9ff9899f86a0f1a3070b|b355fd1615d6f3a1db61|f0d21082a03918f15ad6|7e16e500d9acf3da1f26|6c541b67fe867edcc061|b170365315bf4bd402b5"
+  },
+  {
+    "weapon": "AVT40",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|AVT40|SVT_40|5f3c30b23a6954fb9878|4a2d93d0deb05132403d"
+  },
+  {
+    "weapon": "AVT40",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|AVT40|SVT_40|5f3c30b23a6954fb9878|4a2d93d0deb05132403d"
+  },
+  {
+    "weapon": "Agram2000",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Agram2000|Agram2000|b860625a2b5896c49ee5|7cf0d7d97e4a09f78745"
+  },
+  {
+    "weapon": "Agram2000",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_PistolSuppressor"
+    },
+    "key": "native-layers-v4|Agram2000|Agram2000|b860625a2b5896c49ee5|7cf0d7d97e4a09f78745|3068e7cc3df90dc1b46c"
+  },
+  {
+    "weapon": "Agram2000",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Agram2000|Agram2000|b860625a2b5896c49ee5|7cf0d7d97e4a09f78745"
+  },
+  {
+    "weapon": "ArcticWarfare",
+    "column": 0,
+    "components": {
+      "Bipod": "",
+      "Scope": "JAZZ_Scope_Scout"
+    },
+    "key": "native-layers-v4|ArcticWarfare|AWM|2de086f462e20fa5bb8f|09e834c41d9001da34e8"
+  },
+  {
+    "weapon": "ArcticWarfare",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|ArcticWarfare|AWM|b7895a71d1f38afe7e32|2de086f462e20fa5bb8f|c43f2c45bcc7d4f9a3bc"
+  },
+  {
+    "weapon": "ArcticWarfare",
+    "column": 2,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|ArcticWarfare|AWM|b7895a71d1f38afe7e32|2de086f462e20fa5bb8f|52bb4bf92c577c8f5374"
+  },
+  {
+    "weapon": "Auto5",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_Auto5_Basic_NMag",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Auto5|Weapon_Auto5|7f6c7107d662c68b9056|26614aeed3160ecc9c78|d50f6dd43e855cfd5df4"
+  },
+  {
+    "weapon": "Auto5",
+    "column": 1,
+    "components": {
+      "Magazine": "",
+      "Barrel": "JAZZ_Auto5_Basic_LMag",
+      "Muzzle": "JAZZ_Compensator"
+    },
+    "key": "native-layers-v4|Auto5|Weapon_Auto5|38000a3521dfe706c68b|f54864b4ceae9305b198|7f6c7107d662c68b9056|d50f6dd43e855cfd5df4"
+  },
+  {
+    "weapon": "Auto5",
+    "column": 2,
+    "components": {
+      "Magazine": "",
+      "Barrel": "JAZZ_Auto5_Long_LMag",
+      "Muzzle": "JAZZ_Compensator"
+    },
+    "key": "native-layers-v4|Auto5|Weapon_Auto5|9c4f811afb8a73245bee|1b63bdb38d1e7cb24eed|38000a3521dfe706c68b|d50f6dd43e855cfd5df4"
+  },
+  {
+    "weapon": "Auto5_quest",
+    "column": 0,
+    "components": {
+      "Barrel": "Auto5_Basic_LMag",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Auto5_quest|Weapon_Auto5|27336027cafefe5e2261|19c5fba86d9768fca9ab|0bf7fa3d636e289bfe95"
+  },
+  {
+    "weapon": "Auto5_quest",
+    "column": 1,
+    "components": {
+      "Magazine": "",
+      "Barrel": "Auto5_Basic_NMag",
+      "Muzzle": "Compensator"
+    },
+    "key": "native-layers-v4|Auto5_quest|Weapon_Auto5|568a891527908378f0fa|27336027cafefe5e2261|4e1dfe758904eea87a16|0bf7fa3d636e289bfe95"
+  },
+  {
+    "weapon": "Auto5_quest",
+    "column": 2,
+    "components": {
+      "Magazine": "",
+      "Barrel": "Auto5_Long_LMag",
+      "Muzzle": "Compensator"
+    },
+    "key": "native-layers-v4|Auto5_quest|Weapon_Auto5|441b9f67353509cf22a3|6e03fa377e0ac0b8a5b5|19c5fba86d9768fca9ab|0bf7fa3d636e289bfe95"
+  },
+  {
+    "weapon": "BAR",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|BAR|BAR|414bd1fdd29ada29548b|19fe7be317f1b5a80278"
+  },
+  {
+    "weapon": "BAR",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|BAR|BAR|414bd1fdd29ada29548b|19fe7be317f1b5a80278"
+  },
+  {
+    "weapon": "BarretM82",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_6x",
+      "Muzzle": "JAZZ_Compensator"
+    },
+    "key": "native-layers-v4|BarretM82|Weapon_BarrettM82|403af00859a676453bd2|5998ca837162e291a459|e9f14d77ef63306a4d21|145330ec1beccd4930ce|4ff050ae8f992f2e8cce"
+  },
+  {
+    "weapon": "BarretM82",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_8_BARRET",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|BarretM82|Weapon_BarrettM82|eb04d6afed04a5df94b4|bf7bd324670471a59532|5998ca837162e291a459|e9f14d77ef63306a4d21|4ff050ae8f992f2e8cce"
+  },
+  {
+    "weapon": "BarretM82",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_8_BARRET",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|BarretM82|Weapon_BarrettM82|eb04d6afed04a5df94b4|a40715a6a0babf54d65e|5998ca837162e291a459|e9f14d77ef63306a4d21|4ff050ae8f992f2e8cce"
+  },
+  {
+    "weapon": "Bereta92",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Side": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Bereta92|Weapon_Beretta92F|d7095f1ff402b9077568|b91c71b63b8d7d45dcd1|cc2cf14a4556377320ed"
+  },
+  {
+    "weapon": "Bereta92",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormalFine_PISTOL_9",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Side": "JAZZ_FlashlightDot",
+      "Muzzle": "JAZZ_PistolSuppressor"
+    },
+    "key": "native-layers-v4|Bereta92|Weapon_Beretta92F|d7095f1ff402b9077568|03a2d6db3dfff0bf07db|b91c71b63b8d7d45dcd1|cc2cf14a4556377320ed|65295630bc1d1708e3cf|82741d233160ff1b1bf8"
+  },
+  {
+    "weapon": "Bereta92",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_18_20",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Side": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|Bereta92|Weapon_Beretta92F|b91c71b63b8d7d45dcd1|cc2cf14a4556377320ed|b56ec5aa2cadc2e6a314"
+  },
+  {
+    "weapon": "Beretta93r",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Beretta93r|Beretta93r|af223825974068fca56d"
+  },
+  {
+    "weapon": "Beretta93r",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Beretta93r|Beretta93r|af223825974068fca56d"
+  },
+  {
+    "weapon": "BerettaM12",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|BerettaM12|BerettaM12|7b7c8c74b038cbc76b7e|051ad481343b72adfed4|8d6952a99de90432087e"
+  },
+  {
+    "weapon": "BerettaM12",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|BerettaM12|BerettaM12|7b7c8c74b038cbc76b7e|051ad481343b72adfed4|8d6952a99de90432087e|018d13b7cd12eb2243a6"
+  },
+  {
+    "weapon": "BerettaM12",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|BerettaM12|BerettaM12|7b7c8c74b038cbc76b7e|051ad481343b72adfed4|8d6952a99de90432087e|37818c8aa3b85a3e7d92"
+  },
+  {
+    "weapon": "BrowningM2HMG",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|BrowningM2HMG|Weapon_M2Browning|d957e3fe6285e60a05c2"
+  },
+  {
+    "weapon": "BrowningM2HMG",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|BrowningM2HMG|Weapon_M2Browning|d957e3fe6285e60a05c2"
+  },
+  {
+    "weapon": "CAR15",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_20",
+      "Side": "",
+      "Scope": "",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_DefMuzzle"
+    },
+    "key": "native-layers-v4|CAR15|CAR15|4172a2717be01a6fd4e8|714a0417aada028831ac|1f52ff888db0e27c013b|0b5916e40393fb34aa4c"
+  },
+  {
+    "weapon": "CAR15",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_FlashlightOff",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_CombatScope_3x"
+    },
+    "key": "native-layers-v4|CAR15|CAR15|d574149bf93ae581aae8|63329b5ddb54d4cc2cad|4b7e85a0de4dbb10f115|1f52ff888db0e27c013b|0b5916e40393fb34aa4c|ca49c9264c7497841e13"
+  },
+  {
+    "weapon": "CAR15",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|CAR15|CAR15|d574149bf93ae581aae8|a67c8666a3d2d146bbae|fc6edb6c44febae406d9|146c06bedb639237f6a4|1f52ff888db0e27c013b|0b5916e40393fb34aa4c|e19b42f71607aa15a5a7"
+  },
+  {
+    "weapon": "CZ52",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|CZ52|CZ52|92e040c1cf6b315eae5e"
+  },
+  {
+    "weapon": "CZ52",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|CZ52|CZ52|67723b3fefe0d3f3e142|92e040c1cf6b315eae5e|a709be962b373e5da784"
+  },
+  {
+    "weapon": "CZ52",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|CZ52|CZ52|92e040c1cf6b315eae5e|dbcb662484fcf6046ffa|be44324f69282ca1d7e8"
+  },
+  {
+    "weapon": "CZ75",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|CZ75|CZ75|1055e2b2ec6c8e3104e1"
+  },
+  {
+    "weapon": "CZ75",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|CZ75|CZ75|1055e2b2ec6c8e3104e1"
+  },
+  {
+    "weapon": "China_Lake",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|China_Lake|China_Lake|64675613eb08cfe10adc"
+  },
+  {
+    "weapon": "China_Lake",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|China_Lake|China_Lake|64675613eb08cfe10adc"
+  },
+  {
+    "weapon": "Colt1911",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Colt1911|Colt1911|463b0f42fad2e3a88b9d"
+  },
+  {
+    "weapon": "Colt1911",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|Colt1911|Colt1911|463b0f42fad2e3a88b9d|23218cce70815a33e698"
+  },
+  {
+    "weapon": "Colt1911",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Colt1911|Colt1911|463b0f42fad2e3a88b9d"
+  },
+  {
+    "weapon": "Colt38Special",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort_Pistol"
+    },
+    "key": "native-layers-v4|Colt38Special|38Special|d6684ef502eb475a287e|6209f7c375bfc45c0eca"
+  },
+  {
+    "weapon": "Colt38Special",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|Colt38Special|38Special|976bc82a78649f5daf58|6209f7c375bfc45c0eca"
+  },
+  {
+    "weapon": "Colt38Special",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort_Pistol"
+    },
+    "key": "native-layers-v4|Colt38Special|38Special|d6684ef502eb475a287e|6209f7c375bfc45c0eca"
+  },
+  {
+    "weapon": "ColtAnaconda",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Scope": "JAZZ_BaseIronsight_Anaconda"
+    },
+    "key": "native-layers-v4|ColtAnaconda|Weapon_ColtAnaconda44|6bc14aeb391138ff066e|477605c9a42ca50387f0|341c17e917633674fbc1"
+  },
+  {
+    "weapon": "ColtAnaconda",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_FlashlightDot_Anaconda",
+      "Sight": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Side2": ""
+    },
+    "key": "native-layers-v4|ColtAnaconda|Weapon_ColtAnaconda44|2aec2744a5c11690b508|6ec9db401e45ef3de37f|477605c9a42ca50387f0|74b9d9a85be9e5e96463"
+  },
+  {
+    "weapon": "ColtAnaconda",
+    "column": 2,
+    "components": {
+      "Scope": "JAZZ_ImprovedIronsight",
+      "Sight": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Side2": ""
+    },
+    "key": "native-layers-v4|ColtAnaconda|Weapon_ColtAnaconda44|6bc14aeb391138ff066e|477605c9a42ca50387f0|74b9d9a85be9e5e96463"
+  },
+  {
+    "weapon": "ColtM1917",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|ColtM1917|Colt1917|1abc78b2162194bf2cf5"
+  },
+  {
+    "weapon": "ColtM1917",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|ColtM1917|Colt1917|1abc78b2162194bf2cf5"
+  },
+  {
+    "weapon": "ColtPeacemaker",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|ColtPeacemaker|Weapon_Colt|4b37891eeaaa8ba31608|93fc63164ed377cb0565"
+  },
+  {
+    "weapon": "ColtPeacemaker",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort",
+      "Side2": ""
+    },
+    "key": "native-layers-v4|ColtPeacemaker|Weapon_Colt|93fc63164ed377cb0565|5fa6fefa592435c17289"
+  },
+  {
+    "weapon": "ColtPeacemaker",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|ColtPeacemaker|Weapon_Colt|4b37891eeaaa8ba31608|93fc63164ed377cb0565"
+  },
+  {
+    "weapon": "DP27",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|DP27|DP27|a6402954ed83be6a6d91|43b36cd6f6093a7a8a12"
+  },
+  {
+    "weapon": "DP27",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|DP27|DP27|a6402954ed83be6a6d91|43b36cd6f6093a7a8a12"
+  },
+  {
+    "weapon": "DeLisle",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_IronSight",
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|DeLisle|DeLisle|086a46f05648fc19e16e|263f516fbce52e7761fd"
+  },
+  {
+    "weapon": "DeLisle",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|DeLisle|DeLisle|a33de7182e6f129d8fb9|263f516fbce52e7761fd"
+  },
+  {
+    "weapon": "DeLisle",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|DeLisle|DeLisle|263f516fbce52e7761fd|34b994a856759d65082b"
+  },
+  {
+    "weapon": "DesertEagle",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|DesertEagle|Weapon_DesertEagle|107613df7026fd610a0f|d72f70a3620e4a365bc2|079a1bc6367a1fbdcf94"
+  },
+  {
+    "weapon": "DesertEagle",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_13_PISTOL_DE",
+      "Muzzle": "",
+      "Side": "JAZZ_FlashlightDot",
+      "Barrel": "JAZZ_Barrel50BMG_DesertEagle"
+    },
+    "key": "native-layers-v4|DesertEagle|Weapon_DesertEagle|22f8fee12250ddcfc16e|81836088a052fd5d3cb5|3ee8f7df76589fa90823|079a1bc6367a1fbdcf94"
+  },
+  {
+    "weapon": "DesertEagle",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_13_PISTOL_DE",
+      "Muzzle": "",
+      "Side": "JAZZ_LaserDot",
+      "Barrel": "JAZZ_Barrel50BMG_DesertEagle"
+    },
+    "key": "native-layers-v4|DesertEagle|Weapon_DesertEagle|22f8fee12250ddcfc16e|81836088a052fd5d3cb5|fe466ee7b4dd75864085|079a1bc6367a1fbdcf94"
+  },
+  {
+    "weapon": "DoubleBarrelShotgun",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|DoubleBarrelShotgun|Weapon_DBShotgun|d1cfb9a76c7a587a64e5|8d678a49d9fad9e4e250"
+  },
+  {
+    "weapon": "DoubleBarrelShotgun",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelLongShotgun"
+    },
+    "key": "native-layers-v4|DoubleBarrelShotgun|Weapon_DBShotgun|ceb4a54f1eee9c950254|8d678a49d9fad9e4e250"
+  },
+  {
+    "weapon": "DoubleBarrelShotgun",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelShortShotgun"
+    },
+    "key": "native-layers-v4|DoubleBarrelShotgun|Weapon_DBShotgun|62d7440059ece72ed670|8d678a49d9fad9e4e250"
+  },
+  {
+    "weapon": "DragunovSVD",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_PSO",
+      "Muzzle": "JAZZ_Compensator"
+    },
+    "key": "native-layers-v4|DragunovSVD|Weapon_Dragunov|fec16ac08e8ccce25ee0|2abb89e04143868f1d7d|f8be7337ceca47eda2ef|c9351350f1847d4c4f9f|7c469f9f0e4865e1dfa8"
+  },
+  {
+    "weapon": "DragunovSVD",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLight",
+      "Magazine": "JAZZ_MagLarge_10_20_SVD",
+      "Bipod": "",
+      "Muzzle": "",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|DragunovSVD|Weapon_Dragunov|5d6af0a337ec3861f38b|53bf6fbeb19458f6f25a|c9351350f1847d4c4f9f|7ceeba690fba41c84347|38f7639e374a842260e9"
+  },
+  {
+    "weapon": "DragunovSVD",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockLight",
+      "Magazine": "JAZZ_MagLarge_10_20_SVD",
+      "Bipod": "",
+      "Muzzle": "",
+      "Scope": "JAZZ_NightScope_NSPU"
+    },
+    "key": "native-layers-v4|DragunovSVD|Weapon_Dragunov|97cf02054c6d3cc53f5f|5d6af0a337ec3861f38b|c9351350f1847d4c4f9f|38f7639e374a842260e9"
+  },
+  {
+    "weapon": "DragunovSVD_Custom",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_Scope_3x_9x",
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|DragunovSVD_Custom|SVDCustom|47aca6e875b5c2e19cb2|cdaf63f23768cba97c25|66c22ad6526569115065"
+  },
+  {
+    "weapon": "DragunovSVD_Custom",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_Scope_3x_9x"
+    },
+    "key": "native-layers-v4|DragunovSVD_Custom|SVDCustom|47aca6e875b5c2e19cb2|cdaf63f23768cba97c25|66c22ad6526569115065"
+  },
+  {
+    "weapon": "FAMAS",
+    "column": 0,
+    "components": {
+      "Under": "",
+      "Bipod": "",
+      "Side": "",
+      "Scope": "",
+      "Muzzle": "JAZZ_Compensator",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|FAMAS|Weapon_FAMAS|82a0dfb9645224298998|07d22e1ef0732fb6fa47|fd4ff2c621d9da96b502"
+  },
+  {
+    "weapon": "FAMAS",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight",
+      "Under": "JAZZ_VerticalGrip",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|FAMAS|Weapon_FAMAS|82a0dfb9645224298998|43b81c16c110726105a2|60bc63e90fd024cefac7|982e9301178f6af383e5|07d22e1ef0732fb6fa47|df670458362289c4ba09|da6f9c4286efa457a473|b7880b56e23b6dacd88b"
+  },
+  {
+    "weapon": "FAMAS",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightDot",
+      "Under": "JAZZ_VerticalGrip",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_Reflex_M68"
+    },
+    "key": "native-layers-v4|FAMAS|Weapon_FAMAS|82a0dfb9645224298998|43b81c16c110726105a2|60bc63e90fd024cefac7|84d1ecad14a82337e092|07d22e1ef0732fb6fa47|da6f9c4286efa457a473|1b56632e668e65308a9c|b7880b56e23b6dacd88b"
+  },
+  {
+    "weapon": "FG42",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|FG42|FG42|0b9108254e81d10ac0df|c24cbcfe245d5129402a|5a5ebed210a2550fe952"
+  },
+  {
+    "weapon": "FG42",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_Scope_ZF4"
+    },
+    "key": "native-layers-v4|FG42|FG42|139e703ac28c0ad0de8e|c24cbcfe245d5129402a|5a5ebed210a2550fe952"
+  },
+  {
+    "weapon": "FG42",
+    "column": 2,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|FG42|FG42|0b9108254e81d10ac0df|c24cbcfe245d5129402a|5a5ebed210a2550fe952"
+  },
+  {
+    "weapon": "FNFAL",
+    "column": 0,
+    "components": {
+      "Handguard": "FNFAL_Handguard",
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Under": "",
+      "Scope": "",
+      "Bipod": "",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|FNFAL|Weapon_FNFAL|50ce07cebb83d255ca1c|62639e8a12a43859b724|0775f85f87ede3c4d8e2|b7529f3bc251a7e981b9|36c89caa8c951c9dc56b"
+  },
+  {
+    "weapon": "FNFAL",
+    "column": 1,
+    "components": {
+      "Handguard": "FNFAL_Handguard",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagLarge_20_30_FAL",
+      "Muzzle": "JAZZ_Suppressor",
+      "Under": "JAZZ_VerticalGrip",
+      "Stock": "JAZZ_StockLightFolded",
+      "Side2": "",
+      "Bipod": "JAZZ_Bipod",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|FNFAL|Weapon_FNFAL|a572d854cc35c4f35e36|ffafb5ccf8ccd7c7ce07|c96d0f031e509add53fb|f65a7f74f3d4a7eac934|653949fd59e4a7322a19|105d6603ca59354a7a5c|bbccd81098f72317b2f1|0775f85f87ede3c4d8e2|7e709c4306a69b06fde7|b7529f3bc251a7e981b9|92e1817aa9f399a0b78c|eec9731697a249f1376d"
+  },
+  {
+    "weapon": "FNFAL",
+    "column": 2,
+    "components": {
+      "Handguard": "FNFAL_Handguard",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagLarge_20_30_FAL",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Stock": "JAZZ_StockLightFolded",
+      "Bipod": "JAZZ_Bipod",
+      "Barrel": "JAZZ_BarrelShortImproved",
+      "Scope": "JAZZ_Scope_6x"
+    },
+    "key": "native-layers-v4|FNFAL|Weapon_FNFAL|a572d854cc35c4f35e36|ffafb5ccf8ccd7c7ce07|c96d0f031e509add53fb|72664c49be53a6924cb7|653949fd59e4a7322a19|59c420efc1f388366d80|bbccd81098f72317b2f1|0775f85f87ede3c4d8e2|7e709c4306a69b06fde7|b7529f3bc251a7e981b9|4a90e9836aee438af389"
+  },
+  {
+    "weapon": "FNMAG",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|FNMAG|KSP_58_B|cbcd7f28d92608213905|a077e44a4bb41d6a5608|198e6a638e9d3c621807"
+  },
+  {
+    "weapon": "FNMAG",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|FNMAG|KSP_58_B|cbcd7f28d92608213905|a077e44a4bb41d6a5608|6e5c72a16c970494072d|198e6a638e9d3c621807"
+  },
+  {
+    "weapon": "FNMAG",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|FNMAG|KSP_58_B|cbcd7f28d92608213905|a077e44a4bb41d6a5608|764b516a4f3d505ac60f|198e6a638e9d3c621807"
+  },
+  {
+    "weapon": "FNMinimi",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Stock": "JAZZ_StockNormal",
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|FNMinimi|Weapon_FNMinimi|03b63cf8d682e724460b|ecf44ddddab5ecc25111|4f9ab326a4f4ea68cd59|cf3f870e3eb8f71c6bf4|f60748b32091214278f0"
+  },
+  {
+    "weapon": "FNMinimi",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Side2": "",
+      "Magazine": "JAZZ_MagBelt_100_200",
+      "Stock": "JAZZ_StockHeavy",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|FNMinimi|Weapon_FNMinimi|03b63cf8d682e724460b|0325706144e86a42d4d1|74941ef3a88358342bc5|db33f2c241051fec6098|cf3f870e3eb8f71c6bf4|4c4e89d6285e9c3ff69b"
+  },
+  {
+    "weapon": "FNMinimi",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockHeavy",
+      "Magazine": "JAZZ_MagBelt_100_200",
+      "Bipod": "JAZZ_Bipod",
+      "Barrel": "JAZZ_BarrelLong",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|FNMinimi|Weapon_FNMinimi|03b63cf8d682e724460b|77f23707bc5d2345e225|db33f2c241051fec6098|cf3f870e3eb8f71c6bf4|79a473b0a1e38e7a4a69|4c4e89d6285e9c3ff69b"
+  },
+  {
+    "weapon": "FRF2",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_8x_SCROME",
+      "Muzzle": "",
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|FRF2|FRF2|9f41531de412935fe255|afc1c55fc1061a1c0f05"
+  },
+  {
+    "weapon": "FRF2",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_Scope_8x_SCROME"
+    },
+    "key": "native-layers-v4|FRF2|FRF2|9f41531de412935fe255|afc1c55fc1061a1c0f05|4cf654c5796dc8cbcd12"
+  },
+  {
+    "weapon": "FRF2",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_Scope_8x_SCROME"
+    },
+    "key": "native-layers-v4|FRF2|FRF2|9f41531de412935fe255|afc1c55fc1061a1c0f05"
+  },
+  {
+    "weapon": "FiveSeven",
+    "column": 0,
+    "components": {
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|FiveSeven|Five_Seven|11b9f63d7cf3fc4b5385"
+  },
+  {
+    "weapon": "FiveSeven",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|FiveSeven|Five_Seven|b1bcd3d22caa31617773|11b9f63d7cf3fc4b5385|59530d70096aedfcf4e9"
+  },
+  {
+    "weapon": "FiveSeven",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|FiveSeven|Five_Seven|b1bcd3d22caa31617773|11b9f63d7cf3fc4b5385|db05bd927ac702c6f218"
+  },
+  {
+    "weapon": "FlareHandgun",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|FlareHandgun|Weapon_FlareGun|b3188ad897f2ae4a9630"
+  },
+  {
+    "weapon": "FlareHandgun",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|FlareHandgun|Weapon_FlareGun|b3188ad897f2ae4a9630"
+  },
+  {
+    "weapon": "G36",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Side": "",
+      "Stock": "JAZZ_StockNormal",
+      "Scope": "JAZZ_G36Sight"
+    },
+    "key": "native-layers-v4|G36|Weapon_HKG36|cc93c72509a0c7dcb923|9fe712ee05efeea19bcf|113bfa1f80c353488932|9ec9e6922bbfdad1ffcb"
+  },
+  {
+    "weapon": "G36",
+    "column": 1,
+    "components": {
+      "Under": "JAZZ_TacGrip",
+      "Side": "JAZZ_FlashlightDot",
+      "Muzzle": "JAZZ_Suppressor",
+      "Magazine": "JAZZ_MagQuick_G36",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelLong",
+      "Scope": "JAZZ_G36Scope"
+    },
+    "key": "native-layers-v4|G36|Weapon_HKG36|91ec56206a7411e3c765|078161f0a75b944c7d53|0f5a10c3506c3625fbf5|812c53262300a6705b2c|a6eeb3f8c8282fc4749f|d7a85a36d44760d17cf3|5d593f1d0ee5dda1c6a2|e6a620f770d8ae284002|9ec9e6922bbfdad1ffcb"
+  },
+  {
+    "weapon": "G36",
+    "column": 2,
+    "components": {
+      "Under": "JAZZ_TacGrip",
+      "Side": "",
+      "Muzzle": "JAZZ_Suppressor",
+      "Magazine": "JAZZ_MagDrum_30_100_cumbersome",
+      "Stock": "JAZZ_StockFolded",
+      "Barrel": "JAZZ_BarrelLong",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|G36|Weapon_HKG36|0f5a10c3506c3625fbf5|812c53262300a6705b2c|b6b019e745e8d4ffb535|ac5d07dcb2f4c402e9ad|7298ea7158379a4aa409|d7a85a36d44760d17cf3|5d593f1d0ee5dda1c6a2|cb3c03340a8b2eb1fc70"
+  },
+  {
+    "weapon": "G36c",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "JAZZ_TacGrip",
+      "Side": "JAZZ_LaserDot",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|G36c|G36c|60eca41cbfc8068fa9d1|78ae9834cfcb30e516b2|53285596e3ae31a6f7dc|1a80fc6ac1c17e4d2932|9d9cd45bed9a82032b56|49fa09f97ef71250f458"
+  },
+  {
+    "weapon": "G36c",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": "JAZZ_CombatScope_2x",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_GrenadeLauncher_M14"
+    },
+    "key": "native-layers-v4|G36c|G36c|60eca41cbfc8068fa9d1|a69810ad5c034067e0f2|53285596e3ae31a6f7dc|3f87789f7d167254e601|c2cd2078b696361a776b|49fa09f97ef71250f458"
+  },
+  {
+    "weapon": "G36c",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": "JAZZ_Reflex_Eotech",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_UVDot",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Under": "JAZZ_GrenadeLauncher_M14"
+    },
+    "key": "native-layers-v4|G36c|G36c|60eca41cbfc8068fa9d1|b992cc940419b4149b61|53285596e3ae31a6f7dc|1a80fc6ac1c17e4d2932|cb152f54c074a1fc6eae|49fa09f97ef71250f458"
+  },
+  {
+    "weapon": "G3A3",
+    "column": 0,
+    "components": {
+      "Bipod": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|G3A3|G3A3|eef12ccfdcb1e56a94ef|a2136c7d0c9235ec353b"
+  },
+  {
+    "weapon": "G3A3",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagSmall20_10_G3",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|G3A3|G3A3|4d79fba0798b93673814|366b502d431912d83068|e3713a62a9152619b017|ca51429576f8503aa275|a2136c7d0c9235ec353b|db6e00cccfdc9e54d5ce"
+  },
+  {
+    "weapon": "G3A3",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagSmall20_10_G3",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_Reflex_Closed"
+    },
+    "key": "native-layers-v4|G3A3|G3A3|4d79fba0798b93673814|e3713a62a9152619b017|a2136c7d0c9235ec353b|db6e00cccfdc9e54d5ce|abb42b150ec90e2810df|b9eec22aa12eaaa08ea0"
+  },
+  {
+    "weapon": "G3A4",
+    "column": 0,
+    "components": {
+      "Bipod": "",
+      "Scope": "",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|G3A4|G3A4|d2ee781eff6b62a9195f|d7f60754c954462ceebb|e8f21c7d1d65cdf48c96"
+  },
+  {
+    "weapon": "G3A4",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagSmall20_10_G3",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|G3A4|G3A4|2c40634732162fee0ed7|7a25e1d8bea571a25818|76ab21f2c0a106bc15ae|b499c807e444dc35effe|d7f60754c954462ceebb|4930947302871b9631c3|e8f21c7d1d65cdf48c96"
+  },
+  {
+    "weapon": "G3A4",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagSmall20_10_G3",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|G3A4|G3A4|2c40634732162fee0ed7|76ab21f2c0a106bc15ae|d7f60754c954462ceebb|4930947302871b9631c3|ac183fa34b805d86dd83|e8f21c7d1d65cdf48c96|f3165b2a539e69ccfa5f"
+  },
+  {
+    "weapon": "G3SniperV1",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "",
+      "Scope": "JAZZ_Scope_DA15_6x",
+      "Magazine": "JAZZ_MagSmall20_10_G3"
+    },
+    "key": "native-layers-v4|G3SniperV1|G3Sniper|1ba7767cb6aa41971892|1af6822bc2e6e78ece00|6d4beb598f941845a674|8c9f5c24ee05709ccaaf|6e7632ab9d08d1c47aa0"
+  },
+  {
+    "weapon": "G3SniperV1",
+    "column": 1,
+    "components": {
+      "Bipod": "",
+      "Mount": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_CombatScope_FeroZ24"
+    },
+    "key": "native-layers-v4|G3SniperV1|G3Sniper|c1fede0c52affebe2a21|d46b1105f0d5079d17c0|8c9f5c24ee05709ccaaf|92f9a8cb12db5a4dea5a"
+  },
+  {
+    "weapon": "G3SniperV1",
+    "column": 2,
+    "components": {
+      "Bipod": "",
+      "Mount": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|G3SniperV1|G3Sniper|c1fede0c52affebe2a21|afc4f5b86476aec11eb1|6d4beb598f941845a674|b0c48425043c64b47f95|8c9f5c24ee05709ccaaf"
+  },
+  {
+    "weapon": "G43",
+    "column": 0,
+    "components": {
+      "Scope": ""
+    },
+    "key": "native-layers-v4|G43|G43|81bab2c7f508e3bf3deb"
+  },
+  {
+    "weapon": "G43",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_Scope_ZF4"
+    },
+    "key": "native-layers-v4|G43|G43|81bab2c7f508e3bf3deb|bd2e72285d96e03e0dff"
+  },
+  {
+    "weapon": "G43",
+    "column": 2,
+    "components": {
+      "Scope": ""
+    },
+    "key": "native-layers-v4|G43|G43|81bab2c7f508e3bf3deb"
+  },
+  {
+    "weapon": "Galil",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Muzzle": "JAZZ_Galil_Brake_Default",
+      "Under": "JAZZ_Bipod_Galil",
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": ""
+    },
+    "key": "native-layers-v4|Galil|Weapon_Galil|0d738e7ea248fd8be7df|93f925d350518590d113|4ba9673cf684b40c822d|e9a8871cd221522a762f|e5f438cc48e9fafdd385|b0f8129d6e8b991b06f5|926eb0fa28788e8a53c1"
+  },
+  {
+    "weapon": "Galil",
+    "column": 1,
+    "components": {
+      "Handguard": "",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagQuick_GALIL",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_GrenadeLauncher_Galil",
+      "Stock": "JAZZ_StockLight",
+      "Side2": "",
+      "Bipod": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|Galil|Weapon_Galil|e95be328e5473fea6899|ab7d099a32548eb28d4d|bb7c2c2d943be8e63378|93f925d350518590d113|ace1de379163eabb17b0|1ab5cd4e21779207d9c4|269b5c5b1e6a6f5caad1|41609b9ad2fcd4924e09|e1de3b9d3963e576e005|41f7d55d6c21bf802659|11059762966eb6775680"
+  },
+  {
+    "weapon": "Galil",
+    "column": 2,
+    "components": {
+      "Handguard": "",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagQuick_GALIL",
+      "Muzzle": "JAZZ_Suppressor",
+      "Under": "JAZZ_GrenadeLauncher_Galil",
+      "Stock": "JAZZ_StockLight",
+      "Side2": "",
+      "Bipod": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_Scope_12x"
+    },
+    "key": "native-layers-v4|Galil|Weapon_Galil|8259eea584ea10a0c965|e95be328e5473fea6899|ab7d099a32548eb28d4d|bb7c2c2d943be8e63378|93f925d350518590d113|1ab5cd4e21779207d9c4|269b5c5b1e6a6f5caad1|41609b9ad2fcd4924e09|41f7d55d6c21bf802659|54929a87be94d4f427a5|11059762966eb6775680"
+  },
+  {
+    "weapon": "Galil_FlagHill",
+    "column": 0,
+    "components": {
+      "Barrel": "BarrelNormal",
+      "Stock": "StockNormal",
+      "Muzzle": "MuzzleBooster",
+      "Under": "Bipod_Galil",
+      "Scope": "JAZZ_Reflex_Aimpoint5000",
+      "Magazine": "MagNormal"
+    },
+    "key": "native-layers-v4|Galil_FlagHill|Weapon_Galil|03cf2af725b06692de4e|d0e565ba2222b29aa844|dd0b7b87323dfe9526f2|1149a6007c9acfcef1fd|dc366e206c236799a7ab|c6b1fb1c864bfcfbd950|277578f406a72540a4c2|faf8d99c6d5f5ccce185"
+  },
+  {
+    "weapon": "Galil_FlagHill",
+    "column": 1,
+    "components": {
+      "Stock": "StockNormal",
+      "Under": "Bipod_Galil",
+      "Magazine": "MagNormal",
+      "Muzzle": "MuzzleBooster",
+      "Barrel": "BarrelNormal",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|Galil_FlagHill|Weapon_Galil|03cf2af725b06692de4e|d0e565ba2222b29aa844|dd0b7b87323dfe9526f2|1149a6007c9acfcef1fd|dc366e206c236799a7ab|c6b1fb1c864bfcfbd950|277578f406a72540a4c2|faf8d99c6d5f5ccce185"
+  },
+  {
+    "weapon": "Gewehr98",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_IronSight",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Gewehr98|Weapon_Gewehr98|d2932cfeb1d7277de754|a60bd57b76dc40a66aaa"
+  },
+  {
+    "weapon": "Gewehr98",
+    "column": 1,
+    "components": {
+      "Mount": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Gewehr98|Weapon_Gewehr98|0c09065661a82d0332fa|aa733b1e66c6073ff52a|78ef0e687ca78e239b1c|d2932cfeb1d7277de754"
+  },
+  {
+    "weapon": "Gewehr98",
+    "column": 2,
+    "components": {
+      "Mount": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_Scope_DA15_6x"
+    },
+    "key": "native-layers-v4|Gewehr98|Weapon_Gewehr98|0c09065661a82d0332fa|a20a53874a0608a75755|78ef0e687ca78e239b1c|d2932cfeb1d7277de754"
+  },
+  {
+    "weapon": "Glock17",
+    "column": 0,
+    "components": {
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": ""
+    },
+    "key": "native-layers-v4|Glock17|Glock_17|605b928e59a9ae6b239f|5555cad44483c5bba161"
+  },
+  {
+    "weapon": "Glock17",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormalG18",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|Glock17|Glock_17|40734dee86e1e67dbf1b|5555cad44483c5bba161|56c16e077f19bc38437e|14a2f2e63d1f20ba5a0b"
+  },
+  {
+    "weapon": "Glock17",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_28",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Side": "JAZZ_FlashlightOff"
+    },
+    "key": "native-layers-v4|Glock17|Glock_17|834af5a59ed103bc74c1|6301e295fe81a46d2d27|7af1bdce44fa0b029aae|5555cad44483c5bba161"
+  },
+  {
+    "weapon": "Glock18",
+    "column": 0,
+    "components": {
+      "Muzzle": "",
+      "Handguard": "MuzzleBooster_Glock18",
+      "Magazine": "JAZZ_MagNormalG18",
+      "Side": ""
+    },
+    "key": "native-layers-v4|Glock18|G18|f881610d717d744fec60|166788cd05742c0603c6"
+  },
+  {
+    "weapon": "Glock18",
+    "column": 1,
+    "components": {
+      "Handguard": "MuzzleBooster_Glock18",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_Compensator"
+    },
+    "key": "native-layers-v4|Glock18|G18|076f1af9e277c2703aa0|5bd9372abeca0f52f07d|166788cd05742c0603c6|b8e0a80b1bd511b6c09e"
+  },
+  {
+    "weapon": "Glock18",
+    "column": 2,
+    "components": {
+      "Handguard": "MuzzleBooster_Glock18",
+      "Magazine": "JAZZ_MagLarge_17_33",
+      "Side": "JAZZ_FlashlightOff",
+      "Muzzle": "JAZZ_PistolSuppressor"
+    },
+    "key": "native-layers-v4|Glock18|G18|adab60bd7d8429a4cb5c|bef842e799220cb6d149|166788cd05742c0603c6|b8e0a80b1bd511b6c09e"
+  },
+  {
+    "weapon": "GoldenGun",
+    "column": 0,
+    "components": {
+      "Bipod": "Bipod",
+      "Muzzle": "M14_Default_Muzzle",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|GoldenGun|Weapon_M14_GoldEquip|d822c9ddbc4796c6e070|20cd457f52d5ed99ec58"
+  },
+  {
+    "weapon": "GoldenGun",
+    "column": 1,
+    "components": {
+      "Bipod": "Bipod",
+      "Muzzle": "Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|GoldenGun|Weapon_M14_GoldEquip|93b9d884a58025dd6a18|d822c9ddbc4796c6e070|20cd457f52d5ed99ec58"
+  },
+  {
+    "weapon": "GoldenGun",
+    "column": 2,
+    "components": {
+      "Bipod": "Bipod",
+      "Muzzle": "Compensator",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|GoldenGun|Weapon_M14_GoldEquip|93b9d884a58025dd6a18|d822c9ddbc4796c6e070|20cd457f52d5ed99ec58"
+  },
+  {
+    "weapon": "GrizzlyLAR",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|GrizzlyLAR|GrizzlyLAR|e6034d2782f4579c6e57"
+  },
+  {
+    "weapon": "GrizzlyLAR",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|GrizzlyLAR|GrizzlyLAR|e6034d2782f4579c6e57"
+  },
+  {
+    "weapon": "HK21",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "DefaultMuzzle_HK21",
+      "Scope": "",
+      "Side": "",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Under": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|HK21|Weapon_HK21|d882f55257c7fd008881|1ace3ea5de00a669c68a|5ae3206218005f7f2be1|a824afdc53c8e12dc9e9|8cd71e26533249010832|e5294b80a1f3f3f3d54c"
+  },
+  {
+    "weapon": "HK21",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_LaserDot",
+      "Magazine": "JAZZ_MagBelt_40_100",
+      "Muzzle": "DefaultMuzzle_HK21",
+      "Under": "JAZZ_TacGrip",
+      "Bipod": "JAZZ_Bipod",
+      "Side2": "",
+      "Stock": "JAZZ_StockHeavy",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|HK21|Weapon_HK21|d158c91580f6eeeafe69|c97846eff0cf6c579340|fbd859ed42292050b9b2|d882f55257c7fd008881|cea1a230a7c3a3e1e18b|1ace3ea5de00a669c68a|eef23a45970780f598f3|7e1a2543760224fccf07|f5ea1dbe7f63c4217b71|52a1a5462abe95eca0e7|1f24151cb44a34653fef"
+  },
+  {
+    "weapon": "HK21",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_LaserDot",
+      "Magazine": "JAZZ_MagBelt_40_100",
+      "Muzzle": "DefaultMuzzle_HK21",
+      "Under": "JAZZ_TacGrip",
+      "Bipod": "JAZZ_Bipod",
+      "Side2": "",
+      "Stock": "JAZZ_StockHeavy",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_Scope_Scout"
+    },
+    "key": "native-layers-v4|HK21|Weapon_HK21|d158c91580f6eeeafe69|ac6933f33ec2b338d159|fbd859ed42292050b9b2|d882f55257c7fd008881|cea1a230a7c3a3e1e18b|1ace3ea5de00a669c68a|eef23a45970780f598f3|7e1a2543760224fccf07|f5ea1dbe7f63c4217b71|52a1a5462abe95eca0e7|1f24151cb44a34653fef"
+  },
+  {
+    "weapon": "HK23e",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Magazine": "JAZZ_MagBelt_40_100",
+      "Side": "",
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|HK23e|HK23e|8fca7037d5162174a374|01b598e85c4fdf948266|33246416d4302e334c89"
+  },
+  {
+    "weapon": "HK23e",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagBelt_40_100",
+      "Side": "JAZZ_Flashlight",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|HK23e|HK23e|8fca7037d5162174a374|3f534d306f232773c438|b3faee45c56f40575a5e|01b598e85c4fdf948266|33246416d4302e334c89"
+  },
+  {
+    "weapon": "HK23e",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagBelt_40_100",
+      "Side": "JAZZ_FlashlightDot",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|HK23e|HK23e|8fca7037d5162174a374|3f534d306f232773c438|740b300204dd282c4a23|01b598e85c4fdf948266|33246416d4302e334c89"
+  },
+  {
+    "weapon": "HK33",
+    "column": 0,
+    "components": {
+      "General": "JAZZ_HK33Lower",
+      "Handguard": "JAZZ_HK33Handguard",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Bipod": "",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Side": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|HK33|HK_33|541634eb0d82318fe544|700371291f2d7ad44a59|3d1b4c84a11502cb6246|92f7799078c2950fa459"
+  },
+  {
+    "weapon": "HK33",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_HK33HandguardMod",
+      "General": "JAZZ_HK33Lower",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Under": "JAZZ_VerticalGrip",
+      "Bipod": "JAZZ_Bipod",
+      "Side": "JAZZ_FlashlightOff",
+      "Barrel": "JAZZ_BarrelLong",
+      "Scope": "JAZZ_CombatScope_FeroZ24"
+    },
+    "key": "native-layers-v4|HK33|HK_33|541634eb0d82318fe544|14a935ab22bca9e2f9c9|e2c8431e866604e4009b|4b8e21e3541462d238d5|3d1b4c84a11502cb6246|92f7799078c2950fa459|a001927b07824c2e6206|411596f84eee11c25515|03c497168606e588210d"
+  },
+  {
+    "weapon": "HK33",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_HK33HandguardMod",
+      "General": "JAZZ_HK33Lower",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Bipod": "JAZZ_Bipod",
+      "Side": "JAZZ_UVDot",
+      "Barrel": "JAZZ_BarrelShortRunNGun",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|HK33|HK_33|541634eb0d82318fe544|891d4f37f4d0a00035a6|eac992da08d386e9735b|4379092ca04f01438cfe|f7927ae43e264d926963|3d1b4c84a11502cb6246|92f7799078c2950fa459|a001927b07824c2e6206|411596f84eee11c25515|2c70d92729adfa0e2cd5"
+  },
+  {
+    "weapon": "HiPower",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|HiPower|Weapon_Browning_HP|53e0e29f1420c02e6a48|4ecf4d7f846701e99304|d725b8766f63c74e9505"
+  },
+  {
+    "weapon": "HiPower",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_25_PISTOL_9",
+      "Muzzle": "JAZZ_Compensator",
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|HiPower|Weapon_Browning_HP|41abc67fdd5c4eaf314e|4ecf4d7f846701e99304|ea156fc3374d84a69b8e|d725b8766f63c74e9505"
+  },
+  {
+    "weapon": "HiPower",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_25_PISTOL_9",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|HiPower|Weapon_Browning_HP|41abc67fdd5c4eaf314e|4ecf4d7f846701e99304|d725b8766f63c74e9505|768e1bc1087a5db8551a"
+  },
+  {
+    "weapon": "Ithaca",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockNormal"
+    },
+    "key": "native-layers-v4|Ithaca|Ithaca37|441f4cb1cad5a9401ee2|82cb4a39011e0ffcdde2|dcce8bc2987601cd0c35"
+  },
+  {
+    "weapon": "Ithaca",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelShortShotgun",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Ithaca|Ithaca37|4764656e001bfa0706f0|9acfc28e691400fa21cf|82cb4a39011e0ffcdde2|dcce8bc2987601cd0c35|3f33a6a51c4ac68aaa5e"
+  },
+  {
+    "weapon": "Ithaca",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelShortShotgun",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|Ithaca|Ithaca37|4764656e001bfa0706f0|9acfc28e691400fa21cf|f05951819665287db31b|82cb4a39011e0ffcdde2|dcce8bc2987601cd0c35"
+  },
+  {
+    "weapon": "JAZZ_FNFAL_Tactical",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Under": "",
+      "Scope": "",
+      "Handguard": "JAZZ_FNFAL_TacHandguard",
+      "Bipod": "",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|JAZZ_FNFAL_Tactical|Weapon_FNFAL|e51b2877d969ae71692a|b5144d0e8fe29eff6658|830f2cc9028d8ced7321|395839ac3961d15be694|1d198b4017c4a0fb0d0b|04e4954e7b69cf3f5886"
+  },
+  {
+    "weapon": "JAZZ_FNFAL_Tactical",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_FNFAL_TacHandguard",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagNormalFine_FAL",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_TacGrip",
+      "Stock": "JAZZ_StockHeavy",
+      "Bipod": "",
+      "Barrel": "JAZZ_BarrelLongImproved",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|JAZZ_FNFAL_Tactical|Weapon_FNFAL|9b2dc5da124b91b63add|b6ab818d23f20f1558ed|dcb894a52fbcd4060182|1d99ab6cf782b75397fc|9277a5e9053bcaacfe16|26b0310bbf57259e4210|395839ac3961d15be694|8e9c4b1ec16eacca14ab|1d198b4017c4a0fb0d0b|04e4954e7b69cf3f5886|026e11ba1805923c4e1e|400e4cf1e838edcb3f90"
+  },
+  {
+    "weapon": "JAZZ_FNFAL_Tactical",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_FNFAL_TacHandguard",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagLarge_20_30_FAL",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Barrel": "JAZZ_BarrelLongImproved",
+      "Scope": "JAZZ_Scope_6x"
+    },
+    "key": "native-layers-v4|JAZZ_FNFAL_Tactical|Weapon_FNFAL|6d5509d546d5428fb874|a1002247b672ab94d005|2c32966a1206021400c5|02d067d4a006e25d46d4|dcb894a52fbcd4060182|233081492e1a973fc4d2|830f2cc9028d8ced7321|25ec20f6a61f5188eea5|395839ac3961d15be694|1d198b4017c4a0fb0d0b|04e4954e7b69cf3f5886"
+  },
+  {
+    "weapon": "JAZZ_M14_MkIII",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Magazine": "JAZZ_MagSmall20_10_M14",
+      "Under": "",
+      "Muzzle": "JAZZ_Suppressor",
+      "Side": "",
+      "Scope": "JAZZ_Scope_12x"
+    },
+    "key": "native-layers-v4|JAZZ_M14_MkIII|JAZZ_M14_MkIII|5f17b095ac939b241a6f|7e568355bd124c9f211f|09395018f6f6ce59ad0c|dbb74f3d7dfbecfcd34c|9b9e28d2ea926f16fb86"
+  },
+  {
+    "weapon": "JAZZ_M14_MkIII",
+    "column": 1,
+    "components": {
+      "Under": "JAZZ_GrenadeLauncher_M14",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_FlashlightDot",
+      "Mount": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_M14_Default_Muzzle",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|JAZZ_M14_MkIII|JAZZ_M14_MkIII|7c37f7455d54db8b28cb|09395018f6f6ce59ad0c|deb3aa35a0dfa4739d92|8adb69c16d057c010c64|dbb74f3d7dfbecfcd34c|fd51e2c6e3120d674528|281e7e33a5f719931368"
+  },
+  {
+    "weapon": "JAZZ_M14_MkIII",
+    "column": 2,
+    "components": {
+      "Under": "JAZZ_VerticalGrip_M14",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_LaserDot",
+      "Mount": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|JAZZ_M14_MkIII|JAZZ_M14_MkIII|7c37f7455d54db8b28cb|09395018f6f6ce59ad0c|1169b19c3daf8ba1380d|deb3aa35a0dfa4739d92|d62ddc8d1b71cfca25a5|dbb74f3d7dfbecfcd34c|8d2bd63b2ba50e7a4854|0edc22caed190d7a54ff"
+  },
+  {
+    "weapon": "Kimber",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Scope": "JAZZ_IronSight",
+      "Side": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Kimber|Kimber|dc7b24fc5b4a1f315194|dbf3648c9f6d6d513ad3|041b506a40d5d532f5ec|4fe2906f66b734575029"
+  },
+  {
+    "weapon": "Kimber",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Scope": "JAZZ_Reflex_Pistol"
+    },
+    "key": "native-layers-v4|Kimber|Kimber|dbf3648c9f6d6d513ad3|041b506a40d5d532f5ec|e3a32161211c3900e9a7|e00923a4091f8327949c|4fe2906f66b734575029|d2926dba011fcbb52f0c"
+  },
+  {
+    "weapon": "Kimber",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagLarge_7_10",
+      "Muzzle": "",
+      "Barrel": "JAZZ_BarrelLong",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|Kimber|Kimber|773fe63ed29d6c5b394c|dc7b24fc5b4a1f315194|e3a32161211c3900e9a7|4fe2906f66b734575029|99844bbbee6c44b70f59"
+  },
+  {
+    "weapon": "Korth",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": "JAZZ_Handgrip_Default"
+    },
+    "key": "native-layers-v4|Korth|KorthRev|5812f6212aa2bbc14ff1"
+  },
+  {
+    "weapon": "Korth",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong",
+      "Handgrip": "JAZZ_Handgrip_Ergo"
+    },
+    "key": "native-layers-v4|Korth|KorthRev|5812f6212aa2bbc14ff1"
+  },
+  {
+    "weapon": "Korth",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong",
+      "Handgrip": "JAZZ_Handgrip_Default"
+    },
+    "key": "native-layers-v4|Korth|KorthRev|5812f6212aa2bbc14ff1"
+  },
+  {
+    "weapon": "L42A1",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_L42A1_Scope"
+    },
+    "key": "native-layers-v4|L42A1|L42A1|73d51598c636880bb50a|43192abdc07877d08a2a"
+  },
+  {
+    "weapon": "L42A1",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_L42A1_Scope"
+    },
+    "key": "native-layers-v4|L42A1|L42A1|73d51598c636880bb50a|43192abdc07877d08a2a"
+  },
+  {
+    "weapon": "LionRoar",
+    "column": 0,
+    "components": {
+      "Muzzle": "Compensator_cosmetic",
+      "Magazine": "MagNormal"
+    },
+    "key": "native-layers-v4|LionRoar|Weapon_Uzi_LionsRoar|9fe55a1d99b949793395|f3af934604d2bf9a23bd"
+  },
+  {
+    "weapon": "LionRoar",
+    "column": 1,
+    "components": {
+      "Muzzle": "Compensator_cosmetic",
+      "Magazine": "MagNormal"
+    },
+    "key": "native-layers-v4|LionRoar|Weapon_Uzi_LionsRoar|9fe55a1d99b949793395|f3af934604d2bf9a23bd"
+  },
+  {
+    "weapon": "Luger",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|Luger|Luger|68a2852b9eabce72865a"
+  },
+  {
+    "weapon": "Luger",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|Luger|Luger|68a2852b9eabce72865a"
+  },
+  {
+    "weapon": "M14SAW",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "JAZZ_M14_Default_Muzzle",
+      "Side": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|M14SAW|JAZZ_M14|ed2844144f2325425bf2|401adaec5d2057828a0e|f94ee19fb315a7c799cc"
+  },
+  {
+    "weapon": "M14SAW",
+    "column": 1,
+    "components": {
+      "Under": "JAZZ_Bipod_Under",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagSmall20_10_M14",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M14SAW|JAZZ_M14|cad77c09163fa1e10219|981a9ee37dd9b3a177db|39b2163ffbad03ad3178|401adaec5d2057828a0e|59ab967d477441f3e2d0|1c21e6a1eccb1813b529|ac8f5102a5cfe86d7605|f94ee19fb315a7c799cc"
+  },
+  {
+    "weapon": "M14SAW",
+    "column": 2,
+    "components": {
+      "Under": "JAZZ_Bipod_Under",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagSmall20_10_M14",
+      "Side": "JAZZ_FlashlightOff",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|M14SAW|JAZZ_M14|cad77c09163fa1e10219|38b184c6a02f87122a19|39b2163ffbad03ad3178|401adaec5d2057828a0e|59ab967d477441f3e2d0|ac8f5102a5cfe86d7605|f94ee19fb315a7c799cc|f06b1e26ed1942589694"
+  },
+  {
+    "weapon": "M16A1",
+    "column": 0,
+    "components": {
+      "Side": "",
+      "Handguard": "JAZZ_Handguard",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "General": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|M16A1|M16A1|916257c33dad822d0e50|c1a6e0d15059c94851a0|1aa7293759e34ef7a08f"
+  },
+  {
+    "weapon": "M16A1",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_M16A1LaunchHandGuard",
+      "Side": "JAZZ_LaserDot",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "General": "JAZZ_HolsterBelt",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M16A1|M16A1|916257c33dad822d0e50|2b0f503f6635aaba63ec|9f78f58d936e8af08724|5a01261b9bd0c5de0838|c1a6e0d15059c94851a0|a9c3cdde07dfdcd21a3f|aa61a6fc4b8a4604ea67"
+  },
+  {
+    "weapon": "M16A1",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_M16A1LaunchHandGuard",
+      "Side": "JAZZ_LaserDot",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "General": "JAZZ_HolsterBelt",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|M16A1|M16A1|916257c33dad822d0e50|2b0f503f6635aaba63ec|518186a5da95973a7264|9f78f58d936e8af08724|c1a6e0d15059c94851a0|a9c3cdde07dfdcd21a3f|aa61a6fc4b8a4604ea67"
+  },
+  {
+    "weapon": "M16A2",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "",
+      "Handguard": "JAZZ_Handguard",
+      "Scope": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|M16A2|M16A2|9f68f0f98de444d3ea93|d06494b35e26685a2253|e83f76b3b643e8941258"
+  },
+  {
+    "weapon": "M16A2",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_M16A1LaunchHandGuard",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagLarge_50_AR15",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|M16A2|M16A2|21f18ab9382273f79399|3c194661d88ac57c382d|29bb900bc78b9eb9fd2c|e83f76b3b643e8941258|9cb2d06e2f60d13effbb|cb81d1a4425fd382f853|b44bfded5b7fd1313317"
+  },
+  {
+    "weapon": "M16A2",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_M16A1LaunchHandGuard",
+      "Side": "JAZZ_UVDot",
+      "Magazine": "JAZZ_MagQuick_AR15",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|M16A2|M16A2|59f79948412f26c6ca6e|29bb900bc78b9eb9fd2c|e83f76b3b643e8941258|6b12fb939c45a4b27f03|9cb2d06e2f60d13effbb|7b236205cedc48cb592b|4cfd667fcaae1ff5b082"
+  },
+  {
+    "weapon": "M16A4",
+    "column": 0,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Trigger": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Side": "",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Scope": "JAZZ_CarryHandle_AR15"
+    },
+    "key": "native-layers-v4|M16A4|M16R_M16A4|48f8c9564326a3e3002f|feea8572c43a1d9c1f46|d278af6a826cc97e658d|a31a007146f3f73b2ef9|9baeda756d698844605a|fb6c552fdc0388c2bf1c|5e615406e41019a3b90d|5288b4603fa0c4323a21|acf4c4936d9890da0b32"
+  },
+  {
+    "weapon": "M16A4",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard_RIS",
+      "Side": "JAZZ_Flashlight",
+      "Trigger": "JAZZ_Autofire",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "Gassblock": "",
+      "Muzzle": "JAZZ_Compensator",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Side2": "",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M16A4|M16R_M16A4|0fdb315faaf176a566b6|26875d6cd6c8a900b354|353469112277b78f4fb5|08b9726e2824f238ebe7|5e615406e41019a3b90d|887c7dfa99129cdea0ec|5288b4603fa0c4323a21|a18149aed0c0f509c002|acf4c4936d9890da0b32|a89c417c4353e79a6105"
+  },
+  {
+    "weapon": "M16A4",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard_RIS",
+      "Side": "JAZZ_FlashlightOff",
+      "Trigger": "JAZZ_Autofire",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "Gassblock": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_VerticalGrip",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Side2": "",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_DefaultIronsight_AR15"
+    },
+    "key": "native-layers-v4|M16A4|M16R_M16A4|0fdb315faaf176a566b6|511196f21ea38a669081|353469112277b78f4fb5|a31a007146f3f73b2ef9|08b9726e2824f238ebe7|5e615406e41019a3b90d|9b0568f5502bfa953b9c|5288b4603fa0c4323a21|b0196e3d30a4ce0cdd1d|acf4c4936d9890da0b32|a89c417c4353e79a6105"
+  },
+  {
+    "weapon": "M1897",
+    "column": 0,
+    "components": {
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|M1897|M1897|26accecab5af5c7e2db5"
+  },
+  {
+    "weapon": "M1897",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_DuckbillChoke"
+    },
+    "key": "native-layers-v4|M1897|M1897|bc3021b0b7a2ef678dda|26accecab5af5c7e2db5"
+  },
+  {
+    "weapon": "M1897",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_FullChoke"
+    },
+    "key": "native-layers-v4|M1897|M1897|26accecab5af5c7e2db5"
+  },
+  {
+    "weapon": "M1A",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "JAZZ_M14_Default_Muzzle",
+      "Side": "",
+      "Handguard": "JAZZ_HandguardM1A",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|M1A|M1A|52693a243a63eed01470|09d008212019f061c688|6ee04115d2637db25346|3a0499bb771a44a98ca9"
+  },
+  {
+    "weapon": "M1A",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_HandguardM1ARail",
+      "General": "",
+      "Magazine": "JAZZ_MagNormalFine_M14",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_Bipod_Under",
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_Flashlight",
+      "Barrel": "JAZZ_BarrelShortImproved",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M1A|M1A|d77398775a7d7561b96b|ba5691aa7a1ba4629620|c60871472e6fea95a7a0|3a0499bb771a44a98ca9|9a8b53bba82ec1178009"
+  },
+  {
+    "weapon": "M1A",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_HandguardM1ARail",
+      "General": "",
+      "Magazine": "JAZZ_MagNormalFine_M14",
+      "Muzzle": "JAZZ_Suppressor",
+      "Under": "JAZZ_TacGrip_M14",
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_FlashlightOff",
+      "Barrel": "JAZZ_BarrelShortImproved",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|M1A|M1A|d77398775a7d7561b96b|78771ab6be0abd87448a|c60871472e6fea95a7a0|3a0499bb771a44a98ca9|9a8b53bba82ec1178009"
+  },
+  {
+    "weapon": "M1Garand",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_DefaultIronsight_AR15",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|M1Garand|Garand|bbd188f0dc287ce62149|a88abd0f8fa05fc805f7"
+  },
+  {
+    "weapon": "M1Garand",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Reflex_Garand"
+    },
+    "key": "native-layers-v4|M1Garand|Garand|d2ab1d1413afa9f82853|0ce8fa1290b5713e19c3|bbd188f0dc287ce62149"
+  },
+  {
+    "weapon": "M1Garand",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Scope_Garand"
+    },
+    "key": "native-layers-v4|M1Garand|Garand|b48a5e71a8f38666af27|0ce8fa1290b5713e19c3|bbd188f0dc287ce62149"
+  },
+  {
+    "weapon": "M21",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Magazine": "JAZZ_MagSmall20_10_M14",
+      "Under": "",
+      "Muzzle": "JAZZ_M14_Default_Muzzle",
+      "Side": "",
+      "Scope": "JAZZ_Scope_M21_ART"
+    },
+    "key": "native-layers-v4|M21|JAZZ_M14|06f55a8aba66632aa7c9|10f1d522a56136ddac49|38ffa3ba9c2e980c40d6|8f7d8fc7559feb4831fc|6d9ff47edb75a1207e52"
+  },
+  {
+    "weapon": "M21",
+    "column": 1,
+    "components": {
+      "Under": "JAZZ_VerticalGrip_M14",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_LaserDot",
+      "Magazine": "JAZZ_MagNormal",
+      "Opticsmount": "",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|M21|JAZZ_M14|e554473b474a3c4de503|ab31ea2cb106a4eb4f84|880839a9ea61cc9a87fe|14564cc523a6b2042ce3|5310c75022040432d26d|38ffa3ba9c2e980c40d6|8f7d8fc7559feb4831fc|6d9ff47edb75a1207e52|23d046a5ef06dd6c71c9"
+  },
+  {
+    "weapon": "M21",
+    "column": 2,
+    "components": {
+      "Under": "JAZZ_TacGrip_M14",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagNormal",
+      "Opticsmount": "",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Scope_12x"
+    },
+    "key": "native-layers-v4|M21|JAZZ_M14|e554473b474a3c4de503|c2da1d9c04237264f812|5310c75022040432d26d|38ffa3ba9c2e980c40d6|104340cbe8ba43700186|8f7d8fc7559feb4831fc|6d9ff47edb75a1207e52|b6a98651f82958c3c176|2fa4a74f79d078c6f522"
+  },
+  {
+    "weapon": "M24Sniper",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_6x",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|M24Sniper|Weapon_M24|6c68d38389d1274a9945|4193ba24afebc82f430d|1517d995ed08f1e54ae9|b3f230e541ad4146a392|d7b64667f76d08c17fbd"
+  },
+  {
+    "weapon": "M24Sniper",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Side": "JAZZ_Flashlight",
+      "Mount": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLight",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M24Sniper|Weapon_M24|19706c83363824e6da27|2ad26542f1dbff8b0291|6c68d38389d1274a9945|812645637871411bcf0a|1517d995ed08f1e54ae9|b3f230e541ad4146a392|6e6bd2e9ec8b0ed0c26d|82d5b668f2666b9852b5|a863828d980ced04ce08"
+  },
+  {
+    "weapon": "M24Sniper",
+    "column": 2,
+    "components": {
+      "Bipod": "",
+      "Side": "JAZZ_LaserDot",
+      "Mount": "",
+      "Magazine": "JAZZ_MagLarge_5_10",
+      "Stock": "JAZZ_StockLight",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Scope_12x"
+    },
+    "key": "native-layers-v4|M24Sniper|Weapon_M24|57cddc4e5bca37537187|6c68d38389d1274a9945|812645637871411bcf0a|1517d995ed08f1e54ae9|a4e334993c19cad22450|6e6bd2e9ec8b0ed0c26d|82d5b668f2666b9852b5|9fe558ebb7f23f231968"
+  },
+  {
+    "weapon": "M2Carbine",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagSmall30_15_M2CARBINE",
+      "Scope": "",
+      "Trigger": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|M2Carbine|M2Carbine|79bf2aca3f00244a9f39|f65702e05a1c292be590|f88a1fc532ce5b2d29ce"
+  },
+  {
+    "weapon": "M2Carbine",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Trigger": "JAZZ_Autofire",
+      "Magazine": "JAZZ_MagSmall30_15_M2CARBINE",
+      "Muzzle": "JAZZ_FlashHider",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M2Carbine|M2Carbine|04c1255d683ec33d9f43|dbd8cfc89fdce806e1d4|79bf2aca3f00244a9f39|f65702e05a1c292be590|3ef140fcd0f9276f8994|c1b1cfdbfc386c5c2ddc"
+  },
+  {
+    "weapon": "M2Carbine",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockNo",
+      "Trigger": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Scope": "JAZZ_NightScope_M3"
+    },
+    "key": "native-layers-v4|M2Carbine|M2Carbine|fd70ef8a37823118ba7a|111d2a622af28ac184a5|79bf2aca3f00244a9f39|fac127d05f5eb8c0d537|c7c2e00afdfb0c8ab3d9"
+  },
+  {
+    "weapon": "M3GreaseGun",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|M3GreaseGun|Grease|86bc75fc8f530f0aea09|bc2d3c5bac202c3edb99"
+  },
+  {
+    "weapon": "M3GreaseGun",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|M3GreaseGun|Grease|86bc75fc8f530f0aea09|bc2d3c5bac202c3edb99"
+  },
+  {
+    "weapon": "M41Shotgun",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Scope": "",
+      "Side": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|M41Shotgun|Weapon_Benelli_M4|8aad68a16cebad4a9959|0e316bcdc79dab6b5700"
+  },
+  {
+    "weapon": "M41Shotgun",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_Compensator",
+      "Barrel": "JAZZ_BarrelShortShotgun_Benelli",
+      "Side": "JAZZ_Flashlight",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|M41Shotgun|Weapon_Benelli_M4|2020bf417b82665f57b3|72fb8303ef2ef5539a80|e37c3c14453fa461348e|0e316bcdc79dab6b5700|a1bce38d7fea49369c7d"
+  },
+  {
+    "weapon": "M41Shotgun",
+    "column": 2,
+    "components": {
+      "Muzzle": "JAZZ_Compensator",
+      "Barrel": "JAZZ_BarrelShortShotgun_Benelli",
+      "Side": "JAZZ_FlashlightOff",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|M41Shotgun|Weapon_Benelli_M4|72fb8303ef2ef5539a80|e37c3c14453fa461348e|0e316bcdc79dab6b5700|21c234382589b31d2991"
+  },
+  {
+    "weapon": "M45",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|M45|M45|f028b6edb8178990225f|572df281f2972bf8f78f"
+  },
+  {
+    "weapon": "M45",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|M45|M45|f028b6edb8178990225f|572df281f2972bf8f78f"
+  },
+  {
+    "weapon": "M4A1",
+    "column": 0,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Scope": "JAZZ_CarryHandle_AR15",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Under": "",
+      "Side": "",
+      "Muzzle": "JAZZ_DefMuzzle"
+    },
+    "key": "native-layers-v4|M4A1|M4R_M4A1|2e8b0e8fca71bc262093|f67059262fe05c6a3b50|c0fc17f90bb9f708abf2|b0ce4456a47540e2fcb5|3021004e7563a163a40f|458d50159b087f197ccd|e2359883ce7dad40ff0e|aedfb9307f09d2647880|6259d96ecc40f378a1fa"
+  },
+  {
+    "weapon": "M4A1",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard_RIS",
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "Gassblock": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_VerticalGrip",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Barrel": "JAZZ_BarrelLong",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|M4A1|M4R_M4A1|236915ccc23243b2864c|555e298b9d854551e4ac|84e02d06fbd51295a74b|b0ce4456a47540e2fcb5|6487f4403b188a8be22b|3021004e7563a163a40f|458d50159b087f197ccd|7b010843295cf06101fb|55af45fc3276a742eb60|e4500a27965e25cbdb5b|aedfb9307f09d2647880"
+  },
+  {
+    "weapon": "M4A1",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard_RIS",
+      "Side": "JAZZ_UVDot",
+      "Magazine": "JAZZ_MagSmall30_20",
+      "Gassblock": "",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Side2": "",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|M4A1|M4R_M4A1|236915ccc23243b2864c|60e85217872d3917f5e2|f0b822aad0147c33901d|b0ce4456a47540e2fcb5|3021004e7563a163a40f|2e9a3fe8e30646ef206f|55af45fc3276a742eb60|c74bb01dad120845f95a|aedfb9307f09d2647880|23601e14104a998e23b7"
+  },
+  {
+    "weapon": "M60",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|M60|M60|42c9342d3cf6f6dcc500|c1d07740356f594f86c1|f33beaac9a0721145b0b"
+  },
+  {
+    "weapon": "M60",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|M60|M60|42c9342d3cf6f6dcc500|c1d07740356f594f86c1|f33beaac9a0721145b0b"
+  },
+  {
+    "weapon": "M60E3",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|M60E3|M60E3|cbd468d2caa7a7438ab3|539d5070668565e5d061|25f01ea715da986921a1"
+  },
+  {
+    "weapon": "M60E3",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|M60E3|M60E3|cbd468d2caa7a7438ab3|539d5070668565e5d061|25f01ea715da986921a1"
+  },
+  {
+    "weapon": "M60E4",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Side": "",
+      "Under": ""
+    },
+    "key": "native-layers-v4|M60E4|M60E4|6d9e81e45d0a89738b45|76e04a9e8ba982b8f892|97c6603780343dcee4c5"
+  },
+  {
+    "weapon": "M60E4",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_CombatScope_2x",
+      "Side": "JAZZ_Flashlight",
+      "Under": "JAZZ_VerticalGrip"
+    },
+    "key": "native-layers-v4|M60E4|M60E4|6d9e81e45d0a89738b45|dec6cf0e73c49cbbcae6|a8572d289c5eb9e9704f|ba68cd6e0f9f7dd9695c|76e04a9e8ba982b8f892|97c6603780343dcee4c5"
+  },
+  {
+    "weapon": "M60E4",
+    "column": 2,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_CombatScope_ACOG",
+      "Side": "JAZZ_FlashlightDot",
+      "Under": "JAZZ_VerticalGrip"
+    },
+    "key": "native-layers-v4|M60E4|M60E4|6d9e81e45d0a89738b45|dec6cf0e73c49cbbcae6|98d7d15fa18e6a4e6458|5ad066b1d145afe6aee9|76e04a9e8ba982b8f892|97c6603780343dcee4c5"
+  },
+  {
+    "weapon": "M700",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_Scope_3x_9x"
+    },
+    "key": "native-layers-v4|M700|M700|aa5edad1f0be0e0bdffb|bad09e344e1d91bdb791"
+  },
+  {
+    "weapon": "M700",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_Scope_3x_9x"
+    },
+    "key": "native-layers-v4|M700|M700|aa5edad1f0be0e0bdffb|bad09e344e1d91bdb791"
+  },
+  {
+    "weapon": "M72LAW",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|M72LAW|M72LAW2|09a50c5311c8455bbdd9"
+  },
+  {
+    "weapon": "M72LAW",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|M72LAW|M72LAW2|09a50c5311c8455bbdd9"
+  },
+  {
+    "weapon": "M79",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|M79|M79|361656848d318a6cbdc6"
+  },
+  {
+    "weapon": "M79",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|M79|M79|361656848d318a6cbdc6"
+  },
+  {
+    "weapon": "MAC10",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockLightFolded"
+    },
+    "key": "native-layers-v4|MAC10|MAC10|de406eb415b2a6cf007e|7fa5f73c17c6d1ef93a2|e7da191ef8acf18983ad"
+  },
+  {
+    "weapon": "MAC10",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_Compensator",
+      "Stock": "JAZZ_StockLightFolded"
+    },
+    "key": "native-layers-v4|MAC10|MAC10|de406eb415b2a6cf007e|7fa5f73c17c6d1ef93a2|e7da191ef8acf18983ad|f91bfd6e2f8958921c58"
+  },
+  {
+    "weapon": "MAC10",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Stock": "JAZZ_StockLightFolded"
+    },
+    "key": "native-layers-v4|MAC10|MAC10|de406eb415b2a6cf007e|7fa5f73c17c6d1ef93a2|e7da191ef8acf18983ad|e7e40d227f202509362e"
+  },
+  {
+    "weapon": "MAC1950",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|MAC1950|MAC1950|9a5568d3a691649edd85"
+  },
+  {
+    "weapon": "MAC1950",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|MAC1950|MAC1950|9a5568d3a691649edd85|2793169200a46caf8faa|75f0edfbfab154fe134f"
+  },
+  {
+    "weapon": "MAC1950",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|MAC1950|MAC1950|9a5568d3a691649edd85|2793169200a46caf8faa|5243ae0f287c076f2ec8"
+  },
+  {
+    "weapon": "MAC2429",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|MAC2429|MAC2429|fb136259be705b6d3146|42c82f56122b66f1f6eb|824918feb96503b29bf5|4ba01b8547f9fc4de547|b0fa540de4a488647790"
+  },
+  {
+    "weapon": "MAC2429",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelsDefs"
+    },
+    "key": "native-layers-v4|MAC2429|MAC2429|fb136259be705b6d3146|42c82f56122b66f1f6eb|824918feb96503b29bf5|4ba01b8547f9fc4de547|b0fa540de4a488647790"
+  },
+  {
+    "weapon": "MAS36",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|MAS36|MAS36|a16740c76403a28d929d"
+  },
+  {
+    "weapon": "MAS36",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|MAS36|MAS36|a16740c76403a28d929d"
+  },
+  {
+    "weapon": "MAS49",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|MAS49|MAS49|9949d129628f30d76826"
+  },
+  {
+    "weapon": "MAS49",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|MAS49|MAS49|9949d129628f30d76826"
+  },
+  {
+    "weapon": "MAT49",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|MAT49|MAT49|e56cee96b39cbaa23b14|6fed965da1a4c6d303f0|b5374818a0e4a6be9138"
+  },
+  {
+    "weapon": "MAT49",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|MAT49|MAT49|e56cee96b39cbaa23b14|6fed965da1a4c6d303f0|b5374818a0e4a6be9138"
+  },
+  {
+    "weapon": "MG42",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|MG42|Weapon_MG42|e395535350fa83b0b963|e4aeee10b0b808f5af38"
+  },
+  {
+    "weapon": "MG42",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|MG42|Weapon_MG42|e395535350fa83b0b963|e4aeee10b0b808f5af38"
+  },
+  {
+    "weapon": "MG58",
+    "column": 0,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_ImprovedIronsight"
+    },
+    "key": "native-layers-v4|MG58|Weapon_MG42|045a89b24c33d4e249a1|b63194591ba1f287db17"
+  },
+  {
+    "weapon": "MG58",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_ImprovedIronsight"
+    },
+    "key": "native-layers-v4|MG58|Weapon_MG42|045a89b24c33d4e249a1|b63194591ba1f287db17"
+  },
+  {
+    "weapon": "MGL",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|MGL|Weapon_MilkorMGL|d5a9b8dd06fab3cc6461"
+  },
+  {
+    "weapon": "MGL",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|MGL|Weapon_MilkorMGL|d5a9b8dd06fab3cc6461"
+  },
+  {
+    "weapon": "MK14EBR",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "",
+      "Muzzle": "JAZZ_M14_Default_Muzzle",
+      "Side": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|MK14EBR|MK14EBR|df05cff9d71f2b744104|abba320de55b57464f92"
+  },
+  {
+    "weapon": "MK14EBR",
+    "column": 1,
+    "components": {
+      "Under": "JAZZ_Bipod_Under",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagSmall20_10_M14",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|MK14EBR|MK14EBR|5a466662dc8fec034628|58a9949f26ef1df0545a|ea7699caea641a8ecea1|df05cff9d71f2b744104|00d3a3ba3d07d7dc3c3c|abba320de55b57464f92"
+  },
+  {
+    "weapon": "MK14EBR",
+    "column": 2,
+    "components": {
+      "Under": "JAZZ_VerticalGrip_M14",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagSmall20_10_M14",
+      "Side": "JAZZ_FlashlightOff",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|MK14EBR|MK14EBR|ea7699caea641a8ecea1|df05cff9d71f2b744104|dd2966a81d1e049adef2|abba320de55b57464f92|8a94fd9e9a98ed676cc0|c1fbfb20c8e305a65a86"
+  },
+  {
+    "weapon": "MP40",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|MP40|Weapon_MP40|6194ab79e9ed99a08fe8|182ec4d37f673bd0dc84"
+  },
+  {
+    "weapon": "MP40",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|MP40|Weapon_MP40|6194ab79e9ed99a08fe8|182ec4d37f673bd0dc84"
+  },
+  {
+    "weapon": "MP446VIKING",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Muzzle": "",
+      "Side": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|MP446VIKING|Viking|071c492e8374da88b153|fdd892904c4077eb57cc|10ceb8ec15c2b1e3ebaf"
+  },
+  {
+    "weapon": "MP446VIKING",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|MP446VIKING|Viking|071c492e8374da88b153|9405069b2034274acc2d|fdd892904c4077eb57cc|10ceb8ec15c2b1e3ebaf|c27e04ff31440cb43e22"
+  },
+  {
+    "weapon": "MP446VIKING",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Side": "JAZZ_FlashlightDot",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|MP446VIKING|Viking|071c492e8374da88b153|9405069b2034274acc2d|fdd892904c4077eb57cc|10ceb8ec15c2b1e3ebaf|a9728401a02cf54a6d03"
+  },
+  {
+    "weapon": "MP5A2",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|MP5A2|MP5A2|a9ac7dfb47000c09fe77|669ebc8173dd9c1f3866"
+  },
+  {
+    "weapon": "MP5A2",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|MP5A2|MP5A2|ed3513db19cff52844c8|669ebc8173dd9c1f3866|4b72c4d904cb9f7e0723|9009d6ed24bdf719e1cc|37be0aaaff7f037d6731"
+  },
+  {
+    "weapon": "MP5A2",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|MP5A2|MP5A2|ed3513db19cff52844c8|457eb9b2a908e31f4f70|669ebc8173dd9c1f3866|4b72c4d904cb9f7e0723|37be0aaaff7f037d6731"
+  },
+  {
+    "weapon": "MP5A4",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockNormal",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|MP5A4|MP5A4|1ac97be6f4feb7bba1f5|d2ae4154a6603ca54462|2194edc6cfdc422a1cb7|5356229ea7ad19386c8e"
+  },
+  {
+    "weapon": "MP5A4",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|MP5A4|MP5A4|b728fa70eac67c1cf1bd|f5a97221dbfde0a60376|d2ae4154a6603ca54462|2194edc6cfdc422a1cb7|8240cd80566271f88085|f521f03a75f4b654a520|18a8610f4b0f7d195c83"
+  },
+  {
+    "weapon": "MP5A4",
+    "column": 2,
+    "components": {
+      "Side": "",
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Stock": "JAZZ_StockLightFolded",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|MP5A4|MP5A4|b728fa70eac67c1cf1bd|9ab5571783bf5a0082e4|f5a97221dbfde0a60376|2194edc6cfdc422a1cb7|8240cd80566271f88085|745637be373f03e45f02"
+  },
+  {
+    "weapon": "MP5K",
+    "column": 0,
+    "components": {
+      "Under": "JAZZ_VerticalGrip",
+      "Barrel": "JAZZ_BarrelShort",
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Stock": "JAZZ_StockNo",
+      "Side": "",
+      "Scope": "",
+      "Muzzle": "",
+      "Freeswap": "JAZZ_Freeswap"
+    },
+    "key": "native-layers-v4|MP5K|Weapon_MP5|2d659a456ac357029c05|36c2a405efa3f59ce684|92eaf8c950f4160c3dc6|6e1cbc9c36316355b651|2ff8aac1b9311e77e2c0"
+  },
+  {
+    "weapon": "MP5K",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_VerticalGrip",
+      "Freeswap": "JAZZ_Freeswap",
+      "Stock": "JAZZ_StockNormal",
+      "Side2": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_CombatScope_FeroZ24"
+    },
+    "key": "native-layers-v4|MP5K|Weapon_MP5|8bc6a101eb3393c1d9a5|36c2a405efa3f59ce684|92eaf8c950f4160c3dc6|97730a096eb3297298de|6e1cbc9c36316355b651|02468ad0936219c1335a|1f86fff3b5724a06877b|e1b30f608315d123045e"
+  },
+  {
+    "weapon": "MP5K",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightOff",
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Under": "JAZZ_VerticalGrip",
+      "Freeswap": "JAZZ_Freeswap",
+      "Stock": "JAZZ_StockHeavy",
+      "Side2": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|MP5K|Weapon_MP5|2d659a456ac357029c05|36c2a405efa3f59ce684|92eaf8c950f4160c3dc6|ff9667fa036782a14aee|6e1cbc9c36316355b651|aa5ec0d04a80ace3a0fc|0016e66ca594a6333bd8|d1b7f65b49b560eee223"
+  },
+  {
+    "weapon": "MP5SD",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Stock": "JAZZ_StockNormal",
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|MP5SD|MP5SD|832d2cfd149a622f6955|524827a3c005e17a2d9c|79ceafe568068bfb3e3a"
+  },
+  {
+    "weapon": "MP5SD",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|MP5SD|MP5SD|e82068a1e995766a9e1a|7a548b3cd41346d867f0|524827a3c005e17a2d9c|20f60bf8efbf83965c36|49bd33060f9c1bc322b6"
+  },
+  {
+    "weapon": "MP5SD",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_15_MP5",
+      "Stock": "JAZZ_StockLightFolded",
+      "Muzzle": "JAZZ_SuppressorIntegrated",
+      "Scope": "JAZZ_Reflex_Aimpoint5000"
+    },
+    "key": "native-layers-v4|MP5SD|MP5SD|e82068a1e995766a9e1a|27cbc99f33f2702bcd9b|524827a3c005e17a2d9c|20f60bf8efbf83965c36|8dea525f5b2ff64f421f"
+  },
+  {
+    "weapon": "MP7",
+    "column": 0,
+    "components": {
+      "Under": "JAZZ_VerticalGripFld",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": "JAZZ_DefaultIronsight_AR15",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|MP7|MP7|cdcc735e3992f59d089a|b8a57d60a575a25d17e1|cb6032be13a3bdaa4397|00c84c0831eafb5b2c7c"
+  },
+  {
+    "weapon": "MP7",
+    "column": 1,
+    "components": {
+      "Under": "JAZZ_VerticalGrip",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|MP7|MP7|997804c49dd1290e0ac4|cdcc735e3992f59d089a|b8a57d60a575a25d17e1|51d9ebc221acea69d1cb"
+  },
+  {
+    "weapon": "MP7",
+    "column": 2,
+    "components": {
+      "Under": "JAZZ_VerticalGrip",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|MP7|MP7|1cb04cff290bc1a3f568|cdcc735e3992f59d089a|b8a57d60a575a25d17e1|51d9ebc221acea69d1cb"
+  },
+  {
+    "weapon": "MPL",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|MPL|MPL|0b9759bc3cfe08e7f6fd|d8d57e8754b056892f9b"
+  },
+  {
+    "weapon": "MPL",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|MPL|MPL|0b9759bc3cfe08e7f6fd|d8d57e8754b056892f9b"
+  },
+  {
+    "weapon": "MR73",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": "JAZZ_Handgrip_Default"
+    },
+    "key": "native-layers-v4|MR73|M73Base|9d323e88ea7697132095|397384a5f1c79373abba|3df4ad8cc62250f031d1"
+  },
+  {
+    "weapon": "MR73",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong",
+      "Handgrip": "JAZZ_Handgrip_Ergo"
+    },
+    "key": "native-layers-v4|MR73|M73Base|45b342d8cca98ec65e73|397384a5f1c79373abba|8b0364441f28b3a19c0e"
+  },
+  {
+    "weapon": "MR73",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong",
+      "Handgrip": "JAZZ_Handgrip_Default"
+    },
+    "key": "native-layers-v4|MR73|M73Base|45b342d8cca98ec65e73|397384a5f1c79373abba|3df4ad8cc62250f031d1"
+  },
+  {
+    "weapon": "Makarov",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Makarov|Makarov|2967f0ff92c9f2fe8c99"
+  },
+  {
+    "weapon": "Makarov",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|Makarov|Makarov|2967f0ff92c9f2fe8c99|2563693d8d5a7819f12b"
+  },
+  {
+    "weapon": "Makarov",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Makarov|Makarov|2967f0ff92c9f2fe8c99"
+  },
+  {
+    "weapon": "MicroUZI",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "",
+      "Scope": "",
+      "Muzzle": "",
+      "Freeswap": "JAZZ_Freeswap"
+    },
+    "key": "native-layers-v4|MicroUZI|Weapon_Uzi|d7258a5e444ea9c2dbea|1f81076fa9a3acfc78dd|9519faefc3fd0afdc57e"
+  },
+  {
+    "weapon": "MicroUZI",
+    "column": 1,
+    "components": {
+      "Freeswap": "JAZZ_Freeswap",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormalImproved",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_Reflex_Closed"
+    },
+    "key": "native-layers-v4|MicroUZI|Weapon_Uzi|d7258a5e444ea9c2dbea|1f81076fa9a3acfc78dd|8f761b0544bf6a8f7227|9519faefc3fd0afdc57e|49db2148a89898c1b5d3|c798b49f65a0e70fb52d|3ec21e741f8cd467f9ce"
+  },
+  {
+    "weapon": "MicroUZI",
+    "column": 2,
+    "components": {
+      "Freeswap": "JAZZ_Freeswap",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagLarge_20_30_UZI",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|MicroUZI|Weapon_Uzi|6fab15a5160a87a3cd76|1f81076fa9a3acfc78dd|8f761b0544bf6a8f7227|3d06ae8626c4dce56c1b|a6d005883afb48d38b4f|9519faefc3fd0afdc57e|f152d5d248e28f35ae1c|96957edf4652fe8dd348"
+  },
+  {
+    "weapon": "Mini14",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Trigger": ""
+    },
+    "key": "native-layers-v4|Mini14|Mini14|86733f9d56bc677f10e5|209a83faa449adb182c1|a3598958b75ec052537e|ab82dadd33abc2b4b4af"
+  },
+  {
+    "weapon": "Mini14",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Trigger": "JAZZ_Autofire",
+      "Magazine": "JAZZ_MagNormal",
+      "Side2": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Mini14|Mini14|86733f9d56bc677f10e5|ed2de4b9bf9ea6d5ae07|3011cf1dfb2db9489444|a3598958b75ec052537e|ab82dadd33abc2b4b4af"
+  },
+  {
+    "weapon": "Mini14",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Trigger": "JAZZ_Autofire",
+      "Magazine": "JAZZ_MagNormal",
+      "Side2": "",
+      "Barrel": "JAZZ_BarrelShort",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|Mini14|Mini14|86733f9d56bc677f10e5|ed2de4b9bf9ea6d5ae07|a3598958b75ec052537e|ab82dadd33abc2b4b4af|016fa111707108615193"
+  },
+  {
+    "weapon": "MortarInventoryItem",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|MortarInventoryItem|Weapon_M224|4aeb5af52b39b4c98fdf"
+  },
+  {
+    "weapon": "MortarInventoryItem",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|MortarInventoryItem|Weapon_M224|4aeb5af52b39b4c98fdf"
+  },
+  {
+    "weapon": "Mosin",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Barrel": "JAZZ_Mosin1891"
+    },
+    "key": "native-layers-v4|Mosin|MOSIN_1891|8ca846cd3dcb3f901bab"
+  },
+  {
+    "weapon": "Mosin",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_Mosin1891",
+      "Scope": "JAZZ_Scope_PU"
+    },
+    "key": "native-layers-v4|Mosin|MOSIN_1891|ec4f55aabe97e73add01|8ca846cd3dcb3f901bab"
+  },
+  {
+    "weapon": "Mosin",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_MosinM38",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|Mosin|MOSIN_M38|4950a888643f7170d045"
+  },
+  {
+    "weapon": "P210",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Scope": "JAZZ_IronSight",
+      "Side": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|P210|P210|325e6527e74a4ca7f2b3|d30505ae47104d13fb83|cbcf8bf2c914c5965f5a|958aa4c549f3d2b425e9"
+  },
+  {
+    "weapon": "P210",
+    "column": 1,
+    "components": {
+      "Handgrip": "JAZZ_Handgrip_Ergo",
+      "Side": "JAZZ_Flashlight",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_IronSight_AIM"
+    },
+    "key": "native-layers-v4|P210|P210|b40169ca633be3ffbc3d|d30505ae47104d13fb83|d92a139a98e611752103|cbcf8bf2c914c5965f5a|f2e3b9a72442c84c04bb|f1c547d710d5e5598ea5"
+  },
+  {
+    "weapon": "P210",
+    "column": 2,
+    "components": {
+      "Handgrip": "JAZZ_Handgrip_Ergo",
+      "Side": "JAZZ_UVDot",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Scope": "JAZZ_IronSight_AIM"
+    },
+    "key": "native-layers-v4|P210|P210|b40169ca633be3ffbc3d|c130da22e0b6cec073d8|d30505ae47104d13fb83|cbcf8bf2c914c5965f5a|f2e3b9a72442c84c04bb|28e07eebaa5fb42c2801"
+  },
+  {
+    "weapon": "P220",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|P220|P220|5f41ff01e6190716b4eb|640d811c7f281278815e|fe0345f828b7e2a30028|4a7424624379d92cdc65"
+  },
+  {
+    "weapon": "P220",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight",
+      "Sightsr": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Sightsf": "",
+      "Scope": "JAZZ_Reflex_Pistol"
+    },
+    "key": "native-layers-v4|P220|P220|5f41ff01e6190716b4eb|640d811c7f281278815e|4c30c66752173b92236c|fe0345f828b7e2a30028|4a7424624379d92cdc65|35d687fce0e5db864ae8|3580a303f358fefd34ce|4793d227297035ff456b"
+  },
+  {
+    "weapon": "P220",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightDot",
+      "Sightsr": "",
+      "Magazine": "JAZZ_MagLarge_8_10",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Sightsf": "",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|P220|P220|c440f3e32da3d4b850d5|640d811c7f281278815e|fe0345f828b7e2a30028|9d16b6b83508a28fed6f|4a7424624379d92cdc65|35d687fce0e5db864ae8|4a0a4390df70b440e873"
+  },
+  {
+    "weapon": "P226",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Scope": "JAZZ_IronSight",
+      "Side": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|P226|P226ff|023d7ee49f0e0000d6c0|02406584a7308d6f4e20|3c5cef84ebe387afe122|ea8f3dd49d7a5d1ec471|0f3be2db9db9b4c14ae5|d8b9e4240730fcf5f40a"
+  },
+  {
+    "weapon": "P226",
+    "column": 1,
+    "components": {
+      "Handgrip": "JAZZ_Handgrip_Ergo",
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Sightsr": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_Flashlight",
+      "Sightsf": "",
+      "Scope": "JAZZ_IronSight_AIM"
+    },
+    "key": "native-layers-v4|P226|P226ff|127308cd4e4bce5ec2f5|ea8f3dd49d7a5d1ec471|0f3be2db9db9b4c14ae5|59e23235fc457eadb435|ac2c6bcafc61a4145a9e|61651dd4e0b342c4f595|1a888415384f677f21bf|d76d4ed026b7c7cc0a70"
+  },
+  {
+    "weapon": "P226",
+    "column": 2,
+    "components": {
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Sightsr": "",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Magazine": "JAZZ_MagLarge_18_20",
+      "Side": "JAZZ_FlashlightDot",
+      "Sightsf": "",
+      "Scope": "JAZZ_IronSight_FAST"
+    },
+    "key": "native-layers-v4|P226|P226ff|f772e018b5ceb68b54e9|3a9daa4d8c2661effc78|3c5cef84ebe387afe122|ea8f3dd49d7a5d1ec471|46520186c0ef713bd381|d8b9e4240730fcf5f40a|a97b295d3f73426d73bc|25874e3a59e503b27df8"
+  },
+  {
+    "weapon": "P38",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|P38|P38|c59426f43d1c5549316d|4106a3d0c1706cc05dee"
+  },
+  {
+    "weapon": "P38",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|P38|P38|ea91c22855a6322f7fb2|c59426f43d1c5549316d|abc2ac9519213c182274"
+  },
+  {
+    "weapon": "P38",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Muzzle": "JAZZ_PistolSuppressor"
+    },
+    "key": "native-layers-v4|P38|P38|ea91c22855a6322f7fb2|189b3b32922a10fceec5|c59426f43d1c5549316d"
+  },
+  {
+    "weapon": "P90",
+    "column": 0,
+    "components": {
+      "Side": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|P90|P90|13d87fe5b0271ebf03e8|459df26b6aa53d8fc2d8"
+  },
+  {
+    "weapon": "P90",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_ImprovisedSuppressor"
+    },
+    "key": "native-layers-v4|P90|P90|13d87fe5b0271ebf03e8|f4f5cacf4d13149b463f|459df26b6aa53d8fc2d8|c1eb9d09f3f30abf884f|b4c693ebee8aaef98cd9"
+  },
+  {
+    "weapon": "P90",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Side": "JAZZ_Flashlight",
+      "Muzzle": "JAZZ_PistolSuppressor"
+    },
+    "key": "native-layers-v4|P90|P90|13d87fe5b0271ebf03e8|d93ffccf555ea7daabc5|f4f5cacf4d13149b463f|459df26b6aa53d8fc2d8|b4c693ebee8aaef98cd9"
+  },
+  {
+    "weapon": "PB",
+    "column": 0,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|PB|pb|b0f6774bc1be58aff535"
+  },
+  {
+    "weapon": "PB",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|PB|pb|b0f6774bc1be58aff535"
+  },
+  {
+    "weapon": "PKM",
+    "column": 0,
+    "components": {
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Scope": "",
+      "Side": "",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Under": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_PKMDefHandGrip"
+    },
+    "key": "native-layers-v4|PKM|PKM|cd403dabaa2d33910407|c00ee4a487a44c39ca46|500568f4d8a3cf53d043|668fa4c6df6d26e899c4"
+  },
+  {
+    "weapon": "PKM",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_PKMDefHandGrip",
+      "Scope": "JAZZ_CombatScope_2x",
+      "Bipod": "JAZZ_Bipod",
+      "Side": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Under": ""
+    },
+    "key": "native-layers-v4|PKM|PKM|6c02bb079aa62cf5e936|87a683435d314257a8c4|cd403dabaa2d33910407|c00ee4a487a44c39ca46|500568f4d8a3cf53d043|668fa4c6df6d26e899c4"
+  },
+  {
+    "weapon": "PKM",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_PKMDefHandGrip",
+      "Scope": "JAZZ_CombatScope_ACOG",
+      "Bipod": "JAZZ_Bipod",
+      "Side": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Under": ""
+    },
+    "key": "native-layers-v4|PKM|PKM|ce09c6e13fb41b548b60|87a683435d314257a8c4|cd403dabaa2d33910407|c00ee4a487a44c39ca46|500568f4d8a3cf53d043|668fa4c6df6d26e899c4"
+  },
+  {
+    "weapon": "PP19Bizon",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|PP19Bizon|Bizon|ac8afd34fa527009c7db|959de672cc61817e99f9"
+  },
+  {
+    "weapon": "PP19Bizon",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|PP19Bizon|Bizon|e6ce4ab52e54bf4a483e|ac8afd34fa527009c7db|959de672cc61817e99f9"
+  },
+  {
+    "weapon": "PP19Bizon",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": "JAZZ_NightScope_NSPU"
+    },
+    "key": "native-layers-v4|PP19Bizon|Bizon|b41015737a971f4c2bf4|ac8afd34fa527009c7db|959de672cc61817e99f9"
+  },
+  {
+    "weapon": "PPS43",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|PPS43|PPS_43|cb3b0dd7973369873cf5|4af9e6df9fd07697a319"
+  },
+  {
+    "weapon": "PPS43",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|PPS43|PPS_43|cb3b0dd7973369873cf5|4af9e6df9fd07697a319"
+  },
+  {
+    "weapon": "PPSH",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|PPSH|PPSH|f55a8ff94f8550206ca7|dee769578a50ae89e42b"
+  },
+  {
+    "weapon": "PPSH",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_35_71"
+    },
+    "key": "native-layers-v4|PPSH|PPSH|dee769578a50ae89e42b|1795575f627c0b54226d"
+  },
+  {
+    "weapon": "PPSH",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|PPSH|PPSH|f55a8ff94f8550206ca7|dee769578a50ae89e42b"
+  },
+  {
+    "weapon": "PSG1",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_PSG",
+      "Side": ""
+    },
+    "key": "native-layers-v4|PSG1|Weapon_PSG1|e3e3de0abbdc2b334cd7|59c142eeb24bbf17aff4|3857ebc746ac0896b976|da9d9a898b8776875068"
+  },
+  {
+    "weapon": "PSG1",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_Flashlight_PSG_M1",
+      "Magazine": "JAZZ_MagNormalFine_PSG1",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|PSG1|Weapon_PSG1|e3e3de0abbdc2b334cd7|ffa698c715ff2c12e988|3857ebc746ac0896b976|c7d622ccad2abe85eebb|1d776e61fae4d1f525b7|0c32a2802977f6730151|f03ff8c33c807181dffd"
+  },
+  {
+    "weapon": "PSG1",
+    "column": 2,
+    "components": {
+      "Stock": "JAZZ_StockHeavy",
+      "Side": "JAZZ_FlashlightDot_PSG_M1",
+      "Magazine": "JAZZ_MagLarge_8_PSG1",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|PSG1|Weapon_PSG1|10045e482013ef91469d|ffa698c715ff2c12e988|3857ebc746ac0896b976|105347164256565391e9|0221e33127cc916b17eb|0c32a2802977f6730151|f03ff8c33c807181dffd"
+  },
+  {
+    "weapon": "R870",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Side": "",
+      "Side2": ""
+    },
+    "key": "native-layers-v4|R870|R870|7901dcbc2f19e260e4b9"
+  },
+  {
+    "weapon": "R870",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_CombatScope_2x",
+      "Side": "JAZZ_Flashlight",
+      "Side2": "JAZZ_SpeedLoader"
+    },
+    "key": "native-layers-v4|R870|R870|b51fc57ba12e645ec60c|a8ce4216e2e1e152dea0|7901dcbc2f19e260e4b9|471dac5b702af5d53dbe|d783fe26fa07c5e46070"
+  },
+  {
+    "weapon": "R870",
+    "column": 2,
+    "components": {
+      "Scope": "JAZZ_NightScope",
+      "Side": "JAZZ_LaserDot",
+      "Side2": "JAZZ_SpeedLoader"
+    },
+    "key": "native-layers-v4|R870|R870|717e0cf6507ed764efc7|b51fc57ba12e645ec60c|637db701db1beb8df0e0|7901dcbc2f19e260e4b9|471dac5b702af5d53dbe"
+  },
+  {
+    "weapon": "RPD",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|RPD|RPD|6fcb15450fc04d3daa3d|41115c52b1a081e78462|ce991ac4129f915e9e53|544686b8670221380222|e55de6e7ff4a53746829|0941364a3b30c9a55140"
+  },
+  {
+    "weapon": "RPD",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Scope": "JAZZ_IronSight"
+    },
+    "key": "native-layers-v4|RPD|RPD|6fcb15450fc04d3daa3d|41115c52b1a081e78462|ce991ac4129f915e9e53|544686b8670221380222|e55de6e7ff4a53746829|0941364a3b30c9a55140"
+  },
+  {
+    "weapon": "RPG7",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|RPG7|Weapon_RPG7_Copy|5c4ac362f8bd9a82c84a"
+  },
+  {
+    "weapon": "RPG7",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|RPG7|Weapon_RPG7_Copy|5c4ac362f8bd9a82c84a"
+  },
+  {
+    "weapon": "RPK",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "Handguard": "JAZZ_RPK74_Hanguard_Basic",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|RPK|Weapon_RPK74|776248b08bfce918bd58|b11c92ec7aca07a72406|ef9ba8bca40a39eb54b1|a066fd9c84b0f1a1db1f|f9d7ef2c3809facbdb77|0612af435991077b6127"
+  },
+  {
+    "weapon": "RPK",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_RPK74_VerticalGrip",
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "Muzzle": "JAZZ_Compensator",
+      "Barrel": "JAZZ_BarrelNormalImproved",
+      "Stock": "JAZZ_StockNormal"
+    },
+    "key": "native-layers-v4|RPK|Weapon_RPK74|776248b08bfce918bd58|6e16fa27acbc9f0c6855|b11c92ec7aca07a72406|ef9ba8bca40a39eb54b1|277c586ab9d453a226d0|a066fd9c84b0f1a1db1f|0612af435991077b6127"
+  },
+  {
+    "weapon": "RPK",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_RPK74_VerticalGrip",
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Muzzle": "",
+      "Barrel": "JAZZ_BarrelNormalImproved",
+      "Stock": "JAZZ_StockNormal"
+    },
+    "key": "native-layers-v4|RPK|Weapon_RPK74|0a74552b0bc343639f04|b11c92ec7aca07a72406|ef9ba8bca40a39eb54b1|277c586ab9d453a226d0|a066fd9c84b0f1a1db1f|0612af435991077b6127"
+  },
+  {
+    "weapon": "RPK74",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Magazine": "JAZZ_MagLarge_30_45",
+      "Handguard": "JAZZ_RPK74_Hanguard_Basic",
+      "Muzzle": "JAZZ_Compensator",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|RPK74|Weapon_RPK74|89bc0145d60a97055d0b|78b21b63da111e0bfb65|310242a6d05fe7043643|fd3989ce17267e1d801f|03ff9e948bd914a27b05|85b79d2c43b3fa7062c0|3a2f2b5411cc4b245ba7"
+  },
+  {
+    "weapon": "RPK74",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_RPK74_Hanguard_Basic",
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_Compensator",
+      "Barrel": "JAZZ_BarrelNormalImproved",
+      "Stock": "JAZZ_StockNormal"
+    },
+    "key": "native-layers-v4|RPK74|Weapon_RPK74|9535fa27baef4812cb2d|78b21b63da111e0bfb65|310242a6d05fe7043643|fd3989ce17267e1d801f|03ff9e948bd914a27b05|85b79d2c43b3fa7062c0|3a2f2b5411cc4b245ba7"
+  },
+  {
+    "weapon": "RPK74",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_RPK74_Hanguard_Basic",
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagQuick_AK",
+      "Muzzle": "JAZZ_Compensator",
+      "Barrel": "JAZZ_BarrelNormalImproved",
+      "Stock": "JAZZ_StockNormal"
+    },
+    "key": "native-layers-v4|RPK74|Weapon_RPK74|8af693860dfa828c5053|78b21b63da111e0bfb65|310242a6d05fe7043643|fd3989ce17267e1d801f|03ff9e948bd914a27b05|85b79d2c43b3fa7062c0|3a2f2b5411cc4b245ba7"
+  },
+  {
+    "weapon": "RSH12",
+    "column": 0,
+    "components": {
+      "Side": ""
+    },
+    "key": "native-layers-v4|RSH12|HighCalRev|451f19faca3fc9a527ad"
+  },
+  {
+    "weapon": "RSH12",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|RSH12|HighCalRev|451f19faca3fc9a527ad|ac4f9fcc0423a77c3f1f"
+  },
+  {
+    "weapon": "RSH12",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|RSH12|HighCalRev|451f19faca3fc9a527ad|d42d1ae02b96da2f5358"
+  },
+  {
+    "weapon": "SKS",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|SKS|SKS|5d5562b07028c2a173d1"
+  },
+  {
+    "weapon": "SKS",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|SKS|SKS|5d5562b07028c2a173d1"
+  },
+  {
+    "weapon": "SPAS12",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|SPAS12|Spas12|16f2ef157afea450292f"
+  },
+  {
+    "weapon": "SPAS12",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|SPAS12|Spas12|16f2ef157afea450292f"
+  },
+  {
+    "weapon": "SR3M",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_Handguard",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Side": "",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|SR3M|SR3M|01d1e1ba9e8e5646e7f9|5c00c2cba17ed313c187|7d5c0c767621286a0273|4c2e4a219af075dd6281|46665d7bc5354711356a"
+  },
+  {
+    "weapon": "SR3M",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|SR3M|SR3M|01d1e1ba9e8e5646e7f9|6a0e29ff09d2ddb00dfc|5c00c2cba17ed313c187|7d5c0c767621286a0273|4c2e4a219af075dd6281|46665d7bc5354711356a|044578a81023b3788e27"
+  },
+  {
+    "weapon": "SR3M",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_Handguard",
+      "Side": "JAZZ_FlashlightDot",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|SR3M|SR3M|01d1e1ba9e8e5646e7f9|6a0e29ff09d2ddb00dfc|5c00c2cba17ed313c187|7d5c0c767621286a0273|4c2e4a219af075dd6281|46665d7bc5354711356a|7d09fa62abedfc5aa2a3"
+  },
+  {
+    "weapon": "STG44",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|STG44|STG44|ea79c56f329af0891605"
+  },
+  {
+    "weapon": "STG44",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_HandlingWrap",
+      "Scope": "JAZZ_Scope_ZF4"
+    },
+    "key": "native-layers-v4|STG44|STG44|ea79c56f329af0891605|40b6ee90a5e587ee09c0|c9d0a4e1e28d193ad89d"
+  },
+  {
+    "weapon": "STG44",
+    "column": 2,
+    "components": {
+      "Side": "",
+      "Scope": "JAZZ_Scope_ZF4"
+    },
+    "key": "native-layers-v4|STG44|STG44|ea79c56f329af0891605|40b6ee90a5e587ee09c0"
+  },
+  {
+    "weapon": "SVT40",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|SVT40|SVT_40|cc22c9519c96c38be21d|bd5f36473676901bfd9b"
+  },
+  {
+    "weapon": "SVT40",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_PU"
+    },
+    "key": "native-layers-v4|SVT40|SVT_40|cc22c9519c96c38be21d|bd5f36473676901bfd9b|6fdec14e55c64af4ef54"
+  },
+  {
+    "weapon": "SVT40",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|SVT40|SVT_40|cc22c9519c96c38be21d|bd5f36473676901bfd9b"
+  },
+  {
+    "weapon": "SVU",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_PSO",
+      "Bipod": ""
+    },
+    "key": "native-layers-v4|SVU|SVU|01f788dc5623be3b342b|d47d88d0eda655fd5576|2d116c93b213c50f1a0b"
+  },
+  {
+    "weapon": "SVU",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|SVU|SVU|01f788dc5623be3b342b|14c544a13018ba03804d|2d116c93b213c50f1a0b|c86a33d4bd8e1216fcac"
+  },
+  {
+    "weapon": "SVU",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Scope": "JAZZ_NightScope_NSPU"
+    },
+    "key": "native-layers-v4|SVU|SVU|01f788dc5623be3b342b|3732a32805134625c21b|2d116c93b213c50f1a0b|c86a33d4bd8e1216fcac"
+  },
+  {
+    "weapon": "SWModel10",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Side": ""
+    },
+    "key": "native-layers-v4|SWModel10|SWModel10|9328d9ace873866e19b5|78b5aa5ae3fcb6b2764d"
+  },
+  {
+    "weapon": "SWModel10",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|SWModel10|SWModel10|bd61773a2c12eb19996b|78b5aa5ae3fcb6b2764d"
+  },
+  {
+    "weapon": "SWModel10",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|SWModel10|SWModel10|bd61773a2c12eb19996b|78b5aa5ae3fcb6b2764d"
+  },
+  {
+    "weapon": "SWModel19",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Side": ""
+    },
+    "key": "native-layers-v4|SWModel19|SW19|444c1a5c5bf9404b904b|76a6f6b39a9fabc8c76d"
+  },
+  {
+    "weapon": "SWModel19",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|SWModel19|SW19|444c1a5c5bf9404b904b|f2aa9dd64ef16a7a2a0b|d8d4de97db3bc4bb4318"
+  },
+  {
+    "weapon": "SWModel19",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|SWModel19|SW19|444c1a5c5bf9404b904b|f2aa9dd64ef16a7a2a0b|983a041162c6f8cc0bba"
+  },
+  {
+    "weapon": "SWModel29",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Side": ""
+    },
+    "key": "native-layers-v4|SWModel29|SWModel29|f410329fda201a3e6659|46b1f11cf83d28f20190"
+  },
+  {
+    "weapon": "SWModel29",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|SWModel29|SWModel29|6b0f1f35f85bf665ba44|46b1f11cf83d28f20190|ee0f56df7e088b96f270"
+  },
+  {
+    "weapon": "SWModel29",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelShort_Pistol",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|SWModel29|SWModel29|6b0f1f35f85bf665ba44|46b1f11cf83d28f20190|3cab25a05940b8ee4179"
+  },
+  {
+    "weapon": "SWModel52",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|SWModel52|SWModel52|759e21eec42f0561d027"
+  },
+  {
+    "weapon": "SWModel52",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|SWModel52|SWModel52|759e21eec42f0561d027"
+  },
+  {
+    "weapon": "SWModel5906",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|SWModel5906|SWModel5906|2616a325d68ec37a85da"
+  },
+  {
+    "weapon": "SWModel5906",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "JAZZ_Flashlight"
+    },
+    "key": "native-layers-v4|SWModel5906|SWModel5906|2616a325d68ec37a85da|af4ebf013fe1ba87e78d"
+  },
+  {
+    "weapon": "SWModel5906",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Side": "JAZZ_FlashlightDot"
+    },
+    "key": "native-layers-v4|SWModel5906|SWModel5906|f5c9eaf3d634ecf67717|2616a325d68ec37a85da"
+  },
+  {
+    "weapon": "Scorpion",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightFolded",
+      "Freeswap": "JAZZ_Freeswap"
+    },
+    "key": "native-layers-v4|Scorpion|Scorpion|d8346b53722a7691c13f|60bab4ed81a659dbde3f"
+  },
+  {
+    "weapon": "Scorpion",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightFolded",
+      "Freeswap": "JAZZ_Freeswap"
+    },
+    "key": "native-layers-v4|Scorpion|Scorpion|d8346b53722a7691c13f|60bab4ed81a659dbde3f"
+  },
+  {
+    "weapon": "ScoutSniper",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_Scope_Scout",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Muzzle": "JAZZ_DefMuzzle"
+    },
+    "key": "native-layers-v4|ScoutSniper|SteyrScout|755a2248e0cb1b022b19|6833037d80c1ddf1024c|6fb4cfb0f02d6e3eb9ef|57507d8f8005268418f1"
+  },
+  {
+    "weapon": "ScoutSniper",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|ScoutSniper|SteyrScout|2707cd6e56c7099b1b18|6833037d80c1ddf1024c|06dbe6199cf2687b3623|6fb4cfb0f02d6e3eb9ef"
+  },
+  {
+    "weapon": "ScoutSniper",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|ScoutSniper|SteyrScout|6833037d80c1ddf1024c|06dbe6199cf2687b3623|6fb4cfb0f02d6e3eb9ef|8010483a24e4cd49f469"
+  },
+  {
+    "weapon": "Sig550",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Bipod": "",
+      "Handguard": "JAZZ_SigDefHandGuard",
+      "Scope": "JAZZ_DefaultIronsight_AR15",
+      "Side": ""
+    },
+    "key": "native-layers-v4|Sig550|Sig550|5813340033b6d9ef0ac2|1f93ae6965f5b376ea84|29abda56fc1ee00bd222|5515317299713b746002"
+  },
+  {
+    "weapon": "Sig550",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Handgrip": "",
+      "Stock": "JAZZ_StockLightFolded",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Sig550|Sig550|5813340033b6d9ef0ac2|daa0838943e14bbe734d|5515317299713b746002|34e21b6d132242ad133b|367254f37380b80a4d9b|eb9dc275e105d17c8c54|64dc56f601b4a54050dc"
+  },
+  {
+    "weapon": "Sig550",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Handgrip": "",
+      "Stock": "JAZZ_StockLightFolded",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "JAZZ_Bipod",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|Sig550|Sig550|5813340033b6d9ef0ac2|c762c0f03f9fff286687|5515317299713b746002|34e21b6d132242ad133b|367254f37380b80a4d9b|eb9dc275e105d17c8c54|c0f85aa5decf0b208112"
+  },
+  {
+    "weapon": "Sig550Custom",
+    "column": 0,
+    "components": {
+      "Under": "",
+      "Side": "",
+      "Handguard": "JAZZ_SigDefHandGuard",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "",
+      "Scope": "JAZZ_DefaultIronsight_AR15"
+    },
+    "key": "native-layers-v4|Sig550Custom|Sig550Custom|1e3b5fc71ef07221fdfd|4842ebfa80eba571a7d3|c72111305d98e4e5a4cd|21bf178b2f8168431a3c"
+  },
+  {
+    "weapon": "Sig550Custom",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Handgrip": "",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightFolded",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Sig550Custom|Sig550Custom|1e3b5fc71ef07221fdfd|82ff19cd46c24aafc0dc|21bf178b2f8168431a3c|75866a52d4f14db4f23b|4a639e3c625c4b5bbca6|62d9b0ad47fe1006dfff|d34e2e8f9addda808907|bd3e54e07897ed11176e"
+  },
+  {
+    "weapon": "Sig550Custom",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Under": "JAZZ_GrenadeLauncher",
+      "Handgrip": "",
+      "Side": "JAZZ_Flashlight",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightFolded",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|Sig550Custom|Sig550Custom|1e3b5fc71ef07221fdfd|21bf178b2f8168431a3c|5425891e1a08c4257479|75866a52d4f14db4f23b|4a639e3c625c4b5bbca6|62d9b0ad47fe1006dfff|46430dd74772241bbd65|bd3e54e07897ed11176e"
+  },
+  {
+    "weapon": "Sig552",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_SigDefHandGuard",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Sig552|SIG552|5027f26f4df02322c990|3208c362b960680fdc9d|c644ec6ad11ff3e882be|d6d2103bd0d2cbc80824"
+  },
+  {
+    "weapon": "Sig552",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Stock": "JAZZ_StockLightFolded",
+      "Magazine": "JAZZ_MagNormal",
+      "Handgrip": "",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Sig552|SIG552|5027f26f4df02322c990|5f8722e2147b9c6155d7|d6d2103bd0d2cbc80824|f20aee13113b8649b38d|87b25cd21af850c304f8|09e1502aa608b27d7ae0"
+  },
+  {
+    "weapon": "Sig552",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Stock": "JAZZ_StockHeavy",
+      "Magazine": "JAZZ_MagNormal",
+      "Handgrip": "",
+      "Muzzle": "JAZZ_SuppressorImproved",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|Sig552|SIG552|5027f26f4df02322c990|6577e71f89a6deaf96a5|d6d2103bd0d2cbc80824|5f18bc1aad677c88e823|f20aee13113b8649b38d|37c5a6449d093a99a59c"
+  },
+  {
+    "weapon": "Sig552SWAT",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_SigDefHandGuard",
+      "Muzzle": "",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|Sig552SWAT|Sig552SWAT|1cd22cf5ad37931fd2d7|c804fce547e42266a06c|4389c539f3f21343f248"
+  },
+  {
+    "weapon": "Sig552SWAT",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_SigErgoHandGrip",
+      "Handgrip": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|Sig552SWAT|Sig552SWAT|1cd22cf5ad37931fd2d7|6612fef95b834bfaa8bd|2ce6011e92c10d5e976b|4389c539f3f21343f248|49dcf4c48f48bebc3323"
+  },
+  {
+    "weapon": "Sig552SWAT",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_SigDefHandGuard",
+      "Handgrip": "",
+      "Magazine": "JAZZ_MagLarge_50_SIG",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|Sig552SWAT|Sig552SWAT|0b5e7ff34dd0804397bb|c804fce547e42266a06c|4389c539f3f21343f248|47b3c1d6fc820e6d9a1d|8daa0c6e42fc6965f9ca"
+  },
+  {
+    "weapon": "SpectreM4",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|SpectreM4|Spectr_M4|e3f57944574a184e73a4|84769e2a434e691f7d02"
+  },
+  {
+    "weapon": "SpectreM4",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|SpectreM4|Spectr_M4|e3f57944574a184e73a4|84769e2a434e691f7d02"
+  },
+  {
+    "weapon": "Springfield",
+    "column": 0,
+    "components": {
+      "Scope": ""
+    },
+    "key": "native-layers-v4|Springfield|M1903|c9ce4c546ef7d5481537"
+  },
+  {
+    "weapon": "Springfield",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_Scope_Springfield"
+    },
+    "key": "native-layers-v4|Springfield|M1903|92fd012c114480564d5f|c9ce4c546ef7d5481537"
+  },
+  {
+    "weapon": "Springfield",
+    "column": 2,
+    "components": {
+      "Scope": ""
+    },
+    "key": "native-layers-v4|Springfield|M1903|c9ce4c546ef7d5481537"
+  },
+  {
+    "weapon": "Sterling",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|Sterling|Sterling|ec9774b21f1d4631adbd|702a9accd165267bef0d"
+  },
+  {
+    "weapon": "Sterling",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|Sterling|Sterling|ec9774b21f1d4631adbd|702a9accd165267bef0d"
+  },
+  {
+    "weapon": "Stoeger",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|Stoeger|stoeger_outback|00093c4aac4f5aa65963"
+  },
+  {
+    "weapon": "Stoeger",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|Stoeger|stoeger_outback|00093c4aac4f5aa65963"
+  },
+  {
+    "weapon": "Striker",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|Striker|Striker|746bea2f44852fbac023|4f170f8a1b268653e912"
+  },
+  {
+    "weapon": "Striker",
+    "column": 1,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|Striker|Striker|746bea2f44852fbac023|4f170f8a1b268653e912"
+  },
+  {
+    "weapon": "TMP",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "General": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|TMP|TMP|818769bd4db35e6d7874|4ed3affe80804ad47876"
+  },
+  {
+    "weapon": "TMP",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_15_TMP",
+      "General": "JAZZ_HolsterBelt",
+      "Muzzle": "JAZZ_PistolSuppressor"
+    },
+    "key": "native-layers-v4|TMP|TMP|3ad44a5486267b507700|2b7be759c97f6645bbc1|4ed3affe80804ad47876|e56a827705a3a5e4bea2"
+  },
+  {
+    "weapon": "TMP",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagSmall30_15_TMP",
+      "General": "JAZZ_HolsterBelt",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|TMP|TMP|3ad44a5486267b507700|2b7be759c97f6645bbc1|4ed3affe80804ad47876"
+  },
+  {
+    "weapon": "TT33",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|TT33|TT33f|431c907ba836ddd82c39"
+  },
+  {
+    "weapon": "TT33",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|TT33|TT33f|431c907ba836ddd82c39"
+  },
+  {
+    "weapon": "TexRevolver",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|TexRevolver|Tex_Rev|f3e64c02489ad8b6976a"
+  },
+  {
+    "weapon": "TexRevolver",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|TexRevolver|Tex_Rev|f3e64c02489ad8b6976a"
+  },
+  {
+    "weapon": "Thompson",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|Thompson|THOMPSON_SMG|146e16c1b895c858c108|aef8f98041b70aad4e2d"
+  },
+  {
+    "weapon": "Thompson",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_30_50_THOMPSON"
+    },
+    "key": "native-layers-v4|Thompson|THOMPSON_SMG|146e16c1b895c858c108|da449f512afbd21fa276"
+  },
+  {
+    "weapon": "Thompson",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|Thompson|THOMPSON_SMG|146e16c1b895c858c108|aef8f98041b70aad4e2d"
+  },
+  {
+    "weapon": "Type56",
+    "column": 0,
+    "components": {
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Under": "JAZZ_Type56BayoF"
+    },
+    "key": "native-layers-v4|Type56|Type56|defa183eea9de322c782|f46429764f309dc2a640|7e2805926ec9f5ec797a"
+  },
+  {
+    "weapon": "Type56",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_30_75",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_Type56BayoF"
+    },
+    "key": "native-layers-v4|Type56|Type56|55661254a09305d2d44a|f46429764f309dc2a640|f04a52ea05ccf555ab61|7e2805926ec9f5ec797a"
+  },
+  {
+    "weapon": "Type56",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Under": "JAZZ_Type56BayoF"
+    },
+    "key": "native-layers-v4|Type56|Type56|f46429764f309dc2a640|f04a52ea05ccf555ab61|7e2805926ec9f5ec797a|a220c6ea12331a14ecfb"
+  },
+  {
+    "weapon": "U100",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Magazine": "JAZZ_MagNormal",
+      "Mountfront": "JAZZ_U100Handle",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Stock": "JAZZ_StockNormal",
+      "Bipod": "JAZZ_Bipod"
+    },
+    "key": "native-layers-v4|U100|U100|6765c705753e66758d35|68f2c9ff3b576b47b21b|85492bbeab9165ad0989|3eabc2bdbbd3c19e6036|8f5274ef727c4b936826|6018d2e71167a763f764|141b80d3d7f51a217c0b"
+  },
+  {
+    "weapon": "U100",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagDrum_30_100_G3",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Mountfront": "JAZZ_U100Handle"
+    },
+    "key": "native-layers-v4|U100|U100|39be530688f0d72dea45|68f2c9ff3b576b47b21b|85492bbeab9165ad0989|3eabc2bdbbd3c19e6036|8f5274ef727c4b936826|6018d2e71167a763f764|141b80d3d7f51a217c0b"
+  },
+  {
+    "weapon": "U100",
+    "column": 2,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Muzzle": "JAZZ_DefMuzzle",
+      "Mountfront": "JAZZ_U100Handle"
+    },
+    "key": "native-layers-v4|U100|U100|6765c705753e66758d35|68f2c9ff3b576b47b21b|85492bbeab9165ad0989|3eabc2bdbbd3c19e6036|8f5274ef727c4b936826|6018d2e71167a763f764|141b80d3d7f51a217c0b"
+  },
+  {
+    "weapon": "UMP45",
+    "column": 0,
+    "components": {
+      "Under": "JAZZ_VerticalGrip",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Side": "",
+      "Scope": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|UMP45|UMP45|5ba2b6b019d38320a123|8f0b7547d252fa43021a|72967fd586d904de25fa"
+  },
+  {
+    "weapon": "UMP45",
+    "column": 1,
+    "components": {
+      "Side": "JAZZ_Flashlight",
+      "Under": "JAZZ_TacGrip",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|UMP45|UMP45|b6d0949d72b5b37917fa|c9c81781e65a67e9d5ef|5ba2b6b019d38320a123|0a8b8398bf97ec9d0ed4|8f0b7547d252fa43021a|69aca92acf963caf55ed|27e76a89827e352555fb"
+  },
+  {
+    "weapon": "UMP45",
+    "column": 2,
+    "components": {
+      "Side": "JAZZ_FlashlightDot",
+      "Under": "JAZZ_VerticalGrip",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Scope": "JAZZ_CombatScope_ACOG"
+    },
+    "key": "native-layers-v4|UMP45|UMP45|9a2cfce5c88e2bcf0c24|b6d0949d72b5b37917fa|5ba2b6b019d38320a123|8f0b7547d252fa43021a|31df2e8132b70ad05700|f70a38241252cbd9eaeb|72967fd586d904de25fa"
+  },
+  {
+    "weapon": "USAS12",
+    "column": 0,
+    "components": {
+      "Scope": "JAZZ_Scope_6x",
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal"
+    },
+    "key": "native-layers-v4|USAS12|USAS12|a4a1e127d61427b8425a|bcaa808cbdc9f1519086"
+  },
+  {
+    "weapon": "USAS12",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_25_USAS",
+      "Muzzle": "JAZZ_Suppressor",
+      "Scope": "JAZZ_CombatScope_3x"
+    },
+    "key": "native-layers-v4|USAS12|USAS12|96946841dd407b66327c|1b3fba94f2c8ecf83c7d|bcaa808cbdc9f1519086"
+  },
+  {
+    "weapon": "USAS12",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_25_USAS",
+      "Muzzle": "JAZZ_Compensator",
+      "Scope": "JAZZ_NightScope"
+    },
+    "key": "native-layers-v4|USAS12|USAS12|96946841dd407b66327c|1ccbf63c14e91abc2fb8|bcaa808cbdc9f1519086"
+  },
+  {
+    "weapon": "USP45",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "",
+      "Scope": "",
+      "Side": ""
+    },
+    "key": "native-layers-v4|USP45|USP45|011af82d63ce79575118"
+  },
+  {
+    "weapon": "USP45",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Side": "JAZZ_Flashlight",
+      "Scope": "JAZZ_Reflex_Pistol"
+    },
+    "key": "native-layers-v4|USP45|USP45|011af82d63ce79575118|210b35858bc951448b18|92880f1bc9feb77c1874|e4f03366d7f149e495a6"
+  },
+  {
+    "weapon": "USP45",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Side": "JAZZ_FlashlightDot",
+      "Scope": "JAZZ_Reflex_Pistol"
+    },
+    "key": "native-layers-v4|USP45|USP45|011af82d63ce79575118|210b35858bc951448b18|dbacb26181ada6d25c15|4d6b3301e3de0f759401"
+  },
+  {
+    "weapon": "UZI",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|UZI|UziFull|bee5b521bb424b24acf5|6e847a4c3a35cbecf4c1|bdfe0931dd4a82b88da4"
+  },
+  {
+    "weapon": "UZI",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_30_50_UZI",
+      "Muzzle": "JAZZ_PistolSuppressor",
+      "Stock": "JAZZ_StockNormal",
+      "Scope": "JAZZ_Reflex_Eotech"
+    },
+    "key": "native-layers-v4|UZI|UziFull|efabe971a915e8842bc2|9c2989bab93850a281d5|787414ad474ef86db2e7|6e847a4c3a35cbecf4c1|3bce1699067808da9ae3|9dc5f5314e0e123c934b"
+  },
+  {
+    "weapon": "UZI",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_30_50_UZI",
+      "Muzzle": "JAZZ_Compensator",
+      "Stock": "JAZZ_StockLightUnFolded",
+      "Scope": "JAZZ_Reflex_Open"
+    },
+    "key": "native-layers-v4|UZI|UziFull|efabe971a915e8842bc2|9c2989bab93850a281d5|3f7dcf8ce9b3c809cfeb|6e847a4c3a35cbecf4c1|bdfe0931dd4a82b88da4|7e5fb2462ca4354ef933"
+  },
+  {
+    "weapon": "VSS",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|VSS|VSS|46e138c75c1e374f536d|0676ab2b1745979cd340"
+  },
+  {
+    "weapon": "VSS",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_10_20_VAL",
+      "Scope": "JAZZ_CombatScope_1P29"
+    },
+    "key": "native-layers-v4|VSS|VSS|61627098d085ec512f25|1a6d863a3317f98132c6|0676ab2b1745979cd340"
+  },
+  {
+    "weapon": "VSS",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_10_20_VAL",
+      "Scope": "JAZZ_CombatScope_2x"
+    },
+    "key": "native-layers-v4|VSS|VSS|61627098d085ec512f25|45abff9772c682a46857|0676ab2b1745979cd340"
+  },
+  {
+    "weapon": "VZ58",
+    "column": 0,
+    "components": {
+      "Scope": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Handguard": "JAZZ_VZ58_HandguardWood",
+      "Handgrip": "JAZZ_Handgrip_Default",
+      "Under": "",
+      "Stock": "JAZZ_StockNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|VZ58|JAZZ_VZ58|1e96c974158105524952|1cec92a9a4127d3852e5|3449ad639fb37632effc|b0adbae286be027a9d22|2d5b127eb373eeb7e8d3"
+  },
+  {
+    "weapon": "VZ58",
+    "column": 1,
+    "components": {
+      "Handguard": "JAZZ_VZ58_HandguardWood",
+      "Handgrip": "JAZZ_Handgrip_Ergo",
+      "Scope": "",
+      "Magazine": "JAZZ_MagQuick",
+      "Stock": "JAZZ_StockLightFolded",
+      "Muzzle": "JAZZ_Suppressor",
+      "Under": "JAZZ_VerticalGrip"
+    },
+    "key": "native-layers-v4|VZ58|JAZZ_VZ58|9b1d3ef7dbc1b997ae0c|83efb6572fe72ea976a8|4d5974c6e901ebc02678|3449ad639fb37632effc|b0adbae286be027a9d22|0a39262191bbf360176b|206666efa9a33939594b"
+  },
+  {
+    "weapon": "VZ58",
+    "column": 2,
+    "components": {
+      "Handguard": "JAZZ_VZ58_HandguardWood",
+      "Handgrip": "JAZZ_Handgrip_Ergo",
+      "Scope": "",
+      "Magazine": "JAZZ_MagQuick",
+      "Stock": "JAZZ_StockNormal",
+      "Muzzle": "JAZZ_Suppressor",
+      "Under": "JAZZ_VerticalGrip"
+    },
+    "key": "native-layers-v4|VZ58|JAZZ_VZ58|9b1d3ef7dbc1b997ae0c|83efb6572fe72ea976a8|4d5974c6e901ebc02678|3449ad639fb37632effc|b0adbae286be027a9d22|0a39262191bbf360176b|2d5b127eb373eeb7e8d3"
+  },
+  {
+    "weapon": "VectorCP1",
+    "column": 0,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|VectorCP1|VectorCP1|5cf4875c13693cce6890"
+  },
+  {
+    "weapon": "VectorCP1",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|VectorCP1|VectorCP1|5cf4875c13693cce6890"
+  },
+  {
+    "weapon": "VektorR4",
+    "column": 0,
+    "components": {},
+    "key": "native-layers-v4|VektorR4|JAZZ_VektorR4|ef36cb0ebab2c4f8094a"
+  },
+  {
+    "weapon": "VektorR4",
+    "column": 1,
+    "components": [],
+    "key": "native-layers-v4|VektorR4|JAZZ_VektorR4|ef36cb0ebab2c4f8094a"
+  },
+  {
+    "weapon": "Webley",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|Webley|Webleyf|3024a4a436b482f2ab42|f8f7e784ef1ab87f0234"
+  },
+  {
+    "weapon": "Webley",
+    "column": 1,
+    "components": {
+      "Barrel": "JAZZ_BarrelLong"
+    },
+    "key": "native-layers-v4|Webley|Webleyf|e85d719ca6f5c1842675|f8f7e784ef1ab87f0234"
+  },
+  {
+    "weapon": "Webley",
+    "column": 2,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal"
+    },
+    "key": "native-layers-v4|Webley|Webleyf|3024a4a436b482f2ab42|f8f7e784ef1ab87f0234"
+  },
+  {
+    "weapon": "Welrod",
+    "column": 0,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|Welrod|Welrod|2e19593ccb5ae6899474"
+  },
+  {
+    "weapon": "Welrod",
+    "column": 1,
+    "components": {
+      "Muzzle": "JAZZ_SuppressorIntegrated"
+    },
+    "key": "native-layers-v4|Welrod|Welrod|2e19593ccb5ae6899474"
+  },
+  {
+    "weapon": "Winchester1894",
+    "column": 0,
+    "components": {
+      "Barrel": "JAZZ_BarrelNormal",
+      "Muzzle": "",
+      "Scope": "JAZZ_ImprovedIronsight"
+    },
+    "key": "native-layers-v4|Winchester1894|Weapon_Winchester|950d7c476a0b85983887|ac970d80135bf341af85|b37a5fe7fb216ab47347"
+  },
+  {
+    "weapon": "Winchester1894",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_CombatScope_2x",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelLong",
+      "Ironsight": ""
+    },
+    "key": "native-layers-v4|Winchester1894|Weapon_Winchester|4cc7e1686bf3c3f94c78|69896b807942dff2c944|161ab717c3362d7c138e|66d0cbadf23084dfcdd6|b37a5fe7fb216ab47347"
+  },
+  {
+    "weapon": "Winchester1894",
+    "column": 2,
+    "components": {
+      "Scope": "JAZZ_Reflex_Eotech",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Barrel": "JAZZ_BarrelLong",
+      "Ironsight": ""
+    },
+    "key": "native-layers-v4|Winchester1894|Weapon_Winchester|4cc7e1686bf3c3f94c78|69896b807942dff2c944|66d0cbadf23084dfcdd6|a8eeae2fad50550c166e|b37a5fe7fb216ab47347"
+  },
+  {
+    "weapon": "Winchester_Quest",
+    "column": 0,
+    "components": {
+      "Barrel": "BarrelNormal",
+      "Scope": "ImprovedIronsight"
+    },
+    "key": "native-layers-v4|Winchester_Quest|Weapon_Winchester|98531bc97a14967213cf|302afa053071e02b969f|d8a579eb4048806407bd"
+  },
+  {
+    "weapon": "Winchester_Quest",
+    "column": 1,
+    "components": {
+      "Scope": "JAZZ_CombatScope_2x",
+      "Barrel": "BarrelNormal",
+      "Ironsight": ""
+    },
+    "key": "native-layers-v4|Winchester_Quest|Weapon_Winchester|2b99eb1f8cd08c26337b|302afa053071e02b969f|d8a579eb4048806407bd"
+  },
+  {
+    "weapon": "Winchester_Quest",
+    "column": 2,
+    "components": {
+      "Scope": "JAZZ_Reflex_Closed",
+      "Barrel": "BarrelNormal",
+      "Ironsight": ""
+    },
+    "key": "native-layers-v4|Winchester_Quest|Weapon_Winchester|637d70133a36ad5ebd29|302afa053071e02b969f|d8a579eb4048806407bd"
+  },
+  {
+    "weapon": "ZastavaM76",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockNormal",
+      "Magazine": "JAZZ_MagNormal",
+      "Scope": "JAZZ_Scope_ZRAK",
+      "Barrel": "JAZZ_BarrelsDefs"
+    },
+    "key": "native-layers-v4|ZastavaM76|m76|3c82c2c263e1adfcdcff|1abb0c9b61b6b2162461|a1cf1ea3ba0936cd5a09|3646e182ed02b2eadadc|66c3c7b27449786f7a18"
+  },
+  {
+    "weapon": "ZastavaM76",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Scope": "JAZZ_Scope_ZRAK"
+    },
+    "key": "native-layers-v4|ZastavaM76|m76|3c82c2c263e1adfcdcff|1abb0c9b61b6b2162461|a1cf1ea3ba0936cd5a09|3646e182ed02b2eadadc|66c3c7b27449786f7a18"
+  },
+  {
+    "weapon": "ZastavaM76",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockNormal",
+      "Barrel": "JAZZ_BarrelsDefs",
+      "Scope": ""
+    },
+    "key": "native-layers-v4|ZastavaM76|m76|3c82c2c263e1adfcdcff|1abb0c9b61b6b2162461|3646e182ed02b2eadadc|66c3c7b27449786f7a18"
+  },
+  {
+    "weapon": "ZastavaM92",
+    "column": 0,
+    "components": {
+      "Muzzle": "",
+      "Magazine": "JAZZ_MagNormal",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|ZastavaM92|M92|10c81aec1ab93d3dec40|51b0f17ce646b4bc9de0|e54aeb5e9a7048dbd4ec"
+  },
+  {
+    "weapon": "ZastavaM92",
+    "column": 1,
+    "components": {
+      "Magazine": "JAZZ_MagDrum_30_75",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|ZastavaM92|M92|fa7693cafe57851c3670|51b0f17ce646b4bc9de0|e54aeb5e9a7048dbd4ec|41d23cf39cd32c257a86"
+  },
+  {
+    "weapon": "ZastavaM92",
+    "column": 2,
+    "components": {
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "Muzzle": "JAZZ_ImprovisedSuppressor",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|ZastavaM92|M92|393b7c7d9d1d48c432e6|51b0f17ce646b4bc9de0|e54aeb5e9a7048dbd4ec|41d23cf39cd32c257a86"
+  },
+  {
+    "weapon": "Zastava_M70",
+    "column": 0,
+    "components": {
+      "Stock": "JAZZ_StockLightUnFolded",
+      "General": "JAZZ_M70_Fld_GL",
+      "Magazine": "JAZZ_MagNormal",
+      "Bipod": "",
+      "Muzzle": ""
+    },
+    "key": "native-layers-v4|Zastava_M70|Zastava_M70|00728bc234d1ac9100d3|42183397b23dd15019a5|600e7b2d389862dda6e8|136eaaff5eef19b5f40a"
+  },
+  {
+    "weapon": "Zastava_M70",
+    "column": 1,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagDrum_30_75",
+      "General": "JAZZ_M70_Fld_GL",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|Zastava_M70|Zastava_M70|266181d17560c82801d2|42183397b23dd15019a5|600e7b2d389862dda6e8|151b9af3a12eb6714eb0|136eaaff5eef19b5f40a"
+  },
+  {
+    "weapon": "Zastava_M70",
+    "column": 2,
+    "components": {
+      "Bipod": "JAZZ_Bipod",
+      "Magazine": "JAZZ_MagLarge_30_40",
+      "General": "JAZZ_M70_Fld_GL",
+      "Muzzle": "",
+      "Stock": "JAZZ_StockLightUnFolded"
+    },
+    "key": "native-layers-v4|Zastava_M70|Zastava_M70|fdab3a4585ba81cf4f2a|42183397b23dd15019a5|600e7b2d389862dda6e8|151b9af3a12eb6714eb0|136eaaff5eef19b5f40a"
+  }
+]

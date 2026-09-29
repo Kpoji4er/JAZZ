@@ -1,0 +1,1081 @@
+{
+  "status": "PASS",
+  "registry_sha256": "3ebf58a45799f1b41165b4e27446146936f6e0ea8f9a265c31296564f27b9d9f",
+  "selector_sha256": "071551acfaf2015100263ab228281643029565f86da615df971ddb7696497bce",
+  "cases": 448950,
+  "excluded_blocked_combinations": 76286,
+  "excluded_fixed_variants": 88,
+  "superseded_camera_references": 44,
+  "coverage": [
+    {
+      "weapon": "AA12",
+      "cartesian_cases": 660,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AA52",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AK103",
+      "cartesian_cases": 8160,
+      "excluded_blocked_combinations": 2720,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AK105",
+      "cartesian_cases": 324,
+      "excluded_blocked_combinations": 108,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AK47",
+      "cartesian_cases": 12,
+      "excluded_blocked_combinations": 4,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AK74",
+      "cartesian_cases": 162,
+      "excluded_blocked_combinations": 54,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AK74M",
+      "cartesian_cases": 324,
+      "excluded_blocked_combinations": 108,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AKM",
+      "cartesian_cases": 12240,
+      "excluded_blocked_combinations": 4080,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AKSU",
+      "cartesian_cases": 108,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AN94",
+      "cartesian_cases": 18,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "APS",
+      "cartesian_cases": 4,
+      "excluded_blocked_combinations": 2,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AR10",
+      "cartesian_cases": 24,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AR10DMR",
+      "cartesian_cases": 24,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AS_Val",
+      "cartesian_cases": 192,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AUG",
+      "cartesian_cases": 8580,
+      "excluded_blocked_combinations": 4620,
+      "unresolved": 0
+    },
+    {
+      "weapon": "AVT40",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Agram2000",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ArcticWarfare",
+      "cartesian_cases": 14,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Auto5",
+      "cartesian_cases": 20,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Auto5_quest",
+      "cartesian_cases": 20,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "BAR",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "BarretM82",
+      "cartesian_cases": 48,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Bereta92",
+      "cartesian_cases": 45,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Beretta93r",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "BerettaM12",
+      "cartesian_cases": 3,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "BrowningM2HMG",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "CAR15",
+      "cartesian_cases": 216,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "CZ52",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "CZ75",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "China_Lake",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Colt1911",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Colt38Special",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ColtAnaconda",
+      "cartesian_cases": 10,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ColtM1917",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ColtPeacemaker",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "DP27",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "DeLisle",
+      "cartesian_cases": 11,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "DesertEagle",
+      "cartesian_cases": 24,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "DoubleBarrelShotgun",
+      "cartesian_cases": 3,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "DragunovSVD",
+      "cartesian_cases": 176,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "DragunovSVD_Custom",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FAMAS",
+      "cartesian_cases": 1320,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FG42",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FNFAL",
+      "cartesian_cases": 118800,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FNMAG",
+      "cartesian_cases": 11,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FNMinimi",
+      "cartesian_cases": 264,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FRF2",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FiveSeven",
+      "cartesian_cases": 18,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "FlareHandgun",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "G36",
+      "cartesian_cases": 25920,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "G36c",
+      "cartesian_cases": 792,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "G3A3",
+      "cartesian_cases": 144,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "G3A4",
+      "cartesian_cases": 192,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "G3SniperV1",
+      "cartesian_cases": 144,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "G43",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Galil",
+      "cartesian_cases": 17820,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Galil_FlagHill",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Gewehr98",
+      "cartesian_cases": 10,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Glock17",
+      "cartesian_cases": 72,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Glock18",
+      "cartesian_cases": 72,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "GoldenGun",
+      "cartesian_cases": 20,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "GrizzlyLAR",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "HK21",
+      "cartesian_cases": 9504,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "HK23e",
+      "cartesian_cases": 55,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "HK33",
+      "cartesian_cases": 21840,
+      "excluded_blocked_combinations": 58800,
+      "unresolved": 0
+    },
+    {
+      "weapon": "HiPower",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Ithaca",
+      "cartesian_cases": 44,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "JAZZ_FNFAL_Tactical",
+      "cartesian_cases": 110880,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "JAZZ_M14_MkIII",
+      "cartesian_cases": 3300,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Kimber",
+      "cartesian_cases": 64,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Korth",
+      "cartesian_cases": 4,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "L42A1",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "LionRoar",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Luger",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M14SAW",
+      "cartesian_cases": 1056,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M16A1",
+      "cartesian_cases": 192,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M16A2",
+      "cartesian_cases": 1728,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M16A4",
+      "cartesian_cases": 27648,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M1897",
+      "cartesian_cases": 3,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M1A",
+      "cartesian_cases": 7700,
+      "excluded_blocked_combinations": 5500,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M1Garand",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M21",
+      "cartesian_cases": 3600,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M24Sniper",
+      "cartesian_cases": 1512,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M2Carbine",
+      "cartesian_cases": 96,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M3GreaseGun",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M41Shotgun",
+      "cartesian_cases": 288,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M45",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M4A1",
+      "cartesian_cases": 20736,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M60",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M60E3",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M60E4",
+      "cartesian_cases": 132,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M700",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M72LAW",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "M79",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MAC10",
+      "cartesian_cases": 3,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MAC1950",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MAC2429",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MAS36",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MAS49",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MAT49",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MG42",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MG58",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MGL",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MK14EBR",
+      "cartesian_cases": 2112,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP40",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP446VIKING",
+      "cartesian_cases": 18,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP5A2",
+      "cartesian_cases": 36,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP5A4",
+      "cartesian_cases": 324,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP5K",
+      "cartesian_cases": 1296,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP5SD",
+      "cartesian_cases": 54,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MP7",
+      "cartesian_cases": 36,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MPL",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MR73",
+      "cartesian_cases": 4,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Makarov",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MicroUZI",
+      "cartesian_cases": 360,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Mini14",
+      "cartesian_cases": 88,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "MortarInventoryItem",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Mosin",
+      "cartesian_cases": 4,
+      "excluded_blocked_combinations": 2,
+      "unresolved": 0
+    },
+    {
+      "weapon": "P210",
+      "cartesian_cases": 144,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "P220",
+      "cartesian_cases": 72,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "P226",
+      "cartesian_cases": 720,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "P38",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "P90",
+      "cartesian_cases": 18,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "PB",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "PKM",
+      "cartesian_cases": 11,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "PP19Bizon",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "PPS43",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "PPSH",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "PSG1",
+      "cartesian_cases": 2880,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "R870",
+      "cartesian_cases": 96,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "RPD",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "RPG7",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "RPK",
+      "cartesian_cases": 96,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "RPK74",
+      "cartesian_cases": 24,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "RSH12",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SKS",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SPAS12",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SR3M",
+      "cartesian_cases": 36,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "STG44",
+      "cartesian_cases": 4,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SVT40",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SVU",
+      "cartesian_cases": 12,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SWModel10",
+      "cartesian_cases": 12,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SWModel19",
+      "cartesian_cases": 18,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SWModel29",
+      "cartesian_cases": 12,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SWModel52",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SWModel5906",
+      "cartesian_cases": 6,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Scorpion",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ScoutSniper",
+      "cartesian_cases": 21,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Sig550",
+      "cartesian_cases": 7488,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Sig550Custom",
+      "cartesian_cases": 11232,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Sig552",
+      "cartesian_cases": 1152,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Sig552SWAT",
+      "cartesian_cases": 384,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "SpectreM4",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Springfield",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Sterling",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Stoeger",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Striker",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "TMP",
+      "cartesian_cases": 8,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "TT33",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "TexRevolver",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Thompson",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Type56",
+      "cartesian_cases": 8,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "U100",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "UMP45",
+      "cartesian_cases": 504,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "USAS12",
+      "cartesian_cases": 72,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "USP45",
+      "cartesian_cases": 36,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "UZI",
+      "cartesian_cases": 90,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "VSS",
+      "cartesian_cases": 32,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "VZ58",
+      "cartesian_cases": 352,
+      "excluded_blocked_combinations": 288,
+      "unresolved": 0
+    },
+    {
+      "weapon": "VectorCP1",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "VektorR4",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Webley",
+      "cartesian_cases": 2,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Welrod",
+      "cartesian_cases": 1,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Winchester1894",
+      "cartesian_cases": 72,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Winchester_Quest",
+      "cartesian_cases": 3,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ZastavaM76",
+      "cartesian_cases": 8,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "ZastavaM92",
+      "cartesian_cases": 8,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    },
+    {
+      "weapon": "Zastava_M70",
+      "cartesian_cases": 8,
+      "excluded_blocked_combinations": 0,
+      "unresolved": 0
+    }
+  ],
+  "failures": [],
+  "level": "offline Lua and captured native graph; UI not exercised"
+}
