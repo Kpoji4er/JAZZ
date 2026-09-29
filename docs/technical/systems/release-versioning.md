@@ -131,7 +131,7 @@ git diff --check
 
 ## Исключение исходников Blender
 
-PROGRESSION-001 release preparation: `docs/tools/_pack_suite_release.py` исключает `.blend`, `.blend1`, `.blend2` без учёта регистра наряду с PSD и прочими development-only файлами. Игровые HGM/HGA/материалы/текстуры остаются в архиве. На Windows упаковку для сравнения с Linux Actions запускать с process-local `core.autocrlf=false`, чтобы `git archive` сохранял байты committed blob.
+PROGRESSION-001 release preparation: `docs/tools/_pack_suite_release.py` исключает `.blend`, `.blend1`, `.blend2` без учёта регистра наряду с PSD и прочими development-only файлами. Игровые HGM/HGA/материалы/текстуры остаются в архиве. Сравнение Windows/Linux требует одинакового `core.autocrlf`: git archive применяет преобразование окончаний строк. Manifest v0.20.6232 рассчитан с `core.autocrlf=true`; workflow воспроизводит эту настройку process-local.
 
 ### Release preparation, 2026-09-28
 
@@ -149,3 +149,5 @@ The packer streams `git archive` and filters development files before extraction
 Дополнительный массив manifest `distribution` содержит package и artifacts (artifact, sha256, bytes). SHA256SUMS перечисляет именно загружаемые файлы. Workflow повторяет разбиение, сравнивает distribution и создаёт draft из release-assets.txt. Проверка скачанных частей обязательна до публикации. `_test_release_assets.py` проверяет полное покрытие байтов, отсутствие дублей, детерминизм и границы размера.
 
 Упаковка релиза закреплена за Windows / CPython 3.12.10 / zlib 1.3.1, как при расчёте manifest: разные версии zlib могут давать разные ZIP SHA при одинаковых исходных байтах. После сбоя допускается workflow_dispatch с существующим неизменяемым tag; checkout, четыре source SHA и проверки manifest сохраняются. Опубликованный release перезаписывать запрещено.
+
+Windows runner использует PYTHONUTF8=1 для чтения русских metadata и фиксированный process-local core.autocrlf=true. Проверено на committed Lua: преобразование меняет только окончания строк, а manifest фиксирует итоговые ZIP-байты.

@@ -10,6 +10,10 @@ on:
         description: Existing immutable metadata-derived release tag
         required: true
         type: string
+      verify_downloads:
+        description: Verify existing release downloads without rebuilding or publishing
+        type: boolean
+        default: false
   push:
     tags:
       - "v*.*.*"
@@ -19,6 +23,7 @@ permissions:
 
 jobs:
   release:
+    if: ${{ !inputs.verify_downloads }}
     name: Pack and draft suite release
     runs-on: windows-latest
     defaults:
@@ -160,3 +165,46 @@ jobs:
               --latest=false \
               "${ASSETS[@]}"
           fi
+
+  verify_downloads:
+    if: ${{ inputs.verify_downloads }}
+    name: Verify existing release downloads
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - name: Download release assets
+        run: gh release download "$RELEASE_TAG" --dir .tmp/download
+      - name: Verify tagged manifest and all distributed archive hashes
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          tag = os.environ['RELEASE_TAG']
+          root = pathlib.Path('.tmp/download')
+          expected = subprocess.check_output(['git', 'show', f'HEAD:release/manifests/{tag}.json'])
+          actual = (root / f'jazz-release-{tag}.json').read_bytes()
+          assert actual == expected, 'Tagged manifest byte mismatch'
+          manifest = json.loads(actual)
+          sums = {name: digest for digest, name in (line.split() for line in (root / 'SHA256SUMS').read_text().splitlines())}
+          checked = set()
+          for package in manifest['distribution']:
+              for asset in package['artifacts']:
+                  path = root / asset['artifact']
+                  assert path.stat().st_size == asset['bytes'], path.name
+                  with path.open('rb') as handle:
+                      digest = hashlib.file_digest(handle, 'sha256').hexdigest()
+                  assert digest == asset['sha256'] == sums[path.name], path.name
+                  checked.add(path.name)
+                  print(f'PASS {path.name} {digest}')
+          assert checked == set(sums), 'Distribution file set mismatch'
+          print('PASS tagged manifest and all release downloads')
+          PY
