@@ -4,6 +4,12 @@
 name: Publish suite release
 
 on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing immutable metadata-derived release tag
+        required: true
+        type: string
   push:
     tags:
       - "v*.*.*"
@@ -14,27 +20,42 @@ permissions:
 jobs:
   release:
     name: Pack and draft suite release
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     steps:
       - name: Checkout tagged core
         uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.tag || github.ref }}
           fetch-depth: 0
           lfs: true
+
+      - name: Pin archive compression runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+
+      - name: Verify archive runtime
+        run: python -c "import sys,zlib; print(sys.version, zlib.ZLIB_RUNTIME_VERSION); assert zlib.ZLIB_RUNTIME_VERSION == '1.3.1'"
 
       - name: Read manifest and verify tag
         id: meta
         run: |
           set -euo pipefail
-          TAG="${GITHUB_REF_NAME}"
+          TAG="${RELEASE_TAG}"
+          [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
           MANIFEST="release/manifests/${TAG}.json"
           if [ ! -f "$MANIFEST" ]; then
             echo "::error::Missing $MANIFEST"
             exit 1
           fi
-          python3 - <<'PY'
+          python - <<'PY'
           import json, os, pathlib, re, subprocess, sys
-          tag = os.environ["GITHUB_REF_NAME"]
+          tag = os.environ["RELEASE_TAG"]
           manifest_path = pathlib.Path("release/manifests") / f"{tag}.json"
           manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
           source = manifest["release_version"]["source"]
@@ -85,7 +106,7 @@ jobs:
       - name: Pack four archives and verify manifest hashes
         run: |
           set -euo pipefail
-          python3 docs/tools/_pack_suite_release.py \
+          python docs/tools/_pack_suite_release.py \
             --jazz-sha "${{ steps.meta.outputs.jazz_sha }}" \
             --assets-sha "${{ steps.meta.outputs.assets_sha }}" \
             --maps-sha "${{ steps.meta.outputs.maps_sha }}" \
@@ -99,7 +120,7 @@ jobs:
 
       - name: Prepare downloadable ZIP parts and verify hashes
         run: |
-          python3 docs/tools/_prepare_release_assets.py \
+          python docs/tools/_prepare_release_assets.py \
             --manifest "release/manifests/${{ steps.meta.outputs.tag }}.json" \
             --out-dir .tmp/suite-release --verify
 
@@ -115,20 +136,23 @@ jobs:
             NOTES="$(mktemp)"
             printf 'JAZZ %s\n' "$DISPLAY" > "$NOTES"
           fi
+          git show "HEAD:release/manifests/${TAG}.json" > ".tmp/suite-release/jazz-release-${TAG}.json"
           ASSETS=()
           while IFS= read -r asset; do
+            asset="${asset%$'\r'}"
             ASSETS+=(".tmp/suite-release/$asset")
           done < .tmp/suite-release/release-assets.txt
-          ASSETS+=("release/manifests/${TAG}.json#jazz-release-${TAG}.json" ".tmp/suite-release/SHA256SUMS")
+          ASSETS+=(".tmp/suite-release/jazz-release-${TAG}.json" ".tmp/suite-release/SHA256SUMS")
           if gh release view "$TAG" >/dev/null 2>&1; then
+            [ "$(gh release view "$TAG" --json isDraft --jq .isDraft)" = true ] || { echo "Refusing to replace a published release"; exit 1; }
             gh release upload "$TAG" --clobber "${ASSETS[@]}"
             gh release edit "$TAG" --title "JAZZ ${DISPLAY}" --notes-file "$NOTES" --draft
           else
             gh release create "$TAG" \
               --title "JAZZ ${DISPLAY}" \
               --notes-file "$NOTES" \
-              --target "${{ github.sha }}" \
+              --target "$(git rev-parse HEAD)" \
               --draft \
-              --latest \
+              --latest=false \
               "${ASSETS[@]}"
           fi
