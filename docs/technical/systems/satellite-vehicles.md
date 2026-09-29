@@ -6,7 +6,7 @@
 
 **Тактический боевой Unit сейчас выключен** (`JAZZ_VehicleCombat.tactical_enabled = false`): на карте сектора машина как юнит не спавнится.
 
-**Дизайн боевого автомобиля зафиксирован в JAZZ Maps**, но **в runtime ещё не внедрён**. Канон: [`JAZZ Maps/docs/combat-vehicle-design.md`](../../../../jazz-maps/docs/combat-vehicle-design.md). Suite-указатель: [combat-vehicle-design.md](combat-vehicle-design.md).
+**Дизайн боевого автомобиля зафиксирован в JAZZ Maps**, но **в runtime ещё не внедрён**. Канон: [`JAZZ Maps/docs/combat-vehicle-design.md`](https://github.com/Kpoji4er/JAZZ-maps/blob/main/docs/combat-vehicle-design.md). Suite-указатель: [combat-vehicle-design.md](combat-vehicle-design.md).
 
 ## Происхождение по слоям
 
@@ -66,7 +66,7 @@
 2. Вход в сектор с машиной → **нет** отдельного боевого Unit транспорта.
 3. Выход / смена сектора → токен машины на сателлите на месте.
 
-Расширенный контракт (Фаза 1 / включение тактики) — в каноне maps [`combat-vehicle-design.md`](../../../../jazz-maps/docs/combat-vehicle-design.md).
+Расширенный контракт (Фаза 1 / включение тактики) — в каноне maps [`combat-vehicle-design.md`](https://github.com/Kpoji4er/JAZZ-maps/blob/main/docs/combat-vehicle-design.md).
 
 Не подтверждено в runtime — помечать как статический анализ.
 

@@ -1,6 +1,6 @@
 # Атлас секторов Grand Chien (jazz-maps)
 
-Расширенная кампания `HotDiamonds`: сетка **A–P × 1–32** (`sector_bottomright = P32`), старт **`M1`**, сателлит [`GrandChien2.png`](../../../../jazz-maps/Images/GrandChien2.png) (`map_file = Mod/FhNNYd/Images/GrandChien2.png`). Underground: `Images/BigMap_Under_1.png`.
+Расширенная кампания `HotDiamonds`: сетка **A–P × 1–32** (`sector_bottomright = P32`), старт **`M1`**, сателлит [`GrandChien2.png`](https://github.com/Kpoji4er/JAZZ-maps/blob/main/Images/GrandChien2.png) (`map_file = Mod/FhNNYd/Images/GrandChien2.png`). Underground: `Images/BigMap_Under_1.png`.
 
 Снимок runtime: **274** `ModItemSector` (surface 254, underground 20) из `items.lua` — без обхода `Maps/`.
 
@@ -326,4 +326,4 @@
 
 - [Трансфер](sector-transfer.md)
 - [Сверка sheet ↔ runtime](sector-sheet-vs-runtime.md)
-- [Квесты / локации / враги](../../../../jazz-maps/docs/content/quests-locations-enemies.md)
+- [Квесты / локации / враги](https://github.com/Kpoji4er/JAZZ-maps/blob/main/docs/content/quests-locations-enemies.md)
