@@ -1,6 +1,6 @@
 ---
 id: JAZZ-RELEASE-PARTS-001
-status: approved
+status: implemented
 owner: project-owner
 systems:
   - release-versioning
@@ -60,7 +60,7 @@ Approved 29.09.2026: пользователь явно поручил закон
 
 ## Evidence
 - `JAZZ-RELEASE-PARTS-001-AC-001`: PASS — `_test_release_assets.py`: byte coverage, no duplicates, deterministic parts, size guards.
-- `JAZZ-RELEASE-PARTS-001-AC-002`: BLOCKED до workflow и скачивания.
+- `JAZZ-RELEASE-PARTS-001-AC-002`: PASS — опубликован v0.20.6232; все пять ZIP скачаны и SHA-256/размеры сверены с distribution и SHA256SUMS; приложенный manifest побайтно совпадает с Git blob тега.
 
 ## Documentation delta
 Обновить release-versioning и release-contract с multipart distribution и инструкцией установки.
@@ -70,3 +70,9 @@ Approved 29.09.2026: пользователь явно поручил закон
 Проверка фактических ZIP выявила Python postprocess в NPCPortraits/newgen. Packaging исключает .py/.ps1/.fbx независимо от расположения; игровые файлы units не меняются.
 
 Упаковка релиза закреплена за Windows / CPython 3.12.10 / zlib 1.3.1, как при расчёте manifest: разные версии zlib могут давать разные ZIP SHA при одинаковых исходных байтах. После сбоя допускается workflow_dispatch с существующим неизменяемым tag; checkout, четыре source SHA и проверки manifest сохраняются. Опубликованный release перезаписывать запрещено.
+
+Integration evidence 29.09.2026: Windows build run 36508843762 успешно воспроизвёл четыре canonical ZIP и пять distribution ZIP; только создание draft от GITHUB_TOKEN вернуло 403. Draft создан через gh от авторизованного аккаунта, локальная проверка скачивания PASS, затем опубликован prerelease. Тег и manifest не изменялись. Public download verification: https://github.com/Kpoji4er/JAZZ/actions/runs/36510501783. Release: https://github.com/Kpoji4er/JAZZ/releases/tag/v0.20.6232.
+
+Независимая Linux Actions проверка публичного скачивания 36510501783: SUCCESS, пять SHA-256 и tagged manifest PASS.
+
+Discord delivery PASS: workflow 36510649832, message 1554312356530753597, channel 1378428491082502294. Отправлены release page, пять прямых ZIP ссылок, manifest, SHA256SUMS и инструкция по двум частям assets.
