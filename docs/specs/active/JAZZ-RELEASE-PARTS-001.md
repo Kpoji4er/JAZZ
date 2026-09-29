@@ -10,6 +10,7 @@ risk: low
 generated_data: false
 runtime_validation: not-required
 write_set:
+  - docs/tools/_pack_suite_release.py
   - docs/tools/_prepare_release_assets.py
   - docs/tools/_test_release_assets.py
   - .github/workflows/publish-suite-release.yml
@@ -65,3 +66,5 @@ Approved 29.09.2026: пользователь явно поручил закон
 Обновить release-versioning и release-contract с multipart distribution и инструкцией установки.
 
 Владелец дополнительно явно поручил отправить ссылки на скачивание в Discord. Workflow только workflow_dispatch после проверенной публикации; автоматической рассылки для будущих релизов нет.
+
+Проверка фактических ZIP выявила Python postprocess в NPCPortraits/newgen. Packaging исключает .py/.ps1/.fbx независимо от расположения; игровые файлы units не меняются.
