@@ -42,3 +42,6 @@
 - Release merge with CRLF-only conflicts: `docs/tools/_merge_lf_conflicts.py`; inspect remaining semantic conflicts before committing.
 
 - Сочетания модулей на иконках: `docs/design/weapon-layer-icons/live/LAYERS-REPLAY.md` (native capture, графы совместимости, слои и приёмка UI).
+
+
+Release ZIP parts: [prepare/test tooling](../../docs/tools/_prepare_release_assets.py), контракт в release-versioning. AK-103 editor transaction: [tool](../../docs/tools/weapon_layer_icons/edit_ak103_magazines.py).

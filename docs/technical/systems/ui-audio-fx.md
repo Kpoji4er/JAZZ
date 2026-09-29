@@ -147,7 +147,7 @@ XControl принадлежит исходному XImage; все цветные
 
 Автоматические структурные имена не установлены: read-only аудит активной локализации остановился на конфликтующих переводах RussianManual.csv для одного SourceText (AnchorID 890000000020255). Таблицы переводов не изменены. Имена остаются прежними.
 
-Проверка native layers: 448950 offline Lua/graph случаев PASS, 76286 запрещённых сочетаний отдельно исключены по BlockSlots; 9797 реальных графов после 16983 попыток установки. Runtime XImage и XInventoryItem проверены на многомодульных AK74, M4A1 и DesertEagle, временные окна/предметы удалены. Это не проверка каждого сочетания в живом UI и не независимая human acceptance. Evidence: `docs/design/weapon-layer-icons/live/layer-verification.json` и `LAYERS-REPLAY.md`.
+Проверка native layers: 446882 offline Lua/graph случаев PASS, 75606 запрещённых сочетаний отдельно исключены по BlockSlots; 9770 реальных графов (обновлён АК-103). Runtime XImage и XInventoryItem проверены на многомодульных AK74, M4A1 и DesertEagle, временные окна/предметы удалены. Это не проверка каждого сочетания в живом UI и не независимая human acceptance. Evidence: `docs/design/weapon-layer-icons/live/layer-verification.json` и `LAYERS-REPLAY.md`.
 
 
 Уточнение владельца: отключённое оружие не снимать. AR15, M4Commando и MP5 (`catalog_status=excluded_disabled`) исключены из установки, основной галереи и будущих capture batches. 53 иконки удалены только из WeaponIcons/Live; staged/raw архив сохранён. Проверка селектора после фильтрации: 5281 PASS.
@@ -162,3 +162,5 @@ DesertEagle / HiPower: по замечанию владельца квантил
 
 
 Native layers v4 используют `docs/design/weapon-layer-icons/live/layer-color-profiles.json`: 166 плавных профилей по свежим default captures и исходным Icon, 12 явных fallback классов. Это заменяет v3 только для послойной композиции; старые flat PNG сохраняют прежнюю обработку. Все 1928 видимых слоёв имеют прежние размеры/alpha, подтверждено побайтным сравнением. Runtime-пример и сравнение цвета: `layer-runtime-combinations.png`, `layer-color-profiles.png`. Источники съёмки и геометрия не менялись.
+
+АК-103: 40/75 используют визуалы АКМ, абсолютные локальные смещения Z -30/-35 в AK103:UpdateVisualObj; quick исключён из AvailableComponents. Контур native слоя EffectPixels=6. Binder восстанавливает tint из старого color pass после ReloadLua и удаляет orphan-группы до создания новых.

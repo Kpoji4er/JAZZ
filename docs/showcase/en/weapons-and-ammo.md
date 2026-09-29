@@ -113,3 +113,5 @@ With the railed handguard, the vz. 58 supports four reflex sights: closed, compa
 Icons for 178 active weapon models combine photographed native parts: installed magazines, sights, stocks, muzzle devices and other modules appear together in their in-game positions. An unknown component restores the complete standard icon instead of showing a partial assembly. Attachment badges remain available; automatic stock-dependent names are not enabled yet.
 
 Icons now fill their original weapon tile formats: excess transparent margins are removed and pistols use the compact format. Color and brightness follow the previous in-game icons; all configurations of a weapon share the same color profile. A stronger dark outline improves readability.
+
+AK-103 uses AKM donor models for its 40-round and 75-round drum magazines with corrected mounting. The quick magazine is no longer offered for AK-103.

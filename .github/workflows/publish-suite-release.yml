@@ -97,6 +97,12 @@ jobs:
             --verify-manifest "release/manifests/${{ steps.meta.outputs.tag }}.json" \
             --expected-tag "${{ steps.meta.outputs.tag }}"
 
+      - name: Prepare downloadable ZIP parts and verify hashes
+        run: |
+          python3 docs/tools/_prepare_release_assets.py \
+            --manifest "release/manifests/${{ steps.meta.outputs.tag }}.json" \
+            --out-dir .tmp/suite-release --verify
+
       - name: Create draft GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -109,14 +115,11 @@ jobs:
             NOTES="$(mktemp)"
             printf 'JAZZ %s\n' "$DISPLAY" > "$NOTES"
           fi
-          ASSETS=(
-            ".tmp/suite-release/JAZZ-${TAG}.zip"
-            ".tmp/suite-release/JAZZ-assets-${TAG}.zip"
-            ".tmp/suite-release/JAZZ-maps-${TAG}.zip"
-            ".tmp/suite-release/JAZZ-units-${TAG}.zip"
-            "release/manifests/${TAG}.json#jazz-release-${TAG}.json"
-            ".tmp/suite-release/SHA256SUMS"
-          )
+          ASSETS=()
+          while IFS= read -r asset; do
+            ASSETS+=(".tmp/suite-release/$asset")
+          done < .tmp/suite-release/release-assets.txt
+          ASSETS+=("release/manifests/${TAG}.json#jazz-release-${TAG}.json" ".tmp/suite-release/SHA256SUMS")
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" --clobber "${ASSETS[@]}"
             gh release edit "$TAG" --title "JAZZ ${DISPLAY}" --notes-file "$NOTES" --draft

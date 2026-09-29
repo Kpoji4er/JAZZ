@@ -2,7 +2,25 @@
 local M = {}
 local states=setmetatable({}, {__mode="k"})
 local transparent=RGBA(255,255,255,0)
+-- ReloadLua replaces the weak table while existing inventory windows survive.
+-- Recover their original tint from the color pass before replacing old groups.
+local function recover(img)
+  if states[img] then return end
+  local color,disabled_color
+  for i=#img,1,-1 do
+    local group=img[i]
+    if group.Id=="idJazzNativeWeaponLayers" then
+      local last=group[#group]
+      if last and last.ImageColor~=transparent then color=last.ImageColor end
+      if last and last.DisabledImageColor~=transparent then disabled_color=last.DisabledImageColor end
+      group:delete()
+    end
+  end
+  if img.ImageColor==transparent and color then img:SetImageColor(color) end
+  if img.DisabledImageColor==transparent and disabled_color then img:SetDisabledImageColor(disabled_color) end
+end
 function M.clear(img)
+  recover(img)
   local state=states[img]
   if not state then return end
   if state.group and state.group.window_state~="destroying" then state.group:delete() end
@@ -20,6 +38,7 @@ function M.crop(plan)
 end
 function M.bind(img,item,registry,selector)
   if not img or img.window_state=="destroying" then return false end
+  recover(img)
   local plan=selector.resolve(registry,item)
   if not plan then M.clear(img);return false end
   for _,layer in ipairs(plan.layers) do
@@ -32,6 +51,7 @@ function M.bind(img,item,registry,selector)
   local disabled_color=state and img.DisabledImageColor==transparent and state.disabled_color or img.DisabledImageColor
   local style=table.concat({tostring(img.ImageScale),tostring(img.ImageFit),tostring(color),tostring(disabled_color),tostring(img.Desaturation),tostring(img.DisabledDesaturation),tostring(img.Angle),tostring(img.FlipX),tostring(img.FlipY)},"|")
   if state and state.key==plan.key and state.style==style then return true end
+  M.clear(img)
   local group=XControl:new({Id="idJazzNativeWeaponLayers",Dock="box",HandleMouse=false,Visible=false,ZOrder=1},img)
   local crop=M.crop(plan)
   local rect=box(crop[1],crop[2],crop[3],crop[4])
@@ -47,11 +67,10 @@ function M.bind(img,item,registry,selector)
         DisabledImageColor=pass==1 and RGBA(5,6,7,160) or disabled_color,
         Desaturation=img.Desaturation,DisabledDesaturation=img.DisabledDesaturation,
         Angle=img.Angle,FlipX=img.FlipX,FlipY=img.FlipY,
-        EffectType=pass==1 and "outline" or "none",EffectPixels=pass==1 and 2 or 0,
+        EffectType=pass==1 and "outline" or "none",EffectPixels=pass==1 and 6 or 0,
         EffectColor=RGB(5,6,7)},group)
     end
   end
-  M.clear(img)
   states[img]={key=plan.key,style=style,group=group,color=color,disabled_color=disabled_color}
   img:SetImageColor(transparent);img:SetDisabledImageColor(transparent)
   group:SetEnabled(img:GetEnabled())

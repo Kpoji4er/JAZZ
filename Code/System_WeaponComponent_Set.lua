@@ -310,3 +310,19 @@ function OnMsg.NewGame()
 	JazzHealMagazineSizeSetEverywhere()
 end
 
+
+-- JAZZ-WEAPON-PRESENTATION-001: imported AK-103 has a higher magazine socket.
+-- AKM donor magazines need individual absolute offsets, never an accumulated delta.
+function AK103:UpdateVisualObj(vis)
+    vis = vis or self.visual_obj
+    if not IsValid(vis) or vis.weapon ~= self then return end
+    FirearmBase.UpdateVisualObj(self, vis)
+    local part = vis.parts and vis.parts.Magazine
+    if not IsValid(part) then return end
+    local component = self.components and self.components.Magazine
+    if component == "JAZZ_MagLarge_30_40" and part:GetEntity() == "WeaponAttA_MagazineAK47_02" then
+        part:SetAttachOffset(point(0, 0, -30))
+    elseif component == "JAZZ_MagDrum_30_75" and part:GetEntity() == "WeaponAttA_MagazineRPK74_03" then
+        part:SetAttachOffset(point(0, 0, -35))
+    end
+end

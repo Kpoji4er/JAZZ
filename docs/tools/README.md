@@ -1085,3 +1085,7 @@ Feedback round 2: `_weapon_feedback_chainmail.py` продлевает суще�
 - `weapon_layer_icons/test_layer_tone.py` verifies smooth monotonic profiles and exact alpha/dimension preservation against the previous installed layers; writes pixel evidence and a combined PNG hash.
 
 - `weapon_layer_icons/reload_layers.py` reloads installed ModItems and UI, preserves metadata load order, verifies both HUD callbacks and optionally refreshes textures for explicitly named pilot families; does not load every arsenal texture into memory.
+
+
+- `_prepare_release_assets.py` / `_test_release_assets.py`: независимые ZIP-части больших релизных пакетов, distribution manifest и проверка байтов/лимита.
+- `weapon_layer_icons/edit_ak103_magazines.py`: официальный editor save списка магазинов АК-103 и барабана-донора АКМ, immutable baseline; `normalize_editor_save.py --ak103-magazines` сохраняет scoped delta.

@@ -25884,7 +25884,6 @@ return {
 						'SlotType', "Magazine",
 						'AvailableComponents', {
 							"JAZZ_MagNormal",
-							"JAZZ_MagQuick_AK",
 							"JAZZ_MagLarge_30_40",
 							"JAZZ_MagDrum_30_75",
 						},
@@ -57171,6 +57170,13 @@ PlaceObj('WeaponComponentVisual', {
 								}),
 								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
+									Entity = "WeaponAttA_MagazineRPK74_03",
+									Icon = "UI/Icons/Upgrades/RPK74_drum_magazine",
+									Slot = "Magazine",
+									param_bindings = false,
+								}),
+PlaceObj('WeaponComponentVisual', {
+									ApplyTo = "AK103",
 									Entity = "WeaponAttA_MagazineRPK74_03",
 									Icon = "UI/Icons/Upgrades/RPK74_drum_magazine",
 									Slot = "Magazine",

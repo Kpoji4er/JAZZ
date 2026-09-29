@@ -140,3 +140,10 @@ Runtime archives exclude both `.tmp/` and `tmp/`, including tracked development 
 Six legacy root-level unique-weapon companions are inactive copies: metadata loads the matching identities under `InventoryItem/vanillunique/`. The auditor now distinguishes these copies from missing active registrations; it does not enable or delete them.
 
 The packer streams `git archive` and filters development files before extraction, keeping CI memory and staging disk bounded by runtime files. ZIP ordering, timestamps and SHA-256 remain unchanged.
+
+
+## ZIP-части для больших пакетов
+
+Четыре логических пакета сохраняют исходные SHA и checksum canonical ZIP. Если ZIP достигает лимита GitHub 2 GiB, `_prepare_release_assets.py` создаёт независимые `-partNN.zip` с непересекающимися файлами и тем же корнем мода. Нужно скачать **все части** и распаковать в один каталог Mods; склеивать ZIP не требуется. Игровые байты и пути не меняются.
+
+Дополнительный массив manifest `distribution` содержит package и artifacts (artifact, sha256, bytes). SHA256SUMS перечисляет именно загружаемые файлы. Workflow повторяет разбиение, сравнивает distribution и создаёт draft из release-assets.txt. Проверка скачанных частей обязательна до публикации. `_test_release_assets.py` проверяет полное покрытие байтов, отсутствие дублей, детерминизм и границы размера.

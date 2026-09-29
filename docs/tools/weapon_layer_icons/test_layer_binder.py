@@ -64,3 +64,21 @@ img.window_state="destroying"
 assert(not binder.bind(img,{key="A"},{},selector))
 ''')
 print('PASS: layer ownership, A/B/A, stable key, missing image, nil context, color restoration, outline-before-color ordering')
+
+# Existing UI survives a Lua reload; transparent replacement groups must not
+# overwrite the original tint retained by the oldest color pass.
+lua.execute('''
+local orphan={ImageColor=RGBA(255,255,255,0),DisabledImageColor=RGBA(255,255,255,0)}
+function orphan:SetImageColor(v) self.ImageColor=v end
+function orphan:SetDisabledImageColor(v) self.DisabledImageColor=v end
+for i=1,2 do
+ local tint=i==1 and "saved-color" or RGBA(255,255,255,0)
+ local disabled=i==1 and "saved-disabled" or RGBA(255,255,255,0)
+ local group={Id="idJazzNativeWeaponLayers",{ImageColor=tint,DisabledImageColor=disabled}}
+ function group:delete() for j=#orphan,1,-1 do if orphan[j]==self then table.remove(orphan,j) end end end
+ orphan[i]=group
+end
+binder.clear(orphan)
+assert(#orphan==0 and orphan.ImageColor=="saved-color" and orphan.DisabledImageColor=="saved-disabled")
+''')
+print('PASS: hot-reload orphan groups removed and original tints recovered')
