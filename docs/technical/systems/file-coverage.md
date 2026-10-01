@@ -59,8 +59,8 @@
 | `System_LootDef.lua` | loaded | [Инвентарь и loot](inventory-items-loot-crafting.md) |
 | `System_LootDrops.lua` | loaded | [Инвентарь и loot](inventory-items-loot-crafting.md) |
 | `AmmoRolloverHint.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) |
-| `WeaponAttachChips.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) — JAZZ-UI-001 path B chips; Apply не спавнит row на не-firearm |
-| `WeaponIconBake.lua` | dormant | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) — JAZZ-UI-001 path E bake; **не** в `metadata.code`; chips = `WeaponAttachChips.lua` |
+| `WeaponAttachChips.lua` | loaded | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) — JAZZ-UI-001: Apply очищает и скрывает legacy overlay, новые чипы отключены |
+| `WeaponIconBake.lua` | dormant | [Оружие](weapons-ammo-components.md), [UI](ui-audio-fx.md) — JAZZ-UI-001 path E bake; **не** в `metadata.code`; legacy chip cleanup = `WeaponAttachChips.lua` |
 
 ## `jazz`: AI, видимость и юниты
 

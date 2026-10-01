@@ -1089,3 +1089,6 @@ Feedback round 2: `_weapon_feedback_chainmail.py` продлевает суще�
 
 - `_prepare_release_assets.py` / `_test_release_assets.py`: независимые ZIP-части больших релизных пакетов, distribution manifest и проверка байтов/лимита.
 - `weapon_layer_icons/edit_ak103_magazines.py`: официальный editor save списка магазинов АК-103 и барабана-донора АКМ, immutable baseline; `normalize_editor_save.py --ak103-magazines` сохраняет scoped delta.
+
+- `_repair_ui002_stock_layout.lua` — scoped ModEditor save/reload для ширины Fold/Flash; запуск через `weapon_layer_icons/live.py --schedule`, только после snapshot и при свободном editor state.
+- `_test_weapon_hud_overlays.py` — offline Lua (lupa): ширина HUD для 27 комбинаций, отключение/очистка overlay-чипов без повреждения native layers.

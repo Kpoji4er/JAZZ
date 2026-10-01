@@ -119,3 +119,17 @@ approved_by: project-owner
 - `docs/wiki/combat-actions.md`
 - `docs/showcase/ru/combat-actions.md`
 - `docs/showcase/en/combat-actions.md`
+
+## Исправление перекрытия 2026-10-02
+
+Основание: повторная жалоба владельца со скриншотом. Вторая колонка расширяет блок оружия к независимо центрированному hotbar. Сетка внутри блока корректна, но соседняя панель может закрывать её край.
+
+`JAZZ-UI-002-REQ-005`: при доступном Fold/Flash (включая disabled) первая иконка активного комплекта отдаёт 27 UI-пикселей второй колонке (25 + spacing 2). Для двух оружий вычет применяется один раз. Без обоих toggles ширина картинки прежняя. Кнопки остаются GridX=2; действия/AP/иконки не меняются.
+
+`JAZZ-UI-002-AC-007`: native layout probe — одинаковая суммарная ширина активного блока с toggles и без, вторая колонка внутри рамки и отдельно от Switch/Reload; повторная загрузка сохраняет callback. Проверка реального боя после перезапуска отдельно от editor fixture.
+
+Write set дополнен `docs/tools/_repair_ui002_stock_layout.lua` и native regression probe; SaveWholeMod только при актуальном editor state, без чужих editor transactions.
+
+Evidence 2026-10-02: offline Lua regression PASS; Lua compilation PASS; generated sync 0 errors, 12 existing warnings. Native pre-fix fixture confirmed correct internal Grid layout. Post-fix editor round-trip / combat visual acceptance BLOCKED: game and editor closed before dispatch; manual scoped transaction used while closed. `_repair_ui002_stock_layout.lua` retained for subsequent official round-trip.
+
+`JAZZ-UI-002-AC-007`: BLOCKED (native/editor acceptance); offline subset PASS в `_test_weapon_hud_overlays.py`. Spec Done gate не пройден: требуется новая проверка в движке; для UI-002 остаются ранее открытые AC-004/005. Коммит сохраняет локальную реализацию без заявления о runtime/human acceptance.

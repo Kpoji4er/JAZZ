@@ -90,7 +90,7 @@ Mosin: ПУ доступен только с `JAZZ_Mosin1891`. В двух ModIt
 - `Code/GetScrapParts.lua` — scrap-значения;
 - `Code/AmmoRolloverHint.lua` — UI эффектов и модификаций патронов;
 - `Code/Inventory.lua` и `Code/InventoryUI.lua` — применение предметов/боеприпасов; **`HighlightWeaponsForAmmo`** также подсвечивает совместимое оружие для `JAZZ_RemovableAttachment` (hover + drag, включая магазины);
-- `Code/WeaponAttachChips.lua` — JAZZ-UI-001 path B chips на тайле/HUD; `Code/WeaponIconBake.lua` **dormant** (не в `metadata.code`, не перехватывает `g_HgnvCompressPath`);
+- `Code/WeaponAttachChips.lua` — JAZZ-UI-001: очистка отключённых overlay-чипов на тайле/HUD; `Code/WeaponIconBake.lua` **dormant** (не в `metadata.code`, не перехватывает `g_HgnvCompressPath`);
 - generated InventoryItem, Caliber, WeaponType, WeaponComponent, WeaponComponentEffect, WeaponPropertyDef и recipe ModItems.
 
 ## Снимок данных
@@ -142,7 +142,7 @@ Mosin: ПУ доступен только с `JAZZ_Mosin1891`. В двух ModIt
 
 `Systems_Compontents_FoldingStocks.lua` добавляет `zzFoldingPair`; runtime использует `zzStockEquipped` и actions `FoldStock`/`UnFoldStock`. Эти имена являются межфайловым контрактом generated components, UI и визуального состояния entity. В кабинете модификации сложенный half (`*Folded`, не `*UnFolded`) скрыт — крафтится разложенный; Cost Folded = UnFolded (= Light), `StockNormal` чуть дороже (см. `docs/design/stock-tiers.md`).
 
-**UI surface (JAZZ-UI-002):** `FoldStock` / `UnFoldStock` / `FlashlightOn` / `FlashlightOff` имеют `ShowIn = false` и не входят в боевой hotbar. Чипы — вторая колонка `UIWeaponDisplay` `idButtons` (`GridX = 2`) рядом со Switch/Reload; helpers в `Code/System_WeaponCompHUD.lua`.
+**UI surface (JAZZ-UI-002):** `FoldStock` / `UnFoldStock` / `FlashlightOn` / `FlashlightOff` имеют `ShowIn = false` и не входят в боевой hotbar. Чипы — вторая колонка `UIWeaponDisplay` `idButtons` (`GridX = 2`) рядом со Switch/Reload; helpers в `Code/System_WeaponCompHUD.lua`. При видимом Fold/Flash первая картинка активного комплекта сужается на 27 UI-пикселей (25 + spacing 2), сохраняя общую ширину блока рядом с центрированным hotbar; вычет один и для двух оружий.
 
 После JAZZ-ATTACH-001 live components больше не используют `*Handling*` или `Cumbersome` effect presets; Firearm property `Handling` удалён вместе с UI/GameTerm/CTH-modifier presets. Все модифицируемые live component IDs, созданные JAZZ, используют канонический префикс `JAZZ_`; сохранённые `vanilla_ref` stubs отражают ссылки companion-файлов без JAZZ definition и не получают выдуманных effects. Четыре pure-ergo components (`JAZZ_TacGrip`, `JAZZ_Handgrip_Ergo`, `JAZZ_SigErgoHandGrip`, `JAZZ_HandlingWrap`) теперь дают `RecoilDecrease`.
 
@@ -156,17 +156,12 @@ Magazine data uses `MagazineSizeSet` with `ModificationType = "Set"` and an abso
 
 ## Inventory icons (JAZZ-UI-001)
 
-Path **B** (chips): template `Icon` оружия не подменяется. Chip column (VList, left edge): `ChipIcon` → иначе `Icons/Upgrades/Chips/<id>.png` если файл есть → иначе `slot_*`. **Не** использовать `WeaponComponent.Icon` как chip (это art кабинета).
+С 2026-10-02 overlay-чипы поверх оружия отключены по решению владельца (JAZZ-UI-001, REQ-007/008). Установленные компоненты показывает сама составная иконка. `JazzAttachChips_Apply` сохраняет API для HUD/inventory/stash: не создаёт row, очищает и скрывает прежний `idJazzAttachChips` при обновлении. Native layers не затрагиваются; generic `w_mod` на firearm скрыт. Кнопки Fold/Flash UI-002 остаются.
 
-- Chip PNG: `Icons/Upgrades/Chips/<ComponentId>.png` → `Mod/e6L4ECj/Icons/Upgrades/Chips/<…>.png`
-- Full кабинет: `Icon` (vanilla `UI/Icons/Upgrades/…` или `Icons/Upgrades/Full/`) — skill `$create-jazz-component-icons`
-- Chip миниатюры — skill `$create-jazz-chip-icons`
-- Runtime: `Code/WeaponAttachChips.lua` + hooks в `InventoryUI.lua`; bake (`WeaponIconBake.lua`) **dormant** — нет в `metadata.code` / `ModItemCode` (не грузится, не ставит `g_HgnvCompressPath`)
-- Показ: non-default **или** default + `CanBeEmpty` + `ModificationEffects` (как `CountWeaponUpgrades` — builtin flashlight на MP5A4)
-- Порядок (priority): Scope → Side* → Under → Muzzle → …; layout **VWrap** (до **3** в левом столбце, 4-й → второй столбец), size **24px**, margin −4, `JazzAttachChips_Max = 4`
-- Mount* слоты не чипуются
-- `w_mod` скрывается, когда показан chip column
-- Scope/Sights: ChipIcon проставлен для 30 компонентов (2026-07-30)
+- `Code/WeaponAttachChips.lua` остаётся loaded; lookup/list helpers сохранены для совместимости. `WeaponIconBake.lua` остаётся dormant.
+- `ChipIcon` и PNG `Icons/Upgrades/Chips/` не удаляются; полные `WeaponComponent.Icon` кабинета не меняются. Asset contract не менялся.
+- Проверка: offline Lua — 27 вариантов ширины (hidden/enabled/disabled, один/два предмета), очистка legacy overlay, сохранение native layers; generated sync без ошибок. Новый editor round-trip и бой после правки не проверены: оба процесса закрылись до записи.
+
 
 ## Ресурс, кучность и износ
 

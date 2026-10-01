@@ -60,3 +60,5 @@ Actions that “recharge on kill” also clear after a **signature** kill (Blood
 Spike’s **Bullet Hell** keeps cone aiming and dumps 15–30 rounds **with no recoil** (every round keeps first-shot CTH). Hits use a normal CTH **on an enemy in the cone**; misses fan at chest height and can stray. **Drains Will of every enemy in the cone**, even without a hit. CD on kill. Works with machine guns and AN-94 / other JAZZ full-auto rifles.
 
 Full ID tables and edge cases live in the repository `docs/wiki/combat-actions.md`.
+
+When stock or flashlight controls appear, the weapon image narrows slightly to keep the panel within its usual width. Attachment chips are no longer drawn over the weapon image; installed components are shown by the weapon artwork itself.

@@ -1,6 +1,6 @@
--- JAZZ-UI-001 path B: attachment chips on inventory / HUD weapon tiles.
+-- JAZZ-UI-001: overlay chips disabled; weapon artwork now shows components.
 -- Prefer WeaponComponent.ChipIcon (miniature); else convention Chips/<id>.png; else slot fallback.
--- Layout: VWrap top-left — fill left column (3), 4th wraps to second column; slight left overhang.
+-- Legacy lookup helpers and resources remain available; Apply only clears overlays.
 
 JazzAttachChips_Max = 4
 JazzAttachChips_Size = 24
@@ -211,153 +211,22 @@ local function ClearChipRow(row)
 	end
 end
 
-local function ChipWrapHeight()
-	local sz = JazzAttachChips_Size or 24
-	local perCol = JazzAttachChips_PerCol or 3
-	return sz * perCol
-end
-
-local function EnsureChipRow(host)
-	if not host then
-		return false
-	end
-	local row = rawget(host, "idJazzAttachChips")
-		or (host.ResolveId and host:ResolveId("idJazzAttachChips"))
-	if row then
-		return row
-	end
-	if not XWindow then
-		return false
-	end
-	row = XWindow:new({
-		Id = "idJazzAttachChips",
-		IdNode = true,
-		HAlign = "left",
-		VAlign = "top",
-		Margins = JazzAttachChips_Margin or box(-4, 0, 0, 0),
-		MaxHeight = ChipWrapHeight(),
-		LayoutMethod = "VWrap",
-		LayoutHSpacing = 0,
-		LayoutVSpacing = 0,
-		HandleMouse = false,
-		DrawOnTop = true,
-	}, host)
-	return row
-end
-
-local function ConfigureChipColumn(row)
-	if not row then
-		return
-	end
-	local margin = JazzAttachChips_Margin or box(-4, 0, 0, 0)
-	local wrapH = ChipWrapHeight()
-	if row.SetLayoutMethod then
-		row:SetLayoutMethod("VWrap")
-	else
-		row.LayoutMethod = "VWrap"
-	end
-	if row.SetLayoutHSpacing then
-		row:SetLayoutHSpacing(0)
-	else
-		row.LayoutHSpacing = 0
-	end
-	if row.SetLayoutVSpacing then
-		row:SetLayoutVSpacing(0)
-	else
-		row.LayoutVSpacing = 0
-	end
-	if row.SetMaxHeight then
-		row:SetMaxHeight(wrapH)
-	else
-		row.MaxHeight = wrapH
-	end
-	-- Drop any leftover HWrap width cap.
-	if row.SetMaxWidth then
-		row:SetMaxWidth(1000000)
-	end
-	if row.SetHAlign then
-		row:SetHAlign("left")
-	else
-		row.HAlign = "left"
-	end
-	if row.SetVAlign then
-		row:SetVAlign("top")
-	else
-		row.VAlign = "top"
-	end
-	if row.SetMargins then
-		row:SetMargins(margin)
-	else
-		row.Margins = margin
-	end
-end
-
+-- Keep the entry point used by HUD/inventory refreshes. Clear legacy overlays
+-- after a reload without recreating them or touching native weapon layers.
 function JazzAttachChips_Apply(hostImg, item)
 	if not hostImg then
 		return false
 	end
-	if not JazzAttachChips_IsFirearm(item) then
-		local row = rawget(hostImg, "idJazzAttachChips")
-			or (hostImg.ResolveId and hostImg:ResolveId("idJazzAttachChips"))
-		if row then
-			ClearChipRow(row)
-			row:SetVisible(false)
-		end
-		local badge = FindModBadge(hostImg)
-		if badge then
-			badge:SetVisible(true)
-		end
-		return false
-	end
-	local chips = JazzAttachChips_List(item)
-	local badge = FindModBadge(hostImg)
-	local row = EnsureChipRow(hostImg)
-	if not row then
-		if badge and #chips == 0 then
-			badge:SetVisible(true)
-		elseif badge then
-			badge:SetVisible(false)
-		end
-		return #chips > 0
-	end
-	ClearChipRow(row)
-	ConfigureChipColumn(row)
-	if #chips == 0 then
+	local row = rawget(hostImg, "idJazzAttachChips")
+		or (hostImg.ResolveId and hostImg:ResolveId("idJazzAttachChips"))
+	if row then
+		ClearChipRow(row)
+		row:SetFoldWhenHidden(true)
 		row:SetVisible(false)
-		if badge then
-			-- Let vanilla / CountWeaponUpgrades condition own visibility when no chips.
-			badge:SetVisible(true)
-		end
-		return false
 	end
-	row:SetVisible(true)
+	local badge = FindModBadge(hostImg)
 	if badge then
-		badge:SetVisible(false)
+		badge:SetVisible(not JazzAttachChips_IsFirearm(item))
 	end
-	for i, chip in ipairs(chips) do
-		local sz = JazzAttachChips_Size or 24
-		local img = XImage:new({
-			Id = "idJazzChip" .. i,
-			Image = chip.icon,
-			MinWidth = sz,
-			MaxWidth = sz,
-			MinHeight = sz,
-			MaxHeight = sz,
-			Margins = box(0, 0, 0, 0),
-			Padding = box(0, 0, 0, 0),
-			ImageFit = "stretch",
-			HandleMouse = false,
-			Disabled = false,
-		}, row)
-		if img.SetBaseColorMap then
-			img:SetBaseColorMap(false)
-		end
-	end
-	if row.InvalidateMeasure then
-		row:InvalidateMeasure()
-	end
-	if row.Invalidate then
-		row:Invalidate()
-	end
-	return true
+	return false
 end

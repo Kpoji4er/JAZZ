@@ -86137,7 +86137,12 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 											
 											local warningText = child.idWarningText
 											local button = child.idFrame
-											local sideButtonsSize = 0
+											-- Keep the extra toggle column inside the vanilla HUD width.
+											local unit = Selection and Selection[1]
+											local foldAction, foldState = JazzResolveFoldStockAction(unit)
+											local flashAction, flashState = JazzResolveFlashlightAction(unit)
+											local hasToggle = (foldAction and foldState ~= "hidden") or (flashAction and flashState ~= "hidden")
+											local sideButtonsSize = i == 1 and hasToggle and -27 or 0
 											if item:IsLargeItem() then
 												itemIcon:SetMaxWidth(154 + sideButtonsSize)
 											else

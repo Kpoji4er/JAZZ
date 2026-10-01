@@ -5,11 +5,12 @@ text = Path("items.lua").read_text(encoding="utf-8")
 for aid in ["FoldStock", "UnFoldStock", "FlashlightOn", "FlashlightOff", "Unjam"]:
     i = text.find(f'id = "{aid}"')
     assert i > 0, aid
-    chunk = text[max(0, i - 900) : i + 40]
+    chunk = text[text.rfind("PlaceObj('ModItemCombatAction'", 0, i) : i]
     m = re.search(r"ShowIn = ([^,\n]+)", chunk)
     print(aid, "ShowIn", m.group(1) if m else "MISSING")
     if aid == "Unjam":
-        assert m and '"CombatActions"' in m.group(1)
+        # CombatAction.ShowIn defaults to CombatActions; editor omits defaults.
+        assert not m or '"CombatActions"' in m.group(1)
     else:
         assert m and m.group(1).strip() == "false"
 

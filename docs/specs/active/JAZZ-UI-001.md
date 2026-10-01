@@ -29,6 +29,15 @@ approved_by: project-owner
 
 # JAZZ-UI-001: inventory attachment chips (path B)
 
+## Изменение scope 2026-10-02: отключение overlay-чипов
+
+Решение владельца в текущем запросе: отключить чипы, рисовавшиеся поверх иконок оружия, поскольку сами иконки теперь показывают сборку. Этот раздел заменяет требования path B ниже; прежние требования сохранены как история.
+
+- `JAZZ-UI-001-REQ-007`: `JazzAttachChips_Apply` больше не создаёт overlay; очищает и скрывает существующий `idJazzAttachChips` при обновлении HUD/inventory/stash.
+- `JAZZ-UI-001-REQ-008`: изображения компонентов и их `ChipIcon` сохраняются; кнопки Fold/Flash UI-002 не отключаются. Generic `w_mod` на firearm остаётся скрытым.
+- `JAZZ-UI-001-AC-007`: native UI probe — новый host не получает overlay, старый overlay очищается и скрывается; native weapon layers и кнопки управления сохраняются.
+- Write set дополнен профильными wiki/showcase RU+EN и диагностическим Lua в `docs/tools/`; ownership/load order не меняются.
+
 ## Проблема
 
 Иконки оружия в инвентаре — статичные template `Icon` PNG. Аттачи видны только в 3D-кабинете `ModifyWeaponDlg` либо как generic badge `UI/Inventory/w_mod`. Игрок не отличает сборки по иконке на тайле, в HUD и stash.
@@ -121,3 +130,7 @@ Runtime side-view bake (path E) оказался нестабилен по frami
 
 - `docs/technical/systems/weapons-ammo-components.md` — Inventory icons → chips.
 - Skill `$create-jazz-attachment-icons`; playbook assets-and-ui.
+
+Evidence 2026-10-02: offline Lua regression PASS; Lua compilation PASS; generated sync 0 errors, 12 existing warnings. Native pre-fix fixture confirmed correct internal Grid layout. Post-fix editor round-trip / combat visual acceptance BLOCKED: game and editor closed before dispatch; manual scoped transaction used while closed. `_repair_ui002_stock_layout.lua` retained for subsequent official round-trip.
+
+`JAZZ-UI-001-AC-007`: BLOCKED (native/editor acceptance); offline subset PASS в `_test_weapon_hud_overlays.py`. Spec Done gate не пройден: требуется новая проверка в движке; для UI-002 остаются ранее открытые AC-004/005. Коммит сохраняет локальную реализацию без заявления о runtime/human acceptance.
