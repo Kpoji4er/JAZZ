@@ -28,7 +28,10 @@ p.add_argument('--native-only', action='store_true', help='Use actual shirt skin
 p.add_argument('--surface-skin', action='store_true', help='Blend local barycentric shirt transfer with a bounded seam smoothing field')
 p.add_argument('--item', default='6B3', help='Armor suffix for a new clean source, e.g. LeatherArmor')
 p.add_argument('--torso-carrier', action='store_true', help='Sample native front/back torso weights below the shoulder straps, excluding nearby sleeves')
+p.add_argument('--torso-shoulders', action='store_true', help='Continue torso-carrier weights across shoulder straps; exclude arm and clavicle motion')
+p.add_argument('--preserve-uv', action='store_true', help='Copy the existing single-mesh atlas instead of packing new UV islands')
 a = p.parse_args(sys.argv[sys.argv.index('--') + 1:])
+assert not a.torso_shoulders or a.torso_carrier, '--torso-shoulders requires --torso-carrier'
 out = a.output.resolve()
 blend = out if out.suffix.lower() == '.blend' else out / (a.item + '.blend')
 blend.parent.mkdir(parents=True, exist_ok=True)
@@ -217,6 +220,8 @@ def bind_vertex(pos):
             return {n:w/total for n,w in values.items()} if total else {'Bip001 Spine2':1.0}
         side=max(0,min(1,(pos.y+.14)/.28))
         torso=mix_bind(core(-.18),core(.18),side)
+        if a.torso_shoulders:
+            return torso
         t=max(0,min(1,(pos.z-1.37)/.09));t=t*t*(3-2*t)
         return mix_bind(torso,continuous_surface_bind(pos),t)
     if native_weights is not None and reference_plate is not None:
@@ -261,6 +266,8 @@ for obj in dst.objects:
         bpy.context.collection.objects.link(obj)
         imported.append(obj)
 assert imported, 'clean blend has no mesh parts'
+if a.preserve_uv:
+    assert len(imported) == 1, '--preserve-uv requires a single atlas mesh'
 
 for obj in imported:
     # Preserve the authored cloth coordinates through the joined bake atlas.
@@ -303,12 +310,17 @@ armor = bpy.context.object
 armor.name = 'TEST_' + a.item
 bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 atlas = armor.data.uv_layers.new(name='ExportUV')
+if a.preserve_uv:
+    source_uv = armor.data.uv_layers['SourceUV']
+    for source_loop, export_loop in zip(source_uv.data, atlas.data):
+        export_loop.uv = source_loop.uv
 armor.data.uv_layers.active = atlas
 atlas.active_render = True
 bpy.ops.object.mode_set(mode='EDIT')
 bpy.ops.mesh.select_all(action='SELECT')
 bpy.ops.mesh.normals_make_consistent(inside=False)
-bpy.ops.uv.smart_project(island_margin=.008)
+if not a.preserve_uv:
+    bpy.ops.uv.smart_project(island_margin=.008)
 bpy.ops.object.mode_set(mode='OBJECT')
 
 for vert in armor.data.vertices:
@@ -344,6 +356,8 @@ report = {
     'native_shirt': str(a.shirt) if a.shirt else None,
     'surface_skin': a.surface_skin,
     'torso_carrier': a.torso_carrier,
+    'torso_shoulders': a.torso_shoulders,
+    'preserve_uv': a.preserve_uv,
     'cuirass_reference': str(a.reference) if a.reference else None,
 }
 assert unweighted == 0 and max_influences <= 4

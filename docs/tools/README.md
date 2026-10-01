@@ -1092,3 +1092,11 @@ Feedback round 2: `_weapon_feedback_chainmail.py` продлевает суще�
 
 - `_repair_ui002_stock_layout.lua` — scoped ModEditor save/reload для ширины Fold/Flash; запуск через `weapon_layer_icons/live.py --schedule`, только после snapshot и при свободном editor state.
 - `_test_weapon_hud_overlays.py` — offline Lua (lupa): ширина HUD для 27 комбинаций, отключение/очистка overlay-чипов без повреждения native layers.
+
+### Meshy 6Б3: посадка и экспорт
+
+Для плечевых лямок без движения от рук добавить `--torso-shoulders` к `_rig_6b3_vest.py --torso-carrier`. Проверка `_check_soft_armor_poses.py --torso-only` добавляет изолированное движение рук/ключиц и требует нулевое смещение относительно вычисленной rest-позы (допуск 0,01 мм); вывод — `pose-check.json` и при необходимости PNG. При правке только skin сохранять установленные DDS/fallback в staging без изменения байтов.
+
+Blender `_fit_meshy_6b3_armor.py --input <GLB> --shirt <Shirt08.json> --output <build-root>` подгоняет существующий single-mesh GLB к одежде, сваривает совпадающие вершины и снимает custom normals без изменения числа треугольников. Выход: `clean/JazzArmor_6B3.blend`, `fit-report.json`. Затем `_rig_6b3_vest.py --surface-skin --torso-carrier --preserve-uv` сохраняет исходную UV вместо повторной упаковки атласа; остальные обязательные параметры см. `--help` скрипта. После skin/pose QA — штатный `_build_legion_armor.py`, AssetsProcessor, staging, compiled/winding audit и `_install_6b3_vest.py --build-root <build-root> --refresh` (dry-run; `--apply` устанавливает при закрытой игре с backup/hash). Текущий build-root: `jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/`. Игровая приёмка отдельно; порядок и ограничения — [playbook](../../.agents/docs/playbooks/legion-armor-modeling.md).
+
+`render_meshy_armor.py` — Blender background, `-- --manifest <batch.json> [--name NAME]`: четыре ракурса GLB и фактический счёт треугольников без изменения модели. `review_meshy_armor.py` собирает готовые рендеры в контактные листы и HTML с локальными ссылками на GLB.

@@ -8,7 +8,8 @@ p.add_argument('--no-renders',action='store_true')
 p.add_argument('--clothed',action='store_true')
 p.add_argument('--entity',help='Explicit mesh name for an existing baked source')
 p.add_argument('--elbows',action='store_true',help='Also check forearm guards on improvised tire armor')
-a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);a.output.mkdir(parents=True,exist_ok=True)
+p.add_argument('--torso-only',action='store_true',help='Require no armor motion from isolated clavicle/arm rotations')
+a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);a.output=a.output.resolve();a.source=a.source.resolve();a.output.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(a.source))
 armor=bpy.data.objects[a.entity] if a.entity else next(o for o in bpy.data.objects if o.type=='MESH' and o.name.startswith('TEST_'))
 rig=next(o for o in bpy.data.objects if o.type=='ARMATURE')
@@ -25,6 +26,8 @@ poses={'rest':[], 'lean':[('Bip001 Spine1',(12,0,0)),('Bip001 Spine2',(23,0,12))
        'twist':[('Bip001 Spine1',(0,0,25)),('Bip001 Spine2',(0,0,25)),('Bip001 L Clavicle',(0,0,20))]}
 if a.elbows or armor.name.endswith('Full'):
  poses['elbows']=[('Bip001 R Forearm',(0,0,-65)),('Bip001 L Forearm',(0,0,65))]
+if a.torso_only:
+ poses['arms_isolated']=[('Bip001 L Clavicle',(0,0,25)),('Bip001 R Clavicle',(0,0,-25)),('Bip001 L UpperArm',(0,-65,35)),('Bip001 R UpperArm',(0,65,-35))]
 scene=bpy.context.scene;scene.cycles.device='CPU';scene.cycles.samples=12;scene.render.resolution_x=600;scene.render.resolution_y=600
 if scene.camera is None:
  bpy.ops.object.camera_add(location=(-1,-2.6,1.95));scene.camera=bpy.context.object;scene.camera.data.type='ORTHO';scene.camera.data.ortho_scale=1.18
@@ -39,7 +42,13 @@ for name,rotations in poses.items():
  pts=[v.co.copy() for v in mesh.vertices]
  assert all(math.isfinite(x) for v in pts for x in v)
  movement=max((x-y).length for x,y in zip(pts,rest))
- if rotations:assert .005<movement<1.5,(name,'missing skin motion or exploded mesh',movement)
+ if name=='rest':evaluated_rest=[v.copy() for v in pts]
+ if name=='arms_isolated':
+  # Sample rigs have a small rest-matrix residual: compare evaluated poses,
+  # not evaluated vertices against raw undeformed coordinates.
+  movement=max((x-y).length for x,y in zip(pts,evaluated_rest))
+  assert movement<1e-5,(name,'arm motion leaked into torso armor',movement)
+ elif rotations:assert .005<movement<1.5,(name,'missing skin motion or exploded mesh',movement)
  strains=[];details=[]
  for edge in armor.data.edges:
   i,j=edge.vertices;length=(rest[i]-rest[j]).length

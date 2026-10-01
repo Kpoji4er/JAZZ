@@ -2,7 +2,7 @@
 
 Legion SMG/carbine pools include the Mosin Obrez from T1-1, with lower weight at T2. The M38 joins battle rifles alongside the MAS-36 at T1-1 with a low selection weight, increasing roughly fivefold at T1-2. The long Mosin, including its PU configuration, enters sniper-role pools at T1-3. Tables have passed static checks; in-game distribution still awaits verification.
 
-The September 23 6B3 revision adds thinner shoulder sections, fabric materials and seams. The new model still awaits another in-game fit check.
+The October 2 6B3 revision adds a new model with front and rear sections, pouches and side straps. Shoulder straps now follow the torso without arm influence. Its fit still awaits in-game verification.
 
 [Overview](home.md) · [Tactical AI](tactical-ai.md) · [Legion strategy](legion-strategy.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/legion-units.md)
 

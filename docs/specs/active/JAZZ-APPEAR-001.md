@@ -87,6 +87,8 @@ write_set:
   - jazz/docs/tools/_rig_6b3_vest.py
   - jazz/docs/tools/_qa_6b3_vest.py
   - jazz/docs/tools/_install_6b3_vest.py
+  - jazz/docs/tools/_fit_meshy_6b3_armor.py
+  - jazz_assets/Sources/Character/JAZZ_6B3_Male/**
   - jazz_assets/Entities/JAZZ_6B3*
   - jazz_assets/Entities/Meshes/JAZZ_6B3*
   - jazz_assets/Entities/Materials/JAZZ_6B3*
@@ -403,3 +405,21 @@ Evidence AC-030, 2026-09-28, уточнённый source-only scope: `tmp/leathe
 Второй проход 28.09: [отчёт staging и открытых пунктов](../../design/weapon-visual-feedback-20260928-round2.md). Проверенные кандидаты подготовлены отдельно; установка/runtime/editor NOT_RUN. Статус approved сохранён. HAV и 6Б3 не приняты по эксперименту с весами и исключены из транзакции.
 
 28.09.2026, после «игра закрыта, применяй»: проверенный пакет второго прохода установлен, 27 файлов и backup SHA256 PASS; installed graph/structural PASS. Новых generated ERROR нет; общий baseline остаётся FAILED. HAV/6Б3 исключены из установки, runtime/editor/human остаются NOT_RUN. По последующему запросу разрешены локальные коммиты; push не разрешён.
+
+## Meshy low-poly 6Б3, 2026-10-02
+
+Уточнение после запуска в игре: владелец просит «плечи бы отвязать — а то странно смотрится». Разрешена правка skin плечевых лямок существующего Meshy 6Б3: исключить clavicle/arm/twist, продолжить плавное поле торса до верха. Геометрия, UV и внешний вид материалов сохраняются. Write set дополнен опцией `_rig_6b3_vest.py --torso-shoulders`, source/staging `meshy-20261002-torso-shoulders/`, README и этим evidence. Проверить четыре позы и изолированное движение рук/ключиц: броня не должна двигаться от этих костей; compiled audit и backup обязательны. Установка только после закрытия игры. Runtime/human повторная приёмка открыта.
+
+QA tooling этого уточнения: `_check_soft_armor_poses.py --torso-only` и профильный playbook входят в write set. Пять поз PASS, isolated arms movement 0 м относительно evaluated rest; HGM 14802 triangles, max vertex error 0,09247 мм, winding PASS. DDS/fallback в staging скопированы из установленной версии для сохранения материалов. Подготовлен кандидат `meshy-20261002-torso-shoulders`; установка ожидает закрытия игры, runtime/editor/human новой правки NOT_RUN. Исходный внешний каталог armor-prototype исчез во время работы; повторный clothed audit недоступен без Shirt08 JSON, доступна проверка на sample body. HGM reader восстановлен из закреплённого исходника parser; исходник подготовленного кандидата сохранён в Sources.
+
+Решение владельца: «импортни в игру» после просмотра multi-view Meshy-кандидата (task `01a0f974-6ad9-7565-80ab-cd96f804dfe3`, 14802 triangles). Это разрешение на подготовку, rig/export и обновление существующей entity, без новых ID, баланса, commit/push.
+
+- JAZZ-APPEAR-001-REQ-MESHY-6B3: заменить геометрию и Base/Norm/RM существующей `JAZZ_6B3_Male` кандидатом Meshy; подогнать к Male/реальной Shirt08, сохранить полость, UV и характерные детали. Веса — штатный Male, максимум четыре влияния. Снять custom normals; проверить экспорт через официальный AssetsProcessor.
+- JAZZ-APPEAR-001-AC-MESHY-6B3: PASS требует clothed rest/pose review, структурный skin gate, HGM round-trip, backup и hashes установки. Runtime/editor/human отдельно; синтетические позы не закрывают игровую приёмку.
+- Scope/write set: `_fit_meshy_6b3_armor.py`, tools README, эта spec, текущие девять ресурсов `jazz_assets/Entities/**/JAZZ_6B3*`, редактируемые исходники `jazz_assets/Sources/Character/JAZZ_6B3_Male/`. Иконка, Item, test unit, mapping, metadata/items и прежние public paths сохраняются. Asset contract не меняется; загруженный runtime не объявлять обновлённым до перезапуска.
+- Exclusive resource: только `JAZZ_6B3_Male` resource graph. Игра и debug сейчас открыты; владелец сообщил «Пока готовь, закрою позже». До закрытия — только source/staging, без установки и hot reload.
+- Evidence: подготовка начата; export/install/runtime/editor/human NOT_RUN. Общая spec остаётся approved.
+
+Evidence AC-MESHY-6B3, 2026-10-02: владелец сообщил «закрыл игру»; отсутствие JA3/JA3Debug подтверждено. Установлены девять существующих ресурсов с backup/hash, регистрация, item, icon, test unit сохранены. Build-root: `jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/`; `refresh-installation.json` содержит SHA256, `refresh-backup/` — предыдущую версию. 14802 triangles, 7257 welded source vertices, максимум четыре skin-влияния, четыре позы PASS (наибольший p99 stretch 1,63668), strict normals 0 fatal. Clothed rest/deep lean/twist и финальный baked front/back просмотрены; исходная UV сохранена после исправления тёмной точки от перепаковки. HGM geometry/winding PASS: max vertex error 0,09479 мм, все 14802 triangles сохранены. AssetsProcessor завершён с exit 0; лог содержит предупреждение несовпадения FBX/SDK и два сообщения о zero-length normals, при этом независимые source normals и compiled geometry/winding gates прошли. Generated audit до/после: тот же FAILED STRICT baseline из 14 warnings, новых предупреждений нет. Runtime/editor/human NOT_RUN; общая spec остаётся approved до игровой приёмки. Текущие technical/wiki/showcase обновлены с явным статусом ожидания проверки.
+
+После «игру закрыл — включай, потом коммит» установлен torso-shoulders: девять ресурсов, backup и SHA256 PASS; материалы сохранены побайтно. Пять поз и compiled audit PASS; sample-body twist/deep-lean просмотрены. Повторная игровая приёмка NOT_RUN. Разрешены локальные коммиты jazz/jazz_assets с Revision +1, push не разрешён.

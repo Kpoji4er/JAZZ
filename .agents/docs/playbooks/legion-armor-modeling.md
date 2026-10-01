@@ -170,3 +170,9 @@ Require four clothed rest views (front/back/side/oblique), two approximate cloth
 ### LeatherArmor: контакт лямок
 
 `_model_leather_armor.py` проецирует весь пришитый нахлёст на actual solidified panel, а не только крайние вершины. `leather_anchor`/`leather_surface` point attributes проходят join и позволяют `_check_leather_armor_contacts.py` измерять зазор после Armature в четырёх позах. Кожа запекается через общий exporter: prepare перед bake, только ExportUV после bake. Порядок export/stage/install и параметры — в tools README; текущий результат в `docs/design/leather-armor-production.md`. Не выдавать численный contact PASS за игровую посадку на всех Body.
+
+### Meshy 6Б3, 2026-10-02
+
+По результату игрового просмотра плечи отвязываются от рук: `--torso-carrier --torso-shoulders` продолжает поле торса до верха без clavicle/arm/twist. `_check_soft_armor_poses.py --torso-only` проверяет отдельное движение рук и ключиц относительно evaluated rest; небольшой residual developer rig нельзя считать движением от рук. После этой правки снова требуется игровой просмотр.
+
+Для single-mesh GLB использовать `_fit_meshy_6b3_armor.py` с реальной Shirt08, затем `_rig_6b3_vest.py --surface-skin --torso-carrier --preserve-uv`. Явная SourceUV остаётся входом shader bake, исходная раскладка копируется в ExportUV: повторная упаковка дала тёмный артефакт на спине. Custom normals очищать штатным prepare; сохранить число треугольников. Проверять clothed rest/lean/twist, четыре skin-позы, запечённые front/back и compiled winding до установки девяти существующих ресурсов через `_install_6b3_vest.py --refresh --apply`. Исходники, отчёты и backup сохраняются в `jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/`; подробные параметры — в `docs/tools/README.md`. Offline PASS не закрывает runtime/editor/human приёмку.
