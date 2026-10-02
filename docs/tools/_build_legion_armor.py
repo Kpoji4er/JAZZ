@@ -64,7 +64,8 @@ for label,kind in [('Base','DIFFUSE'),('Norm','NORMAL'),('Rough','ROUGHNESS'),('
     im.filepath_raw=str(out/(entity+'_'+label+'.tga'));im.file_format='TARGA_RAW';im.save()
     print('BAKED',label,flush=True)
 r=np.empty(texture_size*texture_size*4,np.float32);me=np.empty_like(r);imgs['Rough'].pixels.foreach_get(r);imgs['Metal'].pixels.foreach_get(me)
-rm=np.ones((texture_size*texture_size,4),np.float32);rm[:,0]=r.reshape(-1,4)[:,0];rm[:,1]=0;rm[:,2]=me.reshape(-1,4)[:,0]
+# Official JA3 sample RM textures duplicate roughness in R/G; metallic is B.
+rm=np.ones((texture_size*texture_size,4),np.float32);rm[:,0]=r.reshape(-1,4)[:,0];rm[:,1]=rm[:,0];rm[:,2]=me.reshape(-1,4)[:,0]
 im=bpy.data.images.new(entity+'_RM',width=texture_size,height=texture_size,alpha=True);im.colorspace_settings.name='Non-Color';im.pixels.foreach_set(rm.ravel());im.filepath_raw=str(out/(entity+'_RM.tga'));im.file_format='TARGA_RAW';im.save();imgs['RM']=im
 mat=bpy.data.materials.new(entity);mat.use_nodes=True;hge.add_material_props(mat)
 for prop in hge.MATERIAL_PROPERTIES:
