@@ -211,27 +211,38 @@ local function JazzFindRemovableAttachmentItem(unit, component_id)
 	if not unit or not component_id then
 		return
 	end
-	local found
-	unit:ForEachItem("JAZZ_RemovableAttachment", function(item, slot)
-		if item.RemovableComponentId == component_id then
-			found = item
-			return "break"
+	local function find_in(container)
+		if not container or not container.ForEachItem then
+			return
 		end
-	end)
-	if found then
-		return found, unit
-	end
-	local squad = unit.Squad and gv_Squads[unit.Squad]
-	local bag = squad and GetSquadBagInventory(squad.UniqueId or squad.squad_id or unit.Squad)
-	if bag then
-		bag:ForEachItem("JAZZ_RemovableAttachment", function(item, slot)
+		local found
+		container:ForEachItem("JAZZ_RemovableAttachment", function(item)
 			if item.RemovableComponentId == component_id then
 				found = item
 				return "break"
 			end
 		end)
-		if found then
-			return found, bag
+		return found
+	end
+	local found = find_in(unit)
+	if found then
+		return found, unit
+	end
+	local squad = unit.Squad and gv_Squads[unit.Squad]
+	local bag = squad and GetSquadBagInventory(squad.UniqueId or squad.squad_id or unit.Squad)
+	found = find_in(bag)
+	if found then
+		return found, bag
+	end
+	-- Use the same live/data resolution as the weapon owner. Return the actual
+	-- source inventory so ApplyChangesSlot consumes the teammate's item.
+	for _, session_id in ipairs(squad and squad.units or empty_table) do
+		local mate = JazzGetOwnerUnit(session_id)
+		if mate and mate ~= unit and mate.Squad == unit.Squad then
+			found = find_in(mate)
+			if found then
+				return found, mate
+			end
 		end
 	end
 end

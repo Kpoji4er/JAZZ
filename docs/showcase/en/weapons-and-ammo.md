@@ -115,3 +115,5 @@ Icons for 178 active weapon models combine photographed native parts: installed 
 Icons now fill their original weapon tile formats: excess transparent margins are removed and pistols use the compact format. Color and brightness follow the previous in-game icons; all configurations of a weapon share the same color profile. A stronger dark outline improves readability.
 
 AK-103 uses AKM donor models for its 40-round and 75-round drum magazines with corrected mounting. The quick magazine is no longer offered for AK-103.
+
+The weapon modification screen can also use removable attachments carried by other mercs in the same squad. There is no need to transfer the sight first. It checks the weapon owner, the squad bag, then the other squad members.

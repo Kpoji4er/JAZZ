@@ -11,6 +11,10 @@ risk: high
 generated_data: true
 runtime_validation: required
 write_set:
+  - jazz/Code/System_WeaponRemovableModify.lua
+  - jazz/docs/wiki/weapons-and-ammo.md
+  - jazz/docs/showcase/ru/weapons-and-ammo.md
+  - jazz/docs/showcase/en/weapons-and-ammo.md
   - jazz/Code/GetScrapParts.lua
   - jazz/Code/Inventory.lua
   - jazz/Code/System_SectorOperations.lua
@@ -296,3 +300,25 @@ P = Clamp(5 + MulDivRound(wear, 35, 100) + MulDivRound(mech, 25, 100), 5, 65)
 - Wiki/showcase — если игрок видит новые детали/снятие (спросить).
 - `docs/wiki/weapons-and-ammo.md`, `docs/showcase/ru/weapons-and-ammo.md`, `docs/showcase/en/weapons-and-ammo.md` — added current resource / Barrel Parts / jam-card copy.
 - `docs/technical/systems/file-coverage.md` — added the loaded resource-maintenance module.
+
+## Дополнение 2026-10-02: обвес у другого бойца
+
+Решение владельца: «давай сделаем чтоб можно было» после уточнения установки из инвентаря другого мерка. Scope approved в текущей беседе.
+
+Проблема: кабинет не видит совместимый съёмный модуль у другого бойца того же отряда.
+Цель: доступность и установка используют общий поиск: владелец оружия, общая сумка, затем остальные бойцы по порядку `squad.units`. Найденный контейнер передаётся существующему API установки для списания предмета.
+Non-goals: склады секторов, другие отряды, alias ID, стеки и изменение правил Mechanical; DnD не меняется.
+Ownership: только jazz, один исполнитель; дополнительный write set указан во frontmatter. Новых exclusive resources нет; items.lua в этом дополнении не меняется; по запросу коммита metadata.lua получает Revision +1 и запись last_changes.
+Compatibility: новые save fields, public IDs, assets и миграции не нужны; применимо к существующим сохранениям после загрузки обновлённого кода.
+
+- `JAZZ-WEAPONS-002-REQ-010` — поиск в кабинете включает инвентари остальных мерков текущего отряда после владельца и сумки; пропущенные unit records безопасны, чужие отряды исключены.
+- `JAZZ-WEAPONS-002-REQ-011` — проверка доступности и установка используют один helper, который возвращает предмет вместе с его фактическим контейнером; существующий API списывает его из этого контейнера.
+- `JAZZ-WEAPONS-002-AC-010` — offline Lua: приоритет владелец → сумка → бойцы, предмет у другого бойца найден, пропущенный record и отсутствие предмета безопасны, чужой отряд исключён.
+- `JAZZ-WEAPONS-002-AC-011` — offline Lua: найденный предмет устанавливается существующим API и удаляется из инвентаря другого бойца; исходный владелец оружия передаётся для Mechanical и возврата заменяемого модуля. Проверить синтаксис полного Lua-файла.
+
+Evidence дополнения (2026-10-02):
+
+- `JAZZ-WEAPONS-002-AC-010`: PASS — offline Lua (Python/lupa, helper из текущего файла): владелец → сумка → другой мерк; nil owner/ID, отсутствующий record, несовпадающий ID и другой отряд; live Unit и fallback UnitData.
+- `JAZZ-WEAPONS-002-AC-011`: PASS — offline Lua: фактическая функция `JAZZ_InstallRemovableAttachment` с тестовыми контейнерами и успешной Mechanical-проверкой списала найденный предмет у другого бойца и установила Scope; чужой инвентарь не изменился. Полный Lua-файл прошёл `load`; оба caller кабинета используют общий helper. Локальная проверка четырёх страниц документации прошла.
+
+Визуальная проверка кабинета в игре и сетевая приёмка не выполнены. Существующие runtime BLOCKED основной спецификации этим дополнением не закрываются.
