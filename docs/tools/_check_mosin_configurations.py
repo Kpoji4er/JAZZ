@@ -36,7 +36,12 @@ for m in re.finditer(r"PlaceObj\('ModItemWeaponComponent'",items):
     end=matching(items,items.index('(',m.start()));block=items[m.start():end]
     if re.search(r'id\s*=\s*"JAZZ_Mosin(?:1891|M38|Obrez)"',block):lua.execute(block)
 lua.execute((ROOT/'InventoryItem/Mosin.lua').read_text(encoding='utf-8'))
-lua.execute('Mosin=DefineClass.Mosin; Mosin.MaxAimActions=Mosin.MaxAimActions or 3')
+lua.execute('''
+Mosin=DefineClass.Mosin; Mosin.MaxAimActions=Mosin.MaxAimActions or 3
+Mosin.__ancestors={SniperRifle=true,Firearm=true,FirearmBase=true,InventoryItem=true}
+SniperRifle={WeaponType="Sniper",ImpactForce=0}
+BattleRifle={WeaponType="BattleRifle",ImpactForce=2}
+''')
 setter=(ROOT/'Code/System_WeaponComponent_Set.lua').read_text(encoding='utf-8').split('-- MP40 is MagNormal-only')[0]
 lua.execute(setter)
 lua.execute('function FirearmBase:UpdateVisualObj(vis) end')
@@ -70,7 +75,32 @@ for id in ['JAZZ_Mosin1891','JAZZ_MosinM38','JAZZ_MosinObrez','JAZZ_Mosin1891','
     assert actual==expected[id],(id,actual,expected[id])
     assert w.visual_obj.entity==w.Entity
     assert w.Icon.endswith(w.Entity+'.png')
+    short=id!='JAZZ_Mosin1891'
+    assert w.WeaponType==('BattleRifle' if short else 'Sniper')
+    assert w.object_class==('BattleRifle' if short else 'SniperRifle')
+    assert w.ImpactForce==(2 if short else 0)
+    assert bool(w.__ancestors.BattleRifle)==short
+    assert bool(w.__ancestors.SniperRifle)!=short
+    assert w.__ancestors.Firearm and w.__ancestors.InventoryItem
+    attacks=tuple(w.AvailableAttacks.values())
+    assert attacks==(('SingleShot','JAZZ_Salvo') if short else ('SingleShot','JAZZ_JokerShot','JAZZ_Bullseye'))
+    assert lua.globals().Mosin.__ancestors.SniperRifle
+    assert not lua.globals().Mosin.__ancestors.BattleRifle
 print('PASS: real JAZZ component setter, 7 transitions, AP/damage/crit/aim/range/mass/size/entity/icon; no accumulated modifiers.')
+lua.execute('''
+local other=setmetatable({components={Barrel="JAZZ_MosinObrez"}}, {__index=Mosin})
+other:Setcomponents({Barrel="JAZZ_MosinM38"})
+assert(other.WeaponType=="BattleRifle" and other.AvailableAttacks[2]=="JAZZ_Salvo")
+other:Setcomponents({Barrel="JAZZ_Mosin1891"})
+assert(other.WeaponType=="Sniper" and other.AvailableAttacks[3]=="JAZZ_Bullseye")
+other:Setcomponents({Barrel="JAZZ_MosinObrez"})
+other:UpdateVisualObj(false)
+assert(other.WeaponType=="BattleRifle" and other.__ancestors.BattleRifle)
+assert(w.WeaponType=="Sniper" and w.__ancestors.SniperRifle)
+other.AvailableAttacks[1]="changed"
+assert(w.AvailableAttacks[1]=="SingleShot" and Mosin.AvailableAttacks[1]=="SingleShot")
+''')
+print('PASS: class profile, ancestry data, attacks and ImpactForce reverse independently per instance; native IsKindOf requires in-game validation.')
 
 if a.game_root:
     src=a.game_root/'ModTools/Src/Lua'

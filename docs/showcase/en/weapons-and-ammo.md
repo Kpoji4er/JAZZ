@@ -117,3 +117,5 @@ Icons now fill their original weapon tile formats: excess transparent margins ar
 AK-103 uses AKM donor models for its 40-round and 75-round drum magazines with corrected mounting. The quick magazine is no longer offered for AK-103.
 
 The weapon modification screen can also use removable attachments carried by other mercs in the same squad. There is no need to transfer the sight first. It checks the weapon owner, the squad bag, then the other squad members.
+
+The M38 and Mosin Obrez use the battle rifle class with Single Shot and Salvo, matching the MAS36. The full-length Mosin retains its sniper class and abilities. Changing the barrel switches the set accordingly. This local change still awaits in-game verification.

@@ -1102,3 +1102,5 @@ Blender `_fit_meshy_6b3_armor.py --input <GLB> --shirt <Shirt08.json> --output <
 `render_meshy_armor.py` — Blender background, `-- --manifest <batch.json> [--name NAME]`: четыре ракурса GLB и фактический счёт треугольников без изменения модели. `review_meshy_armor.py` собирает готовые рендеры в контактные листы и HTML с локальными ссылками на GLB.
 
 6Б3 RM: `_build_legion_armor.py` дублирует roughness в R и G, metallic сохраняет в B, как официальные sample TGA. При исправлении только упаковки переэкспортировать через AssetsProcessor, устанавливать только RM DDS/fallback с backup/hash; Base/Normal, mesh и skin сохранять.
+
+`_check_mosin_configurations.py --build tmp --game-root <JA3_ROOT>` также проверяет обратимость WeaponType/object_class, ancestry data, ImpactForce и атак М38/обреза/1891, восстановление через Setcomponents и независимость экземпляров. Native IsKindOf и полное save/load требуют проверки в игре.

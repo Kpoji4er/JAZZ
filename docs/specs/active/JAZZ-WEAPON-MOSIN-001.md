@@ -71,6 +71,16 @@ approved_by: project-owner in conversation 2026-09-15
 
 # JAZZ-WEAPON-MOSIN-001: Мосинка с тремя вариантами длины
 
+## Классы конфигураций, 03.10.2026
+
+Решение владельца в текущей беседе: М38 и обрез получают класс и способности боевой винтовки; длинная Mosin остаётся снайперской. Scope approved. Владелец реализации — jazz; текущий write set: `Code/Weapon_MosinModular.lua`, `docs/tools/_check_mosin_configurations.py`, `docs/tools/README.md`, эта spec и профильные weapons-and-ammo technical/wiki/showcase RU+EN. Generated data, public item ID, модели и выдача не меняются; exclusive resources этой итерации — none.
+
+- `JAZZ-WEAPON-MOSIN-001-REQ-011` — при смене Barrel обратимо менять WeaponType, object_class, эффективное ancestry экземпляра, ImpactForce и AvailableAttacks. M38/Obrez: BattleRifle, SingleShot + JAZZ_Salvo; 1891: SniperRifle / Sniper, SingleShot + JAZZ_JokerShot + JAZZ_Bullseye. Не менять общую таблицу Mosin и другие экземпляры. Сохранить ID Mosin, состояние, патроны и численный баланс конфигураций.
+- `JAZZ-WEAPON-MOSIN-001-AC-012` — static/offline Lua: прямые и обратные переходы восстанавливают класс/атаки/ImpactForce; два экземпляра независимы; прежние проверки характеристик и блокировки ПУ проходят.
+- `JAZZ-WEAPON-MOSIN-001-AC-013` — runtime: native IsKindOf, hotbar/tooltip и save/load отражают выбранную конфигурацию. Проверка отдельно от offline Lua; без игрового evidence не объявлять PASS.
+
+Совместимость: тот же экземпляр и публичный ID, профиль восстанавливается при установке компонентов и обновлении визуального объекта. Общая spec остаётся approved, пока прежние и новые runtime/human AC не закрыты.
+
 ## Проблема
 
 Исходные OBJ и текстуры есть в локальном архиве Weapons/Sniper; MTL отсутствуют, экспорт и предмет пока отсутствуют.
@@ -230,3 +240,5 @@ Evidence `JAZZ-WEAPON-MOSIN-001-AC-FEEDBACK-028B`: BLOCKED — реализац�
 Второй проход 28.09: [отчёт staging и открытых пунктов](../../design/weapon-visual-feedback-20260928-round2.md). Проверенные кандидаты подготовлены отдельно; установка/runtime/editor NOT_RUN. Статус approved сохранён. HAV и 6Б3 не приняты по эксперименту с весами и исключены из транзакции.
 
 28.09.2026, после «игра закрыта, применяй»: проверенный пакет второго прохода установлен, 27 файлов и backup SHA256 PASS; installed graph/structural PASS. Новых generated ERROR нет; общий baseline остаётся FAILED. HAV/6Б3 исключены из установки, runtime/editor/human остаются NOT_RUN. По последующему запросу разрешены локальные коммиты; push не разрешён.
+
+03.10.2026 evidence: AC-012 PASS static/offline Lua — реальный JAZZ setter, семь переходов и прежние характеристики/ПУ; классы, ancestry data, ImpactForce, атаки, изоляция экземпляров и Setcomponents восстановлены. AC-013 BLOCKED runtime — DAP 8165 не слушает; native IsKindOf, hotbar/tooltip и полное save/load не проверены. Реализация итерации завершена; общий status approved сохраняется из-за незакрытых runtime/human AC.
