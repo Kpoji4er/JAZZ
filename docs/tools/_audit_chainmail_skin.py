@@ -6,8 +6,9 @@ from mathutils import Vector
 from mathutils.kdtree import KDTree
 p=argparse.ArgumentParser()
 for n in ('blend','decoded','report'):p.add_argument('--'+n,type=Path,required=True)
+p.add_argument('--entity', default='JAZZ_Chainmail_Male')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);bpy.ops.wm.open_mainfile(filepath=str(a.blend.resolve()))
-obj=bpy.data.objects['JAZZ_Chainmail_Male'];tree=KDTree(len(obj.data.vertices))
+obj=bpy.data.objects[a.entity];tree=KDTree(len(obj.data.vertices))
 for v in obj.data.vertices:tree.insert(v.co,v.index)
 tree.balance();data=json.loads(a.decoded.read_text());bones={i:b['name'] for i,b in enumerate(data['bones'])};errors=[]
 for sub in data['meshes']:

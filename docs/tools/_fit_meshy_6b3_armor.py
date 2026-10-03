@@ -22,6 +22,7 @@ from _ja3_mesh_prepare import prepare_export_mesh
 p = argparse.ArgumentParser(description=__doc__)
 for key in ('input', 'shirt', 'output'):
     p.add_argument('--' + key, type=Path, required=True)
+p.add_argument('--item', default='6B3', help='Existing armor suffix, e.g. 6B13')
 p.add_argument('--width', type=float, default=.48)
 p.add_argument('--depth', type=float, default=.46)
 p.add_argument('--height', type=float, default=.56)
@@ -39,7 +40,7 @@ for obj in meshes:
 bpy.context.view_layer.objects.active = meshes[0]
 bpy.ops.object.join()
 armor = bpy.context.object
-armor.name = 'Meshy 6B3 fitted source'
+armor.name = 'Meshy '+a.item+' fitted source'
 bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 lo = Vector(tuple(min(v.co[i] for v in armor.data.vertices) for i in range(3)))
 hi = Vector(tuple(max(v.co[i] for v in armor.data.vertices) for i in range(3)))
@@ -140,6 +141,6 @@ report = {'source': str(a.input.resolve()), 'triangles': len(armor.data.loop_tri
           'has_custom_normals': armor.data.has_custom_normals,
           'status':'SOURCE_PREPARED', 'runtime':'NOT_RUN'}
 bpy.ops.file.pack_all()
-bpy.ops.wm.save_as_mainfile(filepath=str(out/'clean/JazzArmor_6B3.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(out/('clean/JazzArmor_'+a.item+'.blend')))
 (out/'fit-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report))

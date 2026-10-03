@@ -42,7 +42,7 @@ scene.render.filepath=str(out/(a.icon+'.png')); bpy.ops.render.render(write_stil
 for o in list(bpy.data.objects):
     if o not in (armor,rig):bpy.data.objects.remove(o,do_unlink=True)
 bpy.ops.object.select_all(action='DESELECT'); armor.hide_set(False); armor.select_set(True); bpy.context.view_layer.objects.active=armor
-if entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male','JAZZ_TireBrigantine_Male','JAZZ_TireArmor_Male') or a.skin_colorization:
+if entity in ('JAZZ_6B3_Male','JAZZ_6B13_Male','JAZZ_LeatherArmor_Male','JAZZ_TireBrigantine_Male','JAZZ_TireArmor_Male') or a.skin_colorization:
     # Bake against the final triangle normals/tangents, not the source quads.
     # Changing the quad diagonal after a normal bake leaves dark edge specks.
     prepare_export_mesh(armor)
@@ -83,7 +83,7 @@ armor.data.materials.clear();armor.data.materials.append(mat)
 for face in armor.data.polygons:face.material_index=0
 # 6B3 keeps its authored material UVs only until they have been baked. The game
 # receives one atlas UV layer, so the FBX reader cannot choose the source UVs.
-if (entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male','JAZZ_TireBrigantine_Male','JAZZ_TireArmor_Male') or a.skin_colorization) and 'SourceUV' in armor.data.uv_layers:
+if (entity in ('JAZZ_6B3_Male','JAZZ_6B13_Male','JAZZ_LeatherArmor_Male','JAZZ_TireBrigantine_Male','JAZZ_TireArmor_Male') or a.skin_colorization) and 'SourceUV' in armor.data.uv_layers:
     assert armor.data.uv_layers.active.name == 'ExportUV'
     armor.data.uv_layers.remove(armor.data.uv_layers['SourceUV'])
     assert len(armor.data.uv_layers) == 1

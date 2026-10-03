@@ -12,6 +12,7 @@ end
 local armor_entities = {
 	JazzArmor_LeatherArmor = { Male = "JAZZ_LeatherArmor_Male" },
 	JazzArmor_6B3 = { Male = "JAZZ_6B3_Male" },
+	JazzArmor_6B13 = { Male = "JAZZ_6B13_Male" },
 	JazzArmor_TwaronLight = { Male = "JAZZ_TwaronLight_Male" },
 	JazzArmor_TwaronMedium = { Male = "JAZZ_TwaronMedium_Male" },
 	JazzArmor_TwaronFull = { Male = "JAZZ_TwaronFull_Male" },
@@ -60,9 +61,8 @@ local hat_entities = {
 	},
 	JazzArmor_SovietHelm = {
 		Male = "JazzHat_SSh68", hide_hair = true,
-		-- The imported shell starts 4.24 cm above its local origin.
-		-- Seat it 4 cm lower relative to the appearance's existing Hat offset.
-		offset_z = -40,
+		-- Head-local fit corrected against the in-game Legion head.
+		offset_z = -110, scale = 95,
 	},
 	JazzArmor_M1Helm = {
 		Male = "FactionMale_Hat_09", hide_hair = true,
@@ -77,8 +77,8 @@ local hat_entities = {
 		colors = { Color(61, 74, 46), Color(0, 0, 0), Color(61, 74, 46) },
 	},
 	JazzArmor_6b7Helm = {
-		Male = "FactionMale_Hat_10", hide_hair = true,
-		colors = { Color(55, 68, 42), Color(40, 48, 32), Color(40, 48, 32) },
+		Male = "JazzHat_6B7", hide_hair = true,
+		offset_z = -70, scale = 95,
 	},
 	JazzArmor_TwaronHelm = {
 		Male = "FactionMale_Hat_10", hide_hair = true,
@@ -153,9 +153,10 @@ local function SetHairHidden(unit, hide)
 	end
 end
 
-local function CreateMappedPart(unit, part_name, entity, colors, colorize_baseline, offset_z)
+local function CreateMappedPart(unit, part_name, entity, colors, colorize_baseline, offset_z, scale)
 	local part = PlaceObject("AppearanceObjectPart")
 	part:ChangeEntity(entity)
+	if scale then part:SetScale(scale) end
 	part:ClearEnumFlags(const.efCollision | const.efWalkable | const.efApplyToGrids)
 	if unit:GetGameFlags(const.gofRealTimeAnim) ~= 0 then
 		part:SetGameFlags(const.gofRealTimeAnim)
@@ -167,7 +168,9 @@ local function CreateMappedPart(unit, part_name, entity, colors, colorize_baseli
 		unit:Attach(part, unit:GetSpotBeginIndex("Head"))
 	end
 	if offset_z then
-		part:SetAttachOffset(part:GetAttachOffset() + point(0, 0, offset_z))
+		-- Custom helmet offsets are absolute in Head space.
+		part:SetAttachOffset(part_name == "Hat" and point(0, 0, offset_z)
+			or part:GetAttachOffset() + point(0, 0, offset_z))
 	end
 	if colorize_baseline then
 		unit:ColorizePart(part_name)
@@ -185,7 +188,7 @@ local function ResolveEntry(unit, slot, map)
 	local entity = entry[unit.gender]
 	if entity and not IsValidEntity(entity) then entity = nil end
 	if not entity then return end
-	return entity, entry.colors, entry.hide_hair, item.class, entry.offset_z
+	return entity, entry.colors, entry.hide_hair, item.class, entry.offset_z, entry.scale
 end
 
 local function PartEntity(part)
@@ -210,7 +213,7 @@ local function ApplyMapped(unit, cache, slot, part_name, map, managed, baseline_
 		cache[unit] = nil
 		state = nil
 	end
-	local entity, colors, hide_hair, item_class, offset_z = ResolveEntry(unit, slot, map)
+	local entity, colors, hide_hair, item_class, offset_z, scale = ResolveEntry(unit, slot, map)
 	if not entity then
 		if state then
 			DoneObject(state.part)
@@ -228,6 +231,11 @@ local function ApplyMapped(unit, cache, slot, part_name, map, managed, baseline_
 			-- Repair parts restored from saves or retained across a code reload.
 			unit:Attach(current, unit:GetSpotBeginIndex("Head"))
 		end
+		if part_name == "Hat" and offset_z then
+			-- Also repair saved/cached parts without accumulating the adjustment.
+			current:SetAttachOffset(point(0, 0, offset_z))
+		end
+		if scale then current:SetScale(scale) end
 		if state.item ~= item_class then
 			TintPart(current, colors)
 			state.item = item_class
@@ -239,7 +247,7 @@ local function ApplyMapped(unit, cache, slot, part_name, map, managed, baseline_
 	if state then baseline = state.baseline end
 	if IsValid(current) then DoneObject(current) end
 	unit.parts[part_name] = nil
-	local part = CreateMappedPart(unit, part_name, entity, colors, nil, offset_z)
+	local part = CreateMappedPart(unit, part_name, entity, colors, nil, offset_z, scale)
 	cache[unit] = { part = part, baseline = baseline, entity = entity, item = item_class }
 	if hide_hair then SetHairHidden(unit, true) end
 end

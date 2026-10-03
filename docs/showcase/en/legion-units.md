@@ -144,3 +144,5 @@ The Soviet helmet on male JAZZ Legion fighters uses a dedicated SSh-68 model, al
 Leather armor now has its own improvised plate carrier with riveted shoulder straps, side belts and worn leather texture. It appears on male JAZZ Legion fighters without changing the item's protection. The model is installed in the local experimental build; in-game fit and animation acceptance are still pending.
 
 The improvised brigandine, tire armor and leather vest have new models. Chainmail replaces the upper-body garment and includes the torso beneath its neckline; upper shoulder plates follow the torso while sleeves blend toward the arms. Its original icon is restored. Installed for in-game testing; final animation acceptance remains open.
+
+Installed 6B13, SSh-60 and 6B7-1M models. Both helmets sit lower following in-game review and are 5% smaller. Height accepted; size retained pending another visual check. Item stats unchanged.
