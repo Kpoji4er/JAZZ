@@ -171,7 +171,8 @@ jobs:
     name: Verify existing release downloads
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      # Draft release assets require write-level repository access.
+      contents: write
     env:
       GH_TOKEN: ${{ github.token }}
       RELEASE_TAG: ${{ inputs.tag }}

@@ -137,3 +137,5 @@ Strategy observer читает synced `gv_JAZZ_LegionAI` и squad/outpost state,
 New campaigns serialize starting Legion tier and timed speed through hidden `Game.game_rules` entries, shared by vanilla lobby-info. Existing saves without these flags preserve Campaign progression and are not restarted or retiered. The two existing Legion tier GameVars add optional clock/baseline fields. Removing this feature from a save with its GameRules is not a supported downgrade. Single-player save/load and co-op require runtime confirmation; see [spec](../specs/active/JAZZ-PROGRESSION-001.md).
 
 Каталог `jazz_assets/Sources/` хранит редактируемые исходники; исключён из Steam и GitHub runtime-пакетов через `ignore_files`.
+
+Предпубликационная проверка ZIP чернового GitHub Release требует `contents: write`: токен только с `read` не видит draft. Проверка не изменяет файлы релиза.
