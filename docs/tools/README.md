@@ -1,5 +1,8 @@
 # `docs/tools` — скрипты агентов и аудита
 
+- `_check_convoy_lifecycle.py`: `python docs/tools/_check_convoy_lifecycle.py` (requires `lupa`); executes production convoy Lua with deterministic engine stubs. Checks blocked routes, old-save recovery, cargo refunds, HQ reserve cleanup and dispatch reuse; does not edit saves.
+
+
 ## Повторная оружейная приёмка 28.09.2026
 
 - `_weapon_feedback_islands.py`: Blender, read-only связанные поверхности и bounds (`--blend --entity --output`).

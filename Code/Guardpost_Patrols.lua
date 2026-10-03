@@ -2632,7 +2632,9 @@ local function lOnSquadArrived(root, squad, squad_state)
 	if lIsMajorInboundConvoyTask(squad_state, task)
 		and task.phase ~= "unloading_done"
 	then
-		lStartMajorConvoyUnloading(squad, squad_state)
+		if task.phase ~= "unloading" then
+			lStartMajorConvoyUnloading(squad, squad_state)
+		end
 		return
 	end
 
@@ -2936,6 +2938,63 @@ local function lOnSquadArrived(root, squad, squad_state)
 	end
 end
 
+-- STRATEGY-028: repair old saves too, without touching cargo or active battles.
+local function lMaintainConvoys(root)
+	local reserve = {}
+	local hq_id = root.major and root.major.hq_sector
+	local hq = hq_id and gv_Sectors[hq_id]
+	for squad_id, squad_state in sorted_pairs(root.squads) do
+		local role = squad_state.role
+		local squad = gv_Squads[squad_id]
+		if squad and (role == "supply" or role == "manpower" or role == "shipment")
+			and not IsSquadTravelling(squad, "skip_tick_pass")
+			and not IsConflictMode(squad.CurrentSector)
+			and (gv_SatelliteView or gv_CurrentSectorId ~= squad.CurrentSector)
+		then
+			local task = squad_state.task
+			if lIsMajorInboundConvoyTask(squad_state, task) then
+				local target = root.outposts[task.target_sector]
+				local sector = gv_Sectors[task.target_sector]
+				if not target or not target.enabled or not sector or not JAZZ_IsLegionSide(sector.Side) then
+					squad_state.home_sector = hq_id
+					squad_state.task = { task_type = "return", target_sector = hq_id }
+					squad_state.state = "orphaned"
+					task = squad_state.task
+				end
+			end
+			if squad_state.state == "orphaned" and task and task.target_sector then
+				local routed = lSetRoute(squad, task.target_sector)
+				if routed then
+					squad_state.state = task.task_type == "return" and "returning" or "en_route"
+					if lIsMajorInboundConvoyTask(squad_state, task) then
+						task.phase = "en_route"
+						task.hold_until = nil
+					end
+					if routed == "arrived" then
+						lOnSquadArrived(root, squad, squad_state)
+					end
+					ObjModified(squad)
+				end
+			end
+			local payload = squad_state.payload or empty_table
+			if (role == "supply" or role == "manpower")
+				and hq and JAZZ_IsLegionSide(hq.Side)
+				and squad.CurrentSector == hq_id and squad_state.home_sector == hq_id
+				and not squad_state.task
+				and (squad_state.state == "resting" or squad_state.state == "ready_for_orders")
+				and lPayloadMoney(payload) <= 0 and (payload.manpower or 0) <= 0
+				and #(payload.recruited_ids or empty_table) == 0
+			then
+				if reserve[role] then
+					lRetireSquad(root, squad_id)
+				else
+					reserve[role] = squad_id
+				end
+			end
+		end
+	end
+end
+
 local function lTickMajorConvoyHandling(root)
 	for squad_id, squad_state in sorted_pairs(root.squads) do
 		local task = squad_state.task
@@ -2947,14 +3006,16 @@ local function lTickMajorConvoyHandling(root)
 			local squad = gv_Squads[squad_id]
 			if squad and not IsConflictMode(squad.CurrentSector) then
 				if task.phase == "loading" then
-					task.phase = "en_route"
-					task.hold_until = nil
-					squad_state.state = "en_route"
 					local routed = lSetRoute(squad, task.target_sector)
 					if not routed then
-						squad_state.state = "orphaned"
-					elseif routed == "arrived" then
-						lOnSquadArrived(root, squad, squad_state)
+						task.hold_until = lNow() + lHourScale()
+					else
+						task.phase = "en_route"
+						task.hold_until = nil
+						squad_state.state = "en_route"
+						if routed == "arrived" then
+							lOnSquadArrived(root, squad, squad_state)
+						end
 					end
 				elseif task.phase == "unloading" then
 					task.phase = "unloading_done"
@@ -3288,13 +3349,16 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 	if not hq or not JAZZ_IsLegionSide(hq.Side) then
 		return false
 	end
-	local function lDispatchSupply(squad, squad_state)
-		local old_home = squad_state.home_sector
-		local old_money = squad_state.payload and squad_state.payload.money
 	-- Validate the route before reserving cargo on either a reused or new convoy.
 	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "supply", "enemy1", empty_table) then
 		return false
 	end
+	if lActiveRole(root, region_state.region_id, outpost.sector_id, "supply") then
+		return false
+	end
+	local function lDispatchSupply(squad, squad_state)
+		local old_home = squad_state.home_sector
+		local old_money = squad_state.payload and squad_state.payload.money
 		squad_state.home_sector = outpost.sector_id
 		squad_state.payload = squad_state.payload or {}
 		squad_state.payload.money = cargo
@@ -3304,6 +3368,7 @@ local function lTrySupplyConvoy(root, region, region_state, outpost)
 			lLog("supply reuse failed to load cargo $")
 			return false
 		end
+		squad_state.region_id = region_state.region_id
 		squad_state.task = {
 			task_type = "supply",
 			target_sector = outpost.sector_id,
@@ -3601,6 +3666,9 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 	if not lHasAvoidPlayerRoute(hq_sector, outpost.sector_id, "manpower", "enemy1", empty_table) then
 		return false
 	end
+	if lActiveRole(root, region_state.region_id, outpost.sector_id, "manpower") then
+		return false
+	end
 	local function lDispatchManpower(squad, squad_state)
 		local old_home = squad_state.home_sector
 		local old_manpower = squad_state.payload and squad_state.payload.manpower
@@ -3619,6 +3687,7 @@ local function lTryManpowerConvoy(root, region, region_state, outpost)
 		end
 		squad_state.payload.recruited_ids = added
 		squad_state.payload.manpower = #added
+		squad_state.region_id = region_state.region_id
 		squad_state.task = {
 			task_type = "manpower",
 			target_sector = outpost.sector_id,
@@ -4694,6 +4763,7 @@ function JAZZ_LegionAIProcessHour()
 
 	lTickRecon(root)
 	lTickMajor(root)
+	lMaintainConvoys(root)
 	lTickMajorConvoyHandling(root)
 	lTickRestingSquads(root)
 	lTickWoundedRetreats(root)

@@ -1,5 +1,8 @@
 # Legion on the strategic map
 
+Blocked convoys retry their route every campaign hour. Major HQ (A20 on vanilla maps) keeps one idle supply escort and one idle manpower escort; surplus escorts from completed deliveries disband, including in existing saves. Cargo, combat, travel and the open tactical sector prevent cleanup. The starting garrison is unchanged.
+
+
 [Overview](home.md) · [Legion units](legion-units.md) · [Ernie campaign](ernie-campaign.md) · [Русский](../ru/legion-strategy.md)
 
 On **Ernie**, the Legion runs Fort L'Eau Bleu (sector I7) through a regional HQ. With the maps package the same Global AI also runs **Port Cacao environs** (**P17**), the **Great Desert** (**E10**), the **Mountain Steppe** (**D18**), **Fleatown environs** (**H19**), **La Barrier** (**L15**, patrols into Cacao/Fleatown, larger garrison), and the **Great Forest** (**G22**+**K21**, shared treasury); Major HQ is **B28**. Major supply order: Ernie → La Barrier → poorest others. Until gear tier **T2-1**, mainland regions accrue resources very slowly, rarely order combat squads, and send no QRF; recruiters unlock only after the first Major delivery. On the satellite map, squads show a **role** icon and a **current task** on hover; sector **fill** is ownership, and a **colored outline** marks region borders.

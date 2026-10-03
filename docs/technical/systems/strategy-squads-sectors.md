@@ -1,5 +1,14 @@
 # Стратегия, отряды и сектора
 
+## Восстановление конвоев и резерв HQ (JAZZ-STRATEGY-028)
+
+Loaded `Code/Guardpost_Patrols.lua`: каждый час `lMaintainConvoys` повторяет путь для старых `orphaned` supply/manpower/shipment. Неудачная погрузка остаётся `working/loading` и повторяется через час; повторный arrival не продлевает 12h разгрузку. Потерянный адресат supply/manpower отправляет груз обратно в штаб через существующий return/refund. Обычный supply проверяет путь до spawn; supply/manpower проверяют активный рейс до reuse и обновляют `region_id` при новом адресате.
+
+В принадлежащем Легиону HQ сохраняется по одному пустому `supply` и `manpower` в `resting`/`ready_for_orders`; лишние завершившие рейс отряды удаляются через существующий синхронный `lRetireSquad`. Выбор детерминирован по squad ID. Груз, recruited IDs, незавершённые задачи, движение, конфликт и открытый тактический сектор исключают очистку. Правило действует и в старых сохранениях, schema остаётся 3. A20/B28 берутся из `root.major.hq_sector`, гарнизон и другие роли не затронуты. Новые tier-pulse доставки STRATEGY-026 сохранены; их вернувшаяся охрана подчиняется этому пределу.
+
+Проверка: `python docs/tools/_check_convoy_lifecycle.py` исполняет production Lua функции с engine stubs; игровой сейв и multiplayer не проверены. Assets/public API/load order не изменены.
+
+
 ## Связанные specs
 
 - `JAZZ-HOTFIX-001` — исправление cold-load globals, vanilla MapVar ownership и sector context для отсутствующего Region.
@@ -82,7 +91,7 @@ Managed Regions с `LegionAIEnabled`: **`ErnieIsland`** (`I7`, MajorSupplyPriori
 - `supply` — доставляет из HQ `$` (`payload.money`); task UI показывает сумму; inventory = tagged `lSyncMoneyCargo`; маршрут **может воду** (`land_water_boatless`); после сдачи → clear cargo → return HQ → rest; idle reuse;
 - `tax` — обходит Legion economic POI с `region_state.poi_money`, собирает `$` до cargo max, **синхронизирует** Tiny/DB в inventory, сдаёт на аванпост (cap 1, threshold 1000, cooldown **48h**); **не despawn** — rest + reuse;
 - `recruiter` — спавнит `JAZZ_Legion_Recruit`; на базе strip всех Recruit → `outpost.manpower` (cap 32), излишек → `outbound_manpower`; **эскорт не retire** — rest + reuse; свой `RecruiterCooldown` **48h**;
-- `manpower` — Major→outpost **только при manpower=0**; обратный караван outpost→Major забирает `outbound_manpower`; после сдачи → rest, не RemoveSquad;
+- `manpower` — Major→outpost **только при manpower=0**; обратный караван outpost→Major забирает `outbound_manpower`; после сдачи → rest; лишний пустой HQ-резерв удаляется по STRATEGY-028;
 - Combat spawn (`garrison`/`patrol`/`recon`/`qrf`/`reinforce`/`support`/`major`): composition generator с **STRATEGY-016** early→mature sizes (time/heat/tier); `support` — фиксированные **4–7** (STRATEGY-024); всегда `$` + manpower; generator `false` → **no spawn** (STRATEGY-008: нет EnemySquadDef unit-list / flat Region-cost fallback);
 - **NoMaps size override:** `JAZZ_LegionRoleSizeOverrideNoMaps` — меньшие bands (patrol early 4–6 / mature 8–12; garrison **12–20**); Ernie/maps без override;
 - Logistics escorts (`tax`/`shipment`/`supply`/`recruiter`/`manpower`): composition generator at effective escort size (не сырой EnemySquadDef 15–25); **HOTFIX-006:** same UnitData ID ≤ min(3, max(1, floor(n×0.34))) **кроме** `JAZZ_LegionUncappedLineIds` (Roughneck/Pillager/ShockTrooper/Rifleman/Marauder/Raider/Veteran — сколько угодно) и **кроме VeryHard** (Mission Impossible — same-id выкл.); остальные Front-специалисты на эскорте ≤ min(2, max(1, floor(n×0.25))); `tax`/`supply`/`shipment` deny `FrontT2_Marksman`. Уже живые отряды на карте не пересобираются;
