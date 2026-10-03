@@ -13,16 +13,16 @@ risk: medium
 generated_data: true
 runtime_validation: required
 write_set:
-  - jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/**
-  - jazz_assets/Sources/Character/JAZZ_TireArmor_Male/**
-  - jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/**
-  - jazz_assets/Sources/Character/JAZZ_Chainmail_Male/**
-  - jazz/docs/tools/_audit_compiled_weapon_mesh.py
-  - jazz/docs/tools/*chainmail*
   - jazz/docs/design/legion-armor-check-20261003.md
   - jazz/docs/tools/_review_meshy_legion.py
-  - jazz/docs/tools/_install_meshy_legion.py
   - jazz/docs/tools/_prepare_meshy_legion.py
+  - jazz/docs/tools/_install_meshy_legion.py
+  - jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/**
+  - jazz_assets/Sources/Character/JAZZ_TireArmor_Male/**
+  - jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/**
+  - jazz/docs/tools/*chainmail*
+  - jazz/docs/tools/_audit_compiled_weapon_mesh.py
+  - jazz_assets/Sources/Character/JAZZ_Chainmail_Male/**
   - jazz/.agents/docs/playbooks/model-export-qa-handoff.md
   - jazz/docs/tools/_audit_blender_normals.py
   - jazz/docs/tools/*leather_armor*
@@ -156,6 +156,17 @@ approved_by: project-owner (current conversation, 2026-09-15; vanilla torso+helm
 ---
 
 # JAZZ-APPEAR-001: броня на теле Легиона и тестовый юнит
+
+## Meshy Chainmail как Body, 2026-10-03
+
+Решение владельца: «ну теперь в игру вставляй; возможно есть смысл ее курткой сделать а не поверх куртки». Разрешена установка принятого текстурированного Meshy-кандидата; выбран Body для рубахи с рукавами. Это разрешение производства/установки, не runtime acceptance.
+
+- JAZZ-APPEAR-001-REQ-031 — Подогнать принятую Chainmail к Male sample, сохранить материалы и добавить необходимые открытые руки/кисти/шею. Существующий JAZZ_Chainmail_Male перевести в CharacterBodyMale и подключить JazzArmor_Chainmail как временный Body существующих JAZZ_Legion_* Male. При снятии/замене вернуть исходный Body; не оставлять прежнюю куртку под кольчугой. Сохранить предмет, баланс, иконку, тестовый UnitData, остальные семейства, Male/Female guard и единственный wrapper. Сохранить backup перед заменой ресурсов, исходники и отчёты в Sources/Character/JAZZ_Chainmail_Male. Мерки/Female и остальные модели вне этого изменения.
+- JAZZ-APPEAR-001-AC-031 — static/offline: корректные веса до четырёх костей, recalc normals без custom normals, material/rest/pose renders, штатный HGE/AP export и compiled graph; executable: equip/unequip/смена предмета/appearance rebuild/cache recovery для Body без регрессии Armor/Hat; install: backup/hash, ModItem+EntityData class согласованы, metadata ID/load order сохранены. Editor/runtime/human: Body, руки и шея, aim/crouch/prone и возврат одежды в игре — отдельная приёмка, не подменять offline проверками.
+
+Ownership: runtime и инструменты — jazz; модели, классы entity, ресурсы — jazz_assets. Изменений jazz-units не требуется, существующий ArmorTest_Chainmail используется без правки. Declared write set дополняет перечисленные пути Chainmail; общие items/metadata editor state остаются exclusive. Ручная согласованная транзакция установки допустима при закрытой игре; shader binaries не патчить. Общая spec остаётся approved до открытой runtime/human приёмки прежних AC.
+
+Evidence AC-031: PASS static/offline/install — 20740 tri с native руками/шеей, Base/Norm/RM/Color 2048, ноль custom normals/geometry fatal; 5 synthetic poses, отдельный garment p99 <1,8. Для native skin локтевой тест сравнивается со штатным sample (вспомогательные twist-кости вручную не анимируются); не выдавать за game animation. HGE/AP 86 bones, compiled winding PASS, max vertex error 0,1008 мм (явный лимит 0,11 мм вместо default 0,1 мм), compiled weight max L1 0,01153. Ранний skin atlas overlap исправлен; финальные front/back bake просмотрены. 13 файлов установлены с backup/hash; предмет, icon, metadata, test UnitData сохранены. Runtime mock: Body equip/unequip/replacement, rebuild/cache recovery, legacy Armor migration, Male/Legion guards и Armor/Hat regression PASS. Assets generated audit: 14 warnings до, 13 после, новых ошибок нет. Editor round-trip/runtime/human NOT_RUN, игра не запускалась. Все изменения незакоммиченные; общая spec остаётся approved.
 
 ## Полная переделка кустарного сета, 2026-09-26
 
@@ -440,23 +451,73 @@ Evidence RM: официальный AP export PASS; source TGA R=G побайт�
 
 2026-10-03, после подтверждения «закрыл»: установлены только RM DDS и fallback 6Б3; backup и SHA256 PASS, остальные семь ресурсов неизменны. `rm-installation.json` хранит receipt. Локальный commit разрешён; runtime нового RM NOT_RUN.
 
-## Meshy Chainmail как Body, 2026-10-03
+## СШ-60 Meshy, 2026-10-03
 
-Решение владельца: «ну теперь в игру вставляй; возможно есть смысл ее курткой сделать а не поверх куртки». Разрешена установка принятого текстурированного Meshy-кандидата; выбран Body для рубахи с рукавами. Это разрешение производства/установки, не runtime acceptance.
+Владелец запросил СШ-60 вместо модели советской каски, затем утвердил три фото, корпус без ремня/подшлемника и отдельное текстурирование. После geometry preview попросил убрать точки и разрешил авторские текстуры. REQ-SSH60: сохранить предмет JazzArmor_SovietHelm, legacy entity JazzHat_SSh68 и Head offset; заменить только визуальные ресурсы, без изменения stats/иконки/локализации. Meshy task 01a0fe75-31c5-7729-ac61-94f880a5ce02, 20 credits; shell регуляризован по сгенерированному силуэту, шесть круглых заклёпок; procedural PBR 2048, RM R=G/B=metallic. AC-SSH60: source/texture QA, head-fit preview, official HGE/AP, HGM roundtrip/winding, backup/hash, closed game install; runtime/human отдельно. Write set: docs/tools/_build_meshy_ssh60.py, tools README, профильный playbook/spec, current-state appearance docs, jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/** и существующие девять ресурсов JazzHat_SSh68. Статус общей spec approved; исходное разрешение на установку сохраняется.
 
-- JAZZ-APPEAR-001-REQ-031 — Подогнать принятую Chainmail к Male sample, сохранить материалы и добавить необходимые открытые руки/кисти/шею. Существующий JAZZ_Chainmail_Male перевести в CharacterBodyMale и подключить JazzArmor_Chainmail как временный Body существующих JAZZ_Legion_* Male. При снятии/замене вернуть исходный Body; не оставлять прежнюю куртку под кольчугой. Сохранить предмет, баланс, иконку, тестовый UnitData, остальные семейства, Male/Female guard и единственный wrapper. Сохранить backup перед заменой ресурсов, исходники и отчёты в Sources/Character/JAZZ_Chainmail_Male. Мерки/Female и остальные модели вне этого изменения.
-- JAZZ-APPEAR-001-AC-031 — static/offline: корректные веса до четырёх костей, recalc normals без custom normals, material/rest/pose renders, штатный HGE/AP export и compiled graph; executable: equip/unequip/смена предмета/appearance rebuild/cache recovery для Body без регрессии Armor/Hat; install: backup/hash, ModItem+EntityData class согласованы, metadata ID/load order сохранены. Editor/runtime/human: Body, руки и шея, aim/crouch/prone и возврат одежды в игре — отдельная приёмка, не подменять offline проверками.
-
-Ownership: runtime и инструменты — jazz; модели, классы entity, ресурсы — jazz_assets. Изменений jazz-units не требуется, существующий ArmorTest_Chainmail используется без правки. Declared write set дополняет перечисленные пути Chainmail; общие items/metadata editor state остаются exclusive. Ручная согласованная транзакция установки допустима при закрытой игре; shader binaries не патчить. Общая spec остаётся approved до открытой runtime/human приёмки прежних AC.
-
-Historical v1 evidence AC-031 (superseded by v5 below): PASS static/offline/install — 20740 tri с native руками/шеей, Base/Norm/RM/Color 2048, ноль custom normals/geometry fatal; 5 synthetic poses, отдельный garment p99 <1,8. Для native skin локтевой тест сравнивается со штатным sample (вспомогательные twist-кости вручную не анимируются); не выдавать за game animation. HGE/AP 86 bones, compiled winding PASS, max vertex error 0,1008 мм (явный лимит 0,11 мм вместо default 0,1 мм), compiled weight max L1 0,01153. Ранний skin atlas overlap исправлен; финальные front/back bake просмотрены. 13 файлов установлены с backup/hash; предмет, icon, metadata, test UnitData сохранены. Runtime mock: Body equip/unequip/replacement, rebuild/cache recovery, legacy Armor migration, Male/Legion guards и Armor/Hat regression PASS. Assets generated audit: 14 warnings до, 13 после, новых ошибок нет. Editor round-trip/runtime/human NOT_RUN, игра не запускалась. Все изменения незакоммиченные; общая spec остаётся approved.
+AC-SSH60 evidence 2026-10-03: source/texture/export/install PASS. Meshy raw 5998 tri → очищенный/регуляризованный корпус и шесть заклёпок 6352 tri; PBR 2K создан локально, без платного texture stage. TGA RM R=G, metallic B; DDS/fallback BC1 linear. Head-fit перед/бок просмотрен на sample; сохранён offset -40, под него изменён local bbox. HGM 6352 tri, max vertex error 0,02595 мм, winding PASS. Установлены шесть существующих ресурсов и три ранее отсутствующих fallback; backup/hash PASS. Generated before/after: тот же baseline FAILED STRICT 14 warnings. Runtime/editor/human NOT_RUN. Item/локализация/mapping/статы не изменены; в UI пока прежнее название предмета. Исходники/receipt в Sources/Character/JazzHat_SSh68/ssh60-20261003. Коммит нового шлема не выполнялся.
 
 ## Meshy Legion trio installation, 2026-10-03
 Owner explicitly approved: «вставляй в игру и потом коммит», with all five test units documented. REQ-032: install approved TireBrigantine, TireArmor, LeatherArmor image-to-3D results into their existing CharacterArmorMale resources after local simplification, native Male binding, PBR baking and official export. Preserve original item icons, stats, IDs and test loadouts. Keep the installed Chainmail Body and accepted handcrafted cuirass; do not replace the cuirass with its unrigged Meshy preview. Twaron/Guardian/Zylon excluded. No new paid Meshy jobs. Sources under each existing entity, existing resource graph only, tooling/docs plus targeted revision commits in jazz and jazz_assets. AC-032: source normals/skin, clothed views, pose checks, compiled topology/winding, backup and hash installation; exact five existing UnitData loadouts checked. Runtime/editor/human acceptance remains separate until observed in game.
 
+## 6Б7 Meshy, 2026-10-03
+
+Решение владельца: «давай 6б7», утверждены четыре ракурса исходного 6Б7, очищенная модель; затем «теперь затекстурить и в игру». Scope approved: отдельный CharacterHat JazzHat_6B7 для существующего JazzArmor_6b7Helm в текущем Male equipped hook Легиона. Оливковый композит, без чехла/ремня, простая изнанка; PBR 2048, RM R=G=roughness/B=metallic. Статы, иконка, локализация, прочие каски и внешность мерков не меняются.
+
+- REQ-6B7: сохранить очищенную геометрию 6336 tri, создать текстуры, fit к Head, официальный HGE/AP export и отдельную регистрацию entity.
+- AC-6B7: source normals/UV/RM, head preview, HGM roundtrip/winding, resource graph, generated before/after, backup/hash; установка при закрытой игре. Runtime/editor/human отдельно.
+- Write set: docs/tools/_build_meshy_6b7.py, README/playbook/spec и appearance technical/wiki/showcase; Code/System_LegionArmorVisuals.lua только блок JazzArmor_6b7Helm; jazz_assets/Sources/Character/JazzHat_6B7/**, Entities/**/JazzHat_6B7*, items.lua запись ModItemEntity, metadata.lua entities/code.
+- Exclusive resources: регистрационные items/metadata jazz_assets только точечная транзакция после закрытия игры. Чужие текущие изменения сохранять. Evidence: texture/export в работе; install/runtime/editor/human NOT_RUN.
+
+Уточнение владельца по игровому скриншоту 2026-10-03: СШ-60 слишком мала и сидит высоко. Разрешена корректировка размера/посадки существующей JazzHat_SSh68: расширить/углубить корпус, опустить край к вискам/затылку. Write set дополнен _build_meshy_ssh60.py и её source/stage/compiled mesh; материалы и offset -40 сохраняются. AC-SSH60-FIT: offline preview и HGM QA, backup/hash, затем повторная human проверка в игре. Screenshot показывает ошибку прежней offline оценки; прежний fit не считается runtime PASS.
+
+
+Evidence AC-6B7 / AC-SSH60-FIT, 2026-10-03: установлены 15 файлов с backup/SHA256 receipt в Sources/Character/JazzHat_6B7/meshy-20261003/installation.json; игра/редактор закрыты. 6Б7: 6336 tri, HGM roundtrip max 0.02475 мм, winding PASS; texture source R=G exact/B=0, DDS/fallback RG delta <=6, 2048/12 mip и 64/7 mip PASS. СШ-60: 6352 tri, max 0.02518 мм, winding PASS; заменены только ent/mesh, материалы сохранены. Корпус расширен 22→24.4 см, глубина 28→30.8 см, нижний local край 13→10.8 см при прежнем offset −40. Live read до закрытия: LegionGoon, Male_Head_08, offset (0,0,-40), angle0, scale100; это диагностика старой версии. Generated before/after одинаковые 13 warnings, errors0; Lua syntax и items/metadata checks PASS. Offline shape review выполнен; повторный runtime/editor/human NOT_RUN, общая spec approved. Write set уточнён: _install_meshy_helmets.py и obsolete SSh60 comment в существующем hook. Commit/push не выполнялись.
+
+### 6Б7-1М, 2026-10-03
+Владелец выбрал 6Б7-1М, разрешил новую генерацию, локальную чистку/текстуры и установку: «вроде годно, вставляй в игру». REQ-6B7-1M: заменить девять ресурсов существующей JazzHat_6B7 очищенной моделью 6Б7-1М (6576 tri), сохранив item, mapping, регистрацию и stats. AC-6B7-1M: head preview, HGE/AP, HGM roundtrip/winding, RM R=G/B=metallic, backup/hash; runtime/human отдельно. Write set: _build_meshy_6b7.py (опциональные имена source/texture), README, spec/appearance docs; jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003 и девять существующих ресурсов. Игра закрыта на начальной проверке. Общая spec approved; export/install в работе.
+
 REQ-033: owner asked to restore the original Chainmail icon, remove the shirt/neck void and stop arm-driven pauldron distortion. Root Body replacement follows native AppearanceObject; retain animation state/phase, remove erroneous legacy parts.Body, retain full developer torso. Upper caps use Spine2, sleeve transition is smooth. AC-033: live DAP confirmed Shirt08 root plus erroneous attach before, Chainmail root with no Body/Armor attach after code fix. Source v5 has 22272 tri and six pose gates, compiled geometry/winding/skin checks. Final game acceptance pending. Tooling/write set also includes _review_meshy_legion.py and docs/design/legion-armor-check-20261003.md. Broad spec remains approved for outstanding runtime/human criteria.
 
-Final evidence: four models installed with backup and SHA256 verification. Chainmail v5 22272 triangles, full torso, six pose gates including isolated shoulders; trio 18000 triangles each. Cuirass preserved. Final runtime/editor acceptance remains open.
+Final armor evidence: four models installed; Chainmail v5 22272 tri, trio 18000 tri each; pose/compiled/skin/resource and loadout gates PASS. Cuirass preserved. Final runtime/editor acceptance pending.
+
+2026-10-03, 6Б7-1М: девять ресурсов JazzHat_6B7 заменены при закрытых JA3/JA3Debug/ged. Сохранены item, CharacterHat и equipped mapping. HGE/AP PASS: 6576 tri, HGM roundtrip max 0.02560 мм, winding PASS. Исходный RM R=G/B=0; DDS RG delta <=6/B=0; main 2048/12 mip, fallback 64/7 mip. Backup и SHA256 receipt: jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/installation.json. Head preview проверен offline. Generated before/after: одинаковые 13 warnings, новых ошибок нет. Runtime/editor/human NOT_RUN; общая spec остаётся approved.
+
+### 6Б13 Meshy, 2026-10-03
+Owner approved references, cleaned mesh, Meshy textures, then fitting/rigging/install («да») and closed game. REQ-6B13: add JAZZ_6B13_Male CharacterArmorMale for existing JazzArmor_6B13 in existing Male Legion equipped hook. Preserve item stats/icon/localization, no merc appearance or new unit. Fix lower rear dents, preserve Flora PBR and hollow shell, torso-only shoulders following accepted 6B3 approach. AC-6B13: clothed rest/pose preview; HGE/AP skeleton, compiled winding/geometry; Base/Norm/RM RGrough/Bmetal and fallbacks; generated before/after, backup/hash closed-game installation; runtime/editor/human separately NOT_RUN. Write set: reusable fitter/exporter fixes and new 6B13 preparation/install tools with README; appearance spec/technical/wiki/showcase; Code/System_LegionArmorVisuals.lua one mapping; jazz_assets Sources/Character/JAZZ_6B13_Male, Entities resources/companion and registration items.lua/metadata.lua. Exclusive resources items/metadata only narrow transaction preserving existing dirty edits. Scope approved, not yet installed.
+
+Evidence AC-6B13: installed 13 files with backup/SHA256 receipt at Sources/Character/JAZZ_6B13_Male/production-20261003/installation.json; game/editor closed. Clothed rest views and five synthetic poses PASS; HGE/AP Male skeleton86, 11908tri; HGM max 0.09238mm, winding PASS. Compiled skin max L1 error0.01081 against limit0.04; external Male bone-name order from native Shirt08 reference, raw compiled JSON retained. TGA R=G exact/B=metallic; DDS delta6, fallback5, main2048/12mip fallback64/7mip. Assets integrity and items/metadata PASS; generated errors0/warnings13 after (baseline14 before; shared workspace). Runtime/editor/human NOT_RUN. Spec remains approved for pending human/runtime criteria. No commit/push.
+
+### Обратная связь по броне и коже, 2026-10-03
+
+Owner approval: «Сохранить длину, убрать лишний объём», «посмотри как на кирасе привязки», «руки у кольчуги слишком черные». REQ-ARMOR-FEEDBACK: сузить рукава без укорачивания, сохранить жёсткие верхние наплечники, убрать preset Armor под Chainmail Body, откалибровать sample skin Base под native C1, исправить посадку Leather/TireBrigantine/6B3 по принятой кирасе. Existing IDs/icons/stats/registrations сохраняются. Дополнительный write set: `_fit_chainmail_sleeves.py`, `_rebind_meshy_to_cuirass.py`, `_audit_chainmail_skin_base.py`, pose/compiled skin/review tools, Code/System_LegionArmorVisuals.lua, профильные docs и существующие четыре resource graphs в jazz_assets. Никаких новых Meshy jobs.
+
+AC-ARMOR-FEEDBACK: suppression и восстановление preset Armor — mock PASS и live Grenadier PASS до закрытия игры. Skin C1 live: LegionGoon RGB(5,1,1), Grenadier RGB(10,6,6) уже передавались. Sample Base был серым; native Shirt08 Base почти белый. Новый skin-only bake mean 125.32→241.55/255, Color mask identical, mean armor delta 0.00143/255: PASS. Chainmail v13 22272 tri, native skin geometry/weights unchanged, garment p99<1.8 в шести синтетических позах; compiled winding/skin PASS. Leather/TireBrigantine/6B3 установлены после clothed rest/lean и compiled checks. Runtime новых meshes/textures NOT_RUN; крайнее поднятие рук оставляет пересечение у корня рукава, этот collision AC не закрыт. Каска Adrian и заявленный локальный дефект кирасы остаются открыты; общий winding кирасы совпадает с исходником, это не подтверждение отсутствия локального дефекта. Spec остаётся approved.
+
+6Б13 width follow-up: owner approved wider preview and installation («вставь в игру новую»). REQ-6B13-WIDTH: torso X +13%, smoothly fading at z1.37–1.50; shoulders/collar fixed, existing UV/weights and item contract preserved. Write set: Sources/Character/JAZZ_6B13_Male/width-review-20261003 and nine existing entity resources; spec/technical install evidence. AC: clothed pose, rebuilt PBR RGrough/Bmetal, compiled geometry/winding/skin and backup/hash; runtime/editor separately pending.
+
+AC-6B13-WIDTH evidence: nine existing resources replaced from Sources/Character/JAZZ_6B13_Male/width-review-20261003; installation.json contains backup/SHA256. Five clothed synthetic poses PASS, 11908 tri, compiled max0.09262mm/winding PASS; skin maxL1 0.01081 PASS. Source RM R=G exact, DDS delta6/fallback5. Resource integrity PASS. Game/editor closed at install; runtime/editor/human NOT_RUN.
+
+
+## Тестовый юнит 6Б13, 2026-10-03
+
+Решение владельца: «сделай юнита» после установки расширенного 6Б13. REQ-6B13-UNIT: добавить JAZZ_Legion_ArmorTest_6B13 в JAZZ Tests по шаблону 6Б3: LegionGoon, JazzArmor_6B13, JazzArmor_SovietHelm, MP40 и 120 FMJ. Не добавлять в campaign pools. AC-6B13-UNIT: согласованные companion/items/metadata, Lua compile и mock equip PASS; editor/runtime проверяются отдельно. Write set: jazz-units/UnitData/JAZZ_Legion_ArmorTest_6B13.lua, точечные записи jazz-units/items.lua и metadata.lua (exclusive resources), эта spec и technical/systems/visibility-weather-appearance.md. Игра и редактор закрыты; baseline generated audit: 0 errors / 0 warnings. Существующий diff items.lua сохраняется.
+
+AC-6B13-UNIT evidence: static PASS — strict generated audit 0 errors / 0 warnings, structural validation, Lua compile всех трёх представлений и mock CustomEquipGear (6Б13/SovietHelm/MP40/120 FMJ, Torso/Head/Handheld A). Editor/runtime NOT_RUN; общий lifecycle spec остаётся approved из-за открытой игровой приёмки.
+
+Уточнение REQ-6B13-UNIT от владельца: «6б7 каску юниту дай». Для JAZZ_Legion_ArmorTest_6B13 заменить SovietHelm на JazzArmor_6b7Helm (установленная модель 6Б7-1М). Write set прежний, metadata registration не меняется; обновить companion/items и technical. AC-6B13-UNIT теперь ожидает 6Б7 в Head.
+
+AC-6B13-UNIT helmet update: companion/items синхронно используют JazzArmor_6b7Helm; mock loadout/Head PASS, игровой просмотр NOT_RUN.
+
+
+## 6Б7: исправление высокой посадки, 2026-10-03
+Владелец подтвердил дефект игровым скриншотом: «каска все еще высоко». REQ-6B7-FIT: Head offset_z=-40 для JazzArmor_6b7Helm; применять абсолютную высоту к новым и уже существующим Hat при appearance update, без накопления смещения. AC-6B7-FIT: Lua compile и mock create/repeated update/loaded part PASS; окончательная посадка требует нового игрового просмотра. Write set: Code/System_LegionArmorVisuals.lua (только offset и его применение), эта spec, appearance technical, wiki/legion-global-ai.md, showcase ru/en legion-units.md. Геометрия/entity/resources и характеристики не меняются. Scope approved текущим запросом.
+
+REQ-6B7-FIT уточнён после второго скриншота: одинаково высокая посадка 6Б7 и СШ-60. Live DAP read: Head spot 16012 у обеих, angle=0, offsets соответственно (0,0,0)/(0,0,-40), поэтому inherited preset offset как причина не подтверждён. Разрешённая корректировка обеих касок: абсолютные Head offsets -40/-80 (дополнительно -40 к текущим), применение при create и cached/save-restored update без накопления. Изменяется только mapping/offset application двух custom helmets; прочие ресурсы прежние. Live preview применён через CreateGameTimeThread; human оценка ожидается.
+
+Human feedback: -40 correction всё ещё высоко; суммарная поправка -70 подтверждена «теперь норм». Итог offsets: 6Б7=-70, СШ-60=-110. По следующему замечанию «шлема великоваты чутка» разрешена небольшая коррекция размера: scale=95 обеим, live preview включён. REQ/AC-6B7-FIT включает сохранение этих offset/scale при create, repeated update и восстановлении сохранённых частей.
+
+AC-6B7-FIT: mock create/preset translation override/repeat/save restore/scale/unequip PASS обеим. Runtime DAP confirmed offsets -70/-110 после game-time mutation. Human height PASS; scale=95 pending. Asset contract/geometry unchanged.
 
 ## 6B13 and helmets: committed scope, 2026-10-03
 

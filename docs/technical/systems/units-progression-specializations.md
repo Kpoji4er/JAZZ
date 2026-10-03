@@ -1,5 +1,13 @@
 # Юниты, прогрессия и специализации
 
+## Конрад: локальная модель, 2026-10-02
+
+По [JAZZ-CONRAD-001](../../specs/active/JAZZ-CONRAD-001.md) в файлах установлен новый appearance существующего `Jazz_Conrad`: preset `Conrad` в `jazz-units/items.lua` ссылается на `JAZZ_ConradBody`, `JAZZ_ConradPants`, `JAZZ_ConradHead`. Волосы входят в Head; прежние Hair/Armor/Shirt/Hat/Chest/Hip отключены в этом preset. UnitData, портреты, характеристики и публичный ID мерка не менялись.
+
+Media contract: `jazz_assets/Entities/JAZZ_Conrad{Body,Pants,Head}.ent`, одноимённые Lua companions, `Entities/Meshes/JAZZ_Conrad*_mesh.m.hgm`, `Entities/Materials/JAZZ_Conrad*_mesh.mtl`, `Entities/Textures/JAZZ_Conrad_{1_Norm,2_Base,3_RM}.dds` с fallback. В assets синхронно изменены items, metadata.entities/code и EntityData.class_parent. Appearance хранится в ModItem и отдельного companion в этом пакете не имеет.
+
+20 809 triangles; оригинальный Male/Bip001, максимум четыре skin-влияния. Offline export/geometry/winding/generated проверки пройдены; runtime/editor round-trip **не подтверждён**, запуск и визуальную приёмку владелец выполняет сам. Нужны idle/walk/aim/crouch/prone, хват оружия, противогаз и материалы. Изменения локальные, незакоммиченные; готовность к релизу не заявляется.
+
 ## Назначение и эффект для игрока
 
 Пакет `jazz-units` задаёт составы фракций, ~239 UnitData (в т.ч. 60 AME), внешность, экипировку, loot, squads и AI archetypes. Ручной код core/units назначает специализации, расширяет уровни, меняет рост характеристик и создаёт имена элитных противников. AIM UI фильтрует наёмников по новой ролевой модели.

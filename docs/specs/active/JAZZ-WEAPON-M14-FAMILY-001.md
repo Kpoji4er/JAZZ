@@ -258,3 +258,9 @@ Evidence `JAZZ-WEAPON-M14-FAMILY-001-AC-FEEDBACK-028B`: BLOCKED — реализ
 Второй проход 28.09: [отчёт staging и открытых пунктов](../../design/weapon-visual-feedback-20260928-round2.md). Проверенные кандидаты подготовлены отдельно; установка/runtime/editor NOT_RUN. Статус approved сохранён. HAV и 6Б3 не приняты по эксперименту с весами и исключены из транзакции.
 
 28.09.2026, после «игра закрыта, применяй»: проверенный пакет второго прохода установлен, 27 файлов и backup SHA256 PASS; installed graph/structural PASS. Новых generated ERROR нет; общий baseline остаётся FAILED. HAV/6Б3 исключены из установки, runtime/editor/human остаются NOT_RUN. По последующему запросу разрешены локальные коммиты; push не разрешён.
+
+## Уточнение владельца 03.10.2026
+
+Approved: «у м14 не хватает металика ... чутка», «у м14 мк3 ... дырки в прицеле», «да».
+- `JAZZ-WEAPON-M14-FAMILY-001-REQ-FINISH-031`: проверить и адресно восстановить поверхности прицела MkIII по исходному OBJ, сохранив UV/посадку/материал; немного усилить metallic только металлических частей обычного M14, сохранив дерево, Base и Normal. Скрипт `_weapon_feedback_scope*` и `_weapon_feedback_finish*`, существующие mesh/RM/fallback входят в write set.
+- `JAZZ-WEAPON-M14-FAMILY-001-AC-FINISH-031`: исходный/экспортированный mesh и winding сопоставлены; RM проверен по каналам с backup; игровая приёмка отдельно. Пока NOT_RUN.

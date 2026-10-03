@@ -23,3 +23,19 @@ After editor save, `normalize_editor_save.py` keeps the intended callback change
 
 
 Дополнение 6232: магазины АК-103 от АКМ подогнаны отдельно (-30/-35), quick исключён, пересняты native layers и fallback 40/75. Внешний контур EffectPixels=6, исправлено восстановление tint после ReloadLua. Runtime cycle и повторная перезагрузка проверены; 446882 offline cases PASS. Агентское self-review: APPROVE этого исправления; human acceptance и структурные имена не объявлены завершёнными. При замене семейства удалить его старые signature entries, подставить новый profile/art, сохранить остальные семейства и их z-order, затем повторить полный selector test.
+
+## Installed hybrid and magazine review — 02.10.2026, revision 6235
+
+Self-review: APPROVE for this installed delta; structural naming AC-002 remains open. Native composition uses engine glow (6 source pixels, RGBA 3/3/3/230), with every silhouette behind all color layers. No sharpening, recoloring or weapon rescaling. The offline Gaussian gallery is a reference, not pixel-identical engine output; legacy flat fallbacks retain their previous outline.
+
+AK103 quick magazine restored from AKM (WeaponAttA_MagazineAK47_03); quick/40 offsets are (0,0,-30), drum (0,0,-35). Type56 quick and drum now use AKM donor entities, with absolute (0,0,23) on quick/40/drum. ZastavaM92 quick uses the AKM donor. AK47 and Zastava_M70 fit their existing sockets. Standard magazines unchanged. ZastavaM76 retains its own 7.92 mm magazine.
+
+Evidence in hybrid-installed/: side/oblique photographs, nine actual full/small UI builds, magazine-cycle.json (90 transitions, 270 repeat updates), editor-save.json and editor-reload.json. Selector: 448965 cases PASS, 76286 blocked combinations excluded, 9797 native graphs, 178 weapons / 1925 nodes / 1924 visible PNGs. Five families rebuilt; 173 families preserved. Installed PNG bytes agree in workspace and active mod.
+
+The initial 6234 save exposed runtime-mutated Mosin nested objects. Recovery reloaded editor items from disk before official SaveWholeMod; clean 6235 save and subsequent reload verified with log review, two HUD callbacks and 1126 code entries. Unrelated VZ58 bytes preserved. Two pre-existing missing chip PNGs (JAZZ_FlashlightOff, JAZZ_MagDrum_30_75) remain; full weapon images are present. No campaign save/load validation or exhaustive human review of all combinations is claimed.
+
+Replay: edit_ak_family_magazines.py records an immutable Lua baseline and applies scoped component edits through the editor. Normalize with --ak-family-magazines, reload, audit current graphs, photograph the five families in side view, and use retain_current_references.py to reject outdated component-specific magazine signatures. Compile/test/review the family library, then merge_family_library.py preserves the other families. Install only with matching selector evidence. dispatch_capture.py --view oblique is for visual QA; combining oblique with --layers is forbidden.
+
+For a final code-only editor save, save_soft_outline.py reloads ModItems from disk immediately before SaveWholeMod (without ReloadLua between load/save), avoiding runtime-mutated nested objects. Review the flushed game log as well as the save receipt. normalize_editor_save.py --preserve-items retains source items/companions and official metadata, followed by reload_layers.py and verification. Never overlap camera capture jobs.
+
+Final audit limitation: Broad generated-sync audit of the installed directory failed: 6241 issues, dominated by pre-existing tmp snapshots plus six unrelated root quest companions. Scoped items validation and official edited-item save/reload passed; no full generated-sync PASS claimed.

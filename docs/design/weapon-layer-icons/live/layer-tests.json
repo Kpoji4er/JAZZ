@@ -1,10 +1,10 @@
 {
   "status": "PASS",
-  "registry_sha256": "bd2d0402ec05fd52502b4a5eae9ebd9d7edef205d6d653abd069ba2aa407bc9f",
+  "registry_sha256": "ccf930e6e9224e09e891ce6e0dc6b046460310d00f44a330b6426f43449ea85f",
   "selector_sha256": "071551acfaf2015100263ab228281643029565f86da615df971ddb7696497bce",
-  "cases": 446882,
-  "excluded_blocked_combinations": 75606,
-  "excluded_fixed_variants": 88,
+  "cases": 448965,
+  "excluded_blocked_combinations": 76286,
+  "excluded_fixed_variants": 81,
   "superseded_camera_references": 44,
   "coverage": [
     {
@@ -21,8 +21,8 @@
     },
     {
       "weapon": "AK103",
-      "cartesian_cases": 6120,
-      "excluded_blocked_combinations": 2040,
+      "cartesian_cases": 8160,
+      "excluded_blocked_combinations": 2720,
       "unresolved": 0
     },
     {

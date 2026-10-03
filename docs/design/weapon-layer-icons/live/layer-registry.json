@@ -441,105 +441,6 @@
       "z": 5,
       "signature": "AK105|NSPU|idle|(34, 1, 114)|(0, 0, 4096)|0|100|4284769380|1500"
     },
-    "0747704b7b7fd1598bdd": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/0747704b7b7fd1598bdd.png",
-      "bounds": [
-        398,
-        288,
-        964,
-        416
-      ],
-      "z": 6,
-      "signature": "AK47|J_AK47|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "ad21a75846db0a1dd252": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/ad21a75846db0a1dd252.png",
-      "bounds": [
-        654,
-        323,
-        752,
-        453
-      ],
-      "z": 2,
-      "signature": "AK47|J_AK47_Mag|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "847d9d0b91698b522c59": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/847d9d0b91698b522c59.png",
-      "bounds": [
-        815,
-        312,
-        861,
-        489
-      ],
-      "z": 8,
-      "signature": "AK47|WeaponAttA_BipodAK47|idle|(405, 1, 49)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "c9f6b22ccfae4fbeaece": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/c9f6b22ccfae4fbeaece.png",
-      "bounds": [
-        721,
-        310,
-        913,
-        387
-      ],
-      "z": 7,
-      "signature": "AK47|WeaponAttA_GrenadeLauncherAK47|idle|(463, 0, 48)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "412dbb86a5b692d9bf9d": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/412dbb86a5b692d9bf9d.png",
-      "bounds": [
-        650,
-        320,
-        766,
-        465
-      ],
-      "z": 0,
-      "signature": "AK47|WeaponAttA_MagazineAK47_03|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "ad31ac3d8b7fce753b20": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/ad31ac3d8b7fce753b20.png",
-      "bounds": [
-        650,
-        321,
-        762,
-        465
-      ],
-      "z": 3,
-      "signature": "AK47|WeaponAttA_MagazineAK47_02|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "59bf2aacce905fe0e5bb": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/59bf2aacce905fe0e5bb.png",
-      "bounds": [
-        655,
-        317,
-        734,
-        441
-      ],
-      "z": 1,
-      "signature": "AK47|WeaponAttA_MagazineRPK74_03|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "3490e0d903d0fed8620f": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/3490e0d903d0fed8620f.png",
-      "bounds": [
-        956,
-        313,
-        982,
-        327
-      ],
-      "z": 4,
-      "signature": "AK47|WeaponAttA_CompensatorWP|idle|(603, 0, 55)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "e9038db886f9bc5dbe97": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/e9038db886f9bc5dbe97.png",
-      "bounds": [
-        951,
-        301,
-        1104,
-        339
-      ],
-      "z": 5,
-      "signature": "AK47|WeaponAttA_SuppressorWP|idle|(603, 0, 55)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
     "2626048bcabe10289d47": {
       "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/2626048bcabe10289d47.png",
       "bounds": [
@@ -17707,83 +17608,6 @@
       "z": 1,
       "signature": "Thompson|ThompsonDrum|idle|(102, 0, 36)|(0, 0, 4096)|0|82|4284769380|1500"
     },
-    "7e2805926ec9f5ec797a": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/7e2805926ec9f5ec797a.png",
-      "bounds": [
-        415,
-        282,
-        973,
-        405
-      ],
-      "z": 5,
-      "signature": "Type56|Type56|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "defa183eea9de322c782": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/defa183eea9de322c782.png",
-      "bounds": [
-        653,
-        319,
-        751,
-        449
-      ],
-      "z": 1,
-      "signature": "Type56|Type56Mag|idle|(145, 0, 30)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "f46429764f309dc2a640": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/f46429764f309dc2a640.png",
-      "bounds": [
-        738,
-        331,
-        934,
-        347
-      ],
-      "z": 3,
-      "signature": "Type56|Type56BFold|Folded|(558, 0, 32)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "f04a52ea05ccf555ab61": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/f04a52ea05ccf555ab61.png",
-      "bounds": [
-        956,
-        290,
-        1080,
-        344
-      ],
-      "z": 4,
-      "signature": "Type56|WeaponAttA_OilFilterSuppressor_01|idle|(615, 0, 61)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "a220c6ea12331a14ecfb": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/a220c6ea12331a14ecfb.png",
-      "bounds": [
-        651,
-        335,
-        763,
-        479
-      ],
-      "z": 6,
-      "signature": "Type56|WeaponAttA_MagazineAK47_02|idle|(145, 0, 30)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "55661254a09305d2d44a": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/55661254a09305d2d44a.png",
-      "bounds": [
-        656,
-        336,
-        711,
-        420
-      ],
-      "z": 0,
-      "signature": "Type56|WeaponAttA_Magazine_01|idle|(145, 0, 30)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "9f8e6f9cbb17a29b0d71": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/9f8e6f9cbb17a29b0d71.png",
-      "bounds": [
-        923,
-        325,
-        1120,
-        341
-      ],
-      "z": 2,
-      "signature": "Type56|Type56BUnFold|Unfolded|(558, 0, 32)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
     "8f5274ef727c4b936826": {
       "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/8f5274ef727c4b936826.png",
       "bounds": [
@@ -19114,204 +18938,6 @@
       ],
       "z": 4,
       "signature": "ZastavaM76|m76_stock_def|idle|(-49, 0, 49)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "51b0f17ce646b4bc9de0": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/51b0f17ce646b4bc9de0.png",
-      "bounds": [
-        548,
-        273,
-        978,
-        422
-      ],
-      "z": 3,
-      "signature": "ZastavaM92|M92|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "10c81aec1ab93d3dec40": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/10c81aec1ab93d3dec40.png",
-      "bounds": [
-        654,
-        324,
-        760,
-        467
-      ],
-      "z": 0,
-      "signature": "ZastavaM92|M92_Mag|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "e54aeb5e9a7048dbd4ec": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/e54aeb5e9a7048dbd4ec.png",
-      "bounds": [
-        365,
-        320,
-        585,
-        418
-      ],
-      "z": 5,
-      "signature": "ZastavaM92|M92_UnfldStock|idle|(-21, 0, 36)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "41d23cf39cd32c257a86": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/41d23cf39cd32c257a86.png",
-      "bounds": [
-        940,
-        291,
-        1063,
-        345
-      ],
-      "z": 6,
-      "signature": "ZastavaM92|WeaponAttA_OilFilterSuppressor_01|idle|(589, 1, 59)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "393b7c7d9d1d48c432e6": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/393b7c7d9d1d48c432e6.png",
-      "bounds": [
-        658,
-        322,
-        770,
-        466
-      ],
-      "z": 1,
-      "signature": "ZastavaM92|WeaponAttA_MagazineAK47_02|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "fa7693cafe57851c3670": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/fa7693cafe57851c3670.png",
-      "bounds": [
-        663,
-        318,
-        742,
-        442
-      ],
-      "z": 2,
-      "signature": "ZastavaM92|WeaponAttA_MagazineRPK74_03|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "d6d1d3cab928135c194b": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/d6d1d3cab928135c194b.png",
-      "bounds": [
-        559,
-        320,
-        832,
-        346
-      ],
-      "z": 4,
-      "signature": "ZastavaM92|M92_FldStock|idle|(-21, 0, 36)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "42183397b23dd15019a5": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/42183397b23dd15019a5.png",
-      "bounds": [
-        549,
-        287,
-        972,
-        414
-      ],
-      "z": 6,
-      "signature": "Zastava_M70|Zastava_M70|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "600e7b2d389862dda6e8": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/600e7b2d389862dda6e8.png",
-      "bounds": [
-        819,
-        296,
-        898,
-        320
-      ],
-      "z": 7,
-      "signature": "Zastava_M70|M70_GL_Iron_Fld|idle|(479, 0, 66)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "00728bc234d1ac9100d3": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/00728bc234d1ac9100d3.png",
-      "bounds": [
-        639,
-        321,
-        736,
-        456
-      ],
-      "z": 0,
-      "signature": "Zastava_M70|AKMWaffleMag|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "136eaaff5eef19b5f40a": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/136eaaff5eef19b5f40a.png",
-      "bounds": [
-        386,
-        319,
-        585,
-        395
-      ],
-      "z": 9,
-      "signature": "Zastava_M70|Zast_M70_Unfldstk|idle|(-23, 0, 35)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "a8df5180c409f60ef03b": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/a8df5180c409f60ef03b.png",
-      "bounds": [
-        559,
-        322,
-        798,
-        347
-      ],
-      "z": 10,
-      "signature": "Zastava_M70|Zast_M70_FldStk|idle|(-23, 0, 35)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "4533da9a5a392ed131e8": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/4533da9a5a392ed131e8.png",
-      "bounds": [
-        874,
-        251,
-        899,
-        327
-      ],
-      "z": 4,
-      "signature": "Zastava_M70|M70_GL_Iron_Unfld|idle|(479, 0, 66)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "92374dfc36d4353a7d8c": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/92374dfc36d4353a7d8c.png",
-      "bounds": [
-        641,
-        326,
-        757,
-        470
-      ],
-      "z": 2,
-      "signature": "Zastava_M70|WeaponAttA_MagazineAK47_03|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "fdab3a4585ba81cf4f2a": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/fdab3a4585ba81cf4f2a.png",
-      "bounds": [
-        641,
-        326,
-        753,
-        470
-      ],
-      "z": 3,
-      "signature": "Zastava_M70|WeaponAttA_MagazineAK47_02|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "266181d17560c82801d2": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/266181d17560c82801d2.png",
-      "bounds": [
-        646,
-        322,
-        724,
-        446
-      ],
-      "z": 1,
-      "signature": "Zastava_M70|WeaponAttA_MagazineRPK74_03|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "151b9af3a12eb6714eb0": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/151b9af3a12eb6714eb0.png",
-      "bounds": [
-        823,
-        317,
-        871,
-        494
-      ],
-      "z": 8,
-      "signature": "Zastava_M70|WeaponAttA_BipodAK47|idle|(419, 0, 42)|(0, 0, 4096)|0|100|4284769380|1500"
-    },
-    "b128c9370e10c8b32abb": {
-      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/b128c9370e10c8b32abb.png",
-      "bounds": [
-        947,
-        311,
-        1078,
-        337
-      ],
-      "z": 5,
-      "signature": "Zastava_M70|M70_Grenade|idle|(606, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "e9f14d77ef63306a4d21": {
       "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/e9f14d77ef63306a4d21.png",
@@ -20864,6 +20490,281 @@
       "z": 11,
       "signature": "Auto5|WeaponAttA_DuckbillChoke|idle|(668, 0, 70)|(0, 0, 4096)|0|100|4284769380|2100"
     },
+    "0747704b7b7fd1598bdd": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/0747704b7b7fd1598bdd.png",
+      "bounds": [
+        398,
+        288,
+        964,
+        416
+      ],
+      "z": 4,
+      "signature": "AK47|J_AK47|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "ad21a75846db0a1dd252": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/ad21a75846db0a1dd252.png",
+      "bounds": [
+        654,
+        323,
+        752,
+        453
+      ],
+      "z": 2,
+      "signature": "AK47|J_AK47_Mag|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "847d9d0b91698b522c59": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/847d9d0b91698b522c59.png",
+      "bounds": [
+        815,
+        312,
+        861,
+        489
+      ],
+      "z": 6,
+      "signature": "AK47|WeaponAttA_BipodAK47|idle|(405, 1, 49)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "c9f6b22ccfae4fbeaece": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/c9f6b22ccfae4fbeaece.png",
+      "bounds": [
+        721,
+        310,
+        913,
+        387
+      ],
+      "z": 5,
+      "signature": "AK47|WeaponAttA_GrenadeLauncherAK47|idle|(463, 0, 48)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "412dbb86a5b692d9bf9d": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/412dbb86a5b692d9bf9d.png",
+      "bounds": [
+        650,
+        320,
+        766,
+        465
+      ],
+      "z": 0,
+      "signature": "AK47|WeaponAttA_MagazineAK47_03|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "ad31ac3d8b7fce753b20": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/ad31ac3d8b7fce753b20.png",
+      "bounds": [
+        650,
+        321,
+        762,
+        465
+      ],
+      "z": 3,
+      "signature": "AK47|WeaponAttA_MagazineAK47_02|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "59bf2aacce905fe0e5bb": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/59bf2aacce905fe0e5bb.png",
+      "bounds": [
+        655,
+        317,
+        734,
+        441
+      ],
+      "z": 1,
+      "signature": "AK47|WeaponAttA_MagazineRPK74_03|idle|(144, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "7e2805926ec9f5ec797a": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/7e2805926ec9f5ec797a.png",
+      "bounds": [
+        415,
+        282,
+        973,
+        405
+      ],
+      "z": 6,
+      "signature": "Type56|Type56|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "defa183eea9de322c782": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/defa183eea9de322c782.png",
+      "bounds": [
+        653,
+        319,
+        751,
+        449
+      ],
+      "z": 3,
+      "signature": "Type56|Type56Mag|idle|(145, 0, 30)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "f46429764f309dc2a640": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/f46429764f309dc2a640.png",
+      "bounds": [
+        738,
+        331,
+        934,
+        347
+      ],
+      "z": 4,
+      "signature": "Type56|Type56BFold|Folded|(558, 0, 32)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "f04a52ea05ccf555ab61": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/f04a52ea05ccf555ab61.png",
+      "bounds": [
+        956,
+        290,
+        1080,
+        344
+      ],
+      "z": 5,
+      "signature": "Type56|WeaponAttA_OilFilterSuppressor_01|idle|(615, 0, 61)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "51b0f17ce646b4bc9de0": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/51b0f17ce646b4bc9de0.png",
+      "bounds": [
+        548,
+        273,
+        978,
+        422
+      ],
+      "z": 4,
+      "signature": "ZastavaM92|M92|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "10c81aec1ab93d3dec40": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/10c81aec1ab93d3dec40.png",
+      "bounds": [
+        654,
+        324,
+        760,
+        467
+      ],
+      "z": 0,
+      "signature": "ZastavaM92|M92_Mag|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "e54aeb5e9a7048dbd4ec": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/e54aeb5e9a7048dbd4ec.png",
+      "bounds": [
+        365,
+        320,
+        585,
+        418
+      ],
+      "z": 5,
+      "signature": "ZastavaM92|M92_UnfldStock|idle|(-21, 0, 36)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "41d23cf39cd32c257a86": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/41d23cf39cd32c257a86.png",
+      "bounds": [
+        940,
+        291,
+        1063,
+        345
+      ],
+      "z": 6,
+      "signature": "ZastavaM92|WeaponAttA_OilFilterSuppressor_01|idle|(589, 1, 59)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "393b7c7d9d1d48c432e6": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/393b7c7d9d1d48c432e6.png",
+      "bounds": [
+        658,
+        322,
+        770,
+        466
+      ],
+      "z": 1,
+      "signature": "ZastavaM92|WeaponAttA_MagazineAK47_02|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "fa7693cafe57851c3670": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/fa7693cafe57851c3670.png",
+      "bounds": [
+        663,
+        318,
+        742,
+        442
+      ],
+      "z": 3,
+      "signature": "ZastavaM92|WeaponAttA_MagazineRPK74_03|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "42183397b23dd15019a5": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/42183397b23dd15019a5.png",
+      "bounds": [
+        549,
+        287,
+        972,
+        414
+      ],
+      "z": 4,
+      "signature": "Zastava_M70|Zastava_M70|idle|(0, 0, 0)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "600e7b2d389862dda6e8": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/600e7b2d389862dda6e8.png",
+      "bounds": [
+        819,
+        296,
+        898,
+        320
+      ],
+      "z": 5,
+      "signature": "Zastava_M70|M70_GL_Iron_Fld|idle|(479, 0, 66)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "00728bc234d1ac9100d3": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/00728bc234d1ac9100d3.png",
+      "bounds": [
+        639,
+        321,
+        736,
+        456
+      ],
+      "z": 0,
+      "signature": "Zastava_M70|AKMWaffleMag|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "136eaaff5eef19b5f40a": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/136eaaff5eef19b5f40a.png",
+      "bounds": [
+        386,
+        319,
+        585,
+        395
+      ],
+      "z": 7,
+      "signature": "Zastava_M70|Zast_M70_Unfldstk|idle|(-23, 0, 35)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "92374dfc36d4353a7d8c": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/92374dfc36d4353a7d8c.png",
+      "bounds": [
+        641,
+        326,
+        757,
+        470
+      ],
+      "z": 2,
+      "signature": "Zastava_M70|WeaponAttA_MagazineAK47_03|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "fdab3a4585ba81cf4f2a": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/fdab3a4585ba81cf4f2a.png",
+      "bounds": [
+        641,
+        326,
+        753,
+        470
+      ],
+      "z": 3,
+      "signature": "Zastava_M70|WeaponAttA_MagazineAK47_02|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "266181d17560c82801d2": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/266181d17560c82801d2.png",
+      "bounds": [
+        646,
+        322,
+        724,
+        446
+      ],
+      "z": 1,
+      "signature": "Zastava_M70|WeaponAttA_MagazineRPK74_03|idle|(129, 0, 44)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "151b9af3a12eb6714eb0": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/151b9af3a12eb6714eb0.png",
+      "bounds": [
+        823,
+        317,
+        871,
+        494
+      ],
+      "z": 6,
+      "signature": "Zastava_M70|WeaponAttA_BipodAK47|idle|(419, 0, 42)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
     "3782d2eacd83c1d27dce": {
       "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/3782d2eacd83c1d27dce.png",
       "bounds": [
@@ -20883,7 +20784,7 @@
         862,
         341
       ],
-      "z": 22,
+      "z": 23,
       "signature": "AK103|AKR_AK103_Handguard|idle|(336, 0, 61)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "9c67099d151f7af91d8e": {
@@ -20905,7 +20806,7 @@
         1001,
         328
       ],
-      "z": 25,
+      "z": 26,
       "signature": "AK103|AKR_AK103_Muzzle|idle|(590, 0, 57)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "9b2895e63ce86bb66a38": {
@@ -20938,7 +20839,7 @@
         733,
         380
       ],
-      "z": 24,
+      "z": 25,
       "signature": "AK103|AKR_AK103_StockFolded|idle|(-19, 20, 12)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "fc0ec51d7666d7e97a31": {
@@ -21147,7 +21048,7 @@
         981,
         327
       ],
-      "z": 27,
+      "z": 28,
       "signature": "AK103|WeaponAttA_Muzzle_01|idle|(590, 0, 57)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "2463fda68576f1ac0edf": {
@@ -21158,7 +21059,7 @@
         1020,
         328
       ],
-      "z": 26,
+      "z": 27,
       "signature": "AK103|WeaponAttA_SilencerBeretta|idle|(590, 0, 57)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "fba1854cd4d342d6391d": {
@@ -21169,7 +21070,7 @@
         1032,
         332
       ],
-      "z": 28,
+      "z": 29,
       "signature": "AK103|M4ModernSupressor|idle|(590, 0, 57)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "6701c0ec312e8f4f0ee6": {
@@ -21180,7 +21081,7 @@
         827,
         320
       ],
-      "z": 29,
+      "z": 30,
       "signature": "AK103|WeaponAttA_SideLight|idle|(336, 25, 61)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "ab614c989b00f059e6c0": {
@@ -21191,7 +21092,7 @@
         821,
         321
       ],
-      "z": 30,
+      "z": 31,
       "signature": "AK103|WeaponAttA_SideLaserLight|idle|(336, 25, 61)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "adc0dfbef3ea5f265961": {
@@ -21202,7 +21103,7 @@
         828,
         321
       ],
-      "z": 31,
+      "z": 32,
       "signature": "AK103|WeaponAttA_SideLaser|idle|(336, 25, 61)|(0, 0, 4096)|0|100|4284769380|1500"
     },
     "61f115723d84207816d2": {
@@ -21213,8 +21114,63 @@
         857,
         487
       ],
-      "z": 23,
+      "z": 24,
       "signature": "AK103|WeaponAttA_BipodAK47|idle|(398, 1, 52)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "33ada44022b77eb8732d": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/33ada44022b77eb8732d.png",
+      "bounds": [
+        651,
+        339,
+        767,
+        483
+      ],
+      "z": 22,
+      "signature": "AK103|WeaponAttA_MagazineAK47_03|idle|(145, 0, 23)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "589bc8bbfcfbcbbb99e0": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/589bc8bbfcfbcbbb99e0.png",
+      "bounds": [
+        651,
+        320,
+        767,
+        465
+      ],
+      "z": 0,
+      "signature": "Type56|WeaponAttA_MagazineAK47_03|idle|(145, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "b5285c00b809dbf9e957": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/b5285c00b809dbf9e957.png",
+      "bounds": [
+        651,
+        320,
+        763,
+        465
+      ],
+      "z": 2,
+      "signature": "Type56|WeaponAttA_MagazineAK47_02|idle|(145, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "851c0c4ab7213be61c98": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/851c0c4ab7213be61c98.png",
+      "bounds": [
+        656,
+        316,
+        734,
+        440
+      ],
+      "z": 1,
+      "signature": "Type56|WeaponAttA_MagazineRPK74_03|idle|(145, 0, 53)|(0, 0, 4096)|0|100|4284769380|1500"
+    },
+    "c2929ed1b97e1881aa7c": {
+      "image": "Mod/e6L4ECj/WeaponIcons/Live/Layers/c2929ed1b97e1881aa7c.png",
+      "bounds": [
+        658,
+        322,
+        774,
+        467
+      ],
+      "z": 2,
+      "signature": "ZastavaM92|WeaponAttA_MagazineAK47_03|idle|(157, 0, 50)|(0, 0, 4096)|0|100|4284769380|1500"
     }
   },
   "weapons": {
@@ -21638,7 +21594,8 @@
           "options": {
             "JAZZ_MagDrum_30_75": true,
             "JAZZ_MagLarge_30_40": true,
-            "JAZZ_MagNormal": true
+            "JAZZ_MagNormal": true,
+            "JAZZ_MagQuick_AK": true
           },
           "blocked_slots": {}
         },
@@ -21727,6 +21684,9 @@
           },
           "JAZZ_MagDrum_30_75": {
             "Magazine": "WeaponAttA_MagazineRPK74_03"
+          },
+          "JAZZ_MagQuick_AK": {
+            "Magazine": "WeaponAttA_MagazineAK47_03"
           }
         },
         "Handguard": {
@@ -21864,6 +21824,14 @@
             "WeaponAttA_MagazineRPK74_03": [
               {
                 "id": "fef0d3c2da148d0d82f3",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "3782d2eacd83c1d27dce"
+              }
+            ],
+            "WeaponAttA_MagazineAK47_03": [
+              {
+                "id": "33ada44022b77eb8732d",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "3782d2eacd83c1d27dce"
@@ -22478,13 +22446,7 @@
           }
         },
         "Muzzle": {
-          "": {},
-          "JAZZ_Compensator": {
-            "Muzzle": "WeaponAttA_CompensatorWP"
-          },
-          "JAZZ_Suppressor": {
-            "Muzzle": "WeaponAttA_SuppressorWP"
-          }
+          "": {}
         }
       },
       "base": {
@@ -22549,24 +22511,6 @@
             "WeaponAttA_GrenadeLauncherAK47": [
               {
                 "id": "c9f6b22ccfae4fbeaece",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "0747704b7b7fd1598bdd"
-              }
-            ]
-          },
-          "Muzzle": {
-            "WeaponAttA_CompensatorWP": [
-              {
-                "id": "3490e0d903d0fed8620f",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "0747704b7b7fd1598bdd"
-              }
-            ],
-            "WeaponAttA_SuppressorWP": [
-              {
-                "id": "e9038db886f9bc5dbe97",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "0747704b7b7fd1598bdd"
@@ -51147,19 +51091,18 @@
         },
         "Magazine": {
           "JAZZ_MagNormal": {},
-          "JAZZ_MagQuick_AK": {},
+          "JAZZ_MagQuick_AK": {
+            "Magazine": "WeaponAttA_MagazineAK47_03"
+          },
           "JAZZ_MagLarge_30_40": {
             "Magazine": "WeaponAttA_MagazineAK47_02"
           },
           "JAZZ_MagDrum_30_75": {
-            "Magazine": "WeaponAttA_Magazine_01"
+            "Magazine": "WeaponAttA_MagazineRPK74_03"
           }
         },
         "Under": {
-          "JAZZ_Type56BayoF": {},
-          "JAZZ_Type56Bayo": {
-            "Under": "Type56BUnFold"
-          }
+          "JAZZ_Type56BayoF": {}
         }
       },
       "base": {
@@ -51186,17 +51129,25 @@
                 "parent_id": "7e2805926ec9f5ec797a"
               }
             ],
-            "WeaponAttA_MagazineAK47_02": [
+            "WeaponAttA_MagazineAK47_03": [
               {
-                "id": "a220c6ea12331a14ecfb",
+                "id": "589bc8bbfcfbcbbb99e0",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "7e2805926ec9f5ec797a"
               }
             ],
-            "WeaponAttA_Magazine_01": [
+            "WeaponAttA_MagazineAK47_02": [
               {
-                "id": "55661254a09305d2d44a",
+                "id": "b5285c00b809dbf9e957",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "7e2805926ec9f5ec797a"
+              }
+            ],
+            "WeaponAttA_MagazineRPK74_03": [
+              {
+                "id": "851c0c4ab7213be61c98",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "7e2805926ec9f5ec797a"
@@ -51207,14 +51158,6 @@
             "Type56BFold": [
               {
                 "id": "f46429764f309dc2a640",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "7e2805926ec9f5ec797a"
-              }
-            ],
-            "Type56BUnFold": [
-              {
-                "id": "9f8e6f9cbb17a29b0d71",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "7e2805926ec9f5ec797a"
@@ -53498,19 +53441,18 @@
         },
         "Magazine": {
           "JAZZ_MagNormal": {},
-          "JAZZ_MagQuick_AK": {},
           "JAZZ_MagLarge_30_40": {
             "Magazine": "WeaponAttA_MagazineAK47_02"
           },
           "JAZZ_MagDrum_30_75": {
             "Magazine": "WeaponAttA_MagazineRPK74_03"
+          },
+          "JAZZ_MagQuick_AK": {
+            "Magazine": "WeaponAttA_MagazineAK47_03"
           }
         },
         "Stock": {
-          "JAZZ_StockLightUnFolded": {},
-          "JAZZ_StockLightFolded": {
-            "Stock": "M92_FldStock"
-          }
+          "JAZZ_StockLightUnFolded": {}
         }
       },
       "base": {
@@ -53552,20 +53494,20 @@
                 "parent": "__host",
                 "parent_id": "51b0f17ce646b4bc9de0"
               }
+            ],
+            "WeaponAttA_MagazineAK47_03": [
+              {
+                "id": "c2929ed1b97e1881aa7c",
+                "when": {},
+                "parent": "__host",
+                "parent_id": "51b0f17ce646b4bc9de0"
+              }
             ]
           },
           "Stock": {
             "M92_UnfldStock": [
               {
                 "id": "e54aeb5e9a7048dbd4ec",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "51b0f17ce646b4bc9de0"
-              }
-            ],
-            "M92_FldStock": [
-              {
-                "id": "d6d1d3cab928135c194b",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "51b0f17ce646b4bc9de0"
@@ -53637,16 +53579,10 @@
       ],
       "rules": {
         "Stock": {
-          "JAZZ_StockLightUnFolded": {},
-          "JAZZ_StockLightFolded": {
-            "Stock": "Zast_M70_FldStk"
-          }
+          "JAZZ_StockLightUnFolded": {}
         },
         "General": {
-          "JAZZ_M70_Fld_GL": {},
-          "JAZZ_M70_Unfld_GL": {
-            "General": "M70_GL_Iron_Unfld"
-          }
+          "JAZZ_M70_Fld_GL": {}
         },
         "Magazine": {
           "JAZZ_MagNormal": {},
@@ -53667,10 +53603,7 @@
           }
         },
         "Muzzle": {
-          "": {},
-          "JAZZ_M70_Grenade": {
-            "Muzzle": "M70_Grenade"
-          }
+          "": {}
         }
       },
       "base": {
@@ -53693,14 +53626,6 @@
             "M70_GL_Iron_Fld": [
               {
                 "id": "600e7b2d389862dda6e8",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "42183397b23dd15019a5"
-              }
-            ],
-            "M70_GL_Iron_Unfld": [
-              {
-                "id": "4533da9a5a392ed131e8",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "42183397b23dd15019a5"
@@ -53749,30 +53674,12 @@
                 "parent": "__host",
                 "parent_id": "42183397b23dd15019a5"
               }
-            ],
-            "Zast_M70_FldStk": [
-              {
-                "id": "a8df5180c409f60ef03b",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "42183397b23dd15019a5"
-              }
             ]
           },
           "Bipod": {
             "WeaponAttA_BipodAK47": [
               {
                 "id": "151b9af3a12eb6714eb0",
-                "when": {},
-                "parent": "__host",
-                "parent_id": "42183397b23dd15019a5"
-              }
-            ]
-          },
-          "Muzzle": {
-            "M70_Grenade": [
-              {
-                "id": "b128c9370e10c8b32abb",
                 "when": {},
                 "parent": "__host",
                 "parent_id": "42183397b23dd15019a5"

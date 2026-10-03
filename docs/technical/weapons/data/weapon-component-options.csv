@@ -1799,3 +1799,32 @@ SR3M,3,Muzzle,false,false,JAZZ_DefMuzzle,true,1,JAZZ_DefMuzzle,JAZZ_DefMuzzle,ja
 SR3M,4,Stock,false,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightFolded,JAZZ_StockLightFolded,jazz,false,InventoryItem/SR3M.lua,working-tree
 SR3M,4,Stock,false,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightUnFolded,JAZZ_StockLightUnFolded,jazz,true,InventoryItem/SR3M.lua,working-tree
 L42A1,1,Scope,false,false,JAZZ_L42A1_Scope,true,1,JAZZ_L42A1_Scope,JAZZ_L42A1_Scope,jazz,true,InventoryItem/L42A1.lua,working-tree
+AEK971,1,Barrel,true,false,JAZZ_AEK_545,true,1,JAZZ_AEK_545,АЕК-971,jazz,true,InventoryItem/AEK971.lua,working-tree
+AEK971,1,Barrel,true,false,JAZZ_AEK_545,true,2,JAZZ_AEK_762,АЕК-973С,jazz,false,InventoryItem/AEK971.lua,working-tree
+AEK971,2,Magazine,true,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/AEK971.lua,working-tree
+AEK971,3,Stock,true,false,JAZZ_StockLightUnFolded,true,1,JAZZ_StockLightUnFolded,Рамочный приклад (Разложенный),jazz,true,InventoryItem/AEK971.lua,working-tree
+AEK971,3,Stock,true,false,JAZZ_StockLightUnFolded,true,2,JAZZ_StockLightFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/AEK971.lua,working-tree
+AEK971,4,Scope,true,true,,false,1,JAZZ_Reflex_Closed,Коллиматор Закрытый,jazz,false,InventoryItem/AEK971.lua,working-tree
+AEK971,4,Scope,true,true,,false,2,JAZZ_Reflex_Eotech,Коллиматор Eotech,jazz,false,InventoryItem/AEK971.lua,working-tree
+AEK971,4,Scope,true,true,,false,3,JAZZ_Reflex_M68,Коллиматор Aimpoint M68,jazz,false,InventoryItem/AEK971.lua,working-tree
+AEK971,4,Scope,true,true,,false,4,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/AEK971.lua,working-tree
+AEK971,4,Scope,true,true,,false,5,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/AEK971.lua,working-tree
+HK416,1,Barrel,true,false,JAZZ_HK416_BarrelNormal,true,1,JAZZ_HK416_BarrelNormal,Default Barrel,jazz,true,InventoryItem/HK416.lua,working-tree
+HK416,1,Barrel,true,false,JAZZ_HK416_BarrelNormal,true,2,JAZZ_HK416_BarrelShort,Short Barrel,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,1,Barrel,true,false,JAZZ_HK416_BarrelNormal,true,3,JAZZ_HK416_BarrelLong,Extended Barrel,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,2,Stock,true,false,JAZZ_HK416_Stock,true,1,JAZZ_HK416_Stock,Default Stock,jazz,true,InventoryItem/HK416.lua,working-tree
+HK416,2,Stock,true,false,JAZZ_HK416_Stock,true,2,JAZZ_HK416_StockCTR,Приклад Magpul CTR,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,3,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/HK416.lua,working-tree
+HK416,4,Scope,true,true,,false,1,JAZZ_Reflex_Closed,Коллиматор Закрытый,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,4,Scope,true,true,,false,2,JAZZ_Reflex_Eotech,Коллиматор Eotech,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,4,Scope,true,true,,false,3,JAZZ_Reflex_M68,Коллиматор Aimpoint M68,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,4,Scope,true,true,,false,4,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,4,Scope,true,true,,false,5,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,5,Under,true,true,,false,1,JAZZ_GrenadeLauncher,Grenade Launcher,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,5,Under,true,true,,false,2,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,5,Under,true,true,,false,3,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,6,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,6,Side,true,true,,false,2,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,6,Side,true,true,,false,3,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK416.lua,working-tree
+HK416,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/HK416.lua,working-tree

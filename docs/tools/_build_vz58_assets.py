@@ -10,7 +10,6 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from _export_m14_family_assets import load_hge,pixels,save_tga,assign_hge_maps
 from _prepare_weapon_open_surfaces import prepare_export_mesh
 from _render_ak103_icon import build_compositor
-from _weapon_material_finish import finish_material
 p=argparse.ArgumentParser();p.add_argument('--build',type=Path,required=True);p.add_argument('--game-root',type=Path,required=True);a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 for sub in ['rigged','Textures','previews']:(a.build/sub).mkdir(exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True);hge=load_hge(a.game_root)
@@ -26,15 +25,10 @@ def material(family,prefix,key,base_only=False):
  def lookup(tokens):return next((p for p in paths if any(t in p.name[len(prefix):] for t in tokens)),None)
  base=paths[0] if base_only else lookup(['Base','_Bas','_Ba.png']);normal=lookup(['Normal','_Nor','_No.png']);rough=lookup(['Rough','_Rou','_Ro.png']);metal=lookup(['Metal','_Met','_Me.png'])
  assert base,(prefix,paths)
- override=a.build/'material-overrides'/(key+'_Base.png')
- maps={'Base':pixels(override if override.exists() else base)};rm=np.ones_like(maps['Base']);rm[:,:,0]=pixels(rough)[:,:,0] if rough else .65;rm[:,:,1]=0;rm[:,:,2]=pixels(metal)[:,:,0] if metal else .7
- if override.exists():
-  # Atlas overrides are authored sRGB. save_tga(color=True) expects linear pixels.
-  rgb=maps['Base'][:,:,:3];maps['Base'][:,:,:3]=np.where(rgb<=.04045,rgb/12.92,((rgb+.055)/1.055)**2.4)
- if key in ('Wood','StockWood'):
-  # Matte phenolic furniture; keep authored metal fittings' PBR unchanged.
-  wood=rm[:,:,2]<.5
-  rm[:,:,0][wood]=np.maximum(rm[:,:,0][wood],.72)
+ maps={'Base':pixels(base)};rm=np.ones_like(maps['Base']);rm[:,:,0]=pixels(rough)[:,:,0] if rough else .65;rm[:,:,2]=pixels(metal)[:,:,0] if metal else .7
+ # pixels() reads encoded source values; color save expects linear values.
+ rgb=maps['Base'][:,:,:3];maps['Base'][:,:,:3]=np.where(rgb<=.04045,rgb/12.92,((rgb+.055)/1.055)**2.4)
+ rm[:,:,1]=rm[:,:,0]
  maps['RM']=rm
  if base_only:
   # The wire-stock archive supplies one near-white scalar texture and no color/PBR set.
@@ -42,9 +36,7 @@ def material(family,prefix,key,base_only=False):
   maps['AO']=maps['Base'].copy();maps['Base']=np.ones_like(maps['AO']);maps['Base'][:,:,:3]=(.18,.19,.20)
  if normal:
   maps['Normal']=pixels(normal)
-  if 'DirectX' in normal.name:maps['Normal'][:,:,1]=1-maps['Normal'][:,:,1]
-  if key in ('Steel','Mag','Wood','StockWood'):
-   maps['Normal'],maps['RM'],_=finish_material(maps['Normal'],maps['RM'],'vz58',key)
+  # Owner-approved source restoration: no artistic attenuation or inferred Y flip.
  images={k:save_tga('JAZZ_VZ58_'+key+'_'+k,v,a.build/'Textures',k=='Base') for k,v in maps.items()}
  mat=bpy.data.materials.new('JAZZ_VZ58_'+key);mat.use_nodes=True;nodes=mat.node_tree.nodes;links=mat.node_tree.links;shader=nodes.get('Principled BSDF')
  for kind,im in images.items():

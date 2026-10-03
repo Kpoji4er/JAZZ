@@ -3,6 +3,12 @@
 - `_check_convoy_lifecycle.py`: `python docs/tools/_check_convoy_lifecycle.py` (requires `lupa`); executes production convoy Lua with deterministic engine stubs. Checks blocked routes, old-save recovery, cargo refunds, HQ reserve cleanup and dispatch reuse; does not edit saves.
 
 
+## Конрад Meshy → JA3 (2026-10-02)
+
+- `_build_conrad_character.py`: Blender `--input GLB --game-root <JA3_ROOT> --output DIR`; официальный Male donor, inverse skin с twist-костями, Body/Pants/Head, pose PNG и FBX. AP запускать отдельно; исходную модель не перезаписывает.
+- `_install_conrad_character.py`: `--assets DIR --units DIR --stage DIR --backup DIR`; после закрытия игры устанавливает проверенный stage, сохраняет backup и SHA256, меняет только appearance Conrad и регистрацию трёх entities. Повторную регистрацию отклоняет. Stage создаёт `_prepare_rifle_assets.py` (общий формат ent/HGM/MTL).
+- Порядок: build → AP → stage → HGM decode + `_audit_compiled_weapon_mesh.py --check-winding` → install → generated-sync. Source: `jazz_assets/Sources/Character/JAZZ_Conrad/`; контракт: [JAZZ-CONRAD-001](../specs/active/JAZZ-CONRAD-001.md). Offline preview не заменяет игровую приёмку.
+
 ## Повторная оружейная приёмка 28.09.2026
 
 - `_weapon_feedback_islands.py`: Blender, read-only связанные поверхности и bounds (`--blend --entity --output`).
@@ -1093,8 +1099,22 @@ Feedback round 2: `_weapon_feedback_chainmail.py` продлевает суще�
 - `_prepare_release_assets.py` / `_test_release_assets.py`: независимые ZIP-части больших релизных пакетов, distribution manifest и проверка байтов/лимита.
 - `weapon_layer_icons/edit_ak103_magazines.py`: официальный editor save списка магазинов АК-103 и барабана-донора АКМ, immutable baseline; `normalize_editor_save.py --ak103-magazines` сохраняет scoped delta.
 
+### Installed soft contour and AK-family review (6235)
+
+- `edit_ak_family_magazines.py` and `save_soft_outline.py`: official scoped editor transactions with immutable tracked-Lua baselines; emit save receipts. `normalize_editor_save.py --ak-family-magazines` / `--preserve-items` retain scoped item changes / code-only metadata respectively; always verify reload and the game log.
+- `retain_current_references.py` filters old captures against current graph signatures, including component-specific magazine identity; `merge_family_library.py` replaces audited families in a new full library and verifies preserved-family PNG bytes. Inputs are current graph/capture/library directories; outputs are filtered references, merged registry and verification JSON.
+- `review_magazine_fit.py` makes side/oblique photo contact sheets (oblique speck cleanup is review-only); `verify_ak_magazine_cycle.py` tests six live weapons and repeated transforms; `verify_magazine_ui.py` produces real UI probes for three explicit groups. `dispatch_capture.py --view oblique` forbids layered capture; `preview_layers.py --soft-outline` generates offline references. Procedure and limitations: [replay](../design/weapon-layer-icons/live/LAYERS-REPLAY.md).
+
 - `_repair_ui002_stock_layout.lua` — scoped ModEditor save/reload для ширины Fold/Flash; запуск через `weapon_layer_icons/live.py --schedule`, только после snapshot и при свободном editor state.
 - `_test_weapon_hud_overlays.py` — offline Lua (lupa): ширина HUD для 27 комбинаций, отключение/очистка overlay-чипов без повреждения native layers.
+
+### Meshy armor batch
+
+Chainmail Body: `_build_chainmail_body.py` (Blender `-- --input GLB --game-root DIR --output DIR`) подгоняет принятую кольчугу, добавляет native руки/шею и непересекающиеся области ExportUV. `_build_legion_armor.py --skin-colorization` запекает C1-маску кожи; `_check_soft_armor_poses.py --body-native-skin --elbows` проверяет одежду отдельно от штатной кожи. Процедура: [Legion armor](../../.agents/docs/playbooks/legion-armor-modeling.md).
+
+`_audit_chainmail_source.py` проверяет SourceUV/ExportUV открытого blend; `_audit_chainmail_skin.py --blend FILE --decoded JSON --report JSON` сравнивает веса с HGM после `_weapon_feedback_decode_skin.py` с каноническим Male garment. `_install_chainmail_body.py --build-root DIR [--apply]` переводит существующую entity в Body с backup/hash. `_check_chainmail_body.py --build-root DIR` проверяет установленный граф. Общий compiled audit сохраняет порог 0,1 мм по умолчанию; `--position-tolerance-mm .11` применяется явно для этой Body (измерено 0,101 мм).
+
+`meshy_armor_batch.py prepare|submit|wait|download [--name NAME]` — согласованная партия пяти кустарных Torso, только Meshy; manifest, исходники и результаты в `meshy_output/armor-batch-20261002`. Платный `submit` не повторяет принятые задачи; неизвестный исход требует восстановления ID. Пайплайн: `.agents/docs/playbooks/meshy-armor-generation.md`.
 
 ### Meshy 6Б3: посадка и экспорт
 
@@ -1104,10 +1124,72 @@ Blender `_fit_meshy_6b3_armor.py --input <GLB> --shirt <Shirt08.json> --output <
 
 `render_meshy_armor.py` — Blender background, `-- --manifest <batch.json> [--name NAME]`: четыре ракурса GLB и фактический счёт треугольников без изменения модели. `review_meshy_armor.py` собирает готовые рендеры в контактные листы и HTML с локальными ссылками на GLB.
 
+Для проверки полости брони у `render_meshy_armor.py` есть `--interior`: дополнительно рендерит top/bottom, не изменяя исходный GLB.
+
+`audit_meshy_armor.py` — Blender, `-- --input GLB --output JSON`: исходные нормали, диагностическая сварка, края и компоненты. `clean_meshy_chainmail.py --input GLB --output DIR` сравнивает нормали/мягкое сглаживание. `rebuild_meshy_chainmail_surface.py --input GLB --output DIR` — локальный кандидат Chainmail: voxel surface, проходы рукавов и ray checks; параметры привязаны к конкретному исходнику. Выдача `meshy_output/chainmail-cleanup-20261002/review.html`.
+
+`finish_meshy_chainmail.py` — Blender `-- --input candidate.blend --output DIR`: удаляет измеренные микрокомпоненты, выравнивает перед пластин, проверяет manifold и проходы; параметры только для текущей Chainmail. `package_meshy_retexture.py --source clean.glb --project DIR` восстанавливает масштаб после Meshy, измеряет отклонение, проверяет топологию и пакует исходные PNG в `.blend`/GLB. Процедура: [Meshy armor](../../.agents/docs/playbooks/meshy-armor-generation.md).
+
 6Б3 RM: `_build_legion_armor.py` дублирует roughness в R и G, metallic сохраняет в B, как официальные sample TGA. При исправлении только упаковки переэкспортировать через AssetsProcessor, устанавливать только RM DDS/fallback с backup/hash; Base/Normal, mesh и skin сохранять.
+
+### Подготовка и восстановление оружейных текстур
+
+`_integrate_aek.py --build DIR [--apply]` устанавливает восемь entity и один модульный предмет AEK971 согласованной транзакцией с backup, Lua parse gate и receipt. `_check_aek_configurations.py --build DIR --game-root ROOT` исполняет JAZZ setter/native ChangeCaliber для проверки патронов, повторных переходов, clones, частей и иконок. `_document_aek.py` добавляет установленного кандидата в четыре canonical CSV перед `node scripts/docs/weapons-docs.mjs build`.
+
+`_localize_aek.ps1 -Build DIR` использует функции канонического localization-аудитора для девяти проверенных строк АЕК из `localization-stage/Strings.csv`: обновляет рабочий каталог и оба языка, проверяет сохранность каждой прежней runtime-строки и делает backup. Не объявляет общий localization audit успешным: его существующие коллизии остаются в отдельном журнале. Применяется к ограниченной установке АЕК при параллельных правках переводов, не как замена глобальной проверки.
+
+`_weapon_import_20261003_sources.py --weapons ROOT --output BUILD --blender EXE --import-new` ведёт текущие 32 позиции/38 источников (Mk12 временно исключён владельцем), проверяет SHA256 и переиспользует совпадающие source imports. Новые папки имеют префикс `qNN`, чтобы не включать старые PPK/Кипарис/Кедр profiles по номеру. `_weapon_import_20261003_atlases.py --report BUILD/sources.json --output DIR` создаёт UV/atlas sheets и оценки кандидатов только для ручного разбора; ничего не назначает. `_weapon_import_20261003_report.py --sources BUILD/sources.json --output FILE.md` обновляет реестр подготовки, не объявляя импорт установленным оружием.
+
+`_weapon_import_20261003_pbr.py --sources BUILD/sources.json --output DIR` подготавливает только однозначные полные author Base/Normal/Roughness/Metallic-наборы: BC/NM сохраняет побайтно по декодированным RGBA, RM=(rough,rough,metal) проверяет после сохранения. Разные размеры, цветные data maps, неоднозначные суффиксы и неполные/specular-glossiness-наборы оставляет на разбор; к мешам не привязывает, в мод не устанавливает.
+
+`_audit_aek_sources.py` (Blender, `--batch-root DIR --output DIR`) сопоставляет две UV/atlas пары АЕК-971 и острова геометрии. `_build_aek_assets.py --batch-root DIR --build DIR --game-root ROOT` готовит восемь деталей двух конфигураций, авторские BC/NM и RM=(rough,rough,metal). `_compile_aek_assets.py --build DIR --game-root ROOT --blender EXE` компилирует официальным AP, сравнивает source/compiled geometry+winding и создаёт staging с именованными DDS; мод не устанавливает. `_render_aek_assets.py` (Blender, `--build DIR`) делает CPU Cycles PBR-превью и четыре иконки конфигураций; `_review_aek_scale.py` сохраняет отдельно разложенные конфигурации для `_build_weapon_scale_overlay.py`. Это не игровой QA.
+
+`_restore_weapon_source_textures.py --weapons ROOT --game-root ROOT --assets ROOT --build NEW_DIR` готовит 50 авторских карт VZ58/R4/АК103 без художественных правок, с RM=(rough,rough,metal); создаёт TGA, DDS/fallbacks, backup, source/hash manifest. `_reimport_weapon_rm.py apply --assets ROOT --build DIR` устанавливает такой manifest только при закрытой игре, с проверкой хешей; режим `stage` исправляет только G текущих RM, не восстанавливает исходники.
+
+`_audit_recent_weapon_textures.py --assets ROOT --since 2026-09-15 --output report.json` — read-only срез Git + рабочего дерева: связанные материалы, DDS/mips/fallback, RM и статистика NM. Не определяет знак Y или совместимость bake. `weapon_layer_icons/check_ak103_feed_fit.py --reference DIR --output report.json` — геометрический proxy верхней части четырёх магазинов и idempotence настоящей Lua-функции; не заменяет игровой осмотр. [Гайд](../../.agents/docs/playbooks/ja3-texture-preparation.md), [результаты](../design/weapon-texture-audit-20261003.md).
+
+### СШ-60: Meshy geometry и авторские PBR
+
+`_build_meshy_ssh60.py` (Blender): `--source <SSh60_textured.blend> --textures <TGA-dir> --output <stage> --game-root <JA3_ROOT>`. Подгоняет корпус к официальной Male head с текущим offset -40, экспортирует rigid Hat idle через HGE без Male inheritance; активный мод не меняет. Исходники регуляризации, процедурных материалов, build и backup: `jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/`. Legacy ID сохранён; устанавливать только после AP, compiled/winding и проверки посадки.
 
 `_check_mosin_configurations.py --build tmp --game-root <JA3_ROOT>` также проверяет обратимость WeaponType/object_class, ancestry data, ImpactForce и атак М38/обреза/1891, восстановление через Setcomponents и независимость экземпляров. Native IsKindOf и полное save/load требуют проверки в игре.
 
+
+- `_build_meshy_6b7.py` — Blender/HGE export очищенного 6Б7; аргументы как у `_build_meshy_ssh60.py`, вход 6B7_textured.blend и 6B7_{Base,Norm,RM}.tga, выход staging FBX/BLEND. Для 6Б7-1М: `--object 6B7_1M_clean --texture-prefix 6B7_1M`; entity остаётся JazzHat_6B7.
+- `_install_meshy_helmets.py` — одноразовая проверяемая транзакция кандидатов 2026-10-03: отдельная регистрация 6Б7, замена геометрии СШ-60, backup/SHA256. Повторный запуск блокируется receipt; требует закрытых игры/редактора.
+
 Meshy Legion: `_prepare_meshy_legion.py` reduces approved GLBs to 18k and fits Shirt08; `_review_meshy_legion.py` renders native clothed references. `_install_meshy_legion.py --item --root [--apply]` refreshes existing resources with QA, backup and rollback. Chainmail v5 retains the full torso and rigid upper pauldrons; its pose check isolates arm movement. [Five test units](../design/legion-armor-check-20261003.md).
 
+- `_update_aek_damage.ps1 -Build <backup-dir>`: bounded AEK-973S damage +4 and canonical scoped RU/EN export; preserves base 971 damage 26 and unrelated rows.
+- `_repair_aek_basecolor.py`: stages source-byte BaseColor DDS repair with non-Base guards; see --help.
+
+- `test_squad_bag_performance.py` — JAZZ-INV-006: `python docs/tools/test_squad_bag_performance.py` (lupa); выполняет текущий Lua код с engine stubs, проверяет merge против прежнего алгоритма, cache invalidation и UI очередь. Read-only, без запуска игры; stdout PASS/assert.
+
+- `_prepare_hk416_modules.py` (Blender): separate HK416 review geometry, preserve source provenance, normals/UV audit and per-source PNGs; no installation.
+- `_audit_hk416_modules.py`: prove duplicate transforms/UV, audit missing MTL and 25 texture families, pixel-exact CO/NM TGA staging; see --help.
+
+- 6Б13: `_fit_meshy_6b3_armor.py --item 6B13` принимает общий GLB fitter; `_repair_6b13_rear.py --source --output` закрывает локальные нижние дефекты после fit, `_prepare_6b13_scene.py --source --shirt --output` готовит clothed preview и освещение.
+- `_install_meshy_6b13.py --build-root <production> [--apply]`: narrow entity/registration/mapping transaction с backup/SHA256 и проверкой закрытой игры; без `--apply` dry-run. `_audit_chainmail_skin.py --entity <id>` допускает другой skinned entity, сохраняя default.
+- `_build_legion_armor.py` обрабатывает 6Б13 через prepare-before-bake и один ExportUV; RM R=G roughness/B metallic. Pipeline/evidence: `jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003`.
+
+- `_read_hk416_mlod.py --input <p3d> --output <json>`: editable P3DM first-LOD reader, authored face materials/UV and selections; no split normals.
+- `_assemble_hk416_reference.py` (Blender): eight reference assemblies and module splits from MLOD; diffuse review only, missing maps explicit, no runtime install.
+
+- HK416: `_build_hk416_assets.py` builds six FBX and six configuration icons; `_compile_hk416_assets.py` runs official AP and compiled winding audit; `_integrate_hk416.py --build DIR --apply` installs registration/assets with backups; `_refresh_hk416_assets.py --build DIR` applies the authored-sharp-edge correction against initial receipt hashes.
+- `_check_hk416_configurations.py --build DIR --game-root DIR [--installed]` checks repeated barrel/stock/optic transitions, ammo retention and presentation. `_localize_hk416.ps1 -Build DIR` uses canonical audited catalog rows and scoped RU/EN export; `_document_hk416.py` adds the installed item to canonical weapon CSVs before the docs build.
+- `_check_r4_vz58_source_maps.py --weapons DIR --assets DIR --output JSON` compares installed receiver NM/RM to source PNGs numerically; it does not certify mesh/tangent compatibility or visual quality.
+- `_review_hk416_magazine.py` (Blender, `--blend FILE --output DIR`) renders both sides of the magazine well. `_audit_obj_normal_loss.py` (Blender, `--source OBJ --output JSON`) measures corner-normal changes on removing imported custom normals; read-only diagnosis, no asset fix or visual PASS.
+- `_check_hk416_source_pixels.py` (Blender, `--build DIR --source DIR`) compares all 16 CO/NM TGAs with identically resized source maps, catching unwanted gamma/channel changes; records `source-pixel-audit.json`.
+- `_weapon_feedback_authored_edges.py` restores source OBJ hard boundaries as split topology with exact surface/UV checks. `_weapon_feedback_bevel.py` prepares narrow mechanical edge bevels and planar shading without custom normals; see `--help`/source for Blender inputs. `_weapon_feedback_install_shading.py --build DIR [--apply]` stages/installs the two audited R4/VZ58 meshes and icons with backups and material/texture SHA guards. Context: [shading recheck](../design/weapon-shading-recheck-20261003.md).
+- `_weapon_feedback_fbx_normals.py --input FBX --output JSON` (Blender) checks actual FBX normal-vector lengths; this does not replace the AssetsProcessor log gate.
+- `_audit_hk416_authored_normals.py --blend FILE --references DIR --output JSON` (Blender) compares prepared mesh directions against source P3DM authored normals read through `_read_hk416_mlod.read(audit_normals=True)`. Read-only; no custom layers are written. Reports unmatched/opposed faces and does not certify tangent-space maps or in-game shading.
+- `_check_hk416_exterior.py --blend FILE --output JSON` (Blender) checks physical exterior direction on lower-receiver and magazine side panels. Unlike source-normal agreement, it catches the MLOD handedness regression observed in-game.
+- `_extend_aek_hk416_attachments.py --build DIR [--apply]` stages synchronized AEK Scope/HK416 Under+Side item data with M203 and grip visuals, then installs with backup/hash guards and a closed-game check. `_review_hk416_aek_attachments.py` renders real attachment geometry at spots for three HK416 bodies and two AEK bodies with backface culling; see its header for arguments. Geometry review is not runtime acceptance.
+
+- `_fit_chainmail_sleeves.py --source <v5 blend> --output <source>` (Blender): уменьшает радиус рукавов без изменения осевой длины, сажает жёсткие caps, плавно добавляет native arm weights и калибрует только skin Base; экспортируется обычным armor build с `--skin-colorization`. Текущая сборка v13; экстремальный shoulder collision ещё открыт.
+- `_rebind_meshy_to_cuirass.py --source --reference <cuirass v7> --shirt <native Shirt08 JSON> --item --output` (Blender): непрерывное поле весов кирасы и локальный зазор. `_audit_chainmail_skin_base.py --before <build> --after <build> --report <json>` проверяет яркость кожи, неизменность маски C1 и цвета брони.
+- `_check_soft_armor_poses.py --body-native-skin --native-skin-reference <validated v5>` отдельно сохраняет strict garment p99<1.8 и проверяет точное совпадение позиций/весов native skin. Это исключает неверное сравнение смешанных перцентилей разных наборов рёбер; не снимает visual collision acceptance.
+
 Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_meshy_helmets.py`; `_repair_6b13_rear.py`, `_prepare_6b13_scene.py`, `_install_meshy_6b13.py`. Generic fitting accepts `--item`, compiled skin audit accepts `--entity`; armor bake handles JAZZ_6B13_Male. Use each tool’s argparse options; installers are initial-install workflows, not universal refresh commands.
+
+- `_sync_aek_hk416_attachment_docs.py` синхронизирует только слоты AEK971/HK416 из установленных companion в три canonical CSV; затем `node scripts/docs/weapons-docs.mjs build`.

@@ -38,6 +38,7 @@ def finish_material(normal,rm,family,key):
     normal[:,:,:3]=(xyz+1)/2
     before=float(rm[:,:,0][metal].mean()) if metal.any() else 0
     rm[:,:,0][metal]=np.maximum(rm[:,:,0][metal],.62 if family=='r4' else .66)
+    rm[:,:,1]=rm[:,:,0]  # JA3: roughness in both R and G, metallic in B.
     report={'normal_strength_metal':float(strength[metal].mean()) if metal.any() else 0,
             'roughness_before':before,'roughness_after':float(rm[:,:,0][metal].mean()) if metal.any() else 0}
     return normal,rm,report

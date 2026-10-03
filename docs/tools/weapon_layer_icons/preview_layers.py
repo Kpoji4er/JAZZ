@@ -4,8 +4,9 @@ from pathlib import Path
 from PIL import Image,ImageDraw
 from lupa import LuaRuntime
 from icon_layout import fit
+from hybrid_style import hybrid
 
-p=argparse.ArgumentParser(__doc__);p.add_argument('--library',type=Path,required=True);p.add_argument('--graphs',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--ids',nargs='+');a=p.parse_args()
+p=argparse.ArgumentParser(__doc__);p.add_argument('--library',type=Path,required=True);p.add_argument('--graphs',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--ids',nargs='+');p.add_argument("--soft-outline",action="store_true");a=p.parse_args()
 registry=json.loads((a.library/'registry.json').read_text(encoding='utf-8'))
 if not a.ids:a.ids=sorted(registry['weapons'])
 lua=LuaRuntime(unpack_returned_tuples=True)
@@ -33,7 +34,7 @@ for y,weapon in enumerate(a.ids):
   if not plan:raise ValueError('Default failed: '+weapon)
   canvas=Image.new('RGBA',(1296,660))
   for _,layer in plan.layers.items():canvas.alpha_composite(Image.open(a.library/'layers'/(layer.id+'.png')).convert('RGBA'))
-  icon=fit(canvas,(profile['width'],profile['height']));icon.save(a.output/(weapon+'-'+str(x)+'.png'))
+  icon=(hybrid if a.soft_outline else fit)(canvas,(profile['width'],profile['height']));icon.save(a.output/(weapon+'-'+str(x)+'.png'))
   if y<8:
    sheet.paste(icon,(x*340+(340-icon.width)//2,y*220+35),icon)
    draw.text((x*340+8,y*220+8),weapon+(' default' if x==0 else ' combined '+str(x)),fill='white')

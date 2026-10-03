@@ -58,17 +58,17 @@ function M.bind(img,item,registry,selector)
   local sx,sy=1000,1000
   if img.ImageScale then sx,sy=img.ImageScale:xy() end
   local scale=point(math.floor(plan.width*sx/(crop[3]-crop[1])),math.floor(plan.height*sy/(crop[4]-crop[2])))
-  -- First draw all dark silhouettes, then all color layers: joints get no outline.
+  -- Draw all soft silhouettes before color: attached parts cover internal seams.
   for pass=1,2 do
     for _,layer in ipairs(plan.layers) do
       XImage:new({Dock="box",HandleMouse=false,Image=layer.image,
         ImageRect=rect,ImageFit=img.ImageFit,ImageScale=scale,
-        ImageColor=pass==1 and RGB(5,6,7) or color,
-        DisabledImageColor=pass==1 and RGBA(5,6,7,160) or disabled_color,
+        ImageColor=pass==1 and RGB(3,3,3) or color,
+        DisabledImageColor=pass==1 and RGBA(3,3,3,160) or disabled_color,
         Desaturation=img.Desaturation,DisabledDesaturation=img.DisabledDesaturation,
         Angle=img.Angle,FlipX=img.FlipX,FlipY=img.FlipY,
-        EffectType=pass==1 and "outline" or "none",EffectPixels=pass==1 and 6 or 0,
-        EffectColor=RGB(5,6,7)},group)
+        EffectType=pass==1 and "glow" or "none",EffectPixels=pass==1 and 6 or 0,
+        EffectColor=RGBA(3,3,3,230)},group)
     end
   end
   states[img]={key=plan.key,style=style,group=group,color=color,disabled_color=disabled_color}

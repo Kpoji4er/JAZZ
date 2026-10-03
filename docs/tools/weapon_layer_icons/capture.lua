@@ -16,7 +16,7 @@ return function(settings)
   local layer_cache={}
   local last_report_write=0
   local vis,weapon,backdrop,isolated
-  local report={phase="running",rows={},errors={},recipe={angle=0,fov=1200,distance=(settings.distance or 0)>0 and settings.distance or 1500,
+  local report={phase="running",rows={},errors={},recipe={angle=0,view=settings.view or "side",fov=1200,distance=(settings.distance or 0)>0 and settings.distance or 1500,
     light="fixed neutral studio v1: LightmodelPreset defaults, Default LUT, EV+1, sun1000 az90 alt40",mounts="provisional",width=1296,height=660}}
   local render_flags={RenderTerrain=0,RenderSky=0,RenderClutter=0,RenderRain=0,RenderParticles=0,
     EnablePostProcVignette=0,EnableContourOuter=0,EnableContourInner=0,EnableObjectMarking=0,
@@ -165,7 +165,8 @@ return function(settings)
       local target=position+point(100,0,40)
 
       row.camera_distance=distance
-      SetCamera(target+point(0,distance,0),target,"Max",nil,nil,1200,0)
+      local camera_offset=settings.view=="oblique" and point(MulDivRound(distance,707,1000),MulDivRound(distance,707,1000),0) or point(0,distance,0)
+      SetCamera(target+camera_offset,target,"Max",nil,nil,1200,0)
       SetLightmodel(1,studio,0)
       hr.AutoExposureMode=0
       WaitNextFrame(20)

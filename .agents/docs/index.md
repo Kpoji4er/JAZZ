@@ -18,6 +18,7 @@
 - Карты/квесты: `.agents/docs/playbooks/maps-content.md`
 - Юниты/отряды: `.agents/docs/playbooks/units-squads.md`
 - Assets/UI: `.agents/docs/playbooks/assets-and-ui.md`
+- Подготовка BC/NM/RM/AO для JA3, каналы RM, инверсии и проверка в игре: `.agents/docs/playbooks/ja3-texture-preparation.md`.
 - Свой JA3 slab (стены/пол/крыша, имена entity, отдельный мод): `docs/design/ja3-how-to-custom-slabs.md` (EN: `docs/design/ja3-how-to-custom-slabs.en.md`). Sample: https://github.com/Kpoji4er/JAZZ-slabs-sample
 - Squad role icons: `.agents/skills/create-jazz-squad-icons/SKILL.md`, `docs/technical/systems/squad-role-icons.md`
 - Status effect icons: `.agents/skills/create-jazz-status-icons/SKILL.md`, `Icons/StatusEffects/references/PROMPT.md`
@@ -45,3 +46,7 @@
 
 
 Release ZIP parts: [prepare/test tooling](../../docs/tools/_prepare_release_assets.py), контракт в release-versioning. AK-103 editor transaction: [tool](../../docs/tools/weapon_layer_icons/edit_ak103_magazines.py).
+
+- Installed weapon soft contour and AK-family donor/fit replay: `docs/design/weapon-layer-icons/live/LAYERS-REPLAY.md`; retained editor/capture/merge/verification tools are indexed in `docs/tools/README.md`. Runtime evidence: `docs/design/weapon-layer-icons/live/hybrid-installed/`.
+
+- Meshy: исходные картинки брони, pnpm runner, стоимость, генерация и восстановление задач — `.agents/docs/playbooks/meshy-armor-generation.md`.

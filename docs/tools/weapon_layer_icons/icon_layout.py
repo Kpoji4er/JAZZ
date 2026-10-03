@@ -41,8 +41,8 @@ def render(source,size,weapon):
     return fit(colorize(source,weapon),size)
 
 
-def fit(source,size):
-    """Fit and outline already graded layers without applying the tone twice."""
+def fit_body(source,size):
+    """Fit graded layers once, leaving effects to the caller."""
     rgba=source.convert('RGBA')
     bounds=rgba.getchannel('A').point(lambda a:255 if a>16 else 0).getbbox()
     if not bounds: raise ValueError('Empty weapon silhouette')
@@ -53,6 +53,12 @@ def fit(source,size):
     rgba=rgba.resize((max(1,round(rgba.width*scale)),max(1,round(rgba.height*scale))),Image.Resampling.LANCZOS)
     canvas=Image.new('RGBA',size)
     canvas.alpha_composite(rgba,((size[0]-rgba.width)//2,(size[1]-rgba.height)//2))
+    return canvas
+
+
+def fit(source,size):
+    """Fit and outline already graded layers without applying the tone twice."""
+    canvas=fit_body(source,size)
     outline=Image.new('RGBA',size,(5,6,7,0))
     outline.putalpha(canvas.getchannel('A').filter(ImageFilter.MaxFilter(5)))
     outline.alpha_composite(canvas)

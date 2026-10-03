@@ -20,7 +20,9 @@ p.add_argument('--layers',action='store_true',help='Capture native host and ever
 p.add_argument('--distance',type=int,default=0,help='Whole-family camera override for oversized configurations')
 p.add_argument('--prerequisite',action='append',default=[],help='Explicit slot=component applied before each requested change')
 p.add_argument('--label-prefix',default='')
+p.add_argument('--view',choices=['side','oblique'],default='side',help='Oblique is fit QA only, never layer-library photography')
 a=p.parse_args()
+if a.layers and a.view!='side':p.error('Layer-library captures require the side view')
 configuration=json.loads(a.configurations.read_text(encoding='utf-8')) if a.configurations else None
 prerequisites=dict(value.split('=',1) for value in a.prerequisite)
 if any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-' for c in a.label_prefix):
@@ -38,7 +40,7 @@ source=(Path(__file__).parent/'capture.lua').read_text(encoding='utf-8')
 result=a.output/'dispatch.result.txt'
 if result.exists(): result.unlink()
 (a.output/'capture-plan.json').write_text(json.dumps({'ids':a.ids,'variants':a.variants,
-    'layers':a.layers,'matte':a.matte,'resume_inventory_pause':a.resume_inventory_pause,'distance':a.distance,'prerequisites':prerequisites,'label_prefix':a.label_prefix,
+    'view':a.view,'layers':a.layers,'matte':a.matte,'resume_inventory_pause':a.resume_inventory_pause,'distance':a.distance,'prerequisites':prerequisites,'label_prefix':a.label_prefix,
     'configurations':configuration,'camera_distances':CAMERA_DISTANCES,
     'capture_source_sha256':hashlib.sha256(source.encode()).hexdigest()},indent=2),encoding='utf-8')
 (a.output/'capture-source.lua').write_text(source,encoding='utf-8')
@@ -46,5 +48,6 @@ settings='{resume_inventory_pause='+str(a.resume_inventory_pause).lower()+',laye
 if configuration:
     configuration['builds']=[b for b in configuration['builds'] if b['weapon'] not in excluded]
     settings=settings[:-1]+',builds='+lua(configuration['builds'])+',known_layers='+lua(configuration.get('known_layers',{}))+'}'
+settings=settings[:-1]+',view='+quote(a.view)+'}'
 body='local settings='+settings+';settings.camera_distances='+lua(CAMERA_DISTANCES)+';local factory=assert(load('+quote(source)+',"capture","t",_G))();return factory(settings)'
 evaluate(body,a.output/'dispatch.json',True)

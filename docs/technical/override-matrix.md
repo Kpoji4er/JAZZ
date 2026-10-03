@@ -145,3 +145,5 @@ CommonLib 1.11 / commit `1adf9f232680d3b011248d180fd0ad1e609a8e2c` эти сим
 `Code/GameRules_HideAdvanced.lua` inserts two cycling choices into the vanilla template and registers hidden GameRuleDef presets at DataLoaded/ModsReloaded. Existing hide-advanced behavior remains. No function wrapper or replacement of the base template. Runtime UI smoke is pending.
 
 JAZZ-WEAPON-PRESENTATION-001: existing InventoryItem:GetItemUIIcon hook in System_WeaponResourceMaintenance.lua now delegates exact photographed configurations to JazzWeaponIcon_GetCaptured. No second wrapper; original fallback and removable attachment branch preserved. Native layer composition uses the existing InventoryUI binder, XInventoryItem context hook and both UIWeaponDisplay weapon callbacks. Real XImage/XInventoryItem rendering and cleanup passed on ModEditor.
+
+JAZZ-WEAPON-PRESENTATION-001 (6235): `AK103:UpdateVisualObj` и `Type56:UpdateVisualObj` в `Code/System_WeaponComponent_Set.lua` вызывают FirearmBase.UpdateVisualObj один раз и задают абсолютные локальные offsets только ожидаемым donor entity/component. Новых глобалов и цепочек wrap нет; cycle 90 steps PASS.

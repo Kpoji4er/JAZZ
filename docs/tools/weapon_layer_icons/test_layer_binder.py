@@ -40,7 +40,7 @@ assert(binder.bind(img,{key="A"},{},selector))
 assert(XWindow.created==1 and XWindow.deleted==0)
 local group=img.children[1]
 assert(#group.children==4 and group.Visible)
-assert(group.children[1].EffectType=="outline" and group.children[2].EffectType=="outline")
+assert(group.children[1].EffectType=="glow" and group.children[2].EffectType=="glow")
 assert(group.children[3].EffectType=="none" and group.children[4].EffectType=="none")
 assert(binder.bind(img,{key="A"},{},selector))
 assert(XWindow.created==1)
@@ -63,7 +63,7 @@ assert(img.ImageColor=="new-context-color","fallback overwrote new context tint"
 img.window_state="destroying"
 assert(not binder.bind(img,{key="A"},{},selector))
 ''')
-print('PASS: layer ownership, A/B/A, stable key, missing image, nil context, color restoration, outline-before-color ordering')
+print('PASS: layer ownership, A/B/A, stable key, missing image, nil context, color restoration, glow-before-color ordering')
 
 # Existing UI survives a Lua reload; transparent replacement groups must not
 # overwrite the original tint retained by the oldest color pass.

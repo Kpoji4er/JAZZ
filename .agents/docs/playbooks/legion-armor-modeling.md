@@ -14,6 +14,10 @@
 
 ## 1. Выбрать правильную appearance-часть
 
+Chainmail, 2026-10-03: принятый Meshy GLB установлен как `JAZZ_Chainmail_Male / CharacterBodyMale`, заменяет куртку через `body_entities` в том же equipped wrapper. `_build_chainmail_body.py` добавляет native руки/шею, переносит веса и создаёт SourceUV/ExportUV (80% ширины под броню, 18% под кожу). После Edit Mode заново получить UV-layer из `obj.data`: старый RNA reference не обновляет раскладку, что ранее привело к наложению skin bake на кольчугу. Сохранять исходный материал через явный SourceUV node. Финал: 20740 tri, четыре карты 2048 (Base/Norm/RM/Color), маска Color красная только на коже. `ColorizePart("Body")` использует C1 исходного appearance; остальная броня не тонируется.
+
+Пять synthetic-поз: garment p99 <1,8; native skin при ручном повороте локтя сравнивается с sample, поскольку тест не анимирует twist helpers. Это не приёмка настоящих игровых анимаций. HGE/AP: 86 bones; compiled winding PASS, max position error 0,1008 мм при явном лимите 0,11 мм, сравнение весов с canonical Male — max L1 0,01153. Shared default threshold не менялся. Перед install `_install_chainmail_body.py` требует pose/geometry/skin PASS; 13 файлов устанавливаются с backup/hash при закрытой игре. Предмет, icon, test UnitData и metadata сохраняются. Исходники/отчёты: `jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/`. Runtime/editor/human NOT_RUN; смотреть `JAZZ_Legion_ArmorTest_Chainmail`, Body restoration, aim/crouch/prone, край рукавов и neck/head seam.
+
 | Тип предмета | Часть и класс Male | Что сохранять |
 | --- | --- | --- |
 | Кираса, отдельный жилет поверх одежды | Armor / CharacterArmorMale | Существующий Body, руки и кисти |
@@ -178,3 +182,16 @@ Require four clothed rest views (front/back/side/oblique), two approximate cloth
 Для single-mesh GLB использовать `_fit_meshy_6b3_armor.py` с реальной Shirt08, затем `_rig_6b3_vest.py --surface-skin --torso-carrier --preserve-uv`. Явная SourceUV остаётся входом shader bake, исходная раскладка копируется в ExportUV: повторная упаковка дала тёмный артефакт на спине. Custom normals очищать штатным prepare; сохранить число треугольников. Проверять clothed rest/lean/twist, четыре skin-позы, запечённые front/back и compiled winding до установки девяти существующих ресурсов через `_install_6b3_vest.py --refresh --apply`. Исходники, отчёты и backup сохраняются в `jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/`; подробные параметры — в `docs/tools/README.md`. Offline PASS не закрывает runtime/editor/human приёмку.
 
 RM channel convention: официальные Upper_Body/lower_body/body/Thompson sample TGA содержат R=G=roughness, B=metallic. В `_build_legion_armor.py` G теперь дублирует R; прежний G=0 не соответствует образцам. После BC1 возможны небольшие отличия R/G из-за разной точности RGB565. Проверять TGA до сжатия, DDS и fallback после него.
+
+### СШ-60 вместо прежней модели советской каски
+
+`_build_meshy_ssh60.py` сохраняет legacy entity JazzHat_SSh68 и предмет JazzArmor_SovietHelm. Это rigid Hat, idle, без skeleton inheritance. На официальном sample лицо смотрит в -Y: проверять направленность козырька по голове, а не по названию камеры. Старый bbox и offset нельзя слепо переносить: для СШ-60 проверена новая local высота 0,130–0,275 м при сохранённом runtime offset -40. Текущая модель 6352 tri, процедурные 2K Base/Norm/RM, R=G roughness. Offline head-fit не заменяет runtime-приёмку.
+
+
+6Б7, 2026-10-03: `_build_meshy_6b7.py` → HGE/AP → `_prepare_rifle_assets.py` (stage) → `_install_meshy_helmets.py` (CharacterHat companion и канонические texture names). Sources/Character/JazzHat_6B7/meshy-20261003 хранит source, PBR, compiled audit, texture audit и installation receipt. RM RG=roughness/B=metallic; композит без metallic. СШ-60 после игрового feedback: bbox X ±0.122, Y −0.165…0.143, Z 0.108…0.270 м, offset −40 сохраняется. Предыдущий sample fit не подтвердился в игре: реальные Head/Head spot и animation pose требуют повторной human приёмки. Декодированный Male_Head_08 пригоден для общей формы; отдельный eye submesh не даёт надёжной статической посадки без skin evaluation.
+
+## Skin C1 и исправления после игрового просмотра, 2026-10-03
+
+Сначала читать root BodyColor и пресет: у Chainmail C1 передавался правильно, но sample body_BC имел среднюю яркость около 125/255, native Shirt08 skin Base — почти белый. `_fit_chainmail_sleeves.py` калибрует только отмеченный skin material до запекания; `_audit_chainmail_skin_base.py` требует неизменную C1 mask и практически неизменный armor Base. Не исправлять это случайным RGB/gamma множителем в runtime. Body replacement также скрывает штатный preset Armor (у Grenadier был EquipmentMale_FlackVest) и восстанавливает его при снятии.
+
+Риг Leather/Brigantine/6B3: `_rebind_meshy_to_cuirass.py` берёт непрерывные torso/strap веса принятой v7; проверять на native Shirt08, включая нижнюю спинку в наклоне. Sources: cuirass-rig-20261003, Brigantine cuirass-rig-v2-20261003; Chainmail meshy-body-v13-20261003. У Chainmail крайний synthetic shoulder lift всё ещё вскрывает стык рукава: численный PASS не закрывает эту находку. Полная native animation приёмка открыта.

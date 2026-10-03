@@ -22,15 +22,16 @@ return function(settings)
       check(created,tostring(item))
       for slot,value in pairs(build.expected) do check(item.components[slot]==value,"effective component changed") end
       local column=XWindow:new({MinWidth=336,MaxWidth=336,LayoutMethod="VList",HandleMouse=false},panel)
-      XText:new({Text=build.weapon,Translate=false,TextStyle="HUDHeader",HandleMouse=false},column)
+      XText:new({Text=build.label or build.weapon,Translate=false,TextStyle="HUDHeader",HandleMouse=false},column)
       local img=XImage:new({Image=item.Icon,ImageFit="scale-down",MinWidth=324,MaxWidth=324,MinHeight=185,MaxHeight=185,HandleMouse=false},column)
       check(JazzWeaponIcon_BindItemImage(img,item),"installed binder failed: "..build.weapon)
       local group=img:ResolveId("idJazzNativeWeaponLayers")
       check(group and #group>0,"missing UI layers")
+      if settings.effect then check(group[1].EffectType==settings.effect,"wrong installed silhouette effect") end
       local tile=XInventoryItem:new({HAlign="center",HandleMouse=false},column,item)
       tile:OnContextUpdate(item)
       check(tile.idItemImg:ResolveId("idJazzNativeWeaponLayers"),"inventory context hook failed")
-      report.weapons[#report.weapons+1]={weapon=build.weapon,components=table.copy(item.components),draw_nodes=#group,inventory_tile=true}
+      report.weapons[#report.weapons+1]={weapon=build.weapon,components=table.copy(item.components),draw_nodes=#group,inventory_tile=true,effect=group[1].EffectType}
     end
     panel:Open();WaitNextFrame(30)
     check(not WaitCaptureScreenshot(settings.output.."/combinations.png",{interface=true,alpha=false,timeout=10000}),"combination screenshot failed")

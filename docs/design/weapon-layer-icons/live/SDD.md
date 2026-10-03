@@ -125,3 +125,19 @@ DesertEagle / HiPower: по замечанию владельца квантил
 
 
 Дополнение 6232: магазины АК-103 от АКМ подогнаны отдельно (-30/-35), quick исключён, пересняты native layers и fallback 40/75. Внешний контур EffectPixels=6, исправлено восстановление tint после ReloadLua. Runtime cycle и повторная перезагрузка проверены; 446882 offline cases PASS. Агентское self-review: APPROVE этого исправления; human acceptance и структурные имена не объявлены завершёнными. При замене семейства удалить его старые signature entries, подставить новый profile/art, сохранить остальные семейства и их z-order, затем повторить полный selector test.
+
+## Hybrid prototype, 02.10.2026
+
+Combined our fixed family tone, layout and native layer composition with the soft silhouette recipe from user-supplied rato/ToG gen_weapon_icons.py. No new capture is required. Compare current offline outline, union-alpha soft contour (spread 1, sigma 3.2, opacity .9 at height 110), and optional 45% unsharp. Values scale by canvas height; faint tails fade to zero at the fixed canvas edge. Self-review: APPROVE for offline candidate, prefer soft-only; sharpening accentuates highlights. Seven builds and 25 source PNG verified unchanged. Existing fit stays byte-identical. See hybrid-review/review.html and verification.json. Not installed in game; UI glow equivalence and joint opacity must be tested before runtime integration.
+
+## Installed hybrid and magazine review — 02.10.2026, revision 6235
+
+Self-review: APPROVE for this installed delta; structural naming AC-002 remains open. Native composition uses engine glow (6 source pixels, RGBA 3/3/3/230), with every silhouette behind all color layers. No sharpening, recoloring or weapon rescaling. The offline Gaussian gallery is a reference, not pixel-identical engine output; legacy flat fallbacks retain their previous outline.
+
+AK103 quick magazine restored from AKM (WeaponAttA_MagazineAK47_03); quick/40 offsets are (0,0,-30), drum (0,0,-35). Type56 quick and drum now use AKM donor entities, with absolute (0,0,23) on quick/40/drum. ZastavaM92 quick uses the AKM donor. AK47 and Zastava_M70 fit their existing sockets. Standard magazines unchanged. ZastavaM76 retains its own 7.92 mm magazine.
+
+Evidence in hybrid-installed/: side/oblique photographs, nine actual full/small UI builds, magazine-cycle.json (90 transitions, 270 repeat updates), editor-save.json and editor-reload.json. Selector: 448965 cases PASS, 76286 blocked combinations excluded, 9797 native graphs, 178 weapons / 1925 nodes / 1924 visible PNGs. Five families rebuilt; 173 families preserved. Installed PNG bytes agree in workspace and active mod.
+
+The initial 6234 save exposed runtime-mutated Mosin nested objects. Recovery reloaded editor items from disk before official SaveWholeMod; clean 6235 save and subsequent reload verified with log review, two HUD callbacks and 1126 code entries. Unrelated VZ58 bytes preserved. Two pre-existing missing chip PNGs (JAZZ_FlashlightOff, JAZZ_MagDrum_30_75) remain; full weapon images are present. No campaign save/load validation or exhaustive human review of all combinations is claimed.
+
+Final audit limitation: Broad generated-sync audit of the installed directory failed: 6241 issues, dominated by pre-existing tmp snapshots plus six unrelated root quest companions. Scoped items validation and official edited-item save/reload passed; no full generated-sync PASS claimed.

@@ -114,8 +114,23 @@ Icons for 178 active weapon models combine photographed native parts: installed 
 
 Icons now fill their original weapon tile formats: excess transparent margins are removed and pistols use the compact format. Color and brightness follow the previous in-game icons; all configurations of a weapon share the same color profile. A stronger dark outline improves readability.
 
-AK-103 uses AKM donor models for its 40-round and 75-round drum magazines with corrected mounting. The quick magazine is no longer offered for AK-103.
+AK-103 supports the AKM quick magazine again, with checked quick/40-round/drum mounting. Type 56 has corrected quick/drum models and donor mounting; M92 now shows the AKM quick magazine. AK47 and M70 retain checked AKM models on their existing sockets. Composite weapon icons use a soft dark outline without extra sharpening. M76 retains its own magazine.
 
 The weapon modification screen can also use removable attachments carried by other mercs in the same squad. There is no need to transfer the sight first. It checks the weapon owner, the squad bag, then the other squad members.
 
+Original textures have been restored for the Vz.58, Vektor R4 and AK-103. The Vz.58 again uses mottled composite furniture, and the AK-103 standard magazine uses the AKM model. The updated magazine fit is awaiting visual validation.
+
+Material maps for the other recently imported AKs, M4/M16s, M14s, L42A1, Mosin variants and FAL furniture have also been corrected without repainting their color textures.
+
 The M38 and Mosin Obrez use the battle rifle class with Single Shot and Salvo, matching the MAS36. The full-length Mosin retains its sniper class and abilities. Changing the barrel switches the set accordingly. This local change still awaits in-game verification.
+
+
+The AEK is installed as a candidate for testing. Its conversion kit switches between the 971 and 973S, changing caliber and model. The standard stock folds and the icon follows its position. Sights are included in the update below; in-game verification is pending.
+
+The local R4 and Vz.58 update restores authored shading boundaries on the metal bodies and refreshes their side-view icons. Textures are unchanged. After installation, the owner confirmed that both weapons look better.
+
+Both AEK variants now offer five removable sights. The HK416 has an underbarrel slot for a grip or M203 and a side slot for a laser/light. Its optic sits lower on the rail, and inward-facing exterior surfaces have been corrected. The local update still needs in-game verification.
+
+## Large squad bags
+
+The local update dated 3 October 2026 reduces repeated bag processing and stack matching while preserving stack limits and sorting rules. Offline checks passed; the improvement in the live inventory UI still needs in-game confirmation.

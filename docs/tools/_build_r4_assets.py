@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _export_m14_family_assets import load_hge, pixels, save_tga, assign_hge_maps
 from _prepare_weapon_open_surfaces import prepare_export_mesh
 from _render_ak103_icon import build_compositor
-from _weapon_material_finish import finish_material,separate_hard_edges
+from _weapon_material_finish import separate_hard_edges
 
 p=argparse.ArgumentParser()
 for key in ('source','build','game-root'): p.add_argument('--'+key,type=Path,required=True)
@@ -33,8 +33,9 @@ o.data.transform(transform@o.matrix_world);o.matrix_world=Matrix.Identity(4)
 tex=a.build/'Textures'
 maps={k: pixels(a.source/('R4_low_R4_'+v+'.png')) for k,v in
       {'Base':'BaseColor','Normal':'Normal','Roughness':'Roughness','Metallic':'Metallic','AO':'AmbientOcclusion'}.items()}
-rm=np.ones_like(maps['Base']);rm[:,:,0]=maps['Roughness'][:,:,0];rm[:,:,1]=0;rm[:,:,2]=maps['Metallic'][:,:,0]
-maps['Normal'],rm,_=finish_material(maps['Normal'],rm,'r4','R4')
+rm=np.ones_like(maps['Base']);rm[:,:,0]=maps['Roughness'][:,:,0];rm[:,:,1]=rm[:,:,0];rm[:,:,2]=maps['Metallic'][:,:,0]
+# Preserve author normal/roughness. Decode BC once for the sRGB TGA writer.
+rgb=maps['Base'][:,:,:3];maps['Base'][:,:,:3]=np.where(rgb<=.04045,rgb/12.92,((rgb+.055)/1.055)**2.4)
 images={k:save_tga('JAZZ_VektorR4_'+k,v,tex,k=='Base') for k,v in
         {'Base':maps['Base'],'Normal':maps['Normal'],'RM':rm,'AO':maps['AO']}.items()}
 mat=bpy.data.materials.new('JAZZ_VektorR4');mat.use_nodes=True

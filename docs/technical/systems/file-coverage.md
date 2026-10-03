@@ -1,5 +1,9 @@
 # Покрытие файлов системной документацией
 
+## Конрад, 2026-10-02
+
+`jazz_assets/Entities/JAZZ_ConradBody.lua`, `JAZZ_ConradPants.lua` и `JAZZ_ConradHead.lua` — новые generated EntityData companions, зарегистрированные в assets metadata.code/entities и ModItemEntity. Load-state: установлены на диске, новая игровая загрузка не проверена. Владелец описания: [юниты и внешность Конрада](units-progression-specializations.md). Новых Code-модулей и изменений load order существующих модулей нет.
+
 ## Дополнение 28.09.2026
 
 Новый активный asset companion `jazz_assets/Entities/JAZZ_M14_OpticsMount.lua` зарегистрирован в metadata.code; источник — ModItemEntity в assets items.lua, геометрия — одноимённые ent/HGM. Документационный владелец: [assets-entities](assets-entities.md), поведение: [weapons-ammo-components](weapons-ammo-components.md). Существующие Code-модули остаются в прежнем load order.
@@ -237,4 +241,6 @@ Generated ModItems покрываются системами по типу:
 | `jazz/Code/System_WeaponComponent_Set.lua` | Weapon component mutation and fixed-slot cleanup. |
 | `jazz/Code/System_WeaponRemovableModify.lua` | Removable component modification UI. |
 | `jazz/Code/Weapon_MosinModular.lua` | Mosin configuration names. |
+| `jazz/Code/Weapon_AEKModular.lua` | AEK caliber-kit presentation, native attachment variants and loaded-ammo guard. |
+| `jazz/Code/Weapon_HK416Modular.lua` | HK416 barrel/stock presentation and native component updates. |
 | `jazz-units/Code/LegionMedicineLoadouts.lua` | Legion medicine loadouts. |

@@ -1,4 +1,4 @@
-N,AnchorID,SourceText,English,Notes
+﻿N,AnchorID,SourceText,English,Notes
 1,987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,technical-copy
 2,100047705770,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,The <em>Le Domas</em> and <em>Van Tassel</em> families are gathered to hear findings of the <em>murder investigation</em>,technical-copy
 3,100373069792,«Хорошее место» (подземелье),The Good Place (Underground),vanilla-reverse
@@ -136,7 +136,7 @@ N,AnchorID,SourceText,English,Notes
 135,223971847712,Следующий отряд,Next Squad,vanilla-reverse
 136,226108088689,<color EmStyle>Результат:</color> <color EmStyle>Деревня Эрни</color> освобождена,<color EmStyle>Result:</color> <color EmStyle>Ernie Village</color> liberated,old-bilingual-source
 137,226223786359,Выбрать предмет,Pick Item,vanilla-reverse
-138,226408276853,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ,technical-copy
+138,226408276853,"Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ","Col. Faucheux keeps valuable <em>art pieces</em> hidden at <em><SectorName('L17')></em> inside something that is a <em>work of art</em> itself ",technical-copy
 139,227471793670,FOLDING,FOLDING,technical-copy
 140,228456778686,R870,R870,technical-copy
 141,229449529062,<color 61 122 153>,<color 61 122 153>,technical-copy
@@ -169,7 +169,7 @@ N,AnchorID,SourceText,English,Notes
 168,254047887407,Санаторий,Sanatorium,old-bilingual-source
 169,254321093188,а,Huh?,manual-reviewed-google
 170,254556052186,<em>Lucky Veinard</em> said there is a <em>ritual book</em> pointing at a hidden treasure among the <em><SectorName('J18')></em>,<em>Lucky Veinard</em> said there is a <em>ritual book</em> pointing at a hidden treasure among the <em><SectorName('J18')></em>,technical-copy
-171,254930997326,Прицел малой кратности,Prism Scope ,historical-english
+171,254930997326,Прицел малой кратности,"Prism Scope ",historical-english
 172,256134986000,Проклятый лес,Cursed Forest,vanilla-reverse
 173,257808768357,AKM,AKM,technical-copy
 174,258760835486,Ресурсы,Resources,vanilla-reverse
@@ -397,7 +397,7 @@ N,AnchorID,SourceText,English,Notes
 396,515826095239,LouisaGarneau@aim.com,LouisaGarneau@aim.com,technical-copy
 397,518572936824,Sig 550 RIS,Sig 550 RIS,technical-copy
 398,519105759968,Мы как-нибудь сами справимся,We’ll manage on our own,old-bilingual-source
-399,520100285462,Штурмовой прицел,Quick Prism Scope ,historical-english
+399,520100285462,Штурмовой прицел,"Quick Prism Scope ",historical-english
 400,521007046314,Мародёр,Marauder,vanilla-reverse
 401,522339243532,Не охота вмешиваться в терки местного криминалитета,Not eager to get involved in the local criminal squabbles,old-bilingual-source
 402,525611168674,There is a <em>treasure</em> at the <em><SectorName('I16')></em> that is supposedly guarded by a <em>ghost</em>,There is a <em>treasure</em> at the <em><SectorName('I16')></em> that is supposedly guarded by a <em>ghost</em>,technical-copy
@@ -484,7 +484,7 @@ N,AnchorID,SourceText,English,Notes
 483,621209369041,Улика: сектор <color EmStyle></color> подвергся обстрелу горчичным газом,Clue: sector <color EmStyle></color> was shelled with mustard gas,old-bilingual-source
 484,622267968145,<em>Outcome:</em> Lami the <em>Witch</em> is dead,<em>Outcome:</em> Lami the <em>Witch</em> is dead,technical-copy
 485,622275591993,There are a bunch of <em>Fleatown thugs</em> outside looking for the alleged <em>treasure</em> of the <em><SectorName('I16')></em>,There are a bunch of <em>Fleatown thugs</em> outside looking for the alleged <em>treasure</em> of the <em><SectorName('I16')></em>,technical-copy
-486,623031245401,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,<em>Pierre</em> was spared at <em><SectorName('I7')></em> ,technical-copy
+486,623031245401,"<em>Pierre</em> was spared at <em><SectorName('I7')></em> ","<em>Pierre</em> was spared at <em><SectorName('I7')></em> ",technical-copy
 487,625711628464,50 патронов 9х18,50 9x18 cartridges,old-bilingual-source
 488,627894766418,There is a sense of mystery around the <em><SectorName('I16')></em>,There is a sense of mystery around the <em><SectorName('I16')></em>,technical-copy
 489,629372801982,UMP45,UMP45,technical-copy
@@ -503,7 +503,7 @@ N,AnchorID,SourceText,English,Notes
 502,649839486980,Лейтенант,Lieutenant,vanilla-reverse
 503,652093742599,"<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired","<em>Operation</em>: Captain Jacques Pierrot in <em><SectorName('G9')></em> offers naval transport if the ""M.E.R.C.'s Pride"" boat is repaired",technical-copy
 504,656684873329,Улучшеный коллиматор,Improved collimator,google-draft
-505,659363947973,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ,technical-copy
+505,659363947973,"<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ","<em>Pierre</em> was defeated at <em><SectorName('I7')></em> ",technical-copy
 506,660779522711,"Ниже нас расположен наш запасной лагерь, так вышло, что наши вчерашние друзья стали нам врагами, мы их теперь называем <em>хохлы</em>, потому что они чистые свиньи. Они встали на сторону Легиона и выход есть только один, даже если всё разрешится, Босс их не помилует, а мы ужиться уже не сможем. Поэтому предлагаю совместную военную операцию, зачищаем противника, а в замен можете выторговывать у нас то, что мы сможем предложить, естесственно по дисконту.","Below us is our backup camp. It so happened that our former friends became our enemies. We now call them <em>khokhly</em> because they’re filthy pigs. They sided with the Legion and there’s only one way out. Even if this all settles down, the Boss won’t forgive them, and we won’t be able to coexist anymore. So I propose a joint military operation: we clear out the enemy, and in return you can bargain with us for whatever we can offer — naturally at a discount.",old-bilingual-source
 507,661487924137,<color EmStyle>Майор</color> приказал войскам расстрелять <color EmStyle>президента</color>,<color EmStyle>The Major</color> ordered the troops to shoot the <color EmStyle>President</color>,old-bilingual-source
 508,662923526727,ЭРНГ,ERNG,google-draft
@@ -517,7 +517,7 @@ N,AnchorID,SourceText,English,Notes
 516,673812884009,Слух: <color EmStyle>Майор</color> находится в лагере <color EmStyle>Кам-дю-Крокодиль</color>,Rumor: <color EmStyle>The Major</color> is in the <color EmStyle>Camp du Crocodile</color> camp,old-bilingual-source
 517,676243000186,ЛЦУ для Цевья MP5A4,Laser laser for MP5A4 handguard,google-draft
 518,678232896239,Спасти Кики,Save Kiki,old-bilingual-source
-519,680087796963,Недостаточно ОД ,Not Enough AP ,vanilla-reverse
+519,680087796963,"Недостаточно ОД ","Not Enough AP ",vanilla-reverse
 520,680417461250,"Итак, какая помощь вам нужна","So, what kind of help do you need?",old-bilingual-source
 521,680641099779,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,A valuable <em>diamond necklace</em> may be in possession of <em>Lalee</em> from the <em><SectorName('H19')></em>,technical-copy
 522,680857543153,Коллиматор Eotech,EOTech holographic sight,manual-reviewed-google
@@ -635,7 +635,7 @@ N,AnchorID,SourceText,English,Notes
 634,861219355572,<em>Цель:</em> Встретиться с <em>Эммой ЛеФонтен</em> и <em>Корасон Сантьяго</em>,<em>Objective:</em> Meet <em>Emma LeFontaine</em> and <em>Corazon Santiago</em>,old-bilingual-source
 635,861803185499,<color EmStyle>Результат:</color> <color EmStyle><CacaoGangDead></color> из «<color EmStyle>Кофейных бобов</color>» присоединились к покойной Мамаше Бакстер,"<color EmStyle>Outcome:</color> <color EmStyle><CacaoGangDead></color> from the ""<color EmStyle>Coffee Beans</color>"" joined the late Mama Baxter",old-bilingual-source
 636,861955157003,Браунинги .50,Browning .50s,old-bilingual-source
-637,862897735770,<Name> ,<Name> ,technical-copy
+637,862897735770,"<Name> ","<Name> ",technical-copy
 638,864094482022,Trained <em>Militia</em> to protect the <em><SectorName('I5')></em>,Trained <em>Militia</em> to protect the <em><SectorName('I5')></em>,technical-copy
 639,865164592008,"5,45x39 мм СССР","5,45x39m USSR",historical-english
 640,865784012274,12-й калибр,12-gauge,vanilla-reverse
@@ -735,7 +735,7 @@ N,AnchorID,SourceText,English,Notes
 734,995832500650,"Вы... вы не из Легиона? Верно?.. Скажите, что нет...",Y-you... you’re not with the Legion? Right?.. Say you’re not...,old-bilingual-source
 735,995951843740,Underground Tunnel,Underground Tunnel,technical-copy
 736,996024122128,Всегда пожалуйста,Always happy to help,old-bilingual-source
-737,997322139649,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ,technical-copy
+737,997322139649,"<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ","<em>Outcome:</em> Lami the <em>Witch</em> will continue to exploit the workers from <em>Wassergrab</em> ",technical-copy
 738,998362596439,Надо отдать <em>это добро партизанам</em>.,We should give <em>this loot to the partisans</em>.,old-bilingual-source
 739,998383873461,Someone is murdering people in the Farmlands and placing <em>teddy bears</em> at the scene,Someone is murdering people in the Farmlands and placing <em>teddy bears</em> at the scene,technical-copy
 740,999263655262,Clue: There is a rumor that the L'Enfer brothers who once owned the Manors killed each other and have returned as <em>vengeful spirits</em>,Clue: There is a rumor that the L'Enfer brothers who once owned the Manors killed each other and have returned as <em>vengeful spirits</em>,technical-copy
@@ -817,7 +817,7 @@ N,AnchorID,SourceText,English,Notes
 816,890000000000110,LegionTier5,LegionTier5,technical-copy
 817,890000000000111,"Покуда эти ненасытные мерзавцы из <em>«Адониса»</em> сидят в <em>форте Ло-Блё</em>, нам не будет покоя. Повторяется история с Легионом: они отбирают у нас всё, что им заблагорассудится.","As long as those greedy <em>Adonis</em> bastards hold <em>Fort L'Eau Bleu</em>, we will not be safe. It is the same as when the Legion was here - what is ours is theirs any time they feel like taking it.",vanilla-reverse
 818,890000000000112,Флаговый холм,Flag Hill,vanilla-reverse
-819,890000000000114,"То, что доктор прописал.",That hit the spot. ,vanilla-reverse
+819,890000000000114,"То, что доктор прописал.","That hit the spot. ",vanilla-reverse
 820,890000000000115,(heavy breath_2),(heavy breath_2),technical-copy
 821,890000000000116,Эта пушка кончилась! Дайте другую!,This gun is toast! Get me another!,vanilla-reverse
 822,890000000000117,Цели поражены. Подтверждаю попадание.,Multiple targets eliminated. Kills confirmed.,vanilla-reverse
@@ -837,7 +837,7 @@ N,AnchorID,SourceText,English,Notes
 836,890000000000140,Я всё сделал. Что дальше?,I'm all done here. What's next?,vanilla-reverse
 837,890000000000141,"Да пошел ты! Первая же шашка, какую найду, отправится прямиком в ТВОЙ зад!","Go fuck yourself. The first explosive I find, I'm going to stick it up YOUR butt!",vanilla-reverse
 838,890000000000142,"Я не страшусь удачи, и потому она нашла меня.","Because I do not fear success, I have found it waiting for me.",vanilla-reverse
-839,890000000000143,Обожаю путешествия. ,I love traveling. ,vanilla-reverse
+839,890000000000143,"Обожаю путешествия. ","I love traveling. ",vanilla-reverse
 840,890000000000144,Берегись!,Heads up!,vanilla-reverse
 841,890000000000150,Что это такое?,What's this?,vanilla-reverse
 842,890000000000151,"Отнекивайтесь сколько угодно. Я-то знаю, что масоны с вас взяли расписку о неразглашении.",You can deny it as much as you want. I know the New World Order made you sign a contract to never tell anyone.,vanilla-reverse
@@ -854,7 +854,7 @@ N,AnchorID,SourceText,English,Notes
 853,890000000000167,"Слышу, шеф.","We hear you, chief.",vanilla-reverse
 854,890000000000168,Они меня окружать!,They be comin' around the sides!,vanilla-reverse
 855,890000000000169,Преступник обезврежен. Запиши ещё одного на мой счёт.,Perp down. Score another one for Raven.,vanilla-reverse
-856,890000000000170,"Следите за дыханием, когда целитесь.",Keep your breath steady when aiming. ,vanilla-reverse
+856,890000000000170,"Следите за дыханием, когда целитесь.","Keep your breath steady when aiming. ",vanilla-reverse
 857,890000000000174,"Это я, Тор.","It's me, Thor.",vanilla-reverse
 858,890000000000175,Я предпочитаю ходить босиком.,I like to go barefoot whenever I can.,vanilla-reverse
 859,890000000000176,Ох-х.,Mhh,vanilla-reverse
@@ -1019,7 +1019,7 @@ N,AnchorID,SourceText,English,Notes
 1018,890000000000446,Секретные данные,Inside Dope,vanilla-reverse
 1019,890000000000447,Обнаружен противник.,Hostiles detected.,vanilla-reverse
 1020,890000000000449,Это стыдно. Нужно попадать! Сейчас!,This be embarrassing! We need to hit them. Now!,vanilla-reverse
-1021,890000000000450,Я не закончила.,Still not done. ,vanilla-reverse
+1021,890000000000450,Я не закончила.,"Still not done. ",vanilla-reverse
 1022,890000000000451,"Ха, а недурно.","Hey, that wasn't half bad.",vanilla-reverse
 1023,890000000000452,"Сработало! Видали? Сработало! О, да, здаров!. Я <em>Бомбическая Диди</em>! Вы ведь пришли за моими хлопушками? Последнюю партию я только что взорвала, но я могу сделать еще!","It worked! Did you see? It worked! Oh yeah, hi! I'm <em>Boombastic Deedee</em>! You came for my firecrackers, right? I just blew up the last batch, but I can make more!",old-bilingual-source
 1024,890000000000453,"А в <em>Жестянке</em> вы были? Там в бункере полно всяких классных штук, из которых можно делать помпезные взрывы!",Have you been to the <em>Junkyard</em>? There's a bunker full of all kinds of cool stuff you can make spectacular explosions with!,old-bilingual-source
@@ -1181,7 +1181,7 @@ N,AnchorID,SourceText,English,Notes
 1180,890000000000746,И Диди мы тоже никак не вспоминаем?,And we're still not mentioning Deedee at all?,old-bilingual-source
 1181,890000000000747,Трущобы Пантагрюэля,Pantagruel Slums,vanilla-reverse
 1182,890000000000748,Я гулять.,I be strollin'.,vanilla-reverse
-1183,890000000000751,Скучно. Хочу что-нибудь поделать.,I be gettin' antsy! Gotta keep these hands busy. ,vanilla-reverse
+1183,890000000000751,Скучно. Хочу что-нибудь поделать.,"I be gettin' antsy! Gotta keep these hands busy. ",vanilla-reverse
 1184,890000000000752,На это стоит посмотреть вблизи.,Might want to take a closer look at this.,vanilla-reverse
 1185,890000000000758,Пушка скоро пустеет.,Gun be empty soon.,vanilla-reverse
 1186,890000000000759,Как-то мне нехорошо. Не хочу это видеть.,I feel sick. I don't want to see this.,old-bilingual-source
@@ -1481,7 +1481,7 @@ N,AnchorID,SourceText,English,Notes
 1480,890000000001311,"Правда? Не понимаю, в чем ваша выгода, но я только за, разумеется.","Really? I don't understand what's in it for you, but I'm all for it, of course.",old-bilingual-source
 1481,890000000001312,Полезай ко мне в карман.,Let's get that.,vanilla-reverse
 1482,890000000001313,"Мда, сборы псу под хвост. Как насчёт в следующий раз действовать КОМАНДОЙ?","Well, that exercise was a bust. Maybe next time we can try actually working as a team?",vanilla-reverse
-1483,890000000001320,Прибыл на место и готов к самосовершенствованию.,I have arrived at the destination and am ready for a new goal. ,vanilla-reverse
+1483,890000000001320,Прибыл на место и готов к самосовершенствованию.,"I have arrived at the destination and am ready for a new goal. ",vanilla-reverse
 1484,890000000001321,"Пулемет? Ой-ля-ля, вот это я понимаю!","Machine gun? Ooh-la-la, now that's what I call it!",old-bilingual-source
 1485,890000000001322,"Ладно, прочешем местность. Если тут что-нибудь есть, мы это найдём.","All right, let's comb this place. If there's something here, we'll find it.",vanilla-reverse
 1486,890000000001325,Ах! Пулемет и Фидель станут лучшими друзья.,Ah! Fidel knew. Should've collected all ten livers to complete the quest. Ah…,old-bilingual-source
@@ -1873,7 +1873,7 @@ Task: <task>",manual-translation
 1870,890000000000653,"Ну, я бы предпочла сначала посмотреть соцпакет, но по части выплат я гибкая женщина. Очень гибкая.","Well, I'd like to see the benefits package first. But when it comes to compensation, I'm flexible. Very flexible.",manual-reviewed-human
 1871,890000000000709,"Ничего... кроме алмаза. Я отдам. Всё, что есть. Только спасите её.",Nothing... except a diamond. You can have it. It's all I have. Just save her.,manual-reviewed-human
 1872,890000000000710,"Спасибо, наемники. Я нашел ящик с гранатами на берегу. Вот, возьмите.","Thank you, mercenaries. I found a crate of grenades on the shore. Here, take it.",manual-reviewed-human
-1873,890000000000711,У водопада... в клетке. ,By the waterfall... in a cage.,manual-reviewed-human
+1873,890000000000711,"У водопада... в клетке. ",By the waterfall... in a cage.,manual-reviewed-human
 1874,890000000000721,Снова здравствуйте. О чем хотели поговорить?,Hello again. What did you want to discuss?,manual-reviewed-human
 1875,890000000000725,"Я просто жертва обстоятельств. Я пришла сюда делать бизнес, а не подставляться под пули. Я понимаю, что вы огорчены таким развитием событий, и готова вам помогать. Давайте начнем все сначала. Скажите, что вам нужно?","I'm merely a victim of circumstances. I came here to do business, not dodge bullets. I understand that this turn of events has upset you, and I'm willing to help. Let's start over. Tell me what you need.",manual-reviewed-human
 1876,890000000000727,"Что, прости?! Я тебе не пёс!",Excuse me?! I'm not your dog!,manual-reviewed-human
@@ -2069,9 +2069,9 @@ Task: <task>",manual-translation
 2066,878842387501,Замечательно!,Wonderful!,manual-reviewed-google
 2067,979751155093,Замечательно!,Wonderful!,manual-reviewed-google
 2068,395636543718,Чего-то до хрена их тут.,"Damn, there are a lot of them.",manual-reviewed-google
-2069,395851346053,Это было просто необходимо. ,Had to be done.,manual-reviewed-google
-2070,403959952241,Надо перезарядить. ,Need to reload.,manual-reviewed-google
-2071,410271431075,Надо перезарядить. ,Need to reload.,manual-reviewed-google
+2069,395851346053,"Это было просто необходимо. ",Had to be done.,manual-reviewed-google
+2070,403959952241,"Надо перезарядить. ",Need to reload.,manual-reviewed-google
+2071,410271431075,"Надо перезарядить. ",Need to reload.,manual-reviewed-google
 2072,407129560284,Ланс,Lance,manual-reviewed-google
 2073,408060419721,"Ух, мля. Блин, прости, братан, я не со зла. У меня первый раз такое.","Oh, fuck. Sorry, bro—I didn't mean it. Never done that before.",manual-reviewed-google
 2074,418043366071,"Некоторые просто не понимают, как надо разговаривать с людьми, когда у них в руках оружие!..",Some people just don't know how to talk to others when they've got a gun in their hands!...,manual-reviewed-google
@@ -2141,7 +2141,7 @@ Task: <task>",manual-translation
 2138,619215783391,"прыгает, гоп",(jumps) Hop!,manual-reviewed-google
 2139,950600888574,"прыгает, гоп",(jumps) Hop!,manual-reviewed-google
 2140,619491844894,"Помедленнее, а то у меня будут проблемы с легкими!",Slow down or my lungs will give out!,manual-reviewed-google
-2141,620020470489,Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ,Couldn't be better. You don't often get this much satisfaction from the job.,manual-reviewed-google
+2141,620020470489,"Лучше не бывает! Не часто можно получить такое удовлетворение от нашей работы. ",Couldn't be better. You don't often get this much satisfaction from the job.,manual-reviewed-google
 2142,623794979175,Осадный отряд,Siege Squad,manual-reviewed-google
 2143,623795138668,Мрачная судьба,Grim Fate,manual-reviewed-google
 2144,624356366496,"Это Руди Робертс. Меня прозвали Рысь. Раз Вы позвонили - возможно, вы обо мне слышали. В любом случае, просто оставьте сообщение, и я с вами свяжусь.","This is Rudy Roberts, better known as Lynx. Since you're calling, you've probably heard of me. Leave a message and I'll get back to you.",manual-reviewed-google
@@ -2234,7 +2234,7 @@ Task: <task>",manual-translation
 2231,846317873771,"Нады(кашель)мили, скоты.","They smo(cough)ked us out, bastards.",manual-reviewed-google
 2232,846981672044,Тшш-шш. Не шуми. Тут за шум я решаю.,Shh. Keep it down. I'm in charge of noise around here.,manual-reviewed-google
 2233,849583853920,"Ой-ей. Ладно, это подлатаем.","Ow. All right, we can patch this.",manual-reviewed-google
-2234,853213611494,Рысь! ,Lynx!,manual-reviewed-google
+2234,853213611494,"Рысь! ",Lynx!,manual-reviewed-google
 2235,855526083813,"Так и тапки сбросить не долго... Эх, мля, надо было в колледж поступать... На химика...","Could kick the bucket like this... Fuck, should've gone to college... studied chemistry...",manual-reviewed-google
 2236,861905427160,Пэнтер,Panther,manual-reviewed-google
 2237,861927014589,Вольф,Wolf,manual-reviewed-google
@@ -4076,7 +4076,7 @@ Task: <task>",manual-translation
 4073,389792563855,"Может, мне еще поработать с каменными ножами и медвежьими шкурами? Будь все проклято, я - профессионал!","Maybe I should go back to stone knives and bearskins? Damn it, I'm a professional!",manual-reviewed-human
 4074,793481254572,"Может, мне еще поработать с каменными ножами и медвежьими шкурами? Будь все проклято, я - профессионал!","Maybe I should go back to stone knives and bearskins? Damn it, I'm a professional!",manual-reviewed-human
 4075,390863951465,"Я не могу овладеть ситуацией! Мне надо отсюда вырваться, пока я не потеряла разум!",I can't control the situation! I need to get out of here before I lose my mind!,manual-reviewed-human
-4076,390899348731,Паук... Горжусь я ей. Способная деваха! ,Spider... I'm proud of her. That girl's got talent!,manual-reviewed-human
+4076,390899348731,"Паук... Горжусь я ей. Способная деваха! ",Spider... I'm proud of her. That girl's got talent!,manual-reviewed-human
 4077,391984240592,Армейский Спецназ,Army Special Forces,manual-reviewed-human
 4078,701157196231,Армейский Спецназ,Army Special Forces,manual-reviewed-human
 4079,392427068113,Гренадёр,Grenadier,manual-reviewed-human
@@ -4108,12 +4108,12 @@ Task: <task>",manual-translation
 4105,949418392441,Ну ладно!,Okay!,manual-reviewed-human
 4106,981665767122,Ну ладно!,Okay!,manual-reviewed-human
 4107,492075631047,Снэйр,Snare,manual-reviewed-human
-4108,493164139843,Отсюда надо выбираться! ,We need to get out of here!,manual-reviewed-human
-4109,935033359195,Отсюда надо выбираться! ,We need to get out of here!,manual-reviewed-human
+4108,493164139843,"Отсюда надо выбираться! ",We need to get out of here!,manual-reviewed-human
+4109,935033359195,"Отсюда надо выбираться! ",We need to get out of here!,manual-reviewed-human
 4110,496206738742,Внимание! Здесь каждый шаг может стать последним!,Careful! Every step here could be your last!,manual-reviewed-human
 4111,743479715111,Внимание! Здесь каждый шаг может стать последним!,Careful! Every step here could be your last!,manual-reviewed-human
 4112,496511088531,Доктор Ливси,Dr. Livesey,manual-reviewed-human
-4113,498845146351,Я сделала свою работу. ,I've done my job.,manual-reviewed-human
+4113,498845146351,"Я сделала свою работу. ",I've done my job.,manual-reviewed-human
 4114,499121738647,"Отличный выстрел, братан!","Great shot, bro!",manual-reviewed-human
 4115,499758495969,"Отлично, похоже, что все в порядке. Готова к службе!","Excellent, everything seems to be in order. Ready for duty!",manual-reviewed-human
 4116,718868776454,"Отлично, похоже, что все в порядке. Готова к службе!","Excellent, everything seems to be in order. Ready for duty!",manual-reviewed-human
@@ -4279,8 +4279,8 @@ Task: <task>",manual-translation
 4276,784674819954,"Интересно, каково держать такую тварь дома!",I wonder what it's like to keep such a creature at home!,manual-reviewed-human
 4277,786568878374,"Ага, конечно. Как будто ты имеешь хоть малейшее представление о том, что делаешь! Иди, проветрись!","Yeah, of course. As if you have the slightest idea what you're doing! Go get some air!",manual-reviewed-human
 4278,789084104079,"Брателло, я лучше ему пластика в карман подкину, вот это верняк будет.","Bro, I'd rather slip some C4 into his pocket. That's a sure thing.",manual-reviewed-human
-4279,791079197040,Что-нибудь еще? ,Anything else?,manual-reviewed-human
-4280,911767416640,Что-нибудь еще? ,Anything else?,manual-reviewed-human
+4279,791079197040,"Что-нибудь еще? ",Anything else?,manual-reviewed-human
+4280,911767416640,"Что-нибудь еще? ",Anything else?,manual-reviewed-human
 4281,793278321472,Так! Я это сделала. Теперь что?,Right! Done. Now what?,manual-reviewed-human
 4282,914296644319,Так! Я это сделала. Теперь что?,Right! Done. Now what?,manual-reviewed-human
 4283,796542264805,"Зверь, а не девчонка!",She's a beast of a girl!,manual-reviewed-human
@@ -4312,7 +4312,7 @@ Task: <task>",manual-translation
 4309,891094391069,"Ох, слава богу! Они ушли.","Oh, thank God! They're gone.",manual-reviewed-human
 4310,893692526058,"Нет. Работать с Тоской я не буду. Стоит отвернуться, и она всадит тебе нож в спину. Уж можешь мне поверить. От нее ничего, кроме неприятностей. Только и знает, что поливать меня грязью.",No. I won't work with Tosca. Turn your back and she'll put a knife in it—believe me. She's nothing but trouble. All she does is bad-mouth me.,manual-reviewed-human
 4311,898527816735,"Доктор Хьюстон. Чем могу служить? Хорошо, поговорим о том, насколько долгий контракт вы собирались мне предложить.",Dr. Houston. How can I help? Good. Let's talk about the length of the contract you had in mind.,manual-reviewed-human
-4312,899558582657,Тут не соскучишься! ,Never a dull moment here!,manual-reviewed-human
+4312,899558582657,"Тут не соскучишься! ",Never a dull moment here!,manual-reviewed-human
 4313,900043784462,Тишина - мой старый друг. В небе она бывает только в кабине... когда двигатель выключен,"Silence is an old friend. In the sky, you only find it in the cockpit... after the engine dies.",manual-reviewed-human
 4314,910000000001,Лил,Lil,manual-reviewed-human
 4315,910000000004,Босс,Boss,manual-reviewed-human
@@ -5764,7 +5764,7 @@ Task: <task>",manual-translation
 5761,248609393738,"Хорошо, что я на твоей стороне.",It's good that I'm on your side.,manual-reviewed-google
 5762,717512767911,"Хорошо, что я на твоей стороне.",It's good that I'm on your side.,manual-reviewed-google
 5763,253932060437,Руди Робертс «Рысь»,"Rudy Roberts ""Lynx""",manual-reviewed-google
-5764,255478950698,Очень хорошо! ,Very good!,manual-reviewed-google
+5764,255478950698,"Очень хорошо! ",Very good!,manual-reviewed-google
 5765,256390393730,Патронов нужных больше нет.,I'm out of the right ammo.,manual-reviewed-google
 5766,258728495811,"Ща как подкрадусь, да как жахну...",I'll sneak up and let 'em have it...,manual-reviewed-google
 5767,260016101225,"О, братан, не керосинь, я там че-то видел такое, залупастое!","Whoa, bro, don't freak out. I saw something over there... something real dickish!",manual-reviewed-google
@@ -6024,7 +6024,7 @@ Task: <task>",manual-translation
 6021,860489191576,"Я лично полагаю, что всякий, кто покушается на чужую свободу, должен ответить по закону, и именно так мы и расчитываем поступить.","I personally believe that anyone who infringes on another's freedom must answer to the law, and that is exactly what we intend to do.",manual-reviewed-google
 6022,860964391877,Я жду.,I'm waiting.,manual-reviewed-google
 6023,861111377140,"Секунду так постой, чувак, я щас.","Wait a second, dude, I'll be right there.",manual-reviewed-google
-6024,861725900793,Кхм. ,Hmm.,manual-reviewed-google
+6024,861725900793,"Кхм. ",Hmm.,manual-reviewed-google
 6025,863009450991,Оооооой,Oooooh,manual-reviewed-google
 6026,864999167797,чмо,schmuck,manual-reviewed-google
 6027,870806144974,Продолжаем прессовать анчоусов!,Let's keep squeezing the anchovies!,manual-reviewed-google
@@ -6263,7 +6263,7 @@ Task: <task>",manual-translation
 6260,920000001095,Назаров,Nazarov,manual-reviewed-google
 6261,920000001096,Курбан,Kurban,manual-reviewed-google
 6262,920000001100,Тамба,Tamba,manual-reviewed-google
-6263,926842382510,Посмотри - у меня пульс как с цепи сорвался! Я покрываюсь испариной... ,Look—my pulse is racing! I'm breaking out in a sweat...,manual-reviewed-google
+6263,926842382510,"Посмотри - у меня пульс как с цепи сорвался! Я покрываюсь испариной... ",Look—my pulse is racing! I'm breaking out in a sweat...,manual-reviewed-google
 6264,927223711798,Советник,Advisor,manual-reviewed-google
 6265,890000000000838,Советник,Advisor,manual-reviewed-google
 6266,928050957973,Я под этим тоже подпишусь.,I'll second that.,manual-reviewed-google
@@ -8674,7 +8674,7 @@ Task: <task>",manual-translation
 8671,618294702085,Самодельная бронепластина из гнилого ржавого железа. Легион в огромном количестве снабжает своих бойцов такими.,"A homemade plate of rotten, rusty iron. The Legion issues them to its fighters by the cartload.",manual-reviewed-google
 8672,619300101686,"Бронежилет ""Interceptor""",Interceptor Body Armor,manual-reviewed-google
 8673,740197343981,"Бронежилет ""Interceptor""",Interceptor Body Armor,manual-reviewed-google
-8674,619706015798,Расклинить оружие. Стоимость <em>4…1 ОД</em>, шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.,manual-reviewed-google
+8674,619706015798,Расклинить оружие. Стоимость <em>4…1 ОД</em>,шанс успеха и потеря <em>состояния оружия</em> зависят от навыка <em><mechanical></em>.,Clear a weapon jam. Cost is <em>4…1 AP</em>; success chance and loss of <em>weapon condition</em> depend on <em><mechanical></em>.
 8675,623665702916,Рысий взгляд,Lynx's Gaze,manual-reviewed-google
 8676,624748134446,Складной приклад (Сложенный),Folding Stock (Folded),manual-reviewed-google
 8677,626481836952,Немецкая каска,German helmet,manual-reviewed-google
@@ -8727,7 +8727,7 @@ Task: <task>",manual-translation
 8724,762855095908,Пистолет Стечкина,Stechkin pistol,manual-reviewed-google
 8725,764012338960,Тяжелый арамидный шлем Зилон с баллистическим забралом из бронестекла. Предлагается для проведения штурмовых операций в замкнутых пространствах.,"A heavy Zylon aramid helmet with an armored-glass ballistic visor, intended for assaults in confined spaces.",manual-reviewed-google
 8726,770209843536,Форменные армейские штаны в камуфляжной расцветке.,Camouflage Army Trousers.,manual-reviewed-google
-8727,770790779264,Выстрел <color EmStyle><num> патронами</color> по цели без отдачи. ,Fires <color EmStyle><num> rounds</color> at a target with no recoil.,manual-reviewed-google
+8727,770790779264,"Выстрел <color EmStyle><num> патронами</color> по цели без отдачи. ",Fires <color EmStyle><num> rounds</color> at a target with no recoil.,manual-reviewed-google
 8728,776690469955,ПП19 Бизон,PP-19 Bizon,manual-reviewed-google
 8729,965842574005,ПП19 Бизон,PP-19 Bizon,manual-reviewed-google
 8730,779848171279,Бронежилет из сверхплотного высокомолекулярного полиэтилена. Штурмовой вариант,UHMWPE body armor. Assault model.,manual-reviewed-google
@@ -8787,7 +8787,7 @@ Task: <task>",manual-translation
 8784,911087494081,<em><enemy></em> поднят по тревоге,<em><enemy></em> is alerted,manual-reviewed-google
 8785,912113361221,Самодельные кирасы,Homemade cuirasses,manual-reviewed-google
 8786,917398081831,Полицейский бронежилет. Тяжелый вариант для специальных операций,Police Body Armor. Heavy model for special operations.,manual-reviewed-google
-8787,918989925083,Легкая броня для ног. ,Light Leg Armor.,manual-reviewed-google
+8787,918989925083,"Легкая броня для ног. ",Light Leg Armor.,manual-reviewed-google
 8788,919590693662,9x19 мм,9x19 mm,manual-reviewed-google
 8789,919621275120,"Поздневоенный и послевоенный британский автомат. Характерной чертой автомата является примыкаемый сбоку магазин, за который он и удерживается при стрельбе, что удобно в походе, но неудобно в бою. В целом, неплохой автомат. С учетом того, что британский.","A late-war and postwar British submachine gun. Its side-mounted magazine doubles as an awkward handhold: convenient on the march, less so in a fight. Overall, not a bad weapon—for a British one.",manual-reviewed-google
 8790,921726795014,РПД,RPD,manual-reviewed-google
@@ -8816,10 +8816,10 @@ Task: <task>",manual-translation
 8813,1786863112821,Фермы приносят доход в зависимости от лояльности ближайшего города,Farm income depends on the loyalty of the nearest town.,manual-reviewed-google
 8814,1786863112825,В этом секторе добывают древесину,This sector produces timber.,manual-reviewed-google
 8815,2378508273052,<em>Город: <city></em>,<em>City: <city></em>,manual-reviewed-google
-8816,2378508273053,  Лояльность: <loyalty>%,  Loyalty: <loyalty>%,manual-reviewed-google
-8817,2378508273055,  Лояльность: <loyalty>%,  Loyalty: <loyalty>%,manual-reviewed-google
-8818,2378508273056,  Уровень тревоги: <heat>,Alert Level: <heat>,manual-reviewed-google
-8819,2378508273057,  Уровень тревоги: <heat>,Alert Level: <heat>,manual-reviewed-google
+8816,2378508273053,Лояльность: <loyalty>%,Loyalty: <loyalty>%,manual-reviewed-google
+8817,2378508273055,Лояльность: <loyalty>%,Loyalty: <loyalty>%,manual-reviewed-google
+8818,2378508273056,Уровень тревоги: <heat>,Alert Level: <heat>,manual-reviewed-google
+8819,2378508273057,Уровень тревоги: <heat>,Alert Level: <heat>,manual-reviewed-google
 8820,60169593798251,Нет,No,manual-reviewed-google
 8821,69836067433751,Очень тяжелый,Very Heavy,manual-reviewed-google
 8822,73144740822511,Влияет на сопротивление подавлению.,Affects resistance to Suppression.,manual-reviewed-google
@@ -8937,7 +8937,7 @@ Task: <task>",manual-translation
 8934,890000000001397,рваное,torn,manual-reviewed-google
 8935,890000000001398,порвано,shredded,manual-reviewed-google
 8936,890000000001400,заштопан,repaired,manual-reviewed-google
-8937,890000000001412,Эффективный класс брони: ,Effective Armor Class: ,manual-reviewed-google
+8937,890000000001412,"Эффективный класс брони: ","Effective Armor Class: ",manual-reviewed-google
 8938,890000000001414,Блокирует слот лица,Blocks Face Slot,manual-reviewed-google
 8939,890000000001415,Возможность установки плиты,Accepts Armor Plate,manual-reviewed-google
 8940,890000000001416,Защита от пыли,Dust Protection,manual-reviewed-google
@@ -9557,7 +9557,7 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Clears pain and wound infection; rallies downed
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> One use = one item from the stack
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Used automatically from inventory",manual-translation-MED-006
-9317,890000000010293,After this fight, max HP from this trauma: <em><pct>%</em>.,After this fight, max HP from this trauma: <em><pct>%</em>.,manual-translation-MED-007
+9317,890000000010293,After this fight,max HP from this trauma: <em><pct>%</em>.,After this fight
 9318,890000000010900,Практика: <xp> / <need>,Practice: <xp> / <need>,manual-translation-UNITS-009
 9319,890000000010901,"<help>
 
@@ -10050,3 +10050,14 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9803,718927001006,Timed x1,Timed x1,manual-translation
 9804,718927001007,Timed x2,Timed x2,manual-translation
 9805,718927001008,Timed x4,Timed x4,manual-translation
+9806,890000000032102,АЕК-971,AEK-971,AEK manual translation
+9807,890000000032103,"Автомат со сбалансированной автоматикой. Комплект АЕК-973С меняет калибр с 5,45×39 на 7,62×39 мм. Штатный магазин на 30 патронов, складной приклад.",A balanced-action assault rifle. The AEK-973S conversion changes its caliber from 5.45x39 to 7.62x39 mm. Standard 30-round magazine and folding stock.,AEK manual translation
+9808,890000000032104,АЕК-973С,AEK-973S,AEK manual translation
+9809,890000000032105,"Калибр 7,62×39 мм",7.62x39 mm caliber,AEK manual translation
+9810,890000000032106,Урон +4,Damage +4,AEK manual translation
+9811,890000000032107,Дальность −8,Range -8,AEK manual translation
+9812,890000000032108,Отдача +4,Recoil +4,AEK manual translation
+9813,890000000032109,Точность прицеливания −1,Aim accuracy -1,AEK manual translation
+9814,890000000033101,HK416,HK416,technical-copy
+9815,890000000033103,"Современный карабин под патрон 5,56×45 мм. Сменные стволы, приклады и прицелы; магазин STANAG на 30 патронов.","A modern 5.56x45 mm carbine with interchangeable barrels, stocks and optics. Uses a 30-round STANAG magazine.",manual-translation
+9816,890000000033104,Приклад Magpul CTR,Magpul CTR stock,manual-translation

@@ -7,7 +7,7 @@ import bpy
 from mathutils import Vector
 p=argparse.ArgumentParser()
 for k in ('source','shirt','output'):p.add_argument('--'+k,type=Path,required=True)
-a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);a.output.mkdir(parents=True,exist_ok=True)
+a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);a.output=a.output.resolve();a.source=a.source.resolve();a.output.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(a.source));rig=bpy.data.objects['Bip001']
 armor=next(o for o in bpy.data.objects if o.name.startswith('TEST_'))
 for o in bpy.data.objects:

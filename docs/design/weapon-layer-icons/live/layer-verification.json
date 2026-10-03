@@ -2,39 +2,62 @@
   "status": "PASS",
   "scope": "native layered weapon icons, including tone v4",
   "weapons": 178,
-  "nodes": 1929,
-  "visible_layers": 1928,
-  "selector_cases": 446882,
-  "excluded_blocked_combinations": 75606,
-  "native_graphs": 9770,
-  "registry_sha256": "bd2d0402ec05fd52502b4a5eae9ebd9d7edef205d6d653abd069ba2aa407bc9f",
+  "nodes": 1925,
+  "visible_layers": 1924,
+  "selector_cases": 448965,
+  "excluded_blocked_combinations": 76286,
+  "native_graphs": 9797,
+  "registry_sha256": "ccf930e6e9224e09e891ce6e0dc6b046460310d00f44a330b6426f43449ea85f",
   "selector_sha256": "071551acfaf2015100263ab228281643029565f86da615df971ddb7696497bce",
-  "png_sha256": "a5cc8068ee05727aa2351487d355117927ea629272463ec7be00a39109a74a43",
+  "png_sha256": "42bce39991c20475e6fb506ebcb38eff650877640cdf7b3b3802edcb8d02313b",
   "installed_hashes": {
     "workspace": true,
     "active": true
   },
   "runtime_examples": [
-    "AK103 40 + modules",
-    "AK103 75 + modules",
-    "AK74"
+    "AK103 quick/40/75 + modules",
+    "AK47 quick",
+    "Type56 quick",
+    "ZastavaM92 quick",
+    "Zastava_M70 drum",
+    "DesertEagle",
+    "HiPower"
   ],
   "runtime_surfaces": [
     "XImage",
-    "XInventoryItem",
-    "open inventory"
+    "XInventoryItem"
   ],
   "editor_callbacks": 2,
-  "editor_roundtrip": "official save + load/reload; baseline load order retained after unrelated serialization cleanup",
+  "editor_roundtrip": "clean official SaveWholeMod 6234→6235 after LoadItems, no serialization errors; normalized unrelated serialization, loaded from disk again",
   "visual_review": "agent comparison of original/previous/smooth and real UI screenshots; no independent human acceptance",
   "limitations": [
     "Structural weapon names remain blocked by existing localization conflict.",
     "Not every Cartesian combination was inspected by a person.",
     "Campaign new-game/save-load smoke remains outside this icon probe.",
-    "Twelve classes without local original Icon use the measured median tone profile."
+    "Twelve classes without local original Icon use the measured median tone profile.",
+    "Two pre-existing missing chip PNGs: JAZZ_FlashlightOff and JAZZ_MagDrum_30_75; full weapon images are present.",
+    "Runtime glow is an engine effect; offline Gaussian preview is a visual reference, not pixel-identical.",
+    "Legacy flat fallback PNG keep the previous outline; native composition uses glow.",
+    "Broad generated-sync audit of the installed directory failed: 6241 issues, dominated by pre-existing tmp snapshots plus six unrelated root quest companions. Scoped items validation and official edited-item save/reload passed; no full generated-sync PASS claimed."
   ],
   "raster_comparison_weapons": 178,
-  "revision": 6232,
+  "revision": 6235,
   "outline_source_pixels": 6,
-  "hot_reload": "PASS: existing and fresh windows retain visible color after reload"
+  "hot_reload": "PASS: existing and fresh windows retain visible color after reload",
+  "png_digest_recipe": "sorted layer id UTF-8 followed by PNG bytes; invisible nodes skipped",
+  "outline_effect": "glow",
+  "outline_color": [
+    3,
+    3,
+    3,
+    230
+  ],
+  "changed_families": 5,
+  "preserved_families": 173,
+  "magazine_cycle": {
+    "status": "PASS",
+    "steps": 90,
+    "repeated_updates": 270
+  },
+  "evidence": "hybrid-installed/"
 }

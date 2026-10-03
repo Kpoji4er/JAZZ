@@ -8,6 +8,8 @@
 
 ## Рекомендации
 
+- Текстуры моделей (BC/NM/RM/AO), упаковка и инверсия каналов — [ja3-texture-preparation.md](ja3-texture-preparation.md). Для стандартного RM: R=G=roughness, B=metallic; весь RGB не инвертировать.
+
 - Изменения в entity/ресурсах не должны отрывать контракты с юнитами и карты.
 - `jazz` использует `jazz_assets`; любая новая ссылка `Mod/<id>/...` требует metadata-задекларированной зависимости.
 - При работе с FX/UI избегать скрытых глобальных side effects, которые не очищаются при `reload`.
@@ -34,3 +36,5 @@
 - Тон АК-74М/АК-105: `docs/tools/_tune_ak_polymer_materials.py` (staging перед `--apply`, backup, все mip/fallback; metallic сохранён). При повторном запуске сохранять прежний `--output`, чтобы не накапливать коррекцию.
 
 - Послойные иконки всего арсенала: offline-прототип и будущая съёмка реальных сборок — `docs/design/weapon-layer-icons/README.md`, tooling `docs/tools/weapon_layer_icons/`. Не активировать через metadata; реальный M4 20-round использует прямой `WeaponAttA_MagazineCAR15_02`, а не Magazine20 из старой сцены.
+
+- SquadBag performance (JAZZ-INV-006): `python docs/tools/test_squad_bag_performance.py` — offline Lua regression через lupa; merge, cache invalidation, respawn coalescing/retry. Не заменяет проверку drag/drop и задержек в игре.

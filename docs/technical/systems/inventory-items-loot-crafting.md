@@ -69,6 +69,14 @@ Reload берёт патроны только из `AmmoInventory`; наличи
 
 Known issue (не data loss): плавающее **визуальное** пропадание тайлов в SquadBag до регенерации UI bag; данные `squad_bag` сохраняются.
 
+### Повторные обновления большой сумки (JAZZ-INV-006)
+
+В локальном загружаемом коде `GetSquadBagInventory` переиспользует раскладку только при совпадении squad/mode, таблицы и порядка исходных предметов, их UI-размеров, runtime slot и всех его позиций/ссылок. Cache хранится в local weak table, отсутствует в save и сбрасывается при `Clear`/ReloadLua. Изменение количества в существующем стеке само по себе не требует раскладки; storage caps обновляются при повторном getter. При изменении источника/раскладки применяется прежний `Inventory.AddItem`; стоимость первичного заполнения не оптимизирована.
+
+`_SortItemsInBag` индексирует неполные стеки по class и RemovableComponentId, затем применяет прежний compatibility predicate; полные стеки исключены из кандидатов. Категорийный comparator, порядок слияния и уничтожение поглощённых объектов сохранены. Поток сортировки использует существующий engine global `g_squad_bag_sort_thread`, доступный InventoryUI. `InventoryUIRespawn` объединяет ожидающие запросы, shield действует также во время ожидания сортировки; retry сохраняется.
+
+Проверка: `python docs/tools/test_squad_bag_performance.py` — offline Lua через lupa, 300 случайных differential merge fixtures, invalidation cache, общий thread handle, coalescing/retry UI. Это не замер задержки/FPS и не проверка engine drag/drop/отрисовки. Игра по запросу владельца не запускалась; визуальный known issue выше не считается исправленным. Asset contract и правила стакинга не менялись. Spec: [JAZZ-INV-006](../../specs/active/JAZZ-INV-006.md).
+
 ### Reload: return ejected ammo
 
 Вынутый магазин: merge в стеки `AmmoInventory`/`OrdnanceInventory` мерка; остаток — `GetDropContainer` под ноги (не squad bag). Satellite без tactical unit — sector inventory. Дозарядка берёт стеки того же класса по убыванию `Amount`.

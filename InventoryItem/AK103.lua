@@ -52,6 +52,7 @@ DefineClass.AK103 = {
 			'SlotType', "Magazine",
 			'AvailableComponents', {
 				"JAZZ_MagNormal",
+				"JAZZ_MagQuick_AK",
 				"JAZZ_MagLarge_30_40",
 				"JAZZ_MagDrum_30_75",
 			},

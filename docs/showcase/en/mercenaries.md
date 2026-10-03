@@ -1,5 +1,7 @@
 # Mercenaries
 
+The local test build dated 2026-10-02 assigns Conrad a custom 3D model based on his updated portrait. In-game material and animation review is pending; stats and recruitment terms are unchanged.
+
 [Overview](home.md) · [Perks](perks.md) · [Русский](../ru/mercenaries.md)
 
 Source: `jazz-units/UnitData` + `items.lua`. No merc UnitData in the `jazz` package.

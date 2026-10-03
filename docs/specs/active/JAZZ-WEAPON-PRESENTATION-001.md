@@ -12,6 +12,10 @@ runtime_validation: required
 write_set:
   - items.lua
   - InventoryItem/AK103.lua
+  - InventoryItem/AK47.lua
+  - InventoryItem/Type56.lua
+  - InventoryItem/Zastava_M70.lua
+  - InventoryItem/ZastavaM92.lua
   - metadata.lua
   - Code/InventoryUI.lua
   - Code/System_WeaponResourceMaintenance.lua
@@ -22,6 +26,7 @@ write_set:
   - English.csv
   - docs/tools/weapon_layer_icons/*
   - docs/tools/README.md
+  - .agents/docs/index.md
   - docs/design/weapon-layer-icons/live/*
   - docs/technical/systems/ui-audio-fx.md
   - docs/technical/override-matrix.md
@@ -53,6 +58,8 @@ approved_by: project-owner
 Отдельный редактор креплений, новые модели, публикация и изменение баланса. Послойная композиция входит в расширение от 29.09.2026. Имена Mosin принадлежат отдельной модельной задаче.
 
 ## Требования
+
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-MAG-030` — approved владельцем 03.10.2026: заменить штатный магазин AK103 моделью установленного АКМ; исправить посадку донорских ванильных магазинов по скриншоту. Сохранить ёмкость/баланс и прочие оружия. Менять существующий AK103 UpdateVisualObj, без второго wrap. AC-MAG-030: component binding и отсутствие накопления offset проверены; посадка в шахте проверяется отдельными ракурсами, игровой verdict владельца не подменять численным тестом.
 
 - `JAZZ-WEAPON-PRESENTATION-001-REQ-001` — точный снимок по классу, entity и полному эффективному набору компонентов; неизвестное сочетание использует прежнюю иконку.
 - `JAZZ-WEAPON-PRESENTATION-001-REQ-002` — подтверждённые структурные имена AK74/AKM/VZ58 доступны на русском и английском; прочие классы и неподтверждённый SVDS сохраняют имя.
@@ -159,3 +166,33 @@ Generated delta: items.lua и InventoryItem/AK103.lua синхронно мен�
 Evidence: AC-006 и AC-007 — BLOCKED до новых runtime captures. Предыдущие результаты относятся к версии 6231 и не закрывают замечания владельца.
 
 AC-006 — PASS runtime: шесть переключений 30→40→75 дважды, абсолютные offsets 0/-30/-35, повторный rebuild без накопления. Quick отсутствует в списке. Съёмка профиль/45°; 294 обновлённых AK103 native graphs, 6443 scoped cases. AC-007 — PASS runtime: EffectPixels=6 в слое, реальная ячейка и повторный ReloadLua; orphan-группы удаляются с восстановлением исходного tint. Новая агрегатная проверка: 446882 случаев, 75606 запрещённых сочетаний исключены. Имена AC-002 по-прежнему BLOCKED.
+
+## Hybrid processing prototype — 02.10.2026
+
+Решение владельца: «а без этого? скомбинировать с нашим» — разрешён прототип объединения присланного gen_weapon_icons.py с существующим native-layer pipeline, без недостающего capture.lua. Используем текущие снимки, фиксированные цветовые профили, Lua selector и размеры; переносим идею мягкого общего контура и лёгкой резкости. Runtime-установка и публикация в этот прототип не входят.
+
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-008`: optional offline hybrid style, контур от общей alpha после композиции, фиксированный масштаб параметров относительно высоты 110 px, исходные RGBA неизменны.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-008`: static/visual — сравнение current / soft / soft+sharp для AK103 (30/40/drum), AK74, DesertEagle и HiPower; размеры и placement тела совпадают, непрозрачный RGB soft-only неизменен, отсутствие alpha на краях и исходные файлы не меняются. Проверка runtime glow отдельно, до её выполнения preview не объявляется установленным.
+
+Evidence AC-008: PASS (static/visual) — 7 builds, 25 source PNG unchanged, current fit byte-identical to HEAD, opaque RGB soft-only unchanged, dimensions and transparent edges PASS. Reviewed hybrid-review/comparison.png; preferred candidate is soft-only, sharpening remains optional. Artifacts: docs/design/weapon-layer-icons/live/hybrid-review/{review.html,verification.json,comparison.png}. Runtime glow is not verified or installed.
+
+## Installation and AK-family magazines — 02.10.2026
+
+Owner approval: «давай ... проверь ... на ак103 ... быстрый магазин можешь от акма взять ... на ак47 и заставах ... как и на тип56». Install soft-only treatment, verify actual UI. Re-enable AK103 quick magazine from AKM donor; review all four magazine types on AK103/AK47/Type56/Zastava_M70/ZastavaM92 against AKM, correct per-class visuals/attachment fit where necessary, recapture affected layer identities. ZastavaM76 only audit: different caliber, no unverified compatibility expansion. Preserve existing unrelated VZ58 file bytes. No commit/push/release requested for this change.
+
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-009`: native soft outline with color pass after all silhouette passes; no sharpening, unchanged scale and tint. Verify joint darkness and small inventory rendering; offline previews must not substitute runtime evidence.
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-010`: AKM magazine donor entities fit target receivers; quick magazine available on AK103; effective component graphs and rendered icons agree. Existing IDs and capacity definitions unchanged.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-009`: runtime — installed glow visible on full and inventory-sized icons, no black joints or tint loss after ReloadLua.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-010`: editor/runtime — official save/reload; 30/quick/40/drum cycle has correct entities and stable transforms; side/oblique captures checked for five target weapons, native selector regenerated/tested for affected builds.
+
+AC-009 — PASS: nine installed full/small UI builds, glow=6, all silhouettes behind color, binder lifecycle/tint tests and reload verified. AC-010 — PASS: clean official editor save/reload revision 6235; 90 magazine transitions / 270 repeated updates; side and oblique captures reviewed; 448965 selector cases PASS. Evidence: docs/design/weapon-layer-icons/live/hybrid-installed/ and layer-verification.json. Full spec remains approved with AC-002 naming unresolved. Runtime glow differs from the offline Gaussian reference; legacy flat fallbacks keep the previous outline. Two pre-existing missing chip PNGs remain outside this delta.
+
+## Evidence MAG-030 — 03.10.2026
+
+Штатный магазин АК103 заменён в items.lua на существующий AKMWaffleMag/AKM Icon; отдельного generated companion нет, metadata не менялась. Исправления включены в существующий UpdateVisualObj. AC-MAG-030: PASS static — четырём вариантам выставляются абсолютные смещения, bbox верхних 20 мм совпадает с native reference до 0,7 мм; actual Lua 10 rebuilds без drift для каждого варианта. Quick items, wrap-cycle, generated sync PASS (0 blocking). Runtime/editor/human и пересъёмка составных иконок PENDING, прежний PASS по посадке не распространяется на новый скриншот владельца. [Evidence](../../design/weapon-texture-audit-20261003.md).
+
+## Уточнение владельца 03.10.2026: пересъёмка и складной приклад
+
+Approved: «иконки перегенерить», «когда складываешь через кнопку приклад иконка не обновляется».
+- `JAZZ-WEAPON-PRESENTATION-001-REQ-REFRESH-031`: после финальных материалов переснять затронутые семейства и сохранить остальные; существующий setter и refresh UI должны обновлять HUD и inventory при fold/unfold без переоткрытия окна и без дополнительного wrap.
+- `JAZZ-WEAPON-PRESENTATION-001-AC-REFRESH-031`: executable regression fold/unfold, проверка registry/слоёв, runtime UI и визуальная приёмка отдельно. NOT_RUN.

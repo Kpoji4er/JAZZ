@@ -164,3 +164,12 @@ Clone-aware localization Plan выполнен без Apply: ambiguous vanilla m
 Evidence: `JAZZ-WEAPON-R4-001-AC-VISUAL-028`: `BLOCKED` — изменения ещё готовятся; runtime не подтверждён.
 
 Установка 28.09.2026: 19 файлов в jazz/jazz_assets, SHA256 исходников/backup/установленных файлов проверены. PASS static: editor ancestry совпадает с AK47, полная запись ModItem семантически/текстово сохранена. Металл оставлен без дальнейшей коррекции по разрешению владельца. Полная сводка и ссылки — `docs/design/weapon-visual-feedback-20260927.md`. `AC-VISUAL-028`: static PASS; editor/runtime/human BLOCKED до новой приёмки владельца.
+
+
+## Повторное исправление сглаживания 2026-10-03
+
+Владелец: «исправляй», жалоба на плоский металл R4/VZ58. Разрешены исправление существующих mesh и обновление их иконок без изменения предметов/баланса. Установленный кандидат восстанавливает авторские границы сглаживания из OBJ разделением топологии; custom normals отсутствуют. Эксперимент с дополнительными фасками отклонён по ошибке импортёра и не установлен. CO/NM/RM/AO и material bindings сохраняются побайтно. Offline mesh/winding и compiler gates обязательны; runtime/human acceptance остаётся открытой, игру не запускать. Evidence: docs/design/weapon-shading-recheck-20261003.md.
+
+Evidence 03.10: PASS compile, exact source surface/UV and compiled winding, install SHA; 2 HGM + 2 icons, 83 material/texture guards preserved. Build `_weapon_shading_20261003/authored`, receipt `shading-install.json`, backups `install-backup/`. Generated sync: 0 errors, те же 15 предшествовавших warnings; strict не PASS. Runtime/human PENDING.
+
+Human appearance feedback 03.10: владелец подтвердил, что R4/VZ58 стали выглядеть лучше; установленное сглаживание сохранено. Это подтверждение внешнего вида, не полная проверка всех состояний.

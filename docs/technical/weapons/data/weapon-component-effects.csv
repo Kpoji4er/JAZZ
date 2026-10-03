@@ -47,3 +47,8 @@ TwoHanded,TwoHanded,Нельзя стрелять с одной руки,,jazz,w
 JAZZ_MosinMass,JAZZ_MosinMass,Масса конфигурации,MosinMass=0,jazz,working-tree
 JAZZ_MosinDamageDelta,JAZZ_MosinDamageDelta,Поправка урона конфигурации,MosinDamageDelta=0,jazz,working-tree
 JAZZ_MosinCritDelta,JAZZ_MosinCritDelta,Поправка критического параметра конфигурации,MosinCritDelta=0,jazz,working-tree
+JAZZ_AEK_762Caliber,JAZZ_AEK_762Caliber,"Калибр 7,62×39 мм",,jazz,working-tree
+JAZZ_AEK_Damage,JAZZ_AEK_Damage,Урон +4,AEKDelta=4,jazz,working-tree
+JAZZ_AEK_WeaponRange,JAZZ_AEK_WeaponRange,Дальность −8,AEKDelta=-8,jazz,working-tree
+JAZZ_AEK_Recoil,JAZZ_AEK_Recoil,Отдача +4,AEKDelta=4,jazz,working-tree
+JAZZ_AEK_AimAccuracy,JAZZ_AEK_AimAccuracy,Точность прицеливания −1,AEKDelta=-1,jazz,working-tree

@@ -2,6 +2,8 @@
 
 ## Проверенная база
 
+Релизная проверка 04.10.2026: официальный CommonLib main `a1a5f4819d60b4d410d515f926ef45646c6989e7`, metadata 1.11 build 1067. Upstream SHA и metadata проверены заново; полный runtime smoke текущего набора не выполнен, выпуск помечается prerelease.
+
 Проверка APPEAR-001 от 2026-09-15: upstream `main` — `f1e02404abcbfb5ba489a61f54bfdd8c26921912`, CommonLib 1.11 build 1065. Совместимость нового armor hook проверена по `Code/FixAppearanceItems.lua`: файл совпадает с ранее извлечённой Workshop-копией. Это source-level проверка; полная установленная версия и игровой прогон в этой задаче не подтверждены.
 
 Все четыре пакета сохранены с:

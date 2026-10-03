@@ -191,6 +191,11 @@ function FirearmBase:SetWeaponComponent(slot, id, is_init)
 	end
 	
 	ObjModified(self)
+	-- Fold/UnFoldStock returns before CombatActionEnd; refresh existing windows.
+	if slot == "Stock" and not is_init and not rawget(self, "is_clone")
+		and JazzWeaponIcon_ScheduleWeaponDisplayRefresh then
+		JazzWeaponIcon_ScheduleWeaponDisplayRefresh()
+	end
 end
 
 -- MP40 is MagNormal-only (32). Legacy MagLarge_50_MP40 from GenW loot / old saves → reseat.
@@ -311,8 +316,8 @@ function OnMsg.NewGame()
 end
 
 
--- JAZZ-WEAPON-PRESENTATION-001: imported AK-103 has a higher magazine socket.
--- AKM donor magazines need individual absolute offsets, never an accumulated delta.
+-- JAZZ-WEAPON-PRESENTATION-001: align donor feed lips with the native magazine.
+-- Absolute offsets in millimetres; preserve the native feed-box centre and top.
 function AK103:UpdateVisualObj(vis)
     vis = vis or self.visual_obj
     if not IsValid(vis) or vis.weapon ~= self then return end
@@ -320,9 +325,29 @@ function AK103:UpdateVisualObj(vis)
     local part = vis.parts and vis.parts.Magazine
     if not IsValid(part) then return end
     local component = self.components and self.components.Magazine
-    if component == "JAZZ_MagLarge_30_40" and part:GetEntity() == "WeaponAttA_MagazineAK47_02" then
-        part:SetAttachOffset(point(0, 0, -30))
+    if component == "JAZZ_MagNormal" and part:GetEntity() == "AKMWaffleMag" then
+        part:SetAttachOffset(point(6, -9, -9))
+    elseif component == "JAZZ_MagQuick_AK" and part:GetEntity() == "WeaponAttA_MagazineAK47_03" then
+        part:SetAttachOffset(point(3, -10, -2))
+    elseif component == "JAZZ_MagLarge_30_40" and part:GetEntity() == "WeaponAttA_MagazineAK47_02" then
+        part:SetAttachOffset(point(3, -10, -2))
     elseif component == "JAZZ_MagDrum_30_75" and part:GetEntity() == "WeaponAttA_MagazineRPK74_03" then
-        part:SetAttachOffset(point(0, 0, -35))
+        part:SetAttachOffset(point(-9, -10, -8))
+    end
+end
+
+-- Type 56's stock magazine uses a lower model origin than the AKM donor set.
+function Type56:UpdateVisualObj(vis)
+    vis = vis or self.visual_obj
+    if not IsValid(vis) or vis.weapon ~= self then return end
+    FirearmBase.UpdateVisualObj(self, vis)
+    local part = vis.parts and vis.parts.Magazine
+    if not IsValid(part) then return end
+    local component = self.components and self.components.Magazine
+    local entity = part:GetEntity()
+    if (component == "JAZZ_MagQuick_AK" and entity == "WeaponAttA_MagazineAK47_03")
+        or (component == "JAZZ_MagLarge_30_40" and entity == "WeaponAttA_MagazineAK47_02")
+        or (component == "JAZZ_MagDrum_30_75" and entity == "WeaponAttA_MagazineRPK74_03") then
+        part:SetAttachOffset(point(0, 0, 23))
     end
 end

@@ -1,5 +1,7 @@
 # Legion units
 
+On October 3, the Soviet helmet received an SSh-60 model without a chinstrap, with olive paint and rim wear. In-game fit verification is still pending.
+
 Legion SMG/carbine pools include the Mosin Obrez from T1-1, with lower weight at T2. The M38 joins battle rifles alongside the MAS-36 at T1-1 with a low selection weight, increasing roughly fivefold at T1-2. The long Mosin, including its PU configuration, enters sniper-role pools at T1-3. Tables have passed static checks; in-game distribution still awaits verification.
 
 The October 2 6B3 revision adds a new model with front and rear sections, pouches and side straps. Shoulder straps now follow the torso without arm influence. Its fit still awaits in-game verification.
@@ -135,6 +137,8 @@ Combat Legion squads (patrol, garrison, recon, QRF, etc.) field roughly **one Bo
 
 ## Experimental armor visuals
 
+The October 3 chainmail update replaces the fighter's jacket with a textured mail shirt and plates, including exposed arms and neck. Removing it restores the original clothing. Installed for male JAZZ Legion fighters; in-game fit and animation acceptance remain pending.
+
 The September 26 trial rebuild gives chainmail separate plates on leather straps, the brigantine broad tire bands, and heavy tire armor large tread sections and forearm guards. Buckles, rivets, and side lacing add construction detail. The cuirass is preserved. These models still await in-game and visual acceptance; strap fit during extreme bends is not final.
 
 The local experimental build includes the improvised cuirass, chainmail, brigantine, tire armor, and nine Twaron, Guardian, and Zylon torso variants, plus vanilla stand-ins for Flak / Interceptor vests and the mapped helmets. Light, Medium, and Full differ by protective components; test fighters use MP40s and remain outside campaign squads. Only JAZZ Legion males show these visuals. The modern custom vests were reshaped around the test Legion fighter's shirt to reduce excessive rear clearance. Clothing fit and animations still require in-game validation.
@@ -143,6 +147,15 @@ The Soviet helmet on male JAZZ Legion fighters uses a dedicated SSh-68 model, al
 
 Leather armor now has its own improvised plate carrier with riveted shoulder straps, side belts and worn leather texture. It appears on male JAZZ Legion fighters without changing the item's protection. The model is installed in the local experimental build; in-game fit and animation acceptance are still pending.
 
+
+Local appearance update: an olive 6B7-1M model for the existing 6B7 item and a larger SSh-60 shell with a lower rim. Item stats are unchanged. The installed fit still awaits an in-game check.
+
 The improvised brigandine, tire armor and leather vest have new models. Chainmail replaces the upper-body garment and includes the torso beneath its neckline; upper shoulder plates follow the torso while sleeves blend toward the arms. Its original icon is restored. Installed for in-game testing; final animation acceptance remains open.
+
+Local appearance update: a dedicated Flora camouflage 6B13 vest for male Legion units. Item stats are unchanged; the installed fit awaits an in-game check.
+
+Chainmail replaces the upper outfit and temporarily hides the preset vest. Exposed skin and improvised vest fit have been adjusted; updated resources passed offline checks, while in-game acceptance remains open.
+
+In-game fitting: SSh-60 and 6B7-1M sit lower and are 5% smaller. Height accepted; size review is pending.
 
 Installed 6B13, SSh-60 and 6B7-1M models. Both helmets sit lower following in-game review and are 5% smaller. Height accepted; size retained pending another visual check. Item stats unchanged.

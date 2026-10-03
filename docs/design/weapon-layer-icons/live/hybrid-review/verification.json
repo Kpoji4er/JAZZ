@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "installed": false,
+  "runtime_glow_verified": false,
+  "source_files_unchanged": 25,
+  "current_style_byte_identical": true,
+  "soft_opaque_color_unchanged": true,
+  "sizes_and_empty_edges": true,
+  "recipe": {
+    "sigma_at_height_110": 3.2,
+    "spread": 1,
+    "opacity": 0.9,
+    "rgb": [
+      3,
+      3,
+      3
+    ],
+    "unsharp_percent": 45
+  },
+  "builds": [
+    {
+      "weapon": "AK103",
+      "variant": "30",
+      "components": {
+        "Under": "",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Magazine": "JAZZ_MagNormal",
+        "Handguard": "JAZZ_Handguard",
+        "Scope": "",
+        "Muzzle": "JAZZ_DefMuzzle",
+        "Side": "",
+        "Bipod": ""
+      },
+      "size": [
+        324,
+        165
+      ],
+      "native_layers": 5,
+      "checks": "PASS"
+    },
+    {
+      "weapon": "AK103",
+      "variant": "40",
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Side": "",
+        "Magazine": "JAZZ_MagLarge_30_40",
+        "Bipod": "",
+        "Muzzle": "JAZZ_DefMuzzle",
+        "Scope": ""
+      },
+      "size": [
+        324,
+        165
+      ],
+      "native_layers": 5,
+      "checks": "PASS"
+    },
+    {
+      "weapon": "AK103",
+      "variant": "drum",
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Side": "",
+        "Magazine": "JAZZ_MagDrum_30_75",
+        "Bipod": "",
+        "Muzzle": "JAZZ_DefMuzzle",
+        "Scope": ""
+      },
+      "size": [
+        324,
+        165
+      ],
+      "native_layers": 5,
+      "checks": "PASS"
+    },
+    {
+      "weapon": "AK103",
+      "variant": "combined",
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Under": "JAZZ_GP25",
+        "Stock": "JAZZ_StockLightUnFolded",
+        "Side": "JAZZ_FlashlightOff",
+        "Magazine": "JAZZ_MagDrum_30_75",
+        "Bipod": "JAZZ_Bipod",
+        "Muzzle": "JAZZ_SuppressorImproved",
+        "Scope": "JAZZ_CombatScope_ACOG"
+      },
+      "size": [
+        324,
+        165
+      ],
+      "native_layers": 9,
+      "checks": "PASS"
+    },
+    {
+      "weapon": "AK74",
+      "variant": "combined",
+      "components": {
+        "Handguard": "JAZZ_Handguard",
+        "Stock": "JAZZ_StockLightFolded",
+        "Under": "JAZZ_GP25",
+        "Magazine": "JAZZ_MagLarge_30_45",
+        "Bipod": "JAZZ_Bipod",
+        "Muzzle": "",
+        "Scope": "JAZZ_Reflex_Cobra"
+      },
+      "size": [
+        324,
+        165
+      ],
+      "native_layers": 7,
+      "checks": "PASS"
+    },
+    {
+      "weapon": "DesertEagle",
+      "variant": "default",
+      "components": {
+        "Magazine": "JAZZ_MagNormal",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Muzzle": "",
+        "Side": ""
+      },
+      "size": [
+        162,
+        110
+      ],
+      "native_layers": 3,
+      "checks": "PASS"
+    },
+    {
+      "weapon": "HiPower",
+      "variant": "default",
+      "components": {
+        "Magazine": "JAZZ_MagNormal",
+        "Barrel": "JAZZ_BarrelNormal",
+        "Muzzle": ""
+      },
+      "size": [
+        162,
+        110
+      ],
+      "native_layers": 3,
+      "checks": "PASS"
+    }
+  ]
+}

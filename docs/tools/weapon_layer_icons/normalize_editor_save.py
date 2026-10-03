@@ -13,6 +13,8 @@ p.add_argument('--repo',type=Path,required=True)
 p.add_argument('--baseline',type=Path,required=True)
 p.add_argument('--archive',type=Path,required=True)
 p.add_argument('--ak103-magazines',action='store_true',help='Preserve the scoped AK103 availability and donor drum transaction')
+p.add_argument('--ak-family-magazines',action='store_true',help='Preserve AKM donor visual changes and AK103 quick availability')
+p.add_argument('--preserve-items',action='store_true',help='Final code-only editor save: preserve baseline items/companions')
 a=p.parse_args()
 receipt=json.loads((a.baseline/'editor-result.json').read_text(encoding='utf-8'))
 assert receipt['ok'] and receipt['result']['status']=='PASS'
@@ -25,7 +27,32 @@ current=(a.repo/'items.lua').read_text(encoding='utf-8-sig')
 assert current.count('JazzWeaponIcon_BindItemImage(itemIcon, item)')==2
 anchor='itemIcon:SetImage(item.Icon)'
 assert old.count(anchor)==2
-if a.ak103_magazines:
+if a.preserve_items:
+ items=old
+elif a.ak_family_magazines:
+ start=old.index("'Id', \"AK103\"")
+ end=old.index("PlaceObj('ModItem",start)
+ segment=old[start:end]
+ segment,count=re.subn(r'(?m)^([ \t]*)"JAZZ_MagNormal",$',lambda m:m[0]+'\n'+m[1]+'"JAZZ_MagQuick_AK",',segment)
+ assert count==1
+ items=old[:start]+segment+old[end:]
+ for component,targets in {'JAZZ_MagQuick_AK':['AK103','Type56','ZastavaM92'],'JAZZ_MagDrum_30_75':['Type56']}.items():
+  ident=items.index('id = "'+component+'"')
+  start=items.rfind("PlaceObj('ModItemWeaponComponent'",0,ident)
+  segment=items[start:ident]
+  donor=re.search(r"PlaceObj\('WeaponComponentVisual', \{\s*ApplyTo = \"AKM\",.*?\}\),",segment,re.S)
+  assert donor
+  donor_entity=re.search(r'Entity = "([^"]+)"',donor[0])[1]
+  for target in targets:
+   pattern=r"PlaceObj\('WeaponComponentVisual', \{\s*ApplyTo = \""+target+r"\",.*?\}\),"
+   found=re.search(pattern,segment,re.S)
+   if found:
+    updated=re.sub(r'Entity = "[^"]+"','Entity = "'+donor_entity+'"',found[0])
+    segment=segment[:found.start()]+updated+segment[found.end():]
+   else:
+    segment=segment[:donor.end()]+'\n'+donor[0].replace('"AKM"','"'+target+'"')+segment[donor.end():]
+  items=items[:start]+segment+items[ident:]
+elif a.ak103_magazines:
  start=old.index("'Id', \"AK103\"")
  end=old.index("PlaceObj('ModItem",start)
  segment=old[start:end]
@@ -55,7 +82,13 @@ for name in updates:
  if b'\r\n' in (a.baseline/name).read_bytes():updates[name]=updates[name].replace(b'\n',b'\r\n')
 for name in manifest:
  if name.startswith(('InventoryItem/','CharacterEffect/','Entities/','UnitData/')):
-  if a.ak103_magazines and name=='InventoryItem/AK103.lua':
+  if a.ak_family_magazines and name=='InventoryItem/AK103.lua':
+   data=(a.baseline/name).read_bytes()
+   newline=b'\r\n' if b'\r\n' in data else b'\n'
+   data,count=re.subn(rb'(?m)^([ \t]*)"JAZZ_MagNormal",\r?$',lambda m:m[0].rstrip(b'\r')+newline+m[1]+b'"JAZZ_MagQuick_AK",'+(b'\r' if newline==b'\r\n' else b''),data)
+   assert count==1 and b'JAZZ_MagQuick_AK' in (a.repo/name).read_bytes()
+   updates[name]=data
+  elif a.ak103_magazines and name=='InventoryItem/AK103.lua':
    data=(a.baseline/name).read_bytes()
    data,count=re.subn(rb'(?m)^[ \t]*"JAZZ_MagQuick_AK",\r?\n',b'',data)
    assert count==1 and b'JAZZ_MagQuick_AK' not in (a.repo/name).read_bytes()

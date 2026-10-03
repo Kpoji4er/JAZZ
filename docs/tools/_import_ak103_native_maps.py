@@ -38,7 +38,7 @@ def atlas_material(obj,hge,dest):
     size=1024; side=size*grid
     arrays={key:np.zeros((side,side,4),np.float32) for key in ('Base','Normal','RM')}
     arrays['Normal'][:,:,:]=(.5,.5,1,1)
-    arrays['RM'][:,:,:]=(.5,0,0,1)
+    arrays['RM'][:,:,:]=(.5,.5,0,1)
     for i,mat in enumerate(materials):
         x,y=(i%grid)*size,(i//grid)*size
         for key in arrays:
@@ -118,7 +118,7 @@ def main():
                 arr=np.empty(2048*2048*4,np.float32);im.pixels.foreach_get(arr)
                 maps[key]=arr.reshape(2048,2048,4);bpy.data.images.remove(im)
             assert all(k in maps for k in ('Base','Normal','Rough','Metal')),prefix
-            rm=np.ones_like(maps['Rough']);rm[:,:,0]=maps['Rough'][:,:,0];rm[:,:,1]=0;rm[:,:,2]=maps['Metal'][:,:,0]
+            rm=np.ones_like(maps['Rough']);rm[:,:,0]=maps['Rough'][:,:,0];rm[:,:,1]=rm[:,:,0];rm[:,:,2]=maps['Metal'][:,:,0]
             maps['RM']=rm
             images={k:save_tga('AKR_AK103_'+prefix+'_'+k,v,tex,k=='Base') for k,v in maps.items() if k in ('Base','Normal','RM','AO')}
             mat=bpy.data.materials.new('AKR_AK103_'+prefix);mat.use_nodes=True

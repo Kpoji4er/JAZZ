@@ -86,7 +86,44 @@ function SquadBag:GetSquadBag()
 	return GetSquadBag(self.squad_id)
 end
 
+-- JAZZ-INV-006: transient, never serialized with the inventory or campaign.
+-- Compare both source and slot: callers can mutate either table in place.
+local bag_layouts = setmetatable({}, { __mode = "k" })
+local function BagLayoutMatches(bag, squad_id, ui_mode)
+	local cached = bag_layouts[bag]
+	local items = GetSquadBag(squad_id) or empty_table
+	local slot = bag.Inventory
+	if not cached or bag.squad_id ~= squad_id or bag.ui_mode ~= ui_mode or cached.mode ~= ui_mode
+		or cached.source ~= items or cached.slot ~= slot
+		or #cached.items ~= #items or #cached.positions ~= #slot then
+		return false
+	end
+	for i, item in ipairs(items) do
+		if cached.items[i] ~= item or cached.widths[i] ~= item:GetUIWidth()
+			or cached.heights[i] ~= item:GetUIHeight() then return false end
+	end
+	for i, value in ipairs(slot) do
+		if cached.positions[i] ~= value then return false end
+	end
+	return true
+end
+
+local function RememberBagLayout(bag)
+	local items = bag:GetSquadBag() or empty_table
+	local slot = bag.Inventory
+	-- Do not cache a partially populated slot (e.g. an item rejected by CheckClass).
+	if not slot or #slot ~= 2 * #items then return end
+	local cached = { source = items, slot = slot, mode = bag.ui_mode, items = {}, widths = {}, heights = {}, positions = {} }
+	for i, item in ipairs(items) do
+		cached.items[i] = item
+		cached.widths[i], cached.heights[i] = item:GetUIWidth(), item:GetUIHeight()
+	end
+	for i, value in ipairs(slot) do cached.positions[i] = value end
+	bag_layouts[bag] = cached
+end
+
 function SquadBag:Clear()
+	bag_layouts[self] = nil
 	local invSlot = self["Inventory"]
 	if not IsKindOf(invSlot, "InventorySlot") then return end
 	DoneObject(invSlot)
@@ -95,7 +132,8 @@ function SquadBag:Clear()
 	self["Inventory"] = InventorySlot:new()
 end
 
-local g_squad_bag_sort_thread = false
+-- Use the engine handle also read by InventoryUI; preserve it across ReloadLua.
+g_squad_bag_sort_thread = rawget(_G, "g_squad_bag_sort_thread") or false
 function SortItemsInBag(squad_id)
 	DeleteThread(g_squad_bag_sort_thread)
 	g_squad_bag_sort_thread = CreateGameTimeThread(_SortItemsInBag, squad_id)
@@ -107,16 +145,33 @@ function _SortItemsInBag(squad_id)
 		JazzMarkSquadBagData(squad_id)
 	end
 	local stacks = {}
+	local candidates = {}
 	local storage_max = const.JazzStorageStackMax or 10000
 	for idx, item in ipairs(bag_items) do
-		for i = 1, #stacks do
-			local bag_item = stacks[i]
+		-- Same keys as JazzInventoryItemsCanStack; retain the predicate as a guard.
+		local class_candidates = candidates[item.class]
+		if not class_candidates then
+			class_candidates = {}
+			candidates[item.class] = class_candidates
+		end
+		local component = IsKindOf(item, "JAZZ_RemovableAttachment")
+			and (rawget(item, "RemovableComponentId") or item.class) or item.class
+		local bucket = class_candidates[component]
+		if not bucket then
+			bucket = { first = 1 }
+			class_candidates[component] = bucket
+		end
+		for i = bucket.first, #bucket do
+			local bag_item = bucket[i]
 			if JazzInventoryItemsCanStack and JazzInventoryItemsCanStack(bag_item, item) then
 				local max = storage_max
 				local to_add = Min(max - bag_item.Amount, item.Amount)
 				if to_add>0 then
 					bag_item.Amount = bag_item.Amount + to_add
 					item.Amount = item.Amount - to_add
+					if bag_item.Amount >= storage_max and i == bucket.first then
+						bucket.first = i + 1
+					end
 					if item.Amount==0 then
 						DoneObject(item)
 						item = false
@@ -130,6 +185,7 @@ function _SortItemsInBag(squad_id)
 				rawset(item, "MaxStacks", storage_max)
 			end
 			stacks[#stacks + 1] = item
+			if item.Amount < storage_max then bucket[#bucket + 1] = item end
 		end
 	end
 	table.sort(stacks, function(a,b) 
@@ -285,11 +341,15 @@ function GetSquadBagInventory(squad_id, ui_mode)
 	if not gv_SquadBag then
 		gv_SquadBag = PlaceObject("SquadBag")
 	end
-	--if ui_mode and gv_SquadBag.ui_mode~=ui_mode then
+	if not BagLayoutMatches(gv_SquadBag, squad_id, ui_mode) then
 		gv_SquadBag:Clear()
 		gv_SquadBag.ui_mode = ui_mode
-	--end	
-	gv_SquadBag:SetSquadId(squad_id)
+		gv_SquadBag:SetSquadId(squad_id)
+		RememberBagLayout(gv_SquadBag)
+	else
+		-- Stack caps are context-dependent even when layout can be reused.
+		gv_SquadBag:SetSquadId(squad_id)
+	end
 	return gv_SquadBag
 end
 

@@ -195,10 +195,34 @@ local function PartEntity(part)
 	return IsValid(part) and type(part.GetEntity) == "function" and part:GetEntity()
 end
 
-local function ApplyMapped(unit, cache, slot, part_name, map, managed, baseline_key)
+local function ApplyMapped(unit, cache, slot, part_name, map, managed, baseline_key, suppress)
 	if not IsValid(unit) or not unit.parts then return end
 	local state = cache[unit]
 	local current = unit.parts[part_name]
+	-- A full Body garment replaces the preset's separate Armor as well.
+	-- Recover the hidden baseline after save/load even when the weak cache is gone.
+	if part_name == "Armor" and not state and not IsValid(current) and managed_bodies[unit:GetEntity()] then
+		local preset = (rawget(_G, "AppearancePresets") or {})[unit.Appearance]
+		state = { hidden = true, baseline = preset and preset.Armor }
+	end
+	if suppress then
+		local baseline = state and state.baseline or PartEntity(current)
+		if not state and baseline and managed[baseline] then
+			local preset = (rawget(_G, "AppearancePresets") or {})[unit.Appearance]
+			baseline = preset and preset[baseline_key]
+		end
+		if IsValid(current) then DoneObject(current) end
+		unit.parts[part_name] = nil
+		cache[unit] = { hidden = true, baseline = baseline }
+		return
+	elseif state and state.hidden then
+		if not IsValid(current) and state.baseline and IsValidEntity(state.baseline) then
+			CreateMappedPart(unit, part_name, state.baseline, nil, true)
+		end
+		current = unit.parts[part_name]
+		cache[unit] = nil
+		state = nil
+	end
 	if not state and PartEntity(current) and managed[current:GetEntity()] then
 		local presets = rawget(_G, "AppearancePresets") or {}
 		local preset = presets[unit.Appearance]
@@ -283,7 +307,8 @@ local function ApplyMappedBody(unit)
 end
 
 local function ApplyVisuals(unit)
-	ApplyMapped(unit, g_JAZZ_LegionArmorParts, "Torso", "Armor", armor_entities, managed_armor, "Armor")
+	local body = ResolveEntry(unit, "Torso", body_entities)
+	ApplyMapped(unit, g_JAZZ_LegionArmorParts, "Torso", "Armor", armor_entities, managed_armor, "Armor", body ~= nil)
 	ApplyMappedBody(unit)
 	ApplyMapped(unit, g_JAZZ_LegionHatParts, "Head", "Hat", hat_entities, managed_hats, "Hat")
 end
