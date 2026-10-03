@@ -1104,3 +1104,5 @@ Blender `_fit_meshy_6b3_armor.py --input <GLB> --shirt <Shirt08.json> --output <
 6Б3 RM: `_build_legion_armor.py` дублирует roughness в R и G, metallic сохраняет в B, как официальные sample TGA. При исправлении только упаковки переэкспортировать через AssetsProcessor, устанавливать только RM DDS/fallback с backup/hash; Base/Normal, mesh и skin сохранять.
 
 `_check_mosin_configurations.py --build tmp --game-root <JA3_ROOT>` также проверяет обратимость WeaponType/object_class, ancestry data, ImpactForce и атак М38/обреза/1891, восстановление через Setcomponents и независимость экземпляров. Native IsKindOf и полное save/load требуют проверки в игре.
+
+Meshy Legion: `_prepare_meshy_legion.py` reduces approved GLBs to 18k and fits Shirt08; `_review_meshy_legion.py` renders native clothed references. `_install_meshy_legion.py --item --root [--apply]` refreshes existing resources with QA, backup and rollback. Chainmail v5 retains the full torso and rigid upper pauldrons; its pose check isolates arm movement. [Five test units](../design/legion-armor-check-20261003.md).

@@ -3,6 +3,7 @@
 g_JAZZ_LegionArmorHook = rawget(_G, "g_JAZZ_LegionArmorHook") or false
 g_JAZZ_LegionArmorParts = rawget(_G, "g_JAZZ_LegionArmorParts") or setmetatable({}, { __mode = "k" })
 g_JAZZ_LegionHatParts = rawget(_G, "g_JAZZ_LegionHatParts") or setmetatable({}, { __mode = "k" })
+g_JAZZ_LegionBodyParts = rawget(_G, "g_JAZZ_LegionBodyParts") or setmetatable({}, { __mode = "k" })
 
 local function Color(r, g, b)
 	return { r, g, b }
@@ -21,7 +22,6 @@ local armor_entities = {
 	JazzArmor_ZylonMedium = { Male = "JAZZ_ZylonMedium_Male" },
 	JazzArmor_ZylonFull = { Male = "JAZZ_ZylonFull_Male" },
 	JazzArmor_ImprovisedCuirass = { Male = "JAZZ_ImprovisedCuirass_Male" },
-	JazzArmor_Chainmail = { Male = "JAZZ_Chainmail_Male" },
 	JazzArmor_TireBrigantine = { Male = "JAZZ_TireBrigantine_Male" },
 	JazzArmor_TireArmor = { Male = "JAZZ_TireArmor_Male" },
 	JazzArmor_FlakM1955 = { Male = "EquipmentMale_FlackVest", colors = { Color(61, 74, 46) } },
@@ -38,6 +38,10 @@ local armor_entities = {
 		Male = "EquipmentMale_InterceptorVest_02",
 		colors = { Color(42, 54, 30), Color(28, 38, 22), Color(120, 120, 110) },
 	},
+}
+
+local body_entities = {
+	JazzArmor_Chainmail = { Male = "JAZZ_Chainmail_Male" },
 }
 
 -- Hats use parts.Hat (Head spot), never the face mesh in parts.Head.
@@ -115,6 +119,9 @@ local function CollectEntities(map)
 end
 
 local managed_armor = CollectEntities(armor_entities)
+-- Recover saves containing the previous Armor-slot version of Chainmail.
+managed_armor.JAZZ_Chainmail_Male = true
+local managed_bodies = CollectEntities(body_entities)
 local managed_hats = CollectEntities(hat_entities)
 
 local function IsLegion(unit)
@@ -237,8 +244,39 @@ local function ApplyMapped(unit, cache, slot, part_name, map, managed, baseline_
 	if hide_hair then SetHairHidden(unit, true) end
 end
 
+local function ApplyMappedBody(unit)
+	if not IsValid(unit) or not unit.parts then return end
+	-- Body is the unit's own entity in AppearanceObject:ApplyAppearance.
+	-- Recover the erroneous attached Body from older saves/reloads.
+	local legacy = unit.parts.Body
+	if PartEntity(legacy) and managed_bodies[legacy:GetEntity()] then
+		DoneObject(legacy)
+		unit.parts.Body = nil
+	end
+	local current = unit:GetEntity()
+	local state = g_JAZZ_LegionBodyParts[unit]
+	if state and (state.part or current ~= state.entity) then state = nil end
+	local preset = (rawget(_G, "AppearancePresets") or {})[unit.Appearance]
+	if not state and managed_bodies[current] then
+		state = { entity = current, baseline = preset and preset.Body }
+	end
+	local entity = ResolveEntry(unit, "Torso", body_entities)
+	local target = entity or (state and state.baseline)
+	if target and IsValidEntity(target) and current ~= target then
+		local anim = unit:GetStateText()
+		local phase = unit:GetAnimPhase(1)
+		unit:ChangeEntity(target, anim)
+		unit:SetAnimPhase(1, phase)
+		if preset and preset.BodyColor then unit:SetColorization(preset.BodyColor, true) end
+	end
+	g_JAZZ_LegionBodyParts[unit] = entity and {
+		entity = entity, baseline = state and state.baseline or current,
+	} or nil
+end
+
 local function ApplyVisuals(unit)
 	ApplyMapped(unit, g_JAZZ_LegionArmorParts, "Torso", "Armor", armor_entities, managed_armor, "Armor")
+	ApplyMappedBody(unit)
 	ApplyMapped(unit, g_JAZZ_LegionHatParts, "Head", "Hat", hat_entities, managed_hats, "Hat")
 end
 

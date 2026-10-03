@@ -9,6 +9,7 @@ p.add_argument('--clothed',action='store_true')
 p.add_argument('--entity',help='Explicit mesh name for an existing baked source')
 p.add_argument('--elbows',action='store_true',help='Also check forearm guards on improvised tire armor')
 p.add_argument('--torso-only',action='store_true',help='Require no armor motion from isolated clavicle/arm rotations')
+p.add_argument('--body-native-skin',action='store_true',help='Body with marked native skin: gate garment separately and compare combined strain to native body')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:]);a.output=a.output.resolve();a.source=a.source.resolve();a.output.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(a.source))
 armor=bpy.data.objects[a.entity] if a.entity else next(o for o in bpy.data.objects if o.type=='MESH' and o.name.startswith('TEST_'))
@@ -28,10 +29,16 @@ if a.elbows or armor.name.endswith('Full'):
  poses['elbows']=[('Bip001 R Forearm',(0,0,-65)),('Bip001 L Forearm',(0,0,65))]
 if a.torso_only:
  poses['arms_isolated']=[('Bip001 L Clavicle',(0,0,25)),('Bip001 R Clavicle',(0,0,-25)),('Bip001 L UpperArm',(0,-65,35)),('Bip001 R UpperArm',(0,65,-35))]
+shoulders=armor.data.attributes.get('qa_rigid_shoulders')
+if shoulders:
+ shoulder_vertices={i for f in armor.data.polygons if not armor.data.materials[f.material_index].get('jazz_skin_colorization') for i in f.vertices if armor.data.vertices[i].co.z>=1.435 and abs(armor.data.vertices[i].co.x)>.13}
+ assert shoulder_vertices,'No pauldron vertices selected'
+ poses['shoulders_isolated']=[('Bip001 L Clavicle',(0,0,25)),('Bip001 R Clavicle',(0,0,-25)),('Bip001 L UpperArm',(0,-65,35)),('Bip001 R UpperArm',(0,65,-35))]
 scene=bpy.context.scene;scene.cycles.device='CPU';scene.cycles.samples=12;scene.render.resolution_x=600;scene.render.resolution_y=600
 if scene.camera is None:
  bpy.ops.object.camera_add(location=(-1,-2.6,1.95));scene.camera=bpy.context.object;scene.camera.data.type='ORTHO';scene.camera.data.ortho_scale=1.18
 rest=[v.co.copy() for v in armor.data.vertices];rows=[]
+garment_vertices={v for f in armor.data.polygons if not armor.data.materials[f.material_index].get('jazz_skin_colorization') for v in f.vertices}
 reference=bpy.data.objects['M_BaseMesh Skin_BIP']
 reference_rest=[v.co.copy() for v in reference.data.vertices]
 for name,rotations in poses.items():
@@ -43,17 +50,21 @@ for name,rotations in poses.items():
  assert all(math.isfinite(x) for v in pts for x in v)
  movement=max((x-y).length for x,y in zip(pts,rest))
  if name=='rest':evaluated_rest=[v.copy() for v in pts]
+ if name=='shoulders_isolated':
+  rigid_motion=max((pts[i]-evaluated_rest[i]).length for i in shoulder_vertices)
+  assert rigid_motion<1e-5,('pauldrons follow arms',rigid_motion)
  if name=='arms_isolated':
   # Sample rigs have a small rest-matrix residual: compare evaluated poses,
   # not evaluated vertices against raw undeformed coordinates.
   movement=max((x-y).length for x,y in zip(pts,evaluated_rest))
   assert movement<1e-5,(name,'arm motion leaked into torso armor',movement)
  elif rotations:assert .005<movement<1.5,(name,'missing skin motion or exploded mesh',movement)
- strains=[];details=[]
+ strains=[];details=[];garment_strains=[]
  for edge in armor.data.edges:
   i,j=edge.vertices;length=(rest[i]-rest[j]).length
   if length>.003:
    strain=(pts[i]-pts[j]).length/length;strains.append(strain);details.append((strain,list(rest[i]),list(rest[j]),[(armor.vertex_groups[g.group].name,g.weight) for g in armor.data.vertices[i].groups]))
+   if i in garment_vertices and j in garment_vertices:garment_strains.append(strain)
  strains.sort();p99=strains[int(.99*(len(strains)-1))]
  reference_ev=reference.evaluated_get(bpy.context.evaluated_depsgraph_get());reference_mesh=reference_ev.to_mesh();reference_strains=[]
  for edge in reference.data.edges:
@@ -62,9 +73,16 @@ for name,rotations in poses.items():
  reference_strains.sort();reference_p99=reference_strains[int(.99*(len(reference_strains)-1))];reference_ev.to_mesh_clear()
  # Native body itself stretches under synthetic Spine extremes; compare like-for-like.
  limit=max(1.8,min(2.0,reference_p99+.25))
+ if a.body_native_skin:
+  # Direct forearm rotations omit native twist-helper animation. Skin inherited
+  # from that donor must be compared to it; retain the strict garment gate.
+  limit=max(1.8,reference_p99+.25)
+  garment_strains.sort();garment_p99=garment_strains[int(.99*(len(garment_strains)-1))]
+  assert garment_p99<1.8,(name,'garment strain',garment_p99)
  if p99>=limit:print('STRAIN_DIAGNOSTIC',sorted(details,reverse=True)[:8],flush=True)
  assert p99<limit,(name,'excessive stretch relative to native body',p99,reference_p99,limit)
  rows.append({'pose':name,'max_motion_m':movement,'edge_strain_p99':p99,'reference_body_p99':reference_p99,'limit':limit})
+ if a.body_native_skin:rows[-1]['garment_p99']=garment_p99
  ev.to_mesh_clear()
  for side,loc in ([] if a.no_renders else [('front',(-1,-2.6,1.95)),('back',(1,2.6,1.95))]):
   scene.camera.location=loc;scene.camera.rotation_euler=(Vector((0,0,1.25))-scene.camera.location).to_track_quat('-Z','Y').to_euler();scene.camera.data.ortho_scale=1.18

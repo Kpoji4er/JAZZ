@@ -2,6 +2,8 @@
 
 ## Текущий проход: только JAZZ Legion, Male
 
+Исключение 03.10.2026: `JazzArmor_Chainmail` заменяет root entity Body вместо Armor, entity `JAZZ_Chainmail_Male / CharacterBodyMale`. Старый Body восстанавливается при снятии; legacy Chainmail в Armor удаляется при обновлении. Native торс/руки/шея включены в mesh, маска C1 получает BodyColor. Остальные Torso ниже остаются в Armor. Проверено offline/install; игровая приёмка открыта.
+
 Решение 2026-09-15 заменяет старый draft ниже; 2026-09-19 включает ванильные Torso/Head строки из архива. Зарегистрирован `Code/System_LegionArmorVisuals.lua`: только `unitdatadef_id` с префиксом `JAZZ_Legion_`. Надетый Torso идёт в `parts.Armor` / Origin; надетый Head — в `parts.Hat` / Head-spot с Hide Hair. Общая опция и AttachEntries **не активированы**. Female, Scale/Offset/Steroid и незамапленные шлемы/очки не входят. CommonLib вызывает обновление на смене outfit; ItemAdded/ItemRemoved покрывают Torso и Head. Снятие восстанавливает исходную часть; invalid entity/unmapped сохраняют baseline. Общие ванильные меши различаются C1/C2/C3.
 
 

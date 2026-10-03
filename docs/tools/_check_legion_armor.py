@@ -12,8 +12,8 @@ options=parser.parse_args()
 lua=LuaRuntime(unpack_returned_tuples=True)
 lua.execute('''
 OnMsg={}; const={efCollision=1,efWalkable=2,efApplyToGrids=4,gofRealTimeAnim=8}
-valid_entities={JAZZ_ImprovisedCuirass_Male=true,OriginalArmor=true,OtherArmor=true}
-AppearancePresets={Test={Armor='OriginalArmor'}}
+valid_entities={JAZZ_ImprovisedCuirass_Male=true,OriginalArmor=true,OtherArmor=true,OriginalBody=true,OtherBody=true}
+AppearancePresets={Test={Armor='OriginalArmor',Body='OriginalBody'}}
 function IsValid(o) return type(o)=='table' and not o.dead end
 function IsKindOf(o,c) return o.kind==c end
 function IsValidEntity(e) return valid_entities[e] or false end
@@ -34,8 +34,14 @@ function Unit:GetItemInSlot(slot,kind) assert(kind=='Armor');if slot=='Torso' th
 function Unit:GetGameFlags(flag) return 8 end
 function Unit:GetSpotBeginIndex(spot) return spot=='Head' and 7 or 0 end
 function Unit:Attach(part,spot) part.parent=self;part.spot=spot end
+function Unit:GetEntity() return self.entity end
+function Unit:GetStateText() return self.anim or 'idle' end
+function Unit:GetAnimPhase() return self.phase or 0 end
+function Unit:SetAnimPhase(c,p) self.phase=p end
+function Unit:ChangeEntity(e,a) self.entity=e;self.anim=a end
+function Unit:SetColorization(c) self.bodycolor=c end
 function Unit:ApplyPartSpotAttachments(p)
- assert(p=='Armor' or p=='Hat')
+ assert(p=='Armor' or p=='Hat' or p=='Body')
  local appearance=AppearancePresets[self.Appearance]
  self:Attach(self.parts[p],self:GetSpotBeginIndex(appearance[p..'Spot'] or 'Origin'))
 end
@@ -51,10 +57,13 @@ function makeunit(id,gender,baseline)
  if baseline then local p=PlaceObject('AppearanceObjectPart');p:ChangeEntity(baseline);u.parts.Armor=p end
  local hat=PlaceObject('AppearanceObjectPart');hat:ChangeEntity('UnchangedHat');u.parts.Hat=hat
  local hair=PlaceObject('AppearanceObjectPart');hair:ChangeEntity('Hair');hair.visible=true;u.parts.Hair=hair
+ u.entity='OriginalBody'
  return u
 end
 ''')
 source=(ROOT/'Code/System_LegionArmorVisuals.lua').read_text(encoding='utf8');lua.execute(source)
+import re
+lua.globals().source_6b7_entity=re.search(r'JazzArmor_6b7Helm\s*=\s*\{\s*Male\s*=\s*"([^"]+)"',source).group(1)
 lua.execute('''
 u=makeunit('JAZZ_Legion_ArmorTest','Male','OriginalArmor');old=u.parts.Armor;hat=u.parts.Hat
 u.torso={class='JazzArmor_ImprovisedCuirass'}
@@ -96,13 +105,16 @@ helm.head={class='JazzArmor_PASGTHelm'};helm:UpdateItemAppearance()
 assert(oldhat.dead and helm.parts.Hat.entity=='FactionMale_Hat_08' and helm.parts.Hair.visible==false)
 assert(helm.parts.Hat.colors[1]==RGB(61,74,46) and helm.parts.Armor.entity=='OriginalArmor')
 valid_entities.JazzHat_SSh68=true
+-- Resolve the current 6b7 asset independently of this torso regression suite.
+local six=source_6b7_entity
+valid_entities[six]=true
 helm.head={class='JazzArmor_SovietHelm'};helm:UpdateItemAppearance()
 assert(helm.parts.Hat.entity=='JazzHat_SSh68' and helm.parts.Hair.visible==false and not helm.parts.Hat.colors)
 assert(helm.parts.Hat:GetAttachOffset().z==-40)
 helm:UpdateItemAppearance();helm:UpdateItemAppearance()
 assert(helm.parts.Hat:GetAttachOffset().z==-40, 'helmet offset must not accumulate')
 local same=helm.parts.Hat;helm.head={class='JazzArmor_6b7Helm'};helm:UpdateItemAppearance()
-assert(helm.parts.Hat.entity=='FactionMale_Hat_10' and same.dead and helm.parts.Hair.visible==false)
+assert(helm.parts.Hat.entity==six and same.dead and helm.parts.Hair.visible==false)
 assert(helm.parts.Hat:GetAttachOffset().z==0, 'SSh68 fit must not leak to other hats')
 assert(helm.parts.Hat:GetAttachSpot()==7, '6b7 must attach to Head despite baseline Origin')
 assert(helm.parts.Armor:GetAttachSpot()==nil, 'unchanged armor must remain untouched')
@@ -123,7 +135,7 @@ local parmor,phat,phair=merc.parts.Armor,merc.parts.Hat,merc.parts.Hair.visible
 merc:UpdateItemAppearance();assert(merc.parts.Armor==parmor and merc.parts.Hat==phat and merc.parts.Hair.visible==phair)
 ''')
 lua.execute('''
-for _,suffix in ipairs({'Chainmail','TireBrigantine','TireArmor','TwaronLight','TwaronMedium','TwaronFull','GuardianLight','GuardianMedium','GuardianFull','ZylonLight','ZylonMedium','ZylonFull','6B3','LeatherArmor'}) do
+for _,suffix in ipairs({'TireBrigantine','TireArmor','TwaronLight','TwaronMedium','TwaronFull','GuardianLight','GuardianMedium','GuardianFull','ZylonLight','ZylonMedium','ZylonFull','6B3','LeatherArmor'}) do
  local entity='JAZZ_'..suffix..'_Male';valid_entities[entity]=true
  local v=makeunit('JAZZ_Legion_ArmorTest_'..suffix,'Male','OriginalArmor')
  v.torso={class='JazzArmor_'..suffix};v:UpdateItemAppearance();assert(v.parts.Armor.entity==entity)
@@ -137,6 +149,32 @@ for _,suffix in ipairs({'Chainmail','TireBrigantine','TireArmor','TwaronLight','
 end
 ''')
 # A new compiled Unit class can install a fresh CL method without rebasing a live wrapper.
+lua.execute('''
+valid_entities.JAZZ_Chainmail_Male=true
+local v=makeunit('JAZZ_Legion_ArmorTest_Chainmail','Male','OriginalArmor')
+local hat=v.parts.Hat
+v.torso={class='JazzArmor_Chainmail'};v:UpdateItemAppearance()
+assert(v.entity=='JAZZ_Chainmail_Male' and not v.parts.Body)
+assert(v.parts.Armor.entity=='OriginalArmor' and v.parts.Hat==hat)
+v:UpdateItemAppearance();assert(v.entity=='JAZZ_Chainmail_Male')
+v.torso={class='JazzArmor_ImprovisedCuirass'};v:UpdateItemAppearance()
+assert(v.entity=='OriginalBody' and v.parts.Armor.entity=='JAZZ_ImprovisedCuirass_Male')
+v.torso={class='JazzArmor_Chainmail'};v:UpdateItemAppearance()
+assert(v.parts.Armor.entity=='OriginalArmor')
+v:ChangeEntity('OtherBody');v:UpdateItemAppearance();v.torso=nil;v:UpdateItemAppearance();assert(v.entity=='OtherBody')
+v.torso={class='JazzArmor_Chainmail'};v:UpdateItemAppearance();g_JAZZ_LegionBodyParts=setmetatable({}, {__mode='k'})
+v.torso=nil;v:UpdateItemAppearance();assert(v.entity=='OriginalBody')
+-- Migration of the old Armor-slot entity on a saved unit.
+local old=v.parts.Armor;old:ChangeEntity('JAZZ_Chainmail_Male');g_JAZZ_LegionArmorParts=setmetatable({}, {__mode='k'})
+v.torso={class='JazzArmor_Chainmail'};v:UpdateItemAppearance()
+assert(old.dead and v.parts.Armor.entity=='OriginalArmor' and v.entity=='JAZZ_Chainmail_Male')
+valid_entities.JAZZ_Chainmail_Male=nil;v:UpdateItemAppearance();assert(v.entity=='OriginalBody')
+valid_entities.JAZZ_Chainmail_Male=true
+for _,row in ipairs({{'Igor','Male'},{'JAZZ_Legion_Female','Female'}}) do
+ local other=makeunit(row[1],row[2],'OriginalArmor');local original=other.entity
+ other.torso={class='JazzArmor_Chainmail'};other:UpdateItemAppearance();assert(other.entity==original)
+end
+''')
 lua.execute("Unit={UpdateItemAppearance=function() return 'newbase' end};OnMsg.ClassesBuilt();assert(g_JAZZ_LegionArmorHook.owner==Unit)")
 print('PASS: mocked gating, equip/unequip, baseline, appearance rebuild, saved parts, idempotent reload, base return values')
 

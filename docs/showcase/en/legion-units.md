@@ -142,3 +142,5 @@ The local experimental build includes the improvised cuirass, chainmail, brigant
 The Soviet helmet on male JAZZ Legion fighters uses a dedicated SSh-68 model, also equipped by the 6B3 test fighter. The item retains its SSh-40 name; the new model still needs an in-game fit check.
 
 Leather armor now has its own improvised plate carrier with riveted shoulder straps, side belts and worn leather texture. It appears on male JAZZ Legion fighters without changing the item's protection. The model is installed in the local experimental build; in-game fit and animation acceptance are still pending.
+
+The improvised brigandine, tire armor and leather vest have new models. Chainmail replaces the upper-body garment and includes the torso beneath its neckline; upper shoulder plates follow the torso while sleeves blend toward the arms. Its original icon is restored. Installed for in-game testing; final animation acceptance remains open.

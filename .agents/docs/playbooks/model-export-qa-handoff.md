@@ -1,5 +1,11 @@
 # Приёмка экспортов моделей — handoff для Астры
 
+## Chainmail Body — 03.10.2026
+
+Установлен новый Meshy-кандидат `JAZZ_Chainmail_Male`, теперь CharacterBodyMale: 22272 tri вместе с native торсом/руками/шеей, Base/Norm/RM/Color 2048, skin C1 сохраняет BodyColor юнита. Существующий `JAZZ_Legion_ArmorTest_Chainmail` — группа JAZZ Tests, MP40/120 FMJ; предмет/характеристики сохранены, оригинальная иконка возвращена. Исходники, 12 pose renders, baked front/back и backup: `jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/`. Offline normals/pose/compiled geometry+skin, ресурсные hashes и Body lifecycle mock PASS; root Body correction проверена live; финальный mesh в игре/editor ещё не проверен.
+
+Проверить в новом процессе: цвет рук относительно головы, neck/head и Body/Pants швы, подмышки/низ рукава при aim, crouch/prone, напашник при движении ног, снятие/смена кольчуги с возвратом исходной куртки. Проверить сохранение со старой Armor-кольчугой: после обновления appearance остаётся только Body-вариант. Это новая игровая приёмка; старые замечания нельзя закрывать численным offline PASS.
+
 Новая обратная связь 28.09.2026: пересечения спины HAV, задние ремни кольчуги без понятного крепления, по-прежнему неудовлетворительная посадка 6Б3. [Список и игровые скриншоты](../../../docs/design/armor-visual-feedback-20260928.md). Также открыто несоответствие тональности новых оружейных иконок старым (см. weapon feedback ниже). Прежние offline PASS эти замечания не закрывают; новых исправлений по этому дополнению пока нет.
 
 Повторная приёмка 28.09.2026: установлен проход `REQ-VISUAL-028` (19 файлов, backup/SHA256). Исправлен UI blocked коротких стволов AR15, планка M14 выделена в OpticsMount, сошки на газовой трубке, EBR Side/Under на RIS без M203, UV каймы рукояти VZ58, сглаживание AK103 20°, папка VZ/R4 и цветная MkIII-иконка. [Контекст и изображения](../../../docs/design/weapon-visual-feedback-20260927.md). Новая игровая/editor приёмка открыта; нижеследующий проход 27.09 — история.

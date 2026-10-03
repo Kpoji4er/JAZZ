@@ -13,6 +13,7 @@ from mathutils import Vector
 p=argparse.ArgumentParser(); p.add_argument('--source',required=True,type=Path); p.add_argument('--output',required=True,type=Path); p.add_argument('--game-root',required=True,type=Path)
 p.add_argument('--entity',default='JAZZ_ImprovisedCuirass_Male');p.add_argument('--mesh-prefix',default='TEST_ImprovisedCuirass');p.add_argument('--icon',default='ImprovisedCuirass')
 p.add_argument('--frame-all',action='store_true',help='Frame the full mesh for non-torso characters')
+p.add_argument('--skin-colorization',action='store_true',help='Bake channel-one colorization on marked native skin materials only')
 p.add_argument('--texture-size',type=int,choices=(1024,2048),default=1024)
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:]); out=a.output.resolve(); out.mkdir(parents=True,exist_ok=True)
 _TOOLS=Path(__file__).resolve().parent
@@ -41,23 +42,24 @@ scene.render.filepath=str(out/(a.icon+'.png')); bpy.ops.render.render(write_stil
 for o in list(bpy.data.objects):
     if o not in (armor,rig):bpy.data.objects.remove(o,do_unlink=True)
 bpy.ops.object.select_all(action='DESELECT'); armor.hide_set(False); armor.select_set(True); bpy.context.view_layer.objects.active=armor
-if entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male'):
+if entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male','JAZZ_TireBrigantine_Male','JAZZ_TireArmor_Male') or a.skin_colorization:
     # Bake against the final triangle normals/tangents, not the source quads.
     # Changing the quad diagonal after a normal bake leaves dark edge specks.
     prepare_export_mesh(armor)
 scene.cycles.samples=16; scene.render.bake.margin=8; scene.render.bake.use_selected_to_active=False
 original=list(armor.data.materials); imgs={}; texture_size=a.texture_size
-for label,kind in [('Base','DIFFUSE'),('Norm','NORMAL'),('Rough','ROUGHNESS'),('Metal','EMIT')]:
+for label,kind in [('Base','DIFFUSE'),('Norm','NORMAL'),('Rough','ROUGHNESS'),('Metal','EMIT')]+([('Color','EMIT')] if a.skin_colorization else []):
     im=bpy.data.images.new(entity+'_'+label,width=texture_size,height=texture_size,alpha=True); im.colorspace_settings.name='sRGB' if label=='Base' else 'Non-Color'; imgs[label]=im
     restore=[]
     for m in original:
         node=m.node_tree.nodes.new('ShaderNodeTexImage');node.image=im;m.node_tree.nodes.active=node
-        if label=='Metal':
+        if label in ('Metal','Color'):
             output=next(n for n in m.node_tree.nodes if n.type=='OUTPUT_MATERIAL'); old=output.inputs['Surface'].links[0].from_socket
             value=m.node_tree.nodes.get('Principled BSDF').inputs['Metallic'].default_value
-            emission=m.node_tree.nodes.new('ShaderNodeEmission');emission.inputs[0].default_value=(value,value,value,1);m.node_tree.links.new(emission.outputs[0],output.inputs['Surface']);restore.append((m,output,old,emission))
+            color=(1,0,0,1) if m.get('jazz_skin_colorization') else (0,0,0,1)
+            emission=m.node_tree.nodes.new('ShaderNodeEmission');emission.inputs[0].default_value=color if label=='Color' else (value,value,value,1);m.node_tree.links.new(emission.outputs[0],output.inputs['Surface']);restore.append((m,output,old,emission))
             metallic=m.node_tree.nodes.get('Principled BSDF').inputs['Metallic']
-            if metallic.is_linked:m.node_tree.links.new(metallic.links[0].from_socket,emission.inputs[0])
+            if label=='Metal' and metallic.is_linked:m.node_tree.links.new(metallic.links[0].from_socket,emission.inputs[0])
     scene.render.bake.use_pass_direct=False;scene.render.bake.use_pass_indirect=False;scene.render.bake.use_pass_color=True
     bpy.ops.object.bake(type=kind)
     for m,output,old,emission in restore:m.node_tree.links.new(old,output.inputs['Surface']);m.node_tree.nodes.remove(emission)
@@ -70,7 +72,7 @@ im=bpy.data.images.new(entity+'_RM',width=texture_size,height=texture_size,alpha
 mat=bpy.data.materials.new(entity);mat.use_nodes=True;hge.add_material_props(mat)
 for prop in hge.MATERIAL_PROPERTIES:
     if prop.settings_name:
-        key={'base_color':'Base','normal_map':'Norm','roughness_metallic_map':'RM'}.get(prop.settings_name)
+        key={'base_color':'Base','normal_map':'Norm','roughness_metallic_map':'RM','colorization_mask':'Color' if a.skin_colorization else None}.get(prop.settings_name)
         if key:mat[prop.id]=imgs[key].filepath_raw
         elif prop.map:mat[prop.id]=''
         else:mat[prop.id]=getattr(mat.hgm_settings,prop.settings_name)
@@ -81,7 +83,7 @@ armor.data.materials.clear();armor.data.materials.append(mat)
 for face in armor.data.polygons:face.material_index=0
 # 6B3 keeps its authored material UVs only until they have been baked. The game
 # receives one atlas UV layer, so the FBX reader cannot choose the source UVs.
-if entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male') and 'SourceUV' in armor.data.uv_layers:
+if (entity in ('JAZZ_6B3_Male','JAZZ_LeatherArmor_Male','JAZZ_TireBrigantine_Male','JAZZ_TireArmor_Male') or a.skin_colorization) and 'SourceUV' in armor.data.uv_layers:
     assert armor.data.uv_layers.active.name == 'ExportUV'
     armor.data.uv_layers.remove(armor.data.uv_layers['SourceUV'])
     assert len(armor.data.uv_layers) == 1

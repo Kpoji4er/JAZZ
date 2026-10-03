@@ -13,6 +13,16 @@ risk: medium
 generated_data: true
 runtime_validation: required
 write_set:
+  - jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/**
+  - jazz_assets/Sources/Character/JAZZ_TireArmor_Male/**
+  - jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/**
+  - jazz_assets/Sources/Character/JAZZ_Chainmail_Male/**
+  - jazz/docs/tools/_audit_compiled_weapon_mesh.py
+  - jazz/docs/tools/*chainmail*
+  - jazz/docs/design/legion-armor-check-20261003.md
+  - jazz/docs/tools/_review_meshy_legion.py
+  - jazz/docs/tools/_install_meshy_legion.py
+  - jazz/docs/tools/_prepare_meshy_legion.py
   - jazz/.agents/docs/playbooks/model-export-qa-handoff.md
   - jazz/docs/tools/_audit_blender_normals.py
   - jazz/docs/tools/*leather_armor*
@@ -429,3 +439,21 @@ Evidence AC-MESHY-6B3, 2026-10-02: владелец сообщил «закры�
 Evidence RM: официальный AP export PASS; source TGA R=G побайтно, прежние R/B неизменны. DDS BC1 linear 2048/12 mips и fallback 64/7 mips PASS; RG средняя разница 0,70/0,66 из 255, max 6 (RGB565). Stage `meshy-20261002-rg-roughness`, `rm-audit.json`. Установка NOT_RUN: игра/редактор оказались открыты на финальной проверке; активные файлы не менялись.
 
 2026-10-03, после подтверждения «закрыл»: установлены только RM DDS и fallback 6Б3; backup и SHA256 PASS, остальные семь ресурсов неизменны. `rm-installation.json` хранит receipt. Локальный commit разрешён; runtime нового RM NOT_RUN.
+
+## Meshy Chainmail как Body, 2026-10-03
+
+Решение владельца: «ну теперь в игру вставляй; возможно есть смысл ее курткой сделать а не поверх куртки». Разрешена установка принятого текстурированного Meshy-кандидата; выбран Body для рубахи с рукавами. Это разрешение производства/установки, не runtime acceptance.
+
+- JAZZ-APPEAR-001-REQ-031 — Подогнать принятую Chainmail к Male sample, сохранить материалы и добавить необходимые открытые руки/кисти/шею. Существующий JAZZ_Chainmail_Male перевести в CharacterBodyMale и подключить JazzArmor_Chainmail как временный Body существующих JAZZ_Legion_* Male. При снятии/замене вернуть исходный Body; не оставлять прежнюю куртку под кольчугой. Сохранить предмет, баланс, иконку, тестовый UnitData, остальные семейства, Male/Female guard и единственный wrapper. Сохранить backup перед заменой ресурсов, исходники и отчёты в Sources/Character/JAZZ_Chainmail_Male. Мерки/Female и остальные модели вне этого изменения.
+- JAZZ-APPEAR-001-AC-031 — static/offline: корректные веса до четырёх костей, recalc normals без custom normals, material/rest/pose renders, штатный HGE/AP export и compiled graph; executable: equip/unequip/смена предмета/appearance rebuild/cache recovery для Body без регрессии Armor/Hat; install: backup/hash, ModItem+EntityData class согласованы, metadata ID/load order сохранены. Editor/runtime/human: Body, руки и шея, aim/crouch/prone и возврат одежды в игре — отдельная приёмка, не подменять offline проверками.
+
+Ownership: runtime и инструменты — jazz; модели, классы entity, ресурсы — jazz_assets. Изменений jazz-units не требуется, существующий ArmorTest_Chainmail используется без правки. Declared write set дополняет перечисленные пути Chainmail; общие items/metadata editor state остаются exclusive. Ручная согласованная транзакция установки допустима при закрытой игре; shader binaries не патчить. Общая spec остаётся approved до открытой runtime/human приёмки прежних AC.
+
+Historical v1 evidence AC-031 (superseded by v5 below): PASS static/offline/install — 20740 tri с native руками/шеей, Base/Norm/RM/Color 2048, ноль custom normals/geometry fatal; 5 synthetic poses, отдельный garment p99 <1,8. Для native skin локтевой тест сравнивается со штатным sample (вспомогательные twist-кости вручную не анимируются); не выдавать за game animation. HGE/AP 86 bones, compiled winding PASS, max vertex error 0,1008 мм (явный лимит 0,11 мм вместо default 0,1 мм), compiled weight max L1 0,01153. Ранний skin atlas overlap исправлен; финальные front/back bake просмотрены. 13 файлов установлены с backup/hash; предмет, icon, metadata, test UnitData сохранены. Runtime mock: Body equip/unequip/replacement, rebuild/cache recovery, legacy Armor migration, Male/Legion guards и Armor/Hat regression PASS. Assets generated audit: 14 warnings до, 13 после, новых ошибок нет. Editor round-trip/runtime/human NOT_RUN, игра не запускалась. Все изменения незакоммиченные; общая spec остаётся approved.
+
+## Meshy Legion trio installation, 2026-10-03
+Owner explicitly approved: «вставляй в игру и потом коммит», with all five test units documented. REQ-032: install approved TireBrigantine, TireArmor, LeatherArmor image-to-3D results into their existing CharacterArmorMale resources after local simplification, native Male binding, PBR baking and official export. Preserve original item icons, stats, IDs and test loadouts. Keep the installed Chainmail Body and accepted handcrafted cuirass; do not replace the cuirass with its unrigged Meshy preview. Twaron/Guardian/Zylon excluded. No new paid Meshy jobs. Sources under each existing entity, existing resource graph only, tooling/docs plus targeted revision commits in jazz and jazz_assets. AC-032: source normals/skin, clothed views, pose checks, compiled topology/winding, backup and hash installation; exact five existing UnitData loadouts checked. Runtime/editor/human acceptance remains separate until observed in game.
+
+REQ-033: owner asked to restore the original Chainmail icon, remove the shirt/neck void and stop arm-driven pauldron distortion. Root Body replacement follows native AppearanceObject; retain animation state/phase, remove erroneous legacy parts.Body, retain full developer torso. Upper caps use Spine2, sleeve transition is smooth. AC-033: live DAP confirmed Shirt08 root plus erroneous attach before, Chainmail root with no Body/Armor attach after code fix. Source v5 has 22272 tri and six pose gates, compiled geometry/winding/skin checks. Final game acceptance pending. Tooling/write set also includes _review_meshy_legion.py and docs/design/legion-armor-check-20261003.md. Broad spec remains approved for outstanding runtime/human criteria.
+
+Final evidence: four models installed with backup and SHA256 verification. Chainmail v5 22272 triangles, full torso, six pose gates including isolated shoulders; trio 18000 triangles each. Cuirass preserved. Final runtime/editor acceptance remains open.

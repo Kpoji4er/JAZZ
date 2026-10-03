@@ -12,6 +12,7 @@ p=argparse.ArgumentParser()
 for n in ('blend','decoded','report'):p.add_argument('--'+n,type=Path,required=True)
 p.add_argument('--entity',required=True)
 p.add_argument('--check-winding',action='store_true',help='Require orientation consistency after JA3 coordinate conversion')
+p.add_argument('--position-tolerance-mm',type=float,default=.1,help='Explicit absolute HGM position tolerance; default 0.1 mm')
 a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 bpy.ops.wm.open_mainfile(filepath=str(a.blend));mesh=bpy.data.objects[a.entity].data
 mesh.calc_loop_triangles()
@@ -39,7 +40,8 @@ reverse=tree(actual_centres)
 max_missing=max(reverse.find(v)[2] for v in centres)
 report={'entity':a.entity,'source_triangles':len(centres),'compiled_triangles':count,
  'vertex_max_m':max_vertex,'triangle_max_m':max_face,'missing_triangle_max_m':max_missing,
- 'pass':count==len(centres) and max(max_vertex,max_face,max_missing)<.0001}
+ 'position_tolerance_mm':a.position_tolerance_mm,
+ 'pass':count==len(centres) and max(max_vertex,max_face,max_missing)<a.position_tolerance_mm/1000}
 report['winding_positive_area_fraction']=positive_area/max(positive_area+negative_area,1e-20)
 if a.check_winding:
     # The position mapping above has determinant -1; native index winding is
