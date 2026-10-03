@@ -215,6 +215,10 @@ def materialize(repo: Path, sha: str, dest: Path) -> None:
                 if not member.isfile() or should_skip(member.name, ignore):
                     continue
                 tar.extract(member, dest, filter="data")
+        # tar iteration stops at end-of-archive before git's trailing padding.
+        # Drain the pipe before wait: Windows pipes may otherwise block git.
+        while proc.stdout.read(1024 * 1024):
+            pass
         if proc.wait() != 0:
             raise RuntimeError(f"git archive failed for {repo}@{sha}")
     hydrate_lfs(dest, repo, sha)

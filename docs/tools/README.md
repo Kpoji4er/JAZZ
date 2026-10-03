@@ -1193,3 +1193,7 @@ Meshy Legion: `_prepare_meshy_legion.py` reduces approved GLBs to 18k and fits S
 Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_meshy_helmets.py`; `_repair_6b13_rear.py`, `_prepare_6b13_scene.py`, `_install_meshy_6b13.py`. Generic fitting accepts `--item`, compiled skin audit accepts `--entity`; armor bake handles JAZZ_6B13_Male. Use each tool’s argparse options; installers are initial-install workflows, not universal refresh commands.
 
 - `_sync_aek_hk416_attachment_docs.py` синхронизирует только слоты AEK971/HK416 из установленных companion в три canonical CSV; затем `node scripts/docs/weapons-docs.mjs build`.
+
+`_check_legion_armor.py`: mocked lifecycle учитывает текущий масштаб 95% и независимые смещения СШ-60/6Б7; повторное обновление не должно накапливать смещение.
+
+`_pack_suite_release.py`: после конца TAR дочитывает stdout `git archive` до EOF перед ожиданием процесса; предотвращает блокировку на завершающем padding в Windows.

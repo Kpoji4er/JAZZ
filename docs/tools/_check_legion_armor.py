@@ -49,6 +49,7 @@ function Unit:ColorizePart(p) self.parts[p].colorized=true end
 function RGB(r,g,b) return r*65536+g*256+b end
 function Part:SetColorizationMaterial(i,color,r,m) self.colors=self.colors or {};self.colors[i]=color end
 function Part:SetVisible(v) self.visible=v end
+function Part:SetScale(v) self.scale=v end
 base_calls=0
 function Unit:UpdateItemAppearance() base_calls=base_calls+1;return 'base',nil,17 end
 function UpdateItemAppearanceDelayed(u) u:UpdateItemAppearance() end
@@ -110,12 +111,12 @@ local six=source_6b7_entity
 valid_entities[six]=true
 helm.head={class='JazzArmor_SovietHelm'};helm:UpdateItemAppearance()
 assert(helm.parts.Hat.entity=='JazzHat_SSh68' and helm.parts.Hair.visible==false and not helm.parts.Hat.colors)
-assert(helm.parts.Hat:GetAttachOffset().z==-40)
+assert(helm.parts.Hat:GetAttachOffset().z==-110 and helm.parts.Hat.scale==95)
 helm:UpdateItemAppearance();helm:UpdateItemAppearance()
-assert(helm.parts.Hat:GetAttachOffset().z==-40, 'helmet offset must not accumulate')
+assert(helm.parts.Hat:GetAttachOffset().z==-110, 'helmet offset must not accumulate')
 local same=helm.parts.Hat;helm.head={class='JazzArmor_6b7Helm'};helm:UpdateItemAppearance()
 assert(helm.parts.Hat.entity==six and same.dead and helm.parts.Hair.visible==false)
-assert(helm.parts.Hat:GetAttachOffset().z==0, 'SSh68 fit must not leak to other hats')
+assert(helm.parts.Hat:GetAttachOffset().z==-70 and helm.parts.Hat.scale==95, '6b7 must use its own fit')
 assert(helm.parts.Hat:GetAttachSpot()==7, '6b7 must attach to Head despite baseline Origin')
 assert(helm.parts.Armor:GetAttachSpot()==nil, 'unchanged armor must remain untouched')
 local retained=helm.parts.Hat;helm:Attach(retained,0);helm:UpdateItemAppearance()
