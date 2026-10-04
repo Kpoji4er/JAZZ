@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "release_version": {
+    "display": "0.20-6245",
+    "tag": "v0.20.6245",
+    "source": "Kpoji4er/JAZZ@f8b1f1e0c127e413f05d0266df7e0d6b360ff088:metadata.lua",
+    "version_major": 0,
+    "version_minor": 20,
+    "revision": 6245
+  },
+  "game": {
+    "lua_revision": 233360,
+    "saved_with_revision": 366685
+  },
+  "commonlib": {
+    "version": "1.11",
+    "build": 1067,
+    "commit": "a1a5f4819d60b4d410d515f926ef45646c6989e7"
+  },
+  "packages": [
+    {
+      "name": "JAZZ",
+      "repository": "Kpoji4er/JAZZ",
+      "mod_id": "e6L4ECj",
+      "commit": "f8b1f1e0c127e413f05d0266df7e0d6b360ff088",
+      "version_major": 0,
+      "version_minor": 20,
+      "version": 6245,
+      "metadata_display": "0.20-6245",
+      "artifact": "JAZZ-v0.20.6245.zip",
+      "sha256": "00514ec00c785d8e09890176863e7ceaf0f7abc6c33721f0bae826dc03eb2b95"
+    },
+    {
+      "name": "JAZZ-assets",
+      "repository": "Kpoji4er/JAZZ-assets",
+      "mod_id": "pDGDhr",
+      "commit": "3d55a02ff6a2aaa3d4aad32ec1f102c7550f795b",
+      "version_major": 0,
+      "version_minor": 2,
+      "version": 663,
+      "metadata_display": "0.02-663",
+      "artifact": "JAZZ-assets-v0.20.6245.zip",
+      "sha256": "c0c7d534917fbba6efbb72b95c2a137a38d821f4a0268962aa9ceb7c9d9f8993"
+    },
+    {
+      "name": "JAZZ-maps",
+      "repository": "Kpoji4er/JAZZ-maps",
+      "mod_id": "FhNNYd",
+      "commit": "a9928468585f1d5386f7b0ad530d973d01f6ed6b",
+      "version_major": 1,
+      "version_minor": 7,
+      "version": 5187,
+      "metadata_display": "1.07-5187",
+      "artifact": "JAZZ-maps-v0.20.6245.zip",
+      "sha256": "b0a567c3e3c32507598577d2814397e63fb0fe0a9f14b32bfa6a97074499c847"
+    },
+    {
+      "name": "JAZZ-units",
+      "repository": "Kpoji4er/JAZZ-units",
+      "mod_id": "Dv3mFVN",
+      "commit": "cafbec35f3defa8d53a1c81f9075da50548dc621",
+      "version_major": 0,
+      "version_minor": 19,
+      "version": 2338,
+      "metadata_display": "0.19-2338",
+      "artifact": "JAZZ-units-v0.20.6245.zip",
+      "sha256": "633d63c4aee0519bd19695d41024fc289c5462f09edcff9a69abead9227997cf"
+    }
+  ],
+  "distribution": [
+    {
+      "package": "JAZZ",
+      "artifacts": [
+        {
+          "artifact": "JAZZ-v0.20.6245.zip",
+          "sha256": "00514ec00c785d8e09890176863e7ceaf0f7abc6c33721f0bae826dc03eb2b95",
+          "bytes": 128302886
+        }
+      ]
+    },
+    {
+      "package": "JAZZ-assets",
+      "artifacts": [
+        {
+          "artifact": "JAZZ-assets-v0.20.6245-part01.zip",
+          "sha256": "61dbd2f446e3891f6b10a207a177f75f1dcf30d5158580ef741019da3f29a921",
+          "bytes": 1607870086
+        },
+        {
+          "artifact": "JAZZ-assets-v0.20.6245-part02.zip",
+          "sha256": "d267adf9a0b46a74fa953ed65717970e388ed074e464c82d66cc2d107b42c79f",
+          "bytes": 797132085
+        }
+      ]
+    },
+    {
+      "package": "JAZZ-maps",
+      "artifacts": [
+        {
+          "artifact": "JAZZ-maps-v0.20.6245.zip",
+          "sha256": "b0a567c3e3c32507598577d2814397e63fb0fe0a9f14b32bfa6a97074499c847",
+          "bytes": 307149614
+        }
+      ]
+    },
+    {
+      "package": "JAZZ-units",
+      "artifacts": [
+        {
+          "artifact": "JAZZ-units-v0.20.6245.zip",
+          "sha256": "633d63c4aee0519bd19695d41024fc289c5462f09edcff9a69abead9227997cf",
+          "bytes": 275206501
+        }
+      ]
+    }
+  ]
+}
