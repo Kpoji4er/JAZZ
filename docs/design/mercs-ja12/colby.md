@@ -9,7 +9,7 @@ role: Demolitions
 tier: Elite
 specialization: ExplosiveExpert
 gender: Male
-nationality: Canada
+nationality: Australia
 voice_source: ja2
 starting_level: 5
 will: 80

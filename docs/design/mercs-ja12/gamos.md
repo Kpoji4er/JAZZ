@@ -9,7 +9,7 @@ role: Scout
 tier: Regular
 specialization: Stealth
 gender: Male
-nationality: Arulco
+nationality: Metavira
 voice_source: ja2
 starting_level: 3
 will: 55

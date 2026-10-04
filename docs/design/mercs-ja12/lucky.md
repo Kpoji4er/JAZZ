@@ -9,7 +9,7 @@ role: Autorifleman
 tier: Veteran
 specialization: Autoriflemen
 gender: Male
-nationality: France
+nationality: Belgium
 voice_source: wildfire
 starting_level: 4
 will: 55

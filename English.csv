@@ -12960,3 +12960,11 @@ Speck",,JAZZ-UI-MERC-001
 890000000033101,HK416,HK416,,jazz:InventoryItem/HK416.lua:14 | jazz:InventoryItem/HK416.lua:15 | jazz:items.lua:119373 | jazz:items.lua:119374
 890000000033103,"Современный карабин под патрон 5,56×45 мм. Сменные стволы, приклады и прицелы; магазин STANAG на 30 патронов.","A modern 5.56x45 mm carbine with interchangeable barrels, stocks and optics. Uses a 30-round STANAG magazine.",,jazz:InventoryItem/HK416.lua:16 | jazz:items.lua:119375
 890000000033104,Приклад Magpul CTR,Magpul CTR stock,,jazz:items.lua:119610
+890000000033105,Belgium,Belgium,,JA2_Nationality_Belgium
+890000000033106,Estonia,Estonia,,JA2_Nationality_Estonia
+890000000033107,France,France,,JA2_Nationality_France
+890000000033108,Ireland,Ireland,,JA2_Nationality_Ireland
+890000000033109,Italy,Italy,,JA2_Nationality_Italy
+890000000033110,Metavira,Metavira,,JA2_Nationality_Metavira
+890000000033111,Romania,Romania,,JA2_Nationality_Romania
+890000000033112,Australia,Australia,,JA2_Nationality_Australia

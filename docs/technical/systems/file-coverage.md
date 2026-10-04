@@ -110,6 +110,7 @@
 | `System_RIS_Strategy.lua` | loaded | [R.I.S.](ris-intelligence.md) — read-only Legion AI observer + one-row Strategy dispatch; loaded after `Guardpost_Patrols.lua` |
 | `System_AME_Browser_Template.lua` | source-only | [Юниты и специализации](units-progression-specializations.md) — editable source projected by `_install_ame_xtemplate_moditem.py` into loaded `ModItemXTemplate` `PDAAIMEBrowser` in `items.lua` (UNITS-005) |
 | `System_AME_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — AME MercNationalities + flags (UNITS-005) |
+| `System_JA2_Nationalities.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — Australia, Belgium, Estonia, France, Ireland, Italy, Metavira, Romania (UNITS-010) |
 | `System_MERC_Filters.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — M.E.R.C. PDA filters (UI-MERC-001) |
 | `System_MERC_Account.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — M.E.R.C. credit / Pay Account |
 | `System_MERC_Browser.lua` | loaded | [Юниты и специализации](units-progression-specializations.md) — `PDAMERCBrowser` wrap |

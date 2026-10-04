@@ -9,7 +9,7 @@ role: Thrower
 tier: Regular
 specialization: Melee
 gender: Female
-nationality: USA
+nationality: Italy
 voice_source: wildfire
 starting_level: 3
 will: 45

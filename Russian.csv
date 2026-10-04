@@ -12961,3 +12961,11 @@ Speck","Командир!
 890000000033101,HK416,HK416,,jazz:InventoryItem/HK416.lua:14 | jazz:InventoryItem/HK416.lua:15 | jazz:items.lua:119373 | jazz:items.lua:119374
 890000000033103,"Современный карабин под патрон 5,56×45 мм. Сменные стволы, приклады и прицелы; магазин STANAG на 30 патронов.","Современный карабин под патрон 5,56×45 мм. Сменные стволы, приклады и прицелы; магазин STANAG на 30 патронов.",,jazz:InventoryItem/HK416.lua:16 | jazz:items.lua:119375
 890000000033104,Приклад Magpul CTR,Приклад Magpul CTR,,jazz:items.lua:119610
+890000000033105,Belgium,Бельгия,,JA2_Nationality_Belgium
+890000000033106,Estonia,Эстония,,JA2_Nationality_Estonia
+890000000033107,France,Франция,,JA2_Nationality_France
+890000000033108,Ireland,Ирландия,,JA2_Nationality_Ireland
+890000000033109,Italy,Италия,,JA2_Nationality_Italy
+890000000033110,Metavira,Метавира,,JA2_Nationality_Metavira
+890000000033111,Romania,Румыния,,JA2_Nationality_Romania
+890000000033112,Australia,Австралия,,JA2_Nationality_Australia

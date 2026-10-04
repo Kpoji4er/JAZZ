@@ -9,7 +9,7 @@ role: Support
 tier: Regular
 specialization: Negotiator
 gender: Female
-nationality: USA
+nationality: France
 voice_source: ja2
 starting_level: 2
 will: 40

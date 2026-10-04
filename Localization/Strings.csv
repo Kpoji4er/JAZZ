@@ -14188,3 +14188,11 @@ The first serious delivery changes that. Recruiters and fresh columns appear on 
 890000000033101,HK416,,HK416,HK416,new-id;needs-russian,jazz:InventoryItem/HK416.lua:14 | jazz:InventoryItem/HK416.lua:15 | jazz:items.lua:119373 | jazz:items.lua:119374,jazz,jazz:InventoryItem/HK416.lua:14 | jazz:InventoryItem/HK416.lua:15 | jazz:items.lua:119373 | jazz:items.lua:119374,technical-copy
 890000000033103,"Современный карабин под патрон 5,56×45 мм. Сменные стволы, приклады и прицелы; магазин STANAG на 30 патронов.",,"Современный карабин под патрон 5,56×45 мм. Сменные стволы, приклады и прицелы; магазин STANAG на 30 патронов.","A modern 5.56x45 mm carbine with interchangeable barrels, stocks and optics. Uses a 30-round STANAG magazine.",new-id;needs-english,jazz:InventoryItem/HK416.lua:16 | jazz:items.lua:119375,jazz,jazz:InventoryItem/HK416.lua:16 | jazz:items.lua:119375,manual-translation
 890000000033104,Приклад Magpul CTR,,Приклад Magpul CTR,Magpul CTR stock,new-id;needs-english,jazz:items.lua:119610,jazz,jazz:items.lua:119610,manual-translation
+890000000033105,Belgium,,Бельгия,Belgium,russian-override;new-id,JA2_Nationality_Belgium,jazz,jazz:Code/System_JA2_Nationalities.lua:3,manual-translation
+890000000033106,Estonia,,Эстония,Estonia,russian-override;new-id,JA2_Nationality_Estonia,jazz,jazz:Code/System_JA2_Nationalities.lua:9,manual-translation
+890000000033107,France,,Франция,France,russian-override;new-id,JA2_Nationality_France,jazz,jazz:Code/System_JA2_Nationalities.lua:15,manual-translation
+890000000033108,Ireland,,Ирландия,Ireland,russian-override;new-id,JA2_Nationality_Ireland,jazz,jazz:Code/System_JA2_Nationalities.lua:21,manual-translation
+890000000033109,Italy,,Италия,Italy,russian-override;new-id,JA2_Nationality_Italy,jazz,jazz:Code/System_JA2_Nationalities.lua:27,manual-translation
+890000000033110,Metavira,,Метавира,Metavira,russian-override;new-id,JA2_Nationality_Metavira,jazz,jazz:Code/System_JA2_Nationalities.lua:33,manual-translation
+890000000033111,Romania,,Румыния,Romania,russian-override;new-id,JA2_Nationality_Romania,jazz,jazz:Code/System_JA2_Nationalities.lua:39,manual-translation
+890000000033112,Australia,,Австралия,Australia,russian-override;new-id,JA2_Nationality_Australia,jazz,jazz:Code/System_JA2_Nationalities.lua:45,manual-translation
