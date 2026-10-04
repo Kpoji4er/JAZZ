@@ -74,7 +74,15 @@ DefineClass.G3A3 = {
 				"JAZZ_Scope_DA15_6x",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G3",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

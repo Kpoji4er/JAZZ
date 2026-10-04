@@ -76,7 +76,16 @@ DefineClass.G3SniperV1 = {
 			},
 			'DefaultComponent', "JAZZ_MagSmall20_10_G3",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G3",
+			},
+			'DefaultComponent', "JAZZ_Rail_G3",
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",

@@ -123,7 +123,15 @@ DefineClass.HK33 = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_HK33",
+			},
+		}),
+},
 	Color = "Black",
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {

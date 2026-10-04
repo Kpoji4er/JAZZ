@@ -66,7 +66,15 @@ DefineClass.P220 = {
 			},
 			'DefaultComponent', "JAZZ_IronSight",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_P220",
+			},
+		}),
+},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"SingleShot",

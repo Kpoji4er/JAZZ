@@ -19,8 +19,9 @@ function M.resolve(registry,item)
     if not slot.options[value] then return nil,"unknown-component:"..tostring(slot.slot) end
     values[slot.slot]=value
   end
+  local rail_slots={Dovetail=true,Rail=true,RailSide=true,Conversion=true}
   for slot,value in pairs(item.components or {}) do
-    if values[slot]==nil and value and value~="" then return nil,"unknown-slot:"..slot end
+    if values[slot]==nil and value and value~="" and not rail_slots[slot] then return nil,"unknown-slot:"..slot end
   end
   for spot,entity in pairs(profile.base) do parts[spot]=entity end
   for _,slot in ipairs(profile.slots) do

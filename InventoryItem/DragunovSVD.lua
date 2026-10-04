@@ -81,7 +81,23 @@ DefineClass.DragunovSVD = {
 			},
 			'DefaultComponent', "JAZZ_Compensator",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_SVD",
+			},
+			'DefaultComponent', "JAZZ_Dovetail_SVD",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_SVD",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",

@@ -95,7 +95,15 @@ DefineClass.PSG1 = {
 				"JAZZ_UVDot_PSG_M1",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_PSG",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",

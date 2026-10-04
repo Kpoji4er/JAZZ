@@ -106,7 +106,15 @@ DefineClass.Galil = {
 				"JAZZ_UVDot",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Galil",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

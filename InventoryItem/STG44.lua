@@ -44,7 +44,15 @@ DefineClass.STG44 = {
 				"JAZZ_HandlingWrap",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_STG",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

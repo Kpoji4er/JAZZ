@@ -35,9 +35,10 @@ DefineClass.FNFAL = {
 	ComponentSlots = {
 		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Handguard",
-			'Modifiable', false,
+			'Modifiable', true,
 			'AvailableComponents', {
 				"FNFAL_Handguard",
+				"JAZZ_FNFAL_TacHandguard",
 			},
 			'DefaultComponent', "FNFAL_Handguard",
 		}),
@@ -86,6 +87,8 @@ DefineClass.FNFAL = {
 				"JAZZ_BarrelHeavy",
 				"JAZZ_BarrelShort",
 				"JAZZ_BarrelShortImproved",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelLongImproved",
 			},
 			'DefaultComponent', "JAZZ_BarrelNormal",
 		}),
@@ -95,6 +98,7 @@ DefineClass.FNFAL = {
 				"JAZZ_StockNormal",
 				"JAZZ_StockLightUnFolded",
 				"JAZZ_StockLightFolded",
+				"JAZZ_StockHeavy",
 			},
 			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
@@ -123,7 +127,15 @@ DefineClass.FNFAL = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_FAL",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

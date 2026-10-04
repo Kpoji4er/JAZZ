@@ -13,6 +13,426 @@ local JazzModelFixedComponents = {
 	M4A1 = { Handgrip = "JAZZ_Handgrip_Default" },
 }
 
+-- JAZZ-WEAPON-RAIL-001: paid dovetail / rail / conversion gates.
+-- One FirearmBase:SetWeaponComponent. Callers in the modify dialog use JAZZ_RailReject.
+
+local JAZZ_EASTERN_OPTIC = {
+	JAZZ_Scope_PSO = true,
+	JAZZ_Reflex_Cobra = true,
+	JAZZ_Reflex_PKAS = true,
+	JAZZ_CombatScope_1P29 = true,
+	JAZZ_NightScope_NSPU = true,
+}
+
+local JAZZ_IRON_OPTIC = {
+	JAZZ_CarryHandle_AR15 = true,
+	JAZZ_G36Sight = true,
+	JAZZ_AUGScope_Default = true,
+	JAZZ_DefaultIronsight_AR15 = true,
+	JAZZ_BaseIronsight_Anaconda = true,
+}
+
+local JAZZ_FAL_TAC = "JAZZ_FNFAL_TacHandguard"
+local JAZZ_FAL_LONG = { JAZZ_BarrelLong = true, JAZZ_BarrelLongImproved = true }
+local JAZZ_FAL_FOLD = { JAZZ_StockLightUnFolded = true, JAZZ_StockLightFolded = true }
+
+local function jazz_is_iron(id)
+	if not id or id == "" then
+		return true
+	end
+	if JAZZ_IRON_OPTIC[id] then
+		return true
+	end
+	return string.find(id, "IronSight", 1, true) or string.find(id, "Ironsight", 1, true)
+end
+
+local function jazz_is_grip(id)
+	if not id or id == "" then
+		return false
+	end
+	return string.find(id, "VerticalGrip", 1, true) or string.find(id, "TacGrip", 1, true)
+end
+
+local function jazz_part(id)
+	if not id or id == "" then
+		return ""
+	end
+	return id
+end
+
+JAZZ_RailRules = {
+	AKM = { dove = "JAZZ_Dovetail_AK", nato = "JAZZ_Rail_NATO_AK", scope = "split" },
+	AK74 = { dove = "JAZZ_Dovetail_AK", scope = "east" },
+	AK74M = { nato = "JAZZ_Rail_NATO_AK", factory = true, scope = "split" },
+	AK105 = { nato = "JAZZ_Rail_NATO_AK", factory = true, scope = "split" },
+	AEK971 = { dove = "JAZZ_Dovetail_AK", nato = "JAZZ_Rail_NATO_AK", scope = "west" },
+	AKSU = { dove = "JAZZ_Dovetail_AKSU", side = "dove" },
+	DragunovSVD = { dove = "JAZZ_Dovetail_SVD", nato = "JAZZ_Rail_NATO_SVD", scope = "split" },
+	AS_Val = { dove = "JAZZ_Dovetail_Val", nato = "JAZZ_Rail_NATO_Val", scope = "split", side = "nato" },
+	VSS = { dove = "JAZZ_Dovetail_Val", nato = "JAZZ_Rail_NATO_Val", scope = "split" },
+	PP19Bizon = { dove = "JAZZ_Dovetail_AK", scope = "east" },
+	AR10 = { rail = "JAZZ_Rail_AR", scope = "rail" },
+	CAR15 = { rail = "JAZZ_Rail_AR", scope = "rail" },
+	M16A1 = { rail = "JAZZ_Rail_AR", scope = "rail" },
+	M16A2 = { rail = "JAZZ_Rail_M16A2", rail2 = "JAZZ_Rail_M16A2_Side", scope = "rail", side = "rail2" },
+	AUG = { rail = "JAZZ_Rail_AUG", rail2 = "JAZZ_Rail_AUG_Side", scope = "rail", side = "rail2" },
+	FAMAS = { rail = "JAZZ_Rail_FAMAS", side = "rail" },
+	FNFAL = { rail = "JAZZ_Rail_FAL", scope = "rail", side = "rail", grips = "rail", handguard_satisfies = JAZZ_FAL_TAC },
+	G3A3 = { rail = "JAZZ_Rail_G3", scope = "rail" },
+	G3A4 = { rail = "JAZZ_Rail_G3", scope = "rail" },
+	G3SniperV1 = { rail = "JAZZ_Rail_G3", scope = "rail" },
+	G36 = { rail = "JAZZ_Rail_G36", scope = "rail", side = "rail", grips = "rail" },
+	HK21 = { rail = "JAZZ_Rail_HK21", scope = "rail", side = "rail", grips = "rail" },
+	HK33 = { rail = "JAZZ_Rail_HK33", scope = "rail" },
+	Galil = { rail = "JAZZ_Rail_Galil", scope = "rail", side = "rail" },
+	M24Sniper = { rail = "JAZZ_Rail_M24", scope = "rail", side = "rail" },
+	Winchester1894 = { rail = "JAZZ_Rail_Winchester", scope = "rail" },
+	AA12 = { rail = "JAZZ_Rail_AA12", scope = "rail", side = "rail" },
+	Ithaca = { rail = "JAZZ_Rail_Ithaca", scope = "rail" },
+	R870 = { rail = "JAZZ_Rail_R870", scope = "rail", side = "rail" },
+	UMP45 = { rail = "JAZZ_Rail_UMP", scope = "rail" },
+	MP5K = { rail = "JAZZ_Rail_MP5K", scope = "rail" },
+	UZI = { rail = "JAZZ_Rail_UZI", scope = "rail" },
+	MicroUZI = { rail = "JAZZ_Rail_MicroUZI", scope = "rail", side = "rail" },
+	M14SAW = { rail = "JAZZ_Rail_M14", scope = "rail" },
+	M21 = { rail = "JAZZ_Rail_M21", scope = "rail", side = "rail", grips = "rail" },
+	JAZZ_M14_MkIII = { rail = "JAZZ_Rail_MkIII", scope = "rail", side = "rail", grips = "rail" },
+	M1A = { rail = "JAZZ_Rail_M1A", handguard = "JAZZ_HandguardM1ARail", scope = "rail", side = "handguard", grips = "handguard" },
+	M4Commando = { rail = "JAZZ_Rail_Commando", side = "rail", grips = "rail" },
+	PSG1 = { rail = "JAZZ_Rail_PSG", side = "rail" },
+	Bereta92 = { rail = "JAZZ_Rail_Beretta", side = "rail" },
+	CZ52 = { rail = "JAZZ_Rail_PistolUnder", side = "rail" },
+	MAC1950 = { rail = "JAZZ_Rail_PistolUnder", side = "rail" },
+	P220 = { rail = "JAZZ_Rail_P220", scope = "rail", side = "rail" },
+	ColtAnaconda = { rail = "JAZZ_Rail_Anaconda", scope = "rail" },
+	VZ58 = { handguard = "JAZZ_Handguard_RIS", scope = "handguard", grips = "handguard" },
+	Mosin = { conv = "JAZZ_Conversion_Mosin", conv_scopes = { JAZZ_Scope_PU = true } },
+	SVT40 = { conv = "JAZZ_Conversion_SVT", conv_scopes = { JAZZ_Scope_PU = true } },
+	G43 = { conv = "JAZZ_Conversion_G43", conv_scopes = { JAZZ_Scope_ZF4 = true } },
+	Springfield = { conv = "JAZZ_Conversion_Springfield", conv_scopes = { JAZZ_Scope_Springfield = true } },
+	Gewehr98 = { conv = "JAZZ_Conversion_Gewehr", conv_any = true },
+	STG44 = { conv = "JAZZ_Conversion_STG", conv_scopes = { JAZZ_Scope_ZF4 = true } },
+	M1Garand = { conv = "JAZZ_Conversion_Garand", conv_scopes = { JAZZ_Reflex_Garand = true, JAZZ_Scope_Garand = true } },
+}
+
+local function jazz_scope_req(rule, scope)
+	if not rule or jazz_is_iron(scope) then
+		return nil
+	end
+	if rule.conv then
+		if rule.conv_any or (rule.conv_scopes and rule.conv_scopes[scope]) then
+			return "conv"
+		end
+		return nil
+	end
+	if rule.scope == "east" then
+		return JAZZ_EASTERN_OPTIC[scope] and "dove" or "blocked"
+	end
+	if rule.scope == "west" then
+		return "nato"
+	end
+	if rule.scope == "split" then
+		return JAZZ_EASTERN_OPTIC[scope] and "dove" or "nato"
+	end
+	if rule.scope == "rail" then
+		return "rail"
+	end
+	if rule.scope == "handguard" then
+		return "handguard"
+	end
+	return nil
+end
+
+local function jazz_req_met(weapon, rule, req)
+	local components = weapon.components or empty_table
+	if req == "dove" then
+		return rule.dove and components.Dovetail == rule.dove
+	end
+	if req == "nato" then
+		local dove_ok = rule.factory or (rule.dove and components.Dovetail == rule.dove)
+		return dove_ok and rule.nato and components.Rail == rule.nato
+	end
+	if req == "rail" then
+		if rule.handguard_satisfies and components.Handguard == rule.handguard_satisfies then
+			return true
+		end
+		return rule.rail and components.Rail == rule.rail
+	end
+	if req == "rail2" then
+		return rule.rail2 and components.RailSide == rule.rail2
+	end
+	if req == "handguard" then
+		return rule.handguard and components.Handguard == rule.handguard
+	end
+	if req == "conv" then
+		return rule.conv and components.Conversion == rule.conv
+	end
+	return true
+end
+
+local function jazz_fal_reject(weapon, slot, part)
+	local components = weapon.components or empty_table
+	if slot == "Handguard" and part == JAZZ_FAL_TAC and JAZZ_FAL_FOLD[components.Stock or ""] then
+		return true, components.Stock
+	end
+	if slot == "Handguard" and part ~= JAZZ_FAL_TAC and components.Handguard == JAZZ_FAL_TAC then
+		if JAZZ_FAL_LONG[components.Barrel or ""] then
+			return true, components.Barrel
+		end
+		if components.Stock == "JAZZ_StockHeavy" then
+			return true, components.Stock
+		end
+		if (components.Scope or "") ~= "" and not jazz_is_iron(components.Scope) then
+			return true, components.Scope
+		end
+		if (components.Side or "") ~= "" then
+			return true, components.Side
+		end
+		if jazz_is_grip(components.Under) then
+			return true, components.Under
+		end
+	end
+	if slot == "Barrel" and JAZZ_FAL_LONG[part] and components.Handguard ~= JAZZ_FAL_TAC then
+		return true, components.Handguard
+	end
+	if slot == "Stock" and part == "JAZZ_StockHeavy" and components.Handguard ~= JAZZ_FAL_TAC then
+		return true, components.Handguard
+	end
+	if slot == "Stock" and JAZZ_FAL_FOLD[part] and components.Handguard == JAZZ_FAL_TAC then
+		return true, components.Handguard
+	end
+	if slot == "Rail" and part ~= "" and components.Handguard == JAZZ_FAL_TAC then
+		return true, components.Handguard
+	end
+	return false
+end
+
+function JAZZ_RailReject(weapon, slot, id)
+	if type(id) ~= "string" or not weapon or not slot or not IsKindOf(weapon, "FirearmBase") then
+		return false
+	end
+	if rawget(weapon, "_jazz_fal_replacing_rail") and slot == "Rail" and jazz_part(id) == "" then
+		return false
+	end
+	local part = jazz_part(id)
+	local rule = JAZZ_RailRules[weapon.class]
+	if weapon.class == "FNFAL" then
+		local rejected, blocker = jazz_fal_reject(weapon, slot, part)
+		if rejected then
+			return true, blocker
+		end
+	end
+	if not rule then
+		return false
+	end
+	local components = weapon.components or empty_table
+	if part ~= "" then
+		local req
+		if slot == "Scope" then
+			req = jazz_scope_req(rule, part)
+			if req == "blocked" then
+				return true
+			end
+			if req == "dove" and rule.nato and components.Rail == rule.nato then
+				return true, components.Rail
+			end
+		elseif slot == "Side" and part ~= "JAZZ_HandlingWrap" and rule.side then
+			req = rule.side
+		elseif slot == "Under" and jazz_is_grip(part) and rule.grips then
+			req = rule.grips
+		end
+		if req and not jazz_req_met(weapon, rule, req) then
+			return true
+		end
+		if slot == "Rail" and rule.nato and part == rule.nato then
+			if not rule.factory and rule.dove and components.Dovetail ~= rule.dove then
+				return true
+			end
+			if JAZZ_EASTERN_OPTIC[components.Scope or ""] then
+				return true, components.Scope
+			end
+		end
+		if slot == "Handguard" and rule.handguard and part ~= rule.handguard then
+			if rule.side == "handguard" and (components.Side or "") ~= "" then
+				return true, components.Side
+			end
+			if rule.grips == "handguard" and jazz_is_grip(components.Under) then
+				return true, components.Under
+			end
+			if jazz_scope_req(rule, components.Scope) == "handguard" then
+				return true, components.Scope
+			end
+		end
+		return false
+	end
+	if slot == "Dovetail" then
+		if rule.nato and components.Rail == rule.nato then
+			return true, components.Rail
+		end
+		if jazz_scope_req(rule, components.Scope) == "dove" then
+			return true, components.Scope
+		end
+		if rule.side == "dove" and (components.Side or "") ~= "" then
+			return true, components.Side
+		end
+	elseif slot == "Rail" then
+		local scope_req = jazz_scope_req(rule, components.Scope)
+		if scope_req == "nato" or scope_req == "rail" then
+			if not (rule.handguard_satisfies and components.Handguard == rule.handguard_satisfies) then
+				return true, components.Scope
+			end
+		end
+		if (rule.side == "rail" or rule.side == "nato") and (components.Side or "") ~= ""
+			and components.Side ~= "JAZZ_HandlingWrap" then
+			return true, components.Side
+		end
+		if rule.grips == "rail" and jazz_is_grip(components.Under) then
+			return true, components.Under
+		end
+	elseif slot == "RailSide" then
+		if rule.side == "rail2" and (components.Side or "") ~= "" then
+			return true, components.Side
+		end
+	elseif slot == "Conversion" then
+		if jazz_scope_req(rule, components.Scope) == "conv" then
+			return true, components.Scope
+		end
+	elseif slot == "Handguard" and part == "" then
+		if rule.side == "handguard" and (components.Side or "") ~= "" then
+			return true, components.Side
+		end
+		if rule.grips == "handguard" and jazz_is_grip(components.Under) then
+			return true, components.Under
+		end
+		if jazz_scope_req(rule, components.Scope) == "handguard" then
+			return true, components.Scope
+		end
+	end
+	return false
+end
+
+function JAZZ_RailApplyConversionName(weapon)
+	local rule = JAZZ_RailRules[weapon.class]
+	if not rule or not rule.conv or weapon.class == "Mosin" then
+		return
+	end
+	local installed = weapon.components and weapon.components.Conversion
+	local preset = (g_Classes and g_Classes[weapon.class]) or _G[weapon.class]
+	if installed == rule.conv then
+		local component = WeaponComponents and WeaponComponents[installed]
+		if component then
+			weapon.DisplayName = component.DisplayName
+			weapon.DisplayNamePlural = component.DisplayNamePlural or component.DisplayName
+		end
+	elseif preset then
+		weapon.DisplayName = preset.DisplayName
+		weapon.DisplayNamePlural = preset.DisplayNamePlural
+	end
+end
+
+local JAZZ_AKM_FOLD = {
+	JAZZ_StockLightUnFolded = true,
+	JAZZ_StockLightFolded = true,
+}
+
+function JAZZ_AKMApplyName(weapon)
+	if not weapon or weapon.class ~= "AKM" then
+		return
+	end
+	local components = weapon.components
+	local folded = components and JAZZ_AKM_FOLD[components.Stock]
+	local dovetail = components and (components.Dovetail or "") ~= ""
+	local preset = (g_Classes and g_Classes.AKM) or AKM
+	local name
+	if folded and dovetail then
+		name = T(990003123, "AKMSN")
+	elseif folded then
+		name = T(990003121, "AKMS")
+	elseif dovetail then
+		name = T(990003122, "AKMN")
+	end
+	if name then
+		weapon.DisplayName = name
+		weapon.DisplayNamePlural = name
+	elseif preset then
+		weapon.DisplayName = preset.DisplayName
+		weapon.DisplayNamePlural = preset.DisplayNamePlural
+	end
+end
+
+local function jazz_ensure_component(weapon, slot_name, component_id)
+	if not component_id or component_id == "" then
+		return
+	end
+	local components = weapon.components
+	if not components or components[slot_name] == component_id or (components[slot_name] or "") ~= "" then
+		return
+	end
+	weapon:SetWeaponComponent(slot_name, component_id, "init")
+end
+
+local function jazz_ensure_req(weapon, rule, req)
+	if not req or req == "blocked" or jazz_req_met(weapon, rule, req) then
+		return
+	end
+	if (req == "dove" or req == "nato") and rule.dove and not rule.factory then
+		jazz_ensure_component(weapon, "Dovetail", rule.dove)
+	end
+	if req == "nato" then
+		jazz_ensure_component(weapon, "Rail", rule.nato)
+	elseif req == "rail" then
+		jazz_ensure_component(weapon, "Rail", rule.rail)
+	elseif req == "rail2" then
+		jazz_ensure_component(weapon, "RailSide", rule.rail2)
+	elseif req == "handguard" then
+		jazz_ensure_component(weapon, "Handguard", rule.handguard)
+	elseif req == "conv" then
+		jazz_ensure_component(weapon, "Conversion", rule.conv)
+	end
+end
+
+function JAZZ_RailMigrateTacticalFAL(weapon)
+	if not weapon or weapon.class ~= "JAZZ_FNFAL_Tactical" then
+		return
+	end
+	weapon.components = weapon.components or {}
+	weapon.components.Handguard = JAZZ_FAL_TAC
+	weapon.class = "FNFAL"
+	if g_Classes and g_Classes.FNFAL then
+		setmetatable(weapon, g_Classes.FNFAL)
+	end
+	if JAZZ_FALApplyPresentation then
+		JAZZ_FALApplyPresentation(weapon)
+	end
+end
+
+function JAZZ_RailHealWeapon(weapon)
+	if not weapon or not IsKindOf(weapon, "FirearmBase") then
+		return
+	end
+	JAZZ_RailMigrateTacticalFAL(weapon)
+	local rule = JAZZ_RailRules[weapon.class]
+	if not rule or not weapon.components then
+		return
+	end
+	local components = weapon.components
+	jazz_ensure_req(weapon, rule, jazz_scope_req(rule, components.Scope))
+	if rule.side and (components.Side or "") ~= "" and components.Side ~= "JAZZ_HandlingWrap" then
+		jazz_ensure_req(weapon, rule, rule.side)
+	end
+	if rule.grips and jazz_is_grip(components.Under) then
+		jazz_ensure_req(weapon, rule, rule.grips)
+	end
+	if weapon.class ~= "Mosin" then
+		JAZZ_RailApplyConversionName(weapon)
+	end
+	JAZZ_AKMApplyName(weapon)
+	if weapon.class == "FNFAL" and JAZZ_FALApplyPresentation then
+		JAZZ_FALApplyPresentation(weapon)
+	end
+end
+
+
 function FirearmBase:SetWeaponComponent(slot, id, is_init)
 	local def = WeaponComponents[id]
 	slot = slot or (def and def.Slot)
@@ -49,6 +469,18 @@ function FirearmBase:SetWeaponComponent(slot, id, is_init)
 		end
 	end
 	
+	if self.class == "FNFAL" and slot == "Handguard" and id == "JAZZ_FNFAL_TacHandguard" then
+		local rail_now = (self.components and self.components.Rail) or ""
+		if rail_now ~= "" then
+			self._jazz_fal_replacing_rail = true
+			self:SetWeaponComponent("Rail", "", is_init)
+			self._jazz_fal_replacing_rail = nil
+		end
+	end
+	if JAZZ_RailReject(self, slot, id) then
+		return false
+	end
+
 	local function unload_weapon(weapon)
 		local squadBag = gv_SquadBag
 		if not squadBag or not squadBag.squad_id then
@@ -190,6 +622,10 @@ function FirearmBase:SetWeaponComponent(slot, id, is_init)
 		ud:ReloadWeapon(self, reload_ammo_type)
 	end
 	
+	if self.class ~= "Mosin" then
+		JAZZ_RailApplyConversionName(self)
+	end
+	JAZZ_AKMApplyName(self)
 	ObjModified(self)
 	-- Fold/UnFoldStock returns before CombatActionEnd; refresh existing windows.
 	if slot == "Stock" and not is_init and not rawget(self, "is_clone")
@@ -286,6 +722,7 @@ local function JazzHealMagazineSizeSetEverywhere()
 			end
 			JazzReseatObsoleteMagazineOnFirearm(item)
 			JazzHealMagazineSizeSetOnFirearm(item)
+			JAZZ_RailHealWeapon(item)
 		end)
 	end
 	if type(gv_UnitData) == "table" then

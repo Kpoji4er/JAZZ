@@ -95,7 +95,22 @@ DefineClass.M16A2 = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M16A2",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "RailSide",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M16A2_Side",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

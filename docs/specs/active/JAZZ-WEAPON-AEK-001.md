@@ -137,3 +137,14 @@ Damage +4, Range -8, Recoil +4, AimAccuracy -1. Предмет сохраняе�
 Exclusive resources: items.lua, companion и экспорт AEK. Backup/hash guards; не затрагивать посторонние изменения.
 
 `JAZZ-WEAPON-AEK-001-AC-ATT-031`: PASS static/offline/install; items syntax, companion sync, native setter tests, backups/hashes. Runtime/editor/human NOT_RUN. Evidence: docs/design/weapon-shading-recheck-20261003.md.
+
+## Посадка обвеса после релиза 0.20-6244
+
+Решение владельца 04.10: approved — «подствольник надо подальше», «фонарик надо повернуть», «у аека планки нет — от акма», затем «после релиза доделай».
+
+- `JAZZ-WEAPON-AEK-001-REQ-FIT-041`: Добавить WeaponAttA_MountAK47 к пяти существующим прицелам для класса AEK971 (обе конфигурации). Посадку крепления и оптики подогнать совместно в существующем UpdateVisualObj; штатный открытый прицел оставлять без кронштейна.
+- `JAZZ-WEAPON-AEK-001-AC-FIT-041`: offline render реальной геометрии, повторное UpdateVisualObj без накопления смещения, смена/снятие модулей и все варианты оружия. Игровая визуальная приёмка остаётся за владельцем; игру не запускать.
+
+Write set: существующий Code/Weapon_AEKModular.lua, items.lua для AEK Mount visuals, профильные tools/spec/design/technical. Exclusive resource: items.lua; закрытая игра/редактор, резервная копия перед установкой. Новых ID и companion-записей нет.
+
+`JAZZ-WEAPON-AEK-001-AC-FIT-041`: PASS static/offline/install — native visual selection, повторные обновления, снятие модулей, все конфигурации, 15 ракурсов реальной геометрии и hash-guarded установка. Runtime/editor/human: NOT_RUN; владелец проверит в игре. Дополнение реализовано локально после релиза.

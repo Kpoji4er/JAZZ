@@ -38,3 +38,7 @@
 - Послойные иконки всего арсенала: offline-прототип и будущая съёмка реальных сборок — `docs/design/weapon-layer-icons/README.md`, tooling `docs/tools/weapon_layer_icons/`. Не активировать через metadata; реальный M4 20-round использует прямой `WeaponAttA_MagazineCAR15_02`, а не Magazine20 из старой сцены.
 
 - SquadBag performance (JAZZ-INV-006): `python docs/tools/test_squad_bag_performance.py` — offline Lua regression через lupa; merge, cache invalidation, respawn coalescing/retry. Не заменяет проверку drag/drop и задержек в игре.
+
+Посадка обвеса АЕК/HK416 после 0.20-6244: `docs/tools/_fit_aek_hk416_attachments.py`, штатная visual-логика в `_check_aek_hk416_fit.py`, примерка `_review_hk416_aek_attachments.py --fit-corrections`. Рецепт и ограничения: `docs/design/weapon-shading-recheck-20261003.md`.
+
+Полный маршрут нового ствола: [импорт нового оружия](import-new-weapon.md), включая ссылку на очередь, сборку, карты, generated data и игровую приёмку.

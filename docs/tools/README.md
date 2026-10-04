@@ -356,6 +356,8 @@ DAP / live Lua в игре: `scripts/dap/` (не этот каталог). Playb
 | `_wire_ar15_visible_modules.py` | Доустановка видимых стволов, цевья A4, `JAZZ_Handguard_RIS` и `JAZZ_CarryHandle_AR15`. `python docs/tools/_wire_ar15_visible_modules.py --build <build> [--apply]`. Обновляет хосты (ствол больше не впечён), регистрирует новые сущности, слоты и визуалы. Dry-run по умолчанию. |
 | `_audit_ar15_entity_graph.py` | Read-only проверка установленного графа AR15 (20 сущностей): `.ent` без `<src>`, меши/материалы, `ModItemEntity`, `metadata.entities`/`code`, текстуры ≤ 2048 и fallback'и ≤ 64. |
 | `_audit_ar15_slots.py` | JAZZ-WEAPON-AR15-FAMILY-001: сверяет слоты пяти эмок (`M16A1`/`M16A2`/`M16A4`/`M4A1`/`CAR15`) между `items.lua` и companion, проверяет, что каждый компонент существует с тем же `Slot` и что `DefaultComponent` входит в свои опции. Read-only, exit 1 при расхождении. |
+| `_audit_weapon_rails.py` | JAZZ-WEAPON-RAIL-001: read-only каталог слотов Scope/Side/Under/Handguard и mount-мешей по companion + `items.lua`. `python docs/tools/_audit_weapon_rails.py`. В мод не пишет. |
+| `_apply_weapon_rails.py` | JAZZ-WEAPON-RAIL-001: идемпотентно дописывает слоты, компоненты и перенос mount-мешей в `items.lua`, companion и пять FAL-лут-дефов. `python docs/tools/_apply_weapon_rails.py`. |
 | `_export_fal_assets.py` | JAZZ-WEAPON-FAL-FAMILY-001: ранний сборщик Para-приклада из архива. Разложенное состояние с архива не село на спот `Stock` — для unfolded используем ванильный `WeaponAttA_StockFNFal_01`, складку собирает `_export_fal_folded_vanilla.py`. |
 | `_export_fal_folded_vanilla.py` | JAZZ-WEAPON-FAL-FAMILY-001: складывает ванильный `WeaponAttA_StockFNFal_01` (10 островов, петля по `max Y`). Пишет только `FNFAL_ParaStk_fld`. Дальше `AssetsProcessor` + `_apply_weapon_geometry_update.py`. |
 | `_fix_fal_stock_seat.py` | JAZZ-WEAPON-FAL-FAMILY-001: unfolded visual → `WeaponAttA_StockFNFal_01`, дефолт классического `FNFAL` → `JAZZ_StockLightUnFolded`. |
@@ -702,6 +704,7 @@ python docs/tools/build-sector-atlas-docs.py
 | `_list_jazz_legion_appearances.py` | List handcrafted jazz-units `Legion*` AppearancePreset ids (canon pool). |
 | `_audit_patch_ame_heads.py` | Repair pass по `jazz-units/items.lua` AME: pale/AIM heads, ♀-on-♂, war-paint bodies, pale-hand `GrandChien_Top_05`, gloves Shirt, BodyColor C1, HeadColor 0. `--dry-run` / `--sync-map` / `--verbose`. Exit 0 ⇒ `bad_after=0`. |
 | `_audit_loot_upgrade_ids.py` | Audit `LootEntryUpgradedWeapon` upgrade IDs in `jazz-units/items.lua` vs known `JAZZ_*` WeaponComponent map. |
+| `_apply_loot_rails.py` | Дописывает в `LootEntryUpgradedWeapon` планку, ластохвост, RIS или переделку перед прицелом, лазером или рукоятью, которым они нужны. `--apply`. Повторный запуск ничего не меняет. |
 | `_apply_loot_upgrade_id_remap.py` | Remap legacy vanilla upgrade IDs on loot entries to `JAZZ_*` companions (dry-run default). |
 | `_emit_ame_live_patch.py` | Emit pasteable live-Lua AppearancePreset patches for in-session AME head/body repair. |
 | `_gen_ja12_appearances.py` | JAZZ-UNITS-002: same-gender mixes from BigPortrait cues. Prefer **faction/NPC body + head**, or AIM clone; **warn on AIM×AIM**. Skips `KEEP_HANDCRAFTED` (Lynx/Buzz/Spider/JAZZ_Spouke/Ivanov + vanilla Biff/Hitman/Simon→Shadow) unless `--force`. Map `ja12-appearance-map.json`. |
@@ -1036,7 +1039,7 @@ Read-only final verification: `_stage_armor_colors.py` with the same arguments a
 
 `_weapon_feedback_inventory.py --output JSON` lists complete offered component visuals without modifying the game. `_weapon_feedback_stage029.py --build DIR` stages M14 spot casing, permanent FAL rail, AR15 attachment locations, Mosin names and compiled candidates with source hashes; it does not install.
 
-Blender `_weapon_feedback_handguard.py --blend FILE --output DIR --game-root DIR` extends M16 RIS to the standard fore-end front while retaining barrel geometry. `_weapon_feedback_scope.py --source FILE --output DIR --game-root DIR` recovers the MkIII donor optic and reuses its atlas. `_weapon_feedback_mag_normal.py --source native.tga --output DIR --game-root DIR` compiles the magazine-only original normal map at reduced strength. `_weapon_feedback_icons.py --series-light` uses common physical light and zero display exposure; `--component` renders 100x100.
+Blender `_weapon_feedback_handguard.py --blend FILE --output DIR --game-root DIR` extends M16 RIS to the standard fore-end front while retaining barrel geometry. `_weapon_feedback_scope.py --source FILE --output DIR --game-root DIR` recovers the MkIII donor optic and reuses its atlas. `_weapon_feedback_mag_normal.py --source native.tga --output DIR --game-root DIR` compiles the magazine-only original normal map at reduced strength. `_weapon_feedback_icons.py --series-light` uses common physical light and zero display exposure; `--component` renders 100x100. `_render_rail_icons.py --manifest JSON --out DIR` снимает 100×100 иконки планок с HGM.
 
 `_weapon_feedback_armor_skin.py --source FILE --shirt native.json --entity ID --output DIR --game-root DIR` prepares a clothed-donor skin candidate without changing positions/UV/materials. `_check_soft_armor_poses.py --entity ID` can inspect an existing baked source. These are candidate tools: compiled, visual and game acceptance remain separate. `_weapon_feedback_barrel.py` is the abandoned rear-cylinder experiment (export rejected by spike gate); do not install its outputs, the owner selected handguard extension instead.
 
@@ -1197,3 +1200,7 @@ Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_
 `_check_legion_armor.py`: mocked lifecycle учитывает текущий масштаб 95% и независимые смещения СШ-60/6Б7; повторное обновление не должно накапливать смещение.
 
 `_pack_suite_release.py`: после конца TAR дочитывает stdout `git archive` до EOF перед ожиданием процесса; предотвращает блокировку на завершающем padding в Windows.
+
+`_fit_aek_hk416_attachments.py --build DIR [--apply]`: staged/hash-guarded установка посадки M203, боковых устройств HK416 и AKM-кронштейна АЕК; резервные копии и проверка закрытой игры.
+`_check_aek_hk416_fit.py --root DIR --game-root DIR`: исполняет штатный JA3 UpdateVisualObj с engine-mocks; проверяет 5 прицелов, обе конфигурации АЕК, все стволы HK416, снятие/повторное обновление и неизменность АКМ.
+`_review_hk416_aek_attachments.py --fit-corrections`: примерка фактической донорской геометрии с теми же смещениями и поворотом; боковой, задний и противоположный ракурсы.

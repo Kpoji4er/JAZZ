@@ -100,7 +100,15 @@ DefineClass.M14SAW = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M14",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

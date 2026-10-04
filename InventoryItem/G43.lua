@@ -38,7 +38,15 @@ DefineClass.G43 = {
 				"JAZZ_Scope_ZF4",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_G43",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

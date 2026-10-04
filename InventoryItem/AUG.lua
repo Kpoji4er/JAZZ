@@ -105,7 +105,22 @@ DefineClass.AUG = {
 			},
 			'DefaultComponent', "JAZZ_AUGScope_Default",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AUG",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "RailSide",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AUG_Side",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

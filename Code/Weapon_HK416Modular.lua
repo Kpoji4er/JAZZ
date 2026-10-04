@@ -36,4 +36,16 @@ function HK416:UpdateVisualObj(vis)
     if not IsValid(vis) or vis.weapon ~= self then return end
     if vis:GetEntity() ~= self.Entity then vis:ChangeEntity(self.Entity) end
     FirearmBase.UpdateVisualObj(self, vis)
+
+    -- Post-release attachment fit: absolute millimetres, never accumulated.
+    local under = vis.parts and vis.parts.Under
+    if IsValid(under) and self.components.Under == "JAZZ_GrenadeLauncher" then
+        under:SetAttachOffset(point(60, 0, 0))
+    end
+    local side = vis.parts and vis.parts.Side
+    if IsValid(side) then
+        -- Native devices mount on top by default; roll onto the right rail.
+        side:SetAttachAxis(point(4096, 0, 0))
+        side:SetAttachAngle(-5400)
+    end
 end

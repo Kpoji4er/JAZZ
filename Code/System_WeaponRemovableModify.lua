@@ -459,6 +459,51 @@ function GetComponentBlocksAnyOfAttachedSlots(weapon, partDef)
 	end
 end
 
+-- Dovetail/Rail/RailSide/Conversion are upgrade slots, not entity spots.
+-- GetWeaponSpotPosForModifyUI feeds the slot id to GetSpotBeginIndex, which asserts "Invalid spot".
+local JAZZ_RailUiSpots = {
+	Dovetail = { "Scope", "Mount", "Side", "Center" },
+	Rail = { "Scope", "Mount", "Side", "Center" },
+	RailSide = { "Side", "Side1", "Mountside", "Center" },
+	Conversion = { "Center", "Scope", "Barrel" },
+}
+
+local function JAZZ_ModifyUiSpotPos(obj, names)
+	if not IsValid(obj) or not obj.GetSpotBeginIndex then
+		return
+	end
+	for _, name in ipairs(names) do
+		local idx = obj:GetSpotBeginIndex(name)
+		if idx and idx ~= -1 then
+			return obj:GetSpotPos(idx)
+		end
+	end
+end
+
+local JAZZ_GetWeaponSpotPosForModifyUI = GetWeaponSpotPosForModifyUI
+function GetWeaponSpotPosForModifyUI(weaponModel, drawToSpot)
+	local names = JAZZ_RailUiSpots[drawToSpot]
+	if names then
+		local pos = JAZZ_ModifyUiSpotPos(weaponModel, names)
+		if pos then
+			return pos
+		end
+		local parts = weaponModel and weaponModel.parts
+		if parts then
+			for _, part in pairs(parts) do
+				pos = JAZZ_ModifyUiSpotPos(part, names)
+				if pos then
+					return pos
+				end
+			end
+		end
+		if IsValid(weaponModel) and weaponModel.GetPos then
+			return weaponModel:GetPos()
+		end
+	end
+	return JAZZ_GetWeaponSpotPosForModifyUI(weaponModel, drawToSpot)
+end
+
 local VanillaCanModifySlot = ModifyWeaponDlg.CanModifySlot
 function ModifyWeaponDlg:CanModifySlot(slot, partId)
 	if partId and JAZZ_IsHiddenModifyWeaponCraftOption(partId) then
@@ -468,6 +513,15 @@ function ModifyWeaponDlg:CanModifySlot(slot, partId)
 		return VanillaCanModifySlot(self, slot, partId)
 	end
 	local weapon = self.context and self.context.weapon
+	if weapon and slot then
+		local rejected, blocker = JAZZ_RailReject(weapon, slot.SlotType, partId)
+		if rejected then
+			if not blocker or blocker == "" then
+				blocker = partId
+			end
+			return false, "blocked", blocker
+		end
+	end
 	if weapon and (weapon.class == "M4A1" or weapon.class == "M16A4") then
 		local components = weapon.components or empty_table
 		if (slot.SlotType == "Side" or slot.SlotType == "Under")
@@ -565,12 +619,8 @@ function GetWeaponComponentDescription(componentPreset)
 	local lead = {}
 	local effect_lines = {}
 	local indices = {}
-	-- Always lead with the component name — empty-effect baselines otherwise collapse
-	-- to vanilla "Без изменений" with no hint what the option is (P210 factory barrel).
-	if componentPreset and componentPreset.DisplayName then
-		-- Pass the preset as T-context so <DisplayName> resolves (named kwargs alone can leave <DISPLAY_NAME>).
-		lead[#lead + 1] = T{987654321, "<style WeaponModHeader><DisplayName></style>", componentPreset}
-	end
+	-- The choice popup and the attachment rollover already title the card with DisplayName.
+	-- Repeating it here painted the name twice: header, then the first body line.
 	if componentPreset and componentPreset.Description then
 		lead[#lead + 1] = T{componentPreset.Description, componentPreset}
 	end

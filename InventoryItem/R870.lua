@@ -69,7 +69,15 @@ DefineClass.R870 = {
 				"JAZZ_SpeedLoader",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_R870",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

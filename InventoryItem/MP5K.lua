@@ -103,7 +103,15 @@ DefineClass.MP5K = {
 			},
 			'DefaultComponent', "JAZZ_Freeswap",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_MP5K",
+			},
+		}),
+},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"BurstFire",

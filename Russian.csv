@@ -1132,7 +1132,7 @@ ID,Text,Translation,VoiceActor,Context
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Дальнобойный
 <image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Точный G3 с прицелом",,jazz:InventoryItem/G3SniperV1.lua:15 | jazz:items.lua:26957
 257516510368,"Мать моя святая женщина, и где теперь чья нога?","Мать моя святая женщина, и где теперь чья нога?",,jazz-units:items.lua:70855
-257808768357,AKM,AKM,,jazz:InventoryItem/AKM.lua:13 | jazz:items.lua:21902
+257808768357,AKM,АКМ,,jazz:InventoryItem/AKM.lua:13 | jazz:items.lua:21902
 258728495811,"Ща как подкрадусь, да как жахну...","Ща как подкрадусь, да как жахну...",,jazz-units:items.lua:70659
 258760835486,Ресурсы,Ресурсы,,jazz:items.lua:69698
 259340094074,"Мне нужна помощь, неотложно!","Мне нужна помощь, неотложно!",,jazz-units:items.lua:70070
@@ -3396,7 +3396,7 @@ Cuatro, cinco, seis
 722143668182,Горы,Горы,,jazz-maps:items.lua:33880
 722525538826,Следующий отряд,Следующий отряд,,jazz:items.lua:88467
 722597607076,Гдегдегде,Гдегдегде,,jazz-maps:items.lua:35314
-722956910106,AKM,AKM,,jazz:InventoryItem/AKM.lua:14 | jazz:items.lua:21903
+722956910106,AKM,АКМ,,jazz:InventoryItem/AKM.lua:14 | jazz:items.lua:21903
 723060490960,ОД,ОД,,jazz:items.lua:83232
 723121121036,"7.62х51мм НАТО, M80","7,62×51 мм НАТО, M80",,jazz:InventoryItem/_762NATO_Basic.lua:11 | jazz:items.lua:8187
 723516988874,"Вы могли и догадаться, но я бывший солдат удачи, как вы сейчас. Не вдаваясь в подробности, я имею как военную подготовку, так медицинскую, когда Легион только начинал набирать обороты я поставил на ноги очень многих бойцов и выпил Легиону очень много крови. Я успел повоевать с ними, так что со многими полевыми командирами у меня сейчас свои счёты.","Вы могли и догадаться, но я бывший солдат удачи, как вы сейчас. Не вдаваясь в подробности, я имею как военную подготовку, так медицинскую, когда Легион только начинал набирать обороты я поставил на ноги очень многих бойцов и выпил Легиону очень много крови. Я успел повоевать с ними, так что со многими полевыми командирами у меня сейчас свои счёты.",,jazz-maps:items.lua:30280
@@ -8584,8 +8584,8 @@ Move to a new location and then shoot the closest enemy.","<em>Раз в ход<
 890000000006497,Мои раны незначительны. Невосстановимых поражений быть не должно.,Мои раны незначительны. Невосстановимых поражений быть не должно.,,jazz-units:items.lua:VoiceResponse
 890000000006498,Мне нужны боеприпасы к оружию.,Мне нужны боеприпасы к оружию.,,jazz-units:items.lua:VoiceResponse
 890000000006499,Силы врага в пределах прямой видимости.,Силы врага в пределах прямой видимости.,,jazz-units:items.lua:VoiceResponse
-890000000006506,Мастер на все руки,Мастер на все руки,,jazz:CharacterEffect/JackOfAllTrades.lua
-890000000006507,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,,jazz:CharacterEffect/JackOfAllTrades.lua
+890000000006506,Вижу их! Вижу эти ничтожества!,Вижу их! Вижу эти ничтожества!,,jazz-units:items.lua:Jazz_Gamos
+890000000006507,"Прощай, ничтожество!","Прощай, ничтожество!",,jazz-units:items.lua:Jazz_Gamos
 890000000006512,"Я закончил, босс.","I'm finished, boss.",,jazz-units:VoiceResponse Jazz_Gamos
 890000000006513,У меня все в порядке.,I'm all right.,,jazz-units:VoiceResponse Jazz_Gamos
 890000000006516,Я включился.,Я включился.,,jazz-units:items.lua:VoiceResponse
@@ -12969,3 +12969,61 @@ Speck","Командир!
 890000000033110,Metavira,Метавира,,JA2_Nationality_Metavira
 890000000033111,Romania,Румыния,,JA2_Nationality_Romania
 890000000033112,Australia,Австралия,,JA2_Nationality_Australia
+890000000040001,Speck <speck@merc.com>,Speck <speck@merc.com>,,jazz:items.lua:MERC_Welcome
+890000000040002,"Commander!
+
+Great news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)
+
+One snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.
+
+Open M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.
+
+Your friend in the hiring business,
+Speck T. Kline
+M.E.R.C. — More Economic Recruiting Center","Командир!
+
+Отличные новости: M.E.R.C. снова ОТКРЫТ. Сайт новый, дневные ставки всё те же низкие, и вперёд платить не надо. Нанимайте сейчас, а счёт закроете, когда сможете. (Я напомню. По-дружески.)
+
+Одна загвоздка. Книги должен был вести мой партнёр Бифф. Он не выходит на связь. Если встретите его там, передайте: Спек ждёт его за конторкой. Желательно ещё дышащим.
+
+Откройте M.E.R.C. в браузере КПК и выберите контрактника. Мы не А.И.М. Мы дешевле.
+
+Ваш друг по найму,
+Спек Т. Клайн
+M.E.R.C. — More Economic Recruiting Center",,jazz:items.lua:MERC_Welcome
+890000000040003,M.E.R.C. is OPEN — and where's Biff?,M.E.R.C. снова открыт — и где Бифф?,,jazz:items.lua:MERC_Welcome
+890000000040004,Speck <accounts@merc.com>,Speck <accounts@merc.com>,,jazz:items.lua:MERC_AccountReminder
+890000000040005,"Commander!
+
+Hate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.
+
+Daily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.
+
+Speck","Командир!
+
+Не хочу беспокоить ценного клиента, но на вашем счёте M.E.R.C. всё ещё висит $<balance>.
+
+Дневные ставки, помните? Оплатите счёт на сайте, пока мои люди не начали писать заявления об уходе грязными ботинками.
+
+Спек",,jazz:items.lua:MERC_AccountReminder
+890000000040006,M.E.R.C. — please settle up,M.E.R.C. — пора закрыть счёт,,jazz:items.lua:MERC_AccountReminder
+890000000040007,Speck <accounts@merc.com>,Speck <accounts@merc.com>,,jazz:items.lua:MERC_QuitWarning
+890000000040008,"Commander!
+
+I warned you. $<balance> still unpaid. My contractors walked.
+
+Want them back? Clear the ledger first — if any of them still answer the phone.
+
+Speck","Командир!
+
+Я предупреждал. $<balance> так и не оплачены. Мои контрактники ушли.
+
+Хотите их вернуть? Сначала закройте книгу. Если кто-то из них ещё берёт трубку.
+
+Спек",,jazz:items.lua:MERC_QuitWarning
+890000000040009,M.E.R.C. — they're walking,M.E.R.C. — они уходят,,jazz:items.lua:MERC_QuitWarning
+890000000040010,Мастер на все руки,Мастер на все руки,,jazz:CharacterEffect/JackOfAllTrades.lua
+890000000040011,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,,jazz:CharacterEffect/JackOfAllTrades.lua
+990003121,AKMS,АКМС,,jazz:Code/System_WeaponComponent_Set.lua
+990003122,AKMN,АКМН,,jazz:Code/System_WeaponComponent_Set.lua
+990003123,AKMSN,АКМСН,,jazz:Code/System_WeaponComponent_Set.lua

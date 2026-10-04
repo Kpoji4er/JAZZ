@@ -89,7 +89,16 @@ DefineClass.M24Sniper = {
 				"JAZZ_UVDot",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M24",
+			},
+			'DefaultComponent', "JAZZ_Rail_M24",
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",

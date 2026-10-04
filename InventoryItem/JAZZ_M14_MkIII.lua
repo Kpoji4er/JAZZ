@@ -106,7 +106,16 @@ DefineClass.JAZZ_M14_MkIII = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_MkIII",
+			},
+			'DefaultComponent', "JAZZ_Rail_MkIII",
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

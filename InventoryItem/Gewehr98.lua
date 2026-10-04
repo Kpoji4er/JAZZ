@@ -49,7 +49,15 @@ DefineClass.Gewehr98 = {
 				"JAZZ_ImprovisedSuppressor",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_Gewehr",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

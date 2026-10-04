@@ -91,7 +91,15 @@ DefineClass.FAMAS = {
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_FAMAS",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

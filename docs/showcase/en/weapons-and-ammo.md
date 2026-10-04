@@ -83,6 +83,7 @@ Enemy corpses do not leave a full belt in the gun: loaded rounds are capped by d
 - **Stocks** — Normal = empty default; Heavy Recoil−5+AimAccuracy%; Light≡Unfolded Recoil+2 (Light cannot fold); folded/no-stock = ShootAP−1 + Recoil+5 + AA↓ + OW+2.
 - **Grips** — small & cheap: vertical = Recoil−1 (queue control); tactical / wrap = CloseFactor+5 up close; ergo = AimAccuracy 105%.
 - **Magazines** — the number on a magazine is its exact capacity: small = fewer rounds + Reload**−1**/Rel↑; expanded = more rounds + Reload**+1** (no Rel/AA); large = Reload**+2** + Rel−/AA−.
+- **Mounts** are paid in parts, not money: dovetail 300, rail or NATO adapter 100, railed handguard 500, full gunsmith conversion 1000. A conversion, and the FN FAL tactical handguard, rename the gun while fitted. An AKM with the folding stock is named AKMS, with the side rail AKMN, and with both AKMSN. Irons, grenade launchers and bipods do not need a mount. Prepared loadouts already include the mount a sight needs.
 
 Full tables:
 
@@ -110,7 +111,7 @@ With the railed handguard, the vz. 58 supports four reflex sights: closed, compa
 
 ## Weapon configuration icons
 
-Icons for 178 active weapon models combine photographed native parts: installed magazines, sights, stocks, muzzle devices and other modules appear together in their in-game positions. An unknown component restores the complete standard icon instead of showing a partial assembly. Attachment badges remain available; automatic stock-dependent names are not enabled yet.
+Icons for 178 active weapon models combine photographed native parts: installed magazines, sights, stocks, muzzle devices and other modules appear together in their in-game positions. An unknown component restores the complete standard icon instead of showing a partial assembly. A dovetail, rail, side rail or full conversion does not do that: the photographed parts stay, and the mount itself is not drawn as its own layer. Attachment badges remain available; automatic stock-dependent names are not enabled yet.
 
 Icons now fill their original weapon tile formats: excess transparent margins are removed and pistols use the compact format. Color and brightness follow the previous in-game icons; all configurations of a weapon share the same color profile. A stronger dark outline improves readability.
 

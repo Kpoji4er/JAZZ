@@ -8583,8 +8583,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006497,Мои раны незначительны. Невосстановимых поражений быть не должно.,My wounds are minor. There should be no permanent damage.,,jazz-units:items.lua:VoiceResponse
 890000000006498,Мне нужны боеприпасы к оружию.,I need ammunition.,,jazz-units:items.lua:VoiceResponse
 890000000006499,Силы врага в пределах прямой видимости.,Enemy forces within line of sight.,,jazz-units:items.lua:VoiceResponse
-890000000006506,Мастер на все руки,Jack of All Trades,,jazz:CharacterEffect/JackOfAllTrades.lua
-890000000006507,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,Any satellite operations complete about <em>33% faster</em>.,,jazz:CharacterEffect/JackOfAllTrades.lua
+890000000006506,Вижу их! Вижу эти ничтожества!,I see them! I see those wretches!,,jazz-units:items.lua:Jazz_Gamos
+890000000006507,"Прощай, ничтожество!","Farewell, wretch!",,jazz-units:items.lua:Jazz_Gamos
 890000000006512,"Я закончил, босс.","I'm finished, boss.",,jazz-units:VoiceResponse Jazz_Gamos
 890000000006513,У меня все в порядке.,I'm all right.,,jazz-units:VoiceResponse Jazz_Gamos
 890000000006516,Я включился.,I'm switched on.,,jazz-units:items.lua:VoiceResponse
@@ -12968,3 +12968,61 @@ Speck",,JAZZ-UI-MERC-001
 890000000033110,Metavira,Metavira,,JA2_Nationality_Metavira
 890000000033111,Romania,Romania,,JA2_Nationality_Romania
 890000000033112,Australia,Australia,,JA2_Nationality_Australia
+890000000040001,Speck <speck@merc.com>,Speck <speck@merc.com>,,jazz:items.lua:MERC_Welcome
+890000000040002,"Commander!
+
+Great news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)
+
+One snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.
+
+Open M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.
+
+Your friend in the hiring business,
+Speck T. Kline
+M.E.R.C. — More Economic Recruiting Center","Commander!
+
+Great news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)
+
+One snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.
+
+Open M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.
+
+Your friend in the hiring business,
+Speck T. Kline
+M.E.R.C. — More Economic Recruiting Center",,jazz:items.lua:MERC_Welcome
+890000000040003,M.E.R.C. is OPEN — and where's Biff?,M.E.R.C. is OPEN — and where's Biff?,,jazz:items.lua:MERC_Welcome
+890000000040004,Speck <accounts@merc.com>,Speck <accounts@merc.com>,,jazz:items.lua:MERC_AccountReminder
+890000000040005,"Commander!
+
+Hate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.
+
+Daily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.
+
+Speck","Commander!
+
+Hate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.
+
+Daily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.
+
+Speck",,jazz:items.lua:MERC_AccountReminder
+890000000040006,M.E.R.C. — please settle up,M.E.R.C. — please settle up,,jazz:items.lua:MERC_AccountReminder
+890000000040007,Speck <accounts@merc.com>,Speck <accounts@merc.com>,,jazz:items.lua:MERC_QuitWarning
+890000000040008,"Commander!
+
+I warned you. $<balance> still unpaid. My contractors walked.
+
+Want them back? Clear the ledger first — if any of them still answer the phone.
+
+Speck","Commander!
+
+I warned you. $<balance> still unpaid. My contractors walked.
+
+Want them back? Clear the ledger first — if any of them still answer the phone.
+
+Speck",,jazz:items.lua:MERC_QuitWarning
+890000000040009,M.E.R.C. — they're walking,M.E.R.C. — they're walking,,jazz:items.lua:MERC_QuitWarning
+890000000040010,Мастер на все руки,Jack of All Trades,,jazz:CharacterEffect/JackOfAllTrades.lua
+890000000040011,Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>.,Any satellite operations complete about <em>33% faster</em>.,,jazz:CharacterEffect/JackOfAllTrades.lua
+990003121,AKMS,AKMS,,jazz:Code/System_WeaponComponent_Set.lua
+990003122,AKMN,AKMN,,jazz:Code/System_WeaponComponent_Set.lua
+990003123,AKMSN,AKMSN,,jazz:Code/System_WeaponComponent_Set.lua

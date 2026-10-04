@@ -47,7 +47,15 @@ DefineClass.M1Garand = {
 				"JAZZ_Suppressor",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_Garand",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

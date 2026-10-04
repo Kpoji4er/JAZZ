@@ -68,7 +68,15 @@ DefineClass.UZI = {
 			},
 			'DefaultComponent', "JAZZ_StockLightUnFolded",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_UZI",
+			},
+		}),
+},
 	Color = "Black",
 	HolsterSlot = "Leg",
 	AvailableAttacks = {

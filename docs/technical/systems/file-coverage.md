@@ -241,7 +241,8 @@ Generated ModItems покрываются системами по типу:
 | `jazz/Code/System_ReloadStyle.lua` | Weapon reload styles. |
 | `jazz/Code/System_WeaponComponent_Set.lua` | Weapon component mutation and fixed-slot cleanup. |
 | `jazz/Code/System_WeaponRemovableModify.lua` | Removable component modification UI. |
-| `jazz/Code/Weapon_MosinModular.lua` | Mosin configuration names. |
+| `jazz/Code/Weapon_MosinModular.lua` | Mosin configuration names. Long barrel plus `JAZZ_Conversion_Mosin` uses the conversion display name. |
+| `jazz/Code/Weapon_FALModular.lua` | One `FNFAL`. Tactical handguard swaps name, icon and five stats, then calls `FirearmBase.SetWeaponComponent`. |
 | `jazz/Code/Weapon_AEKModular.lua` | AEK caliber-kit presentation, native attachment variants and loaded-ammo guard. |
 | `jazz/Code/Weapon_HK416Modular.lua` | HK416 barrel/stock presentation and native component updates. |
 | `jazz-units/Code/LegionMedicineLoadouts.lua` | Legion medicine loadouts. |

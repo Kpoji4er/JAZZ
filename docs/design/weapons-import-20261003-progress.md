@@ -7,7 +7,7 @@
 | --- | --- | --- | --- |
 | 1 | АЕК |  | AEK 971 Assault Rifle.zip: IMPORTED_REVIEW; без привязки материала 2<br>AEK - 973S.zip: IMPORTED_SOURCE<br>АЕК установлен как кандидат: 8 entity, один модульный предмет 971/973С, RU/EN и иконки; compiled/winding, Lua и регистрация PASS, игровая проверка впереди. |
 | 2 | HK416 | `HK416` | Установлен кандидат: три ствола, два приклада, пять прицелов; шесть compiled mesh audits и девять Lua checks PASS. Восстановлены авторские sharp edges; посадка магазина и материалы требуют визуальной приёмки. Остальные модули пока в подготовке. |
-| 3 | FN SCAR |  | FN SCAR Rifles.zip: IMPORTED_REVIEW; без привязки материала 73; без UV 1 |
+| 3 | FN SCAR |  | FN SCAR Rifles.zip: IMPORTED_REVIEW; p3d нет; `model_39` без UV. Каналы 21 семейства собраны в TGA: цвет и нормаль как есть, шероховатость = 1 − глянец, металл из `_smdi_Metal`, specular не используется. Проверено превью: низ `SCAR_Lower` (SAFE/1), складной приклад `Stock` (цифры положений), кривой магазин `Magazine_STANAG_FN`, прямой `Magazine_SCARH_OEM`, верх `model_67` на `Upper_SCARL`. Сборка заново: ресивер без оторванного кожуха, цевьё `model_24` на `Upper_SCARL`, низ, складной приклад, STANAG. Длина 0,68 м. Шов приклада, глубина магазина и лишний крюк у спусковой скобы ещё не закрыты. Предмет не регистрировался. Разбор: `<WEAPON_SOURCE_ROOT>/_scar_jazz_build/`. |
 | 4 | M14 / M21 | `M14SAW`, `M21` | Переиспользуются текущие модели; объединение M14/M21 ещё не реализовано. |
 | 5 | G36 | `G36`, `G36c` | H&K G36 Rifle Family.zip: IMPORTED_REVIEW; без привязки материала 14 |
 | 6 | FN F2000 |  | FN F2000 Assault Rifle.zip: IMPORTED_SOURCE |

@@ -83,7 +83,15 @@ DefineClass.MicroUZI = {
 			},
 			'DefaultComponent', "JAZZ_Freeswap",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_MicroUZI",
+			},
+		}),
+},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"BurstFire",

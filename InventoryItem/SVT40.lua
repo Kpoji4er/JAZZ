@@ -45,7 +45,15 @@ DefineClass.SVT40 = {
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_SVT",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

@@ -44,6 +44,15 @@ function AEK971:UpdateVisualObj(vis)
     if not IsValid(vis) or vis.weapon ~= self then return end
     if vis:GetEntity() ~= self.Entity then vis:ChangeEntity(self.Entity) end
     FirearmBase.UpdateVisualObj(self, vis)
+
+    -- Post-release attachment fit: AKM adapter, with taller 973S receiver.
+    local mount = vis.parts and vis.parts.Mount
+    local scope = vis.parts and vis.parts.Scope
+    if IsValid(mount) and mount:GetEntity() == "WeaponAttA_MountAK47" then
+        local lift = configuration(self) == "973S" and 28 or 0
+        mount:SetAttachOffset(point(13, 0, -40 + lift))
+        if IsValid(scope) then scope:SetAttachOffset(point(0, 0, 26 + lift)) end
+    end
     -- Both source variants use their own magazine and stock meshes. Their
     -- compiled attachment spots share the body origin, preserving exact fit.
     local variant = configuration(self)

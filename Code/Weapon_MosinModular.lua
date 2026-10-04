@@ -10,6 +10,13 @@ local function update_configuration_name(weapon)
     local id = weapon.components and weapon.components.Barrel
     local component = id and WeaponComponents[id]
     local standard = not id or id == "JAZZ_Mosin1891"
+    local conversion = weapon.components and weapon.components.Conversion
+    if standard and conversion == "JAZZ_Conversion_Mosin" then
+        local piece = WeaponComponents[conversion]
+        weapon.DisplayName = piece and piece.DisplayName or Mosin.DisplayName
+        weapon.DisplayNamePlural = piece and (piece.DisplayNamePlural or piece.DisplayName) or Mosin.DisplayNamePlural
+        return
+    end
     weapon.DisplayName = standard and Mosin.DisplayName or (component and component.DisplayName or Mosin.DisplayName)
     weapon.DisplayNamePlural = standard and Mosin.DisplayNamePlural or weapon.DisplayName
 end

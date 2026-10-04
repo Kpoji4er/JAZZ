@@ -66,7 +66,15 @@ DefineClass.Winchester1894 = {
 			},
 			'DefaultComponent', "JAZZ_ImprovedIronsight",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Winchester",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

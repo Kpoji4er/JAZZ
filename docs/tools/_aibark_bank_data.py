@@ -51,7 +51,7 @@ add("order_hold", "boss", [
 ])
 add("order_hold", "officer", [
     ("Стоим.", "Hold."),
-    ("Не лезем.", "Don't go in."),
+    ("Не лезем.", "We don't go in."),
     ("Здесь.", "Here."),
     ("Ждём.", "We wait."),
     ("Сидим.", "Sit tight."),
@@ -179,7 +179,7 @@ add("order_lowvis", "officer", [
     ("Стоим.", "Stay put."),
     ("Без героев.", "No heroes."),
     ("Ждём света.", "Wait for light."),
-    ("Не лезьте.", "Don't go in."),
+    ("Не лезьте.", "Don't you go in."),
     ("Тихо.", "Quiet."),
 ])
 add("order_hidden", "boss", [
@@ -345,7 +345,7 @@ add("nade_smoke", "t4", [
     ("Закрыл. Прём.", "Covered. Go."),
     ("Дым.", "Smoke."),
     ("Закрой.", "Cover it."),
-    ("Идём.", "We go."),
+    ("Идём.", "We're moving."),
 ])
 add("nade_frag", "t1", [
     ("Нате, гады!", "Here, you bastards!"),
@@ -498,20 +498,20 @@ add("wpn_sidearm", "t4", [
 ])
 add("wpn_gl", "t1", [
     ("Коротыш беру!", "Grabbing the short one!"),
-    ("Коротыш в руки!", "Short one in hand!"),
+    ("Коротыш в руки!", "Stubby one in hand!"),
     ("В окно бью!", "Through the window!", "into"),
     ("Меняю — в дверь!", "Switching. At the door!", "into"),
     ("По хате бью!", "Hitting the house!", "in"),
 ])
 add("wpn_gl", "t2", [
-    ("Коротыш ставлю", "Putting the short one on"),
+    ("Коротыш ставлю", "Putting the stubby one on"),
     ("Под ствол ставлю", "Under the barrel now"),
     ("В окно бью", "This one at the window", "into"),
     ("Дверь вынесу", "I'll take the door", "into"),
     ("По хате бью", "Hitting the house", "in"),
 ])
 add("wpn_gl", "t4", [
-    ("Коротыш.", "Short one."),
+    ("Коротыш.", "The stubby one."),
     ("Под ствол.", "Under the barrel."),
     ("В окно.", "Window.", "into"),
     ("В дверь.", "Door.", "into"),
@@ -540,7 +540,7 @@ add("wpn_rocket", "t4", [
 ])
 add("wpn_sniper", "t1", [
     ("Дальний беру!", "Grabbing the long eye!"),
-    ("Дальний в руки!", "Long one in hand!"),
+    ("Дальний в руки!", "The far one in hand!"),
     ("Лягу и бью!", "I'll go prone and shoot!"),
     ("Меняю — с холма!", "Switching. From the hill!", "high"),
     ("Не дыши — целюсь!", "Don't breathe. Aiming!"),
@@ -553,11 +553,11 @@ add("wpn_sniper", "t2", [
     ("Один — и тишина", "One. Then quiet"),
 ])
 add("wpn_sniper", "t4", [
-    ("Дальний.", "Long one."),
+    ("Дальний.", "The far one."),
     ("С холма.", "The hill.", "high"),
-    ("Лежу.", "Down."),
+    ("Лежу.", "I'm down."),
     ("Один.", "One."),
-    ("Тишина.", "Quiet."),
+    ("Тишина.", "Silence."),
 ])
 add("wpn_melee", "t1", [
     ("Нож достаю!", "Knife's out!"),
@@ -598,7 +598,7 @@ add("mg_setup", "t2", [
 ])
 add("mg_setup", "t4", [
     ("Улица моя.", "This street's mine.", "out"),
-    ("Сюда.", "Here."),
+    ("Сюда.", "Over here."),
     ("С угла.", "Corner."),
     ("Сел.", "Sat."),
     ("Двор мой.", "Yard's mine.", "out"),
@@ -647,7 +647,7 @@ add("seq_flank", "t4", [
     ("В обход.", "Around."),
     ("Не в лоб.", "Not the front."),
     ("С края.", "The edge."),
-    ("Обойду.", "Around."),
+    ("Обойду.", "I'll go around."),
 ])
 
 # Dest ≥12 tiles (AI-007 recontact / long path). Not FallBack.

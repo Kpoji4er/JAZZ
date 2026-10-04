@@ -57,7 +57,15 @@ DefineClass.MAC1950 = {
 				"JAZZ_UVDot",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_PistolUnder",
+			},
+		}),
+},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"SingleShot",

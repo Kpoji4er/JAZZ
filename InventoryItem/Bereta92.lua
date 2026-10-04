@@ -66,7 +66,15 @@ DefineClass.Bereta92 = {
 				"JAZZ_FlashlightDot",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Beretta",
+			},
+		}),
+},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"SingleShot",

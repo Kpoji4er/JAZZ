@@ -107,7 +107,16 @@ DefineClass.M21 = {
 			},
 			'DefaultComponent', "JAZZ_Scope_M21_ART",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M21",
+			},
+			'DefaultComponent', "JAZZ_Rail_M21",
+		}),
+},
 	HolsterSlot = "Shoulder",
 	ModifyRightHandGrip = true,
 	AvailableAttacks = {

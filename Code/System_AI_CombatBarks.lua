@@ -534,7 +534,7 @@ JazzAI_CombatBarkBank = {
 		},
 		["officer"] = {
 			{ id = 890000000020162, en = "Hold.", tags = {  } },
-			{ id = 890000000020163, en = "Don't go in.", tags = {  } },
+			{ id = 890000000020163, en = "We don't go in.", tags = {  } },
 			{ id = 890000000020164, en = "Here.", tags = {  } },
 			{ id = 890000000020165, en = "We wait.", tags = {  } },
 			{ id = 890000000020166, en = "Sit tight.", tags = {  } },
@@ -680,7 +680,7 @@ JazzAI_CombatBarkBank = {
 			{ id = 890000000020252, en = "Stay put.", tags = {  } },
 			{ id = 890000000020253, en = "No heroes.", tags = {  } },
 			{ id = 890000000020254, en = "Wait for light.", tags = {  } },
-			{ id = 890000000020255, en = "Don't go in.", tags = {  } },
+			{ id = 890000000020255, en = "Don't you go in.", tags = {  } },
 			{ id = 890000000020256, en = "Quiet.", tags = {  } },
 		},
 	},
@@ -858,7 +858,7 @@ JazzAI_CombatBarkBank = {
 			{ id = 890000000020368, en = "Covered. Go.", tags = {  } },
 			{ id = 890000000020369, en = "Smoke.", tags = {  } },
 			{ id = 890000000020370, en = "Cover it.", tags = {  } },
-			{ id = 890000000020371, en = "We go.", tags = {  } },
+			{ id = 890000000020371, en = "We're moving.", tags = {  } },
 		},
 	},
 	["nade_frag"] = {
@@ -1025,20 +1025,20 @@ JazzAI_CombatBarkBank = {
 	["wpn_gl"] = {
 		["t1"] = {
 			{ id = 890000000020477, en = "Grabbing the short one!", tags = {  } },
-			{ id = 890000000020478, en = "Short one in hand!", tags = {  } },
+			{ id = 890000000020478, en = "Stubby one in hand!", tags = {  } },
 			{ id = 890000000020479, en = "Through the window!", tags = { "into" } },
 			{ id = 890000000020480, en = "Switching. At the door!", tags = { "into" } },
 			{ id = 890000000020481, en = "Hitting the house!", tags = { "in" } },
 		},
 		["t2"] = {
-			{ id = 890000000020482, en = "Putting the short one on", tags = {  } },
+			{ id = 890000000020482, en = "Putting the stubby one on", tags = {  } },
 			{ id = 890000000020483, en = "Under the barrel now", tags = {  } },
 			{ id = 890000000020484, en = "This one at the window", tags = { "into" } },
 			{ id = 890000000020485, en = "I'll take the door", tags = { "into" } },
 			{ id = 890000000020486, en = "Hitting the house", tags = { "in" } },
 		},
 		["t4"] = {
-			{ id = 890000000020487, en = "Short one.", tags = {  } },
+			{ id = 890000000020487, en = "The stubby one.", tags = {  } },
 			{ id = 890000000020488, en = "Under the barrel.", tags = {  } },
 			{ id = 890000000020489, en = "Window.", tags = { "into" } },
 			{ id = 890000000020490, en = "Door.", tags = { "into" } },
@@ -1071,7 +1071,7 @@ JazzAI_CombatBarkBank = {
 	["wpn_sniper"] = {
 		["t1"] = {
 			{ id = 890000000020507, en = "Grabbing the long eye!", tags = {  } },
-			{ id = 890000000020508, en = "Long one in hand!", tags = {  } },
+			{ id = 890000000020508, en = "The far one in hand!", tags = {  } },
 			{ id = 890000000020509, en = "I'll go prone and shoot!", tags = {  } },
 			{ id = 890000000020510, en = "Switching. From the hill!", tags = { "high" } },
 			{ id = 890000000020511, en = "Don't breathe. Aiming!", tags = {  } },
@@ -1084,11 +1084,11 @@ JazzAI_CombatBarkBank = {
 			{ id = 890000000020516, en = "One. Then quiet", tags = {  } },
 		},
 		["t4"] = {
-			{ id = 890000000020517, en = "Long one.", tags = {  } },
+			{ id = 890000000020517, en = "The far one.", tags = {  } },
 			{ id = 890000000020518, en = "The hill.", tags = { "high" } },
-			{ id = 890000000020519, en = "Down.", tags = {  } },
+			{ id = 890000000020519, en = "I'm down.", tags = {  } },
 			{ id = 890000000020520, en = "One.", tags = {  } },
-			{ id = 890000000020521, en = "Quiet.", tags = {  } },
+			{ id = 890000000020521, en = "Silence.", tags = {  } },
 		},
 	},
 	["wpn_melee"] = {
@@ -1131,7 +1131,7 @@ JazzAI_CombatBarkBank = {
 		},
 		["t4"] = {
 			{ id = 890000000020547, en = "This street's mine.", tags = { "out" } },
-			{ id = 890000000020548, en = "Here.", tags = {  } },
+			{ id = 890000000020548, en = "Over here.", tags = {  } },
 			{ id = 890000000020549, en = "Corner.", tags = {  } },
 			{ id = 890000000020550, en = "Sat.", tags = {  } },
 			{ id = 890000000020551, en = "Yard's mine.", tags = { "out" } },
@@ -1180,7 +1180,7 @@ JazzAI_CombatBarkBank = {
 			{ id = 890000000020578, en = "Around.", tags = {  } },
 			{ id = 890000000020579, en = "Not the front.", tags = {  } },
 			{ id = 890000000020580, en = "The edge.", tags = {  } },
-			{ id = 890000000020581, en = "Around.", tags = {  } },
+			{ id = 890000000020581, en = "I'll go around.", tags = {  } },
 		},
 	},
 	["move_long"] = {

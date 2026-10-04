@@ -50,7 +50,15 @@ DefineClass.ColtAnaconda = {
 			},
 			'DefaultComponent', "JAZZ_BaseIronsight_Anaconda",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Anaconda",
+			},
+		}),
+},
 	HolsterSlot = "Leg",
 	AvailableAttacks = {
 		"SingleShot",

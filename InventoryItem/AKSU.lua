@@ -79,7 +79,15 @@ DefineClass.AKSU = {
 			},
 			'DefaultComponent', "JAZZ_Compensator",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AKSU",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

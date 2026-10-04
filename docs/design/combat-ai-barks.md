@@ -117,7 +117,7 @@ Support уже орёт своими событиями; здесь слышно
 | `boss` | Не лезем пока | Don't go in yet | `—` | 20160 |
 | `boss` | Пусть сами приходят | Let them come to us | `—` | 20161 |
 | `officer` | Стоим. | Hold. | `—` | 20162 |
-| `officer` | Не лезем. | Don't go in. | `—` | 20163 |
+| `officer` | Не лезем. | We don't go in. | `—` | 20163 |
 | `officer` | Здесь. | Here. | `—` | 20164 |
 | `officer` | Ждём. | We wait. | `—` | 20165 |
 | `officer` | Сидим. | Sit tight. | `—` | 20166 |
@@ -254,7 +254,7 @@ Support уже орёт своими событиями; здесь слышно
 | `officer` | Стоим. | Stay put. | `—` | 20252 |
 | `officer` | Без героев. | No heroes. | `—` | 20253 |
 | `officer` | Ждём света. | Wait for light. | `—` | 20254 |
-| `officer` | Не лезьте. | Don't go in. | `—` | 20255 |
+| `officer` | Не лезьте. | Don't you go in. | `—` | 20255 |
 | `officer` | Тихо. | Quiet. | `—` | 20256 |
 
 **`order_hidden`**
@@ -412,7 +412,7 @@ Support уже орёт своими событиями; здесь слышно
 | `t4` | Закрыл. Прём. | Covered. Go. | `—` | 20368 |
 | `t4` | Дым. | Smoke. | `—` | 20369 |
 | `t4` | Закрой. | Cover it. | `—` | 20370 |
-| `t4` | Идём. | We go. | `—` | 20371 |
+| `t4` | Идём. | We're moving. | `—` | 20371 |
 
 **`nade_frag`**
 
@@ -560,16 +560,16 @@ Support уже орёт своими событиями; здесь слышно
 | Лента | Русский | English | ctx | ID |
 | --- | --- | --- | --- | ---: |
 | `t1` | Коротыш беру! | Grabbing the short one! | `—` | 20477 |
-| `t1` | Коротыш в руки! | Short one in hand! | `—` | 20478 |
+| `t1` | Коротыш в руки! | Stubby one in hand! | `—` | 20478 |
 | `t1` | В окно бью! | Through the window! | `into` | 20479 |
 | `t1` | Меняю — в дверь! | Switching. At the door! | `into` | 20480 |
 | `t1` | По хате бью! | Hitting the house! | `in` | 20481 |
-| `t2` | Коротыш ставлю | Putting the short one on | `—` | 20482 |
+| `t2` | Коротыш ставлю | Putting the stubby one on | `—` | 20482 |
 | `t2` | Под ствол ставлю | Under the barrel now | `—` | 20483 |
 | `t2` | В окно бью | This one at the window | `into` | 20484 |
 | `t2` | Дверь вынесу | I'll take the door | `into` | 20485 |
 | `t2` | По хате бью | Hitting the house | `in` | 20486 |
-| `t4` | Коротыш. | Short one. | `—` | 20487 |
+| `t4` | Коротыш. | The stubby one. | `—` | 20487 |
 | `t4` | Под ствол. | Under the barrel. | `—` | 20488 |
 | `t4` | В окно. | Window. | `into` | 20489 |
 | `t4` | В дверь. | Door. | `into` | 20490 |
@@ -600,7 +600,7 @@ Support уже орёт своими событиями; здесь слышно
 | Лента | Русский | English | ctx | ID |
 | --- | --- | --- | --- | ---: |
 | `t1` | Дальний беру! | Grabbing the long eye! | `—` | 20507 |
-| `t1` | Дальний в руки! | Long one in hand! | `—` | 20508 |
+| `t1` | Дальний в руки! | The far one in hand! | `—` | 20508 |
 | `t1` | Лягу и бью! | I'll go prone and shoot! | `—` | 20509 |
 | `t1` | Меняю — с холма! | Switching. From the hill! | `high` | 20510 |
 | `t1` | Не дыши — целюсь! | Don't breathe. Aiming! | `—` | 20511 |
@@ -609,11 +609,11 @@ Support уже орёт своими событиями; здесь слышно
 | `t2` | Лежу, бью | Down. Shooting | `—` | 20514 |
 | `t2` | Достаю с края | I can reach from here | `—` | 20515 |
 | `t2` | Один — и тишина | One. Then quiet | `—` | 20516 |
-| `t4` | Дальний. | Long one. | `—` | 20517 |
+| `t4` | Дальний. | The far one. | `—` | 20517 |
 | `t4` | С холма. | The hill. | `high` | 20518 |
-| `t4` | Лежу. | Down. | `—` | 20519 |
+| `t4` | Лежу. | I'm down. | `—` | 20519 |
 | `t4` | Один. | One. | `—` | 20520 |
-| `t4` | Тишина. | Quiet. | `—` | 20521 |
+| `t4` | Тишина. | Silence. | `—` | 20521 |
 
 **`wpn_melee`**
 
@@ -651,7 +651,7 @@ Support уже орёт своими событиями; здесь слышно
 | `t2` | Двор закрою | I'll shut the yard | `out` | 20545 |
 | `t2` | Сел — улица моя | Sat. Street's mine | `out` | 20546 |
 | `t4` | Улица моя. | This street's mine. | `out` | 20547 |
-| `t4` | Сюда. | Here. | `—` | 20548 |
+| `t4` | Сюда. | Over here. | `—` | 20548 |
 | `t4` | С угла. | Corner. | `—` | 20549 |
 | `t4` | Сел. | Sat. | `—` | 20550 |
 | `t4` | Двор мой. | Yard's mine. | `out` | 20551 |
@@ -695,7 +695,7 @@ Support уже орёт своими событиями; здесь слышно
 | `t4` | В обход. | Around. | `—` | 20578 |
 | `t4` | Не в лоб. | Not the front. | `—` | 20579 |
 | `t4` | С края. | The edge. | `—` | 20580 |
-| `t4` | Обойду. | Around. | `—` | 20581 |
+| `t4` | Обойду. | I'll go around. | `—` | 20581 |
 ### Дальняя перебежка
 
 **`move_long`**

@@ -114,3 +114,14 @@ approved_by: project-owner
 Exclusive resources: items.lua, companion и экспорт HK416. Backup/hash guards; не затрагивать посторонние изменения.
 
 `JAZZ-WEAPON-HK416-001-AC-ATT-031`: PASS static/offline/install; items syntax, companion sync, native setter tests, backups/hashes. Runtime/editor/human NOT_RUN. Evidence: docs/design/weapon-shading-recheck-20261003.md.
+
+## Посадка обвеса после релиза 0.20-6244
+
+Решение владельца 04.10: approved — «подствольник надо подальше», «фонарик надо повернуть», «у аека планки нет — от акма», затем «после релиза доделай».
+
+- `JAZZ-WEAPON-HK416-001-REQ-FIT-041`: Сдвинуть только M203 вперёд, сохранив рукоятки на прежнем месте; повернуть боковые фонари/лазеры вокруг продольной оси для посадки крепления на боковую планку. Изменения выполняются в существующем HK416:UpdateVisualObj, без новых hooks и правки материалов.
+- `JAZZ-WEAPON-HK416-001-AC-FIT-041`: offline render реальной геометрии, повторное UpdateVisualObj без накопления смещения, смена/снятие модулей и все варианты оружия. Игровая визуальная приёмка остаётся за владельцем; игру не запускать.
+
+Write set: существующий Code/Weapon_HK416Modular.lua, items.lua для AEK Mount visuals, профильные tools/spec/design/technical. Exclusive resource: items.lua; закрытая игра/редактор, резервная копия перед установкой. Новых ID и companion-записей нет.
+
+`JAZZ-WEAPON-HK416-001-AC-FIT-041`: PASS static/offline/install — native visual selection, повторные обновления, снятие модулей, все конфигурации, 15 ракурсов реальной геометрии и hash-guarded установка. Runtime/editor/human: NOT_RUN; владелец проверит в игре. Дополнение реализовано локально после релиза.

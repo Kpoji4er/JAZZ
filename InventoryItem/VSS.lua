@@ -63,7 +63,22 @@ DefineClass.VSS = {
 				"JAZZ_Scope_Scout",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_Val",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_Val",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"SingleShot",

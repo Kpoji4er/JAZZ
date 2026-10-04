@@ -108,7 +108,15 @@ DefineClass.G36 = {
 			},
 			'DefaultComponent', "JAZZ_G36Sight",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G36",
+			},
+		}),
+},
 	Color = "Black",
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {

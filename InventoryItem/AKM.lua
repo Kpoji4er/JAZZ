@@ -115,7 +115,22 @@ DefineClass.AKM = {
 				"JAZZ_Bipod",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AK",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_AK",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

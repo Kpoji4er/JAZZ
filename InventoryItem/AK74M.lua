@@ -92,9 +92,29 @@ DefineClass.AK74M = {
 				"JAZZ_Reflex_PKAS",
 				"JAZZ_CombatScope_1P29",
 				"JAZZ_NightScope_NSPU",
+			
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_M68",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Open",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_Scout",
+				"JAZZ_NightScope",
+},
+		}),
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_AK",
 			},
 		}),
-	},
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

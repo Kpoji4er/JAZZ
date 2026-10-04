@@ -53,7 +53,15 @@ DefineClass.PP19Bizon = {
 				"JAZZ_NightScope_NSPU",
 			},
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AK",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"BurstFire",

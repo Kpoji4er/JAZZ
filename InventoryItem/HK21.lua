@@ -112,7 +112,15 @@ DefineClass.HK21 = {
 			},
 			'DefaultComponent', "JAZZ_MagNormal",
 		}),
-	},
+	
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_HK21",
+			},
+		}),
+},
 	HolsterSlot = "Shoulder",
 	AvailableAttacks = {
 		"MGBurstFire",

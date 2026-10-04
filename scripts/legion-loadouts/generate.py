@@ -11,6 +11,8 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]  # jazz/
+sys.path.insert(0, str(ROOT / "docs" / "tools"))
+from _apply_loot_rails import load_slots, order_upgrades  # noqa: E402
 DATA = Path(__file__).resolve().parent / "data"
 UNITS = ROOT.parent / "jazz-units"
 ITEMS = UNITS / "items.lua"
@@ -154,6 +156,15 @@ def resolve_package(weapon_id: str, package: dict, comps) -> list[str]:
         if picked:
             upgrades.append(picked)
     return upgrades
+
+
+def with_required_rails(class_id: str, upgrades: list[str]) -> list[str]:
+    """Mounts must precede the optic, laser or grip that needs them."""
+    if not hasattr(with_required_rails, "slots"):
+        with_required_rails.slots = load_slots()
+    pair, by_id = with_required_rails.slots
+    ordered, _blocked = order_upgrades(class_id, list(upgrades), pair, by_id)
+    return ordered
 
 
 def indent(n: int) -> str:
@@ -617,6 +628,7 @@ def collect_firearm_plan(
             upgrades = ["JAZZ_Mosin1891"] + upgrades
             if "JAZZ_Scope_PU" not in upgrades:
                 upgrades.append("JAZZ_Scope_PU")
+        upgrades = with_required_rails(w.get("class_id") or w["id"], upgrades)
         ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
         cid = combo_id(w["id"], pkg_name, ammo)
         if cid not in combos:
@@ -680,7 +692,9 @@ def collect_firearm_plan(
             if weapon_excluded_by_recipe(tagged, recipe):
                 continue
             pkg_name = str(variant.get("id") or "early")
-            upgrades = list(variant.get("upgrades") or [])
+            upgrades = with_required_rails(
+                w.get("class_id") or w["id"], list(variant.get("upgrades") or [])
+            )
             ammo = ammo_loot_id(w, caliber_ammo, recipe, arch)
             cid = combo_id(w["id"], pkg_name, ammo)
             if cid not in combos:

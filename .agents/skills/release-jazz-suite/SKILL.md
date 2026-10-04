@@ -103,7 +103,7 @@ description: >-
 
 Затем выполнить проверки из `docs/technical/testing.md`, проверить save/new game, LFS objects, структуру архивов, manifest, SHA-256, release notes и contributors.
 
-Если runtime-тест невозможен, остановить публикацию стабильного релиза либо явно выпустить prerelease с указанием непроверенного пункта.
+Если runtime-тест невозможен, в notes указать непроверенный пункт. Публиковать всё равно как latest, не как prerelease.
 
 ## Опубликовать
 
@@ -111,7 +111,7 @@ description: >-
 2. Назвать release по engine display из core metadata.
 3. Приложить четыре архива, manifest и файл SHA-256.
 4. Проверить скачанные assets повторно.
-5. Опубликовать draft и сообщить display version, tag, четыре SHA и выполненные проверки.
+5. Опубликовать draft как latest: `gh release edit <tag> --draft=false --prerelease=false --latest`. Черновик workflow создаёт с `--latest=false`, чтобы он не занимал Latest до проверки. Сообщить display version, tag, четыре SHA и выполненные проверки.
 
 Не создавать отдельные GitHub Releases в asset/maps/units-репозиториях. Их metadata versions и SHA остаются частью центрального неизменяемого manifest.
 

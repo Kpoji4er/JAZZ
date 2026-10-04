@@ -4398,33 +4398,33 @@ return {
 			title = T(890000000006909, --[[ModItemEmail AME_ListingUpdate title]] "A.M.E. — listing update"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000007201, --[[ModItemEmail MERC_Welcome body]] "Commander!\n\nGreat news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)\n\nOne snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.\n\nOpen M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.\n\nYour friend in the hiring business,\nSpeck T. Kline\nM.E.R.C. — More Economic Recruiting Center"),
+			body = T(890000000040002, --[[ModItemEmail MERC_Welcome body]] "Commander!\n\nGreat news — M.E.R.C. is OPEN FOR BUSINESS again. Fresh site, same low daily rates, and you don't pay up front. Hire now, settle the account when you can. (I'll nudge you. Friendly-like.)\n\nOne snag. My partner Biff was supposed to keep the books. He hasn't checked in. If you bump into him out there, tell him Speck needs him back at the desk. Preferably still breathing.\n\nOpen M.E.R.C. in your PDA browser and pick a contractor. We're not A.I.M. — we're cheaper.\n\nYour friend in the hiring business,\nSpeck T. Kline\nM.E.R.C. — More Economic Recruiting Center"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "MERC_Welcome",
 			label = "Important",
-			sender = T(890000000007200, --[[ModItemEmail MERC_Welcome sender]] "Speck <speck@merc.com>"),
-			title = T(890000000007202, --[[ModItemEmail MERC_Welcome title]] "M.E.R.C. is OPEN — and where's Biff?"),
+			sender = T(890000000040001, --[[ModItemEmail MERC_Welcome sender]] "Speck <speck@merc.com>"),
+			title = T(890000000040003, --[[ModItemEmail MERC_Welcome title]] "M.E.R.C. is OPEN — and where's Biff?"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000007204, --[[ModItemEmail MERC_AccountReminder body]] "Commander!\n\nHate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.\n\nDaily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.\n\nSpeck"),
+			body = T(890000000040005, --[[ModItemEmail MERC_AccountReminder body]] "Commander!\n\nHate to bother a valued customer, but your M.E.R.C. account still shows $<balance> outstanding.\n\nDaily rates, remember? Pay Account on the site before my people start writing resignation notes in muddy boots.\n\nSpeck"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "MERC_AccountReminder",
 			label = "Important",
 			repeatable = true,
-			sender = T(890000000007203, --[[ModItemEmail MERC_AccountReminder sender]] "Speck <accounts@merc.com>"),
-			title = T(890000000007205, --[[ModItemEmail MERC_AccountReminder title]] "M.E.R.C. — please settle up"),
+			sender = T(890000000040004, --[[ModItemEmail MERC_AccountReminder sender]] "Speck <accounts@merc.com>"),
+			title = T(890000000040006, --[[ModItemEmail MERC_AccountReminder title]] "M.E.R.C. — please settle up"),
 		}),
 		PlaceObj('ModItemEmail', {
-			body = T(890000000007207, --[[ModItemEmail MERC_QuitWarning body]] "Commander!\n\nI warned you. $<balance> still unpaid. My contractors walked.\n\nWant them back? Clear the ledger first — if any of them still answer the phone.\n\nSpeck"),
+			body = T(890000000040008, --[[ModItemEmail MERC_QuitWarning body]] "Commander!\n\nI warned you. $<balance> still unpaid. My contractors walked.\n\nWant them back? Clear the ledger first — if any of them still answer the phone.\n\nSpeck"),
 			delayAfterCombat = false,
 			group = "Default",
 			id = "MERC_QuitWarning",
 			label = "Important",
 			repeatable = true,
-			sender = T(890000000007206, --[[ModItemEmail MERC_QuitWarning sender]] "Speck <accounts@merc.com>"),
-			title = T(890000000007208, --[[ModItemEmail MERC_QuitWarning title]] "M.E.R.C. — they're walking"),
+			sender = T(890000000040007, --[[ModItemEmail MERC_QuitWarning sender]] "Speck <accounts@merc.com>"),
+			title = T(890000000040009, --[[ModItemEmail MERC_QuitWarning title]] "M.E.R.C. — they're walking"),
 		}),
 		PlaceObj('ModItemEmail', {
 			body = T(890000000006923, --[[ModItemEmail RIS_Welcome body]] "Commander,\n\nR.I.S. has opened a field-intelligence channel for your team for the duration of this campaign. We will send an assessment whenever confirmed reports show a change in Legion weapons or equipment. As evidence accumulates, the field desk will add dossiers and after-action summaries to its bulletin.\n\n— R.I.S. Field Desk"),
@@ -12132,7 +12132,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_Compensator",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Commando",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -18288,7 +18296,15 @@ return {
 								"JAZZ_UVDot",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_PistolUnder",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -18557,7 +18573,15 @@ return {
 								"JAZZ_UVDot",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_PistolUnder",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -19445,7 +19469,15 @@ return {
 								"JAZZ_FlashlightDot",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Beretta",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -19928,7 +19960,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_IronSight",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_P220",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -20287,7 +20327,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_Freeswap",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_MicroUZI",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -21172,7 +21220,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_BaseIronsight_Anaconda",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Anaconda",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -22097,7 +22153,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_UZI",
+			},
+		}),
+},
 					'Color', "Black",
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
@@ -22315,7 +22379,15 @@ return {
 								"JAZZ_NightScope_NSPU",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AK",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -22441,7 +22513,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_Freeswap",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_MP5K",
+			},
+		}),
+},
 					'HolsterSlot', "Leg",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -22824,7 +22904,15 @@ return {
 								"JAZZ_PistolSuppressor",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_UMP",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -23311,7 +23399,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_ImprovedIronsight",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Winchester",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -23770,7 +23866,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_DefMuzzle",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AR",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -23884,9 +23988,29 @@ return {
 								"JAZZ_Reflex_PKAS",
 								"JAZZ_CombatScope_1P29",
 								"JAZZ_NightScope_NSPU",
-							},
+							
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_M68",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Open",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_Scout",
+				"JAZZ_NightScope",
+},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_AK",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -23987,7 +24111,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_Compensator",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AKSU",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -24347,7 +24479,22 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_Val",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_Val",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -24685,7 +24832,22 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_Val",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_Val",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -24756,7 +24918,15 @@ return {
 								"JAZZ_HandlingWrap",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_STG",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -24939,7 +25109,15 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AR",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -25152,7 +25330,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_MagNormal",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_FAMAS",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -25269,7 +25455,22 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M16A2",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "RailSide",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M16A2_Side",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -25663,7 +25864,22 @@ return {
 								"JAZZ_Bipod",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AK",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_AK",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -25808,7 +26024,15 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_HK33",
+			},
+		}),
+},
 					'Color', "Black",
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
@@ -26061,9 +26285,29 @@ return {
 								"JAZZ_Reflex_PKAS",
 								"JAZZ_CombatScope_1P29",
 								"JAZZ_NightScope_NSPU",
-							},
+							
+				"JAZZ_Reflex_Aimpoint5000",
+				"JAZZ_Reflex_M68",
+				"JAZZ_Reflex_Eotech",
+				"JAZZ_Reflex_Closed",
+				"JAZZ_Reflex_Open",
+				"JAZZ_CombatScope_ACOG",
+				"JAZZ_CombatScope_2x",
+				"JAZZ_Scope_12x",
+				"JAZZ_Scope_6x",
+				"JAZZ_Scope_Scout",
+				"JAZZ_NightScope",
+},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_AK",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -26177,7 +26421,15 @@ return {
 								"JAZZ_NightScope_NSPU",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AK",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -26303,7 +26555,22 @@ return {
 							},
 							'DefaultComponent', "JAZZ_AUGScope_Default",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AUG",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "RailSide",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AUG_Side",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -26586,7 +26853,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_G36Sight",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G36",
+			},
+		}),
+},
 					'Color', "Black",
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
@@ -27104,7 +27379,15 @@ return {
 								"JAZZ_Scope_ZF4",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_G43",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -27222,7 +27505,15 @@ return {
 								"JAZZ_Suppressor",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_Garand",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -27355,7 +27646,15 @@ return {
 							},
 							'DefaultComponent', "JAZZ_MagNormal",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_SVT",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -27489,7 +27788,15 @@ return {
 								"JAZZ_Compensator",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AR",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -27611,7 +27918,15 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M14",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -27793,9 +28108,10 @@ return {
 					'ComponentSlots', {
 						PlaceObj('WeaponComponentSlot', {
 							'SlotType', "Handguard",
-							'Modifiable', false,
+							'Modifiable', true,
 							'AvailableComponents', {
 								"FNFAL_Handguard",
+				"JAZZ_FNFAL_TacHandguard",
 							},
 							'DefaultComponent', "FNFAL_Handguard",
 						}),
@@ -27844,6 +28160,8 @@ return {
 								"JAZZ_BarrelHeavy",
 								"JAZZ_BarrelShort",
 								"JAZZ_BarrelShortImproved",
+				"JAZZ_BarrelLong",
+				"JAZZ_BarrelLongImproved",
 							},
 							'DefaultComponent', "JAZZ_BarrelNormal",
 						}),
@@ -27853,6 +28171,7 @@ return {
 								"JAZZ_StockNormal",
 								"JAZZ_StockLightUnFolded",
 								"JAZZ_StockLightFolded",
+				"JAZZ_StockHeavy",
 							},
 							'DefaultComponent', "JAZZ_StockLightUnFolded",
 						}),
@@ -27881,7 +28200,15 @@ return {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_FAL",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -27920,7 +28247,7 @@ return {
 					'UnitStat', "Marksmanship",
 					'Valuable', 1,
 					'Cost', 8500,
-					'CanAppearInShop', true,
+					'CanAppearInShop', false,
 					'Tier', 3,
 					'RestockWeight', 60,
 					'CategoryPair', "AssaultRifles",
@@ -28154,7 +28481,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_UVDot",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Galil",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -28249,7 +28584,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_Scope_DA15_6x",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G3",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -28354,7 +28697,15 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_MagNormal",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G3",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"BurstFire",
@@ -28426,7 +28777,15 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_Mosin1891",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_Mosin",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -28495,7 +28854,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_ImprovisedSuppressor",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_Gewehr",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -28553,7 +28920,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_Scope_Springfield",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Conversion_Springfield",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -28848,7 +29223,16 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_Scope_M21_ART",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M21",
+			},
+			'DefaultComponent', "JAZZ_Rail_M21",
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -28975,7 +29359,16 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_MkIII",
+			},
+			'DefaultComponent', "JAZZ_Rail_MkIII",
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -29077,7 +29470,23 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_Compensator",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_SVD",
+			},
+			'DefaultComponent', "JAZZ_Dovetail_SVD",
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_SVD",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -29382,7 +29791,16 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_MagSmall20_10_G3",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_G3",
+			},
+			'DefaultComponent', "JAZZ_Rail_G3",
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -29554,7 +29972,16 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_UVDot",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M24",
+			},
+			'DefaultComponent', "JAZZ_Rail_M24",
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -29689,7 +30116,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_Scope_Scout",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_M1A",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -30056,7 +30491,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_UVDot_PSG_M1",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_PSG",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"SingleShot",
@@ -30942,7 +31385,15 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_MagNormal",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_HK21",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"MGBurstFire",
@@ -32037,7 +32488,15 @@ PlaceObj('WeaponComponentSlot', {
 							},
 							'DefaultComponent', "JAZZ_StockNormal",
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_Ithaca",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -32127,7 +32586,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_SpeedLoader",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_R870",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'ModifyRightHandGrip', true,
 					'AvailableAttacks', {
@@ -32673,7 +33140,15 @@ PlaceObj('WeaponComponentSlot', {
 								"JAZZ_Compensator",
 							},
 						}),
-					},
+					
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_AA12",
+			},
+		}),
+},
 					'HolsterSlot', "Shoulder",
 					'AvailableAttacks', {
 						"Buckshot",
@@ -34229,13 +34704,7 @@ PlaceObj('WeaponComponentVisual', {
 							Slot = "Mountside",
 							param_bindings = false,
 						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "JAZZ_M14_MkIII",
-							Entity = "WeaponAttA_SideMountM14",
-							Slot = "Mountside",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
+												PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "MK14EBR",
 							Entity = "",
 							Slot = "Mountside",
@@ -34287,7 +34756,6 @@ PlaceObj('WeaponComponentVisual', {
 						ModificationDifficulty = -25,
 						Slot = "Scope",
 						Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 							PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M21",
 								Entity = "JAZZ_M14_ART",
@@ -34343,13 +34811,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMo
 							Slot = "Mountside",
 							param_bindings = false,
 						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "JAZZ_M14_MkIII",
-							Entity = "WeaponAttA_SideMountM14",
-							Slot = "Mountside",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
+												PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "MK14EBR",
 							Entity = "",
 							Slot = "Mountside",
@@ -34736,13 +35198,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMo
 							Slot = "Mountside",
 							param_bindings = false,
 						}),
-						PlaceObj('WeaponComponentVisual', {
-							ApplyTo = "JAZZ_M14_MkIII",
-							Entity = "WeaponAttA_SideMountM14",
-							Slot = "Mountside",
-							param_bindings = false,
-						}),
-						PlaceObj('WeaponComponentVisual', {
+												PlaceObj('WeaponComponentVisual', {
 							ApplyTo = "MK14EBR",
 							Entity = "",
 							Slot = "Mountside",
@@ -39979,13 +40435,7 @@ PlaceObj('WeaponComponentVisual', {ApplyTo = "HK416", Entity = "WeaponAttA_Verti
 								Slot = "Mountside",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "JAZZ_M14_MkIII",
-								Entity = "WeaponAttA_SideMountM14",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MK14EBR",
 								Entity = "",
 								Slot = "Mountside",
@@ -40342,13 +40792,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side2",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "UZI",
-								Entity = "WeaponAttA_MountUzi_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "AK47",
 								Entity = "WeaponAttA_FrontMountAK47",
 								Slot = "Mountfront",
@@ -40366,43 +40810,19 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AUG",
-								Entity = "WeaponAttA_SideMountSteyr",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Bereta92",
-								Entity = "WeaponAttA_MountBeretta",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+																					PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HiPower",
 								Entity = "WeaponAttA_MountBHP",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FAMAS",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M41Shotgun",
 								Entity = "WeaponAttA_SideLight",
 								Slot = "Side2",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M24Sniper",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -40420,13 +40840,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PSG1",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Winchester1894",
 								Entity = "WeaponAttA_SideLight",
 								Slot = "Side2",
@@ -40456,13 +40870,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountside",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "JAZZ_M14_MkIII",
-								Entity = "WeaponAttA_SideMountM14",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MK14EBR",
 								Entity = "",
 								Slot = "Mountside",
@@ -40498,25 +40906,13 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4Commando",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M4Commando",
 								Entity = "WeaponAttA_SideLight",
 								Slot = "Side2",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M16A2",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mount3",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A2",
 								Entity = "WeaponAttA_SideLight",
 								Slot = "Side1",
@@ -40576,26 +40972,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "CZ52",
-								Entity = "WeaponAttA_MountBottomCAR15",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MAC1950",
-								Entity = "WeaponAttA_MountBottomCAR15",
-								Offset = point(0, 0, 5),
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "P220",
-								Entity = "P220RailUnder",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+																											},
 						comment = "Side Flashlight — dark ignore + light FX (EnableAimFX)",
 						group = "Side",
 						id = "JAZZ_Flashlight",
@@ -40625,12 +41002,6 @@ PlaceObj('WeaponComponentVisual', {
 PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MK14EBR",
 								Entity = "",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "JAZZ_M14_MkIII",
-								Entity = "WeaponAttA_SideMountM14",
 								Slot = "Mountside",
 								param_bindings = false,
 							}),
@@ -40664,13 +41035,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side1",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side Flashlight — dark ignore + light FX (EnableAimFX)",
 						group = "AA12 Specific",
 						id = "JAZZ_Flashlight_aa12",
@@ -40795,43 +41160,19 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AUG",
-								Entity = "WeaponAttA_SideMountSteyr",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Bereta92",
-								Entity = "WeaponAttA_MountBeretta",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+																					PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HiPower",
 								Entity = "WeaponAttA_MountBHP",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FAMAS",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M41Shotgun",
 								Entity = "WeaponAttA_SideLaserLight",
 								Slot = "Side2",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M24Sniper",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -40849,13 +41190,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PSG1",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Winchester1894",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -40885,13 +41220,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountside",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "JAZZ_M14_MkIII",
-								Entity = "WeaponAttA_SideMountM14",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MK14EBR",
 								Entity = "",
 								Slot = "Mountside",
@@ -40921,13 +41250,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4Commando",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A2",
 								Entity = "WeaponAttA_MountM16_03",
 								Slot = "Mount3",
@@ -40975,20 +41298,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "P220",
-								Entity = "P220RailUnder",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MAC1950",
-								Entity = "WeaponAttA_MountBottomCAR15",
-								Offset = point(0, 0, 5),
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+																				},
 						comment = "Side Tac Device — light + OW + mark + mild SK",
 						group = "Side",
 						id = "JAZZ_FlashlightDot",
@@ -41040,13 +41350,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side1",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side Tac Device — light + OW + mark + mild SK",
 						group = "AA12 Specific",
 						id = "JAZZ_FlashlightDot_aa12",
@@ -41099,13 +41403,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Scope",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "ColtAnaconda",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side Tac Device — light + OW + mark + mild SK",
 						group = "Anaconda Specific",
 						id = "JAZZ_FlashlightDot_Anaconda",
@@ -41204,43 +41502,19 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AUG",
-								Entity = "WeaponAttA_SideMountSteyr",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Bereta92",
-								Entity = "WeaponAttA_MountBeretta",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+																					PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HiPower",
 								Entity = "WeaponAttA_MountBHP",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FAMAS",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M41Shotgun",
 								Entity = "WeaponAttA_SideLaser",
 								Slot = "Side2",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M24Sniper",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -41258,13 +41532,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PSG1",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Winchester1894",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -41318,13 +41586,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountside",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "JAZZ_M14_MkIII",
-								Entity = "WeaponAttA_SideMountM14",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MK14EBR",
 								Entity = "",
 								Slot = "Mountside",
@@ -41366,13 +41628,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4Commando",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A2",
 								Entity = "WeaponAttA_MountM16_03",
 								Slot = "Mount3",
@@ -41426,20 +41682,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "P220",
-								Entity = "P220RailUnder",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MAC1950",
-								Entity = "WeaponAttA_MountBottomCAR15",
-								Offset = point(0, 0, 5),
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+																				},
 						comment = "Side Laser — flat CTH with falloff after 5 tiles",
 						group = "Side",
 						id = "JAZZ_LaserDot",
@@ -41497,13 +41740,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Scope",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "ColtAnaconda",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side Laser — flat CTH with falloff after 5 tiles",
 						group = "Anaconda Specific",
 						id = "JAZZ_LaserDot_Anaconda",
@@ -41560,13 +41797,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side1",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side Laser — flat CTH with falloff after 5 tiles",
 						group = "AA12 Specific",
 						id = "JAZZ_LaserDot_aa12",
@@ -41657,43 +41888,19 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AUG",
-								Entity = "WeaponAttA_SideMountSteyr",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "Bereta92",
-								Entity = "WeaponAttA_MountBeretta",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+																					PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "HiPower",
 								Entity = "WeaponAttA_MountBHP",
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "FAMAS",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount1",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M41Shotgun",
 								Entity = "WeaponAttA_SideLaser",
 								Slot = "Side2",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M24Sniper",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -41711,13 +41918,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountfront",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "PSG1",
-								Entity = "WeaponAttA_FrontMountM24",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "Winchester1894",
 								Entity = "WeaponAttA_FrontMountM24",
 								Slot = "Mountfront",
@@ -41771,13 +41972,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mountside",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "JAZZ_M14_MkIII",
-								Entity = "WeaponAttA_SideMountM14",
-								Slot = "Mountside",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "MK14EBR",
 								Entity = "",
 								Slot = "Mountside",
@@ -41819,13 +42014,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side3",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "M4Commando",
-								Entity = "WeaponAttA_MountFrontCAR15",
-								Slot = "Mountfront",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
+														PlaceObj('WeaponComponentVisual', {
 								ApplyTo = "M16A2",
 								Entity = "WeaponAttA_MountM16_03",
 								Slot = "Mount3",
@@ -41867,20 +42056,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Mount",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "P220",
-								Entity = "P220RailUnder",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "MAC1950",
-								Entity = "WeaponAttA_MountBottomCAR15",
-								Offset = point(0, 0, 5),
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+																				},
 						comment = "Side UV — night laser CTH + stealth kill",
 						group = "Side",
 						id = "JAZZ_UVDot",
@@ -41936,13 +42112,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Scope",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "ColtAnaconda",
-								Entity = "WeaponAttA_MountAnaconda",
-								Slot = "Mount",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side UV — night laser CTH + stealth kill",
 						group = "Anaconda Specific",
 						id = "JAZZ_UVDot_Anaconda",
@@ -41997,13 +42167,7 @@ PlaceObj('WeaponComponentVisual', {
 								Slot = "Side1",
 								param_bindings = false,
 							}),
-							PlaceObj('WeaponComponentVisual', {
-								ApplyTo = "AA12",
-								Entity = "WeaponAttA_MountAA12_02",
-								Slot = "Mount2",
-								param_bindings = false,
-							}),
-						},
+													},
 						comment = "Side UV — night laser CTH + stealth kill",
 						group = "AA12 Specific",
 						id = "JAZZ_UVDot_aa12",
@@ -43455,14 +43619,7 @@ PlaceObj('WeaponComponentVisual', {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
@@ -43476,14 +43633,7 @@ PlaceObj('WeaponComponentVisual', {
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AN94",
 									Entity = "Kobra",
 									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
@@ -43541,21 +43691,7 @@ PlaceObj('WeaponComponentVisual', {
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "Aimpoint5000",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Aimpoint5000.png",
 									Slot = "Scope",
@@ -43575,19 +43711,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -43599,25 +43723,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "UZI",
 									Entity = "UziPlank",
 									Slot = "Mount",
@@ -43641,31 +43753,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -43689,117 +43777,15 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-							},
+																																							},
 							comment = "Reflex Precision T1 — budget Aimpoint + close soft",
 							group = "Scope",
 							id = "JAZZ_Reflex_Aimpoint5000",
@@ -43850,22 +43836,8 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterBox.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 	PlaceObj('WeaponComponentVisual', { ApplyTo = "VZ58", Entity = "JAZZ_VZ58_Reflex", Slot = "Scope", param_bindings = false }),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "PKM_Scope",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Reflex.png",
 									Slot = "Scope",
@@ -43877,25 +43849,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -43907,25 +43867,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MicroUZI",
 									Entity = "PKM_Scope",
 									Offset = point(1, 0, 0),
@@ -43963,31 +43905,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -44011,110 +43929,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-							},
+																																							},
 							comment = "Reflex Precision T2 — tube AimAccuracy + close soft",
 							group = "Scope",
 							id = "JAZZ_Reflex_Closed",
@@ -44165,19 +43987,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "PKAA",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PKAS.png",
 									Slot = "Scope",
@@ -44189,13 +43999,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -44207,25 +44011,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MP5A2",
 									Entity = "MP5Plank",
 									Slot = "Mount",
@@ -44243,19 +44035,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-							},
+																							},
 							comment = "Reflex Precision T4 — premium AimAccuracy + close soft (~+20% CQB)",
 							group = "Scope",
 							id = "JAZZ_Reflex_PKAS",
@@ -44306,21 +44086,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "Ithaca_AimPoint",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/M68.png",
 									Slot = "Scope",
@@ -44332,25 +44098,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -44362,25 +44116,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MicroUZI",
 									Entity = "Ithaca_AimPoint",
 									Offset = point(-16, 0, -2),
@@ -44418,31 +44154,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -44466,110 +44178,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-							},
+																																							},
 							comment = "Reflex Precision T3 — military AimAccuracy + close soft",
 							group = "Scope",
 							id = "JAZZ_Reflex_M68",
@@ -44628,19 +44244,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_CompactReflexSight",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ReflexOpen.png",
 									Slot = "Scope",
@@ -44652,19 +44256,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "WeaponAttA_CompactReflexSightMount",
 									Slot = "Mount",
@@ -44682,19 +44274,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "USP45",
 									Entity = "WeaponAttA_ScopeGlock18",
 									Offset = point(-26, 0, -18),
@@ -44708,13 +44288,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "UZI",
 									Entity = "WeaponAttA_CompactReflexSightLifted",
 									Slot = "Scope",
@@ -44744,19 +44318,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -44780,110 +44342,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -44949,19 +44415,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeGlock18",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ReflexOpen.png",
 									Slot = "Scope",
@@ -44973,19 +44427,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "WeaponAttA_CompactReflexSightMount",
 									Slot = "Mount",
@@ -45003,19 +44445,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "USP45",
 									Entity = "WeaponAttA_ScopeGlock18",
 									Offset = point(-26, 0, -18),
@@ -45050,13 +44480,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "MicroUZI",
 									Entity = "WeaponAttA_ScopeGlock18",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ReflexOpen.png",
@@ -45140,21 +44564,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterBox.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeReflex",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Eotech.png",
 									Slot = "Scope",
@@ -45166,19 +44576,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -45190,25 +44588,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MicroUZI",
-									Entity = "WeaponAttA_MountUzi_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "UZI",
 									Entity = "UziPlank",
 									Slot = "Mount",
@@ -45232,31 +44612,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -45280,110 +44636,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Kimber",
 									Entity = "WeaponAttA_ScopeReflex",
 									Offset = point(10, -9, -10),
@@ -45469,22 +44729,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeCOG",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/2x.png",
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									ReticleZoom = 4,
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -45522,31 +44773,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -45570,122 +44797,20 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Gewehr98",
 									Entity = "WeaponAttA_MountGewehr",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-							},
+																							},
 							comment = "Combat Universal T1 — mid 2x, mild near ~6, OW 85%, AimAccuracy 125",
 							group = "Scope",
 							id = "JAZZ_CombatScope_2x",
@@ -45836,19 +44961,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "tyulpan",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/1P29.png",
 									Slot = "Scope",
@@ -45860,13 +44973,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -45878,19 +44985,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-							},
+																							},
 							comment = "Combat Universal T3 — 1P29 mid 4x, mild near ~12, OW 70%, AimAccuracy 155",
 							group = "Scope",
 							id = "JAZZ_CombatScope_1P29",
@@ -46069,21 +45164,12 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "ACOGV2",
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									ReticleZoom = 4,
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AKM",
 									Entity = "ACOGV2",
 									Offset = point(0, 0, -7),
@@ -46091,25 +45177,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -46133,116 +45201,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -46579,32 +45545,12 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							Slot = "Scope",
 							Visuals = {
 PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_M14_MkIII", Entity = "JAZZ_M14_MkIII_Scope", Slot = "Scope", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeSniperX10",
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -46628,122 +45574,20 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Gewehr98",
 									Entity = "WeaponAttA_MountGewehr",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -46841,32 +45685,12 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeLongRange",
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -46890,116 +45714,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -47086,19 +45808,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -47122,104 +45832,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -47317,27 +45937,12 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuter.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
 								PlaceObj('WeaponComponentVisual', {
 									Entity = "SteyrS_Scope",
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									ReticleZoom = 4,
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -47361,116 +45966,20 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Gewehr98",
 									Entity = "WeaponAttA_MountGewehr",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -47579,26 +46088,13 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									ReticleZoom = 4,
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -47622,104 +46118,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Gewehr98",
 									Entity = "WeaponAttA_MountGewehr",
 									Slot = "Mount",
@@ -48101,55 +46507,19 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "MP5K",
-									Entity = "WeaponAttA_MountMP5",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "Gewehr98",
 									Entity = "WeaponAttA_MountGewehr",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-							},
+															},
 							comment = "Long Scope T3 — Zeiss 1.5-6x + mild AimAccuracy 115",
 							group = "Scope",
 							id = "JAZZ_Scope_DA15_6x",
@@ -48541,19 +46911,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterGreen.png",
 							Slot = "Scope",
 							Visuals = {
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "NSPU",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NSPU.png",
 									Slot = "Scope",
@@ -48565,13 +46923,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -48583,19 +46935,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-							},
+																							},
 							comment = "Night Scope — NSPU 3x dark + near tax",
 							group = "Scope",
 							id = "JAZZ_NightScope_NSPU",
@@ -48665,45 +47005,19 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 							ReticleOuter = "Mod/e6L4ECj/Icons/scope/ScopeOuterGreen.png",
 							Slot = "Scope",
 							Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M21", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_OpticsMount", Slot = "Opticsmount", param_bindings = false }),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74M",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK105",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																								PlaceObj('WeaponComponentVisual', {
 									Entity = "WeaponAttA_ScopeThermal",
 									Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NVS.png",
 									Slot = "Scope",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "WeaponAttA_MountAK47",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "AK47",
 									Entity = "WeaponAttA_MountAK47",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKSU",
-									Entity = "WeaponAttA_MountAKS74U_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "RPK74",
 									Entity = "WeaponAttA_MountRPK74",
 									Slot = "Mount",
@@ -48715,37 +47029,7 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AK74",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AKM",
-									Entity = "AKSeriaMount",
-									Slot = "General",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "UMP45",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "CAR15",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AS_Val",
-									Entity = "ValVSSMount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "M14SAW",
 									Entity = "",
 									Slot = "Mount",
@@ -48769,116 +47053,14 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "M14SAW", Entity = "JAZZ_M14_Optic
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A2",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M16A1",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AUG",
-									Entity = "WeaponAttA_MountSteyr",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Galil",
-									Entity = "WeaponAttA_MountGalil",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "M24Sniper",
-									Entity = "WeaponAttA_MountM24",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "FNFAL",
-									Entity = "WeaponAttA_MountFNFal_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK21",
-									Entity = "WeaponAttA_MountHK21_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Winchester1894",
-									Entity = "WeaponAttA_MountWinchester",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "AR10",
-									Entity = "CAR15Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A3",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3A4",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G3SniperV1",
-									Entity = "G3Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																
+																																																								PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "HK23e",
 									Entity = "Hk23eFurniture",
 									Slot = "Mount",
 									param_bindings = false,
 								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "R870",
-									Entity = "UMPScopeRail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "Ithaca",
-									Entity = "Ithaca_Rail",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "HK33",
-									Entity = "HK33__Mount",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "G36",
-									Entity = "WeaponAttA_MountHKG36_01",
-									Slot = "Mount1",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
-									ApplyTo = "DragunovSVD",
-									Entity = "WeaponAttA_MountDragunov_01",
-									Slot = "Mount",
-									param_bindings = false,
-								}),
-								PlaceObj('WeaponComponentVisual', {
+																																																PlaceObj('WeaponComponentVisual', {
 									ApplyTo = "PKM",
 									Entity = "PKM_Zenit",
 									Slot = "Mount",
@@ -49294,14 +47476,20 @@ PlaceObj('WeaponComponentVisual', {
 						id = "JAZZ_HK33Handguard",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
+					AdditionalCosts = {
+						PlaceObj('WeaponComponentCost', {
+							'Amount', 500,
+							'Type', "Parts",
+						}),
+					},
 						BlockSlots = {
 							"Bipod",
 						},
 						ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HK33HandguardMod.png",
-						Cost = 20,
+						Cost = 0,
 						DisplayName = T(459910372558, --[[ModItemWeaponComponent JAZZ_HK33HandguardMod DisplayName]] "Цевье с планками"),
 						Icon = "UI/Icons/Upgrades/default_handguard",
-						ModificationDifficulty = 10,
+						ModificationDifficulty = 0,
 						Slot = "Handguard",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -49600,11 +47788,17 @@ PlaceObj('WeaponComponentVisual', {
 						id = "JAZZ_HandguardM1A",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
+					AdditionalCosts = {
+						PlaceObj('WeaponComponentCost', {
+							'Amount', 500,
+							'Type', "Parts",
+						}),
+					},
 						ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_HandguardM1ARail.png",
-						Cost = 150,
+						Cost = 0,
 						DisplayName = T(266664626516, --[[ModItemWeaponComponent JAZZ_HandguardM1ARail DisplayName]] "Цевьё с рельсой"),
 						Icon = "UI/Icons/Upgrades/default_grenadelauncher",
-						ModificationDifficulty = 20,
+						ModificationDifficulty = 0,
 						Slot = "Handguard",
 						Visuals = {
 							PlaceObj('WeaponComponentVisual', {
@@ -49619,11 +47813,17 @@ PlaceObj('WeaponComponentVisual', {
 						id = "JAZZ_HandguardM1ARail",
 					}),
 					PlaceObj('ModItemWeaponComponent', {
+					AdditionalCosts = {
+						PlaceObj('WeaponComponentCost', {
+							'Amount', 500,
+							'Type', "Parts",
+						}),
+					},
 						ChipIcon = "Mod/e6L4ECj/Icons/Upgrades/Chips/JAZZ_Handguard_RIS.png",
-						Cost = 50,
+						Cost = 0,
 						DisplayName = T(266664626516, --[[ModItemWeaponComponent JAZZ_Handguard_RIS DisplayName]] "Цевьё с рельсой"),
 						Icon = "UI/Icons/Upgrades/default_grenadelauncher",
-						ModificationDifficulty = 10,
+						ModificationDifficulty = 0,
 						Slot = "Handguard",
 						Visuals = {
 	PlaceObj('WeaponComponentVisual', { ApplyTo = "VZ58", Entity = "JAZZ_VZ58_HandguardRIS", Slot = "Handguard", param_bindings = false }),
@@ -57483,13 +55683,25 @@ PlaceObj('WeaponComponentVisual', {
 							id = "JAZZ_MagBelt_100_200",
 						}),
 							PlaceObj('ModItemWeaponComponent', {
+					AdditionalCosts = {
+						PlaceObj('WeaponComponentCost', {
+							'Amount', 500,
+							'Type', "Parts",
+						}),
+					},
+					Cost = 0,
 								DisplayName = T(990002704, --[[ModItemWeaponComponent JAZZ_FNFAL_TacHandguard DisplayName]] "RIS Handguard"),
-								ModificationDifficulty = -25,
+								ModificationDifficulty = 0,
 								Slot = "Handguard",
 								Visuals = {
-PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "WeaponAttA_MountFNFal_01", Slot = "Mount1", param_bindings = false }),
 									PlaceObj('WeaponComponentVisual', {
 										ApplyTo = "JAZZ_FNFAL_Tactical",
+										Entity = "JAZZ_FNFAL_TacHandguard",
+										Slot = "Handguard",
+										param_bindings = false,
+									}),
+									PlaceObj('WeaponComponentVisual', {
+										ApplyTo = "FNFAL",
 										Entity = "JAZZ_FNFAL_TacHandguard",
 										Slot = "Handguard",
 										param_bindings = false,
@@ -59917,6 +58129,27 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 				group = "Default",
 				id = "Freeswap",
 			}),
+			PlaceObj('ModItemWeaponUpgradeSlot', {
+				DisplayName = T(990003101, --[[ModItemWeaponUpgradeSlot Default Dovetail DisplayName]] "Ласточкин хвост"),
+				group = "Default",
+				id = "Dovetail",
+			}),
+			PlaceObj('ModItemWeaponUpgradeSlot', {
+				DisplayName = T(990003102, --[[ModItemWeaponUpgradeSlot Default Rail DisplayName]] "Планка"),
+				group = "Default",
+				id = "Rail",
+			}),
+			PlaceObj('ModItemWeaponUpgradeSlot', {
+				DisplayName = T(990003103, --[[ModItemWeaponUpgradeSlot Default RailSide DisplayName]] "Боковая планка"),
+				group = "Default",
+				id = "RailSide",
+			}),
+			PlaceObj('ModItemWeaponUpgradeSlot', {
+				DisplayName = T(990003104, --[[ModItemWeaponUpgradeSlot Default Conversion DisplayName]] "Переделка"),
+				group = "Default",
+				id = "Conversion",
+			}),
+
 			}),
 		PlaceObj('ModItemFolder', {
 			'name', "Melee",
@@ -76772,8 +75005,8 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 						}),
 					},
 					'object_class', "Perk",
-					'DisplayName', T(890000000006506, --[[ModItemCharacterEffectCompositeDef JackOfAllTrades DisplayName]] "Мастер на все руки"),
-					'Description', T(890000000006507, --[[ModItemCharacterEffectCompositeDef JackOfAllTrades Description]] "Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>."),
+					'DisplayName', T(890000000040010, --[[ModItemCharacterEffectCompositeDef JackOfAllTrades DisplayName]] "Мастер на все руки"),
+					'Description', T(890000000040011, --[[ModItemCharacterEffectCompositeDef JackOfAllTrades Description]] "Любые спутниковые операции выполняются примерно на <em>33% быстрее</em>."),
 					'Icon', "UI/Icons/Perks/JackOfAllTrades",
 					'Tier', "Personal",
 				}),
@@ -115528,6 +113761,1167 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 			'MaxValue', 4,
 		}),
 		}),
+	-- JAZZ-WEAPON-RAIL-001 components begin
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 300,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_AK DisplayName]] "Ласточкин хвост"),
+	DisplayNamePlural = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_AK DisplayNamePlural]] "Ласточкин хвост"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/AKSeriaMount.png",
+	ModificationDifficulty = 0,
+	Slot = "Dovetail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AKM",
+				Entity = "AKSeriaMount",
+				Slot = "General",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AK74",
+				Entity = "AKSeriaMount",
+				Slot = "General",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AEK971",
+				Entity = "AKSeriaMount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "PP19Bizon",
+				Entity = "AKSeriaMount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Dovetail_AK",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 300,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_AKSU DisplayName]] "Ласточкин хвост"),
+	DisplayNamePlural = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_AKSU DisplayNamePlural]] "Ласточкин хвост"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountAKS74U_01.png",
+	ModificationDifficulty = 0,
+	Slot = "Dovetail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AKSU",
+				Entity = "WeaponAttA_MountAKS74U_01",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Dovetail_AKSU",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 300,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_SVD DisplayName]] "Ласточкин хвост"),
+	DisplayNamePlural = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_SVD DisplayNamePlural]] "Ласточкин хвост"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountDragunov_01.png",
+	ModificationDifficulty = 0,
+	Slot = "Dovetail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "DragunovSVD",
+				Entity = "WeaponAttA_MountDragunov_01",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Dovetail_SVD",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 300,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_Val DisplayName]] "Ласточкин хвост"),
+	DisplayNamePlural = T(990003101, --[[ModItemWeaponComponent JAZZ_Dovetail_Val DisplayNamePlural]] "Ласточкин хвост"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/ValVSSMount.png",
+	ModificationDifficulty = 0,
+	Slot = "Dovetail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AS_Val",
+				Entity = "ValVSSMount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "VSS",
+				Entity = "ValVSSMount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Dovetail_Val",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003105, --[[ModItemWeaponComponent JAZZ_Rail_NATO_AK DisplayName]] "Переходник НАТО"),
+	DisplayNamePlural = T(990003105, --[[ModItemWeaponComponent JAZZ_Rail_NATO_AK DisplayNamePlural]] "Переходник НАТО"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountAK47.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AKM",
+				Entity = "WeaponAttA_MountAK47",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AEK971",
+				Entity = "WeaponAttA_MountAK47",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AK74M",
+				Entity = "WeaponAttA_MountAK47",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AK105",
+				Entity = "WeaponAttA_MountAK47",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_NATO_AK",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003105, --[[ModItemWeaponComponent JAZZ_Rail_NATO_SVD DisplayName]] "Переходник НАТО"),
+	DisplayNamePlural = T(990003105, --[[ModItemWeaponComponent JAZZ_Rail_NATO_SVD DisplayNamePlural]] "Переходник НАТО"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_NATO_SVD",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003105, --[[ModItemWeaponComponent JAZZ_Rail_NATO_Val DisplayName]] "Переходник НАТО"),
+	DisplayNamePlural = T(990003105, --[[ModItemWeaponComponent JAZZ_Rail_NATO_Val DisplayNamePlural]] "Переходник НАТО"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_NATO_Val",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AR DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AR DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/CAR15Mount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "CAR15",
+				Entity = "CAR15Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M16A1",
+				Entity = "CAR15Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AR10",
+				Entity = "CAR15Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_AR",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M16A2 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M16A2 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/CAR15Mount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M16A2",
+				Entity = "CAR15Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_M16A2",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M16A2_Side DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M16A2_Side DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountFrontCAR15.png",
+	ModificationDifficulty = 0,
+	Slot = "RailSide",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M16A2",
+				Entity = "WeaponAttA_MountFrontCAR15",
+				Slot = "Mount3",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_M16A2_Side",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AUG DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AUG DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountSteyr.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AUG",
+				Entity = "WeaponAttA_MountSteyr",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_AUG",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AUG_Side DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AUG_Side DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_SideMountSteyr.png",
+	ModificationDifficulty = 0,
+	Slot = "RailSide",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AUG",
+				Entity = "WeaponAttA_SideMountSteyr",
+				Slot = "Mountside",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_AUG_Side",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_FAMAS DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_FAMAS DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountAnaconda.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "FAMAS",
+				Entity = "WeaponAttA_MountAnaconda",
+				Slot = "Mount1",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_FAMAS",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_FAL DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_FAL DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountFNFal_01.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "FNFAL",
+				Entity = "WeaponAttA_MountFNFal_01",
+				Slot = "Mount1",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "JAZZ_FNFAL_Tactical",
+				Entity = "WeaponAttA_MountFNFal_01",
+				Slot = "Mount1",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_FAL",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_G3 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_G3 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/G3Mount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "G3A3",
+				Entity = "G3Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "G3A4",
+				Entity = "G3Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "G3SniperV1",
+				Entity = "G3Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_G3",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_G36 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_G36 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountHKG36_01.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "G36",
+				Entity = "WeaponAttA_MountHKG36_01",
+				Slot = "Mount1",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_G36",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_HK21 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_HK21 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountHK21_01.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "HK21",
+				Entity = "WeaponAttA_MountHK21_01",
+				Slot = "Mount1",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_HK21",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_HK33 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_HK33 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/HK33__Mount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "HK33",
+				Entity = "HK33__Mount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_HK33",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Galil DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Galil DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountGalil.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "Galil",
+				Entity = "WeaponAttA_MountGalil",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_Galil",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M24 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M24 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountM24.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M24Sniper",
+				Entity = "WeaponAttA_MountM24",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_M24",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Winchester DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Winchester DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountWinchester.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "Winchester1894",
+				Entity = "WeaponAttA_MountWinchester",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_Winchester",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AA12 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_AA12 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountAA12_02.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "AA12",
+				Entity = "WeaponAttA_MountAA12_02",
+				Slot = "Mount2",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_AA12",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Ithaca DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Ithaca DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/Ithaca_Rail.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "Ithaca",
+				Entity = "Ithaca_Rail",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_Ithaca",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_R870 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_R870 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/UMPScopeRail.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "R870",
+				Entity = "UMPScopeRail",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_R870",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_UMP DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_UMP DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/UMPScopeRail.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "UMP45",
+				Entity = "UMPScopeRail",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_UMP",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_MP5K DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_MP5K DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountMP5.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "MP5K",
+				Entity = "WeaponAttA_MountMP5",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_MP5K",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_UZI DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_UZI DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountUzi_02.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "UZI",
+				Entity = "WeaponAttA_MountUzi_02",
+				Slot = "Mount2",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_UZI",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_MicroUZI DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_MicroUZI DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountUzi_01.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "MicroUZI",
+				Entity = "WeaponAttA_MountUzi_01",
+				Slot = "Mount1",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_MicroUZI",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M14 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M14 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/JAZZ_M14_OpticsMount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M14SAW",
+				Entity = "JAZZ_M14_OpticsMount",
+				Slot = "Opticsmount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_M14",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M21 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M21 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/JAZZ_M14_OpticsMount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M21",
+				Entity = "JAZZ_M14_OpticsMount",
+				Slot = "Opticsmount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_M21",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_MkIII DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_MkIII DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_SideMountM14.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "JAZZ_M14_MkIII",
+				Entity = "WeaponAttA_SideMountM14",
+				Slot = "Mountside",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_MkIII",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M1A DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_M1A DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/JAZZ_M14_OpticsMount.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M1A",
+				Entity = "JAZZ_M14_OpticsMount",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_M1A",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Commando DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Commando DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountFrontCAR15.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "M4Commando",
+				Entity = "WeaponAttA_MountFrontCAR15",
+				Slot = "Mountfront",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_Commando",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_PSG DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_PSG DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_FrontMountM24.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "PSG1",
+				Entity = "WeaponAttA_FrontMountM24",
+				Slot = "Mountfront",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_PSG",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Beretta DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Beretta DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountBeretta.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "Bereta92",
+				Entity = "WeaponAttA_MountBeretta",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_Beretta",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_PistolUnder DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_PistolUnder DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountBottomCAR15.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "CZ52",
+				Entity = "WeaponAttA_MountBottomCAR15",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "MAC1950",
+				Entity = "WeaponAttA_MountBottomCAR15",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_PistolUnder",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_P220 DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_P220 DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/P220RailUnder.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "P220",
+				Entity = "P220RailUnder",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_P220",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 100,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Anaconda DisplayName]] "Планка"),
+	DisplayNamePlural = T(990003102, --[[ModItemWeaponComponent JAZZ_Rail_Anaconda DisplayNamePlural]] "Планка"),
+	Icon = "Mod/e6L4ECj/WeaponComponents/Rails/WeaponAttA_MountAnaconda.png",
+	ModificationDifficulty = 0,
+	Slot = "Rail",
+	Visuals = {
+			PlaceObj('WeaponComponentVisual', {
+				ApplyTo = "ColtAnaconda",
+				Entity = "WeaponAttA_MountAnaconda",
+				Slot = "Mount",
+				param_bindings = false,
+			}),
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Rail_Anaconda",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003111, --[[ModItemWeaponComponent JAZZ_Conversion_Mosin DisplayName]] "Снайперская винтовка Мосина"),
+	DisplayNamePlural = T(990003111, --[[ModItemWeaponComponent JAZZ_Conversion_Mosin DisplayNamePlural]] "Снайперская винтовка Мосина"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_Mosin",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003112, --[[ModItemWeaponComponent JAZZ_Conversion_SVT DisplayName]] "СВТ-40 с ПУ"),
+	DisplayNamePlural = T(990003112, --[[ModItemWeaponComponent JAZZ_Conversion_SVT DisplayNamePlural]] "СВТ-40 с ПУ"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_SVT",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003113, --[[ModItemWeaponComponent JAZZ_Conversion_G43 DisplayName]] "G43 с ZF4"),
+	DisplayNamePlural = T(990003113, --[[ModItemWeaponComponent JAZZ_Conversion_G43 DisplayNamePlural]] "G43 с ZF4"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_G43",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003114, --[[ModItemWeaponComponent JAZZ_Conversion_Springfield DisplayName]] "Springfield M1903A4"),
+	DisplayNamePlural = T(990003114, --[[ModItemWeaponComponent JAZZ_Conversion_Springfield DisplayNamePlural]] "Springfield M1903A4"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_Springfield",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003115, --[[ModItemWeaponComponent JAZZ_Conversion_Gewehr DisplayName]] "Gewehr 98 с ZF"),
+	DisplayNamePlural = T(990003115, --[[ModItemWeaponComponent JAZZ_Conversion_Gewehr DisplayNamePlural]] "Gewehr 98 с ZF"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_Gewehr",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003116, --[[ModItemWeaponComponent JAZZ_Conversion_STG DisplayName]] "StG-44 с ZF4"),
+	DisplayNamePlural = T(990003116, --[[ModItemWeaponComponent JAZZ_Conversion_STG DisplayNamePlural]] "StG-44 с ZF4"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_STG",
+}),
+PlaceObj('ModItemWeaponComponent', {
+	AdditionalCosts = {
+		PlaceObj('WeaponComponentCost', {
+			'Amount', 1000,
+			'Type', "Parts",
+		}),
+	},
+	Cost = 0,
+	DisplayName = T(990003117, --[[ModItemWeaponComponent JAZZ_Conversion_Garand DisplayName]] "Снайперский М1 Гаранд"),
+	DisplayNamePlural = T(990003117, --[[ModItemWeaponComponent JAZZ_Conversion_Garand DisplayNamePlural]] "Снайперский М1 Гаранд"),
+	Icon = "UI/Icons/Upgrades/default_handguard",
+	ModificationDifficulty = 0,
+	Slot = "Conversion",
+	Visuals = {
+
+	},
+	comment = "JAZZ-WEAPON-RAIL-001",
+	group = "JAZZ Rails",
+	id = "JAZZ_Conversion_Garand",
+}),
+-- JAZZ-WEAPON-RAIL-001 components end
+
 	PlaceObj('ModItemLocTable', {
 		'comment', "Правки локализации",
 		'language', "Russian",
@@ -119258,6 +118652,10 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 		'CodeFileName', "Code/Weapon_MosinModular.lua",
 	}),
 	PlaceObj('ModItemCode', {
+		'name', "Weapon_FALModular",
+		'CodeFileName', "Code/Weapon_FALModular.lua",
+	}),
+	PlaceObj('ModItemCode', {
 		'name', "Weapon_AEKModular",
 		'CodeFileName', "Code/Weapon_AEKModular.lua",
 	}),
@@ -119341,6 +118739,21 @@ PlaceObj('WeaponComponentVisual', { ApplyTo = "JAZZ_FNFAL_Tactical", Entity = "W
 				"JAZZ_Reflex_M68",
 				"JAZZ_CombatScope_2x",
 				"JAZZ_CombatScope_ACOG",
+			},
+		}),
+
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Dovetail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Dovetail_AK",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Rail",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_Rail_NATO_AK",
 			},
 		}),
 },
