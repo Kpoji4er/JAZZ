@@ -126,3 +126,5 @@ Quest NPCs (ImportantNPC/villain actors outside player squads who are not mercen
 
 
 Hospital treatment accepts mercs with missing health or trauma that has not started healing. Treatment starts trauma recovery rather than removing the trauma immediately.
+
+AI aim allocation stops at the available aim limit or when no further AP can be spent on aiming. Line-of-fire obstacle checks remain in place.

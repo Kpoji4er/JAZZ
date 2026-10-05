@@ -151,3 +151,7 @@ Hidden sight (`JAZZ-AI-005`/`006`): укрытие Hidden ×35%; трава flat
 ## Сопровождение
 
 Любое изменение AI code, generated archetype, role или keyword обновляет эту страницу и тесты. Новая/удалённая коллизия с CommonLib немедленно обновляет `docs/technical/override-matrix.md` и `docs/technical/compatibility.md`. Dormant/empty files нельзя считать активными fix-модулями.
+
+### M1 ally aim-loop termination (JAZZ-AI-002, 2026-10-06)
+
+`AICalcAttacksAndAim` allocates aim only while `aim < max_aim` and stops when an outer iteration fails to reduce remaining AP. Comparing against the original remainder was insufficient after any earlier allocation: M1 ally turn 2 reproduced max_aim=0, aim=1, remaining=6480/initial=7480 and a non-yielding Lua loop. The read-only native Lua stack identified this path; it was not a demonstrated LoF or pathfinding stall. The local source fix leaves trajectory collision checks, weapon data, path caps and RNG unchanged. Offline regression passes, including an instruction-budget failure of the original function; full replay evidence is tracked in JAZZ-AI-002 AC-010. A currently suspended/running old call retains old code until replay from before the call.

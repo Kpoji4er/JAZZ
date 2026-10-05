@@ -330,12 +330,13 @@ function AICalcAttacksAndAim(context, ap, target)
     -- if IsKindOfClasses(context.weapon,"SubmachineGun","Shotgun","Pistol") then cthtreshold = 50 end
 
     while remaining > (2 * aim_cost) do
+        local remaining_before = remaining
         local aim = (aims[attack_idx] or 0)
 
         if context.unit then
             local cth = context.unit:CalcChanceToHit(target,
                                                      context.default_attack)
-            while cth < 100 and aim <= (max_aim) and remaining > aim_cost do
+            while cth < 100 and aim < max_aim and remaining > aim_cost do
                 aim = aim + 1
                 remaining = remaining - aim_cost
                 args.aim = aim
@@ -349,8 +350,9 @@ function AICalcAttacksAndAim(context, ap, target)
         aims[attack_idx] = aim
         attack_idx = attack_idx + 1
         if attack_idx > num_attacks then attack_idx = 1 end
-        -- CrocodileJaws CTH=100 / leftover AP never spent aim → infinite loop.
-        if remaining >= ap - num_attacks * cost then
+        -- Stop on a stalled iteration even if an earlier iteration spent AP.
+        -- M1 ally turn: capped aim left AP above the loop threshold forever.
+        if remaining >= remaining_before then
             break
         end
         ----print(aims)

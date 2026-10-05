@@ -11,11 +11,20 @@ generated_data: false
 runtime_validation: required
 write_set:
   - jazz/Code/AiActions.lua
+  - jazz/metadata.lua
   - jazz/Code/CombatAI.lua
   - jazz/Code/AiAction_ThrowFlare.lua
   - jazz/Code/AIPolicy.lua
   - jazz/docs/specs/active/JAZZ-AI-002.md
   - jazz/docs/technical/systems/ai-awareness.md
+  - jazz/docs/tools/_capture_ja3_hang_dump.py
+  - jazz/docs/tools/_read_ja3_lua_hang.py
+  - jazz/docs/tools/_check_ai_aim_progress.py
+  - jazz/docs/tools/README.md
+  - jazz/.agents/docs/playbooks/dap-runtime-debug.md
+  - jazz/docs/wiki/combat-and-accuracy.md
+  - jazz/docs/showcase/ru/combat-and-accuracy.md
+  - jazz/docs/showcase/en/combat-and-accuracy.md
 exclusive_resources:
   - none
 related_decisions:
@@ -262,3 +271,20 @@ SoftDumpCap = **4**.
 
 - `docs/technical/systems/ai-awareness.md` — CombatAI / AIPlayAttacks / риски.
 - Wiki не обязательна, если не формулируем отдельный player term.
+
+## M1 second ally turn: aim-loop correction (2026-10-06)
+
+Owner authorization: current conversation requested M1 two-turn reproduction, followed by handing the running game to the agent after the proposed diagnosis/fix/replay workflow. Scope is a local termination fix in the existing aim allocator, no LoF/pathfinding/weapon balance changes, no publication.
+
+Read-only native memory inspection of JA3Debug build 67b4a208 recovered the Lua stack while DAP timed out. AICalcAttacksAndAim (defined at line 256) repeatedly called CalcChanceToHit at line 336. Locals: ap=17480, cost=10000, num_attacks=1, max_aim=0, remaining=6480, aim_cost=1000, current aim=1. The old <= boundary spent one invalid aim step, then the loop could never spend again. Its guard compared remaining with the initial 7480, so spending once defeated the guard permanently. Local evidence: tmp/m1-freeze-20261006/{runtime.log,hang-threads.dmp,lua-stack.json} (not published).
+
+- `JAZZ-AI-002-REQ-013` — never allocate aim above GetBaseAimLevelRange maximum; max_aim=0 allocates no aim.
+- `JAZZ-AI-002-REQ-014` — every outer aim-loop iteration must reduce remaining AP or exit; compare against that iteration's entry remainder. No new RNG, globals, LoF bypass or path caps.
+- `JAZZ-AI-002-AC-009` — offline Lua regression with instruction budget: captured M1 parameters terminate with zero aim; positive max aim stays bounded; early 100% CTH and exhausted aim stop; reachable ordinary allocation and vanilla delegation remain functional.
+- `JAZZ-AI-002-AC-010` — runtime replay reaches the player's third turn on M1 without the captured aim-loop hang; report separately from offline proof and total AI animation time.
+- `JAZZ-AI-002-AC-009`: `PASS` — offline Lua 5.3: eight allocation/delegation cases pass; original M1 code hits the instruction limit. See docs/tools/_check_ai_aim_progress.py.
+- `JAZZ-AI-002-AC-010`: `PASS` — M1 loaded save, live eval, no pause. After the fix, round 2 Legion and allies returned to the player on round 3 (Nails, Grace, Vince idle with AP). The player skipped that turn. Round 3 Legion and allies then returned to the player on round 4. Legion alive 31 → 27 → 25; allies stayed at 10. Lua kept answering; the captured aim loop did not recur. Total AI animation time was not measured separately from the hang check.
+
+Documentation delta: ai-awareness technical termination contract, combat-and-accuracy wiki/showcase RU/EN, retained read-only hang capture tooling and DAP playbook. Save format, public IDs, generated data, dependencies and assets unchanged. Replay must start before the stuck call: loaded coroutine frames may retain old bytecode.
+
+Commit authorization (2026-10-06): owner watched both AI cycles return to the player turn, then requested commit, push, and release. Revision 6246 -> 6247 with a prepended last_changes bullet; no generated objects or load lists changed.

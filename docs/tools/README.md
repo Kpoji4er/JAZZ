@@ -1204,3 +1204,7 @@ Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_
 `_fit_aek_hk416_attachments.py --build DIR [--apply]`: staged/hash-guarded установка посадки M203, боковых устройств HK416 и AKM-кронштейна АЕК; резервные копии и проверка закрытой игры.
 `_check_aek_hk416_fit.py --root DIR --game-root DIR`: исполняет штатный JA3 UpdateVisualObj с engine-mocks; проверяет 5 прицелов, обе конфигурации АЕК, все стволы HK416, снятие/повторное обновление и неизменность АКМ.
 `_review_hk416_aek_attachments.py --fit-corrections`: примерка фактической донорской геометрии с теми же смещениями и поворотом; боковой, задний и противоположный ракурсы.
+
+- `_capture_ja3_hang_dump.py PID OUTPUT.dmp`: local JA3Debug thread/stack minidump; refuses other executables and existing output, no restart/upload.
+- `_read_ja3_lua_hang.py PID LUA_STATE`: read-only, bounded Lua stack/locals snapshot for packed ABI of JA3Debug 67b4a208; state address must come from captured context, not guessed; running snapshots can race.
+- `_check_ai_aim_progress.py`: bounded Lua 5.3 regression (lupa) for M1 aim-loop termination and max aim; proves old code exceeds instruction budget.

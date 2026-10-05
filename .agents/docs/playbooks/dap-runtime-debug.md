@@ -222,3 +222,7 @@ Steam/DRM: exe сразу умер — сказать пользователю, 
 
 
 Для FB-18 (зависание инвентаря): `python docs/tools/_probe_inventory_hang.py` читает состояние существующего процесса без initialize, pause, reload и очистки BP. Запускать после ручного воспроизведения пользователем; игру агент не запускает. `--self-test` — полностью offline. Если сам Lua-поток перестал отвечать, ограниченный timeout сохраняет управление агенту, но снимок получить нельзя.
+
+### M1 non-yielding aim loop (2026-10-06)
+
+If live evaluate times out while CPU stays busy, preserve the log and use `python docs/tools/_capture_ja3_hang_dump.py PID OUTPUT.dmp` for a local native snapshot. No initialize/pause is needed. Read-only `_read_ja3_lua_hang.py PID LUA_STATE` can inspect the packed Lua 5.3 ABI of build 67b4a208 when the state address is identified from native context. It is build-specific, and live snapshots can race; repeat to corroborate. Do not write process memory to escape a loop. M1 evidence: AICalcAttacksAndAim, max_aim=0, aim=1, remaining=6480 after initial 7480. Regression: `_check_ai_aim_progress.py`. Captured native stack return-address candidates alone are not a validated unwind.
