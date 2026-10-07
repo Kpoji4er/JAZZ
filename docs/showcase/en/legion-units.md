@@ -159,3 +159,5 @@ Chainmail replaces the upper outfit and temporarily hides the preset vest. Expos
 In-game fitting: SSh-60 and 6B7-1M sit lower and are 5% smaller. Height accepted; size review is pending.
 
 Installed 6B13, SSh-60 and 6B7-1M models. Both helmets sit lower following in-game review and are 5% smaller. Height accepted; size retained pending another visual check. Item stats unchanged.
+
+PASGT/RBA fitting is in progress: the first fit changed the original shapes too much and was not accepted.

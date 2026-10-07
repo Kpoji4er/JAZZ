@@ -13,6 +13,8 @@ local armor_entities = {
 	JazzArmor_LeatherArmor = { Male = "JAZZ_LeatherArmor_Male" },
 	JazzArmor_6B3 = { Male = "JAZZ_6B3_Male" },
 	JazzArmor_6B13 = { Male = "JAZZ_6B13_Male" },
+	JazzArmor_RBA = { Male = "JAZZ_RBA_Male" },
+	JazzArmor_PASGT = { Male = "JAZZ_PASGT_Male" },
 	JazzArmor_TwaronLight = { Male = "JAZZ_TwaronLight_Male" },
 	JazzArmor_TwaronMedium = { Male = "JAZZ_TwaronMedium_Male" },
 	JazzArmor_TwaronFull = { Male = "JAZZ_TwaronFull_Male" },

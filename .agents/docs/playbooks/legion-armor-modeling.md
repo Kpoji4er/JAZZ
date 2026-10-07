@@ -195,3 +195,13 @@ RM channel convention: официальные Upper_Body/lower_body/body/Thompso
 Сначала читать root BodyColor и пресет: у Chainmail C1 передавался правильно, но sample body_BC имел среднюю яркость около 125/255, native Shirt08 skin Base — почти белый. `_fit_chainmail_sleeves.py` калибрует только отмеченный skin material до запекания; `_audit_chainmail_skin_base.py` требует неизменную C1 mask и практически неизменный armor Base. Не исправлять это случайным RGB/gamma множителем в runtime. Body replacement также скрывает штатный preset Armor (у Grenadier был EquipmentMale_FlackVest) и восстанавливает его при снятии.
 
 Риг Leather/Brigantine/6B3: `_rebind_meshy_to_cuirass.py` берёт непрерывные torso/strap веса принятой v7; проверять на native Shirt08, включая нижнюю спинку в наклоне. Sources: cuirass-rig-20261003, Brigantine cuirass-rig-v2-20261003; Chainmail meshy-body-v13-20261003. У Chainmail крайний synthetic shoulder lift всё ещё вскрывает стык рукава: численный PASS не закрывает эту находку. Полная native animation приёмка открыта.
+
+## Сохранение исходников для других тел
+
+По указанию владельца сохранять оригинальные GLB брони/касок/одежды, task metadata, очищенную геометрию, текстуры, rigged blend и export blend. Не заменять оригинал подогнанной моделью. Каталог: [исходники брони](../../../docs/technical/armor-sources/README.md); обновление `python docs/tools/_catalog_armor_sources.py`. Для нового тела — отдельная версия fit/rig с явным названием донора. Реестр локальных файлов не заменяет резервную копию.
+
+## Ограничение владельца: генерация моделей
+
+PASGT Meshy regeneration 2026-10-08: локальная чистка через `docs/tools/_clean_pasgt_meshy.py`, отдельный `meshy-regeneration-20261008/clean-v3`. Удалены 26 fin faces, итог 15440 tri, один компонент, ноль boundary/nonmanifold/degenerate, custom normals сняты. Шесть ракурсов просмотрены; это source-only, посадка/риг/игровая приёмка ещё не выполнены. Original GLB и pre-remesh GLB сохранены в каталоге задачи.
+
+2026-10-08: «никогда сам не делай модельки целиком». Новые модели брони, касок и одежды, а также полные замены неудачной геометрии делать через Meshy по согласованным референсам. Ручная работа — проверка, чистка, ограниченная подгонка, UV/rig/export; не строить модель или заменяющую крупную панель с нуля без нового явного разрешения. Ручной PASGT rear-panel-20261008 отклонён и не установлен.

@@ -1,5 +1,7 @@
 # `docs/tools` — скрипты агентов и аудита
 
+- `_clean_pasgt_meshy.py`: Blender `-- --input GLB --output DIR`; удаляет топологически изолированные плавники Meshy, сваривает совпадающие вершины, локально сглаживает поверхность с пределом 0,4% высоты и вызывает `prepare_export_mesh`. Сохраняет исходные loop UV, отдельные PASGT.blend/GLB, cleanup.json и manifest для `render_meshy_armor.py --interior`; исходник не меняет.
+
 - `_check_convoy_lifecycle.py`: `python docs/tools/_check_convoy_lifecycle.py` (requires `lupa`); executes production convoy Lua with deterministic engine stubs. Checks blocked routes, old-save recovery, cargo refunds, HQ reserve cleanup and dispatch reuse; does not edit saves.
 
 
@@ -1209,6 +1211,11 @@ Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_
 - `_read_ja3_lua_hang.py PID LUA_STATE`: read-only, bounded Lua stack/locals snapshot for packed ABI of JA3Debug 67b4a208; state address must come from captured context, not guessed; running snapshots can race.
 - `_check_ai_aim_progress.py`: bounded Lua 5.3 regression (lupa) for M1 aim-loop termination and max aim; proves old code exceeds instruction budget.
 
+- `_audit_meshy_vest.py`: Blender read-only topology/UV/material audit for GLB or blend. `_fit_meshy_6b3_armor.py --preserve-shape` uses uniform scale by height and skips radial deformation.
+- `_install_pasgt_rba.py`: PASGT/RBA staged resource, RM, pose and compiled audit gates; `--apply` installs with backup while the game is closed. Initial install only.
+- `_catalog_armor_sources.py`: inventories retained armor/helmet/clothing source scenes, raw GLBs and TGA maps into `docs/technical/armor-sources/`; never edits the models.
+
+
 - `_repair_removable_bindings.py` — read-only catalog audit; `--apply` restores missing component IDs in items.lua and InventoryItem companions with game/editor closed. Idempotent; preserves unrelated bytes.
 - `_check_removable_bindings.py` — offline Lua regression (lupa): all catalog bindings, old-save inheritance, AUG/AK/M16 compatibility and inventory costs. JAZZ-WEAPONS-002 REQ-012/013.
 
@@ -1219,3 +1226,18 @@ Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_
 `_merge_merc_archive_localization.py prepare --build <build>` stages translations; `_merge_merc_archive_export.ps1 -GameCsv <Russian-Game.csv> -Build <build>` runs the canonical auditor and exports only the selected IDs in both languages. `install` installs those records while preserving unrelated CSV records. `_merge_merc_archive_check.py --build <build>` checks the scope against a clean units HEAD, companion equality and RU/EN records; requires pre-edit CSV snapshots under `<build>/backup/{jazz,jazz-units}/`. Global audit findings remain distinct from the scoped result. JAZZ-MERC-MERGE-001; no editor round-trip is claimed.
 
 `_merge_merc_archive_profiles.py --source <extracted-items.lua>` extends the reviewed manifest with archive biographies, names and handles hidden by stale runtime CSV overrides. `_merge_merc_archive_bios.json` retains their English translations. Run this preparation before the merge/paired export; unchanged Lua source still requires a localization update when its runtime override is stale. Equivalent already polished narrative bios are preserved.
+
+## SCAR — исходная сборка, 08.10.2026
+
+`_extract_scar_source_scene.py` запускается Blender на предоставленном владельцем all-OBJ `.blend` с `--output <BUILD>`. Выделяет принятую сборку H без перемещения деталей, сохраняет UV, manifest с SHA-256 и clay-preview; при пересечении границей отбора любой грани прекращает работу. Это подготовка исходника, не установка.
+
+`_review_scar_source.py` — обзор исходных OBJ. `_assemble_scar_source.py` и `_build_scar_assets.py` относятся к **отклонённой ручной сборке**: их результат не экспортировать и не устанавливать. Продолжать от `_extract_scar_source_scene.py` и исходной сцены владельца.
+`_apply_pasgt_texture_maps.py`: Blender --source clean.blend --maps DIR --output DIR; перенос только PBR-карт на исходную сетку с точной проверкой positions/topology/UV/transforms. Выход: blend/GLB, material-transfer.json и render-manifest.json.
+`_pattern_pasgt_woodland.py`: Blender --source BLEND --pattern PNG --output DIR; крупный Woodland через пространственную проекцию и маску ткани, запекание в существующую UV. Сохраняет Base.png, ClothMask.png, OliveBase.png, blend/GLB и проверку неизменности геометрии. Маска по зонам модели — кандидат для визуальной приёмки.
+
+## SCAR — финальный конвейер
+
+После `_extract_scar_source_scene.py`: `_prepare_scar_family.py` выделяет H/L/SSR и назначает карты; `_export_scar_family.py` экспортирует HGE FBX, spots и 13 иконок; `_compile_scar_assets.py --build <BUILD> --game-root <JA3_ROOT> --blender <EXE>` компилирует 14 сущностей и проверяет фактический HGM. Blender-скрипты принимают аргументы после `--`; параметры см. в argparse каждого файла.
+
+`_integrate_scar.py --build <BUILD>` готовит bounded-транзакцию, `--apply` устанавливает только после compiled/Lua PASS, проверки остановленной игры и хешей исходных файлов. Повторная установка поверх существующего SCAR запрещена. `_check_scar_configurations.py --build <BUILD> --game-root <JA3_ROOT> [--installed]` исполняет конфигурации с настоящим JAZZ setter и vanilla ChangeCaliber в offline Lua. RU/EN экспортировать каноническим `scripts/localization/audit-localization.ps1` из одного каталога. См. [состояние SCAR](../design/scar-import.md).
+`_refresh_pasgt_rba.py --source DIR --item PASGT|RBA [--apply]`: обновляет только существующие ресурсы после pose/compiled/skin/RM/mip gates; требует закрытую игру, сохраняет backup и SHA256 receipt, не меняет регистрацию.

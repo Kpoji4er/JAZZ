@@ -28,6 +28,7 @@ p.add_argument('--depth', type=float, default=.46)
 p.add_argument('--height', type=float, default=.56)
 p.add_argument('--zmin', type=float, default=.99)
 p.add_argument('--clearance', type=float, default=.012)
+p.add_argument('--preserve-shape', action='store_true', help='Uniform scale by height, translation only; skip radial deformation')
 a = p.parse_args(sys.argv[sys.argv.index('--') + 1:])
 out = a.output.resolve()
 (out / 'clean').mkdir(parents=True, exist_ok=True)
@@ -45,6 +46,9 @@ bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 lo = Vector(tuple(min(v.co[i] for v in armor.data.vertices) for i in range(3)))
 hi = Vector(tuple(max(v.co[i] for v in armor.data.vertices) for i in range(3)))
 center = (lo + hi) / 2
+if a.preserve_shape:
+    a.width = (hi.x-lo.x)*a.height/(hi.z-lo.z)
+    a.depth = (hi.y-lo.y)*a.height/(hi.z-lo.z)
 for v in armor.data.vertices:
     v.co = Vector(((v.co.x-center.x)*a.width/(hi.x-lo.x),
                    (v.co.y-center.y)*a.depth/(hi.y-lo.y)-.010,
@@ -114,7 +118,7 @@ moved = []
 for v in armor.data.vertices:
     xy = Vector((v.co.x,v.co.y+.010,0))
     theta = math.atan2(xy.x,-xy.y)
-    delta = sample(theta,v.co.z)*(1-smooth((v.co.z-1.40)/.09))
+    delta = 0. if a.preserve_shape else sample(theta,v.co.z)*(1-smooth((v.co.z-1.40)/.09))
     if xy.length > .03:
         v.co += xy.normalized()*delta
         moved.append(delta)
@@ -139,7 +143,7 @@ report = {'source': str(a.input.resolve()), 'triangles': len(armor.data.loop_tri
           'affine_dimensions': [a.width,a.depth,a.height], 'zmin':a.zmin,
           'radial_offset_range': [min(moved),max(moved)], 'clearance_target':a.clearance,
           'has_custom_normals': armor.data.has_custom_normals,
-          'status':'SOURCE_PREPARED', 'runtime':'NOT_RUN'}
+          'shape_preserved':a.preserve_shape, 'status':'SOURCE_PREPARED', 'runtime':'NOT_RUN'}
 bpy.ops.file.pack_all()
 bpy.ops.wm.save_as_mainfile(filepath=str(out/('clean/JazzArmor_'+a.item+'.blend')))
 (out/'fit-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')

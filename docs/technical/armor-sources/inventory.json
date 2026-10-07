@@ -1,0 +1,1647 @@
+[
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/meshy_output/20261003_131104_6b13-geometry_01a1013e/6B13_clean.blend",
+    "bytes": 1312456
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/meshy_output/20261003_131104_6b13-geometry_01a1013e/6B13_clean.glb",
+    "bytes": 410620
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/meshy_output/20261003_131104_6b13-geometry_01a1013e/6B13_raw.glb",
+    "bytes": 643592
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/meshy_output/20261003_131104_6b13-geometry_01a1013e/6B13_textured.glb",
+    "bytes": 22291900
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/meshy_output/20261003_131104_6b13-geometry_01a1013e/working.blend",
+    "bytes": 1287282
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male.blend",
+    "bytes": 44934483
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male.fbx",
+    "bytes": 688192
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/build/JAZZ_6B13_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/clean/JazzArmor_6B13.blend",
+    "bytes": 23143989
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/clean/JazzArmor_6B13_repaired.blend",
+    "bytes": 23138347
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/clothed/clothed.blend",
+    "bytes": 47425218
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/production-20261003/source/6B13.blend",
+    "bytes": 47249393
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/6B13_wider.blend",
+    "bytes": 47347426
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male.blend",
+    "bytes": 44934489
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male.fbx",
+    "bytes": 688288
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B13_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B13_Male/width-review-20261003/build/JAZZ_6B13_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male.blend",
+    "bytes": 30281908
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male.fbx",
+    "bytes": 928976
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/build/JAZZ_6B3_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/cuirass-rig-20261003/source/6B3.blend",
+    "bytes": 39483805
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male.blend",
+    "bytes": 30517215
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male.fbx",
+    "bytes": 942128
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/build/JAZZ_6B3_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/clean/JazzArmor_6B3.blend",
+    "bytes": 8513814
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002/source/6B3.blend",
+    "bytes": 33724616
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male.blend",
+    "bytes": 30464638
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male.fbx",
+    "bytes": 895104
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-rg-roughness/build/JAZZ_6B3_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male.blend",
+    "bytes": 30464647
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male.fbx",
+    "bytes": 895120
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/build/JAZZ_6B3_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_6B3_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_6B3_Male/meshy-20261002-torso-shoulders/source/6B3.blend",
+    "bytes": 33672000
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male.blend",
+    "bytes": 119266524
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male.fbx",
+    "bytes": 1090128
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male_Color.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/build/JAZZ_Chainmail_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-20261003/source/Chainmail.blend",
+    "bytes": 121856586
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v10-20261003/source/Chainmail.blend",
+    "bytes": 121862770
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v11-20261003/source/Chainmail.blend",
+    "bytes": 121866594
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v12-20261003/source/Chainmail.blend",
+    "bytes": 121866594
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male.blend",
+    "bytes": 119356660
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male.fbx",
+    "bytes": 1130448
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male_Color.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/build/JAZZ_Chainmail_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v13-20261003/source/Chainmail.blend",
+    "bytes": 121866594
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v2-20261003/source/Chainmail.blend",
+    "bytes": 122083626
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male.blend",
+    "bytes": 119430880
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male.fbx",
+    "bytes": 1127376
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male_Color.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/build/JAZZ_Chainmail_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v3-20261003/source/Chainmail.blend",
+    "bytes": 122063826
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v4-20261003/source/Chainmail.blend",
+    "bytes": 122063810
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male.blend",
+    "bytes": 119430864
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male.fbx",
+    "bytes": 1127696
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male_Color.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/build/JAZZ_Chainmail_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v5-20261003/source/Chainmail.blend",
+    "bytes": 122063810
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v6-20261003/source/Chainmail.blend",
+    "bytes": 121859866
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v7-20261003/source/Chainmail.blend",
+    "bytes": 121859866
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v8-20261003/source/Chainmail.blend",
+    "bytes": 121859866
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male.blend",
+    "bytes": 119352760
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male.fbx",
+    "bytes": 1127600
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male_Color.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/build/JAZZ_Chainmail_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_Chainmail_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_Chainmail_Male/meshy-body-v9-20261003/source/Chainmail.blend",
+    "bytes": 121862698
+  },
+  {
+    "family": "JAZZ_IBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_IBA_Male/meshy-20261008/20261008_015742_iba_01a11895/original/model.glb",
+    "bytes": 25348900
+  },
+  {
+    "family": "JAZZ_IBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_IBA_Male/meshy-20261008/20261008_015742_iba_01a11895/original/model.pre_remeshed.glb",
+    "bytes": 47317864
+  },
+  {
+    "family": "JAZZ_IBAFull_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_IBAFull_Male/meshy-20261008/20261008_015743_ibafull_01a11895/original/model.glb",
+    "bytes": 24632928
+  },
+  {
+    "family": "JAZZ_IBAFull_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_IBAFull_Male/meshy-20261008/20261008_015743_ibafull_01a11895/original/model.pre_remeshed.glb",
+    "bytes": 39412744
+  },
+  {
+    "family": "JAZZ_IBALight_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_IBALight_Male/meshy-20261008/20261008_015741_ibalight_01a11895/original/model.glb",
+    "bytes": 26337136
+  },
+  {
+    "family": "JAZZ_IBALight_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_IBALight_Male/meshy-20261008/20261008_015741_ibalight_01a11895/original/model.pre_remeshed.glb",
+    "bytes": 57851516
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male.blend",
+    "bytes": 52317252
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male.fbx",
+    "bytes": 1013712
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/build/JAZZ_LeatherArmor_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/cuirass-rig-20261003/source/LeatherArmor.blend",
+    "bytes": 61595829
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male.blend",
+    "bytes": 52372168
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male.fbx",
+    "bytes": 992192
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/build/JAZZ_LeatherArmor_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/clean/JazzArmor_6B3.blend",
+    "bytes": 30470741
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/reduced.glb",
+    "bytes": 29322376
+  },
+  {
+    "family": "JAZZ_LeatherArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_LeatherArmor_Male/meshy-20261003/source/LeatherArmor.blend",
+    "bytes": 54774813
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male.blend",
+    "bytes": 47669134
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male.fbx",
+    "bytes": 921728
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/build/JAZZ_PASGT_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/clean/JazzArmor_PASGT.blend",
+    "bytes": 25728456
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/clothed/clothed.blend",
+    "bytes": 50204243
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/fit-woodland-20261008/source/PASGT.blend",
+    "bytes": 50028418
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male.blend",
+    "bytes": 32991694
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male.fbx",
+    "bytes": 905872
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/build/JAZZ_PASGT_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/clean/JazzArmor_PASGT.blend",
+    "bytes": 11114122
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/clothed/clothed.blend",
+    "bytes": 35556209
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/original/PASGT.glb",
+    "bytes": 10401460
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/import-20261007/source/PASGT.blend",
+    "bytes": 35380384
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-20261004/clean/JazzArmor_PASGT.blend",
+    "bytes": 11114122
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-20261004/clothed/clothed.blend",
+    "bytes": 35575497
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-20261004/rig/PASGT.blend",
+    "bytes": 35399672
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/20261008_002739_pasgt_01a11843/original/model.glb",
+    "bytes": 29820616
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/20261008_002739_pasgt_01a11843/original/model.pre_remeshed.glb",
+    "bytes": 33889908
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/clean-v1/PASGT.blend",
+    "bytes": 30638777
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/clean-v1/PASGT.glb",
+    "bytes": 29817576
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/clean-v2/PASGT.blend",
+    "bytes": 30636929
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/clean-v2/PASGT.glb",
+    "bytes": 29815908
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/clean-v3/PASGT.blend",
+    "bytes": 30636628
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/clean-v3/PASGT.glb",
+    "bytes": 29815692
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-large-v1/PASGT.blend",
+    "bytes": 50758435
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-large-v1/PASGT.glb",
+    "bytes": 30032840
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-masked-v1/PASGT.blend",
+    "bytes": 36930784
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-masked-v1/PASGT.glb",
+    "bytes": 24816004
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-masked-v1/PASGT_olive.blend",
+    "bytes": 32277061
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-reference-raw/model.glb",
+    "bytes": 24466168
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-reference-v2/PASGT.blend",
+    "bytes": 70719396
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-reference-v2/PASGT.glb",
+    "bytes": 41494824
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/meshy-regeneration-20261008/woodland-v1/model.glb",
+    "bytes": 20191200
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-panel-20261008/clean/PASGT_rebuilt.blend",
+    "bytes": 11662102
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-panel-20261008/clothed/clothed.blend",
+    "bytes": 36144093
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-panel-20261008/source/PASGT.blend",
+    "bytes": 35968268
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male.blend",
+    "bytes": 37275487
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male.fbx",
+    "bytes": 888268
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/build/JAZZ_PASGT_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/clothed/clothed.blend",
+    "bytes": 39762195
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/rear-repair-20261008/source/PASGT.blend",
+    "bytes": 141562077
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/shape-preserved-20261007/clean/JazzArmor_PASGT.blend",
+    "bytes": 11114122
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/shape-preserved-20261007/clothed/clothed.blend",
+    "bytes": 35556793
+  },
+  {
+    "family": "JAZZ_PASGT_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_PASGT_Male/shape-preserved-20261007/source/PASGT.blend",
+    "bytes": 35380968
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male.blend",
+    "bytes": 32454883
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male.fbx",
+    "bytes": 897808
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/build/JAZZ_RBA_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/clean/JazzArmor_RBA.blend",
+    "bytes": 10553959
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/clothed/clothed.blend",
+    "bytes": 35021862
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/original/RBA.glb",
+    "bytes": 9737868
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/import-20261007/source/RBA.blend",
+    "bytes": 34846037
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/shape-preserved-20261007/clean/JazzArmor_RBA.blend",
+    "bytes": 10553959
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/shape-preserved-20261007/clothed/clothed.blend",
+    "bytes": 35018718
+  },
+  {
+    "family": "JAZZ_RBA_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_RBA_Male/shape-preserved-20261007/source/RBA.blend",
+    "bytes": 34842893
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male.blend",
+    "bytes": 49773524
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male.fbx",
+    "bytes": 1048944
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/build/JAZZ_TireArmor_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/clean/JazzArmor_6B3.blend",
+    "bytes": 27833917
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/reduced.glb",
+    "bytes": 26728588
+  },
+  {
+    "family": "JAZZ_TireArmor_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireArmor_Male/meshy-20261003/source/TireArmor.blend",
+    "bytes": 52176189
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male.blend",
+    "bytes": 48017644
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male.fbx",
+    "bytes": 1034832
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/build/JAZZ_TireBrigantine_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-20261003/source/TireBrigantine.blend",
+    "bytes": 57296201
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male.blend",
+    "bytes": 48017456
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male.fbx",
+    "bytes": 1034848
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/build/JAZZ_TireBrigantine_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/cuirass-rig-v2-20261003/source/TireBrigantine.blend",
+    "bytes": 57296001
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male.blend",
+    "bytes": 48064272
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male.fbx",
+    "bytes": 1006704
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/build/JAZZ_TireBrigantine_Male_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/clean/JazzArmor_6B3.blend",
+    "bytes": 26187977
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/reduced.glb",
+    "bytes": 25096980
+  },
+  {
+    "family": "JAZZ_TireBrigantine_Male",
+    "path": "jazz_assets/Sources/Character/JAZZ_TireBrigantine_Male/meshy-20261003/source/TireBrigantine.blend",
+    "bytes": 50466897
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/build/JazzHat_6B7.blend",
+    "bytes": 51288826
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/build/JazzHat_6B7.fbx",
+    "bytes": 231072
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/build/JazzHat_6B7_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/build/JazzHat_6B7_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/build/JazzHat_6B7_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/head-fit.blend",
+    "bytes": 24778906
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/6B7_1M_clean.blend",
+    "bytes": 847413
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/6B7_1M_clean.glb",
+    "bytes": 151152
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/6B7_1M_procedural.blend",
+    "bytes": 986505
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/6B7_1M_raw.glb",
+    "bytes": 227180
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/6B7_1M_textured.blend",
+    "bytes": 51291063
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/6B7_1M_textured.glb",
+    "bytes": 2682156
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/textures/6B7_1M_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/textures/6B7_1M_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/textures/6B7_1M_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/textures/6B7_1M_ORM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/textures/6B7_1M_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/textures/6B7_1M_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-1m-20261003/source/working.blend",
+    "bytes": 831478
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/build/JazzHat_6B7.blend",
+    "bytes": 51256709
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/build/JazzHat_6B7.fbx",
+    "bytes": 219984
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/build/JazzHat_6B7_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/build/JazzHat_6B7_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/build/JazzHat_6B7_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/head-fit.blend",
+    "bytes": 24746789
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/6B7_clean.blend",
+    "bytes": 705588
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/6B7_clean.glb",
+    "bytes": 149704
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/6B7_procedural.blend",
+    "bytes": 948397
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/6B7_raw.glb",
+    "bytes": 258804
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/6B7_textured.blend",
+    "bytes": 51258955
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/6B7_textured.glb",
+    "bytes": 3283436
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/textures/6B7_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/textures/6B7_Metal.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/textures/6B7_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/textures/6B7_ORM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/textures/6B7_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_6B7",
+    "path": "jazz_assets/Sources/Character/JazzHat_6B7/meshy-20261003/source/textures/6B7_Rough.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/JazzHat_SSh68.blend",
+    "bytes": 23801899
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/JazzHat_SSh68_Base.tga",
+    "bytes": 750153
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/JazzHat_SSh68_Norm.tga",
+    "bytes": 555
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/JazzHat_SSh68_RM.tga",
+    "bytes": 775710
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/build/JazzHat_SSh68.blend",
+    "bytes": 51257783
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/build/JazzHat_SSh68.fbx",
+    "bytes": 217328
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/build/JazzHat_SSh68_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/build/JazzHat_SSh68_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/build/JazzHat_SSh68_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/head-fit.blend",
+    "bytes": 24366928
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/source/SSh60_finished.blend",
+    "bytes": 740624
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/source/SSh60_procedural.blend",
+    "bytes": 949457
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/source/SSh60_raw.glb",
+    "bytes": 282600
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/source/SSh60_shell.blend",
+    "bytes": 654022
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/source/SSh60_textured.blend",
+    "bytes": 51260015
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-20261003/source/SSh60_textured.glb",
+    "bytes": 4195872
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-fit-20261003/build/JazzHat_SSh68.blend",
+    "bytes": 51257795
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-fit-20261003/build/JazzHat_SSh68.fbx",
+    "bytes": 217488
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-fit-20261003/build/JazzHat_SSh68_Base.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-fit-20261003/build/JazzHat_SSh68_Norm.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-fit-20261003/build/JazzHat_SSh68_RM.tga",
+    "bytes": 16777755
+  },
+  {
+    "family": "JazzHat_SSh68",
+    "path": "jazz_assets/Sources/Character/JazzHat_SSh68/ssh60-fit-20261003/head-fit.blend",
+    "bytes": 24747875
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-batch-20261002/20261002_010752_improvisedcuirass_01a0f982/ImprovisedCuirass.glb",
+    "bytes": 13532920
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-batch-20261002/20261002_010811_chainmail_01a0f982/Chainmail.glb",
+    "bytes": 8815768
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-batch-20261002/20261002_010817_tirebrigantine_01a0f982/TireBrigantine.glb",
+    "bytes": 7883144
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-batch-20261002/20261002_010902_tirearmor_01a0f982/TireArmor.glb",
+    "bytes": 10571068
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-batch-20261002/20261002_010909_leatherarmor_01a0f983/LeatherArmor.glb",
+    "bytes": 8705776
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-feedback-20261003/cuirass-source/audit.blend",
+    "bytes": 25684376
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/armor-feedback-20261003/cuirass-source/improvised_cuirass_v7.blend",
+    "bytes": 25950064
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/candidate/Chainmail.blend",
+    "bytes": 15769392
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/candidate/Chainmail.glb",
+    "bytes": 335060
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/normals/Chainmail.blend",
+    "bytes": 1500656
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/normals/Chainmail.glb",
+    "bytes": 810108
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/reconstructed/Chainmail.blend",
+    "bytes": 15087900
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/reconstructed/Chainmail.glb",
+    "bytes": 334252
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/reconstructed-v2/Chainmail.blend",
+    "bytes": 15771456
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/reconstructed-v2/Chainmail.glb",
+    "bytes": 334100
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/reconstructed-v3/Chainmail.blend",
+    "bytes": 15769392
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/reconstructed-v3/Chainmail.glb",
+    "bytes": 335060
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/relaxed/Chainmail.blend",
+    "bytes": 1500656
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-cleanup-20261002/relaxed/Chainmail.glb",
+    "bytes": 810108
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-game-armor-20261002/20261002_012142_chainmail-game-armor_01a0f98e/Chainmail.glb",
+    "bytes": 1141992
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-multiview-20261002/20261002_013545_chainmail-multiview_01a0f99b/Chainmail.glb",
+    "bytes": 812540
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-textured-20261003/20261003_000857_chainmail-textured_01a0fe72/Chainmail_textured.blend",
+    "bytes": 89585912
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-textured-20261003/20261003_000857_chainmail-textured_01a0fe72/Chainmail_textured.glb",
+    "bytes": 57759796
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-textured-20261003/20261003_000857_chainmail-textured_01a0fe72/model.glb",
+    "bytes": 31683564
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-textured-20261003/clean/Chainmail_clean.blend",
+    "bytes": 1125272
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/chainmail-textured-20261003/clean/Chainmail_clean.glb",
+    "bytes": 270044
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/legion-armor-20261003/20261003_010254_tirebrigantine_01a0fea3/TireBrigantine.glb",
+    "bytes": 107505656
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/legion-armor-20261003/20261003_010256_tirearmor_01a0fea3/TireArmor.glb",
+    "bytes": 104018616
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/legion-armor-20261003/20261003_010259_leatherarmor_01a0fea4/LeatherArmor.glb",
+    "bytes": 68555948
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/pasgt-multiview-20261004/20261004_043154_pasgt_01a10489/PASGT.glb",
+    "bytes": 10401460
+  },
+  {
+    "family": "Originals and earlier candidates",
+    "path": "jazz/meshy_output/rba-multiview-20261006/20261006_020925_rba_01a10e53/RBA.glb",
+    "bytes": 9737868
+  }
+]
