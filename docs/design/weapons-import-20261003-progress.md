@@ -7,8 +7,8 @@
 | --- | --- | --- | --- |
 | 1 | АЕК |  | AEK 971 Assault Rifle.zip: IMPORTED_REVIEW; без привязки материала 2<br>AEK - 973S.zip: IMPORTED_SOURCE<br>АЕК установлен как кандидат: 8 entity, один модульный предмет 971/973С, RU/EN и иконки; compiled/winding, Lua и регистрация PASS, игровая проверка впереди. |
 | 2 | HK416 | `HK416` | Установлен кандидат: три ствола, два приклада, пять прицелов; шесть compiled mesh audits и девять Lua checks PASS. Восстановлены авторские sharp edges; посадка магазина и материалы требуют визуальной приёмки. Остальные модули пока в подготовке. |
-| 3 | FN SCAR |  | FN SCAR Rifles.zip: IMPORTED_REVIEW; p3d нет; `model_39` без UV. Каналы 21 семейства собраны в TGA: цвет и нормаль как есть, шероховатость = 1 − глянец, металл из `_smdi_Metal`, specular не используется. Проверено превью: низ `SCAR_Lower` (SAFE/1), складной приклад `Stock` (цифры положений), кривой магазин `Magazine_STANAG_FN`, прямой `Magazine_SCARH_OEM`, верх `model_67` на `Upper_SCARL`. Сборка заново: ресивер без оторванного кожуха, цевьё `model_24` на `Upper_SCARL`, низ, складной приклад, STANAG. Длина 0,68 м. Шов приклада, глубина магазина и лишний крюк у спусковой скобы ещё не закрыты. Предмет не регистрировался. Разбор: `<WEAPON_SOURCE_ROOT>/_scar_jazz_build/`. |
-| 4 | M14 / M21 | `M14SAW`, `M21` | Переиспользуются текущие модели; объединение M14/M21 ещё не реализовано. |
+| 3 | FN SCAR | `SCAR` | Установлен комплект L/H/SSR: 14 сущностей, 13 иконок, оптика и обвес. 14 compiled audits и 12 offline Lua checks PASS. Игру не запускали; общая приёмка впереди. [Сборка и ограничения](scar-import.md). |
+| 4 | M14 / M21 | `M14SAW`, `M21` | Один предмет `M14SAW`. Комплект `JAZZ_M14_SniperKit` на существующих `JAZZ_M14` и ART переводит ствол в M21. Кабинет в игре ещё не открывали. |
 | 5 | G36 | `G36`, `G36c` | H&K G36 Rifle Family.zip: IMPORTED_REVIEW; без привязки материала 14 |
 | 6 | FN F2000 |  | FN F2000 Assault Rifle.zip: IMPORTED_SOURCE |
 | 7 | SIG SG550 | `Sig550`, `Sig550Custom`, `Sig552`, `Sig552SWAT` | SIG SG550 Rifles.zip: IMPORTED_REVIEW; без привязки материала 40 |

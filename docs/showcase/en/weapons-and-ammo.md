@@ -1,5 +1,8 @@
 # Weapons and components
 
+The M14 and M21 are one rifle on the existing models. The sniper kit costs 1000 parts, fits the existing ART scope, renames the rifle M-21, switches it to the sniper class, disables automatic fire, and raises grouping to 45. The shop keeps the M14. The modify cabinet has not been checked in game yet.
+
+
 ## Visual fixes, 28 September 2026
 
 Fixed short-barrel previews for the M4 and M16A4. The M14 optics mount now follows the optic, and its bipod attaches to the gas cylinder. EBR attachments use its RIS rails; the M203 option was removed. Corrected the pale Vz.58 grip border, refined AK-103 smoothing, and refreshed icons including the coloured M14 MkIII. Installed locally; acceptance in a fresh game process is still pending.
@@ -141,3 +144,9 @@ The local update dated 3 October 2026 reduces repeated bag processing and stack 
 Catalog attachments retain their component binding again, so existing items can be recognized for installation without starting a new campaign. The AUG launcher requires its matching inventory module instead of crafting with Parts. AUG, M16A4 and AKM/AK-74 GP-25 launchers are not interchangeable. The M16A4 launcher still requires the RIS handguard.
 
 Validated by offline Lua checks; an in-game check after this fix is still pending.
+
+## Modular SCAR (2026-10-08)
+
+SCAR now has L/H caliber kits with matching magazines, three barrel lengths, a folding stock, optics, muzzle devices, grips/bipods and light/laser options. Short configurations are carbines. The SSR kit converts it into a semi-automatic 7.62x51 battle rifle with its own stock and a fixed long barrel. A long barrel alone does not enable SSR.
+
+The package is installed locally and ready for combined in-game testing. EGLM and PDW are not included yet.

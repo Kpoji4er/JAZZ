@@ -10225,3 +10225,24 @@ We have no intelligence on the Legion's other camps—you'll have to scout them 
 9978,890000000004798,"Лора Колин родилась в Румынии. Ее родители-диссиденты бежали в Германию, опасаясь ареста. От них она унаследовала нелюбовь к диктаторам. Училась на медика, и попала в A.I.M. по совету Рудольфа Штайгера. Страстная наемница! Ее сильные стороны - выслеживание противника и стрельба из автоматического оружия. Ненавидит работать со Луизой Гарно.","Laura Colin was born in Romania. Her dissident parents fled to Germany to avoid arrest, and she inherited their dislike of dictators. She studied medicine and joined A.I.M. on Rudolf Steiger's advice. An enthusiastic mercenary, she excels at tracking enemies and handling automatic weapons. She hates working with Louise Garneau.",manual-translation; JAZZ-MERC-MERGE-001
 9979,890000000004814,"Прошлое его туманно и он не особо любит о нем распространяться. Повстанец Мигеля, был схвачен и брошен Д. в тюрьму Альмы, где неоднократно подвергался жестким допросам, которые ухудшили его здоровье. После освобождения снова присоединился к Сопротивлению. Пусть он уже нет тот, что раньше, но рука его все так же тверда.","His past is obscure, and he does not like discussing it. A rebel who fought for Miguel, he was captured and thrown into Deidranna's Alma prison, where repeated brutal interrogations damaged his health. After his release he rejoined the Resistance. He may no longer be the man he once was, but his hand is still steady.",manual-translation; JAZZ-MERC-MERGE-001
 9980,890000000004811,Эмиль Кимос «Эскимо»,"Emil ""Eskimo"" Kimos",manual-translation; JAZZ-MERC-MERGE-001
+9981,890000000034101,"Калибр 7,62×51 мм",7.62x51 mm caliber,manual-translation; JAZZ-WEAPON-SCAR-001
+9982,890000000034102,SCAR: Damage +9,SCAR: Damage +9,manual-translation; JAZZ-WEAPON-SCAR-001
+9983,890000000034103,SCAR: WeaponRange +8,SCAR: WeaponRange +8,manual-translation; JAZZ-WEAPON-SCAR-001
+9984,890000000034104,SCAR: Recoil +11,SCAR: Recoil +11,manual-translation; JAZZ-WEAPON-SCAR-001
+9985,890000000034105,SCAR: Grouping -3,SCAR: Grouping -3,manual-translation; JAZZ-WEAPON-SCAR-001
+9986,890000000034106,SCAR: CyclicRPM -50,SCAR: CyclicRPM -50,manual-translation; JAZZ-WEAPON-SCAR-001
+9987,890000000034107,SCAR: MagazineSize +20,20-round magazine,manual-translation; JAZZ-WEAPON-SCAR-001
+9988,890000000034108,SCAR: ShootAP +1000,SCAR: ShootAP +1000,manual-translation; JAZZ-WEAPON-SCAR-001
+9989,890000000034109,SCAR-L,SCAR-L,technical-copy
+9990,890000000034110,SCAR-H,SCAR-H,technical-copy
+9991,890000000034111,SCAR SSR,SCAR SSR,technical-copy
+9992,890000000034112,Штатный ствол SCAR,Standard SCAR barrel,manual-translation; JAZZ-WEAPON-SCAR-001
+9993,890000000034113,SCAR: Damage -1,SCAR: Damage -1,manual-translation; JAZZ-WEAPON-SCAR-001
+9994,890000000034114,SCAR: WeaponRange -8,SCAR: WeaponRange -8,manual-translation; JAZZ-WEAPON-SCAR-001
+9995,890000000034115,SCAR: Recoil +2,SCAR: Recoil +2,manual-translation; JAZZ-WEAPON-SCAR-001
+9996,890000000034116,Короткий ствол SCAR,Short SCAR barrel,manual-translation; JAZZ-WEAPON-SCAR-001
+9997,890000000034117,SCAR: Grouping +3,SCAR: Grouping +3,manual-translation; JAZZ-WEAPON-SCAR-001
+9998,890000000034118,SCAR: AimAccuracy +1,SCAR: AimAccuracy +1,manual-translation; JAZZ-WEAPON-SCAR-001
+9999,890000000034119,Длинный ствол SCAR,Long SCAR barrel,manual-translation; JAZZ-WEAPON-SCAR-001
+10000,890000000034120,Штатный пламегаситель SCAR,Standard SCAR flash hider,manual-translation; JAZZ-WEAPON-SCAR-001
+10001,890000000034121,"Модульная винтовка FN SCAR. Комплекты L/H меняют калибр, стволы — длину и характеристики. SSR — боевая винтовка под 7,62×51 мм с одиночным огнём.",A modular FN SCAR rifle. L/H kits change caliber; barrels change length and handling. SSR is a semi-automatic 7.62x51 mm battle-rifle configuration.,manual-translation; JAZZ-WEAPON-SCAR-001

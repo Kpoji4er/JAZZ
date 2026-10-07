@@ -13031,3 +13031,25 @@ Speck","Командир!
 890000000020602,Grunty,Хряп,,ModItemUnitDataCompositeDef Grunty Nick
 890000000020603,GRUNTY,ХРЯП,,ModItemUnitDataCompositeDef Grunty AllCapsNick
 890000000020604,"After taking a short leave of absence to run a highly specialized (and highly lucrative) paintball retreat for Fortune 500 companies, Wolf grew tired of teaching fat, middle-aged men how to pretend to kill each other. Especially exhausting was the week-long minicamp ""Oh-Dark-Dirty"" where he attempted to instruct them in Night Operations concepts and tactics while making sure everyone was wearing safety orange. He reports he's ready and very eager to return to mercenary work. One of A.I.M.'s most well-rounded members, Sanderson is highly sought after by clients looking for a merc who is capable of doing everything and is willing to do anything. Best to hire him as soon as he's available because he surely won't be without a contract for long!","Ненадолго покинув A.I.M., чтобы занять должность инструктора в элитном (и весьма высокооплачиваемом) загородном пейнтбольном клубе для состоятельных бизнесменов, Волк в конце концов устал учить заплывших жиром сорокалетних топ-менеджеров, как делать вид, что они убивают друг друга. Окончательно его добил недельный выездной лагерь, где он пытался обучить своих подопечных основам тактики и ночных операций, пока те шарились по лесу в светоотражающих оранжевых жилетах. Вернувшись в город, Сандерсон сообщил, что более чем готов вновь поработать наёмником. Волк - один из самых всесторонне подготовленных бойцов A.I.M., пользующийся популярностью у клиентов, которым нужен мастер на все руки. Спешите заключить с ним контракт сейчас, пока это не сделали за вас другие!",,ModItemUnitDataCompositeDef Wolf Bio
+890000000034101,"Калибр 7,62×51 мм","Калибр 7,62×51 мм",,jazz:items.lua:119229
+890000000034102,SCAR: Damage +9,Урон +9,,jazz:items.lua:119230
+890000000034103,SCAR: WeaponRange +8,Дальность +8,,jazz:items.lua:119231 | jazz:items.lua:119246
+890000000034104,SCAR: Recoil +11,Отдача +11,,jazz:items.lua:119232
+890000000034105,SCAR: Grouping -3,Кучность −3,,jazz:items.lua:119233 | jazz:items.lua:119244
+890000000034106,SCAR: CyclicRPM -50,Темп стрельбы −50 выстр./мин,,jazz:items.lua:119234
+890000000034107,SCAR: MagazineSize +20,Магазин на 20 патронов,,jazz:items.lua:119235
+890000000034108,SCAR: ShootAP +1000,Выстрел дороже на 1 ОД,,jazz:items.lua:119236
+890000000034109,SCAR-L,SCAR-L,,jazz:InventoryItem/SCAR.lua:14 | jazz:InventoryItem/SCAR.lua:15 | jazz:items.lua:119237 | jazz:items.lua:119335 | jazz:items.lua:119336
+890000000034110,SCAR-H,SCAR-H,,jazz:items.lua:119238
+890000000034111,SCAR SSR,SCAR SSR,,jazz:items.lua:119239
+890000000034112,Штатный ствол SCAR,Штатный ствол SCAR,,jazz:items.lua:119240
+890000000034113,SCAR: Damage -1,Урон −1,,jazz:items.lua:119241
+890000000034114,SCAR: WeaponRange -8,Дальность −8,,jazz:items.lua:119242
+890000000034115,SCAR: Recoil +2,Отдача +2,,jazz:items.lua:119243
+890000000034116,Короткий ствол SCAR,Короткий ствол SCAR,,jazz:items.lua:119245
+890000000034117,SCAR: Grouping +3,Кучность +3,,jazz:items.lua:119247
+890000000034118,SCAR: AimAccuracy +1,Прицеливание +1,,jazz:items.lua:119248
+890000000034119,Длинный ствол SCAR,Длинный ствол SCAR,,jazz:items.lua:119249
+890000000034120,Штатный пламегаситель SCAR,Штатный пламегаситель SCAR,,jazz:items.lua:119250
+890000000034121,"Модульная винтовка FN SCAR. Комплекты L/H меняют калибр, стволы — длину и характеристики. SSR — боевая винтовка под 7,62×51 мм с одиночным огнём.","Модульная винтовка FN SCAR. Комплекты L/H меняют калибр, стволы — длину и характеристики. SSR — боевая винтовка под 7,62×51 мм с одиночным огнём.",,jazz:InventoryItem/SCAR.lua:16 | jazz:items.lua:119337
+990003124,Sniper Kit,Снайперский комплект,,jazz:items.lua

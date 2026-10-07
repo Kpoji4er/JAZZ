@@ -1828,3 +1828,30 @@ HK416,6,Side,true,true,,false,2,JAZZ_FlashlightOff,Flashlight,jazz,false,Invento
 HK416,6,Side,true,true,,false,3,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/HK416.lua,working-tree
 HK416,6,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/HK416.lua,working-tree
 HK416,6,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/HK416.lua,working-tree
+SCAR,1,Conversion,true,false,JAZZ_SCAR_L,true,1,JAZZ_SCAR_L,SCAR-L,jazz,true,InventoryItem/SCAR.lua,working-tree
+SCAR,1,Conversion,true,false,JAZZ_SCAR_L,true,2,JAZZ_SCAR_H,SCAR-H,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,1,Conversion,true,false,JAZZ_SCAR_L,true,3,JAZZ_SCAR_SSR,SCAR SSR,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,2,Barrel,true,false,JAZZ_SCAR_BarrelNormal,true,1,JAZZ_SCAR_BarrelNormal,Штатный ствол SCAR,jazz,true,InventoryItem/SCAR.lua,working-tree
+SCAR,2,Barrel,true,false,JAZZ_SCAR_BarrelNormal,true,2,JAZZ_SCAR_BarrelShort,Короткий ствол SCAR,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,2,Barrel,true,false,JAZZ_SCAR_BarrelNormal,true,3,JAZZ_SCAR_BarrelLong,Длинный ствол SCAR,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,3,Stock,true,false,JAZZ_SCAR_Stock,true,1,JAZZ_SCAR_Stock,Рамочный приклад (Разложенный),jazz,true,InventoryItem/SCAR.lua,working-tree
+SCAR,3,Stock,true,false,JAZZ_SCAR_Stock,true,2,JAZZ_SCAR_StockFolded,Складной приклад (Сложенный),jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,4,Magazine,false,false,JAZZ_MagNormal,true,1,JAZZ_MagNormal,Заводской магазин,jazz,true,InventoryItem/SCAR.lua,working-tree
+SCAR,5,Muzzle,true,false,JAZZ_SCAR_Muzzle,true,1,JAZZ_SCAR_Muzzle,Штатный пламегаситель SCAR,jazz,true,InventoryItem/SCAR.lua,working-tree
+SCAR,5,Muzzle,true,false,JAZZ_SCAR_Muzzle,true,2,JAZZ_Compensator,Compensator,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,5,Muzzle,true,false,JAZZ_SCAR_Muzzle,true,3,JAZZ_Suppressor,Suppressor,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,1,JAZZ_Reflex_Closed,Коллиматор Закрытый,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,2,JAZZ_Reflex_Eotech,Коллиматор Eotech,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,3,JAZZ_Reflex_M68,Коллиматор Aimpoint M68,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,4,JAZZ_CombatScope_2x,Штурмовой прицел (2x),jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,5,JAZZ_CombatScope_ACOG,Штурмовой прицел ACOG (4x),jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,6,JAZZ_Scope_6x,Оптический Прицел 1-6x,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,6,Scope,true,true,,false,7,JAZZ_NightScope,Ночной прицел (5х),jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,7,Under,true,true,,false,1,JAZZ_VerticalGrip,Vertical Grip,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,7,Under,true,true,,false,2,JAZZ_TacGrip,Tactical Grip,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,7,Under,true,true,,false,3,JAZZ_Bipod_Under,Bipod,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,8,Side,true,true,,false,1,JAZZ_Flashlight,Flashlight,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,8,Side,true,true,,false,2,JAZZ_FlashlightOff,Flashlight,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,8,Side,true,true,,false,3,JAZZ_FlashlightDot,Tactical Device,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,8,Side,true,true,,false,4,JAZZ_LaserDot,Лазерный целеуказатель,jazz,false,InventoryItem/SCAR.lua,working-tree
+SCAR,8,Side,true,true,,false,5,JAZZ_UVDot,UV Dot,jazz,false,InventoryItem/SCAR.lua,working-tree

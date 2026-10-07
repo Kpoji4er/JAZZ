@@ -94,7 +94,7 @@ JAZZ_RailRules = {
 	MP5K = { rail = "JAZZ_Rail_MP5K", scope = "rail" },
 	UZI = { rail = "JAZZ_Rail_UZI", scope = "rail" },
 	MicroUZI = { rail = "JAZZ_Rail_MicroUZI", scope = "rail", side = "rail" },
-	M14SAW = { rail = "JAZZ_Rail_M14", scope = "rail" },
+	M14SAW = { conv = "JAZZ_M14_SniperKit", conv_any = true },
 	M21 = { rail = "JAZZ_Rail_M21", scope = "rail", side = "rail", grips = "rail" },
 	JAZZ_M14_MkIII = { rail = "JAZZ_Rail_MkIII", scope = "rail", side = "rail", grips = "rail" },
 	M1A = { rail = "JAZZ_Rail_M1A", handguard = "JAZZ_HandguardM1ARail", scope = "rail", side = "handguard", grips = "handguard" },
@@ -242,6 +242,10 @@ function JAZZ_RailReject(weapon, slot, id)
 			req = rule.grips
 		end
 		if req and not jazz_req_met(weapon, rule, req) then
+			local missing = rule[req]
+			if type(missing) == "string" then
+				return true, missing
+			end
 			return true
 		end
 		if slot == "Rail" and rule.nato and part == rule.nato then
@@ -313,7 +317,7 @@ end
 
 function JAZZ_RailApplyConversionName(weapon)
 	local rule = JAZZ_RailRules[weapon.class]
-	if not rule or not rule.conv or weapon.class == "Mosin" then
+	if not rule or not rule.conv or weapon.class == "Mosin" or weapon.class == "M14SAW" then
 		return
 	end
 	local installed = weapon.components and weapon.components.Conversion
@@ -411,6 +415,9 @@ function JAZZ_RailHealWeapon(weapon)
 		return
 	end
 	JAZZ_RailMigrateTacticalFAL(weapon)
+	if JAZZ_M14MigrateM21 then
+		JAZZ_M14MigrateM21(weapon)
+	end
 	local rule = JAZZ_RailRules[weapon.class]
 	if not rule or not weapon.components then
 		return
@@ -429,6 +436,9 @@ function JAZZ_RailHealWeapon(weapon)
 	JAZZ_AKMApplyName(weapon)
 	if weapon.class == "FNFAL" and JAZZ_FALApplyPresentation then
 		JAZZ_FALApplyPresentation(weapon)
+	end
+	if weapon.class == "M14SAW" and JAZZ_M14ApplyPresentation then
+		JAZZ_M14ApplyPresentation(weapon)
 	end
 end
 

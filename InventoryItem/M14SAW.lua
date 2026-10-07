@@ -98,6 +98,7 @@ DefineClass.M14SAW = {
 				"JAZZ_Scope_6x",
 				"JAZZ_Scope_12x",
 				"JAZZ_Scope_Scout",
+				"JAZZ_Scope_M21_ART",
 			},
 		}),
 	
@@ -106,6 +107,13 @@ DefineClass.M14SAW = {
 			'CanBeEmpty', true,
 			'AvailableComponents', {
 				"JAZZ_Rail_M14",
+			},
+		}),
+		PlaceObj('WeaponComponentSlot', {
+			'SlotType', "Conversion",
+			'CanBeEmpty', true,
+			'AvailableComponents', {
+				"JAZZ_M14_SniperKit",
 			},
 		}),
 },

@@ -243,6 +243,11 @@ Generated ModItems покрываются системами по типу:
 | `jazz/Code/System_WeaponRemovableModify.lua` | Removable component modification UI. |
 | `jazz/Code/Weapon_MosinModular.lua` | Mosin configuration names. Long barrel plus `JAZZ_Conversion_Mosin` uses the conversion display name. |
 | `jazz/Code/Weapon_FALModular.lua` | One `FNFAL`. Tactical handguard swaps name, icon and five stats, then calls `FirearmBase.SetWeaponComponent`. |
+| `jazz/Code/Weapon_M14Modular.lua` | One `M14SAW`. `JAZZ_M14_SniperKit` presents it as M21: sniper class, ART model, no auto fire, Grouping 45. |
 | `jazz/Code/Weapon_AEKModular.lua` | AEK caliber-kit presentation, native attachment variants and loaded-ammo guard. |
 | `jazz/Code/Weapon_HK416Modular.lua` | HK416 barrel/stock presentation and native component updates. |
 | `jazz-units/Code/LegionMedicineLoadouts.lua` | Legion medicine loadouts. |
+
+## SCAR (08.10.2026)
+
+`Code/Weapon_SCARModular.lua` — loaded runtime, владелец [weapons-ammo-components](weapons-ammo-components.md): класс, атаки, визуальные части и иконка одного SCAR. `InventoryItem/SCAR.lua` — generated and loaded; соответствующие ModItem и metadata синхронизированы. 14 сущностей `jazz_assets/Entities/JAZZ_SCAR*` зарегистрированы в assets. Editor/runtime-приёмка отложена владельцем.
