@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagLargeFine = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagLargeFine",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagLargeFine",
 	Icon = "UI/Icons/Upgrades/expanded_AK47_magazine",
 	DisplayName = T(990002232, --[[ModItemInventoryItemCompositeDef JAZZ_MagLargeFine DisplayName]] "Ergonomic Expanded Mag"),
 	DisplayNamePlural = T(990002233, --[[ModItemInventoryItemCompositeDef JAZZ_MagLargeFine DisplayNamePlural]] "Ergonomic Expanded Mag"),

@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagNormalFine_FAL = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagNormalFine_FAL",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagNormalFine_FAL",
 	Icon = "UI/Icons/Upgrades/fnfal_mag_ergo_normal",
 	DisplayName = T(990002589, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_FAL DisplayName]] "Fine-Tuned Mag"),
 	DisplayNamePlural = T(990002590, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_FAL DisplayNamePlural]] "Fine-Tuned Mag"),

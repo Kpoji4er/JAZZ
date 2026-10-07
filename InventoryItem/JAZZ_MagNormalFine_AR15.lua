@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagNormalFine_AR15 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagNormalFine_AR15",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagNormalFine_AR15",
 	Icon = "UI/Icons/Upgrades/m16_magazine",
 	DisplayName = T(990002586, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_AR15 DisplayName]] "Fine-Tuned Mag"),
 	DisplayNamePlural = T(990002587, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine_AR15 DisplayNamePlural]] "Fine-Tuned Mag"),

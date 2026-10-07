@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_Garand = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_Garand",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_Garand",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/GarandScope.png",
 	DisplayName = T(990002358, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_Garand DisplayName]] "Оптический Прицел M84 (2.2x)"),
 	DisplayNamePlural = T(990002359, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_Garand DisplayNamePlural]] "Оптический Прицел M84 (2.2x)"),

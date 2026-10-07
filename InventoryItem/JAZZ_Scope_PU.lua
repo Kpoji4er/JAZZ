@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_PU = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_PU",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_PU",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PUScope.png",
 	DisplayName = T(990002367, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_PU DisplayName]] "Оптический Прицел ПУ (3.5x)"),
 	DisplayNamePlural = T(990002368, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_PU DisplayNamePlural]] "Оптический Прицел ПУ (3.5x)"),

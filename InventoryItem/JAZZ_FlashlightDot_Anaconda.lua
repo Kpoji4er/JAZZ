@@ -6,6 +6,7 @@ DefineClass.JAZZ_FlashlightDot_Anaconda = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_FlashlightDot_Anaconda",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_FlashlightDot_Anaconda",
 	Icon = "UI/Icons/Upgrades/side_laserlight",
 	DisplayName = T(990002145, --[[ModItemInventoryItemCompositeDef JAZZ_FlashlightDot_Anaconda DisplayName]] "Tactical Device"),
 	DisplayNamePlural = T(990002146, --[[ModItemInventoryItemCompositeDef JAZZ_FlashlightDot_Anaconda DisplayNamePlural]] "Tactical Device"),

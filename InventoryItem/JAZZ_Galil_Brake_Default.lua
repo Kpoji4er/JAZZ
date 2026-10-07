@@ -6,6 +6,7 @@ DefineClass.JAZZ_Galil_Brake_Default = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Galil_Brake_Default",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Galil_Brake_Default",
 	Icon = "UI/Icons/Upgrades/default_muzzle",
 	DisplayName = T(990002172, --[[ModItemInventoryItemCompositeDef JAZZ_Galil_Brake_Default DisplayName]] "Default Muzzle Brake"),
 	DisplayNamePlural = T(990002173, --[[ModItemInventoryItemCompositeDef JAZZ_Galil_Brake_Default DisplayNamePlural]] "Default Muzzle Brake"),

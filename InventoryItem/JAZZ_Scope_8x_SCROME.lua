@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_8x_SCROME = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_8x_SCROME",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_8x_SCROME",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ScopeX5.png",
 	DisplayName = T(990002352, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_8x_SCROME DisplayName]] "Оптический Прицел 8x"),
 	DisplayNamePlural = T(990002353, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_8x_SCROME DisplayNamePlural]] "Оптический Прицел 8x"),

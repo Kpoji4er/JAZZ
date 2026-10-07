@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_Scout = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_Scout",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_Scout",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ScoutScope.png",
 	DisplayName = T(990002370, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_Scout DisplayName]] "Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)"),
 	DisplayNamePlural = T(990002371, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_Scout DisplayNamePlural]] "Оптический Прицел Vortex Crossfire II Scout Scope (2-7x)"),

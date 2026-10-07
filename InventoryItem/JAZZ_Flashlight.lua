@@ -6,6 +6,7 @@ DefineClass.JAZZ_Flashlight = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Flashlight",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Flashlight",
 	Icon = "UI/Icons/Upgrades/side_light",
 	DisplayName = T(990002139, --[[ModItemInventoryItemCompositeDef JAZZ_Flashlight DisplayName]] "Flashlight"),
 	DisplayNamePlural = T(990002140, --[[ModItemInventoryItemCompositeDef JAZZ_Flashlight DisplayNamePlural]] "Flashlight"),

@@ -6,6 +6,7 @@ DefineClass.JAZZ_ImprovisedSuppressor = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_ImprovisedSuppressor",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_ImprovisedSuppressor",
 	Icon = "UI/Icons/Upgrades/oil_filter_suppressor_small",
 	DisplayName = T(990002193, --[[ModItemInventoryItemCompositeDef JAZZ_ImprovisedSuppressor DisplayName]] "Масляной фильтр"),
 	DisplayNamePlural = T(990002194, --[[ModItemInventoryItemCompositeDef JAZZ_ImprovisedSuppressor DisplayNamePlural]] "Масляной фильтр"),

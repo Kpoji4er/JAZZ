@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_Garand = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_Garand",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_Garand",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/GarandReflex.png",
 	DisplayName = T(990002328, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Garand DisplayName]] "Коллиматор"),
 	DisplayNamePlural = T(990002329, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Garand DisplayNamePlural]] "Коллиматор"),

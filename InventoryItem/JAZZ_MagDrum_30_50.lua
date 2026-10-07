@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagDrum_30_50 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagDrum_30_50",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagDrum_30_50",
 	Icon = "Mod/e6L4ECj/magpictures/thompsondrum.png",
 	DisplayName = T(990002223, --[[ModItemInventoryItemCompositeDef JAZZ_MagDrum_30_50 DisplayName]] "Бубен"),
 	DisplayNamePlural = T(990002224, --[[ModItemInventoryItemCompositeDef JAZZ_MagDrum_30_50 DisplayNamePlural]] "Бубен"),

@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_PSG = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_PSG",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_PSG",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PSGScope.png",
 	DisplayName = T(990002361, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_PSG DisplayName]] "Оптический Прицел Hensoldt ZF PSG1 (6x)"),
 	DisplayNamePlural = T(990002362, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_PSG DisplayNamePlural]] "Оптический Прицел Hensoldt ZF PSG1 (6x)"),

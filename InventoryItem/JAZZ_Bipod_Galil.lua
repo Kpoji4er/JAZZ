@@ -6,6 +6,7 @@ DefineClass.JAZZ_Bipod_Galil = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Bipod_Galil",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Bipod_Galil",
 	Icon = "UI/Icons/Upgrades/ak47_bipod",
 	DisplayName = T(990002109, --[[ModItemInventoryItemCompositeDef JAZZ_Bipod_Galil DisplayName]] "Bipod"),
 	DisplayNamePlural = T(990002110, --[[ModItemInventoryItemCompositeDef JAZZ_Bipod_Galil DisplayNamePlural]] "Bipod"),

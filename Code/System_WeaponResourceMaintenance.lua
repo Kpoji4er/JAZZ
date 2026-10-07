@@ -39,7 +39,8 @@ InventoryItemProperties.properties[#InventoryItemProperties.properties + 1] = {
 	name = "Removable Component ID",
 	editor = "text",
 	default = false,
-	template = false,
+	-- Persist catalog bindings through CompositeDef editor regeneration.
+	template = true,
 }
 
 function FirearmBase:GetWeaponResourceMax()
@@ -476,6 +477,7 @@ local JazzRemovableSlots = {
 	Bipod = true,
 	Magazine = true,
 	GrenadeLauncher = true,
+	Grenadelauncher = true, -- Existing AUG slot spelling; preserve saved component keys.
 }
 
 function JAZZ_IsRemovableWeaponComponent(component_id, slot)

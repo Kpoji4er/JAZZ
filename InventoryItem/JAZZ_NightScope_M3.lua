@@ -6,6 +6,7 @@ DefineClass.JAZZ_NightScope_M3 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_NightScope_M3",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_NightScope_M3",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/NVS.png",
 	DisplayName = T(990002307, --[[ModItemInventoryItemCompositeDef JAZZ_NightScope_M3 DisplayName]] "Ночной прицел (5х)"),
 	DisplayNamePlural = T(990002308, --[[ModItemInventoryItemCompositeDef JAZZ_NightScope_M3 DisplayNamePlural]] "Ночной прицел (5х)"),

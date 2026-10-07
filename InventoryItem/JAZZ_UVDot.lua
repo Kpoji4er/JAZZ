@@ -6,6 +6,7 @@ DefineClass.JAZZ_UVDot = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_UVDot",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_UVDot",
 	Icon = "UI/Icons/Upgrades/side_laser",
 	DisplayName = T(990002403, --[[ModItemInventoryItemCompositeDef JAZZ_UVDot DisplayName]] "UV Dot"),
 	DisplayNamePlural = T(990002404, --[[ModItemInventoryItemCompositeDef JAZZ_UVDot DisplayNamePlural]] "UV Dot"),

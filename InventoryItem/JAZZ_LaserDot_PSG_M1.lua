@@ -6,6 +6,7 @@ DefineClass.JAZZ_LaserDot_PSG_M1 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_LaserDot_PSG_M1",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_LaserDot_PSG_M1",
 	Icon = "UI/Icons/Upgrades/side_laser",
 	DisplayName = T(990002202, --[[ModItemInventoryItemCompositeDef JAZZ_LaserDot_PSG_M1 DisplayName]] "Red Dot"),
 	DisplayNamePlural = T(990002203, --[[ModItemInventoryItemCompositeDef JAZZ_LaserDot_PSG_M1 DisplayNamePlural]] "Red Dot"),

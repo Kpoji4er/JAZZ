@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_3x_9x = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_3x_9x",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_3x_9x",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ScoutScope.png",
 	DisplayName = T(990002346, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_3x_9x DisplayName]] "Оптический Прицел Redfield (3-9x)"),
 	DisplayNamePlural = T(990002347, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_3x_9x DisplayNamePlural]] "Оптический Прицел Redfield (3-9x)"),

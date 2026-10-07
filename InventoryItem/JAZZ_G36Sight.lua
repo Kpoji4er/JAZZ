@@ -6,6 +6,7 @@ DefineClass.JAZZ_G36Sight = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_G36Sight",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_G36Sight",
 	Icon = "UI/Icons/Upgrades/g36_scope_01",
 	DisplayName = T(990002166, --[[ModItemInventoryItemCompositeDef JAZZ_G36Sight DisplayName]] "Прицел G36 1.5x"),
 	DisplayNamePlural = T(990002167, --[[ModItemInventoryItemCompositeDef JAZZ_G36Sight DisplayNamePlural]] "Прицел G36 1.5x"),

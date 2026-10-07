@@ -6,6 +6,7 @@ DefineClass.JAZZ_TacGrip_M14 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_TacGrip_M14",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_TacGrip_M14",
 	Icon = "UI/Icons/Upgrades/tactical_grip",
 	DisplayName = T(990002394, --[[ModItemInventoryItemCompositeDef JAZZ_TacGrip_M14 DisplayName]] "Tactical Grip"),
 	DisplayNamePlural = T(990002395, --[[ModItemInventoryItemCompositeDef JAZZ_TacGrip_M14 DisplayNamePlural]] "Tactical Grip"),

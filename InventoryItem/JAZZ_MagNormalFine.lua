@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagNormalFine = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagNormalFine",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagNormalFine",
 	Icon = "UI/Icons/Upgrades/AK74_Bakelite_magazine",
 	DisplayName = T(990002286, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine DisplayName]] "Fine-Tuned Mag"),
 	DisplayNamePlural = T(990002287, --[[ModItemInventoryItemCompositeDef JAZZ_MagNormalFine DisplayNamePlural]] "Fine-Tuned Mag"),

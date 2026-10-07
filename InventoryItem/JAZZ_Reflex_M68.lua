@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_M68 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_M68",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_M68",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/M68.png",
 	DisplayName = T(990002331, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_M68 DisplayName]] "Коллиматор Aimpoint M68"),
 	DisplayNamePlural = T(990002332, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_M68 DisplayNamePlural]] "Коллиматор Aimpoint M68"),

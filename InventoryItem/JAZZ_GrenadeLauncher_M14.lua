@@ -6,6 +6,7 @@ DefineClass.JAZZ_GrenadeLauncher_M14 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_GrenadeLauncher_M14",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_GrenadeLauncher_M14",
 	Icon = "UI/Icons/Upgrades/m16_grenade_launcher",
 	DisplayName = T(990002187, --[[ModItemInventoryItemCompositeDef JAZZ_GrenadeLauncher_M14 DisplayName]] "Grenade Launcher"),
 	DisplayNamePlural = T(990002188, --[[ModItemInventoryItemCompositeDef JAZZ_GrenadeLauncher_M14 DisplayNamePlural]] "Grenade Launcher"),

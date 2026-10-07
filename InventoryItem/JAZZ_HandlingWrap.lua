@@ -6,6 +6,7 @@ DefineClass.JAZZ_HandlingWrap = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_HandlingWrap",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_HandlingWrap",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Side/Wrap.png",
 	DisplayName = T(990002190, --[[ModItemInventoryItemCompositeDef JAZZ_HandlingWrap DisplayName]] "Обмотка на цевье"),
 	DisplayNamePlural = T(990002191, --[[ModItemInventoryItemCompositeDef JAZZ_HandlingWrap DisplayNamePlural]] "Обмотка на цевье"),

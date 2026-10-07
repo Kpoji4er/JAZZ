@@ -6,6 +6,7 @@ DefineClass.JAZZ_CombatScope_3x = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_CombatScope_3x",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_CombatScope_3x",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/m163x.png",
 	DisplayName = T(990002121, --[[ModItemInventoryItemCompositeDef JAZZ_CombatScope_3x DisplayName]] "Штурмовой прицел (3x)"),
 	DisplayNamePlural = T(990002122, --[[ModItemInventoryItemCompositeDef JAZZ_CombatScope_3x DisplayNamePlural]] "Штурмовой прицел (3x)"),

@@ -135,3 +135,9 @@ Both AEK variants now offer five removable sights. The HK416 has an underbarrel 
 ## Large squad bags
 
 The local update dated 3 October 2026 reduces repeated bag processing and stack matching while preserving stack limits and sorting rules. Offline checks passed; the improvement in the live inventory UI still needs in-game confirmation.
+
+### Attachments in existing saves
+
+Catalog attachments retain their component binding again, so existing items can be recognized for installation without starting a new campaign. The AUG launcher requires its matching inventory module instead of crafting with Parts. AUG, M16A4 and AKM/AK-74 GP-25 launchers are not interchangeable. The M16A4 launcher still requires the RIS handguard.
+
+Validated by offline Lua checks; an in-game check after this fix is still pending.

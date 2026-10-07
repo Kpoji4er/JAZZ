@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_PKAS = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_PKAS",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_PKAS",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/PKAS.png",
 	DisplayName = T(990002337, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_PKAS DisplayName]] "Коллиматор ПК-АА"),
 	DisplayNamePlural = T(990002338, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_PKAS DisplayNamePlural]] "Коллиматор ПК-АА"),

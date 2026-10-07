@@ -6,6 +6,7 @@ DefineClass.JAZZ_PistolSuppressor = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_PistolSuppressor",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_PistolSuppressor",
 	Icon = "UI/Icons/Upgrades/deserteagle_suppressor",
 	DisplayName = T(990002313, --[[ModItemInventoryItemCompositeDef JAZZ_PistolSuppressor DisplayName]] "Глушитель"),
 	DisplayNamePlural = T(990002314, --[[ModItemInventoryItemCompositeDef JAZZ_PistolSuppressor DisplayNamePlural]] "Глушитель"),

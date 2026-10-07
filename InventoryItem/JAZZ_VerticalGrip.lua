@@ -6,6 +6,7 @@ DefineClass.JAZZ_VerticalGrip = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_VerticalGrip",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_VerticalGrip",
 	Icon = "UI/Icons/Upgrades/mp5_grip",
 	DisplayName = T(990002415, --[[ModItemInventoryItemCompositeDef JAZZ_VerticalGrip DisplayName]] "Vertical Grip"),
 	DisplayNamePlural = T(990002416, --[[ModItemInventoryItemCompositeDef JAZZ_VerticalGrip DisplayNamePlural]] "Vertical Grip"),

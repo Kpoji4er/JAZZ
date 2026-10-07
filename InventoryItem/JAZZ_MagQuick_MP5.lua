@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagQuick_MP5 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagQuick_MP5",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagQuick_MP5",
 	Icon = "UI/Icons/Upgrades/galil_magazine_quick",
 	DisplayName = T(990002616, --[[ModItemInventoryItemCompositeDef JAZZ_MagQuick_MP5 DisplayName]] "Quick Mag"),
 	DisplayNamePlural = T(990002617, --[[ModItemInventoryItemCompositeDef JAZZ_MagQuick_MP5 DisplayNamePlural]] "Quick Mag"),

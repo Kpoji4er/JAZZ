@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_Closed = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_Closed",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_Closed",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Reflex.png",
 	DisplayName = T(990002319, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Closed DisplayName]] "Коллиматор Закрытый"),
 	DisplayNamePlural = T(990002320, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Closed DisplayNamePlural]] "Коллиматор Закрытый"),

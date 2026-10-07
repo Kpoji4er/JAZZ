@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_12x = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_12x",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_12x",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ScopeX10.png",
 	DisplayName = T(990002343, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_12x DisplayName]] "Оптический Прицел Leupold Mark 4 (12x)"),
 	DisplayNamePlural = T(990002344, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_12x DisplayNamePlural]] "Оптический Прицел Leupold Mark 4 (12x)"),

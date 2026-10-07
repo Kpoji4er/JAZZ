@@ -6,6 +6,7 @@ DefineClass.JAZZ_AUGCompensator_03 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_AUGCompensator_03",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_AUGCompensator_03",
 	Icon = "UI/Icons/Upgrades/muzzle_steyr_01",
 	DisplayName = T(990002103, --[[ModItemInventoryItemCompositeDef JAZZ_AUGCompensator_03 DisplayName]] "Advanced Compensator"),
 	DisplayNamePlural = T(990002104, --[[ModItemInventoryItemCompositeDef JAZZ_AUGCompensator_03 DisplayNamePlural]] "Advanced Compensator"),

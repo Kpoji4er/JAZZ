@@ -6,6 +6,7 @@ DefineClass.JAZZ_LaserDot = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_LaserDot",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_LaserDot",
 	Icon = "UI/Icons/Upgrades/side_laser",
 	DisplayName = T(990002196, --[[ModItemInventoryItemCompositeDef JAZZ_LaserDot DisplayName]] "Лазерный целеуказатель"),
 	DisplayNamePlural = T(990002197, --[[ModItemInventoryItemCompositeDef JAZZ_LaserDot DisplayNamePlural]] "Лазерный целеуказатель"),

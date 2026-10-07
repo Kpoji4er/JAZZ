@@ -6,6 +6,7 @@ DefineClass.JAZZ_Flashlight_PSG_M1 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Flashlight_PSG_M1",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Flashlight_PSG_M1",
 	Icon = "UI/Icons/Upgrades/side_light",
 	DisplayName = T(990002154, --[[ModItemInventoryItemCompositeDef JAZZ_Flashlight_PSG_M1 DisplayName]] "Flashlight"),
 	DisplayNamePlural = T(990002155, --[[ModItemInventoryItemCompositeDef JAZZ_Flashlight_PSG_M1 DisplayNamePlural]] "Flashlight"),

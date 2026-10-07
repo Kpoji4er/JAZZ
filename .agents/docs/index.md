@@ -51,3 +51,5 @@ Release ZIP parts: [prepare/test tooling](../../docs/tools/_prepare_release_asse
 - Installed weapon soft contour and AK-family donor/fit replay: `docs/design/weapon-layer-icons/live/LAYERS-REPLAY.md`; retained editor/capture/merge/verification tools are indexed in `docs/tools/README.md`. Runtime evidence: `docs/design/weapon-layer-icons/live/hybrid-installed/`.
 
 - Meshy: исходные картинки брони, pnpm runner, стоимость, генерация и восстановление задач — `.agents/docs/playbooks/meshy-armor-generation.md`.
+
+- Removable attachment binding recovery: [repair/audit](../../docs/tools/_repair_removable_bindings.py), [offline regression](../../docs/tools/_check_removable_bindings.py); JAZZ-WEAPONS-002 REQ-012/013.

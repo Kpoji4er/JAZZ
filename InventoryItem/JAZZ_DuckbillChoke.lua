@@ -6,6 +6,7 @@ DefineClass.JAZZ_DuckbillChoke = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_DuckbillChoke",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_DuckbillChoke",
 	Icon = "UI/Icons/Upgrades/duckbill_choke",
 	DisplayName = T(990002133, --[[ModItemInventoryItemCompositeDef JAZZ_DuckbillChoke DisplayName]] "Duckbill Choke"),
 	DisplayNamePlural = T(990002134, --[[ModItemInventoryItemCompositeDef JAZZ_DuckbillChoke DisplayNamePlural]] "Duckbill Choke"),

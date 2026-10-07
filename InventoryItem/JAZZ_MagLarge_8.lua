@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagLarge_8 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagLarge_8",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagLarge_8",
 	Icon = "UI/Icons/Upgrades/BHP_mag_large",
 	DisplayName = T(990002280, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_8 DisplayName]] "Расширенный магазин"),
 	DisplayNamePlural = T(990002281, --[[ModItemInventoryItemCompositeDef JAZZ_MagLarge_8 DisplayNamePlural]] "Расширенный магазин"),

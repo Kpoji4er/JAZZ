@@ -6,6 +6,7 @@ DefineClass.JAZZ_SuppressorIntegrated = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_SuppressorIntegrated",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_SuppressorIntegrated",
 	Icon = "UI/Icons/Upgrades/beretta_silencer",
 	DisplayName = T(990002388, --[[ModItemInventoryItemCompositeDef JAZZ_SuppressorIntegrated DisplayName]] "Глушитель Интегрированный"),
 	DisplayNamePlural = T(990002389, --[[ModItemInventoryItemCompositeDef JAZZ_SuppressorIntegrated DisplayNamePlural]] "Глушитель Интегрированный"),

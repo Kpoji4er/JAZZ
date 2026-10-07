@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_Eotech = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_Eotech",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_Eotech",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Eotech.png",
 	DisplayName = T(990002325, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Eotech DisplayName]] "Коллиматор Eotech"),
 	DisplayNamePlural = T(990002326, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Eotech DisplayNamePlural]] "Коллиматор Eotech"),

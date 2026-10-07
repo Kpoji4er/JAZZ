@@ -6,6 +6,7 @@ DefineClass.JAZZ_MagSmall30_15_MP5 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_MagSmall30_15_MP5",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_MagSmall30_15_MP5",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Magazine/MP5_Mag15.png",
 	DisplayName = T(990002628, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_MP5 DisplayName]] "Магазин на 15 патрон"),
 	DisplayNamePlural = T(990002629, --[[ModItemInventoryItemCompositeDef JAZZ_MagSmall30_15_MP5 DisplayNamePlural]] "Магазин на 15 патрон"),

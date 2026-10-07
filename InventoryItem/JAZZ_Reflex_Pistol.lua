@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_Pistol = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_Pistol",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_Pistol",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ReflexOpen.png",
 	DisplayName = T(990002340, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Pistol DisplayName]] "Коллиматор Пистолетный"),
 	DisplayNamePlural = T(990002341, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Pistol DisplayNamePlural]] "Коллиматор Пистолетный"),

@@ -6,6 +6,7 @@ DefineClass.JAZZ_Reflex_Cobra = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Reflex_Cobra",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Reflex_Cobra",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/Kobra.png",
 	DisplayName = T(990002322, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Cobra DisplayName]] "Коллиматор Кобра"),
 	DisplayNamePlural = T(990002323, --[[ModItemInventoryItemCompositeDef JAZZ_Reflex_Cobra DisplayNamePlural]] "Коллиматор Кобра"),

@@ -6,6 +6,7 @@ DefineClass.JAZZ_Type56BayoF = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Type56BayoF",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Type56BayoF",
 	Icon = "UI/Icons/Upgrades/grenade_launcher_WP",
 	DisplayName = T(990002400, --[[ModItemInventoryItemCompositeDef JAZZ_Type56BayoF DisplayName]] "Штык-нож"),
 	DisplayNamePlural = T(990002401, --[[ModItemInventoryItemCompositeDef JAZZ_Type56BayoF DisplayNamePlural]] "Штык-нож"),

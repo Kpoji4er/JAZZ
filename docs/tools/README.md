@@ -1208,3 +1208,6 @@ Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_
 - `_capture_ja3_hang_dump.py PID OUTPUT.dmp`: local JA3Debug thread/stack minidump; refuses other executables and existing output, no restart/upload.
 - `_read_ja3_lua_hang.py PID LUA_STATE`: read-only, bounded Lua stack/locals snapshot for packed ABI of JA3Debug 67b4a208; state address must come from captured context, not guessed; running snapshots can race.
 - `_check_ai_aim_progress.py`: bounded Lua 5.3 regression (lupa) for M1 aim-loop termination and max aim; proves old code exceeds instruction budget.
+
+- `_repair_removable_bindings.py` — read-only catalog audit; `--apply` restores missing component IDs in items.lua and InventoryItem companions with game/editor closed. Idempotent; preserves unrelated bytes.
+- `_check_removable_bindings.py` — offline Lua regression (lupa): all catalog bindings, old-save inheritance, AUG/AK/M16 compatibility and inventory costs. JAZZ-WEAPONS-002 REQ-012/013.

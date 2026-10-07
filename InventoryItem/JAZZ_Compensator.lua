@@ -6,6 +6,7 @@ DefineClass.JAZZ_Compensator = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Compensator",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Compensator",
 	Icon = "UI/Icons/Upgrades/MP5_compensator",
 	DisplayName = T(990002130, --[[ModItemInventoryItemCompositeDef JAZZ_Compensator DisplayName]] "Compensator"),
 	DisplayNamePlural = T(990002131, --[[ModItemInventoryItemCompositeDef JAZZ_Compensator DisplayNamePlural]] "Compensator"),

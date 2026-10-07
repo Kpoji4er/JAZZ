@@ -11,6 +11,11 @@ risk: high
 generated_data: true
 runtime_validation: required
 write_set:
+  - jazz/.agents/docs/index.md
+  - jazz/Code/System_WeaponResourceMaintenance.lua
+  - jazz/docs/tools/_repair_removable_bindings.py
+  - jazz/docs/tools/_check_removable_bindings.py
+  - jazz/docs/tools/README.md
   - jazz/Code/System_WeaponRemovableModify.lua
   - jazz/docs/wiki/weapons-and-ammo.md
   - jazz/docs/showcase/ru/weapons-and-ammo.md
@@ -322,3 +327,27 @@ Evidence дополнения (2026-10-02):
 - `JAZZ-WEAPONS-002-AC-011`: PASS — offline Lua: фактическая функция `JAZZ_InstallRemovableAttachment` с тестовыми контейнерами и успешной Mechanical-проверкой списала найденный предмет у другого бойца и установила Scope; чужой инвентарь не изменился. Полный Lua-файл прошёл `load`; оба caller кабинета используют общий helper. Локальная проверка четырёх страниц документации прошла.
 
 Визуальная проверка кабинета в игре и сетевая приёмка не выполнены. Существующие runtime BLOCKED основной спецификации этим дополнением не закрываются.
+
+## Исправление каталожных привязок (2026-10-08)
+
+Решение владельца: «сделай правки + коммит», после расследования сохранения D7; игра закрыта. Владелец данных — jazz. Exclusive resource: items.lua; metadata.lua меняется только для Revision/last_changes. Runtime API и ID оружия сохраняются, новые globals не вводятся.
+
+- JAZZ-WEAPONS-002-REQ-012 — восстановить RemovableComponentId == Id для всех каталожных наследников JAZZ_RemovableAttachment одновременно в ModItem и companion; template=true сохраняет свойство при editor regeneration. Старые экземпляры без собственного поля наследуют восстановленный ID класса; явно сохранённый ID остаётся приоритетным.
+- JAZZ-WEAPONS-002-REQ-013 — считать существующий слот AUG Grenadelauncher съёмным наряду с GrenadeLauncher; не переименовывать слот и не менять совместимость AUG/АК/M16. Кабинет требует предмет и не подменяет его крафтом из Parts.
+- JAZZ-WEAPONS-002-AC-012 — offline Lua + static: полный каталог ModItem/companion совпадает, старый экземпляр без собственного ID распознаётся, явный ID сохраняется; все Lua-файлы загружаются синтаксически.
+- JAZZ-WEAPONS-002-AC-013 — offline Lua: оба написания слота распознаются; AUG не принимает модуль АК/M16, кабинет AUG требует инвентарный модуль. Контроль metadata и documentation.
+
+Не входит: новые модели, изменение баланса/совместимости, alias-миграция иных компонентов, перезапись пользовательского сейва, публикация. Asset contract и CommonLib API не меняются.
+
+Проверка в игре после исправления и реальный editor save/reload остаются отдельной приёмкой; до неё сборка не считается проверенной для релиза.
+
+Evidence исправления 2026-10-08:
+
+- JAZZ-WEAPONS-002-AC-012: PASS / offline Lua + static — `_check_removable_bindings.py`: 144 записи ModItem/companion, наследование ID старым экземпляром и приоритет собственного поля; source template=true сверён с официальным Composite.lua. Повторный repair не меняет файлы.
+- JAZZ-WEAPONS-002-AC-013: PASS / offline Lua — фактические функции совместимости и GetChangesCost требуют AUG-модуль без Parts, отклоняют чужие подствольники, сохраняют АК/M16 compatibility. Игровая и editor round-trip приёмка после исправления не выполнены.
+
+Существующие незакрытые runtime-критерии основной спецификации этим исправлением не закрываются.
+
+Проверка общей транзакции также требует восстановить запись ModItemCode для уже загружаемого System_JA2_Nationalities.lua: запись metadata и runtime-файл существуют, но items.lua потерял запись. Это сохранение существующего load graph без изменения поведения; включено в исправление editor persistence.
+
+Проверки транзакции: `_validate_items_quick.py` PASS; generated sync — 0 errors, 12 прежних dormant warnings; локальная проверка четырёх страниц документации PASS. Общий Phase Done всё ещё отклонён прежними AC-004/005 и runtime BLOCKED основной спецификации; это не закрыто текущим offline исправлением.

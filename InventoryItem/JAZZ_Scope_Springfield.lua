@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_Springfield = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_Springfield",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_Springfield",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/SpringfieldScope.png",
 	DisplayName = T(990002373, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_Springfield DisplayName]] "Оптический Прицел (2.75x)"),
 	DisplayNamePlural = T(990002374, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_Springfield DisplayNamePlural]] "Оптический Прицел (2.75x)"),

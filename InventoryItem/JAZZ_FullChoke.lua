@@ -6,6 +6,7 @@ DefineClass.JAZZ_FullChoke = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_FullChoke",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_FullChoke",
 	Icon = "UI/Icons/Upgrades/shotgun_full_choke",
 	DisplayName = T(990002160, --[[ModItemInventoryItemCompositeDef JAZZ_FullChoke DisplayName]] "Full Choke"),
 	DisplayNamePlural = T(990002161, --[[ModItemInventoryItemCompositeDef JAZZ_FullChoke DisplayNamePlural]] "Full Choke"),

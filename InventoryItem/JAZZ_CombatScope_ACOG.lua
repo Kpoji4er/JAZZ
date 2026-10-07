@@ -6,6 +6,7 @@ DefineClass.JAZZ_CombatScope_ACOG = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_CombatScope_ACOG",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_CombatScope_ACOG",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ACOG.png",
 	DisplayName = T(990002124, --[[ModItemInventoryItemCompositeDef JAZZ_CombatScope_ACOG DisplayName]] "Штурмовой прицел ACOG (4x)"),
 	DisplayNamePlural = T(990002125, --[[ModItemInventoryItemCompositeDef JAZZ_CombatScope_ACOG DisplayNamePlural]] "Штурмовой прицел ACOG (4x)"),

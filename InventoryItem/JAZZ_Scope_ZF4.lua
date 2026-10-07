@@ -6,6 +6,7 @@ DefineClass.JAZZ_Scope_ZF4 = {
 
 	comment = "WEAPONS-002 remountable → component JAZZ_Scope_ZF4",
 	object_class = "JAZZ_RemovableAttachment",
+	RemovableComponentId = "JAZZ_Scope_ZF4",
 	Icon = "Mod/e6L4ECj/WeaponComponents/Optics/ZF4.png",
 	DisplayName = T(990002376, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_ZF4 DisplayName]] "Оптический Прицел ZF4 (4x)"),
 	DisplayNamePlural = T(990002377, --[[ModItemInventoryItemCompositeDef JAZZ_Scope_ZF4 DisplayNamePlural]] "Оптический Прицел ZF4 (4x)"),
