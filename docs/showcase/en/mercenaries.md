@@ -1,5 +1,13 @@
 # Mercenaries
 
+The 2026-10-07 profile merge updates 50 mercenary profiles in Russian and English:
+archive biographies replace outdated stat summaries, and names, taglines and
+contact details are corrected. It also corrects Grunty's Russian name and Sanderson's surname
+in Wolf's Russian biography. Dimitri, Madman, Nervous, Flo, Dynamo, Cord and Hobbit
+start at level 1; Nervous and Highball have 60 Agility, and Kulba has 60 Dexterity.
+Prices and specializations are unchanged. Existing saves may retain old stats;
+this local change has not yet been checked in game.
+
 The local test build dated 2026-10-02 assigns Conrad a custom 3D model based on his updated portrait. In-game material and animation review is pending; stats and recruitment terms are unchanged.
 
 [Overview](home.md) · [Perks](perks.md) · [Русский](../ru/mercenaries.md)

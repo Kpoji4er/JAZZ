@@ -1,0 +1,781 @@
+{
+  "Jazz_Colby.Title": {
+    "ru": "Один дома раз, один дома два, один дома три",
+    "en": "Home Alone One, Home Alone Two, Home Alone Three"
+  },
+  "Jazz_Blade.Title": {
+    "ru": "В ноже патроны никогда не кончаются",
+    "en": "A Knife Never Runs Out of Ammo"
+  },
+  "Jazz_Ira.Title": {
+    "ru": "Не сметь нарушать права человека!",
+    "en": "Don't You Dare Violate Human Rights!"
+  },
+  "Jazz_Dimitri.Title": {
+    "ru": "Я забыл, опять забыл",
+    "en": "I Forgot. I Forgot Again"
+  },
+  "Jazz_Madman.Title": {
+    "ru": "Если крыша ржавая — то чердак течёт",
+    "en": "A Rusty Roof Means a Leaky Attic"
+  },
+  "Jazz_Conrad.Title": {
+    "ru": "Джилетт — лучше инструктора нет",
+    "en": "Gillett: The Best Instructor You Can Get"
+  },
+  "Jazz_Mike.Title": {
+    "ru": "Человек-армия",
+    "en": "One-Man Army"
+  },
+  "Jazz_Grom.Title": {
+    "ru": "С вертолёта этого дерьма не видно",
+    "en": "You Can't See This Shit from a Helicopter"
+  },
+  "Jazz_Iggy.Title": {
+    "ru": "Враги, враги народа везде!",
+    "en": "Enemies of the People, Everywhere!"
+  },
+  "Jazz_Benny.Title": {
+    "ru": "Всё, что закрыто, можно открыть",
+    "en": "Anything Locked Can Be Opened"
+  },
+  "Jazz_Simon.Title": {
+    "ru": "Стреляет так, что ни патрон — то пидор",
+    "en": "He Shoots So Well, Every Bullet Finds a Fag"
+  },
+  "Jazz_Rothman.Title": {
+    "ru": "Видел одну шахту — видел все",
+    "en": "Seen One Mine, Seen Them All"
+  },
+  "Jazz_Vicious.Title": {
+    "ru": "Прячьте своих девок",
+    "en": "Hide Your Girls"
+  },
+  "Jazz_Biff.Title": {
+    "ru": "Мэйдэй, мэйдэй, мэйдэй",
+    "en": "Mayday, Mayday, Mayday"
+  },
+  "Jazz_Nervous.Title": {
+    "ru": "Человек-пулемёт",
+    "en": "The Human Machine Gun"
+  },
+  "Jazz_Flo.Title": {
+    "ru": "Оружейная... баронесса?",
+    "en": "An Arms... Baroness?"
+  },
+  "Jazz_Cougar.Title": {
+    "ru": "Крадущаяся Пума, затаившаяся Пума",
+    "en": "Crouching Cougar, Hidden Cougar"
+  },
+  "Jazz_Dynamo.Title": {
+    "ru": "Снаружи живой, мёртвый внутри",
+    "en": "Alive Outside, Dead Inside"
+  },
+  "Jazz_Gaston.Title": {
+    "ru": "Я Д'Артаньян, вы все — гондурасы",
+    "en": "I'm D'Artagnan; You're All Assholes"
+  },
+  "Jazz_Horg.Title": {
+    "ru": "Идёт Бычок — вокруг всё качается",
+    "en": "Here Comes Bull: Everything Starts Shaking"
+  },
+  "Jazz_Manuel.Title": {
+    "ru": "Человек с запахом и вкусом селёдки",
+    "en": "A Man Who Smells and Tastes Like Herring"
+  },
+  "Jazz_Monk.Title": {
+    "ru": "Буддийский монах",
+    "en": "Buddhist Monk"
+  },
+  "Jazz_Allik.Title": {
+    "ru": "Человек-мультитул",
+    "en": "The Human Multitool"
+  },
+  "Jazz_Henning.Title": {
+    "ru": "Настоящий барон",
+    "en": "A Real Baron"
+  },
+  "Jazz_Static.Title": {
+    "ru": "В бой снова идут старожилы",
+    "en": "The Old Hands Go to War Again"
+  },
+  "Jazz_Highball.Title": {
+    "ru": "Все врут? Все безбожно пиздят!",
+    "en": "Everybody Lies? Everybody Fucking Lies!"
+  },
+  "Jazz_Bull.Title": {
+    "ru": "Ветеран бойцовского ринга в Сан-Моне",
+    "en": "Veteran of the San Mona Fighting Ring"
+  },
+  "Jazz_Cord.Title": {
+    "ru": "Как уплочено — так и налопочено",
+    "en": "You Get What You Pay For"
+  },
+  "Jazz_Hobbit.Title": {
+    "ru": "Могу протралить местность вместо вас",
+    "en": "I Can Sweep the Minefield for You"
+  },
+  "Jazz_Ricochet.Title": {
+    "ru": "Я не вписываюсь ни в какие рамки",
+    "en": "I Don't Fit in Any Box"
+  },
+  "Jazz_Meat.Title": {
+    "ru": "Гора мяса",
+    "en": "A Mountain of Meat"
+  },
+  "Jazz_Devin.Title": {
+    "ru": "Хватит, довольно мне с вами прохлаждаться",
+    "en": "Enough Lounging Around with You Lot"
+  },
+  "Jazz_Vince.Title": {
+    "ru": "Доктор, на обе руки мастер",
+    "en": "A Doctor Handy with Both Hands"
+  },
+  "Jazz_Hitman.Title": {
+    "ru": "Их разыскивает Интерпол",
+    "en": "Wanted by Interpol"
+  },
+  "Jazz_Biggens.Title": {
+    "ru": "Есть ещё порох в тротильнице",
+    "en": "Still Some Bang Left in This Old Bomb"
+  },
+  "Jazz_Kulba.Title": {
+    "ru": "Дед независимости",
+    "en": "Grandpa Independence"
+  },
+  "Jazz_Vilde.Title": {
+    "ru": "Саркастичный уб... плюшевый мишка",
+    "en": "A Sarcastic Bas... Teddy Bear"
+  },
+  "Jazz_Grace.Title": {
+    "ru": "Мамма миа, какая подача!",
+    "en": "Mamma Mia, What a Serve!"
+  },
+  "Jazz_Steiger.Title": {
+    "ru": "Контртеррорист",
+    "en": "Counter-Terrorist"
+  },
+  "Jazz_Laura.Title": {
+    "ru": "Одной рукой лечит, другой взрывает",
+    "en": "Heals with One Hand, Blows Things Up with the Other"
+  },
+  "Jazz_Eskimo.Title": {
+    "ru": "Недрогнувшей рукой",
+    "en": "With an Unwavering Hand"
+  },
+  "Grunty.Name": {
+    "id": "890000000020601",
+    "ru": "Гельмут Грунтер «Хряп»",
+    "en": "Helmut \"Grunty\" Grunther"
+  },
+  "Grunty.Nick": {
+    "id": "890000000020602",
+    "ru": "Хряп",
+    "en": "Grunty"
+  },
+  "Grunty.AllCapsNick": {
+    "id": "890000000020603",
+    "ru": "ХРЯП",
+    "en": "GRUNTY"
+  },
+  "Wolf.Bio": {
+    "id": "890000000020604",
+    "ru": "Ненадолго покинув A.I.M., чтобы занять должность инструктора в элитном (и весьма высокооплачиваемом) загородном пейнтбольном клубе для состоятельных бизнесменов, Волк в конце концов устал учить заплывших жиром сорокалетних топ-менеджеров, как делать вид, что они убивают друг друга. Окончательно его добил недельный выездной лагерь, где он пытался обучить своих подопечных основам тактики и ночных операций, пока те шарились по лесу в светоотражающих оранжевых жилетах. Вернувшись в город, Сандерсон сообщил, что более чем готов вновь поработать наёмником. Волк - один из самых всесторонне подготовленных бойцов A.I.M., пользующийся популярностью у клиентов, которым нужен мастер на все руки. Спешите заключить с ним контракт сейчас, пока это не сделали за вас другие!",
+    "en": "After taking a short leave of absence to run a highly specialized (and highly lucrative) paintball retreat for Fortune 500 companies, Wolf grew tired of teaching fat, middle-aged men how to pretend to kill each other. Especially exhausting was the week-long minicamp \"Oh-Dark-Dirty\" where he attempted to instruct them in Night Operations concepts and tactics while making sure everyone was wearing safety orange. He reports he's ready and very eager to return to mercenary work. One of A.I.M.'s most well-rounded members, Sanderson is highly sought after by clients looking for a merc who is capable of doing everything and is willing to do anything. Best to hire him as soon as he's available because he surely won't be without a contract for long!"
+  },
+  "Jazz_Colby.Bio": {
+    "ru": "Иногда так бывает, что человек обнаруживает в себе неожиданные таланты и успешно их развивает. Тревор способен равнозначно как что угодно починить, запустить и отладить, так и взорвать, вскрыть и разобрать. Не делая больших различий, будь это двигатель, детонатор или автомат. Тревор превратит в смертельную ловушку всё что угодно.",
+    "en": "Sometimes a person discovers unexpected talents and learns to make the most of them. Trevor is equally capable of repairing, starting and tuning anything or blowing it up, breaking into it and taking it apart. Engines, detonators and rifles make little difference to him. Trevor can turn absolutely anything into a lethal trap.",
+    "source": "archive"
+  },
+  "Jazz_Blade.Bio": {
+    "ru": "Билла могли бы прозвать 'Мясником', не будь он так хирургически точен в обращении с ножом. Предпочитает работать с холодным, а не с огнестрельным оружием (от стволов так много шума и слишком просто!). Его гордость — способность вырезать на жертве весь алфавит (или хотя бы все гласные) раньше, чем она умрёт от кровопотери.",
+    "en": "Bill might have been nicknamed the Butcher if his knife work were not so surgically precise. He prefers blades to firearms: guns make far too much noise and make things far too easy. His proudest skill is carving the entire alphabet into a victim, or at least all the vowels, before they bleed to death.",
+    "source": "archive"
+  },
+  "Jazz_Ira.Bio": {
+    "ru": "Айра руководила гуманитарной миссией в Арулько во время правления королевы Д. Будучи под невероятным впечатлением от творившихся в стране нарушений прав человека, эта гуманистка и моралистка сама взяла в руки автомат и вступила в ряды мятежников Мигеля Кордоны. Организация чрезвычайно высоко оценивает заслуги мисс Смит в ходе конфликта, а также ее личную помощь наёмникам Организации в качестве первоклассного проводника, медсестры и часового.",
+    "en": "Ira led a humanitarian mission in Arulco during Queen Deidranna's reign. Horrified by the country's human rights abuses, this humanitarian and moralist picked up a rifle herself and joined Miguel Cordona's rebels. The Organization holds Miss Smythe's service during the conflict in the highest regard, particularly her personal assistance to its mercenaries as a first-rate guide, nurse and sentry.",
+    "source": "archive"
+  },
+  "Jazz_Dimitri.Bio": {
+    "ru": "Мятежник и революционер, служил в сопротивлении Мигеля Кордоны. К сожалению, из-за своей забывчивости, так и не смог хоть сколько-нибудь продвинуться в послевоенном Арулько. Так что Димитрий просто решил исполнить обещание, данное им наёмникам организации после штурма дворца Д, в котором он участвовал. Я иду с тобой. Охраняю любую дверь ты хочешь.",
+    "en": "A rebel and revolutionary, Dimitri served in Miguel Cordona's resistance. Unfortunately, his forgetfulness kept him from making much of himself in postwar Arulco. He eventually decided to honor the promise he had made to the Organization's mercenaries after helping storm Deidranna's palace: I go with you. Guard any door you want.",
+    "source": "archive"
+  },
+  "Jazz_Madman.Bio": {
+    "ru": "Кевин безвозмездно помогал наёмникам AIM и MERC в ходе боевых действий в Арулько в первую очередь своими навыками механика и ремонтника. В конце концов, он принял решение начать зарабатывать на этом деньги, и принял предложение Биффа Апскотта о трудоустройстве в MERC.",
+    "en": "Kevin helped AIM and MERC mercenaries free of charge during the fighting in Arulco, mostly by putting his mechanical and repair skills to work. Eventually he decided to make a living at it and accepted Biff Apscott's offer of a job with MERC.",
+    "source": "archive"
+  },
+  "Jazz_Conrad.Bio": {
+    "ru": "Лейтенант Конрад Джиллет, можно сказать, вовремя соскочил. В ходе кризиса в Арулько лейтенант исполнял обязанности инструктора армии Д. на элитном тренировочном комплексе в Альме. Надо ж было такому случиться, что кто-то забыл вовремя продлить лейтенанту контракт и он со спокойной совестью предложил свои услуги командира и инструктора войскам Сопротивления. После окончания активных боевых действий, MERC не пожалел денег и постарался перехватить к себе такого ценного специалиста.",
+    "en": "Lieutenant Conrad Gillitt got out just in time. During the Arulco crisis he served as an instructor for Deidranna's army at the elite training complex in Alma. By a remarkable coincidence, someone forgot to renew his contract, leaving him free to offer his command and training services to the Resistance with a clear conscience. After the fighting ended, MERC spared no expense in trying to recruit such a valuable specialist.",
+    "source": "archive"
+  },
+  "Jazz_Mike.Bio": {
+    "ru": "Майк (без фамилии) по праву носит титул одного из самых эффективных и дорогих наёмников Организации. Так уж вышло, что во время восстания в Арулько, Майк принял приглашение от Д. и участвовал в боевых действиях со стороны противника. Да будет ему это уроком, что толпою гасят даже льва.",
+    "en": "Mike, no surname given, has earned his reputation as one of the Organization's most effective and expensive mercenaries. During the uprising in Arulco, however, he accepted Deidranna's invitation and fought on the opposing side. Let that be a lesson to him: even a lion can be brought down by a pack.",
+    "source": "archive"
+  },
+  "Jazz_Grom.Bio": {
+    "ru": "Сергей Громов оказался в рядах AIM по рекомендации своего сослуживца Ивана Долвича. Долгое время занимал должность пилота Организации, осуществлял доставку наёмников на место и их эвакуацию. В самом начале операции на острове Халиф по эвакуации группы Взломщиков был сбит вместе с доставляемым отрядом наёмников и присоединился к нему лично. Так как нового вертолёта у Организации пока не появилось, продолжает участвовать в полевых операциях.",
+    "en": "Sergey Gromov joined AIM on the recommendation of his fellow serviceman Ivan Dolvich. For years he worked as the Organization's pilot, delivering mercenaries to their assignments and extracting them afterward. At the start of the operation to evacuate the Breakers team from Khalif Island, he was shot down with the squad he was carrying and joined them on the ground. The Organization has yet to acquire another helicopter, so he continues to take field assignments.",
+    "source": "archive"
+  },
+  "Jazz_Iggy.Bio": {
+    "ru": "Игги был нанят Майком в армию Арулько для проведения карательной операции по мятежникам Мигеля, однако переметнулся на их сторону вместе с образцом новейшего секретного оружия — разрушительной многозарядной бронебойной ракетницей. После завершения боев предложил свои услуги Организации и мы не стали отказываться.",
+    "en": "Mike recruited Iggy into Arulco's army for a punitive campaign against Miguel's rebels. Instead, Iggy defected to their side, bringing along a prototype of the latest secret weapon: a devastating multi-shot armor-piercing rocket launcher. After the fighting he offered his services to the Organization, and we saw no reason to refuse.",
+    "source": "archive"
+  },
+  "Jazz_Benny.Bio": {
+    "ru": "Александра Бенедикт вместе со своим наставником Саймоном Грандье работает в Организации в качестве группы ликвидаторов Взломщики. В основном штате AIM до операции на острове Халиф они не числились, но так как в их эвакуации был задействован и регулярный состав, их прикрытие было нарушено и они оба временно переведены в основные списки сотрудников. До выяснения.",
+    "en": "Alexandra Benedict and her mentor Simon Grandier serve the Organization as members of the Breakers assassination team. Before the operation on Khalif Island, neither appeared on AIM's regular roster. The involvement of regular personnel in their evacuation compromised their cover, so both have temporarily been transferred to the public staff list, pending clarification.",
+    "source": "archive"
+  },
+  "Jazz_Simon.Bio": {
+    "ru": "Мистер Грандье работал в группе ликвидаторов Взломщики нашей Организации. Будучи высококлассным наёмным убийцей и снайпером, он таким образом уходил от преследования со стороны закона. Когда группу Взломщиков в результате утечки информации из Организации на самом высоком уровне, выманили на остров Халиф, Саймон сумел избежать ареста и после воссоединился с основной группой Организации, своими усилиями разрешив конфликт с остатками концерна DFK. После чего временно был переведен в основной состав Организации и стал доступен для полевой работы.",
+    "en": "Mr. Grandier worked in the Organization's Breakers assassination team. A highly skilled contract killer and sniper, he used the arrangement to stay out of the law's reach. When a leak at the highest level of the Organization lured the Breakers to Khalif Island, Simon avoided arrest and later rejoined the main team. His efforts helped settle the conflict with the remnants of DFK. He was subsequently transferred to the regular roster on a temporary basis and became available for field assignments.",
+    "source": "archive"
+  },
+  "Jazz_Rothman.Bio": {
+    "ru": "Мы как-то и вовсе позабыли, что одним из предыдущих мест работы Стефана как раз была организация безопасности на алмазных рудниках в южной Африке. Само собой, текущая конъюнктура рынка ему не известна, но общее положение дел в Гранд Чиене для него тайной не является. Человек варился на этой кухне несколько лет и отказываться от его опыта было бы неразумно.",
+    "en": "We had almost forgotten that one of Stephan's previous jobs involved organizing security at diamond mines in southern Africa. He may not know today's market conditions, but the general situation in Grand Chien is hardly a mystery to him. He spent several years in that world, and passing up his experience would be foolish.",
+    "source": "archive"
+  },
+  "Jazz_Quinten.Bio": {
+    "ru": "Доктор Квинтен является одним из самых опытных полевых хирургов нашей Организации на данный момент. Как минимум, он обладает уникальным личным опытом десантирования с вертолёта для оказания помощи раненым в ходе приснопамятной Бури в стакане. Дэнни отлично работает как в одиночку, так и в составе практически любой разношёрстной команды, так что — присмотритесь.",
+    "en": "Dr. Quinten is currently one of the Organization's most experienced field surgeons. At the very least, he has the unusual distinction of having personally deployed from a helicopter to treat the wounded during the memorable Storm in a Teacup operation. Danny works equally well alone or with almost any collection of teammates, so give him a closer look.",
+    "source": "archive"
+  },
+  "Jazz_Vicious.Bio": {
+    "ru": "Грубоватый, но романтичный парень из французской Канады. В прошлом начинал ещё вышибалой в ночном клубе, с тех пор продолжает прогрессировать на поприще контактного боя. В общевойсковых операциях с танками и авиацией ему делать нечего, но вот вышибить кому-нибудь мозги в рукопашной или на дистанции выстрела из дробовика — в этом Злобному равных нет.",
+    "en": "A rough-edged romantic from French Canada, Vicious started out as a nightclub bouncer and has been improving his close-combat skills ever since. A combined-arms operation with tanks and aircraft is hardly his natural habitat. But when it comes to beating someone's brains out at arm's length or shotgun range, he has few equals.",
+    "source": "archive"
+  },
+  "Jazz_Biff.Bio": {
+    "ru": "Бифф Апскотт с отрядом наёмников MERC весьма амбициозно вляпался в самую густую кучу дерьма (как будто кто-то удивлен). Весь отряд был рассеян, а остатки зажаты в горах на севере долины Аджани, так что отряду AIM пришлось выручать конкурентов. После эвакуации мистер Апскотт слегка оклемался, оценил обстановку в Гранд Шиене заново и выразил желание сотрудничать с AIM. Африка большая, места хватит всем.",
+    "en": "Biff Apscott and a MERC squad managed to plunge themselves into an exceptionally deep pile of shit. As if anyone were surprised. The squad scattered, and its survivors were pinned down in the mountains north of the Adjani valley, forcing AIM to rescue the competition. After his evacuation, Mr. Apscott recovered somewhat, reassessed the situation in Grand Chien and expressed an interest in working with AIM. Africa is a big place. There is room for everyone.",
+    "source": "archive"
+  },
+  "Jazz_Nervous.Bio": {
+    "ru": "Убийства — специализация Фрэнки. В этом деле его больше интересует процесс, а не результат. Хотя он и не снайпер, но отлично владеет автоматическим оружием. То же самое можно сказать и о его умении обращаться с холодным оружием.",
+    "en": "Killing is Frankie's specialty. He is more interested in the process than the result. He may not be a sniper, but he is highly proficient with automatic weapons. The same can be said of his skill with blades.",
+    "source": "archive"
+  },
+  "Jazz_Flo.Bio": {
+    "ru": "Дочь винодела. Большую часть детства Флоренс провела в провинции Коньяк во Франции. После переезда в Питтсбург, США, стала работать бухгалтером в одной из компаний, торгующих оружием. Там она получила обширные знания по огнестрельному оружию. Сообразительна, но несколько неуверенна в себе, поэтому ей недоплачивают.",
+    "en": "A winemaker's daughter, Florence spent most of her childhood in the Cognac region of France. After moving to Pittsburgh in the United States, she became an accountant for an arms dealer, where she acquired extensive knowledge of firearms. She is quick-witted but somewhat lacking in confidence, which is why she is underpaid.",
+    "source": "archive"
+  },
+  "Jazz_Cougar.Bio": {
+    "ru": "Один из немногих кадетов, которые получили оценку 'отлично' на всех выпускных экзаменах. Следует учесть, правда, что экзаменационная программа была составлена его отцом. Отлично владеет всем спектром военных навыков, особенно хорошо управляется с автоматическим оружием. Джим — настоящий профессионал, возможно, лучший наёмник в M.E.R.C.",
+    "en": "One of the few cadets to earn top marks in every final examination. It should be noted, however, that his father wrote the examination program. Jim is proficient in the full range of military skills and particularly good with automatic weapons. A true professional, he may be the finest mercenary in M.E.R.C.",
+    "source": "archive"
+  },
+  "Jazz_Miguel.Bio": {
+    "ru": "Мигель Кордона руководил Сопротивлением режиму Д. в течение многих лет, и после его падения и передачи власти в Арулько законному королю Чивальдори, Мигель понял, что добился мирной жизни для своего народа. Но не для себя. Так Мигель оказался на службе в Организации. Отказываться от полевого командира с настолько обширным опытом ведения боевых действий, от диверсий до общевойсковых операций, было бы несусветной глупостью.",
+    "en": "Miguel Cordona led the Resistance against Deidranna's regime for many years. After its fall and the restoration of Arulco's rightful king, Chivaldori, Miguel realized that he had secured a peaceful life for his people, but not for himself. That is how he came to serve the Organization. Turning down a field commander with such extensive experience, from sabotage to combined-arms operations, would have been sheer stupidity.",
+    "source": "archive"
+  },
+  "Jazz_Gamos.Bio": {
+    "ru": "Гамос — скромный абориген острова Метавира, которого судьба постоянно сводит с наёмниками AIM. Сначала он помогал наёмникам в качестве проводника на самой Метавире, потом даже немного поработал наёмником в операциях Гаса Тарболса против концерна DFK, после чего, неизвестно как, повстречался Организации в ходе кризиса в Арулько за рулем угнанного фургончика. Так или иначе, этот миляга снова решил поработать на AIM и посмотреть мир, и мы не смогли ему в этой малости отказать.",
+    "en": "Gamos is an unassuming native of Metavira whose path keeps crossing AIM's. First he guided its mercenaries around his home island. Then he briefly worked as a mercenary himself in Gus Tarballs' operations against DFK. Later, by some unexplained turn of events, the Organization encountered him during the Arulco crisis behind the wheel of a stolen van. Now this likable fellow wants to work for AIM again and see the world. We could hardly deny him that small favor.",
+    "source": "archive"
+  },
+  "Jazz_Dynamo.Bio": {
+    "ru": "Динамо — самый настоящий политический заключённый режима Д. Его жена и сын были казнены без суда, а он сам оказался в тюрьме, Алькатрас по сравнению с которой — санаторий. Когда Сопротивление захватило тюрьму и освободило заключённых, у Грегори просто не нашлось смысла продолжать жить. Кроме мести Д. А после ее совершения Грег предложил свои услуги MERC. Смерть ничем не хуже, чем любая другая, как он сказал. Странно такое слышать, конечно.",
+    "en": "Dynamo was a genuine political prisoner of Deidranna's regime. His wife and son were executed without trial, and he was sent to a prison that made Alcatraz look like a health resort. When the Resistance captured it and freed the inmates, Gregory had no reason left to live except revenge against Deidranna. Once that was done, Greg offered his services to MERC. As he put it, this death would be as good as any other. An unsettling thing to hear.",
+    "source": "archive"
+  },
+  "Jazz_Gaston.Bio": {
+    "ru": "Будучи выдающимся спецназовцем Французской морской пехоты (FMC), Гастон сыграл важную роль во многих операциях НАТО и ООН по всему этому враждебному миру. Уверенный в себе, опытный в боевых условиях профессиональный снайпер, Гастон Кавалье — ещё один шаг в стремлении M.E.R.C. удовлетворить ваши потребности.",
+    "en": "An outstanding member of the French Marine Corps, Gaston played a vital role in numerous NATO and UN operations across this hostile world. Confident, combat-tested and a professional sniper, Gaston Cavalier represents another step in M.E.R.C.'s commitment to meeting your needs.",
+    "source": "archive"
+  },
+  "Jazz_Horg.Bio": {
+    "ru": "Лейтенант Хорг сам по комплекции (и по эффективности в бою) как танк. Будучи чрезвычайно искусным в обращении с тяжёлым вооружением, Сигара провел последние два года в качестве независимого наёмника в Конго. Он один из самых мощных и уважаемых бойцов в своей специальности, и M.E.R.C. гордится тем, что он выбрал нас в качестве своего первого агентства, пусть и на временной испытательной основе.",
+    "en": "Lieutenant Horg is built like a tank and fights like one too. Exceptionally skilled with heavy weapons, Cigar spent the last two years working as an independent mercenary in the Congo. He is one of the most formidable and respected men in his field, and M.E.R.C. is proud that he chose us as his first agency, even if only on a temporary trial basis.",
+    "source": "archive"
+  },
+  "Jazz_Manuel.Bio": {
+    "ru": "Муж Фатимы, отец Пакоса. Внедрился в армию Арулько по заданию Мигеля, дослужился до сержанта, но был раскрыт преступным боссом Кингпином и бежал в соседнюю страну Тракону. Где и был завербован наёмниками Организации в ходе миссии Неоконченное дело. Несмотря на конец войны, решил не возвращаться к мирной жизни, так как убежден, что в рядах Организации принесёт больше пользы. Ну а мы и не возражаем — по части маскировки и разведки с ним мало кто может потягаться.",
+    "en": "Fatima's husband and Pacos's father, Manuel infiltrated Arulco's army on Miguel's orders and rose to sergeant. The crime boss Kingpin exposed him, forcing him to flee to neighboring Tracona. There the Organization's mercenaries recruited him during the Unfinished Business operation. Even after the war, he chose not to return to civilian life, convinced he could do more good with the Organization. We have no objections: few can match his camouflage and reconnaissance skills.",
+    "source": "archive"
+  },
+  "Jazz_Monk.Bio": {
+    "ru": "Виктор Колесников родом из России; его действительно можно назвать Крепким орешком. Специалист по автоматическому оружию. Любит работать один и не тратит слов понапрасну, поэтому товарищи прозвали его Монк. Подходящее прозвище для молчаливого профи. Кроме того, он ещё и специалист по маскировке. Не выносит своего земляка Ивана. Был в Чечне, и поэтому разборчив в отношении клиентов.",
+    "en": "Viktor Kolesnikov comes from Russia and is a genuine tough nut to crack. An automatic-weapons specialist, he prefers to work alone and wastes few words, earning him the nickname Monk. It suits this quiet professional. He is also an expert in camouflage. He cannot stand his compatriot Ivan. Having served in Chechnya, he is selective about his clients.",
+    "source": "archive"
+  },
+  "Jazz_Allik.Bio": {
+    "ru": "Янно родился в Эстонии, мать — немка. Долгое время служил в Советской армии. Любит готовить для друзей и наслаждаться жизнью. Но главное увлечение этого человека-медведя — это тяжёлое оружие. Кроме того, замки не являются для него ни проблемой, ни препятствием. Предпочитает работать с Вильде, земляком-эстонцем, с которым он познакомился, когда служил в Восточной Германии.",
+    "en": "Janno was born in Estonia to a German mother and served in the Soviet Army for many years. He enjoys cooking for friends and making the most of life, but this bear of a man's greatest passion is heavy weaponry. Locks are neither a problem nor an obstacle to him. He prefers working with his fellow Estonian Vilde, whom he met while serving in East Germany.",
+    "source": "archive"
+  },
+  "Jazz_Henning.Bio": {
+    "ru": "Фон Браниц происходит из старинной прусской семьи. Настоящий профессионал. Служил в армии ГДР. После объединения Германии, Хеннинг стал наёмником и сделал блестящую карьеру. В начале своей карьеры он был военным советником на Кубе, а теперь его список командировок длиной в метр. Дайте ему автомат или тяжёлое оружие, и он не подведёт. Хеннинг не любит нью-эйдж, и поэтому его тошнит от Тора.",
+    "en": "Von Branitz comes from an old Prussian family. A true professional, he served in East Germany's army. After reunification, Henning became a mercenary and built a distinguished career. Early on he worked as a military adviser in Cuba; his list of postings is now a yard long. Give him an automatic rifle or a heavy weapon and he will not let you down. Henning despises New Age thinking, which makes Thor particularly hard for him to stomach.",
+    "source": "archive"
+  },
+  "Jazz_Static.Bio": {
+    "ru": "Кажется, постареют сегодняшние наёмники, придут на службу их дети, а открывать им двери и взламывать компьютеры всё так же будет Статик. Представить AIM без него решительно невозможно. Он уже слегка не поспевает за темпом современной войны, это правда, но за техническим прогрессом ему и не нужно бежать самому.",
+    "en": "Today's mercenaries may grow old and their children take their places, but Static will still be opening doors and hacking computers for them. AIM is simply unimaginable without him. He may no longer quite keep pace with modern warfare, but technological progress can do the running for him.",
+    "source": "archive"
+  },
+  "Jazz_Highball.Bio": {
+    "ru": "Доктор Хайбол с переменным успехом то берет себя в руки, то накладывает себе в них же. Клифф обладает огромным опытом полевой хирургии и травматологии, но в отсутствие коллег, с которыми можно подискутировать, ему быстро становится скучно. Тем не менее, мастерство, как говорится, не пропьешь.",
+    "en": "Dr. Highball alternates between getting his act together and making a mess of it. Cliff has extensive experience in field surgery and trauma care, but without colleagues to debate with, he quickly grows bored. Still, as the saying goes, even a drink cannot wash away true skill.",
+    "source": "archive"
+  },
+  "Jazz_Bull.Bio": {
+    "ru": "На таких наёмниках, как Бык, держится практически любая хоть сколько-нибудь развернутая операция. Надежный, немногословный, и сильный, как бык, Бык легко исполняет любую задачу, которую вы ему поручите. Да, ему вы поручите не каждую задачу, но с основным он вполне справится.",
+    "en": "Mercenaries like Bull form the backbone of almost any operation of meaningful size. Dependable, quiet and as strong as his namesake, Bull readily tackles whatever job you give him. Granted, you would not give him every kind of job, but he can handle the essentials.",
+    "source": "archive"
+  },
+  "Jazz_Cord.Bio": {
+    "ru": "Даг Милтон родился и вырос в Кентукки. В четвертом классе его выгнали из школы и он стал работать на автозаправке своего отца. Там он стал отличным механиком. После того, как сестра сменила его на работе, он начал шататься по стране и, в конце концов, решил стать наёмником. Хобби: Стрельба по белкам и коллекционирование дорожных знаков.",
+    "en": "Doug Milton was born and raised in Kentucky. Expelled from school in the fourth grade, he went to work at his father's gas station and became an excellent mechanic. After his sister took over his job, he wandered around the country and eventually decided to become a mercenary. His hobbies include shooting squirrels and collecting road signs.",
+    "source": "archive"
+  },
+  "Jazz_Hobbit.Bio": {
+    "ru": "Тим отлично разбирается во взрывчатке и быстро всему учится. Следует помнить, однако, что у сапёров не может быть ошибок. Хиллман наверняка мог бы остаться в Гарварде и заниматься своим дипломом по электромагнитным полям, если бы не ужасная депрессия, вероятно, вызванная электромагнитным излучением. Из-за своей аллергии Тим предпочитает работать в странах с холодным климатом. Но кто ж его спрашивает.",
+    "en": "Tim knows his explosives and learns quickly. Remember, however, that a sapper cannot afford mistakes. Hillman might have stayed at Harvard to finish his degree in electromagnetic fields if not for a terrible depression, perhaps caused by electromagnetic radiation. His allergies make him prefer assignments in colder countries. Not that anyone asks him.",
+    "source": "archive"
+  },
+  "Jazz_Ricochet.Bio": {
+    "ru": "Некоторым людям просто не везёт с внешностью. Тим Саттон — один из них. Его редко нанимали из-за ужасной стрижки и татуировки на шее. Тем не менее его резюме впечатляет: восточные единоборства, проведение операций в ночное время суток, снайперская и медицинская подготовка.",
+    "en": "Some people are simply unlucky with their looks. Tim Sutton is one of them. His dreadful haircut and neck tattoo have cost him many a contract. His resume is nevertheless impressive: martial arts, night operations, sniper training and medical training.",
+    "source": "archive"
+  },
+  "Jazz_Meat.Bio": {
+    "ru": "Кроме необъятных размеров, Тортон известен тем, что был первым охранником, уволенным из тюрьмы штата Алабама за жестокое отношение к заключённым. Подробностей этого дела мы так и не знаём — побоялись спросить.",
+    "en": "Aside from his immense size, Thorton is known for being the first guard fired from an Alabama state prison for cruelty to inmates. We still do not know the details. We were afraid to ask.",
+    "source": "archive"
+  },
+  "Jazz_Carlos.Bio": {
+    "ru": "Карлос был одним из ближайших советников и соратников Мигеля Кордоны. И после окончания войны он пошел за своим патроном в AIM. Всем нам нужно немного депрессии и заниженных ожиданий, правда?",
+    "en": "Carlos was one of Miguel Cordona's closest advisers and comrades. When the war ended, he followed his patron into AIM. We all need a little depression and lowered expectations, don't we?",
+    "source": "archive"
+  },
+  "Jazz_Devin.Bio": {
+    "ru": "Рыжий. Ирландец. Торгует взрывчаткой. Что он забыл в поглощенном гражданской войной Арулько? А, ну да. Рано или поздно, Девин предложил свои услуги Организации, да так и остался на контракте. У сапёров высокая текучка, ими разбрасываться нельзя.",
+    "en": "Red hair. Irish. Sells explosives. What was he doing in civil-war-torn Arulco? Oh, right. Eventually Devin offered his services to the Organization and stayed on contract. Turnover among sappers is high. You cannot afford to throw them away.",
+    "source": "archive"
+  },
+  "Jazz_Shank.Bio": {
+    "ru": "Мистер Друз попал в ту же тюрьму в Арулько, что и Динамо. Правда, выяснить за что так и не получилось, Брием несет какую-то чушь про растения и родителей. В конце концов, устав перебиваться случайными заработками по двадцать баксов, он прибился к MERC. Странно, он уверен, что мы ему платим. Как будто MERC — это какой-то притон, в самом деле.",
+    "en": "Mr. Druz ended up in the same Arulcan prison as Dynamo, though we never established why: Briem keeps rambling about plants and parents. Eventually, tired of scraping by on twenty-dollar odd jobs, he drifted into MERC. Oddly, he seems convinced that we pay him. As if MERC were some sort of drug den.",
+    "source": "archive"
+  },
+  "Jazz_Vince.Bio": {
+    "ru": "Врач из госпиталя Камбрии, в один момент решивший лично приложить руку к делу Революции в Арулько, так сказать. Собственно говоря, условия для него вряд ли улучшились — вместо хоть и бедной, но хотя бы по минимуму оборудованной больнички у него теперь вместо операционной — чистое поле, а вместо стола — расстеленная шинель. Но ему пока нравится.",
+    "en": "A doctor from Cambria's hospital who decided, at some point, to lend the Arulcan Revolution a personal hand. His working conditions have hardly improved: instead of a poor but minimally equipped hospital, he now has an open field for an operating room and a spread-out greatcoat for a table. So far, he seems to like it.",
+    "source": "archive"
+  },
+  "Jazz_Hitman.Bio": {
+    "ru": "Мистер Рутвен повстречался организации в Арулько, будучи разыскиваемым Интерполом за серию заказных убийств, сделанных с дальнего расстояния из снайперской винтовки. Охотник за головами, который передал организации заказ на него, настаивал на передаче ему отделенной от тела головы. Мистер Рутвен с таким подходом естественно не согласился и сделал встречное предложение — поработать на AIM.",
+    "en": "The Organization met Mr. Ruthven in Arulco while Interpol was looking for him over a series of long-range sniper assassinations. The bounty hunter who passed us the contract insisted on receiving his head detached from his body. Mr. Ruthven naturally objected to that arrangement and made a counteroffer: he would work for AIM.",
+    "source": "archive"
+  },
+  "Jazz_Biggens.Bio": {
+    "ru": "Пожилой ветеран армии Великобритании, в свое время поездил по миру с инъекциями империализма и демократии, о чем имеет немало историй. Организации повстречался в ходе операции Неоконченное дело в Траконе, где был успешно перевербован. На старости лет заскучал, и готов делиться своим бесценным опытом с молодняком.",
+    "en": "An aging British Army veteran, Biggens once traveled the world administering injections of imperialism and democracy, and has plenty of stories to tell about it. The Organization met him during the Unfinished Business operation in Tracona and successfully persuaded him to change employers. Bored in his later years, he is willing to share his invaluable experience with the younger generation.",
+    "source": "archive"
+  },
+  "Jazz_Kulba.Bio": {
+    "ru": "Джон Кульба — человек, везение которого принимает ровно два значения. Либо пан, либо пропал. Улетел по ошибке в страну, охваченную гражданской войной. Без потерь с вооруженным эскортом эвакуировался. Жена заболела неизлечимой формой рака кожи. Быстро и без мучений погибла при ограблении (хотя тут спорное везение, конечно). Джон в горе и печали отправился на перекладных в страну третьего мира. Снова повстречал там старых знакомых наёмников, которым и решил составить компанию. Ему нечего терять, так что драться Джон будет до самого конца. Своего или врага — это как получится.",
+    "en": "John Kulba's luck has exactly two settings: all or nothing. He accidentally flew into a country in the middle of a civil war, then got out unharmed under armed escort. His wife developed incurable skin cancer, only to die quickly and without suffering during a robbery, though calling that good fortune is debatable. Grief-stricken, John made his way to a developing country, where he again met mercenaries he knew and decided to join them. He has nothing left to lose and will fight to the very end. His or the enemy's, whichever comes first.",
+    "source": "archive"
+  },
+  "Jazz_Vilde.Bio": {
+    "ru": "Леннарт по своей природе лидер, и его уверенность заразительна. Чувство юмора, напротив, оставляет желать лучшего. Как и Янно Аллик, он сам родом из Эстонии, и у него мать-немка. Детство в Сибири, однако, закалило его, так, что теперь его самые сильные стороны — ночные операции и стрельба из автомата.",
+    "en": "Lennart is a natural leader whose confidence is infectious. His sense of humor, on the other hand, leaves much to be desired. Like Janno Allik, he comes from Estonia and has a German mother. A childhood in Siberia toughened him up, and his greatest strengths today are night operations and automatic weapons.",
+    "source": "archive"
+  },
+  "Jazz_Grace.Bio": {
+    "ru": "Грациелла Джирелли — потомок итальянских иммигрантов в США. С одной стороны, она и в Италии-то не была ни разу, с другой стороны, порода видна невооруженным глазом. Как бы она ни старалась сойти в Америке за свою, у нее не получалось. Что вынудило ее податься в наёмники — неясно, но из боевых навыков у нее, как минимум, неплохо поставлен бросок. Американский бейсбол.",
+    "en": "Graziella Girelli is descended from Italian immigrants to the United States. She has never even visited Italy, yet her heritage is plain to see. However hard she tried to fit in as an American, she never quite managed it. What drove her into mercenary work remains unclear, but she has at least one useful combat skill: a well-practiced throwing arm. American baseball.",
+    "source": "archive"
+  },
+  "Jazz_Steiger.Bio": {
+    "ru": "У этого бывшего бойца GSG-9 есть только одна слабость... доктор Лора Колин, с которой он познакомился на курсах в Любеке. Он — настоящий профи. Его сильная сторона — ночные операции. Кроме того, он с километра бьет пулей белку в глаз. У него есть способности инструктора. Его манеры оставляют желать лучшего. Хорошо работает вместе с Хеннингом фон Браницем, но Дуг Милтон действует на него, как красная тряпка на быка.",
+    "en": "This former GSG-9 operative has only one weakness: Dr. Laura Colin, whom he met on a course in Lubeck. A consummate professional, he excels at night operations and can put a bullet through a squirrel's eye from a kilometer away. He also has a talent for instruction, though his manners leave much to be desired. He works well with Henning von Branitz, but Doug Milton is a red rag to a bull.",
+    "source": "archive"
+  },
+  "Jazz_Lucky.Bio": {
+    "ru": "Люк Фабр родом из Бельгии. Позывной ему выдали будто бы в насмешку над его жизнью. Он рос без отца, у него было трудное детство. Когда он узнал, что кто-то пристает к его маленькой сестре, он пришел в ярость и сломал шею обидчику. Оказалось, что его жертва — важная персона, и Люку пришлось уйти в подполье и стать наёмником. Этот качок — ходячее оружие. Он опасен и в рукопашной, но дайте ему автомат, и он непобедим!",
+    "en": "Luc Fabre comes from Belgium. His callsign seems almost a joke at the expense of his life. He grew up without a father and had a difficult childhood. When he learned that someone was harassing his little sister, he flew into a rage and broke the man's neck. His victim turned out to be an important person, forcing Luc underground and into mercenary work. This muscleman is a walking weapon. Dangerous enough in a fistfight, he becomes unstoppable with an automatic rifle.",
+    "source": "archive"
+  },
+  "Jazz_Laura.Bio": {
+    "ru": "Лора Колин родилась в Румынии. Ее родители-диссиденты бежали в Германию, опасаясь ареста. От них она унаследовала нелюбовь к диктаторам. Училась на медика, и попала в A.I.M. по совету Рудольфа Штайгера. Страстная наёмница! Ее сильные стороны — выслеживание противника и стрельба из автоматического оружия. Ненавидит работать с Луизой Гарно.",
+    "en": "Laura Colin was born in Romania. Her dissident parents fled to Germany to avoid arrest, and she inherited their dislike of dictators. She studied medicine and joined A.I.M. on Rudolf Steiger's advice. An enthusiastic mercenary, she excels at tracking enemies and handling automatic weapons. She hates working with Louise Garneau.",
+    "source": "archive"
+  },
+  "Jazz_Eskimo.Bio": {
+    "ru": "Прошлое его туманно и он не особо любит о нем распространяться. Повстанец Мигеля, был схвачен и брошен Д. в тюрьму Альмы, где неоднократно подвергался жестким допросам, которые ухудшили его здоровье. После освобождения снова присоединился к Сопротивлению. Пусть он уже не тот, что раньше, но рука его всё так же тверда.",
+    "en": "His past is obscure, and he does not like discussing it. A rebel who fought for Miguel, he was captured and thrown into Deidranna's Alma prison, where repeated brutal interrogations damaged his health. After his release he rejoined the Resistance. He may no longer be the man he once was, but his hand is still steady.",
+    "source": "archive"
+  },
+  "Jazz_Spider.Name": {
+    "ru": "Доктор Донна Хьюстон «Паук»",
+    "en": "Dr. Donna \"Spider\" Houston",
+    "source": "archive"
+  },
+  "Jazz_Blade.Name": {
+    "ru": "Билл Ламонт «Бритва»",
+    "en": "Bill \"Razor\" Lamont",
+    "source": "archive"
+  },
+  "Jazz_Madman.Name": {
+    "ru": "Кевин Камерон «Бешеный»",
+    "en": "Kevin \"Mad Dog\" Cameron",
+    "source": "archive"
+  },
+  "Jazz_Grom.Name": {
+    "ru": "Майор Сергей Громов",
+    "en": "Major Sergey Gromov",
+    "source": "archive"
+  },
+  "Jazz_Iggy.Name": {
+    "ru": "Игмус Палков «Игги»",
+    "en": "Igmus \"Iggy\" Palkov",
+    "source": "archive"
+  },
+  "Jazz_Benny.Name": {
+    "ru": "Александра Бенедикт",
+    "en": "Alexandra Benedict",
+    "source": "archive"
+  },
+  "Jazz_Quinten.Name": {
+    "ru": "Доктор Дэниел Квинтен",
+    "en": "Dr. Daniel Quinten",
+    "source": "archive"
+  },
+  "Jazz_Vicious.Name": {
+    "ru": "Жан-Пьер Вио «Злобный»",
+    "en": "Jean-Pierre \"Malice\" Viau",
+    "source": "archive"
+  },
+  "Jazz_Nervous.Name": {
+    "ru": "Фрэнки Гордон «Нервный»",
+    "en": "Frankie \"Haywire\" Gordon",
+    "source": "archive"
+  },
+  "Jazz_Flo.Name": {
+    "ru": "Флоренс Габриель",
+    "en": "Florence Gabriel",
+    "source": "archive"
+  },
+  "Jazz_Cougar.Name": {
+    "ru": "Джим Уоллесс «Пума»",
+    "en": "Jim \"Cougar\" Wallace",
+    "source": "archive"
+  },
+  "Jazz_Dynamo.Name": {
+    "ru": "Грег Дункан «Динамо»",
+    "en": "Greg \"Dynamo\" Duncan",
+    "source": "archive"
+  },
+  "Jazz_Monk.Name": {
+    "ru": "Виктор Колесников «Монк»",
+    "en": "Viktor \"Monk\" Kolesnikov",
+    "source": "archive"
+  },
+  "Jazz_Allik.Name": {
+    "ru": "Янно Аллик «Знаток»",
+    "en": "Janno \"Allik\" Allik",
+    "source": "archive"
+  },
+  "Jazz_Static.Name": {
+    "ru": "Кирк Стивенсон «Статик»",
+    "en": "Kirk \"Static\" Stevenson",
+    "source": "archive"
+  },
+  "Jazz_Highball.Name": {
+    "ru": "Доктор Клиффорд Хайбол",
+    "en": "Dr. Clifford Highball",
+    "source": "archive"
+  },
+  "Jazz_Bull.Name": {
+    "ru": "Джон Питерс «Бык»",
+    "en": "John \"Bull\" Peters",
+    "source": "archive"
+  },
+  "Jazz_Cord.Name": {
+    "ru": "Даг Милтон «Кардан»",
+    "en": "Doug \"Gasket\" Milton",
+    "source": "archive"
+  },
+  "Jazz_Hobbit.Name": {
+    "ru": "Тим Хиллман «Хоббит»",
+    "en": "Tim \"Gumpy\" Hillman",
+    "source": "archive"
+  },
+  "Jazz_Ricochet.Name": {
+    "ru": "Тим Саттон «Рикошет»",
+    "en": "Tim \"Numb\" Sutton",
+    "source": "archive"
+  },
+  "Jazz_Meat.Name": {
+    "ru": "Тортон Джонс «Мясо»",
+    "en": "Thorton \"Bubba\" Jones",
+    "source": "archive"
+  },
+  "Jazz_Shank.Name": {
+    "ru": "Брием Друз «Шенк»",
+    "en": "Briem \"Shank\" Druz",
+    "source": "archive"
+  },
+  "Jazz_Vince.Name": {
+    "ru": "Доктор Винсент Воймонт",
+    "en": "Dr. Vincent Beaumont",
+    "source": "archive"
+  },
+  "Jazz_Hitman.Name": {
+    "ru": "Ричард Рутвен",
+    "en": "Richard Ruthven",
+    "source": "archive"
+  },
+  "Jazz_Vilde.Name": {
+    "ru": "Леннарт Вильде «Зануда»",
+    "en": "Lennart \"Scream\" Vilde",
+    "source": "archive"
+  },
+  "Jazz_Grace.Name": {
+    "ru": "Грациелла Джирелли",
+    "en": "Graziella Girelli",
+    "source": "archive"
+  },
+  "Jazz_Lucky.Name": {
+    "ru": "Люк Фабр «Лаки»",
+    "en": "Luc \"Lucky\" Fabre",
+    "source": "archive"
+  },
+  "Jazz_Eskimo.Name": {
+    "ru": "Эмиль Кимос «Эскимо»",
+    "en": "Emil \"Eskimo\" Kimos",
+    "source": "archive"
+  },
+  "Jazz_Colby.Nick": {
+    "ru": "Тревор",
+    "en": "Trevor",
+    "source": "archive"
+  },
+  "Jazz_Colby.AllCapsNick": {
+    "ru": "ТРЕВОР",
+    "en": "TREVOR",
+    "source": "archive"
+  },
+  "Jazz_Rothman.Nick": {
+    "ru": "Стефан",
+    "en": "Stephan",
+    "source": "archive"
+  },
+  "Jazz_Rothman.AllCapsNick": {
+    "ru": "СТЕФАН",
+    "en": "STEPHAN",
+    "source": "archive"
+  },
+  "Jazz_Steiger.Nick": {
+    "ru": "Рудольф",
+    "en": "Rudolf",
+    "source": "archive"
+  },
+  "Jazz_Steiger.AllCapsNick": {
+    "ru": "РУДОЛЬФ",
+    "en": "RUDOLF",
+    "source": "archive"
+  },
+  "Jazz_Hitman.Nick": {
+    "ru": "Слай",
+    "en": "Slay",
+    "source": "archive"
+  },
+  "Jazz_Hitman.AllCapsNick": {
+    "ru": "СЛАЙ",
+    "en": "SLAY",
+    "source": "archive"
+  },
+  "Jazz_Colby.Email": {
+    "ru": "trev&shai@aim.com",
+    "en": "trev&shai@aim.com",
+    "source": "archive"
+  },
+  "Jazz_Blade.Email": {
+    "ru": "Razor@merc.com",
+    "en": "Razor@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Blade.snype_nick": {
+    "ru": "cutcutcutcut",
+    "en": "cutcutcutcut",
+    "source": "archive"
+  },
+  "Jazz_Ira.Email": {
+    "ru": "Smythe@arulco.reb",
+    "en": "Smythe@arulco.reb",
+    "source": "archive"
+  },
+  "Jazz_Ira.snype_nick": {
+    "ru": "rebelgirl",
+    "en": "rebelgirl",
+    "source": "archive"
+  },
+  "Jazz_Dimitri.Email": {
+    "ru": "Dimitry@arulco.reb",
+    "en": "Dimitry@arulco.reb",
+    "source": "archive"
+  },
+  "Jazz_Dimitri.snype_nick": {
+    "ru": "Good?Bad?Great!",
+    "en": "Good?Bad?Great!",
+    "source": "archive"
+  },
+  "Jazz_Madman.Email": {
+    "ru": "Maddog@merc.com",
+    "en": "Maddog@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Madman.snype_nick": {
+    "ru": "eatbugs",
+    "en": "eatbugs",
+    "source": "archive"
+  },
+  "Jazz_Conrad.Email": {
+    "ru": "ltgillett@merc.com",
+    "en": "ltgillett@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Mike.snype_nick": {
+    "ru": "Mike",
+    "en": "Mike",
+    "source": "archive"
+  },
+  "Jazz_Vicious.Email": {
+    "ru": "Pierre.Jan-Pierre@aim.com",
+    "en": "Pierre.Jan-Pierre@aim.com",
+    "source": "archive"
+  },
+  "Jazz_Vicious.snype_nick": {
+    "ru": "lamalice",
+    "en": "lamalice",
+    "source": "archive"
+  },
+  "Jazz_Nervous.Email": {
+    "ru": "GordonFrankyman@merc.com",
+    "en": "GordonFrankyman@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Nervous.snype_nick": {
+    "ru": "Haywire",
+    "en": "Haywire",
+    "source": "archive"
+  },
+  "Jazz_Flo.snype_nick": {
+    "ru": "mondieu",
+    "en": "mondieu",
+    "source": "archive"
+  },
+  "Jazz_Gamos.snype_nick": {
+    "ru": "Gamos",
+    "en": "Gamos",
+    "source": "archive"
+  },
+  "Jazz_Static.snype_nick": {
+    "ru": "kirkmyass",
+    "en": "kirkmyass",
+    "source": "archive"
+  },
+  "Jazz_Highball.Email": {
+    "ru": "Kliff@aim.com",
+    "en": "Kliff@aim.com",
+    "source": "archive"
+  },
+  "Jazz_Highball.snype_nick": {
+    "ru": "Kliffyndor",
+    "en": "Kliffyndor",
+    "source": "archive"
+  },
+  "Jazz_Cord.Email": {
+    "ru": "Gusket@merc.com",
+    "en": "Gusket@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Cord.snype_nick": {
+    "ru": "ilavvika",
+    "en": "ilavvika",
+    "source": "archive"
+  },
+  "Jazz_Hobbit.Email": {
+    "ru": "Gumpy@merc.com",
+    "en": "Gumpy@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Hobbit.snype_nick": {
+    "ru": "Coolguy",
+    "en": "Coolguy",
+    "source": "archive"
+  },
+  "Jazz_Ricochet.Email": {
+    "ru": "Numb@merc.com",
+    "en": "Numb@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Ricochet.snype_nick": {
+    "ru": "feelsonumb",
+    "en": "feelsonumb",
+    "source": "archive"
+  },
+  "Jazz_Meat.Email": {
+    "ru": "Bubba@merc.com",
+    "en": "Bubba@merc.com",
+    "source": "archive"
+  },
+  "Jazz_Meat.snype_nick": {
+    "ru": "bubba",
+    "en": "bubba",
+    "source": "archive"
+  },
+  "Jazz_Devin.snype_nick": {
+    "ru": "Irishboom",
+    "en": "Irishboom",
+    "source": "archive"
+  },
+  "Jazz_Hitman.Email": {
+    "ru": "Slay@dark.net",
+    "en": "Slay@dark.net",
+    "source": "archive"
+  },
+  "Jazz_Hitman.snype_nick": {
+    "ru": "terry",
+    "en": "terry",
+    "source": "archive"
+  },
+  "Jazz_Biggens.snype_nick": {
+    "ru": "bigbadaboomgens",
+    "en": "bigbadaboomgens",
+    "source": "archive"
+  },
+  "Jazz_Kulba.snype_nick": {
+    "ru": "John",
+    "en": "John",
+    "source": "archive"
+  },
+  "Jazz_Vilde.Email": {
+    "ru": "Scream@aim.com",
+    "en": "Scream@aim.com",
+    "source": "archive"
+  },
+  "Jazz_Vilde.snype_nick": {
+    "ru": "i-scream",
+    "en": "i-scream",
+    "source": "archive"
+  },
+  "Jazz_Grace.snype_nick": {
+    "ru": "graceful",
+    "en": "graceful",
+    "source": "archive"
+  }
+}

@@ -1211,3 +1211,11 @@ Helmet/6B13 workflow: `_build_meshy_ssh60.py`, `_build_meshy_6b7.py`, `_install_
 
 - `_repair_removable_bindings.py` — read-only catalog audit; `--apply` restores missing component IDs in items.lua and InventoryItem companions with game/editor closed. Idempotent; preserves unrelated bytes.
 - `_check_removable_bindings.py` — offline Lua regression (lupa): all catalog bindings, old-save inheritance, AUG/AK/M16 compatibility and inventory costs. JAZZ-WEAPONS-002 REQ-012/013.
+
+### Selective mercenary archive merge
+
+`_merge_merc_archive.py --source <extracted-items.lua> --game-csv <Russian-Game.csv> --translations docs/tools/_merge_merc_archive_translations.json --report <build>/final-plan.json [--apply]` compares only mercenary profile text, stats, classes and prices; preserves local IDs except four documented translated vanilla overrides. Run with game/editor closed. The report and paired localization manifest are the reviewable transaction; keep the initial report for validation, and use a separate report path for the idempotence check.
+
+`_merge_merc_archive_localization.py prepare --build <build>` stages translations; `_merge_merc_archive_export.ps1 -GameCsv <Russian-Game.csv> -Build <build>` runs the canonical auditor and exports only the selected IDs in both languages. `install` installs those records while preserving unrelated CSV records. `_merge_merc_archive_check.py --build <build>` checks the scope against a clean units HEAD, companion equality and RU/EN records; requires pre-edit CSV snapshots under `<build>/backup/{jazz,jazz-units}/`. Global audit findings remain distinct from the scoped result. JAZZ-MERC-MERGE-001; no editor round-trip is claimed.
+
+`_merge_merc_archive_profiles.py --source <extracted-items.lua>` extends the reviewed manifest with archive biographies, names and handles hidden by stale runtime CSV overrides. `_merge_merc_archive_bios.json` retains their English translations. Run this preparation before the merge/paired export; unchanged Lua source still requires a localization update when its runtime override is stale. Equivalent already polished narrative bios are preserved.

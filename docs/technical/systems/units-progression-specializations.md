@@ -120,6 +120,45 @@ Offline merc randomization детерминирован. Это означает
 
 **Скидка за срок (`GetMercDurationDiscountPercent`):** vanilla линейно 3–14 → до 25% (`normal`) / 7–14 → до 35% (`long only`); при `days > 14` возвращает **0%**. Тот же `System_HireContractDuration.lua` подменяет функцию: окно растянуто до **30** дней (те же пики %), чтобы длинный контракт не откатывался на полную суточную ставку.
 
+## Selective mercenary archive merge (JAZZ-MERC-MERGE-001)
+
+The 2026-10-07 `jazz-units.rar` merge updates 70 fields across 43 existing
+mercenaries: 60 profile text fields and 10 numeric fields. `items.lua` and the
+existing `UnitData` companions are synchronized. Metadata changes only for the
+requested commit's revision/changelog; the load graph is unchanged. Archive SHA-256:
+`E63B3BC8368371E42CB24FB72007B296C20117623D243DE374E759220D8551AE`.
+
+| UnitData | Numeric delta |
+| --- | --- |
+| `Jazz_Dimitri`, `Jazz_Nervous`, `Jazz_Dynamo`, `Jazz_Cord`, `Jazz_Hobbit` | StartingLevel 3 → 1 |
+| `Jazz_Madman` | StartingLevel 4 → 1 |
+| `Jazz_Flo` | StartingLevel 2 → 1 |
+| `Jazz_Nervous` | Agility 70 → 60 |
+| `Jazz_Highball` | Agility 50 → 60 |
+| `Jazz_Kulba` | Dexterity 55 → 60 |
+
+The omitted archive properties resolve to verified engine/JAZZ defaults
+(StartingLevel 1; these stats 60). Salary, Specialization and Tier values already
+match and are preserved. Current equipment, perks, appearance, hire chat, NPCs
+and the complete AME roster are preserved. Existing saves may retain previously
+created UnitData values; this transaction does not migrate them.
+
+Profile titles/contact details use the archive copy with spelling/punctuation
+repairs and paired RU/EN translations. Equivalent vanilla Russian text retains
+the existing English source and vanilla ID. Intentional Russian changes to
+Grunty's name/nick/caps (`Хряп`) and Wolf's bio (`Сандерсон`) use mod-only IDs
+`890000000020601`–`890000000020604`; English names remain Grunty/Wolf.
+Runtime localization also contained stale technical biographies and older aliases
+despite the correct archive prose already being present in Lua. The complete
+localized transaction covers 164 IDs across 50 mercenaries: 48 biographies,
+29 full names, five nicknames and five uppercase nicknames, 41 titles, 15 emails
+and 21 chat handles. It replaces those stale overrides with the archive narratives
+and identities, corrects Russian spelling, and supplies matching English prose.
+Already edited equivalent narrative biographies are retained. The affected
+records are synchronized in jazz and jazz-units.
+No asset contract changes. Validation is static; editor load/save/reload and
+in-game profile review remain outstanding.
+
 ## African Mercenary Exchange (JAZZ-UNITS-005)
 
 Отдельный PDA hire site (не вкладка внутри AIM):

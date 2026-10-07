@@ -1,4 +1,4 @@
-﻿sep=,
+sep=,
 ID,Text,Translation,VoiceActor,Context
 987654321,<style WeaponModHeader><DisplayName></style>,<style WeaponModHeader><DisplayName></style>,,jazz:Code/System_Firearm_AddProperties.lua:477
 990002002,Ствольные запчасти,Barrel Parts,,jazz:InventoryItem/JAZZ_BarrelParts.lua
@@ -2375,7 +2375,7 @@ They gain bonus accuracy and critical-hit chance when firing as the first action
 512339624175,"Мультитул советского солдата. Эффективен как в проведении инженерных работ, так и в качестве холодного оружия.","The Soviet soldier's multitool, equally useful for field engineering and as a melee weapon.",,jazz:InventoryItem/Trench_Shovel.lua:13 | jazz:items.lua:51932
 512609438715,"Что? Вики? Вики! Нет! Почему? Почему я убиваю своих друзей? Я не должна никого убивать! Я врач, я должна лечить их, а не убивать! Я не хочу, чтоб они умирали!","What? Vicky? Vicky! No! Why? Why do I kill my friends? I shouldn't kill anyone! I'm a doctor, I should treat them, not kill them! I don't want them to die!",,jazz-units:items.lua:70042
 512817398034,"О, смертнички пожаловали, делаем дело, берём мины и сваливаем к доктору, видимо будет жарко!","Oh, the kamikazes have arrived—do the job, grab the mines, and get the hell back to the doc. Looks like it'll be hot!",,jazz-maps:items.lua:111231
-513131038337,Доктор Донна «Паук» Хьюстон,"Dr. Donna ""Spider"" Houston",,jazz-units:items.lua:69727 | jazz-units:UnitData/Jazz_Spider.lua:22
+513131038337,Доктор Донна Хьюстон «Паук»,"Dr. Donna ""Spider"" Houston",,ModItemUnitDataCompositeDef Jazz_Spider Name
 513237077073,"Если каждый виноват, где ж на всех набрать гранат?","If everyone's guilty, where do we find enough grenades for them all?",,jazz-units:items.lua:70809
 513375237054,Я бы лучше прикончила Рысь!,I'd rather finish off Lynx!,,jazz-units:items.lua:69580
 513564123523,"<image UI/Conversation/T_Dialogue_IconBackgroundCircle.tga 400 130 128 120> Используется через меню предмета
@@ -6833,11 +6833,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001700,Цепная паника,Chain Panic,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001701,Взрывы Колби сеют панику: +20% к радиусу и 20% шанс паники у раненых врагов в зоне взрыва.,Colby's blasts sow panic: +20% blast radius and 20% chance to panic wounded enemies in the blast.,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001702,Тревор Колби,Trevor Colby,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
-890000000001703,Колби,Colby,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
-890000000001704,КОЛБИ,COLBY,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
-890000000001705,"Боевой подрывник и ловушечник AIM. Жёсткие физикалы (кроме силы и подвижности), 99 механики, 88 взрывчатки. Дружит с Тором, не ладит с Фиделем; не любит американцев в отряде.","AIM combat demolitions and trap specialist. Brutal physicals (except Strength and Agility), 99 Mechanical, 88 Explosives. Friends with Thor, clashes with Fidel; does not like Americans on the squad.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
-890000000001706,Ловушечник,The Tripwire,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
-890000000001707,Colby@aim.com,Colby@aim.com,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
+890000000001703,Тревор,Trevor,,ModItemUnitDataCompositeDef Jazz_Colby Nick
+890000000001704,ТРЕВОР,TREVOR,,ModItemUnitDataCompositeDef Jazz_Colby AllCapsNick
+890000000001705,"Иногда так бывает, что человек обнаруживает в себе неожиданные таланты и успешно их развивает. Тревор способен равнозначно как что угодно починить, запустить и отладить, так и взорвать, вскрыть и разобрать. Не делая больших различий, будь это двигатель, детонатор или автомат. Тревор превратит в смертельную ловушку все, что угодно.","Sometimes a person discovers unexpected talents and learns to make the most of them. Trevor is equally capable of repairing, starting and tuning anything or blowing it up, breaking into it and taking it apart. Engines, detonators and rifles make little difference to him. Trevor can turn absolutely anything into a lethal trap.",,ModItemUnitDataCompositeDef Jazz_Colby Bio
+890000000001706,"Home Alone One, Home Alone Two, Home Alone Three","Home Alone One, Home Alone Two, Home Alone Three",,ModItemUnitDataCompositeDef Jazz_Colby Title
+890000000001707,trev&shai@aim.com,trev&shai@aim.com,,ModItemUnitDataCompositeDef Jazz_Colby Email
 890000000001708,tripwire,tripwire,,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001709,"Извини, пацан, но я лучше буду работать в саду у мамани, чем вместе с этим падлой Фиделем.","Sorry, mate, but I'd rather weed mum's garden than work with that mongrel Fidel.",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
 890000000001710,"Угу, может, ещё и гроб заказать? Извини, подвинься!","Yeah, maybe order a coffin while you're at it? Sorry — move along!",,jazz:CharacterEffect/Jazz_Perk_Colby.lua | jazz-units:UnitData/Jazz_Colby.lua
@@ -6932,13 +6932,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001799,Я тебе не игрушечный солдатик. Не буду делать!,I'm not a toy soldier. Not doing that!,,jazz-units:items.lua:116894
 890000000001800,Вырезать алфавит,Carve the Alphabet,,jazz:CharacterEffect/Jazz_Perk_Blade.lua
 890000000001801,Зверство: за каждый успешный удар в цепочке наносится ещё один удар.,Brutalize: each successful hit in the chain deals one extra hit.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua
-890000000001802,Билл «Бритва» Ламонт,"Bill ""Blade"" Lamont",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001802,Билл Ламонт «Бритва»,"Bill ""Razor"" Lamont",,ModItemUnitDataCompositeDef Jazz_Blade Name
 890000000001803,Бритва,Razor,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
 890000000001804,БРИТВА,BLADE,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
-890000000001805,"Бриллиант среди MERC. Статы 80–90, навыки около нуля — но в ноже «патроны» не кончаются. Псих, обожает резню в ближнем бою и не признаёт огнестрел серьёзным аргументом. Дружит с Фиделем и Нервным (родственные безумцы); не любит Бифа и Фло; презирает местных Арулько.","MERC's diamond in the rough. Stats in the 80s-90s across the board, skills near zero — but a knife never runs out of ""ammo."" A certified psycho who loves close-quarters butchery and doesn't rate a gun as a serious argument. Friends with Fidel and Nervous (fellow lunatics); can't stand Biff or Flo; sneers at the Arulco locals.",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
-890000000001806,Нож не кончается,The Knife Never Runs Out,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
-890000000001807,Blade@merc.com,Blade@merc.com,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
-890000000001808,sharpstuff,sharpstuff,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
+890000000001805,"Билла могли бы прозвать 'Мясником', не будь он так хирургически точен в обращении с ножом. Предпочитает работать с холодным, а не с огнестрельным оружием (от стволов так много шума и слишком просто!). Его гордость - способность вырезать на жертве весь алфавит (или хотя бы все гласные) раньше, чем она умрет от кровопотери.","Bill might have been nicknamed the Butcher if his knife work were not so surgically precise. He prefers blades to firearms: guns make far too much noise and make things far too easy. His proudest skill is carving the entire alphabet into a victim, or at least all the vowels, before they bleed to death.",,ModItemUnitDataCompositeDef Jazz_Blade Bio
+890000000001806,A Knife Never Runs Out of Ammo,A Knife Never Runs Out of Ammo,,ModItemUnitDataCompositeDef Jazz_Blade Title
+890000000001807,Razor@merc.com,Razor@merc.com,,ModItemUnitDataCompositeDef Jazz_Blade Email
+890000000001808,cutcutcutcut,cutcutcutcut,,ModItemUnitDataCompositeDef Jazz_Blade snype_nick
 890000000001809,Слишком много наших полегло. Даже мне это не по вкусу.,Too many of our people have died. Even I can't stomach that.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
 890000000001810,За такие копейки я лучше дома ножи точить буду.,"For that kind of pocket change, I'd rather stay home and sharpen knives.",,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
 890000000001811,У тебя тут одни местные. Скучно и опасно — доплати.,All you've got are locals. Boring and dangerous—pay me extra.,,jazz:CharacterEffect/Jazz_Perk_Blade.lua | jazz-units:UnitData/Jazz_Blade.lua
@@ -6968,10 +6968,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000001902,Айра Смит,Ira Smith,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
 890000000001903,Айра,Ira,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
 890000000001904,АЙРА,IRA,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
-890000000001905,"Слабые боевые статы и меткость 55, но для ополченцев Арулько — живой бог: любой встреченный ею новобранец учится быстрее. Leadership низкий на старте, компенсируется именным перком и статусом Locals. Дружит с Мигелем, Карлосом и Димитрием (местное сопротивление); не любит Злобного; не умеет плавать (флейвор, без игровой механики).","Weak combat stats and 55 Marksmanship, but to the Arulco militia she's a living legend — every recruit she meets learns faster. Leadership starts low, offset by her named perk and Locals status. Friends with Miguel, Carlos, and Dimitri (fellow resistance); can't stand Vicious; never learned to swim (flavor only, no gameplay penalty).",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
-890000000001906,Царица ополчения,Queen of the Militia,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
-890000000001907,Ira@arulco.reb,Ira@arulco.reb,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
-890000000001908,givegun,givegun,,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
+890000000001905,"Айра руководила гуманитарной миссией в Арулько во время правления королевы Д. Будучи под невероятным впечатлением от творившихся в стране нарушений прав человека, эта гуманистка и моралистка сама взяла в руки автомат и вступила в ряды мятежников Мигеля Кордоны. Организация чрезвычайно высоко оценивает заслуги мисс Смит в ходе конфликта,а также ее личную помощь наемникам Организации в качестве первоклассного проводника, медсестры и часового.","Ira led a humanitarian mission in Arulco during Queen Deidranna's reign. Horrified by the country's human rights abuses, this humanitarian and moralist picked up a rifle herself and joined Miguel Cordona's rebels. The Organization holds Miss Smythe's service during the conflict in the highest regard, particularly her personal assistance to its mercenaries as a first-rate guide, nurse and sentry.",,ModItemUnitDataCompositeDef Jazz_Ira Bio
+890000000001906,Don't You Dare Violate Human Rights!,Don't You Dare Violate Human Rights!,,ModItemUnitDataCompositeDef Jazz_Ira Title
+890000000001907,Smythe@arulco.reb,Smythe@arulco.reb,,ModItemUnitDataCompositeDef Jazz_Ira Email
+890000000001908,rebelgirl,rebelgirl,,ModItemUnitDataCompositeDef Jazz_Ira snype_nick
 890000000001909,Пока Злобный у вас — я в отряд не пойду. Он моих людей пугает.,"As long as Vicious is with you, I'm not joining. He scares my people.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
 890000000001910,"Раз кто-то из наших уже с вами — значит, вам можно доверять. Согласна.","If one of ours is already with you, I guess I can trust you. I'm in.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
 890000000001911,"Найдёте Мигеля, Карлоса или Димитрия — берите не думая, это наши лучшие люди.","If you find Miguel, Carlos, or Dimitri, hire them on the spot. They're our best people.",,jazz:CharacterEffect/Jazz_Perk_Ira.lua | jazz-units:UnitData/Jazz_Ira.lua
@@ -7007,10 +7007,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002002,Димитрий Газзо,Dimitri Gazzo,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002003,Димитрий,Dimitri,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002004,ДИМИТРИЙ,DIMITRI,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
-890000000002005,"Статы под 70, ловкость 50, механика 71. Забывчивый — может остановиться посреди хода и переспросить, куда шёл. Дружит с Мигелем и Карлосом; недолюбливает Ротмана за высокомерие. Крафтит и точит собственные метательные ножи — бонус к ведущему навыку броска.","Stats around 70, Agility 50, Mechanical 71. Forgetful — may stop mid-move and ask where he was headed (Bio flavor only, no gameplay penalty). Friends with Miguel and Carlos; dislikes Rothman's arrogance. Crafts and hones his own throwing knives for a bonus to his governing throw skill check.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
-890000000002006,Я забыл опять,I Forgot Again,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
-890000000002007,Dima@arulco.reb,Dima@arulco.reb,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
-890000000002008,forgotagain,forgotagain,,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
+890000000002005,"Мятежник и революционер, служил в сопротивлении Мигеля Кордоны. К сожалению, из-за своей забывчивости, так и не смог хоть сколько-нибудь продвинуться в послевоенном Арулько. Так что Димитрий просто решил исполнить обещание, данное им наемникам организации после штурма дворца Д, в котором он участвовал. Я иду с тобой. Охраняю любую дверь ты хочешь.","A rebel and revolutionary, Dimitri served in Miguel Cordona's resistance. Unfortunately, his forgetfulness kept him from making much of himself in postwar Arulco. He eventually decided to honor the promise he had made to the Organization's mercenaries after helping storm Deidranna's palace: I go with you. Guard any door you want.",,ModItemUnitDataCompositeDef Jazz_Dimitri Bio
+890000000002006,I Forgot. I Forgot Again,I Forgot. I Forgot Again,,ModItemUnitDataCompositeDef Jazz_Dimitri Title
+890000000002007,Dimitry@arulco.reb,Dimitry@arulco.reb,,ModItemUnitDataCompositeDef Jazz_Dimitri Email
+890000000002008,Good?Bad?Great!,Good?Bad?Great!,,ModItemUnitDataCompositeDef Jazz_Dimitri snype_nick
 890000000002009,"Пока Ротман у вас — извини, нет. Он на местных смотрит свысока.","As long as Rothman is with you, sorry, but no. He looks down on the locals.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002010,"О, Мигель или Карлос уже здесь? Тогда я спокоен, иду.","Oh, Miguel or Carlos is already here? Then I can rest easy. I'm in.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
 890000000002011,Если найдёте Мигеля или Карлоса — берите. С ними я работаю лучше.,"If you find Miguel or Carlos, hire them. I work better with those two.",,jazz:CharacterEffect/Jazz_Perk_Dimitri.lua | jazz-units:UnitData/Jazz_Dimitri.lua
@@ -7035,13 +7035,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002030,"Хорошо, что свои рядом.",Good to have our people close.,,jazz-units:items.lua:72174
 890000000002100,Бешеный пес,Mad Dog,,jazz:CharacterEffect/Jazz_Perk_Madman.lua
 890000000002101,Критический удар или убийство в ближнем бою снижает силу воли всех в радиусе 5 клеток на 10 (включая союзников).,A melee critical hit or kill reduces Willpower of everyone within 5 tiles by 10 (including allies).,,jazz:CharacterEffect/Jazz_Perk_Madman.lua
-890000000002102,Кевин «Бешеный» Камерон,"Kevin ""Madman"" Cameron",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002102,Кевин Камерон «Бешеный»,"Kevin ""Mad Dog"" Cameron",,ModItemUnitDataCompositeDef Jazz_Madman Name
 890000000002103,Бешеный,Madman,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002104,БЕШЕНЫЙ,MADMAN,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002105,"Алмаз среди местных: физикалы за 90, механика 68, псих без страха. Клеится к Лиске при каждом удобном случае. После кампании в Арулько готов уйти в MERC — дёшево, лишь бы была движуха и техника под рукой.","A diamond among the locals: physicals in the 90s, 68 Mechanical, a fearless psycho. Flirts with Fox at every chance he gets. After the Arulco campaign he's ready to move to MERC — cheap hire, as long as there's action and something mechanical to wreck or fix.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002106,Ржавый бампер,The Rusty Bumper,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002107,Madman@merc.com,Madman@merc.com,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
-890000000002108,bumper,bumper,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
+890000000002105,"Кевин безвоздмездно помогал наемникам AIM и MERC в ходе боевых действий в Арулько в первую очередь своими навыками механика и ремонтника. В конце концов, он принял решение начать зарабатывать на этом деньги, и принял предложение Биффа Апскотта о трудоустройстве в MERC.","Kevin helped AIM and MERC mercenaries free of charge during the fighting in Arulco, mostly by putting his mechanical and repair skills to work. Eventually he decided to make a living at it and accepted Biff Apscott's offer of a job with MERC.",,ModItemUnitDataCompositeDef Jazz_Madman Bio
+890000000002106,A Rusty Roof Means a Leaky Attic,A Rusty Roof Means a Leaky Attic,,ModItemUnitDataCompositeDef Jazz_Madman Title
+890000000002107,Maddog@merc.com,Maddog@merc.com,,ModItemUnitDataCompositeDef Jazz_Madman Email
+890000000002108,eatbugs,eatbugs,,ModItemUnitDataCompositeDef Jazz_Madman snype_nick
 890000000002109,"О, Лиска с вами? Ну тогда я точно остаюсь, хе-хе.","Oh, Fox is with you? Then I'm definitely staying, heh-heh.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002110,"Если увидите Лиску — скажите, что Бешеный спрашивал.","If you see Fox, tell her Mad Dog was asking about her.",,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
 890000000002111,"Бешеный не берёт трубку — он ею бьёт. Перезвони, если не боишься.",Madman's not picking up—he's using the phone as a club. Call back if you're not scared.,,jazz:CharacterEffect/Jazz_Perk_Madman.lua | jazz-units:UnitData/Jazz_Madman.lua
@@ -7067,9 +7067,9 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002202,Лейтенант Конрад Джиллет,Lieutenant Conrad Gillett,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
 890000000002203,Конрад,Conrad,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
 890000000002204,КОНРАД,Conrad,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
-890000000002205,"Сильнейший из доступных местных наёмников: статы 75–80, Leadership 51 и полноценный инструктор, Marksmanship 95. Дружит с Игги и Стефаном; терпеть не может пьяного Ларри; не умеет плавать (флейвор). Дорог — берёт заметно выше рынка и торгуется жёстко.","The strongest local hire on offer: stats in the 75-80 range, Leadership 51 with a full training set, 95 Marksmanship. Friends with Iggy and Stefan; can't stand a drunk Larry; never learned to swim (flavor only). Expensive — charges well above market and haggles hard.",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
-890000000002206,Дорогой лейтенант,The Costly Lieutenant,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
-890000000002207,Conrad@merc.com,Conrad@merc.com,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
+890000000002205,"Лейтенант Конрад Джиллет можно сказать, вовремя соскочил. В ходе кризиса в Арулько лейтенант исполнял обязанности инструктора армии Д. на элитном тренировочном комплексе в Альме. Надо ж было такому случиться, что кто-то забыл вовремя продлить лейтенанту контракт и он со спокойной совестью предложил свои услуги командира и инструктора войскам Сопротивления. После окончания активных боевых действий, MERC не пожалел денег и постарался перехватить к себе такого ценного специалиста","Lieutenant Conrad Gillitt got out just in time. During the Arulco crisis he served as an instructor for Deidranna's army at the elite training complex in Alma. By a remarkable coincidence, someone forgot to renew his contract, leaving him free to offer his command and training services to the Resistance with a clear conscience. After the fighting ended, MERC spared no expense in trying to recruit such a valuable specialist.",,ModItemUnitDataCompositeDef Jazz_Conrad Bio
+890000000002206,Gillett: The Best Instructor You Can Get,Gillett: The Best Instructor You Can Get,,ModItemUnitDataCompositeDef Jazz_Conrad Title
+890000000002207,ltgillett@merc.com,ltgillett@merc.com,,ModItemUnitDataCompositeDef Jazz_Conrad Email
 890000000002208,ltgillett,ltgillett,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
 890000000002209,"Пока пьяный Ларри в отряде — я не подписываюсь. Это не армия, а балаган.","As long as Drunk Larry is on the team, I'm not signing. This isn't an army, it's a circus.",,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
 890000000002210,Моя ставка не обсуждается — разве что в большую сторону.,My rate is not negotiable—unless it's going up.,,jazz:CharacterEffect/Jazz_Perk_Conrad.lua | jazz-units:UnitData/Jazz_Conrad.lua
@@ -7100,10 +7100,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002302,Майк,Mike,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
 890000000002303,Майк,Mike,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
 890000000002304,МАЙК,Mike,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
-890000000002305,"Классика JA1. В Night Ops — перевербовка вражеского солдата в бою в AIM-специалиста; в модах для JA2 (1.13) — прямой найм через AIM. Одиночка по натуре, но именно поэтому надёжен один на один. Дружит со Стероидом; JA2-байки про вражду с Гасом и Иваном остаются флейвором, пока эти отношения не подтверждены отдельным дизайном.","A JA1 classic. In Night Ops he's a battlefield conversion — an enemy soldier flipped mid-fight into an AIM-grade specialist; JA2 mod scenes (1.13) hire him straight through AIM instead. A loner by nature, which is exactly why he's dependable one-on-one. Friends with Steroid (vanilla AIM merc); the old JA2 rumors about beef with Gus and Ivan stay flavor-only until that relationship gets its own confirmed design pass.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
-890000000002306,Старый друг,Old Friend,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002305,"Майк (без фамилии) по праву носит титул одного из самых эффективных и дорогих наемников Организации. Так уж вышло, что во время восстания в Арулько, Майк принял приглашение от Д. и участвовал в боевых действиях со стороны противника. Да будет ему это уроком, что толпою гасят даже льва.","Mike, no surname given, has earned his reputation as one of the Organization's most effective and expensive mercenaries. During the uprising in Arulco, however, he accepted Deidranna's invitation and fought on the opposing side. Let that be a lesson to him: even a lion can be brought down by a pack.",,ModItemUnitDataCompositeDef Jazz_Mike Bio
+890000000002306,One-Man Army,One-Man Army,,ModItemUnitDataCompositeDef Jazz_Mike Title
 890000000002307,Mike@aim.com,Mike@aim.com,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
-890000000002308,oldfriend,oldfriend,,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
+890000000002308,Mike,Mike,,ModItemUnitDataCompositeDef Jazz_Mike snype_nick
 890000000002309,"Стероид уже в отряде? Тогда ладно, с ним сработаемся.","Steroid's already on the team? All right, we'll work well together.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
 890000000002310,Если нужен ещё один надёжный ствол — зовите Стероида.,"If you want another reliable gun, call Steroid.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
 890000000002311,"Майк. Перезвоните — если срочно, я перезвоню первым.","Mike. Call back—if it's urgent, I'll call you first.",,jazz:CharacterEffect/Jazz_Perk_Mike.lua | jazz-units:UnitData/Jazz_Mike.lua
@@ -7126,11 +7126,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002328,"Хорошо, что Стероид рядом.",Good to have Steroid around.,,jazz-units:items.lua:72748
 890000000002400,Артподготовка,Artillery Prep,,jazz:CharacterEffect/Jazz_Perk_Grom.lua
 890000000002401,Гранатомёт/миномёт/ПТР дают вдвое подавление Will.,GL/mortar/AT attacks apply double Will suppression.,,jazz:CharacterEffect/Jazz_Perk_Grom.lua
-890000000002402,Майор Сергей «Гром» Громов,"Major Sergei ""Grom"" Gromov",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002402,Майор Сергей Громов,Major Sergey Gromov,,ModItemUnitDataCompositeDef Jazz_Grom Name
 890000000002403,Гром,Grom,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002404,ГРОМ,GROM,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
-890000000002405,"Сослуживец Ивана по Afghan war. Shady Job переводит его в Night Ops. Найм: захват аэропорта и подавление местной ПВО — после этого он сам ждёт вербовщиков на лётном поле. Приходит с собственным гранатомётом. Дружит с Иваном, Игорем и Игги; недолюбливает Скоупа за манеру критиковать чужую наводку.","A fellow Afghan-war veteran alongside Ivan. Shady Job routes him into Night Ops. Recruitment: capture the airport and knock out the nearby AA, and he'll be waiting on the tarmac for the recruiters himself. Brings his own rocket launcher. Friends with Ivan, Igor, and Iggy; not fond of Scope's habit of critiquing other people's aim.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
-890000000002406,Афганец,The Afghan,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
+890000000002405,"Сергей Громов оказался в рядах AIM по рекомендации своего сослуживца Ивана Долвича. Долгое время занимал должность пилота Организации, осуществлял доставку наемников на место и их эвакуацию. В самом начале операции на острове Халиф по эвакуации группы Взломщиков был сбит вместе с доставляемым отрядом наемников и присоединился к нему лично. Так как нового вертолета у Организации пока не появилось, продолжает участвовать в полевых операциях","Sergey Gromov joined AIM on the recommendation of his fellow serviceman Ivan Dolvich. For years he worked as the Organization's pilot, delivering mercenaries to their assignments and extracting them afterward. At the start of the operation to evacuate the Breakers team from Khalif Island, he was shot down with the squad he was carrying and joined them on the ground. The Organization has yet to acquire another helicopter, so he continues to take field assignments.",,ModItemUnitDataCompositeDef Jazz_Grom Bio
+890000000002406,You Can't See This Shit from a Helicopter,You Can't See This Shit from a Helicopter,,ModItemUnitDataCompositeDef Jazz_Grom Title
 890000000002407,Grom@vvs.ru,Grom@vvs.ru,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002408,gromov,gromov,,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
 890000000002409,"Пока Скоуп у вас — нет. Он вечно критикует чужую наводку, а я его слышать не хочу.","As long as Scope is with you, no. He's always criticizing other people's aim, and I don't want to hear it.",,jazz:CharacterEffect/Jazz_Perk_Grom.lua | jazz-units:UnitData/Jazz_Grom.lua
@@ -7158,10 +7158,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002431,Я вас научу работать!,I'll Teach You to Work!,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua
 890000000002432,Пока Ротман в секторе с шахтой: доход шахты +10…+40% (сильнее при низкой loyalty).,While Rothman garrisons a mine sector: mine income +10…+40% (stronger at low loyalty).,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua
 890000000002433,Стефан Ротман,Stefan Rothman,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
-890000000002434,Ротман,Rothman,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
-890000000002435,РОТМАН,ROTHMAN,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
-890000000002436,"Бывший начальник службы безопасности алмазных рудников ЮАР — умеет и охранять шахту, и подрывать её, если понадобится. Дружит с Лавой; не любит Статика и Гвоздя, презирает вечно обдолбанного Ларри; недолюбливает американцев.","Former chief of security for South African diamond mines — can guard a mine or blow it if needed. Friends with Lava; dislikes Static and Nails, despises always-high Larry; not fond of Americans.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
-890000000002437,Шахтёрский безопасник,Mine Security,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
+890000000002434,Стефан,Stephan,,ModItemUnitDataCompositeDef Jazz_Rothman Nick
+890000000002435,СТЕФАН,STEPHAN,,ModItemUnitDataCompositeDef Jazz_Rothman AllCapsNick
+890000000002436,"Мы как то и вовсе позабыли, что одним из предыдущих мест работы Стефана как раз была организация безопасности на алмазных рудниках в южной Африке. Само собой, текущая конъюнктура рынка ему не известна, но общее положение дел в Гранд Чиене для него тайной не является. Человек варился на этой кухне несколько лет и отказываться от его опыта было бы не разумно.","We had almost forgotten that one of Stephan's previous jobs involved organizing security at diamond mines in southern Africa. He may not know today's market conditions, but the general situation in Grand Chien is hardly a mystery to him. He spent several years in that world, and passing up his experience would be foolish.",,ModItemUnitDataCompositeDef Jazz_Rothman Bio
+890000000002437,"Seen One Mine, Seen Them All","Seen One Mine, Seen Them All",,ModItemUnitDataCompositeDef Jazz_Rothman Title
 890000000002438,Rothman@aim.com,Rothman@aim.com,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002439,mineboss,mineboss,,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
 890000000002440,"Пока Статик, Гвоздь или обдолбанный Ларри у вас — я не подписываюсь. Не тот уровень дисциплины.","Not while Static, Nails, or always-high Larry are with you. Wrong level of discipline.",,jazz:CharacterEffect/Jazz_Perk_Rothman.lua | jazz-units:UnitData/Jazz_Rothman.lua
@@ -7192,10 +7192,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002521,(прыжок),(jump),,jazz-units:items.lua:116868
 890000000002600,Полевой реаниматор,Field Resuscitator,,jazz:CharacterEffect/Jazz_Perk_Quinten.lua:9
 890000000002601,Эта именная способность пока не действует.,This signature ability is not active yet.,,jazz:CharacterEffect/Jazz_Perk_Quinten.lua
-890000000002602,Доктор Дэниел «Дэнни» Квинтен,"Doctor Daniel ""Danny"" Quinten",,jazz-units:items.lua:120326 | jazz-units:UnitData/Jazz_Quinten.lua:22
+890000000002602,Доктор Дэниел Квинтен,Dr. Daniel Quinten,,ModItemUnitDataCompositeDef Jazz_Quinten Name
 890000000002603,Дэнни,Danny,,jazz-units:items.lua:120327 | jazz-units:UnitData/Jazz_Quinten.lua:23
 890000000002604,ДЭННИ,DANNY,,jazz-units:items.lua:120328 | jazz-units:UnitData/Jazz_Quinten.lua:24
-890000000002605,"99 Health, 99 Agility, около 80 Strength/Dexterity, Wisdom 91, Medical 88, Marksmanship 61. Одиночка, стреляет и лечит одинаково хорошо обеими руками. Не любит Стероида, Мясо и Биффа — считает их всех безответственными в поле.","99 Health, 99 Agility, roughly 80 Strength/Dexterity, 91 Wisdom, 88 Medical, 61 Marksmanship. A loner who shoots and treats wounds equally well with either hand. Doesn't get along with Steroid, Meat, or Biff — considers all three reckless in the field.",,Jazz_Bio_WIP
+890000000002605,"Доктор Квинтен является одним из самых опытных полевых хирургов нашей Организации на данный момент. Как минимум, он обладает уникальным личным опытом десантирования с вертолета для оказания помощи раненым в ходе приснопамятной Бури в стакане. Дэнни отлично работает как в одиночку, так и в составе практически любой разношерстной команды, так что - присмотритесь.","Dr. Quinten is currently one of the Organization's most experienced field surgeons. At the very least, he has the unusual distinction of having personally deployed from a helicopter to treat the wounded during the memorable Storm in a Teacup operation. Danny works equally well alone or with almost any collection of teammates, so give him a closer look.",,ModItemUnitDataCompositeDef Jazz_Quinten Bio
 890000000002606,"Машина, не человек","Machine, Not a Man",,jazz-units:items.lua:120331 | jazz-units:UnitData/Jazz_Quinten.lua:27
 890000000002607,Quinten@aim.com,Quinten@aim.com,,jazz-units:items.lua:120332 | jazz-units:UnitData/Jazz_Quinten.lua:28
 890000000002608,parkourmd,parkourmd,,jazz-units:items.lua:120333 | jazz-units:UnitData/Jazz_Quinten.lua:29
@@ -7211,13 +7211,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002618,Это вполне приемлемо. Спасибо.,That's perfectly acceptable. Thank you.,,jazz-units:items.lua:120413 | jazz-units:UnitData/Jazz_Quinten.lua:108
 890000000002700,Дамский угодник,Ladies' Man,,jazz:CharacterEffect/Jazz_Perk_Vicious.lua:43
 890000000002701,В начале боя: +1 ОД за каждую женщину в отряде (макс. 3).,At combat start: +1 AP per woman in the squad (max 3).,,Jazz_Perk_WIP
-890000000002702,Жан-Пьер «Злобный» Вио,"Jean-Pierre ""Vicious"" Vio",,jazz-units:items.lua:120660 | jazz-units:UnitData/Jazz_Vicious.lua:22
+890000000002702,Жан-Пьер Вио «Злобный»,"Jean-Pierre ""Malice"" Viau",,ModItemUnitDataCompositeDef Jazz_Vicious Name
 890000000002703,Злобный,Vicious,,jazz-units:items.lua:120661 | jazz-units:UnitData/Jazz_Vicious.lua:23
 890000000002704,ЗЛОБНЫЙ,VICIOUS,,jazz-units:items.lua:120662 | jazz-units:UnitData/Jazz_Vicious.lua:24
-890000000002705,"Статы 80–90, Wisdom 55, Marksmanship 82. Агрессивный французский боец ближнего боя, клеится к Лиске, Пауку и — по слухам из JA2 — к некой Лаве. Терпеть не может британцев.","Stats in the 80-90 range, 55 Wisdom, 82 Marksmanship. An aggressive French close-combat fighter who flirts with Fox, Spider, and — per unconfirmed JA2 rumor — someone named Lava. Can't stand the British.",,Jazz_Bio_WIP
-890000000002706,Мачо,Macho,,jazz-units:items.lua:120665 | jazz-units:UnitData/Jazz_Vicious.lua:27
-890000000002707,Vicious@aim.com,Vicious@aim.com,,jazz-units:items.lua:120666 | jazz-units:UnitData/Jazz_Vicious.lua:28
-890000000002708,mademoiselles,mademoiselles,,jazz-units:items.lua:120667 | jazz-units:UnitData/Jazz_Vicious.lua:29
+890000000002705,"Грубоватый, но романтичный парень из французской Канады. В прошлом начинал еще вышибалой в ночном клубе, с тех пор продолжает прогрессировать на поприще контактного боя. В общевойсковых операциях с танками и авиацией ему делать нечего, но вот вышибить кому-нибудь мозги в рукопашной или на дистанции выстрела из дробовика - в этом Злобному равных нет.","A rough-edged romantic from French Canada, Vicious started out as a nightclub bouncer and has been improving his close-combat skills ever since. A combined-arms operation with tanks and aircraft is hardly his natural habitat. But when it comes to beating someone's brains out at arm's length or shotgun range, he has few equals.",,ModItemUnitDataCompositeDef Jazz_Vicious Bio
+890000000002706,Hide Your Girls,Hide Your Girls,,ModItemUnitDataCompositeDef Jazz_Vicious Title
+890000000002707,Pierre.Jan-Pierre@aim.com,Pierre.Jan-Pierre@aim.com,,ModItemUnitDataCompositeDef Jazz_Vicious Email
+890000000002708,lamalice,lamalice,,ModItemUnitDataCompositeDef Jazz_Vicious snype_nick
 890000000002709,"Отряд полон англичан... Ладно, но за такие муки полагается надбавка.","A squad full of Englishmen... Fine, but that kind of suffering costs extra.",,jazz-units:items.lua:120685 | jazz-units:UnitData/Jazz_Vicious.lua:47
 890000000002710,"Мой шарм стоит дороже, чем ты предлагаешь.",My charm is worth more than you're offering.,,jazz-units:items.lua:120672 | jazz-units:UnitData/Jazz_Vicious.lua:34
 890000000002711,"О, Лиска или Паук уже здесь? Тогда я определённо в деле.","Oh, Fox or Spider is already here? Then I'm definitely in.",,jazz-units:items.lua:120705 | jazz-units:UnitData/Jazz_Vicious.lua:67
@@ -7234,8 +7234,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002802,Бифф Апскотт,Biff Upscott,,jazz-units:items.lua:121014 | jazz-units:UnitData/Jazz_Biff.lua:22
 890000000002803,Бифф,Biff,,jazz-units:items.lua:121015 | jazz-units:UnitData/Jazz_Biff.lua:23
 890000000002804,БИФФ,BIFF,,jazz-units:items.lua:121016 | jazz-units:UnitData/Jazz_Biff.lua:24
-890000000002805,"Статы около 70, Strength 41, Wisdom 58, Marksmanship 57, Leadership 13. Кабинетный менеджер MERC, панически боится настоящего боя, но неплохо ведёт бумажную работу отряда. Дружит с Фло и трезвым Ларри; не выносит обдолбанного Ларри. В JA2 Бифф появлялся только после отдельного побочного квеста — в JAZZ этот сюжет не реализован, поэтому найм идёт как обычный контракт MERC, а история квеста осталась только в биографии.","Stats around 70, 41 Strength, 58 Wisdom, 57 Marksmanship, 13 Leadership. A desk-bound MERC manager, terrified of real combat but decent at running the squad's paperwork. Friends with Flo and a clean Larry; can't stand Larry when he's using. In JA2, Biff only became available after a dedicated side quest — that quest line doesn't exist in JAZZ's current scope, so his hire is a standard MERC contract; the quest backstory survives only as Bio flavor.",,Jazz_Bio_WIP
-890000000002806,Ссыкло MERC,M.E.R.C.'s Coward,,jazz-units:items.lua:121019 | jazz-units:UnitData/Jazz_Biff.lua:27
+890000000002805,"Бифф Апскотт с отрядом наемников MERC весьма амбициозно вляпался в самую густую кучу дерьма (как будто кто-то удивлен). Весь отрял был рассеян, а остатки зажаты в гораж на севере долины Аджани, так что отряду AIM пришлось выручать конкурентов. После эвакуации мистер Апскотт слегка оклемался, оценил обстановку в Гранд Шиене заново и выразил желание сотрудничать с AIM. Африка большая, места хватит всем.","Biff Apscott and a MERC squad managed to plunge themselves into an exceptionally deep pile of shit. As if anyone were surprised. The squad scattered, and its survivors were pinned down in the mountains north of the Adjani valley, forcing AIM to rescue the competition. After his evacuation, Mr. Apscott recovered somewhat, reassessed the situation in Grand Chien and expressed an interest in working with AIM. Africa is a big place. There is room for everyone.",,ModItemUnitDataCompositeDef Jazz_Biff Bio
+890000000002806,"Mayday, Mayday, Mayday","Mayday, Mayday, Mayday",,ModItemUnitDataCompositeDef Jazz_Biff Title
 890000000002807,Biff@merc.com,Biff@merc.com,,jazz-units:items.lua:121020 | jazz-units:UnitData/Jazz_Biff.lua:28
 890000000002808,biff,biff,,jazz-units:items.lua:121021 | jazz-units:UnitData/Jazz_Biff.lua:29
 890000000002809,"Пока обдолбанный Ларри в отряде — нет, увольте. Мне и так страшно.","Not while Larry's high and on the team—no, thank you. I'm scared enough already.",,jazz-units:items.lua:121026 | jazz-units:UnitData/Jazz_Biff.lua:34
@@ -7251,13 +7251,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002819,Остаюсь. Наверное.,I'll stay. I guess.,,jazz-units:items.lua:121118 | jazz-units:UnitData/Jazz_Biff.lua:126
 890000000002900,"Нервный, но азартный",Nervous but Eager,,jazz:CharacterEffect/Jazz_Perk_Nervous.lua
 890000000002901,Каждое попадание очереди или автоогня добавляет пулю к следующей очереди (максимум +10).,Each burst/autofire hit adds a bullet to the next burst (maximum +10).,,jazz:CharacterEffect/Jazz_Perk_Nervous.lua
-890000000002902,Фрэнки «Нервный» Гордон,"Frankie ""Nervous"" Gordon",,jazz-units:items.lua:121365 | jazz-units:UnitData/Jazz_Nervous.lua:22
+890000000002902,Фрэнки Гордон «Нервный»,"Frankie ""Haywire"" Gordon",,ModItemUnitDataCompositeDef Jazz_Nervous Name
 890000000002903,Нервный,Nervous,,jazz-units:items.lua:121366 | jazz-units:UnitData/Jazz_Nervous.lua:23
 890000000002904,НЕРВНЫЙ,NERVOUS,,jazz-units:items.lua:121367 | jazz-units:UnitData/Jazz_Nervous.lua:24
-890000000002905,"Статы 60–70, Wisdom 58, Marksmanship 48, Explosives 31. Псих на постоянном взводе, стреляет длинными очередями и не умеет по-другому. Дружит с Бритвой и Рикошетом (родственные безумцы); терпеть не может Биффа за трусость.","Stats in the 60-70 range, 58 Wisdom, 48 Marksmanship, 31 Explosives. A psycho who's permanently wound up and only knows how to shoot in long bursts. Friends with Blade and Ricochet (fellow lunatics); can't stand Biff's cowardice.",,Jazz_Bio_WIP
-890000000002906,Суперочередь,Super Burst,,jazz-units:items.lua:121370 | jazz-units:UnitData/Jazz_Nervous.lua:27
-890000000002907,Nervous@merc.com,Nervous@merc.com,,jazz-units:items.lua:121371 | jazz-units:UnitData/Jazz_Nervous.lua:28
-890000000002908,twitchy,twitchy,,jazz-units:items.lua:121372 | jazz-units:UnitData/Jazz_Nervous.lua:29
+890000000002905,"Убийства - специализация Фрэнки. В этом деле его больше интересует процесс, а не результат. Хотя он и не снайпер, но отлично владеет автоматическим оружием. То же самое можно сказать и о его умении обращаться с холодным оружием.","Killing is Frankie's specialty. He is more interested in the process than the result. He may not be a sniper, but he is highly proficient with automatic weapons. The same can be said of his skill with blades.",,ModItemUnitDataCompositeDef Jazz_Nervous Bio
+890000000002906,The Human Machine Gun,The Human Machine Gun,,ModItemUnitDataCompositeDef Jazz_Nervous Title
+890000000002907,GordonFrankyman@merc.com,GordonFrankyman@merc.com,,ModItemUnitDataCompositeDef Jazz_Nervous Email
+890000000002908,Haywire,Haywire,,ModItemUnitDataCompositeDef Jazz_Nervous snype_nick
 890000000002909,Пока трусливый Бифф в отряде — нет! Он меня ещё больше нервирует!,"As long as that coward Biff is on the team, no! He makes me even more nervous!",,jazz-units:items.lua:121377 | jazz-units:UnitData/Jazz_Nervous.lua:34
 890000000002910,Слишком много наших полегло! Я и так на нервах!,Too many of our people have died! I'm nervous enough already!,,jazz-units:items.lua:121391 | jazz-units:UnitData/Jazz_Nervous.lua:48
 890000000002911,"О, Бритва уже тут? Тогда ладно, веселее будет!","Oh, Blade's here already? All right then—this'll be more fun!",,jazz-units:items.lua:121408 | jazz-units:UnitData/Jazz_Nervous.lua:65
@@ -7270,13 +7270,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000002918,Остаюсь! Ещё патроны не кончились!,I'm staying! Still got ammo left!,,jazz-units:items.lua:121453 | jazz-units:UnitData/Jazz_Nervous.lua:109
 890000000003000,Теоретически подкована,Book-Smart Dealer,,jazz:CharacterEffect/Jazz_Perk_Flo.lua
 890000000003001,Пока Фло в отряде: −12% к цене покупки (Bobby Ray) и +12% к продаже/обналичиванию. Складывается с Negotiator (не умножает).,While Flo is in a player squad: −12% buy (Bobby Ray) and +12% sell/cash-in. Additive with Negotiator (does not multiply).,,jazz:CharacterEffect/Jazz_Perk_Flo.lua
-890000000003002,Флоренс «Фло» Габриель,"Florence ""Flo"" Gabrielle",,jazz-units:items.lua:121700 | jazz-units:UnitData/Jazz_Flo.lua:22
+890000000003002,Флоренс Габриель,Florence Gabriel,,ModItemUnitDataCompositeDef Jazz_Flo Name
 890000000003003,Фло,Flo,,jazz-units:items.lua:121701 | jazz-units:UnitData/Jazz_Flo.lua:23
 890000000003004,ФЛО,FLO,,jazz-units:items.lua:121702 | jazz-units:UnitData/Jazz_Flo.lua:24
-890000000003005,"Статы 40–50, Dexterity 60, Marksmanship 38 (худшая в отряде), Wisdom 82. Трусливая, но отличная торговка — знает, где выбить скидку и где продать хлам подороже. Дружит с Биффом и Рысью; до смерти боится некой Лавы (JA2-флейвор, не реализовано как игровая механика).","Stats in the 40-50 range, 60 Dexterity, 38 Marksmanship (worst in the roster), 82 Wisdom. Cowardly, but an excellent haggler — knows where to squeeze a discount and where to sell junk for more. Friends with Biff and Lynx; scared stiff of someone named Lava (JA2 lore flavor, not implemented as a gameplay mechanic).",,Jazz_Bio_WIP
-890000000003006,Безголовая курица,Headless Chicken,,jazz-units:items.lua:121705 | jazz-units:UnitData/Jazz_Flo.lua:27
+890000000003005,"Дочь винодела. Большую часть детства Флоренс провела в провинции Коньяк во Франции. После переезда в Питтсбург, США, стала работать бухгалтером в одной из компаний, торгующих оружием. Там она получила обширные знания по огнестрельному оружию. Сообразительна, но несколько неуверенна в себе, поэтому ей недоплачивают.","A winemaker's daughter, Florence spent most of her childhood in the Cognac region of France. After moving to Pittsburgh in the United States, she became an accountant for an arms dealer, where she acquired extensive knowledge of firearms. She is quick-witted but somewhat lacking in confidence, which is why she is underpaid.",,ModItemUnitDataCompositeDef Jazz_Flo Bio
+890000000003006,An Arms... Baroness?,An Arms... Baroness?,,ModItemUnitDataCompositeDef Jazz_Flo Title
 890000000003007,Flo@merc.com,Flo@merc.com,,jazz-units:items.lua:121706 | jazz-units:UnitData/Jazz_Flo.lua:28
-890000000003008,bargain,bargain,,jazz-units:items.lua:121707 | jazz-units:UnitData/Jazz_Flo.lua:29
+890000000003008,mondieu,mondieu,,ModItemUnitDataCompositeDef Jazz_Flo snype_nick
 890000000003009,"Слишком много смертей. Мне и своей жизни хватит, чтобы бояться.",Too many deaths. I'm scared enough for my own life.,,jazz-units:items.lua:121712 | jazz-units:UnitData/Jazz_Flo.lua:34
 890000000003010,"Извините, но за такие копейки я лучше дома посижу.","Sorry, but for that kind of pocket change I'd rather stay home.",,jazz-units:items.lua:121725 | jazz-units:UnitData/Jazz_Flo.lua:47
 890000000003011,"О, Бифф или Рысь уже здесь? Тогда... немного спокойнее.","Oh, Biff or Lynx is already here? Then... I feel a little safer.",,jazz-units:items.lua:121740 | jazz-units:UnitData/Jazz_Flo.lua:62
@@ -7290,11 +7290,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003019,Остаюсь. Скидки у местных торговцев того стоят.,I'll stay. The discounts from local merchants make it worthwhile.,,jazz-units:items.lua:121803 | jazz-units:UnitData/Jazz_Flo.lua:125
 890000000003100,Мягкая лапа,Soft Paw,,jazz:CharacterEffect/Jazz_Perk_Cougar.lua
 890000000003101,Выстрелы Пумы на 33% тише. Скрытое убийство даёт Inspired 1×/ход (не возврат ОД).,Cougar's shots are 33% quieter. Stealth Kill grants Inspired 1×/turn (not an AP refund).,,jazz:CharacterEffect/Jazz_Perk_Cougar.lua
-890000000003102,Джим «Пума» Уоллесс,"Jim ""Cougar"" Wallace",,jazz-units:items.lua:122048 | jazz-units:UnitData/Jazz_Cougar.lua:22
+890000000003102,Джим Уоллесс «Пума»,"Jim ""Cougar"" Wallace",,ModItemUnitDataCompositeDef Jazz_Cougar Name
 890000000003103,Пума,Cougar,,jazz-units:items.lua:122049 | jazz-units:UnitData/Jazz_Cougar.lua:23
 890000000003104,ПУМА,COUGAR,,jazz-units:items.lua:122050 | jazz-units:UnitData/Jazz_Cougar.lua:24
-890000000003105,"Статы 80–88, Marksmanship 93, Mechanical 58, Explosives 45, Medical 33. Мастер бесшумного автоогня — умеет подойти вплотную и снять цель раньше, чем она поймёт, что рядом кто-то есть. Дружит с Вульфом и Леном.","Stats in the 80-88 range, 93 Marksmanship, 58 Mechanical, 45 Explosives, 33 Medical. A master of silent auto-fire — closes to point-blank range and drops a target before it even knows someone's there. Friends with Wolf and Len.",,Jazz_Bio_WIP
-890000000003106,Тихий автоматчик,Quiet Gunner,,jazz-units:items.lua:122053 | jazz-units:UnitData/Jazz_Cougar.lua:27
+890000000003105,"Один из немногих кадетов, которые получили оценку 'отлично' на всех выпускных экзаменах. Следует учесть, правда, что экзаменационная программа была составлена его отцом. Отлично владеет всем спектром военных навыков, особенно хорошо управляется с автоматическим оружием. Джим настоящий профессионал, возможно, лучший наемник в M.E.R.C.","One of the few cadets to earn top marks in every final examination. It should be noted, however, that his father wrote the examination program. Jim is proficient in the full range of military skills and particularly good with automatic weapons. A true professional, he may be the finest mercenary in M.E.R.C.",,ModItemUnitDataCompositeDef Jazz_Cougar Bio
+890000000003106,"Crouching Cougar, Hidden Cougar","Crouching Cougar, Hidden Cougar",,ModItemUnitDataCompositeDef Jazz_Cougar Title
 890000000003107,Cougar@merc.com,Cougar@merc.com,,jazz-units:items.lua:122054 | jazz-units:UnitData/Jazz_Cougar.lua:28
 890000000003108,puma,puma,,jazz-units:items.lua:122055 | jazz-units:UnitData/Jazz_Cougar.lua:29
 890000000003109,Слишком много шума вокруг вашего отряда в последнее время. Мне такое не по пути.,There's been too much noise around your squad lately. That's not for me.,,jazz-units:items.lua:122060 | jazz-units:UnitData/Jazz_Cougar.lua:34
@@ -7313,7 +7313,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003202,Мигель Кордона,Miguel Cordona,,jazz-units:items.lua:122397 | jazz-units:UnitData/Jazz_Miguel.lua:22
 890000000003203,Мигель,Miguel,,jazz-units:items.lua:122398 | jazz-units:UnitData/Jazz_Miguel.lua:23
 890000000003204,МИГЕЛЬ,MIGUEL,,jazz-units:items.lua:122399 | jazz-units:UnitData/Jazz_Miguel.lua:24
-890000000003205,"Статы 70–80, Leadership 98 — лучший лидер повстанцев Арулько, прошедший ночные операции и рукопашный бой. Дружит с Карлосом, Айрой и Тенью; не сходится характером с неким Игги (упоминание из JA2, персонаж пока не заведён в моде); недолюбливает немцев за колониальное наследие.","Stats in the 70-80 range, 98 Leadership — the best rebel leader Arulco has, trained in night operations and hand-to-hand combat. Friends with Carlos, Ira, and Shadow; doesn't get along with someone named Iggy (JA2 mention, not yet a character in this mod); dislikes Germans over the colonial legacy.",,Jazz_Bio_WIP
+890000000003205,"Мигель Кордона руководил Сопротивлением режиму Д. в течение многих лет, и после его падения и передачи власти в Арулько законному королю Чивальдори, Мигель понял, что добился мирной жизни для совего народа. Но не для себя. Так Мигель оказался на службе в Организации. Отказываться от полевого командира с настолько обширным опытом ведения боевых действий, от диверсий до общевойсковых операций, было бы несусветной глупостью.","Miguel Cordona led the Resistance against Deidranna's regime for many years. After its fall and the restoration of Arulco's rightful king, Chivaldori, Miguel realized that he had secured a peaceful life for his people, but not for himself. That is how he came to serve the Organization. Turning down a field commander with such extensive experience, from sabotage to combined-arms operations, would have been sheer stupidity.",,ModItemUnitDataCompositeDef Jazz_Miguel Bio
 890000000003206,Команданте,Comandante,,jazz-units:items.lua:122402 | jazz-units:UnitData/Jazz_Miguel.lua:27
 890000000003207,Miguel@arulco.reb,Miguel@arulco.reb,,jazz-units:items.lua:122403 | jazz-units:UnitData/Jazz_Miguel.lua:28
 890000000003208,comandante,comandante,,jazz-units:items.lua:122404 | jazz-units:UnitData/Jazz_Miguel.lua:29
@@ -7332,10 +7332,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003302,Гамос,Gamos,,jazz-units:items.lua:122739 | jazz-units:UnitData/Jazz_Gamos.lua:22
 890000000003303,Гамос,Gamos,,jazz-units:items.lua:122740 | jazz-units:UnitData/Jazz_Gamos.lua:23
 890000000003304,ГАМОС,GAMOS,,jazz-units:items.lua:122741 | jazz-units:UnitData/Jazz_Gamos.lua:24
-890000000003305,"Статы 60–70, Wisdom 35, Marksmanship 78. Простой и дружелюбный местный проводник, исходивший джунгли Арулько вдоль и поперёк. Нейтрален к остальному отряду, дёшев в найме.","Stats in the 60-70 range, 35 Wisdom, 78 Marksmanship. A simple, friendly local guide who's walked every inch of Arulco's jungle. Neutral toward the rest of the roster, cheap to hire.",,Jazz_Bio_WIP
+890000000003305,"Гамос - скромный абориген острова Метавира, которого судьба постоянно сводит с наемниками AIM. Сначала он помогал наемникам в качестве проводника на самой Метавире, потом даже немного поработал наемником в операциях Гаса Тарболса против концерна DFK, после чего, неизвестно как, постречался Организации в ходе кризиса в Арулько за рулем угнанного фургончика. Так или иначе, этот миляга снова решил поработать на AIM и посмотреть мир, и мы не смогли ему в этой малости отказать.","Gamos is an unassuming native of Metavira whose path keeps crossing AIM's. First he guided its mercenaries around his home island. Then he briefly worked as a mercenary himself in Gus Tarballs' operations against DFK. Later, by some unexplained turn of events, the Organization encountered him during the Arulco crisis behind the wheel of a stolen van. Now this likable fellow wants to work for AIM again and see the world. We could hardly deny him that small favor.",,ModItemUnitDataCompositeDef Jazz_Gamos Bio
 890000000003306,Я много путешествовать,Me travel much,,jazz-units:items.lua:122744 | jazz-units:UnitData/Jazz_Gamos.lua:27
 890000000003307,Gamos@arulco.reb,Gamos@arulco.reb,,jazz-units:items.lua:122745 | jazz-units:UnitData/Jazz_Gamos.lua:28
-890000000003308,travelmuch,travelmuch,,jazz-units:items.lua:122746 | jazz-units:UnitData/Jazz_Gamos.lua:29
+890000000003308,Gamos,Gamos,,ModItemUnitDataCompositeDef Jazz_Gamos snype_nick
 890000000003309,Много люди умирать с вами. Гамос не хотеть так.,Many people die with you. Gamos not want that.,,jazz-units:items.lua:122751 | jazz-units:UnitData/Jazz_Gamos.lua:34
 890000000003310,Мало денег. Гамос семью кормить надо.,Not enough money. Gamos has family to feed.,,jazz-units:items.lua:122764 | jazz-units:UnitData/Jazz_Gamos.lua:47
 890000000003311,Гамос много путешествовать — сейчас нет тут. Потом.,Gamos travel much—Gamos not here now. Later.,,jazz-units:items.lua:122779 | jazz-units:UnitData/Jazz_Gamos.lua:61
@@ -7347,11 +7347,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003317,Гамос остаётся. Есть ещё тропы показать.,Gamos stays. More trails to show.,,jazz-units:items.lua:122809 | jazz-units:UnitData/Jazz_Gamos.lua:91
 890000000003400,Медвежатник,Safe-Cracker,,jazz:CharacterEffect/Jazz_Perk_Dynamo.lua
 890000000003401,Взлом замков не активирует ловушки на замках.,Picking locks does not trigger lock traps.,,jazz:CharacterEffect/Jazz_Perk_Dynamo.lua
-890000000003402,Грег «Динамо» Дункан,"Greg ""Dynamo"" Duncan",,jazz-units:items.lua:123051 | jazz-units:UnitData/Jazz_Dynamo.lua:22
+890000000003402,Грег Дункан «Динамо»,"Greg ""Dynamo"" Duncan",,ModItemUnitDataCompositeDef Jazz_Dynamo Name
 890000000003403,Динамо,DYNAMO,,jazz-units:items.lua:123052 | jazz-units:UnitData/Jazz_Dynamo.lua:23
 890000000003404,ДИНАМО,DYNAMO,,jazz-units:items.lua:123053 | jazz-units:UnitData/Jazz_Dynamo.lua:24
-890000000003405,"Статы 55–65, Marksmanship 68, Mechanical 67, Wisdom 78. Бывший заключённый с извращённым чувством юмора насчёт ранений — знает, куда бить, чтобы противник ослеп или запаниковал. Дружит с Шенком и Кровью; не любит Мясо. Дёшев, готов работать почти за идею.","Stats in the 55-65 range, 68 Marksmanship, 67 Mechanical, 78 Wisdom. A former convict with a twisted sense of humor about wounds — knows exactly where to hit to blind or panic an enemy. Friends with Shank and Blood; can't stand Meat. Cheap, willing to work for almost nothing.",,Jazz_Bio_WIP
-890000000003406,Зек-механик,Convict Mechanic,,jazz-units:items.lua:123056 | jazz-units:UnitData/Jazz_Dynamo.lua:27
+890000000003405,"Динамо самый настоящий политический заключенный режима Д. Его жена и сын были казнены без суда, а он сам оказался в тюрьме, Алькатрас по сравнею с которой - санаторий. Когда Сопротивление захватило тюрьму и освободило заключенных, у Грегори просто не нашлось смысла продолжать жить. Кроме мести Д. А после ее совершения Грег предложил свои услуги MERC. Смерть ничем не хуже, чем любая другая, как он сказал. Странно такое слышать, конечно.","Dynamo was a genuine political prisoner of Deidranna's regime. His wife and son were executed without trial, and he was sent to a prison that made Alcatraz look like a health resort. When the Resistance captured it and freed the inmates, Gregory had no reason left to live except revenge against Deidranna. Once that was done, Greg offered his services to MERC. As he put it, this death would be as good as any other. An unsettling thing to hear.",,ModItemUnitDataCompositeDef Jazz_Dynamo Bio
+890000000003406,"Alive Outside, Dead Inside","Alive Outside, Dead Inside",,ModItemUnitDataCompositeDef Jazz_Dynamo Title
 890000000003407,Dynamo@merc.com,Dynamo@merc.com,,jazz-units:items.lua:123057 | jazz-units:UnitData/Jazz_Dynamo.lua:28
 890000000003408,dynamo,dynamo,,jazz-units:items.lua:123058 | jazz-units:UnitData/Jazz_Dynamo.lua:29
 890000000003409,"Кровь уже здесь? Тогда ладно, повеселимся.","Blood is already here? Fine, let's have some fun.",,jazz-units:items.lua:123066 | jazz-units:UnitData/Jazz_Dynamo.lua:37
@@ -7367,8 +7367,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003502,Гастон Кавалье,Gaston Cavalier,,jazz-units:items.lua:123356 | jazz-units:UnitData/Jazz_Gaston.lua:22
 890000000003503,Гастон,Gaston,,jazz-units:items.lua:123357 | jazz-units:UnitData/Jazz_Gaston.lua:23
 890000000003504,ГАСТОН,GASTON,,jazz-units:items.lua:123358 | jazz-units:UnitData/Jazz_Gaston.lua:24
-890000000003505,"Urban Brawl. Статы 80–90, Marksmanship 94, прочие навыки 20+. Не умеет плавать (флейвор). Работает с крыш и в темноте, флиртует с Тоской, Бансом и Лиской. Не выносит Злобного за конкуренцию по части дам и Биффа за трусость.","Urban Brawl. Stats in the 80-90 range, 94 Marksmanship, other skills 20+. Can't swim (flavor only). Works rooftops and nighttime hours, flirts with Tosca, Buns, and Fox. Can't stand Vicious (rival for the ladies) or Biff's cowardice.",,Jazz_Bio_WIP
-890000000003506,Дамский снайпер,Ladies' Sniper,,jazz-units:items.lua:123361 | jazz-units:UnitData/Jazz_Gaston.lua:27
+890000000003505,"Будучи выдающимся спецназовцем Французской морской пехоты (FMC), Гастон сыграл важную роль во многих операциях НАТО и ООН по всему этому враждебному миру. Уверенный в себе, опытный в боевых условиях профессиональный снайпер, Гастон Кавалье — еще один шаг в стремлении M.E.R.C. удовлетворить ваши потребности","An outstanding member of the French Marine Corps, Gaston played a vital role in numerous NATO and UN operations across this hostile world. Confident, combat-tested and a professional sniper, Gaston Cavalier represents another step in M.E.R.C.'s commitment to meeting your needs.",,ModItemUnitDataCompositeDef Jazz_Gaston Bio
+890000000003506,I'm D'Artagnan; You're All Assholes,I'm D'Artagnan; You're All Assholes,,ModItemUnitDataCompositeDef Jazz_Gaston Title
 890000000003507,Gaston@merc.com,Gaston@merc.com,,jazz-units:items.lua:123362 | jazz-units:UnitData/Jazz_Gaston.lua:28
 890000000003508,cavalier,cavalier,,jazz-units:items.lua:123363 | jazz-units:UnitData/Jazz_Gaston.lua:29
 890000000003509,"Пока Злобный или Бифф в отряде — нет. Один отбивает моих дам, другой портит настроение.",Not while Malice or Biff is on the team. One steals my ladies; the other ruins the mood.,,Jazz_Gaston
@@ -7387,8 +7387,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003602,Лейтенант Хорг «Сигара»,"Lieutenant Horg ""Cigar""",,jazz-units:items.lua:123715 | jazz-units:UnitData/Jazz_Horg.lua:23
 890000000003603,Сигара,Horg,,jazz-units:items.lua:123716 | jazz-units:UnitData/Jazz_Horg.lua:24
 890000000003604,СИГАРА,CIGAR,,jazz-units:items.lua:123717 | jazz-units:UnitData/Jazz_Horg.lua:25
-890000000003605,"Urban Brawl. Health 98, Strength 94, Agility 78, Marksmanship 89, Mechanical 74, Wisdom 77. Агрессивный лейтенант, никогда не расстаётся с сигарой. Дружит с Быком, Гасом и Биффом; терпеть не может Колби и относится с презрением к слухам про Лаву.","Urban Brawl. Health 98, Strength 94, Agility 78, 89 Marksmanship, 74 Mechanical, 77 Wisdom. An aggressive lieutenant who never puts down his cigar. Friends with Bull, Gus, and Biff; can't stand Colby, and dismisses the Lava rumors as talk.",,Jazz_Bio_WIP
-890000000003606,Сигара,Horg,,jazz-units:items.lua:123720 | jazz-units:UnitData/Jazz_Horg.lua:28
+890000000003605,"Лейтенант Хорг сам по комплекции (и по эффективности в бою) как танк.  Будучи чрезвычайно искусным в обращении с тяжелым вооружением, Сигара провел последние два года в качестве независимого наемника в Конго. Он один из самых мощных и уважаемых бойцов в своей специальности, и M.E.R.C. гордится тем, что он выбрал нас в качестве своего первого агентства, пусть и на временной испытательной основе.","Lieutenant Horg is built like a tank and fights like one too. Exceptionally skilled with heavy weapons, Cigar spent the last two years working as an independent mercenary in the Congo. He is one of the most formidable and respected men in his field, and M.E.R.C. is proud that he chose us as his first agency, even if only on a temporary trial basis.",,ModItemUnitDataCompositeDef Jazz_Horg Bio
+890000000003606,Here Comes Bull: Everything Starts Shaking,Here Comes Bull: Everything Starts Shaking,,ModItemUnitDataCompositeDef Jazz_Horg Title
 890000000003607,Horg@merc.com,Horg@merc.com,,jazz-units:items.lua:123721 | jazz-units:UnitData/Jazz_Horg.lua:29
 890000000003608,cigar,cigar,,jazz-units:items.lua:123722 | jazz-units:UnitData/Jazz_Horg.lua:30
 890000000003609,Пока Колби в отряде — нет. Не выношу этого типа.,"As long as Colby is on the team, no. I can't stand that guy.",,Jazz_Horg
@@ -7407,8 +7407,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003702,Мануэль,Manuel,,jazz-units:items.lua:124070 | jazz-units:UnitData/Jazz_Manuel.lua:22
 890000000003703,Мануэль,Manuel,,jazz-units:items.lua:124071 | jazz-units:UnitData/Jazz_Manuel.lua:23
 890000000003704,МАНУЭЛЬ,MANUEL,,jazz-units:items.lua:124072 | jazz-units:UnitData/Jazz_Manuel.lua:24
-890000000003705,"Urban Brawl / Night Ops. Муж Фатимы, отец Пако. Внедрился в армию Арулько по просьбе Мигеля, был раскрыт и бежал в лес. Отряд встречает его блуждающим в лесах Тракона. Статы 70+, Dexterity 91. Одиночка, привыкший полагаться только на себя после провала операции.","Urban Brawl / Night Ops. Husband of Fatima, father of Paco. Went undercover in the Arulco army at Miguel's request, was exposed, and fled into the forest. The squad finds him wandering the Tracona woods. Stats 70+, 91 Dexterity. A loner who's learned to rely only on himself since the operation fell apart.",,Jazz_Bio_WIP
-890000000003706,Муж Фатимы,Fatima's Husband,,jazz-units:items.lua:124075 | jazz-units:UnitData/Jazz_Manuel.lua:27
+890000000003705,"Муж Фатимы, отец Пакоса. Внедрился в армию Арулько по заданию Мигеля, дослужился до сержанта, но был раскрыт преступным боссом Кингпином и бежал в соседнюю страну Тракону. Где и был завербован наемниками Организации в ходе миссии Неоконченное дело. Несмотря на конец войны, решил не возвращаться к мирной жизни, так как убежден, что в рядах Организации принесет больше пользы. Ну а мы и не возражаем - по части маскировки и разведки с ним мало кто может потягаться.","Fatima's husband and Pacos's father, Manuel infiltrated Arulco's army on Miguel's orders and rose to sergeant. The crime boss Kingpin exposed him, forcing him to flee to neighboring Tracona. There the Organization's mercenaries recruited him during the Unfinished Business operation. Even after the war, he chose not to return to civilian life, convinced he could do more good with the Organization. We have no objections: few can match his camouflage and reconnaissance skills.",,ModItemUnitDataCompositeDef Jazz_Manuel Bio
+890000000003706,A Man Who Smells and Tastes Like Herring,A Man Who Smells and Tastes Like Herring,,ModItemUnitDataCompositeDef Jazz_Manuel Title
 890000000003707,Manuel@arulco.reb,Manuel@arulco.reb,,jazz-units:items.lua:124076 | jazz-units:UnitData/Jazz_Manuel.lua:28
 890000000003708,manuel,manuel,,jazz-units:items.lua:124077 | jazz-units:UnitData/Jazz_Manuel.lua:29
 890000000003709,"Слишком много смертей. Мануэль уже видел, чем это кончается.",Too many deaths. Manuel has seen how this ends.,,jazz-units:items.lua:124082 | jazz-units:UnitData/Jazz_Manuel.lua:34
@@ -7424,11 +7424,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003719,Остаюсь. Лес подождёт.,I'm staying. The forest can wait.,,jazz-units:items.lua:124170 | jazz-units:UnitData/Jazz_Manuel.lua:122
 890000000003800,Маскировка,Camouflage,,jazz:CharacterEffect/Jazz_Perk_Monk.lua
 890000000003801,Актив: бесшумное скрытое убийство при CTH>70% всегда; перезарядка после убийства (signature TBD).,Active: silenced stealth kill always if CTH>70%; recharges on kill (signature TBD).,,jazz:CharacterEffect/Jazz_Perk_Monk.lua
-890000000003802,Виктор «Монк» Колесников,"Viktor ""Monk"" Kolesnikov",,jazz-units:items.lua:124414 | jazz-units:UnitData/Jazz_Monk.lua:22
+890000000003802,Виктор Колесников «Монк»,"Viktor ""Monk"" Kolesnikov",,ModItemUnitDataCompositeDef Jazz_Monk Name
 890000000003803,Монк,Monk,,jazz-units:items.lua:124415 | jazz-units:UnitData/Jazz_Monk.lua:23
 890000000003804,МОНК,MONK,,jazz-units:items.lua:124416 | jazz-units:UnitData/Jazz_Monk.lua:24
-890000000003805,"Wildfire. Ветеран Чеченской войны, не любит вспоминать родину. Статы 80–90, Marksmanship 94, прочие навыки 20–30. Одиночка, действует лучше вдали от толпы. Симпатизирует Лоре; недолюбливает Ивана и Конрада.","Wildfire. A Chechen war veteran who avoids talking about home. Stats in the 80-90 range, 94 Marksmanship, other skills 20-30. A loner who performs better away from a crowd. Has a soft spot for Laura; doesn't get along with Ivan or Conrad.",,Jazz_Bio_WIP
-890000000003806,Чеченский след,The Chechen Trail,,jazz-units:items.lua:124419 | jazz-units:UnitData/Jazz_Monk.lua:27
+890000000003805,"Виктор Колесников родом из России; его действительно можно назвать Крепким орешком. Специалист по автоматическому оружию. Любит работать один и не тратит слов понапрасну, поэтому товарищи прозвали его Монк. Подходящее прозвище для молчаливого профи. Кроме того, он еще и специалист по маскировке. Не выносит своего земляка Ивана. Был в Чечне, и поэтому разборчив в отношении клиентов.","Viktor Kolesnikov comes from Russia and is a genuine tough nut to crack. An automatic-weapons specialist, he prefers to work alone and wastes few words, earning him the nickname Monk. It suits this quiet professional. He is also an expert in camouflage. He cannot stand his compatriot Ivan. Having served in Chechnya, he is selective about his clients.",,ModItemUnitDataCompositeDef Jazz_Monk Bio
+890000000003806,Buddhist Monk,Buddhist Monk,,ModItemUnitDataCompositeDef Jazz_Monk Title
 890000000003807,Monk@aim.com,Monk@aim.com,,jazz-units:items.lua:124420 | jazz-units:UnitData/Jazz_Monk.lua:28
 890000000003808,monk,monk,,jazz-units:items.lua:124421 | jazz-units:UnitData/Jazz_Monk.lua:29
 890000000003809,"Я слышал, вы наняли Ивана... Да чтобы я с ним работал? Нет. Ищите кого-нибудь другого...","Я слышал, вы наняли Ивана... Да чтобы я с ним работал? Нет. Ищите кого-нибудь другого...",,Jazz_Monk
@@ -7444,11 +7444,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000003819,Хорошо... Очень хорошо.,Хорошо... Очень хорошо.,,Jazz_Monk
 890000000003900,Знаток дела,Expert Hand,,jazz:CharacterEffect/Jazz_Perk_Allik.lua:9
 890000000003901,Эта именная способность пока не действует.,This signature ability is not active yet.,,jazz:CharacterEffect/Jazz_Perk_Allik.lua
-890000000003902,Янно «Знаток» Аллик,"Jaano ""Allik"" Allikas",,jazz-units:items.lua:124767 | jazz-units:UnitData/Jazz_Allik.lua:22
+890000000003902,Янно Аллик «Знаток»,"Janno ""Allik"" Allik",,ModItemUnitDataCompositeDef Jazz_Allik Name
 890000000003903,Знаток,Expert,,jazz-units:items.lua:124768 | jazz-units:UnitData/Jazz_Allik.lua:23
 890000000003904,ЗНАТОК,ALLIK,,jazz-units:items.lua:124769 | jazz-units:UnitData/Jazz_Allik.lua:24
-890000000003905,"Wildfire. Один из лучших показателей статов на уровень в игре. Marksmanship 78, Mechanical 76, Explosives 43. Неисправимый оптимист, ко всему подходит с расчётом инженера. Дружит с Вильде и Грейс; не ладит с Сидни и Доктором Кью. В некоторых файлах WF указан русским по ошибке — считается артефактом данных, национальность эстонская.","Wildfire. One of the best stat-per-level ratios in the game. 78 Marksmanship, 76 Mechanical, 43 Explosives. An incurable optimist who approaches everything like an engineer. Friends with Vilde and Grace; doesn't get along with Sidney or Dr.Q. Some Wildfire files mislabel him as Russian — treated as a data artifact; his actual nationality is Estonian.",,Jazz_Bio_WIP
-890000000003906,Эстонец,The Estonian,,jazz-units:items.lua:124772 | jazz-units:UnitData/Jazz_Allik.lua:27
+890000000003905,"Янно родился в Эстонии, мать - немка. Долгое время служил в Советской армии. Любит готовить для друзей и наслаждаться жизнью. Но главное увлечение этого человека-медведя - это тяжелое оружие. Кроме того, замки не являются для него ни проблемой, ни препятствием. Предпочитает работать с Вильде, земляком-эстонцем, с которым он познакомился, когда служил в Восточной Германии.","Janno was born in Estonia to a German mother and served in the Soviet Army for many years. He enjoys cooking for friends and making the most of life, but this bear of a man's greatest passion is heavy weaponry. Locks are neither a problem nor an obstacle to him. He prefers working with his fellow Estonian Vilde, whom he met while serving in East Germany.",,ModItemUnitDataCompositeDef Jazz_Allik Bio
+890000000003906,The Human Multitool,The Human Multitool,,ModItemUnitDataCompositeDef Jazz_Allik Title
 890000000003907,Allik@aim.com,Allik@aim.com,,jazz-units:items.lua:124773 | jazz-units:UnitData/Jazz_Allik.lua:28
 890000000003908,znatok,znatok,,jazz-units:items.lua:124774 | jazz-units:UnitData/Jazz_Allik.lua:29
 890000000003909,"Лучше поищи другого наемника. Такого, которому понравится работать со свиньей-англичанином!","Лучше поищи другого наемника. Такого, которому понравится работать со свиньей-англичанином!",,Jazz_Allik
@@ -7467,8 +7467,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004002,Хеннинг фон Браниц,Henning von Branitz,,jazz-units:items.lua:125124 | jazz-units:UnitData/Jazz_Henning.lua:22
 890000000004003,Хеннинг,Henning,,jazz-units:items.lua:125125 | jazz-units:UnitData/Jazz_Henning.lua:23
 890000000004004,ХЕННИНГ,HENNING,,jazz-units:items.lua:125126 | jazz-units:UnitData/Jazz_Henning.lua:24
-890000000004005,"Wildfire — эрзац-замена Гасу. Статы 70–80, Wisdom 96, Leadership 76, Marksmanship 92. Клаустрофоб, не переносит замкнутые помещения. Аристократичный тактик, предпочитает командовать издалека, но не боится взять оружие сам, если требуется. Дружит со Штайгером и Лорой; недолюбливает Тора и Рикошета.","Wildfire — an ersatz stand-in for Gus. Stats 70-80, 96 Wisdom, 76 Leadership, 92 Marksmanship. A claustrophobe who can't stand enclosed spaces. An aristocratic tactician who prefers commanding from a distance but won't hesitate to pick up a weapon himself when needed. Friends with Steiger and Laura; doesn't get along with Thor or Ricochet.",,Jazz_Bio_WIP
-890000000004006,Барон-гасс,The Cabinet General,,jazz-units:items.lua:125129 | jazz-units:UnitData/Jazz_Henning.lua:27
+890000000004005,"Фон Браниц происходит из старинной прусской семьи. Настоящий профессионал. Служил в армии ГДР. После объединения Германии, Хеннинг стал наемником и сделал блестящую карьеру. В начале своей карьеры он был военным советником на Кубе, а теперь его список командировок длиной в метр. Дайте ему автомат или тяжелое оружие, и он не подведет. Хеннинг не любит нью-эйдж, и поэтому его тошнит от Тора.","Von Branitz comes from an old Prussian family. A true professional, he served in East Germany's army. After reunification, Henning became a mercenary and built a distinguished career. Early on he worked as a military adviser in Cuba; his list of postings is now a yard long. Give him an automatic rifle or a heavy weapon and he will not let you down. Henning despises New Age thinking, which makes Thor particularly hard for him to stomach.",,ModItemUnitDataCompositeDef Jazz_Henning Bio
+890000000004006,A Real Baron,A Real Baron,,ModItemUnitDataCompositeDef Jazz_Henning Title
 890000000004007,Henning@aim.com,Henning@aim.com,,jazz-units:items.lua:125130 | jazz-units:UnitData/Jazz_Henning.lua:28
 890000000004008,vonbranitz,vonbranitz,,jazz-units:items.lua:125131 | jazz-units:UnitData/Jazz_Henning.lua:29
 890000000004009,"Тор тоже с тобой? В таком случае я отклоняю твое предложение. Ты скоро узнаешь, почему. Желаю удачи... Она тебе понадобится.","Тор тоже с тобой? В таком случае я отклоняю твое предложение. Ты скоро узнаешь, почему. Желаю удачи... Она тебе понадобится.",,Jazz_Henning
@@ -7484,13 +7484,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004019,Согласен!,Согласен!,,Jazz_Henning
 890000000004100,Собрал на коленке,Jury-Rigged,,jazz:CharacterEffect/Jazz_Perk_Static.lua
 890000000004101,Ремонт и крафт Статика стоят на −5% Parts за уровень (макс. −25%).,Static's repair/craft Parts cost −5% per level (cap −25%).,,jazz:CharacterEffect/Jazz_Perk_Static.lua
-890000000004102,Кирк «Статик» Стивенсон,"Kirk ""Static"" Stevenson",,jazz-units:items.lua:125481 | jazz-units:UnitData/Jazz_Static.lua:22
+890000000004102,Кирк Стивенсон «Статик»,"Kirk ""Static"" Stevenson",,ModItemUnitDataCompositeDef Jazz_Static Name
 890000000004103,Статик,Static,,jazz-units:items.lua:125482 | jazz-units:UnitData/Jazz_Static.lua:23
 890000000004104,СТАТИК,STATIC,,jazz-units:items.lua:125483 | jazz-units:UnitData/Jazz_Static.lua:24
-890000000004105,"Статы 60–80, Strength 59, Dexterity 95, Wisdom 60, Mechanical 99. Боится насекомых. Дружит со Спайдером и обкуренным Ларри; не любит трезвого Ларри, Ротмана, Блэйда; недолюбливает швейцарцев.","Stats in the 60-80 range, 59 Strength, 95 Dexterity, 60 Wisdom, 99 Mechanical. Terrified of insects. Friends with Spider and a stoned Larry; can't stand a sober Larry, Rothman, or Blade; not fond of the Swiss.",,Jazz_Bio_WIP
-890000000004106,Хиппи-механик,Hippie Mechanic,,jazz-units:items.lua:125486 | jazz-units:UnitData/Jazz_Static.lua:27
+890000000004105,"Кажется, постареют сегодняшние наемники, придут на службу их дети, а открывать им двери и взламывать компьютеры все так же будет Статик. Представить AIM без него решительно не возможно. Он уже слегка не поспевает за темпом современной войны, это правда, но за техническим прогрессом ему и не нужно бежать самому.","Today's mercenaries may grow old and their children take their places, but Static will still be opening doors and hacking computers for them. AIM is simply unimaginable without him. He may no longer quite keep pace with modern warfare, but technological progress can do the running for him.",,ModItemUnitDataCompositeDef Jazz_Static Bio
+890000000004106,The Old Hands Go to War Again,The Old Hands Go to War Again,,ModItemUnitDataCompositeDef Jazz_Static Title
 890000000004107,Static@aim.com,Static@aim.com,,jazz-units:items.lua:125487 | jazz-units:UnitData/Jazz_Static.lua:28
-890000000004108,static,static,,jazz-units:items.lua:125488 | jazz-units:UnitData/Jazz_Static.lua:29
+890000000004108,kirkmyass,kirkmyass,,ModItemUnitDataCompositeDef Jazz_Static snype_nick
 890000000004109,"Пока Ротман, Блэйд или трезвый Ларри у вас в отряде — я пас. Не моя вибрация.","Not while Rothman, Blade, or sober Larry is on your team. I'm out. Bad vibes.",,jazz-units:items.lua:125493 | jazz-units:UnitData/Jazz_Static.lua:34
 890000000004110,Слишком много трупов вокруг вас. Не моя карма.,Too many bodies around you. Bad karma.,,jazz-units:items.lua:125510 | jazz-units:UnitData/Jazz_Static.lua:51
 890000000004111,"Отряд из одних швейцарцев? Ладно, но накинь сверху.","A squad full of Swiss? Fine, but it'll cost you extra.",,jazz-units:items.lua:125525 | jazz-units:UnitData/Jazz_Static.lua:66
@@ -7505,13 +7505,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004120,Остаюсь. Тут ещё есть что чинить.,I'm staying. There's still plenty to fix here.,,jazz-units:items.lua:125613 | jazz-units:UnitData/Jazz_Static.lua:154
 890000000004200,Полевой химик,Field Chemist,,jazz:CharacterEffect/Jazz_Perk_Highball.lua
 890000000004201,"Лечение ±50%, если рядом (≤5) союзник-врач с Medical≥80 / в отряде на спутнике.",Healing ±50% if an ally doctor with Medical≥80 is within 5 tiles / in the sat squad.,,jazz:CharacterEffect/Jazz_Perk_Highball.lua
-890000000004202,Клиффорд «Скала» Хайбол,"Clifford ""Highball"" Hyball",,jazz-units:items.lua:125863 | jazz-units:UnitData/Jazz_Highball.lua:22
+890000000004202,Доктор Клиффорд Хайбол,Dr. Clifford Highball,,ModItemUnitDataCompositeDef Jazz_Highball Name
 890000000004203,Скала,Cliff,,jazz-units:items.lua:125864 | jazz-units:UnitData/Jazz_Highball.lua:23
 890000000004204,СКАЛА,HIGHBALL,,jazz-units:items.lua:125865 | jazz-units:UnitData/Jazz_Highball.lua:24
-890000000004205,"Худшие боевые статы в каталоге AIM (~50–60), но Wisdom 87, Marksmanship 84, Medical 84 всё ещё держат марку. Держится нейтрально к остальному отряду — слишком занят собственной фляжкой, чтобы с кем-то ссориться.","Some of the worst combat stats in the AIM roster (~50-60 range), but 87 Wisdom, 84 Marksmanship, and 84 Medical still get the job done. Stays neutral toward the rest of the roster — too busy with his flask to pick fights.",,Jazz_Bio_WIP
-890000000004206,Старый алкаш,The Old Drunk,,jazz-units:items.lua:125868 | jazz-units:UnitData/Jazz_Highball.lua:27
-890000000004207,Highball@aim.com,Highball@aim.com,,jazz-units:items.lua:125869 | jazz-units:UnitData/Jazz_Highball.lua:28
-890000000004208,highball,highball,,jazz-units:items.lua:125870 | jazz-units:UnitData/Jazz_Highball.lua:29
+890000000004205,"Доктор Хайбол с переменным успехом то берет себя в руки, то накладывает себе в них же. Клифф обладает огромным опытом полевой хирургии и травматологии, но в отсутствие коллег, с которыми можно подискутировать, ему быстро становится скучно. Тем не менее, мастерство, как говорится, не пропьешь.","Dr. Highball alternates between getting his act together and making a mess of it. Cliff has extensive experience in field surgery and trauma care, but without colleagues to debate with, he quickly grows bored. Still, as the saying goes, even a drink cannot wash away true skill.",,ModItemUnitDataCompositeDef Jazz_Highball Bio
+890000000004206,Everybody Lies? Everybody Fucking Lies!,Everybody Lies? Everybody Fucking Lies!,,ModItemUnitDataCompositeDef Jazz_Highball Title
+890000000004207,Kliff@aim.com,Kliff@aim.com,,ModItemUnitDataCompositeDef Jazz_Highball Email
+890000000004208,Kliffyndor,Kliffyndor,,ModItemUnitDataCompositeDef Jazz_Highball snype_nick
 890000000004209,На такие деньги даже фляжку не наполнишь.,That money wouldn't even fill a flask.,,jazz-units:items.lua:125875 | jazz-units:UnitData/Jazz_Highball.lua:34
 890000000004210,Слишком много крови для старого доктора.,Too much blood for an old doctor.,,jazz-units:items.lua:125886 | jazz-units:UnitData/Jazz_Highball.lua:45
 890000000004211,"Это доктор Клиффорд Хайбол, спасибо за звонок. Сейчас я не могу с вами разговаривать — оставьте своё имя и номер.",This is Dr. Clifford Hyball. Thank you for calling. I can't speak with you right now—please leave your name and number.,,jazz-units:items.lua:125903 | jazz-units:UnitData/Jazz_Highball.lua:61
@@ -7523,11 +7523,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004217,Отлично! Это место начинает мне нравиться!,Excellent! I'm starting to like this place!,,jazz-units:items.lua:125933 | jazz-units:UnitData/Jazz_Highball.lua:91
 890000000004300,Грудная клетка,Rib Cage,,jazz:CharacterEffect/Jazz_Perk_Bull.lua
 890000000004301,Удары кулаком: травма по части тела. +2 слота под патроны/гранаты (inventory TBD).,Fist hits apply body-part trauma. +2 ammo/grenade inventory slots (inventory TBD).,,jazz:CharacterEffect/Jazz_Perk_Bull.lua
-890000000004302,Джон «Бык» Питерс,"John ""Bull"" Peters",,jazz-units:items.lua:126175 | jazz-units:UnitData/Jazz_Bull.lua:22
+890000000004302,Джон Питерс «Бык»,"John ""Bull"" Peters",,ModItemUnitDataCompositeDef Jazz_Bull Name
 890000000004303,Бык,Bull,,jazz-units:items.lua:126176 | jazz-units:UnitData/Jazz_Bull.lua:23
 890000000004304,БЫК,BULL,,jazz-units:items.lua:126177 | jazz-units:UnitData/Jazz_Bull.lua:24
-890000000004305,"Один из самых дешёвых наёмников AIM: Health 96, Strength 98, Agility/Dexterity ~50, Wisdom 64, Marksmanship 72. Агрессивен и бьёт первым. Дружит с Нейлсом; не любит Биффа.","One of the cheapest mercs on AIM's roster: 96 Health, 98 Strength, roughly 50 Agility/Dexterity, 64 Wisdom, 72 Marksmanship. Aggressive and swings first. Friends with Nails; can't stand Biff.",,Jazz_Bio_WIP
-890000000004306,Дешёвый танк,Budget Tank,,jazz-units:items.lua:126180 | jazz-units:UnitData/Jazz_Bull.lua:27
+890000000004305,"На таких наемниках, как Бык, держится практически любая хоть сколько нибудь развернутая операция. Надежный, немногословный, и сильный, как бык, Бык легко исполняет любую задачу, которую вы ему поручите. Да, ему вы поручите не каждую задачу, но с основным он вполне справится.","Mercenaries like Bull form the backbone of almost any operation of meaningful size. Dependable, quiet and as strong as his namesake, Bull readily tackles whatever job you give him. Granted, you would not give him every kind of job, but he can handle the essentials.",,ModItemUnitDataCompositeDef Jazz_Bull Bio
+890000000004306,Veteran of the San Mona Fighting Ring,Veteran of the San Mona Fighting Ring,,ModItemUnitDataCompositeDef Jazz_Bull Title
 890000000004307,Bull@aim.com,Bull@aim.com,,jazz-units:items.lua:126181 | jazz-units:UnitData/Jazz_Bull.lua:28
 890000000004308,bull,bull,,jazz-units:items.lua:126182 | jazz-units:UnitData/Jazz_Bull.lua:29
 890000000004309,Пока Бифф в отряде — я пас. Он мне не нравится.,Not while Biff's on the team. I don't like him.,,jazz-units:items.lua:126187 | jazz-units:UnitData/Jazz_Bull.lua:34
@@ -7543,13 +7543,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004319,Остаюсь. Тут есть кого бить.,I'm staying. There are still people here who need a beating.,,jazz-units:items.lua:126276 | jazz-units:UnitData/Jazz_Bull.lua:123
 890000000004400,Тихий ремонт,Quiet Repair,,jazz:CharacterEffect/Jazz_Perk_Cord.lua
 890000000004401,В городском секторе: ремонт быстрее (−15% времени) и дешевле (−10% Parts). Требование бара — soft.,In a city sector: repairs are faster (−15% time) and cheaper (−10% Parts). Bar POI gate soft.,,jazz:CharacterEffect/Jazz_Perk_Cord.lua
-890000000004402,Даг «Кардан» Милтон,"Doug ""Cord"" Milton",,jazz-units:items.lua:126522 | jazz-units:UnitData/Jazz_Cord.lua:22
+890000000004402,Даг Милтон «Кардан»,"Doug ""Gasket"" Milton",,ModItemUnitDataCompositeDef Jazz_Cord Name
 890000000004403,Кардан,Cord,,jazz-units:items.lua:126523 | jazz-units:UnitData/Jazz_Cord.lua:23
 890000000004404,КАРДАН,CORD,,jazz-units:items.lua:126524 | jazz-units:UnitData/Jazz_Cord.lua:24
-890000000004405,"Статы 60–70, Dexterity 89, Wisdom 49, Marksmanship 44, Mechanical 82. Забывчив — по слухам из JA2, забывает часть навыков после долгой работы, но JAZZ не реализует это механически, только в биографии. Неровно дышит к Вики; не любит Ивана и Игоря; недолюбливает русских.","Stats in the 60-70 range, 89 Dexterity, 49 Wisdom, 44 Marksmanship, 82 Mechanical. Forgetful — JA2 rumor has him losing bits of skill after long jobs, but JAZZ keeps that as flavor only, not a mechanic. Has an unrequited crush on Vicki; can't stand Ivan or Igor; not fond of Russians.",,Jazz_Bio_WIP
-890000000004406,Забывчивый механик,Forgetful Mechanic,,jazz-units:items.lua:126527 | jazz-units:UnitData/Jazz_Cord.lua:27
-890000000004407,Cord@merc.com,Cord@merc.com,,jazz-units:items.lua:126528 | jazz-units:UnitData/Jazz_Cord.lua:28
-890000000004408,cardan,cardan,,jazz-units:items.lua:126529 | jazz-units:UnitData/Jazz_Cord.lua:29
+890000000004405,"Даг Милтон родился и вырос в Кентукки. В четвертом классе его выгнали из школы и он стал работать на автозаправке своего отца. Там он стал отличным механиком. После того, как сестра сменила его на работе, он начал шататься по стране и, в конце концов, решил стать наемником. Хобби: Стрельба по белкам и коллекционирование дорожных знаков.","Doug Milton was born and raised in Kentucky. Expelled from school in the fourth grade, he went to work at his father's gas station and became an excellent mechanic. After his sister took over his job, he wandered around the country and eventually decided to become a mercenary. His hobbies include shooting squirrels and collecting road signs.",,ModItemUnitDataCompositeDef Jazz_Cord Bio
+890000000004406,You Get What You Pay For,You Get What You Pay For,,ModItemUnitDataCompositeDef Jazz_Cord Title
+890000000004407,Gusket@merc.com,Gusket@merc.com,,ModItemUnitDataCompositeDef Jazz_Cord Email
+890000000004408,ilavvika,ilavvika,,ModItemUnitDataCompositeDef Jazz_Cord snype_nick
 890000000004409,Пока Иван или Игорь в отряде — я пас.,Not while Ivan or Igor is on the team. I'm out.,,jazz-units:items.lua:126534 | jazz-units:UnitData/Jazz_Cord.lua:34
 890000000004410,Маловато будет.,Not enough.,,jazz-units:items.lua:126551 | jazz-units:UnitData/Jazz_Cord.lua:51
 890000000004411,"Отряд полон русских... ладно, но с доплатой.","A squad full of Russians... Fine, but it'll cost you extra.",,jazz-units:items.lua:126564 | jazz-units:UnitData/Jazz_Cord.lua:64
@@ -7560,13 +7560,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004416,"Кажется, я согласился. Иду.",I think I said yes. I'm coming.,,jazz-units:items.lua:126609 | jazz-units:UnitData/Jazz_Cord.lua:108
 890000000004417,Контракт заканчивается. Продлеваем?,My contract is ending. Are we renewing?,,jazz-units:items.lua:126614 | jazz-units:UnitData/Jazz_Cord.lua:113
 890000000004418,Остаюсь. Кажется.,I'll stay. I think.,,jazz-units:items.lua:126619 | jazz-units:UnitData/Jazz_Cord.lua:118
-890000000004502,Тим «Хоббит» Хиллман,"Tim ""Hobbit"" Hillman",,jazz-units:items.lua:126866 | jazz-units:UnitData/Jazz_Hobbit.lua:22
+890000000004502,Тим Хиллман «Хоббит»,"Tim ""Gumpy"" Hillman",,ModItemUnitDataCompositeDef Jazz_Hobbit Name
 890000000004503,Хоббит,Hobbit,,jazz-units:items.lua:126867 | jazz-units:UnitData/Jazz_Hobbit.lua:23
 890000000004504,ХОББИТ,HOBBIT,,jazz-units:items.lua:126868 | jazz-units:UnitData/Jazz_Hobbit.lua:24
-890000000004505,"Статы 60–70, Agility 44, Wisdom 94, Marksmanship 44, Mechanical 0 (никогда не растёт), Explosives 56. Пессимист, боится жары. Держится нейтрально к остальному отряду.","Stats in the 60-70 range, 44 Agility, 94 Wisdom, 44 Marksmanship, 0 Mechanical (never improves), 56 Explosives. A pessimist who's afraid of the heat. Stays neutral toward the rest of the roster.",,Jazz_Bio_WIP
-890000000004506,Несу вас,I'll Carry You,,jazz-units:items.lua:126871 | jazz-units:UnitData/Jazz_Hobbit.lua:27
-890000000004507,Hobbit@merc.com,Hobbit@merc.com,,jazz-units:items.lua:126872 | jazz-units:UnitData/Jazz_Hobbit.lua:28
-890000000004508,frodo,frodo,,jazz-units:items.lua:126873 | jazz-units:UnitData/Jazz_Hobbit.lua:29
+890000000004505,"Тим отлично разбирается во взрывчатке и быстро всему учится. Следует помнить, однако, что у саперов не может быть ошибок. Хиллман наверняка мог бы остаться в Гарварде и заниматься своим дипломом по электромагнитным полям, если бы не ужасная депрессия, вероятно, вызванная электромагнитным излучением. Из-за своей аллергии Тим предпочитает работать в странах с холодным климатом. Но кто ж его спрашивает. ","Tim knows his explosives and learns quickly. Remember, however, that a sapper cannot afford mistakes. Hillman might have stayed at Harvard to finish his degree in electromagnetic fields if not for a terrible depression, perhaps caused by electromagnetic radiation. His allergies make him prefer assignments in colder countries. Not that anyone asks him.",,ModItemUnitDataCompositeDef Jazz_Hobbit Bio
+890000000004506,I Can Sweep the Minefield for You,I Can Sweep the Minefield for You,,ModItemUnitDataCompositeDef Jazz_Hobbit Title
+890000000004507,Gumpy@merc.com,Gumpy@merc.com,,ModItemUnitDataCompositeDef Jazz_Hobbit Email
+890000000004508,Coolguy,Coolguy,,ModItemUnitDataCompositeDef Jazz_Hobbit snype_nick
 890000000004509,Маловато. Такими темпами всё плохо кончится.,"Not enough. At this rate, it'll all end badly.",,jazz-units:items.lua:126878 | jazz-units:UnitData/Jazz_Hobbit.lua:34
 890000000004510,Слишком много смертей — я предупреждал.,Too many deaths. I warned you.,,jazz-units:items.lua:126889 | jazz-units:UnitData/Jazz_Hobbit.lua:45
 890000000004511,"Хоббит недоступен. Наверное, к лучшему.",Hobbit's unavailable. Probably for the best.,,jazz-units:items.lua:126906 | jazz-units:UnitData/Jazz_Hobbit.lua:61
@@ -7578,13 +7578,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004517,Остаюсь. Всё равно хуже уже не будет.,I'm staying. It can't get any worse anyway.,,jazz-units:items.lua:126936 | jazz-units:UnitData/Jazz_Hobbit.lua:91
 890000000004600,Рикошет,Ricochet,,jazz:CharacterEffect/Jazz_Perk_Ricochet.lua
 890000000004601,Ближний бой: часть урона переходит на врага в ≤1 клетке от цели.,Melee hits splash partial damage to an enemy within ≤1 tile of the target.,,jazz:CharacterEffect/Jazz_Perk_Ricochet.lua
-890000000004602,Тим «Рикошет» Саттонн,"Tim ""Ricochet"" Sutton",,Jazz_Ricochet
+890000000004602,Тим Саттон «Рикошет»,"Tim ""Numb"" Sutton",,ModItemUnitDataCompositeDef Jazz_Ricochet Name
 890000000004603,Рикошет,Ricochet,,Jazz_Ricochet
 890000000004604,РИКОШЕТ,RICOCHET,,Jazz_Ricochet
-890000000004605,"Заниженные для ближнего боя статы (Agility 60, Strength 75), но Marksmanship 88 говорит о хорошей руке для бросков. Одиночка. Уважает Злобного; терпеть не может Сидни, Вики и Скоупа.","Underwhelming stats for a melee specialist (60 Agility, 75 Strength), but a strong 88 Marksmanship gives his throwing arm real precision. A loner. Respects Vicious; can't stand Sidney, Vicki, or Scope.",,Jazz_Ricochet
-890000000004606,Ближник,Close Combat,,Jazz_Ricochet
-890000000004607,Ricochet@merc.com,Ricochet@merc.com,,Jazz_Ricochet
-890000000004608,ricochet,ricochet,,Jazz_Ricochet
+890000000004605,"Некоторым людям просто не везет с внешностью. Тим Саттон - один из них. Его редко нанимали из-за ужасной стрижки и татуировки на шее. Тем не менее его резюме впечатляет: восточные единоборства, проведение операций в ночное время суток, снайперская и медицинская подготовка.","Some people are simply unlucky with their looks. Tim Sutton is one of them. His dreadful haircut and neck tattoo have cost him many a contract. His resume is nevertheless impressive: martial arts, night operations, sniper training and medical training.",,ModItemUnitDataCompositeDef Jazz_Ricochet Bio
+890000000004606,I Don't Fit in Any Box,I Don't Fit in Any Box,,ModItemUnitDataCompositeDef Jazz_Ricochet Title
+890000000004607,Numb@merc.com,Numb@merc.com,,ModItemUnitDataCompositeDef Jazz_Ricochet Email
+890000000004608,feelsonumb,feelsonumb,,ModItemUnitDataCompositeDef Jazz_Ricochet snype_nick
 890000000004609,Пока Сидни или Вики в отряде — я пас.,Not while Sidney or Vicki are on the team.,,Jazz_Ricochet
 890000000004610,Маловато для моих ножей.,Too thin for my knives.,,Jazz_Ricochet
 890000000004611,"Отряд полон британцев... ладно, но с доплатой.","Whole squad of Brits... fine, but with a surcharge.",,Jazz_Ricochet
@@ -7598,7 +7598,7 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004619,Контракт заканчивается. Продлеваем?,My contract is ending. Are we renewing?,,Jazz_Ricochet
 890000000004620,Остаюсь.,I'm staying.,,Jazz_Ricochet
 890000000004621,КАРЛОС,CARLOS,,Jazz_Carlos
-890000000004622,"Dexterity 61, Marksmanship 67, Agility 91. Пессимист, местный повстанец. Уважает Мигеля, Иру и Дмитрия; терпеть не может Игги.","61 Dexterity, 67 Marksmanship, 91 Agility. A pessimistic local rebel. Respects Miguel, Ira, and Dimitri; can't stand Iggy.",,Jazz_Carlos
+890000000004622,"Карлос был одним из ближайших советников и соратников Мигеля Кордона. И после окончания войны он пошел за своим патроном в AIM. Всем нам нужно немного депрессии и заниженных ожиданий, правда?","Carlos was one of Miguel Cordona's closest advisers and comrades. When the war ended, he followed his patron into AIM. We all need a little depression and lowered expectations, don't we?",,ModItemUnitDataCompositeDef Jazz_Carlos Bio
 890000000004623,Пессимист,Pessimist,,Jazz_Carlos
 890000000004624,Carlos@arulco.reb,Carlos@arulco.reb,,Jazz_Carlos
 890000000004625,carlos,carlos,,Jazz_Carlos
@@ -7612,10 +7612,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004635,Девин Коннелл,Devin Connell,,Jazz_Devin
 890000000004636,Девин,Devin,,Jazz_Devin
 890000000004637,ДЕВИН,DEVIN,,Jazz_Devin
-890000000004638,"Статы 60–70, Dexterity 88, Explosives 96. Одиночка, бывший боец ИРА. Симпатизирует Реду; недолюбливает британцев.","Stats in the 60-70 range, 88 Dexterity, 96 Explosives. A loner and former IRA fighter. Gets along with Red; not fond of the British.",,Jazz_Devin
-890000000004639,IRA,IRA,,Jazz_Devin
+890000000004638,"Рыжий. Ирландец. Торгует взрывчаткой. Что он забыл в поглощенном гражданской войной Арулько? А, ну да. Рано или поздно, Девин предложил свои услуги Организации, да так и остался на контракте. У саперов высокая текучка, ими разбрасываться нельзя.","Red hair. Irish. Sells explosives. What was he doing in civil-war-torn Arulco? Oh, right. Eventually Devin offered his services to the Organization and stayed on contract. Turnover among sappers is high. You cannot afford to throw them away.",,ModItemUnitDataCompositeDef Jazz_Devin Bio
+890000000004639,Enough Lounging Around with You Lot,Enough Lounging Around with You Lot,,ModItemUnitDataCompositeDef Jazz_Devin Title
 890000000004640,Devin@arulco.local,Devin@arulco.local,,Jazz_Devin
-890000000004641,ira,ira,,Jazz_Devin
+890000000004641,Irishboom,Irishboom,,ModItemUnitDataCompositeDef Jazz_Devin snype_nick
 890000000004642,Девин занят. Позже.,Devin's busy. Later.,,Jazz_Devin
 890000000004643,Коннелл слушает.,Connell here.,,Jazz_Devin
 890000000004644,Связь прервалась. Вернёмся к делу.,Connection dropped. Back to business.,,Jazz_Devin
@@ -7623,10 +7623,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004646,За такую цену — идёт.,At that price—I'm in.,,Jazz_Devin
 890000000004647,Контракт заканчивается. Продлеваем?,My contract is ending. Are we renewing?,,Jazz_Devin
 890000000004648,Остаюсь.,I'm staying.,,Jazz_Devin
-890000000004651,Брием «Шенк» Друз,"Briem ""Shank"" Drews",,Jazz_Shank
+890000000004651,Брием Друз «Шенк»,"Briem ""Shank"" Druz",,ModItemUnitDataCompositeDef Jazz_Shank Name
 890000000004652,Шенк,Shank,,Jazz_Shank
 890000000004653,ШЕНК,SHANK,,Jazz_Shank
-890000000004654,"Статы 30–35, но Wisdom 80. Не умеет плавать, оптимист. Дружит с Динамо и Иваном. Работает за 20 долларов в день — дешевле только даром.","Stats in the 30-35 range, but 80 Wisdom. Can't swim, incurable optimist. Friends with Dynamo and Ivan. Works for $20 a day — cheaper only if it were free.",,Jazz_Shank
+890000000004654,"Мистер Друз попал в Арулько ту же тюрьму, что и Динамо. Правда, выяснить за что так и не получилось, Брием несет какую то чушь про растения и родителей. В конце концов, устав перебиваться случайными заработками по двадцать баксов, он прибился к MERC. Странно, он уверен, что мы ему платим. Как будто MERC - это какой-то притон, в самом деле.","Mr. Druz ended up in the same Arulcan prison as Dynamo, though we never established why: Briem keeps rambling about plants and parents. Eventually, tired of scraping by on twenty-dollar odd jobs, he drifted into MERC. Oddly, he seems convinced that we pay him. As if MERC were some sort of drug den.",,ModItemUnitDataCompositeDef Jazz_Shank Bio
 890000000004655,Манчкин,The Munchkin,,Jazz_Shank
 890000000004656,Shank@merc.com,Shank@merc.com,,Jazz_Shank
 890000000004657,shank,shank,,Jazz_Shank
@@ -7637,11 +7637,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004662,Hired.,Hired.,,Jazz_Shank
 890000000004663,Contract ending?,Contract ending?,,Jazz_Shank
 890000000004664,Staying.,Staying.,,Jazz_Shank
-890000000004667,Доктор Винсент «Винс»,"Doctor Vincent ""Vince""",,Jazz_Vince
+890000000004667,Доктор Винсент Воймонт,Dr. Vincent Beaumont,,ModItemUnitDataCompositeDef Jazz_Vince Name
 890000000004668,Винс,Vince,,Jazz_Vince
 890000000004669,ВИНС,VINCE,,Jazz_Vince
-890000000004670,"Health 94, Dexterity 92, Agility 49, Marksmanship 35, Wisdom 94, Medical 94, Leadership 33. Быстро учится сам и легко учит других; одинаково хорошо стреляет и лечит обеими руками. Страдает клаустрофобией.","94 Health, 92 Dexterity, 49 Agility, 35 Marksmanship, 94 Wisdom, 94 Medical, 33 Leadership. A fast learner who's just as quick to teach others; shoots and treats wounds equally well with either hand. Suffers from claustrophobia.",,Jazz_Vince
-890000000004671,Ментор,Mentor,,Jazz_Vince
+890000000004670,"Врач из госпиталя Камбрии, в один момент решивший лично приложить руку к делу Революции в Арулько, так сказать. Собственно говоря, условия для него вряд ли улучшились - вместо хоть и бедной, но хотя бы по минимуму оборудованной больнички у него теперь вместо операционной - чистое поле, а вместо стола - расстеленная шинель. Но ему пока нравится.","A doctor from Cambria's hospital who decided, at some point, to lend the Arulcan Revolution a personal hand. His working conditions have hardly improved: instead of a poor but minimally equipped hospital, he now has an open field for an operating room and a spread-out greatcoat for a table. So far, he seems to like it.",,ModItemUnitDataCompositeDef Jazz_Vince Bio
+890000000004671,A Doctor Handy with Both Hands,A Doctor Handy with Both Hands,,ModItemUnitDataCompositeDef Jazz_Vince Title
 890000000004672,Vince@arulco.med,Vince@arulco.med,,Jazz_Vince
 890000000004673,vince,vince,,Jazz_Vince
 890000000004674,Доктор Винс на операции. Перезвоните.,Dr. Vince is in surgery. Call back.,,Jazz_Vince
@@ -7651,13 +7651,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004678,Готов учить и лечить. Иду.,Ready to teach and patch people up. On my way.,,Jazz_Vince
 890000000004679,Контракт заканчивается. Продлеваем?,My contract is ending. Are we renewing?,,Jazz_Vince
 890000000004680,Остаюсь. Ещё многому могу научить.,I'm staying. I still have plenty to teach.,,Jazz_Vince
-890000000004683,Ричард «Убийца» Рутвен,"Richard ""Hitman"" Ruthven",,Jazz_Hitman
-890000000004684,Убийца,Killer,,Jazz_Hitman
-890000000004685,УБИЙЦА,HITMAN,,Jazz_Hitman
-890000000004686,"Статы 75–80, Wisdom 59, Marksmanship 93. Разыскиваемый террорист-наёмник — берёт контракт, чтобы отсидеться, а затем скрывается. Не умеет плавать. Уважает Мэджика; терпеть не может Фло; недолюбливает американцев.","Stats in the 75-80 range, 59 Wisdom, 93 Marksmanship. A wanted mercenary terrorist who takes the contract to lie low before disappearing again. Can't swim. Respects Magic; can't stand Flo; not fond of Americans.",,Jazz_Hitman
-890000000004687,Разыскиваемый,Wanted Man,,Jazz_Hitman
-890000000004688,Hitman@dark.net,Hitman@dark.net,,Jazz_Hitman
-890000000004689,ruthven,ruthven,,Jazz_Hitman
+890000000004683,Ричард Рутвен,Richard Ruthven,,ModItemUnitDataCompositeDef Jazz_Hitman Name
+890000000004684,Слай,Slay,,ModItemUnitDataCompositeDef Jazz_Hitman Nick
+890000000004685,СЛАЙ,SLAY,,ModItemUnitDataCompositeDef Jazz_Hitman AllCapsNick
+890000000004686,"Мистер Рутвен повстречался организации в Арулько, будучи разыскиваемым Интерполом за серию заказных убийств, сделанных с дальнего расстояния из снайперской винтовки. Охотник за головами, который передал организации заказ на него, настаивал на передаче ему отделенной от тела головы. Мистер Рутвен с таким подходом естественно не согласился и сделал встречное предложение - поработать на AIM.",The Organization met Mr. Ruthven in Arulco while Interpol was looking for him over a series of long-range sniper assassinations. The bounty hunter who passed us the contract insisted on receiving his head detached from his body. Mr. Ruthven naturally objected to that arrangement and made a counteroffer: he would work for AIM.,,ModItemUnitDataCompositeDef Jazz_Hitman Bio
+890000000004687,Wanted by Interpol,Wanted by Interpol,,ModItemUnitDataCompositeDef Jazz_Hitman Title
+890000000004688,Slay@dark.net,Slay@dark.net,,ModItemUnitDataCompositeDef Jazz_Hitman Email
+890000000004689,terry,terry,,ModItemUnitDataCompositeDef Jazz_Hitman snype_nick
 890000000004690,Hitman offline.,Hitman offline.,,Jazz_Hitman
 890000000004691,Говори быстро.,Talk fast.,,Jazz_Hitman
 890000000004692,Связь прервалась. Вернёмся к делу.,Connection dropped. Back to business.,,Jazz_Hitman
@@ -7668,10 +7668,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004699,Полковник Фредерик Биггенс,Colonel Frederick Biggens,,Jazz_Biggens
 890000000004700,Биггенс,Biggens,,Jazz_Biggens
 890000000004701,БИГГЕНС,BIGGENS,,Jazz_Biggens
-890000000004702,"Ветеран из Urban Brawl. Статы 55–65, Marksmanship 71, Explosives 92. Оптимист, плохо переносит жару. Ставит заряды по старой школе — надёжно и аккуратно.","An Urban Brawl veteran. Stats in the 55-65 range, 71 Marksmanship, 92 Explosives. An optimist, doesn't handle heat well. Sets charges the old-school way — reliable and precise.",,Jazz_Biggens
-890000000004703,Усталый дед,Weary Old-Timer,,Jazz_Biggens
+890000000004702,"Пожилой ветеран армии Великобритании, в свое время поездил по миру с инъекциями империализма и демократии, о чем имеет немало историй. Организации повстречался в ходе операции Неоконченное дело в Траконе, где был успешно перевербован. На старости лет заскучал, и готов делиться своим бесценным опытом с молодняком.","An aging British Army veteran, Biggens once traveled the world administering injections of imperialism and democracy, and has plenty of stories to tell about it. The Organization met him during the Unfinished Business operation in Tracona and successfully persuaded him to change employers. Bored in his later years, he is willing to share his invaluable experience with the younger generation.",,ModItemUnitDataCompositeDef Jazz_Biggens Bio
+890000000004703,Still Some Bang Left in This Old Bomb,Still Some Bang Left in This Old Bomb,,ModItemUnitDataCompositeDef Jazz_Biggens Title
 890000000004704,Biggens@ub.mil,Biggens@ub.mil,,Jazz_Biggens
-890000000004705,biggens,biggens,,Jazz_Biggens
+890000000004705,bigbadaboomgens,bigbadaboomgens,,ModItemUnitDataCompositeDef Jazz_Biggens snype_nick
 890000000004706,Биггенс отдыхает. Перезвоните.,Biggens is resting. Call back later.,,Jazz_Biggens
 890000000004707,Полковник Биггенс слушает.,Colonel Biggens speaking.,,Jazz_Biggens
 890000000004708,Связь прервалась. Вернёмся к делу.,Connection dropped. Back to business.,,Jazz_Biggens
@@ -7682,10 +7682,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004715,Джон Кульба,John Kulba,,Jazz_Kulba
 890000000004716,Кульба,Kulba,,Jazz_Kulba
 890000000004717,КУЛЬБА,KULBA,,Jazz_Kulba
-890000000004718,"Ветеран Urban Brawl. Статы 55–60, Marksmanship 95, Mechanical 88. Жена умерла от рака вскоре после спасения из Арулко. Ультра-патриот, любит Гаса, недолюбливает Ивана, Игоря и Рикошета.","An Urban Brawl veteran. Stats in the 55-60 range, 95 Marksmanship, 88 Mechanical. His wife died of cancer shortly after the Arulco rescue. An ultra-patriot who's fond of Gus but can't stand Ivan, Igor, or Ricochet.",,Jazz_Kulba
-890000000004719,Патриот-дед,Patriotic Grandpa,,Jazz_Kulba
+890000000004718,"Джон Кульба - человек, везение которого принимает ровно два значения. Либо пан, либо пропал. Улетел по ошибке в страну, охваченную гражданской войной. Без потерь с вооруженным эскортом эвакуировался. Жена заболела неизлечимой формой рака кожи. Быстро и без мучений погибла при ограблении (хотя тут спорное везение, конечно). Джон в горе и печали отправился на перекладных в страну третьего мира. Снова повстречал там старых знакомых наемников, которым и решил составить компанию. Ему нечего терять, так что драться Джон будет до самого конца. Своего или врага - это как получится.","John Kulba's luck has exactly two settings: all or nothing. He accidentally flew into a country in the middle of a civil war, then got out unharmed under armed escort. His wife developed incurable skin cancer, only to die quickly and without suffering during a robbery, though calling that good fortune is debatable. Grief-stricken, John made his way to a developing country, where he again met mercenaries he knew and decided to join them. He has nothing left to lose and will fight to the very end. His or the enemy's, whichever comes first.",,ModItemUnitDataCompositeDef Jazz_Kulba Bio
+890000000004719,Grandpa Independence,Grandpa Independence,,ModItemUnitDataCompositeDef Jazz_Kulba Title
 890000000004720,Kulba@ub.mil,Kulba@ub.mil,,Jazz_Kulba
-890000000004721,kulba,kulba,,Jazz_Kulba
+890000000004721,John,John,,ModItemUnitDataCompositeDef Jazz_Kulba snype_nick
 890000000004722,Кульба на службе. Перезвоните.,Kulba is on duty. Call back.,,Jazz_Kulba
 890000000004723,Кульба слушает. За свободу.,Kulba speaking. For freedom.,,Jazz_Kulba
 890000000004724,Связь прервалась. Вернёмся к делу.,Connection dropped. Back to business.,,Jazz_Kulba
@@ -7693,13 +7693,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004726,За свободу. Я в деле.,For freedom. I'm in.,,Jazz_Kulba
 890000000004727,Контракт заканчивается. Продлеваем?,My contract is ending. Are we renewing?,,Jazz_Kulba
 890000000004728,Остаюсь. Есть ещё порох в пороховницах.,I'm staying. There's life in the old dog yet.,,Jazz_Kulba
-890000000004731,Леннарт «Зануда» Вильде,"Lennart ""Vilde"" Wilde",,Jazz_Vilde
+890000000004731,Леннарт Вильде «Зануда»,"Lennart ""Scream"" Vilde",,ModItemUnitDataCompositeDef Jazz_Vilde Name
 890000000004732,Зануда,Vilde,,Jazz_Vilde
 890000000004733,ЗАНУДА,BORE,,Jazz_Vilde
-890000000004734,"Wildfire. Статы ~80, Leadership 67, Marksmanship 74. Плохо переносит жару. Педантичен до занудства — отсюда прозвище. Любит Аллика и Монка; недолюбливает Доктора Кью и Линкса.","Wildfire mercenary. Stats around 80, 67 Leadership, 74 Marksmanship. Handles heat poorly. Pedantic to the point of being tedious — hence the nickname. Fond of Allik and Monk; not fond of Dr.Q or Lynx.",,Jazz_Vilde
-890000000004735,Тоже эстонец,Another Estonian,,Jazz_Vilde
-890000000004736,Vilde@aim.com,Vilde@aim.com,,Jazz_Vilde
-890000000004737,vilde,vilde,,Jazz_Vilde
+890000000004734,"Леннарт по своей природе лидер, и его уверенность заразительна. Чувство юмора, напротив, оставляет желать лучшего. Как и Янно Аллик, он сам родом из Эстонии, и у него мать-немка. Детство в Сибири, однако, закалило его, так, что теперь его самые сильные стороны - ночные операции и стрельба из автомата.","Lennart is a natural leader whose confidence is infectious. His sense of humor, on the other hand, leaves much to be desired. Like Janno Allik, he comes from Estonia and has a German mother. A childhood in Siberia toughened him up, and his greatest strengths today are night operations and automatic weapons.",,ModItemUnitDataCompositeDef Jazz_Vilde Bio
+890000000004735,A Sarcastic Bas... Teddy Bear,A Sarcastic Bas... Teddy Bear,,ModItemUnitDataCompositeDef Jazz_Vilde Title
+890000000004736,Scream@aim.com,Scream@aim.com,,ModItemUnitDataCompositeDef Jazz_Vilde Email
+890000000004737,i-scream,i-scream,,ModItemUnitDataCompositeDef Jazz_Vilde snype_nick
 890000000004738,"Это Леннарт Вильде. Если вам есть что предложить, говорите после сигнала.","This is Lennart Vilde. If you have an offer, speak after the tone.",,Jazz_Vilde
 890000000004739,"Леннарт на связи, привет...","Lennart here, hello...",,Jazz_Vilde
 890000000004740,Я повторю...,Let me repeat myself...,,Jazz_Vilde
@@ -7707,13 +7707,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004742,"Отлично, я поспешу.","Excellent, I'll hurry.",,Jazz_Vilde
 890000000004743,Я был бы не против продлить контракт... Есть работа?,I wouldn't mind renewing the contract... Is there work?,,Jazz_Vilde
 890000000004744,Отлично. Мы договорились.,Excellent. We have a deal.,,Jazz_Vilde
-890000000004747,Грациелла «Грейс» Джирелли,"Graziella ""Grace"" Girelli",,Jazz_Grace
+890000000004747,Грациелла Джирелли,Graziella Girelli,,ModItemUnitDataCompositeDef Jazz_Grace Name
 890000000004748,Грейс,Grace,,Jazz_Grace
 890000000004749,ГРЕЙС,GRACE,,Jazz_Grace
-890000000004750,"Wildfire. Итальянка, записанная американкой. Боится тараканов, пессимистка. Средние статы броска (Сила 67, Меткость 69, Ловкость рук 77), Лидерство 62. Любит Аллика; недолюбливает Реда, Рикошета и Лаву.","Wildfire mercenary. Italian-born, filed as American. Afraid of cockroaches, a pessimist. Modest throwing stats (67 Strength, 69 Marksmanship, 77 Dexterity), 62 Leadership. Fond of Allik; not fond of Red, Ricochet, or Lava.",,Jazz_Grace
-890000000004751,Итальянка,The Italian,,Jazz_Grace
+890000000004750,"Грациелла Джирелли потомок итальянских иммигрантов в США. С одной стороны, она и в Италии-то не была ни разу, с другой стороны, порода видна невооруженным глазом. Как бы она не стралась сойти в Америке за свою, у нее не получалось. Что вынудило ее податься в наемники - не ясно, но из боевых навыков у нее, как минимум, неплохо поставлен бросок. Американский бейсбол.","Graziella Girelli is descended from Italian immigrants to the United States. She has never even visited Italy, yet her heritage is plain to see. However hard she tried to fit in as an American, she never quite managed it. What drove her into mercenary work remains unclear, but she has at least one useful combat skill: a well-practiced throwing arm. American baseball.",,ModItemUnitDataCompositeDef Jazz_Grace Bio
+890000000004751,"Mamma Mia, What a Serve!","Mamma Mia, What a Serve!",,ModItemUnitDataCompositeDef Jazz_Grace Title
 890000000004752,Grace@aim.com,Grace@aim.com,,Jazz_Grace
-890000000004753,grace,grace,,Jazz_Grace
+890000000004753,graceful,graceful,,ModItemUnitDataCompositeDef Jazz_Grace snype_nick
 890000000004754,"Вы позвонили Грейс Джирелли, оставьте свое сообщение. Мама, если это ты... Да, я в порядке, и... нет, у меня нет времени для встречи с очередным милым молодым человеком. Я тебя люблю. Чао!","You've reached Grace Girelli. Leave your message. Mom, if that's you... Yes, I'm fine, and... no, I don't have time to meet another nice young man. Love you. Ciao!",,Jazz_Grace
 890000000004755,Говорит Грейс Джирелли.,Grace Girelli speaking.,,Jazz_Grace
 890000000004756,Я сказала...,I said...,,Jazz_Grace
@@ -7722,10 +7722,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004759,"Срок моего контракта истек, но я могу остаться, пупсик, если без меня вы не справитесь.","My contract has expired, but I can stay, doll, if you can't manage without me.",,Jazz_Grace
 890000000004760,Понято и принято.,Understood and accepted.,,Jazz_Grace
 890000000004763,Рудольф Штайгер,Rudolf Steiger,,Jazz_Steiger
-890000000004764,Штайгер,Steiger,,Jazz_Steiger
-890000000004765,ШТАЙГЕР,STEIGER,,Jazz_Steiger
-890000000004766,"Wildfire. Статы 75–85, Сила 69, Мудрость 90, Лидерство 69, Меткость 94. Плохо переносит жару. Любит Хеннинга, Лору и Гранти; недолюбливает Корда и Булла. Очень дорогой специалист.","Wildfire mercenary. Stats in the 75-85 range, 69 Strength, 90 Wisdom, 69 Leadership, 94 Marksmanship. Handles heat poorly. Fond of Henning, Laura, and Grunty; not fond of Cord or Bull. A very expensive specialist.",,Jazz_Steiger
-890000000004767,Дорогой немец,The Expensive German,,Jazz_Steiger
+890000000004764,Рудольф,Rudolf,,ModItemUnitDataCompositeDef Jazz_Steiger Nick
+890000000004765,РУДОЛЬФ,RUDOLF,,ModItemUnitDataCompositeDef Jazz_Steiger AllCapsNick
+890000000004766,"У этого бывшего бойца GSG-9 есть только одна слабость... доктор Лора Колин, с которой он познакомился на курсах в Любеке. Он - настоящий профи. Его сильная сторона - ночные операции. Кроме того, он с километра бьет пулей белку в глаз. У него есть способности инструктора. Его манеры оставляют желать лучшего. Хорошо работает вместе с Хеннингом фон Браницем, но Дуг Милтон действует на него, как красная тряпка на быка.","This former GSG-9 operative has only one weakness: Dr. Laura Colin, whom he met on a course in Lubeck. A consummate professional, he excels at night operations and can put a bullet through a squirrel's eye from a kilometer away. He also has a talent for instruction, though his manners leave much to be desired. He works well with Henning von Branitz, but Doug Milton is a red rag to a bull.",,ModItemUnitDataCompositeDef Jazz_Steiger Bio
+890000000004767,Counter-Terrorist,Counter-Terrorist,,ModItemUnitDataCompositeDef Jazz_Steiger Title
 890000000004768,Steiger@aim.com,Steiger@aim.com,,Jazz_Steiger
 890000000004769,steiger,steiger,,Jazz_Steiger
 890000000004770,"Говорит Рудольф Штайгер. Оставьте сообщение. Возможно, я перезвоню.",Rudolf Steiger speaking. Leave a message. I may call back.,,Jazz_Steiger
@@ -7735,10 +7735,10 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004774,"Отлично, уже еду.","Excellent, I'm on my way.",,Jazz_Steiger
 890000000004775,Заинтересован в продлении контракта? Я бы не отказался...,Interested in renewing the contract? I wouldn't mind...,,Jazz_Steiger
 890000000004776,Выпьем за долгое и взаимовыгодное сотрудничество...,A toast to a long and mutually profitable partnership...,,Jazz_Steiger
-890000000004779,Люк «Лаки» Фабр,"Luc ""Lucky"" Fabre",,Jazz_Lucky
+890000000004779,Люк Фабр «Лаки»,"Luc ""Lucky"" Fabre",,ModItemUnitDataCompositeDef Jazz_Lucky Name
 890000000004780,Лаки,Lucky,,Jazz_Lucky
 890000000004781,ЛАКИ,LUCKY,,Jazz_Lucky
-890000000004782,"Wildfire. Бельгиец-франкофон, ошибочно записанный французом. Статы 75–80, Лидерство 58, Меткость 88. Любит Барри; недолюбливает Вишеса и Банса.","Wildfire mercenary. A French-speaking Belgian mistakenly filed as French. Stats in the 75-80 range, 58 Leadership, 88 Marksmanship. Fond of Barry; not fond of Vicious or Buns.",,Jazz_Lucky
+890000000004782,"Люк Фабр родом из Бельгии. Позывной ему выдали будто бы в насмешку над его жизнью. Он рос без отца, у него было трудное детство. Когда он узнал, что кто-то пристает к его маленькой сестре, он пришел в ярость и сломал шею обидчику. Оказалось, что его жертва - важная персона, и Люку пришлось уйти в подполье и стать наемником. Этот качок - ходячее оружие. Он опасен и в рукопашной, но дайте ему автомат, и он непобедим!","Luc Fabre comes from Belgium. His callsign seems almost a joke at the expense of his life. He grew up without a father and had a difficult childhood. When he learned that someone was harassing his little sister, he flew into a rage and broke the man's neck. His victim turned out to be an important person, forcing Luc underground and into mercenary work. This muscleman is a walking weapon. Dangerous enough in a fistfight, he becomes unstoppable with an automatic rifle.",,ModItemUnitDataCompositeDef Jazz_Lucky Bio
 890000000004783,Бельгиец,Belgian,,Jazz_Lucky
 890000000004784,Lucky@aim.com,Lucky@aim.com,,Jazz_Lucky
 890000000004785,lucky,lucky,,Jazz_Lucky
@@ -7752,8 +7752,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004795,Доктор Лора Колин,Doctor Laura Colin,,Jazz_Laura
 890000000004796,Лора,Laura,,Jazz_Laura
 890000000004797,ЛОРА,LAURA,,Jazz_Laura
-890000000004798,"Wildfire. Румынская цыганка. Статы 70–80, Ловкость 67, Меткость 82, Медицина 57 (при этом врач!), Взрывное дело 52 (лучшее среди Wildfire). Плохо переносит жару. Любит Штайгера и Монка; недолюбливает Тоску и Фокса.","Wildfire mercenary. A Romanian Roma woman. Stats in the 70-80 range, 67 Agility, 82 Marksmanship, 57 Medical (a doctor, at that), 52 Explosives (the highest among Wildfire recruits). Handles heat poorly. Fond of Steiger and Monk; not fond of Tosca or Fox.",,Jazz_Laura
-890000000004799,Цыганский врач,The Roma Doctor,,Jazz_Laura
+890000000004798,"Лора Колин родилась в Румынии. Ее родители-диссиденты бежали в Германию, опасаясь ареста. От них она унаследовала нелюбовь к диктаторам. Училась на медика, и попала в A.I.M. по совету Рудольфа Штайгера. Страстная наемница! Ее сильные стороны - выслеживание противника и стрельба из автоматического оружия. Ненавидит работать со Луизой Гарно.","Laura Colin was born in Romania. Her dissident parents fled to Germany to avoid arrest, and she inherited their dislike of dictators. She studied medicine and joined A.I.M. on Rudolf Steiger's advice. An enthusiastic mercenary, she excels at tracking enemies and handling automatic weapons. She hates working with Louise Garneau.",,ModItemUnitDataCompositeDef Jazz_Laura Bio
+890000000004799,"Heals with One Hand, Blows Things Up with the Other","Heals with One Hand, Blows Things Up with the Other",,ModItemUnitDataCompositeDef Jazz_Laura Title
 890000000004800,Laura@aim.com,Laura@aim.com,,Jazz_Laura
 890000000004801,laura,laura,,Jazz_Laura
 890000000004802,Это врач Лора Колин. В неотложных случаях вы можете отправить сообщение на мой пейджер.,"This is Dr. Laura Colin. In an emergency, you can send a message to my pager.",,Jazz_Laura
@@ -7763,11 +7763,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000004806,"Да. Я думаю, этот контракт окажется интересным.",Yes. I think this contract will prove interesting.,,Jazz_Laura
 890000000004807,"Возможно, вы согласитесь продлить контракт?",Perhaps you would agree to extend the contract?,,Jazz_Laura
 890000000004808,Отлично. Мы договорились.,Excellent. We have a deal.,,Jazz_Laura
-890000000004811,Эмиль «Эскимо» Кимос,"Emile ""Eskimo"" Kimos",,Jazz_Eskimo
+890000000004811,Эмиль Кимос «Эскимо»,"Emil ""Eskimo"" Kimos",,ModItemUnitDataCompositeDef Jazz_Eskimo Name
 890000000004812,Эскимо,Eskimo,,Jazz_Eskimo
 890000000004813,ЭСКИМО,ESKIMO,,Jazz_Eskimo
-890000000004814,"Night Ops. Повстанец, воевавший за Мигеля; схвачен и брошен Дейдранной в тюрьму Альмы. После освобождения присоединяется к игроку. Ненавидит арабов и жару. Любит Мигеля, Карлоса и Гамоса. Здоровье 97, Меткость 95.","Night Ops mercenary. A rebel who fought for Miguel; captured and thrown into the Alma prison by Deidranna. Joins the player after being freed. Hates Arabs and heat. Fond of Miguel, Carlos, and Gamos. 97 Health, 95 Marksmanship.",,Jazz_Eskimo
-890000000004815,Пленный снайпер,The Imprisoned Sniper,,Jazz_Eskimo
+890000000004814,"Прошлое его туманно и он не особо любит о нем распространяться. Повстанец Мигеля, был схвачен и брошен Д. в тюрьму Альмы, где неоднократно подвергался жестким допросам, которые ухудшили его здоровье. После освобождения снова присоединился к Сопротивлению. Пусть он уже нет тот, что раньше, но рука его все так же тверда.","His past is obscure, and he does not like discussing it. A rebel who fought for Miguel, he was captured and thrown into Deidranna's Alma prison, where repeated brutal interrogations damaged his health. After his release he rejoined the Resistance. He may no longer be the man he once was, but his hand is still steady.",,ModItemUnitDataCompositeDef Jazz_Eskimo Bio
+890000000004815,With an Unwavering Hand,With an Unwavering Hand,,ModItemUnitDataCompositeDef Jazz_Eskimo Title
 890000000004816,Eskimo@arulco.reb,Eskimo@arulco.reb,,Jazz_Eskimo
 890000000004817,eskimo,eskimo,,Jazz_Eskimo
 890000000004818,Эскимо в камере... шучу. Перезвоните.,Eskimo's in the brig... just kidding. Call back.,,Jazz_Eskimo
@@ -8362,13 +8362,13 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006027,You are nothing but butchers!,You are nothing but butchers!,,jazz-units:items.lua:VoiceResponse AME
 890000000006200,Приказ: точность,Order: Accuracy,,jazz:CharacterEffect/Jazz_OrderCTH.lua:20 | jazz:items.lua:72300
 890000000006201,+5 к шансу попадания на следующую атаку.,+5 chance to hit on the next attack.,,jazz:CharacterEffect/Jazz_OrderCTH.lua:21 | jazz:items.lua:72301
-890000000006202,Тортон «Мясо» Джонс,"Thorton ""Meat"" Jones",,Jazz_Meat
+890000000006202,Тортон Джонс «Мясо»,"Thorton ""Bubba"" Jones",,ModItemUnitDataCompositeDef Jazz_Meat Name
 890000000006203,Мясо,Meat,,Jazz_Meat
 890000000006204,МЯСО,MEAT,,Jazz_Meat
-890000000006205,"Dexterity 68, Agility 54, Wisdom 29, Strength 98, Mechanical 59, Explosives 64. Агрессивен и туповат, но взрывчатку носит и ставит без страха. Дружит с Быком; странно запал на Тоску. Его недолюбливают почти все местные из Арулько.","68 Dexterity, 54 Agility, 29 Wisdom, 98 Strength, 59 Mechanical, 64 Explosives. Aggressive and none too bright, but carries and plants explosives without a hint of fear. Friends with Bull; has a weird crush on Tosca. Widely disliked by Arulco locals.",,Jazz_Meat
-890000000006206,Гора,The Mountain,,Jazz_Meat
-890000000006207,Meat@merc.com,Meat@merc.com,,Jazz_Meat
-890000000006208,meat,meat,,Jazz_Meat
+890000000006205,"Кроме необъятных размеров, Тортон известен тем, что был первым охранником, уволенным из тюрьмы штата Алабама за жестокое отношение к заключенным. Подробностей этого дела мы так и не знаем - побоялись спросить.","Aside from his immense size, Thorton is known for being the first guard fired from an Alabama state prison for cruelty to inmates. We still do not know the details. We were afraid to ask.",,ModItemUnitDataCompositeDef Jazz_Meat Bio
+890000000006206,A Mountain of Meat,A Mountain of Meat,,ModItemUnitDataCompositeDef Jazz_Meat Title
+890000000006207,Bubba@merc.com,Bubba@merc.com,,ModItemUnitDataCompositeDef Jazz_Meat Email
+890000000006208,bubba,bubba,,ModItemUnitDataCompositeDef Jazz_Meat snype_nick
 890000000006209,Meat offline.,Meat offline.,,Jazz_Meat
 890000000006210,Meat here.,Meat here.,,Jazz_Meat
 890000000006211,Continue.,Continue.,,Jazz_Meat
@@ -8695,11 +8695,11 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006621,"Кто сказал, что я стар?",Who said I'm old?,,jazz-units:items.lua:VoiceResponse
 890000000006622,"Похоже, этот Иван сочувствует коммунистам. Он говорит, словно один из этих русских. Я лучше буду держаться от него подальше.",Looks like Ivan sympathizes with the communists. Talks like one of those Russians. Better keep my distance.,,jazz-units:items.lua:VoiceResponse
 890000000006623,Только посмотри на Гаса. Вот настоящий солдат.,Just look at Gus. Now there's a real soldier.,,jazz-units:items.lua:VoiceResponse
-890000000006624,[WIP] Александра «Бенни» Бенедикт,Alexandra “Benny” Benedict,,jazz-units:items.lua:VoiceResponse
+890000000006624,Александра Бенедикт,Alexandra Benedict,,ModItemUnitDataCompositeDef Jazz_Benny Name
 890000000006625,Бенни,Benny,,jazz-units:items.lua:VoiceResponse
 890000000006626,БЕННИ,BENNY,,jazz-units:items.lua:VoiceResponse
-890000000006627,work in progress,work in progress,,jazz-units:items.lua:VoiceResponse
-890000000006628,Взломщица с Халифа,Burglar from Khalif,,jazz-units:items.lua:VoiceResponse
+890000000006627,"Александра Бенедикт вместе со своим наставником Саймоном Грандье работает в Организации в качестве группы ликвидаторов Взломщики. В основном штате AIM до операции на острове Халиф они не числились, но так как в их эвакуации был задейстован и регулярный состав, их прикрытие было нарушено и они оба временно переведены в основные списки сотрудников. До выяснения.","Alexandra Benedict and her mentor Simon Grandier serve the Organization as members of the Breakers assassination team. Before the operation on Khalif Island, neither appeared on AIM's regular roster. The involvement of regular personnel in their evacuation compromised their cover, so both have temporarily been transferred to the public staff list, pending clarification.",,ModItemUnitDataCompositeDef Jazz_Benny Bio
+890000000006628,Anything Locked Can Be Opened,Anything Locked Can Be Opened,,ModItemUnitDataCompositeDef Jazz_Benny Title
 890000000006629,Benny@khalif.sj,Benny@khalif.sj,,jazz-units:items.lua:VoiceResponse
 890000000006630,benny,benny,,jazz-units:items.lua:VoiceResponse
 890000000006631,Бенни на линии позже.,Benny will be back on the line later.,,jazz-units:items.lua:VoiceResponse
@@ -8712,8 +8712,8 @@ I meant to intercept this squad, but you wiped out most of it first. Good work."
 890000000006650,Саймон Грандье,Simon Grandier,,jazz-units:items.lua:VoiceResponse
 890000000006651,Саймон,Simon,,jazz-units:items.lua:VoiceResponse
 890000000006652,САЙМОН,SIMON,,jazz-units:items.lua:VoiceResponse
-890000000006653,work in progress,work in progress,,jazz-units:items.lua:VoiceResponse
-890000000006654,Снайпер с Халифа,Sniper from Khalif,,jazz-units:items.lua:VoiceResponse
+890000000006653,"Мистер Грандье работал в группе ликвидаторов Взломщики нашей Организации. Будучи высококлассным наемным убийцей и снайпером, он таким образом уходил от преследования со стороны закона. Когда группу Взломщиков в результате утечки информации из Органзиации на самом высоком уровне, выманили на остров Халиф, Саймон сумел избежать ареста и после воссоединился с основной группой Организации, своими усилиями разрешив конфликт с остатками концерна DFK. После чего временно был переведен в основной состав Организации и стал доступен для полевой работы.","Mr. Grandier worked in the Organization's Breakers assassination team. A highly skilled contract killer and sniper, he used the arrangement to stay out of the law's reach. When a leak at the highest level of the Organization lured the Breakers to Khalif Island, Simon avoided arrest and later rejoined the main team. His efforts helped settle the conflict with the remnants of DFK. He was subsequently transferred to the regular roster on a temporary basis and became available for field assignments.",,ModItemUnitDataCompositeDef Jazz_Simon Bio
+890000000006654,"He Shoots So Well, Every Bullet Finds a Fag","He Shoots So Well, Every Bullet Finds a Fag",,ModItemUnitDataCompositeDef Jazz_Simon Title
 890000000006655,Simon@khalif.sj,Simon@khalif.sj,,jazz-units:items.lua:VoiceResponse
 890000000006656,simon,simon,,jazz-units:items.lua:VoiceResponse
 890000000006657,Грандье недоступен.,Grandier is unavailable.,,jazz-units:items.lua:VoiceResponse
@@ -12265,11 +12265,11 @@ Speck",,JAZZ-UI-MERC-001
 890000000009919,Оплатить счёт,Pay Account,,JAZZ-UI-MERC-001
 890000000004825,Совесть дезертира,Deserter's Conscience,,jazz:CharacterEffect/Jazz_Perk_Iggy.lua
 890000000004826,Разброс миномёта −33% (helper; bombard scatter soft-wired).,Mortar scatter −33% (helper; bombard scatter soft-wired).,,jazz:CharacterEffect/Jazz_Perk_Iggy.lua
-890000000004827,Игмус «Игги» Палков,"Igmus ""Iggy"" Palkov",,Jazz_Iggy
+890000000004827,Игмус Палков «Игги»,"Igmus ""Iggy"" Palkov",,ModItemUnitDataCompositeDef Jazz_Iggy Name
 890000000004828,Игги,Iggy,,Jazz_Iggy
 890000000004829,ИГГИ,IGGY,,Jazz_Iggy
-890000000004830,"Русский наёмник, которого королева Дейдранна наняла в армию под командованием Майка ($2000/день). После убийства Майка и осознания режима Дейдранны дезертировал с совестью; позже сидит в баре и нанимается за $1950/день. Гордость и мораль сильные; мечтает о «Великой России». Эксперт тяжёлого оружия. Дружит с Иваном; Конрад его ценит; ненавидит Фиделя.","A Russian merc hired into Queen Deidranna's army under Mike ($2000/day). After Mike was killed he deserted with a guilty conscience; later hireable for $1950/day. Strong pride and morality; dreams of a ""Greater Russia."" Heavy Weapons Expert. Likes Ivan; liked by Conrad; dislikes Fidel.",,Jazz_Iggy
-890000000004831,Тяжеловес из Сан-Моны,The San Mona Heavy,,Jazz_Iggy
+890000000004830,"Игги был нанят Майком в армию Арулько для проведения карательной операции по мятежникам Мигеля, однако переметнулся на их сторону вместе с образцом новейшего секретного оружия - разрушительной многозарядной бронебойной ракетницей. После завершения боев предложил свои услуги Организации и мы не стали отказываться.","Mike recruited Iggy into Arulco's army for a punitive campaign against Miguel's rebels. Instead, Iggy defected to their side, bringing along a prototype of the latest secret weapon: a devastating multi-shot armor-piercing rocket launcher. After the fighting he offered his services to the Organization, and we saw no reason to refuse.",,ModItemUnitDataCompositeDef Jazz_Iggy Bio
+890000000004831,"Enemies of the People, Everywhere!","Enemies of the People, Everywhere!",,ModItemUnitDataCompositeDef Jazz_Iggy Title
 890000000004832,Iggy@palkov.ru,Iggy@palkov.ru,,Jazz_Iggy
 890000000004833,iggy,iggy,,Jazz_Iggy
 890000000004834,Пока Фидель у вас — нет. С ним я не служу.,Not while Fidel's on the team. I don't serve with him.,,Jazz_Iggy
@@ -13026,3 +13026,7 @@ Speck",,jazz:items.lua:MERC_QuitWarning
 990003121,AKMS,AKMS,,jazz:Code/System_WeaponComponent_Set.lua
 990003122,AKMN,AKMN,,jazz:Code/System_WeaponComponent_Set.lua
 990003123,AKMSN,AKMSN,,jazz:Code/System_WeaponComponent_Set.lua
+890000000020601,"Helmut ""Grunty"" Grunther","Helmut ""Grunty"" Grunther",,ModItemUnitDataCompositeDef Grunty Name
+890000000020602,Grunty,Grunty,,ModItemUnitDataCompositeDef Grunty Nick
+890000000020603,GRUNTY,GRUNTY,,ModItemUnitDataCompositeDef Grunty AllCapsNick
+890000000020604,"After taking a short leave of absence to run a highly specialized (and highly lucrative) paintball retreat for Fortune 500 companies, Wolf grew tired of teaching fat, middle-aged men how to pretend to kill each other. Especially exhausting was the week-long minicamp ""Oh-Dark-Dirty"" where he attempted to instruct them in Night Operations concepts and tactics while making sure everyone was wearing safety orange. He reports he's ready and very eager to return to mercenary work. One of A.I.M.'s most well-rounded members, Sanderson is highly sought after by clients looking for a merc who is capable of doing everything and is willing to do anything. Best to hire him as soon as he's available because he surely won't be without a contract for long!","After taking a short leave of absence to run a highly specialized (and highly lucrative) paintball retreat for Fortune 500 companies, Wolf grew tired of teaching fat, middle-aged men how to pretend to kill each other. Especially exhausting was the week-long minicamp ""Oh-Dark-Dirty"" where he attempted to instruct them in Night Operations concepts and tactics while making sure everyone was wearing safety orange. He reports he's ready and very eager to return to mercenary work. One of A.I.M.'s most well-rounded members, Sanderson is highly sought after by clients looking for a merc who is capable of doing everything and is willing to do anything. Best to hire him as soon as he's available because he surely won't be without a contract for long!",,ModItemUnitDataCompositeDef Wolf Bio
