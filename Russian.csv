@@ -13053,3 +13053,25 @@ Speck","Командир!
 890000000034120,Штатный пламегаситель SCAR,Штатный пламегаситель SCAR,,jazz:items.lua:119250
 890000000034121,"Модульная винтовка FN SCAR. Комплекты L/H меняют калибр, стволы — длину и характеристики. SSR — боевая винтовка под 7,62×51 мм с одиночным огнём.","Модульная винтовка FN SCAR. Комплекты L/H меняют калибр, стволы — длину и характеристики. SSR — боевая винтовка под 7,62×51 мм с одиночным огнём.",,jazz:InventoryItem/SCAR.lua:16 | jazz:items.lua:119337
 990003124,Sniper Kit,Снайперский комплект,,jazz:items.lua
+920000000094,Серега,Серега,,jazz-units:Code/Rebels.lua:96
+920000000095,Серый,Серый,,jazz-units:Code/Rebels.lua:97
+920000000096,Сега,Сега,,jazz-units:Code/Rebels.lua:98
+920000000097,Серж,Серж,,jazz-units:Code/Rebels.lua:99
+920000000098,Серхио,Серхио,,jazz-units:Code/Rebels.lua:100
+920000000099,Серсей,Серсей,,jazz-units:Code/Rebels.lua:101
+920000000100,Сереня,Сереня,,jazz-units:Code/Rebels.lua:102
+920000000101,Сергуня,Сергуня,,jazz-units:Code/Rebels.lua:103
+920000000102,Серго,Серго,,jazz-units:Code/Rebels.lua:104
+920000000103,Сергий,Сергий,,jazz-units:Code/Rebels.lua:105
+920000000104,Севастьян,Севастьян,,jazz-units:Code/Rebels.lua:106
+920000000105,Сижу,Сижу,,jazz-units:Code/Rebels.lua:107
+920000001102,Пержу,Пержу,,jazz-units:Code/Rebels.lua:213
+920000002002,Баюнец,Баюнец,,jazz-units:Code/Rebels.lua:221
+920000002003,Баюнов,Баюнов,,jazz-units:Code/Rebels.lua:214
+920000002004,Баюняга,Баюняга,,jazz-units:Code/Rebels.lua:216
+920000002005,Баюнок,Баюнок,,jazz-units:Code/Rebels.lua:215
+920000002006,Баюня,Баюня,,jazz-units:Code/Rebels.lua:222
+920000002007,Баюн,Баюн,,jazz-units:Code/Rebels.lua:223
+920000002008,Баюныч,Баюныч,,jazz-units:Code/Rebels.lua:224
+920000002009,Кот Баюн,Кот Баюн,,jazz-units:Code/Rebels.lua:225
+920000002010,Баюнчик,Баюнчик,,jazz-units:Code/Rebels.lua:226
