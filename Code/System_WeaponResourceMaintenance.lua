@@ -1060,6 +1060,9 @@ function JAZZ_InstallRemovableAttachment(weapon, unit, slot, attachment, source_
 		weapon:DamageWeaponResourceMaxPercent(1)
 		return false, "failed"
 	end
+	if JAZZ_RailReject and JAZZ_RailReject(weapon, slot, component_id) then
+		return false, "blocked"
+	end
 	if source_inventory then
 		local removed = source_inventory:RemoveItem("Inventory", attachment)
 			or (source_inventory.RemoveItem and source_inventory:RemoveItem(source_inventory:GetItemSlot(attachment), attachment))
@@ -1068,14 +1071,20 @@ function JAZZ_InstallRemovableAttachment(weapon, unit, slot, attachment, source_
 		end
 	end
 	local previous = weapon.components and weapon.components[slot]
-	if previous and previous ~= "" and JAZZ_IsRemovableWeaponComponent(previous, slot) then
+	local placed = weapon:SetWeaponComponent(slot, component_id)
+	if placed == false then
+		if source_inventory then
+			JAZZ_DepositRemovableAttachment(attachment, source_inventory, unit)
+		end
+		return false, "blocked"
+	end
+	if previous and previous ~= "" and previous ~= component_id and JAZZ_IsRemovableWeaponComponent(previous, slot) then
 		local bag = unit and unit.Squad and GetSquadBagInventory(unit.Squad)
 		local ejected = JAZZ_CreateRemovableAttachment(previous)
 		if ejected and not JAZZ_DepositRemovableAttachment(ejected, bag, unit) then
 			DoneObject(ejected)
 		end
 	end
-	weapon:SetWeaponComponent(slot, component_id)
 	DoneObject(attachment)
 	return true
 end

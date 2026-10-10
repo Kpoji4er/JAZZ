@@ -325,43 +325,53 @@ function ModifyWeaponDlg:GetChangesCost(slotFilter, placedComponentOverride)
 	-- indexes SectorOperationResouces[costName] for special-cost icons.
 	local missing_removable = false
 
-	for slot, itemId in pairs(actualWeapon.components) do
-		local placedComponent = placedComponentOverride or components[slot] or ""
-		if placedComponent ~= itemId and (not slotFilter or slot == slotFilter) then
-			-- Fold↔Unfold of the same pair is a toggle, not a paid craft.
-			if JazzFoldingPairIdsMatch(itemId, placedComponent) then
-				anyChanged = true
-				goto continue_slot
-			end
-			local item
-			if slot == "Color" then
-				item = Presets.WeaponColor.Default[placedComponent]
-			else
-				item = WeaponComponents[placedComponent]
-			end
+	local function consider_slot(slot, itemId)
+		local placedComponent = placedComponentOverride or (components and components[slot]) or ""
+		if placedComponent == itemId or (slotFilter and slot ~= slotFilter) then
+			return
+		end
+		-- Fold↔Unfold of the same pair is a toggle, not a paid craft.
+		if JazzFoldingPairIdsMatch(itemId, placedComponent) then
+			anyChanged = true
+			return
+		end
+		local item
+		if slot == "Color" then
+			item = Presets.WeaponColor.Default[placedComponent]
+		else
+			item = WeaponComponents[placedComponent]
+		end
 
-			local removable = placedComponent ~= "" and JAZZ_IsRemovableWeaponComponent(placedComponent, slot)
-			if removable then
-				if not CheatEnabled("FreeParts") and not JazzFindRemovableAttachmentItem(owner, placedComponent) then
+		local removable = placedComponent ~= "" and JAZZ_IsRemovableWeaponComponent(placedComponent, slot)
+		if removable then
+			if not CheatEnabled("FreeParts") and not JazzFindRemovableAttachmentItem(owner, placedComponent) then
+				missing_removable = true
+			end
+		else
+			local partCost = item and item.Cost or 0
+			if partCost ~= 0 then
+				costs.Parts = (costs.Parts or 0) + partCost
+			end
+			for _, cost in ipairs(item and item.AdditionalCosts or empty_table) do
+				local typ = cost.Type
+				if typ and typ ~= "" and SectorOperationResouces and SectorOperationResouces[typ] then
+					costs[typ] = (costs[typ] or 0) + (cost.Amount or 0)
+				elseif typ and typ ~= "" then
+					-- Unknown resource: keep unaffordable without crashing the popup icon path.
 					missing_removable = true
 				end
-			else
-				local partCost = item and item.Cost or 0
-				if partCost ~= 0 then
-					costs.Parts = (costs.Parts or 0) + partCost
-				end
-				for _, cost in ipairs(item and item.AdditionalCosts or empty_table) do
-					local typ = cost.Type
-					if typ and typ ~= "" and SectorOperationResouces and SectorOperationResouces[typ] then
-						costs[typ] = (costs[typ] or 0) + (cost.Amount or 0)
-					elseif typ and typ ~= "" then
-						-- Unknown resource: keep unaffordable without crashing the popup icon path.
-						missing_removable = true
-					end
-				end
 			end
-			anyChanged = true
-			::continue_slot::
+		end
+		anyChanged = true
+	end
+
+	for slot, itemId in pairs(actualWeapon.components) do
+		consider_slot(slot, itemId)
+	end
+	-- Clone may hold Dovetail/Rail before a pre-rail save has that key.
+	for slot in pairs(components or empty_table) do
+		if actualWeapon.components[slot] == nil then
+			consider_slot(slot, "")
 		end
 	end
 
@@ -653,11 +663,65 @@ function GetWeaponComponentDescription(componentPreset)
 end
 
 local VanillaApplyChangesSlot = ModifyWeaponDlg.ApplyChangesSlot
+local jazz_applying_mounts = false
+local jazz_mounts_already_applied = {}
+local JAZZ_MOUNT_BEFORE_OPTIC = { "Dovetail", "Rail", "RailSide", "Conversion" }
+
+-- One confirm can dirty the shoe and the sight together. pairs() order would
+-- try the sight first and the gate would refuse it. Slots applied here are
+-- skipped when the vanilla loop reaches them, so Parts are not charged twice.
+local function JazzApplyMountsBeforeOptics(dlg, modSlot)
+	if jazz_applying_mounts then
+		return
+	end
+	if modSlot ~= "Scope" and modSlot ~= "Side" and modSlot ~= "Under" then
+		return
+	end
+	local actual = dlg.context and dlg.context.weapon
+	local clone = dlg.weaponClone
+	if not actual or not clone or not clone.components then
+		return
+	end
+	actual.components = actual.components or {}
+	jazz_applying_mounts = true
+	local ok, err = pcall(function()
+		for _, slot in ipairs(JAZZ_MOUNT_BEFORE_OPTIC) do
+			local newId = clone.components[slot]
+			if newId ~= nil then
+				local oldId = actual.components[slot]
+				if oldId == nil or newId ~= oldId then
+					dlg:ApplyChangesSlot(slot)
+					if (actual.components[slot] or "") == (newId or "") then
+						jazz_mounts_already_applied[slot] = true
+					end
+				end
+			end
+		end
+	end)
+	jazz_applying_mounts = false
+	if not ok then
+		error(err)
+	end
+end
+
 function ModifyWeaponDlg:ApplyChangesSlot(modSlot, skipChance)
 	assert(modSlot)
+	if jazz_mounts_already_applied[modSlot] then
+		jazz_mounts_already_applied[modSlot] = nil
+		local clone = self.weaponClone
+		local actual = self.context and self.context.weapon
+		local pending = clone and clone.components and clone.components[modSlot] or ""
+		local current = actual and actual.components and actual.components[modSlot] or ""
+		-- Same confirm looping back onto a mount we just seated. A later edit
+		-- has a different pending id and must still run.
+		if pending == current then
+			return
+		end
+	end
 	if not modSlot or not self.canEdit then
 		return
 	end
+	JazzApplyMountsBeforeOptics(self, modSlot)
 	local actualWeapon = self.context.weapon
 	local owner_id = self.context.owner
 	local owner = JazzGetOwnerUnit(owner_id)

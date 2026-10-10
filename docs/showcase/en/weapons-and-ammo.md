@@ -86,7 +86,7 @@ Enemy corpses do not leave a full belt in the gun: loaded rounds are capped by d
 - **Stocks** — Normal = empty default; Heavy Recoil−5+AimAccuracy%; Light≡Unfolded Recoil+2 (Light cannot fold); folded/no-stock = ShootAP−1 + Recoil+5 + AA↓ + OW+2.
 - **Grips** — small & cheap: vertical = Recoil−1 (queue control); tactical / wrap = CloseFactor+5 up close; ergo = AimAccuracy 105%.
 - **Magazines** — the number on a magazine is its exact capacity: small = fewer rounds + Reload**−1**/Rel↑; expanded = more rounds + Reload**+1** (no Rel/AA); large = Reload**+2** + Rel−/AA−.
-- **Mounts** are paid in parts, not money: dovetail 300, rail or NATO adapter 100, railed handguard 500, full gunsmith conversion 1000. A conversion, and the FN FAL tactical handguard, rename the gun while fitted. An AKM with the folding stock is named AKMS, with the side rail AKMN, and with both AKMSN. Irons, grenade launchers and bipods do not need a mount. Prepared loadouts already include the mount a sight needs.
+- **Mounts** are paid in parts, not money: dovetail 300, rail or NATO adapter 100, railed handguard 500, full gunsmith conversion 1000. A conversion, and the FN FAL tactical handguard, rename the gun while fitted. An AKM with the folding stock is named AKMS, with the side rail AKMN, and with both AKMSN. The VSS and AS Val do not take a dovetail: eastern optics fit immediately, western optics after the NATO adapter. Irons, grenade launchers and bipods do not need a mount. Prepared loadouts already include the mount a sight needs.
 
 Full tables:
 

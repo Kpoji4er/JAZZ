@@ -68,8 +68,10 @@ JAZZ_RailRules = {
 	AEK971 = { dove = "JAZZ_Dovetail_AK", nato = "JAZZ_Rail_NATO_AK", scope = "west" },
 	AKSU = { dove = "JAZZ_Dovetail_AKSU", side = "dove" },
 	DragunovSVD = { dove = "JAZZ_Dovetail_SVD", nato = "JAZZ_Rail_NATO_SVD", scope = "split" },
-	AS_Val = { dove = "JAZZ_Dovetail_Val", nato = "JAZZ_Rail_NATO_Val", scope = "split", side = "nato" },
-	VSS = { dove = "JAZZ_Dovetail_Val", nato = "JAZZ_Rail_NATO_Val", scope = "split" },
+	-- Owner 2026-10-10: the shoe is not a paid part. Eastern optics sit immediately.
+	-- Western optics and the AS Val side device still need the NATO adapter.
+	AS_Val = { nato = "JAZZ_Rail_NATO_Val", factory = true, scope = "split", side = "nato" },
+	VSS = { nato = "JAZZ_Rail_NATO_Val", factory = true, scope = "split" },
 	PP19Bizon = { dove = "JAZZ_Dovetail_AK", scope = "east" },
 	AR10 = { rail = "JAZZ_Rail_AR", scope = "rail" },
 	CAR15 = { rail = "JAZZ_Rail_AR", scope = "rail" },
@@ -146,6 +148,12 @@ end
 local function jazz_req_met(weapon, rule, req)
 	local components = weapon.components or empty_table
 	if req == "dove" then
+		-- AK-74M / AK-105 / VSS / AS Val: no purchased dovetail. Eastern optics
+		-- sit with no Dovetail component. factory + a real dove id still
+		-- requires that component.
+		if rule.factory and not rule.dove then
+			return true
+		end
 		return rule.dove and components.Dovetail == rule.dove
 	end
 	if req == "nato" then
@@ -250,7 +258,7 @@ function JAZZ_RailReject(weapon, slot, id)
 		end
 		if slot == "Rail" and rule.nato and part == rule.nato then
 			if not rule.factory and rule.dove and components.Dovetail ~= rule.dove then
-				return true
+				return true, rule.dove
 			end
 			if JAZZ_EASTERN_OPTIC[components.Scope or ""] then
 				return true, components.Scope
@@ -410,36 +418,76 @@ function JAZZ_RailMigrateTacticalFAL(weapon)
 	end
 end
 
+local JAZZ_MOUNT_SLOT_NAMES = { "Dovetail", "Rail", "RailSide", "Conversion" }
+
+-- Saves from before these slots have no key at all. The modify dialog only
+-- diffs keys that already exist, so a preview mesh never became a paid part.
+-- An empty key is not a component and costs nothing. A preset default is seated
+-- with is_init, same as the free factory mount.
+local function jazz_backfill_mount_keys(weapon)
+	if not weapon.ComponentSlots then
+		return
+	end
+	local components = weapon.components
+	for _, slot_name in ipairs(JAZZ_MOUNT_SLOT_NAMES) do
+		if not components or components[slot_name] == nil then
+			local slot_def = table.find_value(weapon.ComponentSlots, "SlotType", slot_name)
+			if slot_def then
+				if not components then
+					weapon.components = {}
+					components = weapon.components
+				end
+				local id = slot_def.DefaultComponent or ""
+				if id ~= "" then
+					weapon:SetWeaponComponent(slot_name, id, "init")
+					if components[slot_name] == nil then
+						components[slot_name] = id
+					end
+				else
+					components[slot_name] = ""
+				end
+			end
+		end
+	end
+end
+
 function JAZZ_RailHealWeapon(weapon)
 	if not weapon or not IsKindOf(weapon, "FirearmBase") then
 		return
 	end
+	-- Class setters (MP5/G3/G36) call this at the end of SetWeaponComponent.
+	-- Backfill of a default mount must not re-enter.
+	if rawget(weapon, "_jazz_rail_heal") then
+		return
+	end
+	rawset(weapon, "_jazz_rail_heal", true)
 	JAZZ_RailMigrateTacticalFAL(weapon)
 	if JAZZ_M14MigrateM21 then
 		JAZZ_M14MigrateM21(weapon)
 	end
+	jazz_backfill_mount_keys(weapon)
 	local rule = JAZZ_RailRules[weapon.class]
-	if not rule or not weapon.components then
-		return
+	if rule and weapon.components then
+		local components = weapon.components
+		jazz_ensure_req(weapon, rule, jazz_scope_req(rule, components.Scope))
+		if rule.side and (components.Side or "") ~= "" and components.Side ~= "JAZZ_HandlingWrap" then
+			jazz_ensure_req(weapon, rule, rule.side)
+		end
+		if rule.grips and jazz_is_grip(components.Under) then
+			jazz_ensure_req(weapon, rule, rule.grips)
+		end
+		if weapon.class ~= "Mosin" then
+			JAZZ_RailApplyConversionName(weapon)
+		end
+		JAZZ_AKMApplyName(weapon)
+		if weapon.class == "FNFAL" and JAZZ_FALApplyPresentation then
+			JAZZ_FALApplyPresentation(weapon)
+		end
+		if weapon.class == "M14SAW" and JAZZ_M14ApplyPresentation then
+			JAZZ_M14ApplyPresentation(weapon)
+		end
 	end
-	local components = weapon.components
-	jazz_ensure_req(weapon, rule, jazz_scope_req(rule, components.Scope))
-	if rule.side and (components.Side or "") ~= "" and components.Side ~= "JAZZ_HandlingWrap" then
-		jazz_ensure_req(weapon, rule, rule.side)
-	end
-	if rule.grips and jazz_is_grip(components.Under) then
-		jazz_ensure_req(weapon, rule, rule.grips)
-	end
-	if weapon.class ~= "Mosin" then
-		JAZZ_RailApplyConversionName(weapon)
-	end
-	JAZZ_AKMApplyName(weapon)
-	if weapon.class == "FNFAL" and JAZZ_FALApplyPresentation then
-		JAZZ_FALApplyPresentation(weapon)
-	end
-	if weapon.class == "M14SAW" and JAZZ_M14ApplyPresentation then
-		JAZZ_M14ApplyPresentation(weapon)
-	end
+	rawset(weapon, "_jazz_rail_heal", nil)
 end
 
 

@@ -93,13 +93,6 @@ DefineClass.AS_Val = {
 		}),
 	
 		PlaceObj('WeaponComponentSlot', {
-			'SlotType', "Dovetail",
-			'CanBeEmpty', true,
-			'AvailableComponents', {
-				"JAZZ_Dovetail_Val",
-			},
-		}),
-		PlaceObj('WeaponComponentSlot', {
 			'SlotType', "Rail",
 			'CanBeEmpty', true,
 			'AvailableComponents', {
